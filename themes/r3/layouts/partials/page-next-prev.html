@@ -1,0 +1,21 @@
+<div class="clearfix pb-4">
+    <div class="float-left btn-group" role="group" aria-label="Page navigator">
+        {{with .PrevInSection }}<a role="button" class="btn btn-primary btn-sm"
+            href="{{.RelPermalink}}">Previous</a>{{end}}
+        {{with .NextInSection }}<a role="button" class="btn btn-primary btn-sm"
+            href="{{.RelPermalink}}">Next</a>{{end}}
+    </div>
+    <div class="float-right">
+        {{/* TODO:  REMOVE THIS ONCE WE'RE LIVE - FOR COMPARING OLD TO NEW */}}
+        {{/* awful - only works for one depth */}}
+        {{ $url := "docs.corda.net" }}
+        {{ $here := (path.Base ( path.Dir (path.Dir .File.Dir) )) }}
+        {{ if eq "corda-enterprise" $here }}
+        {{ $url = "docs.corda.r3.com" }}
+        {{ else if eq "cenm" $here }}
+        {{ $url = "docs.cenm.r3.com" }}
+        {{ end }}
+    <a role="button" class="btn btn-secondary btn-sm"
+        href='https://{{ $url }}/{{- .File.TranslationBaseName -}}.html'>COMPARE</a>
+    </div>
+</div>

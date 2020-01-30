@@ -1,0 +1,10 @@
+{{ define "main" }}
+<main role="main">
+    {{- partial "breadcrumb.html" . -}}
+    {{- partial "page-next-prev.html" . -}}
+    <div class="align-items-center">
+        {{/* <h1 class="h2">{{- .Page.Title -}}</h1> */}}
+    </div>
+    {{- .Content -}}
+</main>
+{{ end }}

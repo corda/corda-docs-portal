@@ -1,0 +1,11 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false">
+        Version
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        {{ range $.Site.Params.versions }}
+        <a class="dropdown-item" href="{{- .Site.Home.Permalink -}}{{- .url -}}">{{- .Site.Home.Permalink -}} {{- .version -}}</a>
+        {{- end -}}
+    </div>
+</li>

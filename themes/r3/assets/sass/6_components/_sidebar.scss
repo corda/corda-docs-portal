@@ -1,0 +1,6 @@
+$navbar-object: "##{$class-object-prefix}sidebar";
+
+#{$navbar-object} {
+    width: 200px;
+    max-width: 200px;
+}

@@ -1,0 +1,9 @@
+{{- $pagename := .Get "page" -}}
+{{- $url := relref . $pagename -}}
+<a href="{{- $url -}}">{{- with .Page.GetPage $pagename -}}
+{{- .Title -}}
+{{- else -}}
+{{- print "TODO: FIX ME: " -}}
+{{- $pagename -}}
+{{- end -}}
+</a>

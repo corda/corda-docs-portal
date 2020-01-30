@@ -1,0 +1,105 @@
+# When built, then is used
+# TODO - waiting on decision
+baseURL = "http://docs.corda.net/"
+
+# Nice stuff...
+title = "Corda Docs"
+
+# Of course...
+theme = "r3"
+
+# i18n
+defaultContentLanguage = "en"
+# ...so that en docs are just in /docs/... rather than /en/docs/...
+defaultContentLanguageInSubdir = false
+contentDir = "content/en"
+
+# so that 'docs' doesn't appear as 'docss' etc.
+pluralizeListTitles = false
+
+# we want old-style a/b/c.html
+uglyurls = true
+
+# Change to error eventually.
+refLinksErrorLevel = "WARNING"
+
+# Don't care about these.
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+# See https://help.farbox.com/pygments.html
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+pygmentsStyle = "emacs"
+
+# https://gohugo.io/variables/git/
+enableGitInfo = true
+
+
+# https://gohugo.io/getting-started/configuration-markup#highlight
+[markup]
+[markup.highlight]
+style = "tango"
+
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+#  We have lots of inline HTML so need to render it.
+#  TODO:  replace with shortcodes.
+unsafe = true
+
+
+#  We're not using this?
+[permalinks]
+blog = "/:section/:year/:month/:day/:slug/"
+
+
+# Any params set in here override the ones above for that particular site (one site = one lang).
+[languages]
+[languages.en]
+description  = "Documentation for Corda, by R3"
+languageName = "English"
+# Weight used for sorting.
+weight = 10
+
+[languages.fr]
+contentDir = "content/fr"
+languageName = "Français"
+weight = 20
+language_alternatives = ["en"]
+
+[languages.de]
+languageName = "Deutsche"
+weight = 30
+language_alternatives = ["en"]
+
+
+[params]
+github_repository = "https://github.com/barrylapthorn/sphinx2hugo"
+#  Cue bikeshedding
+language_default = "kotlin"
+
+
+[[params.versions]]
+version = "corda-os 4.1"
+url = "docs/corda-os/4.1.html"
+[[params.versions]]
+version = "corda-os 4.3"
+url = "docs/corda-os/4.3.html"
+[[params.versions]]
+version = "corda-os 4.4"
+url = "docs/corda-os/4.4.html"
+[[params.versions]]
+version = "corda-ent 4.1"
+url = "docs/corda-enterprise/4.1.html"
+[[params.versions]]
+version = "corda-ent 4.3"
+url = "docs/corda-enterprise/4.3.html"
+[[params.versions]]
+version = "corda-ent 4.4"
+url = "docs/corda-enterprise/4.4.html"
+[[params.versions]]
+version = "CENM 1.1"
+url = "docs/cenm/1.1.html"
+[[params.versions]]
+version = "CENM 1.2"
+url = "docs/cenm/1.2.html"

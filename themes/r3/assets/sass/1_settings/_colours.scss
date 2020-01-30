@@ -1,0 +1,77 @@
+//borrowed from https://github.com/corda/r3-web-style-guide/blob/master/src/sass/1_settings/_color-palette.scss
+
+$palette-01: #ed4a38 !default;
+$palette-02: #cc3424 !default;
+$palette-03: #e4e5e9 !default;
+$palette-04: #d7d9de !default;
+$palette-05: #192145 !default;
+$palette-06: #f4f5f7 !default;
+$palette-07: #a7adb2 !default;
+$palette-08: #5a6872 !default;
+$palette-09: #19b7c2 !default;
+$palette-10: #6569df !default;
+$palette-11: #fabf2c !default;
+$palette-12: #ffffff !default;
+$palette-13: #000000 !default;
+$palette-14: #313541 !default;
+$palette-15: #e8e9eb !default;
+$palette-16: #5c6178 !default;
+$palette-17: #7a7e91 !default;
+$palette-18: #f1f1f1 !default;
+$palette-19: #282f4c !default;
+$palette-20: #121833 !default;
+$palette-21: #d5d5d5 !default;
+$palette-22: #f2f4f8 !default;
+$palette-23: #798295 !default;
+$palette-24: #f8f9fb !default;
+$palette-25: #1ac07a !default;
+$palette-26: #f44336 !default;
+$palette-27: #f7f7f7 !default;
+$palette-28: #fbeeeb !default;
+$palette-29: #262f4e !default;
+$palette-30: #39445b !default;
+$palette-31: #474e68 !default;
+$palette-32: #e8f8f9 !default;
+
+/**
+* Shade Definitions
+*/
+
+$shade-definition-85: 0.85 !default;
+$shade-definition-60: 0.6 !default;
+$shade-definition-50: 0.5 !default;
+$shade-definition-30: 0.3 !default;
+$shade-definition-20: 0.2 !default;
+$shade-definition-15: 0.15 !default;
+$shade-definition-10: 0.1 !default;
+
+// https://r3-cev.atlassian.net/wiki/spaces/RI/pages/103907816/Color+Palettes
+$primary-01: #ec1d24 !default;
+$primary-02: #53585f !default;
+$primary-03: #010101 !default;
+$primary-04: #ffffff !default;
+
+$primary-other-01: #f79679 !default;
+$primary-other-02: #53585f !default;
+$primary-other-03: #ffffff !default;
+
+$secondary-01: #cc4a4b !default;
+$secondary-02: #c6cfef !default;
+$secondary-03: #5b6b88 !default;
+$secondary-04: #dcdde1 !default;
+$secondary-05: #98a1d1 !default;
+$secondary-06: #1d2343 !default;
+
+$tertiary-01: #557ea2 !default;
+$tertiary-02: #9ea0ef !default;
+$tertiary-03: #7dbaef !default;
+$tertiary-04: #968ba2 !default;
+$tertiary-05: #6b6da2 !default;
+$tertiary-06: #ddccef !default;
+
+// https://color.adobe.com/create/ using #cc4a4b, 5b6b88
+$secondary-extra-01: #49CC6E !default;
+$secondary-extra-02: #A3B4D4 !default;  // note
+$secondary-extra-03: #8CD5A1 !default;  // tip
+$secondary-extra-04: #D58C8C !default;  // important
+$secondary-extra-05: #D6D463 !default;  // warning

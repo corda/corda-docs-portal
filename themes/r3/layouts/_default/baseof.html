@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html{{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
+{{ partial "head.html" . }}
+<body>
+    <noscript>You need to enable javascript for this site</noscript>
+    {{- partial "navbar.html" . -}}
+
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <div class="col-md-3 col-xl-3">
+                {{- partial "sidebar.html" . -}}
+            </div>
+            <div class="col-md-9 p-4">
+                {{- block "main" . -}}{{- end -}}
+            </div>
+        </div>
+        <div class="row pb-4">
+            <div class="col-md-3 col-xl-3"></div>
+            <div class="col-md-9">
+                {{- partial "footer.html" . -}}
+                {{- partial "git.html" . -}}
+            </div>
+        </div>
+    </div>
+</body>
+{{- partial "scripts.html" . -}}
+</html>
