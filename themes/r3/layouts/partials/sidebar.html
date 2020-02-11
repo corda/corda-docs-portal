@@ -1,22 +1,17 @@
 <div id="sidebar">
-    <form class="d-flex align-items-center p-2" role="search">
-        <span>
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-        </span>
-        <button class="btn btn-link bd-search-docs-toggle d-md-none p-0 ml-3 collapsed" type="button"
-            data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false"
-            aria-label="Toggle docs navigation">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"
-                focusable="false">
-                <title>Menu</title>
-                <path stroke="black" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
-                    d="M4 7h22M4 15h22M4 23h22"></path>
-            </svg>
-        </button>
-    </form>
+
+    <nav>
+        {{- partial "api.html" . -}}
+    </nav>
     <nav class="" id="bd-docs-nav">
+        <hr />
         <div class="">
         {{- .Page.TableOfContents -}}
+        </div>
+    </nav>
+    <nav>
+        <div>
+            {{- partialCached "sections-tree" . -}}
         </div>
     </nav>
 </div>

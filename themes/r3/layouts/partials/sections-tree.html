@@ -1,0 +1,23 @@
+{{ $home := .Site.Home }}
+<hr />
+<div id="r3-sitemap">
+    <ul id="myUL">
+        {{ template "section-tree-nav" $home }}
+    </ul>
+</div>
+{{ define "section-tree-nav" }}
+{{ range .Sections.Reverse}}
+<li><span class="caret"><a href="{{ .RelPermalink}}">{{ .Title }}</a></span>
+    <ul class="nested">
+        {{ range .Pages.ByTitle }}
+        {{ if ne .Kind "section" }}
+        <li><a href="{{ .RelPermalink}}">{{ .Title }}</a></li>
+        {{ end }}
+        {{ end }}
+        {{ template "section-tree-nav" . }}
+    </ul>
+</li>
+{{ end }}
+{{ end }}
+<!-- https://www.w3schools.com/howto/howto_js_treeview.asp -->
+<!-- https://github.com/bep/hugotest/blob/master/layouts/partials/sections-tree.html -->

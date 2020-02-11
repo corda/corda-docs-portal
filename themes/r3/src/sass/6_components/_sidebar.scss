@@ -1,0 +1,13 @@
+$navbar-object: "##{$class-object-prefix}sidebar";
+$selected-page: "##{$class-object-prefix}selected-page";
+
+#{$navbar-object} {
+    width: 200px;
+    max-width: 200px;
+}
+
+#{$selected-page} {
+    background-color: $secondary-extra-05;
+    border-left: 1px solid black;
+    padding-left: 1rem;
+}

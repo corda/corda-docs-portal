@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600);
+/**
+* Shade Definitions
+*/
+.r3-c-note {
+  background-color: #A3B4D4;
+}
+
+#r3-o-sidebar {
+  width: 200px;
+  max-width: 200px;
+}
+
+#r3-o-selected-page {
+  background-color: #D6D463;
+  border-left: 1px solid black;
+  padding-left: 1rem;
+}
+
+/*# sourceMappingURL=main.css.map*/

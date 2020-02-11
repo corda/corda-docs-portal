@@ -1,0 +1,105 @@
+
+
+.breadcrumb {
+    font-size: small;
+}
+
+.side-bar {
+    font-size: small;
+}
+
+.site-treeview,
+.site-treeview ul {
+    list-style-type: none;
+}
+
+
+/* Remove margins and padding from the parent ul */
+
+#myUL {
+    margin: 0;
+    padding: 0;
+    font-size: small;
+    list-style-type: none;
+}
+
+
+/* Remove default bullets */
+
+#myUL ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0.5rem;
+}
+
+
+/* Style the caret/arrow */
+
+.caret {
+    cursor: pointer;
+    user-select: none;
+    /* Prevent text selection */
+}
+
+
+/* Create the caret/arrow with a unicode, and style it */
+
+.caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+
+.caret-down::before {
+    transform: rotate(90deg);
+}
+
+
+/* Hide the nested list */
+
+.nested {
+    display: none;
+}
+
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+
+.active {
+    display: block;
+}
+
+
+/** Header link  **/
+
+.header-link:after {
+    position: relative;
+    left: 0.5em;
+    opacity: 0;
+    font-size: 0.8em;
+    -moz-transition: opacity 0.2s ease-in-out 0.1s;
+    -ms-transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+h2:hover .header-link,
+h3:hover .header-link,
+h4:hover .header-link,
+h5:hover .header-link,
+h6:hover .header-link {
+    opacity: 1;
+}
+
+
+/**************************************/
+
+#sidebar #TableOfContents {
+    font-size: small;
+}
+
+#sidebar #TableOfContents ul {
+    padding-left: 0;
+    margin-left: 0.5rem;
+}

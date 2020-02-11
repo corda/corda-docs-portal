@@ -1,2 +1,4 @@
 # Don't ignore stuff in here
 !**/*.html
+
+node_modules/
