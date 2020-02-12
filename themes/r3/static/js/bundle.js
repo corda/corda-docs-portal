@@ -95,16 +95,16 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _js_sitemap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/sitemap */ "./src/js/sitemap.js");
-/* harmony import */ var _js_anchorify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/anchorify */ "./src/js/anchorify.js");
-/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sass/main.scss */ "./src/sass/main.scss");
-/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sass_main_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _js_sitemap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/sitemap */ "./src/js/sitemap.js");
+/* harmony import */ var _js_anchorify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/anchorify */ "./src/js/anchorify.js");
+/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sass/main.scss */ "./src/sass/main.scss");
+/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sass_main_scss__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 
-Object(_js_anchorify__WEBPACK_IMPORTED_MODULE_2__["applyAnchors"])();
-Object(_js_sitemap__WEBPACK_IMPORTED_MODULE_3__["applySiteMapCollapse"])();
+Object(_js_anchorify__WEBPACK_IMPORTED_MODULE_1__["applyAnchors"])();
+Object(_js_sitemap__WEBPACK_IMPORTED_MODULE_0__["applySiteMapCollapse"])();
 
 
 /***/ }),
