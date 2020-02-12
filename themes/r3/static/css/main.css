@@ -17,4 +17,11 @@
   padding-left: 1rem;
 }
 
+#git {
+  text-align: center;
+}
+#git .git-edit {
+  text-align: right;
+}
+
 /*# sourceMappingURL=main.css.map*/

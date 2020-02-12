@@ -1,1 +1,7 @@
-<p>(c) R3 Ltd.</p>
+<footer class="row bg-light px-2 py-3">
+  <p class="col-sm-2 align-self-sm-center pt-2">  
+    &copy; R3 Ltd
+    {{ dateFormat "2006" now }}
+  </p>
+  {{- partial "git.html" . -}}
+</footer>
