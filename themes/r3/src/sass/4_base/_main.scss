@@ -1,3 +1,7 @@
 .main-wrapper {
-  height: calc(100vh - 56px - 80px);
+  min-height: calc(100vh - 56px - 80px);
+}
+
+.side-wrapper {
+  background-color: #f7fafc;
 }
