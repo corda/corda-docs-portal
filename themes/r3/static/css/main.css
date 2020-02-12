@@ -2,6 +2,10 @@
 /**
 * Shade Definitions
 */
+.main-wrapper {
+  height: calc(100vh - 56px - 80px);
+}
+
 .r3-c-note {
   background-color: #A3B4D4;
 }
