@@ -10,8 +10,7 @@ def MAKE_TARGETS = [
 pipeline {
     agent { label "docker" }
     tools {
-        name "Make"
-        type "com.cloudbees.jenkins.plugins.customtools.CustomTool"
+        name "com.cloudbees.jenkins.plugins.customtools.CustomTool"
     }
 
     options {
