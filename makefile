@@ -5,7 +5,7 @@ HUGO_VERSION = 0.62.2
 DOCKER_IMAGE = corda-docs-hugo
 PROD_IMAGE   = corda-docs-nginx
 NODE_IMAGE   = corda-docs-node
-DOCKER_RUN   = $(DOCKER) run --rm --interactive --tty --volume $(ROOT_DIR):/src
+DOCKER_RUN   = $(DOCKER) run --rm --volume $(ROOT_DIR):/src
 # DOCKER_RUN   = $(DOCKER) run --rm --interactive --tty --volume $(CURDIR):/src
 
 .PHONY: all build build-preview help serve repos convert
@@ -38,16 +38,16 @@ docker-build: ## Run hugo build in docker
 	$(DOCKER_RUN) $(DOCKER_IMAGE) hugo
 
 docker-serve: ## Serve site from docker
-	$(DOCKER_RUN) -p 1313:1313 $(DOCKER_IMAGE) hugo server --buildFuture --buildDrafts --disableFastRender --bind 0.0.0.0
+	$(DOCKER_RUN) -it -p 1313:1313 $(DOCKER_IMAGE) hugo server --buildFuture --buildDrafts --disableFastRender --bind 0.0.0.0
 
 prod-docker-build: ## Prod build, minimal size
-	$(DOCKER_RUN) $(DOCKER_IMAGE) hugo --minify
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(DOCKER_IMAGE) hugo --minify
 
 prod-docker-image: ## Create the prod docker image
 	$(DOCKER) build . --tag $(PROD_IMAGE) -f prod/Dockerfile
 
 prod-docker-serve: prod-docker-image ## Run the nginx container locally on port 8888
-	$(DOCKER_RUN) -p "8888:80" $(PROD_IMAGE)
+	$(DOCKER_RUN) -it -p "8888:80" $(PROD_IMAGE)
 
 prod-docker-publish: ## Publish to prod docker registry
 	echo "TODO"
