@@ -4,9 +4,7 @@ def MAKE_PARAMS = [
 ]
 
 def MAKE_TARGETS = [
-    'docker-image',
-    'prod-docker-build',
-    'prod-docker-image',
+    'deploy',
 ]
 
 pipeline {
