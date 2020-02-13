@@ -4,7 +4,9 @@ def MAKE_PARAMS = [
 ]
 
 def MAKE_TARGETS = [
-    'build'
+    'docker-image',
+    'prod-docker-build',
+    'prod-docker-image',
 ]
 
 pipeline {
@@ -26,7 +28,7 @@ pipeline {
                 sh """
                     make ${MAKE_PARAMS.join(' ')} ${MAKE_TARGETS.join(' ')}
                 """
-		sh 'docker images'
+		        sh 'docker images'
             }
         }
     }
