@@ -21,7 +21,7 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 sh """
-                    make ${MAKEi_PARAMS.join(' ')} ${MAKE_TARGETS.join(' ')}
+                    make ${MAKE_PARAMS.join(' ')} ${MAKE_TARGETS.join(' ')}
                 """
 		sh 'docker images'
             }
