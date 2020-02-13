@@ -41,7 +41,7 @@ docker-serve: ## Serve site from docker
 	$(DOCKER_RUN) -it -p 1313:1313 $(DOCKER_IMAGE) hugo server --buildFuture --buildDrafts --disableFastRender --bind 0.0.0.0
 
 prod-docker-build: ## Prod build, minimal size
-	$(DOCKER_RUN) $(DOCKER_IMAGE) hugo --minify
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(DOCKER_IMAGE) hugo --minify
 
 prod-docker-image: ## Create the prod docker image
 	$(DOCKER) build . --tag $(PROD_IMAGE) -f prod/Dockerfile
