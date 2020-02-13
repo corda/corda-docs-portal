@@ -1,0 +1,36 @@
+#!groovy
+
+def MAKE_PARAMS = [
+]
+
+def MAKE_TARGETS = [
+    'build'
+]
+
+pipeline {
+    agent { label "docker" }
+
+    options {
+        timestamps()
+        timeout(time: 3, unit: 'HOURS')
+        disableConcurrentBuilds() // this makes killAllExistingBuildsForJob always do nothing
+        buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '7'))
+    }
+
+    stages {
+        stage('Build Docker image') {
+            steps {
+                sh """
+                    make ${MAKEi_PARAMS.join(' ')} ${MAKE_TARGETS.join(' ')}
+                """
+		sh 'docker images'
+            }
+        }
+    }
+
+    post {
+        cleanup {
+            deleteDir() /* clean up our workspace */
+        }
+    }
+}
