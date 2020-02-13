@@ -1,10 +1,18 @@
-<div id="sidebar" class="col-md-12 r3-o-sidebar">
-    <nav>
-        {{- partial "api.html" . -}}
-    </nav>
-    <nav>
-        <div>
-            {{- partialCached "sections-tree" . -}}
+<div id="sidebar" class="r3-o-sidebar">
+    <!-- <nav class="navbar navbar-expand-md navbar-light">
+        {{ partial "search.html" . }}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <nav class="r3-o-sidebar__navbar-nav">
+                {{- partial "api.html" . -}}
+            </nav>
+            <nav>
+                <div>
+                    {{- partialCached "sections-tree" . -}}
+                </div>
+            </nav>
         </div>
-    </nav>
+    </nav> -->
 </div>

@@ -13,6 +13,7 @@
 }
 @media screen and (max-width: 768px) {
   .r3-o-wrapper-side {
+    height: auto;
     order: 0;
   }
 }
@@ -25,6 +26,13 @@
   display: flex;
   flex-direction: column;
 }
+.r3-o-sidebar__navbar-nav {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
 
 .r3-o-selected-page {
   background-color: #D6D463;
@@ -32,7 +40,7 @@
   padding-left: 1rem;
 }
 
-.navbar {
+.r3-o-navbar {
   background-color: #53585F;
 }
 

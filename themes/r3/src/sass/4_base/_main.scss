@@ -9,6 +9,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
   order: 2;
 
   @media screen and (max-width: 768px) {
+    height: auto;
     order: 0;
   }
 }

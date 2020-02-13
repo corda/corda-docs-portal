@@ -1,3 +1,6 @@
-.navbar {
-  background-color: #53585F;
+$navbar-object: "#{$class-object-prefix}navbar";
+
+.#{$navbar-object} {
+    background-color: #53585F;
 }
+
