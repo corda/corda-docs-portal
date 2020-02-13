@@ -4,13 +4,12 @@
     <body>
         <noscript>You need to enable javascript for this site</noscript>
         {{- partial "navbar.html" . -}}
-
         <div class="container-fluid">
-            <div class="row flex-xl-nowrap">            
+            <div class="main-wrapper row flex-xl-nowrap">            
                 <div class="col-md-9 p-4">
                     {{- block "main" . -}}{{- end -}}
                 </div>
-                <div class="col-md-3 col-xl-3">
+                <div class="side-wrapper col-md-3">
                     {{- partial "sidebar.html" . -}}
                 </div>
             </div>                      

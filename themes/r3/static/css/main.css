@@ -2,19 +2,36 @@
 /**
 * Shade Definitions
 */
+.main-wrapper {
+  min-height: calc(100vh - 56px - 80px);
+}
+
+.side-wrapper {
+  background-color: #f7fafc;
+}
+
 .r3-c-note {
   background-color: #A3B4D4;
 }
 
-#r3-o-sidebar {
-  width: 200px;
-  max-width: 200px;
+.r3-o-sidebar {
+  display: flex;
+  flex-direction: column;
 }
 
-#r3-o-selected-page {
+.r3-o-selected-page {
   background-color: #D6D463;
   border-left: 1px solid black;
   padding-left: 1rem;
+}
+
+.navbar {
+  background-color: #53585F;
+}
+
+footer {
+  background-color: #53585F;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 #git {
@@ -22,6 +39,10 @@
 }
 #git .git-edit {
   text-align: right;
+}
+
+.api {
+  margin-top: 25px;
 }
 
 /*# sourceMappingURL=main.css.map*/
