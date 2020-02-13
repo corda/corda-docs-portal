@@ -9,8 +9,8 @@ def MAKE_TARGETS = [
 
 pipeline {
     agent { label "docker" }
-    tools {
-        name "com.cloudbees.jenkins.plugins.customtools.CustomTool"
+    environment {
+      MAKE_HOME = tool name: 'make', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
     }
 
     options {
