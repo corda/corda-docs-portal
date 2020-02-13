@@ -5,15 +5,15 @@
         <noscript>You need to enable javascript for this site</noscript>
         {{- partial "navbar.html" . -}}
         <div class="container-fluid">
-            <div class="main-wrapper row flex-xl-nowrap">            
-                <div class="col-md-9 p-4">
-                    {{- block "main" . -}}{{- end -}}
-                </div>
-                <div class="side-wrapper col-md-3">
+            <div class="r3-o-wrapper-main row flex-xl-nowrap">
+                <div class="r3-o-wrapper-side col-12 col-md-3 col-xl-2">
                     {{- partial "sidebar.html" . -}}
                 </div>
-            </div>                      
-            {{- partial "footer.html" . -}}            
+                <div class="col-md-9 p-4    col-12 col-md-9 col-xl-10 ">
+                    {{- block "main" . -}}{{- end -}}
+                </div>
+            </div>
+            {{- partial "footer.html" . -}}
         </div>
         {{- partial "scripts.html" . -}}
     </body>

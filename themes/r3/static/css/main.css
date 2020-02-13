@@ -2,12 +2,19 @@
 /**
 * Shade Definitions
 */
-.main-wrapper {
+.r3-o-wrapper-main {
   min-height: calc(100vh - 56px - 80px);
+  order: 1;
 }
 
-.side-wrapper {
+.r3-o-wrapper-side {
   background-color: #f7fafc;
+  order: 2;
+}
+@media screen and (max-width: 768px) {
+  .r3-o-wrapper-side {
+    order: 0;
+  }
 }
 
 .r3-c-note {

@@ -2,12 +2,6 @@
     <nav>
         {{- partial "api.html" . -}}
     </nav>
-    <nav class="" id="bd-docs-nav">
-        <hr />
-        <div class="">
-        {{- .Page.TableOfContents -}}
-        </div>
-    </nav>
     <nav>
         <div>
             {{- partialCached "sections-tree" . -}}

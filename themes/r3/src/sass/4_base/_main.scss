@@ -1,7 +1,14 @@
-.main-wrapper {
+$wrapper-object: ".#{$class-object-prefix}wrapper";
+#{$wrapper-object}-main {
   min-height: calc(100vh - 56px - 80px);
+  order: 1;
 }
 
-.side-wrapper {
+#{$wrapper-object}-side {
   background-color: #f7fafc;
+  order: 2;
+
+  @media screen and (max-width: 768px) {
+    order: 0;
+  }
 }
