@@ -4,7 +4,7 @@ def MAKE_PARAMS = [
 ]
 
 def MAKE_TARGETS = [
-    'deploy',
+    'publish',
 ]
 
 pipeline {
