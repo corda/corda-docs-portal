@@ -30,7 +30,7 @@ hugo-serve           Serve site from docker
 prod-hugo-build      Prod build, minimal size
 prod-docker-image    Create the prod docker image
 prod-docker-serve    Run the nginx container locally on port 8888
-publish               Build site, and publish docker image to registry - MAIN TARGET
+publish              Build site, and publish docker image to registry - MAIN TARGET
 ```
 
 Run `make local-build` to create a Hugo image, and then
