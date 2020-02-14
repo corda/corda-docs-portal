@@ -8,7 +8,7 @@ HUGO_DOCKER_IMAGE  = corda-docs-hugo
 PROD_IMAGE         = corda-docs-nginx
 PROD_IMAGE_TAG     = latest
 
-.PHONY: all local-build local-build-preview help serve repos convert
+.PHONY: all local-build local-build-preview help serve hugo-build prod-hugo-build prod-docker-image
 
 # First target is executed if no args are passed
 
@@ -47,10 +47,10 @@ hugo-serve: hugo-docker-image ## Serve site from docker
 #######################################################################################################################
 # Docker tasks - build the prod nginx image
 
-prod-docker-build:  prod-docker-image  hugo-build ## Prod build, minimal size
+prod-hugo-build: hugo-docker-image ## Prod build, minimal size
 	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) hugo --minify
 
-prod-docker-image: ## Create the prod docker image
+prod-docker-image: prod-hugo-build ## Create the prod docker image
 	$(DOCKER) build . --tag $(PROD_IMAGE):$(PROD_IMAGE_TAG) -f prod/Dockerfile
 
 prod-docker-serve: prod-docker-image ## Run the nginx container locally on port 8888
@@ -59,7 +59,7 @@ prod-docker-serve: prod-docker-image ## Run the nginx container locally on port 
 #######################################################################################################################
 #  Main target for CI:
 
-deploy: prod-docker-build ## Build site, and deploy docker image to registry - MAIN TARGET
+deploy: prod-docker-image ## Build site, and deploy docker image to registry - MAIN TARGET
 	$(DOCKER) push $(PROD_IMAGE)
 
 all: help
