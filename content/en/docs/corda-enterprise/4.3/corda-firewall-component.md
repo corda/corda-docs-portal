@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Firewall Component Overview
 
-{{< toc >}}
-
 ## Introduction
 The Corda Firewall (bridge/float) component is designed for enterprise deployments and acts as an application level
                 firewall and protocol break on all internet facing endpoints. The `corda-firewall.jar` encapsulates the peer

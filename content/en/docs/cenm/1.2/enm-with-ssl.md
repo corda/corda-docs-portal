@@ -522,9 +522,26 @@ signingKeys = {
 ##########################################################
 # All ENM service endpoints for fetching/persisting data #
 ##########################################################
-smrLocation = {
+caSmrLocation = {
     host = localhost
     port = 5010
+    verbose = true
+    # note that this SSL configuration could use different keys to the other locations if desired
+    ssl {
+        keyStore {
+            location = exampleSslKeyStore.jks
+            password = "password"
+        }
+        trustStore {
+            location = exampleSslTrustStore.jks
+            password = "trustpass"
+        }
+    }
+}
+
+nonCaSmrLocation = {
+    host = localhost
+    port = 5011
     verbose = true
     # note that this SSL configuration could use different keys to the other locations if desired
     ssl {
@@ -546,21 +563,18 @@ signers = {
     "Example CSR Signer" = {
         type = CSR
         signingKeyAlias = "CSRUtimacoHsmSigningKey"
-        serviceLocationAlias = "identity-manager"
         crlDistributionPoint = "http://localhost:10000/certificate-revocation-list/doorman"
         validDays = 7300 # 20 year certificate expiry
     },
     "Example CRL Signer" = {
         type = CRL
         signingKeyAlias = "CRLUtimacoHsmSigningKey"
-        serviceLocationAlias = "revocation"
         crlDistributionPoint = "http://localhost:10000/certificate-revocation-list/doorman"
         updatePeriod = 5184000000 # 60 day CRL expiry
     },
     "Example Network Map Signer" = {
         type = NETWORK_MAP
         signingKeyAlias = "NetworkMapUtimacoHsmSigningKey"
-        serviceLocationAlias = "network-map"
         schedule {
             interval = 1minute
         }
@@ -568,7 +582,6 @@ signers = {
     "Example Network Parameter Signer" = {
         type = NETWORK_PARAMETERS
         signingKeyAlias = "NetworkParametersUtimacoHsmSigningKey"
-        serviceLocationAlias = "network-map"
     }
 }
 

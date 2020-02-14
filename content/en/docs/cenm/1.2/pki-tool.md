@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Public Key Infrastructure (PKI) Tool
 
-{{< toc >}}
-
 ## Overview
 As described in the [Certificate Hierarchy Guide]({{< relref "pki-guide" >}}), a certificate hierarchy with certain properties is required to run a Corda
                 network. Specifically, the certificate hierarchy should include the two main CENM entities - the Identity Manager and
@@ -857,7 +855,7 @@ certificatesStores = {
     }
 }
 certificates = {
-    "tlscrlsigner" = {
+    "cordatlscrlsigner" = {
         isSelfSigned = true
         subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
         includeIn = ["network-truststore", "certificate-store"]
@@ -868,7 +866,7 @@ certificates = {
             issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
         }
     },
-    "rootca" = {
+    "cordarootca" = {
         isSelfSigned = true
         subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["network-truststore", "certificate-store"]
@@ -877,8 +875,8 @@ certificates = {
             file = "./crl-files/root.crl"
         }
     },
-    "subordinateca" = {
-        signedBy = "rootca"
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
         subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         crl = {
@@ -886,14 +884,14 @@ certificates = {
             file = "./crl-files/subordinate.crl"
         }
     },
-    "identitymanagerca" = {
-        signedBy = "subordinateca"
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
         subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         role = DOORMAN_CA
     }
-    "networkmap" = {
-        signedBy = "subordinateca"
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
         issuesCertificates = false
         subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]

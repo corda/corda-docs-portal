@@ -30,6 +30,8 @@ This section contains information on deploying and operating Corda Enterprise no
 * [Configuring the notary backend - JPA]({{< relref "installing-jpa" >}})
     * [Supported databases for highly available mode]({{< relref "installing-jpa#supported-databases-for-highly-available-mode" >}})
 
+    * [Database Tables]({{< relref "installing-jpa#database-tables" >}})
+
     * [Configuring the notary backend - CockroachDB]({{< relref "installing-jpa#configuring-the-notary-backend-cockroachdb" >}})
 
     * [Configuring notary backend - Oracle RAC 12cR2]({{< relref "installing-jpa#configuring-notary-backend-oracle-rac-12cr2" >}})

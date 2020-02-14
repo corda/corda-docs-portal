@@ -13,8 +13,6 @@ Before reading this page, you should be familiar with the key concepts of [Contr
 
 {{< /note >}}
 
-{{< toc >}}
-
 ## Reasons for Contract Constraints
 *Contract constraints* solve two problems faced by any decentralised ledger that supports evolution of data and code:
 

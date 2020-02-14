@@ -163,15 +163,15 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 
 |Not supported|Not supported|
 |Azure Key Vault|
-* Driver version 1.1.1
+* Driver version 1.2.1
 
 
 |
-* Driver version 1.1.1
+* Driver version 1.2.1
 
 
 |Not supported|
-* Driver version 1.1.1
+* Driver version 1.2.1
 
 
 |

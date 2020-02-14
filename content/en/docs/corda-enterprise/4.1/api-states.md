@@ -13,8 +13,6 @@ Before reading this page, you should be familiar with the key concepts of [State
 
 {{< /note >}}
 
-{{< toc >}}
-
 ## ContractState
 In Corda, states are instances of classes that implement `ContractState`. The `ContractState` interface is defined
                 as follows:

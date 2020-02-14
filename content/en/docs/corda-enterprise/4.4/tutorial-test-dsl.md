@@ -299,8 +299,8 @@ The transaction verification failed, because we wanted to move paper but didn’
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun simpleCPMoveFails() {
+@Test(timeout=300_000)
+ simpleCPMoveFails() {
     val inState = getPaper()
     ledgerServices.ledger(dummyNotary.party) {
         transaction {
@@ -347,8 +347,8 @@ We can continue to build the transaction until it `verifies`:
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun simpleCPMoveFailureAndSuccess() {
+@Test(timeout=300_000)
+ simpleCPMoveFailureAndSuccess() {
     val inState = getPaper()
     ledgerServices.ledger(dummyNotary.party) {
         transaction {
@@ -406,8 +406,8 @@ What should we do if we wanted to test what happens when the wrong party signs t
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun `simple issuance with tweak`() {
+@Test(timeout=300_000)
+ `simple issuance with tweak`() {
     ledgerServices.ledger(dummyNotary.party) {
         transaction {
             output(CP_PROGRAM_ID, "paper", getPaper()) // Some CP is issued onto the ledger by MegaCorp.
@@ -470,8 +470,8 @@ We now have a neat little test that tests a single transaction. This is already 
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun `simple issuance with tweak and top level transaction`() {
+@Test(timeout=300_000)
+ `simple issuance with tweak and top level transaction`() {
     ledgerServices.transaction(dummyNotary.party) {
         output(CP_PROGRAM_ID, "paper", getPaper()) // Some CP is issued onto the ledger by MegaCorp.
         attachments(CP_PROGRAM_ID)
@@ -526,8 +526,8 @@ Now that we know how to define a single transaction, let’s look at how to defi
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun `chain commercial paper`() {
+@Test(timeout=300_000)
+ `chain commercial paper`() {
     val issuer = megaCorp.party.ref(123)
     ledgerServices.ledger(dummyNotary.party) {
         unverifiedTransaction {
@@ -623,8 +623,8 @@ We can also test whole ledger calling `verifies()` and `fails()` on the ledger l
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun `chain commercial paper double spend`() {
+@Test(timeout=300_000)
+ `chain commercial paper double spend`() {
     val issuer = megaCorp.party.ref(123)
     ledgerServices.ledger(dummyNotary.party) {
         unverifiedTransaction {
@@ -729,8 +729,8 @@ The transactions `verifies()` individually, however the state was spent twice! T
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun `chain commercial tweak`() {
+@Test(timeout=300_000)
+ `chain commercial tweak`() {
     val issuer = megaCorp.party.ref(123)
     ledgerServices.ledger(dummyNotary.party) {
         unverifiedTransaction {

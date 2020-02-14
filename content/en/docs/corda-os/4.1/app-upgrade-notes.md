@@ -24,8 +24,6 @@ The sample apps found in the Corda repository and the Corda samples repository a
 
 {{< /warning >}}
 
-{{< toc >}}
-
 ## Step 1. Switch any RPC clients to use the new RPC library
 Although the RPC API is backwards compatible with Corda 3, the RPC wire protocol isn’t. Therefore RPC clients like web servers need to be
                 updated in lockstep with the node to use the new version of the RPC library. Corda 4 delivers RPC wire stability and therefore in future you

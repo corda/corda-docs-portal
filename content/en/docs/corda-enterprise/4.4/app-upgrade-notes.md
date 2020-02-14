@@ -24,8 +24,6 @@ The sample apps found in the Corda repository and the Corda samples repository a
 
 {{< /warning >}}
 
-{{< toc >}}
-
 ## Upgrading apps to Platform Version 5
 This section provides instructions for upgrading your CorDapps from previous versions to take advantage of features and enhancements introduced
                 in platform version 5.

@@ -432,8 +432,8 @@ The `MockNetwork` allows the creation of `MockNode` instances, which are simplif
 You can then write tests on your mock network to verify the nodes interact with your Oracle correctly.
 
 ```kotlin
-@Test
-fun `verify that the oracle signs the transaction if the interest rate within allowed limit`() {
+@Test(timeout=300_000)
+ `verify that the oracle signs the transaction if the interest rate within allowed limit`() {
     // Create a partial transaction
     val tx = TransactionBuilder(DUMMY_NOTARY)
             .withItems(TransactionState(1000.DOLLARS.CASH issuedBy dummyCashIssuer.party ownedBy alice.party, Cash.PROGRAM_ID, DUMMY_NOTARY))

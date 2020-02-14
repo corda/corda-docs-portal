@@ -315,6 +315,8 @@ The node database for a Simple Notary has additional tables:
 |NODE_NOTARY_REQUEST_LOG|ID, CONSUMING_TRANSACTION_ID, REQUESTING_PARTY_NAME, REQUEST_TIMESTAMP, REQUEST_SIGNATURE|
 
 {{< /table >}}
+The structure of the tables of JPA notaries are described at [Configuring the notary backend - JPA]({{< relref "running-a-notary-cluster/installing-jpa#configuring-jpa-notary-backend" >}}).
+
 The tables for other experimental notary implementations are not described here.
 
 

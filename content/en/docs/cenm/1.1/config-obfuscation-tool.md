@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Config Obfuscation Tool
 
-{{< toc >}}
-
 ## Overview
 The Config Obfuscation Tool allows users to obfuscate sensitive information in configuration files, such that the
                 data is protected at rest. The tool is an altered version of the config obfuscator used by Corda. There are two steps

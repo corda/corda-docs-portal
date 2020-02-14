@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Node configuration
 
-{{< toc >}}
-
 ## Configuration file location
 When starting a node, the `corda.jar` file defaults to reading the node’s configuration from a `node.conf` file in the directory from which the command to launch Corda is executed.
                 There are two command-line options to override this behaviour:

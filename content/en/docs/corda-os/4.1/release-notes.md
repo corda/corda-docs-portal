@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Release notes
 
-{{< toc >}}
-
 ## Corda 4.1
 It’s been a little under 3 1/2 months since the release of Corda 4.0 and all of the brand new features that added to the powerful suite
                 of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we are proud to release Corda 4.1, bringing over 150 fixes

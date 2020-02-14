@@ -5,8 +5,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Deploying Corda to Corda Testnet from your local environment
-
-{{< toc >}}
 This document explains how to set up your local network to enable a
             Corda node to connect to the Corda Testnet. This assumes you are
             downloading a node ZIP from: [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet).

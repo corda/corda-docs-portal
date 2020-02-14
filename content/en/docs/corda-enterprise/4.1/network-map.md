@@ -5,8 +5,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # The network map
-
-{{< toc >}}
 The network map is a collection of signed `NodeInfo` objects. Each NodeInfo is signed by the node it represents and
             thus cannot be tampered with. It forms the set of reachable nodes in a compatibility zone. A node can receive these
             objects from two sources:

@@ -5,8 +5,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Embedded Shell
-
-{{< toc >}}
 The embedded shell allows an administrator to control and monitor the suite of CENM services being run (Network Map,
             Identity Manager and Signing service). It is based on the [CRaSH](http://www.crashub.org/) shell and provides certain functions such as viewing
             the current state of the network (via the Network Map shell), viewing the CSRs awaiting approval (via the Identity

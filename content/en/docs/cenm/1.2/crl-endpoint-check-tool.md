@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # CRL Endpoint Check Tool
 
-{{< toc >}}
-
 ## Overview
 The CRL Endpoint Check Tool allows users to check health of CRL distribution endpoints in a given keystore. User
                 provides keystore file’s path and password. It iterates through all alias names in the keystore and their certificate

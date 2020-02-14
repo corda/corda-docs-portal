@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Node database
 
-{{< toc >}}
-
 ## Configuring the node database
 
 ### H2

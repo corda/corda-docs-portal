@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Default Class Evolution
-
-{{< toc >}}
 Whilst more complex evolutionary modifications to classes require annotating, Corda’s serialization
             framework supports several minor modifications to classes without any external modification save
             the actual code changes. These are:

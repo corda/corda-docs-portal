@@ -7,8 +7,6 @@ date: 2020-01-08T09:59:25Z
 
 # API: Vault Query
 
-{{< toc >}}
-
 ## Overview
 Corda has been architected from the ground up to encourage usage of industry standard, proven query frameworks and
                 libraries for accessing RDBMS backed transactional stores (including the Vault).

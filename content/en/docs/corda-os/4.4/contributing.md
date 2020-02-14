@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # How to contribute
 
-{{< toc >}}
-
 ## Identifying an area to contribute
 There are several ways to identify an area where you can contribute to Corda:
 

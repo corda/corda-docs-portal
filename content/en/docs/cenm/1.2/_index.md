@@ -105,3 +105,8 @@ Public Key Infrastructure
 
 
 
+Signing Plugin Samples
+* [EJBCA Sample Plugin]({{< relref "ejbca-plugin" >}})
+
+
+

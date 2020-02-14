@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Deploying a node to a server
 
-{{< toc >}}
-
 {{< note >}}
 These instructions are intended for people who want to deploy a Corda node to a server,
                 whether they have developed and tested a CorDapp following the instructions in [Creating nodes locally]({{< relref "generating-a-node" >}})

@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Building and installing a CorDapp
-
-{{< toc >}}
 CorDapps run on the Corda platform and integrate with it and each other. This article explains how to build CorDapps.
             To learn what a CorDapp is, please read [What is a CorDapp?]({{< relref "cordapp-overview" >}}).
 

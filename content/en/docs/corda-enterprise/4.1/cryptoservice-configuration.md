@@ -10,8 +10,6 @@ By default, the private keys that belong to the node CA and legal identity are s
 Note that only the private and public key of node CA and the legal identity are stored this way. The certificate chain is still stored in a file-based key store.
 
 
-{{< toc >}}
-
 ## Configuration
 As mentioned in the description of the configuration file ([Node configuration]({{< relref "corda-configuration-file" >}})), the `node.conf` has two relevant fields, `cryptoServiceName` and `cryptoServiceConf`.
 

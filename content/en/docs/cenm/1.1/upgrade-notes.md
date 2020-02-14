@@ -12,8 +12,6 @@ These notes provide instructions for upgrading your network management (Doorman,
 We also strongly recommend cross referencing with the [Changelog]({{< relref "changelog" >}}) to confirm changes.
 
 
-{{< toc >}}
-
 ## 1.0 to 1.1
 
 * **Dynamic loading of HSM Jars**

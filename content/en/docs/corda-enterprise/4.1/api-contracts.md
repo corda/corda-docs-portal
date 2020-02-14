@@ -13,8 +13,6 @@ Before reading this page, you should be familiar with the key concepts of [Contr
 
 {{< /note >}}
 
-{{< toc >}}
-
 ## Contract
 Contracts are classes that implement the `Contract` interface. The `Contract` interface is defined as follows:
 

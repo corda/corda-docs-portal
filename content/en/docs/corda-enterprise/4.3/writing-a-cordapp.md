@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Structuring a CorDapp
 
-{{< toc >}}
-
 ## Modules
 The source code for a CorDapp is divided into one or more modules, each of which will be compiled into a separate JAR.
                 Together, these JARs represent a single CorDapp. Typically, a Cordapp contains all the classes required for it to be

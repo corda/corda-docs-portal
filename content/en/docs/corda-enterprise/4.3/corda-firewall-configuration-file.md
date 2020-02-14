@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Firewall Configuration
 
-{{< toc >}}
-
 ## File location
 When starting a standalone firewall (in bridge, or float mode), the `corda-firewall.jar` file defaults to reading the firewall’s configuration from a `firewall.conf` file in
                 the directory from which the command to launch the process is executed. The syntax is:

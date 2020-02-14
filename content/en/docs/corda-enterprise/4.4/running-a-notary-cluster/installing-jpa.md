@@ -110,6 +110,52 @@ We recommend creating one database user with schema modification rights so as to
                     would be set in the configuration of the notary in the `dataSourceProperties` section.
 
 
+## Database Tables
+
+### Notary Committed States
+The collection of spent states, used to detect double spend attempts.
+
+
+{{< table >}}
+
+|Column|Description|
+|------------------------------------|------------------------------------------------------------------------|
+|state_ref|The ID of the spent state (indexed).|
+|consuming_transaction_id|The ID of the transaction spending this state.|
+
+{{< /table >}}
+
+### Notary Committed Transactions
+The collection of notarised transactions, used to re-notarise transactions that don’t get recorded into
+                    the collection of spent states because they only reference states or are time window issue transactions that
+                    don’t spend any states.
+
+
+{{< table >}}
+
+|Column|Description|
+|------------------------------------|------------------------------------------------------------------------|
+|transaction_id|The ID of a notarised transaction (indexed).|
+
+{{< /table >}}
+
+### Notary Request Log
+The request log, used to record the request signatures of the requesting parties.
+
+
+{{< table >}}
+
+|Column|Description|
+|------------------------------------|------------------------------------------------------------------------|
+|id|The ID of the request (indexed).|
+|consuming_transaction_id|The ID of the transaction consuming the input states.|
+|requesting_party_name|The X500 name of the party requesting the notarisation.|
+|request_timestamp|The timestamp when the notary worker started processing the request.|
+|request_signature|The request signature of the requesting party.|
+|worker_node_x500_name|The X500 name of the notary worker processing the request.|
+
+{{< /table >}}
+
 ## Configuring the notary backend - CockroachDB
 The JPA notary service is tested against CockroachDB 19.1.2. CockroachDB’s
                 [documentation page](https://www.cockroachlabs.com/docs/v19.1/) explains the installation

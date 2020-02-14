@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Database access when running H2
 
-{{< toc >}}
-
 ## Configuring the username and password
 The database (a file called `persistence.mv.db`) is created when the node first starts up. By default, it has an
                 administrator user `sa` and a blank password. The node requires the user with administrator permissions in order to

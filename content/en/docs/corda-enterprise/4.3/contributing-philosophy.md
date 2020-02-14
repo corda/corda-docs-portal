@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Contributing philosophy
 
-{{< toc >}}
-
 ## Mission
 Corda is an open source project with the aim of developing an enterprise-grade distributed ledger platform for business across a variety of
                 industries.  Corda was designed and developed to apply the concepts of blockchain and smart contract technologies to the requirements of

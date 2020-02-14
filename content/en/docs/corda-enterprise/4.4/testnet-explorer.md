@@ -109,7 +109,7 @@ You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs
 * Now download the Node Explorer to your **LOCAL** machine:
 
 ```bash
-http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.4/corda-tools-explorer-4.4.jar
+https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.4/corda-tools-explorer-4.4.jar
 ```
 
 {{< warning >}}

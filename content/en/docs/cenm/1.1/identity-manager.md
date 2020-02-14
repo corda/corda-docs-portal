@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Identity Manager Service
 
-{{< toc >}}
-
 ## Purpose
 The Identity Manager Service acts as the gatekeeper to the network. It is formed of two components:
 

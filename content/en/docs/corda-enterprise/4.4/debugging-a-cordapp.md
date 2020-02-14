@@ -5,8 +5,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Debugging a CorDapp
-
-{{< toc >}}
 There are several ways to debug your CorDapp.
 
 

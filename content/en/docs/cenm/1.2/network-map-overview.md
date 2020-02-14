@@ -62,8 +62,8 @@ In addition to the above the Corda Enterprise Network Manager provides a number 
 |GET|/network-map-user/network-map|Retrieve the current public network map formatted as a JSON document.|
 |GET|/network-map-user/node-infos|Retrieve a human readable list of the currently registered `NodeInfo` files in the public network formatted as a JSON document.|
 |GET|/network-map-user/node-info/{hash}|Retrieve a human readable version of a `NodeInfo` formatted as a JSON document.|
-|GET|/network-map-user/network-parameters|Retrieve a human readable version of the current `NetworkParamters` formatted as a JSON document.|
-|GET|/network-map-user/network-parameters/{hash}|Retrieve a human readable version of the current `NetworkParamters` formatted as a JSON document.|
+|GET|/network-map-user/network-parameters|Retrieve a human readable version of the current `NetworkParameters` formatted as a JSON document.|
+|GET|/network-map-user/network-parameters/{hash}|Retrieve a human readable version of a `NetworkParameters` formatted as a JSON document.|
 
 {{< /table >}}
 HTTP is used for the network map service instead of Corda’s own AMQP based peer to peer messaging protocol to
@@ -237,7 +237,7 @@ The network map service provides an endpoint that can be used to determine the I
 
 {{< table >}}
 
-|GET|/network-map/my-ip  | Returns the IP address of the requestor.|
+|GET|/network-map/my-hostname|Returns the IP address of the requestor.|
 
 {{< /table >}}
 

@@ -37,8 +37,8 @@ ps aux | grep corda.jar | awk '{ print $2 }' | xargs sudo kill
 In the terminal on your cloud instance run:
 
 ```bash
-wget https://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-finance-contracts/4.4/corda-finance-contracts-4.4.jar
-wget https://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-finance-workflows/4.4/corda-finance-workflows-4.4.jar
+wget https://software.r3.com/artifactory/corda-releases/net/corda/corda-finance-contracts/4.4/corda-finance-contracts-4.4.jar
+wget https://software.r3.com/artifactory/corda-releases/net/corda/corda-finance-workflows/4.4/corda-finance-workflows-4.4.jar
 ```
 This is required to run some flows to check your connections, and to issue/transfer cash to counterparties. Copy it to
                         the Corda installation location:
@@ -80,7 +80,7 @@ Node Explorer is a JavaFX GUI which connects to the node over the RPC interface 
 Download the Node Explorer from here:
 
 ```bash
-http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.4-corda/corda-tools-explorer-4.4-corda.jar
+https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.4-corda/corda-tools-explorer-4.4-corda.jar
 ```
 
 {{< warning >}}

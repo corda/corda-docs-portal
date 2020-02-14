@@ -7,8 +7,6 @@ date: 2020-01-08T09:59:25Z
 
 # Interacting with a node
 
-{{< toc >}}
-
 ## Overview
 To interact with your node, you need to write a client in a JVM-compatible language using the [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class.
                 This class allows you to connect to your node via a message queue protocol and provides a simple RPC interface for

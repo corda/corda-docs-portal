@@ -64,7 +64,7 @@ Ensure your node is running Corda 3.2 or later.
 
 
 ## Step 4. Replace `corda.jar` with the new version
-Download the latest version of Corda from [our Artifactory site](https://ci-artifactory.corda.r3cev.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
+Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
                 Make sure it’s available on your path, and that you’ve read the [Release notes]({{< relref "release-notes" >}}), in particular to discover what version of Java this
                 node requires.
 

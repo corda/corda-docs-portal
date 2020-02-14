@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Node configuration
 
-{{< toc >}}
-
 ## Configuration file location
 When starting a node, the `corda.jar` file defaults to reading the node’s configuration from a `node.conf` file in the directory from which the command to launch Corda is executed.
                 There are two command-line options to override this behaviour:
@@ -847,6 +845,14 @@ mysql {
 }
 ```
 
+etaMessageThresholdSeconds
+If the wait time estimate on the internal queue exceeds this value, the notary may send
+                                        a wait time update to the client (implementation specific and dependent on the counter
+                                        party version).
+
+*Default:* Implementation dependent
+
+
 raft
 *(Deprecated)* If part of a distributed Raft cluster, specify this configuration object with the following settings:
 
@@ -927,6 +933,12 @@ If using the JPA notary, specify this configuration section with the settings be
 >                                                         be split into two smaller batches.
 > 
 > *Default:* 10 000
+> 
+> 
+> maxDBTransactionRetryCount
+> The maximum number of retries of database operations before throwing an exception.
+> 
+> *Default:* 10
 > 
 > 
 > batchTimeoutMs

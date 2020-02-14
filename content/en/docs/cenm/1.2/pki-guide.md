@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Certificate Hierarchy Guide
 
-{{< toc >}}
-
 ## Overview
 The Corda security design heavily relies on the use of Public Key Infrastructure (PKI). The platform itself operates with the assumption that a
                 certificate authority will manage the node on-boarding and permissioning processes. As such, there is an inherent requirement

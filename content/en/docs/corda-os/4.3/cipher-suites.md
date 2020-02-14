@@ -5,8 +5,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Cipher suites supported by Corda
-
-{{< toc >}}
 The set of signature schemes supported forms a part of the consensus rules for a Corda DLT network.
             Thus, it is important that implementations do not support pluggability of any crypto algorithms and do take measures
             to prevent algorithms supported by any underlying cryptography library from becoming accidentally accessible.

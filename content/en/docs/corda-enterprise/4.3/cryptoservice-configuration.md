@@ -24,8 +24,6 @@ Importing existing keys from the file based keystore into a HSM is not supported
 
 {{< /note >}}
 
-{{< toc >}}
-
 ## Configuration
 As mentioned in the description of the configuration file ([Node configuration]({{< relref "corda-configuration-file" >}})), the `node.conf` has two relevant fields, `cryptoServiceName` and `cryptoServiceConf`.
 

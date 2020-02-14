@@ -70,7 +70,7 @@ High Availability test:
 
 > 
 > 
-> * `--toggle-bridge` <url>:         Switch which bridge is active
+> * `--toggle-bridge`:              Switch which bridge is active
 > 
 > 
 Running the tool with no arguments assumes that the base-directory argument is the current working directory.
@@ -147,15 +147,17 @@ Instead of zipping the reports, operators can print them to a text file using th
 
 
 ## Using Health Survey Tool in HA Environments
-In deployments with separate Bridge/Float configuration the ECHO test will receive a response from the Corda node plus two echos from each bridge.
-                The second echo from the bridge is the relayed reply for the active float. Hence in an HA environment with two bridges the ECHO
-                test will receive five responses.
+In deployments with separate Bridge/Float configuration the ECHO test will receive a response from the Corda node plus one echo
+                from each bridge plus a single echo from the active float.
+                Hence in an HA environment with two bridges and two floats the ECHO test will receive four responses.
 
 
 ## Ping Remote Nodes
 The ping, notary and ping-notary commands will attempt to resolve the legal name against the node’s network map to obtain the remote
-                node’s IP address and port. The Health Survey tool will then establish an AMQP connection to the remote port. This test is to verify
-                that the local and remote firewall rules allow AMQP connections across the network.
+                node’s IP address and port. The Health Survey tool will then establish an AMQP connection via the active bridge and/or SOCKS proxy
+                to the remote port. This test is to verify that the local and remote firewall rules allow AMQP connections across the network.
+
+If no bridge is installed then the Health Survey will attempt to connect directly to the remote address.
 
 
 {{< note >}}
@@ -163,6 +165,13 @@ The option –ping-notary should only be used to test a notary cluster. To test 
 
 
 {{< /note >}}
+
+## Toggle Active Bridge
+The toggle-bridge command can be used in HA environments to temporarily shut down the active bridge to allow passive bridge
+                to become the master.
+
+This command can be used to verify that the firewall settings for both bridges have been configured correctly.
+
 
 ## Disabling the Corda Health Survey in production
 The tool relies on dedicated Artemis queues to relay configuration and runtime information from the Corda Firewall components. This functionality is enabled by default.
