@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Enum Evolution
-
-{{< toc >}}
 In the continued development of a CorDapp an enumerated type that was fit for purpose at one time may
             require changing. Normally, this would be problematic as anything serialised (and kept in a vault) would
             run the risk of being unable to be deserialized in the future or older versions of the app still alive

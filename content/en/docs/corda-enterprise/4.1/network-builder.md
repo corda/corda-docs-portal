@@ -5,8 +5,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Corda Network Builder
-
-{{< toc >}}
 The Corda Network Builder is a tool for building Corda networks for testing purposes. It leverages Docker and
             containers to abstract the complexity of managing a distributed network away from the user.
 

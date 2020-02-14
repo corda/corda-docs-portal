@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Network Map Service
 
-{{< toc >}}
-
 ## Purpose
 The network map service acts as a directory for all participants on the network. It is responsible for recording
                 essential information of each participant such as connection address and available services. See

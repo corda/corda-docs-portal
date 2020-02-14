@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Running the example CorDapp
-
-{{< toc >}}
 The example CorDapp allows nodes to agree IOUs with each other, as long as they obey the following contract rules:
 
 

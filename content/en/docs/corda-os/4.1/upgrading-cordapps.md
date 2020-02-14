@@ -14,8 +14,6 @@ This document only concerns the upgrading of CorDapps and not the Corda platform
 
 {{< /note >}}
 
-{{< toc >}}
-
 ## CorDapp versioning
 The Corda platform does not mandate a version number on a per-CorDapp basis. Different elements of a CorDapp are
                 allowed to evolve separately. Sometimes, however, a change to one element will require changes to other elements. For

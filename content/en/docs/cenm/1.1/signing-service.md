@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Signing Service
 
-{{< toc >}}
-
 ## Purpose
 The Signing Service is a service that forms part of the Corda Enterprise Network Manager, alongside the Identity
                 Operator and Network Map. It acts as a bridge between the main CENM services and the HSM infrastructure, enabling a

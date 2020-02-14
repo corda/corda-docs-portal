@@ -5,8 +5,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Corda Enterprise HA notary service set-up
-
-{{< toc >}}
 The Corda Enterprise notary service can be configured in high-availability (HA) mode. For the Corda Enterprise notary
             service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview]({{< relref "ha-notary-service-overview" >}}) for more information.
 

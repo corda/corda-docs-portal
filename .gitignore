@@ -659,3 +659,6 @@ repos/**
 # Visual Studio Code prefers its virtual envs in here.
 .direnv/
 .venv/
+
+**/xml/**
+repos/

@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Pluggable Serializers for CorDapps
-
-{{< toc >}}
 To be serializable by Corda Java classes must be compiled with the -parameters switch to enable matching of its properties
             to constructor parameters. This is important because Corda’s internal AMQP serialization scheme will only construct
             objects using their constructors. However, when recompilation isn’t possible, or classes are built in such a way that

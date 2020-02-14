@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Signing Services
 
-{{< toc >}}
-
 ## Purpose
 The Signing Service and the optional Signable Material Retriever (SMR) are services that form part of
                 Corda Enterprise Network Manager, alongside the Identity Operator and Network Map. They act as
@@ -282,8 +280,12 @@ Communication with the configured service locations can be configured to use SSL
 {{< /note >}}
 
 #### Indirect data source via SMR Service Location
-For all signing tasks, global data source for getting the unsigned data and persisting the signed data needs to be
-                        defined. This is ENM location of Signable Material Retriever Service.
+For all CA related signing tasks (CSRs and CRLs), global data source for getting the unsigned data and persisting the
+                        signed data needs to be defined. This is ENM location of CA related part of Signable Material Retriever Service.
+
+For all non CA related signing tasks (Network Maps and Network Parameters), global data source for getting the unsigned
+                        data and persisting the signed data needs to be defined. This is ENM location of non CA related part of Signable
+                        Material Retriever Service.
 
 
 {{< note >}}
@@ -493,8 +495,14 @@ Map of human-readable aliases (string) to ENM service location configurations. S
                             [service location map entry example](#service-location-map-entry-example) below for the expected format.
 
 
-smrLocation
-*(Optional, use instead of serviceLocations)* Signable Material Retriever ENM service location configuration.
+caSmrLocation
+*(Optional, use instead of CA related serviceLocations)* CA part of Signable Material Retriever ENM
+                            service location configuration.
+
+
+nonCaSmrLocation
+*(Optional, use instead of non CA related serviceLocations)* Non CA part of Signable Material
+                            Retriever ENM service location configuration.
 
 
 signers
@@ -735,22 +743,25 @@ password for the trust root keystore.
 
 
 ### Signable Material Retriever Location Example
-When Signing Service connects to SMR Service instead of directly to CENM Service Locations,
-                    then `smrLocation` replaces map of `serviceLocations`.
+When Signing Service connects to CA part of SMR Service instead of directly to CA related CENM Service Locations,
+                    then `caSmrLocation` replaces CA related inputs of `serviceLocations`.
+
+When Signing Service connects to non CA part of SMR Service instead of directly to non CA related CENM Service
+                    Locations, then `nonCaSmrLocation` replaces non CA related inputs of `serviceLocations`.
 
 
 
-smrLocation
-The connection details for the SMR service that acts as the data source
+caSmrLocation
+The connection details for the CA part of SMR service that acts as the data source
 
 
 
 host
-Host name (or IP address) that the SMR service is running on
+Host name (or IP address) that the CA part of SMR service is running on
 
 
 port
-Port that the SMR service is listening on (for inter-ENM communication)
+Port that the CA part of SMR service is listening on (for inter-ENM communication)
 
 
 verbose
@@ -759,7 +770,7 @@ Boolean representing whether debug information for the IPC between the Signer an
 
 
 ssl
-*(Optional)* SSL Information for connection with the SMR service.
+*(Optional)* SSL Information for connection with the CA part of SMR service.
 
 
 
@@ -792,6 +803,10 @@ Location on the file system of the keystore containing the SSL PKI root of trust
 
 password
 password for the trust root keystore.
+
+
+nonCaSmrLocation
+Same as per **caSmrLocation**, just for the non CA part of the SMR service
 
 
 ### Signers Map Entry Example
@@ -1106,9 +1121,26 @@ signingKeys = {
 ##########################################################
 # All ENM service endpoints for fetching/persisting data #
 ##########################################################
-smrLocation = {
+caSmrLocation = {
     host = localhost
     port = 5010
+    verbose = true
+    # note that this SSL configuration could use different keys to the other locations if desired
+    ssl {
+        keyStore {
+            location = exampleSslKeyStore.jks
+            password = "password"
+        }
+        trustStore {
+            location = exampleSslTrustStore.jks
+            password = "trustpass"
+        }
+    }
+}
+
+nonCaSmrLocation = {
+    host = localhost
+    port = 5011
     verbose = true
     # note that this SSL configuration could use different keys to the other locations if desired
     ssl {
@@ -1130,21 +1162,18 @@ signers = {
     "Example CSR Signer" = {
         type = CSR
         signingKeyAlias = "CSRUtimacoHsmSigningKey"
-        serviceLocationAlias = "identity-manager"
         crlDistributionPoint = "http://localhost:10000/certificate-revocation-list/doorman"
         validDays = 7300 # 20 year certificate expiry
     },
     "Example CRL Signer" = {
         type = CRL
         signingKeyAlias = "CRLUtimacoHsmSigningKey"
-        serviceLocationAlias = "revocation"
         crlDistributionPoint = "http://localhost:10000/certificate-revocation-list/doorman"
         updatePeriod = 5184000000 # 60 day CRL expiry
     },
     "Example Network Map Signer" = {
         type = NETWORK_MAP
         signingKeyAlias = "NetworkMapUtimacoHsmSigningKey"
-        serviceLocationAlias = "network-map"
         schedule {
             interval = 1minute
         }
@@ -1152,7 +1181,6 @@ signers = {
     "Example Network Parameter Signer" = {
         type = NETWORK_PARAMETERS
         signingKeyAlias = "NetworkParametersUtimacoHsmSigningKey"
-        serviceLocationAlias = "network-map"
     }
 }
 
@@ -1195,12 +1223,37 @@ signingKeys = {
 ##########################################################
 # All ENM service endpoints for fetching/persisting data #
 ##########################################################
-smrLocation = {
+caSmrLocation = {
     host = localhost
     port = 5010
     verbose = true
+    ssl = {
+        keyStore = {
+            location = "exampleKeyStore.jks"
+            password = "example-password"
+        }
+        trustStore = {
+            location = "exampleCertificateStore.jks"
+            password = "example-password"
+        }
+    }
 }
 
+nonCaSmrLocation = {
+    host = localhost
+    port = 5011
+    verbose = true
+    ssl = {
+        keyStore = {
+            location = "exampleKeyStore.jks"
+            password = "example-password"
+        }
+        trustStore = {
+            location = "exampleCertificateStore.jks"
+            password = "example-password"
+        }
+    }
+}
 ###################################################
 # Signing tasks to be run (manually or scheduled) #
 ###################################################
@@ -1208,7 +1261,6 @@ signers = {
     "Example CSR Signer" = {
         type = CSR
         signingKeyAlias = "IdentityManagerLocal"
-        serviceLocationAlias = "identity-manager"
         crlDistributionPoint = "http://localhost:10000/certificate-revocation-list/doorman"
         validDays = 7300 # 20 year certificate expiry
         schedule {
@@ -1218,7 +1270,6 @@ signers = {
     "Example CRL Signer" = {
         type = CRL
         signingKeyAlias = "IdentityManagerLocal"
-        serviceLocationAlias = "revocation"
         crlDistributionPoint = "http://localhost:10000/certificate-revocation-list/doorman"
         updatePeriod = 86400000 # 1 day CRL expiry
         schedule {
@@ -1228,7 +1279,6 @@ signers = {
     "Example Network Map Signer" = {
         type = NETWORK_MAP
         signingKeyAlias = "NetworkMapLocal"
-        serviceLocationAlias = "network-map"
         schedule {
             interval = 1minute
         }
@@ -1236,7 +1286,6 @@ signers = {
     "Example Network Parameters Signer" = {
         type = NETWORK_PARAMETERS
         signingKeyAlias = "NetworkMapLocal"
-        serviceLocationAlias = "network-map"
         schedule {
             interval = 10minute
         }
@@ -1248,7 +1297,7 @@ signers = {
 {{/* /en/docs/cenm/1.2/services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf */}}
 
 ## Signable Material Retriever
-The Signable Material Retriever service in an optional service wihich acts as a bridge between other CENM services and one or more
+The Signable Material Retriever service is an optional service which acts as a bridge between other CENM services and one or more
                 signing services. It delegates signing to a plugin, which routes work either to the CENM Signing Service,
                 or to a third party service. Third party integration plugins are not provided as part of CENM.
 
@@ -1299,7 +1348,7 @@ Communication with the configured SMR service location can be configured to use 
 
 
 {{< /note >}}
-Configuration parameters are same as in [Signable Material Retriever Location Example](#signable-material-retriever-location-example)
+Configuration parameters are same as in [Service Location Map Entry Example](#service-location-map-entry-example)
 
 
 #### Material Management Tasks
@@ -1398,8 +1447,8 @@ materialManagementTasks = {
         schedule = {
             interval = 10s
         }
-        pluginJar = "plugin/smr-plugin-1.2.0.jar"
-        pluginClass = "com.r3.enm.smrplugins.defaultplugin.SMRSigningPlugin"
+        pluginJar = "plugin/smr-default-plugin-ca-1.2.0.jar"
+        pluginClass = "com.r3.enm.smrplugins.defaultplugin.ca.CASMRSigningPlugin"
     }
     # Assuming Signer Service configuration contains alias "CRL" in "signers" map.
     "CRL" = {
@@ -1408,8 +1457,8 @@ materialManagementTasks = {
         schedule = {
             interval = 10s
         }
-        pluginJar = "plugin/smr-plugin-1.2.0.jar"
-        pluginClass = "com.r3.enm.smrplugins.defaultplugin.SMRSigningPlugin"
+        pluginJar = "plugin/smr-default-plugin-ca-1.2.0.jar"
+        pluginClass = "com.r3.enm.smrplugins.defaultplugin.ca.CASMRSigningPlugin"
     }
     # Assuming Signer Service configuration contains alias "NetMap" in "signers" map.
     "NetMap" = {
@@ -1418,8 +1467,8 @@ materialManagementTasks = {
         schedule = {
             interval = 10s
         }
-        pluginJar = "plugin/smr-plugin-1.2.0.jar"
-        pluginClass = "com.r3.enm.smrplugins.defaultplugin.SMRSigningPlugin"
+        pluginJar = "plugin/smr-default-plugin-nonca-1.2.0.jar"
+        pluginClass = "com.r3.enm.smrplugins.defaultplugin.nonca.NonCASMRSigningPlugin"
     }
     # Assuming Signer Service configuration contains alias "Params" in "signers" map.
     "Params" = {
@@ -1428,8 +1477,8 @@ materialManagementTasks = {
         schedule = {
             interval = 10s
         }
-        pluginJar = "plugin/smr-plugin-1.2.0.jar"
-        pluginClass = "com.r3.enm.smrplugins.defaultplugin.SMRSigningPlugin"
+        pluginJar = "plugin/smr-default-plugin-nonca-1.2.0.jar"
+        pluginClass = "com.r3.enm.smrplugins.defaultplugin.nonca.NonCASMRSigningPlugin"
     }
 }
 
@@ -1437,32 +1486,52 @@ materialManagementTasks = {
 
 {{/* /en/docs/cenm/1.2/services/src/test/resources/v1.2-configs/smr/smr-test-valid.conf */}}
 
-### Signing Plugin
-As mentioned before, we enable possibility of writing custom plugin to support external Signing infrastructures. Each
-                    plugin must implement following *SigningPlugin* interface which methods have predefined input and output parameters:
+### Developing Signing Plugins
+As mentioned before, we enable possibility of writing custom plugin to support external Signing infrastructures. A plugin
+                    class must implement `CASigningPlugin` or `NonCASigningPlugin` interface depending on type of signable material type
+                    it will handle.
+
+Both interfaces extend common `StartablePlugin` interface containing a single method `start()`. The method is run by
+                    SMR service upon the service start-up and it’s intended to contain plugin’s initialization code (e.g. a database
+                    connection initialization).
 
 ```java
-package com.r3.enm.smrpluginapi;
-
-import com.r3.enm.model.CertificateRevocationRequest;
-import com.r3.enm.model.CertificateSigningRequest;
-import com.r3.enm.servicesapi.networkmap.payload.UnsignedNetworkParametersData;
-import net.corda.nodeapi.internal.network.NetworkMap;
-import javax.annotation.Nullable;
-import java.security.cert.X509CRL;
-import java.util.Set;
-
-/**
- * This is the interface which each SMR plugin must implement. This is basically the entry point of external Signing
- * Service communication. Each submission request method retrieves signable material and retrieves response containing:
- *      - Singing status (PENDING, COMPLETED, CANCELLED)
- *      - Signing data with certificates and supporting data to be stored in CENM service databases
- */
-public interface SigningPlugin {
+public interface StartablePlugin {
     /**
      * Starts the handles plugin's initialization.
      */
     void start();
+}
+
+```
+
+{{/* /en/docs/cenm/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/StartablePlugin.java */}}
+Each signable material submission plugin method must return its’ status:
+
+```java
+
+/**
+ * A plugin submission must return the signing status of signable material passed.
+ * [SigningStatus.COMPLETED] means signing infrastructure has done the successful signing of the material
+ * [SigningStatus.PENDING] means signing infrastructure hasn't done a signing of the material yet or it has failed doing so
+ */
+public enum SigningStatus {PENDING, COMPLETED}
+```
+
+{{/* /en/docs/cenm/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/SigningStatus.java */}}
+
+#### CA Signing Plugin
+This type of plugin handles Certificate Signing Requests (CSR) and Certificate Revocation List (CRL) signing. A plugin
+                        class must implement following methods with predefined input and output parameters:
+
+```java
+
+/**
+ * This is the interface which each CA SMR plugin must implement. This is basically the entry point of external Signing
+ * Service communication. Each submission request method retrieves signable material and retrieves response containing
+ * a signing status (PENDING, COMPLETED) and supporting data to be stored in CENM services.
+ */
+public interface CASigningPlugin extends StartablePlugin {
 
     /**
      * Handle retrieved Certificate Signing Requests (CSR) retrieved from SMR.
@@ -1475,11 +1544,161 @@ public interface SigningPlugin {
     /**
      * Handle retrieved CRL and CRRs retrieved from SMR.
      *
-     * @param crl the signing request to route.
+     * @param crl     the signing request to route.
      * @param newCRRs the set of new revocation requests in this batch.
      * @return a response describing the status of the request.
      */
     CRLResponse submitCRL(@Nullable X509CRL crl, Set<CertificateRevocationRequest> newCRRs);
+}
+
+```
+
+{{/* /en/docs/cenm/1.2/smr-plugin-api/ca/src/main/java/com/r3/enm/smrpluginapi/ca/CASigningPlugin.java */}}
+CSR submission method output:
+
+```java
+/**
+ * Signable Material Retriever (SMR) service response containing the status of a certificate signing requests (CSR).
+ */
+public final class CSRResponse {
+
+    /**
+     * Returns material's signing status.
+     */
+    @Nonnull
+    public final SigningStatus getStatus();
+
+    /**
+     * Returns signed certificate signing request (CSR).
+     */
+    @Nullable
+    public final CSRSigningData getCsrSigningData();
+
+    /**
+     * Constructs a response with CRL request status. with the specified data.
+     *
+     * @param status         Signing status, should be non null otherwise a {@link IllegalArgumentException} is thrown.
+     * @param csrSigningData Signed Certificate Request.
+     */
+    public CSRResponse(@Nonnull SigningStatus status, @Nullable CSRSigningData csrSigningData);
+}
+
+/**
+ * Signed certificate signing request (CSR).
+ */
+public final class CSRSigningData {
+
+    /**
+     * Returns a certificate path generated for associated signed certificate.
+     */
+    @Nonnull
+    public final CertPath getCertPath();
+
+    /**
+     * Returns signers' names of entities performing actual signing.
+     */
+    @Nonnull
+    public final String getSigners();
+
+    /**
+     * Constructs a signed CSR with the specified data.
+     * Both parameters should be not null otherwise {@link IllegalArgumentException} is thrown.
+     *
+     * @param certPath Certificate path generated for associated signed certificate
+     * @param signers  Names of entities performing actual signing.
+     */
+    public CSRSigningData(@Nonnull CertPath certPath, @Nonnull String signers);
+}
+```
+CRL submission method output:
+
+```java
+/**
+ * Signable Material Retriever (SMR) service response containing the status
+ * of a certificate revocation list (CRL) request.
+ */
+public final class CRLResponse {
+
+    /**
+     * Returns material's signing status.
+     */
+    @Nonnull
+    public final SigningStatus getStatus();
+
+    /**
+     * Returns signed certificate revocation list (CRL).
+     */
+    @Nullable
+    public final CRLSigningData getCrlSigningData();
+
+    /**
+     * Constructs a response with the specified status and signed CRL.
+     *
+     * @param status         Signing status, should be non null otherwise a {@link IllegalArgumentException} is thrown.
+     * @param crlSigningData Signed Certificate Revocation List (CRL).
+     */
+    public CRLResponse(@Nonnull SigningStatus status, @Nullable CRLSigningData crlSigningData);
+}
+
+/**
+ * Signed certificate revocation list (CRL).
+ */
+public final class CRLSigningData {
+
+    /**
+     * Returns a newly created signed Certificate Revocation List (CRL).
+     */
+    @Nonnull
+    public final X509CRL getCrl();
+
+    /**
+     * Returns names of entities performing actual signing.
+     */
+    @Nonnull
+    public final String getSigners();
+
+    /**
+     * Returns a specific time at which signing was executed.
+     */
+    @Nonnull
+    public final Instant getRevocationTime();
+
+    /**
+     * Return set of the revocation requests.
+     */
+    @Nonnull
+    public final Set<CertificateRevocationRequest> getRevokedRequests()
+
+    /**
+     * Constructs a signed CRL with the specified data.
+     * All parameters should be not null otherwise {@link IllegalArgumentException} is thrown.
+     *
+     * @param crl             Newly created signed Certificate Revocation List (CRL)
+     * @param signers         Names of entities performing actual signing
+     * @param revocationTime  Specific time at which signing was executed
+     * @param revokedRequests Set of all the revocation requests inside the list
+     */
+    public CRLSigningData(
+        @Nonnull X509CRL crl,
+        @Nonnull String signers,
+        @Nonnull Instant revocationTime,
+        @Nonnull Set<CertificateRevocationRequest> revokedRequests
+    );
+}
+```
+
+#### Non CA Signing Plugin
+This type of plugin handles Network Map and Network Parameters signing. A plugin class must implement following methods
+                        with predefined input and output parameters:
+
+```java
+
+/**
+ * This is the interface which each non-CA SMR plugin must implement. This is basically the entry point of external Signing
+ * Service communication. Each submission request method retrieves signable material and retrieves response containing a
+ * singing status (PENDING, COMPLETED) and supporting data to be stored in CENM services.
+ */
+public interface NonCASigningPlugin extends StartablePlugin {
 
     /**
      * Handle routing network map to a signing backend.
@@ -1503,61 +1722,120 @@ public interface SigningPlugin {
 
 ```
 
-{{/* /en/docs/cenm/1.2/smr-plugin-api/src/main/java/com/r3/enm/smrpluginapi/SigningPlugin.java */}}
-```kotlin
-package com.r3.enm.smrpluginapi
+{{/* /en/docs/cenm/1.2/smr-plugin-api/nonca/src/main/java/com/r3/enm/smrpluginapi/nonca/NonCASigningPlugin.java */}}
+Network Map submission method output:
 
-import com.r3.enm.model.CertificateRevocationRequest
-import java.security.cert.CertPath
-import java.security.cert.X509CRL
-import java.security.cert.X509Certificate
-import java.time.Instant
-
-data class CSRResponse(val status: SigningStatus, val csrSigningData: CSRSigningData?)
+```java
 /**
- * @property certPath Actual certificate path generated for associated signed certificate
- * @property signers Names of entities performing actual signing
+ * Signable Material Retriever (SMR) service response containing the status of a Network Map signing request.
  */
-data class CSRSigningData(val certPath: CertPath, val signers: String)
+public final class NetworkMapResponse {
 
-data class CRLResponse(val status: SigningStatus, val crlSigningData: CRLSigningData?)
+    /**
+     * Returns material's signing status.
+     */
+    @Nonnull
+    public final SigningStatus getStatus();
+
+    /**
+     * Returns signed Network Map
+     */
+    @Nullable
+    public final NMSigningData getNmSigningData();
+
+    /**
+     * Constructs a response object.
+     *
+     * @param status        Signing status, should be non null otherwise a {@link IllegalArgumentException} is thrown.
+     * @param nmSigningData
+     */
+    public NetworkMapResponse(@Nonnull SigningStatus status, @Nullable NMSigningData nmSigningData);
+}
+```
+Network Parameters submission method output:
+
+```java
 /**
- * @property crl Newly creted signed Certificate Revocation List
- * @property signers Names of entities performing actual signing
- * @property revocationTime Specific time at which signing was executed
- * @property revokedRequests Set of all the revocation requests inside the list
+ * Signable Material Retriever (SMR) service response containing the status of a Network Parameters signing request.
  */
-data class CRLSigningData(
-        val crl: X509CRL,
-        val signers: String,
-        val revocationTime: Instant,
-        val revokedRequests: Set<CertificateRevocationRequest>
-)
+public final class NetworkParametersResponse {
 
-data class NetworkMapResponse(val status: SigningStatus, val nmSigningData: NMSigningData?)
-data class NetworkParametersResponse(val status: SigningStatus, val nmSigningData: NMSigningData?)
+    /**
+     * Returns material's signing status.
+     */
+    @Nonnull
+    public final SigningStatus getStatus();
+
+    /**
+     * Returns signed Network Parameters
+     */
+    @Nullable
+    public final NMSigningData getNmSigningData();
+
+    /**
+     * Constructs a response object.
+     * All parameters should be not null otherwise {@link IllegalArgumentException} is thrown.
+     *
+     * @param status        Signing status, should be non null otherwise a {@link IllegalArgumentException} is thrown.
+     * @param nmSigningData
+     */
+    public NetworkParametersResponse(@Nonnull SigningStatus status, @Nullable NMSigningData nmSigningData);
+}
+```
+Both responses use same signature data:
+
+```java
 /**
- * @property signerCertificate Signed material's certificate
- * @property parentCertsChain List of all the parent certificates of the material
- * @property signature Raw signature
+ * Signed Network Map or Network Parameters
  */
-data class NMSigningData(
-        val signerCertificate: X509Certificate,
-        val parentCertsChain: List<X509Certificate>,
-        val signature: ByteArray
-)
+public final class NMSigningData {
 
-enum class SigningStatus { PENDING, COMPLETED, CANCELLED }
+    /**
+     * Returns signed material's certificate
+     */
+    @Nonnull
+    public final X509Certificate getSignerCertificate();
+
+    /**
+     * Returns list of all the parent certificates of the material
+     */
+    @Nonnull
+    public final List<X509Certificate> getParentCertsChain();
+
+    /**
+     * Returns raw signature
+     */
+    @Nonnull
+    public final byte[] getSignature();
+
+    /**
+     * Constructs an object.
+     * All parameters should be not null otherwise {@link IllegalArgumentException} is thrown.
+     *
+     * @param signerCertificate Signed material's certificate
+     * @param parentCertsChain  List of all the parent certificates of the material
+     * @param signature         Raw signature
+     */
+    public NMSigningData(
+        @Nonnull X509Certificate signerCertificate,
+        @Nonnull List<X509Certificate> parentCertsChain,
+        @Nonnull byte[] signature
+    );
+}
 ```
 
-{{/* /en/docs/cenm/1.2/smr-plugin-api/src/main/kotlin/com/r3/enm/smrpluginapi/SigningPluginResponses.kt */}}
+### Default Signing Plugins
+SMR ships with plugins for the CENM provided Signing Service. The only requirement is to provide
+                    the plugins’ JAR paths, classes to instantiate and configurations.
 
-### Default Signing Plugin
-SMR ships with a plugin for the CENM provided Signing ServiceThe only requirement is to provide
-                    the plugin’s JAR path. The plugin class name to configure is always `com.r3.enm.smrplugins.defaultplugin.SMRSigningPlugin`.
 
-This default plugin also has its own simple configuration which defines the port the SMR will
-                    bind to for the Signing Service to connect to. Here is example plugin configuration:
+#### CA Default Signing Plugin
+The CA plugin class name to configure is always `com.r3.enm.smrplugins.defaultplugin.ca.CASMRSigningPlugin`.
+
+This default plugin also has its own simple configuration which defines the port the SMR will bind to for the Signing
+                        Service to connect to.
+
+Here is example CA default plugin’s configuration:
 
 ```docker
 enmListener = {
@@ -1566,8 +1844,34 @@ enmListener = {
 ```
 
 {{< note >}}
-Plugin’s configuration file must be in same directory as plugin’s JAR file and must be named “plugin.conf”
+CA Plugin’s configuration file must be in same directory as plugin’s JAR file and must be named
+                            “plugin-ca.conf”
 
 
 {{< /note >}}
+
+#### Non CA Default Signing Plugin
+The non CA plugin class name to configure is always `com.r3.enm.smrplugins.defaultplugin.nonca.NonCASMRSigningPlugin`.
+
+This default plugin also has its own simple configuration which defines the port the SMR will bind to for the Signing
+                        Service to connect to.
+
+Here is example non CA default plugin’s configuration:
+
+```docker
+enmListener = {
+    port = 5011
+}
+```
+
+{{< note >}}
+Non CA Plugin’s configuration file must be in same directory as plugin’s JAR file and must be named
+                            “plugin-non-ca.conf”
+
+
+{{< /note >}}
+
+### Other Sample Plugins
+See [EJBCA Sample Plugin]({{< relref "ejbca-plugin" >}}) for sample open source CA implementation.
+
 

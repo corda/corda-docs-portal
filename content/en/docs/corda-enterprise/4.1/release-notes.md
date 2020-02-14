@@ -31,8 +31,6 @@ There is a bug in Corda 3.3 that causes problems when receiving a `FungibleState
 
 {{< /warning >}}
 
-{{< toc >}}
-
 ## Changes for developers in Corda 4
 
 ### Reference states

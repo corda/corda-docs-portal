@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Deterministic JVM
 
-{{< toc >}}
-
 ## Introduction
 It is important that all nodes that process a transaction always agree on whether it is valid or not. Because
                 transaction types are defined using JVM byte code, this means that the execution of that byte code must be fully

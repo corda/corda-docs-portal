@@ -5,8 +5,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Deploying Corda to Corda Testnet from a Google Cloud Platform VM
-
-{{< toc >}}
 This document explains how to deploy a Corda node to Google Cloud Platform that can connect directly to the Corda Testnet. A self service download link can be obtained from [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet). This document will describe how to set up a virtual machine on the Google Cloud Platform (GCP) to deploy your pre-configured Corda node and automatically connnect to Testnet.
 
 

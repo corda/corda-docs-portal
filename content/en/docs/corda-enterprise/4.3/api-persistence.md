@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # API: Persistence
-
-{{< toc >}}
 Corda offers developers the option to expose all or some parts of a contract state to an *Object Relational Mapping*
             (ORM) tool to be persisted in a *Relational Database Management System* (RDBMS).
 

@@ -61,8 +61,8 @@ We create a mock network in our `@Before` setup method and create a couple of no
 Next, we write a test case:
 
 ```kotlin
-@Test
-fun `resolve from two hashes`() {
+@Test(timeout=300_000)
+ `resolve from two hashes`() {
     val (stx1, stx2) = makeTransactions()
     val p = TestFlow(setOf(stx2.id), megaCorp)
     val future = miniCorpNode.startFlow(p)

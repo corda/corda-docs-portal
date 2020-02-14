@@ -13,8 +13,6 @@ Before reading this page, you should be familiar with the key concepts of [Trans
 
 {{< /note >}}
 
-{{< toc >}}
-
 ## Transaction lifecycle
 Between its creation and its final inclusion on the ledger, a transaction will generally occupy one of three states:
 

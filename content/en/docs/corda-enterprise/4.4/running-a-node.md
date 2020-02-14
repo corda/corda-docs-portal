@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Running nodes locally
 
-{{< toc >}}
-
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
                 [Creating nodes locally]({{< relref "generating-a-node" >}}).

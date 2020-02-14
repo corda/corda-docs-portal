@@ -7,8 +7,6 @@ date: 2020-01-08T09:59:25Z
 
 # Setting up a dynamic compatibility zone
 
-{{< toc >}}
-
 ## Do you need to create your own dynamic compatibility zone?
 By *dynamic compatibility zone*, we mean a compatibility zone that relies on a network map server to allow nodes to
                 join dynamically, instead of requiring each node to be bootstrapped and have the node-infos distributed manually. While

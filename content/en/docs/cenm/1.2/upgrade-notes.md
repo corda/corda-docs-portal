@@ -12,8 +12,6 @@ These notes provide instructions for upgrading your network management (Doorman,
 We also strongly recommend cross referencing with the [Changelog]({{< relref "changelog" >}}) to confirm changes.
 
 
-{{< toc >}}
-
 ## 1.1 to 1.2
 > 
 > No upgrade is required.
@@ -95,7 +93,7 @@ database {
 * **Config Files**
 
 CENM 1.0 Identity Manager and Network Map services are not backwards compatible with 0.x Doorman and Network Map
-                        config files. 0.2.2 and 0.3 / 0.4 config files can be migrated to 1.0 using the :docs:`tool-config-migration`.
+                        config files. 0.2.2 and 0.3 / 0.4 config files can be migrated to 1.0 using the [Config migration tool]({{< relref "tool-config-migration" >}}).
                         Using the generated 1.0 configs, the services can be upgraded by: stopping the services, swapping out the JAR and
                         config files and restarting the services.
 

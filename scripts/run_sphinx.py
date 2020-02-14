@@ -5,6 +5,7 @@ import os
 import shutil
 import sys
 import re
+import argparse
 from pathlib import Path
 
 from sphinx.cmd.build import main as sphinx_main
@@ -17,7 +18,7 @@ ROOT = os.path.dirname(THIS_DIR)
 REPOS = os.path.join(ROOT, "repos")
 CONTENT = os.path.join(ROOT, "content")
 LOG = logging.getLogger(__name__)
-
+ARGS = None
 
 #  Loosely based on https://github.com/sixty-north/rst_to_md/
 #  Getting this working inside sphinx and *debugging* is poorly documented
@@ -298,7 +299,8 @@ class Translator:
     def visit_topic(self, node):
         if node.attrib.get('names', '') == 'contents':
             # replace table of contents with hugo version
-            self.top.put_body('\n{{< toc >}}\n')
+            if ARGS.toc:
+                self.top.put_body('\n{{< toc >}}\n')
             self.push_context(Context())
         else:
             self.top.put_body("\n{{< topic >}}")
@@ -845,7 +847,13 @@ def copy_resources_to_content():
     LOG.warning(f"Copied resources")
 
 
-if __name__ == '__main__':
+def main():
+    global ARGS
+    desc = "Convert rst files to md using sphinx"
+    parser = argparse.ArgumentParser(description=desc)
+    parser.add_argument("--toc", "-t", help="include table of contents in the page", default=False, type=bool)
+    ARGS = parser.parse_args()
+
     _setup_logging()
 
     LOG.warning(f"You need to clone the repositories you wish to convert to {REPOS}")
@@ -864,3 +872,7 @@ if __name__ == '__main__':
 
     copy_to_content()
     copy_resources_to_content()
+
+
+if __name__ == '__main__':
+    main()

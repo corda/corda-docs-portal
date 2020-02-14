@@ -7,8 +7,6 @@ date: 2020-01-08T09:59:25Z
 
 # Network certificates
 
-{{< toc >}}
-
 ## Certificate hierarchy
 A Corda network has three types of certificate authorities (CAs):
 

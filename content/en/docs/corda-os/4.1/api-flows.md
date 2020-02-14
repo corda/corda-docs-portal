@@ -13,8 +13,6 @@ Before reading this page, you should be familiar with the key concepts of [Flows
 
 {{< /note >}}
 
-{{< toc >}}
-
 ## An example flow
 Before we discuss the API offered by the flow, let’s consider what a standard flow may look like.
 

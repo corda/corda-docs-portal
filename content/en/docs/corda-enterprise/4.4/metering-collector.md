@@ -15,8 +15,6 @@ The tool is distributed as part of Corda Enterprise 4.4 with the name “corda-t
 Note that Corda Enterprise nodes record metering data regardless of whether this tool is installed.
 
 
-{{< toc >}}
-
 ## Metering Data
 Metering within Corda Enterprise is based on the signing of transactions. The act of signing over a transaction is referred to as a
                 *signing event*. Whenever a signing event occurs, a small piece of data is recorded by the node. This describes which entity signed the

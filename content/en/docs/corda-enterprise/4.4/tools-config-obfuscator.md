@@ -5,13 +5,13 @@ date: 2020-01-08T09:59:25Z
 
 
 # Configuration Obfuscator
-Corda ships with a command-line tool for obfuscating configuration files. An obfuscated file is usable
-            by a Corda node running on a machine with a hardware address matching the one used as input in the obfuscation.
+The purpose of this tool is to obfuscate sensitive information in configuration files. The Obfuscator tool takes
+            a seed and a passphrase as input to obfuscate a given config file. Processes that accept obfuscated config
+            must be provided the same seed and passphrase to deobfuscate the configuration.
 
 
 {{< note >}}
-The purpose of this tool is to obfuscate sensitive information in configuration files and thus make a
-                node installation less vulnerable to someone trawling plain text files searching for passwords and
+The tool makes node installation less vulnerable to someone trawling plain text files searching for passwords and
                 credentials of resources that they should not have access to in the first place.
 
 
@@ -21,31 +21,36 @@ The purpose of this tool is to obfuscate sensitive information in configuration 
 This feature will not make password protection completely secure. However, it will protect the node
                 against trawling attacks.
 
+It is also recommended to use the most up to date version of this tool for improved security.
+
 
 {{< /warning >}}
 
 ## Using the command-line tool
 The command-line tool is included as a JAR file, named `corda-tools-config-obfuscator-<version>.jar`.
                 This tool takes as input the configuration file that we want to obfuscate, denoted `CONFIG_FILE` in
-                the usage screen. If we want to override the hardware address that is used for processing, we can do so
-                by passing in the one to use in a hexadecimal format, where each byte is delimited by a *colon*, *e.g.*,
-                `01:02:03:04:05:06`. This is helpful if we want to prepare a configuration file that will be used on
-                a production server and to which we know the hardware address.
+                the usage screen. The Tool takes the seed and the passphrase as inputs.
 
+
+{{< warning >}}
+For backwards compatibility reasons, the seed and passphrase have default values and can be omitted.
+                    However, to gain the benefits of obfuscated configuration files, the seed and passphrase must be set.
+
+
+{{< /warning >}}
 ```bash
-config-obfuscator [-hiV] [-w[=<writeToFile>]] CONFIG_FILE [HARDWARE_ADDRESS]
+config-obfuscator [-hiV] [--config-obfuscation-passphrase[=<cliPassphrase>]]
+                  [--config-obfuscation-seed[=<cliSeed>]] [-w[=<writeToFile>]]
+                  [--logging-level=<loggingLevel>] CONFIG_FILE
+                  [HARDWARE_ADDRESS]
 ```
 
 
 Where:
 
 * `CONFIG_FILE` is the configuration file to obfuscate.
-
-
-* `HARDWARE_ADDRESS` is the primary hardware address of the machine on
-                                    which the configuration file resides. By default, the MAC address of the
-                                    running machine will be used. Supplying `DEFAULT` will explicitly
-                                    use the default value.
+                                    - `--config-obfuscation-passphrase[=<cliPassphrase>]` The passphrase used in the key derivation function when generating an AES key. Leave blank to provide input interactively.
+                                    - `--config-obfuscation-seed[=<cliSeed>]` The seed used in the key derivation function to create a salt. Leave blank to provide input interactively.
 
 
 * `-w=[<writeToFile>]` is a flag to indicate that the tool should write the obfuscated output to
@@ -62,6 +67,19 @@ Where:
 * `-V`, `--version` is a flag used to print version information and exit.
 
 
+> 
+> The following options provide backwards compatibility, but should not be used in cases where backwards compatibility is not required.
+> 
+> > 
+> > 
+> > * 
+> > 
+> > `HARDWARE_ADDRESS` is the primary hardware address of the machine on
+> > which the configuration file resides. By default, the MAC address of the
+> >                                                         running machine will be used. Supplying `DEFAULT` will explicitly
+> >                                                         use the default value.
+> > 
+> > 
 Note that, by default, the tool only prints out the transformed configuration to the terminal for
                 verification. To persist the changes, we need to use the `-w` flag, which ensures that the obfuscated
                 content gets written back into the provided configuration file.
@@ -148,11 +166,6 @@ These directives can be placed arbitrarily within string properties in the confi
 * The `<encrypt{}>` blocks can only appear inside string properties. They cannot be used to obfuscate entire
                         configuration blocks. Otherwise, the node will not be able to decipher the obfuscated content. More explicitly,
                         this means that the blocks can only appear on the right hand-side of the colon, and for string properties only
-
-
-* The Configuration Obfuscator tool is only suitable for bare-metal deployments. It is not suitable for environments
-                        where MAC addresses change regularly, such as inside Docker. In containerised environments, the ‘secrets’ service
-                        of the container platform should be used instead, with the secrets passed in via environment variables
 
 
 

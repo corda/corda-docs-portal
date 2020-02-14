@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Firewall upgrade
 
-{{< toc >}}
-
 ## Introduction
 Corda Firewall 4.x brings with it an few changes, some related to deployment and configuration. The first part of the guide
                 covers the upgrade of existing firewall deployments, from the simplest operating mode to the full HA DMZ ready mode. For

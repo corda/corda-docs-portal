@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Enterprise Network Manager Quick-Start Guide
 
-{{< toc >}}
-
 ## Overview
 The following is a simple step by step guide for creating a subzone, consisting of an **Identity Manager service**,
                 **Network Map service** and **Notary node**.

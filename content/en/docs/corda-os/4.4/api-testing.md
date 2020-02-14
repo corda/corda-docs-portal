@@ -7,8 +7,6 @@ date: 2020-01-08T09:59:25Z
 
 # API: Testing
 
-{{< toc >}}
-
 ## Flow testing
 
 ### MockNetwork
@@ -449,8 +447,8 @@ The `ServiceHub.ledger` extension function allows you to create a test ledger. W
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun simpleCPMoveSuccess() {
+@Test(timeout=300_000)
+ simpleCPMoveSuccess() {
     val inState = getPaper()
     ledgerServices.ledger(dummyNotary.party) {
         transaction {
@@ -507,8 +505,8 @@ In order to test for failures, you can use the `failsWith` method, or in Kotlin 
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun simpleCPMoveFails() {
+@Test(timeout=300_000)
+ simpleCPMoveFails() {
     val inState = getPaper()
     ledgerServices.ledger(dummyNotary.party) {
         transaction {
@@ -565,8 +563,8 @@ Within a single transaction block, you can assert several times that the transac
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun simpleCPMoveFailureAndSuccess() {
+@Test(timeout=300_000)
+ simpleCPMoveFailureAndSuccess() {
     val inState = getPaper()
     ledgerServices.ledger(dummyNotary.party) {
         transaction {
@@ -618,8 +616,8 @@ You can also use the `tweak` function to create a locally scoped transaction tha
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun `simple issuance with tweak and top level transaction`() {
+@Test(timeout=300_000)
+ `simple issuance with tweak and top level transaction`() {
     ledgerServices.transaction(dummyNotary.party) {
         output(CP_PROGRAM_ID, "paper", getPaper()) // Some CP is issued onto the ledger by MegaCorp.
         attachments(CP_PROGRAM_ID)
@@ -678,8 +676,8 @@ The following example shows that within a `ledger`, you can create more than one
 
 {{% tab name="kotlin" %}}
 ```kotlin
-@Test
-fun `chain commercial paper double spend`() {
+@Test(timeout=300_000)
+ `chain commercial paper double spend`() {
     val issuer = megaCorp.party.ref(123)
     ledgerServices.ledger(dummyNotary.party) {
         unverifiedTransaction {

@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Node configuration
 
-{{< toc >}}
-
 ## Configuration file location
 When starting a node, the `corda.jar` file defaults to reading the node’s configuration from a `node.conf` file in the directory from which the command to launch Corda is executed.
                 There are two command-line options to override this behaviour:
@@ -503,6 +501,14 @@ If the node is part of a distributed cluster, specify the legal name of the clus
 *Default:* not defined
 
 
+etaMessageThresholdSeconds
+If the wait time estimate on the internal queue exceeds this value, the notary may send
+                                        a wait time update to the client (implementation specific and dependent on the counter
+                                        party version).
+
+*Default:* Implementation dependent
+
+
 raft
 *(Experimental)* If part of a distributed Raft cluster, specify this configuration object with the following settings:
 
@@ -725,7 +731,7 @@ The port to start SSH server on e.g. `sshd { port = 2222 }`.
 
 systemProperties
 An optional map of additional system properties to be set when launching via `corda.jar` only.
-                            Keys and values of the map should be strings. e.g. `systemProperties = { visualvm.display.name = FooBar }`
+                            Keys and values of the map should be strings. e.g. `systemProperties = { "visualvm.display.name" = FooBar }`
 
 *Default:* not defined
 

@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 
 # Node shell
-
-{{< toc >}}
 The Corda shell is an embedded or standalone command line that allows an administrator to control and monitor a node. It is based on
             the [CRaSH](http://www.crashub.org/) shell and supports many of the same features. These features include:
 

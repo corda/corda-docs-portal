@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Public Key Infrastructure (PKI) Tool
 
-{{< toc >}}
-
 ## Overview
 As described in the [Certificate Hierarchy Guide]({{< relref "pki-guide" >}}), a certificate hierarchy with certain properties is required to run a Corda
                 network. Specifically, the certificate hierarchy should include the two main CENM entities - the Identity Manager and

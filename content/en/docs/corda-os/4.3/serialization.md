@@ -7,8 +7,6 @@ date: 2020-01-08T09:59:25Z
 
 # Object serialization
 
-{{< toc >}}
-
 ## Introduction
 Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse
                 process of creating objects from a stream of bytes.  It takes place every time nodes pass objects to each other as

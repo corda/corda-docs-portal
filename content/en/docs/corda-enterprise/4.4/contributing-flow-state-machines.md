@@ -28,8 +28,8 @@ The recommended way to test flows and the state machine is using the Driver DSL.
 
 {{% tab name="kotlin" %}}
 ```kotlin
-    @Test
-    fun summingWorks() {
+    @Test(timeout=300_000)
+	fun summingWorks() {
         driver(DriverParameters(startNodesInProcess = true, cordappsForAllNodes = listOf(cordappWithPackages("net.corda.docs.kotlin.tutorial.flowstatemachines")))) {
             val aliceUser = User("aliceUser", "testPassword1", permissions = setOf(Permissions.all()))
             val alice = startNode(providedName = ALICE_NAME, rpcUsers = listOf(aliceUser)).getOrThrow()

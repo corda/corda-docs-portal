@@ -19,7 +19,7 @@ SMR extracts signable material from the Identity Manager and Network Map service
                     external signing infrastructure and return signed material back to SMR to pass to the
                     relevant CENM service.
 
-See [Signing Services]({{< relref "signing-service" >}}) for more details.
+See [Signing Services]({{< relref "signing-service" >}}) for more details. Also see [EJBCA Sample Plugin]({{< relref "ejbca-plugin" >}}) for a sample open source CA implementation.
 
 
 ### Minor Features
@@ -83,6 +83,14 @@ For high availability (HA) notaries only, the network map will now fetch the nod
 
 * Bug fix: Certificate name rules are now enforced during issuance in accordance with Corda network rules,
                             previously it was possible to register nodes with names which the node cannot use.
+
+
+* Registration Web Service (CSR and CRL) was returning incorrect HTTP Error Code 500 instead of 400
+                            for requests with invalid client version or platform version.
+
+
+* Improved logs created by Registration Web Service - request validation exceptions (e.g. invalid character in a subject name,
+                            invalid platform version) are now logged with WARN level instead of ERROR level.
 
 
 

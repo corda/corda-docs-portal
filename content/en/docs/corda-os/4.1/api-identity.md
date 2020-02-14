@@ -7,8 +7,6 @@ date: 2020-01-08T09:59:25Z
 
 # API: Identity
 
-{{< toc >}}
-
 ## Party
 Parties on the network are represented using the `AbstractParty` class. There are two types of `AbstractParty`:
 

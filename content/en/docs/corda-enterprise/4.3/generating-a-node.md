@@ -6,8 +6,6 @@ date: 2020-01-08T09:59:25Z
 
 # Creating nodes locally
 
-{{< toc >}}
-
 ## Handcrafting a node
 A node can be created manually by creating a folder that contains the following items:
 
