@@ -32,6 +32,18 @@
   margin-bottom: 0;
   list-style: none;
 }
+.r3-o-sidebar__nav-toggle {
+  line-height: 1;
+  color: #53585F;
+}
+.r3-o-sidebar__nav-toggle:hover {
+  color: red;
+}
+@media screen and (min-width: 769px) {
+  .r3-o-sidebar__nav-content {
+    display: block !important;
+  }
+}
 
 .r3-o-selected-page {
   background-color: #D6D463;
