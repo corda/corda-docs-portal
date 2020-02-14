@@ -22,22 +22,30 @@ If you are on linux or MacOS:
 ```
 $ make help
 
-docker-image         Build hugo docker image
-docker-build         Run hugo build in docker
-docker-serve         Serve site from docker
+local-serve          Build and serve hugo locally from memory or just use 'hugo' directly
+local-build          Build the site (once only into public/) or just use 'hugo' directly
+hugo-docker-image    Build hugo docker image
+hugo-build           Run hugo build in docker (once only, into public/)
+hugo-serve           Serve site from docker
+prod-hugo-build      Prod build, minimal size
+prod-docker-image    Create the prod docker image
+prod-docker-serve    Run the nginx container locally on port 8888
+deploy               Build site, and deploy docker image to registry - MAIN TARGET
 ```
 
-Run `make docker-image` to create a Hugo image, and then
+Run `make local-build` to create a Hugo image, and then
 
 ```
-make docker-serve
+make local-serve
 ```
 
 to self-host the site with live reload.
 
+The `deploy` target is covered in the CI section below.
+
 #### Windows
 
-Install hugo locally and ensure it's on your path.  
+Install hugo locally and ensure it's on your path (see tbe Native section below).  
 
 In principle `docker` should work in a WSL session but I haven't tested it yet.  Same instructions as above.
 
@@ -61,6 +69,26 @@ hugo serve
 to run and serve the site on http://localhost:1313
 
 
+### CI/Jenkins
+
+The `deploy` target does everything and is intended to be run in the CI system (Jenkins), but can be run locally.  It:
+
+* builds a Docker image with `hugo`
+* runs the `hugo` docker image to produce the site in `/public`
+* builds a Docker image of `nginx` containing the content of `/public`
+* attempts to `docker push` to whatever Docker regisitry *you are currenty logged in to
+
+In principle, `docker push` should fail on your desktop at the final stage.
+
+As a developer your probably just want to run:
+
+```
+make prod-docker-image
+make prod-docker-serve
+```
+
+to run and test the `nginx` image on your desktop.
+
 ##  Gotchas
 
 * Index pages should be `_index.md` otherwise subpages don't get rendered.
@@ -68,6 +96,8 @@ to run and serve the site on http://localhost:1313
 
 
 ## Regenerating the pages
+
+This section will be removed.
 
 Note:  you should install python 3, and ensure you have created a virtual env and activated it.
 
