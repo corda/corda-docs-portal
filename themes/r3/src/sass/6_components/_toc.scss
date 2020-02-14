@@ -1,0 +1,22 @@
+$toc-object: "#{$class-object-prefix}toc";
+
+.#{$toc-object} {
+    order: 1;
+
+    h5 {
+        margin-bottom: 20px;
+        padding-left: 22px;
+    }
+
+    @media screen and (min-width: 769px) {
+        order: 0;
+    }
+
+    @media screen and (min-width: 992px) {
+        h5 {
+            text-align: center;
+            padding-left: 0;
+        }
+      }
+
+}

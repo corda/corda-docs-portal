@@ -7,6 +7,7 @@
         <div class="container-fluid">
             <div class="row flex-xl-nowrap">
                 {{- partial "sidebar.html" . -}}
+                {{- partial "toc.html" . -}}
                 {{- block "main" . -}}{{- end -}}
             </div>
         </div>

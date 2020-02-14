@@ -71,4 +71,23 @@ footer {
   margin-top: 25px;
 }
 
+.r3-o-toc {
+  order: 1;
+}
+.r3-o-toc h5 {
+  margin-bottom: 20px;
+  padding-left: 22px;
+}
+@media screen and (min-width: 769px) {
+  .r3-o-toc {
+    order: 0;
+  }
+}
+@media screen and (min-width: 992px) {
+  .r3-o-toc h5 {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
 /*# sourceMappingURL=main.css.map*/

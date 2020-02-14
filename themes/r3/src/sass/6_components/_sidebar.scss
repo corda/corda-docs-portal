@@ -1,7 +1,7 @@
-$navbar-object: "#{$class-object-prefix}sidebar";
+$sidebar-object: "#{$class-object-prefix}sidebar";
 $selected-page: "#{$class-object-prefix}selected-page";
 
-.#{$navbar-object} {
+.#{$sidebar-object} {
     display: flex;
     flex-direction: column;
 
