@@ -1,16 +1,98 @@
-<div id="sidebar" class="col-md-12 r3-o-sidebar">
-    <nav>
-        {{- partial "api.html" . -}}
-    </nav>
-    <nav class="" id="bd-docs-nav">
-        <hr />
-        <div class="">
-        {{- .Page.TableOfContents -}}
+<div class="r3-o-wrapper-side col-md-3 col-lg-2">
+    <div id="sidebar" class="r3-o-sidebar d-flex">
+        <div class="row">
+            {{ partial "search.html" . }}
+            <button
+                class="btn btn-link r3-o-sidebar__nav-toggle d-md-none pt-1 pr-1 col-1"
+                type="button"
+                data-toggle="collapse"
+                data-target="#r3-docs-nav"
+                aria-controls="bd-docs-nav"
+                aria-expanded="false"
+                aria-label="Toggle docs navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
+                    <title>Menu</title>
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
+                </svg>
+            </button>
         </div>
-    </nav>
-    <nav>
-        <div>
-            {{- partialCached "sections-tree" . -}}
-        </div>
-    </nav>
+
+        <nav
+            class="collapse r3-o-sidebar__nav-content"
+            id="r3-docs-nav"
+            aria-label="Main navigation">
+            <nav class="r3-o-sidebar__navbar-nav">
+                {{- partial "api.html" . -}}
+            </nav>
+            <nav>
+                <div>
+                    {{- partialCached "sections-tree" . -}}
+                </div>
+            </nav>
+        </nav>
+
+
+
+        <!--
+
+        <nav class="navbar navbar-expand-md navbar-light">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+                class="collapse
+                navbar-collapse"
+                id="navbarNav">
+                <nav class="r3-o-sidebar__navbar-nav">
+                    {{- partial "api.html" . -}}
+                </nav>
+                <nav>
+                    <div>
+                        {{- partialCached "sections-tree" . -}}
+                    </div>
+                </nav>
+            </div>
+        </nav>
+    -->
+
+        <!--
+            <form
+                role="search"
+                class="bd-search d-flex align-items-center">
+                <span
+                    class="algolia-autocomplete"
+                    style="position: relative; display: inline-block; direction: ltr;">
+                        <input
+                        type="search"
+                        class="form-control ds-input"
+                        id="search-input"
+                        placeholder="Search..."
+                        aria-label="Search for..."
+                        autocomplete="off"
+                        data-docs-version="4.4"
+                        spellcheck="false"
+                        role="combobox"
+                        aria-autocomplete="list"
+                        aria-expanded="false"
+                        aria-owns="algolia-autocomplete-listbox-0"
+                        dir="auto"
+                        style="position: relative; vertical-align: top;">
+                            <pre aria-hidden="true"
+                                style="position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+                    <span
+                        class="ds-dropdown-menu"
+                        role="listbox"
+                        id="algolia-autocomplete-listbox-0"
+                        style="position: absolute; top: 100%; z-index: 100; left: 0px; right: auto; display: none;">
+                            <div class="ds-dataset-1"></div>
+                    </span>
+                </span>
+            </form> -->
+
+
+    </div>
 </div>

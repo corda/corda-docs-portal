@@ -1,9 +1,32 @@
-$navbar-object: "#{$class-object-prefix}sidebar";
+$sidebar-object: "#{$class-object-prefix}sidebar";
 $selected-page: "#{$class-object-prefix}selected-page";
 
-.#{$navbar-object} {
+.#{$sidebar-object} {
     display: flex;
     flex-direction: column;
+
+    &__navbar-nav {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+
+    &__nav-toggle {
+        line-height: 1;
+        color: #53585F;
+
+        &:hover {
+            color: red;
+        }
+    }
+
+    &__nav-content {
+        @media screen and (min-width: 769px) {
+           display: block !important;
+          }
+    }
 }
 
 .#{$selected-page} {

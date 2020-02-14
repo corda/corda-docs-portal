@@ -3,18 +3,15 @@
     {{ partial "head.html" . }}
     <body>
         <noscript>You need to enable javascript for this site</noscript>
-        {{- partial "navbar.html" . -}}
+        {{- partial "header.html" . -}}
         <div class="container-fluid">
-            <div class="main-wrapper row flex-xl-nowrap">            
-                <div class="col-md-9 p-4">
-                    {{- block "main" . -}}{{- end -}}
-                </div>
-                <div class="side-wrapper col-md-3">
-                    {{- partial "sidebar.html" . -}}
-                </div>
-            </div>                      
-            {{- partial "footer.html" . -}}            
+            <div class="row flex-xl-nowrap">
+                {{- partial "sidebar.html" . -}}
+                {{- partial "toc.html" . -}}
+                {{- block "main" . -}}{{- end -}}
+            </div>
         </div>
+        {{- partial "footer.html" . -}}
         {{- partial "scripts.html" . -}}
     </body>
 </html>

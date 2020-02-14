@@ -1,8 +1,8 @@
-<div id="git" class="col-sm-10 py-2 align-self-sm-center">
+<div id="git" class="col-6 col-md-9 col-lg-10 py-2 align-self-sm-center">
   <div class="row">
     <!-- This is at the bottom of every topic underneath the TOC and content -->
     {{ if and (not .Params.showcommit) $.GitInfo }}
-    <div class="d-sm-none d-lg-block col-lg-8 offset-lg-1" >
+    <div class="d-none d-lg-block col-lg-8 offset-lg-1" >
       {{ T "main_page_last_modified_on" }} {{ .GitInfo.AuthorDate.Format "January 02, 2006 at 3:04 PM PST" }}
       {{ T "main_by" }}
       <a href="{{ .Site.Params.github_repository }}/commit/{{ .GitInfo.Hash }}/">{{ .GitInfo.Subject }}</a> (<a
@@ -16,5 +16,5 @@
         class="button issue">{{ T "main_edit_this_page" }}</a>{{ end }}
       {{/* end */}}
     </div>
-  </div> 
+  </div>
 </div>
