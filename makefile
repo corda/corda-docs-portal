@@ -59,7 +59,7 @@ prod-docker-serve: prod-docker-image ## Run the nginx container locally on port 
 #######################################################################################################################
 #  Main target for CI:
 
-deploy: prod-docker-image ## Build site, and deploy docker image to registry - MAIN TARGET
+publish: prod-docker-image ## Build site, and publish docker image to registry - MAIN TARGET
 	$(DOCKER) push $(PROD_IMAGE)
 
 all: help

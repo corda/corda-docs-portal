@@ -30,7 +30,7 @@ hugo-serve           Serve site from docker
 prod-hugo-build      Prod build, minimal size
 prod-docker-image    Create the prod docker image
 prod-docker-serve    Run the nginx container locally on port 8888
-deploy               Build site, and deploy docker image to registry - MAIN TARGET
+publish               Build site, and publish docker image to registry - MAIN TARGET
 ```
 
 Run `make local-build` to create a Hugo image, and then
@@ -41,7 +41,7 @@ make local-serve
 
 to self-host the site with live reload.
 
-The `deploy` target is covered in the CI section below.
+The `publish` target is covered in the CI section below.
 
 #### Windows
 
@@ -71,7 +71,7 @@ to run and serve the site on http://localhost:1313
 
 ### CI/Jenkins
 
-The `deploy` target does everything and is intended to be run in the CI system (Jenkins), but can be run locally.  It:
+The `publish` target does everything and is intended to be run in the CI system (Jenkins), but can be run locally.  It:
 
 * builds a Docker image with `hugo`
 * runs the `hugo` docker image to produce the site in `/public`
