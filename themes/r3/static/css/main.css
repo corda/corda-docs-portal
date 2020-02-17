@@ -54,6 +54,13 @@
 .r3-o-navbar {
   background-color: #53585F;
 }
+.r3-o-navbar ul {
+  flex-direction: row;
+}
+.r3-o-navbar ul li a {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+}
 
 footer {
   background-color: #53585F;

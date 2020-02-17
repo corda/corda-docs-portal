@@ -2,5 +2,15 @@ $navbar-object: "#{$class-object-prefix}navbar";
 
 .#{$navbar-object} {
     background-color: #53585F;
+
+    ul {
+        flex-direction: row;
+
+        li a {
+            padding-right: .5rem !important;
+            padding-left: .5rem !important;
+        }
+    }
+        
 }
 
