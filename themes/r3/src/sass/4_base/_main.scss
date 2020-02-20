@@ -8,7 +8,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
   background-color: #f7fafc;
   order: 2;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 991px) {
     order: 0;
   }
 }
