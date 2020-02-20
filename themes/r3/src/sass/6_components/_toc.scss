@@ -2,7 +2,8 @@ $toc-object: "#{$class-object-prefix}toc";
 
 .#{$toc-object} {
     order: 1;
-    transition: transform 0.3s;
+    transition: transform 0.4s;
+    transition-timing-function: ease-out;
 
     h5 {
         margin-bottom: 20px;
