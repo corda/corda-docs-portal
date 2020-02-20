@@ -38,6 +38,10 @@ module.exports = [
               },
             }
           ]
+        },
+        {
+            test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+            loader: 'url-loader'
         }
       ]
     },

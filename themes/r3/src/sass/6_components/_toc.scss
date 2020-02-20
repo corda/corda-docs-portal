@@ -23,7 +23,6 @@ $toc-object: "#{$class-object-prefix}toc";
             path {
                 stroke: $primary-01;
             }
-
             &:hover path {
                 stroke: $primary-02;
             }
@@ -32,10 +31,6 @@ $toc-object: "#{$class-object-prefix}toc";
 
     nav {
         margin-top: 44px;
-    }
-
-    &.show-toc {
-        transform: translateX(100%);
     }
 
     @media screen and (min-width: 769px) {

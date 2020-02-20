@@ -27,10 +27,10 @@ $selected-page: "#{$class-object-prefix}selected-page";
 
 
     &__toc-toggle {
-        svg rect {
+        svg path {
             fill: $primary-01;
         }
-        svg:hover > rect  {
+        svg:hover > path  {
             fill: $primary-other-02;
         }
     }

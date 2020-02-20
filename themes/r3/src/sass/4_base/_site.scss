@@ -1,5 +1,3 @@
-
-
 .breadcrumb {
     font-size: small;
 }
@@ -47,7 +45,7 @@
 /* Create the caret/arrow with a unicode, and style it */
 
 .caret::before {
-    content: url("../images/corda-bullet.svg");
+    content: url("../../static/images/corda-bullet.svg");
     color: black;
     display: inline-block;
     margin-right: 6px;
