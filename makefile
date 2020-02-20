@@ -8,6 +8,8 @@ HUGO_DOCKER_IMAGE  = corda-docs-hugo
 PROD_IMAGE         = corda-docs-nginx
 PROD_IMAGE_TAG     = latest
 
+ALGOLIA_CONFIG    := $(shell jq -r tostring $(ROOT_DIR)/.ci/algolia.search.json)
+
 .PHONY: all local-build local-build-preview help serve hugo-build prod-hugo-build prod-docker-image
 
 # First target is executed if no args are passed
@@ -67,3 +69,14 @@ all: help
 
 clean: ## Remove (temp) repos
 	rm -rf $(ROOT_DIR)/repos $(ROOT_DIR)/public
+
+#######################################################################################################################
+# Must be an easier way - allegedly algolia doesn't like ports, so testing against localhost (on linux) means
+# we have to do this:
+#  https://serverfault.com/questions/112795/how-to-run-a-server-on-port-80-as-a-normal-user-on-linux
+#  then run hugo serve -D -F -p 8080
+# then this
+
+search-index: ## very basic scraping, needs dockerizing
+	echo $(ALGOLIA_CONFIG)
+	$(DOCKER) run --net host -e "APPLICATION_ID=$(ALGOLIA_APPLICATION_ID)" -e "API_KEY=$(ALGOLIA_API_ADMIN_KEY)" -e 'CONFIG=$(ALGOLIA_CONFIG)' algolia/docsearch-scraper
