@@ -4,6 +4,7 @@ $selected-page: "#{$class-object-prefix}selected-page";
 .#{$sidebar-object} {
     display: flex;
     flex-direction: column;
+    
 
     &__navbar-nav {
         display: flex;
@@ -13,12 +14,20 @@ $selected-page: "#{$class-object-prefix}selected-page";
         list-style: none;
     }
 
+
+
     &__nav-toggle {
         line-height: 1;
-        color: #53585F;
+        color: $primary-01;
+    }
 
-        &:hover {
-            color: red;
+
+    &__toc-toggle {
+        svg rect {
+            fill: $primary-01;
+        }
+        svg:hover > rect  {
+            fill: $primary-other-02;
         }
     }
 

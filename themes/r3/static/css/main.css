@@ -1,7 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600);
-/**
-* Shade Definitions
-*/
 .r3-o-wrapper-main {
   min-height: calc(100vh - 56px - 80px);
   order: 1;
@@ -34,10 +31,13 @@
 }
 .r3-o-sidebar__nav-toggle {
   line-height: 1;
-  color: #53585F;
+  color: #ec1d24;
 }
-.r3-o-sidebar__nav-toggle:hover {
-  color: red;
+.r3-o-sidebar__toc-toggle svg rect {
+  fill: #ec1d24;
+}
+.r3-o-sidebar__toc-toggle svg:hover > rect {
+  fill: #53585f;
 }
 @media screen and (min-width: 769px) {
   .r3-o-sidebar__nav-content {
