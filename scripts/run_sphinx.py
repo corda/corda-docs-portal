@@ -672,6 +672,12 @@ class Translator:
     def depart_button(self, node):
         self.top.put_body(f"</{node.tag}>")
 
+    def visit_toctree(self, node):
+            LOG.debug('Not implemented toctree')
+
+    def depart_toctree(self, node):
+            LOG.debug('Not implemented toctree')
+
 
 # NOT A CLASS MEMBER
 def visit_unsupported(self, node):
@@ -826,6 +832,44 @@ def copy_to_content():
     LOG.warning(f"Copied {len(files)} files")
 
 
+def copy_to_content():
+    LOG.warning("Copying all md to content/")
+
+    dirs = []
+    files = [x for x in Path(REPOS).rglob('xml/xml/**/*.md')]
+    for src in files:
+        dest = str(src).replace('docs/xml/xml/', '').replace(REPOS, CONTENT)
+        dest_filename = os.path.basename(dest)
+        index_md = os.path.join(os.path.dirname(dest), '_index.md')
+        if dest_filename == '_index.md':
+            LOG.warning(f"Copying {src} to {dest}")
+            dest = index_md # it was 'index.rst', copying to '_index.md'
+        elif dest_filename.endswith('index.md') and not os.path.exists(index_md):
+            # was something-index.rst, copying to _index.md
+            LOG.warning(f"Copying {src} to {dest}")
+            dest = index_md
+
+        if not os.path.exists(os.path.dirname(dest)):
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
+
+        LOG.debug(f"Copying {src} {dest}")
+        shutil.copyfile(src, dest)
+        if os.path.dirname(dest) not in dirs:
+            dirs.append(os.path.dirname(dest))
+
+    LOG.warning(f"Copied {len(files)} files")
+    add_missing_index_md_files(dirs)
+
+
+def add_missing_index_md_files(dirs):
+    for dir in dirs:
+        index_md = os.path.join(dir, '_index.md')
+        if not os.path.exists(index_md):
+            LOG.warning(f"Writing missing {index_md}")
+            with open(index_md, 'w') as f:
+                write_frontmatter(f, os.path.basename(dir))
+
+
 def copy_resources_to_content():
     LOG.warning("Copying all resources to content/")
 
@@ -851,7 +895,8 @@ def main():
     global ARGS
     desc = "Convert rst files to md using sphinx"
     parser = argparse.ArgumentParser(description=desc)
-    parser.add_argument("--toc", "-t", help="include table of contents in the page", default=False, type=bool)
+    parser.add_argument("--toc", "-t", help="include table of contents in the page", default=False, action='store_true')
+    parser.add_argument("--skip", "-s", help="skip rst conversion for speed if already done", default=False, action='store_true')
     ARGS = parser.parse_args()
 
     _setup_logging()
@@ -860,7 +905,10 @@ def main():
     LOG.warning(f"You also need to then git checkout the branch you want.")
     LOG.warning(f"There is a script that does this - get_repos.sh")
 
-    convert_rst_to_xml()
+    if not ARGS.skip:
+        convert_rst_to_xml()
+    else:
+        LOG.warning("Skipping rst-to-xml")
     convert_xml_to_hugo()
 
     # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/key-concepts-notaries.xml"
