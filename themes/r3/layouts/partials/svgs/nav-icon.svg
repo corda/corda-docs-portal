@@ -1,1 +1,120 @@
-<svg width="30" height="30" data-toggle="collapse" data-target="#r3-docs-nav"><path fill="none" d="M0 0h26v26H0z"/><path d="M2 6h24" stroke="#ec1d24" stroke-width="2" stroke-linecap="round"><animate dur="0.3s" begin="a.begin" attributeName="d" values="M2 6 l24 0; M2 6 l16 16" fill="freeze"/><animate dur="0.2s" begin="b.begin" attributeName="d" values="M2 6 l16 16; M2 6 l24 0" fill="freeze"/></path><path d="M2 14h24" stroke="#ec1d24" stroke-width="2" stroke-linecap="round"><animate attributeName="stroke-width" values="2;0" dur="0.1s" begin="a.begin" fill="freeze"/><animate attributeName="stroke-width" values="0;0;2" dur="0.2s" begin="b.begin" keyTimes="0; 0.8; 1" fill="freeze"/></path><path d="M2 22h24" stroke="#ec1d24" stroke-width="2" stroke-linecap="round"><animate dur="0.3s" begin="a.begin" attributeName="d" values="M2 22 l24 0; M2 22 l16 -16" fill="freeze"/><animate dur="0.2s" begin="b.begin" attributeName="d" values="M2 22 l16 -16; M2 22 l24 0" fill="freeze"/></path><path class="prefix__target" fill="none" d="M0 0h30v30H0z"><animate dur="0.01s" id="prefix__a" attributeName="height" values="30; 0" fill="freeze" begin="click"/><animate dur="0.01s" attributeName="height" values="0; 30" fill="freeze" begin="b.end"/></path><path class="prefix__target" fill="none" d="M0 0h30H0z"><animate dur="0.001s" id="prefix__b" attributeName="height" values="30; 0" fill="freeze" begin="click"/><animate dur="0.001s" attributeName="height" values="0; 30" begin="a.end" fill="freeze"/></path></svg>
+<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 30 30"
+                    width="30"
+                    height="30"
+                    version="1.1"
+                    data-toggle="collapse"
+                    data-target="#r3-docs-nav">
+                    <g>
+                        <rect
+                            width="26"
+                            height="26"
+                            fill-opacity="0" />
+                        <!-- top line of trigram -->
+                        <path
+                            d="M2 6 l24 0"
+                            stroke="#ec1d24"
+                            stroke-width="2"
+                            stroke-linecap="round">
+                            <animate
+                                dur="0.3s"
+                                begin="startAnimation.begin"
+                                attributeName="d"
+                                values="M2 6 l24 0; M2 6 l16 16"
+                                fill="freeze" />
+                            <animate
+                                dur="0.2s"
+                                begin="reverseAnimation.begin"
+                                attributeName="d"
+                                values="M2 6 l16 16; M2 6 l24 0"
+                                fill="freeze" />
+                        </path>
+                        <!-- middle line of trigram -->
+                        <path
+                            d="M2 14 l24 0"
+                            stroke="#ec1d24"
+                            stroke-width="2"
+                            stroke-linecap="round">
+                            <animate
+                                attributeName="stroke-width"
+                                values="2;0"
+                                dur="0.1s"
+                                begin="startAnimation.begin"
+                                fill="freeze"/>
+                                <animate
+                                attributeName="stroke-width"
+                                values="0;0;2"
+                                dur="0.2s"
+                                begin="reverseAnimation.begin"
+                                keyTimes="0; 0.8; 1"
+                                fill="freeze"/>
+                            </path>
+                            <!-- bottom line of trigarm-->
+                            <path
+                                d="M2 22 l24 0"
+                                stroke="#ec1d24"
+                                stroke-width="2"
+                                stroke-linecap="round">
+                                <animate
+                                    dur="0.3s"
+                                    begin="startAnimation.begin"
+                                    attributeName="d"
+                                    values="M2 22 l24 0; M2 22 l16 -16"
+                                    fill="freeze" />
+                                    <animate
+                                    dur="0.2s"
+                                    begin="reverseAnimation.begin"
+                                    attributeName="d"
+                                    values="M2 22 l16 -16; M2 22 l24 0"
+                                    fill="freeze" />
+                            </path>
+
+                        </g>
+                    <!--  controls -->
+                    <!-- these are on top of the visible circle.  Their radius changes depending on which is active
+                    Opacity is set to 0 so you can't see them-->
+                    <rect
+                        x="-2"
+                        y="-2"
+                        width="34"
+                        height="34"
+                        fill-opacity="0"
+                        class="target">
+                        <animate
+                            dur="0.01s"
+                            id="startAnimation"
+                            attributeName="height"
+                            values="34; 0"
+                            fill="freeze"
+                            begin="click" />
+                        <animate
+                            dur="0.01s"
+                            attributeName="height"
+                            values="0; 34"
+                            fill="freeze"
+                            begin="reverseAnimation.end" />
+                    </rect>
+                    <rect
+                        x="-2"
+                        y="-2"
+                        width="34"
+                        height="0"
+                        fill-opacity="0"
+                        class="target">
+                        <animate
+                            dur="0.001s"
+                            id="reverseAnimation"
+                            attributeName="height"
+                            values="34; 0"
+                            fill="freeze"
+                            begin="click" />
+                        <animate
+                            dur="0.001s"
+                            attributeName="height"
+                            values="0; 34"
+                            begin="startAnimation.end"
+                            fill="freeze"  />
+                    </rect>
+                </svg>

@@ -40,7 +40,7 @@ module.exports = [
           ]
         },
         {
-            test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+            test: /\.(png|svg)$/,
             loader: 'url-loader'
         }
       ]

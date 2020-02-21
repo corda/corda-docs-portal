@@ -1,7 +1,10 @@
 $navbar-object: "#{$class-object-prefix}navbar";
 
 .#{$navbar-object} {
-    background-color: #53585F;
+    background-image: url("../../static/images/corda-banner.png");
+    background-position: 60% 0%;
+    background-attachment: fixed;
+
 
     ul {
         flex-direction: row;
@@ -11,6 +14,6 @@ $navbar-object: "#{$class-object-prefix}navbar";
             padding-left: .5rem !important;
         }
     }
-        
+
 }
 

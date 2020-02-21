@@ -30,6 +30,7 @@ $toc-object: "#{$class-object-prefix}toc";
     }
 
     nav {
+        font-size: 14px;
         margin-top: 44px;
     }
 
@@ -44,7 +45,8 @@ $toc-object: "#{$class-object-prefix}toc";
         display: block !important;
         height: 100%;
         left: -41%;
-        position: absolute !important;
+        overflow-y: auto;
+        position: fixed !important;
         width: 40%;
         z-index: 100;
 
