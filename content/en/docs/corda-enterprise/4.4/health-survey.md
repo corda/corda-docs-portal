@@ -76,6 +76,33 @@ High Availability test:
 Running the tool with no arguments assumes that the base-directory argument is the current working directory.
 
 
+## Access to node using RPC
+Health Survey tool uses the first user name and password recorded in the *users* section of the node.conf *security* block:
+
+```kotlin
+security {
+    authService {
+        dataSource {
+            type = INMEMORY
+            users = [
+                {
+                    password = password
+                    permissions = [
+                        ALL
+                    ]
+                    username=user
+                }
+            ]
+        }
+    }
+}
+```
+If the first listed user does not have sufficient authority to run node information commands then some
+                of the tests will fail.
+
+Health Survey tool also cannot retrieve passwords hashed using Shiro or recorded in a database.
+
+
 ## Output
 The tool generates the archive of the collected files in the same directory it is ran in. The names are in the format: `report-date-time.zip`
 

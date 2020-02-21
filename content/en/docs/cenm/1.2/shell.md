@@ -156,11 +156,14 @@ The current supported commands that can be run from the shell are:
     @RunCommand
     fun clientHealthCheck()
 
-    @Description(description = "View nodes that have or haven't accepted a given parameters update",
+    @Description(description = "View nodes that have or haven't accepted a given parameters update ($DEFAULT_PAGE_SIZE entry per page)",
             example = "view nodesAcceptedParametersUpdate accepted: true, " +
-                    "parametersHash: 0E3A4A700868D1E480A7C31E85621FE5E627A6A361EBE92B3F7A0048A90DE076")
+                    "parametersHash: 0E3A4A700868D1E480A7C31E85621FE5E627A6A361EBE92B3F7A0048A90DE076 " +
+                    "pageNumber: 1")
     @ViewCommand
-    fun nodesAcceptedParametersUpdate(accepted: Boolean, parametersHash: String): List<NodeHashAndInfo>
+    fun nodesAcceptedParametersUpdate(accepted: Boolean,
+                                      parametersHash: String,
+                                      pageNumber: Int): List<NodeHashAndInfo>
 
     @Description(description = "Register network parameters for update, networkParametersFile is the only required parameter " +
             "since it can used on its own when whitelisting a notary with its' X500 name. Bear in mind only HA notaries can " +

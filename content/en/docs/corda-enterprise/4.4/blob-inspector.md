@@ -151,6 +151,6 @@ blob-inspector [-hvV] [--full-parties] [--schema] [--format=type]
 
 
 ### Sub-commands
-`install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+`install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See cli-application-shell-extensions for more info.
 
 

@@ -6,6 +6,33 @@ date: 2020-01-08T09:59:25Z
 
 # Release notes
 
+## Corda Enterprise 4.3.1
+Corda Enterprise 4.3.1 is a patch release of Corda Enterprise that includes fixes for several issues identified post development of Corda Enterprise 4.3.
+
+We recommend that developers upgrade to the latest version of Corda as soon as possible. Node operators should upgrade if they believe they might be affected by one or more of the issues listed below.
+
+
+### Issues Fixed
+
+* Functionality of CollectSignaturesFlow restored to 4.2 behaviour [[CORDA-3485](https://r3-cev.atlassian.net/browse/CORDA-3485)]
+
+
+* Creation of CordaRPCClient hangs [[CORDA-3501](https://r3-cev.atlassian.net/browse/CORDA-3501)]
+
+
+* Scanning for Custom Serializers in the context of transaction verification doesn’t work [[CORDA-3464](https://r3-cev.atlassian.net/browse/CORDA-3464)]
+
+
+* JPA notary doesn’t work with the Oracle recommended JDBC driver
+
+
+* RPC client retries failed operation with java.io.NotSerializableException
+
+
+* Node is unable to start up with RSA based TLS key
+
+
+
 ## Corda Enterprise 4.3
 This release extends the [Corda Enterprise 4.2 release](https://docs.corda.r3.com/releases/4.2/release-notes-enterprise.html) with new mission-critical enterprise capabilities to enhance support for HSM (hardware security module) signing devices and improved logging for profiling time spent outside of Corda.
 

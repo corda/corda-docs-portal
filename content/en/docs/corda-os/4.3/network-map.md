@@ -179,6 +179,12 @@ List of the network-wide java packages that were successfully claimed by their o
                             Encountering an owned contract in a JAR that is not signed by the rightful owner is most likely a sign of malicious behaviour, and should be reported.
                             The transaction verification logic will throw an exception when this happens.
 
+
+{{< note >}}
+To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.3 see [Corda Features to Versions]({{< relref "features-versions" >}})
+
+
+{{< /note >}}
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6
                 connectivity is required for zone members, required cryptographic algorithms and roll-out schedules (e.g. for moving to post quantum cryptography), parameters related to SGX and so on.
 

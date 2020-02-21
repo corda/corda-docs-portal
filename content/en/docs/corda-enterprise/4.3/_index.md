@@ -96,7 +96,11 @@ Corda Enterprise provides platform API version 4, which matches the API availabl
 {{< /note >}}
 
 * [Release notes]({{< relref "release-notes-enterprise" >}})
-    * [Corda Enterprise 4.3]({{< relref "release-notes-enterprise#release" >}})
+    * [Corda Enterprise 4.3.1]({{< relref "release-notes-enterprise#corda-enterprise-4-3-1" >}})
+        * [Issues Fixed]({{< relref "release-notes-enterprise#issues-fixed" >}})
+
+
+    * [Corda Enterprise 4.3]({{< relref "release-notes-enterprise#corda-enterprise-4-3" >}})
         * [Key new features and components]({{< relref "release-notes-enterprise#key-new-features-and-components" >}})
             * [Corda Health Survey]({{< relref "release-notes-enterprise#corda-health-survey" >}})
 

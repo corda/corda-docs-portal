@@ -31,8 +31,8 @@ Note: The protocol is designed to tolerate node outages. During the upgrade proc
 
 
 ## Step 1. Drain the node
-Before a node, or an application on a node, can be upgraded, the node must be put in [Draining mode]({{< relref "key-concepts-node#draining-mode" >}}). This brings the currently running
-                [Flows]({{< relref "key-concepts-flows" >}}) to a smooth halt (existing work is finished, and new work is queued rather than being processed).
+Before a node, or an application on a node, can be upgraded, the node must be put in draining-mode. This brings the currently running
+                key-concepts-flows to a smooth halt (existing work is finished, and new work is queued rather than being processed).
 
 Draining flows is a key task for node administrators to perform. It exists to simplify applications by ensuring apps don’t have to be
                 able to migrate workflows from any arbitrary point to other arbitrary points, a task that would rapidly become unfeasible as workflow
@@ -55,7 +55,7 @@ It’s always a good idea to back up your data before upgrading any server. This
                 You can simply make a copy of the node’s data directory to enable this. If you use an external non-H2 database, consult your database
                 user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations]({{< relref "node-administration#backup-recommendations" >}}) .
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations]({{< relref "node/operating/node-administration#backup-recommendations" >}}) .
 
 
 ## Step 3. Update database
@@ -218,7 +218,7 @@ A script named *migration/*.sql* will be generated in the base directory.
                     This script will contain all the statements required to modify and create data structures (e.g. tables/indexes),
                     and inserts the Liquibase management table *DATABASECHANGELOG*.
                     The command doesn’t alter any tables itself.
-                    For descriptions of the options, refer to the [Corda Database Management Tool]({{< relref "node-database#database-management-tool-ref" >}}) manual.
+                    For descriptions of the options, refer to the [Corda Database Management Tool]({{< relref "node/operating/node-database#database-management-tool-ref" >}}) manual.
 
 
 ### 3.3. Apply DDL scripts on a database
@@ -291,7 +291,7 @@ If you are reusing the tool configuration directory:
 
 ## Step 4. Replace `corda.jar` with the new version
 Replace the `corda.jar` with the latest version of Corda.
-                Make sure it’s available on your path, and that you’ve read the [Release notes]({{< relref "release-notes" >}}). Pay particular attention to which version of Java this
+                Make sure it’s available on your path, and that you’ve read the [Corda release notes]({{< relref "release-notes" >}}). Pay particular attention to which version of Java this
                 node requires.
 
 

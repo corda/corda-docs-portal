@@ -37,6 +37,9 @@ CENM’s Signing Service supports the following HSMs (see [CENM support matrix](
 * Azure Key Vault
 
 
+* AWS CloudHSM
+
+
 The verification and signing of data is done via the set of user configured signing tasks within the service, with each
                 task being configured with:
 
@@ -96,6 +99,15 @@ Once the Signing Service has been configured, it can be run via the command:
 ```bash
 java -jar signer-<VERSION>.jar --config-file <CONFIG_FILE>
 ```
+Optional parameter:
+
+```bash
+--working-dir=<DIR>
+```
+This will set the working directory to the specified folder. The service will look for files in that folder. This means
+                    certificates, config files etc. should be under the working directory.
+                    If not specified it will default to the current working directory (the directory from which the service has been started).
+
 On success you should see a message similar to:
 
 ```kotlin
@@ -170,7 +182,7 @@ hsmLibraries = [
     }
 ]
 ```
-Some HSMs (e.g. Gemalto Luna) also require shared libraries to be provided. An example configuration block for this is:
+Some HSMs (e.g. Gemalto Luna, AWS CloudHSM) also require shared libraries to be provided. An example configuration block for this is:
 
 ```guess
 hsmLibraries = [
@@ -333,6 +345,16 @@ Automated, scheduled signing of important changes such as Network Parameter upda
 
 
 {{< /warning >}}
+
+{{< note >}}
+Even though scheduled signing of CRLs should not be configured in production environment, they should be signed
+                            manually from time to time depending on its’ `nextUpdate` property. This is to ensure an up-to-date CRL is
+                            distributed in the network before the previous one expires. Conventionally they have a lifecycle of 6 months
+                            and are manually signed every 3 months. See [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool" >}}) for more information how to check
+                            CRLs’ update deadlines.
+
+
+{{< /note >}}
 An appropriate signing task can be scheduled via the `schedule` config block within the signing task configuration:
 
 ```guess
@@ -458,7 +480,7 @@ List of configurations for any third party HSM libraries.
 
 
 type
-The HSM type for the library (`UTIMACO_HSM`, `GEMALTO_HSM`, `SECUROSYS_HSM` or `AZURE_KEY_VAULT_HSM`).
+The HSM type for the library (`UTIMACO_HSM`, `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`).
 
 
 jars
@@ -680,6 +702,54 @@ Certificate store file location.
 
 password
 Certificate store password.
+
+
+#### AWS CloudHSM Signing Key Example
+First of all AWS CloudHSM requires a UNIX client running on the machine. It will use that to connect to the HSM.
+                        For detailed documentation about setting up the client please visit Amazon’s
+                        [Getting Started with AWS CloudHSM](https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html).
+                        After the client is installed the shared library should be under the folder `/opt/cloudhsm/lib` so this should be
+                        used when configuring the `hsmLibraries` property in the config. The jar can be found under `/opt/cloudhsm/java/cloudhsm-<version>.jar`
+                        by default.
+
+
+
+alias
+Alias of the signing key within the HSM
+
+
+type
+The signing key type - `AMAZON_CLOUD_HSM` in this case
+
+
+credentialsAmazon
+The credentials for logging in to the HSM.
+                                    :partition: Partition for the HSM. This can be found in the AWS console.
+
+
+
+userName
+An existing CU type user in the HSM.
+
+
+password
+Password for the given CU account.
+
+
+localCertificateStore
+
+
+For security reasons certificates are not stored in the AWS CloudHSM so a local certificate store
+must be used.
+
+
+
+file
+The location of the local certificate store. This will be created if it does not exist.
+
+
+password
+The password for the local certificate store
 
 
 ### Service Location Map Entry Example
@@ -1005,6 +1075,11 @@ hsmLibraries = [
   {
     type = AZURE_KEY_VAULT_HSM
     jars = ["/path/to/akvLibraries.jar"]
+  },
+  {
+      type = AMAZON_CLOUD_HSM
+      jars = ["/opt/cloudhsm/java/cloudhsm-3.0.0.jar"]
+      sharedLibDir = "/opt/cloudhsm/lib"
   }
 ]
 
@@ -1114,6 +1189,19 @@ signingKeys = {
             keyStorePassword = "example-password"
             keyStoreAlias = "example-alias"
             clientId = "12345-abcde-54321"
+        }
+    },
+    "ExampleAwsCloudHsmSigningKey" = {
+        alias = "example-parameter-key-alias"
+        type = AMAZON_CLOUD_HSM
+        credentialsAmazon {
+            partition = "example-partition"
+            userName = "example-user"
+            password = "example-password"
+        }
+        localCertificateStore = {
+            file = "exampleCertificateStore.jks"
+            password = "password"
         }
     }
 }
@@ -1311,7 +1399,7 @@ java -jar smr-<VERSION>.jar --config-file <CONFIG_FILE>
 Optional parameter:
 
 ```bash
---working-directory=<DIR>
+--working-dir=<DIR>
 ```
 This will set the working directory to the specified folder. The service will look for files in that folder. This means
                     certificates, config files etc. should be under the working directory.
