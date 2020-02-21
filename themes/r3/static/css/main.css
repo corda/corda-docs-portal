@@ -1,7 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600);
-/**
-* Shade Definitions
-*/
 .r3-o-wrapper-main {
   min-height: calc(100vh - 56px - 80px);
   order: 1;
@@ -11,7 +8,7 @@
   background-color: #f7fafc;
   order: 2;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .r3-o-wrapper-side {
     order: 0;
   }
@@ -34,12 +31,18 @@
 }
 .r3-o-sidebar__nav-toggle {
   line-height: 1;
-  color: #53585F;
+  color: #ec1d24;
 }
-.r3-o-sidebar__nav-toggle:hover {
-  color: red;
+.r3-o-sidebar__nav-toggle svg:hover g path {
+  stroke: #53585f;
 }
-@media screen and (min-width: 769px) {
+.r3-o-sidebar__toc-toggle svg rect {
+  fill: #ec1d24;
+}
+.r3-o-sidebar__toc-toggle svg:hover > rect {
+  fill: #53585f;
+}
+@media screen and (min-width: 992px) {
   .r3-o-sidebar__nav-content {
     display: block !important;
   }
@@ -53,6 +56,13 @@
 
 .r3-o-navbar {
   background-color: #53585F;
+}
+.r3-o-navbar ul {
+  flex-direction: row;
+}
+.r3-o-navbar ul li a {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
 }
 
 footer {
@@ -73,20 +83,81 @@ footer {
 
 .r3-o-toc {
   order: 1;
+  transition: transform 0.4s;
+  transition-timing-function: ease-out;
 }
 .r3-o-toc h5 {
   margin-bottom: 20px;
   padding-left: 22px;
+}
+.r3-o-toc button {
+  background-color: transparent;
+  border: none;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+}
+.r3-o-toc button svg path {
+  stroke: #ec1d24;
+}
+.r3-o-toc button svg:hover path {
+  stroke: #53585f;
+}
+.r3-o-toc nav {
+  margin-top: 44px;
+}
+.r3-o-toc.show-toc {
+  transform: translateX(100%);
 }
 @media screen and (min-width: 769px) {
   .r3-o-toc {
     order: 0;
   }
 }
+@media screen and (max-width: 991px) {
+  .r3-o-toc {
+    background-color: #ffffff;
+    border-right: 1px solid #53585f;
+    bottom: 0;
+    display: block !important;
+    height: 100%;
+    left: -41%;
+    position: absolute !important;
+    width: 40%;
+    z-index: 100;
+  }
+  .r3-o-toc.show-toc {
+    transform: translateX(100%);
+  }
+  .r3-o-toc button {
+    display: block !important;
+    position: absolute !important;
+    top: 14px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+  }
+}
 @media screen and (min-width: 992px) {
   .r3-o-toc h5 {
     text-align: center;
     padding-left: 0;
+  }
+}
+
+.r3-o-search {
+  position: relative;
+  padding: 1rem 0;
+  width: 100%;
+}
+.r3-o-search span {
+  width: 100%;
+}
+@media screen and (min-width: 992px) {
+  .r3-o-search {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 }
 

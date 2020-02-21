@@ -2,14 +2,69 @@ $toc-object: "#{$class-object-prefix}toc";
 
 .#{$toc-object} {
     order: 1;
+    transition: transform 0.4s;
+    transition-timing-function: ease-out;
 
     h5 {
         margin-bottom: 20px;
         padding-left: 22px;
     }
 
+    button {
+        background-color: transparent;
+        border: none;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50px;
+
+        svg {
+            path {
+                stroke: $primary-01;
+            }
+
+            &:hover path {
+                stroke: $primary-02;
+            }
+        }
+    }
+
+    nav {
+        margin-top: 44px;
+    }
+
+    &.show-toc {
+        transform: translateX(100%);
+    }
+
     @media screen and (min-width: 769px) {
         order: 0;
+    }
+
+    @media screen and (max-width: 991px) {
+        background-color: $primary-04;
+        border-right: 1px solid $primary-02;
+        bottom: 0;
+        display: block !important;
+        height: 100%;
+        left: -41%;
+        position: absolute !important;
+        width: 40%;
+        z-index: 100;
+
+        &.show-toc {
+            transform: translateX(100%);
+        }
+
+        button {
+            display: block !important;
+            position: absolute !important;
+            top: 14px;
+            right: 0;
+            width: 50px;
+            height: 50px;
+        }
     }
 
     @media screen and (min-width: 992px) {
@@ -17,6 +72,5 @@ $toc-object: "#{$class-object-prefix}toc";
             text-align: center;
             padding-left: 0;
         }
-      }
-
+    }
 }
