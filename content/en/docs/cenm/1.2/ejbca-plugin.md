@@ -159,6 +159,7 @@ import com.r3.enm.smrpluginapi.ca.CRLResponse;
 import com.r3.enm.smrpluginapi.ca.CRLSigningData;
 import com.r3.enm.smrpluginapi.ca.CSRResponse;
 import com.r3.enm.smrpluginapi.ca.CSRSigningData;
+import com.r3.enm.smrpluginapi.common.SMRPluginTerminalException;
 import com.r3.enm.smrpluginapi.common.SigningStatus;
 import org.cesecore.util.Base64;
 import org.cesecore.util.CryptoProviderTools;
@@ -226,8 +227,10 @@ public class EJBCASigningPlugin implements CASigningPlugin, ENMLoggable {
             EjbcaWSService service = new EjbcaWSService(new URL(EJBCA_URL), qname);
             ejbcaraws = service.getEjbcaWSPort();
         } catch (MalformedURLException e) {
-            getOpsLogger().error(() -> "Malformed URL provided");
-            throw new RuntimeException(e);
+            getOpsLogger().error(() -> "Malformed URL provided, shutting down SMR");
+            throw new SMRPluginTerminalException(e);
+        } catch (Exception e) {
+            throw new SMRPluginTerminalException(e);
         }
 
         getCtx().withLoggers(getConsoleLogger(), getOpsLogger()).forEach(logger -> logger.info(() -> "EJBCA plugin started"));

@@ -15,7 +15,7 @@ To be serializable by Corda Java classes must be compiled with the -parameters s
 
 
 ## Serializer Location
-Custom serializer classes should follow the rules for including classes found in [Building and installing a CorDapp]({{< relref "cordapp-build-systems" >}})
+Custom serializer classes should follow the rules for including classes found in cordapp-build-systems
 
 
 ## Writing a Custom Serializer

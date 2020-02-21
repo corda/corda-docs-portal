@@ -29,7 +29,7 @@ java -jar identity-manager-<VERSION>.jar --config-file <CONFIG_FILE>
 Optional parameter:
 
 ```bash
---working-directory=<DIR>
+--working-dir=<DIR>
 ```
 This will set the working directory to the specified folder. The service will look for files in that folder. This means
                 certificates, config files etc. should be under the working directory.

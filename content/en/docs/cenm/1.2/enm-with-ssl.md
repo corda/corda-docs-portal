@@ -406,6 +406,11 @@ hsmLibraries = [
   {
     type = AZURE_KEY_VAULT_HSM
     jars = ["/path/to/akvLibraries.jar"]
+  },
+  {
+      type = AMAZON_CLOUD_HSM
+      jars = ["/opt/cloudhsm/java/cloudhsm-3.0.0.jar"]
+      sharedLibDir = "/opt/cloudhsm/lib"
   }
 ]
 
@@ -515,6 +520,19 @@ signingKeys = {
             keyStorePassword = "example-password"
             keyStoreAlias = "example-alias"
             clientId = "12345-abcde-54321"
+        }
+    },
+    "ExampleAwsCloudHsmSigningKey" = {
+        alias = "example-parameter-key-alias"
+        type = AMAZON_CLOUD_HSM
+        credentialsAmazon {
+            partition = "example-partition"
+            userName = "example-user"
+            password = "example-password"
+        }
+        localCertificateStore = {
+            file = "exampleCertificateStore.jks"
+            password = "password"
         }
     }
 }

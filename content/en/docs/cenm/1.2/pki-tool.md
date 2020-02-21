@@ -44,7 +44,7 @@ The PKI Tool is a CENM provided utility that can be used to generate a Corda com
 * Ability to generate private and public key pairs along with accompanying X509 certificates for all entities.
 
 
-* Supports local key and certificate generation as well as HSM integration for Utimaco, Gemalto, Securosys and Azure Key Vault.
+* Supports local key and certificate generation as well as HSM integration for Utimaco, Gemalto, Securosys, Azure Key Vault and AWS CloudHSM.
 
 
 * Supports ‘additive’ mode, allowing a user to use existing keys to generate key pairs and certificates for entities further down the chain.
@@ -413,7 +413,7 @@ hsmLibraries = [
     }
 ]
 ```
-Some HSMs (e.g. Gemalto Luna) also require shared libraries to be provided. An example configuration block for this is:
+Some HSMs (e.g. Gemalto Luna, AWS CloudHSM) also require shared libraries to be provided. An example configuration block for this is:
 
 ```guess
 hsmLibraries = [
@@ -1059,4 +1059,87 @@ certificates = {
 ```
 
 {{/* /en/docs/cenm/1.2/pki-tool/src/test/resources/configs/pki-tool-azure-key-vault-hsm.conf */}}
+
+#### AWS CloudHSM Configuration
+```docker
+hsmLibraries = [{
+    type = AMAZON_CLOUD_HSM
+    jars = ["/opt/cloudhsm/java/cloudhsm-3.0.0.jar"]
+    sharedLibDir = "/opt/cloudhsm/lib"
+}]
+
+defaultPassword = "password"
+defaultKeyStores = ["example-hsm-key-store"]
+
+keyStores = {
+    "example-hsm-key-store" = {
+        type = AMAZON_CLOUD_HSM
+        credentialsAmazon = {
+    		partition = "<partition>"
+    		userName = "<user>"
+    		password = "<password>"
+    	}
+    	localCertificateStore = {
+    		file = "./new-certificate-store.jks"
+    		password = "password"
+    	}
+    }
+}
+
+certificatesStores = {
+    "network-truststore" = {
+        file = "./trust-stores/network-trust-store.jks"
+    },
+    "certificate-store" = {
+        file = "./trust-stores/certificate-store.jks"
+    }
+}
+
+certificates = {
+    "tlscrlsigner" = {
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        }
+    },
+    "rootca" = {
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "subordinateca" = {
+        signedBy = "rootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "identitymanagerca" = {
+        signedBy = "subordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = DOORMAN_CA
+    }
+    "networkmap" = {
+        signedBy = "subordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = NETWORK_MAP
+    }
+}
+```
+
+{{/* /en/docs/cenm/1.2/pki-tool/src/test/resources/configs/pki-tool-aws-cloud-hsm.conf */}}
 

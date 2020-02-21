@@ -1,10 +1,10 @@
 ---
-title: "Release notes"
+title: "Corda Enterprise Release notes"
 date: 2020-01-08T09:59:25Z
 ---
 
 
-# Release notes
+# Corda Enterprise Release notes
 
 ## Corda Enterprise 4.4
 This release extends the [Corda Enterprise 4.3 release](https://docs.corda.r3.com/releases/4.3/release-notes-enterprise.html)
@@ -27,7 +27,7 @@ The compatibility and interoperability assurances apply to nodes running at the 
 #### Further Hardware Security Module (HSM) support
 > 
 > This release adds support for storing the node’s CA and legal identity key in a [nCipher nShield Connect](https://www.ncipher.com/products/general-purpose-hsms/nshield-connect) HSM.
->                             Please refer to the associated section of the [HSM support for legal identity keys]({{< relref "cryptoservice-configuration" >}}) page for more details.
+>                             Please refer to the associated section of the cryptoservice-configuration page for more details.
 
 
 #### Corda Open Core

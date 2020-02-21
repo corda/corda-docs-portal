@@ -1,10 +1,10 @@
 ---
-title: "Release notes"
+title: "Corda release notes"
 date: 2020-01-08T09:59:25Z
 ---
 
 
-# Release notes
+# Corda release notes
 Welcome to the Corda 4.3 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.3 comes with those same guarantees. States and apps valid in Corda 3.0 are transparently usable in Corda 4.3.
 
 
@@ -62,7 +62,7 @@ The improved library provides the following enhancements:
 * Retries all operations on failure, except for flow start operations that die before receiving a valid *FlowHandle*, in which case a *CouldNotStartFlowException* is thrown
 
 
-We’re confident in the improvements made to RPC client connectivity but would remind you that applications should be developed with contingencies in the event of an RPC connection failure. See [Interacting with a node]({{< relref "clientrpc" >}}) for details.
+We’re confident in the improvements made to RPC client connectivity but would remind you that applications should be developed with contingencies in the event of an RPC connection failure. See clientrpc for details.
 
 
 #### Additional flexibility in recording transactions
@@ -81,7 +81,7 @@ In Corda 4.3, nodes can choose to record a transaction with three different leve
 Previously, there was a limitation in that if a node initially records a transaction with a specific level of visibility, they cannot later record it with a different level of visibility.
 
 In Corda 4.3, an enhancement has been made to observer node functionality to allow observers to re-record transactions that have already been recorded at a lower visibility.
-                        See [Observer nodes]({{< relref "tutorial-observer-nodes" >}}) for details of how to work with observer nodes
+                        See tutorial-observer-nodes for details of how to work with observer nodes
 
 
 ### Changes for operators in Corda 4.3
@@ -110,7 +110,7 @@ There have been several security upgrades, including changes to the Corda webser
 ### Platform version change
 Given the addition of a new API to support the Accounts feature, the platform version of Corda 4.3 has been bumped up from 4 to 5. This is to prevent CorDapps that use it being deployed onto nodes unable to host them. Note that the minimum platform version has not been changed - this means that older Corda nodes can still interoperate with Corda 4.3 nodes. Since the APIs added do not affect the wire protocol or have other zone-level implications, applications can take advantage of these new platform version 5 features even if the Corda 4.3 node is running on a network whose minimum platform version is 4.
 
-For more information on platform version, please see [Versioning]({{< relref "versioning" >}}). For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}).
+For more information on platform version, please see versioning. For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}).
 
 
 ### Deprecations
@@ -1124,7 +1124,7 @@ Learn more about this new feature by reading the [Upgrading CorDapps to newer Pl
 
 
 #### State pointers
-[State Pointers]({{< relref "api-states#state-pointers" >}}) formalize a recommended design pattern, in which states may refer to other states
+[State Pointers]({{< relref "cordapps/api-states#state-pointers" >}}) formalize a recommended design pattern, in which states may refer to other states
                         on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
                         any information on the global ledger). State pointers work together with the reference states feature
                         to make it easy for data to point to the latest version of any other piece of data, with the right
@@ -1170,7 +1170,7 @@ Please do not attempt to write to tables starting with `node_` or `contract_` as
                         is named in each state object. This manual step is easy to miss, which would make the app less secure
                         in a network where you trade with potentially malicious counterparties. The platform now handles this
                         for you by allowing you to annotate states with which contract governs them. If states are inner
-                        classes of a contract class, this association is automatic. See [API: Contract Constraints]({{< relref "api-contract-constraints" >}}) for more information.
+                        classes of a contract class, this association is automatic. See api-contract-constraints for more information.
 
 **Two-sided FinalityFlow and SwapIdentitiesFlow.** The previous `FinalityFlow` API was insecure because
                         nodes would accept any finalised transaction, outside of the context of a containing flow. This would
@@ -1221,7 +1221,7 @@ Class synthesis will use interfaces that are implemented by the original objects
 
 **SSL**. The Corda RPC infrastructure can now be configured to utilise SSL for additional security. The
                         operator of a node wishing to enable this must of course generate and distribute a certificate in
-                        order for client applications to successfully connect. This is documented here [Using the client RPC API]({{< relref "tutorial-clientrpc-api" >}})
+                        order for client applications to successfully connect. This is documented here tutorial-clientrpc-api
 
 
 #### Preview of the deterministic DJVM
@@ -1230,7 +1230,7 @@ It is important that all nodes that process a transaction always agree on whethe
                         code must be fully deterministic. Out of the box a standard JVM is not fully deterministic, thus we must
                         make some modifications in order to satisfy our requirements.
 
-This version of Corda introduces a standalone [Deterministic JVM]({{< relref "key-concepts-djvm" >}}). It isn’t yet integrated with
+This version of Corda introduces a standalone key-concepts-djvm. It isn’t yet integrated with
                         the rest of the platform. It will eventually become a part of the node and enforce deterministic and
                         secure execution of smart contract code, which is mobile and may propagate around the network without
                         human intervention.
@@ -1240,7 +1240,7 @@ Currently, it is released as an evaluation version. We want to give developers t
                         envision will be placed on contract code in the future. There are some instructions on
                         how to get started with the DJVM command-line tool, which allows you to run code in a deterministic
                         sandbox and inspect the byte code transformations that the DJVM applies to your code. Read more in
-                        “[Deterministic JVM]({{< relref "key-concepts-djvm" >}})”.
+                        “key-concepts-djvm”.
 
 
 #### Configurable flow responders
@@ -1249,7 +1249,7 @@ In Corda 4 it is possible for flows in one app to subclass and take over flows f
                         that causes transaction details to be converted to a PDF and sent to a particular printer. This would be an inappropriate feature to put
                         into shared business logic, but it makes perfect sense to put into a user-specific app they developed themselves.
 
-If your flows could benefit from being extended in this way, read “[Configuring Responder Flows]({{< relref "flow-overriding" >}})” to learn more.
+If your flows could benefit from being extended in this way, read “flow-overriding” to learn more.
 
 
 #### Target/minimum versions
@@ -1291,7 +1291,7 @@ Changes to the parameters of a compatibility zone require all nodes to opt in be
 Some changes are trivial and very unlikely to trigger any disagreement. We have added auto-acceptance
                         for a subset of network parameters, negating the need for a node operator to manually run an accept
                         command on every parameter update. This behaviour can be turned off via the node configuration.
-                        See [The network map]({{< relref "network-map" >}}).
+                        See network-map.
 
 
 #### Automatic error codes

@@ -182,7 +182,7 @@ This is deliberate: The DSL forces us to specify either `verifies()` or ``fails 
 {{% tab name="kotlin" %}}
 ```kotlin
 // This example test will fail with this exception.
-@Test(expected = IllegalStateException::class)
+@Test(expected = IllegalStateException::class, timeout=300_000)
 fun simpleCP() {
     val inState = getPaper()
     ledgerServices.ledger(dummyNotary.party) {
@@ -230,7 +230,7 @@ Let’s take a look at a transaction that fails.
 {{% tab name="kotlin" %}}
 ```kotlin
 // This example test will fail with this exception.
-@Test(expected = TransactionVerificationException.ContractRejection::class)
+@Test(expected = TransactionVerificationException.ContractRejection::class, timeout=300_000)
 fun simpleCPMove() {
     val inState = getPaper()
     ledgerServices.ledger(dummyNotary.party) {

@@ -13,6 +13,13 @@ Before reading this page, you should be familiar with the key concepts of [Contr
 
 {{< /note >}}
 
+{{< note >}}
+As of Corda 4.3 the *minimumPlatformVersion* required to use these features is 4
+                (see [Network Parameters]({{< relref "network-map#network-parameters" >}}) and [Corda Features to Versions]({{< relref "features-versions" >}}) for more details).
+
+
+{{< /note >}}
+
 ## Reasons for Contract Constraints
 *Contract constraints* solve two problems faced by any decentralised ledger that supports evolution of data and code:
 

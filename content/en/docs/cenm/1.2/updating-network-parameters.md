@@ -60,7 +60,8 @@ Typical update process is as follows:
 
 > 
 > ```bash
-> view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>
+> view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>,
+> pageNumber: <which page to show, every page contains 100 records>
 ```
 It is also possible to poll the network map database to check how many network participants have accepted the new
                     network parameters - the information is stored in the `node-info.accepted_parameters_hash` column.

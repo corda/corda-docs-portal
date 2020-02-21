@@ -145,7 +145,7 @@ Because the transaction is sent to the oracle for signing, ordinarily the oracle
                     of that transaction including the inputs, output contract states and all the commands, not just the one (in this case)
                     relevant command.  This is an obvious privacy leak for the other participants.  We currently solve this using a
                     `FilteredTransaction`, which implements a Merkle Tree.  These reveal only the necessary parts of the transaction to the
-                    oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See [Oracles]({{< relref "key-concepts-oracles" >}})
+                    oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See key-concepts-oracles
                     for more details.
 
 
@@ -234,7 +234,7 @@ Here we can see that there are several steps:
 {{< note >}}
 Before reading any further, we advise that you understand the concept of flows and how to write them and use
                         them. See [Writing flows]({{< relref "flow-state-machines" >}}).  Likewise some understanding of Cordapps, plugins and services will be helpful.
-                        See [Running nodes locally]({{< relref "running-a-node" >}}).
+                        See running-a-node.
 
 
 {{< /note >}}
@@ -339,7 +339,7 @@ class FixSignFlow(val tx: TransactionBuilder, val oracle: Party,
 
 {{/* /en/docs/corda-enterprise/4.4/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt */}}
 You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
-                    You can find a further explanation of this in [Oracles]({{< relref "key-concepts-oracles" >}}). Below you will see how to build such a
+                    You can find a further explanation of this in key-concepts-oracles. Below you will see how to build such a
                     transaction with hidden fields.
 
 
@@ -424,7 +424,7 @@ When overriding be careful when making the sub-class an anonymous or inner class
 {{< /note >}}
 
 ## Testing
-The `MockNetwork` allows the creation of `MockNode` instances, which are simplified nodes which can be used for testing (see [API: Testing]({{< relref "api-testing" >}})).
+The `MockNetwork` allows the creation of `MockNode` instances, which are simplified nodes which can be used for testing (see api-testing).
                 When creating the `MockNetwork` you supply a list of `TestCordapp` objects which point to CorDapps on
                 the classpath. These CorDapps will be installed on each node on the network. Make sure the packages you provide reference to the CorDapp
                 containing your oracle service.

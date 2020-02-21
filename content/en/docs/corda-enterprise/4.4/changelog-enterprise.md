@@ -12,7 +12,7 @@ Here’s a summary of what’s changed in each Corda Enterprise release. For gui
 ## Unreleased
 
 * Changes in HA notary setup: the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
-                        See [notary installation page]({{< relref "running-a-notary-cluster/installing-the-notary-service#mysql-driver" >}}) for more information.
+                        See [notary installation page]({{< relref "notary/installing-the-notary-service#mysql-driver" >}}) for more information.
 
 
 * For Azure SQL and SQL Server databases the node now requires a minimum version of 6.4.0.jre8 for the JDBC drivers.
@@ -39,7 +39,7 @@ The `corda-bridgserver.jar` has been renamed to `corda-firewall.jar` to be more 
 * The experimental BFT-Smart notary implementation has been deprecated – a fully supported BFT implementation is under development.
 
 
-* The experimental Raft notary implementation has been deprecated in favour of the MySQL-based HA notary implementation (see [Corda Enterprise notary services]({{< relref "running-a-notary-cluster/toctree" >}})).
+* The experimental Raft notary implementation has been deprecated in favour of the MySQL-based HA notary implementation (see running-a-notary-cluster/toctree).
 
 
 * There have been schema changes for the single-node notary: the `id` column of the `notary_request_log` table has been changed from `INT` to `VARCHAR(76)`. The new `id` format is `<UUID>:<Hex counter>`. No upgrade steps are required.
@@ -149,7 +149,7 @@ Whilst this is not the latest version of this library, that being 2.18.1 at time
 * Introduced a placeholder for custom properties within `node.conf`; the property key is “custom”.
 
 
-* Property keys with double quotes (e.g. *“key”*) in `node.conf` are no longer allowed, for rationale refer to [Node configuration]({{< relref "corda-configuration-file" >}}).
+* Property keys with double quotes (e.g. *“key”*) in `node.conf` are no longer allowed, for rationale refer to corda-configuration-file.
 
 
 * java.math.BigInteger serialization support added.
@@ -217,7 +217,7 @@ Whilst this is not the latest version of this library, that being 2.18.1 at time
 
 
 * JDBC drivers for SQL server and PostgresSQL are no longer bundled as part of Corda releases. If you are running a node
-                        on such databases you need to provide the associated driver as described in [Node database]({{< relref "node-database" >}}).
+                        on such databases you need to provide the associated driver as described in node-database.
 
 
 * X.509 certificates now have an extension that specifies the Corda role the certificate is used for, and the role
@@ -226,10 +226,10 @@ Whilst this is not the latest version of this library, that being 2.18.1 at time
                         only ever be issued by network services and therefore issuance constraints are not relevant to end users.
                         The `TLS` and `WELL_KNOWN_LEGAL_IDENTITY` roles must be issued by the `NODE_CA` certificate issued by the
                         Doorman, and `CONFIDENTIAL_IDENTITY` certificates must be issued from a `WELL_KNOWN_LEGAL_IDENTITY` certificate.
-                        For a detailed specification of the extension please see [Network certificates]({{< relref "permissioning" >}}).
+                        For a detailed specification of the extension please see permissioning.
 
 
-* The network map service concept has been re-designed. More information can be found in [The network map]({{< relref "network-map" >}}).
+* The network map service concept has been re-designed. More information can be found in network-map.
 
 > 
 > 
@@ -262,7 +262,7 @@ Whilst this is not the latest version of this library, that being 2.18.1 at time
 > 
 >     * `extraAdvertisedServiceIds`, `notaryNodeAddress`, `notaryClusterAddresses` and `bftSMaRt` configs have been
 >                                     removed. The configuration of notaries has been simplified into a single `notary` config object. See
->                                     [Node configuration]({{< relref "corda-configuration-file" >}}) for more details.
+>                                     corda-configuration-file for more details.
 > 
 > 
 >     * Introducing the concept of network parameters which are a set of constants which all nodes on a network must agree on
@@ -413,7 +413,7 @@ Whilst this is not the latest version of this library, that being 2.18.1 at time
 
 
 * The `ReceiveTransactionFlow` can now be told to record the transaction at the same time as receiving it. Using this
-                        feature, better support for observer/regulator nodes has been added. See [Observer nodes]({{< relref "tutorial-observer-nodes" >}}).
+                        feature, better support for observer/regulator nodes has been added. See tutorial-observer-nodes.
 
 
 * Added an overload of `TransactionWithSignatures.verifySignaturesExcept` which takes in a collection of `PublicKey` s.

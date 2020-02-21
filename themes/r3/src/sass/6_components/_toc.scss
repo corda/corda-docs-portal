@@ -74,3 +74,8 @@ $toc-object: "#{$class-object-prefix}toc";
         }
     }
 }
+
+// this id comes from hugo - could move into above?
+#TableOfContents {
+    font-size: small;
+}

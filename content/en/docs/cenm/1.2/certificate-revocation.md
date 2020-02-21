@@ -19,8 +19,21 @@ Since the certificate revocation list needs to be signed, the revocation process
             The certificate revocation list signing process requires human interaction and there is a separate tool designed for that purpose.
             Once signed the certificate revocation list replaces the current one.
 
-Note: It is assumed that the signed certificate revocation list is always available - even if it’s empty.
 
+{{< note >}}
+It is assumed that the signed certificate revocation list is always available - even if it’s empty.
+
+
+{{< /note >}}
+
+{{< note >}}
+CRLs should be signed manually from time to time depending on its’ `nextUpdate` property. This is to ensure
+                an up-to-date CRL is distributed in the network before the previous one expires. Conventionally they have a
+                lifecycle of 6 months and are manually signed every 3 months. See [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool" >}}) for more
+                information how to check CRLs’ update deadlines.
+
+
+{{< /note >}}
 
 ## HTTP certificate revocation protocol
 The set of REST end-points for the revocation service are as follows.

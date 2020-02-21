@@ -18,7 +18,7 @@ The network you build will either be made up of local `Docker` nodes *or* of nod
             More backends may be added in future. The tool is open source, so contributions to add more
             destinations for the containers are welcome!
 
-[Download the Corda Network Builder](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-builder/4.4/corda-tools-network-builder-4.4.jar).
+[Download the Corda Network Builder](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-builder/4.4/corda-tools-network-builder-4.4-all.jar).
 
 
 ## Prerequisites
