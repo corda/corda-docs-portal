@@ -882,11 +882,11 @@ def copy_resources_to_content():
                 copy_tree(src, dest)
             else:
                 files = [str(p.parent) for p in Path(dest).rglob('*') if p.is_file()]
-                if len(files) == 0:
-                    LOG.info(f"Copying {src} {dest}")
-                    copy_tree(src, dest)
-                else:
-                    LOG.warning(f"Dest exists, not copying {src} to {dest}")
+                #if len(files) == 0:
+                LOG.info(f"Copying {src} {dest}")
+                copy_tree(src, dest)
+                # else:
+                #     LOG.warning(f"Dest exists, not copying {src} to {dest}")
 
     LOG.warning(f"Copied resources")
 
