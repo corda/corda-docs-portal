@@ -662,5 +662,6 @@ repos/**
 
 **/xml/**
 repos/
-**/static/css/
-**/static/js/
+themes/r3//static/css/
+themes/r3//static/js/
+themes/r3/static/css/main.css
