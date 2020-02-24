@@ -3,8 +3,7 @@
 
 node_modules/
 
-
-static/css/*
-static/js/*
-static/css/**/*
-static/js/**/*
+**/static/css/*
+**/static/js/*
+**/static/css/**/*
+**/static/js/**/*
