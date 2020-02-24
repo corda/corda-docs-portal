@@ -14,8 +14,8 @@
 
 <script type="text/javascript">
 docsearch({
-    appId: 'R1ZKEEPZZD',
-    apiKey: '956b84b7485b311cbd94473cf7e37e1c',
+    appId: '{{- .Site.Params.algolia_appId -}}',
+    apiKey: '{{- .Site.Params.algolia_apiKey -}}',
     indexName: 'dev_hugo',
     inputSelector: '#search-input',
     algoliaOptions: { hitsPerPage: 5 }
