@@ -662,3 +662,5 @@ repos/**
 
 **/xml/**
 repos/
+**/static/css/
+**/static/js/
