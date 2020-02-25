@@ -80,6 +80,11 @@ language_default = "kotlin"
 
 algolia_appId = "R1ZKEEPZZD"
 algolia_apiKey = "956b84b7485b311cbd94473cf7e37e1c"
+aloglia_indexName = "dev_hugo"
+
+# Use these for an API search
+# algolia_apiKey = "f99fcf8d04973fb5ed6b0abfa05ed95e"
+# aloglia_indexName = "dev_api"
 
 
 [[params.versions]]
