@@ -6,9 +6,9 @@
   "author": "R3 Developers",
   "license": "MIT",
   "scripts": {
-      "build-dev": "webpack --config webpack.config.js --mode development",
-      "build": "webpack --config webpack.config.js --mode production",
-      "start": "webpack --config webpack.config.js --mode development"
+    "build-dev": "webpack --config webpack.config.js --mode development",
+    "build": "webpack --config webpack.config.js --mode production",
+    "start": "webpack --config webpack.config.js --mode development"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -22,6 +22,10 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "jquery": "^3.4.1"
+    "bootstrap": "^4.4.1",
+    "docsearch.js": "^2.6.3",
+    "jquery": "^3.4.1",
+    "mermaid": "^8.4.8",
+    "popper.js": "^1.16.1"
   }
 }
