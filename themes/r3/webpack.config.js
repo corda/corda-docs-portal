@@ -1,50 +1,21 @@
-const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
-// https://generatewebpackconfig.netlify.com/
+const path = require("path");
 
 module.exports = [
-  {
-    name: 'js',
-    entry: './src/index.js',
-    output: {
-      path: path.resolve(__dirname, 'static'),
-      filename: 'js/bundle.js'
-    },
-    "devtool": "source-map",
-    "module": {
-      "rules": [
-        {
-          "enforce": "pre",
-          "test": /\.(js|jsx)$/,
-          "exclude": /node_modules/,
-          "use": {
-            loader: "eslint-loader",
-            options: {
-              configFile: ".eslintrc.js"
-            }
-          }
+    {
+        entry: "./scripts",
+        output: {
+            path: path.resolve(__dirname, "./static/"),
+            filename: "js/bundle.js"
         },
-        {
-          "test": /\.scss$/,
-          "use": [
-            MiniCssExtractPlugin.loader,
-            "css-loader",
-            {
-              loader: 'sass-loader',
-              options: {
-                // Prefer `dart-sass`
-                implementation: require('sass'),
-              },
-            }
-          ]
-        },
-        {
-            test: /\.(png|svg)$/,
-            loader: 'url-loader'
+        devtool: "source-map",
+        module: {
+            rules: [
+                {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    use: ["babel-loader", "eslint-loader"]
+                }
+            ]
         }
-      ]
-    },
-    "plugins": [new MiniCssExtractPlugin({ filename: "css/[name].css" })]
-  }
+    }
 ];

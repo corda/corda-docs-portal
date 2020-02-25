@@ -1,7 +1,6 @@
 $wrapper-object: ".#{$class-object-prefix}wrapper";
 #{$wrapper-object}-main {
   min-height: calc(100vh - 56px - 80px);
-  order: 1;
 }
 
 #{$wrapper-object}-side {

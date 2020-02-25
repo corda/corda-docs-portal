@@ -10,4 +10,3 @@ trim_trailing_whitespace = true
 
 [makefile]
 indent_style = tab
-
