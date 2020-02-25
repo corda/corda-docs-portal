@@ -7,11 +7,16 @@
 </div>
 {{ define "section-tree-nav" }}
 {{ range .Sections.Reverse}}
-<li><span class="caret"><a href="{{ .RelPermalink}}">{{ .Title }}</a></span>
+<li>
+    <span class="caret">
+        <a href="{{ .RelPermalink}}">{{ .Title }}</a>
+    </span>
     <ul class="nested">
         {{ range .Pages.ByTitle }}
         {{ if ne .Kind "section" }}
-        <li><a href="{{ .RelPermalink}}">{{ .Title }}</a></li>
+        <li>
+            <a href="{{ .RelPermalink}}">{{ .Title }}</a>
+        </li>
         {{ end }}
         {{ end }}
         {{ template "section-tree-nav" . }}

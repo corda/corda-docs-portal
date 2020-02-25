@@ -1,4 +1,5 @@
 # Don't ignore stuff in here
-!**/*.html
-
 node_modules/
+
+static/css/
+static/js/

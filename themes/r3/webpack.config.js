@@ -38,6 +38,10 @@ module.exports = [
               },
             }
           ]
+        },
+        {
+            test: /\.(png|svg)$/,
+            loader: 'url-loader'
         }
       ]
     },
