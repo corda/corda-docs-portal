@@ -76,7 +76,7 @@ language_alternatives = ["en"]
 [params]
 github_repository = "https://github.com/corda/docs-site"
 #  Cue bikeshedding
-language_default = "kotlin"
+default_tab = "kotlin"
 
 algolia_appId = "R1ZKEEPZZD"
 algolia_apiKey = "956b84b7485b311cbd94473cf7e37e1c"
