@@ -1,5 +1,7 @@
-$note-class: ".#{$class-component-prefix}note";
+$note-class: "#{$class-object-prefix}note";
 
-#{$note-class} {
-    background-color: $secondary-extra-02;
+.#{$note-class} {
+    @extend .alert;
+    @extend .alert-info;
+    border-left: 0.5rem solid theme-color-level(info);
 }

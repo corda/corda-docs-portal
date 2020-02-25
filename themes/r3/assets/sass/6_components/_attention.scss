@@ -1,0 +1,7 @@
+$note-class: "#{$class-object-prefix}attention";
+
+.#{$note-class} {
+    @extend .alert;
+    @extend .alert-success;
+    border-left: 0.5rem solid theme-color-level(success);
+}
