@@ -16,7 +16,7 @@
 docsearch({
     appId: '{{- .Site.Params.algolia_appId -}}',
     apiKey: '{{- .Site.Params.algolia_apiKey -}}',
-    indexName: 'dev_hugo',
+    indexName: '{{- .Site.Params.aloglia_indexName -}}',
     inputSelector: '#search-input',
     algoliaOptions: { hitsPerPage: 5 }
 });
