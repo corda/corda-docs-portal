@@ -14,5 +14,10 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "arrow-parens": ["error", "as-needed"],
+        "comma-dangle": [2, "never"],
+        "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
+        "object-curly-newline": 0,
+        "semi": ["error", "always"]
     }
 };
