@@ -10,9 +10,25 @@ Install `yarn` (see https://classic.yarnpkg.com/en/docs/install)
 Then, if `yarn` is installed locally
 
 * `yarn install`
-* `yarn run build`
+* `yarn run devenv`
 
-with watcher:
+which run:
+
+```
+webpack --config webpack.config.js --mode development --watch
+```
+
+and
+
+```
+hugo serve --source ../..
+```
+
+where `../..` is the site location relative to the theme.
+
+### Alternative Ways Of Running
+
+With watcher:
 
 * `yarn run build --watch`
 

@@ -4,7 +4,7 @@
 {{ $tabs := .Scratch.Get "tabs" }}
 {{ $default_tab := default "kotlin" .Site.Params.default_tab }}
 {{ if .Inner }}{{/* We don't use the inner content, but Hugo will complain if we don't reference it. */}}{{ end }}
-<div id="{{ $tab_set_id }}">
+<div class="r3-o-tabs" id="{{ $tab_set_id }}">{{/* tabs activated by javascript */}}
 <ul class="nav nav-tabs">
 {{ range $i, $e := $tabs }}
 {{ $one_tab := eq 1 (len $tabs)}}
@@ -47,5 +47,4 @@
 {{ end }}
 </div>
 </div>
-{{ $elem :=  $tab_set_id | safeJS }}
-<script>$(function(){$("#{{ $elem }}").tabs();});</script>
+
