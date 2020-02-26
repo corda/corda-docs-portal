@@ -8,7 +8,8 @@
   "scripts": {
     "build-dev": "webpack --config webpack.config.js --mode development",
     "build": "webpack --config webpack.config.js --mode production",
-    "start": "webpack --config webpack.config.js --mode development"
+    "start": "webpack --config webpack.config.js --mode development --watch",
+    "devenv" : "node runner.js"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -25,6 +26,7 @@
     "bootstrap": "^4.4.1",
     "docsearch.js": "^2.6.3",
     "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1",
     "mermaid": "^8.4.8",
     "popper.js": "^1.16.1"
   }
