@@ -2,10 +2,13 @@ const path = require("path");
 
 module.exports = [
     {
-        entry: "./scripts",
+        entry: {
+            app: "./scripts",
+            vendor: "./scripts/vendor"
+        },
         output: {
             path: path.resolve(__dirname, "./static/"),
-            filename: "js/bundle.js"
+            filename: "js/[name].js"
         },
         devtool: "source-map",
         module: {
