@@ -1,17 +1,23 @@
 $wrapper-object: ".#{$class-object-prefix}wrapper";
-#{$wrapper-object}-main {
-  min-height: calc(100vh - 56px - 80px);
-}
 
 #{$wrapper-object}-side {
-  background-color: #f7fafc;
-  order: 2;
-
-  @media screen and (max-width: 991px) {
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
+    background-color: #f7fafc;
     order: 0;
-    z-index: 100;
-  }
+
+    @media screen and (max-width: 1199px) {
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        order: 0;
+        z-index: 100;
+    }
 }
+
+#{$wrapper-object}-main {
+  min-height: calc(100vh - 56px - 80px);
+  order: 1;
+}
+
+#{$wrapper-object}-toc {
+    order: 2;
+  }

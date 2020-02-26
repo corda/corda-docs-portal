@@ -36,7 +36,7 @@ $selected-page: "#{$class-object-prefix}selected-page";
     }
 
     &__nav-content {
-        @media screen and (min-width: 992px) {
+        @media screen and (min-width: 1199px) {
            display: block !important;
           }
     }
