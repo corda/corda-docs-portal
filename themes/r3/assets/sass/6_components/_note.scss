@@ -4,4 +4,10 @@ $note-class: "#{$class-object-prefix}note";
     @extend .alert;
     @extend .alert-info;
     border-left: 0.5rem solid theme-color-level(info);
+
+    img {
+        float:left;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
 }
