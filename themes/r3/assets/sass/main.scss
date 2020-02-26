@@ -1,3 +1,5 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
 @import "1_settings/variables";
 @import "1_settings/colours";
 
@@ -5,6 +7,10 @@
 @import "4_base/main";
 
 @import "6_components/note";
+@import "6_components/warning";
+@import "6_components/important";
+@import "6_components/attention";
+@import "6_components/topic";
 @import "6_components/sidebar";
 @import "6_components/navbar";
 @import "6_components/footer";

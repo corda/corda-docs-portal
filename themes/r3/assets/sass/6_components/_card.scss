@@ -1,4 +1,4 @@
-$card-class: ".#{$class-component-prefix}card";
+$card-class: "#{$class-object-prefix}card";
 
-#{$card-class} {
+.#{$card-class} {
 }
