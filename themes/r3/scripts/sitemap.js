@@ -3,21 +3,21 @@ function locatePageInSiteMap() {
     var thisPage = document.URL.split("#")[0];
     var sitemap = document.getElementById("r3-sitemap");
 
-    if (location.pathname == "/docs.html") {
-        sitemap.querySelector("#myUL").classList.remove("nested");
-    }
-
     var elements = sitemap.getElementsByTagName("a");
     for (var i = 0; i < elements.length; i++) {
         if (thisPage == elements[i].href) {
             var e = elements[i];
+            while (!e.classList.contains("nested")) {
+                e = e.parentNode;
+            }
+            e.classList.remove("nested");
+
             while (e && e !== sitemap) {
                 if (e.classList.contains("nested")) {
                     e.classList.toggle("active");
                     e.querySelector(".caret").classList.toggle("caret-down");
                 }
                 e = e.parentNode;
-                console.log(e);
             }
             elements[i].id = "r3-o-selected-page";
             break;
