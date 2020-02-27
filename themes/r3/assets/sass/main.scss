@@ -1,10 +1,12 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/docsearch.js/dist/npm/styles/main";
 
 @import "1_settings/variables";
 @import "1_settings/colours";
 
 @import "4_base/site";
 @import "4_base/main";
+@import "4_base/alerts";
 
 @import "6_components/note";
 @import "6_components/warning";

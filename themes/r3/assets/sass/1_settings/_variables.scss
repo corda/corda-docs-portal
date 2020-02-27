@@ -3,5 +3,5 @@ $class-library-prefix: "r3-" !default;
 $class-object-prefix: "#{$class-library-prefix}o-" !default;
 $class-component-prefix: "#{$class-library-prefix}c-" !default;
 
-
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600");
+// Uncomment if we really need the poppins font.
+// @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600");
