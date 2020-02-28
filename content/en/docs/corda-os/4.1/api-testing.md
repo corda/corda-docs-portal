@@ -253,10 +253,10 @@ This allows you to check whether a given state has (or has not) been stored, and
 
 ### Further examples
 
-* See the flow testing tutorial [here]({{< relref "flow-testing" >}})
+* See the flow testing tutorial [here](flow-testing.md)
 
 
-* See the oracle tutorial [here]({{< relref "oracles" >}}) for information on testing `@CordaService` classes
+* See the oracle tutorial [here](oracles.md) for information on testing `@CordaService` classes
 
 
 * Further examples are available in the Example CorDapp in
@@ -776,7 +776,7 @@ public void chainCommercialPaperDoubleSpend() {
 
 ### Further examples
 
-* See the flow testing tutorial [here]({{< relref "tutorial-test-dsl" >}})
+* See the flow testing tutorial [here](tutorial-test-dsl.md)
 
 
 * Further examples are available in the Example CorDapp in

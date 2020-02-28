@@ -6,29 +6,29 @@ date: 2020-01-08T09:59:25Z
 
 # Networks
 
-* [Corda Networks]({{< relref "corda-networks" >}})
+* [Corda Networks](corda-networks.md)
 
-* [What is a compatibility zone?]({{< relref "compatibility-zones" >}})
+* [What is a compatibility zone?](compatibility-zones.md)
 
-* [Network certificates]({{< relref "permissioning" >}})
+* [Network certificates](permissioning.md)
 
-* [The network map]({{< relref "network-map" >}})
+* [The network map](network-map.md)
 
-* [Joining Corda Testnet]({{< relref "corda-testnet-intro" >}})
+* [Joining Corda Testnet](corda-testnet-intro.md)
 
-* [Using Azure Resource Manager Templates to deploy a Corda Enterprise node]({{< relref "azure-template-guide" >}})
+* [Using Azure Resource Manager Templates to deploy a Corda Enterprise node](azure-template-guide.md)
 
-* [Using the Node Explorer to test a Corda Enterprise node on Corda Testnet]({{< relref "testnet-explorer" >}})
+* [Using the Node Explorer to test a Corda Enterprise node on Corda Testnet](testnet-explorer.md)
 
-* [Cipher suites supported by Corda]({{< relref "cipher-suites" >}})
+* [Cipher suites supported by Corda](cipher-suites.md)
 
-* [Joining an existing compatibility zone]({{< relref "joining-a-compatibility-zone" >}})
+* [Joining an existing compatibility zone](joining-a-compatibility-zone.md)
 
-* [Joining Corda Testnet]({{< relref "corda-testnet-intro" >}})
+* [Joining Corda Testnet](corda-testnet-intro.md)
 
-* [Deploying Corda to Testnet]({{< relref "deploy-to-testnet-index" >}})
+* [Deploying Corda to Testnet](deploy-to-testnet-index.md)
 
-* [Setting up a dynamic compatibility zone]({{< relref "setting-up-a-dynamic-compatibility-zone" >}})
+* [Setting up a dynamic compatibility zone](setting-up-a-dynamic-compatibility-zone.md)
 
 
 

@@ -48,12 +48,12 @@ There are four pieces of required software for CorDapp development: the Java 8 J
 
 
 ## Next steps
-First, run the [example CorDapp]({{< relref "tutorial-cordapp" >}}).
+First, run the [example CorDapp](tutorial-cordapp.md).
 
-Next, read through the [Corda Key Concepts]({{< relref "key-concepts" >}}) to understand how Corda works.
+Next, read through the [Corda Key Concepts](key-concepts.md) to understand how Corda works.
 
 By then, you’ll be ready to start writing your own CorDapps. You may want to refer to the
-                API documentation, the [flow cookbook]({{< relref "flow-cookbook" >}}) and the
+                API documentation, the [flow cookbook](flow-cookbook.md) and the
                 [samples](https://www.corda.net/samples/) along the way.
 
 If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://slack.corda.net/).

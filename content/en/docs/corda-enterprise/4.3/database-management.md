@@ -6,13 +6,13 @@ date: 2020-01-08T09:59:25Z
 
 
 # Database management scripts
-Corda - the platform, and the installed CorDapps store their data in a relational database (see [API: Persistence]({{< relref "api-persistence" >}})).
+Corda - the platform, and the installed CorDapps store their data in a relational database (see [API: Persistence](api-persistence.md)).
             When a new CorDapp is installed, associated tables, indexes, foreign-keys, etc. must be created.
             Similarly, when a new version of a CorDapp is installed, its database schema may have changed,
             but the existing data needs to be preserved or changed accordingly.
 
 In Corda Enteprise, CorDapps’ custom tables are created or upgraded automatically based on
-            Database Management Scripts written in [Liquibase]({{< relref "node-database#liquibase-ref" >}}) format and embedded in CorDapp JARs.
+            Database Management Scripts written in [Liquibase](node-database.md#liquibase-ref) format and embedded in CorDapp JARs.
             For Corda Enterpise, any CorDapp having custom tables (`MappedSchema`)  needs to contain a matching Database Management Script, the script should be created during CorDapp development.
 
 

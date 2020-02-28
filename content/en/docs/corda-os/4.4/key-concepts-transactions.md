@@ -38,13 +38,11 @@ date: 2020-01-08T09:59:25Z
 Corda uses a *UTXO* (unspent transaction output) model where every state on the ledger is immutable. The ledger
                 evolves over time by applying *transactions*. Transactions update the ledger by marking zero or more existing ledger states
                 as historic (the *inputs*), and producing zero or more new ledger states (the *outputs*). Transactions represent a
-                single link in the state sequences seen in [States]({{< relref "key-concepts-states" >}}).
+                single link in the state sequences seen in [States](key-concepts-states.md).
 
 Here is an example of an update transaction, with two inputs and two outputs:
 
-{{< img src="resources/basic-tx.png" alt="basic tx" >}}
-
-A transaction can contain any number of inputs, outputs and references of any type:
+![basic tx](resources/basic-tx.png "basic tx")A transaction can contain any number of inputs, outputs and references of any type:
 
 
 * They can include many different state types (states may represent cash or bonds, for example)
@@ -61,7 +59,7 @@ Transactions are *atomic*; either all of the transaction’s proposed changes ar
 There are two basic types of transactions:
 
 
-* Notary-change transactions (used to change a state’s notary - see [Notaries]({{< relref "key-concepts-notaries" >}}))
+* Notary-change transactions (used to change a state’s notary - see [Notaries](key-concepts-notaries.md))
 
 
 * General transactions (used for everything else)
@@ -84,27 +82,19 @@ These input states references are a combination of:
 
 This situation can be illustrated as follows:
 
-{{< img src="resources/tx-chain.png" alt="tx chain" >}}
-
-These input state references link transactions together over time, forming what is known as a *transaction chain*.
+![tx chain](resources/tx-chain.png "tx chain")These input state references link transactions together over time, forming what is known as a *transaction chain*.
 
 
 ## Committing transactions
 Initially, a transaction is just a **proposal** to update the ledger. It represents the future state of the ledger
                 that is desired by the transaction builders:
 
-{{< img src="resources/uncommitted_tx.png" alt="uncommitted tx" >}}
-
-To become reality, the transaction must receive signatures from all of the *required signers* (see **Commands**, below). Each
+![uncommitted tx](resources/uncommitted_tx.png "uncommitted tx")To become reality, the transaction must receive signatures from all of the *required signers* (see **Commands**, below). Each
                 required signer appends their signature to the transaction to indicate that they approve the proposal:
 
-{{< img src="resources/tx_with_sigs.png" alt="tx with sigs" >}}
+![tx with sigs](resources/tx_with_sigs.png "tx with sigs")If all of the required signatures are gathered, the transaction becomes committed:
 
-If all of the required signatures are gathered, the transaction becomes committed:
-
-{{< img src="resources/committed_tx.png" alt="committed tx" >}}
-
-This means that:
+![committed tx](resources/committed_tx.png "committed tx")This means that:
 
 
 * The transaction’s inputs are marked as historic, and cannot be used in any future transactions
@@ -127,12 +117,12 @@ Each required signer should only sign the transaction if the following two condi
 > >     * The transaction is digitally signed by all the required parties
 > > 
 > > 
-> >     * The transaction is *contractually valid* (see [Contracts]({{< relref "key-concepts-contracts" >}}))
+> >     * The transaction is *contractually valid* (see [Contracts](key-concepts-contracts.md))
 > > 
 > > 
 > 
 > * **Transaction uniqueness**: There exists no other committed transaction that has consumed any of the inputs to
->                             our proposed transaction (see [Consensus]({{< relref "key-concepts-consensus" >}}))
+>                             our proposed transaction (see [Consensus](key-concepts-consensus.md))
 > 
 > 
 If the transaction gathers all of the required signatures, but the preceding conditions do not hold, the transaction’s outputs
@@ -140,7 +130,7 @@ If the transaction gathers all of the required signatures, but the preceding con
 
 
 ## Reference states
-As mentioned in [States]({{< relref "key-concepts-states" >}}), some states need to be referred to by the contracts of other input or output
+As mentioned in [States](key-concepts-states.md), some states need to be referred to by the contracts of other input or output
                 states but not updated/consumed. This is where reference states come in. When a state is added to the references list of
                 a transaction, instead of the inputs or outputs list, it is treated as a *reference state*. There are two important
                 differences between regular states and reference states:
@@ -175,9 +165,7 @@ For example, suppose we have a transaction where Alice uses a £5 cash payment t
                 has two supporting attachments, and will only be notarised by NotaryClusterA if the notary pool
                 receives it within the specified time-window. This transaction would look as follows:
 
-{{< img src="resources/full-tx.png" alt="full tx" >}}
-
-
+![full tx](resources/full-tx.png "full tx")
 ### Commands
 <iframe src="https://player.vimeo.com/video/213881538" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
@@ -213,9 +201,7 @@ Each command is also associated with a list of one or more *signers*. By taking 
 
 We can visualize this situation as follows:
 
-{{< img src="resources/commands.png" alt="commands" >}}
-
-
+![commands](resources/commands.png "commands")
 ### Attachments
 <iframe src="https://player.vimeo.com/video/213879328" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
@@ -249,7 +235,7 @@ In some cases, we want a proposed transaction to only be approved during a certa
 
 
 In such cases, we can add a *time-window* to the transaction. Time-windows specify the time period during which the
-                    transaction can be committed. The notary pool enforces time-window validity. We discuss time-windows in the section on [Time-windows]({{< relref "key-concepts-time-windows" >}}).
+                    transaction can be committed. The notary pool enforces time-window validity. We discuss time-windows in the section on [Time-windows](key-concepts-time-windows.md).
 
 
 ### Notary
@@ -259,6 +245,6 @@ A notary pool is a network service that provides uniqueness consensus by attesti
 
 Note that if the notary entity is absent then the transaction is not notarised at all. This is intended for
                     issuance/genesis transactions that don’t consume any other states and thus can’t double spend anything.
-                    For more information on the notary services, see [Notaries]({{< relref "key-concepts-notaries" >}}).
+                    For more information on the notary services, see [Notaries](key-concepts-notaries.md).
 
 

@@ -100,7 +100,7 @@ Usually, test networks have a structure that is known ahead of time. For the cre
                 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
                 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in [Network Bootstrapper]({{< relref "network-bootstrapper" >}}).
+More information can be found in [Network Bootstrapper](network-bootstrapper.md).
 
 
 ## Network parameters
@@ -164,7 +164,7 @@ Version number of the network parameters. Starting from 1, this will always incr
 whitelistedContractImplementations
 List of whitelisted versions of contract code.
                             For each contract class there is a list of SHA-256 hashes of the approved CorDapp jar versions containing that contract.
-                            Read more about *Zone constraints* here [API: Contract Constraints]({{< relref "api-contract-constraints" >}})
+                            Read more about *Zone constraints* here [API: Contract Constraints](api-contract-constraints.md)
 
 
 eventHorizon
@@ -178,11 +178,11 @@ List of the network-wide java packages that were successfully claimed by their o
                             This ensures that when a node encounters an owned contract it can uniquely identify it and knows that all other nodes can do the same.
                             Encountering an owned contract in a JAR that is not signed by the rightful owner is most likely a sign of malicious behaviour, and should be reported.
                             The transaction verification logic will throw an exception when this happens.
-                            Read more about *Package ownership* here “[Package namespace ownership]({{< relref "network-bootstrapper#package-namespace-ownership" >}})”.
+                            Read more about *Package ownership* here “[Package namespace ownership](network-bootstrapper.md#package-namespace-ownership)”.
 
 
 {{< note >}}
-To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.3 see [Corda Features to Versions]({{< relref "features-versions" >}})
+To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.3 see [Corda Features to Versions](features-versions.md)
 
 
 {{< /note >}}
@@ -317,7 +317,7 @@ If the network operator starts advertising a different set of new parameters the
 
 To send back parameters approval to the zone operator, the RPC method `fun acceptNewNetworkParameters(parametersHash: SecureHash)`
                     has to be called with `parametersHash` from the update. Note that approval cannot be undone. You can do this via the Corda
-                    shell (see [Node shell]({{< relref "shell" >}})):
+                    shell (see [Node shell](shell.md)):
 
 `run acceptNewNetworkParameters parametersHash: "ba19fc1b9e9c1c7cbea712efda5f78b53ae4e5d123c89d02c9da44ec50e9c17d"`
 
@@ -333,7 +333,7 @@ To allow business network operators to onboard nodes in the early period of the 
                 joined the Network, this feature will be turned off and previously private nodes will be made visible in the public network map.
 
 An additional REST `/network-map/{uuid}` endpoint serving private network maps was introduced. For nodes to be able to query
-                that information automatically you need to change `node.conf` to include private network UUIDs in `extraNetworkMapKeys` see [Node configuration]({{< relref "corda-configuration-file" >}}).
+                that information automatically you need to change `node.conf` to include private network UUIDs in `extraNetworkMapKeys` see [Node configuration](corda-configuration-file.md).
 
 From the node operator’s perspective the process is simple. During the initial registration the Compatibility Zone operator will
                 mark the node as belonging to the private network map and will provide the node operator with UUID that should be put in the node’s config file.
@@ -353,7 +353,7 @@ Sometimes it may happen that the node ends up with an inconsistent view of the n
 java -jar corda.jar clear-network-cache
 ```
 or call RPC method *clearNetworkMapCache* (it can be invoked through the node’s shell as *run clearNetworkMapCache*, for more information on
-                how to log into node’s shell see [Node shell]({{< relref "shell" >}})). As we are testing and hardening the implementation this step shouldn’t be required.
+                how to log into node’s shell see [Node shell](shell.md)). As we are testing and hardening the implementation this step shouldn’t be required.
                 After cleaning the cache, network map data is restored on the next poll from the server or filesystem.
 
 

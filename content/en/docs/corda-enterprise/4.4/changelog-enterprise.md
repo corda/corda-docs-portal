@@ -12,7 +12,7 @@ Here’s a summary of what’s changed in each Corda Enterprise release. For gui
 ## Unreleased
 
 * Changes in HA notary setup: the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
-                        See [notary installation page]({{< relref "notary/installing-the-notary-service#mysql-driver" >}}) for more information.
+                        See [notary installation page](notary/installing-the-notary-service.md#mysql-driver) for more information.
 
 
 * For Azure SQL and SQL Server databases the node now requires a minimum version of 6.4.0.jre8 for the JDBC drivers.
@@ -20,7 +20,7 @@ Here’s a summary of what’s changed in each Corda Enterprise release. For gui
 
 
 ## Version 4.0
-Please refer to [Changelog]({{< relref "changelog" >}}) for all Open Source changes which automatically also apply to Enterprise.
+Please refer to [Changelog](changelog.md) for all Open Source changes which automatically also apply to Enterprise.
 
 Changelog entries below refer to Enterprise-only changes.
 
@@ -257,7 +257,7 @@ Whilst this is not the latest version of this library, that being 2.18.1 at time
 >                                     parameter is no longer needed.
 > 
 > 
->     * For test deployments we’ve introduced a bootstrapping tool (see [Network Bootstrapper]({{< relref "network-bootstrapper" >}})).
+>     * For test deployments we’ve introduced a bootstrapping tool (see [Network Bootstrapper](network-bootstrapper.md)).
 > 
 > 
 >     * `extraAdvertisedServiceIds`, `notaryNodeAddress`, `notaryClusterAddresses` and `bftSMaRt` configs have been

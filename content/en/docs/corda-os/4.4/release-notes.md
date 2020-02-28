@@ -5,8 +5,63 @@ date: 2020-01-08T09:59:25Z
 
 
 # Release notes
-Welcome to the Corda 4.3 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.3 comes with those same guarantees. States and apps valid in Corda 3.0 are transparently usable in Corda 4.3.
+Welcome to the Corda 4.4 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.4 comes with those same guarantees. States and apps valid in Corda 3.0 are usable in Corda 4.4.
 
+
+## Corda 4.4
+Corda 4.4 lays the foundation of a new open-core approach for the Corda codebase. This involved a refactoring of the main functional components of Corda. Please consult cordapp-overview.rst to get an overview of the practical impact on CorDapp development.
+
+Furthermore, Corda 4.4 introduces improvements to the flow framework API, a new diagnostic `ServiceHub` call and includes a number of security enhancements.
+
+
+### Changes for developers in Corda 4.4
+
+#### Flows API improvements
+Corda 4.4 introduces a new `FlowLogic.await` API that allows a CorDapp developer to suspend their flow when executing user-defined long-running operations (e.g. call-outs to external services). This prevents these long-running operations from blocking the flow thread, allowing other flows to progress in the interim. Previously, these operations had to be executed synchronously, blocking the flow thread.
+
+The CorDapp developer can decide whether to run these asynchronous flow operations in a dedicated thread pool, or to handle the threading themselves directly.
+
+Note that as before, the flow framework suspends automatically for certain operations (e.g. when waiting to receive a message from a counterparty). These suspensions do not have to be triggered explicitly.
+
+The node operator can configure the number of threads in the threadpool to dedicate to external operations.
+
+Corda 4.4 also introduces a new `HospitalizeFlowException` exception type that, when thrown, causes a flow to halt execution and send itself to the flow hospital for observation. The flow will automatically be retried on the next node start.
+
+This exception gives user code a way to retry a flow from its last checkpoint if a known intermittent failure occurred.
+
+
+#### New utility APIs
+Corda 4.4 introduces a new call (`ServiceHub.DiagnosticsService`) available to CorDapp developers that allows them to access:
+
+
+* The edition of Corda being run (e.g. Open Source, Enterprise)
+
+
+* The version of Corda being run including the patch number (eg. 3.2.20190215)
+
+
+Corda 4.4 also provides a callback (`AppServiceHub.register`) to allow Corda services to register custom actions to be performed once the node is fully started-up. This pattern prevents issues caused by the service trying to immediately access a part of the node that hadn’t yet been initialised .
+
+
+#### Security enhancements
+
+* The SSH server in the [Node shell](shell.md) has been updated to remove outdated weak ciphers and algorithms.
+
+
+* The ability to SSH into the standalone shell has been removed
+
+
+* A new read-only RPC user role template has been documented in [Node shell](shell.md)
+
+
+
+### Platform version change
+Given the addition of new APIs, the platform version of Corda 4.4 has been bumped up from 5 to 6. This is to prevent CorDapps that use it being deployed onto nodes unable to host them. Note that the minimum platform version has not been changed - this means that older Corda nodes can still interoperate with Corda 4.4 nodes. Since the APIs added do not affect the wire protocol or have other zone-level implications, applications can take advantage of these new platform version 6 features even if the Corda 4.4 node is running on a network whose minimum platform version is 4.
+
+For more information on platform version, please see [Versioning](versioning.md). For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
+
+
+### Issues Fixed
 
 ## Corda 4.3
 Corda 4.1 was released with a great suite of new features to build on top of the success of Corda 4. Now, Corda 4.3 extends upon that with some powerful new capabilities. Corda 4.3 contains over 400 fixes and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
@@ -62,7 +117,7 @@ The improved library provides the following enhancements:
 * Retries all operations on failure, except for flow start operations that die before receiving a valid *FlowHandle*, in which case a *CouldNotStartFlowException* is thrown
 
 
-We’re confident in the improvements made to RPC client connectivity but would remind you that applications should be developed with contingencies in the event of an RPC connection failure. See [Interacting with a node]({{< relref "clientrpc" >}}) for details.
+We’re confident in the improvements made to RPC client connectivity but would remind you that applications should be developed with contingencies in the event of an RPC connection failure. See [Interacting with a node](clientrpc.md) for details.
 
 
 #### Additional flexibility in recording transactions
@@ -81,7 +136,7 @@ In Corda 4.3, nodes can choose to record a transaction with three different leve
 Previously, there was a limitation in that if a node initially records a transaction with a specific level of visibility, they cannot later record it with a different level of visibility.
 
 In Corda 4.3, an enhancement has been made to observer node functionality to allow observers to re-record transactions that have already been recorded at a lower visibility.
-                        See [Observer nodes]({{< relref "tutorial-observer-nodes" >}}) for details of how to work with observer nodes
+                        See [Observer nodes](tutorial-observer-nodes.md) for details of how to work with observer nodes
 
 
 ### Changes for operators in Corda 4.3
@@ -110,7 +165,7 @@ There have been several security upgrades, including changes to the Corda webser
 ### Platform version change
 Given the addition of a new API to support the Accounts feature, the platform version of Corda 4.3 has been bumped up from 4 to 5. This is to prevent CorDapps that use it being deployed onto nodes unable to host them. Note that the minimum platform version has not been changed - this means that older Corda nodes can still interoperate with Corda 4.3 nodes. Since the APIs added do not affect the wire protocol or have other zone-level implications, applications can take advantage of these new platform version 5 features even if the Corda 4.3 node is running on a network whose minimum platform version is 4.
 
-For more information on platform version, please see [Versioning]({{< relref "versioning" >}}). For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}).
+For more information on platform version, please see [Versioning](versioning.md). For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
 
 
 ### Deprecations
@@ -1070,13 +1125,13 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 Welcome to the Corda 4 release notes. Please read these carefully to understand what’s new in this
                 release and how the changes can help you. Just as prior releases have brought with them commitments
                 to wire and API stability, Corda 4 comes with those same guarantees. States and apps valid in
-                Corda 3 are transparently usable in Corda 4.
+                Corda 3 are usable in Corda 4.
 
-For app developers, we strongly recommend reading “[Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}})”. This covers the upgrade
+For app developers, we strongly recommend reading “[Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md)”. This covers the upgrade
                 procedure, along with how you can adjust your app to opt-in to new features making your app more secure and
                 easier to upgrade in future.
 
-For node operators, we recommend reading “[Upgrading your node to Corda 4]({{< relref "node-upgrade-notes" >}})”. The upgrade procedure is simple but
+For node operators, we recommend reading “[Upgrading your node to Corda 4](node-upgrade-notes.md)”. The upgrade procedure is simple but
                 it can’t hurt to read the instructions anyway.
 
 Additionally, be aware that the data model improvements are changes to the Corda consensus rules. To use
@@ -1120,11 +1175,11 @@ When an app is signed, that automatically activates the use of signature constra
 
 **We strongly recommend all apps be signed and use signature constraints going forward.**
 
-Learn more about this new feature by reading the [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}).
+Learn more about this new feature by reading the [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
 
 
 #### State pointers
-[State Pointers]({{< relref "api-states#state-pointers" >}}) formalize a recommended design pattern, in which states may refer to other states
+[State Pointers](api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
                         on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
                         any information on the global ledger). State pointers work together with the reference states feature
                         to make it easy for data to point to the latest version of any other piece of data, with the right
@@ -1135,11 +1190,9 @@ Learn more about this new feature by reading the [Upgrading CorDapps to newer Pl
 A new graphical tool for building test Corda networks has been added. It can build Docker images for local
                         deployment and can also remotely control Microsoft Azure, to create a test network in the cloud.
 
-Learn more on the [Corda Network Builder]({{< relref "network-builder" >}}) page.
+Learn more on the [Corda Network Builder](network-builder.md) page.
 
-{{< img src="_static/images/network-builder-v4.png" alt="network builder v4" >}}
-
-
+![network builder v4](_static/images/network-builder-v4.png "network builder v4")
 #### JPA access in flows and services
 Corda 3 provides the `jdbcConnection` API on `FlowLogic` to give access to an active connection to your
                         underlying database. It is fully intended that apps can store their own data in their own tables in the
@@ -1170,7 +1223,7 @@ Please do not attempt to write to tables starting with `node_` or `contract_` as
                         is named in each state object. This manual step is easy to miss, which would make the app less secure
                         in a network where you trade with potentially malicious counterparties. The platform now handles this
                         for you by allowing you to annotate states with which contract governs them. If states are inner
-                        classes of a contract class, this association is automatic. See [API: Contract Constraints]({{< relref "api-contract-constraints" >}}) for more information.
+                        classes of a contract class, this association is automatic. See [API: Contract Constraints](api-contract-constraints.md) for more information.
 
 **Two-sided FinalityFlow and SwapIdentitiesFlow.** The previous `FinalityFlow` API was insecure because
                         nodes would accept any finalised transaction, outside of the context of a containing flow. This would
@@ -1210,7 +1263,7 @@ Transactions created under a Corda 4+ node will have the currently valid signed 
                         from their classpath. Definitions for these classes will be synthesised on the fly from the binary schemas
                         embedded in the messages. The resulting dynamically created objects can then be fed into any framework that
                         uses reflection, such as XML formatters, JSON libraries, GUI construction toolkits, scripting engines and so on.
-                        This approach is how the [Blob Inspector]({{< relref "blob-inspector" >}}) tool works - it simply deserialises a message and then feeds
+                        This approach is how the [Blob Inspector](blob-inspector.md) tool works - it simply deserialises a message and then feeds
                         the resulting synthetic class graph into a JSON or YAML serialisation framework.
 
 Class synthesis will use interfaces that are implemented by the original objects if they are found on the
@@ -1221,7 +1274,7 @@ Class synthesis will use interfaces that are implemented by the original objects
 
 **SSL**. The Corda RPC infrastructure can now be configured to utilise SSL for additional security. The
                         operator of a node wishing to enable this must of course generate and distribute a certificate in
-                        order for client applications to successfully connect. This is documented here [Using the client RPC API]({{< relref "tutorial-clientrpc-api" >}})
+                        order for client applications to successfully connect. This is documented here [Using the client RPC API](tutorial-clientrpc-api.md)
 
 
 #### Preview of the deterministic DJVM
@@ -1230,7 +1283,7 @@ It is important that all nodes that process a transaction always agree on whethe
                         code must be fully deterministic. Out of the box a standard JVM is not fully deterministic, thus we must
                         make some modifications in order to satisfy our requirements.
 
-This version of Corda introduces a standalone [Deterministic JVM]({{< relref "key-concepts-djvm" >}}). It isn’t yet integrated with
+This version of Corda introduces a standalone [Deterministic JVM](key-concepts-djvm.md). It isn’t yet integrated with
                         the rest of the platform. It will eventually become a part of the node and enforce deterministic and
                         secure execution of smart contract code, which is mobile and may propagate around the network without
                         human intervention.
@@ -1240,7 +1293,7 @@ Currently, it is released as an evaluation version. We want to give developers t
                         envision will be placed on contract code in the future. There are some instructions on
                         how to get started with the DJVM command-line tool, which allows you to run code in a deterministic
                         sandbox and inspect the byte code transformations that the DJVM applies to your code. Read more in
-                        “[Deterministic JVM]({{< relref "key-concepts-djvm" >}})”.
+                        “[Deterministic JVM](key-concepts-djvm.md)”.
 
 
 #### Configurable flow responders
@@ -1249,7 +1302,7 @@ In Corda 4 it is possible for flows in one app to subclass and take over flows f
                         that causes transaction details to be converted to a PDF and sent to a particular printer. This would be an inappropriate feature to put
                         into shared business logic, but it makes perfect sense to put into a user-specific app they developed themselves.
 
-If your flows could benefit from being extended in this way, read “[Configuring Responder Flows]({{< relref "flow-overriding" >}})” to learn more.
+If your flows could benefit from being extended in this way, read “[Configuring Responder Flows](flow-overriding.md)” to learn more.
 
 
 #### Target/minimum versions
@@ -1281,7 +1334,7 @@ We’ve upgraded to Gradle 4.10.1.
 ### Changes for administrators in Corda 4
 
 #### Official Docker images
-Corda 4 adds an [Official Corda Docker Image]({{< relref "docker-image" >}}) for starting the node. It’s based on Ubuntu and uses the Azul Zulu
+Corda 4 adds an [Official Corda Docker Image](docker-image.md) for starting the node. It’s based on Ubuntu and uses the Azul Zulu
                         spin of Java 8. Other tools will have Docker images in future as well.
 
 
@@ -1291,7 +1344,7 @@ Changes to the parameters of a compatibility zone require all nodes to opt in be
 Some changes are trivial and very unlikely to trigger any disagreement. We have added auto-acceptance
                         for a subset of network parameters, negating the need for a node operator to manually run an accept
                         command on every parameter update. This behaviour can be turned off via the node configuration.
-                        See [The network map]({{< relref "network-map" >}}).
+                        See [The network map](network-map.md).
 
 
 #### Automatic error codes
@@ -1322,7 +1375,7 @@ In Corda 4 we have ported the node and all our tools to use a new command line h
 * All programs can now generate bash/zsh auto completion files.
 
 
-You can learn more by reading our [CLI user experience guidelines]({{< relref "cli-ux-guidelines" >}}) document.
+You can learn more by reading our [CLI user experience guidelines](cli-ux-guidelines.md) document.
 
 
 #### Liquibase for database schema upgrades
@@ -1357,7 +1410,7 @@ The TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 family of ciphers is retired from the li
 
 
 ### Miscellaneous changes
-To learn more about smaller changes, please read the [Changelog]({{< relref "changelog" >}}).
+To learn more about smaller changes, please read the [Changelog](changelog.md).
 
 Finally, we have added some new jokes. Thank you and good night!
 

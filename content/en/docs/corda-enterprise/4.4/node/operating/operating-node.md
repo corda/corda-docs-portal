@@ -6,25 +6,25 @@ date: 2020-01-08T09:59:25Z
 
 # Operating a Corda node
 
-* [Understanding the node database]({{< relref "node-database" >}})
+* [Understanding the node database](node-database.md)
 
-* [Using an HSM with Corda Enterprise]({{< relref "cryptoservice-configuration" >}})
+* [Using an HSM with Corda Enterprise](cryptoservice-configuration.md)
 
-* [Interacting with a node]({{< relref "clientrpc" >}})
+* [Interacting with a node](clientrpc.md)
 
-* [Certificate revocation list]({{< relref "certificate-revocation" >}})
+* [Certificate revocation list](certificate-revocation.md)
 
-* [Node monitoring and logging]({{< relref "monitoring-logging" >}})
+* [Node monitoring and logging](monitoring-logging.md)
 
-* [Optimizing node performance]({{< relref "optimizing" >}})
+* [Optimizing node performance](optimizing.md)
 
-* [Change management]({{< relref "cm-backup" >}})
+* [Change management](cm-backup.md)
 
-* [Upgrading a Corda (open source) Node to Corda Enterprise]({{< relref "node-operations-upgrading-os-to-ent" >}})
+* [Upgrading a Corda (open source) Node to Corda Enterprise](node-operations-upgrading-os-to-ent.md)
 
-* [Deploying CorDapps on a node]({{< relref "node-operations-cordapp-deployment" >}})
+* [Deploying CorDapps on a node](node-operations-cordapp-deployment.md)
 
-* [Upgrading CorDapps on a node]({{< relref "node-operations-upgrade-cordapps" >}})
+* [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md)
 
 
 

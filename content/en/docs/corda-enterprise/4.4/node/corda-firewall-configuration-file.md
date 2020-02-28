@@ -120,7 +120,7 @@ The available config fields are listed below. `baseDirectory` is available as a 
 
 
 healthCheck
-An optional parameter which specifies whether the firewall can process requests sent by the [Health Survey Tool]({{< relref "../health-survey#health-survey-ref" >}}). If missing the value is defaulted to `true`.
+An optional parameter which specifies whether the firewall can process requests sent by the [Health Survey Tool](../health-survey.md#health-survey-ref). If missing the value is defaulted to `true`.
 
 
 certificatesDirectory
@@ -419,7 +419,7 @@ Allows a list of jvm argument overrides to be sent to the Corda firewall process
                             For instance ``custom.jvmArgs = ["-Xmx2G"]` in the configuration file will set 2GByte of memory for the firewall.
                             This is equivalent to specifying `-Dcapsule.jvm.args="-Xmx2G"` on the command line, but is easier to track with other configuration and does not risk
                             accidentally setting the properties onto the capsule parent process (e.g. wasting 2Gbyte of memory).
-                            See [Setting JVM arguments]({{< relref "deploy/running-a-node#setting-jvm-args" >}}) for examples and details on the precedence of the different approaches to settings arguments.
+                            See [Setting JVM arguments](deploy/running-a-node.md#setting-jvm-args) for examples and details on the precedence of the different approaches to settings arguments.
 
 
 
@@ -492,17 +492,13 @@ As an example to show all features, the following is a walk-through of the confi
 
 Conceptually deployment will be done as follows:
 
-{{< img src="node/../resources/ha/deployment_concept.png" alt="deployment concept" >}}
-
-In this example it is assumed that a large organisation is running two nodes that represent two distinct legal entities. Each node/entity has its own set of CorDapps installed
+![deployment concept](node/../resources/ha/deployment_concept.png "deployment concept")In this example it is assumed that a large organisation is running two nodes that represent two distinct legal entities. Each node/entity has its own set of CorDapps installed
                 and its own transaction storage (vault). These two nodes are running within a Green/Trusted Zone and can be interacted with via RPC calls from clients (either standalone or embedded in other applications).
                 In order to be able to communicate outside of the organisation, special provisions are made in the form of Bridge, Float and SOCKS Proxy.
 
 The following diagram illustrates physical deployment of the example setup discussed above:
 
-{{< img src="node/../resources/ha/physical_deployment.png" alt="physical deployment" >}}
-
-
+![physical deployment](node/../resources/ha/physical_deployment.png "physical deployment")
 {{< note >}}
 The arrows on the diagram show in which direction connection is initiated. The actual data exchange may then be happening in both directions.
 
@@ -516,9 +512,7 @@ The SOCKS5 proxy is running on `vmSocks` which also resides in the DMZ.
 
 Each of the `vmInfra1` and `vmInfra2` computers host: ZooKeeper cluster participant, Bridge instance and Artemis cluster participant:
 
-{{< img src="node/../resources/ha/Infra.png" alt="Infra" >}}
-
-To facilitate High Availability requirement deployment is split onto two data centers.
+![Infra](node/../resources/ha/Infra.png "Infra")To facilitate High Availability requirement deployment is split onto two data centers.
 
 
 {{< note >}}

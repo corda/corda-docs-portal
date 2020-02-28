@@ -22,7 +22,7 @@ by “compliant”, we mean CorDapps that do not utilise Corda internal, non-sta
 
 {{< /note >}}
 Recommendation: security hardening changes in flow processing, specifically the `FinalityFlow`, recommend upgrading existing CorDapp
-                        receiver flows to use the new APIs and thus opting in to platform version 4. See [Step 5. Security: Upgrade your use of FinalityFlow]({{< relref "app-upgrade-notes#cordapp-upgrade-finality-flow-ref" >}}) for more information.
+                        receiver flows to use the new APIs and thus opting in to platform version 4. See [Step 5. Security: Upgrade your use of FinalityFlow](app-upgrade-notes.md#cordapp-upgrade-finality-flow-ref) for more information.
 
 
 * All constraint types (hash, CZ whitelisted, signature) are consumable within the same transaction if there is an associated contract attachment that satisfies all of them.
@@ -30,20 +30,20 @@ Recommendation: security hardening changes in flow processing, specifically the 
 
 * CorDapp Contract states generated on ledger using hash constraints are not directly migratable to signature constraints in this release.
                         Your compatibility zone operator may whitelist a JAR previously used to issue hash constrained states, and then you can follow the manual
-                        process described in the paragraph below to migrate these to signature constraints. See [CorDapp constraints migration]({{< relref "cordapp-constraint-migration" >}}) for more information.
+                        process described in the paragraph below to migrate these to signature constraints. See [CorDapp constraints migration](cordapp-constraint-migration.md) for more information.
 
 
 * CorDapp Contract states generated on ledger using CZ whitelisted constraints are migratable to signature constraints using a manual process
-                        that requires programmatic code changes. See [CZ whitelisted constraints migration]({{< relref "cordapp-constraint-migration#cz-whitelisted-constraint-migration" >}}) for more information.
+                        that requires programmatic code changes. See [CZ whitelisted constraints migration](cordapp-constraint-migration.md#cz-whitelisted-constraint-migration) for more information.
 
 
-* Explicit Contract Upgrades are only supported for hash and CZ whitelisted constraint types. See [Performing explicit contract and state upgrades]({{< relref "upgrading-cordapps#explicit-contract-upgrades-ref" >}}) for more information.
+* Explicit Contract Upgrades are only supported for hash and CZ whitelisted constraint types. See [Performing explicit contract and state upgrades](upgrading-cordapps.md#explicit-contract-upgrades-ref) for more information.
 
 
 * CorDapp contract attachments are not trusted from remote peers over the p2p network for the purpose of transaction verification.
                         A node operator must locally install *all* versions of a Contract attachment to be able to resolve a chain of contract states from its original version.
                         The RPC `uploadAttachment` mechanism can be used to achieve this (as well as conventional loading of a CorDapp by installing it in the nodes /cordapp directory).
-                        See [Installing the CorDapp JAR]({{< relref "cordapp-build-systems#cordapp-install-ref" >}}) and [CorDapp Contract Attachments]({{< relref "cordapp-build-systems#cordapp-contract-attachments-ref" >}}) for more information.
+                        See [Installing the CorDapp JAR](cordapp-build-systems.md#cordapp-install-ref) and [CorDapp Contract Attachments](cordapp-build-systems.md#cordapp-contract-attachments-ref) for more information.
 
 
 * CorDapp contract attachment classloader isolation has some important side-effects and edge cases to consider:
@@ -77,11 +77,11 @@ The following additional capabilities are under consideration for delivery in fo
 
 
 * CorDapp Contract states generated on ledger using hash constraints will be automatically migrated to signature constraints when building new transactions
-                        where the latest installed contract Jar is signed as per [CorDapp Jar signing]({{< relref "cordapp-build-systems#cordapp-build-system-signing-cordapp-jar-ref" >}}).
+                        where the latest installed contract Jar is signed as per [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref).
 
 
 * CorDapp Contract states generated on ledger using CZ whitelisted constraints will be automatically migrated to signature constraints when building new transactions
-                        where the latest installed contract Jar is signed as per [CorDapp Jar signing]({{< relref "cordapp-build-systems#cordapp-build-system-signing-cordapp-jar-ref" >}}).
+                        where the latest installed contract Jar is signed as per [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref).
 
 
 * Explicit Contract Upgrades will be supported for all constraint types: hash, CZ whitelisted and signature.

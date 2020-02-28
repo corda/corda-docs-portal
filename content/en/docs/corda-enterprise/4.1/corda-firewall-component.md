@@ -160,9 +160,7 @@ The simplest development deployment of the node is without firewall and thus jus
                         Typically this should only be used for easy development, or for organisations evaluating on Open Source Corda,
                         where this is the only available option:
 
-{{< img src="resources/bridge/node_embedded_bridge.png" alt="node embedded bridge" >}}
-
-
+![node embedded bridge](resources/bridge/node_embedded_bridge.png "node embedded bridge")
 ### Node + Combined Bridge/Float (no DMZ)
 
 #### Prerequisites
@@ -190,9 +188,7 @@ The next simplest deployment is to turn off the built in bridge using the `exter
 > 
 > 
 {{< /note >}}
-{{< img src="resources/bridge/node_bridge/simple_bridge.png" alt="simple bridge" >}}
-
-
+![simple bridge](resources/bridge/node_bridge/simple_bridge.png "simple bridge")
 #### node.conf
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
@@ -259,9 +255,7 @@ Note that whilst the bridge needs access to the official TLS private
 
 
 {{< /note >}}
-{{< img src="resources/bridge/node_bridge_float/node_bridge_float.png" alt="node bridge float" >}}
-
-
+![node bridge float](resources/bridge/node_bridge_float/node_bridge_float.png "node bridge float")
 #### node.conf
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
@@ -351,9 +345,7 @@ Some organisations require dynamic outgoing connections to operate via a SOCKS p
                         by adding extra information to the `outboundConfig` section of the bridge process. An simplified example deployment is shown here
                         to highlight the option:
 
-{{< img src="resources/bridge/socks_proxy/socks_proxy.png" alt="socks proxy" >}}
-
-
+![socks proxy](resources/bridge/socks_proxy/socks_proxy.png "socks proxy")
 #### node.conf
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
@@ -456,9 +448,7 @@ Finally, we show a full HA solution as recommended for production. This does req
                         addresses in the `alternateArtemisAddresses` to allow node failover and in the `floatAddresses` to point at a
                         pool of DMZ float processes.:
 
-{{< img src="resources/bridge/ha_nodes/ha_nodes.png" alt="ha nodes" >}}
-
-
+![ha nodes](resources/bridge/ha_nodes/ha_nodes.png "ha nodes")
 #### node.conf
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
@@ -559,12 +549,10 @@ networkParametersPath = network-parameters
 
 
 It is possible to allow two or more Corda nodes (HA and/or non-HA) handle outgoing and incoming P2P communication through a shared bridge. This is possible by configuring the nodes to use
-                        and external Artemis messaging broker which can be easily configured using the ha-tool. For more information, please see [HA Utilities]({{< relref "ha-utilities" >}}). While this example is the simplest deployment
+                        and external Artemis messaging broker which can be easily configured using the ha-tool. For more information, please see [HA Utilities](ha-utilities.md). While this example is the simplest deployment
                         possible with a shared bridge, any other configuration previously presented can be created.
 
-{{< img src="resources/bridge/multiple_non_ha_nodes/multiple_nodes_no_ha.png" alt="multiple nodes no ha" >}}
-
-
+![multiple nodes no ha](resources/bridge/multiple_non_ha_nodes/multiple_nodes_no_ha.png "multiple nodes no ha")
 #### bank-a-node.conf
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
@@ -662,7 +650,7 @@ trustStoreFile = nodesCertificates/truststore.jks
 ### Adding new nodes to existing shared Bridge
 Most of the HA components are agnostic to the node, with exception of the bridge which need to have access to the node’s SSL key in order to establish TLS connection to the counterparty nodes.
 
-The bridge’s SSL keystore will need to be updated when adding new node to the shared HA infrastructure. This can be done by using any keytool or by using [HA Utilities]({{< relref "ha-utilities" >}}),
+The bridge’s SSL keystore will need to be updated when adding new node to the shared HA infrastructure. This can be done by using any keytool or by using [HA Utilities](ha-utilities.md),
                     the *SSL key copier* is tailored to import multiple node’s SSL keys into the bridge’s keystore.
 
 A simple procedure for adding a new node might look like the following:
@@ -672,7 +660,7 @@ A simple procedure for adding a new node might look like the following:
 > * Backup and shutdown all Corda components - Nodes, Bridges, Artemis broker and Float.
 > 
 > 
-> * Register your new entities with the network operator. See [Joining an existing compatibility zone]({{< relref "joining-a-compatibility-zone" >}}).
+> * Register your new entities with the network operator. See [Joining an existing compatibility zone](joining-a-compatibility-zone.md).
 > 
 > 
 > * Locate the SSL keystore file in node’s certificate folder. e.g. `<node base directory>/certificates/sslkeystore.jks`
@@ -681,7 +669,7 @@ A simple procedure for adding a new node might look like the following:
 > * Copy the SSL keystores generated from the registration process to Bridge if they are on a different host.
 > 
 > 
-> * Using the [HA Utilities]({{< relref "ha-utilities" >}}), copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore.
+> * Using the [HA Utilities](ha-utilities.md), copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore.
 >                                 `ha-utilities import-ssl-key --node-keystores <<Node keystore path>> --node-keystore-passwords=<<Node keystore password>> --bridge-keystore=<<Bridge keystore path>> --bridge-keystore-password=<<Bridge keystore password>>`
 > 
 > 
@@ -693,7 +681,7 @@ A simple procedure for adding a new node might look like the following:
 The Corda node can be configured to use a external Artemis broker instead of embedded broker to provide messaging layer HA capability in enterprise environment.
 
 Detailed setup instruction for Apache Artemis can be found in [Apache Artemis documentation](https://activemq.apache.org/artemis/docs/latest/index.html). Also see
-                [HA Utilities]({{< relref "ha-utilities" >}}) for Artemis server configuration tool, which you can use to build a local, configured for Corda, Apache Artemis directory.
+                [HA Utilities](ha-utilities.md) for Artemis server configuration tool, which you can use to build a local, configured for Corda, Apache Artemis directory.
 
 
 {{< note >}}
@@ -724,9 +712,7 @@ Only Apache ZooKeeper version 3.5.4-beta is compatible due to Apache Curator v4.
 ### Sharing ZooKeeper
 A single ZooKeeper cluster instance can be shared between multiple bridge clusters to reduce infrastructure cost, the `haConfig.haTopic` can be configured to allow each bridge cluster accessing different ZooKeeper path.
 
-{{< img src="resources/bridge/zookeeper.png" alt="zookeeper" >}}
-
-The above example shows multiple Corda bridges (NodeA and NodeB) connecting to the same ZooKeeper server.
+![zookeeper](resources/bridge/zookeeper.png "zookeeper")The above example shows multiple Corda bridges (NodeA and NodeB) connecting to the same ZooKeeper server.
                     Node A and B have their own namespaces in ZooKeeper, which allow them to operate in the same ZooKeeper without interfering each other.
 
 This setup can be configured by setting NodeA and B’s `haConfig.haTopic` to `/corda/bridge/NodeA` and `/coda/bridge/NodeB` respectively, the parent nodes (/corda and /corda/bridge) will be created automatically upon connection.

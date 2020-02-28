@@ -90,9 +90,7 @@ This will start a terminal window for each node, and an additional terminal wind
                 the message, “Welcome to the Corda interactive shell.”.
 
 > 
-> {{< img src="resources/running_node.png" alt="running node" >}}
-
-
+> ![running node](resources/running_node.png "running node")
 ## Interacting with the nodes
 Now that our nodes are running, let’s order one of them to create an IOU by kicking off our `IOUFlow`. In a larger
                 app, we’d generally provide a web API sitting on top of our node. Here, for simplicity, we’ll be interacting with the
@@ -104,7 +102,7 @@ Go to the terminal window displaying the CRaSH shell of PartyA. Typing `help` wi
 
 {{< note >}}
 Local terminal shell is available only in a development mode. In production environment SSH server can be enabled.
-                    More about SSH and how to connect can be found on the [Node shell]({{< relref "shell" >}}) page.
+                    More about SSH and how to connect can be found on the [Node shell](shell.md) page.
 
 
 {{< /note >}}

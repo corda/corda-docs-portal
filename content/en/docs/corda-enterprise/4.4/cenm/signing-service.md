@@ -12,7 +12,7 @@ The Signable Material Retriever (SMR) and Signing Service are services that form
                 a bridge between the main CENM services and PKI/HSM infrastructure, enabling a network operator
                 to verify and sign incoming requests and changes to the network.
 
-As mentioned in the CENM service documentation ([Identity Manager Service]({{< relref "identity-manager" >}}) and [Network Map Service]({{< relref "network-map" >}})), the main CENM services
+As mentioned in the CENM service documentation ([Identity Manager Service](identity-manager.md) and [Network Map Service](network-map.md)), the main CENM services
                 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
                 While this is convenient, it is intended for use within for testing and experimental environments, and **should not** be used in
                 production environments. Instead, large and important changes to the network should go through a series of checks before
@@ -68,7 +68,7 @@ For each material management task, the data source for getting the unsigned data
 
 {{< note >}}
 Communication with the configured SMR service location can be configured to use SSL for a secure, encrypted
-                            connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}) for more
+                            connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                             information.
 
 
@@ -141,7 +141,7 @@ Plugin’s configuration file must be in same directory as plugin’s JAR file a
 {{< /note >}}
 
 ## Signing Service
-CENM’s Signing Service supports the following HSMs (see [CENM support matrix]({{< relref "cenm-support-matrix" >}}) for more information):
+CENM’s Signing Service supports the following HSMs (see [CENM support matrix](cenm-support-matrix.md) for more information):
 
 
 * Utimaco
@@ -192,12 +192,10 @@ Due to security concerns, the signing service should be hosted on private premis
                 source which then connects to CENM services (Identity Manager and Network Maps), and outgoing connections to the HSMs
                 for the configured signing keys. The overall flow of communication can be seen in the below diagram:
 
-{{< img src="cenm/../resources/signing-service-communication.png" alt="signing service communication" >}}
-
-
+![signing service communication](cenm/../resources/signing-service-communication.png "signing service communication")
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
-                    [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}})
+                    [Configuring the ENM services to use SSL](enm-with-ssl.md)
 
 
 {{< /note >}}
@@ -270,7 +268,7 @@ The configuration for the Signing Service consists of the following sections:
 #### Shell Configuration
 The Signing Service is interacted with via the shell, which is configured at the top level of the config file. This
                         shell is similar to the interactive shell available in other ENM services and is configured in a similar way. See
-                        [Shell Configuration]({{< relref "../shell#shell-config" >}}) for more information on how to configure the shell.
+                        [Shell Configuration](../shell.md#shell-config) for more information on how to configure the shell.
 
 
 #### HSM Libraries
@@ -387,7 +385,7 @@ For all signing tasks, global data source for getting the unsigned data and pers
 
 {{< note >}}
 Communication with the configured SMR service location can be configured to use SSL for a secure, encrypted
-                        connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}) for more
+                        connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                         information.
 
 

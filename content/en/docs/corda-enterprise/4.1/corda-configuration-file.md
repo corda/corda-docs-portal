@@ -41,7 +41,7 @@ By default the node will fail to start in presence of unknown property keys.
 
 
 Environment variables
-For example: `${NODE_TRUST_STORE_PASSWORD}` would be replaced by the contents of environment variable `NODE_TRUST_STORE_PASSWORD` (see: [Logging]({{< relref "node-administration#hiding-sensitive-data" >}}) section).
+For example: `${NODE_TRUST_STORE_PASSWORD}` would be replaced by the contents of environment variable `NODE_TRUST_STORE_PASSWORD` (see: [Logging](node-administration.md#hiding-sensitive-data) section).
 
 
 JVM options
@@ -82,7 +82,7 @@ Optionally specify how many attachments should be cached locally. Note that this
 
 
 compatibilityZoneURL (deprecated)
-The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates]({{< relref "permissioning" >}}) for more information.) and also is used by the node to obtain network map information.
+The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates](permissioning.md) for more information.) and also is used by the node to obtain network map information.
                             Cannot be set at the same time as the [networkServices](#corda-configuration-file-networkservices) option.
 
 **Important:  old configuration value, please use networkServices**
@@ -111,12 +111,12 @@ This is a boolean flag that when enabled (i.e. `true` value is set) causes certi
 
 cryptoServiceName
 Optional name of the CryptoService implementation. This only needs to be set if you intend to use a different provider than the default one
-                            (see [HSM support for legal identity keys]({{< relref "cryptoservice-configuration" >}})).
+                            (see [HSM support for legal identity keys](cryptoservice-configuration.md)).
 
 
 cryptoServiceConf
 Optional path to the configuration file for the CryptoService provider. This may have to be present if you use a different CryptoService provider
-                            than the default one (see [HSM support for legal identity keys]({{< relref "cryptoservice-configuration" >}})).
+                            than the default one (see [HSM support for legal identity keys](cryptoservice-configuration.md)).
 
 
 custom
@@ -126,7 +126,7 @@ Set custom command line attributes (e.g. Java system properties) on the node pro
 
 jvmArgs:
 A list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
-                                        See [Setting JVM arguments]({{< relref "running-a-node#setting-jvm-args" >}}) for examples and details on the precedence of the different approaches to settings arguments.
+                                        See [Setting JVM arguments](running-a-node.md#setting-jvm-args) for examples and details on the precedence of the different approaches to settings arguments.
 
 *Default:* not defined
 
@@ -170,7 +170,7 @@ The property is used only when a node runs against a H2 database.
 
 runMigration
 Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please
-                                        check [Database management scripts]({{< relref "database-management" >}}). If migration is not run, on startup, the node will check if it’s running on the correct database version.
+                                        check [Database management scripts](database-management.md). If migration is not run, on startup, the node will check if it’s running on the correct database version.
                                         The property is used only when a node runs against a database other than H2, and it’s replaced by the `initialiseSchema` property for other databases.
 
 *Default:* false
@@ -212,7 +212,7 @@ Database password.
 
 ```kotlin
 dataSourceClassName = org.h2.jdbcx.JdbcDataSource
-dataSource.url = "[jdbc:h2:file]({{< relref "jdbc:h2:file" >}}):"${baseDirectory}"/persistence;DB_CLOSE_ON_EXIT=FALSE;WRITE_DELAY=0;LOCK_TIMEOUT=10000"
+dataSource.url = "[jdbc:h2:file](jdbc:h2:file.md):"${baseDirectory}"/persistence;DB_CLOSE_ON_EXIT=FALSE;WRITE_DELAY=0;LOCK_TIMEOUT=10000"
 dataSource.user = sa
 dataSource.password = ""
 ```
@@ -454,7 +454,7 @@ Defines port for h2 DB.
 
 h2Settings
 Sets the H2 JDBC server host and port.
-                            See [Database access when running H2]({{< relref "node-database-access-h2" >}}).
+                            See [Database access when running H2](node-database-access-h2.md).
                             For non-localhost address the database password needs to be set in `dataSourceProperties`.
 
 *Default:* NULL
@@ -533,7 +533,7 @@ The legal identity of the node.
                             This acts as a human-readable alias to the node’s public key and can be used with the network map to look up the node’s info.
                             This is the name that is used in the node’s certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
                             At runtime, Corda checks whether this name matches the name in the node’s certificates.
-                            For more details please read [Node identity]({{< relref "node-naming#node-naming" >}}) chapter.
+                            For more details please read [Node identity](node-naming.md#node-naming) chapter.
 
 *Default:* not defined
 
@@ -558,7 +558,7 @@ If the node is part of a distributed cluster, specify the legal name of the clus
 
 
 mysql
-If part of a HA cluster, specify this configuration section with the settings below. For more details refer to [Setting up the Notary Service]({{< relref "running-a-notary-cluster/installing-the-notary-service" >}}).
+If part of a HA cluster, specify this configuration section with the settings below. For more details refer to [Setting up the Notary Service](running-a-notary-cluster/installing-the-notary-service.md).
 
 > 
 > 
@@ -586,7 +586,7 @@ If part of a HA cluster, specify this configuration section with the settings be
 >                                                                     and the database name is `corda`:
 > 
 > ```kotlin
-> "[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false]({{< relref "jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false" >}})"
+> "[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
 > ```
 > *Default:* not defined
 > 
@@ -609,7 +609,7 @@ mysql {
   connectionRetries=2
   dataSource {
     autoCommit="false"
-    jdbcUrl="[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false]({{< relref "jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false" >}})"
+    jdbcUrl="[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
     username="CordaUser"
     password="myStrongPassword"
   }
@@ -666,7 +666,7 @@ Optional settings for managing the network parameter auto-acceptance behaviour.
 autoAcceptEnabled
 This flag toggles auto accepting of network parameter changes.
                                         If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator.
-                                        See [The network map]({{< relref "network-map" >}}) for more information on the update process and current auto-acceptable parameters.
+                                        See [The network map](network-map.md) for more information on the update process and current auto-acceptable parameters.
                                         Set to `false` to disable.
 
 *Default:* true
@@ -726,7 +726,7 @@ Optional user name for authentication with the proxy. Note that Corda only suppo
 
 
 proxyPassword
-Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator]({{< relref "tools-config-obfuscator" >}}).
+Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator](tools-config-obfuscator.md).
 
 
 
@@ -859,7 +859,7 @@ A list of permissions for starting flows via RPC.
 
 security
 Contains various nested fields controlling user authentication/authorization, in particular for RPC accesses.
-                            See [Interacting with a node]({{< relref "clientrpc" >}}) for details.
+                            See [Interacting with a node](clientrpc.md) for details.
 
 
 sshd

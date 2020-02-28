@@ -87,7 +87,7 @@ The main elements that need to be configured for the Identity Manager are:
 
 
 {{< note >}}
-See [Identity Manager Configuration Parameters]({{< relref "config-identity-manager-parameters" >}}) for a detailed explanation about each possible parameter.
+See [Identity Manager Configuration Parameters](config-identity-manager-parameters.md) for a detailed explanation about each possible parameter.
 
 
 {{< /note >}}
@@ -151,7 +151,7 @@ database {
 {{< note >}}
 Due to the way the migrations are defined, if the Identity Manager and Network Map services are using the same
                             DB instance then they *must* use separate DB schemas. For more information regarding the supported databases
-                            along with the schema see [CENM Databases]({{< relref "database-set-up" >}}).
+                            along with the schema see [CENM Databases](database-set-up.md).
 
 
 {{< /note >}}
@@ -193,7 +193,7 @@ database {
 ```
 
 ### Embedded shell (optional)
-See [Shell Configuration]({{< relref "../shell#shell-config" >}}) for more information on how to configure the shell.
+See [Shell Configuration](../shell.md#shell-config) for more information on how to configure the shell.
 
 
 ### Issuance Workflow
@@ -271,11 +271,11 @@ workflows {
         }
 }
 ```
-See [Workflow]({{< relref "workflow" >}}) for more information.
+See [Workflow](workflow.md) for more information.
 
 
 ###### JIRA Project Configuration
-See [JIRA Set-Up]({{< relref "jira-setup" >}}) for more information about how to configure a JIRA project for CSR approval.
+See [JIRA Set-Up](jira-setup.md) for more information about how to configure a JIRA project for CSR approval.
 
 
 #### CSR Signing Mechanism
@@ -294,7 +294,7 @@ Once a CSR signing request has been approved then a certificate can be signed an
 The local signing service is recommended for testing and toy environments. Given a local key store containing the
                             relevant signing keys, it provides the functionality to automatically sign all approved CSRs on a configured schedule.
                             No human interaction is needed and the credentials for the key stores have to be provided upfront. The service is an
-                            integrated signer that is a cut-down version of the standalone [Signing Services]({{< relref "signing-service" >}}) and provides no HSM integration or
+                            integrated signer that is a cut-down version of the standalone [Signing Services](signing-service.md) and provides no HSM integration or
                             ability to manually verify changes. It is strongly recommended against using this for production environments.
 
 In order for the local signer to function, it needs to be able to access Identity Manager’s certificate and keypair
@@ -319,7 +319,7 @@ In this example, the key store defined within the local signer should contain th
 
 
 ##### External Signing Service
-The production grade signing mechanism is the external [Signing Services]({{< relref "signing-service" >}}). This has all the functionality of the
+The production grade signing mechanism is the external [Signing Services](signing-service.md). This has all the functionality of the
                             integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
                             CSRs. It should be used in all production environments where maximum security and validation checks are required.
 
@@ -360,7 +360,7 @@ This parameter can be omitted if desired, in which case it will default to port 
 {{< /note >}}
 
 {{< note >}}
-All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}).
+All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL](enm-with-ssl.md).
 
 
 {{< /note >}}
@@ -480,7 +480,7 @@ workflows {
         }
 }
 ```
-See [Workflow]({{< relref "workflow" >}}) for more information.
+See [Workflow](workflow.md) for more information.
 
 
 #### CRR Signing Mechanism
@@ -502,7 +502,7 @@ As the local signer is a top-level configuration block, it is shared amongst all
 
 
 ##### External Signing Service
-Also similarly to CSR signing, the production grade signing mechanism for CRRs is the external [Signing Services]({{< relref "signing-service" >}}).
+Also similarly to CSR signing, the production grade signing mechanism for CRRs is the external [Signing Services](signing-service.md).
                             This has all the functionality of the integrated local signer as well as HSM integration and the ability for a user to
                             interactively verify and sign incoming CRRs. It should be used in all production environments where maximum security and
                             validation checks are required.
@@ -539,7 +539,7 @@ This parameter can be omitted if desired, in which case it will default to port 
 {{< /note >}}
 
 {{< note >}}
-All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}).
+All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL](enm-with-ssl.md).
 
 
 {{< /note >}}
@@ -649,6 +649,6 @@ Below is an example of a testing configuration of the Identity Manager. It is co
 Below is an example of a more production-like configuration of the Identity Manager. It is configured with a Issuance
                         and Revocation workflow, using JIRA workflows for CSR/CRR approvals, no local signer and also using SSL for secure
                         communication between ENM services. In this scenario, all approved requests would be signed using an external signing
-                        service (see [Signing Services]({{< relref "signing-service" >}})).
+                        service (see [Signing Services](signing-service.md)).
 
 

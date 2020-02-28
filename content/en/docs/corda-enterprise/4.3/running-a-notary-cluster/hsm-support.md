@@ -8,9 +8,7 @@ date: 2020-01-08T09:59:25Z
 
 ## Overview
 
-{{< img src="running-a-notary-cluster/resources/hsm-support.png" alt="hsm support" >}}
-
-Two notary workers and their relevant cryptographic keys used for P2P messaging and transaction signing. The red rectangles represent the
+![hsm support](running-a-notary-cluster/resources/hsm-support.png "hsm support")Two notary workers and their relevant cryptographic keys used for P2P messaging and transaction signing. The red rectangles represent the
                     Corda notary worker services. The distinct identity keys are represented by rectangles in green and yellow and the shared key of the
                     notary service identity is drawn in blue. Their cryptographic keys are held in a single HSM.
 
@@ -47,7 +45,7 @@ The worker specific legal identity key pair is used for P2P messaging, whereas t
 See the certificates-hierarchy design doc for more information on the key hierarchies used by Corda.
 
 Currently Corda Enterprise notaries only support Azure Key Vault and Securosys Primus X devices. Please read the section below for setup
-                instructions and [HSM support for legal identity keys]({{< relref "../cryptoservice-configuration" >}}).
+                instructions and [HSM support for legal identity keys](../cryptoservice-configuration.md).
 
 
 ## Detailed instructions to deploy to Azure Key Vault

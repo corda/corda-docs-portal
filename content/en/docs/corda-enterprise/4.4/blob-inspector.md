@@ -5,10 +5,10 @@ date: 2020-01-08T09:59:25Z
 
 
 # Blob Inspector
-There are many benefits to having a custom binary serialisation format (see [Object serialization]({{< relref "serialization" >}}) for details) but one
+There are many benefits to having a custom binary serialisation format (see [Object serialization](serialization.md) for details) but one
             disadvantage is the inability to view the contents in a human-friendly manner. The Corda Blob Inspector tool alleviates
             this issue by allowing the contents of a binary blob file (or URL end-point) to be output in either YAML or JSON. It
-            uses `JacksonSupport` to do this (see [JSON]({{< relref "json" >}})).
+            uses `JacksonSupport` to do this (see [JSON](json.md)).
 
 The tool is distributed as part of Corda Enterprise 4.4 in the form of runnable JAR “corda-tools-blob-inspector-4.4.jar”.
 
@@ -103,7 +103,7 @@ Notice the file is actually a serialised `SignedNodeInfo` object, which has a `r
 
 
 ## Classpath
-If you run the blob inspector without any JAR files on the classpath, then it will deserialize objects using the Class Carpenter (see [Object serialization]({{< relref "serialization" >}}) for details).
+If you run the blob inspector without any JAR files on the classpath, then it will deserialize objects using the Class Carpenter (see [Object serialization](serialization.md) for details).
                 The reason for this is that the types are not available, so the serialization framework has to synthesise them.
 
 

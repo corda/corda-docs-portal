@@ -6,15 +6,15 @@ date: 2020-01-08T09:59:25Z
 
 # Serialization
 
-* [Object serialization]({{< relref "serialization" >}})
+* [Object serialization](serialization.md)
 
-* [Pluggable Serializers for CorDapps]({{< relref "cordapp-custom-serializers" >}})
+* [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md)
 
-* [Default Class Evolution]({{< relref "serialization-default-evolution" >}})
+* [Default Class Evolution](serialization-default-evolution.md)
 
-* [Enum Evolution]({{< relref "serialization-enum-evolution" >}})
+* [Enum Evolution](serialization-enum-evolution.md)
 
-* [Blob Inspector]({{< relref "blob-inspector" >}})
+* [Blob Inspector](blob-inspector.md)
 
 
 

@@ -74,7 +74,7 @@ Usually, test networks have a structure that is known ahead of time. For the cre
                 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
                 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in [Network Bootstrapper]({{< relref "network-bootstrapper" >}}).
+More information can be found in [Network Bootstrapper](network-bootstrapper.md).
 
 
 ## Network parameters
@@ -138,7 +138,7 @@ Version number of the network parameters. Starting from 1, this will always incr
 whitelistedContractImplementations
 List of whitelisted versions of contract code.
                             For each contract class there is a list of SHA-256 hashes of the approved CorDapp jar versions containing that contract.
-                            Read more about *Zone constraints* here [API: Contract Constraints]({{< relref "api-contract-constraints" >}})
+                            Read more about *Zone constraints* here [API: Contract Constraints](api-contract-constraints.md)
 
 
 eventHorizon
@@ -155,7 +155,7 @@ List of the network-wide java packages that were successfully claimed by their o
 
 
 {{< note >}}
-To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.4 see [Corda Features to Versions]({{< relref "features-versions" >}})
+To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.4 see [Corda Features to Versions](features-versions.md)
 
 
 {{< /note >}}
@@ -284,7 +284,7 @@ If the network operator starts advertising a different set of new parameters the
 
 To send back parameters approval to the zone operator, the RPC method `fun acceptNewNetworkParameters(parametersHash: SecureHash)`
                     has to be called with `parametersHash` from the update. Note that approval cannot be undone. You can do this via the Corda
-                    shell (see [Node shell]({{< relref "shell" >}})):
+                    shell (see [Node shell](shell.md)):
 
 `run acceptNewNetworkParameters parametersHash: "ba19fc1b9e9c1c7cbea712efda5f78b53ae4e5d123c89d02c9da44ec50e9c17d"`
 
@@ -303,7 +303,7 @@ Sometimes it may happen that the node ends up with an inconsistent view of the n
 java -jar corda.jar clear-network-cache
 ```
 or call RPC method *clearNetworkMapCache* (it can be invoked through the node’s shell as *run clearNetworkMapCache*, for more information on
-                how to log into node’s shell see [Node shell]({{< relref "shell" >}})). As we are testing and hardening the implementation this step shouldn’t be required.
+                how to log into node’s shell see [Node shell](shell.md)). As we are testing and hardening the implementation this step shouldn’t be required.
                 After cleaning the cache, network map data is restored on the next poll from the server or filesystem.
 
 

@@ -6,13 +6,13 @@ date: 2020-01-08T09:59:25Z
 
 # Changelog
 Here’s a summary of what’s changed in each Enterprise Network Manager release. For guidance on how to upgrade code from
-            the previous release, see [Upgrading Corda Enterprise Network Manager]({{< relref "upgrade-notes" >}}).
+            the previous release, see [Upgrading Corda Enterprise Network Manager](upgrade-notes.md).
 
 
 ## CENM 1.2
 
 * Remove core functionality for private network maps. This does not yet remove them from the database schema,
-                        which will be in a future release.
+                        which will be in a future release. Related quarantined and staging node info tables are not maintained as of CENM 1.1.
 
 
 * Added support for external PKI. This introduces new optional Signable Material Retriever Service (SMR) which fetches signable

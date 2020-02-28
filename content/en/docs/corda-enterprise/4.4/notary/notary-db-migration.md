@@ -85,7 +85,7 @@ The recommended migration path would be to migrate the data stored in the source
 
 ### Procedure
 
-* Use the [Corda Database Management Tool]({{< relref "../node/operating/node-database#database-management-tool-ref" >}}) to prepare the schema in the target database.
+* Use the [Corda Database Management Tool](../node/operating/node-database.md#database-management-tool-ref) to prepare the schema in the target database.
 
 
 * Obtain the latest backup of the source database.

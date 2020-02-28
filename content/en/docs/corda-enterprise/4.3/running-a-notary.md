@@ -13,7 +13,7 @@ Corda Enterprise comes with two notary implementations built-in:
 
 
 * **Highly available**: a clustered notary service operated by a single party, able to tolerate crash faults. See
-                    [Corda Enterprise notary services]({{< relref "running-a-notary-cluster/toctree" >}})
+                    [Corda Enterprise notary services](running-a-notary-cluster/toctree.md)
 
 
 
@@ -35,10 +35,10 @@ For a validating notary service specify:
 ```kotlin
 notary : { validating : true }
 ```
-See [Validation]({{< relref "key-concepts-notaries#key-concepts-notaries-validation" >}}) for more details about validating versus non-validating notaries.
+See [Validation](key-concepts-notaries.md#key-concepts-notaries-validation) for more details about validating versus non-validating notaries.
 
 For clients to be able to use the notary service, its identity must be added to the network parameters. This will be
-                done automatically when creating the network, if using [Network Bootstrapper]({{< relref "network-bootstrapper" >}}). See [Networks]({{< relref "corda-networks-index" >}})
+                done automatically when creating the network, if using [Network Bootstrapper](network-bootstrapper.md). See [Networks](corda-networks-index.md)
                 for more details.
 
 

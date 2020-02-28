@@ -26,7 +26,7 @@ The performance test CorDapp used in for the built-in samplers and the included 
 
 
 Sample Testplans
-A number of test plan JMX files. See the page on [included testplans]({{< relref "jmeter-testplans#included-testplans" >}}) for details.
+A number of test plan JMX files. See the page on [included testplans](jmeter-testplans.md#included-testplans) for details.
 
 
 Sample `jmeter.properties`
@@ -35,7 +35,7 @@ An example of the `jmeter.properties` file used to configure JMeter. If you need
 
 
 `sample-server-rmi.config`
-An annotated sample for the server RMI mapping required to use remote JMeter over SSH tunnels. See [SSH Tunnel Set-Up]({{< relref "running-jmeter-corda#ssh-tunnel" >}}) for
+An annotated sample for the server RMI mapping required to use remote JMeter over SSH tunnels. See [SSH Tunnel Set-Up](running-jmeter-corda.md#ssh-tunnel) for
                             details.
 
 
@@ -45,7 +45,7 @@ An annotated sample for the server RMI mapping required to use remote JMeter ove
 Simply create a working directory for JMeter Corda on the client machine and unzip the performance test suite to this
                     directory. This app requires an Oracle JRE version 1.8 build 172 or later. After unpacking,
                     you should immediately be able to run it from a shell by typing `java -jar jmeter-corda.jar`. Please refer to
-                    [Running JMeter Corda]({{< relref "running-jmeter-corda" >}}) for details and command line options.
+                    [Running JMeter Corda](running-jmeter-corda.md) for details and command line options.
 
 
 ### Installing JMeter server
@@ -56,7 +56,7 @@ The same JAR file used for running the client can be run as a server as well by 
 If SSH tunneling is in use, the server will also need access to the same RMI port mappings file used on the client side.
                     Also, if the client side uses a customised JMeter properties file that differs from the default one baked into the JMeter
                     JAR file by more than just the
-                    list of remote host names from, this needs to be used on the server side as well. See [Running JMeter Corda]({{< relref "running-jmeter-corda" >}})
+                    list of remote host names from, this needs to be used on the server side as well. See [Running JMeter Corda](running-jmeter-corda.md)
                     for details on the command line options required. A typical command line might look like this:
 
 ```kotlin

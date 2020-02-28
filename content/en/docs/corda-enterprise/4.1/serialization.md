@@ -70,7 +70,7 @@ To add a class to the whitelist, you must use either of the following mechanisms
 There is also a built-in Corda whitelist (see the `DefaultWhitelist` class) that whitelists common JDK classes for
                 convenience. This whitelist is not user-editable.
 
-The annotation is the preferred method for whitelisting. An example is shown in [Using the client RPC API]({{< relref "tutorial-clientrpc-api" >}}).
+The annotation is the preferred method for whitelisting. An example is shown in [Using the client RPC API](tutorial-clientrpc-api.md).
                 It’s reproduced here as an example of both ways you can do this for a couple of example classes.
 
 ```kotlin
@@ -132,7 +132,7 @@ Selection of serialization context should, for the most part, be opaque to CorDa
 
 This document describes what is currently and what will be supported in the Corda AMQP format from the perspective
                 of CorDapp developers, to allow CorDapps to take into consideration the future state.  The AMQP serialization format will
-                continue to apply the whitelisting functionality that is already in place and described in [Object serialization]({{< relref "" >}}).
+                continue to apply the whitelisting functionality that is already in place and described in [Object serialization](.md).
 
 
 ## Core Types
@@ -267,7 +267,7 @@ You own types must adhere to the following rules to be supported:
 > {{< note >}}
 > In circumstances where classes cannot be recompiled, such as when using a third-party library, a
 >                                         proxy serializer can be used to avoid this problem. Details on creating such an object can be found on the
->                                         [Pluggable Serializers for CorDapps]({{< relref "cordapp-custom-serializers" >}}) page.
+>                                         [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md) page.
 > 
 > 
 > {{< /note >}}
@@ -615,7 +615,7 @@ If mutability isn’t an issue at all then in the case of data classes a single 
 ### Enums
 All enums are supported, provided they are annotated with `@CordaSerializable`. Corda supports interoperability of
                     enumerated type versions. This allows such types to be changed over time without breaking backward (or forward)
-                    compatibility. The rules and mechanisms for doing this are discussed in [Enum Evolution]({{< relref "serialization-enum-evolution" >}}).
+                    compatibility. The rules and mechanisms for doing this are discussed in [Enum Evolution](serialization-enum-evolution.md).
 
 
 ### Exceptions
@@ -692,6 +692,6 @@ Type evolution is the mechanism by which classes can be altered over time yet st
                 all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized
                 and a version of the current state of the class instantiated.
 
-More detail can be found in [Default Class Evolution]({{< relref "serialization-default-evolution" >}}).
+More detail can be found in [Default Class Evolution](serialization-default-evolution.md).
 
 

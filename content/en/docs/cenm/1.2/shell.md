@@ -126,6 +126,11 @@ The current supported commands that can be run from the shell are:
     @ViewCommand
     fun publicNetworkParticipants(): List<CordaX500Name>
 
+    @Description(description = "View all node infos currently within the public network",
+                 example = "view publicNetworkNodeInfos")
+    @ViewCommand
+    fun publicNetworkNodeInfos(): NodeInfosAndPlatformVersions?
+
     @Description(description = "View all node infos with a publish request in staging",
                  example = "view nodeInfosInStaging")
     @ViewCommand

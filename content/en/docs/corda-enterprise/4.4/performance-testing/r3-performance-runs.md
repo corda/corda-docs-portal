@@ -30,9 +30,7 @@ The performance network sits behind a firewall that allows incoming connections 
                 within the network can connect to each other on a range of ports (Corda Remote Procedure Call (RPC), Corda peer to
                 peer connection (P2P) and JDBC connections to various database servers are all allowed).
 
-{{< img src="performance-testing/resources/performance-cluster.png" alt="performance cluster" >}}
-
-A Corda JMeter server instance is running on all 4 nodes and on the notary server. The JMeter client connects to the
+![performance cluster](performance-testing/resources/performance-cluster.png "performance cluster")A Corda JMeter server instance is running on all 4 nodes and on the notary server. The JMeter client connects to the
                 JMeter server instances via SSH tunnels. As the JMeter servers run within the firewalled network, they are free to
                 open RPC connections to any of the Corda nodes - which one they connect to is configured in the JMeter test plan.
                 They usually connect all to one node to drive the test flows as hard as possible, but might connect to different

@@ -22,13 +22,13 @@ Attachments are ZIP/JAR files referenced from transaction by hash, but not inclu
 
 To add attachments the file must first be uploaded to the node, which returns a unique ID that can be added
             using `TransactionBuilder.addAttachment()`. Attachments can be uploaded and downloaded via RPC and the Corda
-            [Node shell]({{< relref "shell" >}}).
+            [Node shell](shell.md).
 
 It is encouraged that where possible attachments are reusable data, so that nodes can meaningfully cache them.
 
 
 ## Uploading and downloading
-To upload an attachment to the node, or download an attachment named by its hash, you use [Interacting with a node]({{< relref "clientrpc" >}}). This
+To upload an attachment to the node, or download an attachment named by its hash, you use [Interacting with a node](clientrpc.md). This
                 is also available for interactive use via the shell. To **upload** run:
 
 `>>> run uploadAttachment jar: path/to/the/file.jar`
@@ -53,7 +53,7 @@ which will then ask you to provide a path to save the file to. To do the same th
 
 
 ## Searching for attachments
-Attachment metadata can be queried in a similar way to the vault (see [API: Vault Query]({{< relref "api-vault-query" >}})).
+Attachment metadata can be queried in a similar way to the vault (see [API: Vault Query](api-vault-query.md)).
 
 `AttachmentQueryCriteria` can be used to build a query using the following set of column operations:
 

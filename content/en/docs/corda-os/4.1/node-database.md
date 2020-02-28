@@ -9,7 +9,7 @@ date: 2020-01-08T09:59:25Z
 ## Configuring the node database
 
 ### H2
-By default, nodes store their data in an H2 database. See [Database access when running H2]({{< relref "node-database-access-h2" >}}).
+By default, nodes store their data in an H2 database. See [Database access when running H2](node-database-access-h2.md).
 
 Nodes can also be configured to use PostgreSQL and SQL Server. However, these are experimental community contributions.
                     The Corda continuous integration pipeline does not run unit tests or integration tests of these databases.

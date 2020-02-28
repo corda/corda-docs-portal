@@ -22,7 +22,7 @@ While server side solutions are possible, client side was chosen for future flex
 
 
 ## What happens if a notary in cluster becomes unavailable and does not respond?
-As described in [Notary Failover]({{< relref "notary-failover" >}}), the client node will retry the flow. That retry goes to Artemis, which because of round
+As described in [Notary Failover](notary-failover.md), the client node will retry the flow. That retry goes to Artemis, which because of round
                 robin style of communication with the cluster, would send the flow to the next notary worker. For example client sends to notary worker 1, which
                 becomes unavailable, client times out while waiting for respond and retries the flow automatically which now gets sent to notary worker 2. Note that
                 the retry can also happen in Artemis if notary worker 1 becomes unavailable before acknowledging that it has received the flow message.

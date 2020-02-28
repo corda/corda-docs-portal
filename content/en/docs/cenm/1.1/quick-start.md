@@ -44,7 +44,7 @@ Throughout this guide placeholder values for external endpoints are used (e.g. `
 ### Generate the PKI
 Before starting any services, the PKI first needs to be generated. This involves creating the certificates and key pairs
                     for all ENM services and determines what entities the nodes will trust. More information on the certificate hierarchy
-                    is available in the [Certificate Hierarchy Guide]({{< relref "pki-guide" >}}) doc.
+                    is available in the [Certificate Hierarchy Guide](pki-guide.md) doc.
 
 
 #### Example Configuration
@@ -93,13 +93,13 @@ certificates = {
 
 {{< note >}}
 The passwords for the key stores are defaulted to “password” and the passwords for the trust stores are
-                            defaulted to “trustpass”. These can be changed in the configuration (see [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool" >}})).
+                            defaulted to “trustpass”. These can be changed in the configuration (see [Public Key Infrastructure (PKI) Tool](pki-tool.md)).
 
 
 {{< /note >}}
 
 #### Running The Tool
-The required certificate stores and key pairs can be generated using the [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool" >}}). The PKI tool distribution zip
+The required certificate stores and key pairs can be generated using the [Public Key Infrastructure (PKI) Tool](pki-tool.md). The PKI tool distribution zip
                         archive should be extracted to a chosen location, after which it can be run via:
 
 ```bash
@@ -178,7 +178,7 @@ workflows {
 
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
-                            `dataSourceProperties` section. See the “Database properties” section of [Identity Manager Service]({{< relref "identity-manager" >}}) for more
+                            `dataSourceProperties` section. See the “Database properties” section of [Identity Manager Service](identity-manager.md) for more
                             information.
 
 
@@ -268,7 +268,7 @@ The network parameters are a set of values that every node participating in the 
                     correctly communicate with each other. Therefore they need to be set before the Network Map service can be started.
                     They are set via running the Network Map jar in a special “set network parameters” mode which requires a parameter
                     configuration file to be passed. Therefore this step requires both a Network Map service configuration and a network
-                    parameters configuration. See [Updating the network parameters]({{< relref "updating-network-parameters" >}}) for more information around the processing of setting
+                    parameters configuration. See [Updating the network parameters](updating-network-parameters.md) for more information around the processing of setting
                     and updating the parameters.
 
 
@@ -312,7 +312,7 @@ checkRevocation = false
 
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
-                                `dataSourceProperties` section. See the “Database properties” section of [Network Map Service]({{< relref "network-map" >}}) for more information.
+                                `dataSourceProperties` section. See the “Database properties” section of [Network Map Service](network-map.md) for more information.
 
 
 {{< /note >}}
@@ -397,15 +397,15 @@ The above guide also assumes the simplest possible settings for all services. Th
                 more features, in particular:
 
 
-* Certificate revocation support (“Revocation workflow ” section within [Identity Manager Service]({{< relref "identity-manager" >}}))
+* Certificate revocation support (“Revocation workflow ” section within [Identity Manager Service](identity-manager.md))
 
 
-* More advanced CSR approval workflows (“Certificate approval mechanism” section within [Identity Manager Service]({{< relref "identity-manager" >}}))
+* More advanced CSR approval workflows (“Certificate approval mechanism” section within [Identity Manager Service](identity-manager.md))
 
 
-* External signing of CSRs/Network Map updates including HSM integration ([Signing Service]({{< relref "signing-service" >}}))
+* External signing of CSRs/Network Map updates including HSM integration ([Signing Service](signing-service.md))
 
 
-See the configuration sections within the [Identity Manager Service]({{< relref "identity-manager" >}}) and [Network Map Service]({{< relref "network-map" >}}) docs to learn more.
+See the configuration sections within the [Identity Manager Service](identity-manager.md) and [Network Map Service](network-map.md) docs to learn more.
 
 

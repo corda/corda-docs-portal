@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 Corda Enterprise supports the commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
             This document provides instructions describing how to create database schemas (user permissions, the Corda node’s tables, and other database objects),
             and how to configure Corda nodes to connect to a database with *restricted permissions* for production use.
-            If you just need a quick database setup for testing/development, please refer to [Simplified database schema setup for development]({{< relref "node-database-developer" >}}).
+            If you just need a quick database setup for testing/development, please refer to [Simplified database schema setup for development](node-database-developer.md).
 
 Setting up a Corda node to connect to a database requires:
 
@@ -29,8 +29,8 @@ Setting up a Corda node to connect to a database requires:
 ## 1. Creating a database user with schema permissions
 A database administrator must create a database user and a schema namespace with **restricted permissions**.
                 This grants the user access to DML execution only (to manipulate data itself e.g. select/delete rows).
-                This permission set is recommended for Corda nodes [Hot-cold high availability deployment]({{< relref "hot-cold-deployment" >}}) and production environments.
-                The less restricted permission set for a database user with **administrative permissions** is described in [Simplified database schema setup for development]({{< relref "node-database-developer" >}})
+                This permission set is recommended for Corda nodes [Hot-cold high availability deployment](hot-cold-deployment.md) and production environments.
+                The less restricted permission set for a database user with **administrative permissions** is described in [Simplified database schema setup for development](node-database-developer.md)
                 (this is recommended for development purposes only).
 
 
@@ -161,7 +161,7 @@ GRANT CREATE TABLE TO my_admin_user;
 GRANT CREATE VIEW TO my_admin_user;
 GRANT CREATE SEQUENCE TO my_admin_user;
 ```
-The permissions for the Corda node user to access database objects will be assigned in [the following step]({{< relref "node-operations-cordapp-deployment#db-setup-step-2-oracle-extra-step-ref" >}})
+The permissions for the Corda node user to access database objects will be assigned in [the following step](node-operations-cordapp-deployment.md#db-setup-step-2-oracle-extra-step-ref)
                     after the database objects are created.
 
 
@@ -186,7 +186,7 @@ If you provide a custom schema name (different to the user name), then the last 
 ## 2. Database schema creation
 All data structures (tables, indexes) must be created before the Corda node connects to a database with **restricted permissions**.
                 Corda is released without a separate set of DDL scripts, instead a database administrator needs to use
-                the [Corda Database Management Tool]({{< relref "node-database#database-management-tool-ref" >}}) to output the DDL scripts and run the scripts against a database.
+                the [Corda Database Management Tool](node-database.md#database-management-tool-ref) to output the DDL scripts and run the scripts against a database.
                 Each Corda release version has the associated Corda Database Management Tool release which outputs a compatible set of DDL scripts.
                 The DDL scripts contain the history of a database evolution - series of table alterations leading to the current state, using the
                 functionality of [Liquibase](http://www.liquibase.org) which is used by Corda for database schema management.
@@ -315,16 +315,16 @@ Copy CorDapps to the *cordapps* subdirectory, this is required to collect and ru
                     The `node.conf` templates for each database vendor are shown below:
 
 
-* [Azure SQL]({{< relref "node-operations-cordapp-deployment#db-setup-configure-db-tool-azure-ref" >}})
+* [Azure SQL](node-operations-cordapp-deployment.md#db-setup-configure-db-tool-azure-ref)
 
 
-* [SQL Server]({{< relref "node-operations-cordapp-deployment#db-setup-configure-db-tool-sqlserver-ref" >}})
+* [SQL Server](node-operations-cordapp-deployment.md#db-setup-configure-db-tool-sqlserver-ref)
 
 
-* [Oracle]({{< relref "node-operations-cordapp-deployment#db-setup-configure-db-tool-oracle-ref" >}})
+* [Oracle](node-operations-cordapp-deployment.md#db-setup-configure-db-tool-oracle-ref)
 
 
-* [PostgreSQL]({{< relref "node-operations-cordapp-deployment#db-setup-configure-db-tool-postgresql-ref" >}})
+* [PostgreSQL](node-operations-cordapp-deployment.md#db-setup-configure-db-tool-postgresql-ref)
 
 
 
@@ -432,7 +432,7 @@ A script will be generated named *migration/*.sql* in the base directory.
                     This script contains all the statements to create/modify data structures (e.g. tables/indexes)
                     and inserts to the Liquibase management table *DATABASECHANGELOG*.
                     The command doesn’t alter any tables.
-                    Refer to [Corda Database Management Tool]({{< relref "node-database#database-management-tool-ref" >}}) manual for more detail.
+                    Refer to [Corda Database Management Tool](node-database.md#database-management-tool-ref) manual for more detail.
 
 
 ### 2.4. Apply DDL scripts on a database
@@ -554,7 +554,7 @@ The following updates are required to the filesystem of a node:
 > * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 >                             It is the responsibility of the node administrator or a developer to install the appropriate JDBC driver.
 >                             Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
->                             Alternatively the path can be also specified by the `jarDirs` option in [the node configuration]({{< relref "corda-configuration-file#corda-configuration-file-jar-dirs-ref" >}}).
+>                             Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](corda-configuration-file.md#corda-configuration-file-jar-dirs-ref).
 >                             The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
 > 
 > 

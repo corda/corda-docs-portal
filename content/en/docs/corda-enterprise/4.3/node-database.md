@@ -5,7 +5,7 @@ date: 2020-01-08T09:59:25Z
 
 
 # Node database
-The Corda platform, and the installed CorDapps store their data in a relational database (see [API: Persistence]({{< relref "api-persistence" >}})).
+The Corda platform, and the installed CorDapps store their data in a relational database (see [API: Persistence](api-persistence.md)).
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
             This document provides an overview of required database permissions, related ways to create database schema objects,
@@ -14,7 +14,7 @@ Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, 
 
 ## Database user permissions
 A Corda node connects to a database using a single database user, and stores data within a single database schema (a schema namespace).
-                A database schema can not be shared between two different nodes (except for [Hot-cold high availability deployment]({{< relref "hot-cold-deployment" >}})).
+                A database schema can not be shared between two different nodes (except for [Hot-cold high availability deployment](hot-cold-deployment.md)).
                 Depending on how the schema objects are created, a Corda node can connect to the database with a different set of database permissions:
 
 > 
@@ -23,7 +23,7 @@ A Corda node connects to a database using a single database user, and stores dat
 > 
 > This grants the database user access to DML execution only (to manipulate data itself e.g. select/delete rows),
 >                             and a database administrator needs to create database schema objects before running the Corda node.
->                             This permission set is recommended for a Corda node in a production environment (including [Hot-cold high availability deployment]({{< relref "hot-cold-deployment" >}})).
+>                             This permission set is recommended for a Corda node in a production environment (including [Hot-cold high availability deployment](hot-cold-deployment.md)).
 > 
 > 
 > * **administrative permissions**
@@ -35,8 +35,8 @@ A Corda node connects to a database using a single database user, and stores dat
 >                             This eases the operational maintenance for development and testing.
 > 
 > 
-Database setup for production systems (with **restricted permissions**) is described in [Database schema setup]({{< relref "node-database-admin" >}}),
-                and the recommended setup for development/testing environments are described in [Simplified database schema setup for development]({{< relref "node-database-developer" >}}).
+Database setup for production systems (with **restricted permissions**) is described in [Database schema setup](node-database-admin.md),
+                and the recommended setup for development/testing environments are described in [Simplified database schema setup for development](node-database-developer.md).
 
 
 ## Database schema objects management
@@ -215,7 +215,7 @@ Additional options:
 
 #### Database Manager shell extensions
 The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto completion for
-                        bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+                        bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 
 {{< note >}}
@@ -301,7 +301,7 @@ By default, the node database has the following tables:
 |V_PKEY_HASH_EX_ID_MAP|PUBLIC_KEY_HASH, TRANSACTION_ID, OUTPUT_INDEX, EXTERNAL_ID|
 
 {{< /table >}}
-For more details, see [Database tables]({{< relref "node-database-tables" >}}).
+For more details, see [Database tables](node-database-tables.md).
 
 The node database for a Simple Notary has additional tables:
 

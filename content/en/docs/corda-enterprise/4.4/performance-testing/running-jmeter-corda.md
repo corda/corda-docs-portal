@@ -6,7 +6,7 @@ date: 2020-01-08T09:59:25Z
 
 # Running JMeter Corda
 Jmeter Corda is distributed as a runnable “fat” JAR containing all the dependenices required to run the application.
-            It comes prepacked with Corda [JMeter Samplers]({{< relref "jmeter-samplers" >}}) and a wrapper that sets up a basic configuration and allows
+            It comes prepacked with Corda [JMeter Samplers](jmeter-samplers.md) and a wrapper that sets up a basic configuration and allows
             configuration of SSH tunnels. The arguments for the `jmeter-corda` command line fall into two categories: there are
             a number of arguments that are consumed by the custom wrapper, followed by a double dash `--`. Anything after this
             will be passed on to the JMeter code as JMeter arguments (though the wrapper can add more arguments to this). The typical
@@ -63,7 +63,7 @@ This is the way of telling JMeter what properties file to use. This will **alway
 
 `-s`
 This makes JMeter run in server mode, i.e. it will run headless and wait for instructions from a client via remote
-                            method invocation. See also [Installing JMeter server]({{< relref "installation#jmeter-server" >}}).
+                            method invocation. See also [Installing JMeter server](installation.md#jmeter-server).
 
 
 ## Running the JMeter GUI
@@ -72,13 +72,11 @@ By default, JMeter Corda will start up as client in GUI mode. The GUI allows to 
                 quickly create or load a testplan, control local or remote test runs, and clear any test results collected so far.
                 The latter is particularly important when looking at averages, as old data might skew the results being looked at.
 
-{{< img src="performance-testing/resources/jmeter-buttons.png" alt="jmeter buttons" >}}
-
-The *clear current view* button only clears the data in the currently viewed output collector - if a test plan has several
+![jmeter buttons](performance-testing/resources/jmeter-buttons.png "jmeter buttons")The *clear current view* button only clears the data in the currently viewed output collector - if a test plan has several
                 output listeners defined (as in the example above, we have *Aggregate Graph*, *Graph Results* and *View Results in Table*),
                 any collector not currently selected is not affected. *Clear all data* will clear the results from all collectors.
 
-See [Understanding and Creating Testplans]({{< relref "jmeter-testplans" >}}) for details on the testplan, and how to create one.
+See [Understanding and Creating Testplans](jmeter-testplans.md) for details on the testplan, and how to create one.
 
 
 ## Running JMeter headless

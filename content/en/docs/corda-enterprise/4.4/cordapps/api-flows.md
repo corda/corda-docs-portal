@@ -89,9 +89,7 @@ In our flow, the Initiator flow class will be doing the majority of the work, th
 
 We can visualize the work performed by initiator as follows:
 
-{{< img src="cordapps/../resources/flow-overview.png" alt="flow overview" >}}
-
-
+![flow overview](cordapps/../resources/flow-overview.png "flow overview")
 ## Responder
 To respond to these actions, the responder takes the following steps:
 
@@ -261,7 +259,7 @@ public static class InitiatorFlow extends FlowLogic<Void> {
 ### ServiceHub
 Within `FlowLogic.call`, the flow developer has access to the node’s `ServiceHub`, which provides access to the
                     various services the node provides. We will use the `ServiceHub` extensively in the examples that follow. You can
-                    also see [Accessing node services]({{< relref "api-service-hub" >}}) for information about the services the `ServiceHub` offers.
+                    also see [Accessing node services](api-service-hub.md) for information about the services the `ServiceHub` offers.
 
 
 ### Common flow tasks
@@ -271,12 +269,12 @@ There are a number of common tasks that you will need to perform within `FlowLog
 
 ## Transaction building
 The majority of the work performed during a flow will be to build, verify and sign a transaction. This is covered
-                in [Understanding transactions]({{< relref "api-transactions" >}}).
+                in [Understanding transactions](api-transactions.md).
 
 
 ## Extracting states from the vault
 When building a transaction, you’ll often need to extract the states you wish to consume from the vault. This is
-                covered in [Writing vault queries]({{< relref "api-vault-query" >}}).
+                covered in [Writing vault queries](api-vault-query.md).
 
 
 ## Retrieving information about other nodes
@@ -737,7 +735,7 @@ Corda installs four initiating subflow pairs on each node by default:
 {{< warning >}}
 `SwapIdentitiesFlow`/`SwapIdentitiesHandler` are only installed if the `confidential-identities` module
                         is included. The `confidential-identities` module  is still not stabilised, so the
-                        `SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees]({{< relref "api-stability-guarantees" >}}).
+                        `SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees](api-stability-guarantees.md).
 
 
 {{< /warning >}}
@@ -858,7 +856,7 @@ Once a transaction has been notarised and its input states consumed by the flow 
                     all parties have the correct up to date view of the ledger (a condition where eventual consistency between participants takes longer than is
                     normally the case under Corda’s [eventual consistency model](https://en.wikipedia.org/wiki/Eventual_consistency)). To recover from this scenario,
                     the receiver’s finality handler will automatically be sent to the node-flow-hospital where it’s suspended and retried from its last checkpoint
-                    upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour]({{< relref "../node/node-flow-hospital#flow-hospital-runtime" >}}).
+                    upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](../node/node-flow-hospital.md#flow-hospital-runtime).
                     This gives the node operator the opportunity to recover from the error. Until the issue is resolved the node will continue to retry the flow
                     on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent once again.
 
@@ -1332,7 +1330,7 @@ Examples of where this functionality is useful include:
 
 
 {{< note >}}
-The size of the external operation thread pool can be configured, see [the node configuration documentation]({{< relref "../node/setup/corda-configuration-file#corda-configuration-flow-external-operation-thread-pool-size" >}}).
+The size of the external operation thread pool can be configured, see [the node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size).
 
 
 {{< /note >}}

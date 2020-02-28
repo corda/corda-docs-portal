@@ -177,7 +177,7 @@ The Signing Service is a new addition to the suite of CENM services, sitting alo
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
                     certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool" >}}) to learn about all the features of the PKI Tool.
+                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
 
 **Full End to End SSL communication**
 
@@ -217,7 +217,7 @@ The Signing Service is a new addition to the suite of CENM services, sitting alo
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
                     certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool" >}}) to learn about all the features of the PKI Tool.
+                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
 
 **Shell**
 
@@ -264,7 +264,7 @@ see network-map-overview for more information.
 Another change that is introduced in the newest release is the ability to interact with the Doorman and Network Map
                     services via a shell. The commands available currently mainly allow an operator to inspect the state of the service,
                     for example by viewing the current set of nodes within the public network, or viewing the list of Certificate Signing
-                    Requests that are awaiting approval. See the [Embedded Shell]({{< relref "shell" >}}) documentation for more information.
+                    Requests that are awaiting approval. See the [Embedded Shell](shell.md) documentation for more information.
 
 Added support for overriding the default “increment previous value by 1” behaviour for epoch values during network
                     parameter updates/initialisation. This allows a user to specify the epoch within the parameter config file and it

@@ -6,9 +6,9 @@ date: 2020-01-08T09:59:25Z
 
 # Node internals
 
-* [Node services]({{< relref "node-services" >}})
+* [Node services](node-services.md)
 
-* [Networking and messaging]({{< relref "messaging" >}})
+* [Networking and messaging](messaging.md)
 
 
 

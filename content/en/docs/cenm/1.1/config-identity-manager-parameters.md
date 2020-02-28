@@ -14,11 +14,11 @@ The host and port on which the service runs
 
 
 database
-See [CENM Database Configuration]({{< relref "config-database" >}})
+See [CENM Database Configuration](config-database.md)
 
 
 shell
-*(Optional)* See [<no title>]({{< relref "config-shell" >}})
+*(Optional)* See [<no title>](config-shell.md)
 
 
 localSigner
@@ -85,7 +85,7 @@ Whether a client should be attempt to reconnect if the connection is dropped.
 
 
 ssl
-See [SSL Settings]({{< relref "config-ssl" >}})
+See [SSL Settings](config-ssl.md)
 
 
 plugin

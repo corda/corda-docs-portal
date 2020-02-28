@@ -12,7 +12,7 @@ The Signing Service and the optional Signable Material Retriever (SMR) are servi
                 a bridge between the main CENM services and PKI/HSM infrastructure, enabling a network operator
                 to verify and sign incoming requests and changes to the network.
 
-As mentioned in the CENM service documentation ([Identity Manager Service]({{< relref "identity-manager" >}}) and [Network Map Service]({{< relref "network-map" >}})), the main CENM services
+As mentioned in the CENM service documentation ([Identity Manager Service](identity-manager.md) and [Network Map Service](network-map.md)), the main CENM services
                 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
                 While this is convenient, it is intended for use within for development and testing environments, and **should not** be used in
                 production environments. Instead, large and important changes to the network should go through a series of checks before
@@ -22,7 +22,7 @@ As mentioned in the CENM service documentation ([Identity Manager Service]({{< r
 
 
 ## Signing Service
-CENM’s Signing Service supports the following HSMs (see [CENM support matrix]({{< relref "cenm-support-matrix" >}}) for more information):
+CENM’s Signing Service supports the following HSMs (see [CENM support matrix](cenm-support-matrix.md) for more information):
 
 
 * Utimaco
@@ -76,12 +76,10 @@ Due to security concerns, the signing service should be hosted on private premis
                 or outgoing connection to SMR service configured as data source which then connects to CENM services (Identity Manager and Network Maps), and outgoing connections to the HSMs
                 for the configured signing keys. The overall flow of communication can be seen in the below diagram:
 
-{{< img src="resources/signing-service-communication.png" alt="signing service communication" >}}
-
-
+![signing service communication](resources/signing-service-communication.png "signing service communication")
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
-                    [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}})
+                    [Configuring the ENM services to use SSL](enm-with-ssl.md)
 
 
 {{< /note >}}
@@ -164,7 +162,7 @@ The configuration for the Signing Service consists of the following sections:
 #### Shell Configuration
 The Signing Service is interacted with via the shell, which is configured at the top level of the config file. This
                         shell is similar to the interactive shell available in other ENM services and is configured in a similar way. See
-                        [Shell Configuration]({{< relref "shell#shell-config" >}}) for more information on how to configure the shell.
+                        [Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
 
 
 #### HSM Libraries
@@ -193,7 +191,7 @@ hsmLibraries = [
     }
 ]
 ```
-See the `Example Configuration`_ section below for examples of these config blocks being used in a complete file.
+See the [Example Signing Service Configuration](#example-signing-service-configuration) section below for examples of these config blocks being used in a complete file.
 
 
 ##### Azure Key Vault
@@ -285,7 +283,7 @@ For each signing task, the data source for getting the unsigned data and persist
 
 {{< note >}}
 Communication with the configured service locations can be configured to use SSL for a secure, encrypted
-                            connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}) for more
+                            connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                             information.
 
 
@@ -302,7 +300,7 @@ For all non CA related signing tasks (Network Maps and Network Parameters), glob
 
 {{< note >}}
 Communication with the configured SMR service location can be configured to use SSL for a secure, encrypted
-                            connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}) for more
+                            connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                             information.
 
 
@@ -350,7 +348,7 @@ Automated, scheduled signing of important changes such as Network Parameter upda
 Even though scheduled signing of CRLs should not be configured in production environment, they should be signed
                             manually from time to time depending on its’ `nextUpdate` property. This is to ensure an up-to-date CRL is
                             distributed in the network before the previous one expires. Conventionally they have a lifecycle of 6 months
-                            and are manually signed every 3 months. See [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool" >}}) for more information how to check
+                            and are manually signed every 3 months. See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for more information how to check
                             CRLs’ update deadlines.
 
 
@@ -724,8 +722,11 @@ The signing key type - `AMAZON_CLOUD_HSM` in this case
 
 credentialsAmazon
 The credentials for logging in to the HSM.
-                                    :partition: Partition for the HSM. This can be found in the AWS console.
 
+
+
+partition
+Partition for the HSM. This can be found in the AWS console.
 
 
 userName
@@ -1431,7 +1432,7 @@ For each material management task, the data source for getting the unsigned data
 
 {{< note >}}
 Communication with the configured SMR service location can be configured to use SSL for a secure, encrypted
-                            connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}) for more
+                            connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                             information.
 
 
@@ -1474,6 +1475,14 @@ The absolute path to signing plugin JAR file
 pluginClass
 The class that will be loaded from plugin JAR file and will be its entry point from SMR
 
+
+{{< note >}}
+It is recommended to set schedule’s interval to a proper value in order for SMR to feed plugin with the new
+                            signable material as soon as possible, but not too often to avoid plugin being spammed. For instance, the
+                            value of interval between 1 and 10 seconds should be sufficient.
+
+
+{{< /note >}}
 
 ### Example SMR Configuration
 Here is example of complete SMR configuration:
@@ -1960,6 +1969,6 @@ Non CA Plugin’s configuration file must be in same directory as plugin’s JAR
 {{< /note >}}
 
 ### Other Sample Plugins
-See [EJBCA Sample Plugin]({{< relref "ejbca-plugin" >}}) for sample open source CA implementation.
+See [EJBCA Sample Plugin](ejbca-plugin.md) for sample open source CA implementation.
 
 

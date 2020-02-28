@@ -14,10 +14,10 @@ date: 2020-01-08T09:59:25Z
 </embed>
 
 Want to see Corda running? Download our demonstration application [DemoBench](https://www.corda.net/downloads/) or
-            follow our [quickstart guide]({{< relref "quickstart-index" >}}).
+            follow our [quickstart guide](quickstart-index.md).
 
-If you want to start coding on Corda, then familiarise yourself with the [key concepts]({{< relref "key-concepts" >}}), then read
-            our [Hello, World! tutorial]({{< relref "hello-world-introduction" >}}). For the background behind Corda, read the non-technical
+If you want to start coding on Corda, then familiarise yourself with the [key concepts](key-concepts.md), then read
+            our [Hello, World! tutorial](hello-world-introduction.md). For the background behind Corda, read the non-technical
             [platform white paper](_static/corda-platform-whitepaper.pdf) or for more detail, the [technical white paper](_static/corda-technical-whitepaper.pdf).
 
 If you have questions or comments, then get in touch on [Slack](https://slack.corda.net/) or ask a question on

@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 # API: Contracts
 
 {{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Contracts]({{< relref "key-concepts-contracts" >}}).
+Before reading this page, you should be familiar with the key concepts of [Contracts](key-concepts-contracts.md).
 
 
 {{< /note >}}

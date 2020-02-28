@@ -54,26 +54,16 @@ There are a few different reasons why this could be:
 
 To verify that issue 1 is not the culprit - verify that the Network Map signing process is still successfully running
                     periodically. Unless the Network Map service is configured for testing, it should have an external signing process
-                    configured. See the “Signing Network Map and Network Parameters” section of [Signing Services]({{< relref "signing-service" >}}). If the service is
+                    configured. See the “Signing Network Map and Network Parameters” section of [Signing Services](signing-service.md). If the service is
                     configured to run with a local signer then verify that the configured sign interval is something fairly low to ensure
                     that updates to the network map are persisted often (e.g. 1 minute).
 
 To verify that issue 2 is not the culprit - the logs of the Network Map service should be checked. An error such as an
                     invalid certificate is not recoverable and should be resolved out of band with the node operator and support.
                     If there are any communication issues with the Identity Manager then the error will be logged and communication will be
-                    retried after a short break. See the “Identity Manager Communication” section of [Network Map Service]({{< relref "network-map" >}}) to verify that the
+                    retried after a short break. See the “Identity Manager Communication” section of [Network Map Service](network-map.md) to verify that the
                     Identity Manager communication is correctly configured for the Network Map service.
 
-Shell commands are also provided to aid with inspecting of the state of the node info publish request. The two methods
-                    `run nodeInfosInStaging` and `run quarantinedNodeInfos` can be used to display any node infos that are currently
-                    either awaiting a response from the Identity Manager or have encountered an unrecoverable error whilst getting the
-                    mapping from the Identity Manager. Inspection of the quarantined node infos should be done out-of-band by inspecting the
-                    Identity Manager along with its database. Once the issue has been resolved then the quarantined node info can be purged
-                    using the `purgeQuarantinedNodeInfo` command. For example:
-
-```guess
->>>run purgeQuarantinedNodeInfo nodeInfoHash: EAEF83371AB8B6EEA025A6114D2E44CF6BB8215B6DE5D3CCD0A2C67C6C398926
-```
 
 ## The CENM Service hangs on startup
 
@@ -122,7 +112,7 @@ There are multiple possible causes for this. The most likely candidates are:
 
 **Signing process is working as intended but timeout is configured too low**
                     The timeout for a local signer can be configured via the service’s configuration file. See
-                    [Identity Manager Configuration Parameters]({{< relref "config-identity-manager-parameters" >}}) and [Network Map Configuration Parameters]({{< relref "config-network-map-parameters" >}}) for more information.
+                    [Identity Manager Configuration Parameters](config-identity-manager-parameters.md) and [Network Map Configuration Parameters](config-network-map-parameters.md) for more information.
 
 
 ### Explanation

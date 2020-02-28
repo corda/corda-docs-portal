@@ -14,7 +14,7 @@ The platform does what it can to be secure by default and safe by design. Unfort
 
 
 ## Flows
-[Writing flows]({{< relref "flow-state-machines" >}}) are how your app communicates with other parties on the network. Therefore they
+[Writing flows](flow-state-machines.md) are how your app communicates with other parties on the network. Therefore they
                 are the typical entry point for malicious data into your app and must be treated with care.
 
 The `receive` methods return data wrapped in the `UntrustworthyData<T>` marker type. This type doesn’t add

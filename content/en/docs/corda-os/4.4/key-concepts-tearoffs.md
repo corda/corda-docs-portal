@@ -52,9 +52,7 @@ Another important feature is that a nonce is deterministically generated for eac
 After computing the leaves, each Merkle tree is built in the normal way by hashing the concatenation of nodes’ hashes
                     below the current one together. It’s visible on the example image below, where `H` denotes sha256 function, “+” - concatenation.
 
-{{< img src="resources/merkleTreeFull.png" alt="merkleTreeFull" >}}
-
-The transaction has three input states, two output states, two commands, one attachment, a notary and a time-window.
+![merkleTreeFull](resources/merkleTreeFull.png "merkleTreeFull")The transaction has three input states, two output states, two commands, one attachment, a notary and a time-window.
                     Notice that if a tree is not a full binary tree, leaves are padded to the nearest
                     power of 2 with zero hash (since finding a pre-image of sha256(x) == 0 is hard computational task) - marked light
                     green above. Finally, the hash of the root is the identifier of the transaction, it’s also used for signing and
@@ -72,9 +70,7 @@ Let’s assume that only the first command should be visible to an Oracle. We sh
                     the commands requiring a signature from this oracle should be visible to the oracle entity, but not the rest. Here is how
                     this filtered transaction will be represented in the Merkle tree structure.
 
-{{< img src="resources/SubMerkleTree_Oracle.png" alt="SubMerkleTree Oracle" >}}
-
-Blue nodes and `H(c2)` are provided to the Oracle service, while the black ones are omitted. `H(c2)` is required, so
+![SubMerkleTree Oracle](resources/SubMerkleTree_Oracle.png "SubMerkleTree Oracle")Blue nodes and `H(c2)` are provided to the Oracle service, while the black ones are omitted. `H(c2)` is required, so
                     that the Oracle can compute `H(commandData)` without being to able to see the second command, but at the same time
                     ensuring `CommandData1` is part of the transaction. It is highlighted that all signers are visible, so as to have a
                     proof that no related command (that the Oracle should see) has been maliciously filtered out. Additionally, hashes of
@@ -89,6 +85,4 @@ Along the same lines, if we want to send the same transaction to a non-validatin
                     input states should be checked for double-spending, if the time-window is valid and if this transaction should be
                     notarised by this notary.
 
-{{< img src="resources/SubMerkleTree_Notary.png" alt="SubMerkleTree Notary" >}}
-
-
+![SubMerkleTree Notary](resources/SubMerkleTree_Notary.png "SubMerkleTree Notary")

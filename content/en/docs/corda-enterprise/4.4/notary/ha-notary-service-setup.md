@@ -6,7 +6,7 @@ date: 2020-01-08T09:59:25Z
 
 # Corda Enterprise HA notary service set-up
 The Corda Enterprise notary service can be configured in high-availability (HA) mode. For the Corda Enterprise notary
-            service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview]({{< relref "ha-notary-service-overview" >}}) for more information.
+            service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview](ha-notary-service-overview.md) for more information.
 
 Running an HA notary requires the following:
 
@@ -17,7 +17,7 @@ Running an HA notary requires the following:
 * A database supported by the notary implementation, configured in high-availability mode
 
 
-For a list of databases supported by each of the above notary implementations, please refer to the [Platform support matrix]({{< relref "../platform-support-matrix" >}})
+For a list of databases supported by each of the above notary implementations, please refer to the [Platform support matrix](../platform-support-matrix.md)
 
 
 ## Prerequisites
@@ -31,10 +31,10 @@ Before setting up an HA notary, your Corda Enterprise distribution should contai
 * Corda Enterprise JAR
 
 
-* [Notary Health Check]({{< relref "../notary-healthcheck" >}}) Tool
+* [Notary Health Check](../notary-healthcheck.md) Tool
 
 
-* HA Utilities JAR to run [notary registration]({{< relref "../ha-utilities#notary-reg-tool" >}})
+* HA Utilities JAR to run [notary registration](../ha-utilities.md#notary-reg-tool)
 
 
 * Root access to a Linux machine or VM to install the selected database
@@ -73,8 +73,8 @@ Before setting up an HA notary, your Corda Enterprise distribution should contai
 * Notary worker configuration files
 
 
-If you are setting up a local network to test the HA notary setup process, use the [Network Bootstrapper]({{< relref "../network-bootstrapper" >}})
-                instead of the [Notary Registration Tool]({{< relref "../ha-utilities#notary-reg-tool" >}}). In all other implementations, the network bootstrapper is not required.
+If you are setting up a local network to test the HA notary setup process, use the [Network Bootstrapper](../network-bootstrapper.md)
+                instead of the [Notary Registration Tool](../ha-utilities.md#notary-reg-tool). In all other implementations, the network bootstrapper is not required.
 
 Ensure that the notary worker P2P ports are reachable from any nodes that might join the network. Each notary worker also
                 needs access to its individual node database, and communicates with the underlying database cluster using JDBC.
@@ -100,7 +100,7 @@ The notary registration tool will generate the notary service key pair, and subm
                     file will be created containing the key pair and certificate chain if using a local key store, or just the certificate
                     chain if using an HSM.
 
-See [notary registration]({{< relref "../ha-utilities#notary-reg-tool" >}}) for more information on using the notary registration tool.
+See [notary registration](../ha-utilities.md#notary-reg-tool) for more information on using the notary registration tool.
 
 
 ### 2. Register the notary workers

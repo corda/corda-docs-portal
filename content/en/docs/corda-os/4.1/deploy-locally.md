@@ -141,9 +141,7 @@ Navigate to [https://marketplace.r3.com/network/testnet/install-node](https://ma
 Click on the `Download Corda Node` button and wait for the ZIP
                     file to download:
 
-{{< img src="resources/testnet-download.png" alt="testnet download" >}}
-
-Unzip the file in your Corda root directory:
+![testnet download](resources/testnet-download.png "testnet download")Unzip the file in your Corda root directory:
 
 ```bash
 mkdir corda
@@ -167,6 +165,6 @@ It is possible to copy the `node.zip` file from your local machine to any other 
 {{< /warning >}}
 
 ## Testing your deployment
-To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet]({{< relref "testnet-explorer-corda" >}}) to set up the Finance CorDapp and issue cash to a counterparty.
+To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up the Finance CorDapp and issue cash to a counterparty.
 
 

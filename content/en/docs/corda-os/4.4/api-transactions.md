@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 # API: Transactions
 
 {{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Transactions]({{< relref "key-concepts-transactions" >}}).
+Before reading this page, you should be familiar with the key concepts of [Transactions](key-concepts-transactions.md).
 
 
 {{< /note >}}
@@ -31,9 +31,7 @@ Between its creation and its final inclusion on the ledger, a transaction will g
 
 We can visualise the transitions between the three stages as follows:
 
-{{< img src="resources/transaction-flow.png" alt="transaction flow" >}}
-
-
+![transaction flow](resources/transaction-flow.png "transaction flow")
 ## Transaction components
 A transaction consists of six types of components:
 
@@ -481,7 +479,7 @@ TransactionBuilder txBuilder = new TransactionBuilder(specificNotary);
 {{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
 
-We discuss the selection of a notary in [API: Flows]({{< relref "api-flows" >}}).
+We discuss the selection of a notary in [API: Flows](api-flows.md).
 
 If the transaction does not have any input states or a time-window, it does not require a notary, and can be
                     instantiated without one:
@@ -921,7 +919,7 @@ If a transaction has inputs, we need to retrieve all the states in the transacti
                     verify the transaction’s contents. This is because the transaction is only valid if its dependency chain is also valid.
                     We do this by requesting any states in the chain that our node doesn’t currently have in its local storage from the
                     proposer(s) of the transaction. This process is handled by a built-in flow called `ReceiveTransactionFlow`.
-                    See [API: Flows]({{< relref "api-flows" >}}) for more details.
+                    See [API: Flows](api-flows.md) for more details.
 
 We can now verify the transaction’s contents to ensure that it satisfies the contracts of all the transaction’s input
                     and output states:
@@ -1245,7 +1243,7 @@ TransactionSignature sig2 = getServiceHub().createSignature(onceSignedTx, otherI
 
 
 ### Notarising and recording
-Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [API: Flows]({{< relref "api-flows" >}}) for
+Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [API: Flows](api-flows.md) for
                     more details.
 
 

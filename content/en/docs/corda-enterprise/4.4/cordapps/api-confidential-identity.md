@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 
 {{< warning >}}
 The `confidential-identities` module is still not stabilised, so this API may change in future releases.
-                See [API stability guarantees]({{< relref "api-stability-guarantees" >}}).
+                See [API stability guarantees](api-stability-guarantees.md).
 
 
 {{< /warning >}}

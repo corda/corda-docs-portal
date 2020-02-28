@@ -6,7 +6,7 @@ date: 2020-01-08T09:59:25Z
 
 # HA Notary Metrics
 Corda nodes export various performance and health metrics for monitoring, as
-            described in [Node administration]({{< relref "../node-administration" >}}). The HA notary provides additional
+            described in [Node administration](../node-administration.md). The HA notary provides additional
             notary-related metrics as listed below.
 
 
@@ -31,6 +31,4 @@ The MySQLUniquenessProvider collects and exposes the following metrics.
 {{< /table >}}
 Below is a screenshot of the metrics displayed in the Hawtio console.
 
-{{< img src="running-a-notary-cluster/resources/metrics.png" alt="metrics" >}}
-
-
+![metrics](running-a-notary-cluster/resources/metrics.png "metrics")

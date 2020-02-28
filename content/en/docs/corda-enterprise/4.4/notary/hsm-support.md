@@ -8,9 +8,7 @@ date: 2020-01-08T09:59:25Z
 
 ## Overview
 
-{{< img src="notary/resources/hsm-support.png" alt="hsm support" >}}
-
-Two notary workers and their relevant cryptographic keys used for P2P messaging and transaction signing. The red rectangles represent the
+![hsm support](notary/resources/hsm-support.png "hsm support")Two notary workers and their relevant cryptographic keys used for P2P messaging and transaction signing. The red rectangles represent the
                     Corda notary worker services. The distinct identity keys are represented by rectangles in green and yellow and the shared key of the
                     notary service identity is drawn in blue. Their cryptographic keys are held in a single HSM.
 

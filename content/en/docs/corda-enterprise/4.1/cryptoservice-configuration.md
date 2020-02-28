@@ -11,11 +11,11 @@ Note that only the private and public key of node CA and the legal identity are 
 
 
 ## Configuration
-As mentioned in the description of the configuration file ([Node configuration]({{< relref "corda-configuration-file" >}})), the `node.conf` has two relevant fields, `cryptoServiceName` and `cryptoServiceConf`.
+As mentioned in the description of the configuration file ([Node configuration](corda-configuration-file.md)), the `node.conf` has two relevant fields, `cryptoServiceName` and `cryptoServiceConf`.
 
 
 {{< warning >}}
-The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. So, we strongly advise using the Configuration Obfuscator tool for it, as documented here: [Configuration Obfuscator]({{< relref "tools-config-obfuscator" >}})
+The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. So, we strongly advise using the Configuration Obfuscator tool for it, as documented here: [Configuration Obfuscator](tools-config-obfuscator.md)
 
 
 {{< /warning >}}

@@ -21,7 +21,7 @@ A future version of Corda will allow the MQ broker to be split out of the main n
 
 {{< /note >}}
 There are multiple ways of interacting with the network. When writing an application you typically won’t use the
-            messaging subsystem directly. Instead you will build on top of the [flow framework]({{< relref "flow-state-machines" >}}),
+            messaging subsystem directly. Instead you will build on top of the [flow framework](flow-state-machines.md),
             which adds a layer on top of raw messaging to manage multi-step flows and let you think in terms of identities
             rather than specific network endpoints.
 

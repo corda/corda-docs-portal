@@ -59,7 +59,7 @@ As noted in the HOCON documentation, the default behaviour for resources referen
 ### Placeholder Overrides
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
                     `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
-                    environment variable isn’t present (see: [Hiding sensitive data]({{< relref "../operating/node-administration#hiding-sensitive-data" >}}) for more information).
+                    environment variable isn’t present (see: [Hiding sensitive data](../operating/node-administration.md#hiding-sensitive-data) for more information).
 
 ```groovy
 rpcSettings {
@@ -181,7 +181,7 @@ List of SHA-256 hashes of public keys. Attachments signed by any of these public
                             This property is similar to [cordappSignerKeyFingerprintBlacklist](#corda-configuration-file-signer-blacklist) but only restricts CorDapps that were
                             included as attachments in a transaction and received over the network from a peer.
 
-See [Signing CorDapps for use with Signature Constraints]({{< relref "../../cordapps/api-contract-constraints#signing-cordapps-for-use-with-signature-constraints" >}}) for more information about signing CorDapps and what
+See [Signing CorDapps for use with Signature Constraints](../../cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints) for more information about signing CorDapps and what
                             makes an attachment trusted (a trust root).
 
 This property requires retrieving the hashes of public keys that need to be blacklisted. More information on this process can be found in [Generating a public key hash](#generating-a-public-key-hash).
@@ -243,7 +243,7 @@ Set custom command line attributes (e.g. Java system properties) on the node pro
 
 jvmArgs:
 A list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
-                                        See [Setting JVM arguments]({{< relref "../deploy/running-a-node#setting-jvm-args" >}}) for examples and details on the precedence of the different approaches to settings arguments.
+                                        See [Setting JVM arguments](../deploy/running-a-node.md#setting-jvm-args) for examples and details on the precedence of the different approaches to settings arguments.
 
 *Default:* not defined
 
@@ -353,7 +353,7 @@ This flag sets the node to run in development mode.
                             If no value is specified in the node configuration file, the node will attempt to detect if it’s running on a developer machine and set `devMode=true` in that case.
                             This value can be overridden from the command line using the `--dev-mode` option.
 
-This flag affects the default value for Java heap size. See [Memory usage and tuning]({{< relref "../operating/node-administration#memory-usage-and-tuning" >}}) for further details.
+This flag affects the default value for Java heap size. See [Memory usage and tuning](../operating/node-administration.md#memory-usage-and-tuning) for further details.
 
 *Default:* Corda will try to establish based on OS environment
 
@@ -407,7 +407,7 @@ Allows fine-grained controls of various features only available in the enterpris
 > 
 > 
 > healthCheck
-> Enables the health check feature required by the [Health Survey Tool]({{< relref "../../health-survey#health-survey-ref" >}}).
+> Enables the health check feature required by the [Health Survey Tool](../../health-survey.md#health-survey-ref).
 > 
 > *Default:* true
 > 
@@ -566,7 +566,7 @@ An optional list of private network map UUIDs. Your node will fetch the public n
 
 flowExternalOperationThreadPoolSize
 The number of threads available to execute external operations that have been called from flows. See the documentation on
-                            [calling external systems inside flows]({{< relref "../../cordapps/api-flows#api-flows-external-operations" >}}) for more information.
+                            [calling external systems inside flows](../../cordapps/api-flows.md#api-flows-external-operations) for more information.
 
 *Default:* Set to the lesser of either the maximum number of cores allocated to the node, or 10.
 
@@ -815,7 +815,7 @@ If using the MySQL notary (deprecated), specify this configuration section with 
 >                                                                     and the database name is `corda`:
 > 
 > ```kotlin
-> "[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false]({{< relref "jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false" >}})"
+> "[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
 > ```
 > *Default:* not defined
 > 
@@ -838,7 +838,7 @@ mysql {
   connectionRetries=2
   dataSource {
     autoCommit="false"
-    jdbcUrl="[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false]({{< relref "jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false" >}})"
+    jdbcUrl="[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
     username="CordaUser"
     password="myStrongPassword"
   }

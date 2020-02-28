@@ -413,6 +413,6 @@ The discussion so far has assumed that the parties need full visibility
                 not expose that data to the other node directly. A full example of this
                 can be found in the `NodeInterestRates` Oracle code from the
                 `irs-demo` project which interacts with the `RatesFixFlow` flow.
-                Also, refer to the [Transaction tear-offs]({{< relref "tutorial-tear-offs" >}}).
+                Also, refer to the [Transaction tear-offs](tutorial-tear-offs.md).
 
 

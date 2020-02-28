@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 
 {{< note >}}
 These instructions are intended for people who want to deploy a Corda node to a server,
-                whether they have developed and tested a CorDapp following the instructions in [Creating nodes locally]({{< relref "generating-a-node" >}})
+                whether they have developed and tested a CorDapp following the instructions in [Creating nodes locally](generating-a-node.md)
                 or are deploying a third-party CorDapp.
 
 
@@ -22,7 +22,7 @@ We recommend creating system services to run a node and the optional webserver. 
 
 > 
 > 
-> * A supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development]({{< relref "getting-set-up" >}})
+> * A supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development](getting-set-up.md)
 > 
 > 
 
@@ -48,7 +48,7 @@ We recommend creating system services to run a node and the optional webserver. 
                         our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
 
 
-* Save the below as `/opt/corda/node.conf`. See [Node configuration]({{< relref "corda-configuration-file" >}}) for a description of these options:
+* Save the below as `/opt/corda/node.conf`. See [Node configuration](corda-configuration-file.md) for a description of these options:
 
 ```kotlin
 p2pAddress = "example.com:10002"
@@ -89,7 +89,7 @@ custom { jvmArgs = [ '-Xmx2048m', '-XX:+UseG1GC' ] }
                                 only visible to the permissioning service.
 
 
-* Enter your node’s desired legal name (see [Node identity]({{< relref "node-naming#node-naming" >}}) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
 
 
 * If required, add RPC users
@@ -219,11 +219,11 @@ exec java -jar /opt/corda/corda-webserver.jar
 ```
 
 * Provision the required certificates to your node. Contact the network permissioning service or see
-                        [Network certificates]({{< relref "permissioning" >}})
+                        [Network certificates](permissioning.md)
 
 
 * Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-                        For more information refer to [Database management scripts]({{< relref "database-management" >}})
+                        For more information refer to [Database management scripts](database-management.md)
 
 
 * **SystemD**: You can now start a node and its webserver and set the services to start on boot by running the
@@ -267,7 +267,7 @@ We recommend running Corda as a Windows service. This provides service handling,
 
 > 
 > 
-> * A supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development]({{< relref "getting-set-up" >}})
+> * A supported Java distribution. The supported versions are listed in [Getting set up for CorDapp development](getting-set-up.md)
 > 
 > 
 
@@ -283,7 +283,7 @@ copy PATH_TO_CORDA_JAR/corda-4.1.jar C:\Corda\corda.jar
                         download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
 
 
-* Save the below as `C:\Corda\node.conf`. See [Node configuration]({{< relref "corda-configuration-file" >}}) for a description of these options:
+* Save the below as `C:\Corda\node.conf`. See [Node configuration](corda-configuration-file.md) for a description of these options:
 
 ```kotlin
  p2pAddress = "example.com:10002"
@@ -321,14 +321,14 @@ custom { jvmArgs = [ '-Xmx2048m', '-XX:+UseG1GC' ] }
                                 only visible to the permissioning service.
 
 
-* Enter your node’s desired legal name (see [Node identity]({{< relref "node-naming#node-naming" >}}) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
 
 
 * If required, add RPC users
 
 
 
-* Copy the required Java keystores to the node. See [Network certificates]({{< relref "permissioning" >}})
+* Copy the required Java keystores to the node. See [Network certificates](permissioning.md)
 
 
 * Download the [NSSM service manager](nssm.cc)
@@ -361,11 +361,11 @@ sc start cordanode1
 > 
 
 * Provision the required certificates to your node. Contact the network permissioning service or see
-                        [Network certificates]({{< relref "permissioning" >}})
+                        [Network certificates](permissioning.md)
 
 
 * Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-                        For more information refer to [Database management scripts]({{< relref "database-management" >}})
+                        For more information refer to [Database management scripts](database-management.md)
 
 
 * Run the batch file by clicking on it or from a command prompt

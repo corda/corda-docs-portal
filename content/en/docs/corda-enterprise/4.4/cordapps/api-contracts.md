@@ -241,7 +241,7 @@ class XContract : Contract {
 
 ## What next?
 After learning about writing contracts, we suggest you either learn more about how contract constraints can be used in
-                [Contract Constraints]({{< relref "api-contract-constraints" >}}), or learn about [Writing CorDapp States]({{< relref "api-states" >}}), or [Writing CorDapp Flows]({{< relref "api-flows" >}}).
+                [Contract Constraints](api-contract-constraints.md), or learn about [Writing CorDapp States](api-states.md), or [Writing CorDapp Flows](api-flows.md).
 
 
 

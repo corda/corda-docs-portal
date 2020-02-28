@@ -9,9 +9,7 @@ CorDapps (Corda Distributed Applications) are distributed applications that run 
             CorDapp is to allow nodes to reach agreement on updates to the ledger. They achieve this goal by defining flows that
             Corda node owners can invoke over RPC:
 
-{{< img src="cordapps/../resources/node-diagram.png" alt="node diagram" >}}
-
-
+![node diagram](cordapps/../resources/node-diagram.png "node diagram")
 ## CorDapp components
 CorDapps take the form of a set of JAR files containing class definitions written in Java and/or Kotlin.
 
@@ -45,13 +43,13 @@ But may also include:
 > 
 > 
 Flows are routines for nodes to run. They can perform a variety of tasks, but usually involve ledger updates. Flows
-                subclass `FlowLogic`. For more information on flows, see [Writing CorDapp Flows]({{< relref "api-flows" >}}).
+                subclass `FlowLogic`. For more information on flows, see [Writing CorDapp Flows](api-flows.md).
 
 States define the facts that parties agree and transact over. States implement the `ContractState` interface. For more
-                information on states, see [Writing CorDapp States]({{< relref "api-states" >}}).
+                information on states, see [Writing CorDapp States](api-states.md).
 
 Contracts define the shared rules for updating the ledger. Contracts implement the `Contract` interface``. To learn
-                more about implementing contracts, see [Writing CorDapp Contracts]({{< relref "api-contracts" >}}).
+                more about implementing contracts, see [Writing CorDapp Contracts](api-contracts.md).
 
 Services are intended to provide long-lived utilities that don’t need to run on the network. Services subclass `SingletonSerializationToken`
 

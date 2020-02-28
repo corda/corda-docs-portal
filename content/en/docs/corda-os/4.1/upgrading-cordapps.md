@@ -35,9 +35,7 @@ The `version` property, which defaults to 1, specifies the flow’s version. Thi
 The flow interface is defined by the sequence of `send` and `receive` calls between an `InitiatingFlow` and an
                     `InitiatedBy` flow, including the types of the data sent and received. We can picture a flow’s interface as follows:
 
-{{< img src="resources/flow-interface.png" alt="flow interface" >}}
-
-In the diagram above, the `InitiatingFlow`:
+![flow interface](resources/flow-interface.png "flow interface")In the diagram above, the `InitiatingFlow`:
 
 
 * Sends an `Int`
@@ -304,7 +302,7 @@ For this reason, in currently released versions of Corda you must *drain the nod
                     a drain is complete there should be no outstanding checkpoints or running flows. Upgrading the app will then succeed.
 
 A node can be drained or undrained via RPC using the `setFlowsDrainingModeEnabled` method, and via the shell using
-                    the standard `run` command to invoke the RPC. See [Node shell]({{< relref "shell" >}}) to learn more.
+                    the standard `run` command to invoke the RPC. See [Node shell](shell.md) to learn more.
 
 
 ## Contract and state versioning
@@ -312,14 +310,14 @@ There are two types of contract/state upgrade:
 
 
 * *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See
-                        [API: Contract Constraints]({{< relref "api-contract-constraints" >}}) to learn more
+                        [API: Contract Constraints](api-contract-constraints.md) to learn more
 
 
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it
                         using the contract upgrade flows
 
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints#implicit-vs-explicit-upgrades" >}}).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.md#implicit-vs-explicit-upgrades).
 
 
 ### Performing explicit contract and state upgrades
@@ -329,7 +327,7 @@ In an explicit upgrade, contracts and states can be changed in arbitrary ways, i
 
 
 {{< warning >}}
-In Corda 4 we’ve introduced the Signature Constraint (see [API: Contract Constraints]({{< relref "api-contract-constraints" >}})). States created or migrated to
+In Corda 4 we’ve introduced the Signature Constraint (see [API: Contract Constraints](api-contract-constraints.md)). States created or migrated to
                         the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
                         Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
@@ -360,7 +358,7 @@ interface UpgradedContract<in OldState : ContractState, out NewState : ContractS
 ```
 The `upgrade` method describes how the old state type is upgraded to the new state type.
 
-By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [API: Contract Constraints]({{< relref "api-contract-constraints" >}})).
+By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [API: Contract Constraints](api-contract-constraints.md)).
 
 
 {{< note >}}
@@ -406,7 +404,7 @@ Have each node operator stop their node. If you are also changing flow definitio
 
 #### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
 If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
-                        re-run the network bootstrapper to whitelist the new contracts. See [Network Bootstrapper]({{< relref "network-bootstrapper" >}}).
+                        re-run the network bootstrapper to whitelist the new contracts. See [Network Bootstrapper](network-bootstrapper.md).
 
 
 #### 7. Restart the nodes
@@ -440,7 +438,7 @@ One the flow ends successfully, all the participants of the old state object sho
 
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
-Follow the guide in [API: Contract Constraints]({{< relref "api-contract-constraints" >}}).
+Follow the guide in [API: Contract Constraints](api-contract-constraints.md).
 
 
 ### Points to note
@@ -489,7 +487,7 @@ Follow the guide in [API: Contract Constraints]({{< relref "api-contract-constra
 By default, all state objects are serialised to the database as a string of bytes and referenced by their `StateRef`.
                 However, it is also possible to define custom schemas for serialising particular properties or combinations of
                 properties, so that they can be queried from a source other than the Corda Vault. This is done by implementing the
-                `QueryableState` interface and creating a custom object relational mapper for the state. See [API: Persistence]({{< relref "api-persistence" >}})
+                `QueryableState` interface and creating a custom object relational mapper for the state. See [API: Persistence](api-persistence.md)
                 for details.
 
 For backwards compatible changes such as adding columns, the procedure for upgrading a state schema is to extend the

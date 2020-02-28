@@ -47,9 +47,7 @@ Recall that a transaction is only valid if it is digitally signed by all require
 
 We can picture this situation as follows:
 
-{{< img src="resources/tx-validation.png" alt="tx validation" >}}
-
-The contract code can be written in any JVM language, and has access to the full capabilities of the language,
+![tx validation](resources/tx-validation.png "tx validation")The contract code can be written in any JVM language, and has access to the full capabilities of the language,
                 including:
 
 
@@ -99,7 +97,7 @@ Peers should therefore check the contents of a transaction before signing it, *e
 
 ## Oracles
 Sometimes, transaction validity will depend on some external piece of information, such as an exchange rate. In
-                these cases, an oracle is required. See [Oracles]({{< relref "key-concepts-oracles" >}}) for further details.
+                these cases, an oracle is required. See [Oracles](key-concepts-oracles.md) for further details.
 
 
 ## Legal prose

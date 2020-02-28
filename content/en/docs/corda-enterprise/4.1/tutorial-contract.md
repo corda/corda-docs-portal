@@ -35,9 +35,7 @@ The first thing to think about with a new contract is the lifecycle of contract 
 
 This lifecycle for commercial paper is illustrated in the diagram below:
 
-{{< img src="resources/contract-cp.png" alt="contract cp" >}}
-
-
+![contract cp](resources/contract-cp.png "contract cp")
 ## Starting the commercial paper class
 A smart contract is a class that implements the `Contract` interface. This can be either implemented directly, as done
                 here, or by subclassing an abstract contract such as `OnLedgerAsset`. The heart of any contract in Corda is the
@@ -83,9 +81,7 @@ So far, so simple. Now we need to define the commercial paper *state*, which rep
 ## States
 A state is a class that stores data that is checked by the contract. A commercial paper state is structured as below:
 
-{{< img src="resources/contract-cp-state.png" alt="contract cp state" >}}
-
-
+![contract cp state](resources/contract-cp-state.png "contract cp state")
 {{< tabs name="tabs-2" >}}
 
 
@@ -209,7 +205,7 @@ We have four fields in our state:
 
 * `faceValue`, an `Amount<Issued<Currency>>`, which wraps an integer number of pennies and a currency that is
                         specific to some issuer (e.g. a regular bank, a central bank, etc). You can read more about this very common
-                        type in [API: Core types]({{< relref "api-core-types" >}}).
+                        type in [API: Core types](api-core-types.md).
 
 
 * `maturityDate`, an [Instant](https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html), which is a type
@@ -671,7 +667,7 @@ To make contract testing more convenient Corda provides a language-like API for 
                 you easily construct chains of transactions and verify that they either pass validation, or fail with a particular
                 error message.
 
-Testing contracts with this domain specific language is covered in the separate tutorial, [Writing a contract test]({{< relref "tutorial-test-dsl" >}}).
+Testing contracts with this domain specific language is covered in the separate tutorial, [Writing a contract test](tutorial-test-dsl.md).
 
 
 ## Adding a generation API to your contract
@@ -762,7 +758,7 @@ public static final String IOU_CONTRACT_ID = "com.example.contract.IOUContract";
 
 This value, which is the fully qualified class name of the contract, tells the Corda platform where to find the contract
                 code that should be used to validate a transaction containing an output state of this contract type. Typically the contract
-                code will be included in the transaction as an attachment (see [Using attachments]({{< relref "tutorial-attachments" >}})).
+                code will be included in the transaction as an attachment (see [Using attachments](tutorial-attachments.md)).
 
 The returned partial transaction has a `Command` object as a parameter. This is a container for any object
                 that implements the `CommandData` interface, along with a list of keys that are expected to sign this transaction. In this case,
@@ -773,7 +769,7 @@ The `TransactionBuilder` has a convenience `withItems` method that takes a varia
                 for you.
 
 There’s one final thing to be aware of: we ask the caller to select a *notary* that controls this state and
-                prevents it from being double spent. You can learn more about this topic in the [Notaries]({{< relref "key-concepts-notaries" >}}) article.
+                prevents it from being double spent. You can learn more about this topic in the [Notaries](key-concepts-notaries.md) article.
 
 
 {{< note >}}
@@ -890,7 +886,7 @@ In a classical blockchain system all data is transmitted to everyone and if you 
                 multi-party transactions are a way of life, so we provide lots of support for managing them.
 
 You can learn how transactions are moved between peers and taken through the build-sign-notarise-broadcast
-                process in a separate tutorial, [Writing flows]({{< relref "flow-state-machines" >}}).
+                process in a separate tutorial, [Writing flows](flow-state-machines.md).
 
 
 ## Non-asset-oriented smart contracts
@@ -901,7 +897,7 @@ Although this tutorial covers how to implement an owned asset, there is no requi
                 relational constraints.
 
 When writing a contract that handles deal-like entities rather than asset-like entities, you may wish to refer
-                to “[Interest rate swaps]({{< relref "contract-irs" >}})” and the accompanying source code. Whilst all the concepts are the same, deals are
+                to “[Interest rate swaps](contract-irs.md)” and the accompanying source code. Whilst all the concepts are the same, deals are
                 typically not splittable or mergeable and thus you don’t have to worry much about grouping of states.
 
 
@@ -911,7 +907,7 @@ It would be nice if you could program your node to automatically redeem your com
                 is by default ignored, if the corresponding *Cordapp* is installed and active in your node, and if the state is
                 considered relevant by your vault (e.g. because you own it), then the node can automatically begin the process
                 of creating a transaction and taking it through the life cycle. You can learn more about this in the article
-                “[Event scheduling]({{< relref "event-scheduling" >}})”.
+                “[Event scheduling](event-scheduling.md)”.
 
 
 ## Encumbrances

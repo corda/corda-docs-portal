@@ -14,17 +14,17 @@ The Corda Enterprise Network Manager is a commercial offering from R3 that facil
 The *Corda Enterprise Network Manager* encompasses three main services:
 
 
-* [Identity Manager Service]({{< relref "identity-manager" >}}) - Enables nodes to join the network, as well as handles revocation of a nodes certificate
+* [Identity Manager Service](identity-manager.md) - Enables nodes to join the network, as well as handles revocation of a nodes certificate
 
 
-* [Network Map Service]({{< relref "network-map" >}}) - Provides a global view of the network
+* [Network Map Service](network-map.md) - Provides a global view of the network
 
 
-* [Signing Services]({{< relref "signing-service" >}}) - Provides a way to sign approved requests to join the network (CSRs) or revoke a certificate
+* [Signing Services](signing-service.md) - Provides a way to sign approved requests to join the network (CSRs) or revoke a certificate
                     (CRRs) as well as changes to the network map
 
 
-For a quick start guide on running the ENM services see [Enterprise Network Manager Quick-Start Guide]({{< relref "quick-start" >}}).
+For a quick start guide on running the ENM services see [Enterprise Network Manager Quick-Start Guide](quick-start.md).
 
 
 

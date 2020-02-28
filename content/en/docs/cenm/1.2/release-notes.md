@@ -19,7 +19,7 @@ SMR extracts signable material from the Identity Manager and Network Map service
                     external signing infrastructure and return signed material back to SMR to pass to the
                     relevant CENM service.
 
-See [Signing Services]({{< relref "signing-service" >}}) for more details. Also see [EJBCA Sample Plugin]({{< relref "ejbca-plugin" >}}) for a sample open source CA implementation.
+See [Signing Services](signing-service.md) for more details. Also see [EJBCA Sample Plugin](ejbca-plugin.md) for a sample open source CA implementation.
 
 
 ### Minor Features
@@ -52,7 +52,9 @@ For high availability (HA) notaries only, the network map will now fetch the nod
 * Shell interface (Signer and Identity Manager services) no longer provide Java scripting permissions.
 
 
-* Remove private network maps - this functionality was never completed, and the changes should not be user visible.
+* Remove private network maps - this functionality was never completed, and the changes should not be user visible. This
+                            does not yet remove them from the database schema, which will be in a future release. Related quarantined and staging
+                            node info tables are not used as of CENM 1.1.
 
 
 * Improve logging of database errors, so that the underlying cause is reported rather than only that a failure occurred.
@@ -65,20 +67,24 @@ For high availability (HA) notaries only, the network map will now fetch the nod
 * Correct service healthcheck command when executed from the CRaSH shell.
 
 
-* Added new command to Network Map shell to view list of nodes that have accepted (or haven’t) a given parameters update
+* Add new command to Network Map shell to view list of nodes that have accepted (or haven’t) a given parameters update
                             (“view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>”),
-                            which can help to monitor the procedure of [Updating the network parameters]({{< relref "updating-network-parameters" >}}).
+                            which can help to monitor the procedure of [Updating the network parameters](updating-network-parameters.md).
 
 
 * Introduce CRL Endpoint Check tool which checks CRL endpoint health of all certificates in the provided keystore.
 
 
-* Working directory argument for CENM Services makes it possible to prefix the path for config and certificate files
+* Add working directory argument for CENM services, which is a path prefix for config and certificate files.
 
 
 * Add `run networkParametersRegistration`, `run flagDay` and `run cancelUpdate` commands to the Network Map
-                            service shell, to enable running flag days without restarting the service. See [Updating the network parameters]({{< relref "updating-network-parameters" >}}) for
+                            service shell, to enable running flag days without restarting the service. See [Updating the network parameters](updating-network-parameters.md) for
                             full details.
+
+
+* Add `view publicNetworkNodeInfos` command to Network Map service shell, to see all public network participants’ node
+                            infos, including its’ platform version.
 
 
 * Bug fix: Certificate name rules are now enforced during issuance in accordance with Corda network rules,
@@ -94,6 +100,14 @@ For high availability (HA) notaries only, the network map will now fetch the nod
 
 
 
+### Security Improvements
+
+* Shell interface (Signer and Identity Manager services) no longer allow access to commands which allow scripting
+
+
+of Java.
+
+
 ## Release 1.1
 The R3 Network Services team is excited to announce the release of CENM 1.1,
                 introducing support for a number of additional HSMs as well as adding support for Oracle DB.
@@ -105,14 +119,14 @@ The R3 Network Services team is excited to announce the release of CENM 1.1,
 **Oracle Database Support**
 
 Support has been added for Oracle DB versions 12cR2 and 11gR2 as a backend data store.
-                    For full setup instructions see [CENM Databases]({{< relref "database-set-up" >}}).
+                    For full setup instructions see [CENM Databases](database-set-up.md).
 
 **Configuration Migration Tool**
 
 To simplify the upgrade process from early versions of CENM a configuration migration tool has been
                     added. This is intended to upgrade v0.2.2 / v0.3+ configurations to v1.1, including both restructuring
                     changes to the configuration file and updating the value of fields (such as database driver class).
-                    See [Config migration tool]({{< relref "tool-config-migration" >}}) for details on this tool.
+                    See [Config migration tool](tool-config-migration.md) for details on this tool.
 
 **Hardware Security Module Support**
 
@@ -125,7 +139,7 @@ Support for HSMs has been significantly extended, and as part of this work the H
 
 * CENM now supports encryption of passwords in configuration files, using encryption keys derived from
                             hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
-                            marked fields. For more details on usage see [Config Obfuscation Tool]({{< relref "config-obfuscation-tool" >}}).
+                            marked fields. For more details on usage see [Config Obfuscation Tool](config-obfuscation-tool.md).
 
 
 * Fixed an internal error which occurred when using H2 versions below 1.4.198 due to use of unsupported
@@ -183,18 +197,18 @@ Please note, whilst this is the first public release of the Corda Enterprise Net
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
                     Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
                     network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-                    support for multiple Network Map services. See [Signing Services]({{< relref "signing-service" >}}) to learn more about this service.
+                    support for multiple Network Map services. See [Signing Services](signing-service.md) to learn more about this service.
 
 **Brand new PKI tooling**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
                     certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool" >}}) to learn about all the features of the PKI Tool.
+                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
 
 **Full End to End SSL communication**
 
 All CENM components now communicate over SSL with one another, this completes the removal of the “database as message
-                    queue” of older versions. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}) for more information.
+                    queue” of older versions. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more information.
 
 **Security And Performance Fixes**
 
@@ -223,13 +237,13 @@ In pre release versions of CENM the user information REST endpoints shared a nam
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
                     Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
                     network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-                    support for multiple Network Map services. See [Signing Services]({{< relref "signing-service" >}}) to learn more about this service.
+                    support for multiple Network Map services. See [Signing Services](signing-service.md) to learn more about this service.
 
 **Epoch Control**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
                     certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool" >}}) to learn about all the features of the PKI Tool.
+                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
 
 **Shell**
 
@@ -253,7 +267,7 @@ Due to the database schema separation outlined below, the 0.3 release now suppor
                     network parameters. Critically, however, their certificate governance remains under the jurisdiction of a global
                     Doorman. This way, temporary benefits such as higher privacy, differential network parameters upgrade schedules or use
                     of temporary private notaries can be delivered. Note that the ability to merge one sub-zone into another is not
-                    currently supported. See the [Sub Zones]({{< relref "sub-zones" >}}) documentation for more information.
+                    currently supported. See the [Sub Zones](sub-zones.md) documentation for more information.
 
 **Protocol Separation**
 
@@ -271,12 +285,12 @@ The two top-level endpoints are now
 * `/network-map-user`
 
 
-see [Network Map Overview]({{< relref "network-map-overview" >}}) for more information.
+see [Network Map Overview](network-map-overview.md) for more information.
 
 Another change that is introduced in the newest release is the ability to interact with the Doorman and Network Map
                     services via a shell. The commands available currently mainly allow an operator to inspect the state of the service,
                     for example by viewing the current set of nodes within the public network, or viewing the list of Certificate Signing
-                    Requests that are awaiting approval. See the [Embedded Shell]({{< relref "shell" >}}) documentation for more information.
+                    Requests that are awaiting approval. See the [Embedded Shell](shell.md) documentation for more information.
 
 Added support for overriding the default “increment previous value by 1” behaviour for epoch values during network
                     parameter updates/initialisation. This allows a user to specify the epoch within the parameter config file and it

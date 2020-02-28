@@ -134,7 +134,7 @@ Also ensure to have restrictive Jolokia access policy in place for access to pro
 ### Notes for development use
 When running in dev mode, Hibernate statistics are also available via the Jolkia interface. These are disabled otherwise
                     due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-                    `exportHibernateJMXStatistics` flag on the [database configuration]({{< relref "../setup/corda-configuration-file#database-properties-ref" >}}).
+                    `exportHibernateJMXStatistics` flag on the [database configuration](../setup/corda-configuration-file.md#database-properties-ref).
 
 When starting Corda nodes using Cordformation runner (see [running nodes locally](../running-a-node.html)), you should see a startup message similar to the following:
                     **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
@@ -144,9 +144,7 @@ When starting Corda nodes using the ‘driver DSL’, you should see a startup m
 
 The following diagram illustrates Corda flow metrics visualized using hawtio:
 
-{{< img src="node/operating/resources/hawtio-jmx.png" alt="hawtio jmx" >}}
-
-
+![hawtio jmx](node/operating/resources/hawtio-jmx.png "hawtio jmx")
 ### Monitoring via Graphite
 Corda nodes alternatively support publishing metrics collected via the Codahale metrics library directly to a graphite
                     server. This needs to be configured in the node configuration file:

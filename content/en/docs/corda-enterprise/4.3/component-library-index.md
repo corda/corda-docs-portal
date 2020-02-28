@@ -6,11 +6,11 @@ date: 2020-01-08T09:59:25Z
 
 # Component library
 
-* [Contract catalogue]({{< relref "contract-catalogue" >}})
+* [Contract catalogue](contract-catalogue.md)
 
-* [Financial model]({{< relref "financial-model" >}})
+* [Financial model](financial-model.md)
 
-* [Interest rate swaps]({{< relref "contract-irs" >}})
+* [Interest rate swaps](contract-irs.md)
 
 
 

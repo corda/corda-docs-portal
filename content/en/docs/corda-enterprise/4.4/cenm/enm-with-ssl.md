@@ -20,9 +20,7 @@ The following components of the ENM suite can all be configured to encrypt their
 How to configure this is discussed in this section, whilst the flow of information between these various components
             is shown in the following diagram
 
-{{< img src="cenm/../resources/enm-with-ssl.png" alt="enm with ssl" >}}
-
-
+![enm with ssl](cenm/../resources/enm-with-ssl.png "enm with ssl")
 ## Recommended Key and Cert hierarchy
 For SSL to work some PKI infrastructure must be in place. We recommend generating a self signed root key that can
                 then be used to sign a key for each service. This way, all that needs distributing to the machines hosting the JVMs
@@ -84,7 +82,7 @@ By client, we are referring to elements of the ENM suite talking to another that
 
 ### SSL Certificate Configuring
 All components should be configured to use SSL with the following configuration block. More details can be found in
-                    [Identity Manager Configuration Parameters]({{< relref "config-identity-manager-parameters" >}}) and [Network Map Configuration Parameters]({{< relref "config-network-map-parameters" >}})
+                    [Identity Manager Configuration Parameters](config-identity-manager-parameters.md) and [Network Map Configuration Parameters](config-network-map-parameters.md)
 
 ```docker
 ssl = {

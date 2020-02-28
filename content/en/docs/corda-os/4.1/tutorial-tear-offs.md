@@ -7,7 +7,7 @@ date: 2020-01-08T09:59:25Z
 
 # Transaction tear-offs
 Suppose we want to construct a transaction that includes commands containing interest rate fix data as in
-            [Writing oracle services]({{< relref "oracles" >}}). Before sending the transaction to the oracle to obtain its signature, we need to filter out every part
+            [Writing oracle services](oracles.md). Before sending the transaction to the oracle to obtain its signature, we need to filter out every part
             of the transaction except for the `Fix` commands.
 
 To do so, we need to create a filtering function that specifies which fields of the transaction should be included.
@@ -49,7 +49,7 @@ val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
 {{< /tabs >}}
 
 In the Oracle example this step takes place in `RatesFixFlow` by overriding the `filtering` function. See
-            [Using an oracle]({{< relref "oracles#filtering-ref" >}}).
+            [Using an oracle](oracles.md#filtering-ref).
 
 Both `WireTransaction` and `FilteredTransaction` inherit from `TraversableTransaction`, so access to the
             transaction components is exactly the same. Note that unlike `WireTransaction`,

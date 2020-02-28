@@ -59,16 +59,16 @@ This document provides instructions describing how to create database schemas (u
 Setting up a CENM service (Identity Manager / Network Map) to connect to a database requires:
 
 
-* [Creating a database user with schema permissions]({{< relref "../node/operating/node-database-admin#db-setup-step-1-ref" >}})
+* [Creating a database user with schema permissions](../node/operating/node-database-admin.md#db-setup-step-1-ref)
 
 
-* [Database table creation]({{< relref "../node/operating/node-database-admin#db-setup-step-2-ref" >}})
+* [Database table creation](../node/operating/node-database-admin.md#db-setup-step-2-ref)
 
 
-* [CENM service configuration changes]({{< relref "../node/operating/node-database-admin#db-setup-step-3-ref" >}})
+* [CENM service configuration changes](../node/operating/node-database-admin.md#db-setup-step-3-ref)
 
 
-* [Database configuration]({{< relref "../node/operating/node-database-admin#db-setup-step-4-ref" >}})
+* [Database configuration](../node/operating/node-database-admin.md#db-setup-step-4-ref)
 
 
 
@@ -80,7 +80,7 @@ A database administrator must create a database user and a schema namespace with
 
 {{< note >}}
 This step refers to *schema* as a namespace with a set of permissions,
-                        the schema content (tables, indexes) is created in [the next step]({{< relref "../node/operating/node-database-admin#db-setup-step-2-ref" >}}).
+                        the schema content (tables, indexes) is created in [the next step](../node/operating/node-database-admin.md#db-setup-step-2-ref).
 
 
 {{< /note >}}
@@ -99,16 +99,16 @@ Each CENM service needs to use a separate database user and schema where multipl
 Creating database users with schema permissions for:
 
 
-* [Azure SQL]({{< relref "../node/operating/node-database-admin#db-setup-create-user-azure-ref" >}})
+* [Azure SQL](../node/operating/node-database-admin.md#db-setup-create-user-azure-ref)
 
 
-* [SQL Server]({{< relref "../node/operating/node-database-admin#db-setup-create-user-sqlserver-ref" >}})
+* [SQL Server](../node/operating/node-database-admin.md#db-setup-create-user-sqlserver-ref)
 
 
-* [Oracle]({{< relref "../node/operating/node-database-admin#db-setup-create-user-oracle-ref" >}})
+* [Oracle](../node/operating/node-database-admin.md#db-setup-create-user-oracle-ref)
 
 
-* [PostgreSQL]({{< relref "../node/operating/node-database-admin#db-setup-create-user-postgresql-ref" >}})
+* [PostgreSQL](../node/operating/node-database-admin.md#db-setup-create-user-postgresql-ref)
 
 
 
@@ -217,7 +217,7 @@ GRANT CREATE VIEW TO my_admin_user;
 GRANT CREATE SEQUENCE TO my_admin_user;
 GRANT SELECT ON v_$parameter TO my_admin_user;
 ```
-The permissions for the CENM service instance user to access database objects will be assigned in [the following step]({{< relref "../node/operating/node-operations-cordapp-deployment#db-setup-step-2-oracle-extra-step-ref" >}})
+The permissions for the CENM service instance user to access database objects will be assigned in [the following step](../node/operating/node-operations-cordapp-deployment.md#db-setup-step-2-oracle-extra-step-ref)
                         after the database objects are created.
 
 The last permission for the *v_$parameter* view is needed when a database is running in
@@ -331,7 +331,7 @@ The following updates are required to the filesystem of a CENM service instance:
 > ```
 > 
 > {{< note >}}
-> The [CENM Database Configuration]({{< relref "config-database" >}}) doc page contains a complete list of database specific properties.
+> The [CENM Database Configuration](config-database.md) doc page contains a complete list of database specific properties.
 > 
 > 
 > {{< /note >}}
@@ -406,7 +406,7 @@ Replace placeholders *<database_server>* and *<my_database>* with appropriate va
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539),
                     extract the archive and copy the single file *mssql-jdbc-6.2.2.jre8.jar* (the archive comes with two JARs).
-                    [Common Configuration Steps paragraph]({{< relref "../node/operating/node-database-admin#db-setup-step-3-ref" >}}) explains the correct location for the driver JAR in the CENM service installation structure.
+                    [Common Configuration Steps paragraph](../node/operating/node-database-admin.md#db-setup-step-3-ref) explains the correct location for the driver JAR in the CENM service installation structure.
 
 
 ### SQL Server
@@ -444,7 +444,7 @@ Replace placeholders *<host>* and *<port>* with appropriate values (the default 
 
 The Microsoft JDBC 6.2 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539),
                     extract the archive and copy the single file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JARs).
-                    [Common Configuration Steps]({{< relref "../node/operating/node-database-admin#db-setup-step-3-ref" >}}) explains the correct location for the driver JAR in the CENM service installation structure.
+                    [Common Configuration Steps](../node/operating/node-database-admin.md#db-setup-step-3-ref) explains the correct location for the driver JAR in the CENM service installation structure.
 
 Ensure JDBC connection properties match the SQL Server setup. Especially when trying to reuse Azure SQL JDBC URLs
                     which are invalid for SQL Server. This may lead to CENM failing to start with message:

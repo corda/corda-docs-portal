@@ -7,7 +7,7 @@ date: 2020-01-08T09:59:25Z
 # Highly-available notary metrics
 
 ## Available metrics
-A notary exports the standard metrics exported by all Corda nodes. See [Node administration]({{< relref "../node-administration" >}}). In addition, a
+A notary exports the standard metrics exported by all Corda nodes. See [Node administration](../node-administration.md). In addition, a
                 highly-available notary exports the following metrics:
 
 
@@ -100,7 +100,7 @@ Notary operators should also track non-Corda metrics of interest:
 
 
 * JVM metrics: The node should be monitored in the same way as any critical JVM process. See
-                        [Sizing and performance]({{< relref "../sizing-and-performance" >}})
+                        [Sizing and performance](../sizing-and-performance.md)
 
 
 Although Corda exports Artemis metrics, these are for internal purposes only, as they are hard to interpret.

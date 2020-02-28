@@ -58,9 +58,7 @@ The notary is an essential component of every Corda network, therefore the
                 the network services documentation (TBD where this is hosted). Removing a notary from a network
                 is currently not supported.
 
-{{< img src="running-a-notary-cluster/resources/doorman-light.png" alt="doorman light" >}}
-
-The notary sends a certificate signing request (CSR) to the doorman for
+![doorman light](running-a-notary-cluster/resources/doorman-light.png "doorman light")The notary sends a certificate signing request (CSR) to the doorman for
                 approval. Once approved, the notary obtains a signed certificate from the
                 doorman. The notary can then produce a signed node info file that contains the
                 P2P addresses, the legal identity, certificate and public key. The node infos
@@ -72,7 +70,7 @@ The notary sends a certificate signing request (CSR) to the doorman for
 ## Registering with the Doorman
 
 ### Obtaining the individual Node Identities
-Write the configuration files for your notary nodes as described in [Setting up the Notary Service]({{< relref "installing-the-notary-service" >}}).
+Write the configuration files for your notary nodes as described in [Setting up the Notary Service](installing-the-notary-service.md).
 
 Register all the nodes with the doorman using the `--initial-registration`  flag.
 

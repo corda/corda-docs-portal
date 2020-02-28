@@ -39,7 +39,7 @@ In order to connect to a given node, the node explorer must have access to all C
 {{< /note >}}
 
 ## Running demo nodes
-Node Explorer is included with the [DemoBench]({{< relref "demobench" >}}) application, which allows
+Node Explorer is included with the [DemoBench](demobench.md) application, which allows
                 you to create local Corda networks on your desktop. For example:
 
 > 
@@ -90,26 +90,20 @@ User can login to any Corda node using the explorer.
                             Corda node address, username and password are required for login, the address is defaulted to localhost:0 if left blank.
                             Username and password can be configured via the `rpcUsers` field in node’s configuration file.
 
-{{< img src="resources/explorer/login.png" alt="login" >}}
-
-
+![login](resources/explorer/login.png "login")
 
 Dashboard
 The dashboard shows the top level state of node and vault.
                             Currently, it shows your cash balance and the numbers of transaction executed.
                             The dashboard is intended to house widgets from different CordApps and provide useful information to system admin at a glance.
 
-{{< img src="resources/explorer/dashboard.png" alt="dashboard" >}}
-
-
+![dashboard](resources/explorer/dashboard.png "dashboard")
 
 Cash
 The cash view shows all currencies you currently own in a tree table format, it is grouped by issuer -> currency.
                             Individual cash transactions can be viewed by clicking on the table row. The user can also use the search field to narrow down the scope.
 
-{{< img src="resources/explorer/vault.png" alt="vault" >}}
-
-
+![vault](resources/explorer/vault.png "vault")
 
 New Transactions
 This is where you can create new cash transactions.
@@ -117,35 +111,27 @@ This is where you can create new cash transactions.
 
 General nodes can only execute pay commands to any other party on the network.
 
-{{< img src="resources/explorer/newTransactionCash.png" alt="newTransactionCash" >}}
-
-
+![newTransactionCash](resources/explorer/newTransactionCash.png "newTransactionCash")
 
 Issuer Nodes
 Issuer nodes can execute issue (to itself or to any other party), pay and exit transactions.
                             The result of the transaction will be visible in the transaction screen when executed.
 
-{{< img src="resources/explorer/newTransactionIssuer.png" alt="newTransactionIssuer" >}}
-
-
+![newTransactionIssuer](resources/explorer/newTransactionIssuer.png "newTransactionIssuer")
 
 Transactions
 The transaction view contains all transactions handled by the node in a table view. It shows basic information on the table e.g. Transaction ID,
                             command type, USD equivalence value etc. User can expand the row by double clicking to view the inputs,
                             outputs and the signatures details for that transaction.
 
-{{< img src="resources/explorer/transactionView.png" alt="transactionView" >}}
-
-
+![transactionView](resources/explorer/transactionView.png "transactionView")
 
 Network
 The network view shows the network information on the world map. Currently only the user’s node is rendered on the map.
                             This will be extended to other peers in a future release.
                             The map provides an intuitive way of visualizing the Corda network and the participants.
 
-{{< img src="resources/explorer/network.png" alt="network" >}}
-
-
+![network](resources/explorer/network.png "network")
 
 Settings
 User can configure the client preference in this view.
@@ -156,6 +142,4 @@ Although the reporting currency is configurable, FX conversion won’t be applie
 
 
 {{< /note >}}
-{{< img src="resources/explorer/settings.png" alt="settings" >}}
-
-
+![settings](resources/explorer/settings.png "settings")

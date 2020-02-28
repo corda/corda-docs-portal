@@ -64,9 +64,7 @@ This is known as *walking the chain*. Suppose, for example, that a party on the 
 
 The only way to be sure of both conditions is to walk the transaction’s chain. We can visualize this process as follows:
 
-{{< img src="resources/validation-consensus.png" alt="validation consensus" >}}
-
-When verifying a proposed transaction, a given party may not have every transaction in the transaction chain that they
+![validation consensus](resources/validation-consensus.png "validation consensus")When verifying a proposed transaction, a given party may not have every transaction in the transaction chain that they
                 need to verify. In this case, they can request the missing transactions from the transaction proposer(s). The
                 transaction proposer(s) will always have the full transaction chain, since they would have requested it when
                 verifying the transaction that created the proposed transaction’s input states.
@@ -86,14 +84,12 @@ Imagine that Bob holds a valid central-bank-issued cash state of $1,000,000. Bob
 This is a problem because, although both transactions will achieve validity consensus, Bob has managed to
                 “double-spend” his USD to get double the amount of GBP and EUR. We can visualize this as follows:
 
-{{< img src="resources/uniqueness-consensus.png" alt="uniqueness consensus" >}}
-
-To prevent this, a valid transaction proposal must also achieve uniqueness consensus. Uniqueness consensus is the
+![uniqueness consensus](resources/uniqueness-consensus.png "uniqueness consensus")To prevent this, a valid transaction proposal must also achieve uniqueness consensus. Uniqueness consensus is the
                 requirement that none of the inputs to a proposed transaction have already been consumed in another transaction.
 
 If one or more of the inputs have already been consumed in another transaction, this is known as a *double spend*,
                 and the transaction proposal is considered invalid.
 
-Uniqueness consensus is provided by notaries. See [Notaries]({{< relref "key-concepts-notaries" >}}) for more details.
+Uniqueness consensus is provided by notaries. See [Notaries](key-concepts-notaries.md) for more details.
 
 

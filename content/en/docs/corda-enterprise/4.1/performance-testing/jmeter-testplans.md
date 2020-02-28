@@ -16,17 +16,13 @@ The testplan is a hierarchy of configuration elements. The only elements used in
                 *Variables*, *Thread Groups*, *Samplers* and *Listeners*. Rather than creating a new testplan from scratch,
                 it might a good idea to take a copy of one of the provided example test plans and modify that.
 
-{{< img src="performance-testing/resources/jmeter-testplan.png" alt="jmeter testplan" >}}
-
-
+![jmeter testplan](performance-testing/resources/jmeter-testplan.png "jmeter testplan")
 
 User Defined Variables
 A variables element defines key/value pairs that can be used in all following following elements instead of string
                             literals. They can be referenced by using a `$` sign and curly braces, e.g. `${varName}`.
 
-{{< img src="performance-testing/resources/variables.png" alt="variables" >}}
-
-
+![variables](performance-testing/resources/variables.png "variables")
 Thread Group
 A thread group collects a set of actions that form one step in the test plan. All elements within a thread group
                             will be run in order. As the name suggest, a thread group can spin up threads to run serveral instances of its
@@ -99,7 +95,7 @@ This is a very simple testplan that has one thread group that just runs cash sel
 `NightlyBenchmarkSample.jmx`
 This is a copy of the test plan that is used for performance testing Corda Enterprise at R3. This plan has a lot of
                             different tests, each in its own thread group. All the thread groups will be run one after another. These different
-                            tests show use of all the different sampler clients described in [JMeter Samplers]({{< relref "jmeter-samplers" >}}).
+                            tests show use of all the different sampler clients described in [JMeter Samplers](jmeter-samplers.md).
                             This testplan uses variables to avoid repetition of values that might require changing. You need to enter the
                             appropriate values for your Corda network installation here to get the plan working.
 

@@ -15,7 +15,7 @@ To add a suspending operation for a simple request-response type function that p
                 use `FlowExternalOperation` or `FlowExternalAsyncOperation`. These interfaces represent the public versions of the internal
                 `FlowAsyncOperation`.
 
-See [calling external systems inside of flows]({{< relref "../cordapps/api-flows#api-flows-external-operations" >}}) for more information on these public interfaces.
+See [calling external systems inside of flows](../cordapps/api-flows.md#api-flows-external-operations) for more information on these public interfaces.
 
 
 ## How to test

@@ -11,35 +11,35 @@ This section describes the key concepts and features of the Corda platform. It i
 This section should be read in order:
 
 
-* [The network]({{< relref "key-concepts-ecosystem" >}})
+* [The network](key-concepts-ecosystem.md)
 
-* [The ledger]({{< relref "key-concepts-ledger" >}})
+* [The ledger](key-concepts-ledger.md)
 
-* [States]({{< relref "key-concepts-states" >}})
+* [States](key-concepts-states.md)
 
-* [Transactions]({{< relref "key-concepts-transactions" >}})
+* [Transactions](key-concepts-transactions.md)
 
-* [Contracts]({{< relref "key-concepts-contracts" >}})
+* [Contracts](key-concepts-contracts.md)
 
-* [Flows]({{< relref "key-concepts-flows" >}})
+* [Flows](key-concepts-flows.md)
 
-* [Consensus]({{< relref "key-concepts-consensus" >}})
+* [Consensus](key-concepts-consensus.md)
 
-* [Notaries]({{< relref "key-concepts-notaries" >}})
+* [Notaries](key-concepts-notaries.md)
 
-* [Vault]({{< relref "key-concepts-vault" >}})
+* [Vault](key-concepts-vault.md)
 
-* [Time-windows]({{< relref "key-concepts-time-windows" >}})
+* [Time-windows](key-concepts-time-windows.md)
 
-* [Oracles]({{< relref "key-concepts-oracles" >}})
+* [Oracles](key-concepts-oracles.md)
 
-* [Nodes]({{< relref "key-concepts-node" >}})
+* [Nodes](key-concepts-node.md)
 
-* [Transaction tear-offs]({{< relref "key-concepts-tearoffs" >}})
+* [Transaction tear-offs](key-concepts-tearoffs.md)
 
-* [Trade-offs]({{< relref "key-concepts-tradeoffs" >}})
+* [Trade-offs](key-concepts-tradeoffs.md)
 
-* [Deterministic JVM]({{< relref "key-concepts-djvm" >}})
+* [Deterministic JVM](key-concepts-djvm.md)
 
 
 The detailed thinking and rationale behind these concepts are presented in two white papers:

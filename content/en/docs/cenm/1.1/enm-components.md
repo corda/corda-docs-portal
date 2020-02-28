@@ -7,9 +7,7 @@ date: 2020-01-08T09:59:25Z
 # Components of the Corda Enterprise Network Manager
 At the highest level, the CENM suite is deployed as shown in the following diagram:
 
-{{< img src="resources/enm-high-level.png" alt="enm high level" >}}
-
-The three main components of the CENM suite are
+![enm high level](resources/enm-high-level.png "enm high level")The three main components of the CENM suite are
 
 
 * **The Identity Manager**
@@ -107,7 +105,7 @@ The Identity Manager and Network Map(s) require their own persistence layer. The
 * SQL Server
 
 
-For details of supported versions and configuration, see [CENM Databases]({{< relref "database-set-up" >}}).
+For details of supported versions and configuration, see [CENM Databases](database-set-up.md).
 
 
 # Public Key Infrastructure

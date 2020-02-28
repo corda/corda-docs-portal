@@ -51,7 +51,7 @@ By default the node will fail to start in presence of unknown property keys.
 ### Placeholder Overrides
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
                     `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
-                    environment variable isn’t present (see: [Hiding sensitive data]({{< relref "node-administration#hiding-sensitive-data" >}}) for more information).
+                    environment variable isn’t present (see: [Hiding sensitive data](node-administration.md#hiding-sensitive-data) for more information).
 
 ```groovy
 rpcSettings {
@@ -173,7 +173,7 @@ List of SHA-256 hashes of public keys. Attachments signed by any of these public
                             This property is similar to [cordappSignerKeyFingerprintBlacklist](#corda-configuration-file-signer-blacklist) but only restricts CorDapps that were
                             included as attachments in a transaction and received over the network from a peer.
 
-See [Signing CorDapps for use with Signature Constraints]({{< relref "api-contract-constraints#signing-cordapps-for-use-with-signature-constraints" >}}) for more information about signing CorDapps and what
+See [Signing CorDapps for use with Signature Constraints](api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints) for more information about signing CorDapps and what
                             makes an attachment trusted (a trust root).
 
 This property requires retrieving the hashes of public keys that need to be blacklisted. More information on this process can be found in [Generating a public key hash](#generating-a-public-key-hash).
@@ -183,7 +183,7 @@ This property requires retrieving the hashes of public keys that need to be blac
 
 
 compatibilityZoneURL (deprecated)
-The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates]({{< relref "permissioning" >}}) for more information.) and also is used by the node to obtain network map information.
+The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates](permissioning.md) for more information.) and also is used by the node to obtain network map information.
                             Cannot be set at the same time as the [networkServices](#corda-configuration-file-networkservices) option.
 
 **Important:  old configuration value, please use networkServices**
@@ -214,12 +214,12 @@ This is a boolean flag that when enabled (i.e. `true` value is set) causes certi
 
 cryptoServiceName
 Optional name of the CryptoService implementation. This only needs to be set if you intend to use a different provider than the default one
-                            (see [HSM support for legal identity keys]({{< relref "cryptoservice-configuration" >}})).
+                            (see [HSM support for legal identity keys](cryptoservice-configuration.md)).
 
 
 cryptoServiceConf
 Optional path to the configuration file for the CryptoService provider. This may have to be present if you use a different CryptoService provider
-                            than the default one (see [HSM support for legal identity keys]({{< relref "cryptoservice-configuration" >}})).
+                            than the default one (see [HSM support for legal identity keys](cryptoservice-configuration.md)).
 
 
 cryptoServiceTimeout
@@ -235,7 +235,7 @@ Set custom command line attributes (e.g. Java system properties) on the node pro
 
 jvmArgs:
 A list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
-                                        See [Setting JVM arguments]({{< relref "running-a-node#setting-jvm-args" >}}) for examples and details on the precedence of the different approaches to settings arguments.
+                                        See [Setting JVM arguments](running-a-node.md#setting-jvm-args) for examples and details on the precedence of the different approaches to settings arguments.
 
 *Default:* not defined
 
@@ -279,7 +279,7 @@ The property is used only when a node runs against a H2 database.
 
 runMigration
 Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please
-                                        check [Database management scripts]({{< relref "database-management" >}}). If migration is not run, on startup, the node will check if it’s running on the correct database version.
+                                        check [Database management scripts](database-management.md). If migration is not run, on startup, the node will check if it’s running on the correct database version.
                                         The property is used only when a node runs against a database other than H2, and it’s replaced by the `initialiseSchema` property for other databases.
 
 *Default:* false
@@ -345,7 +345,7 @@ This flag sets the node to run in development mode.
                             If no value is specified in the node configuration file, the node will attempt to detect if it’s running on a developer machine and set `devMode=true` in that case.
                             This value can be overridden from the command line using the `--dev-mode` option.
 
-This flag affects the default value for Java heap size. See [Memory usage and tuning]({{< relref "node-administration#memory-usage-and-tuning" >}}) for further details.
+This flag affects the default value for Java heap size. See [Memory usage and tuning](node-administration.md#memory-usage-and-tuning) for further details.
 
 *Default:* Corda will try to establish based on OS environment
 
@@ -399,7 +399,7 @@ Allows fine-grained controls of various features only available in the enterpris
 > 
 > 
 > healthCheck
-> Enables the health check feature required by the [Health Survey Tool]({{< relref "health-survey#health-survey-ref" >}}).
+> Enables the health check feature required by the [Health Survey Tool](health-survey.md#health-survey-ref).
 > 
 > *Default:* true
 > 
@@ -480,7 +480,7 @@ Allows fine-grained controls of various features only available in the enterpris
 > > 
 > > 
 > > cryptoServiceName
-> > The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. Please see: [Crypto service configuration]({{< relref "cryptoservice-configuration" >}}).
+> > The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. Please see: [Crypto service configuration](cryptoservice-configuration.md).
 > > 
 > > 
 > > cryptoServiceConf
@@ -610,7 +610,7 @@ Defines port for h2 DB.
 
 h2Settings
 Sets the H2 JDBC server host and port.
-                            See [Database access when running H2]({{< relref "node-database-access-h2" >}}).
+                            See [Database access when running H2](node-database-access-h2.md).
                             For non-localhost address the database password needs to be set in `dataSourceProperties`.
 
 *Default:* NULL
@@ -690,7 +690,7 @@ The legal identity of the node.
                             This acts as a human-readable alias to the node’s public key and can be used with the network map to look up the node’s info.
                             This is the name that is used in the node’s certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
                             At runtime, Corda checks whether this name matches the name in the node’s certificates.
-                            For more details please read [Node identity]({{< relref "node-naming#node-naming" >}}) chapter.
+                            For more details please read [Node identity](node-naming.md#node-naming) chapter.
 
 *Default:* not defined
 
@@ -716,7 +716,7 @@ If the node is part of a distributed cluster, specify the legal name of the clus
 
 
 mysql
-If using the MySQL notary (deprecated), specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes]({{< relref "running-a-notary-cluster/installing-the-notary-service" >}}).
+If using the MySQL notary (deprecated), specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](running-a-notary-cluster/installing-the-notary-service.md).
 
 > 
 > 
@@ -744,7 +744,7 @@ If using the MySQL notary (deprecated), specify this configuration section with 
 >                                                                     and the database name is `corda`:
 > 
 > ```kotlin
-> "[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false]({{< relref "jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false" >}})"
+> "[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
 > ```
 > *Default:* not defined
 > 
@@ -767,7 +767,7 @@ mysql {
   connectionRetries=2
   dataSource {
     autoCommit="false"
-    jdbcUrl="[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false]({{< relref "jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false" >}})"
+    jdbcUrl="[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
     username="CordaUser"
     password="myStrongPassword"
   }
@@ -816,7 +816,7 @@ bftSMaRt
 
 
 jpa
-If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes]({{< relref "running-a-notary-cluster/installing-the-notary-service" >}}).
+If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](running-a-notary-cluster/installing-the-notary-service.md).
 
 > 
 > 
@@ -832,7 +832,7 @@ If using the JPA notary, specify this configuration section with the settings be
 > initialiseSchema
 > Boolean which indicates whether to update the database schema at startup (or create the schema when notary starts for the first time).
 >                                                                     This property is used only when a notary runs against an H2 database. For information on schema setup for non H2 databases, please
->                                                                     see [Configuring the notary backend - JPA]({{< relref "running-a-notary-cluster/installing-jpa" >}}).
+>                                                                     see [Configuring the notary backend - JPA](running-a-notary-cluster/installing-jpa.md).
 > 
 > *Default:* true
 > 
@@ -907,7 +907,7 @@ Optional settings for managing the network parameter auto-acceptance behaviour.
 autoAcceptEnabled
 This flag toggles auto accepting of network parameter changes.
                                         If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator.
-                                        See [The network map]({{< relref "network-map" >}}) for more information on the update process and current auto-acceptable parameters.
+                                        See [The network map](network-map.md) for more information on the update process and current auto-acceptable parameters.
                                         Set to `false` to disable.
 
 *Default:* true
@@ -967,7 +967,7 @@ Optional user name for authentication with the proxy. Note that Corda only suppo
 
 
 proxyPassword
-Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator]({{< relref "tools-config-obfuscator" >}}).
+Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator](tools-config-obfuscator.md).
 
 
 
@@ -1103,7 +1103,7 @@ A list of permissions for starting flows via RPC.
 
 security
 Contains various nested fields controlling user authentication/authorization, in particular for RPC accesses.
-                            See [Interacting with a node]({{< relref "clientrpc" >}}) for details.
+                            See [Interacting with a node](clientrpc.md) for details.
 
 
 

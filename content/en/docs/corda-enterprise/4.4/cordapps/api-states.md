@@ -57,9 +57,7 @@ The behaviour of the state can be further customised by implementing sub-interfa
 
 We can picture the hierarchy as follows:
 
-{{< img src="cordapps/../resources/state-hierarchy.png" alt="state hierarchy" >}}
-
-
+![state hierarchy](cordapps/../resources/state-hierarchy.png "state hierarchy")
 ### LinearState
 The `LinearState` interface is defined as follows:
 

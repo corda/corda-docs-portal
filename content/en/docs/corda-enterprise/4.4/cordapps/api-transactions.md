@@ -31,9 +31,7 @@ Between its creation and its final inclusion on the ledger, a transaction will g
 
 We can visualise the transitions between the three stages as follows:
 
-{{< img src="cordapps/resources/transaction-flow.png" alt="transaction flow" >}}
-
-
+![transaction flow](cordapps/resources/transaction-flow.png "transaction flow")
 ## Transaction components
 A transaction consists of six types of components:
 
@@ -253,7 +251,7 @@ If the transaction has input states or a time-window, we need to instantiate the
 
 {{< /tabs >}}
 
-We discuss the selection of a notary in [Writing CorDapp Flows]({{< relref "api-flows" >}}).
+We discuss the selection of a notary in [Writing CorDapp Flows](api-flows.md).
 
 If the transaction does not have any input states or a time-window, it does not require a notary, and can be
                     instantiated without one:
@@ -412,7 +410,7 @@ If a transaction has inputs, we need to retrieve all the states in the transacti
                     verify the transaction’s contents. This is because the transaction is only valid if its dependency chain is also valid.
                     We do this by requesting any states in the chain that our node doesn’t currently have in its local storage from the
                     proposer(s) of the transaction. This process is handled by a built-in flow called `ReceiveTransactionFlow`.
-                    See [Writing CorDapp Flows]({{< relref "api-flows" >}}) for more details.
+                    See [Writing CorDapp Flows](api-flows.md) for more details.
 
 We can now verify the transaction’s contents to ensure that it satisfies the contracts of all the transaction’s input
                     and output states:
@@ -524,7 +522,7 @@ Or using another one of our public keys:
 
 
 ### Notarising and recording
-Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [Writing CorDapp Flows]({{< relref "api-flows" >}}) for
+Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [Writing CorDapp Flows](api-flows.md) for
                     more details.
 
 

@@ -6,17 +6,17 @@ date: 2020-01-08T09:59:25Z
 
 # Hello, World!
 
-* [The CorDapp Template]({{< relref "hello-world-template" >}})
+* [The CorDapp Template](hello-world-template.md)
 
-* [Writing the state]({{< relref "hello-world-state" >}})
+* [Writing the state](hello-world-state.md)
 
-* [Writing the flow]({{< relref "hello-world-flow" >}})
+* [Writing the flow](hello-world-flow.md)
 
-* [Running our CorDapp]({{< relref "hello-world-running" >}})
+* [Running our CorDapp](hello-world-running.md)
 
 
 By this point, your dev environment should be set up, you’ve run
-            [your first CorDapp]({{< relref "tutorial-cordapp" >}}), and you’re familiar with Corda’s key concepts. What
+            [your first CorDapp](tutorial-cordapp.md), and you’re familiar with Corda’s key concepts. What
             comes next?
 
 If you’re a developer, the next step is to write your own CorDapp. CorDapps are applications that are installed on one or
@@ -63,17 +63,13 @@ Our state will be the `IOUState`, representing an IOU. It will contain the IOU�
                     `IOUState` as follows:
 
 > 
-> {{< img src="ZZPotential-delete-docs/resources/tutorial-state.png" alt="tutorial state" >}}
-
-
+> ![tutorial state](ZZPotential-delete-docs/resources/tutorial-state.png "tutorial state")
 ### The IOUFlow
 Our flow will be the `IOUFlow`. This flow will completely automate the process of issuing a new IOU onto a ledger. It has the following
                     steps:
 
 > 
-> {{< img src="ZZPotential-delete-docs/resources/simple-tutorial-flow.png" alt="simple tutorial flow" >}}
-
-
+> ![simple tutorial flow](ZZPotential-delete-docs/resources/simple-tutorial-flow.png "simple tutorial flow")
 ### The IOUContract
 For this tutorial, we will use the default `TemplateContract`. We will update it to create a fully-fledged `IOUContract` in the next
                     tutorial.

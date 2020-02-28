@@ -14,25 +14,25 @@ The host and port on which the service runs
 
 
 database
-See [CENM Database Configuration]({{< relref "config-database" >}})
+See [CENM Database Configuration](config-database.md)
 
 
 shell
-*(Optional)* See [<no title>]({{< relref "config-shell" >}})
+*(Optional)* See [Shell Configuration Parameters](config-shell.md)
 
 
 localSigner
-*(Optional)* Configuration of the local signer for the Network Map service. Useful for debug, testing or when HSM support is not available.
+*(Optional)* Configuration of the local signer for the Identity Manager service. Useful for debug, testing or when HSM support is not available.
 
 
 
 keyStore
-Configuration for key store containing the Network Map service key pair.
+Configuration for key store containing the Identity Manager service key pair.
 
 
 
 file
-Path to the key store file containing the signing keys for the Network Map service.
+Path to the key store file containing the signing keys for the Identity Manager service.
 
 
 password
@@ -55,6 +55,11 @@ timeout
 *(Optional)* The maximum time allowed for execution of the signing process (in milliseconds). Defaults
                                     to 30 seconds. If the timeout threshold is reached then the signing process will be aborted and wait
                                     before retrying. The wait time after each failure is determined by an exponential backoff strategy.
+
+
+crlDistributionUrl
+*(Optional)* REST endpoint under which the certificate revocation list issued by Identity Manager can be obtained.
+                                    It is needed as this URL is encoded in certificates issued by Identity Manager.
 
 
 workflows
@@ -85,7 +90,7 @@ Whether a client should be attempt to reconnect if the connection is dropped.
 
 
 ssl
-See [SSL Settings]({{< relref "config-ssl" >}})
+See [SSL Settings](config-ssl.md)
 
 
 plugin
@@ -96,19 +101,21 @@ The main class of the plugin being loaded.
 
 
 {{< note >}}
-For automatic acceptane of reqeuests, set this to the ApproveAll plugin (“com.r3.enmplugins.approveall.ApproveAll”)
+For automatic acceptance of requests, set this to the ApproveAll plugin (“com.r3.enmplugins.approveall.ApproveAll”)
 
 
 {{< /note >}}
 
 config
-*(Optional)* a freeform map that allows options to be passed to the plugin class
+*(Optional)* a free-form map that allows options to be passed to the plugin class
 
 
 “issuance workflow”
 
 
 updateInterval
+How often the Issuance Workflow Processor should synchronise Certificate Signing Request statuses
+
 
 versionInfoValidation
 *(Optional)* Configuration for the validation of node version info during Certificate Signing Request submission
@@ -143,7 +150,8 @@ newPKIOnly
 
 
 crlCacheTimeout
-How often to resign the certificate revocation list
+How often the Revocation Workflow Processor should synchronise Certificate Revocation Requests statuses.
+                                                Also the time after the CRL cache in Revocation Web Service will be cleared.
 
 
 crlFiles

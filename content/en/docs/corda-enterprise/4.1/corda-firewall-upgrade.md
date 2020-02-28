@@ -9,7 +9,7 @@ date: 2020-01-08T09:59:25Z
 ## Introduction
 Corda Firewall 4.x brings with it an few changes, some related to deployment and configuration. The first part of the guide
                 covers the upgrade of existing firewall deployments, from the simplest operating mode to the full HA DMZ ready mode. For
-                more information on supported operating modes please see [Operating modes of the Bridge and Float]({{< relref "corda-firewall-component" >}}).
+                more information on supported operating modes please see [Operating modes of the Bridge and Float](corda-firewall-component.md).
                 The **Embedded Developer Node** is left out as it is not impacted. The second part explains the steps to evolve the upgraded
                 environments to use the new 4.x features such as standalone Artemis with HA and shared bridge. For consistency, this guide uses the same
                 hostname and port values as main firewall guide.
@@ -499,7 +499,7 @@ In 4.x, it is possible to for multiple nodes representing multiple identities to
                 therefore it will not be discussed.
 
 Client connections to external Artemis require separate SSL key and trust stores. These can be created using the *ha-utilities* tool
-                For more information please see [HA Utilities]({{< relref "ha-utilities" >}}). There is also an example of keystore generation in
+                For more information please see [HA Utilities](ha-utilities.md). There is also an example of keystore generation in
                 Firewall configuration under the *Artemis keystore generation* section.
 
 For the purpose of this guide, the Artemis connection key and trust stores will be named *artemis.jks* and *artemis-truststore.jks*.

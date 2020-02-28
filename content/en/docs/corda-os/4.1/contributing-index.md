@@ -8,23 +8,23 @@ date: 2020-01-08T09:59:25Z
 Corda is an open-source project and contributions are welcome!
 
 
-* [Contributing philosophy]({{< relref "contributing-philosophy" >}})
+* [Contributing philosophy](contributing-philosophy.md)
 
-* [How to contribute]({{< relref "contributing" >}})
+* [How to contribute](contributing.md)
 
-* [Building Corda]({{< relref "building-corda" >}})
+* [Building Corda](building-corda.md)
 
-* [Testing your changes]({{< relref "testing" >}})
+* [Testing your changes](testing.md)
 
-* [Checking API stability]({{< relref "api-scanner" >}})
+* [Checking API stability](api-scanner.md)
 
-* [Building the documentation]({{< relref "building-the-docs" >}})
+* [Building the documentation](building-the-docs.md)
 
-* [Code style guide]({{< relref "codestyle" >}})
+* [Code style guide](codestyle.md)
 
-* [CLI UX Guide]({{< relref "cli-ux-guidelines" >}})
+* [CLI UX Guide](cli-ux-guidelines.md)
 
-* [Extending the state machine]({{< relref "contributing-flow-state-machines" >}})
+* [Extending the state machine](contributing-flow-state-machines.md)
 
 
 

@@ -9,7 +9,7 @@ This document provides instructions on how to create database schema
             and configure a Corda node suitable for development and testing purposes.
             This setup allows the auto-creation of database objects by the node upon startup
             by connecting to a database with a user with **administrative permissions**.
-            Please refer to [Database schema setup]({{< relref "node-database-admin" >}}) if you are setting Corda database in production environment.
+            Please refer to [Database schema setup](node-database-admin.md) if you are setting Corda database in production environment.
 
 The instructions cover all commercial 3rd party database vendors supported by Corda Enteprise
             (Azure SQL, SQL Server, Oracle and PostgreSQL), and the default embedded H2 database:
@@ -46,7 +46,7 @@ Setting up a Corda node to connect to a database requires:
 
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-                (see [Database access when running H2]({{< relref "node-database-access-h2" >}})), hence when using H2 database it’s sufficient to [start the node]({{< relref "node-database-admin#db-setup-step-3-ref" >}})
+                (see [Database access when running H2](node-database-access-h2.md)), hence when using H2 database it’s sufficient to [start the node](node-database-admin.md#db-setup-step-3-ref)
                 and the database will be created.
 
 
@@ -184,7 +184,7 @@ The following updates are required to a nodes filesystem configuration:
 > 
 > * The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
 >                                 and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
->                                 For development convenience the properties are specified in the [deployNodes Cordform task]({{< relref "testing#testing-cordform-ref" >}}) task.
+>                                 For development convenience the properties are specified in the [deployNodes Cordform task](testing.md#testing-cordform-ref) task.
 > 
 > ```none
 > dataSourceProperties = {
@@ -200,7 +200,7 @@ The following updates are required to a nodes filesystem configuration:
 >    runMigration = true
 > }
 > ```
-> See [Node configuration]({{< relref "corda-configuration-file#database-properties-ref" >}}) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+> See [Node configuration](corda-configuration-file.md#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
 > 
 > 
 > * Set `runMigration` to `true` to allow a Corda node to create database tables upon startup.
@@ -246,7 +246,7 @@ Configuration templates for each database vendor are shown below:
 
 #### H2
 By default, nodes store their data in an H2 database.
-                        No database setup is needed. Optionally remote H2 access/port can be configured. See [Database access when running H2]({{< relref "node-database-access-h2" >}}).
+                        No database setup is needed. Optionally remote H2 access/port can be configured. See [Database access when running H2](node-database-access-h2.md).
 
 
 #### Azure SQL
@@ -374,7 +374,7 @@ The node will create all database schema objects upon startup, as `runMigration`
 ## Database schema update
 As the Corda node is configured to automatically run migrations on startup,
                 no additional database update steps are required when upgrading Corda.
-                See the [Corda node upgrade notes]({{< relref "node-upgrade-notes#node-upgrade-notes-update-database-ref" >}}) for more information.
+                See the [Corda node upgrade notes](node-upgrade-notes.md#node-upgrade-notes-update-database-ref) for more information.
 
 
 ## Database schema setup when deploying a new CorDapp

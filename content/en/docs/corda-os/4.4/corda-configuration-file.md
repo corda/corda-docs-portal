@@ -59,7 +59,7 @@ As noted in the HOCON documentation, the default behaviour for resources referen
 ### Placeholder Overrides
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
                     `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
-                    environment variable isn’t present (see: [Hiding sensitive data]({{< relref "node-administration#hiding-sensitive-data" >}}) for more information).
+                    environment variable isn’t present (see: [Hiding sensitive data](node-administration.md#hiding-sensitive-data) for more information).
 
 ```groovy
 rpcSettings {
@@ -181,7 +181,7 @@ List of SHA-256 hashes of public keys. Attachments signed by any of these public
                             This property is similar to [cordappSignerKeyFingerprintBlacklist](#corda-configuration-file-signer-blacklist) but only restricts CorDapps that were
                             included as attachments in a transaction and received over the network from a peer.
 
-See [Signing CorDapps for use with Signature Constraints]({{< relref "api-contract-constraints#signing-cordapps-for-use-with-signature-constraints" >}}) for more information about signing CorDapps and what
+See [Signing CorDapps for use with Signature Constraints](api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints) for more information about signing CorDapps and what
                             makes an attachment trusted (a trust root).
 
 This property requires retrieving the hashes of public keys that need to be blacklisted. More information on this process can be found in [Generating a public key hash](#generating-a-public-key-hash).
@@ -191,7 +191,7 @@ This property requires retrieving the hashes of public keys that need to be blac
 
 
 compatibilityZoneURL (deprecated)
-The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates]({{< relref "permissioning" >}}) for more information.) and also is used by the node to obtain network map information.
+The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates](permissioning.md) for more information.) and also is used by the node to obtain network map information.
                             Cannot be set at the same time as the [networkServices](#corda-configuration-file-networkservices) option.
 
 **Important:  old configuration value, please use networkServices**
@@ -227,7 +227,7 @@ Set custom command line attributes (e.g. Java system properties) on the node pro
 
 jvmArgs:
 A list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
-                                        See [Setting JVM arguments]({{< relref "running-a-node#setting-jvm-args" >}}) for examples and details on the precedence of the different approaches to settings arguments.
+                                        See [Setting JVM arguments](running-a-node.md#setting-jvm-args) for examples and details on the precedence of the different approaches to settings arguments.
 
 *Default:* not defined
 
@@ -351,7 +351,7 @@ An optional list of private network map UUIDs. Your node will fetch the public n
 
 flowExternalOperationThreadPoolSize
 The number of threads available to execute external operations that have been called from flows. See the documentation on
-                            [calling external systems inside flows]({{< relref "api-flows#api-flows-external-operations" >}}) for more information.
+                            [calling external systems inside flows](api-flows.md#api-flows-external-operations) for more information.
 
 *Default:* Set to the lesser of either the maximum number of cores allocated to the node, or 10.
 
@@ -404,7 +404,7 @@ Defines port for h2 DB.
 
 h2Settings
 Sets the H2 JDBC server host and port.
-                            See [Database access when running H2]({{< relref "node-database-access-h2" >}}).
+                            See [Database access when running H2](node-database-access-h2.md).
                             For non-localhost address the database password needs to be set in `dataSourceProperties`.
 
 *Default:* NULL
@@ -476,7 +476,7 @@ The legal identity of the node.
                             This acts as a human-readable alias to the node’s public key and can be used with the network map to look up the node’s info.
                             This is the name that is used in the node’s certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
                             At runtime, Corda checks whether this name matches the name in the node’s certificates.
-                            For more details please read [Node identity]({{< relref "node-naming#node-naming" >}}) chapter.
+                            For more details please read [Node identity](node-naming.md#node-naming) chapter.
 
 *Default:* not defined
 
@@ -559,7 +559,7 @@ Optional settings for managing the network parameter auto-acceptance behaviour.
 autoAcceptEnabled
 This flag toggles auto accepting of network parameter changes.
                                         If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator.
-                                        See [The network map]({{< relref "network-map" >}}) for more information on the update process and current auto-acceptable parameters.
+                                        See [The network map](network-map.md) for more information on the update process and current auto-acceptable parameters.
                                         Set to `false` to disable.
 
 *Default:* true
@@ -712,7 +712,7 @@ A list of permissions for starting flows via RPC.
 
 security
 Contains various nested fields controlling user authentication/authorization, in particular for RPC accesses.
-                            See [Interacting with a node]({{< relref "clientrpc" >}}) for details.
+                            See [Interacting with a node](clientrpc.md) for details.
 
 
 

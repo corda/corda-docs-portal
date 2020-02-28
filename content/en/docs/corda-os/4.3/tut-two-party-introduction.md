@@ -7,7 +7,7 @@ date: 2020-01-08T09:59:25Z
 # Hello, World! Pt.2 - Contract constraints
 
 {{< note >}}
-This tutorial extends the CorDapp built during the [Hello, World tutorial]({{< relref "hello-world-introduction" >}}).
+This tutorial extends the CorDapp built during the [Hello, World tutorial](hello-world-introduction.md).
 
 
 {{< /note >}}
@@ -30,9 +30,9 @@ In this tutorial, we’ll write a contract to imposes rules on how an `IOUState`
 We’ll start by writing the contract.
 
 
-* [Writing the contract]({{< relref "tut-two-party-contract" >}})
+* [Writing the contract](tut-two-party-contract.md)
 
-* [Updating the flow]({{< relref "tut-two-party-flow" >}})
+* [Updating the flow](tut-two-party-flow.md)
 
 
 

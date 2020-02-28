@@ -6,41 +6,41 @@ date: 2020-01-08T09:59:25Z
 
 # Nodes
 
-* [Node folder structure]({{< relref "node-structure" >}})
+* [Node folder structure](node-structure.md)
 
-* [Node identity]({{< relref "node-naming" >}})
+* [Node identity](node-naming.md)
 
-* [Node configuration]({{< relref "corda-configuration-file" >}})
+* [Node configuration](corda-configuration-file.md)
 
-* [Node command-line options]({{< relref "node-commandline" >}})
+* [Node command-line options](node-commandline.md)
 
-* [Node administration]({{< relref "node-administration" >}})
+* [Node administration](node-administration.md)
 
-* [Deploying a node to a server]({{< relref "deploying-a-node" >}})
+* [Deploying a node to a server](deploying-a-node.md)
 
-* [Node database]({{< relref "node-database" >}})
+* [Node database](node-database.md)
 
-* [Database tables]({{< relref "node-database-tables" >}})
+* [Database tables](node-database-tables.md)
 
-* [Database schema setup]({{< relref "node-database-admin" >}})
+* [Database schema setup](node-database-admin.md)
 
-* [Simplified database schema setup for development]({{< relref "node-database-developer" >}})
+* [Simplified database schema setup for development](node-database-developer.md)
 
-* [Upgrading a Corda (open source) Node to Corda Enterprise]({{< relref "node-operations-upgrading-os-to-ent" >}})
+* [Upgrading a Corda (open source) Node to Corda Enterprise](node-operations-upgrading-os-to-ent.md)
 
-* [Deploying CorDapps on a node]({{< relref "node-operations-cordapp-deployment" >}})
+* [Deploying CorDapps on a node](node-operations-cordapp-deployment.md)
 
-* [Upgrading CorDapps on a node]({{< relref "node-operations-upgrade-cordapps" >}})
+* [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md)
 
-* [Node shell]({{< relref "shell" >}})
+* [Node shell](shell.md)
 
-* [Interacting with a node]({{< relref "clientrpc" >}})
+* [Interacting with a node](clientrpc.md)
 
-* [Creating nodes locally]({{< relref "generating-a-node" >}})
+* [Creating nodes locally](generating-a-node.md)
 
-* [Running nodes locally]({{< relref "running-a-node" >}})
+* [Running nodes locally](running-a-node.md)
 
-* [Flow Hospital]({{< relref "node-flow-hospital" >}})
+* [Flow Hospital](node-flow-hospital.md)
 
 
 

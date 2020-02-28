@@ -9,7 +9,7 @@ These notes provide instructions for upgrading your network management (Doorman,
             signing service from previous versions to the newest version. Please consult the relevant release notes of the release
             in question. If not specified, you may assume the versions you are currently using are still in force.
 
-We also strongly recommend cross referencing with the [Changelog]({{< relref "changelog" >}}) to confirm changes.
+We also strongly recommend cross referencing with the [Changelog](changelog.md) to confirm changes.
 
 
 ## 1.1 to 1.2
@@ -30,7 +30,7 @@ CENM 1.2 now supports external Signing infrastructure support. CENM 1.1. Signing
 CENM 1.1 now supports multiple HSMs, however due to to the proprietary nature of the HSM libraries, the release does
                         not work out of the box with these HSMs. The relevant libraries need to be provided by the user and referenced in the
                         configuration of the relevant component (Signing Service or PKI Tool). See the relevant docs at signing-service
-                        and [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool" >}}) for more information.
+                        and [Public Key Infrastructure (PKI) Tool](pki-tool.md) for more information.
 
 
 
@@ -130,15 +130,11 @@ To upgrade an existing Doorman or Network Map instance, a new DB instance must f
 
 For example for the Doorman service:
 
-{{< img src="resources/doorman-migration.png" alt="doorman migration" >}}
-
-These steps should be followed for both the Doorman and Network Map services. This step is *non-destructive* - it
+![doorman migration](resources/doorman-migration.png "doorman migration")These steps should be followed for both the Doorman and Network Map services. This step is *non-destructive* - it
                     should leave the old DB untouched, only copying the data across to the new DBs. Once both services have been migrated
                     via the above steps they should be fully functional:
 
-{{< img src="resources/separated-services.png" alt="separated services" >}}
-
-
+![separated services](resources/separated-services.png "separated services")
 ### Other Required Changes
 Separation of the schemas has also introduced some necessary modifications to existing processes and configuration
                     files. Most Notably:

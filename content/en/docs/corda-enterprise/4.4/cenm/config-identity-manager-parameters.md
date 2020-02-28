@@ -14,11 +14,11 @@ The host and port on which the service runs
 
 
 database
-See [CENM Database Configuration]({{< relref "config-database" >}})
+See [CENM Database Configuration](config-database.md)
 
 
 shell
-*(Optional)* See [<no title>]({{< relref "config-shell" >}})
+*(Optional)* See [<no title>](config-shell.md)
 
 
 localSigner
@@ -85,7 +85,7 @@ Whether a client should be attempt to reconnect if the connection is dropped.
 
 
 ssl
-See [SSL Settings]({{< relref "config-ssl" >}})
+See [SSL Settings](config-ssl.md)
 
 
 plugin
@@ -153,15 +153,15 @@ A List of CRLs hosted by the Identity Manager in addition to the Revocation List
 
 
 Configuration
-* [Identity Manager Configuration Parameters]({{< relref "" >}})
+* [Identity Manager Configuration Parameters](.md)
 
-* [Network Map Configuration Parameters]({{< relref "config-network-map-parameters" >}})
+* [Network Map Configuration Parameters](config-network-map-parameters.md)
 
-* [Network Parameters]({{< relref "config-network-parameters" >}})
+* [Network Parameters](config-network-parameters.md)
 
-* [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}})
+* [Configuring the ENM services to use SSL](enm-with-ssl.md)
 
-* [Workflow]({{< relref "workflow" >}})
+* [Workflow](workflow.md)
 
 
 

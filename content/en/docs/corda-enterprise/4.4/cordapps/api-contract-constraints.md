@@ -33,7 +33,7 @@ The advantage of pre-authorising upgrades using constraints is that you don’t 
                 anticipate a need to do so. But it requires everyone to sign, manually authorise the upgrade,
                 consumes notary and ledger resources, and is just in general more complex.
 
-This article focuses on the first approach. To learn about the second please see [Release new CorDapp versions]({{< relref "upgrading-cordapps" >}}).
+This article focuses on the first approach. To learn about the second please see [Release new CorDapp versions](upgrading-cordapps.md).
 
 
 ### Types of Contract Constraints
@@ -172,10 +172,10 @@ Below are two examples of possible scenarios around blacklisting signing keys:
 > > 
 > 
 Information on blacklisting attachment signing keys can be found in the
-                [node configuration documentation]({{< relref "../node/setup/corda-configuration-file#corda-configuration-file-blacklisted-attachment-signer-keys" >}}).
+                [node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys).
 
 More information on how to sign an app directly from Gradle can be found in the
-                [CorDapp Jar signing]({{< relref "cordapp-build-systems#cordapp-build-system-signing-cordapp-jar-ref" >}}) section of the documentation.
+                [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
 
 
 ## Using Signature Constraints in transactions
@@ -191,7 +191,7 @@ Signature Constraints are used by default except when a new transaction contains
 {{< /note >}}
 
 ## App versioning with Signature Constraints
-Signed apps require a version number to be provided, see [Versioning]({{< relref "versioning" >}}).
+Signed apps require a version number to be provided, see [Versioning](versioning.md).
 
 
 ### Hash Constraints
@@ -354,7 +354,7 @@ private fun transaction(): TransactionBuilder {
 
 
 ### CorDapps as attachments
-CorDapp JARs (see [What is a CorDapp?]({{< relref "cordapp-overview" >}})) that contain classes implementing the `Contract` interface are automatically
+CorDapp JARs (see [What is a CorDapp?](cordapp-overview.md)) that contain classes implementing the `Contract` interface are automatically
                     loaded into the `AttachmentStorage` of a node, and made available as `ContractAttachments`.
 
 They are retrievable by hash using `AttachmentStorage.openAttachment`. These JARs can either be installed on the
@@ -396,7 +396,7 @@ During transaction building the `AutomaticPlaceholderConstraint` for output stat
 
 
 ### Constraints migration to Corda 4
-Please read [CorDapp constraints migration]({{< relref "cordapp-constraint-migration" >}}) to understand how to consume and evolve pre-Corda 4 issued hash or CZ whitelisted constrained states
+Please read [CorDapp constraints migration](cordapp-constraint-migration.md) to understand how to consume and evolve pre-Corda 4 issued hash or CZ whitelisted constrained states
                     using a Corda 4 signed CorDapp (using signature constraints).
 
 
@@ -407,7 +407,7 @@ If an attachment constraint cannot be resolved, a `MissingContractAttachments` e
 
 ## Not setting CorDapp packages in tests
 You are running a test and have not specified the CorDapp packages to scan.
-                When using `MockNetwork` ensure you have provided a package containing the contract class in `MockNetworkParameters`. See [API: Testing]({{< relref "api-testing" >}}).
+                When using `MockNetwork` ensure you have provided a package containing the contract class in `MockNetworkParameters`. See [API: Testing](api-testing.md).
 
 Similarly package names need to be provided when testing using `DriverDSl`. `DriverParameters` has a property `cordappsForAllNodes` (Kotlin)
                 or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp` created by utility method `TestCordapp.findCordapp(String)`.

@@ -7,8 +7,8 @@ date: 2020-01-08T09:59:25Z
 # Checkpoint Tooling
 This page contains information about checkpoint tooling.
 
-Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows]({{< relref "key-concepts-flows" >}}) and [Writing flows]({{< relref "flow-state-machines" >}}).
-            It is also recommended that you understand the purpose and behaviour of the [Flow Hospital]({{< relref "node-flow-hospital" >}}) in relation to *checkpoints* and flow recovery.
+Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows](key-concepts-flows.md) and [Writing flows](flow-state-machines.md).
+            It is also recommended that you understand the purpose and behaviour of the [Flow Hospital](node-flow-hospital.md) in relation to *checkpoints* and flow recovery.
             An advanced explanation of *checkpoints* within the flow state machine can be found here: contributing-flow-internals.
 
 
@@ -334,7 +334,7 @@ Useful commands include 'help' to see what is available, and 'bye' to shut down 
 
 Thu Jul 11 19:52:56 BST 2019>>> run setFlowsDrainingModeEnabled enabled: false
 ```
-See also [Flow draining mode]({{< relref "key-concepts-node#draining-mode" >}}).
+See also [Flow draining mode](key-concepts-node.md#draining-mode).
 
 
 * contacting other participants in the network where their nodes are not responding to an initiated flow.

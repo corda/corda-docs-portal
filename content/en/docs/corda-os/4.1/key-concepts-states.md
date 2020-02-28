@@ -34,12 +34,10 @@ A *state* is an immutable object representing a fact known by one or more Corda 
 
 For example, the following state represents an IOU - an agreement that Alice owes Bob an amount X:
 
-{{< img src="resources/state.png" alt="state" >}}
-
-Specifically, this state represents an IOU of £10 from Alice to Bob.
+![state](resources/state.png "state")Specifically, this state represents an IOU of £10 from Alice to Bob.
 
 As well as any information about the fact itself, the state also contains a reference to the *contract* that governs
-                the evolution of the state over time. We discuss contracts in [Contracts]({{< relref "key-concepts-contracts" >}}).
+                the evolution of the state over time. We discuss contracts in [Contracts](key-concepts-contracts.md).
 
 
 ## State sequences
@@ -52,16 +50,12 @@ Instead, the lifecycle of a shared fact over time is represented by a **state se
 This sequence of state replacements gives us a full view of the evolution of the shared fact over time. We can
                 picture this situation as follows:
 
-{{< img src="resources/state-sequence.png" alt="state sequence" >}}
-
-
+![state sequence](resources/state-sequence.png "state sequence")
 ## The vault
 Each node on the network maintains a *vault* - a database where it tracks all the current and historic states that it
                 is aware of, and which it considers to be relevant to itself:
 
-{{< img src="resources/vault-simple.png" alt="vault simple" >}}
-
-We can think of the ledger from each node’s point of view as the set of all the current (i.e. non-historic) states that
+![vault simple](resources/vault-simple.png "vault simple")We can think of the ledger from each node’s point of view as the set of all the current (i.e. non-historic) states that
                 it is aware of.
 
 
@@ -69,7 +63,7 @@ We can think of the ledger from each node’s point of view as the set of all th
 Not all states need to be updated by the parties which use them. In the case of reference data, there is a common pattern
                 where one party creates reference data, which is then used (but not updated) by other parties. For this use-case, the
                 states containing reference data are referred to as “reference states”. Syntactically, reference states are no different
-                to regular states. However, they are treated different by Corda transactions. See [Transactions]({{< relref "key-concepts-transactions" >}}) for
+                to regular states. However, they are treated different by Corda transactions. See [Transactions](key-concepts-transactions.md) for
                 more details.
 
 

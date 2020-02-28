@@ -24,9 +24,7 @@ In addition to the shared database for the notary state, each notary worker requ
 The can visualise this as follows, with the Corda client nodes in green on the top, the Corda
             notary worker nodes in red in the middle, and the database nodes on the bottom in blue.
 
-{{< img src="notary/resources/ha-notary-overview2.png" alt="ha notary overview2" >}}
-
-Client nodes requesting notarisation from the notary will connect to the available notary workers
+![ha notary overview2](notary/resources/ha-notary-overview2.png "ha notary overview2")Client nodes requesting notarisation from the notary will connect to the available notary workers
             in a round-robin fashion. The task of a worker node is to verify the notarisation request, the
             transaction timestamp (if present), and resolve and verify the transaction chain (if the notary
             service is validating). It then commits the transaction’s input states to the database.
@@ -47,9 +45,7 @@ In production you should consider running five nodes or more, to be able to
 If desired, you can choose to run each database server and its Corda notary worker on the same
             machine:
 
-{{< img src="notary/resources/ha-notary-colocated.png" alt="ha notary colocated" >}}
-
-
+![ha notary colocated](notary/resources/ha-notary-colocated.png "ha notary colocated")
 ## Notary implementations
 Corda Enterprise contains more than one notary implementation. These implementations serve different operational
                 requirements. Ensure that the correct notary implementation is selected according to the requirements.
@@ -67,7 +63,7 @@ The table below lists the available notary implementations in Corda Enterprise:
 |JPA notary|Yes|Separate connection|
 
 {{< /table >}}
-For a list of databases supported by each of the above notary implementations, please refer to the [Platform support matrix]({{< relref "../platform-support-matrix" >}})
+For a list of databases supported by each of the above notary implementations, please refer to the [Platform support matrix](../platform-support-matrix.md)
 
 
 {{< note >}}

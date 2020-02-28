@@ -6,23 +6,23 @@ date: 2020-01-08T09:59:25Z
 
 # Operating a notary
 
-* [Highly-available notary backup and restore]({{< relref "backup-restore" >}})
+* [Highly-available notary backup and restore](backup-restore.md)
 
-* [Notary worker migration]({{< relref "machine-migration" >}})
+* [Notary worker migration](machine-migration.md)
 
-* [Notary database migration]({{< relref "notary-db-migration" >}})
+* [Notary database migration](notary-db-migration.md)
 
-* [Highly-available notary metrics]({{< relref "notary-metrics" >}})
+* [Highly-available notary metrics](notary-metrics.md)
 
-* [Behaviour Under Excessive Load]({{< relref "notary-load-handling" >}})
+* [Behaviour Under Excessive Load](notary-load-handling.md)
 
-* [Notary sizing considerations]({{< relref "notary-sizing" >}})
+* [Notary sizing considerations](notary-sizing.md)
 
-* [Handling flag days]({{< relref "handling-flag-days" >}})
+* [Handling flag days](handling-flag-days.md)
 
-* [Scaling A Notary Cluster]({{< relref "scaling-a-notary-cluster" >}})
+* [Scaling A Notary Cluster](scaling-a-notary-cluster.md)
 
-* [Upgrading the notary to a new version of Corda Enterprise]({{< relref "upgrading-the-ha-notary-service" >}})
+* [Upgrading the notary to a new version of Corda Enterprise](upgrading-the-ha-notary-service.md)
 
 
 

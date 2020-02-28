@@ -8,34 +8,34 @@ date: 2020-01-08T09:59:25Z
 The following are the core APIs that are used in the development of CorDapps:
 
 
-* [API: States]({{< relref "api-states" >}})
+* [API: States](api-states.md)
 
-* [API: Persistence]({{< relref "api-persistence" >}})
+* [API: Persistence](api-persistence.md)
 
-* [API: Contracts]({{< relref "api-contracts" >}})
+* [API: Contracts](api-contracts.md)
 
-* [API: Contract Constraints]({{< relref "api-contract-constraints" >}})
+* [API: Contract Constraints](api-contract-constraints.md)
 
-* [API: Vault Query]({{< relref "api-vault-query" >}})
+* [API: Vault Query](api-vault-query.md)
 
-* [API: Transactions]({{< relref "api-transactions" >}})
+* [API: Transactions](api-transactions.md)
 
-* [API: Flows]({{< relref "api-flows" >}})
+* [API: Flows](api-flows.md)
 
-* [API: Identity]({{< relref "api-identity" >}})
+* [API: Identity](api-identity.md)
 
-* [API: ServiceHub]({{< relref "api-service-hub" >}})
+* [API: ServiceHub](api-service-hub.md)
 
-* [API: Service Classes]({{< relref "api-service-classes" >}})
+* [API: Service Classes](api-service-classes.md)
 
-* [API: RPC operations]({{< relref "api-rpc" >}})
+* [API: RPC operations](api-rpc.md)
 
-* [API: Core types]({{< relref "api-core-types" >}})
+* [API: Core types](api-core-types.md)
 
-* [API: Testing]({{< relref "api-testing" >}})
+* [API: Testing](api-testing.md)
 
 
-Before reading this page, you should be familiar with the [key concepts of Corda]({{< relref "key-concepts" >}}).
+Before reading this page, you should be familiar with the [key concepts of Corda](key-concepts.md).
 
 
 ## API stability guarantees

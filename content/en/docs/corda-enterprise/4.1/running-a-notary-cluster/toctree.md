@@ -8,21 +8,21 @@ date: 2020-01-08T09:59:25Z
 This section contains all the information required to add a HA notary service to a network.
 
 
-* [Highly Available Notary Service Setup]({{< relref "introduction" >}})
+* [Highly Available Notary Service Setup](introduction.md)
 
-* [Percona XtraDB Cluster, the underlying replicated Database]({{< relref "installing-percona" >}})
+* [Percona XtraDB Cluster, the underlying replicated Database](installing-percona.md)
 
-* [Setting up the Notary Service]({{< relref "installing-the-notary-service" >}})
+* [Setting up the Notary Service](installing-the-notary-service.md)
 
-* [Using the Bootstrapper]({{< relref "installing-the-notary-service-bootstrapper" >}})
+* [Using the Bootstrapper](installing-the-notary-service-bootstrapper.md)
 
-* [In a network with Doorman and Network map]({{< relref "installing-the-notary-service-netman" >}})
+* [In a network with Doorman and Network map](installing-the-notary-service-netman.md)
 
-* [Percona Monitoring, Backup and Restore (Advanced)]({{< relref "operating-percona" >}})
+* [Percona Monitoring, Backup and Restore (Advanced)](operating-percona.md)
 
-* [Upgrading the HA notary service]({{< relref "upgrading-the-ha-notary-service" >}})
+* [Upgrading the HA notary service](upgrading-the-ha-notary-service.md)
 
-* [HA Notary Metrics]({{< relref "notary-metrics" >}})
+* [HA Notary Metrics](notary-metrics.md)
 
 
 

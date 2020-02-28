@@ -37,9 +37,7 @@ This guide will cover all the steps required to configure and deploy the nodes a
                 result from following the guide. There will be two Corda Enterprise nodes, one active and the other inactive. Each node will represent
                 the same legal identity inside the Corda network. Both will share a database and a network file system.
 
-{{< img src="resources/hot-cold.png" alt="hot cold" >}}
-
-
+![hot cold](resources/hot-cold.png "hot cold")
 ## Configuring the load balancer
 In a hot-cold environment, the load balancer is used to redirect incoming traffic (P2P, RPC and HTTP) towards the active
                 Corda Enterprise node instance. The internet facing IP address of the load balancer will be advertised to the rest of the Corda network
@@ -218,9 +216,9 @@ After creating a load balancer for each traffic type, the configuration should l
 {{< table >}}
 
 |Name|Port Configuration|Health Check|
-|ha-lb-p2p|10002 (TCP) forwarding to 10002 (TCP)|[TCP:10002]({{< relref "TCP:10002" >}})|
-|ha-lb-rpc|10003 (TCP) forwarding to 10003 (TCP)|[TCP:10003]({{< relref "TCP:10003" >}})|
-|ha-lb-web|10004 (HTTP) forwarding to 10004 (HTTP)|[HTTP:10004]({{< relref "HTTP:10004" >}})|
+|ha-lb-p2p|10002 (TCP) forwarding to 10002 (TCP)|[TCP:10002](TCP:10002.md)|
+|ha-lb-rpc|10003 (TCP) forwarding to 10003 (TCP)|[TCP:10003](TCP:10003.md)|
+|ha-lb-web|10004 (HTTP) forwarding to 10004 (HTTP)|[HTTP:10004](HTTP:10004.md)|
 
 {{< /table >}}
 
@@ -341,7 +339,7 @@ EFS cannot be mounted on a Windows machine. Please see EFS limits [here](https:/
 
 ## Node deployment
 This section covers the deployment of the back-up Corda instance. It is assumed that the primary has already been deployed.
-                For instructions on how to do so, please see [Deploying a node to a server]({{< relref "deploying-a-node" >}}).
+                For instructions on how to do so, please see [Deploying a node to a server](deploying-a-node.md).
 
 The following files and directories need to be copied from the primary instance to the back-up instance as well as any
                 cordapps and jars that exist:

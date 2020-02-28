@@ -17,7 +17,7 @@ Corda provides a number of flexible query mechanisms for accessing the Vault:
 * Vault Query API
 
 
-* Using a JDBC session (as described in [Persistence]({{< relref "api-persistence#jdbc-session-ref" >}}))
+* Using a JDBC session (as described in [Persistence](api-persistence.md#jdbc-session-ref))
 
 
 * Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries
@@ -178,7 +178,7 @@ There are four implementations of this interface which can be chained together t
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the Vault states table: status (UNCONSUMED,
                         CONSUMED), state reference(s), contract state type(s), notaries, soft locked states, timestamps (RECORDED, CONSUMED),
-                        state constraints (see [Constraint Types]({{< relref "api-contract-constraints#implicit-constraint-types" >}})), relevancy (ALL, RELEVANT, NON_RELEVANT).
+                        state constraints (see [Constraint Types](api-contract-constraints.md#implicit-constraint-types)), relevancy (ALL, RELEVANT, NON_RELEVANT).
 
 > 
 > 
@@ -218,7 +218,7 @@ There are four implementations of this interface which can be chained together t
 {{< /note >}}
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
-                        by a custom contract state that implements its own schema as described in the [Persistence]({{< relref "api-persistence" >}})
+                        by a custom contract state that implements its own schema as described in the [Persistence](api-persistence.md)
                         documentation and associated examples. Custom criteria expressions are expressed using one of several type-safe
                         `CriteriaExpression`: BinaryLogical, Not, ColumnPredicateExpression, AggregateFunctionExpression. The
                         `ColumnPredicateExpression` allows for specification arbitrary criteria using the previously enumerated operator
@@ -231,7 +231,7 @@ There are four implementations of this interface which can be chained together t
 > 
 > {{< note >}}
 > Custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to
->                                 [Persistence]({{< relref "api-persistence" >}}) for mechanisms of registering custom schemas for different testing
+>                                 [Persistence](api-persistence.md) for mechanisms of registering custom schemas for different testing
 >                                 purposes.
 > 
 > 
@@ -290,7 +290,7 @@ When specifying the `ContractType` as a parameterised type to the `QueryCriteria
 
 {{< /note >}}
 The Vault Query API leverages the rich semantics of the underlying JPA [Hibernate](https://docs.jboss.org/hibernate/jpa/2.1/api/) based
-                [Persistence]({{< relref "api-persistence" >}}) framework adopted by Corda.
+                [Persistence](api-persistence.md) framework adopted by Corda.
 
 
 {{< note >}}
@@ -1068,9 +1068,7 @@ The intuition here is that when these public keys are used to own or participate
                 persisted to a `PersistentParty` table. The `PersistentParty` table can be joined with the `PublicKeyHashToExternalId` table to create
                 a view which maps each state to one or more external IDs. The entity relationship diagram below helps to explain how this works.
 
-{{< img src="resources/state-to-external-id.png" alt="state to external id" >}}
-
-When performing a vault query, it is now possible to query for states by external ID using a custom query criteria.
+![state to external id](resources/state-to-external-id.png "state to external id")When performing a vault query, it is now possible to query for states by external ID using a custom query criteria.
 
 
 {{< tabs name="tabs-7" >}}

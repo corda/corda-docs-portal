@@ -6,7 +6,7 @@ date: 2020-01-08T09:59:25Z
 
 # Changelog
 Here’s a summary of what’s changed in each Corda release. For guidance on how to upgrade code from the previous
-            release, see [Upgrading apps to Corda 4]({{< relref "app-upgrade-notes" >}}).
+            release, see [Upgrading apps to Corda 4](app-upgrade-notes.md).
 
 
 ## Unreleased
@@ -49,7 +49,7 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
 
 * Introduction of unique CorDapp version identifiers in jar manifests for contract and flows/services CorDapps.
                         Updated all sample CorDapps to reflect new conventions.
-                        See [CorDapp separation]({{< relref "cordapp-build-systems#cordapp-separation-ref" >}}) for further information.
+                        See [CorDapp separation](cordapp-build-systems.md#cordapp-separation-ref) for further information.
 
 
 * Automatic Constraints propagation for hash-constrained states to signature-constrained states.
@@ -88,7 +88,7 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
 
 
 * Added auto-acceptance of network parameters for network updates. This behaviour is available for a subset of the network parameters
-                        and is configurable via the node config. See [The network map]({{< relref "network-map" >}}) for more information.
+                        and is configurable via the node config. See [The network map](network-map.md) for more information.
 
 
 * Deprecated `SerializationContext.withAttachmentsClassLoader`. This functionality has always been disabled by flags
@@ -125,11 +125,11 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
 * `FinalityFlow` is now an inlined flow and requires `FlowSession` s to each party intended to receive the transaction. This is to fix the
                         security problem with the old API that required every node to accept any transaction it received without any checks. Existing CorDapp
                         binaries relying on this old behaviour will continue to function as previously. However, it is strongly recommended CorDapps switch to
-                        this new API. See [Upgrading apps to Corda 4]({{< relref "app-upgrade-notes" >}}) for further details.
+                        this new API. See [Upgrading apps to Corda 4](app-upgrade-notes.md) for further details.
 
 
 * For similar reasons, `SwapIdentitiesFlow`, from confidential-identities, is also now an inlined flow. The old API has been preserved but
-                        it is strongly recommended CorDapps switch to this new API. See [Upgrading apps to Corda 4]({{< relref "app-upgrade-notes" >}}) for further details.
+                        it is strongly recommended CorDapps switch to this new API. See [Upgrading apps to Corda 4](app-upgrade-notes.md) for further details.
 
 
 * Introduced new optional network bootstrapper command line option (–minimum-platform-version) to set as a network parameter
@@ -240,8 +240,8 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
 
 
 * Doorman and NetworkMap url’s can now be configured individually rather than being assumed to be
-                        the same server. Current `compatibilityZoneURL` configurations remain valid. See both [Node configuration]({{< relref "corda-configuration-file" >}})
-                        and [Network certificates]({{< relref "permissioning" >}}) for details.
+                        the same server. Current `compatibilityZoneURL` configurations remain valid. See both [Node configuration](corda-configuration-file.md)
+                        and [Network certificates](permissioning.md) for details.
 
 
 * Improved audit trail for `FinalityFlow` and related sub-flows.
@@ -322,7 +322,7 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
     * The deprecated web server now has its own `web-server.conf` file, separate from `node.conf`.
 
 
-    * Property keys with double quotes (e.g. “key”) in `node.conf` are no longer allowed, for rationale refer to [Node configuration]({{< relref "corda-configuration-file" >}}).
+    * Property keys with double quotes (e.g. “key”) in `node.conf` are no longer allowed, for rationale refer to [Node configuration](corda-configuration-file.md).
 
 
     * The `issuableCurrencies` property is no longer valid for `node.conf`. Instead, it has been moved to the finance workflows CorDapp configuration.
@@ -330,7 +330,7 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
 
 
 * Added public support for creating `CordaRPCClient` using SSL. For this to work the node needs to provide client applications
-                        a certificate to be added to a truststore. See [Using the client RPC API]({{< relref "tutorial-clientrpc-api" >}})
+                        a certificate to be added to a truststore. See [Using the client RPC API](tutorial-clientrpc-api.md)
 
 
 * The node RPC broker opens 2 endpoints that are configured with `address` and `adminAddress`. RPC Clients would connect
@@ -377,7 +377,7 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
                         The class is used as database Primary Key columns of other entities and databases already impose those columns as non-nullable
                         (even if JPA annotation nullable=false was absent).
                         In case your Cordapps use this entity class to persist data in own custom tables as non Primary Key columns refer to
-                        [Upgrading apps to Corda 4]({{< relref "app-upgrade-notes" >}}) for upgrade instructions.
+                        [Upgrading apps to Corda 4](app-upgrade-notes.md) for upgrade instructions.
 
 
 * Adding a public method to check if a public key satisfies Corda recommended algorithm specs, `Crypto.validatePublicKey(java.security.PublicKey)`.
@@ -435,7 +435,7 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
 
 
 * All sample CorDapps were split into separate apps: workflows and contracts to reflect new convention. It is recommended to structure your CorDapps
-                        this way, see [Upgrading apps to Corda 4]({{< relref "app-upgrade-notes" >}}) on upgrading your CorDapp.
+                        this way, see [Upgrading apps to Corda 4](app-upgrade-notes.md) on upgrading your CorDapp.
 
 
 * The format of the shell commands’ output can now be customized via the node shell, using the `output-format` command.

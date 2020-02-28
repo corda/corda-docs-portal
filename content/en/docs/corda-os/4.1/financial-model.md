@@ -93,9 +93,7 @@ In additional to the common state types, a number of interfaces extend `Contract
 
 The following diagram illustrates the complete Contract State hierarchy:
 
-{{< img src="resources/financialContractStateModel.png" alt="financialContractStateModel" >}}
-
-Note there are currently two packages, a core library and a finance model specific library.
+![financialContractStateModel](resources/financialContractStateModel.png "financialContractStateModel")Note there are currently two packages, a core library and a finance model specific library.
                 Developers may re-use or extend the Finance types directly or write their own by extending the base types from the Core library.
 
 
