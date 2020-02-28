@@ -114,4 +114,9 @@ h6:hover .header-link {
     margin-left: 0.5rem;
 }
 
-
+// for all images in the <main> element, constrain their width to the max col width
+main {
+    img {
+        @include img-fluid;
+    }
+}
