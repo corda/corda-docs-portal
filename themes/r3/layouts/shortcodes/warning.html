@@ -1,4 +1,4 @@
 <div class="r3-o-warning" role="alert">
 <img src="/images/svg/alert-triangle.svg"  class="r3-o-alert-img" />
-{{- .Inner | markdownify -}}
+{{- .Inner | .Page.RenderString -}}
 </div>
