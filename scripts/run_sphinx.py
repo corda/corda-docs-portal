@@ -56,15 +56,9 @@ def _path_to_github_url(path):
     return f"https://github.com/corda/{repo}/blob/{relpath}"
 
 
-def _link_new_window(text, url):
-    if not ARGS.md:
-        return f'{{{{% link src="{url}" text="{text}" %}}}}'
-     
-    return f'[{text}]({url})' # + '{:target="_blank"}' for some types of md.
-
-
-
-
+"""  All opening html elements *seem* to require a clear blank line between it and the content
+so all opening divs are suffixed with \n\n
+"""
 class Markdown:
     def image(self, url, alt):
         return f'![{alt}]({url} "{alt}")'
@@ -124,43 +118,50 @@ class Markdown:
         return f'<div class="r3-tab">\n\n'
 
     def depart_tab(self):
-        return '\n\n</div>\n'
+        return '\n</div>\n'
 
     def visit_tabs(self, idx):        
         return f'<div class="r3-tabs" id="tabs-{idx}">\n\n'
 
     def depart_tabs(self):
-        return '\n</div>\n\n'
+        return '\n</div>\n'
 
     def visit_note(self):
         return '<div class="r3-o-note" role="alert">\n\n'
 
     def depart_note(self):
-        return '\n\n</div>\n\n'
+        return '\n</div>\n'
 
     def visit_warning(self):
         return '<div class="r3-o-warning" role="alert">\n\n'
 
     def depart_warning(self):
-        return '\n\n</div>\n\n'
+        return '\n</div>\n'
 
     def visit_attention(self):
         return '<div class="r3-o-attention" role="alert">\n\n'
 
     def depart_attention(self):
-        return '\n\n</div>\n\n'
+        return '\n</div>\n'
         
     def visit_important(self):
         return '<div class="r3-o-important" role="alert">\n\n'
 
     def depart_important(self):
-        return '\n\n</div>\n\n'
+        return '\n</div>\n'
 
     def visit_topic(self):
         return '<div class="r3-o-topic" role="alert">\n\n'
 
     def depart_topic(self):
-        return '\n\n</div>\n\n'
+        return '\n</div>\n'
+
+    def visit_table(self):
+        return '\n<div class="table table-sm table-striped table-hover">\n\n'
+
+    def depart_table(self):
+        return '\n</div>\n\n'
+
 
 
 """  Override raw Markdown with Hugo shortcodes  """
@@ -190,7 +191,7 @@ class Hugo(Markdown):
         return "\n{{< note >}}"
 
     def depart_note(self):
-        return "{{< /note >}}\n\n"
+        return "{{< /note >}}\n"
 
     def visit_warning(self):
         return "\n{{< warning >}}"
@@ -209,6 +210,18 @@ class Hugo(Markdown):
 
     def depart_important(self):
         return "\n{{< /important >}}\n"
+
+    def visit_topic(self):
+        return "\n{{< topic >}}"
+
+    def depart_topic(self):
+        return "\n{{< /topic >}}"
+
+    def visit_table(self):
+        return "\n{{< table >}}\n"
+
+    def depart_table(self):
+        return "\n{{< /table >}}\n"
 
 
 class Context:
@@ -411,26 +424,27 @@ class Translator:
         pass
 
     def visit_reference(self, node):
-        self.top.put_body('[')
+        self.push_context(Context())
 
     def depart_reference(self, node):
+        text = "".join(self.top.body)
+        self.top.body = []
+        self.pop_context()
+
         link = '#'
         if 'refuri' in node.attrib:
             uri = node.attrib['refuri']
             link = uri
             # Could be a local path or another page
             if not link.startswith('http'):
-                __, ext = os.path.splitext(link)
+                non_fragment = link.split('#')[0]
+                __, ext = os.path.splitext(non_fragment)
                 # If it doesn't have a suffix, it's another page
                 if not ext:
-                    #  we're targeting hugo-flavoured markdown
-                    if not ARGS.md:
-                        link = f'{{{{< relref "{link}" >}}}}'
+                    if '#' in link:
+                        link = link.replace('#', '.md#')
                     else:
-                        if '#' in link:
-                            link = link.replace('#', '.md#')
-                        else:
-                            link = link + '.md'
+                        link = link + '.md'
 
             else:
                 LOG.debug(f"Regular link: {link}")
@@ -438,10 +452,10 @@ class Translator:
                     link = self._fix_up_javadoc(link)
                 pass
         elif 'refid' in node.attrib:
-            # Anchor link
+            # Anchor link to the same page
             link = '#' + node.attrib['refid']
 
-        self.top.put_body(f']({link})')
+        self.top.put_body(self.cms.link(link, text))
 
     def visit_definition_list_item(self, node):
         # we don't really do anything with this?
@@ -501,10 +515,10 @@ class Translator:
             if self.in_tabs:
                 #  append each one in the footer so it appears beneath the 'tabs' collection, rather
                 #  than under the tab
-                self.top.put_foot(_link_new_window(os.path.basename(src), _path_to_github_url(src)))
+                self.top.put_foot(self.cms.link(_path_to_github_url(src), os.path.basename(src)))
             else:
                 # not in a collection, put it straight under the 'tab' (which) doesn't exist
-                self.top.put_body(_link_new_window(os.path.basename(src), _path_to_github_url(src)))
+                self.top.put_body(self.cms.link(_path_to_github_url(src), os.path.basename(src)))
 
     def visit_inline(self, node):
         pass
@@ -522,7 +536,7 @@ class Translator:
         self.top.put_body(self.cms.depart_tabs())
         # Gather up any source code links, and add them to the end.
         if (self.top.foot):
-            md = self.cms.image("github", "/images/svg/github.svg") + " " + " | ".join(self.top.foot) + "\n\n"
+            md = self.cms.image("/images/svg/github.svg", "github") + " " + " | ".join(self.top.foot) + "\n\n"
             self.top.body.append(md)
         # self.top.body.extend(f"*  {value}\n" for value in self.top.foot)
         self.top.foot = []
@@ -698,11 +712,11 @@ class Translator:
         LOG.debug('Not implemented line')
 
     def visit_table(self, node):
-        self.top.put_body("\n{{< table >}}\n")
+        self.top.put_body(self.cms.visit_table())
         self.push_context(TableContext())
 
     def depart_table(self, node):
-        self.top.put_body("\n{{< /table >}}\n")
+        self.top.put_body(self.cms.depart_table())
         self.pop_context()
 
     def visit_colspec(self, node):
