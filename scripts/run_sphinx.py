@@ -17,6 +17,8 @@ THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 ROOT = os.path.dirname(THIS_DIR)
 REPOS = os.path.join(ROOT, "repos")
 CONTENT = os.path.join(ROOT, "content")
+REPOS_ROOT = os.path.join(REPOS, "en/docs") # don't rely on this.
+
 LOG = logging.getLogger(__name__)
 ARGS = None
 
@@ -36,6 +38,56 @@ def _setup_logging():
 
 def _comment(s):
     return f"\n{{{{/* {s} */}}}}\n"
+
+
+def _md_image(alt, url):
+    return f'![{alt}]({url} "{alt}")'
+
+
+""" Path-to-source is based on where we checked code in the get_repos.sh script """
+def _path_to_github_url(path):
+    relpath = str(path.replace(REPOS_ROOT, ""))
+    repo = None
+    if relpath.startswith("/corda-os/"):
+        relpath = relpath.replace("/corda-os/", "release/os/")
+        repo = "corda"
+    elif relpath.startswith("/corda-enterprise/"):
+        repo = "enterprise"
+        relpath = relpath.replace("/corda-enterprise/", "release/ent/")
+    elif relpath.startswith("/cenm/"):
+        repo = "network-services"
+        relpath = relpath.replace("/cenm/", "release/")
+    else:
+        assert False, "No such repo"
+
+    return f"https://github.com/corda/{repo}/blob/{relpath}"
+
+
+def _md_link(text, url):
+    return f"[{text}]({url})"
+
+
+def _link_new_window(text, url):
+    if not ARGS.md:
+        return f'{{{{% link src="{url}" text="{text}" %}}}}'
+     
+    return f'[{text}]({url})' # + '{:target="_blank"}' for some types of md.
+
+
+def _open_tabs(idx):
+    return f'\n{{{{< tabs name="tabs-{idx}" >}}}}\n'
+
+
+def _close_tabs():
+    return "{{< /tabs >}}\n\n"
+
+
+def _open_tab(lang):
+    return f'\n{{{{% tab name="{lang}" %}}}}\n'
+
+
+def _close_tab():
+    return f'{{{{% /tab %}}}}\n'
 
 
 class Context:
@@ -188,7 +240,7 @@ class Translator:
     # Visitors
     ###########################################################################
 
-    #  Some we use, but sphinx renders into the simplified output (such as
+    #  Some we use, but sphinx renderps into the simplified output (such as
     #  plain old 'emphasis'
     #
     # https://docutils.sourceforge.io/docs/user/rst/quickref.html#definition-lists
@@ -324,16 +376,24 @@ class Translator:
     def visit_literal_block(self, node):
         lang = node.attrib.get('language', '')
         if self.in_tabs:
-            self.top.put_body(f'\n{{{{% tab name="{lang}" %}}}}\n')
+            self.top.put_body(_open_tab(lang))
         self.top.put_body(self.defs['literal_block'][0] + lang + '\n')
 
     def depart_literal_block(self, node):
         self.top.put_body('\n' + self.defs['literal_block'][1] + '\n')
         if self.in_tabs:
-            self.top.put_body(f'{{{{% /tab %}}}}\n')
+            self.top.put_body(_close_tab())
+
         if node.attrib.get('source', None):
-            comment = node.attrib['source'].replace(REPOS, '')
-            self.top.put_body(_comment(comment))
+            src = node.attrib['source']
+
+            if self.in_tabs:
+                #  append each one in the footer so it appears beneath the 'tabs' collection, rather
+                #  than under the tab
+                self.top.put_foot(_link_new_window(os.path.basename(src), _path_to_github_url(src)))
+            else:
+                # not in a collection, put it straight under the 'tab' (which) doesn't exist
+                self.top.put_body(_link_new_window(os.path.basename(src), _path_to_github_url(src)))
 
     def visit_inline(self, node):
         pass
@@ -343,11 +403,20 @@ class Translator:
 
     def visit_container(self, node):
         self.tabs_counter += 1
-        self.top.put_body(f'\n{{{{< tabs name="tabs-{self.tabs_counter}" >}}}}\n')
+        self.push_context(Context())
+        self.top.put_body(_open_tabs(self.tabs_counter))
         self.in_tabs = True
 
     def depart_container(self, node):
-        self.top.put_body("{{< /tabs >}}\n\n")
+        self.top.put_body(_close_tabs())
+        # Gather up any source code links, and add them to the end.
+        if (self.top.foot):
+            md = _md_image("github", "/images/svg/github.svg") + " " + " | ".join(self.top.foot) + "\n\n"
+            self.top.body.append(md)
+        # self.top.body.extend(f"*  {value}\n" for value in self.top.foot)
+        self.top.foot = []
+        self.pop_context()
+
         self.in_tabs = False
 
     def visit_definition_list(self, node):
@@ -888,7 +957,7 @@ def main():
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument("--toc", "-t", help="include table of contents in the page", default=False, action='store_true')
     parser.add_argument("--skip", "-s", help="skip rst conversion for speed if already done", default=False, action='store_true')
-    parser.add_argument("--md", "-g", help="generate (commonmark) markdown with fewer hugo tags", default=False, action='store_true')
+    parser.add_argument("--md", "-m", help="generate (commonmark) markdown with fewer hugo tags", default=False, action='store_true')
     ARGS = parser.parse_args()
 
     _setup_logging()
