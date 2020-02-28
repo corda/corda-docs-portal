@@ -13,8 +13,8 @@ This system allows the **confidential identity keys** to be used to sign transac
 {{< warning >}}
 When using a confidential identity, the keys are stored in the node database in plaintext. In order to prevent the exposure of private keys in the event of a security breach, we highly recommend either the use of an HSM, or that the node database be encrypted at rest.
 
-
 {{< /warning >}}
+
 
 ## Using confidential identities with an HSM
 By using an HSM, the confidential identity keys can be stored in the node database in an encrypted form. There are two supported modes for combining HSMs and confidential identities on Corda Enterprise; **wrapped** and **degraded wrapped**. Both of these modes are more secure than using confidential identities without an HSM.
@@ -72,8 +72,8 @@ Confidential identities can be used with a keystore in the node filesystem. The 
 {{< warning >}}
 This method is less secure than the degraded wrapped HSM mode, and is recommended for use in development and testing scenarios only. The encrypted private key is exposed in the node’s memory and the associated wrapping key is also stored in the node’s filesystem.
 
-
 {{< /warning >}}
+
 
 ## Configuring nodes for confidential identities
 Using an HSM with confidential identities is not enabled by default. To enable this, the node configuration file must include the `freshIdentitiesConfiguration` field.

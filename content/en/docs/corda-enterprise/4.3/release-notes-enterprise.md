@@ -45,7 +45,6 @@ Corda Enterprise 4.3 is operationally compatible with Corda (open source) 4.x an
 The compatibility and interoperability assurances apply to nodes running at the latest patch level for any given integer version.
                     For example, at the time of writing, the Corda Enterprise 4.3 interoperability and compatibility assurance is with respect to X, Y, Z.
 
-
 {{< /note >}}
 
 ### Key new features and components
@@ -134,7 +133,6 @@ For **node operators**, it is advisable to follow the instructions outlined in [
 
 {{< note >}}
 If the finance CorDapp is being used in a mixed-distribution network, the open source finance contract CorDapp should be deployed on both Corda 4.x (open source) and Corda Enterprise 4.3 nodes.
-
 
 {{< /note >}}
 Visit the [https://www.r3.com/corda-enterprise](https://www.r3.com/corda-enterprise/) for more information about Corda Enterprise.

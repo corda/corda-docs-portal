@@ -21,7 +21,6 @@ A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and an
                 reliable code that can survive node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed
                 from memory.
 
-
 {{< /note >}}
 The checkpoint tools available are:
 
@@ -43,8 +42,8 @@ Deleting checkpoints manually or via `flow kill`/`killFlow` can lead to an incon
                     and coordination with a flow’s counterparties must be taken to ensure that a initiating flow and flows responding to it are correctly
                     removed. This experience will be improved in the future. Making it easier to kill flows while notifying their counterparties.
 
-
 {{< /warning >}}
+
 To retrieve this information, execute `checkpoints dump` in the node’s shell. The command creates a zip and generates a JSON file for each flow.
 
 
@@ -197,14 +196,13 @@ To run simply pass in the following jar to the JVM used to start a Corda node: `
 As above also ensure to use the jar when using corda gradle plugin configuration tasks: e.g. `cordformation deployNodes` task.
                     See [https://docs.corda.net/head/generating-a-node.html#the-cordform-task](https://docs.corda.net/head/generating-a-node.html#the-cordform-task)
 
-
 {{< /note >}}
 
 {{< warning >}}
 This tool requires additional memory footprint and we recommended a minimal heap size of at least 1Gb.
 
-
 {{< /warning >}}
+
 The agent can be customised with a number of optional parameters described below.
 
 
@@ -242,7 +240,6 @@ These arguments are passed to the JVM along with the agent specification. For ex
 {{< note >}}
 Arguments may be passed into the agent in any order and should **not** contain spaces between them.
 
-
 {{< /note >}}
 
 ### Checkpoint Dump support
@@ -263,7 +260,6 @@ You should therefore see two different output files upon invoking the checkpoint
 You will only see a separate *checkpoints_agent-<date>.log* file if you configure a separate log4j logger as described below.
                         Otherwise all diagnostics logging will be routed to the standard Corda node log file: `node-<hostname>.log`.
 
-
 {{< /note >}}
 If you **only** wish to log checkpoint data for failing flows, start the checkpoint agent with the following arguments:
 
@@ -277,8 +273,8 @@ and use the `checkpoints dump` shell command to trigger diagnostics collection.
 The checkpoint agent JAR file must be called “checkpoint-agent.jar” as the checkpoint dump support code uses Java reflection to
                         determine whether the VM has been instrumented or not at runtime.
 
-
 {{< /warning >}}
+
 
 ### Logging configuration
 The agent will log output to a log4j2 configured logger.
@@ -294,8 +290,8 @@ It is recommended to configure a separate log file to capture this information b
 {{< warning >}}
 You must specify “CheckpointAgent” as the logger name.
 
-
 {{< /warning >}}
+
 In this instance we are specifying a Rolling File appender with archival rotation as follows:
 
 ```xml
@@ -397,7 +393,6 @@ Note that “In progress” indicates the flows above have not completed (and wi
 
 {{< note >}}
 Always search for the flow id, in this case **90613d6f-be78-41bd-98e1-33a756c28808**
-
 
 {{< /note >}}
 

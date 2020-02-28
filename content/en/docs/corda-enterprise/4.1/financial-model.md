@@ -24,7 +24,6 @@ Fungible is used here to mean that instances of an asset is interchangeable for 
                     and that they can be split/merged. For example a £5 note can reasonably be exchanged for any other £5 note, and
                     a £10 note can be exchanged for two £5 notes, or vice-versa.
 
-
 {{< /note >}}
 Here are some examples:
 

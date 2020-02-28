@@ -24,7 +24,6 @@ By default, nodes use an H2 database which is accessed using *Java Database Conn
                 with a JDBC driver is a candidate and several integrations have been contributed to by the community.
                 Please see the info in “[Node database](node-database.md)” for details.
 
-
 {{< /note >}}
 
 ## Schemas
@@ -145,7 +144,6 @@ It’s advisable to avoid cross-references between different schemas as this may
                     or migrating its data. At startup, nodes log such violations as warnings stating that there’s a cross-reference between `MappedSchema`’s.
                     The detailed messages incorporate information about what schemas, entities and fields are involved.
 
-
 {{< /note >}}
 `MappedSchema` offer a family name that is disambiguated using Java package style name-spacing derived from the
                 class name of a *schema family* class that is constant across versions, allowing the `SchemaService` to select a
@@ -162,7 +160,6 @@ It is intended that there should be plugin support for the `SchemaService` to of
                     and simply results in all versions of all schemas supported by a `QueryableState` being persisted.
                     This will change in due course. Similarly, the service does not currently support
                     configuring `SchemaOptions` but will do so in the future.
-
 
 {{< /note >}}
 
@@ -182,7 +179,6 @@ For testing purposes it is necessary to manually register the packages containin
 
 {{< note >}}
 Tests using the *DriverDSL* will automatically register your custom schemas if they are in the same project structure as the driver call.
-
 
 {{< /note >}}
 
@@ -267,7 +263,6 @@ If Cordapp needs to be portable between Corda OS (running against H2) and Corda 
                     consider database vendors specific requirements.
                     Ensure that table and column names are compatible with the naming convention of the database vendors for which the Cordapp will be deployed,
                     e.g. for Oracle database, prior to version 12.2 the maximum length of table/column name is 30 bytes (the exact number of characters depends on the database encoding).
-
 
 {{< /note >}}
 
@@ -601,8 +596,7 @@ In addition to `jdbcSession`, `ServiceHub` also exposes the Java Persistence API
 > Your entity must be included as a mappedType as part of a `MappedSchema` for it to be added to Hibernate
 >                         as a custom schema. If it’s not included as a mappedType, a corresponding table will not be created. See Samples below.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 The code snippet below defines a `PersistentFoo` type inside `FooSchemaV1`. Note that `PersistentFoo` is added to
                 a list of mapped types which is passed to `MappedSchema`. This is exactly how state schemas are defined, except that
                 the entity in this case should not subclass `PersistentState` (as it is not a state object). See examples:

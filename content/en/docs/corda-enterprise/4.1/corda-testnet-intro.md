@@ -28,7 +28,6 @@ This will create an account with the Testnet on-boarding application which will 
 {{< note >}}
 Testnet is currently invitation only. If your request is approved you will receive an email. Please fill in as many details as possible as it helps us prioritise requests. The approval process will take place daily by a member of the r3 operations team reviewing all invite requests and making a decision based on current rate of onboarding of new customers.
 
-
 {{< /note >}}
 ![testnet form](resources/testnet-form.png "testnet form")Once you have been approved, navigate to [https://testnet.corda.network](https://testnet.corda.network) and click on “I have an invitation”.
 
@@ -39,7 +38,6 @@ Sign in using either your email address and password, or “Sign in with Google�
 ![testnet signin auth](resources/testnet-signin-auth.png "testnet signin auth")
 {{< note >}}
 At this point you may need to verify your email address is valid (if you are not using a Gmail address). If prompted check your email and click on the link to validate then return to the sign in page and sign in again.
-
 
 {{< /note >}}
 Next agree to the terms of service:
@@ -55,7 +53,6 @@ Hosting a Corda node locally is possible but will require manually configuring f
 
 {{< note >}}
 If you host your node on your own machine or a corporate server you must ensure it is reachable from the public internet at a specific IP address. Please follow the instructions here: [<no title>](deploy-locally.md).
-
 
 {{< /note >}}
 

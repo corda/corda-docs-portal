@@ -44,6 +44,6 @@ Corda Enterprise provides a highly available notary service implementation backe
 {{< warning >}}
 Upgrading an existing single-node notary to be highly available is currently unsupported.
 
-
 {{< /warning >}}
+
 

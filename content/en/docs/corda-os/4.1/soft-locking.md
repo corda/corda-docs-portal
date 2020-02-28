@@ -17,7 +17,6 @@ Soft locks are automatically applied to coin selection (eg. cash spending) to en
 The Cash Contract schema table is now automatically generated upon node startup as Coin Selection now uses
                 this table to ensure correct locking and selection of states to satisfy minimum requested spending amounts.
 
-
 {{< /note >}}
 Soft locks are also automatically applied within flows that issue or receive new states.
             These states are effectively soft locked until flow termination (exit or error) or by explicit release.

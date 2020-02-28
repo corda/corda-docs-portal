@@ -24,7 +24,6 @@ Please note that CockroachDB is not supported by the Corda Database Management T
                     be possible to setup a CockroachDB database schema using the Corda Database Management Tool, neither will it be
                     possible to upgrade an existing schema to a newer version using the tool.
 
-
 {{< /note >}}
 
 ### Using the Corda Database Management Tool
@@ -50,7 +49,6 @@ Use the `dry-run` command to generate SQL scripts which could be inspected prior
 Creating the schema manually and then switching to using the Corda Database Management Tool is not supported. We
                         recommend that one method of creating the schema be selected from the start and that this method should then be used for
                         the lifetime of the notary.
-
 
 {{< /note >}}
 

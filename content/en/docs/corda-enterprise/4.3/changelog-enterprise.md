@@ -33,8 +33,8 @@ The `corda-bridgserver.jar` has been renamed to `corda-firewall.jar` to be more 
                     This will not be a breaking change for early adopters and their deployments, as new version of software can still consume
                     old style configs and produce a meaningful warning.
 
-
 {{< /warning >}}
+
 
 * The experimental BFT-Smart notary implementation has been deprecated – a fully supported BFT implementation is under development.
 
@@ -113,7 +113,6 @@ The `corda-bridgserver.jar` has been renamed to `corda-firewall.jar` to be more 
 {{< note >}}
 Whilst this is not the latest version of this library, that being 2.18.1 at time of writing, versions
                             later than 2.12.3 (including 2.12.4) exhibit a different issue.
-
 
 {{< /note >}}
 

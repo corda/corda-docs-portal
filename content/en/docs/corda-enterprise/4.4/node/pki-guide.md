@@ -130,6 +130,5 @@ To simplify things even more, the PKI Tool assumes default values as much as pos
 {{< note >}}
 To learn more about running the tool, see pki-tool.
 
-
 {{< /note >}}
 

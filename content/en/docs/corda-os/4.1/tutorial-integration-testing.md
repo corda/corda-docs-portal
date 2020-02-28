@@ -17,7 +17,6 @@ In this tutorial we will bring up three nodes - Alice, Bob and a notary. Alice w
 This example where Alice is self-issuing cash is purely for demonstration purposes, in reality, cash would be
                 issued by a bank and subsequently passed around.
 
-
 {{< /note >}}
 In order to spawn nodes we will use the Driver DSL. This DSL allows one to start up node processes from code. It creates
             a local network where all the nodes see each other and provides safe shutting down of nodes in the background.
@@ -93,7 +92,6 @@ The above code starts two nodes:
 You will notice that we did not start a notary. This is done automatically for us by the driver - it creates
                 a notary node with the name `DUMMY_NOTARY_NAME` which is visible to both nodes. If you wish to customise this, for
                 example create more notaries, then specify the `DriverParameters.notarySpecs` parameter.
-
 
 {{< /note >}}
 The `startNode` function returns a `CordaFuture` object that completes once the node is fully started and visible on
@@ -282,6 +280,5 @@ To make sure the driver classes are included in your project you will need the f
 ```groovy
 testCompile "$corda_release_group:corda-node-driver:$corda_release_version"
 ```
-
 {{< /note >}}
 

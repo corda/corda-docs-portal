@@ -98,7 +98,6 @@ These setup instructions will guide you on how to install the Oracle JDK. Each J
 * [Zulu OpenJDK](https://www.azul.com/downloads/zulu/)
 
 
-
 {{< /note >}}
 
 {{< note >}}
@@ -117,7 +116,6 @@ These setup instructions will guide you on how to install the Oracle JDK. Each J
 * [Zulu OpenJDK](https://www.azul.com/downloads/zulu/)
 
 
-
 {{< /note >}}
 
 ## Windows
@@ -125,8 +123,8 @@ These setup instructions will guide you on how to install the Oracle JDK. Each J
 {{< warning >}}
 If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac](#mac-label), deb-ubuntu-label or [Fedora](#fedora-label) instructions instead.
 
-
 {{< /warning >}}
+
 
 ### Java
 
@@ -222,7 +220,6 @@ Upon receiving the binaries, the quickest way to get started developing your Cor
                         be done by firstly unpacking the `corda-3.1-developer-pack.tar.gz` compressed tarball. Then, copy the unpacked
                         `respository` folder to your local Maven repository located at `C:\Documents and Settings\{your-username}\.m2`.
 
-
 {{< /note >}}
 
 ### Run from the command prompt
@@ -255,8 +252,8 @@ Upon receiving the binaries, the quickest way to get started developing your Cor
 {{< warning >}}
 If you click `Import Project` instead of `Open`, the project’s run configurations will be erased!
 
-
 {{< /warning >}}
+
 
 * Once the project is open, click `File`, then `Project Structure`. Under `Project SDK:`, set the project SDK by
                             clicking `New...`, clicking `JDK`, and navigating to `C:\\Program Files\\Java\\jdk1.8.0_XXX` (where `XXX` is
@@ -288,8 +285,8 @@ If you click `Import Project` instead of `Open`, the project’s run configurati
 {{< warning >}}
 If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the windows-label, deb-ubuntu-label or [Fedora](#fedora-label) instructions instead.
 
-
 {{< /warning >}}
+
 
 ### Java
 
@@ -365,7 +362,6 @@ To build CorDapps on development machines the Corda Enterprise binaries will nee
 {{< note >}}
 Upon receiving the binaries, the quickest way to get started developing your CorDapps is **option a**. This can
 
-
 {{< /note >}}
 be done by firstly unpacking the `corda-3.1-developer-pack.tar.gz` compressed tarball:
 
@@ -414,8 +410,8 @@ be done by firstly unpacking the `corda-3.1-developer-pack.tar.gz` compressed ta
 {{< warning >}}
 If you click `Import Project` instead of `Open`, the project’s run configurations will be erased!
 
-
 {{< /warning >}}
+
 
 * Once the project is open, click `File`, then `Project Structure`. Under `Project SDK:`, set the project SDK by
                             clicking `New...`, clicking `JDK`, and navigating to your JDK installation (e.g., `/Library/Java/JavaVirtualMachines/jdk1.8.0_XXX.jdk`, where `XXX` is
@@ -463,8 +459,8 @@ You can clone these repos to your local machine by running the command `git clon
 {{< warning >}}
 If you are using a Mac, Windows or Fedora machine, please follow the [Mac](#mac-label), windows-label or [Fedora](#fedora-label) instructions instead.
 
-
 {{< /warning >}}
+
 These instructions were tested on Ubuntu Desktop 18.04 LTS.
 
 
@@ -542,8 +538,8 @@ Jetbrains offers a pre-built snap package that allows for easy, one-step install
 {{< warning >}}
 If you are using a Mac, Windows or Debian/Ubuntu machine, please follow the [Mac](#mac-label), windows-label or deb-ubuntu-label instructions instead.
 
-
 {{< /warning >}}
+
 These instructions were tested on Fedora 28.
 
 

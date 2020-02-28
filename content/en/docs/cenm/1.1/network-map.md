@@ -112,7 +112,6 @@ Depending on the configuration of your deployment the host may be different to t
                         may need to be the private IP address, whilst external nodes would use the machines external IP/DNS name to
                         connect to Network Map.
 
-
 {{< /note >}}
 
 ### Database
@@ -157,7 +156,6 @@ database {
 Due to the way the migrations are defined, if the Identity Manager and Network Map services are using the same
                             DB instance then they *must* use separate DB schemas. For more information regarding the supported databases
                             along with the schema see [CENM Databases](database-set-up.md).
-
 
 {{< /note >}}
 
@@ -294,7 +292,6 @@ checkRevocation = true
 Enabling this option requires communication with the Revocation service to be configured (See
                         [Identity Manager & Revocation Communication](#identity-manager-revocation-communication) below)
 
-
 {{< /note >}}
 
 ### ENM Internal Server
@@ -315,12 +312,10 @@ enmListener {
 {{< note >}}
 This parameter can be omitted if desired, in which case it will default to port 5050 with `reconnect = true`.
 
-
 {{< /note >}}
 
 {{< note >}}
 All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL](enm-with-ssl.md).
-
 
 {{< /note >}}
 
@@ -330,8 +325,8 @@ All inter-service communication can be configured with SSL support. See [Configu
 Private network functionality is an internal feature that is being deprecated. Running a network with one
                         or more private networks is not a supported configuration.
 
-
 {{< /warning >}}
+
 The Network Map service may need to speak to both the Identity Manager and Revocation services. For example, the Network
                     Map service may need to communicate with the Identity Manager service for private network functionality, and with the
                     Revocation service for CRL related information.
@@ -339,7 +334,6 @@ The Network Map service may need to speak to both the Identity Manager and Revoc
 
 {{< note >}}
 Identity Manager communication **must** be set if `privateNetworkAutoEnrolment` is true.
-
 
 {{< /note >}}
 This is configured via the `identityManager` and `revocation` configuration options within the `networkMap`
@@ -365,7 +359,6 @@ The `host` should correspond to the host part of the `address` value in the Iden
 {{< note >}}
 All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL](enm-with-ssl.md)
 
-
 {{< /note >}}
 
 ### Restricting A Node’s Corda Version (optional)
@@ -383,7 +376,6 @@ This serves a similar purpose to the *minimumPlatformVersion* within the network
                         network, after obtaining a certificate from the Identity Manager, so this option provides another gate of
                         security and peace of mind to the network operator.
 
-
 {{< /note >}}
 ```guess
 ...
@@ -397,13 +389,11 @@ versionInfoValidation {
 Sending of version info during registration was added to Corda OS in release version 3.3. Using this approach
                         with a minimum version less than this will not work unless the nodes are running a modified code base.
 
-
 {{< /note >}}
 
 {{< note >}}
 The minimum version configuration options should, in general, be kept consistent between the Identity Manager
                         and Network Map service
-
 
 {{< /note >}}
 

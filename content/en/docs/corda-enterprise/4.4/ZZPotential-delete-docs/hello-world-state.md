@@ -48,7 +48,6 @@ If you do want to dive into Kotlin, there’s an official
                     [getting started guide](https://kotlinlang.org/docs/tutorials/), and a series of
                     [Kotlin Koans](https://kotlinlang.org/docs/tutorials/koans.html).
 
-
 {{< /note >}}
 
 ## Modelling IOUs

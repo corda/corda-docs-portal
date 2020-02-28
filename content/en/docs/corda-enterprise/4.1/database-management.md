@@ -163,8 +163,8 @@ A very important aspect to be remembered is that the CorDapp will have to work o
                     It is the responsibility of the developers to test the migration scripts and the CorDapp against all the databases.
                     In the future we will provide additional tooling to assist with this aspect.
 
-
 {{< /warning >}}
+
 When developing a new version of an existing CorDapp, depending on the changes to the `PersistentEntities`, a
                 changelog will have to be created as per the Liquibase documentation and the example above.
 

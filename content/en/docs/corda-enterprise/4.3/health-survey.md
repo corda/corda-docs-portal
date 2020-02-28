@@ -72,12 +72,10 @@ The Corda Health Survey is designed to perform connectivity and configuration ch
 {{< note >}}
 HA Corda Node deployments are not currently supported (the required checks should run but the results will be incomplete or inconsistent).
 
-
 {{< /note >}}
 
 {{< note >}}
 The Corda Health Survey is designed to help operators with initial setup of a Node; it is not meant to be used as an ongoing monitoring tool.
-
 
 {{< /note >}}
 

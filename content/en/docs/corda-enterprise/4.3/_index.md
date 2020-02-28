@@ -82,7 +82,6 @@ You can learn more about all new features in the [Enterprise](release-notes-ente
 {{< note >}}
 You can read this site offline by [downloading the PDF](_static/corda-developer-site.pdf).
 
-
 {{< /note >}}
 Corda Enterprise is binary compatible with apps developed for the open source node. This docsite is intended for
             administrators and advanced users who wish to learn how to install and configure an enterprise deployment. For
@@ -91,7 +90,6 @@ Corda Enterprise is binary compatible with apps developed for the open source no
 
 {{< note >}}
 Corda Enterprise provides platform API version 4, which matches the API available in open source Corda 4.x releases.
-
 
 {{< /note >}}
 

@@ -39,7 +39,6 @@ The *float* component refers to the inbound socket listener, packet filtering an
 {{< note >}}
 All deployment modes of the bridge, float, or all-in-one node are transparently interoperable, if correctly configured.
 
-
 {{< /note >}}
 
 ## Message path between peer nodes
@@ -137,7 +136,6 @@ When a flow within a node needs to send a message to a peer there is a carefully
 That the message reply path is not via the inbound path, but instead is via a separately validated route
                             from the local bridge to the original node’s float and then on to the original node via Artemis.
 
-
 {{< /note >}}
 
 
@@ -189,8 +187,7 @@ In this mode it is possible to host both of the processes on the same machine. T
 >                                 the embedded Artemis P2P broker can be set to listen on a different port rather than the advertised `p2paddress` port.
 >                                 Then configure an all-in-one bridge to point at this node’s `messagingServerAddress`:
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 ![simple bridge](node/../resources/bridge/node_bridge/simple_bridge.png "simple bridge")
 #### node.conf
 ```javascript
@@ -252,7 +249,6 @@ This is a more complete deployment which includes a DMZ and separate processes f
 Note that whilst the bridge needs access to the official TLS private
                             key, the tunnel link should use a private set of link specific keys and certificates. The float will be provisioned
                             dynamically with the official TLS key when activated via the tunnel and this key will never be stored in the DMZ:
-
 
 {{< /note >}}
 ![node bridge float](node/../resources/bridge/node_bridge_float/node_bridge_float.png "node bridge float")
@@ -519,7 +515,6 @@ Requirements below only relate to “in-house” set of services hosted by a nod
                             and from Foreign Node to Float are done over WAN over which the node operator does not have direct control. Therefore, connectivity from
                             from Bridge to Foreign node and from Foreign Node to Float are out of scope for the requirements below.
 
-
 {{< /note >}}
 More specifically, in order to ensure optimal performance it is required:
 
@@ -690,7 +685,6 @@ Detailed setup instruction for Apache Artemis can be found in [Apache Artemis do
 {{< note >}}
 To run Apache Artemis you can use: `cd artemis && bin/artemis run`
 
-
 {{< /note >}}
 We have tested Corda against Apache Artemis v2.6.2 and RedHat amq broker v7.2.2, it is recommended to use these Artemis versions with Corda.
 
@@ -708,7 +702,6 @@ Detailed setup instruction can be found in [Apache ZooKeeper documentation](http
 
 {{< note >}}
 Only Apache ZooKeeper version 3.5.4-beta is compatible due to Apache Curator v4.2.0 dependencies.
-
 
 {{< /note >}}
 
@@ -749,14 +742,12 @@ HA Utilities tool been extended such that during initial generation of TLS keys 
 {{< note >}}
 Even though Corda Firewall has a facility to store Artemis private key in HSM, out-of-process Artemis and Corda Node do not yet have facility to store their private keys on HSM.
 
-
 {{< /note >}}
 
 {{< note >}}
 Since tunnel is an internal communication channel between Bridge and Float secured by self-signed certificate using custom trust root,
                     there is little benefit in protecting private keys for this particular communication channel using HSM. Also this would require to have `Float` (a DMZ side component) to be connecting to HSM, which might
                     be undesired given that `Float` is an externally-facing component and will be on a forefront should an adversary decides to attack Corda Firewall.
-
 
 {{< /note >}}
 

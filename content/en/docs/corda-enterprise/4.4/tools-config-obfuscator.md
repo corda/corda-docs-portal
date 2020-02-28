@@ -14,7 +14,6 @@ The purpose of this tool is to obfuscate sensitive information in configuration 
 The tool makes node installation less vulnerable to someone trawling plain text files searching for passwords and
                 credentials of resources that they should not have access to in the first place.
 
-
 {{< /note >}}
 
 {{< warning >}}
@@ -23,8 +22,8 @@ This feature will not make password protection completely secure. However, it wi
 
 It is also recommended to use the most up to date version of this tool for improved security.
 
-
 {{< /warning >}}
+
 
 ## Using the command-line tool
 The command-line tool is included as a JAR file, named `corda-tools-config-obfuscator-<version>.jar`.
@@ -36,8 +35,8 @@ The command-line tool is included as a JAR file, named `corda-tools-config-obfus
 For backwards compatibility reasons, the seed and passphrase have default values and can be omitted.
                     However, to gain the benefits of obfuscated configuration files, the seed and passphrase must be set.
 
-
 {{< /warning >}}
+
 ```bash
 config-obfuscator [-hiV] [--config-obfuscation-passphrase[=<cliPassphrase>]]
                   [--config-obfuscation-seed[=<cliSeed>]] [-w[=<writeToFile>]]
@@ -101,14 +100,13 @@ Note also that `HARDWARE_ADDRESS` is optional.
 {{< note >}}
 The tool works on both HOCON and JSON files. Include directives (i.e. `include "other.conf"`) are not followed by the tool. If you wish to obfuscate fields in multiple files, you will need to run the tool against each file individually. The node will de-obfuscate the included files automatically.
 
-
 {{< /note >}}
 
 {{< warning >}}
 The Corda Enterprise Network Manager ([https://docs.cenm.r3.com/](https://docs.cenm.r3.com/)) does not currently support obfuscated configurations.
 
-
 {{< /warning >}}
+
 
 ## Configuration directives
 To indicate parts of the configuration that should be obfuscated, we can place text markers on the form

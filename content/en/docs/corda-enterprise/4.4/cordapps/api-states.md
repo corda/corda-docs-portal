@@ -408,8 +408,8 @@ Currently, encumbrances should not be used with reference states. In the case wh
                     encumbered state may take on a different meaning, and likely would do, once the encumbrance state
                     is taken into account.
 
-
 {{< /warning >}}
+
 
 ## State Pointers
 A `StatePointer` contains a pointer to a `ContractState`. The `StatePointer` can be included in a `ContractState` as a

@@ -10,7 +10,6 @@ date: 2020-01-08T09:59:25Z
 {{< note >}}
 Before reading this page, you should be familiar with the key concepts of [Contracts](key-concepts-contracts.md).
 
-
 {{< /note >}}
 
 ## Reasons for Contract Constraints
@@ -123,7 +122,6 @@ If the app is signed, Signature Constraints will be used by default (in most sit
 Signature Constraints are used by default except when a new transaction contains an input state with a Hash Constraint. In this
                         situation the Hash Constraint is used.
 
-
 {{< /note >}}
 
 ### App versioning with Signature Constraints
@@ -156,8 +154,8 @@ The Java system property `-Dnet.corda.node.disableHashConstraints="true"` may be
 {{< warning >}}
 This flag should remain enabled until every hash constrained state is exited from the ledger.
 
-
 {{< /warning >}}
+
 
 ## Contract/State Agreement
 Starting with Corda 4, a `ContractState` must explicitly indicate which `Contract` it belongs to. When a transaction is
@@ -302,8 +300,8 @@ The obvious way to write a CorDapp is to put all you states, contracts, flows an
                     app into multiple modules: one which contains just states, contracts and core data types. And another which contains
                     the rest of the app. See [Modules](writing-a-cordapp.md#cordapp-structure).
 
-
 {{< /warning >}}
+
 
 ## Constraints propagation
 As was mentioned above, the `TransactionBuilder` API gives the CorDapp developer or even malicious node owner the possibility

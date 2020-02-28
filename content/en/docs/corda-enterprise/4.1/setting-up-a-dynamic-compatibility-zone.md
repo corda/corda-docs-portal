@@ -58,7 +58,6 @@ In this way you can impose a centrally controlled ACL that all members will coll
 {{< note >}}
 A production-ready Corda network and a new iteration of the testnet will be available soon.
 
-
 {{< /note >}}
 
 ## Why create your own zone?

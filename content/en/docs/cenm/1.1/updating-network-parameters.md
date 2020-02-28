@@ -41,7 +41,6 @@ Typical update process is as follows:
 > Currently only backwards compatible changes to the network parameters can be made, i.e. notaries can’t be
 >                                     removed (eg. they will be always added to the existing list), max transaction size can only increase, etc.
 > 
-> 
 > {{< /note >}}
 > Upon success the process will exit. Not that as the Network Map service is up and running again, nothing will be
 >                                 sent to the nodes yet.
@@ -71,12 +70,10 @@ Typical update process is as follows:
 All nodes will currently shutdown regardless of acceptance as there is currently no hotswapping of Network
                         Parameters within a node.
 
-
 {{< /note >}}
 
 {{< note >}}
 A flag day cannot be issued *before* the `updateDeadline` has passed. Therefore this should be chosen carefully.
-
 
 {{< /note >}}
 

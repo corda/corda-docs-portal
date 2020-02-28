@@ -11,8 +11,8 @@ date: 2020-01-08T09:59:25Z
 Customising a notary service is still an experimental feature and not recommended for most use-cases. The APIs
                 for writing a custom notary may change in the future.
 
-
 {{< /warning >}}
+
 The first step is to create a service class in your CorDapp that extends the `NotaryService` abstract class.
             This will ensure that it is recognised as a notary service.
             The custom notary service class should provide a constructor with two parameters of types `ServiceHubInternal` and `PublicKey`.

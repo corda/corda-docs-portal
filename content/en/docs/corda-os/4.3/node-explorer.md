@@ -12,7 +12,6 @@ To run Node Explorer on your machine, you will need JavaFX for Java 8. If you do
                 build, like the one offered by Zulu. They have community builds of OpenJFX for Window, macOS and Linux
                 available on their [website](https://www.azul.com/downloads/zulu/zulufx/).
 
-
 {{< /note >}}
 The node explorer provides views into a node’s vault and transaction data using Corda’s RPC framework.
             The user can execute cash transaction commands to issue and move cash to other parties on the network or exit cash (eg. remove from the ledger)
@@ -34,7 +33,6 @@ gradlew.bat tools:explorer:run
 In order to connect to a given node, the node explorer must have access to all CorDapps loaded on that particular node.
                     By default, it only has access to the finance CorDapp.
                     All other CorDapps present on the node must be copied to a `cordapps` directory located within the directory from which the node explorer is run.
-
 
 {{< /note >}}
 
@@ -78,7 +76,6 @@ The Node Explorer is also available as a stand-alone JavaFX application. It is
 
 {{< note >}}
 Use the Explorer in conjunction with the Trader Demo and Bank of Corda samples to use other *Issuer* nodes.
-
 
 {{< /note >}}
 
@@ -139,7 +136,6 @@ User can configure the client preference in this view.
 
 {{< note >}}
 Although the reporting currency is configurable, FX conversion won’t be applied to the values as we don’t have an FX service yet.
-
 
 {{< /note >}}
 ![settings](resources/explorer/settings.png "settings")

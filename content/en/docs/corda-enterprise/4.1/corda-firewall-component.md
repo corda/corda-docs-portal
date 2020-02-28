@@ -41,7 +41,6 @@ The *float* component refers to the inbound socket listener, packet filtering an
 {{< note >}}
 All deployment modes of the bridge, float, or all-in-one node are transparently interoperable, if correctly configured.
 
-
 {{< /note >}}
 
 ## Message path between peer nodes
@@ -139,7 +138,6 @@ When a flow within a node needs to send a message to a peer there is a carefully
 That the message reply path is not via the inbound path, but instead is via a separately validated route
                             from the local bridge to the original node’s float and then on to the original node via Artemis.
 
-
 {{< /note >}}
 
 
@@ -186,8 +184,7 @@ The next simplest deployment is to turn off the built in bridge using the `exter
 >                                 the embedded Artemis P2P broker can be set to listen on a different port rather than the advertised `p2paddress` port.
 >                                 Then configure an all-in-one bridge to point at this node’s `messagingServerAddress`:
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 ![simple bridge](resources/bridge/node_bridge/simple_bridge.png "simple bridge")
 #### node.conf
 ```javascript
@@ -248,7 +245,6 @@ To familiarize oneself with the a more complete deployment including a DMZ and s
 Note that whilst the bridge needs access to the official TLS private
                             key, the tunnel link should use a private set of link specific keys and certificates. The float will be provisioned
                             dynamically with the official TLS key when activated via the tunnel and this key will never be stored in the DMZ:
-
 
 {{< /note >}}
 ![node bridge float](resources/bridge/node_bridge_float/node_bridge_float.png "node bridge float")
@@ -659,7 +655,6 @@ Detailed setup instruction for Apache Artemis can be found in [Apache Artemis do
 {{< note >}}
 To run Apache Artemis you can use: `cd artemis && bin/artemis run`
 
-
 {{< /note >}}
 We have tested Corda against Apache Artemis v2.6.2 and RedHat amq broker v7.2.2, it is recommended to use these Artemis versions with Corda.
 
@@ -677,7 +672,6 @@ Detailed setup instruction can be found in [Apache ZooKeeper documentation](http
 
 {{< note >}}
 Only Apache ZooKeeper version 3.5.4-beta is compatible due to Apache Curator v4.2.0 dependencies.
-
 
 {{< /note >}}
 

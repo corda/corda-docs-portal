@@ -53,7 +53,6 @@ One thing to note is that the binary blob may contain embedded `SerializedBytes`
                     see this when dealing with classes such as `SignedData` or other structures that attach a signature, such as the
                     `nodeInfo-*` files or the `network-parameters` file in the node’s directory.
 
-
 {{< /note >}}
 
 ## Example

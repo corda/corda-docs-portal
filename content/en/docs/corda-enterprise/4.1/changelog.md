@@ -635,7 +635,6 @@ The only exception to this is `Interpolator` and related classes. These are now 
 {{< note >}}
 Whilst this is not the latest version of this library, that being 2.18.1 at time of writing, versions
 
-
 {{< /note >}}
 
 later than 2.12.3 (including 2.12.4) exhibit a different issue.
@@ -1295,8 +1294,8 @@ Fixed some issues in IRS demo:
 {{< warning >}}
 Renamed configuration property key *basedir* to *baseDirectory*. This will require updating existing configuration files.
 
-
 {{< /warning >}}
+
 
 * Removed deprecated parts of the API.
 
@@ -1776,8 +1775,8 @@ The certificate hierarchy has been changed in order to allow corda node to sign 
 {{< warning >}}
 The old keystore will need to be removed when upgrading to this version.
 
-
 {{< /warning >}}
+
 
 ## Milestone 11.1
 
@@ -1881,8 +1880,8 @@ Special thank you to [Qian Hong](https://github.com/fracting), [Marek Skocovsky]
 {{< warning >}}
 Due to incompatibility between older version of IntelliJ and gradle 3.4, you will need to upgrade Intellij
 
-
 {{< /warning >}}
+
 
 
 to 2017.1 (with kotlin-plugin v1.1.1) in order to run Corda demos in IntelliJ. You can download the latest IntelliJ
@@ -1892,8 +1891,8 @@ from [JetBrains](https://www.jetbrains.com/idea/download/).
 {{< warning >}}
 The Kapt-generated models are no longer included in our codebase. If you experience `unresolved references`
 
-
 {{< /warning >}}
+
 
 
 errors when building in IntelliJ, please rebuild the schema model by running `gradlew kaptKotlin` in Windows or
@@ -1902,7 +1901,6 @@ errors when building in IntelliJ, please rebuild the schema model by running `gr
 
 {{< note >}}
 Kapt is used to generate schema model and entity code (from annotations in the codebase) using the Kotlin Annotation
-
 
 {{< /note >}}
 processor.

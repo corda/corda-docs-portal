@@ -131,6 +131,5 @@ CENM version 1.2+ supports setting of a notary within the network parameters sol
                         at least one worker node needs to be registered first, and the resulting signed node info file should be copied over the to the Network
                         Map service.
 
-
 {{< /note >}}
 

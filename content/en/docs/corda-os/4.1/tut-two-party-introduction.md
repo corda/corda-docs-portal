@@ -9,7 +9,6 @@ date: 2020-01-08T09:59:25Z
 {{< note >}}
 This tutorial extends the CorDapp built during the [Hello, World tutorial](hello-world-introduction.md).
 
-
 {{< /note >}}
 In the Hello, World tutorial, we built a CorDapp allowing us to model IOUs on ledger. Our CorDapp was made up of two
             elements:

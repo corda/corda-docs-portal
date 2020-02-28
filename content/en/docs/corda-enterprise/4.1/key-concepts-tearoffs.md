@@ -17,7 +17,6 @@ date: 2020-01-08T09:59:25Z
 
 
 {{< /topic >}}
-
 ## Overview
 There are cases where some of the entities involved on the transaction could only have partial visibility on the
                 transaction parts. For instance, when an oracle should sign a transaction, the only information it needs to see is their

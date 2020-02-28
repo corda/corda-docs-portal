@@ -76,7 +76,6 @@ Any CorDapps provided when bootstrapping a network will be scanned for contracts
 {{< note >}}
 If you only wish to whitelist the CorDapps but not copy them to each node then run with the `--copy-cordapps=No` option.
 
-
 {{< /note >}}
 The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` [network map](../network-map.html)).
 
@@ -160,7 +159,6 @@ The Network Bootstrapper is provided for test deployments and can only generate 
                         the same machine. If a network needs to be updated using the Bootstrapper once deployed, the nodes will need
                         collecting back together.
 
-
 {{< /note >}}
 
 ## Modifying the network parameters
@@ -194,7 +192,6 @@ The network parameter overrides file is a HOCON file with the following fields, 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
                         variable `KEY_STORE_PASSWORD`. See: corda-configuration-hiding-sensitive-data .
-
 
 {{< /note >}}
 The available configuration fields are listed below:
@@ -264,7 +261,6 @@ Package namespace ownership is a Corda feature that allows a compatibility zone 
 {{< note >}}
 Read more about [package ownership](../design/data-model-upgrades/package-namespace-ownership.html).
 
-
 {{< /note >}}
 A Java package namespace is case insensitive and cannot be a sub-package of an existing registered namespace. See [Naming a Package](https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html) and [Naming Conventions](https://www.oracle.com/technetwork/java/javase/documentation/codeconventions-135099.html#28840forguidelinesandconventions) for guidelines on naming conventions.
 
@@ -296,7 +292,6 @@ Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an exam
 
 {{< note >}}
 You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).
-
 
 {{< /note >}}
 

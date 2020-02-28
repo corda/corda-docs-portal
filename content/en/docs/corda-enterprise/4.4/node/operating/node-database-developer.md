@@ -66,8 +66,8 @@ Variants of Data Definition Language (DDL) scripts to are provided for each supp
 {{< warning >}}
 Each Corda node needs to use a separate database user and schema where multiple nodes are hosted on the same database instance.
 
-
 {{< /warning >}}
+
 
 {{< note >}}
 For developing and testing the node using the Gradle plugin `Cordform` `deployNodes` task you need to create
@@ -76,7 +76,6 @@ For developing and testing the node using the Gradle plugin `Cordform` `deployNo
                         Remember to cleanup the database if required as part of the testing cycle.
                         The above restrictions do not apply to the default H2 database as the relevant database data file is
                         re-created during each `deployNodes` run.
-
 
 {{< /note >}}
 Creating database user with schema permissions for:
@@ -417,8 +416,7 @@ You can optionally check if a CorDapp which is expected to store data in custom 
 > It is possible that a CorDapp is shipped without a database migration script when it should contain one.
 >                         Liquibase database migration scripts for CorDapps are not used when a node runs with the default embeeded H2 database.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 ## Database schema update when upgrading a CorDapp
 When an upgraded CorDapp contains a requires a database schema changes, the

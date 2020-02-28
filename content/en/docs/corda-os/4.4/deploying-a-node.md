@@ -11,7 +11,6 @@ These instructions are intended for people who want to deploy a Corda node to a 
                 whether they have developed and tested a CorDapp following the instructions in [Creating nodes locally](generating-a-node.md)
                 or are deploying a third-party CorDapp.
 
-
 {{< /note >}}
 
 {{< note >}}
@@ -20,7 +19,6 @@ When deploying multiple nodes in parallel the package tool (Capsule) that Corda 
                 location.  In these cases it is recommended to set the environment variable `CAPSULE_CACHE_DIR` which
                 will allow the Capsule to maintain a separate cache for each node.  This is used in the example descriptions
                 below. See the [Capsule documentation](http://www.capsule.io) for more details.
-
 
 {{< /note >}}
 
@@ -114,7 +112,6 @@ Ubuntu 16.04 and most current Linux distributions use SystemD, so if you are run
                     distributions follow the steps marked **SystemD**.
                     If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
 
-
 {{< /note >}}
 
 * **SystemD**: Create a `corda.service` file based on the example below and save it in the `/etc/systemd/system/`
@@ -192,7 +189,6 @@ Ubuntu 16.04 and most current Linux distributions use SystemD, so if you are run
 {{< note >}}
 The Corda test webserver provides a simple interface for interacting with your installed CorDapps in a browser.
                     Running the webserver is optional.
-
 
 {{< /note >}}
 

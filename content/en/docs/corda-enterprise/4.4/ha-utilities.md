@@ -247,7 +247,6 @@ When using shared external bridge, the bridge will need to have access to nodesâ
 {{< note >}}
 This functionality is now embedded into the Node Registration tool with `--bridge-config-file` option, so there is no need to explicitly run SSL key copier in such case.
 
-
 {{< /note >}}
 
 #### Command-line options
@@ -297,7 +296,6 @@ The tool does not include any third party supplied client side jar files needed 
 
 {{< note >}}
 Before re-running the tool, previously created keystore files must be removed from the output directory.
-
 
 {{< /note >}}
 
@@ -365,7 +363,6 @@ The tool does not include any third party supplied client side jar files needed 
 
 {{< note >}}
 Before re-running the tool, previously created keystore files must be removed from the output directory.
-
 
 {{< /note >}}
 

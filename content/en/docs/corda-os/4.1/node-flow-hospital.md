@@ -19,7 +19,6 @@ This service is responsible for recording, tracking, diagnosing, recovering and 
 The flow hospital will never terminate a flow, but will propagate its error back to the state machine, and ultimately, end user code to handle
                     if it ultimately proves impossible to resolve automatically.
 
-
 {{< /note >}}
 This concept is analogous to *exception management handling* associated with enterprise workflow software, or
                 *retry queues/stores* in enterprise messaging middleware for recovering from failure to deliver a message.
@@ -52,8 +51,8 @@ Specifically, there are two main ways a flow is hospitalized:
 There is currently no retry API. If you don’t want to install the cordapp, you should be able to call *killFlow* with the UUID
                                 associated with the failing flow in the node’s log messages.
 
-
 {{< /warning >}}
+
 
 * Once started, if a flow experiences an error, the following failure scenarios are handled:
 

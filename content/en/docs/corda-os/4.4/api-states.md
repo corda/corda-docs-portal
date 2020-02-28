@@ -10,7 +10,6 @@ date: 2020-01-08T09:59:25Z
 {{< note >}}
 Before reading this page, you should be familiar with the key concepts of [States](key-concepts-states.md).
 
-
 {{< /note >}}
 
 ## ContractState
@@ -497,8 +496,8 @@ Currently, encumbrances should not be used with reference states. In the case wh
                     encumbered state may take on a different meaning, and likely would do, once the encumbrance state
                     is taken into account.
 
-
 {{< /warning >}}
+
 
 ## State Pointers
 A `StatePointer` contains a pointer to a `ContractState`. The `StatePointer` can be included in a `ContractState` as a

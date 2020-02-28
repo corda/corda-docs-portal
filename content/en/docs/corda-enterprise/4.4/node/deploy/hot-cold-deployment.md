@@ -16,7 +16,6 @@ This section describes hot-cold availability of Corda Enterprise nodes and their
 It is expected that the users handle the monitoring of the instances and use the appropriate tools to switch
                     between the primary and the back-up in case of failure.
 
-
 {{< /note >}}
 In order to achieve this set-up, in addition to the physical nodes, a few other resources are required:
 
@@ -265,7 +264,6 @@ From the Azure documentation: *LRS is the lowest cost replication option and off
                             lost or unrecoverable. To mitigate this risk, Microsoft recommends using either zone-redundant storage (ZRS) or
                             geo-redundant storage (GRS).*
 
-
 {{< /note >}}
 After creating the storage account, add a **file share** to it. Max quota is 5 TiB which more than enough for the purpose
                     of this file share. The newly created file share needs to be mounted and linked to the `artemis` directory in the Corda
@@ -330,7 +328,6 @@ sudo bash -c 'echo "mount-target-DNS:/ efs-mount-point nfs4 nfsvers=4.1,rsize=10
 
 {{< note >}}
 EFS cannot be mounted on a Windows machine. Please see EFS limits [here](https://docs.aws.amazon.com/efs/latest/ug/limits.html).
-
 
 {{< /note >}}
 `mount-target-DNS` is the address of the EFS. Example: fs-123456.efs.eu-west-1.amazonaws.com.
@@ -443,7 +440,6 @@ Each machine’s own address is used for the RPC connection as the node’s inte
 {{< note >}}
 It is possible to eliminate the need for a 3rd party load balancer by adding `additionalP2PAddresses` field if the compatibility zone operates at minimum platform version 4.
                     The `p2pAddress` should point to the primary node’s machine address and `additionalP2PAddresses` should add the back-up node’s machine address.
-
 
 {{< /note >}}
 

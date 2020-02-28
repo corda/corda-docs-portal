@@ -95,7 +95,6 @@ Future versions of Corda may support non-critical attachments that are not used 
                     and which are shared explicitly. These are useful for attaching and signing auditing data with a transaction
                     that isn’t used as part of the contract logic.
 
-
 {{< /note >}}
 
 ## Attachments demo

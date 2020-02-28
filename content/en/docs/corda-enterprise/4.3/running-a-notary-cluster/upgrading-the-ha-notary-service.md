@@ -19,7 +19,6 @@ In Corda Enterprise 4.0 an additional table `notary_committed_transactions` is b
 In order to enable reference state usage, the minimum platform version of the whole network has to be updated to version 4, which means
                     both the client nodes and the notary service have to be upgraded to version 4.
 
-
 {{< /note >}}
 Upgrade steps:
 

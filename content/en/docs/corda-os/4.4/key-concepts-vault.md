@@ -42,7 +42,6 @@ Basic ‘coin selection’ is currently implemented. Future work includes fungib
                 merging of states in the background), and ‘state re-issuance’ (sending of states back to the
                 issuer for re-issuance, thus pruning long transaction chains and improving privacy).
 
-
 {{< /note >}}
 There is also a facility for attaching descriptive textual notes against any transaction stored in the vault.
 

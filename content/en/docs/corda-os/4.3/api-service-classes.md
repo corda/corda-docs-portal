@@ -98,8 +98,8 @@ MyCordaService service = serviceHub.cordaService(MyCordaService.class);
 `ServiceHub.cordaService` should not be called during initialisation of a flow and should instead be called in line where
                     needed or set after the flow’s `call` function has been triggered.
 
-
 {{< /warning >}}
+
 
 ## Starting Flows from a Service
 Starting flows via a service can lead to deadlock within the node’s flow worker queue, which will prevent new flows from
@@ -122,7 +122,6 @@ Starting flows via a service can lead to deadlock within the node’s flow worke
 It is possible to avoid deadlock without following these rules depending on the number of flows running within the node. But, if the
                     number of flows violating these rules reaches the flow worker queue size, then the node will deadlock. It is best practice to
                     abide by these rules to remove this possibility.
-
 
 {{< /note >}}
 

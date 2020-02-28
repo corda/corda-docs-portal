@@ -40,8 +40,8 @@ If a property is defined twice the last one will take precedence. The library cu
                     For example having `key=initialValue` defined first in node.conf and later on down the
                     lines `key=overridingValue` will result into the value being `overridingValue`.
 
-
 {{< /warning >}}
+
 By default the node will fail to start in presence of unknown property keys.
                 To alter this behaviour, the `on-unknown-config-keys` command-line argument can be set to `IGNORE` (default is `FAIL`).
 
@@ -50,7 +50,6 @@ By default the node will fail to start in presence of unknown property keys.
 As noted in the HOCON documentation, the default behaviour for resources referenced within a config file is to silently
                     ignore them if missing. Therefore it is strongly recommended to utilise the `required` syntax for includes. See HOCON documentation
                     for more information.
-
 
 {{< /note >}}
 
@@ -151,7 +150,6 @@ java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="000000000000000000000000000
 
 {{< note >}}
 The available configuration fields are listed below in alphabetic order.
-
 
 {{< /note >}}
 

@@ -25,7 +25,6 @@ It also assumes your node is provisioned and connected to the Corda Testnet alth
 {{< note >}}
 If you need to set up a Corda Enterprise node using the Cloud templates, see: [Using Azure Resource Manager Templates to deploy a Corda Enterprise node](azure-template-guide.md).
 
-
 {{< /note >}}
 
 ## Get the testing tools
@@ -45,8 +44,8 @@ sudo systemctl stop corda
 {{< warning >}}
 If this is an HA node, make sure to stop both the hot and cold nodes before proceeding. Any database migration should be performed whilst both nodes are offline.
 
-
 {{< /warning >}}
+
 
 * Download the Resources:
 
@@ -100,7 +99,6 @@ Your node is now running the Finance Cordapp.
 You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs/node-<VM-NAME>.log`. This
                             file will list installed apps at startup. Search for `Loaded CorDapps` in the logs.
 
-
 {{< /note >}}
 
 * Now download the Node Explorer to your **LOCAL** machine:
@@ -113,8 +111,8 @@ http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda
 The Enterprise Node Explorer is incompatible with open source versions of Corda and vice versa as they currently
                             use different serialisation schemes (Kryo vs AMQP).
 
-
 {{< /warning >}}
+
 
 * Run the Node Explorer tool on your **LOCAL** machine.
 

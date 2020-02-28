@@ -99,8 +99,8 @@ Nodes may re-record transactions if they have previously recorded them as a part
                             However, the node cannot resolve the forward chain of transactions if this is done. This means that if you wish to re-record a chain of
                             transactions and get the new output states to be correctly marked as consumed, the full chain must be sent to the node *in order*.
 
-
 {{< /warning >}}
+
 
 * Information about checkpointed flows can be retrieved from the shell. Calling `dumpCheckpoints` will create a zip file inside the node’s
                         `log` directory. This zip will contain a JSON representation of each checkpointed flow. This information can then be used to determine the
@@ -124,7 +124,6 @@ Nodes may re-record transactions if they have previously recorded them as a part
 
 {{< note >}}
 This is only best-effort and there are no guarantees of reliability.
-
 
 {{< /note >}}
 
@@ -756,7 +755,6 @@ The only exception to this is `Interpolator` and related classes. These are now 
 
 {{< note >}}
 Whilst this is not the latest version of this library, that being 2.18.1 at time of writing, versions
-
 
 {{< /note >}}
 
@@ -1417,8 +1415,8 @@ Fixed some issues in IRS demo:
 {{< warning >}}
 Renamed configuration property key *basedir* to *baseDirectory*. This will require updating existing configuration files.
 
-
 {{< /warning >}}
+
 
 * Removed deprecated parts of the API.
 
@@ -1898,8 +1896,8 @@ The certificate hierarchy has been changed in order to allow corda node to sign 
 {{< warning >}}
 The old keystore will need to be removed when upgrading to this version.
 
-
 {{< /warning >}}
+
 
 ## Milestone 11.1
 
@@ -2003,8 +2001,8 @@ Special thank you to [Qian Hong](https://github.com/fracting), [Marek Skocovsky]
 {{< warning >}}
 Due to incompatibility between older version of IntelliJ and gradle 3.4, you will need to upgrade Intellij
 
-
 {{< /warning >}}
+
 
 
 to 2017.1 (with kotlin-plugin v1.1.1) in order to run Corda demos in IntelliJ. You can download the latest IntelliJ
@@ -2014,8 +2012,8 @@ from [JetBrains](https://www.jetbrains.com/idea/download/).
 {{< warning >}}
 The Kapt-generated models are no longer included in our codebase. If you experience `unresolved references`
 
-
 {{< /warning >}}
+
 
 
 errors when building in IntelliJ, please rebuild the schema model by running `gradlew kaptKotlin` in Windows or
@@ -2024,7 +2022,6 @@ errors when building in IntelliJ, please rebuild the schema model by running `gr
 
 {{< note >}}
 Kapt is used to generate schema model and entity code (from annotations in the codebase) using the Kotlin Annotation
-
 
 {{< /note >}}
 processor.

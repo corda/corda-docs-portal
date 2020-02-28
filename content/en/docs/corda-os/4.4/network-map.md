@@ -96,8 +96,8 @@ If the `network-parameters` file is changed and no longer matches what the netwo
                     then the node will automatically shutdown. Resolution to this is to delete the incorrect file and restart the node so
                     that the parameters can be downloaded again.
 
-
 {{< /warning >}}
+
 If the node isn’t using a HTTP network map service then it’s expected the signed file is provided by some other means.
                 For such a scenario there is the network bootstrapper tool which in addition to generating the network parameters file
                 also distributes the node info files to the node directories.
@@ -156,7 +156,6 @@ List of the network-wide java packages that were successfully claimed by their o
 
 {{< note >}}
 To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.4 see [Corda Features to Versions](features-versions.md)
-
 
 {{< /note >}}
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6

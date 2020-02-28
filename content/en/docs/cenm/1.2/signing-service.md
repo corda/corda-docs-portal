@@ -81,13 +81,11 @@ Due to security concerns, the signing service should be hosted on private premis
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
                     [Configuring the ENM services to use SSL](enm-with-ssl.md)
 
-
 {{< /note >}}
 
 {{< note >}}
 This document does not cover HSM setup, rather assumes that the HSM(s) have already been configured - the
                     users and certificates should have been previously setup on the box.
-
 
 {{< /note >}}
 
@@ -123,7 +121,6 @@ signer name: <SIGNING_TASK_ALIAS>` command. This will execute the task, promptin
 
 {{< note >}}
 Any configured task can be run through the shell, even automated scheduled tasks.
-
 
 {{< /note >}}
 
@@ -266,7 +263,6 @@ A signing key can reside in either a local java key store or a HSM. For HSM sign
 {{< note >}}
 Using a local java keystore in a production system is strongly discouraged.
 
-
 {{< /note >}}
 More detailed descriptions of how to configure a signing key can be found in the `Configuration Parameters`_ section
                     below.
@@ -286,7 +282,6 @@ Communication with the configured service locations can be configured to use SSL
                             connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                             information.
 
-
 {{< /note >}}
 
 #### Indirect data source via SMR Service Location
@@ -302,7 +297,6 @@ For all non CA related signing tasks (Network Maps and Network Parameters), glob
 Communication with the configured SMR service location can be configured to use SSL for a secure, encrypted
                             connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                             information.
-
 
 {{< /note >}}
 
@@ -341,8 +335,8 @@ A signing task can be configured to automatically run on a set schedule, providi
 Automated, scheduled signing of important changes such as Network Parameter updates, CSRs and CRLs should
                             not be configured in production environments.
 
-
 {{< /warning >}}
+
 
 {{< note >}}
 Even though scheduled signing of CRLs should not be configured in production environment, they should be signed
@@ -350,7 +344,6 @@ Even though scheduled signing of CRLs should not be configured in production env
                             distributed in the network before the previous one expires. Conventionally they have a lifecycle of 6 months
                             and are manually signed every 3 months. See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for more information how to check
                             CRLs’ update deadlines.
-
 
 {{< /note >}}
 An appropriate signing task can be scheduled via the `schedule` config block within the signing task configuration:
@@ -394,7 +387,6 @@ The `interval` parameter can either take a number, interpreted as the number of 
 {{< note >}}
 Attempting to configure a non-schedulable signing task (e.g. signing via HSM requiring manual user
                             authentication) will result in an error upon service startup.
-
 
 {{< /note >}}
 
@@ -458,7 +450,6 @@ The steps involved in signing other data types are very similar to above, mainly
 {{< note >}}
 The signing of the Network Map is completely separate from the signing of the Network Parameters. A parameter
                         update will only be included in a network map if the update has been previously signed.
-
 
 {{< /note >}}
 
@@ -567,7 +558,6 @@ If the signing key is within a Utimaco HSM then the HSM connection details needs
 
 {{< note >}}
 A signing task can only be scheduled if its signing key requires no runtime user input for authentication.
-
 
 {{< /note >}}
 
@@ -1429,7 +1419,6 @@ Communication with the configured SMR service location can be configured to use 
                             connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                             information.
 
-
 {{< /note >}}
 Configuration parameters are same as in [Service Location Map Entry Example](#service-location-map-entry-example)
 
@@ -1474,7 +1463,6 @@ The class that will be loaded from plugin JAR file and will be its entry point f
 It is recommended to set schedule’s interval to a proper value in order for SMR to feed plugin with the new
                             signable material as soon as possible, but not too often to avoid plugin being spammed. For instance, the
                             value of interval between 1 and 10 seconds should be sufficient.
-
 
 {{< /note >}}
 
@@ -1928,7 +1916,6 @@ enmListener = {
 CA Plugin’s configuration file must be in same directory as plugin’s JAR file and must be named
                             “plugin-ca.conf”
 
-
 {{< /note >}}
 
 #### Non CA Default Signing Plugin
@@ -1948,7 +1935,6 @@ enmListener = {
 {{< note >}}
 Non CA Plugin’s configuration file must be in same directory as plugin’s JAR file and must be named
                             “plugin-non-ca.conf”
-
 
 {{< /note >}}
 

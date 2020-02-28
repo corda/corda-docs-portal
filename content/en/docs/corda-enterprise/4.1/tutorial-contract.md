@@ -579,8 +579,8 @@ In the Kotlin version as long as we write a comparison with the transaction time
                     check won’t happen if we write e.g. `someDate > time`, it has to be `time < someDate`. So it’s good practice to
                     always write the transaction time-window first.
 
-
 {{< /warning >}}
+
 Next, we take one of three paths, depending on what the type of the command object is.
 
 **If the command is a ``Move`` command:**
@@ -715,7 +715,6 @@ Generation methods should ideally be written to compose with each other, that is
                     would just introduce complexity that isn’t likely to be worth it, so we return a fresh object each time: instead,
                     an issuer should issue the CP (starting out owned by themselves), and then sell it in a separate transaction.
 
-
 {{< /note >}}
 The function we define creates a `CommercialPaper.State` object that mostly just uses the arguments we were given,
                 but it fills out the owner field of the state to be the same public key as the issuing party.
@@ -765,7 +764,6 @@ There’s one final thing to be aware of: we ask the caller to select a *notary*
 {{< note >}}
 For now, don’t worry about how to pick a notary. More infrastructure will come later to automate this
                     decision for you.
-
 
 {{< /note >}}
 What about moving the paper, i.e. reassigning ownership to someone else?
@@ -837,7 +835,6 @@ Here we can see an example of composing contracts together. When an owner wishes
 {{< note >}}
 This contract has no explicit concept of rollover.
 
-
 {{< /note >}}
 The *vault* is a concept that may be familiar from Bitcoin and Ethereum. It is simply a set of states (such as cash) that are
                 owned by the caller. Here, we use the vault to update the partial transaction we are handed with a movement of cash
@@ -854,8 +851,8 @@ The amount we pass to the `Cash.generateSpend` function has to be treated first 
                     any issuer, thus we must strip it here. This represents a design mismatch that we will resolve in future
                     versions with a more complete way to express issuer constraints.
 
-
 {{< /warning >}}
+
 A `TransactionBuilder` is not by itself ready to be used anywhere, so first, we must convert it to something that
                 is recognised by the network. The most important next step is for the participating entities to sign it. Typically,
                 an initiating flow will create an initial partially signed `SignedTransaction` by calling the `serviceHub.toSignedTransaction` method.

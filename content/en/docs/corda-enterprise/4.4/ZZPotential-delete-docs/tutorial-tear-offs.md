@@ -49,6 +49,5 @@ The way the `FilteredTransaction` is constructed ensures that after signing of t
                 the components of a particular group that existed in the original `WireTransaction` are included in the received
                 `FilteredTransaction`.
 
-
 {{< /note >}}
 

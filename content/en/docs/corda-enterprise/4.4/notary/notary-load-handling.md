@@ -28,7 +28,6 @@ This mechanism means that requests should always be processed in the event of a 
 {{< note >}}
 The backpressure mechanism is built into the notarisation flow logic within nodes running Corda version >= 4.
 
-
 {{< /note >}}
 
 ## Artemis Messaging Layer Behaviour

@@ -28,7 +28,6 @@ In Corda 3 no implementation of the HTTP network map server is provided. This is
                 In Corda 3 the right way to run a test network is through distribution of the relevant files via your own mechanisms.
                 We provide a tool to automate the bulk of this task (see below).
 
-
 {{< /note >}}
 
 ## HTTP network map protocol
@@ -135,8 +134,8 @@ If the `network-parameters` file is changed and no longer matches what the netwo
                     then the node will automatically shutdown. Resolution to this is to delete the incorrect file and restart the node so
                     that the parameters can be downloaded again.
 
-
 {{< /warning >}}
+
 If the node isn’t using a HTTP network map service then it’s expected the signed file is provided by some other means.
                 For such a scenario there is the network bootstrapper tool which in addition to generating the network parameters file
                 also distributes the node info files to the node directories.

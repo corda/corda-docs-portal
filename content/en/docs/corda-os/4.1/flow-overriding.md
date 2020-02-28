@@ -100,7 +100,6 @@ Corda would detect that both `BaseResponder` and `SubResponder` are configured f
 {{< note >}}
 The flows do not need to be within the same CordApp, or package, therefore to customise a shared app you obtained from a third party, you’d write your own CorDapp that subclasses the first.
 
-
 {{< /note >}}
 
 ## Overriding a flow via node configuration
@@ -111,7 +110,6 @@ Whilst the subclassing approach is likely to be useful for most applications, th
 
 {{< note >}}
 A new responder written to override an existing responder must still be annotated with `@InitiatedBy` referencing the base initiator.
-
 
 {{< /note >}}
 The configuration section is named `flowOverrides` and it accepts an array of `overrides`
@@ -205,8 +203,8 @@ It is likely that initiating flows will also require changes to reflect the diff
 {{< warning >}}
 The subclass must not have the @InitiatingFlow annotation.
 
-
 {{< /warning >}}
+
 Corda will use the first annotation detected in the class hierarchy to determine which responder should be invoked. So for a Responder similar to
 
 > 
@@ -224,6 +222,6 @@ it would be possible to invoke either `BaseInitiator` or `NotaryOnlyInitiator` a
 {{< warning >}}
 You must ensure the sequence of sends/receives/subFlows in a subclass are compatible with the parent.
 
-
 {{< /warning >}}
+
 

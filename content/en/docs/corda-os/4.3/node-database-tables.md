@@ -13,7 +13,6 @@ A Corda node database contains tables corresponding to the various services that
 {{< note >}}
 Unless specified otherwise the node tables are for internal use and can change between versions.
 
-
 {{< /note >}}
 Some tables, especially the ones where the `Ledger` is maintained are append-only and the data will never change.
 
@@ -22,8 +21,8 @@ Some tables, especially the ones where the `Ledger` is maintained are append-onl
 Manually adding, removing or updating any data should only be done with great care. Corda is a distributed ledger and modifying
                 data could lead to unexpected behaviour and inconsistent views of the ledger.
 
-
 {{< /warning >}}
+
 
 ## Network map
 

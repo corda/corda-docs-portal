@@ -12,7 +12,6 @@ This section describes the key concepts and features of the Corda platform. It i
 {{< note >}}
 The pages in this section should be read in order.
 
-
 {{< /note >}}
 
 The first topics in this section provide an **overview** of the Corda Distributed Ledger:
@@ -44,7 +43,6 @@ The second set of topics describe the core **CorDapp Concepts**:
 
 {{< note >}}
 When you build a custom CorDapp, your CorDapp will have state, transaction, contract and flow classes.
-
 
 {{< /note >}}
 The following **Adavnced Corda Concepts** describe important conceptual information:

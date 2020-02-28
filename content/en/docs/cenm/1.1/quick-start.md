@@ -36,7 +36,6 @@ Throughout this guide placeholder values for external endpoints are used (e.g. `
                     within the Identity Manager config file. Alternatively, if deploying the network in a cloud environment then this
                     value should be the external address of the machine along with any port defined in the `address` config parameter.
 
-
 {{< /note >}}
 
 ## Steps
@@ -94,7 +93,6 @@ certificates = {
 {{< note >}}
 The passwords for the key stores are defaulted to “password” and the passwords for the trust stores are
                             defaulted to “trustpass”. These can be changed in the configuration (see [Public Key Infrastructure (PKI) Tool](pki-tool.md)).
-
 
 {{< /note >}}
 
@@ -179,7 +177,6 @@ The example uses a local h2 database. You can modify this to point to an separat
                             `dataSourceProperties` section. See the “Database properties” section of [Identity Manager Service](identity-manager.md) for more
                             information.
 
-
 {{< /note >}}
 
 #### Running The Service
@@ -255,7 +252,6 @@ This step should result in the node successfully registering with the Identity M
 The `--initial-registration` flag was deprecated in the most recent Corda version in favour of
                             `initial-registration` which may result in a warning being printed.
 
-
 {{< /note >}}
 
 ### Set the initial network parameters
@@ -309,7 +305,6 @@ checkRevocation = false
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
                                 `dataSourceProperties` section. See the “Database properties” section of [Network Map Service](network-map.md) for more information.
-
 
 {{< /note >}}
 

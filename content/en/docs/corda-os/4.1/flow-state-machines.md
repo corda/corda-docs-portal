@@ -132,7 +132,6 @@ We start by defining two classes that will contain the flow definition. We also 
 The code samples in this tutorial are only available in Kotlin, but you can use any JVM language to
                     write them and the approach is the same.
 
-
 {{< /note >}}
 
 {{< tabs name="tabs-1" >}}
@@ -252,7 +251,6 @@ As mentioned above, our flow framework will at points suspend the code and seria
 {{< note >}}
 Java 9 is likely to remove this pre-marking requirement completely.
 
-
 {{< /note >}}
 
 ## Whitelisted classes with the Corda node
@@ -293,7 +291,6 @@ The process of starting a flow returns a `FlowHandle` that you can use to observ
 {{< note >}}
 The developer *must* then either subscribe to this `progress` observable or invoke the `notUsed()` extension
                     function for it. Otherwise the unused observable will waste resources back in the node.
-
 
 {{< /note >}}
 
@@ -591,8 +588,8 @@ If the buyer stops before sending the finalised transaction to the seller, the b
                         version of the platform will allow you to ask the notary to send you the transaction as well, in case your counterparty
                         does not. This is not the default because it reveals more private info to the notary.
 
-
 {{< /warning >}}
+
 We simply create the flow object via its constructor, and then pass it to the `subFlow` method which
                     returns the result of the flow’s execution directly. Behind the scenes all this is doing is wiring up progress
                     tracking (discussed more below) and then running the object’s `call` method. Because the sub-flow might suspend,
@@ -609,7 +606,6 @@ Transaction dependency resolution assumes that the peer you got the transaction 
                         valid. It’s important to realise that requesting only the transactions we require is a privacy leak, because if
                         we don’t download a transaction from the peer, they know we must have already seen it before. Fixing this privacy
                         leak will come later.
-
 
 {{< /note >}}
 
@@ -725,7 +721,6 @@ It’s OK to keep references around to many large internal node services though:
                     special token that’s recognised by the platform, and wired up to the right instance when the continuation is
                     loaded off disk again.
 
-
 {{< /note >}}
 
 {{< warning >}}
@@ -740,8 +735,8 @@ If a node has flows still in a suspended state, with flow continuations written 
                     written to the vault, rather than a single flow persisted over time through the flow checkpointing
                     mechanism.
 
-
 {{< /warning >}}
+
 `receive` and `sendAndReceive` return a simple wrapper class, `UntrustworthyData<T>`, which is
                 just a marker class that reminds us that the data came from a potentially malicious external source and may have been
                 tampered with or be unexpected in other ways. It doesn’t add any functionality, but acts as a reminder to “scrub”
@@ -763,7 +758,6 @@ If the exception thrown by the erroring flow is not a `FlowException` it will st
 {{< note >}}
 A future version will extend this to give the node administrator more control on what to do with such erroring
                     flows.
-
 
 {{< /note >}}
 Throwing a `FlowException` enables a flow to reject a piece of data it has received back to the sender. This is typically

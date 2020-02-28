@@ -85,7 +85,6 @@ Accepting a CSR is a statement by the operator of a network that they agree the 
 The policies put in place around this process are intentionally left to the discretion of a network operator
                 as they are best placed to work out the level to which they need to conduct legal identity verification.
 
-
 {{< /note >}}
 Accepting a CRR is the opposite of accepting a CSR, it is a request to revoke a Legal Identities issued certificate (
             often at the request of that legal identity). Thus, checks must be in place to prevent abuse of this system.

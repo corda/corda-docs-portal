@@ -21,7 +21,6 @@ A Corda node, including a notary node, must have all its keys in the same keysto
 {{< note >}}
 Importing existing keys from the file based keystore into a HSM is not supported.
 
-
 {{< /note >}}
 
 ## Configuration
@@ -31,8 +30,8 @@ As mentioned in the description of the configuration file ([Node configuration](
 {{< warning >}}
 The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. So, we strongly advise using the Configuration Obfuscator tool for it, as documented here: [Configuration Obfuscator](tools-config-obfuscator.md)
 
-
 {{< /warning >}}
+
 
 ## Utimaco
 Corda Enterprise nodes can be configured to store their legal identity keys in [Utimaco’s SecurityServer Se Gen2](https://hsm.utimaco.com/products-hardware-security-modules/general-purpose-hsm/securityserver-se-gen2/) running firmware version 4.21.1.
@@ -185,7 +184,6 @@ path to the key store for login. Note that the .pem file that belongs to your se
 
 {{< note >}}
 If a relative path is specified for the pkcs12 key store, it must be relative to the base directory of the running node, firewall or [HA Utility](ha-utilities.md).
-
 
 {{< /note >}}
 

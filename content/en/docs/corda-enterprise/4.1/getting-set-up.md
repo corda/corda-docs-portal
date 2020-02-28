@@ -85,7 +85,6 @@ The set-up instructions are available for the following platforms:
 {{< note >}}
 These setup instructions will guide you on how to install the Oracle JDK.
 
-
 {{< /note >}}
 
 ## Windows
@@ -93,8 +92,8 @@ These setup instructions will guide you on how to install the Oracle JDK.
 {{< warning >}}
 If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac](#mac-label), [Next steps](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
 
-
 {{< /warning >}}
+
 
 ### Java
 
@@ -146,8 +145,8 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 {{< warning >}}
 If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [Windows](#windows-label), [Next steps](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
 
-
 {{< /warning >}}
+
 
 ### Java
 
@@ -181,8 +180,8 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [
 {{< warning >}}
 If you are using a Mac, Windows or Fedora machine, please follow the [Mac](#mac-label), [Windows](#windows-label) or [Fedora](#fedora-label) instructions instead.
 
-
 {{< /warning >}}
+
 These instructions were tested on Ubuntu Desktop 18.04 LTS.
 
 
@@ -229,8 +228,8 @@ Jetbrains offers a pre-built snap package that allows for easy, one-step install
 {{< warning >}}
 If you are using a Mac, Windows or Debian/Ubuntu machine, please follow the [Mac](#mac-label), [Windows](#windows-label) or [Next steps](#deb-ubuntu-label) instructions instead.
 
-
 {{< /warning >}}
+
 These instructions were tested on Fedora 28.
 
 
@@ -304,7 +303,6 @@ To build CorDapps on development machines the Corda Enterprise binaries will nee
 {{< note >}}
 Upon receiving the binaries, the quickest way to get started developing your CorDapps is **option a**. This can
 
-
 {{< /note >}}
 
 
@@ -319,8 +317,8 @@ Follow the instructions in [https://docs.corda.net/tutorial-cordapp.html](https:
 {{< warning >}}
 Ensure you checkout the corresponding branch for for Corda Enterprise 4.1 by running `git checkout release-V4-enterprise` in the samples directory
 
-
 {{< /warning >}}
+
 
 ## CorDapp Templates and samples
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:

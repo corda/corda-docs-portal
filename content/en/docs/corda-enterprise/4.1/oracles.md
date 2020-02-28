@@ -59,7 +59,6 @@ When a fact is encoded as an attachment, it is a separate object to the transact
 {{< note >}}
 Currently attachments do not support digital signing, but this is a planned feature.
 
-
 {{< /note >}}
 As you can see, both approaches share a few things: they both allow arbitrary binary data to be provided to transactions
                     (and thus contracts). The primary difference is whether the data is a freely reusable, standalone object or whether it’s
@@ -234,7 +233,6 @@ Before reading any further, we advise that you understand the concept of flows a
                         them. See [Writing flows](flow-state-machines.md).  Likewise some understanding of Cordapps, plugins and services will be helpful.
                         See [Running nodes locally](running-a-node.md).
 
-
 {{< /note >}}
 The first step is to create the oracle as a service by annotating its class with `@CordaService`.  Let’s see how that’s
                     done:
@@ -407,7 +405,6 @@ Here’s an example of it in action from `FixingFlow.Fixer`.
 When overriding be careful when making the sub-class an anonymous or inner class (object declarations in Kotlin),
                     because that kind of classes can access variables from the enclosing scope and cause serialization problems when
                     checkpointed.
-
 
 {{< /note >}}
 

@@ -98,7 +98,6 @@ The main class of the plugin being loaded.
 {{< note >}}
 For automatic acceptane of reqeuests, set this to the ApproveAll plugin (“com.r3.enmplugins.approveall.ApproveAll”)
 
-
 {{< /note >}}
 
 config

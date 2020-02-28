@@ -84,8 +84,8 @@ The config obfuscation tool does not overwrite the existing config file, but pro
 The newly generated file will **overwrite** any existing file of the same name in the respective directory in which
                     the obfuscation tool is being run. Please use the naming flags in order to avoid any unwanted data loss.
 
-
 {{< /warning >}}
+
 Adding to the previous config example, the corresponding newly generated obfuscated config file would be:
 
 ```docker
@@ -162,7 +162,6 @@ java -jar identitymanager.jar --config-file <im-config-obfuscated.conf> -o --see
 {{< note >}}
 Each time an obfuscated config is passed as a command line argument to one of the services, the required
                     seed **needs** to be supplied if it was explicitly set for obfuscation.
-
 
 {{< /note >}}
 

@@ -20,8 +20,8 @@ The built-in Corda test webserver is deprecated and unsuitable for production us
                     [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server
                     [here](https://github.com/corda/spring-webserver).
 
-
 {{< /warning >}}
+
 
 ## Connecting to a node via RPC
 To use [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `net.corda:corda-rpc:$corda_release_version` as a `cordaCompile` dependency
@@ -111,8 +111,8 @@ The returned [CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConne
                     method on [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed in lambda finishes. Don’t create
                     a new proxy for every call you make - reuse an existing one.
 
-
 {{< /warning >}}
+
 For further information on using the RPC API, see [Using the client RPC API](tutorial-clientrpc-api.md).
 
 
@@ -271,8 +271,8 @@ security = {
 A valid configuration cannot specify both the `rpcUsers` and `security` fields. Doing so will trigger
                     an exception at node startup.
 
-
 {{< /warning >}}
+
 
 ### Authentication/authorisation data
 The `dataSource` structure defines the data provider supplying credentials and permissions for users. There exist two
@@ -308,8 +308,7 @@ The `dataSource` structure defines the data provider supplying credentials and p
 >                                         `role_name` declared of SQL type `VARCHAR` and `password` of `TEXT` type). It is also possible to have extra columns
 >                                         in each table alongside the expected ones.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 ### Password encryption
 Storing passwords in plain text is discouraged in applications where security is critical. Passwords are assumed
@@ -366,14 +365,13 @@ If you leak an observable on the client side and it gets garbage collected, you 
                     this warning comes with a stack trace showing where the RPC that returned the forgotten observable was called from.
                     This feature is off by default because tracking RPC call sites is moderately slow.
 
-
 {{< /warning >}}
+
 
 {{< note >}}
 Observables can only be used as return arguments of an RPC call. It is not currently possible to pass
                     Observables as parameters to the RPC methods. In other words the streaming is always server to client and not
                     the other way around.
-
 
 {{< /note >}}
 
@@ -434,7 +432,6 @@ Any RPC calls that had not been acknowledged to the RPC client from the node at 
                         It is important to note this does not mean the node did not execute the RPC calls, it only means the completion was not acknowledged. As described above, application code will have to check after the connection is re-established to determine whether these calls were actually executed.
                         Any observables that were returned before the disconnection will call the `onError` handlers.
 
-
 {{< /note >}}
 
 ### Enabling graceful reconnection
@@ -463,8 +460,8 @@ More specifically, the behaviour in the second case is a bit more subtle:
 {{< warning >}}
 In this approach, some events might be lost during a reconnection and not sent from the subscribed `Observable`s.
 
-
 {{< /warning >}}
+
 You can enable this graceful form of reconnection by using the `gracefulReconnect` parameter, which is an object containing 3 optional fields:
 
 
@@ -555,8 +552,8 @@ The logic of the `wasFlowTriggered()` function is naturally dependent on the flo
 {{< warning >}}
 This approach provides at-least-once guarantees. It cannot provide exactly-once guarantees, because of race conditions between the moment the check is performed and the moment the side-effects of the flow become visible.
 
-
 {{< /warning >}}
+
 
 ## Wire security
 If TLS communications to the RPC endpoint are required the node should be configured with `rpcSettings.useSSL=true` see [Node configuration](corda-configuration-file.md).

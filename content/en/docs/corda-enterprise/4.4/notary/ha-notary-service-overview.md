@@ -40,7 +40,6 @@ In production you should consider running five nodes or more, to be able to
                 worker is enough to serve notarisation requests in practice, its capacity might
                 not be sufficient depending on your throughput and latency requirements.
 
-
 {{< /note >}}
 If desired, you can choose to run each database server and its Corda notary worker on the same
             machine:
@@ -69,7 +68,6 @@ For a list of databases supported by each of the above notary implementations, p
 {{< note >}}
 Due to its lack of resiliency, a simple notary is not suited to a production environment. Furthermore, a simple notary cannot be cannot
                     be upgraded to a JPA notary. For these reasons it is strongly recommended to deploy a JPA notary in all non-testing environements.
-
 
 {{< /note >}}
 
@@ -113,7 +111,6 @@ Both worker identity and notary service keys and certificates are stored in the 
 The key store aliases for the worker identity, worker node CA and notary service are fully configurable. Unique worker identity and node
                     CA aliases are required for the workers to share the same HA HSM. Although not required for all deployment scenarios, it is recommended
                     to configure unique worker aliases. See ../corda-configuration-file for more information.
-
 
 {{< /note >}}
 

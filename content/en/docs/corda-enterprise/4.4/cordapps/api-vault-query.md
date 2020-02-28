@@ -48,7 +48,6 @@ The API provides both static (snapshot) and dynamic (snapshot with streaming upd
 Streaming updates are only filtered based on contract type and state status (UNCONSUMED, CONSUMED, ALL).
                     They will not respect any other criteria that the initial query has been filtered by.
 
-
 {{< /note >}}
 Simple pagination (page number and size) and sorting (directional ordering using standard or custom property
                 attributes) is also specifiable. Defaults are defined for paging (pageNumber = 1, pageSize = 200) and sorting
@@ -93,8 +92,7 @@ There are four implementations of this interface which can be chained together t
 > Sensible defaults are defined for frequently used attributes (status = UNCONSUMED, always include soft
 >                                 locked states).
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 * `FungibleAssetQueryCriteria` provides filterable criteria on attributes defined in the Corda Core
                         `FungibleAsset` contract state interface, used to represent assets that are fungible, countable and issued by a
@@ -107,8 +105,7 @@ There are four implementations of this interface which can be chained together t
 > All contract states that extend the `FungibleAsset` now automatically persist that interfaces common
 >                                 state attributes to the **vault_fungible_states** table.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 * `LinearStateQueryCriteria` provides filterable criteria on attributes defined in the Corda Core `LinearState`
                         and `DealState` contract state interfaces, used to represent entities that continuously supersede themselves, all
@@ -121,8 +118,7 @@ There are four implementations of this interface which can be chained together t
 > All contract states that extend `LinearState` or `DealState` now automatically persist those
 >                                 interfaces common state attributes to the **vault_linear_states** table.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
                         by a custom contract state that implements its own schema as described in the Persistence
@@ -141,8 +137,7 @@ There are four implementations of this interface which can be chained together t
 >                                 Persistence for mechanisms of registering custom schemas for different testing
 >                                 purposes.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 All `QueryCriteria` implementations are composable using `and` and `or` operators.
 
@@ -167,7 +162,6 @@ Custom contract states that implement the `Queryable` interface may now extend c
                     `PersistentState` class and defined repeated mappings of `FungibleAsset` and `LinearState` attributes. See
                     `SampleCashSchemaV2` and `DummyLinearStateSchemaV2` as examples.
 
-
 {{< /note >}}
 Examples of these `QueryCriteria` objects are presented below for Kotlin and Java.
 
@@ -176,7 +170,6 @@ Examples of these `QueryCriteria` objects are presented below for Kotlin and Jav
 When specifying the `ContractType` as a parameterised type to the `QueryCriteria` in Kotlin, queries now
                     include all concrete implementations of that type if this is an interface. Previously, it was only possible to query
                     on concrete types (or the universe of all `ContractState`).
-
 
 {{< /note >}}
 The Vault Query API leverages the rich semantics of the underlying JPA [Hibernate](https://docs.jboss.org/hibernate/jpa/2.1/api/) based
@@ -187,14 +180,12 @@ The Vault Query API leverages the rich semantics of the underlying JPA [Hibernat
 Permissioning at the database level will be enforced at a later date to ensure authenticated, role-based,
                     read-only access to underlying Corda tables.
 
-
 {{< /note >}}
 
 {{< note >}}
 API’s now provide ease of use calling semantics from both Java and Kotlin. However, it should be noted that
                     Java custom queries are significantly more verbose due to the use of reflection fields to reference schema attribute
                     types.
-
 
 {{< /note >}}
 An example of a custom query in Java is illustrated here:
@@ -204,7 +195,6 @@ An example of a custom query in Java is illustrated here:
 Queries by `Party` specify the `AbstractParty` which may be concrete or anonymous. In the later case,
                     where an anonymous party does not resolve to an X500 name via the `IdentityService`, no query results will ever be
                     produced. For performance reasons, queries do not use `PublicKey` as search criteria.
-
 
 {{< /note >}}
 Custom queries can be either case sensitive or case insensitive. They are defined via a `Boolean` as one of the function parameters of each operator function. By default each operator is case sensitive.
@@ -225,7 +215,6 @@ val currencyIndex = PersistentCashState::currency.equal(USD.currencyCode, true)
 
 {{< note >}}
 The `Boolean` input of `true` in this example could be removed since the function will default to `true` when not provided.
-
 
 {{< /note >}}
 An example of a case insensitive custom query operator is illustrated here:
@@ -300,7 +289,6 @@ val vaultSnapshot = proxy.vaultQueryBy<ContractState>(
 A pages maximum size `MAX_PAGE_SIZE` is defined as `Int.MAX_VALUE` and should be used with extreme
                     caution as results returned may exceed your JVM’s memory footprint.
 
-
 {{< /note >}}
 
 ## Example usage
@@ -330,7 +318,6 @@ Query for unconsumed states recorded between two time intervals:
 {{< note >}}
 This example illustrates usage of a `Between` `ColumnPredicate`.
 
-
 {{< /note >}}
 Query for all states with pagination specification (10 results per page):
 
@@ -338,7 +325,6 @@ Query for all states with pagination specification (10 results per page):
 {{< note >}}
 The result set metadata field *totalStatesAvailable* allows you to further paginate accordingly as
                         demonstrated in the following example.
-
 
 {{< /note >}}
 Query for all states using a pagination specification and iterate using the *totalStatesAvailable* field until no further
@@ -370,7 +356,6 @@ Query for fungible assets for a minimum quantity:
 {{< note >}}
 This example uses the builder DSL.
 
-
 {{< /note >}}
 Query for fungible assets for a specific issuer party:
 
@@ -382,14 +367,12 @@ Query for only relevant fungible states in the vault:
 {{< note >}}
 Query results for aggregate functions are contained in the `otherResults` attribute of a results Page.
 
-
 {{< /note >}}
 Aggregations on cash using various functions:
 
 
 {{< note >}}
 `otherResults` will contain 5 items, one per calculated aggregate function.
-
 
 {{< /note >}}
 Aggregations on cash grouped by currency for various functions:
@@ -399,7 +382,6 @@ Aggregations on cash grouped by currency for various functions:
 `otherResults` will contain 24 items, one result per calculated aggregate function per currency (the
                         grouping attribute - currency in this case - is returned per aggregate result).
 
-
 {{< /note >}}
 Sum aggregation on cash grouped by issuer party and currency and sorted by sum:
 
@@ -407,7 +389,6 @@ Sum aggregation on cash grouped by issuer party and currency and sorted by sum:
 {{< note >}}
 `otherResults` will contain 12 items sorted from largest summed cash amount to smallest, one result per
                         calculated aggregate function per issuer party and currency (grouping attributes are returned per aggregate result).
-
 
 {{< /note >}}
 Dynamic queries (also using `VaultQueryCriteria`) are an extension to the snapshot queries by returning an
@@ -423,14 +404,12 @@ Track unconsumed linear states:
 {{< note >}}
 This will return both `DealState` and `LinearState` states.
 
-
 {{< /note >}}
 Track unconsumed deal states:
 
 
 {{< note >}}
 This will return only `DealState` states.
-
 
 {{< /note >}}
 
@@ -515,7 +494,6 @@ This only works with freshly generated public keys and *not* the node’s legal 
                     generated keys be for the node’s identity then use `PersistentKeyManagementService.freshKeyAndCert` instead of `freshKey`.
                     Currently, the generation of keys for other identities is not supported.
 
-
 {{< /note >}}
 The code snippet below show how keys can be associated with an external ID by using the exposed JPA functionality:
 
@@ -562,7 +540,6 @@ As can be seen in the code snippet above, the `PublicKeyHashToExternalId` entity
 {{< note >}}
 Here, it is worth noting that we must map **owning keys** to external IDs, as opposed to **state objects**. This is because it
                     might be the case that a `LinearState` is owned by two public keys generated by the same node.
-
 
 {{< /note >}}
 The intuition here is that when these public keys are used to own or participate in a state object, it is trivial to then associate those

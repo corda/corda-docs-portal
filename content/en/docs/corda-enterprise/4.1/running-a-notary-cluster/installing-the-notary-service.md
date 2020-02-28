@@ -86,7 +86,6 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 {{< note >}}
 Omit `compatibilityZoneURL` and set `devMode = true` when using the bootstrapper.
 
-
 {{< /note >}}
 
 ## MySQL JDBC Driver

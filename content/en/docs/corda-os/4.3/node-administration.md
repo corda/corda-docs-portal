@@ -32,8 +32,8 @@ Ensure that `shutdownHook="disable"` is set if you are overriding the log4j2 con
                     tag of the log4j configuration file, for example `<Configuration ... shutdownHook="disable">`. This is because
                     Corda overrides the default log4j2 shutdown logic in order to make sure it gets shut down correctly.
 
-
 {{< /warning >}}
+
 
 ### Example
 Create a file `sql.xml` in the current working directory. Add the following text :
@@ -187,7 +187,6 @@ The example command above would give a 1 gigabyte Java heap.
 {{< note >}}
 Unfortunately the JVM does not let you limit the total memory usage of Java program, just the heap size.
 
-
 {{< /note >}}
 A node which is running out of memory is expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
                 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens. It’s also advised to have
@@ -223,8 +222,8 @@ KEY_PASS=$(corporatePasswordStore --cordaKeyStorePassword) TRUST_PASS=$(corporat
 {{< warning >}}
 If this approach is taken, the passwords will appear in the shell history.
 
-
 {{< /warning >}}
+
 
 ### Windows PowerShell
 ```shell
@@ -239,8 +238,8 @@ SET KEY_PASS=mypassword & SET TRUST_PASS=mypassword & java -jar corda.jar
 {{< warning >}}
 If this approach is taken, the passwords will appear in the windows command prompt history.
 
-
 {{< /warning >}}
+
 
 ## Backup recommendations
 Various components of the Corda platform read their configuration from the file system, and persist data to a database or into files on disk.
@@ -280,8 +279,8 @@ Corda components read and write information from and to the file-system. The adv
 {{< warning >}}
 Private keys used to sign transactions should be preserved with the utmost care. The recommendation is to keep at least two separate copies on a storage not connected to the Internet.
 
-
 {{< /warning >}}
+
 
 ## Checking node version and installed CorDapps
 A `nodeDiagnosticInfo` RPC call can be made to obtain version information about the Corda platform running on the node. The returned `NodeDiagnosticInfo` object also includes information about the CorDapps installed on the node.
@@ -329,7 +328,6 @@ A Contract CorDapp (an attachment) received over the network, is only allowed to
 See [Signature Constraints](api-contract-constraints.md#signature-constraints) and
                     [Signing CorDapps for use with Signature Constraints](api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints) for more information
 
-
 {{< /note >}}
 
 ### Shell commands
@@ -374,7 +372,6 @@ The following shell command can be used to extract information about attachments
 > {{< note >}}
 > The `Name` column will be empty if the attachment has been stored without a name. `Trust Root` will also display an attachment
 >                             hash if there is no name to display.
-> 
 > 
 > {{< /note >}}
 > The output above shows that two CorDapps have been installed locally and are therefore trusted. The 3rd record is an attachment received

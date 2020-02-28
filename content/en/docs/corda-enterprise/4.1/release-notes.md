@@ -28,8 +28,8 @@ There is a bug in Corda 3.3 that causes problems when receiving a `FungibleState
                 by Corda 4. There will shortly be a followup Corda 3.4 release that corrects this error. Interop between
                 Corda 3 and Corda 4 will require that Corda 3 users are on the latest patchlevel release.
 
-
 {{< /warning >}}
+
 
 ## Changes for developers in Corda 4
 

@@ -25,7 +25,6 @@ As part of their boot-strapping process nodes submit their identity (public key 
 Alternatively, the service can be configured to automatically accept signature requests. However, this is
                         not the recommended deployment model outside of a testing setup.
 
-
 {{< /note >}}
 
 * Once accepted the requests have a certificate signed by the PKI infrastructure that governs the network.
@@ -50,7 +49,6 @@ At the end of this process a node will have successfully registered the legal id
 
 {{< note >}}
 This is an internal feature. Running a network with multiple sub-zones is not a supported configuration.
-
 
 {{< /note >}}
 Where the zone as a whole is defined by the unique set of identities, a sub zone is a sub grouping of those entities
@@ -77,7 +75,6 @@ Note, in either circumstance the operation of the Network Map in question is sti
 Realistically, a segregated zone will operate to allow a third party to operate a notary on it’s own
                     terms rather than submit to the scrutiny of the global zone community or where the zone operator wishes to allow
                     stratification of the min platform version applied to a network
-
 
 {{< /note >}}
 

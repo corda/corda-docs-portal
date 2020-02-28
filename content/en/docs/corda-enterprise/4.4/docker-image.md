@@ -11,7 +11,6 @@ date: 2020-01-08T09:59:25Z
 {{< note >}}
 Requirements: A valid node.conf and a valid set of certificates - (signed by the CZ)
 
-
 {{< /note >}}
 In this example, the certificates are stored at `/home/user/cordaBase/certificates`, the node configuration is in `/home/user/cordaBase/config/node.conf` and the CorDapps to run are in `/path/to/cordapps`
 
@@ -53,14 +52,12 @@ If using the H2 database:
 {{< note >}}
 If there is no dataSourceProperties key in the node.conf, the docker container overrides the url for H2 to point to the persistence directory by default so that the database can be accessed outside the container
 
-
 {{< /note >}}
 
 ## Running a node connected to a Bootstrapped Network
 
 {{< note >}}
 Requirements: A valid node.conf, a valid set of certificates, and an existing network-parameters file
-
 
 {{< /note >}}
 In this example, we have previously generated a network-parameters file using the bootstrapper tool, which is stored at `/home/user/sharedFolder/network-parameters`
@@ -92,7 +89,6 @@ It is possible to utilize the image to automatically generate a sensible minimal
 
 {{< note >}}
 Requirements: A valid registration for TestNet and a one-time code for joining TestNet. Certificate and configuration folders should be accessible from the container. Docker will create folders using the permissions of it’s daemon if they don’t exist and the container may fail accessing them.
-
 
 {{< /note >}}
 ```shell
@@ -137,7 +133,6 @@ docker run -ti \
 
 {{< note >}}
 Requirements: A Compatibility Zone, the Zone Trust Root and authorisation to join said Zone.
-
 
 {{< /note >}}
 It is possible to use the image to automate the process of joining an existing Zone as detailed [here](joining-a-compatibility-zone.html#connecting-to-a-compatibility-zone)

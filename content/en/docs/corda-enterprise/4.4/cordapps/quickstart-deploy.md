@@ -38,8 +38,7 @@ The first step is to deploy the CorDapp to nodes running locally.
 > {{< note >}}
 > Maintain window focus on the node windows, if the nodes fail to load, close them using `ctrl + d`. The `runnodes` script opens each node directory and runs `java -jar corda.jar`.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 * Go through the tabs to see the perspectives of other network members.
 

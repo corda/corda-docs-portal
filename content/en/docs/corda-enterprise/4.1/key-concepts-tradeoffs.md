@@ -20,7 +20,6 @@ date: 2020-01-08T09:59:25Z
 
 
 {{< /topic >}}
-
 ## Permissioned vs. permissionless
 Traditional blockchain networks are *permissionless*. The parties on the network are anonymous, and can join and
                 leave at will.

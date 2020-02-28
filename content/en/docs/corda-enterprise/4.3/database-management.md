@@ -269,8 +269,8 @@ A very important aspect to be remembered is that the CorDapp will have to work o
                     It is the responsibility of the developers to test the migration scripts and the CorDapp against all the databases.
                     In the future we will provide additional tooling to assist with this aspect.
 
-
 {{< /warning >}}
+
 Continuing our `MySchemaV1` class example, assume that you have a running MS SQL database,
                 the *nodeA* directory contains Corda node configuration to connect to the database,
                 the *drivers* sub-directory contains a CorDapp with `MySchemaV1`.

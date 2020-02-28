@@ -61,7 +61,6 @@ There are two main steps to implementing scheduled events:
 The scheduler’s clock always operates in the UTC time zone for uniformity, so any time zone logic must be
                     performed by the contract, using `ZonedDateTime`.
 
-
 {{< /note >}}
 The production and consumption of `ContractStates` is observed by the scheduler and the activities associated with
                 any consumed states are unscheduled.  Any newly produced states are then queried via the `nextScheduledActivity`

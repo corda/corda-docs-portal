@@ -149,8 +149,8 @@ If you require private network functionality or node certificate revocation chec
                             should be updated to include the appropriate settings. See the *Doorman & Revocation Communication* section
                             of the [Network Map Service](network-map.md) doc for more information.
 
-
 {{< /warning >}}
+
 
 #### The Network Map signing service requires a configuration update to specify communication the Network Map service
 The release modifies the Network Map Signing Service to request data through the Network Map service rather than going

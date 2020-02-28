@@ -41,7 +41,6 @@ Typical update process is as follows:
 > Currently only backwards compatible changes to the network parameters can be made, i.e. notaries can’t be
 >                                     removed (eg. they will be always added to the existing list), max transaction size can only increase, etc.
 > 
-> 
 > {{< /note >}}
 > Upon success the process will exit. Not that as the Network Map service is up and running again, nothing will be
 >                                 sent to the nodes yet.
@@ -78,12 +77,10 @@ It is also possible to poll the network map database to check how many network p
 All nodes will currently shutdown regardless of acceptance as there is currently no hotswapping of Network
                         Parameters within a node.
 
-
 {{< /note >}}
 
 {{< note >}}
 A flag day cannot be issued *before* the `updateDeadline` has passed. Therefore this should be chosen carefully.
-
 
 {{< /note >}}
 
@@ -121,7 +118,6 @@ Network parameters updates can be done via shell commands, eliminating the need 
 {{< note >}}
 Bear in mind initial network parameters setting cannot be done via shell since Network Map service cannot run
                     without Network Parameters.
-
 
 {{< /note >}}
 

@@ -30,7 +30,6 @@ Simple notary refers to running the notary using the built-in database connectio
                     performant. Note that the simple notary and JPA notary use different database schemas and thus data migration is
                     still required if switching between the two.
 
-
 {{< /note >}}
 
 ## Migration steps
@@ -38,8 +37,8 @@ Simple notary refers to running the notary using the built-in database connectio
 {{< warning >}}
 Any data lost during the migration process could lead to a loss of ledger integrity.
 
-
 {{< /warning >}}
+
 The recommended migration path would be to migrate the data stored in the source database to the target database. The data
                 would then be restored to a new database and the notary’s configuration changed to reflect the new database. Thus, the identity of
                 the notary would not change and transactions would still target it. However, the notary will have to be shutdown for a short

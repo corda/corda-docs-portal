@@ -74,7 +74,6 @@ java -jar pkitool-<VERSION>.jar --ignore-missing-crl --config-file <CONFIG_FILE>
 {{< note >}}
 See [Certificate Revocation List Information](#certificate-revocation-list-information) section below to learn about configuring the CRL information.
 
-
 {{< /note >}}
 
 ## Configuration
@@ -94,7 +93,6 @@ The output of this command are a set of local key stores within the generated `k
 
 {{< note >}}
 The generated hierarchy will not have any CRL-related extensions included, hence the `--ignore-missing-crl` flag.
-
 
 {{< /note >}}
 
@@ -122,7 +120,6 @@ For anything other than a simple test, a custom configuration file can be create
 {{< note >}}
 The full list of the configuration parameters can be found in [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md).
 
-
 {{< /note >}}
 
 #### Key Stores Configuration
@@ -142,7 +139,6 @@ This configuration block defines all certificate stores that will contain genera
 {{< note >}}
 A generated certificate will only be stored in a certificate store if explicitly specified via the `includeIn`
                             config parameter, or alternatively via the `defaultCertificatesStore` config parameter.
-
 
 {{< /note >}}
 
@@ -171,15 +167,14 @@ An additional `NETWORK_PARAMETERS` certificate role is available which can be us
                             different PKI entity for each task allows the operator to keep the process of signing the high risk and infrequent
                             Network Parameter changes isolated from the low risk and frequent process of signing Network Map changes.
 
-
 {{< /note >}}
 
 {{< warning >}}
 The additional `NETWORK_PARAMETERS` role is only supported in Corda nodes running platform version 4+. Therefore,
                             this should only ever be used in a network with `minimumPlatformVersion` >= 4.
 
-
 {{< /warning >}}
+
 
 ##### Certificate Templates
 Out of the box, the PKI Tool comes with some predefined certificate templates that can be used to generate a basic,
@@ -229,7 +224,6 @@ This is the same configuration that is used as the default when no configuration
                                 One important omission from this template is CRL information, meaning that any network using the generated
                                 certificates will not support revocation. See the section below on how the templates can be extended and customised.
 
-
 {{< /note >}}
 
 ###### Customising The Templates
@@ -263,7 +257,6 @@ It is important to remember of the signedBy relation. By default the Corda types
                                     the alias of the signing certificate, which is assumed to be the default one. As such, whenever the default alias of
                                     a certificate changes, all the certificates (configurations) being signed by this certificate needs to be updated by
                                     overriding the `signedBy` property. Following is the example of that.
-
 
 {{< /note >}}
 An example configuration that uses templates and customisation is:
@@ -328,7 +321,6 @@ For a given certificate chain (e.g. a chain from the Node CA certificate back to
                                 will be treated the same as a if the certificate was revoked. Therefore it is of the utmost importance that these CRL
                                 endpoints are correct. Once a certificate has been generated, this crlDistributionPoint extension cannot be changed.
 
-
 {{< /note >}}
 
 ###### CRL File Configuration
@@ -365,7 +357,6 @@ This will result in the encoded CRL file `crl-files/subordinate.crl` being creat
 {{< note >}}
 Existing revocations can be added to the CRL file via the `crl.revocations` parameter. See
                                     [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) for more information.
-
 
 {{< /note >}}
 For a given certificate, the exact crlDistributionPoint extension can be defined explicitly (rather than inheriting from
@@ -492,7 +483,6 @@ certificates = {
 HSM keys used by the Signing Service require an accompanying certificate store that contains all certificates in
                         the chain, from the signing entity back to the root. This is because the full chains cannot be stored within the
                         HSMs. Refer to the [Signing Services](signing-service.md) documentation for more information.
-
 
 {{< /note >}}
 

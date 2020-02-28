@@ -37,7 +37,6 @@ Corda Enterprise 4.0 can be used in mixed-version/mixed-distribution networks se
 > {{< note >}}
 > The reverse is not true. We do not commit that CorDapps compiled against Corda Enterprise will run on Corda (open source).
 > 
-> 
 > {{< /note >}}
 > 
 > * Corda Enterprise 4.0 nodes can run, without recompilation, CorDapps developed on and packaged for Corda 4.x.
@@ -49,7 +48,6 @@ Corda Enterprise 4.0 can be used in mixed-version/mixed-distribution networks se
 
 {{< note >}}
 These compatibility commitments are subject to the standard Corda Enterprise software support policy.
-
 
 {{< /note >}}
 
@@ -81,7 +79,6 @@ These compatibility commitments are subject to the standard Corda Enterprise sof
 Compatibility guarantees apply to the latest minor release version of either distribution, including any subsequent patches.
                 At the time of writing these are Enterprise release version 3.3 and Open Source release version 3.4.
                 See versioning for further information.
-
 
 {{< /note >}}
 

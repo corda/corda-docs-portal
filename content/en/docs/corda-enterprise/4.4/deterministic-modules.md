@@ -28,7 +28,6 @@ These are reduced version of Corda’s `core` and `serialization` modules and th
 These modules are only a development aid. They cannot guarantee determinism without also including
                 deterministic versions of all their dependent libraries, e.g. `kotlin-stdlib`.
 
-
 {{< /note >}}
 
 ## Generating the Deterministic Modules
@@ -260,7 +259,6 @@ package net.corda.core.internal
 ```
 *does not* automatically annotate any class declared *within* this file. It merely annotates any
                     accompanying Kotlin `xxxKt` class.
-
 
 {{< /note >}}
 For more information about how `JarFilter` is processing the byte-code inside `core` and `serialization`,

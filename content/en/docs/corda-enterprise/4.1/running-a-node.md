@@ -10,7 +10,6 @@ date: 2020-01-08T09:59:25Z
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
                 [Creating nodes locally](generating-a-node.md).
 
-
 {{< /note >}}
 There are several ways to run a Corda node locally for testing purposes.
 
@@ -38,8 +37,8 @@ java -jar corda-webserver.jar
 {{< warning >}}
 The node webserver is for testing purposes only and will be removed soon.
 
-
 {{< /warning >}}
+
 
 ### Setting JVM arguments
 There are several ways of setting JVM arguments for the node process (particularly the garbage collector and the memory settings).
@@ -183,8 +182,8 @@ Start the nodes with `runnodes` by running the following command from the root o
 On macOS, do not click/change focus until all the node terminal windows have opened, or some processes may
                         fail to start.
 
-
 {{< /warning >}}
+
 If you receive an `OutOfMemoryError` exception when interacting with the nodes, you need to increase the amount of
                     Java heap memory available to them, which you can do when running them individually. See
                     [Starting a Corda node from the command line](#starting-an-individual-corda-node).
@@ -203,8 +202,8 @@ You need both `Docker` and `docker-compose` installed and enabled to use this me
                         and [Docker Compose documentation](https://docs.docker.com/compose/install/) for installation instructions for all
                         major operating systems.
 
-
 {{< /warning >}}
+
 
 ## Starting all nodes at once on a remote machine from the command line
 By default, `Cordform` expects the nodes it generates to be run on the same machine where they were generated.

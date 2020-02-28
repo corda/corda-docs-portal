@@ -41,7 +41,6 @@ In production you should consider running five nodes or more, to be able to
                 worker is enough to serve notarisation requests in practice, its capacity might
                 not be sufficient depending on your throughput and latency requirements.
 
-
 {{< /note >}}
 If desired, you can choose to run each database server and its Corda notary worker on the same
             machine:

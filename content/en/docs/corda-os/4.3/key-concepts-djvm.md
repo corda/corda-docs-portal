@@ -164,12 +164,10 @@ In summary, the byte code analysis currently performs the following checks. This
 
 
 {{< /topic >}}
-
 {{< note >}}
 It is worth noting that not only smart contract code is instrumented by the sandbox, but all code that it can
                     transitively reach. In particular this means that the Java runtime classes and any
                     other library code used in the program are also instrumented and persisted ahead of time.
-
 
 {{< /note >}}
 
@@ -263,7 +261,6 @@ A further complexity comes from the need to constrain memory usage. The sandbox 
 {{< note >}}
 The current thresholds have been set arbitrarily for demonstration purposes and should not be relied upon as
                     sensible defaults in a production environment.
-
 
 {{< /note >}}
 

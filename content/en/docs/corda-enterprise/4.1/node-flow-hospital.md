@@ -35,8 +35,8 @@ Specifically, there are two main ways a flow is hospitalized:
 {{< warning >}}
 There is currently no retry API. If you don’t want to install the CorDapp, you should be able to call *killFlow* with the UUID associated with the failing flow in the node’s log messages.
 
-
 {{< /warning >}}
+
 
 * Once started, if a flow experiences an error, the following failure scenarios are handled:
 
@@ -81,7 +81,6 @@ There is currently no retry API. If you don’t want to install the CorDapp, you
 
 {{< note >}}
 Flows that are kept in for observation are retried upon node restart.
-
 
 {{< /note >}}
 

@@ -83,7 +83,6 @@ Any CorDapps provided when bootstrapping a network will be scanned for contracts
 {{< note >}}
 If you only wish to whitelist the CorDapps but not copy them to each node then run with the `--copy-cordapps=No` option.
 
-
 {{< /note >}}
 The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part
                     of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` [The network map](network-map.md)).
@@ -197,7 +196,6 @@ The Network Bootstrapper is provided for test deployments and can only generate 
                         the same machine. If a network needs to be updated using the Bootstrapper once deployed, the nodes will need
                         collecting back together.
 
-
 {{< /note >}}
 
 ### Updating the contract whitelist for bootstrapped networks
@@ -255,7 +253,6 @@ To give the following:
 {{< note >}}
 The whitelist can only ever be appended to. Once added a contract implementation can never be removed.
 
-
 {{< /note >}}
 
 ## Modifying the network parameters
@@ -287,7 +284,6 @@ The network parameter overrides file is a HOCON file with the following fields, 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
                         variable `KEY_STORE_PASSWORD`. See: corda-configuration-hiding-sensitive-data .
-
 
 {{< /note >}}
 The available configuration fields are listed below:
@@ -389,7 +385,6 @@ Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an exam
 
 {{< note >}}
 You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).
-
 
 {{< /note >}}
 

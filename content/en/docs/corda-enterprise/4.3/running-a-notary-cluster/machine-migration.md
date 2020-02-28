@@ -14,7 +14,6 @@ This applies to to the Corda notary worker and not the underlying database.
                 Please refer to the data migration documentation of the database, in case
                 a database service is located on the same machine as the notary worker.
 
-
 {{< /note >}}
 
 * Stop the service on the notary worker you are going to migrate. Other notary worker

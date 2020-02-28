@@ -100,19 +100,16 @@ The workflow plugin must extend *WorkflowPlugin* for certificate signing request
 {{< note >}}
 For release 1.0 only a simple issuance and optional revocation workflow pair are supported.
 
-
 {{< /note >}}
 
 {{< note >}}
 Currently, any implementation of the *WorkflowPlugin* interface **must** provide a constructor which takes exactly two arguments of types *com.typesafe.config.Config* and *com.r3.enm.workflow.api.plugins.PluginLogger* (in this order).
-
 
 {{< /note >}}
 
 {{< note >}}
 CSR requests can contain additional information that can be used in the workflow plugins (see *Example 2*). This information comes in the form of a *String* token retrieved via **CertificateSigningRequest.submissionToken**. This submission token
                     can be added to the node’s configuration via the property *networkServices.csrToken*
-
 
 {{< /note >}}
 
@@ -251,8 +248,8 @@ Permitted certificate signing request rejection reasons are as follows:
 The above are the only values accepted from the workflow plugin. Any other values will result in UNKNOWN reason
                     being set.
 
-
 {{< /warning >}}
+
 
 ### Node CSR Rejection Response
 Node CSR rejection response follows the following format:

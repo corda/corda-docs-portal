@@ -47,8 +47,8 @@ The length of time a node takes to drain depends both on how your applications a
                     talking to network peers that are offline or slow to respond. It is, therefore, difficult to give guidance on how long a drain should take. In
                     an environment with well written apps and in which your counterparties are online, it is possible that drains may only need a few seconds.
 
-
 {{< /warning >}}
+
 
 ## Step 2. Make a backup of your node directories and database
 It’s always a good idea to back up your data before upgrading any server. This will make it easy to roll back if there’s a problem.
@@ -233,7 +233,6 @@ You may connect as a different user to the one used by a Corda node (e.g. when a
                         a user with *restricted permissions*), as long as your user has the same default schema as the node has.
                         (The generated DDL script adds the schema prefix to most of the statements, but not to all of them.)
 
-
 {{< /note >}}
 The whole script needs to be run. Partially running the script causes the database schema content to be inconsistently versioned.
 
@@ -242,8 +241,8 @@ The whole script needs to be run. Partially running the script causes the databa
 The DDL scripts don’t contain any checks to prevent them from running twice.
                         An accidental re-run of the scripts will fail (as the tables are already there), but may left some old, orphan tables.
 
-
 {{< /warning >}}
+
 
 ### 3.4. Apply data updates on a database
 The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows
@@ -271,8 +270,8 @@ If you are reusing the tool configuration directory:
 > Any `node.conf` misconfiguration may cause data row migration to be wrongly applied. This may happen silently (without any error).
 >                                     The value of `myLegalName` must exactly match the node name that is used in the given database schema.
 > 
-> 
 > {{< /warning >}}
+> 
 > 
 > * create `cordapps` subdirectory and copy the CorDapps used by the Corda node
 > 
@@ -319,6 +318,6 @@ if upgrading from Corda Enterprise 3.x, please ensure your node has been upgrade
                     distribution. See [Upgrade a Corda 3.X Enterprise Node](https://docs.corda.r3.com/releases/3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node)
                     for information on upgrading Corda 3.x versions.
 
-
 {{< /warning >}}
+
 

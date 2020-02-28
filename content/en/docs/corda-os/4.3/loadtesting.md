@@ -67,7 +67,6 @@ To use gradle with system properties: `./gradlew tools:loadtest:run -Dloadtest.m
 {{< note >}}
 You can provide or override any configuration using the system properties, all properties will need to be prefixed with `loadtest.`.
 
-
 {{< /note >}}
 To use IntelliJ simply run Main.kt with the config path supplied as an argument or system properties as vm options.
 

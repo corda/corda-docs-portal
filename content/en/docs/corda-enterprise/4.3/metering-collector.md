@@ -50,8 +50,8 @@ The Metering Collection Tool provides a mechanism for collecting metering data f
 {{< warning >}}
 The `NotaryCollectionFlow` does not allow the collection of metering data for notaries configured in highly-available mode.
 
-
 {{< /warning >}}
+
 
 ## Using the `MeteringCollectionFlow`
 As a flow, the `MeteringCollectionFlow` can be invoked in three main ways:

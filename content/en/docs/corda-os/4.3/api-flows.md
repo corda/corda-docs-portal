@@ -10,7 +10,6 @@ date: 2020-01-08T09:59:25Z
 {{< note >}}
 Before reading this page, you should be familiar with the key concepts of [Flows](key-concepts-flows.md).
 
-
 {{< /note >}}
 
 ## An example flow
@@ -572,8 +571,8 @@ If you initiate several flows from the same `@InitiatingFlow` flow then on the r
                             the rest of the counter-flow should conform to. For example send an enum, and on the other side start with a switch
                             statement.
 
-
 {{< /warning >}}
+
 
 #### SendAndReceive
 We can also use a single call to send data to a counterparty and wait to receive data of a specific type back. The
@@ -981,7 +980,6 @@ In the code inlined subflows appear as regular `FlowLogic` instances, *without* 
 {{< note >}}
 Inlined flows aren’t versioned; they inherit their parent flow’s version.
 
-
 {{< /note >}}
 
 ### Initiating subflows
@@ -994,13 +992,11 @@ An example is the `@InitiatingFlow InitiatorFlow`/`@InitiatedBy ResponderFlow` f
 {{< note >}}
 Initiating flows are versioned separately from their parents.
 
-
 {{< /note >}}
 
 {{< note >}}
 The only exception to this rule is `FinalityFlow` which is annotated with `@InitiatingFlow` but is an inlined flow. This flow
                         was previously initiating and the annotation exists to maintain backwards compatibility with old code.
-
 
 {{< /note >}}
 
@@ -1030,8 +1026,8 @@ Corda installs four initiating subflow pairs on each node by default:
                         is included. The `confidential-identities` module  is still not stabilised, so the
                         `SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees](api-stability-guarantees.md).
 
-
 {{< /warning >}}
+
 Corda also provides a number of built-in inlined subflows that should be used for handling common tasks. The most
                     important are:
 
@@ -1155,12 +1151,11 @@ Once a transaction has been notarised and its input states consumed by the flow 
 {{< warning >}}
 It’s possible to forcibly terminate the erroring finality handler using the `killFlow` RPC but at the risk of an inconsistent view of the ledger.
 
-
 {{< /warning >}}
+
 
 {{< note >}}
 A future release will allow retrying hospitalised flows without restarting the node, i.e. via RPC.
-
 
 {{< /note >}}
 

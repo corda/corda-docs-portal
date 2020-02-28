@@ -16,7 +16,6 @@ Corda Enteprise is avaliable as a Virtual Machine image on AWS and Azure.
 {{< note >}}
 Corda Enterprise for Azure is based on Ubuntu Linux and has Azul Enterprise OpenJDK installed.
 
-
 {{< /note >}}
 Follow the standard Azure procedure to create a VM.
                 You can find more details at the Azure docs site: [https://docs.microsoft.com/en-us/azure/virtual-machines/linux/](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/).
@@ -76,7 +75,6 @@ sudo systemctl status corda
 
 {{< note >}}
 Corda Enterprise for AWS is based on Amazon Linux 2 and has Corretto JDK installed.
-
 
 {{< /note >}}
 Follow the standard AWS procedure to install VM.

@@ -74,7 +74,6 @@ Restarting the service frequently may cause the host key to be regenerated. SSH 
                     trusted hosts and will refuse to connect in case of a change. This check can be disabled using the
                     `-o StrictHostKeyChecking=no` flag. This option should never be used in production environment!
 
-
 {{< /note >}}
 
 ## Supported Commands

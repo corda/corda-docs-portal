@@ -32,7 +32,6 @@ Hosting a Corda node locally is possible but will require manually configuring f
 {{< note >}}
 If you host your node on your own machine or a corporate server you must ensure it is reachable from the public internet at a specific IP address. Please follow the instructions here: deploy-locally.
 
-
 {{< /note >}}
 
 ## A note on identities on Corda Testnet

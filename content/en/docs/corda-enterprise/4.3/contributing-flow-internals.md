@@ -61,7 +61,6 @@ Disregarding any potential optimizations, quasar will then do the following tran
 {{< note >}}
 The following code is pseudo-Kotlin code and includes non-existent constructs like arbitrary code labels and `goto`.
 
-
 {{< /note >}}
 ```kotlin
 // Quasar uses this annotation to store some metadata about the function, and to check whether the function has been instrumented already
@@ -121,7 +120,6 @@ The Quasar javaagent code doing the above rewriting can be found
                         Note that only the main parts of the instrumentation are shown above, the actual transformation is more complex and involves handling
                         corner cases and optimizations.
 
-
 {{< /note >}}
 
 ### Fibers
@@ -141,7 +139,6 @@ For those adventurous enough to explore the implementation, the execution stack 
                         arrays in `Stack`, one holding `Object` s (`dataObject`, for structured objects), the other holding `long` s (`dataLong`, for
                         primitive values). The arrays always have the same length, and they both contain values for each stack frame. The primitive stack
                         additionally has a “metadata” slot for each stack frame, this is where the “method entry” value is put, as well as frame size data.
-
 
 {{< /note >}}
 
@@ -373,7 +370,6 @@ To give a specific example, if we processed the above `Suspend` event in another
                     threads trying to acquire a connection. This in turn means there would be absolutely no chance of the fibers retaining the connections
                     getting scheduled again, effectively deadlocking the executor threadpool.
 
-
 {{< /note >}}
 ```kotlin
     unpark(SERIALIZER_BLOCKER)
@@ -397,7 +393,6 @@ The `processEvent*` calls do explicit checks of database transaction state on en
                     reasoning about resource usage difficult, as they detach resource lifetime from lexical scoping, or in fact any other scoping that
                     programmers are used to. These internal checks ensure that we are aware of which code blocks have a transaction open and which ones
                     don’t. Incidentally these checks also seem to catch instrumentation/missing `@Suspendable`-annotation problems.
-
 
 {{< /note >}}
 
@@ -569,7 +564,6 @@ Tracking of these handlers also allows us to do in-memory retries of flows. To d
 {{< note >}}
 There may be cases where there is no checkpoint yet for a flow that needs retrying. In this case the re-processing of the events is
                         sufficient, as one of those events will be the starting of the flow, or a delivery of a flow initiation message. So it all works out!
-
 
 {{< /note >}}
 

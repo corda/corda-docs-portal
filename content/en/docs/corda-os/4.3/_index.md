@@ -32,7 +32,6 @@ We look forward to seeing what you can do with Corda!
 You can read this site offline. Either [download the PDF](_static/corda-developer-site.pdf) or download the Corda source code, run `gradle buildDocs` and you will have
                 a copy of this site in the `docs/build/html` directory.
 
-
 {{< /note >}}
 
 

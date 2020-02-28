@@ -100,7 +100,6 @@ Before creating the IntelliJ run configurations for these unit tests
                     to the VM options, and set Working directory to `$PROJECT_DIR$`
                     so that the `Quasar` instrumentation is correctly configured.
 
-
 {{< /note >}}
 For the cash transaction, let’s assume we are using the
                 standard `CashState` in the `:financial` Gradle module. The `Cash`

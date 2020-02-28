@@ -9,7 +9,6 @@ date: 2020-01-08T09:59:25Z
 {{< note >}}
 This is an internal feature. Running a network with multiple sub-zones is not a supported configuration.
 
-
 {{< /note >}}
 
 ## From a Node’s Perspective
@@ -28,7 +27,6 @@ From the perspective of the operator of that zone however, things are a lot more
 ![simple sub zones](resources/simple-sub-zones.png "simple sub zones")
 {{< note >}}
 Signing infrastructure is omitted for brevity
-
 
 {{< /note >}}
 In this example the zone operator is operating two public sub zones, each with a different min platform version (the

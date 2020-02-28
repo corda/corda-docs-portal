@@ -82,7 +82,6 @@ It is a deliberate choice to sacrifice encoding efficiency for self-description:
                     that a mix of compression and separating the schema parts out when both sides already agree on what they are will return
                     most of the lost efficiency.
 
-
 {{< /note >}}
 
 ## Descriptors
@@ -243,8 +242,8 @@ The above implies that you cannot handle format evolution by simply skipping fie
                     must notice when the descriptors have changed from what you expect, and consult the schema to determine how to map the new message
                     to a schema that you can work with.
 
-
 {{< /warning >}}
+
 
 ## Containers
 AMQP defines encodings for maps and lists, which are mapped to/from `java.util.Map` and `java.util.List` in JVM code. You don’t need

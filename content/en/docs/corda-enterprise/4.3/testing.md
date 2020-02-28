@@ -156,7 +156,6 @@ The Cordform task doesn’t create/cleanup the database and doesn’t download t
 {{< note >}}
 To deploy nodes that are distributed with Capsule only, the Cordform task can use the `jarDirs` configuration entry instead of the `drivers` entry.
 
-
 {{< /note >}}
 A node started programmatically via the `DriverDSL` can be configured to use a remote database.
                 The JDBC driver JAR needs to be added as a Gradle runtime dependency for the `node` module in `build.gradle`.
@@ -205,7 +204,6 @@ Before creating the IntelliJ run configurations for these unit tests
                     `-javaagent:lib/quasar.jar`
                     to the VM options, and set Working directory to `$PROJECT_DIR$`
                     so that the `Quasar` instrumentation is correctly configured.
-
 
 {{< /note >}}
 Add the following to your `build.gradle` file - ideally to a `build.gradle` that already contains the quasar-utils plugin line:

@@ -203,7 +203,6 @@ rpcSettings {
 {{< note >}}
 <**required**> for notary nodes
 
-
 {{< /note >}}
 
 
@@ -309,8 +308,8 @@ You can extend the task `deployNodes` with more `node {}` blocks to generate as 
 {{< warning >}}
 When adding nodes, make sure that there are no port clashes!
 
-
 {{< /warning >}}
+
 To extend node configuration beyond the properties defined in the `deployNodes` task use the `configFile` property with the path (relative or absolute) set to an additional configuration file.
                     This file should follow the standard [Node configuration](corda-configuration-file.md) format, as per node.conf. The properties from this file will be appended to the generated node configuration. Note, if you add a property already created by the ‘deployNodes’ task, both properties will be present in the file.
                     The path to the file can also be added while running the Gradle task via the `-PconfigFile` command line option. However, the same file will be applied to all nodes.
@@ -477,8 +476,8 @@ The webserver JAR will be copied into the node’s `build` folder with the name 
 This is an experimental feature. There is currently no support for reading the webserver’s port from the
                         node’s `node.conf` file.
 
-
 {{< /warning >}}
+
 
 ## The Dockerform task
 The `Dockerform` is a sister task of `Cordform` that provides an extra file allowing you to easily spin up nodes using `docker-compose`. It supports the following configuration options for each node:

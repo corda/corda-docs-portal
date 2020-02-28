@@ -27,7 +27,6 @@ Contracts in Corda are very different to the smart contracts of other distribute
                 stateful objects representing the current state of the world. Instead, like a real-world contract, they simply
                 impose rules on what kinds of transactions are allowed.
 
-
 {{< /note >}}
 Every state has an associated contract. A transaction is invalid if it does not satisfy the contract of every input and
             output state in the transaction.

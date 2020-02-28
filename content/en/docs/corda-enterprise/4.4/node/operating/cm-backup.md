@@ -42,6 +42,6 @@ Corda components read and write information from and to the file-system. The adv
 {{< warning >}}
 Private keys used to sign transactions should be preserved with the utmost care. The recommendation is to keep at least two separate copies on a storage not connected to the Internet.
 
-
 {{< /warning >}}
+
 
