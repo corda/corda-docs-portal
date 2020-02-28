@@ -36,13 +36,6 @@ def _setup_logging():
     LOG.addHandler(ch)
 
 
-def _comment(s):
-    return f"\n{{{{/* {s} */}}}}\n"
-
-
-def _md_image(alt, url):
-    return f'![{alt}]({url} "{alt}")'
-
 
 """ Path-to-source is based on where we checked code in the get_repos.sh script """
 def _path_to_github_url(path):
@@ -63,10 +56,6 @@ def _path_to_github_url(path):
     return f"https://github.com/corda/{repo}/blob/{relpath}"
 
 
-def _md_link(text, url):
-    return f"[{text}]({url})"
-
-
 def _link_new_window(text, url):
     if not ARGS.md:
         return f'{{{{% link src="{url}" text="{text}" %}}}}'
@@ -74,20 +63,152 @@ def _link_new_window(text, url):
     return f'[{text}]({url})' # + '{:target="_blank"}' for some types of md.
 
 
-def _open_tabs(idx):
-    return f'\n{{{{< tabs name="tabs-{idx}" >}}}}\n'
 
 
-def _close_tabs():
-    return "{{< /tabs >}}\n\n"
+class Markdown:
+    def image(self, url, alt):
+        return f'![{alt}]({url} "{alt}")'
+
+    def link(self, url, text):
+        return f'[{text}]({url})'
+
+    def comment(self, text):
+        return f'<-- {text} -->'
+
+    def toc(self):
+        return self.comment("page table of contents removed")    
+
+    def visit_emphasis(self):
+        return '*'
+
+    def depart_emphasis(self):
+        return '*'
+
+    def visit_strong(self):
+        return '**'
+
+    def depart_strong(self):
+        return '**'
+
+    def visit_subscript(self):
+        return '<sub>'
+
+    def depart_subscript(self): 
+        return '</sub>'
+
+    def visit_superscript(self):
+        return '<sup>'
+
+    def depart_superscript(self):
+        return '</sup>'
+
+    def visit_literal(self):
+        return '`'
+
+    def depart_literal(self):
+        return '`'
+
+    def visit_literal_block(self, lang):
+        return f'```{lang}'
+
+    def depart_literal_block(self):
+        return '```'
+
+    def visit_math(self):
+        return '$'
+
+    def depart_math(self):
+        return '$'
+
+    def visit_tab(self, lang):
+        return f'<div class="r3-tab">\n\n'
+
+    def depart_tab(self):
+        return '\n\n</div>\n'
+
+    def visit_tabs(self, idx):        
+        return f'<div class="r3-tabs" id="tabs-{idx}">\n\n'
+
+    def depart_tabs(self):
+        return '\n</div>\n\n'
+
+    def visit_note(self):
+        return '<div class="r3-o-note" role="alert">\n\n'
+
+    def depart_note(self):
+        return '\n\n</div>\n\n'
+
+    def visit_warning(self):
+        return '<div class="r3-o-warning" role="alert">\n\n'
+
+    def depart_warning(self):
+        return '\n\n</div>\n\n'
+
+    def visit_attention(self):
+        return '<div class="r3-o-attention" role="alert">\n\n'
+
+    def depart_attention(self):
+        return '\n\n</div>\n\n'
+        
+    def visit_important(self):
+        return '<div class="r3-o-important" role="alert">\n\n'
+
+    def depart_important(self):
+        return '\n\n</div>\n\n'
+
+    def visit_topic(self):
+        return '<div class="r3-o-topic" role="alert">\n\n'
+
+    def depart_topic(self):
+        return '\n\n</div>\n\n'
 
 
-def _open_tab(lang):
-    return f'\n{{{{% tab name="{lang}" %}}}}\n'
+"""  Override raw Markdown with Hugo shortcodes  """
+class Hugo(Markdown):
+    def __init__(self, *args, **kwargs):
+        super(Hugo, self).__init__(**kwargs)
 
+    # def image(self, url, alt):
+    #     f'{{{{< img src="{url}" alt="{alt}" >}}}}\n\n'
 
-def _close_tab():
-    return f'{{{{% /tab %}}}}\n'
+    def visit_tabs(self, idx):
+        return f'\n{{{{< tabs name="tabs-{idx}" >}}}}\n'
+
+    def depart_tabs(self):
+        return "{{< /tabs >}}\n\n"
+
+    def visit_tab(self, lang):
+        return f'\n{{{{% tab name="{lang}" %}}}}\n'
+
+    def depart_tab(self):
+        return f'{{{{% /tab %}}}}\n'
+
+    def comment(self, s):
+        return f"\n{{{{/* {s} */}}}}\n"
+
+    def visit_note(self):
+        return "\n{{< note >}}"
+
+    def depart_note(self):
+        return "{{< /note >}}\n\n"
+
+    def visit_warning(self):
+        return "\n{{< warning >}}"
+
+    def depart_warning(self):
+        return "{{< /warning >}}\n\n"
+
+    def visit_attention(self):
+        return "\n{{< attention >}}\n"
+
+    def depart_attention(self):
+        return "\n{{< /attention >}}\n"
+
+    def visit_important(self):
+        return "\n{{< important >}}"
+
+    def depart_important(self):
+        return "\n{{< /important >}}\n"
 
 
 class Context:
@@ -137,19 +258,9 @@ def _is_xml_padding(s):
 
 
 class Translator:
-    def __init__(self):
+    def __init__(self, cms):
         self._context = [Context()]
-
-        self.defs = {
-            'emphasis': ('*', '*'),  # Could also use ('_', '_')
-            'problematic': ('\n\n', '\n\n'),
-            'strong': ('**', '**'),  # Could also use ('__', '__')
-            'subscript': ('<sub>', '</sub>'),
-            'superscript': ('<sup>', '</sup>'),
-            'literal': ('`', '`'),
-            'literal_block': ('```', '```'),
-            'math': ('$', '$'),
-        }
+        self.cms = cms
 
         # For determining h1/h2/h3 etc.
         self.section_depth = 0
@@ -248,10 +359,10 @@ class Translator:
     # https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
 
     def visit_title_reference(self, node):
-        self.top.put_body(self.defs['emphasis'][0])
+        self.top.put_body(self.cms.visit_emphasis())
 
     def depart_title_reference(self, node):
-        self.top.put_body(self.defs['emphasis'][1])
+        self.top.put_body(self.cms.depart_emphasis())
 
     def visit_section(self, node):
         self.section_depth += 1
@@ -340,10 +451,10 @@ class Translator:
         pass
 
     def visit_strong(self, node):
-        self.top.put_body(self.defs['strong'][0])
+        self.top.put_body(self.cms.visit_strong())
 
     def depart_strong(self, node):
-        self.top.put_body(self.defs['strong'][1])
+        self.top.put_body(self.cms.depart_strong())
 
     def visit_bullet_list(self, node):
         pass
@@ -355,34 +466,34 @@ class Translator:
         if node.attrib.get('names', '') == 'contents':
             # replace table of contents with hugo version
             if ARGS.toc:
-                self.top.put_body('\n{{< toc >}}\n')
+                self.top.put_body(self.cms.toc())
             self.push_context(Context())
         else:
-            self.top.put_body("\n{{< topic >}}")
+            self.top.put_body(self.cms.visit_topic())
 
     def depart_topic(self, node):
         if node.attrib.get('names', '') == 'contents':
             self.top.body = []  # chomp the old table of contents
             self.pop_context()
         else:
-            self.top.put_body("\n{{< /topic >}}\n")
+            self.top.put_body(self.cms.depart_topic())
 
     def visit_emphasis(self, node):
-        self.top.put_body(self.defs['emphasis'][0])
+        self.top.put_body(self.cms.visit_emphasis())
 
     def depart_emphasis(self, node):
-        self.top.put_body(self.defs['emphasis'][1])
+        self.top.put_body(self.cms.depart_emphasis())
 
     def visit_literal_block(self, node):
         lang = node.attrib.get('language', '')
         if self.in_tabs:
-            self.top.put_body(_open_tab(lang))
-        self.top.put_body(self.defs['literal_block'][0] + lang + '\n')
+            self.top.put_body(self.cms.visit_tab(lang))
+        self.top.put_body(self.cms.visit_literal_block(lang) + '\n')
 
     def depart_literal_block(self, node):
-        self.top.put_body('\n' + self.defs['literal_block'][1] + '\n')
+        self.top.put_body('\n' + self.cms.depart_literal_block() + '\n')
         if self.in_tabs:
-            self.top.put_body(_close_tab())
+            self.top.put_body(self.cms.depart_tab())
 
         if node.attrib.get('source', None):
             src = node.attrib['source']
@@ -404,14 +515,14 @@ class Translator:
     def visit_container(self, node):
         self.tabs_counter += 1
         self.push_context(Context())
-        self.top.put_body(_open_tabs(self.tabs_counter))
+        self.top.put_body(self.cms.visit_tabs(self.tabs_counter))
         self.in_tabs = True
 
     def depart_container(self, node):
-        self.top.put_body(_close_tabs())
+        self.top.put_body(self.cms.depart_tabs())
         # Gather up any source code links, and add them to the end.
         if (self.top.foot):
-            md = _md_image("github", "/images/svg/github.svg") + " " + " | ".join(self.top.foot) + "\n\n"
+            md = self.cms.image("github", "/images/svg/github.svg") + " " + " | ".join(self.top.foot) + "\n\n"
             self.top.body.append(md)
         # self.top.body.extend(f"*  {value}\n" for value in self.top.foot)
         self.top.foot = []
@@ -459,11 +570,7 @@ class Translator:
             url = node.attrib.get('uri', '#')
             alt = os.path.splitext(os.path.basename(url))[0].replace('-', ' ').replace('_', ' ')
 
-        if not ARGS.md:
-            self.top.put_body(f'{{{{< img src="{url}" alt="{alt}" >}}}}\n\n')
-        else:
-            self.top.put_body(f'![{alt}]({url} "{alt}")')
-            
+        self.top.put_body(self.cms.image(url, os.path.basename(alt)))            
 
     def depart_image(self, node):
         pass
@@ -481,22 +588,22 @@ class Translator:
         pass
 
     def visit_warning(self, node):
-        self.top.put_body("\n{{< warning >}}")
+        self.top.put_body(self.cms.visit_warning())
 
     def depart_warning(self, node):
-        self.top.put_body("\n{{< /warning >}}\n")
+        self.top.put_body(self.cms.depart_warning())
 
     def visit_literal(self, node):
-        self.top.put_body(self.defs['literal'][0])
+        self.top.put_body(self.cms.visit_literal())
 
     def depart_literal(self, node):
-        self.top.put_body(self.defs['literal'][1])
+        self.top.put_body(self.cms.visit_literal())
 
     def visit_note(self, node):
-        self.top.put_body("\n{{< note >}}")
+        self.top.put_body(self.cms.visit_note())
 
     def depart_note(self, node):
-        self.top.put_body("\n{{< /note >}}\n")
+        self.top.put_body(self.cms.depart_note())
 
     def visit_list_item(self, node):
         self.push_context(Context())
@@ -525,10 +632,10 @@ class Translator:
         self.pop_context()
 
     def visit_attention(self, node):
-        self.top.put_body("\n{{< attention >}}\n")
+        self.top.put_body(self.cms.visit_attention())
 
     def depart_attention(self, node):
-        self.top.put_body("\n{{< /attention >}}\n")
+        self.top.put_body(self.cms.depart_attention())
 
     def visit_compact_paragraph(self, node):
         pass
@@ -567,10 +674,10 @@ class Translator:
         LOG.debug('Not implemented field_name')
 
     def visit_important(self, node):
-        self.top.put_body("\n{{< important >}}")
+        self.top.put_body(self.cms.visit_important())
 
     def depart_important(self, node):
-        self.top.put_body("\n{{< /important >}}\n")
+        self.top.put_body(self.cms.depart_important())
 
     def visit_problematic(self, node):
         LOG.debug('Not implemented problematic')
@@ -798,9 +905,14 @@ def write_frontmatter(f, title):
 
 def convert_one_xml_to_hugo(filename):
     LOG.debug(f"Processing {filename}")
+    if ARGS.md:
+        cms = Markdown()
+    else:
+        cms = Hugo()
+
     try:
         configure_translator(filename)
-        t = Translator()
+        t = Translator(cms)
         t.walk(filename)
 
         md = str(filename).replace('.xml', '.md')
