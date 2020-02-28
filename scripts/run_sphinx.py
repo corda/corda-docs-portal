@@ -60,6 +60,9 @@ def _path_to_github_url(path):
 so all opening divs are suffixed with \n\n
 """
 class Markdown:
+    def __init__(self):
+        self.name = 'md'
+
     def image(self, url, alt):
         return f'![{alt}]({url} "{alt}")'
 
@@ -168,6 +171,7 @@ class Markdown:
 class Hugo(Markdown):
     def __init__(self, *args, **kwargs):
         super(Hugo, self).__init__(**kwargs)
+        self.name = 'hugo'
 
     # def image(self, url, alt):
     #     f'{{{{< img src="{url}" alt="{alt}" >}}}}\n\n'
@@ -366,7 +370,7 @@ class Translator:
     # Visitors
     ###########################################################################
 
-    #  Some we use, but sphinx renderps into the simplified output (such as
+    #  Some we use, but sphinx renders into the simplified output (such as
     #  plain old 'emphasis'
     #
     # https://docutils.sourceforge.io/docs/user/rst/quickref.html#definition-lists
@@ -925,12 +929,8 @@ def write_frontmatter(f, translator):
     f.write('---\n')
 
 
-def convert_one_xml_to_hugo(filename):
+def convert_one_xml_file_to_cms_style_md(cms, filename):
     LOG.debug(f"Processing {filename}")
-    if ARGS.md:
-        cms = Markdown()
-    else:
-        cms = Hugo()
 
     try:
         configure_translator(filename)
@@ -947,12 +947,12 @@ def convert_one_xml_to_hugo(filename):
         raise
 
 
-def convert_xml_to_hugo():
+def convert_all_xml_to_md(cms):
     LOG.warning("Converting all xml => md")
 
     files = [x for x in Path(REPOS).rglob('xml/xml/**/*.xml')]
     for x in files:
-        convert_one_xml_to_hugo(x)
+        convert_one_xml_file_to_cms_style_md(cms, x)
 
     LOG.warning(f"Processed {len(files)} files")
 
@@ -1025,7 +1025,7 @@ def _postprocess_xml():
         postprocess(d)
 
 
-def copy_to_content():
+def copy_to_content(cms):
     LOG.warning("Copying all md to content/")
 
     dirs = []
@@ -1033,7 +1033,11 @@ def copy_to_content():
     for src in files:
         dest = str(src).replace('docs/xml/xml/', '').replace(REPOS, CONTENT)
         src_filename = os.path.basename(src)
-        index_md = os.path.join(os.path.dirname(dest), '_index.md')
+
+        # We need to rename index pages to _index.md for hugo and its sections
+        if cms.name == "hugo":
+            index_md = os.path.join(os.path.dirname(dest), '_index.md')
+
         if src_filename == 'index.md':
             LOG.warning(f"Copying {src} to {dest}")
             dest = index_md # it was 'index.rst', copying to '_index.md'
@@ -1104,16 +1108,22 @@ def main():
         convert_rst_to_xml()
     else:
         LOG.warning("Skipping rst-to-xml")
-    convert_xml_to_hugo()
+
+    if ARGS.md:
+        cms = Markdown()
+    else:
+        cms = Hugo()
+    
+    convert_all_xml_to_md(cms)
 
     # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/key-concepts-notaries.xml"
     # filename = '/home/barry/dev/r3/sphinx2hugo/repos/en/docs/cenm/1.1/docs/xml/xml/cenm-support-matrix.xml'
     # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/api-contracts.xml"
     filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/api-flows.xml"
     # # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/key-concepts-contracts.xml"
-    # convert_one_xml_to_hugo(filename)
+    # convert_one_xml_file_to_cms_style_md(filename)
 
-    copy_to_content()
+    copy_to_content(cms)
     copy_resources_to_content()
 
 
