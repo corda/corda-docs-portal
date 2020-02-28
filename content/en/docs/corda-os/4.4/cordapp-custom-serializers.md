@@ -68,7 +68,6 @@ Without a custom serializer we cannot serialize this class as there is no public
 This is clearly a contrived example, simply making the constructor public would alleviate the issues.
                     However, for the purposes of this example we are assuming that for external reasons this cannot be done.
 
-
 {{< /note >}}
 To be serializable by Corda this would require a custom serializer to be written that can transform the unserializable
                 class into a form we can serialize. Continuing the above example, this could be written as follows:

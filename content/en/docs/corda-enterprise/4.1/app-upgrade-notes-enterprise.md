@@ -23,7 +23,6 @@ There is no requirement to re-compile your CorDapp to Corda Enterprise in order 
 Corda open source and Enterprise Public APIs are currently identical but this may change in future releases of Corda Enterprise.
                         Please read [Corda and Corda Enterprise compatibility](version-compatibility.md) guarantees.
 
-
 {{< /note >}}
 
 ### Re-compiling for Corda Enterprise 4.1
@@ -82,7 +81,6 @@ Corda Enterprise 4.1 binaries are not available in a public repository. In order
 Please consult your R3 support contact to request a copy of the Corda Enterprise Developer Pack (this contains a Maven repository mirror
                         of all Corda Enterprise artifacts and their dependencies).
 
-
 {{< /note >}}
 
 {{< warning >}}
@@ -100,8 +98,8 @@ where
 ext.os_corda_release_distribution = 'net.corda'
 ext.os_corda_release_version = '4.0'
 ```
-
 {{< /warning >}}
+
 
 ## Upgrading from Enterprise 4.0
 There are no CorDapp upgrade activities to move to Corda Enterprise 4.1.
@@ -144,8 +142,8 @@ The “classloader fallback mechanism” will be removed in a future version of 
                     whereby a Contract CorDapp will declare any dependencies on external classes in its own JAR metadata (similar to module `requires`
                     declarations in [Java 9 modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)).
 
-
 {{< /warning >}}
+
 
 ### Example
 CorDapps built using the new [Token SDK](https://github.com/corda/token-sdk) fall into this category, specifically any CorDapp that

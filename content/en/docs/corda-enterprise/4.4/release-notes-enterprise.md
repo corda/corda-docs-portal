@@ -19,7 +19,6 @@ Corda Enterprise 4.4 is operationally compatible with Corda (open source) 4.x an
 The compatibility and interoperability assurances apply to nodes running at the latest patch level for any given integer version.
                     For example, at the time of writing, the Corda Enterprise 4.4 interoperability and compatibility assurance is with respect to Corda 3.4, Corda Enterprise 3.3, Corda 4.1, Corda Enterprise 4.0 and Corda Enterprise 4.1.
 
-
 {{< /note >}}
 
 ### Key new features and components

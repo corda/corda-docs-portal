@@ -134,12 +134,10 @@ The Corda Health Survey is designed to perform connectivity and configuration ch
 {{< note >}}
 HA Corda Bridge/Float deployments are supported.
 
-
 {{< /note >}}
 
 {{< note >}}
 The Corda Health Survey is designed to help operators with initial setup of a Node; it is not meant to be used as an ongoing monitoring tool.
-
 
 {{< /note >}}
 
@@ -187,7 +185,6 @@ If no bridge is installed then the Health Survey will attempt to connect directl
 
 {{< note >}}
 The option –ping-notary should only be used to test a notary cluster. To test a single notary you can use –ping.
-
 
 {{< /note >}}
 

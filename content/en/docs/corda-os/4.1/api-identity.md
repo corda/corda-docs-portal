@@ -46,8 +46,8 @@ The `PartyAndCertificate` class is also used by the network map service to repre
 The `confidential-identities` module is still not stabilised, so this API may change in future releases.
                     See [Corda API](corda-api.md).
 
-
 {{< /warning >}}
+
 Confidential identities are key pairs where the corresponding X.509 certificate (and path) are not made public, so that
                 parties who are not involved in the transaction cannot identify the owner. They are owned by a well-known identity,
                 which must sign the X.509 certificate. Before constructing a new transaction the involved parties must generate and
@@ -187,7 +187,6 @@ The identity synchronization flow goes through the following key steps:
                         referenced in the transaction passed to the initiating flow). There is no standard flow for nodes to collect
                         confidential identities before assembling a transaction, and this is left for individual flows to manage if
                         required.
-
 
 {{< /note >}}
 Meanwhile, `IdentitySyncFlow.Receive` is invoked by all the other (non-initiating) parties involved in the identity

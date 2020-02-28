@@ -44,8 +44,8 @@ The length of time a node takes to drain depends on both how your applications a
                     talking to network peers that are offline or slow to respond. It is thus hard to give guidance on how long a drain should take, but in
                     an environment with well written apps and in which your counterparties are online, drains may need only a few seconds.
 
-
 {{< /warning >}}
+
 
 ## Step 2. Make a backup of your node directories and/or database
 It’s always a good idea to make a backup of your data before upgrading any server. This will make it easy to roll back if there’s a problem.

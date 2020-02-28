@@ -89,7 +89,6 @@ Depending on you machine performance, even after all containers are reported as 
 {{< note >}}
 The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
 
-
 {{< /note >}}
 
 ### Interacting with the nodes
@@ -160,7 +159,6 @@ The Corda Network Builder also provides a GUI for when automated interactions ar
 
 {{< note >}}
 The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
-
 
 {{< /note >}}
 All the nodes should eventually move to a `Status` of `INSTANTIATED`. If you run `docker ps` from the terminal to

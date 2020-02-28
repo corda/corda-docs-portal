@@ -14,8 +14,8 @@ This page is listing some practical considerations and tips that might be useful
 Resetting a node this way loses all data and states associated with this node! This process is intended to reset
                     a test system to a blank slate state. **Never** do this to a production system, you will lose all your assets.
 
-
 {{< /warning >}}
+
 The Corda Enterprise test cluster at R3 uses an automated set-up to deploy Corda to the test machines, and in the process
                 completely wipes the database - so resetting the state of the Corda test network is a matter of running a fresh installation
                 and waiting a handful of minutes. This is the recommended set-up when running performance testing regularly, but might be too

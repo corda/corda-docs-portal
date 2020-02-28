@@ -92,7 +92,6 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 Several of the core interfaces at the heart of Corda are already annotated and so any classes that implement
                     them will automatically be whitelisted.  This includes `Contract`, `ContractState` and `CommandData`.
 
-
 {{< /note >}}
 
 {{< warning >}}
@@ -100,8 +99,8 @@ Java 8 Lambda expressions are not serializable except in flow checkpoints, and t
                     expression that will work with Corda is `Runnable r = (Runnable & Serializable) () -> System.out.println("Hello World");`, or
                     `Callable<String> c = (Callable<String> & Serializable) () -> "Hello World";`.
 
-
 {{< /warning >}}
+
 
 ## AMQP
 Corda uses an extended form of AMQP 1.0 as its binary wire protocol. You can learn more about the [Wire format](wire-format.md) Corda
@@ -268,7 +267,6 @@ You own types must adhere to the following rules to be supported:
 >                                         proxy serializer can be used to avoid this problem. Details on creating such an object can be found on the
 >                                         [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md) page.
 > 
-> 
 > {{< /note >}}
 > 
 > * The class must be annotated with `@CordaSerializable`
@@ -394,8 +392,8 @@ class Example {
 We do not recommend this pattern! Corda tries to use immutable data structures throughout, and if you
                             rely heavily on mutable JavaBean style objects then you may sometimes find the API behaves in unintuitive ways.
 
-
 {{< /warning >}}
+
 
 ### Inaccessible Private Properties
 Whilst the Corda AMQP serialization framework supports private object properties without publicly
@@ -437,8 +435,8 @@ When designing Corda states, it should be remembered that they are not, despite 
 IDEs will indicate erroneously that properties can be given something other than public visibility. Ignore
                         this, as whilst it will work, as discussed above there are many reasons why this isn’t a good idea.
 
-
 {{< /warning >}}
+
 Providing a public getter, as per the following example, is acceptable:
 
 
@@ -542,7 +540,6 @@ Whilst we could potentially infer mutability empirically, doing so exhaustively 
                         with the following workarounds provided for those who use them. In future, this may change, but for now use the following
                         examples as a guide.
 
-
 {{< /note >}}
 For example, consider the following:
 
@@ -607,7 +604,6 @@ val newC2 = newC.copy (l = (newC.l + "d"))
 If mutability isn’t an issue at all then in the case of data classes a single constructor can
                         be used by making the property var instead of val and in the `init` block reassigning the property
                         to a mutable instance
-
 
 {{< /note >}}
 

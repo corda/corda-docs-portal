@@ -52,7 +52,6 @@ In production you should consider running five nodes or more, to be able to
                     worker is enough to serve traffic in principle, although its capacity might
                     not be sufficient, depending on your throughput and latency requirements.
 
-
 {{< /note >}}
 
 ### Colocating Percona and the Notary Service
@@ -109,7 +108,6 @@ If you want to connect to a Corda network with a doorman and network map service
                     use the registration tool to create your service identity. In case you want
                     to set up a test network for development or a private network without doorman and
                     network map, using the bootstrapper is recommended.
-
 
 {{< /note >}}
 

@@ -55,8 +55,8 @@ The steps outlined in this page assume you are using the same CorDapp Contract (
                 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
                 Contract CorDapp please read [Contract and state versioning](../node/operating/cm-updating-cordapp.md#contract-upgrading-ref) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
 
-
 {{< /warning >}}
+
 Please also remember that *states are always consumable if the version of the CorDapp that issued (created) them is installed*.
             In the simplest of scenarios it may be easier to re-issue existing hash or CZ whitelist constrained states (eg. exit them from the ledger using
             the original unsigned CorDapp and re-issuing them using the new signed CorDapp).
@@ -66,7 +66,6 @@ Please also remember that *states are always consumable if the version of the Co
 
 {{< note >}}
 These instructions only apply to CorDapp Contract JARs (unless otherwise stated).
-
 
 {{< /note >}}
 
@@ -128,7 +127,6 @@ TransactionBuilder txBuilder = new TransactionBuilder(notary)
 
 {{< note >}}
 These instructions only apply to CorDapp Contract JARs (unless otherwise stated).
-
 
 {{< /note >}}
 

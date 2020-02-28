@@ -18,8 +18,8 @@ This guide assumes that you have a working Corda test network or
                     know how to set one up - the set-up and topology of the Corda network as well as the hardware used can have a sweeping
                     impact on performance, so there is not much point in performance testing before these points have been considered.
 
-
 {{< /warning >}}
+
 
 ## Test Architecture
 A typical test architecture consists of the following components:

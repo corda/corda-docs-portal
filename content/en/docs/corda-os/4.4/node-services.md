@@ -256,6 +256,5 @@ A simple web server is provided that embeds the Jetty servlet container.
 The Corda web server may be removed in future and replaced with
                     sample specific webapps using a standard framework like Spring Boot.
 
-
 {{< /note >}}
 

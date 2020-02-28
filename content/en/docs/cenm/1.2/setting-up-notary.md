@@ -74,7 +74,6 @@ java -jar corda.jar --config-file <NODE_CONF_FILE> --initial-registration --netw
 The network trust store should contain the trusted root certificate of the network. This should be created
                         during the initial setup of the network and therefore should be distribute by the network operator.
 
-
 {{< /note >}}
 
 ### Generate Node Info File

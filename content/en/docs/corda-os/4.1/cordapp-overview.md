@@ -92,7 +92,6 @@ Corda and Corda Enterprise are compatible and interoperable, which means you can
 It is also important to understand how to manage any dependencies a CorDapp may have on 3rd party libraries and other CorDapps.
                     Please read [Setting your dependencies](cordapp-build-systems.md#cordapp-dependencies-ref) to understand the options and recommendations with regards to correctly Jar’ing CorDapp dependencies.
 
-
 {{< /note >}}
 
 * Compile this **CorDapp kernel** Jar once, and then depend on it from your workflows Jar (or Jars - see below). Importantly, if
@@ -106,7 +105,6 @@ It is also important to understand how to manage any dependencies a CorDapp may 
 
 {{< note >}}
 As of Corda 4 it is recommended to use [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) to leverage the new signature constraints functionality.
-
 
 {{< /note >}}
 

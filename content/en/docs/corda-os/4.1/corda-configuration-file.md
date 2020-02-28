@@ -58,7 +58,6 @@ java -Dcorda.rpcSettings.ssl.keyStorePassword=mypassword -jar node.jar
 {{< note >}}
 The available configuration fields are listed below in alphabetic order.
 
-
 {{< /note >}}
 
 

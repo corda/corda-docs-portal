@@ -18,7 +18,6 @@ Signable Material Retriever servce (SMR) ships with default CA and Non CA plugin
 The implementation shown below is meant for guiding the plugins development for own signing infrastructure.
                     The implementation should not be used in production deployment.
 
-
 {{< /note >}}
 
 ## EJBCA Web Service Setup
@@ -35,7 +34,6 @@ Next step is to import Corda’s CA. This is done by accessing *Certification Au
 
 {{< note >}}
 Provided keystore must be in PKCS12 format.
-
 
 {{< /note >}}
 Corda’s certificates contain a custom extension named Certificate Role. We must enable its override during certificate

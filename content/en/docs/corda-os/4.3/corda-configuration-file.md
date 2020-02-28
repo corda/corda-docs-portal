@@ -40,8 +40,8 @@ If a property is defined twice the last one will take precedence. The library cu
                     For example having `key=initialValue` defined first in node.conf and later on down the
                     lines `key=overridingValue` will result into the value being `overridingValue`.
 
-
 {{< /warning >}}
+
 By default the node will fail to start in presence of unknown property keys.
                 To alter this behaviour, the `on-unknown-config-keys` command-line argument can be set to `IGNORE` (default is `FAIL`).
 
@@ -66,14 +66,12 @@ java -Dcorda.rpcSettings.ssl.keyStorePassword=mypassword -jar node.jar
 If the same field is overriden by both an environment variable and system property, the system property
                     takes precedence.
 
-
 {{< /note >}}
 
 ## Configuration file fields
 
 {{< note >}}
 The available configuration fields are listed below in alphabetic order.
-
 
 {{< /note >}}
 

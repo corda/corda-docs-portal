@@ -15,7 +15,6 @@ When setting up on Red Hat Enterprise Linux and CentOS make sure SELinux is *dis
 
 Note also that **each** Percona XtraDB Cluster node requires multiple ports to be opened, the defaults are: 3306, 4444, 4567 and 4568.
 
-
 {{< /note >}}
 In this section we’re setting up a three-node Percona cluster.  A three-node cluster can tolerate one crash
             fault. In production, you probably want to run five nodes, to be able to tolerate up to two faults.
@@ -45,7 +44,6 @@ The steps below should be run on all your Percona nodes, unless otherwise
                     Percona nodes before starting the installation, to configure the data
                     replication and later to configure the JDBC connection of your notary
                     cluster.
-
 
 {{< /note >}}
 Run the commands below on all nodes of your Percona cluster to configure the

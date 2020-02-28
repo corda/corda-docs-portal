@@ -30,7 +30,6 @@ Documentation on running the samples can be found inside the sample directories 
 {{< note >}}
 If you would like to see flow activity on the nodes type in the node terminal `flow watch`.
 
-
 {{< /note >}}
 Please report any bugs with the samples on [GitHub](https://github.com/corda/corda/issues).
 

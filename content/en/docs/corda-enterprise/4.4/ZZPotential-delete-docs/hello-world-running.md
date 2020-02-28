@@ -104,7 +104,6 @@ Go to the terminal window displaying the CRaSH shell of PartyA. Typing `help` wi
 Local terminal shell is available only in a development mode. In production environment SSH server can be enabled.
                     More about SSH and how to connect can be found on the shell page.
 
-
 {{< /note >}}
 We want to create an IOU of 99 with PartyB. We start the `IOUFlow` by typing:
 

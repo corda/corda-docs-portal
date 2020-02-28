@@ -440,8 +440,8 @@ The hash of the generated CorDapp JAR is not deterministic, as it depends on var
                     timestamp at creation. Nodes running the same CorDapp must therefore ensure they are using the exact same CorDapp
                     JAR, and not different versions of the JAR created from identical sources.
 
-
 {{< /warning >}}
+
 The filename of the JAR must include a unique identifier to deduplicate it from other releases of the same CorDapp.
                 This is typically done by appending the version string to the CorDapp’s name. This unique identifier should not change
                 once the JAR has been deployed on a node. If it does, make sure no one is relying on `FlowContext.appName` in their
@@ -453,7 +453,6 @@ The filename of the JAR must include a unique identifier to deduplicate it from 
 {{< note >}}
 Before installing a CorDapp, you must create one or more nodes to install it on. For instructions, please see
                     [Creating nodes locally](generating-a-node.md).
-
 
 {{< /note >}}
 At start-up, nodes will load any CorDapps present in their `cordapps` folder. In order to install a CorDapp on a node, the
@@ -662,7 +661,6 @@ cordapp {
 {{< note >}}
 It is possible, but *not recommended*, to include everything in a single CorDapp jar and use both the `contract` and `workflow` Gradle plugin tags.
 
-
 {{< /note >}}
 
 {{< warning >}}
@@ -673,8 +671,8 @@ Contract states may optionally specify a custom schema mapping (by implementing 
                     to use native features of a particular database). The finance CorDapp provides an illustration of this packaging convention.
                     Future versions of Corda will de-couple this custom schema dependency to remove this anomaly.
 
-
 {{< /warning >}}
+
 
 ## CorDapp Contract Attachments
 As of Corda 4, CorDapp Contract JARs must be installed on a node by a trusted uploader, either by
@@ -705,7 +703,6 @@ and subsequently retry the failed flow (currently this requires a node re-start)
 {{< note >}}
 this behaviour is to protect the node from executing contract code that was not vetted. It is a temporary precaution until the
                     Deterministic JVM is integrated into Corda whereby execution takes place in a sandboxed environment which protects the node from malicious code.
-
 
 {{< /note >}}
 

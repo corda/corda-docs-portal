@@ -31,7 +31,6 @@ We recommend running your Coda node on cloud infrastructure. If you
 {{< note >}}
 You will need access to your network router/gateway to the internet. If you do not have direct access then contact your administrator.
 
-
 {{< /note >}}
 The following steps will describe how to use port forwarding on your
                 router to make sure packets intended for Corda are routed to the right
@@ -58,7 +57,6 @@ Port forwarding is a method of making a computer on your network
 {{< note >}}
 All routers are slightly different and you will need to consult the documentation for your specific make and model.
 
-
 {{< /note >}}
 Log in to the admin page of your router (often `192.168.0.1`) in your
                     browser bar.
@@ -66,7 +64,6 @@ Log in to the admin page of your router (often `192.168.0.1`) in your
 
 {{< note >}}
 Router administration IP and log in credentials are usually on the bottom or side of your router.
-
 
 {{< /note >}}
 Navigate to the `port forwarding` section of the admin console.
@@ -84,7 +81,6 @@ These ports are the defaults for Testnet which are specified
                         in the node.conf. If these conflict with existing services
                         on your host machine they can be changed in the
                         `/opt/corda/node.conf` file.
-
 
 {{< /note >}}
 For each rule you will also typically have to specify the rule name,
@@ -127,8 +123,8 @@ Corda nodes are expected to be online all the time and
                         they won’t be delivered and unexpected behaviour may
                         occur.
 
-
 {{< /warning >}}
+
 
 ### Test if the ports are open
 You can use a port checking tool to make sure the ports are open
@@ -161,8 +157,8 @@ Congratulations! You now have a running Corda node on Testnet.
 {{< warning >}}
 It is possible to copy the `node.zip` file from your local machine to any other host machine and run the Corda node from there. Do not run multiple copies of the same node (i.e. with the same identity). If a new copy of the node appears on the network then the network map server will interpret this as a change in the address of the node and route traffic to the most recent instance. Any states which are on the old node will no longer be available and undefined behaviour may result. Please provision a new node from the application instead.
 
-
 {{< /warning >}}
+
 
 ## Testing your deployment
 To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up the Finance CorDapp and issue cash to a counterparty.

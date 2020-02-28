@@ -41,14 +41,13 @@ H2 is also supported “out of the box”, without providing an external JDBC dr
 {{< warning >}}
 H2 as a database is not considered to be suitable for production.
 
-
 {{< /warning >}}
+
 
 {{< note >}}
 CENM uses H2 version 1.4.197, which does not support some SQL commands (e.g. *SELECT … FOR UPDATE*).
                     Hence, the sql command *SELECT_FOR_UPDATE_MVCC=FALSE* is patched to the H2 connection url string to circumvent
                     any potential errors stemming from the former.
-
 
 {{< /note >}}
 
@@ -82,7 +81,6 @@ A database administrator must create a database user and a schema namespace with
 This step refers to *schema* as a namespace with a set of permissions,
                         the schema content (tables, indexes) is created in [the next step](../node/operating/node-database-admin.md#db-setup-step-2-ref).
 
-
 {{< /note >}}
 Variants of Data Definition Language (DDL) scripts are provided for each supported database vendor.
                     The example permissions scripts have no group roles and do not specify physical database settings (such as the max disk space quota for a user).
@@ -94,8 +92,8 @@ Variants of Data Definition Language (DDL) scripts are provided for each support
 {{< warning >}}
 Each CENM service needs to use a separate database user and schema where multiple services are hosted on the same database instance.
 
-
 {{< /warning >}}
+
 Creating database users with schema permissions for:
 
 
@@ -189,7 +187,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_
 {{< note >}}
 CENM has been tested with Oracle database versions 12cR2 and 11gR2
 
-
 {{< /note >}}
 CENM databases require some VARCHAR2 or NVARCHAR2 column types to store more than 2000 characters,
                         ensure the database instance is configured to use extended data types. For example, for Oracle 12.1 refer to
@@ -254,8 +251,8 @@ Once the tables have been created, the database user and password settings in th
 {{< warning >}}
 Ensure that `database.runMigration` is set to false for users with restricted permissions.
 
-
 {{< /warning >}}
+
 
 ### 2.1. Add permission to use tables
 For some databases the specific permissions can be assigned only after the tables are created.
@@ -332,7 +329,6 @@ The following updates are required to the filesystem of a CENM service instance:
 > 
 > {{< note >}}
 > The [CENM Database Configuration](config-database.md) doc page contains a complete list of database specific properties.
-> 
 > 
 > {{< /note >}}
 > 

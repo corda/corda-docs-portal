@@ -104,6 +104,5 @@ Payment events in the `floatingLegPaymentSchedule` that start as a `FloatingRate
                     representation of a payment for a rate that has not yet been finalised) are replaced in their entirety with an
                     equivalent `FixedRatePaymentEvent` (which is the same type that is on the `FixedLeg`).
 
-
 {{< /note >}}
 

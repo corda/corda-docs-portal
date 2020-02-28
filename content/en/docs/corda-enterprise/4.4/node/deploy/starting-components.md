@@ -21,7 +21,6 @@ The components to be started in a deployment are:
 {{< note >}}
 The `corda-firewall.jar` is used by both Bridge and Float. The JAR file  assumes the input is `bridge.conf` however this may be overridden with the `--config-file` parameter so you can designate whatever config file name you wish to use.
 
-
 {{< /note >}}
 
 ## Starting the Float

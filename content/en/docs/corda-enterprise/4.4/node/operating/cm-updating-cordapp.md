@@ -280,8 +280,8 @@ In Corda 4 we’ve introduced the Signature Constraint (see [API: contract const
                         the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
                         Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
-
 {{< /warning >}}
+
 
 #### 1. Preserve the existing state and contract definitions
 Currently, all nodes must **permanently** keep **all** old state and contract definitions on their node’s classpath if the explicit upgrade
@@ -291,7 +291,6 @@ Currently, all nodes must **permanently** keep **all** old state and contract de
 {{< note >}}
 This requirement will go away in a future version of Corda. In Corda 4, the contract-code-as-attachment feature was implemented
                             only for “normal” transactions. `Contract Upgrade` and `Notary Change` transactions will still be executed within the node classpath.
-
 
 {{< /note >}}
 
@@ -318,7 +317,6 @@ The requirement for a `legacyContractConstraint` arises from the fact that when 
                             fake token will not validate because the constraints will not match. The `com.megacorp.SuperMegaToken` would know that it is a fake state and thus refuse to upgrade it.
                             It is safe to omit the `legacyContractConstraint` for the zone whitelist constraint, because the chain of trust is ensured by the Zone operator
                             who would have whitelisted both contracts and checked them.
-
 
 {{< /note >}}
 If the hash constraint is used, the new contract should implement `UpgradedContractWithLegacyConstraint`

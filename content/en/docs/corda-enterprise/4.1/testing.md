@@ -156,7 +156,6 @@ The Cordform task doesn’t create/cleanup the database and doesn’t download t
 {{< note >}}
 To deploy nodes that are distributed with Capsule only, the Cordform task can use the `jarDirs` configuration entry instead of the `drivers` entry.
 
-
 {{< /note >}}
 A node started programmatically via the `DriverDSL` can be configured to use a remote database.
                 The JDBC driver JAR needs to be added as a Gradle runtime dependency for the `node` module in `build.gradle`.

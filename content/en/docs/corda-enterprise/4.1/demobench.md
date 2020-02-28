@@ -102,7 +102,6 @@ Each script can only be run on its target platform, and each expects the platfor
 * Ideally, use the [JetBrains JDK](#jetbrains-jdk) to build the DMG.
 
 
-
 {{< /note >}}
 > 
 > 

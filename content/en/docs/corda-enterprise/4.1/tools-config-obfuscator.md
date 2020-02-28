@@ -14,15 +14,14 @@ The purpose of this tool is to obfuscate sensitive information in configuration 
                 node installation less vulnerable to someone trawling plain text files searching for passwords and
                 credentials of resources that they should not have access to in the first place.
 
-
 {{< /note >}}
 
 {{< warning >}}
 This feature will not make password protection completely secure. However, it will protect the node
                 against trawling attacks.
 
-
 {{< /warning >}}
+
 
 ## Using the command-line tool
 The command-line tool is included as a JAR file, named `corda-tools-config-obfuscator-<version>.jar`.
@@ -139,7 +138,6 @@ These directives can be placed arbitrarily within string properties in the confi
 The `<encrypt{}>` blocks can only appear inside string properties. Otherwise, the node will not be able
                     to decipher the obfuscated content. More explicitly, this means that the blocks can only appear on the right
                     hand-side of the colon, and for string properties only.
-
 
 {{< /note >}}
 

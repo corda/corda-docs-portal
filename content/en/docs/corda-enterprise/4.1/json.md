@@ -52,6 +52,5 @@ String json = mapper.writeValueAsString(myCordaState)  // myCordaState can be an
 {{< note >}}
 The way mappers interact with identity and RPC is likely to change in a future release.
 
-
 {{< /note >}}
 

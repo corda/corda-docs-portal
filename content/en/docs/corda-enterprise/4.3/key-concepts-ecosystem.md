@@ -23,7 +23,6 @@ date: 2020-01-08T09:59:25Z
 
 
 {{< /topic >}}
-
 ## Network structure
 A Corda network is a peer-to-peer network of **nodes**. Each node represents a legal entity, and each runs the Corda software (an instance of Corda and one or more Corda applications, known as **CorDapps**).
 

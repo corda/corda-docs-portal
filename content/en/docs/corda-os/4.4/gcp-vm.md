@@ -85,7 +85,6 @@ Now your GCP environment is configured you can switch to the Testnet
 {{< note >}}
 If you have not already set up your account on Testnet then please visit [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet) and sign up.
 
-
 {{< /note >}}
 ![testnet platform](resources/testnet-platform.png "testnet platform")You can generate as many Testnet identites as you like by refreshing
                 this page to generate a new one time link.
@@ -100,8 +99,8 @@ sudo ONE_TIME_DOWNLOAD_KEY=YOUR_UNIQUE_DOWNLOAD_KEY_HERE bash -c "$(curl -L http
 {{< warning >}}
 This command will execute the install script as ROOT on your cloud instance. You may wish to examine the script prior to executing it on your machine.
 
-
 {{< /warning >}}
+
 You can follow the progress of the installation by typing the following command in your terminal:
 
 ```bash

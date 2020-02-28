@@ -30,7 +30,6 @@ Simple notary refers to running the notary using the built-in database connectio
                     performant. Note that the simple notary and JPA notary use different database schemas and thus data migration is
                     still required if switching between the two.
 
-
 {{< /note >}}
 
 ## Migration steps

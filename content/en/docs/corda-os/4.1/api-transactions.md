@@ -10,7 +10,6 @@ date: 2020-01-08T09:59:25Z
 {{< note >}}
 Before reading this page, you should be familiar with the key concepts of [Transactions](key-concepts-transactions.md).
 
-
 {{< /note >}}
 
 ## Transaction lifecycle
@@ -137,8 +136,8 @@ The `StateRef` links an input state back to the transaction that created it. Thi
 {{< warning >}}
 Reference states are only available on Corda networks with a minimum platform version >= 4.
 
-
 {{< /warning >}}
+
 A reference input state is added to a transaction as a `ReferencedStateAndRef`. A `ReferencedStateAndRef` can be
                         obtained from a `StateAndRef` by calling the `StateAndRef.referenced()` method which returns a `ReferencedStateAndRef`.
 
@@ -198,8 +197,8 @@ Caution should be taken when using this flow as it facilitates automated re-runn
                             reference states. The flow using reference states should include checks to ensure that the reference data is
                             reasonable, especially if the economics of the transaction depends upon the data contained within a reference state.
 
-
 {{< /warning >}}
+
 
 ### Output states
 Since a transaction’s output states do not exist until the transaction is committed, they cannot be referenced as the

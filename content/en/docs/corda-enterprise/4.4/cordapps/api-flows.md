@@ -564,8 +564,8 @@ If you initiate several flows from the same `@InitiatingFlow` flow then on the r
                         the rest of the counter-flow should conform to. For example send an enum, and on the other side start with a switch
                         statement.
 
-
 {{< /warning >}}
+
 
 ### SendAndReceive
 We can also use a single call to send data to a counterparty and wait to receive data of a specific type back. The
@@ -672,7 +672,6 @@ In the code inlined subflows appear as regular `FlowLogic` instances, *without* 
 {{< note >}}
 Inlined flows aren’t versioned; they inherit their parent flow’s version.
 
-
 {{< /note >}}
 
 ### Initiating subflows
@@ -685,13 +684,11 @@ An example is the `@InitiatingFlow InitiatorFlow`/`@InitiatedBy ResponderFlow` f
 {{< note >}}
 Initiating flows are versioned separately from their parents.
 
-
 {{< /note >}}
 
 {{< note >}}
 The only exception to this rule is `FinalityFlow` which is annotated with `@InitiatingFlow` but is an inlined flow. This flow
                         was previously initiating and the annotation exists to maintain backwards compatibility with old code.
-
 
 {{< /note >}}
 
@@ -721,8 +718,8 @@ Corda installs four initiating subflow pairs on each node by default:
                         is included. The `confidential-identities` module  is still not stabilised, so the
                         `SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees](api-stability-guarantees.md).
 
-
 {{< /warning >}}
+
 Corda also provides a number of built-in inlined subflows that should be used for handling common tasks. The most
                     important are:
 
@@ -842,12 +839,11 @@ Once a transaction has been notarised and its input states consumed by the flow 
 {{< warning >}}
 It’s possible to forcibly terminate the erroring finality handler using the `killFlow` RPC but at the risk of an inconsistent view of the ledger.
 
-
 {{< /warning >}}
+
 
 {{< note >}}
 A future release will allow retrying hospitalised flows without restarting the node, i.e. via RPC.
-
 
 {{< /note >}}
 
@@ -1119,12 +1115,10 @@ A `HospitalizeFlowException` can be defined in various ways:
 If a `HospitalizeFlowException` is wrapping or extending an exception already being handled by the node-flow-hospital, the outcome of a flow may change. For example, the flow
                     could instantly retry or terminate if a critical error occurred.
 
-
 {{< /note >}}
 
 {{< note >}}
 `HospitalizeFlowException` can be extended for customized exceptions. These exceptions will be treated in the same way when thrown.
-
 
 {{< /note >}}
 Below is an example of a flow that should retry again in the future if an error occurs:
@@ -1264,7 +1258,6 @@ Flows provide the ability to await the result of an external operation running o
 {{< note >}}
 Flow worker threads belong to the thread pool that executes flows.
 
-
 {{< /note >}}
 Examples of where this functionality is useful include:
 
@@ -1295,7 +1288,6 @@ Examples of where this functionality is useful include:
 
 {{< note >}}
 The size of the external operation thread pool can be configured, see [the node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size).
-
 
 {{< /note >}}
 Below is an example of how `FlowExternalOperation` can be called from a flow to run an operation on a new thread, allowing the flow to suspend:
@@ -1479,8 +1471,8 @@ Threading must be explicitly controlled when using `FlowExternalAsyncOperation`.
                     thread if a new thread is not spawned or provided by a thread pool. This prevents the flow worker thread from freeing up and allowing
                     another flow to take control and run.
 
-
 {{< /warning >}}
+
 Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. How this future is created is up to the developer.
                 It is recommended to use `CompletableFuture.supplyAsync` and supply an executor to run the future on. Other libraries can be used to
                 generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. An example of creating a future
@@ -1490,7 +1482,6 @@ Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture
 {{< note >}}
 The future can be chained to execute further operations that continue using the same thread the future started on. For example,
                     `CompletableFuture`’s `whenComplete`, `exceptionally` or `thenApply` could be used (their async versions are also valid).
-
 
 {{< /note >}}
 Below is an example of how `FlowExternalAsyncOperation` can be called from a flow:
@@ -1711,8 +1702,8 @@ External operations are provided with a `deduplicationId` to allow CorDapps to d
 There is no inbuilt deduplication for external operations. Any deduplication must be explicitly handled in whatever way is
                     appropriate for the CorDapp and external system.
 
-
 {{< /warning >}}
+
 The `deduplicationId` passed to an external operation is constructed from its calling flow’s ID and the number of suspends the flow has
                 made. Therefore, the `deduplicationId` is guaranteed to be the same on a retry and will never be used again once the flow has successfully
                 reached its next suspension point.
@@ -1721,7 +1712,6 @@ The `deduplicationId` passed to an external operation is constructed from its ca
 {{< note >}}
 Any external operations that did not finish processing (or were kept in the flow hospital due to an error) will be retried upon node
                     restart.
-
 
 {{< /note >}}
 Below are examples of how deduplication could be handled:
@@ -1744,14 +1734,13 @@ Below are examples of how deduplication could be handled:
 {{< note >}}
 Handling deduplication on the external system’s side is preferred compared to handling it inside of the node.
 
-
 {{< /note >}}
 
 {{< warning >}}
 In-memory data structures should not be used for handling deduplication as their state will not survive node restarts.
 
-
 {{< /warning >}}
+
 The code below demonstrates how to convert a `ListenableFuture` into a `CompletableFuture`, allowing the result to be executed using a
                 `FlowExternalAsyncOperation`.
 

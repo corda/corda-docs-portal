@@ -85,7 +85,6 @@ Expanding on the previous section, for an app to use Signature Constraints, it m
 The platform currently supports `CompositeKey`s with up to 20 keys maximum.
                     This maximum limit is assuming keys that are either 2048-bit `RSA` keys or  256-bit elliptic curve (`EC`) keys.
 
-
 {{< /note >}}
 Each transaction received by a node will then verify that the apps attached to it have the correct signers as specified by its
                 Signature Constraints. This ensures that the version of each app is acceptable to the transaction’s input states.
@@ -98,7 +97,6 @@ If a node receives a transaction that uses an attachment that it doesn’t trust
 
 {{< note >}}
 An attachment is considered trusted if it was manually installed or uploaded via RPC.
-
 
 {{< /note >}}
 Signers can also be blacklisted to prevent attachments received from a peer from being loaded and used in processing transactions. Only a
@@ -187,7 +185,6 @@ If the app is signed, Signature Constraints will be used by default (in most sit
 Signature Constraints are used by default except when a new transaction contains an input state with a Hash Constraint. In this
                     situation the Hash Constraint is used.
 
-
 {{< /note >}}
 
 ## App versioning with Signature Constraints
@@ -218,8 +215,8 @@ The Java system property `-Dnet.corda.node.disableHashConstraints="true"` may be
 {{< warning >}}
 This flag should remain enabled until every hash constrained state is exited from the ledger.
 
-
 {{< /warning >}}
+
 
 ### Contract/State Agreement
 Starting with Corda 4, a `ContractState` must explicitly indicate which `Contract` it belongs to. When a transaction is
@@ -369,8 +366,8 @@ The obvious way to write a CorDapp is to put all you states, contracts, flows an
                         app into multiple modules: one which contains just states, contracts and core data types. And another which contains
                         the rest of the app. See cordapp-structure.
 
-
 {{< /warning >}}
+
 
 ### Constraints propagation
 As was mentioned above, the `TransactionBuilder` API gives the CorDapp developer or even malicious node owner the possibility

@@ -35,7 +35,6 @@ To upgrade Corda (open source) to Corda Enterprise within the same major release
 {{< note >}}
 Adding a Liquibase migration script to a CorDapp should be done by a CorDapp developer.
 
-
 {{< /note >}}
 
 * Generate CorDapp changesets against an empty database.
@@ -81,7 +80,6 @@ Switching from an H2 development database to a commercial production database re
                         Specialist third party tools are available on the market to facilitate this activity. Please contact R3 for advice on specialised tooling
                         we have validated for this upgrade exercise.
 
-
 {{< /note >}}
 The procedure for migrating from H2 to a commercial database is as follows:
 
@@ -124,7 +122,6 @@ To reuse an existing database, follow the same database instructions as
 Switching from an H2 development database to a commercial production database requires the migration of both schema and data.
                         Specialist third party tools are available that facilitate this activity. Please contact R3 for advice on specialised tooling
                         that we have validated for this upgrade exercise.
-
 
 {{< /note >}}
 To migrate from a H2 database to another database, follow the same database instructions as

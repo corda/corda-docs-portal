@@ -19,7 +19,6 @@ The following guarantees are made for CorDapps running on Corda 4.0
 {{< note >}}
 by “compliant”, we mean CorDapps that do not utilise Corda internal, non-stable or other non-committed public Corda APIs.
 
-
 {{< /note >}}
 Recommendation: security hardening changes in flow processing, specifically the `FinalityFlow`, recommend upgrading existing CorDapp
                         receiver flows to use the new APIs and thus opting in to platform version 4. See [Step 5. Security: Upgrade your use of FinalityFlow](app-upgrade-notes.md#cordapp-upgrade-finality-flow-ref) for more information.
@@ -102,7 +101,6 @@ The following additional capabilities are under consideration for delivery in fo
 
 {{< note >}}
 Trusted downloading and execution of contract attachments from remote peers will not be integrated until secure JVM sand-boxing is available.
-
 
 {{< /note >}}
 

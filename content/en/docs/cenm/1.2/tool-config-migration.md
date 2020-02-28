@@ -45,6 +45,5 @@ java -jar config-migration-tool-<<version>>.jar \
 {{< note >}}
 Optional command line option `--destination-dir` will default to `output` if omitted.
 
-
 {{< /note >}}
 

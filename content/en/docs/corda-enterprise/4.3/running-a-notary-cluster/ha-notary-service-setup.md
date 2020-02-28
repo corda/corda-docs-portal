@@ -95,7 +95,6 @@ Load balancing is currently done in `round robin` fashion on the client nodes by
 In very extreme cases, where a plethora of nodes are powered up and all send requests for notarisation
                     at the same time the ETA mechanism might be triggered on only one worker.
 
-
 {{< /note >}}
 The notary might provide back pressure to the client node, namely the ETA mechanism, which assumes equal load on all HA workers
                 and in turn forcing the node to wait for some time before retrying the flow.
@@ -110,7 +109,6 @@ A case might occur where the same transaction is submitted multiple times, which
 {{< note >}}
 The node will continue retrying notarisation requests automatically until it hears back from the notary. The round
                     robin logic should redirect retry attempts to different notary workers.
-
 
 {{< /note >}}
 
@@ -140,7 +138,6 @@ If you want to connect to a Corda network with a doorman and network map service
                     use the registration tool to create your service identity. In you want to set up a test network
                     for development or a private network without using a doorman or network map, using the
                     bootstrapper is recommended.
-
 
 {{< /note >}}
 

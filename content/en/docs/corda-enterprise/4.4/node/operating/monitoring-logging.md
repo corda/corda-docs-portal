@@ -180,7 +180,6 @@ The example command above would give a 1 gigabyte Java heap.
 {{< note >}}
 Unfortunately the JVM does not let you limit the total memory usage of Java program, just the heap size.
 
-
 {{< /note >}}
 
 ## Hiding sensitive data
@@ -211,8 +210,8 @@ KEY_PASS=$(corporatePasswordStore --cordaKeyStorePassword) TRUST_PASS=$(corporat
 {{< warning >}}
 If this approach is taken, the passwords will appear in the shell history.
 
-
 {{< /warning >}}
+
 
 ### Windows PowerShell
 ```shell
@@ -227,8 +226,8 @@ SET KEY_PASS=mypassword & SET TRUST_PASS=mypassword & java -jar corda.jar
 {{< warning >}}
 If this approach is taken, the passwords will appear in the windows command prompt history.
 
-
 {{< /warning >}}
+
 
 ## Obfuscating sensitive data
 Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [configuration obfuscator](../tools-config-obfuscator.html) which allows the user to censor string properties in the configuration file. The config would look something like this:
@@ -256,6 +255,6 @@ The values for `keyStorePassword` and `trustStorePassword` in the above example 
 {{< warning >}}
 This method does not offer full protection. We recommend using further obfuscation methods for sensitive data.
 
-
 {{< /warning >}}
+
 

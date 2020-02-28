@@ -25,8 +25,8 @@ Once added evolution annotations MUST NEVER be removed from a class, doing so wi
                 both forward and backward compatibility for this version of the class and any version moving
                 forward
 
-
 {{< /warning >}}
+
 
 ## The Purpose of Annotating Changes
 The biggest hurdle to allowing enum constants to be changed is that there will exist instances of those
@@ -47,7 +47,6 @@ In the case of adding new constants the developer must chose which constant (tha
 Ultimately, this may mean some design compromises are required. If an enumeration is
                     planned as being often extended and no sensible defaults will exist then including a constant
                     in the original version of the class that all new additions can default to may make sense
-
 
 {{< /note >}}
 
@@ -73,7 +72,6 @@ If, however, the fingerprints differ then we know that the class we are attempti
 {{< note >}}
 Corda’s AMQP fingerprinting for enumerated types include the type name and the enum constants
 
-
 {{< /note >}}
 Newer vs older is important as the deserializer needs to use the more recent set of transforms to ensure it
                 can transform the serialised object into the form as it exists in the deserializer. Newness is determined simply
@@ -86,8 +84,8 @@ technically there is nothing to prevent annotations being removed in newer versi
                     is in place to cope with all deployed instances of the class and all serialised versions existing
                     within vaults.
 
-
 {{< /warning >}}
+
 Thus, on deserialization, there will be two options to chose from in terms of transformation rules
 
 > 
@@ -144,7 +142,6 @@ enum class Example {
 The parameters to the `CordaSerializationTransformRename` annotation are defined as ‘to’ and ‘from,
                     so in the above example it can be read as constant D (given that is how the class now exists) was renamed
                     from C
-
 
 {{< /note >}}
 In the case where a single rename has been applied the meta annotation may be omitted. Thus, the following is
@@ -243,7 +240,6 @@ The parameters to the `CordaSerializationTransformEnumDefault` annotation are de
                     so in the above example it can be read as constant D should be treated as constant C if you, the deserializing
                     node, don’t know anything about constant D
 
-
 {{< /note >}}
 
 {{< note >}}
@@ -263,7 +259,6 @@ enum class Example {
 ```
 {{% /tab %}}
 {{< /tabs >}}
-
 
 {{< /note >}}
 New constants may default to any other constant older than them, including constants that have also been added
@@ -300,7 +295,6 @@ enum class Example {
     A, B, C, D, E
 }
 ```
-
 {{< /note >}}
 When deserializing the most applicable transform will be applied. Continuing the above example, deserializing
                 nodes could have three distinct views on what the enum Example looks like (annotations omitted for brevity)

@@ -516,7 +516,6 @@ Permissions are represented as *String’s* to allow RPC implementations to add 
                     execute. An administrator user (or a developer) may also be assigned the `ALL` permission, which grants access to
                     any flow.
 
-
 {{< /note >}}
 In the instructions above the server node permissions are configured programmatically in the driver code:
 

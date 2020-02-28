@@ -21,7 +21,6 @@ This shutdown occurs because, as there is currently no way to hot swap the old s
                     option to refresh the parameters is a node restart. A consequence of this is that there is no way to restart the Notary in a preemptive
                     manner prior to the flag day.
 
-
 {{< /note >}}
 Outlined below is some basic suggestions to best deal with flag days. Note that to avoid any issues restarting the Notary nodes, a Notary
                 operator should ensure that all nodes have accepted the parameter update. See the “Network parameters update process” section within the
@@ -52,7 +51,6 @@ During the flag day roll over process the cluster can temporarily be in a state 
                     Parameters and some are using the new set. As the Notary does not check the Network Parameters used for notarisation requests this is
                     not an issue.
 
-
 {{< /note >}}
 The best approach to achieve a zero-downtime update is to manually restart a single worker node immediately after the flag day. Where
                 possible, to achieve maximum worker node uptime nodes that have most recently polled the Network Map service should be prioritised *last*
@@ -68,7 +66,6 @@ Each node must be restarted during a flag day. Although the HA cluster as a whol
                     worker node is restarted whilst processing a notarisation request. If this happens before the notarisation request is completed then
                     the request will fail. The current version of Corda will automatically retry notarisation requests after a predefined timeout period
                     which negates any issues that may arise from this scenario.
-
 
 {{< /note >}}
 

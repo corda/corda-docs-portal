@@ -21,7 +21,6 @@ A Corda node, including a notary node, must have all its keys in the same keysto
 {{< note >}}
 Importing existing keys from the file based keystore into a HSM is not supported.
 
-
 {{< /note >}}
 
 ## Configuration
@@ -31,8 +30,8 @@ As mentioned in the description of the configuration file (corda-configuration-f
 {{< warning >}}
 The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. So, we strongly advise using the Configuration Obfuscator tool for it, as documented here: tools-config-obfuscator
 
-
 {{< /warning >}}
+
 
 ## Utimaco
 Corda Enterprise nodes can be configured to store their legal identity keys in [Utimaco’s SecurityServer Se Gen2](https://hsm.utimaco.com/products-hardware-security-modules/general-purpose-hsm/securityserver-se-gen2/) running firmware version 4.21.1.
@@ -186,7 +185,6 @@ path to the key store for login. Note that the .pem file that belongs to your se
 {{< note >}}
 If a relative path is specified for the pkcs12 key store, it must be relative to the base directory of the running node, firewall or HA Utility.
 
-
 {{< /note >}}
 
 
@@ -336,14 +334,12 @@ Keys generated in HSM modules are stored in encrypted form (“key blob”) on t
 {{< note >}}
 To use the generated keys on another host, you must copy or replicate KeyStore data file and the Security World’s Key Management Data directory, see nShield documentation for details. This may be necessary when registering nodes with standalone bridge using HA Utility.
 
-
 {{< /note >}}
 Module protection type is used for key generation and nCipherKM KeyStore instances.
 
 
 {{< note >}}
 The communication with the HSM is achieved via a daemon middleware process (called hardserver). If that process is restarted, the node also needs to be restarted to be able to communicate with the HSM. This can be done automatically by monitoring either that process or the node’s logs for CryptoService exceptions coming from operations with the HSM.
-
 
 {{< /note >}}
 

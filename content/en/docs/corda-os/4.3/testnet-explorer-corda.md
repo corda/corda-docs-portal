@@ -15,7 +15,6 @@ This guide assumes you have deployed a Corda node to the Corda Testnet.
 {{< note >}}
 If you need to set up a node on Testnet first please follow the instructions: [Joining Corda Testnet](corda-testnet-intro.md).
 
-
 {{< /note >}}
 
 ## Get the testing tools
@@ -66,7 +65,6 @@ Your node is now running the finance Cordapp.
 You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs/node-<VM-NAME>.log`. This
                             file will list installed apps at startup. Search for `Loaded CorDapps` in the logs.
 
-
 {{< /note >}}
 
 * Now download the Node Explorer to your **LOCAL** machine:
@@ -74,7 +72,6 @@ You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs
 
 {{< note >}}
 Node Explorer is a JavaFX GUI which connects to the node over the RPC interface and allows you to send transactions.
-
 
 {{< /note >}}
 Download the Node Explorer from here:
@@ -87,8 +84,8 @@ https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-explore
 This Node Explorer is incompatible with the Corda Enterprise distribution and vice versa as they currently
                             use different serialisation schemes (Kryo vs AMQP).
 
-
 {{< /warning >}}
+
 
 * Run the Node Explorer tool on your **LOCAL** machine.
 

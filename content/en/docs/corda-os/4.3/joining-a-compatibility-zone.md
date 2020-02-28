@@ -77,6 +77,5 @@ The utility performs the following steps:
 You can exit the utility at any time if the approval process is taking longer than expected. The request
                 process will resume on restart as long as the `--initial-registration` flag is specified.
 
-
 {{< /note >}}
 

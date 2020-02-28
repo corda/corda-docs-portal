@@ -42,6 +42,5 @@ The `exclude` option allows for filtering contracts during the whitelisting proc
                 should consist of class names only of those contracts that should NOT be included in the whitelist.
                 If both `cordappsJars` and `contracts` are set, then the union of both is considered in the network parameters.
 
-
 {{< /note >}}
 

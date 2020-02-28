@@ -146,8 +146,8 @@ When `networkSendManuallyPumped` is set to `true`, nodes will automatically proc
 {{< warning >}}
 If `threadPerNode` is set to `true`, `networkSendManuallyPumped` must also be set to `true`.
 
-
 {{< /warning >}}
+
 
 ### Running flows
 A `StartedMockNode` starts a flow using the `StartedNodeServices.startFlow` method. This method returns a future
@@ -534,7 +534,6 @@ public void simpleCPMoveFails() {
 
 {{< note >}}
 The transaction DSL forces the last line of the test to be either a `verifies` or `fails with` statement.
-
 
 {{< /note >}}
 

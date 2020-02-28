@@ -79,7 +79,6 @@ Description of RPC operations can be found in api-rpc.
 {{< note >}}
 Local terminal shell works only in development mode!
 
-
 {{< /note >}}
 The shell will display in the node’s terminal window. It connects to the node as ‘shell’ user with password ‘shell’
                 (which is only available in dev mode).
@@ -135,7 +134,6 @@ The RPC password will be requested after a connection is established.
 In development mode, restarting a node frequently may cause the host key to be regenerated. SSH usually saves
                             trusted hosts and will refuse to connect in case of a change. This check can be disabled using the
                             `-o StrictHostKeyChecking=no` flag. This option should never be used in production environment!
-
 
 {{< /note >}}
 
@@ -245,7 +243,6 @@ password : demo
 {{< note >}}
 SSH server is not supported inside the standalone shell.
 
-
 {{< /note >}}
 
 ## Shell Safe Mode
@@ -347,7 +344,6 @@ Parameters are passed to RPC or flow commands using a syntax called [Yaml](http:
 {{< note >}}
 If your CorDapp is written in Java, named arguments won’t work unless you compiled the node using the
                         `-parameters` argument to javac. See generating-a-node for how to specify it via Gradle.
-
 
 {{< /note >}}
 
@@ -516,8 +512,8 @@ Commands written in Groovy ignore Java security checks, so have unrestricted acc
                     internals regardless of any sandboxing that may be in place. Don’t allow untrusted users to edit files in the
                     shell-commands directory!
 
-
 {{< /warning >}}
+
 
 ## Limitations
 The shell will be enhanced over time. The currently known limitations include:

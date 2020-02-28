@@ -54,8 +54,8 @@ Bridge setup will log *Config files should not contain ” in property names. Pl
                     when it founds double quotes around keys.
                     This prevents configuration errors when mixing keys containing `.` wrapped with double quotes and without them
 
-
 {{< /warning >}}
+
 
 ## Defaults
 A set of default configuration options are loaded from the built-in resource file. Any options you do not specify in
@@ -83,7 +83,6 @@ By default, the Corda node assumes that it will carry out the peer-to-peer funct
                     Before running a dedicated firewall process, it is essential to turn off the dev mode component by setting the
                     `enterpriseConfiguration.externalBridge` property of the `node.conf` file to `true`.
                     If the `externalBridge` flag is not `true`, there will be unexpected behaviour as the node will try to send peer-to-peer messages directly!
-
 
 {{< /note >}}
 Assuming that an external firewall is to be used, the `corda-firewall.jar` operates in one of three basic operating modes.
@@ -141,7 +140,6 @@ The password to unlock the TLS KeyStore file (`<workspace>/<certificatesDirector
 This is the non-secret value for the development certificates automatically generated during the first node run.
                                 Longer term these keys will be managed in secure hardware devices.
 
-
 {{< /note >}}
 
 trustStorePassword
@@ -152,7 +150,6 @@ The password to unlock the Trust store file (`<workspace>/<certificatesDirectory
 
 {{< note >}}
 Longer term these keys will be managed in secure hardware devices.
-
 
 {{< /note >}}
 
@@ -300,7 +297,6 @@ For ease of use the TLS default control tunnel connections present certificate d
                                             and validate against (`<workspace>/<certificatesDirectory>/truststore.jks`), using the passwords defined in the root config.
                                             However, it is strongly recommended that distinct KeyStores should be configured in this section to use locally valid certificates only, so that compromise of the DMZ machines does not give access to the node’s primary TLS keys.
 
-
 {{< /note >}}
 
 
@@ -348,7 +344,6 @@ tunnelSSLConfiguration
 For ease of use the TLS default control tunnel connection presents certificate details from (`<workspace>/<certificatesDirectory>/sslkeystore.jks`)
                                             and validate against (`<workspace>/<certificatesDirectory>/truststore.jks`), using the passwords defined in the root config.
                                             However, it is strongly recommended that distinct KeyStores should be configured in this section to use locally valid certificates only, so that compromise of the DMZ machines does not give access to the node’s primary TLS keys.
-
 
 {{< /note >}}
 
@@ -465,7 +460,6 @@ The following diagram illustrates physical deployment of the example setup discu
 {{< note >}}
 The arrows on the diagram show in which direction connection is initiated. The actual data exchange may then be happening in both directions.
 
-
 {{< /note >}}
 In this example it is assumed that the Corda nodes are deployed on `vmNodesPrimary` and `vmNodesSecondary` using Azure SQL Server as clustered storage.
 
@@ -483,7 +477,6 @@ This document does not describe how to perform SOCKS5 setup. It is assumed that 
                     of organisation’s IT infrastructure according to best practices/policies for outbound Internet connectivity. Other types of proxies are also supported
                     as well as no proxy at all. For more information please see [proxyConfig](#proxyconfig) parameter above.
 
-
 {{< /note >}}
 
 ### Keystores generation
@@ -500,7 +493,6 @@ All the `java -jar ...` commands below run so-called Fat Capsule Jar. This proce
                         alternative, environment variable `CAPSULE_CACHE_DIR` can be used.
 
 Capsule unpacks content of the Fat Jar only once and subsequent runs perform faster than initial one. However, in order to perform a clean run, it is advised to delete Capsule cache directory.
-
 
 {{< /note >}}
 
@@ -556,7 +548,6 @@ In order for the nodes for both legal entities `Entity A` and `Entity B` to be r
 {{< note >}}
 This is not a HTTP address! This endpoint address is what is known to be peer-to-peer (P2P) connectivity address for binary, non-human readable inbound data communication.
                                 Therefore, there is little point pasting this address into any web-browser.
-
 
 {{< /note >}}
 In this example this address will be `banka.com:10005`.
@@ -767,7 +758,6 @@ Whenever communication needs to happen to NetworkMap or Doorman the process esta
 ```kotlin
 -Dcapsule.jvm.args="-Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8800 -Dhttps.proxyHost=10.0.0.100 -Dhttps.proxyPort=8800"
 ```
-
 {{< /note >}}
 Copy the `network-parameters` file and the artemis certificates into the `entityA` and `entityB` sub-directories which will then look as follows:
 
@@ -1049,7 +1039,6 @@ Files `artemis/artemis.jks` and `artemis/artemis-truststore.jks` from [Artemis k
 {{< note >}}
 Due to the way Artemis handles connections in HA mode, the `.jks` files are configured with relative paths. This means that they will have to be installed in the same path relative to the bridge’s and node’s working directory.
 
-
 {{< /note >}}
 
 #### `vmInfra2` setup
@@ -1092,7 +1081,6 @@ nohup java –jar corda-firewall.jar &
 {{< note >}}
 When Float is started, since there is no Bridge connected to it yet, the Java process will be running but the Float will not be active yet and therefore
                             will not be accepting inbound connections.
-
 
 {{< /note >}}
 When Float instance is successfully started for the first time, the `logs` directory will be created in the base directory and the following line will show up in the log file:

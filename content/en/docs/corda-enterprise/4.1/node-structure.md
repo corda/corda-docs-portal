@@ -33,8 +33,8 @@ In development mode (i.e. when `devMode = true`), the `certificates` directory i
 {{< warning >}}
 These pre-configured keystores are not secure and must not used in a production environments.
 
-
 {{< /warning >}}
+
 The keystores store the key pairs and certificates under the following aliases:
 
 

@@ -94,7 +94,6 @@ Before creating the IntelliJ run configurations for these unit tests
                     to the VM options, and set Working directory to `$PROJECT_DIR$`
                     so that the `Quasar` instrumentation is correctly configured.
 
-
 {{< /note >}}
 Add the following to your `build.gradle` file - ideally to a `build.gradle` that already contains the quasar-utils plugin line:
 

@@ -53,7 +53,6 @@ Thus the key signing hierarchy would be
 A single self-signed key can be used. However, we consider this a less secure option that should not be used
                     outside of a testing environment.
 
-
 {{< /note >}}
 
 ## Configuration
@@ -66,8 +65,8 @@ In general ENM components are configured with SSL via the inclusion of an `ssl` 
 If you enable SSL server side, for example on the Identity Manager, then any client that will talk to that
                     service must configure SSL for that communication stream.
 
-
 {{< /warning >}}
+
 SSL enablement *could* be mixed within a single ENM deployment, with only a select set of channels encrypted,
                 but it will almost certainly be easier to roll it out as a whole.
 
@@ -76,7 +75,6 @@ SSL enablement *could* be mixed within a single ENM deployment, with only a sele
 By client, we are referring to elements of the ENM suite talking to another that is listening for such
                     messaging. This does not refer to, and has no impact on, the interaction of the ENM tools and Corda nodes
                     acting as clients of the network.
-
 
 {{< /note >}}
 

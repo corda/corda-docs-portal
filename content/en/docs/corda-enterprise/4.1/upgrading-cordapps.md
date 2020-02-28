@@ -11,7 +11,6 @@ date: 2020-01-08T09:59:25Z
 This document only concerns the upgrading of CorDapps and not the Corda platform itself (wire format, node
                 database schemas, etc.).
 
-
 {{< /note >}}
 
 ## CorDapp versioning
@@ -353,8 +352,8 @@ Deleting checkpoints manually or via `killFlow` can lead to an inconsistent ledg
                         and coordination with a flow’s counterparties must be taken to ensure that a initiating flow and flows responding to it are correctly
                         removed. This experience will be improved in the future. Making it easier to kill flows while notifying their counterparties.
 
-
 {{< /warning >}}
+
 
 ## Contract and state versioning
 There are two types of contract/state upgrade:
@@ -392,7 +391,6 @@ Currently, all nodes must **permanently** keep **all** old state and contract de
 {{< note >}}
 Once the contract-code-as-an-attachment feature has been implemented, nodes will only be required to keep the
                             old state and contract definitions on their node’s classpath for the duration of the upgrade
-
 
 {{< /note >}}
 Changing a state or contract’s package constitutes a definition change. If you want to move a state or contract

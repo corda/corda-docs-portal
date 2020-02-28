@@ -63,6 +63,5 @@ If you need to modify `api-current.txt`, do not re-generate the file on the mast
                     hasn’t been released or committed to, and may be subject to change. Manually change the specific line or lines of the
                     existing committed API that has changed.
 
-
 {{< /note >}}
 

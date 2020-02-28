@@ -23,7 +23,6 @@ date: 2020-01-08T09:59:25Z
 
 
 {{< /topic >}}
-
 ## Network structure
 A Corda network is a peer-to-peer network of **nodes**. Each node runs the Corda software as well as Corda applications
                 known as **CorDapps**.
@@ -39,7 +38,6 @@ Each node has a single well-known identity. The node’s identity is used to rep
 
 {{< note >}}
 These identities are distinct from the RPC user logins that are able to connect to the node via RPC.
-
 
 {{< /note >}}
 Each network has a **network map service** that maps each well-known node identity to an IP address. These IP

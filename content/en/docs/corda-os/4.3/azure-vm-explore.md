@@ -55,7 +55,6 @@ Click on “OK”:
 {{< note >}}
 This is so the IP address for your node does not change frequently in the global network map.
 
-
 {{< /note >}}
 ![azure set static ip](resources/azure-set-static-ip.png "azure set static ip")Next toggle “Network Security Group” to advanced and click on “Network security group (firewall)”:
 
@@ -72,7 +71,6 @@ Destination port ranges: 22, Priority: 1044  Name: Port_22
 {{< note >}}
 The priority has to be unique number in the range 900 (highest) and 4096 (lowest) priority. Make sure each
                         rule has a unique priority or there will be a validation failure and error message.
-
 
 {{< /note >}}
 ![azure nsg 2](resources/azure-nsg-2.png "azure nsg 2")Click “OK” and “OK” again on the “Settings” panel:
@@ -97,13 +95,11 @@ Now that your Azure environment is configured you can switch to the
 If you have not already set up your account on Testnet, please visit [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet) and sign
                         up.
 
-
 {{< /note >}}
 
 {{< note >}}
 You can generate as many Testnet identites as you like by clicking “Generate new node” to generate a new one-time
                         link.
-
 
 {{< /note >}}
 ![testnet platform](resources/testnet-platform.png "testnet platform")In the terminal of your cloud instance, paste the command you just copied to install and run your Corda node:
@@ -116,8 +112,8 @@ sudo ONE_TIME_DOWNLOAD_KEY=YOUR_UNIQUE_DOWNLOAD_KEY_HERE bash -c "$(curl -L http
 This command will execute the install script as ROOT on your cloud instance. You may wish to examine the
                         script prior to executing it on your machine.
 
-
 {{< /warning >}}
+
 You can follow the progress of the installation by typing the following command in your terminal:
 
 ```bash

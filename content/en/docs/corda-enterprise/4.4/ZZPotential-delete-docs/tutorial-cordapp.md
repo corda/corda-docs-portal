@@ -252,7 +252,6 @@ CorDapps can be written in any language targeting the JVM. In our case, we’ve 
                             both Kotlin and Java. Since both sets of source files are functionally identical, we will refer to the Kotlin version
                             throughout the documentation.
 
-
 {{< /note >}}
 
 * After the build finishes, you will see the following output in the `workflows-kotlin/build/nodes` folder:
@@ -293,7 +292,6 @@ CorDapps can be written in any language targeting the JVM. In our case, we’ve 
                             you would instead create a single node as described in generating-a-node and build your CorDapp JARs as described
                             in cordapp-build-systems.
 
-
 {{< /note >}}
 
 #### Running the example CorDapp
@@ -322,8 +320,8 @@ Look for the Started ServerKt in X seconds message, don’t rely on the % indica
 On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some
                             nodes may fail to start. You can run `workflows-kotlin/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes will need to use ssh, see shell.
 
-
 {{< /warning >}}
+
 For each node, the `runnodes` script creates a node tab/window:
 
 ```none
@@ -413,8 +411,8 @@ There is also a web front-end served from the home web page e.g. `localhost:5000
 The content is only available for demonstration purposes and does not implement
                         anti-XSS, anti-XSRF or other security techniques. Do not use this code in production.
 
-
 {{< /warning >}}
+
 
 #### Creating an IOU via the endpoint
 An IOU can be created by sending a PUT request to the `/api/example/create-iou` endpoint directly, or by using the
@@ -570,14 +568,13 @@ For example, you may end up with the following layout:
 The bootstrapper must be run **after** the `node.conf` files have been modified, but **before** the nodes
                     are distributed across machines. Otherwise, the nodes will not be able to communicate.
 
-
 {{< /warning >}}
+
 
 {{< note >}}
 If you are using H2 and wish to use the same `h2port` value for two or more nodes, you must only assign them that
                     value after the nodes have been moved to their individual machines. The initial bootstrapping process requires access to
                     the nodes’ databases and if two nodes share the same H2 port, the process will fail.
-
 
 {{< /note >}}
 

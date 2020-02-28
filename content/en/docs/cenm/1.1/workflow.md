@@ -99,7 +99,6 @@ The workflow plugin must extend *CsrWorkflowPlugin* or *CrrWorkflowPlugin* for c
 {{< note >}}
 for release 1.0 only a sinlle issuance and optional reovation workflow pair are supported.
 
-
 {{< /note >}}
 The plugin will need to be made available to the ENM process by including the plugin jar in the classpath.
 
@@ -291,8 +290,8 @@ Permitted certificate signing request rejection reasons are as follows:
 The above are the only values accepted from the workflow plugin. Any other values will result in UNKNOWN reason
                     being set.
 
-
 {{< /warning >}}
+
 
 ### Node CSR Rejection Response
 Node CSR rejection response follows the following format:

@@ -38,7 +38,6 @@ A database administrator must create a database user and a schema namespace with
 This step refers to *schema* as a namespace with a set of permissions,
                     the schema content (tables, indexes) is created in [the next step](#db-setup-step-2-ref).
 
-
 {{< /note >}}
 Variants of Data Definition Language (DDL) scripts are provided for each supported database vendor.
                 The example permissions scripts have no group roles and do not specify physical database settings (such as the max disk space quota for a user).
@@ -50,8 +49,8 @@ Variants of Data Definition Language (DDL) scripts are provided for each support
 {{< warning >}}
 Each Corda node needs to use a separate database user and schema where multiple nodes are hosted on the same database instance.
 
-
 {{< /warning >}}
+
 Creating database users with schema permissions for:
 
 
@@ -447,7 +446,6 @@ You may connect as a different user than the one used by a Corda node (e.g. when
                         a user with *restricted permissions*), as long as the user has the same default schema as node has
                         (the generated DDL script adds a schema prefix to most of the statements but not to all of them).
 
-
 {{< /note >}}
 The whole script needs to be run. Partially running the script would cause the database schema content to be in an inconsistent version.
 
@@ -456,8 +454,8 @@ The whole script needs to be run. Partially running the script would cause the d
 The DDL scripts don’t contain any check preventing running them twice.
                         An accidental re-run of the scripts will fail (as the tables are already there) but may leave some old, orphan tables.
 
-
 {{< /warning >}}
+
 
 ### 2.5. Add permission to use tables
 For some databases the specific permissions can be assigned only after the tables are created.
@@ -544,7 +542,6 @@ The following updates are required to the filesystem of a node:
 > 
 > {{< note >}}
 > *Node configuration <database_properties_ref>* contains a complete list of database specific properties.
-> 
 > 
 > {{< /note >}}
 > 

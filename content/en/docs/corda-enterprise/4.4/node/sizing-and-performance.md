@@ -24,7 +24,6 @@ It is expected that users should test their own configurations with the networks
                     and other elements of our performance testing tool set are now available as part of this release to help calibrate
                     infrastructure configurations and to help stress CorDapps through generated load. See the performance-testing/introduction here.
 
-
 {{< /note >}}
 Figure 1 below compares the number of Transactions Per Second (TPS) carried out by a single node, either locally with no other nodes and no notary
                 (Issue) or with one other node and a notary (Issue + Repeated Pay), between Corda Enterprise 4 and Corda Enterprise 3.3 (most recent release at
@@ -116,7 +115,6 @@ It’s likely you’ll have (much) more RAM in larger VMs and physical servers, 
 {{< note >}}
 Performance in shared infrastructure environments varies over time dependent on what other workloads are present in said
                         shared infrastructure.
-
 
 {{< /note >}}
 

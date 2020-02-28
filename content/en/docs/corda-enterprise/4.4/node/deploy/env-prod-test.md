@@ -438,7 +438,6 @@ The following image may be helpful in ensuring alignment between the Node, Bridg
 {{< note >}}
 **p2pAddress** reflects the **publicly accessible address**, which may or may not be the Float inboundConfig.listeningAddress. If there is an internet firewall configured in front of the Float then ask the Network Administrator for the public address that routes to the Float’s **listeningAddress**, and use that public address for your **p2pAddress**.
 
-
 {{< /note >}}
 
 ### Proxy Configurations

@@ -45,7 +45,6 @@ Additionally, the following 3 custom fields need to be created and configured in
 These fields are global and applicable to both CSR and CRR projects. Screen selection (see snippets below) alows
                     for field assignment to a specific project.
 
-
 {{< /note >}}
 The following snippets depict the configuration for those fields:
 

@@ -20,7 +20,6 @@ date: 2020-01-08T09:59:25Z
 
 
 {{< /topic >}}
-
 ## Video
 <iframe src="https://player.vimeo.com/video/213879314" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
@@ -73,7 +72,6 @@ If a time window needs to be converted to an absolute time (e.g. for display pur
 {{< note >}}
 It is assumed that the time feed for a notary is GPS/NaviStar time as defined by the atomic
                     clocks at the US Naval Observatory. This time feed is extremely accurate and available globally for free.
-
 
 {{< /note >}}
 

@@ -361,8 +361,7 @@ class CarContract : Contract {
 > {{< note >}}
 > The **networkMapCache** contains information about the nodes and notaries inside the network.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 * Create a variable for an `Issue` command.
 
@@ -534,8 +533,7 @@ return subFlow(FinalityFlow(stx, sessions))
 > {{< note >}}
 > Sessions are used for sending and receiving objects between nodes. `ourIdentity` is removed from the list of participants to open sessions to because a session does not need to be opened to the initiating party.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 * Lastly, the body of the responder flow must be completed. The following code checks the transaction contents, signs it, and sends it back to the initiator:
 
@@ -566,8 +564,7 @@ override fun call(): SignedTransaction {
 > {{< note >}}
 > The `checkTransaction` function should be used *only* to model business logic. A contract’s `verify` function should be used to define what is and is not possible within a transaction.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 * The completed `CarFlow.kt` should look like this:
 
@@ -743,8 +740,7 @@ Now that the CorDapp code has been completed and the build file updated, the Cor
 > {{< note >}}
 > Maintain window focus on the node windows, if the nodes fail to load, close them using `ctrl + d`. The `runnodes` script opens each node directory and runs `java -jar corda.jar`.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 * To run flows in your CorDapp, enter the following flow command from any non-notary terminal window:
 

@@ -200,6 +200,5 @@ rpcB.startFlow({ stateAndRef, upgrade -> ContractUpgradeFlow(stateAndRef, upgrad
 {{< note >}}
 See `ContractUpgradeFlowTest` for more detailed code examples.
 
-
 {{< /note >}}
 

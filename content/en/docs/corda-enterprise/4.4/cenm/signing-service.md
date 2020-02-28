@@ -71,7 +71,6 @@ Communication with the configured SMR service location can be configured to use 
                             connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                             information.
 
-
 {{< /note >}}
 Configuration parameters are same as in [Signable Material Retriever Location Example](#signable-material-retriever-location-example)
 
@@ -137,7 +136,6 @@ enmListener = {
 {{< note >}}
 Plugin’s configuration file must be in same directory as plugin’s JAR file and must be named “plugin.conf”
 
-
 {{< /note >}}
 
 ## Signing Service
@@ -197,13 +195,11 @@ Due to security concerns, the signing service should be hosted on private premis
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
                     [Configuring the ENM services to use SSL](enm-with-ssl.md)
 
-
 {{< /note >}}
 
 {{< note >}}
 This document does not cover HSM setup, rather assumes that the HSM(s) have already been configured - the
                     users and certificates should have been previously setup on the box.
-
 
 {{< /note >}}
 
@@ -230,7 +226,6 @@ signer name: <SIGNING_TASK_ALIAS>` command. This will execute the task, promptin
 
 {{< note >}}
 Any configured task can be run through the shell, even automated scheduled tasks.
-
 
 {{< /note >}}
 
@@ -372,7 +367,6 @@ A signing key can reside in either a local java key store or a HSM. For HSM sign
 {{< note >}}
 Using a local java keystore in a production system is strongly discouraged.
 
-
 {{< /note >}}
 More detailed descriptions of how to configure a signing key can be found in the `Configuration Parameters`_ section
                     below.
@@ -387,7 +381,6 @@ For all signing tasks, global data source for getting the unsigned data and pers
 Communication with the configured SMR service location can be configured to use SSL for a secure, encrypted
                         connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                         information.
-
 
 {{< /note >}}
 
@@ -425,8 +418,8 @@ A signing task can be configured to automatically run on a set schedule, providi
 Automated, scheduled signing of important changes such as Network Parameter updates, CSRs and CRLs should
                             not be configured in production environments.
 
-
 {{< /warning >}}
+
 An appropriate signing task can be scheduled via the `schedule` config block within the signing task configuration:
 
 ```guess
@@ -468,7 +461,6 @@ The `interval` parameter can either take a number, interpreted as the number of 
 {{< note >}}
 Attempting to configure a non-schedulable signing task (e.g. signing via HSM requiring manual user
                             authentication) will result in an error upon service startup.
-
 
 {{< /note >}}
 
@@ -532,7 +524,6 @@ The steps involved in signing other data types are very similar to above, mainly
 {{< note >}}
 The signing of the Network Map is completely separate from the signing of the Network Parameters. A parameter
                         update will only be included in a network map if the update has been previously signed.
-
 
 {{< /note >}}
 
@@ -629,7 +620,6 @@ If the signing key is within a Utimaco HSM then the HSM connection details needs
 
 {{< note >}}
 A signing task can only be scheduled if its signing key requires no runtime user input for authentication.
-
 
 {{< /note >}}
 

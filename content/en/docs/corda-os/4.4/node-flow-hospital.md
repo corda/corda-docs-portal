@@ -20,7 +20,6 @@ If the raised exception cannot be handled from the hospital, it will be propagat
                     If the exception is not handled by the application code either, then the flow will terminate and any records of it will be removed from the hospital.
                     Below, you can find a list of the errors that are handled by the hospital.
 
-
 {{< /note >}}
 This concept is analogous to *exception management handling* associated with enterprise workflow software, or
                 *retry queues/stores* in enterprise messaging middleware for recovering from failure to deliver a message.
@@ -53,8 +52,8 @@ Specifically, there are two main ways a flow is hospitalized:
 There is currently no retry API. If you don’t want to install the cordapp, you should be able to call *killFlow* with the UUID
                                 associated with the failing flow in the node’s log messages.
 
-
 {{< /warning >}}
+
 
 * Once started, if a flow experiences an error, the following failure scenarios are handled:
 
@@ -104,7 +103,6 @@ There is currently no retry API. If you don’t want to install the cordapp, you
 
 {{< note >}}
 Flows that are kept in for observation are retried upon node restart.
-
 
 {{< /note >}}
 

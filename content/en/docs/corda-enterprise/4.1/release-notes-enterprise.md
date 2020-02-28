@@ -19,7 +19,6 @@ Corda Enterprise 4.1 is operationally compatible with Corda (open source) 4.x an
 The compatibility and interoperability assurances apply to nodes running at the latest patch level for any given integer version.
                     For example, at the time of writing, the Corda Enterprise 4.1 interoperability and compatibility assurance is with respect to Corda 3.4, Corda Enterprise 3.3, Corda 4.1 and Corda Enterprise 4.0.
 
-
 {{< /note >}}
 
 ### Key new features and components
@@ -54,7 +53,6 @@ Please refer to the [Network Services configuration](corda-configuration-file.md
 {{< note >}}
 in Corda Enterprise 4.0 the *initialiseSchema* migration flag was being used for both H2 and non-H2 databases (causing automatic updating
                         of the nodes database schema by default).
-
 
 {{< /note >}}
 
@@ -129,7 +127,6 @@ For **node operators**, it is advisable to follow the instructions outlined in [
 
 {{< note >}}
 In a mixed-distribution network the open source finance contract CorDapp should be deployed on both Corda 4.x (open source) and Corda Enterprise 4.1 nodes.
-
 
 {{< /note >}}
 Visit the [https://www.r3.com/corda-enterprise](https://www.r3.com/corda-enterprise/) for more information about Corda Enterprise.

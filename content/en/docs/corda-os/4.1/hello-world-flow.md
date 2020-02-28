@@ -45,8 +45,8 @@ The execution of a flow is distributed in space and time, as the flow crosses no
                     to model a long-running business process as a single flow: it should rather be broken up into a series
                     of transactions, with flows used only to orchestrate the completion of each transaction.
 
-
 {{< /warning >}}
+
 
 ### Subflows
 Tasks like recording a transaction or sending a transaction to a counterparty are very common in Corda. Instead of
@@ -221,7 +221,6 @@ Every transaction requires a notary to prevent double-spends and serve as a time
 {{< note >}}
 Whenever we need information within a flow - whether it’s about our own node’s identity, the node’s local storage,
                         or the rest of the network - we generally obtain it via the node’s `ServiceHub`.
-
 
 {{< /note >}}
 

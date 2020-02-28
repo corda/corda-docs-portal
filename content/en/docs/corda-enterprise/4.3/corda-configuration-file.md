@@ -40,8 +40,8 @@ If a property is defined twice the last one will take precedence. The library cu
                     For example having `key=initialValue` defined first in node.conf and later on down the
                     lines `key=overridingValue` will result into the value being `overridingValue`.
 
-
 {{< /warning >}}
+
 By default the node will fail to start in presence of unknown property keys.
                 To alter this behaviour, the `on-unknown-config-keys` command-line argument can be set to `IGNORE` (default is `FAIL`).
 
@@ -143,7 +143,6 @@ java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="000000000000000000000000000
 
 {{< note >}}
 The available configuration fields are listed below in alphabetic order.
-
 
 {{< /note >}}
 
@@ -630,7 +629,6 @@ An optional list of file system directories containing JARs to include in the cl
 {{< note >}}
 This property is only available for Corda distributed with Capsule. For the Corda tarball distribution this option is unavailable.
                                 It’s advisable to copy any required JAR files to the ‘drivers’ subdirectory of the node base directory.
-
 
 {{< /note >}}
 

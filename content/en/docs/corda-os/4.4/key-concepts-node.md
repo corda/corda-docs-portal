@@ -28,7 +28,6 @@ date: 2020-01-08T09:59:25Z
 
 
 {{< /topic >}}
-
 ## Video
 <p><a href="https://vimeo.com/214168860">Corda Node, CorDapps and Network</a></p>
 

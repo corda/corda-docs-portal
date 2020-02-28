@@ -14,8 +14,8 @@ The MySQL notary service is tested against Percona XtraDB Cluster 5.7. Perconaâ€
 The MySQL notary service is deprecated and will be removed in the future. A [JPA notary service](installing-jpa.md)
                 should be used instead.
 
-
 {{< /warning >}}
+
 
 {{< note >}}
 When setting up on Red Hat Enterprise Linux and CentOS make sure SELinux is *disabled* (we found issues even with the *permissive* mode).
@@ -23,7 +23,6 @@ When setting up on Red Hat Enterprise Linux and CentOS make sure SELinux is *dis
                 `[Warning] WSREP: 0.0 (pxc-cluster-node-1): State transfer to 1.0 (pxc-cluster-node-2) failed: -2 (No such file or directory)`
 
 Note also that **each** Percona XtraDB Cluster node requires multiple ports to be opened, the defaults are: 3306, 4444, 4567 and 4568.
-
 
 {{< /note >}}
 
@@ -71,7 +70,6 @@ The steps below should be run on all your Percona nodes, unless otherwise
                     Percona nodes before starting the installation, to configure the data
                     replication and later to configure the JDBC connection of your notary
                     cluster.
-
 
 {{< /note >}}
 Run the commands below on all nodes of your Percona cluster to configure the
@@ -227,7 +225,6 @@ We can do this using the following commands:
 {{< note >}}
 The below schema is intended to be used with the MySQL notary implementation and not the JPA notary implementation. See the note in
                             introduction for more details on the difference between the MySQL and JPA notary implementations.
-
 
 {{< /note >}}
 ```sql

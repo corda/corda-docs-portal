@@ -17,8 +17,8 @@ As noted in the above diagram, if the workers are sharing a HSM then this should
                     single non-HA HSM in a CFT notary cluster will introduce a single point of failure and is strongly discouraged. If a HA HSM configuration
                     is not possible then see the below section on [Using Multiple HSMs](#using-multiple-hsms) for how to setup one HSM per worker node.
 
-
 {{< /warning >}}
+
 Each Notary workers needs access to three private key entries, corresponding to following entities:
 
 > 
@@ -68,7 +68,6 @@ enterpriseConfiguration {
 In order to use the same Keyvault across notary workers, distinct values for
                     the *identityKeyAlias* and *clientCaKeyAlias* settings must be used for each
                     worker. Otherwise the key aliases will clash in the Keyvault.
-
 
 {{< /note >}}
 Create a crypto service config file with the following content:
@@ -122,7 +121,6 @@ When a “one HSM per worker” setup is being used, the distributed notary serv
 
 {{< note >}}
 A single Corda node (including notary workers) can not be configured to utilise more than one HSM in the current version.
-
 
 {{< /note >}}
 

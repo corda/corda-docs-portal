@@ -21,7 +21,6 @@ A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and an
                 reliable code that can survive node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed
                 from memory.
 
-
 {{< /note >}}
 
 ## Checkpoint dumper
@@ -34,8 +33,8 @@ Deleting checkpoints manually or via `flow kill`/``killFlow` can lead to an inco
                     and coordination with a flow’s counterparties must be taken to ensure that a initiating flow and flows responding to it are correctly
                     removed. This experience will be improved in the future. Making it easier to kill flows while notifying their counterparties.
 
-
 {{< /warning >}}
+
 To retrieve this information, execute `run dumpCheckpoints` in the node’s shell. The command creates a zip and generates a JSON file for each flow.
 
 
@@ -185,7 +184,6 @@ Note that “In progress” indicates the flows above have not completed (and wi
 
 {{< note >}}
 Always search for the flow id, in this case **90613d6f-be78-41bd-98e1-33a756c28808**
-
 
 {{< /note >}}
 

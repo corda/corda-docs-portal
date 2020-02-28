@@ -19,8 +19,8 @@ Corda Enterprise comes with two notary implementations built-in:
 {{< warning >}}
 Upgrading an existing single-node notary to be highly available is currently unsupported.
 
-
 {{< /warning >}}
+
 
 ## Single-node notary
 To have a regular Corda node provide a notary service you simply need to set appropriate `notary` configuration values

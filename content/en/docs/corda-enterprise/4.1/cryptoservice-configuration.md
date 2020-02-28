@@ -17,8 +17,8 @@ As mentioned in the description of the configuration file ([Node configuration](
 {{< warning >}}
 The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. So, we strongly advise using the Configuration Obfuscator tool for it, as documented here: [Configuration Obfuscator](tools-config-obfuscator.md)
 
-
 {{< /warning >}}
+
 
 ## Utimaco
 Corda Enterprise nodes can be configured to store their legal identity keys in [Utimaco’s SecurityServer Se Gen2](https://hsm.utimaco.com/products-hardware-security-modules/general-purpose-hsm/securityserver-se-gen2/) running firmware version 4.21.1.

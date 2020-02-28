@@ -18,7 +18,6 @@ Corda Enterprise 4.1 has been tested and verified to work with **Oracle JDK 8 JV
 {{< note >}}
 On previous versions of Corda only the **Oracle JDK 8 JVM 8u171+** is supported.
 
-
 {{< /note >}}
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise 4.1.
 
@@ -28,8 +27,8 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
                     which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
                     for your deployment needs.
 
-
 {{< /warning >}}
+
 
 ## Operating systems supported in production
 

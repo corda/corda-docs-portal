@@ -21,8 +21,8 @@ However, there are usually new features and other opt-in changes that may improv
 The sample apps found in the Corda repository and the Corda samples repository are not intended to be used in production.
                 If you are using them you should re-namespace them to a package namespace you control, and sign/version them yourself.
 
-
 {{< /warning >}}
+
 
 ## Upgrading apps to Platform Version 5
 This section provides instructions for upgrading your CorDapps from previous versions to take advantage of features and enhancements introduced
@@ -31,7 +31,6 @@ This section provides instructions for upgrading your CorDapps from previous ver
 
 {{< note >}}
 If you are upgrading from a platform version older than 4, then the upgrade notes for upgrading to Corda 4 (below) also apply.
-
 
 {{< /note >}}
 
@@ -140,7 +139,6 @@ You may wish to update your kotlinOptions to use language level 1.2, to benefit 
                         for us to risk an upgrade. Sorry! Future work on app isolation will make it easier for apps to use newer Kotlin versions than
                         the node itself uses.
 
-
 {{< /note >}}
 You should also ensure you’re using Gradle 4.10 (but not 5). If you use the Gradle wrapper, run:
 
@@ -154,7 +152,6 @@ Otherwise just upgrade your installed copy in the usual manner for your operatin
 Platform Version 5 requires a different version of Gradle, so if you’re intending to upgrade past Platform Version 4 you may wish
                         to skip updating Gradle here and upgrade directly to the version required by Platform Version 5. You’ll still need to alter the version
                         numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#platform-version-5-gradle-changes)
-
 
 {{< /note >}}
 
@@ -208,7 +205,6 @@ The minimum platform version is the platform version of the node that you requir
 Whilst it’s currently a convention that Corda releases have the platform version number as their
                         major version i.e. Corda 3.3 implements platform version 3, this is not actually required and may in
                         future not hold true. You should know the platform version of the node releases you want to target.
-
 
 {{< /note >}}
 The new `versionId` number is a version code for **your** app, and is unrelated to Corda’s own versions.
@@ -288,7 +284,6 @@ A *lockstep deployment* is one, where all the involved nodes are stopped, upgrad
                         As a result, there can’t be any nodes running different versions of the CorDapp at any time.
                         A *rolling deployment* is one, where every node can be stopped, upgraded to the new version of the CorDapp and re-started independently and on its own pace.
                         As a result, there can be nodes running different versions of the CorDapp and transact with each other successfully.
-
 
 {{< /note >}}
 The upgrade is a three step process:
@@ -437,7 +432,6 @@ public static class SimpleNewResponderFlow extends FlowLogic<Void> {
 As described above, all the nodes in your business network will need the new CorDapp, otherwise they won’t know how to receive the transaction. **This
                                 includes nodes which previously didn’t have the old CorDapp.** If a node is sent a transaction and it doesn’t have the new CorDapp loaded
                             then simply restart it with the CorDapp and the transaction will be recorded.
-
 
 {{< /note >}}
 
@@ -710,7 +704,6 @@ Note that every package should exist in only one CorDapp, otherwise the discover
 If you have any CorDapp code (e.g. flows/contracts/states) that is only used by the tests and located in the same test module, it won’t be discovered now.
                         You will need to move them in the main module of one of your CorDapps or create a new, separate CorDapp for them, in case you don’t want this code to live inside your production CorDapps.
 
-
 {{< /note >}}
 
 ### Step 8. Security: Add BelongsToContract annotations
@@ -749,7 +742,6 @@ You can read more about signature constraints and what they do in [API: Contract
 {{< note >}}
 Please read the [CorDapp constraints migration](cordapp-constraint-migration.md) guide to understand how to upgrade CorDapps to use Corda 4 signature constraints and consume
                         existing states on ledger issued with older constraint types (e.g. Corda 3.x states issued with **hash** or **CZ whitelisted** constraints).
-
 
 {{< /note >}}
 

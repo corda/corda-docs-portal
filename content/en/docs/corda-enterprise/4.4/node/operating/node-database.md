@@ -90,7 +90,6 @@ The following sections document the available subcommands suitable for a node op
 {{< note >}}
 The database management tool is for production databases only. H2 databases cannot be upgraded using the Database Management tool.
 
-
 {{< /note >}}
 
 #### Executing a dry run of the SQL migration scripts
@@ -221,14 +220,13 @@ The `install-shell-extensions` subcommand can be used to install the `database-m
 {{< note >}}
 When running the database management tool, it is preferable to use absolute paths when specifying the “base-directory”.
 
-
 {{< /note >}}
 
 {{< warning >}}
 It is good practice for node operators to back up the database before upgrading to a new version.
 
-
 {{< /warning >}}
+
 
 #### Troubleshooting
 Symptom: Problems acquiring the lock, with output like this:

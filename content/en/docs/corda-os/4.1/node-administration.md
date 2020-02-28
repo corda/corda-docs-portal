@@ -165,7 +165,6 @@ The example command above would give a 1 gigabyte Java heap.
 {{< note >}}
 Unfortunately the JVM does not let you limit the total memory usage of Java program, just the heap size.
 
-
 {{< /note >}}
 
 ## Hiding sensitive data
@@ -196,8 +195,8 @@ KEY_PASS=$(corporatePasswordStore --cordaKeyStorePassword) TRUST_PASS=$(corporat
 {{< warning >}}
 If this approach is taken, the passwords will appear in the shell history.
 
-
 {{< /warning >}}
+
 
 ### Windows PowerShell
 ```shell
@@ -212,8 +211,8 @@ SET KEY_PASS=mypassword & SET TRUST_PASS=mypassword & java -jar corda.jar
 {{< warning >}}
 If this approach is taken, the passwords will appear in the windows command prompt history.
 
-
 {{< /warning >}}
+
 
 ## Backup recommendations
 Various components of the Corda platform read their configuration from the file system, and persist data to a database or into files on disk.
@@ -253,6 +252,6 @@ Corda components read and write information from and to the file-system. The adv
 {{< warning >}}
 Private keys used to sign transactions should be preserved with the utmost care. The recommendation is to keep at least two separate copies on a storage not connected to the Internet.
 
-
 {{< /warning >}}
+
 

@@ -62,7 +62,6 @@ dataSourceProperties {
 The previous `h2Port` syntax is now deprecated. `h2Port` will continue to work but the database will only
                         be accessible on localhost.
 
-
 {{< /note >}}
 
 ### Connecting to the database

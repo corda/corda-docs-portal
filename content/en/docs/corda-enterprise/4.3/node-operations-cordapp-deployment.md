@@ -53,8 +53,7 @@ If the CorDapps don’t contain any migration scripts, then they don’t require
 >                             If a CorDapp has been tested on a node running against a non-default database (H2),
 >                             this would have already been detected in your test environment.
 > 
-> 
-{{< /note >}}
+> {{< /note >}}
 
 ### 2. Configure Database Management Tool
 Corda Database Management Tool needs access to a running database.
@@ -199,7 +198,6 @@ You may connect as a different user to the one used by a Corda node (e.g. when a
                         a user with *restricted permissions*), so long as the user has the same default schema as the node
                         (the generated DDL script may not add schema prefix to all the statements).
 
-
 {{< /note >}}
 The whole script needs to be run. Running the script partially will cause the database schema content to have inconsistent versions.
 
@@ -208,8 +206,8 @@ The whole script needs to be run. Running the script partially will cause the da
 The DDL scripts don’t contain any check preventing running them twice.
                         An accidental re-run of the scripts will fail (as the tables are already there) but may leave some old, orphan tables.
 
-
 {{< /warning >}}
+
 
 ### 5. Add permission to use tables
 For some databases, the permission to use tables can only be assigned after the tables are created.

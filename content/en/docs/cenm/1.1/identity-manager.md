@@ -80,7 +80,6 @@ The main elements that need to be configured for the Identity Manager are:
 {{< note >}}
 See [Identity Manager Configuration Parameters](config-identity-manager-parameters.md) for a detailed explanation about each possible parameter.
 
-
 {{< /note >}}
 
 ### Address
@@ -98,7 +97,6 @@ Depending on the configuration of your deployment the host may be different to t
                         port. For example, in a cloud environment with the machine inside a “virtual network”, the host in the
                         configuration may need to be the private IP address, whilst external nodes would use the machines external
                         IP/DNS name to connect to Identity Manager.
-
 
 {{< /note >}}
 
@@ -143,7 +141,6 @@ database {
 Due to the way the migrations are defined, if the Identity Manager and Network Map services are using the same
                             DB instance then they *must* use separate DB schemas. For more information regarding the supported databases
                             along with the schema see [CENM Databases](database-set-up.md).
-
 
 {{< /note >}}
 
@@ -214,8 +211,8 @@ An approval mechanism *must* be specified.
 {{< warning >}}
 Auto Approval will approve every request without any oversight or checking. This setup should only ever be used for testing scenarios
 
-
 {{< /warning >}}
+
 
 ##### Auto Approval
 Auto approval results in the Issuance workflow blindly approving every request it receives. This is useful for testing
@@ -225,8 +222,8 @@ Auto approval results in the Issuance workflow blindly approving every request i
 {{< warning >}}
 This should only be enabled in a test environment
 
-
 {{< /warning >}}
+
 This mechanism can be enabled by referencing the auto approval workflow plugin within the config file:
 
 ```guess
@@ -347,12 +344,10 @@ workflows {
 {{< note >}}
 This parameter can be omitted if desired, in which case it will default to port 5051 with `reconnect = true`.
 
-
 {{< /note >}}
 
 {{< note >}}
 All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL](enm-with-ssl.md).
-
 
 {{< /note >}}
 
@@ -373,7 +368,6 @@ This serves a similar purpose to the *minimumPlatformVersion* within the network
                         successfully receiving a certificate to join the network despite not being able to (and thus needing to
                         upgrade).
 
-
 {{< /note >}}
 ```guess
 workflows {
@@ -392,7 +386,6 @@ workflows {
 {{< note >}}
 Sending of version info during registration was added to Corda OS in release version 3.3. Using this approach
                         with a minimum version less than this will not work unless the nodes are running a modified code base.
-
 
 {{< /note >}}
 
@@ -424,8 +417,8 @@ An approval mechanism *must* be specified.
 {{< warning >}}
 Auto Approval will approve every request without any oversight or checking. As such, this should only ever be used for testing scenarios
 
-
 {{< /warning >}}
+
 
 ##### Auto Approval
 Auto approval results in the Revocation workflow blindly approving every request it receives. This is useful for testing
@@ -435,8 +428,8 @@ Auto approval results in the Revocation workflow blindly approving every request
 {{< warning >}}
 This should only be enabled in a test environment
 
-
 {{< /warning >}}
+
 This mechanism can be enabled by referencing the auto approval workflow plugin within the config file:
 
 ```guess
@@ -526,12 +519,10 @@ workflows {
 {{< note >}}
 This parameter can be omitted if desired, in which case it will default to port 5052 with `reconnect = true`.
 
-
 {{< /note >}}
 
 {{< note >}}
 All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL](enm-with-ssl.md).
-
 
 {{< /note >}}
 
@@ -596,8 +587,8 @@ This has the effect that Node operators must also provide CRL infrastructure for
 If node operators decide to go down this path then that Node will be unable to revoke any TLS certificates
                                 it issues.
 
-
 {{< /warning >}}
+
 Given that the operator of a network is already committed to providing CRL infrastructure, they can
                             choose to make that empty list available to node operators as a convenience.
 
@@ -625,7 +616,6 @@ crlCheckSoftFail = false # strict CRL checking is enabled, meaning that the SSL 
 
 {{< note >}}
 *tlsCertCrlDistPoint* needs to be an externally accessible URL.
-
 
 {{< /note >}}
 

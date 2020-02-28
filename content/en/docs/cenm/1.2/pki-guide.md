@@ -221,6 +221,5 @@ certificates = {
 {{< note >}}
 To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool](pki-tool.md).
 
-
 {{< /note >}}
 

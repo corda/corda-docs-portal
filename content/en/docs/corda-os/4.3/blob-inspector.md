@@ -53,7 +53,6 @@ One thing to note is that the binary blob may contain embedded `SerializedBytes`
                     see this when dealing with classes such as `SignedData` or other structures that attach a signature, such as the
                     `nodeInfo-*` files or the `network-parameters` file in the node’s directory.
 
-
 {{< /note >}}
 
 ## Example
@@ -111,7 +110,6 @@ If you run the blob inspector without any JAR files on the classpath, then it wi
 This mechanism works fine in most situations, but there is one known issue when the serialized blob contains an `enum`.
                     In this case you will get this exception `java.lang.NoClassDefFoundError: Could not initialize class _YourEnum_`.
                     To solve this problem, you must add the JAR file that contains the `enum` to the classpath of the blob inspector.
-
 
 {{< /note >}}
 

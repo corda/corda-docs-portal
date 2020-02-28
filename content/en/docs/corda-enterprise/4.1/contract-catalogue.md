@@ -33,7 +33,6 @@ Corda supports a pluggable cash selection algorithm by implementing the `CashSel
                     Please see `CashSelectionH2Impl` and its associated declaration in
                     `META-INF\services\net.corda.finance.contracts.asset.CashSelection`
 
-
 {{< /note >}}
 
 ## Commodity

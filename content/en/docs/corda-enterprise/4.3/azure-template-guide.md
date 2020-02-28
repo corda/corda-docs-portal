@@ -35,7 +35,6 @@ Enter the city and country that you wish to be associated with your Corda node.
 {{< note >}}
 This doesn’t need to be the same as the Azure region you host your node in. It should represent the main location of your business operations.
 
-
 {{< /note >}}
 You will need to obtain a `one-time-download-key` in order to set up the template. This will allow the template scripts to connect to, and provision the node to the Corda Testnet.
 

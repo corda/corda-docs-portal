@@ -85,7 +85,6 @@ The `@DeprecatedConstructorForDeserialization` annotation is important, this sig
 Furthermore, the integer parameter passed to the constructor if the annotation indicates a precedence
                     order, see the discussion below.
 
-
 {{< /note >}}
 As before, instances of the class at version A will be able to deserialize serialized forms of example B as it
                 will simply treat them as if the property has been removed (as from its perspective, they will have been).

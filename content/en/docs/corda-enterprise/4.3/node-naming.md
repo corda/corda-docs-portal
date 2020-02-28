@@ -102,7 +102,6 @@ This is to avoid right-to-left issues, debugging issues when we can’t pronounc
 {{< note >}}
 The network operator of a Corda Network may put additional constraints on node naming in place.
 
-
 {{< /note >}}
 
 ## External identifiers

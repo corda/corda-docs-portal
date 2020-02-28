@@ -23,7 +23,6 @@ Since the certificate revocation list needs to be signed, the revocation process
 {{< note >}}
 It is assumed that the signed certificate revocation list is always available - even if it’s empty.
 
-
 {{< /note >}}
 
 {{< note >}}
@@ -31,7 +30,6 @@ CRLs should be signed manually from time to time depending on its’ `nextUpdate
                 an up-to-date CRL is distributed in the network before the previous one expires. Conventionally they have a
                 lifecycle of 6 months and are manually signed every 3 months. See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for more
                 information how to check CRLs’ update deadlines.
-
 
 {{< /note >}}
 

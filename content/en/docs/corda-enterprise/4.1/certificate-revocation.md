@@ -82,7 +82,6 @@ Issuer of this certificate revocation request.
 At least one of the three: certificateSerialNumber, csrRequestId or legalName needs to be specified.
                     Also, Corda AMQP serialization framework is used as the serialization framework.
 
-
 {{< /note >}}
 Because of the proprietary serialization mechanism, it is assumed that those endpoints are used by dedicated tools that support this kind of data encoding.
 

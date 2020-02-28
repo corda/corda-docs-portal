@@ -58,7 +58,6 @@ java -Dcorda.rpcSettings.ssl.keyStorePassword=mypassword -jar node.jar
 {{< note >}}
 The available configuration fields are listed below in alphabetic order.
 
-
 {{< /note >}}
 
 
@@ -474,7 +473,6 @@ An optional list of file system directories containing JARs to include in the cl
 {{< note >}}
 This property is only available for Corda distributed with Capsule. For the Corda tarball distribution this option is unavailable.
                                 It’s advisable to copy any required JAR files to the ‘drivers’ subdirectory of the node base directory.
-
 
 {{< /note >}}
 
