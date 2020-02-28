@@ -88,9 +88,9 @@ override fun call(): SignedTransaction {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TwoPartyDealFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt)
 
 `SwapIdentitiesFlow` goes through the following key steps:
 
@@ -157,9 +157,9 @@ val twiceSignedTx = partSignedTx + sellerSignature
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
 
 The identity synchronization flow goes through the following key steps:
 
@@ -205,9 +205,9 @@ subFlow(IdentitySyncFlow.Receive(otherSideSession))
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
 
 `IdentitySyncFlow` will serve all confidential identities in the provided transaction, irrespective of well-known
                     identity. This is important for more complex transaction cases with 3+ parties, for example:

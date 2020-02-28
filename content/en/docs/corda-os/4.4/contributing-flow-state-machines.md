@@ -43,8 +43,6 @@ The recommended way to test flows and the state machine is using the Driver DSL.
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt */}}
-
 {{% tab name="java" %}}
 ```java
     @Test
@@ -69,9 +67,9 @@ The recommended way to test flows and the state machine is using the Driver DSL.
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialFlowAsyncOperationTest.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt) | [TutorialFlowAsyncOperationTest.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java)
 
 The above will spin up a node and run our example flow.
 
@@ -93,8 +91,6 @@ class SummingOperationThrowing(val a: Int, val b: Int) : FlowExternalAsyncOperat
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt */}}
 
 {{% tab name="java" %}}
 ```java
@@ -124,9 +120,9 @@ public final class SummingOperationThrowing implements FlowAsyncOperation<Intege
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialFlowAsyncOperation.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt) | [SummingOperationThrowing.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java)
 
 The operation now throws a rude exception. If we modify the example flow to use this and run the same test we will get
                 a lot of logs about the error condition (as we are in dev mode). The interesting bit looks like this:

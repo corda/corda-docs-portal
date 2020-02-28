@@ -41,8 +41,6 @@ class MockNetworkTestsTutorial {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/MockNetworkTestsTutorial.kt */}}
-
 {{% tab name="java" %}}
 ```java
 import net.corda.core.identity.CordaX500Name;
@@ -66,9 +64,9 @@ public class MockNetworkTestsTutorial {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/MockNetworkTestsTutorial.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [MockNetworkTestsTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/MockNetworkTestsTutorial.kt) | [MockNetworkTestsTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/MockNetworkTestsTutorial.java)
 
 The `MockNetwork` requires at a minimum a list of CorDapps to be installed on each `StartedMockNode`. The CorDapps are looked up on the
                     classpath by package name, using `TestCordapp.findCordapp`. `TestCordapp.findCordapp` scans the current classpath to find the CorDapp that contains the given package.
@@ -99,8 +97,6 @@ Nodes are created on the `MockNetwork` using:
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/MockNetworkTestsTutorial.kt */}}
-
 {{% tab name="java" %}}
 ```java
     private StartedMockNode nodeA;
@@ -115,9 +111,9 @@ Nodes are created on the `MockNetwork` using:
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/MockNetworkTestsTutorial.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [MockNetworkTestsTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/MockNetworkTestsTutorial.kt) | [MockNetworkTestsTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/MockNetworkTestsTutorial.java)
 
 Nodes added using `createNode` are provided a default set of node parameters. However, it is also possible to
                     provide different parameters to each node using `MockNodeParameters`. Of particular interest are `configOverrides` which allow you to
@@ -284,17 +280,15 @@ val bigCorp = TestIdentity((CordaX500Name("BigCorp", "New York", "GB")))
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 private static final TestIdentity bigCorp = new TestIdentity(new CordaX500Name("BigCorp", "New York", "GB"));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 `TestIdentity` exposes the following fields and methods:
 
@@ -370,8 +364,6 @@ private val ledgerServices = MockServices(
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
     ledgerServices = new MockServices(
@@ -389,9 +381,9 @@ private val ledgerServices = MockServices(
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 Alternatively, there is a helper constructor which just accepts a list of `TestIdentity`. The first identity provided is
                     the identity of the node whose `ServiceHub` is being mocked, and any subsequent identities are identities that the node
@@ -416,8 +408,6 @@ private val simpleLedgerServices = MockServices(
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 private final MockServices simpleLedgerServices = new MockServices(
@@ -430,9 +420,9 @@ private final MockServices simpleLedgerServices = new MockServices(
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 
 ### Writing tests using a test ledger
@@ -465,8 +455,6 @@ fun simpleCPMoveSuccess() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -487,9 +475,9 @@ public void simpleCPMoveSuccess() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 Once all the transaction components have been specified, you can run `verifies()` to check that the given transaction is valid.
 
@@ -521,8 +509,6 @@ fun simpleCPMoveFails() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -541,9 +527,9 @@ public void simpleCPMoveFails() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 
 {{< note >}}
@@ -581,8 +567,6 @@ fun simpleCPMoveFailureAndSuccess() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -603,9 +587,9 @@ public void simpleCPMoveSuccessAndFailure() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 You can also use the `tweak` function to create a locally scoped transaction that you can make changes to
                         and then return to the original, unmodified transaction. As in the following example:
@@ -636,8 +620,6 @@ fun `simple issuance with tweak and top level transaction`() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -658,9 +640,9 @@ public void simpleIssuanceWithTweakTopLevelTx() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 
 #### Chaining transactions
@@ -719,8 +701,6 @@ fun `chain commercial paper double spend`() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -769,9 +749,9 @@ public void chainCommercialPaperDoubleSpend() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 
 ### Further examples

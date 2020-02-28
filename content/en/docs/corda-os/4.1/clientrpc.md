@@ -68,8 +68,6 @@ class ClientRpcExample {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt */}}
-
 {{% tab name="java" %}}
 ```java
 import net.corda.client.rpc.CordaRPCClient;
@@ -102,9 +100,9 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [ClientRpcExample.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java)
 
 
 {{< warning >}}
@@ -521,9 +519,7 @@ How to initialize the *ReconnectingCordaRPCOps*:
             val bankAReconnectingRpc = ReconnectingCordaRPCOps(bankAAddress, demoUser.username, demoUser.password)
 
 ```
-
-{{/* /en/docs/corda-os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt */}}
-How to track the vault :
+[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)How to track the vault :
 
 ```kotlin
             val vaultFeed = bankAReconnectingRpc.vaultTrackByWithPagingSpec(
@@ -536,9 +532,7 @@ How to track the vault :
             }
 
 ```
-
-{{/* /en/docs/corda-os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt */}}
-How to start a flow with a logical retry function that checks for the side effects of the flow:
+[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)How to start a flow with a logical retry function that checks for the side effects of the flow:
 
 ```kotlin
                 bankAReconnectingRpc.runFlowWithLogicalRetry(
@@ -582,9 +576,7 @@ How to start a flow with a logical retry function that checks for the side effec
                 )
 
 ```
-
-{{/* /en/docs/corda-os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt */}}
-Note that, as shown by the test, during reconnecting some events might be lost.
+[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)Note that, as shown by the test, during reconnecting some events might be lost.
 
 ```kotlin
             // Check that enough vault events were received.
@@ -593,9 +585,7 @@ Note that, as shown by the test, during reconnecting some events might be lost.
             assertTrue(vaultEvents!!.size + nrFailures * 2 >= nrOfFlowsToRun, "Not all vault events were received")
 
 ```
-
-{{/* /en/docs/corda-os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt */}}
-
+[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
 ## Wire security
 If TLS communications to the RPC endpoint are required the node should be configured with `rpcSettings.useSSL=true` see [Node configuration](corda-configuration-file.md).
                 The node admin should then create a node specific RPC certificate and key, by running the node once with `generate-rpc-ssl-settings` command specified (see [Node command-line options](node-commandline.md)).

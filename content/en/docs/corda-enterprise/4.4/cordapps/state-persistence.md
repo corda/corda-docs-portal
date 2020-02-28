@@ -537,9 +537,7 @@ object CustomVaultQuery {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt */}}
-which is then referenced within a custom flow:
+[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)which is then referenced within a custom flow:
 
 ```kotlin
         @Suspendable
@@ -566,9 +564,7 @@ which is then referenced within a custom flow:
         }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt */}}
-For examples on testing `@CordaService` implementations, see the oracle example here.
+[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)For examples on testing `@CordaService` implementations, see the oracle example here.
 
 
 ## JPA Support

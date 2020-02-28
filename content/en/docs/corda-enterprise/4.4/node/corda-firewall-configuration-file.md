@@ -76,9 +76,7 @@ auditServiceConfiguration : {
 silencedIPs = []
 useProxyForCrls = true
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/bridge/src/main/resources/firewalldefault_latest.conf */}}
-
+[firewalldefault_latest.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/bridge/src/main/resources/firewalldefault_latest.conf)
 ## Firewall operating modes
 
 {{< note >}}

@@ -213,9 +213,7 @@ rpcSettings = {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/node_bridge/node.conf */}}
-
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge/node.conf)
 #### bridge.conf
 ```javascript
 firewallMode = SenderReceiver
@@ -228,9 +226,7 @@ inboundConfig {
 networkParametersPath = network-parameters
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/node_bridge/bridge.conf */}}
-
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge/bridge.conf)
 ### DMZ ready (node + bridge + float)
 
 #### Prerequisites
@@ -281,9 +277,7 @@ enterpriseConfiguration = {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/node_bridge_float/node.conf */}}
-
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/node.conf)
 #### bridge.conf
 ```javascript
 firewallMode = BridgeInner
@@ -302,9 +296,7 @@ bridgeInnerConfig {
 }
 networkParametersPath = network-parameters
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/node_bridge_float/bridge.conf */}}
-
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/bridge.conf)
 #### float.conf
 ```javascript
 firewallMode = FloatOuter
@@ -322,9 +314,7 @@ floatOuterConfig {
     }
 }
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/node_bridge_float/float.conf */}}
-
+[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/float.conf)
 ### DMZ ready with outbound SOCKS
 
 #### Prerequisites
@@ -367,9 +357,7 @@ enterpriseConfiguration = {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/socks_proxy/node.conf */}}
-
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/node.conf)
 #### bridge.conf
 ```javascript
 firewallMode = BridgeInner
@@ -395,9 +383,7 @@ bridgeInnerConfig {
 networkParametersPath = network-parameters
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/socks_proxy/bridge.conf */}}
-
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/bridge.conf)
 #### float.conf
 ```javascript
 firewallMode = FloatOuter
@@ -415,9 +401,7 @@ floatOuterConfig {
     }
 }
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/socks_proxy/float.conf */}}
-
+[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/float.conf)
 ### Full production HA DMZ ready mode (hot/cold node, hot/warm bridge)
 
 #### Prerequisites
@@ -480,9 +464,7 @@ enterpriseConfiguration = {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/ha_nodes/node.conf */}}
-
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/node.conf)
 #### bridge.conf
 ```javascript
 firewallMode = BridgeInner
@@ -505,9 +487,7 @@ haConfig {
 networkParametersPath = network-parameters
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/ha_nodes/bridge.conf */}}
-
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/bridge.conf)
 #### float.conf
 ```javascript
 firewallMode = FloatOuter
@@ -525,9 +505,7 @@ floatOuterConfig {
     }
 }
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/ha_nodes/float.conf */}}
-
+[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/float.conf)
 #### Notes on physical deployment of services
 In this mode of operation there will be a large amount of network traffic exchanged between: Float, Bridge, Artemis Broker and Corda Node.
 
@@ -614,9 +592,7 @@ rpcSettings = {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-a-node.conf */}}
-
+[bank-a-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-a-node.conf)
 #### bank-b-node.conf
 ```javascript
 myLegalName = "O=Bank B, L=New York, C=US"
@@ -646,9 +622,7 @@ rpcSettings = {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-b-node.conf */}}
-
+[bank-b-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-b-node.conf)
 #### bridge.conf
 ```javascript
 firewallMode = SenderReceiver
@@ -675,9 +649,7 @@ keyStorePassword = bridgeKeyStorePassword
 trustStorePassword = nodeTrustpass
 trustStoreFile = nodesCertificates/truststore.jks
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bridge.conf */}}
-
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bridge.conf)
 ### Adding new nodes to existing shared Bridge
 Most of the HA components are agnostic to the node, with exception of the bridge which need to have access to the node’s SSL key in order to establish TLS connection to the counterparty nodes.
 

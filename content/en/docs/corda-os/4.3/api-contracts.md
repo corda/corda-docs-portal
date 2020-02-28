@@ -45,9 +45,9 @@ interface Contract {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [Structures.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
 
 `Contract` has a single method, `verify`, which takes a `LedgerTransaction` as input and returns
                 nothing. This function is used to check whether a transaction proposal is valid, as follows:
@@ -167,9 +167,9 @@ The `LedgerTransaction` object passed into `verify` has the following properties
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [LedgerTransaction.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt)
 
 Where:
 
@@ -311,9 +311,9 @@ data class CommandWithParties<out T : CommandData>(
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [Structures.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
 
 Where:
 

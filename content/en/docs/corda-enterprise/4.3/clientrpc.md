@@ -76,8 +76,6 @@ class ClientRpcExample {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt */}}
-
 {{% tab name="java" %}}
 ```java
 import net.corda.client.rpc.CordaRPCClient;
@@ -110,9 +108,9 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [ClientRpcExample.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java)
 
 
 {{< warning >}}

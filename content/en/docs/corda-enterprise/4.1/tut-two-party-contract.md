@@ -147,8 +147,6 @@ class IOUContract : Contract {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUContract.kt */}}
-
 {{% tab name="java" %}}
 ```java
 // Add these imports:
@@ -201,9 +199,9 @@ public class IOUContract implements Contract {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [IOUContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUContract.kt) | [IOUContract.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java)
 
 If you’re following along in Java, you’ll also need to rename `TemplateContract.java` to `IOUContract.java`.
 

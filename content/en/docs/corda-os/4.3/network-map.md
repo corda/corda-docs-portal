@@ -233,9 +233,7 @@ data class ParametersUpdateInfo(
 )
 
 ```
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt */}}
-
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 ### Auto Acceptance
 If the only changes between the current and new parameters are for auto-acceptable parameters then, unless configured otherwise, the new
                     parameters will be accepted without user input. The following parameters with the `@AutoAcceptable` annotation are auto-acceptable:
@@ -275,9 +273,7 @@ data class NetworkParameters(
 ) {
 
 ```
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt */}}
-This behaviour can be turned off by setting the optional node configuration property `networkParameterAcceptanceSettings.autoAcceptEnabled`
+[NetworkParameters.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt)This behaviour can be turned off by setting the optional node configuration property `networkParameterAcceptanceSettings.autoAcceptEnabled`
                     to `false`. For example:
 
 ```guess

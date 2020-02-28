@@ -232,8 +232,6 @@ class SimpleFlowUsingOldApi(private val counterparty: Party) : FlowLogic<SignedT
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt */}}
-
 {{% tab name="java" %}}
 ```java
 public static class SimpleFlowUsingOldApi extends FlowLogic<SignedTransaction> {
@@ -248,9 +246,9 @@ public static class SimpleFlowUsingOldApi extends FlowLogic<SignedTransaction> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
 
 To use the new API, this flow needs to be annotated with `InitiatingFlow` and a `FlowSession` to the participant(s) of the transaction must be
                     passed to `FinalityFlow` :
@@ -276,8 +274,6 @@ class SimpleFlowUsingNewApi(private val counterparty: Party) : FlowLogic<SignedT
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt */}}
-
 {{% tab name="java" %}}
 ```java
 // Notice how the flow *must* now be an initiating flow even when it wasn't before.
@@ -296,9 +292,9 @@ public static class SimpleFlowUsingNewApi extends FlowLogic<SignedTransaction> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
 
 If there are more than one transaction participants then a session to each one must be initiated, excluding the local party
                     and the notary.
@@ -324,8 +320,6 @@ class SimpleNewResponderFlow(private val otherSide: FlowSession) : FlowLogic<Uni
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt */}}
-
 {{% tab name="java" %}}
 ```java
 // All participants will run this flow to receive and record the finalised transaction into their vault.
@@ -342,9 +336,9 @@ public static class SimpleNewResponderFlow extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
 
 
 {{< note >}}
@@ -392,8 +386,6 @@ class ExistingInitiatingFlow(private val counterparty: Party) : FlowLogic<Signed
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt */}}
-
 {{% tab name="java" %}}
 ```java
 // Assuming the previous version of the flow was 1 (the default if none is specified), we increment the version number to 2
@@ -420,9 +412,9 @@ public static class ExistingInitiatingFlow extends FlowLogic<SignedTransaction> 
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
 
 For the responder flow, insert a call to `ReceiveFinalityFlow` at the location where it’s expecting to receive the
                     finalised transaction. If the initiator is written in a backwards compatible way then so must the responder.
@@ -454,8 +446,6 @@ if (otherSide.getCounterpartyFlowInfo().flowVersion >= 2) {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt */}}
-
 {{% tab name="java" %}}
 ```java
 // First we have to run the SignTransactionFlow, which will return a SignedTransaction.
@@ -479,9 +469,9 @@ if (otherSide.getCounterpartyFlowInfo().getFlowVersion() >= 2) {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
 
 You may already be using `waitForLedgerCommit` in your responder flow for the finalised transaction to appear in the local node’s vault.
                     Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same thing, this is no longer necessary. The call to

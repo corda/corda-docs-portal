@@ -105,9 +105,9 @@ val complexCondition =
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [NodeAttachmentServiceTest.kt](https://github.com/corda/corda/blob/release/os/4.3/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt)
 
 
 ## Protocol
@@ -190,9 +190,9 @@ fun recipient(rpc: CordaRPCOps, webPort: Int) {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.3/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt)
 
 The sender correspondingly builds a transaction with the attachment, then calls `FinalityFlow` to complete the
                 transaction and send it to the recipient node:
@@ -229,9 +229,9 @@ private fun sender(rpc: CordaRPCOps, inputStream: InputStream, hash: SecureHash.
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.3/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt)
 
 This side is a bit more complex. Firstly it looks up its counterparty by name in the network map. Then, if the node
                 doesn’t already have the attachment in its storage, we upload it from a JAR resource and check the hash was what

@@ -50,9 +50,7 @@ interface QueryableState : ContractState {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt */}}
-The `QueryableState` interface requires the state to enumerate the different relational schemas it supports, for
+[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)The `QueryableState` interface requires the state to enumerate the different relational schemas it supports, for
                 instance in situations where the schema has evolved. Each relational schema is represented as a `MappedSchema`
                 object returned by the state’s `supportedSchemas` method.
 
@@ -89,9 +87,7 @@ interface SchemaService {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt */}}
-```kotlin
+[SchemaService.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)```kotlin
 /**
  * A database schema that might be configured for this node.  As well as a name and version for identifying the schema,
  * also list the classes that may be used in the generated object graph in order to configure the ORM tool.
@@ -135,9 +131,7 @@ open class MappedSchema(schemaFamily: Class<*>,
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt */}}
-With this framework, the relational view of ledger states can evolve in a controlled fashion in lock-step with internal systems or other
+[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)With this framework, the relational view of ledger states can evolve in a controlled fashion in lock-step with internal systems or other
                 integration points and is not dependant on changes to the contract code.
 
 It is expected that multiple contract state implementations might provide mappings within a single schema.
@@ -459,9 +453,7 @@ Use the `ServiceHub` `jdbcSession` function to obtain a JDBC connection as illus
             val rs = prepStatement.executeQuery()
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt */}}
-JDBC sessions can be used in flows and services (see “[Writing flows](flow-state-machines.md)”).
+[HibernateConfigurationTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)JDBC sessions can be used in flows and services (see “[Writing flows](flow-state-machines.md)”).
 
 The following example illustrates the creation of a custom Corda service using a `jdbcSession`:
 
@@ -511,9 +503,7 @@ object CustomVaultQuery {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt */}}
-which is then referenced within a custom flow:
+[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)which is then referenced within a custom flow:
 
 ```kotlin
         @Suspendable
@@ -540,9 +530,7 @@ which is then referenced within a custom flow:
         }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt */}}
-For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md).
+[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md).
 
 
 ## JPA Support

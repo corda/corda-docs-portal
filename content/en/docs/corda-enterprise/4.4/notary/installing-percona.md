@@ -178,9 +178,9 @@ wsrep_sst_auth={{ sst_user }}:{{ sst_pass }}
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/notary/resources/wsrep.cnf */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [wsrep.cnf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/notary/resources/wsrep.cnf)
 
 The file `/etc/mysql/percona-xtradb-cluster.conf.d/mysqld.cnf` contains additional settings like the data directory. We’re assuming
                     you keep the default `/var/lib/mysql`.

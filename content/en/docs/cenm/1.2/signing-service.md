@@ -1045,9 +1045,7 @@ signers = {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf */}}
-
+[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf)
 ### Signing Keys From HSM
 ```docker
 shell = {
@@ -1274,9 +1272,7 @@ signers = {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf */}}
-
+[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)
 ### Singing Keys Form Local Key Store with SMR Service as data source
 ```docker
 shell = {
@@ -1382,9 +1378,7 @@ signers = {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf */}}
-
+[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf)
 ## Signable Material Retriever
 The Signable Material Retriever service is an optional service which acts as a bridge between other CENM services and one or more
                 signing services. It delegates signing to a plugin, which routes work either to the CENM Signing Service,
@@ -1580,9 +1574,7 @@ materialManagementTasks = {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.2-configs/smr/smr-test-valid.conf */}}
-
+[smr-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/smr/smr-test-valid.conf)
 ### Developing Signing Plugins
 As mentioned before, we enable possibility of writing custom plugin to support external Signing infrastructures. A plugin
                     class must implement `CASigningPlugin` or `NonCASigningPlugin` interface depending on type of signable material type
@@ -1601,9 +1593,7 @@ public interface StartablePlugin {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/StartablePlugin.java */}}
-Each signable material submission plugin method must return its’ status:
+[StartablePlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/StartablePlugin.java)Each signable material submission plugin method must return its’ status:
 
 ```java
 
@@ -1614,9 +1604,7 @@ Each signable material submission plugin method must return its’ status:
  */
 public enum SigningStatus {PENDING, COMPLETED}
 ```
-
-{{/* /en/docs/cenm/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/SigningStatus.java */}}
-
+[SigningStatus.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/SigningStatus.java)
 #### CA Signing Plugin
 This type of plugin handles Certificate Signing Requests (CSR) and Certificate Revocation List (CRL) signing. A plugin
                         class must implement following methods with predefined input and output parameters:
@@ -1649,9 +1637,7 @@ public interface CASigningPlugin extends StartablePlugin {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/smr-plugin-api/ca/src/main/java/com/r3/enm/smrpluginapi/ca/CASigningPlugin.java */}}
-CSR submission method output:
+[CASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/ca/src/main/java/com/r3/enm/smrpluginapi/ca/CASigningPlugin.java)CSR submission method output:
 
 ```java
 /**
@@ -1818,9 +1804,7 @@ public interface NonCASigningPlugin extends StartablePlugin {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/smr-plugin-api/nonca/src/main/java/com/r3/enm/smrpluginapi/nonca/NonCASigningPlugin.java */}}
-Network Map submission method output:
+[NonCASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/nonca/src/main/java/com/r3/enm/smrpluginapi/nonca/NonCASigningPlugin.java)Network Map submission method output:
 
 ```java
 /**

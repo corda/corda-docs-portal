@@ -697,9 +697,7 @@ shell {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf */}}
-
+[identity-manager-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf)
 #### Production Configuration
 Below is an example of a more production-like configuration of the Identity Manager. It is configured with a Issuance
                         and Revocation workflow, using JIRA workflows for CSR/CRR approvals, no local signer and also using SSL for secure
@@ -782,6 +780,4 @@ shell {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf */}}
-
+[identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)

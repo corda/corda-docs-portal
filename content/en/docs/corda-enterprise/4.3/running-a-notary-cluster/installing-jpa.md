@@ -94,9 +94,9 @@ notary {
 }
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/running-a-notary-cluster/resources/dbm.conf */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [dbm.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/dbm.conf)
 
 If the Corda Database Management Tool’s `dry-run` mode is used, the `databasechangelog` and `databasechangeloglock` tables must already exist
                         and the database user would need read and write permissions. If the tool’s `execute-migration` mode is used, the database user would require

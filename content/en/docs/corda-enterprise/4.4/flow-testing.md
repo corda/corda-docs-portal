@@ -53,9 +53,7 @@ class ResolveTransactionsFlowTest {
     }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt */}}
-We create a mock network in our `@Before` setup method and create a couple of nodes. We also record the identity
+[ResolveTransactionsFlowTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)We create a mock network in our `@Before` setup method and create a couple of nodes. We also record the identity
             of the notary in our test network, which will come in handy later. We also tidy up when we’re done.
 
 Next, we write a test case:
@@ -75,9 +73,7 @@ Next, we write a test case:
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt */}}
-We’ll take a look at the `makeTransactions` function in a moment. For now, it’s enough to know that it returns two
+[ResolveTransactionsFlowTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)We’ll take a look at the `makeTransactions` function in a moment. For now, it’s enough to know that it returns two
             `SignedTransaction` objects, the second of which spends the first. Both transactions are known by MegaCorpNode but
             not MiniCorpNode.
 
@@ -120,9 +116,7 @@ private fun makeTransactions(signFirstTX: Boolean = true, withAttachment: Secure
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt */}}
-We’re using the `DummyContract`, a simple test smart contract which stores a single number in its states, along
+[ResolveTransactionsFlowTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)We’re using the `DummyContract`, a simple test smart contract which stores a single number in its states, along
             with ownership and issuer information. You can issue such states, exit them and re-assign ownership (move them).
             It doesn’t do anything else. This code simply creates a transaction that issues a dummy state (the issuer is
             `MEGA_CORP`, a pre-defined unit test identity), signs it with the test notary and MegaCorp keys and then

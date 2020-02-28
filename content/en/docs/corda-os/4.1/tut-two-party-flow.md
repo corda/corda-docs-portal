@@ -44,8 +44,6 @@ import net.corda.core.utilities.ProgressTracker
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt */}}
-
 {{% tab name="java" %}}
 ```java
 import co.paralleluniverse.fibers.Suspendable;
@@ -62,9 +60,9 @@ import java.util.List;
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [IOUFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java)
 
 And update `IOUFlow.call` to the following:
 
@@ -104,8 +102,6 @@ subFlow(FinalityFlow(fullySignedTx, otherPartySession))
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt */}}
-
 {{% tab name="java" %}}
 ```java
 // We retrieve the notary identity from the network map.
@@ -141,9 +137,9 @@ return null;
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [IOUFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java)
 
 In the original CorDapp, we automated the process of notarising a transaction and recording it in every party’s vault
                 by invoking a built-in flow called `FinalityFlow` as a subflow. We’re going to use another pre-defined flow,
@@ -209,8 +205,6 @@ override fun call() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlowResponder.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Suspendable
@@ -242,9 +236,9 @@ public Void call() throws FlowException {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [IOUFlowResponder.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java)
 
 We could write our own flow to handle this process. However, there is also a pre-defined flow called
                 `SignTransactionFlow` that can handle the process automatically. The only catch is that `SignTransactionFlow` is an

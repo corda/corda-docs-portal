@@ -675,9 +675,7 @@ useTestClock = false
 verifierType = InMemory
 
 ```
-
-{{/* /en/docs/corda-os/4.1/node/src/main/resources/reference.conf */}}
-
+[reference.conf](https://github.com/corda/corda/blob/release/os/4.1/node/src/main/resources/reference.conf)
 ## Configuration examples
 
 ### Node configuration hosting the IRSDemo services
@@ -707,9 +705,7 @@ rpcUsers = [
 devMode = true
 
 ```
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/resources/example-node.conf */}}
-
+[example-node.conf](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node.conf)
 ### Simple notary configuration file
 ```kotlin
 myLegalName = "O=Notary Service,OU=corda,L=London,C=GB"
@@ -763,6 +759,4 @@ networkServices {
 }
 
 ```
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf */}}
-
+[example-node-with-networkservices.conf](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)

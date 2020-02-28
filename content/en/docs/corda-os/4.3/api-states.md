@@ -48,9 +48,9 @@ interface ContractState {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [ContractState.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt)
 
 `ContractState` has a single field, `participants`. `participants` is a `List` of the `AbstractParty` that
                 are considered to have a stake in the state. Among other things, the `participants` will:
@@ -112,9 +112,9 @@ interface LinearState : ContractState {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [Structures.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
 
 Remember that in Corda, states are immutable and can’t be updated directly. Instead, we represent an evolving fact as a
                     sequence of `LinearState` states that share the same `linearId` and represent an audit trail for the lifecycle of
@@ -181,9 +181,9 @@ interface OwnableState : ContractState {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [Structures.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
 
 Where:
 
@@ -231,9 +231,9 @@ interface FungibleState<T : Any> : ContractState {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FungibleState.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt)
 
 As seen, the interface takes a type parameter `T` that represents the fungible thing in question. This should describe
                         the basic type of the asset e.g. GBP, USD, oil, shares in company <X>, etc. and any additional metadata (issuer, grade,
@@ -322,9 +322,9 @@ Beyond implementing `ContractState` or a sub-interface, a state is allowed to ha
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/finance/contracts/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [Cash.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/contracts/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt)
 
 
 ## The vault
@@ -431,9 +431,9 @@ data class TransactionState<out T : ContractState> @JvmOverloads constructor(
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TransactionState.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt)
 
 Where:
 

@@ -50,9 +50,7 @@ In addition, the `VaultService` exposes a number of functions a developer may us
     fun softLockRelease(lockId: UUID, stateRefs: NonEmptySet<StateRef>? = null)
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt */}}
-
+[VaultService.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 ## Query
 By default vault queries will always include locked states in its result sets.
                 Custom filterable criteria can be specified using the `SoftLockingCondition` attribute of `VaultQueryCriteria`:
@@ -70,9 +68,7 @@ By default vault queries will always include locked states in its result sets.
     }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt */}}
-
+[QueryCriteria.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 ## Explicit Usage
 Soft locks are associated with transactions, and typically within the lifecycle of a flow. Specifically, every time a
                 flow is started a soft lock identifier is associated with that flow for its duration (and released upon it’s natural

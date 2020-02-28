@@ -57,9 +57,9 @@ Just define a new flow that wraps the SendTransactionFlow/ReceiveTransactionFlow
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [AutoOfferFlow.kt](https://github.com/corda/corda/blob/release/os/4.4/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt)
 
 In this example, the `AutoOfferFlow` is the business logic, and we define two very short and simple flows to send
             the transaction to the regulator. There are two important aspects to note here:

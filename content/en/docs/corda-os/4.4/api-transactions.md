@@ -87,17 +87,15 @@ val ourStateAndRef: StateAndRef<DummyState> = serviceHub.toStateAndRef<DummyStat
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 StateAndRef ourStateAndRef = getServiceHub().toStateAndRef(ourStateRef);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 A `StateRef` uniquely identifies an input state, allowing the notary to mark it as historic. It is made up of:
 
@@ -119,17 +117,15 @@ val ourStateRef: StateRef = StateRef(SecureHash.sha256("DummyTransactionHash"), 
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 StateRef ourStateRef = new StateRef(SecureHash.sha256("DummyTransactionHash"), 0);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 The `StateRef` links an input state back to the transaction that created it. This means that transactions form
                     “chains” linking each input back to an original issuance transaction. This allows nodes verifying the transaction
@@ -157,17 +153,15 @@ val referenceState: ReferencedStateAndRef<DummyState> = ourStateAndRef.reference
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 ReferencedStateAndRef referenceState = ourStateAndRef.referenced();
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 **Handling of update races:**
 
@@ -223,17 +217,15 @@ val ourOutputState: DummyState = DummyState()
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 DummyState ourOutputState = new DummyState();
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 In cases where an output state represents an update of an input state, we may want to create the output state by basing
                     it on the input state:
@@ -249,17 +241,15 @@ val ourOtherOutputState: DummyState = ourOutputState.copy(magicNumber = 77)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 DummyState ourOtherOutputState = ourOutputState.copy(77);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Before our output state can be added to a transaction, we need to associate it with a contract. We can do this by
                     wrapping the output state in a `StateAndContract`, which combines:
@@ -282,17 +272,15 @@ val  ourOutput: StateAndContract = StateAndContract(ourOutputState, DummyContrac
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 StateAndContract ourOutput = new StateAndContract(ourOutputState, DummyContract.PROGRAM_ID);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ### Commands
@@ -320,8 +308,6 @@ val ourCommand: Command<DummyContract.Commands.Create> = Command(commandData, re
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 DummyContract.Commands.Create commandData = new DummyContract.Commands.Create();
@@ -332,9 +318,9 @@ Command<DummyContract.Commands.Create> ourCommand = new Command<>(commandData, r
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ### Attachments
@@ -351,17 +337,15 @@ val ourAttachment: SecureHash = SecureHash.sha256("DummyAttachment")
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 SecureHash ourAttachment = SecureHash.sha256("DummyAttachment");
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 The attachment with the corresponding hash must have been uploaded ahead of time via the node’s RPC interface.
 
@@ -383,8 +367,6 @@ val ourBefore: TimeWindow = TimeWindow.untilOnly(Instant.MAX)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 TimeWindow ourTimeWindow = TimeWindow.between(Instant.MIN, Instant.MAX);
@@ -393,9 +375,9 @@ TimeWindow ourBefore = TimeWindow.untilOnly(Instant.MAX);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We can also define a time window as an `Instant` plus/minus a time tolerance (e.g. 30 seconds):
 
@@ -410,17 +392,15 @@ val ourTimeWindow2: TimeWindow = TimeWindow.withTolerance(serviceHub.clock.insta
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 TimeWindow ourTimeWindow2 = TimeWindow.withTolerance(getServiceHub().getClock().instant(), Duration.ofSeconds(30));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Or as a start-time plus a duration:
 
@@ -435,17 +415,15 @@ val ourTimeWindow3: TimeWindow = TimeWindow.fromStartAndDuration(serviceHub.cloc
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 TimeWindow ourTimeWindow3 = TimeWindow.fromStartAndDuration(getServiceHub().getClock().instant(), Duration.ofSeconds(30));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ## TransactionBuilder
@@ -467,17 +445,15 @@ val txBuilder: TransactionBuilder = TransactionBuilder(specificNotary)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 TransactionBuilder txBuilder = new TransactionBuilder(specificNotary);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We discuss the selection of a notary in [API: Flows](api-flows.md).
 
@@ -495,17 +471,15 @@ val txBuilderNoNotary: TransactionBuilder = TransactionBuilder()
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 TransactionBuilder txBuilderNoNotary = new TransactionBuilder();
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ### Adding items
@@ -540,9 +514,9 @@ We can add components to the builder using the `TransactionBuilder.withItems` me
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/core/src/main/kotlin/net/corda/core/transactions/TransactionBuilder.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TransactionBuilder.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/transactions/TransactionBuilder.kt)
 
 `withItems` takes a `vararg` of objects and adds them to the builder based on their type:
 
@@ -596,8 +570,6 @@ txBuilder.withItems(
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 txBuilder.withItems(
@@ -615,9 +587,9 @@ txBuilder.withItems(
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 There are also individual methods for adding components.
 
@@ -635,8 +607,6 @@ txBuilder.addAttachment(ourAttachment)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 txBuilder.addInputState(ourStateAndRef);
@@ -644,9 +614,9 @@ txBuilder.addAttachment(ourAttachment);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 An output state can be added as a `ContractState`, contract class name and notary:
 
@@ -661,17 +631,15 @@ txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID, specificNotar
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We can also leave the notary field blank, in which case the transaction’s default notary is used:
 
@@ -686,17 +654,15 @@ txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Or we can add the output state as a `TransactionState`, which already specifies the output’s contract and notary:
 
@@ -711,17 +677,15 @@ val txState: TransactionState<DummyState> = TransactionState(ourOutputState, Dum
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 TransactionState txState = new TransactionState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Commands can be added as a `Command`:
 
@@ -736,17 +700,15 @@ txBuilder.addCommand(ourCommand)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 txBuilder.addCommand(ourCommand);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Or as `CommandData` and a `vararg PublicKey`:
 
@@ -761,17 +723,15 @@ txBuilder.addCommand(commandData, ourPubKey, counterpartyPubKey)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 txBuilder.addCommand(commandData, ourPubKey, counterpartyPubKey);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 For the time-window, we can set a time-window directly:
 
@@ -786,17 +746,15 @@ txBuilder.setTimeWindow(ourTimeWindow)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 txBuilder.setTimeWindow(ourTimeWindow);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Or define the time-window as a time plus a duration (e.g. 45 seconds):
 
@@ -811,17 +769,15 @@ txBuilder.setTimeWindow(serviceHub.clock.instant(), 45.seconds)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 txBuilder.setTimeWindow(getServiceHub().getClock().instant(), Duration.ofSeconds(45));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ### Signing the builder
@@ -840,17 +796,15 @@ val onceSignedTx: SignedTransaction = serviceHub.signInitialTransaction(txBuilde
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 SignedTransaction onceSignedTx = getServiceHub().signInitialTransaction(txBuilder);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Or we can also choose to use another one of our public keys:
 
@@ -866,8 +820,6 @@ val onceSignedTx2: SignedTransaction = serviceHub.signInitialTransaction(txBuild
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 PartyAndCertificate otherIdentity = getServiceHub().getKeyManagementService().freshKeyAndCert(getOurIdentityAndCert(), false);
@@ -875,9 +827,9 @@ SignedTransaction onceSignedTx2 = getServiceHub().signInitialTransaction(txBuild
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Either way, the outcome of this process is to create an immutable `SignedTransaction` with our signature over it.
 
@@ -906,9 +858,9 @@ data class SignedTransaction(val txBits: SerializedBytes<CoreTransaction>,
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/core/src/main/kotlin/net/corda/core/transactions/SignedTransaction.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [SignedTransaction.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/transactions/SignedTransaction.kt)
 
 Before adding our signature to the transaction, we’ll want to verify both the transaction’s contents and the
                 transaction’s signatures.
@@ -935,17 +887,15 @@ twiceSignedTx.verify(serviceHub)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 twiceSignedTx.verify(getServiceHub());
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Checking that the transaction meets the contract constraints is only part of verifying the transaction’s contents. We
                     will usually also want to perform our own additional validation of the transaction contents before signing, to ensure
@@ -969,17 +919,15 @@ val ledgerTx: LedgerTransaction = twiceSignedTx.toLedgerTransaction(serviceHub)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 LedgerTransaction ledgerTx = twiceSignedTx.toLedgerTransaction(getServiceHub());
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We can now perform our additional verification. Here’s a simple example:
 
@@ -1001,8 +949,6 @@ if (outputState.magicNumber == 777) {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 DummyState outputState = ledgerTx.outputsOfType(DummyState.class).get(0);
@@ -1016,9 +962,9 @@ if (outputState.getMagicNumber() != 777) {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ### Verifying the transaction’s signatures
@@ -1038,17 +984,15 @@ fullySignedTx.verifyRequiredSignatures()
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 fullySignedTx.verifyRequiredSignatures();
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 However, we’ll often want to verify the transaction’s existing signatures before all of them have been collected. For
                     this we can use `SignedTransaction.verifySignaturesExcept`, which takes a `vararg` of the public keys for
@@ -1065,17 +1009,15 @@ onceSignedTx.verifySignaturesExcept(counterpartyPubKey)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 onceSignedTx.verifySignaturesExcept(counterpartyPubKey);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 There is also an overload of `SignedTransaction.verifySignaturesExcept`, which takes a `Collection` of the
                     public keys for which the signatures are allowed to be missing:
@@ -1091,17 +1033,15 @@ onceSignedTx.verifySignaturesExcept(listOf(counterpartyPubKey))
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 onceSignedTx.verifySignaturesExcept(singletonList(counterpartyPubKey));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 If the transaction is missing any signatures without the corresponding public keys being passed in, a
                     `SignaturesMissingException` is thrown.
@@ -1119,17 +1059,15 @@ twiceSignedTx.checkSignaturesAreValid()
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 twiceSignedTx.checkSignaturesAreValid();
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Be very careful, however - this function neither guarantees that the signatures that are present are required, nor
                     checks whether any signatures are missing.
@@ -1152,17 +1090,15 @@ val twiceSignedTx: SignedTransaction = serviceHub.addSignature(onceSignedTx)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 SignedTransaction twiceSignedTx = getServiceHub().addSignature(onceSignedTx);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Or we can choose to sign using another one of our public keys:
 
@@ -1177,17 +1113,15 @@ val twiceSignedTx2: SignedTransaction = serviceHub.addSignature(onceSignedTx, ot
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 SignedTransaction twiceSignedTx2 = getServiceHub().addSignature(onceSignedTx, otherIdentity2.getOwningKey());
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We can also generate a signature over the transaction without adding it to the transaction directly.
 
@@ -1204,17 +1138,15 @@ val sig: TransactionSignature = serviceHub.createSignature(onceSignedTx)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 TransactionSignature sig = getServiceHub().createSignature(onceSignedTx);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Or using another one of our public keys:
 
@@ -1229,17 +1161,15 @@ val sig2: TransactionSignature = serviceHub.createSignature(onceSignedTx, otherI
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 TransactionSignature sig2 = getServiceHub().createSignature(onceSignedTx, otherIdentity2.getOwningKey());
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ### Notarising and recording

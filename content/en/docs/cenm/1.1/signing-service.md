@@ -873,9 +873,7 @@ signers = {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.1/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf */}}
-
+[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf)
 ### Signing Keys From HSM
 ```docker
 shell = {
@@ -1104,6 +1102,4 @@ signers = {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.1/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf */}}
-
+[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)

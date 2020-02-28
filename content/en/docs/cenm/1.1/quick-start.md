@@ -173,9 +173,7 @@ workflows {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-minimum-valid.conf */}}
-
+[identity-manager-test-minimum-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-minimum-valid.conf)
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
                             `dataSourceProperties` section. See the “Database properties” section of [Identity Manager Service](identity-manager.md) for more
@@ -307,9 +305,7 @@ pollingInterval = 10000
 checkRevocation = false
 
 ```
-
-{{/* /en/docs/cenm/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-test-minimum-valid.conf */}}
-
+[network-map-test-minimum-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-test-minimum-valid.conf)
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
                                 `dataSourceProperties` section. See the “Database properties” section of [Network Map Service](network-map.md) for more information.

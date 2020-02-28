@@ -68,9 +68,7 @@ workflows {
     }
 }
 ```
-
-{{/* /en/docs/cenm/1.1/docs/source/resources/config-files/cenm-1.1/im-config-pre-obfuscation.conf */}}
-A file can be obfuscated by running the following command:
+[im-config-pre-obfuscation.conf](https://github.com/corda/network-services/blob/release/1.1/docs/source/resources/config-files/cenm-1.1/im-config-pre-obfuscation.conf)A file can be obfuscated by running the following command:
 
 ```bash
 java -jar configobfuscationtool.jar <config-file>
@@ -128,9 +126,7 @@ workflows {
     }
 }
 ```
-
-{{/* /en/docs/cenm/1.1/docs/source/resources/config-files/cenm-1.1/im-config-post-obfuscation.conf */}}
-The config obfuscation tool should merely be used for obfuscating configs. The tool uses a hardware address
+[im-config-post-obfuscation.conf](https://github.com/corda/network-services/blob/release/1.1/docs/source/resources/config-files/cenm-1.1/im-config-post-obfuscation.conf)The config obfuscation tool should merely be used for obfuscating configs. The tool uses a hardware address
                 and a seed for deriving the key used for AES encryption. For the key derivation function PBKDF2 (with HMAC-SHA256)
                 is used. By default the hardware address corresponds to the MAC address of the machine on which the config obfuscation
                 tool is run. A machine-independent seed value is used at default. However, a user may pass in a custom hardware address
