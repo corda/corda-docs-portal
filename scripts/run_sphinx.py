@@ -278,13 +278,15 @@ class Translator:
         # For determining h1/h2/h3 etc.
         self.section_depth = 0
         self.tabs_counter = 0
-        self.title = None
 
         # We shouldn't have nested containers so this should be enough for tabbed code panes.
         self.in_tabs = False
 
         self._elements = [None]
         self._ordered_list = [0]
+
+        self.front_matter = {}
+        self.front_matter["date"] = "2020-01-08T09:59:25Z"
 
     """Returns the final document"""
 
@@ -388,8 +390,8 @@ class Translator:
         self.top.put_body(h + ' ')
 
     def depart_title(self, node):
-        if self.section_depth == 1 and not self.title:
-            self.title = node.text
+        if self.section_depth == 1 and 'title' not in self.front_matter:
+            self.front_matter['title'] = node.text
 
         self.top.put_body('\n')
 
@@ -877,6 +879,9 @@ class Translator:
             LOG.debug('Not implemented toctree')
 
 
+############################################################################
+#  END OF CLASS
+
 # NOT A CLASS MEMBER
 def visit_unsupported(self, node):
     print(f"Unsupported {node.tag}")
@@ -910,10 +915,13 @@ def configure_translator(filename):
         sys.exit(1)
 
 
-def write_frontmatter(f, title):
+def write_frontmatter(f, translator):
     f.write('---\n')
+    title = translator.front_matter.get('title', 'MISSING')
     f.write(f'title: "{title}"\n')
-    f.write("date: 2020-01-08T09:59:25Z\n")
+    for k,v in translator.front_matter.items():
+        if k != 'title':
+            f.write(f'{k}: {v}\n')
     f.write('---\n')
 
 
@@ -931,7 +939,7 @@ def convert_one_xml_to_hugo(filename):
 
         md = str(filename).replace('.xml', '.md')
         with open(md, 'w') as f:
-            write_frontmatter(f, t.title)
+            write_frontmatter(f, t)
             f.write(t.astext())
     except ParseError as e:
         line, col = e.position
