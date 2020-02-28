@@ -148,9 +148,7 @@ data class WorkflowPluginRequest(val requestId: String,
                                  val rejectionData: RejectionData? = null)
 
 ```
-
-{{/* /en/docs/cenm/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/WorkflowPlugin.kt */}}
-
+[WorkflowPlugin.kt](https://github.com/corda/network-services/blob/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/WorkflowPlugin.kt)
 ## Example
 This sample workflow plugin creates a request file in *basedir* when the Identity Manager received a certificate signing request, user can then approve or reject the request by moving the request files to *approved* or *rejected* folder.
                 The certificate signing process will then issue a certificate for the request (require signer configuration), and move the request files to *done* folder
@@ -258,9 +256,7 @@ class FileBaseCSRPlugin(
 }
 
 ```
-
-{{/* /en/docs/cenm/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/example/FileBaseCSRPlugin.kt */}}
-
+[FileBaseCSRPlugin.kt](https://github.com/corda/network-services/blob/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/example/FileBaseCSRPlugin.kt)
 ## Certificate Signing Request Rejection Reasons
 The workflow is expected to provide a valid rejection reason (see below for allowed values) for each certificate
                 signing request being rejected.

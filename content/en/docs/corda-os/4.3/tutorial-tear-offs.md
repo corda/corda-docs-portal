@@ -28,9 +28,9 @@ val filtering = Predicate<Any> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt)
 
 We can now use our filtering function to construct a `FilteredTransaction`:
 
@@ -44,9 +44,9 @@ val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt)
 
 In the Oracle example this step takes place in `RatesFixFlow` by overriding the `filtering` function. See
             [Using an oracle](oracles.md#filtering-ref).
@@ -69,9 +69,9 @@ val timeWindow: TimeWindow? = ftx.timeWindow
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt)
 
 The following code snippet is taken from `NodeInterestRates.kt` and implements a signing part of an Oracle.
 
@@ -108,9 +108,7 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 }
 
 ```
-
-{{/* /en/docs/corda-os/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt */}}
-
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 {{< note >}}
 The way the `FilteredTransaction` is constructed ensures that after signing of the root hash it’s impossible to add or remove
                 components (leaves). However, it can happen that having transaction with multiple commands one party reveals only subset of them to the Oracle.

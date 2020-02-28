@@ -309,9 +309,7 @@ shell {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf */}}
-
+[identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)
 ### Network Map Service
 ```docker
 address = "localhost:20000"
@@ -373,9 +371,7 @@ shell {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.1-configs/network-map/network-map-prod-valid.conf */}}
-
+[network-map-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/network-map/network-map-prod-valid.conf)
 ### Signing Service
 ```docker
 shell = {
@@ -602,6 +598,4 @@ signers = {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf */}}
-
+[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)

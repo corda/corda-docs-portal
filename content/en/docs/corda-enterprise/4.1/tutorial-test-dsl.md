@@ -66,17 +66,15 @@ We will start with defining helper function that returns a `CommercialPaper` sta
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 private static final TestIdentity bigCorp = new TestIdentity(new CordaX500Name("BigCorp", "New York", "GB"));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 It’s a `CommercialPaper` issued by `MEGA_CORP` with face value of $1000 and maturity date in 7 days.
 
@@ -167,8 +165,6 @@ fun simpleCP() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 // This example test will fail with this exception.
@@ -187,9 +183,9 @@ public void simpleCP() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 Let’s take a look at a transaction that fails.
 
@@ -216,8 +212,6 @@ fun simpleCPMove() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 // This example test will fail with this exception.
@@ -237,9 +231,9 @@ public void simpleCPMove() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 When run, that code produces the following error:
 
@@ -285,8 +279,6 @@ fun simpleCPMoveFails() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -305,9 +297,9 @@ public void simpleCPMoveFails() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 We can continue to build the transaction until it `verifies`:
 
@@ -335,8 +327,6 @@ fun simpleCPMoveFailureAndSuccess() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -357,9 +347,9 @@ public void simpleCPMoveSuccessAndFailure() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 `output` specifies that we want the input state to be transferred to `ALICE` and `command` adds the
                 `Move` command itself, signed by the current owner of the input state, `MEGA_CORP_PUBKEY`.
@@ -398,8 +388,6 @@ fun `simple issuance with tweak`() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -423,9 +411,9 @@ public void simpleIssuanceWithTweak() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 `tweak` creates a local copy of the transaction. This makes possible to locally “ruin” the transaction while not
                 modifying the original one, allowing testing of different error conditions.
@@ -460,8 +448,6 @@ fun `simple issuance with tweak and top level transaction`() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -482,9 +468,9 @@ public void simpleIssuanceWithTweakTopLevelTx() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 
 ## Chaining transactions
@@ -530,8 +516,6 @@ fun `chain commercial paper`() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -570,9 +554,9 @@ public void chainCommercialPaper() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 In this example we declare that `ALICE` has $900 but we don’t care where from. For this we can use
                 `unverifiedTransaction`. Note how we don’t need to specify `verifies()`.
@@ -636,8 +620,6 @@ fun `chain commercial paper double spend`() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -686,9 +668,9 @@ public void chainCommercialPaperDoubleSpend() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 The transactions `verifies()` individually, however the state was spent twice! That’s why we need the global ledger
                 verification (`fails()` at the end). As in previous examples we can use `tweak` to create a local copy of the whole ledger:
@@ -745,8 +727,6 @@ fun `chain commercial tweak`() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Test
@@ -799,8 +779,8 @@ public void chainCommercialPaperTweak() {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java)
 
 

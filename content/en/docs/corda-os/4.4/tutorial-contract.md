@@ -102,8 +102,6 @@ data class State(
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt */}}
-
 {{% tab name="java" %}}
 ```java
 public class State implements OwnableState {
@@ -184,9 +182,9 @@ public class State implements OwnableState {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [State.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java)
 
 We define a class that implements the `ContractState` interface.
 
@@ -249,8 +247,6 @@ interface Commands : CommandData {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt */}}
-
 {{% tab name="java" %}}
 ```java
 public static class Commands implements CommandData {
@@ -278,9 +274,9 @@ public static class Commands implements CommandData {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java)
 
 We define a simple grouping interface or static class, this gives us a type that all our commands have in common,
                 then we go ahead and create three commands: `Move`, `Redeem`, `Issue`. `TypeOnlyCommandData` is a helpful utility
@@ -315,8 +311,6 @@ override fun verify(tx: LedgerTransaction) {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @Override
@@ -326,9 +320,9 @@ public void verify(LedgerTransaction tx) {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java)
 
 We start by using the `groupStates` method, which takes a type and a function. State grouping is a way of ensuring
                 your contract can handle multiple unrelated states of the same type in the same transaction, which is needed for
@@ -516,8 +510,6 @@ for ((inputs, outputs, _) in groups) {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt */}}
-
 {{% tab name="java" %}}
 ```java
 TimeWindow timeWindow = tx.getTimeWindow();
@@ -569,9 +561,9 @@ for (InOutGroup group : groups) {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java)
 
 This loop is the core logic of the contract.
 
@@ -703,9 +695,9 @@ fun generateIssue(issuance: PartyAndReference, faceValue: Amount<Issued<Currency
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt)
 
 We take a reference that points to the issuing party (i.e. the caller) and which can contain any internal
                 bookkeeping/reference numbers that we may require. The reference field is an ideal place to put (for example) a
@@ -742,17 +734,15 @@ companion object {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt */}}
-
 {{% tab name="java" %}}
 ```java
 public static final String IOU_CONTRACT_ID = "com.example.contract.IOUContract";
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java)
 
 This value, which is the fully qualified class name of the contract, tells the Corda platform where to find the contract
                 code that should be used to validate a transaction containing an output state of this contract type. Typically the contract
@@ -793,9 +783,9 @@ fun generateMove(tx: TransactionBuilder, paper: StateAndRef<State>, newOwner: Ab
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt)
 
 Here, the method takes a pre-existing `TransactionBuilder` and adds to it. This is correct because typically
                 you will want to combine a sale of CP atomically with the movement of some other asset, such as cash. So both
@@ -834,9 +824,9 @@ fun generateRedeem(tx: TransactionBuilder, paper: StateAndRef<State>, services: 
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt)
 
 Here we can see an example of composing contracts together. When an owner wishes to redeem the commercial paper, the
                 issuer (i.e. the caller) must gather cash from its vault and send the face value to the owner of the paper.

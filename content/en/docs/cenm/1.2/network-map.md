@@ -445,9 +445,7 @@ shell {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/services/src/test/resources/v1.1-configs/network-map/network-map-test-valid.conf */}}
-
+[network-map-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/network-map/network-map-test-valid.conf)
 ## Network Parameters
 Along with the above configuration, a *network-parameters* configuration file also needs to be created. This defines the
                 basic settings for communication across the network along with references to the notaries node info files. Therefore it

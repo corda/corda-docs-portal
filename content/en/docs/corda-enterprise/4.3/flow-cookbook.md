@@ -680,8 +680,6 @@ class ResponderFlow(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 package net.corda.docs.java;
@@ -1376,8 +1374,8 @@ public class FlowCookbook {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 

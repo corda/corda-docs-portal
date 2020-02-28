@@ -716,9 +716,7 @@ useTestClock = false
 verifierType = InMemory
 
 ```
-
-{{/* /en/docs/corda-os/4.3/node/src/main/resources/reference.conf */}}
-
+[reference.conf](https://github.com/corda/corda/blob/release/os/4.3/node/src/main/resources/reference.conf)
 ## Configuration examples
 
 ### Node configuration hosting the IRSDemo services
@@ -748,9 +746,7 @@ rpcUsers = [
 devMode = true
 
 ```
-
-{{/* /en/docs/corda-os/4.3/docs/source/example-code/src/main/resources/example-node.conf */}}
-
+[example-node.conf](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/resources/example-node.conf)
 ### Simple notary configuration file
 ```none
 myLegalName = "O=Notary Service,OU=corda,L=London,C=GB"
@@ -804,9 +800,7 @@ networkServices {
 }
 
 ```
-
-{{/* /en/docs/corda-os/4.3/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf */}}
-
+[example-node-with-networkservices.conf](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
 ## Generating a public key hash
 This section details how a public key hash can be extracted and generated from a signed CorDapp. This is required for a select number of
                 configuration properties.

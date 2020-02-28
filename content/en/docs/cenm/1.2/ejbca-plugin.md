@@ -383,9 +383,7 @@ public class EJBCASigningPlugin implements CASigningPlugin, ENMLoggable {
 }
 
 ```
-
-{{/* /en/docs/cenm/1.2/smr-plugins/ejbca-plugin/src/main/java/com/r3/enm/smrplugins/ejbcaplugin/EJBCASigningPlugin.java */}}
-
+[EJBCASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugins/ejbca-plugin/src/main/java/com/r3/enm/smrplugins/ejbcaplugin/EJBCASigningPlugin.java)
 ## Running EJBCA plugin
 To run the plugin you simply need to specify its JAR path for CSR and CRL material management tasks in SMR’s
                 configuration. The class name to configure is `com.r3.enm.smrplugins.ejbcaplugin.EJBCASigningPlugin`.

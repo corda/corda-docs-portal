@@ -222,9 +222,7 @@ This is a sample `node.conf` which details a configuration connecting to the Cor
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/nodefull.conf */}}
-
+[nodefull.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/nodefull.conf)
 ### Implementing the Corda Firewall PKI
 In a bank environment there will typically be several layers of security protecting the firms data.
 
@@ -339,9 +337,7 @@ haConfig {
 networkParametersPath = network-parameters // The network-parameters file is expected to be copied from the node registration phase and here is expected in the workspace folder.
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/bridge.conf */}}
-
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge.conf)
 ### Float Installation
 
 * Create an /opt/cordafloat directory on your VM
@@ -384,9 +380,7 @@ floatOuterConfig {
 networkParametersPath = network-parameters // The network-parameters file is expected to be copied from the node registration phase and here is expected in the workspace folder.
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/float.conf */}}
-A full list of the parameters that can be utilized in these configuration files can be found here : [https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html](https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html)
+[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/float.conf)A full list of the parameters that can be utilized in these configuration files can be found here : [https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html](https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html)
 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade
@@ -486,9 +480,7 @@ The following is an example of how to set up a Squid Proxy Server and start the 
 > refresh_pattern .               0       20%     4320
 > debug_options ALL,3
 > ```
-> 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/squidconfig.conf */}}
-
+> [squidconfig.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidconfig.conf)
 * Once Squid is successfully installed run:
 
 
@@ -525,9 +517,7 @@ Mar 13 18:44:10 corda-firewall-proxies systemd[1]: Started LSB: Squid HTTP Proxy
 Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) process 14263
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/squidstatus.conf */}}
-
+[squidstatus.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidstatus.conf)
 * At this point you can ssh to the VM where the Corda Node is installed and run the following command:
 
 
@@ -543,9 +533,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 > 1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.141 -
 > 
 > ```
-> 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/access.conf */}}
-
+> [access.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/access.conf)
 ## Using Socks Proxy with Corda Bridge
 R3 strongly recommend the use of a SOCKS Proxy in conjunction with the Corda Firewall to access peers on the network for P2P communication.
 
@@ -566,6 +554,4 @@ The additional benefit of utilizing a SOCKS server is that it facilitates organi
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/resources/socks.conf */}}
-
+[socks.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/socks.conf)

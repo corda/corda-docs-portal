@@ -76,8 +76,6 @@ class ClientRpcExample {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt */}}
-
 {{% tab name="java" %}}
 ```java
 import net.corda.client.rpc.CordaRPCClient;
@@ -110,9 +108,9 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [ClientRpcExample.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java)
 
 
 {{< warning >}}
@@ -536,9 +534,7 @@ It is possible to not be able to connect to the server on the first attempt. In 
     }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt */}}
-
+[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
 {{< warning >}}
 The list of `NetworkHostAndPort` passed to this function should represent one or more addresses reflecting the number of
                     instances of a node configured to service the client RPC request. See `haAddressPool` in [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) for further information on
@@ -577,9 +573,7 @@ After a successful connection, it is possible for the server to become unavailab
     }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt */}}
-In this code snippet it is possible to see that the function `performRpcReconnect` creates an RPC connection and implements
+[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)In this code snippet it is possible to see that the function `performRpcReconnect` creates an RPC connection and implements
                 the error handler upon subscription to an `Observable`. The call to this `onError` handler will be triggered upon failover, at which
                 point the client will terminate its existing subscription, close its RPC connection and recursively call `performRpcReconnect`,
                 which will re-subscribe once the RPC connection is re-established.

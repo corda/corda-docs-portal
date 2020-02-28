@@ -38,9 +38,9 @@ interface FlowAsyncOperation<R : Any> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/core/src/main/kotlin/net/corda/core/internal/FlowAsyncOperation.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowAsyncOperation.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/internal/FlowAsyncOperation.kt)
 
 Let’s imagine we want to add a suspending operation that takes two integers and returns their sum. To do this we
                 implement `FlowAsyncOperation`:
@@ -59,8 +59,6 @@ class SummingOperation(val a: Int, val b: Int) : FlowAsyncOperation<Int> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt */}}
 
 {{% tab name="java" %}}
 ```java
@@ -90,9 +88,9 @@ public final class SummingOperation implements FlowAsyncOperation<Integer> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperation.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialFlowAsyncOperation.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt) | [SummingOperation.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperation.java)
 
 As we can see the constructor of `SummingOperation` takes the two numbers, and the `execute` function simply returns
                 a future that is immediately completed by the result of summing the numbers. Note how we don’t use `@Suspendable` on
@@ -121,9 +119,9 @@ fun <T, R : Any> FlowLogic<T>.executeAsync(operation: FlowAsyncOperation<R>, may
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/core/src/main/kotlin/net/corda/core/internal/FlowAsyncOperation.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowAsyncOperation.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/internal/FlowAsyncOperation.kt)
 
 It simply takes a `FlowAsyncOperation` and an optional flag we don’t care about for now. We can use this function in a
                 flow:
@@ -146,8 +144,6 @@ class ExampleSummingFlow : FlowLogic<Int>() {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt */}}
-
 {{% tab name="java" %}}
 ```java
 @StartableByRPC
@@ -162,9 +158,9 @@ public final class ExampleSummingFlow extends FlowLogic<Integer> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/ExampleSummingFlow.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialFlowAsyncOperation.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt) | [ExampleSummingFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/ExampleSummingFlow.java)
 
 That’s it! Obviously this is a mostly useless example, but this is the basic code structure one could extend for heavier
                 computations/other IO. For example the function could call into a `CordaService` or something similar. One thing to
@@ -197,8 +193,6 @@ The recommended way to test flows and the state machine is using the Driver DSL.
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt */}}
-
 {{% tab name="java" %}}
 ```java
     @Test
@@ -223,9 +217,9 @@ The recommended way to test flows and the state machine is using the Driver DSL.
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialFlowAsyncOperationTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt) | [TutorialFlowAsyncOperationTest.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java)
 
 The above will spin up a node and run our example flow.
 
@@ -247,8 +241,6 @@ class SummingOperationThrowing(val a: Int, val b: Int) : FlowAsyncOperation<Int>
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt */}}
 
 {{% tab name="java" %}}
 ```java
@@ -278,9 +270,9 @@ public final class SummingOperationThrowing implements FlowAsyncOperation<Intege
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialFlowAsyncOperation.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt) | [SummingOperationThrowing.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java)
 
 The operation now throws a rude exception. If we modify the example flow to use this and run the same test we will get
                 a lot of logs about the error condition (as we are in dev mode). The interesting bit looks like this:

@@ -91,9 +91,9 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/running-a-notary-cluster/resources/node.conf */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/node.conf)
 
 See [Node configuration](../corda-configuration-file.md) for a complete reference.
 
@@ -126,9 +126,9 @@ notary {
 }
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/running-a-notary-cluster/resources/percona.conf */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [percona.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/percona.conf)
 
 
 ## Configuration Obfuscation
@@ -169,9 +169,7 @@ dataSourceProperties = {
     dataSource.password = "<encrypt{your-data-source-password}>"
 }
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/docs/source/running-a-notary-cluster/resources/config_obfuscator */}}
-
+[config_obfuscator](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/config_obfuscator)
 ## Obtaining the notary service identity
 The notary service is registered with the CENM identity service using the registration tool as documented in [Notary Registration Tool](../notary-reg-tool.md).
                 Once the service is registered, each worker node is registered using the `initial-registration` process

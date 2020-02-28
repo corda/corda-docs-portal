@@ -314,8 +314,6 @@ val firstNotary: Party = serviceHub.networkMapCache.notaryIdentities.first()
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 CordaX500Name notaryName = new CordaX500Name("Notary Service", "London", "GB");
@@ -328,9 +326,9 @@ Party firstNotary = getServiceHub().getNetworkMapCache().getNotaryIdentities().g
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ### Specific counterparties
@@ -354,8 +352,6 @@ val keyedCounterparty: Party = serviceHub.identityService.partyFromKey(dummyPubK
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 CordaX500Name counterPartyName = new CordaX500Name("NodeA", "London", "GB");
@@ -364,9 +360,9 @@ Party keyedCounterparty = getServiceHub().getIdentityService().partyFromKey(dumm
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ## Communication between parties
@@ -428,17 +424,15 @@ val counterpartySession: FlowSession = initiateFlow(counterparty)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 FlowSession counterpartySession = initiateFlow(counterparty);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Note that at the time of call to this function no actual communication is done, this is deferred to the first
                     send/receive, at which point the counterparty will either:
@@ -465,17 +459,15 @@ counterpartySession.send(Any())
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 counterpartySession.send(new Object());
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 The flow on the other side must eventually reach a corresponding `receive` call to get this message.
 
@@ -520,8 +512,6 @@ val int: Int = packet1.unwrap { data ->
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 UntrustworthyData<Integer> packet1 = counterpartySession.receive(Integer.class);
@@ -534,9 +524,9 @@ Integer integer = packet1.unwrap(data -> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We’re not limited to sending to and receiving from a single counterparty. A flow can send messages to as many parties
                     as it likes, and each party can invoke a different response flow:
@@ -554,8 +544,6 @@ val packet3: UntrustworthyData<Any> = regulatorSession.receive<Any>()
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 FlowSession regulatorSession = initiateFlow(regulator);
@@ -564,9 +552,9 @@ UntrustworthyData<Object> packet3 = regulatorSession.receive(Object.class);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 {{< warning >}}
@@ -600,8 +588,6 @@ val boolean: Boolean = packet2.unwrap { data ->
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 UntrustworthyData<Boolean> packet2 = counterpartySession.sendAndReceive(Boolean.class, "You can send and receive any class!");
@@ -614,9 +600,9 @@ Boolean bool = packet2.unwrap(data -> {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ### Counterparty response
@@ -648,8 +634,6 @@ counterpartySession.send(true)
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 Object obj = counterpartySession.receive(Object.class).unwrap(data -> data);
@@ -658,9 +642,9 @@ counterpartySession.send(true);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ## Subflows
@@ -778,17 +762,15 @@ val notarisedTx1: SignedTransaction = subFlow(FinalityFlow(fullySignedTx, listOf
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 SignedTransaction notarisedTx1 = subFlow(new FinalityFlow(fullySignedTx, singleton(counterpartySession), FINALISATION.childProgressTracker()));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We can also choose to send the transaction to additional parties who aren’t one of the state’s participants:
 
@@ -804,8 +786,6 @@ val notarisedTx2: SignedTransaction = subFlow(FinalityFlow(fullySignedTx, partyS
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 List<FlowSession> partySessions = Arrays.asList(counterpartySession, initiateFlow(regulator));
@@ -813,9 +793,9 @@ SignedTransaction notarisedTx2 = subFlow(new FinalityFlow(fullySignedTx, partySe
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Only one party has to call `FinalityFlow` for a given transaction to be recorded by all participants. It **must not**
                     be called by every participant. Instead, every other particpant **must** call `ReceiveFinalityFlow` in their responder
@@ -832,17 +812,15 @@ subFlow(ReceiveFinalityFlow(counterpartySession, expectedTxId = idOfTxWeSigned))
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 subFlow(new ReceiveFinalityFlow(counterpartySession, idOfTxWeSigned));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 `idOfTxWeSigned` is an optional parameter used to confirm that we got the right transaction. It comes from using `SignTransactionFlow`
                     which is described in the error handling behaviour section.
@@ -889,17 +867,15 @@ val fullySignedTx: SignedTransaction = subFlow(CollectSignaturesFlow(twiceSigned
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(twiceSignedTx, emptySet(), SIGS_GATHERING.childProgressTracker()));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Each required signer will need to respond by invoking its own `SignTransactionFlow` subclass to check the
                     transaction (by implementing the `checkTransaction` method) and provide their signature if they are satisfied:
@@ -923,8 +899,6 @@ val idOfTxWeSigned = subFlow(signTransactionFlow).id
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 class SignTxFlow extends SignTransactionFlow {
@@ -947,9 +921,9 @@ SecureHash idOfTxWeSigned = subFlow(new SignTxFlow(counterpartySession, SignTran
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 Types of things to check include:
 
@@ -991,8 +965,6 @@ subFlow(object : SendTransactionFlow(counterpartySession, twiceSignedTx) {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 subFlow(new SendTransactionFlow(counterpartySession, twiceSignedTx));
@@ -1007,9 +979,9 @@ subFlow(new SendTransactionFlow(counterpartySession, twiceSignedTx) {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We can receive the transaction using `ReceiveTransactionFlow`, which will automatically download all the
                     dependencies and verify the transaction:
@@ -1025,17 +997,15 @@ val verifiedTransaction = subFlow(ReceiveTransactionFlow(counterpartySession))
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 SignedTransaction verifiedTransaction = subFlow(new ReceiveTransactionFlow(counterpartySession));
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We can also send and receive a `StateAndRef` dependency chain and automatically resolve its dependencies:
 
@@ -1053,8 +1023,6 @@ val resolvedStateAndRef = subFlow(ReceiveStateAndRefFlow<DummyState>(counterpart
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 subFlow(new SendStateAndRefFlow(counterpartySession, dummyStates));
@@ -1064,9 +1032,9 @@ List<StateAndRef<DummyState>> resolvedStateAndRef = subFlow(new ReceiveStateAndR
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 #### Why inlined subflows?
@@ -1221,8 +1189,6 @@ companion object {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 private static final Step ID_OTHER_NODES = new Step("Identifying other nodes on the network.");
@@ -1262,9 +1228,9 @@ private final ProgressTracker progressTracker = new ProgressTracker(
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 We then update the progress tracker’s current step as we progress through the flow as follows:
 
@@ -1279,17 +1245,15 @@ progressTracker.currentStep = ID_OTHER_NODES
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt */}}
-
 {{% tab name="java" %}}
 ```java
 progressTracker.setCurrentStep(ID_OTHER_NODES);
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
 
 
 ## Calling external systems inside of flows

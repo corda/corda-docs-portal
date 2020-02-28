@@ -47,8 +47,6 @@ driver(DriverParameters(startNodesInProcess = true, cordappsForAllNodes = FINANC
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt */}}
-
 {{% tab name="java" %}}
 ```java
 driver(new DriverParameters()
@@ -76,9 +74,9 @@ driver(new DriverParameters()
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
 
 The above code starts two nodes:
 
@@ -117,8 +115,6 @@ val bobProxy: CordaRPCOps = bobClient.start("bobUser", "testPassword2").proxy
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt */}}
-
 {{% tab name="java" %}}
 ```java
 CordaRPCClient aliceClient = new CordaRPCClient(alice.getRpcAddress());
@@ -129,9 +125,9 @@ CordaRPCOps bobProxy = bobClient.start("bobUser", "testPassword2").getProxy();
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
 
 Next we connect to Alice and Bob from the test process using the test users we created. We establish RPC links that allow
             us to start flows and query state.
@@ -148,8 +144,6 @@ val aliceVaultUpdates: Observable<Vault.Update<Cash.State>> = aliceProxy.vaultTr
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt */}}
-
 {{% tab name="java" %}}
 ```java
 Observable<Vault.Update<Cash.State>> bobVaultUpdates = bobProxy.vaultTrack(Cash.State.class).getUpdates();
@@ -157,9 +151,9 @@ Observable<Vault.Update<Cash.State>> aliceVaultUpdates = aliceProxy.vaultTrack(C
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
 
 We will be interested in changes to Alice’s and Bob’s vault, so we query a stream of vault updates from each.
 
@@ -191,8 +185,6 @@ bobVaultUpdates.expectEvents {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt */}}
-
 {{% tab name="java" %}}
 ```java
 OpaqueBytes issueRef = OpaqueBytes.of((byte)0);
@@ -219,9 +211,9 @@ expectEvents(bobVaultUpdates, true, () ->
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
 
 We start a `CashIssueAndPaymentFlow` flow on the Alice node. We specify that we want Alice to self-issue $1000 which is
             to be payed to Bob. We specify the default notary identity created by the driver as the notary responsible for notarising
@@ -250,8 +242,6 @@ aliceVaultUpdates.expectEvents {
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt */}}
-
 {{% tab name="java" %}}
 ```java
 bobProxy.startFlowDynamic(
@@ -271,9 +261,9 @@ expectEvents(aliceVaultUpdates, true, () ->
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
 
 Next we want Bob to send this cash back to Alice.
 

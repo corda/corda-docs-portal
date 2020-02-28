@@ -188,9 +188,9 @@ object TwoPartyTradeFlow {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TutorialFlowStateMachines.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt)
 
 This code defines several classes nested inside the main `TwoPartyTradeFlow` singleton. Some of the classes are
                 simply flow messages or exceptions. The other two represent the buyer and seller side of the flow.
@@ -352,9 +352,9 @@ override fun call(): SignedTransaction {
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
 
 We start by sending information about the asset we wish to sell to the buyer. We fill out the initial flow message with
                 the trade info, and then call `otherSideSession.send`. which takes two arguments:
@@ -487,9 +487,9 @@ private fun assembleSharedTX(assetForSale: StateAndRef<OwnableState>, tradeReque
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
 
 This code is longer but no more complicated. Here are some things to pay attention to:
 
@@ -699,9 +699,9 @@ val txId = subFlow(signTransactionFlow).id
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
 
 In this case, our custom validation logic ensures that the amount of cash outputs in the transaction equals the
                     price of the asset.
@@ -813,8 +813,6 @@ override val progressTracker = ProgressTracker(RECEIVING, VERIFYING, SIGNING, CO
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt */}}
-
 {{% tab name="java" %}}
 ```java
 private final ProgressTracker progressTracker = new ProgressTracker(
@@ -838,9 +836,9 @@ private static final ProgressTracker.Step RECORDING = new ProgressTracker.Step(
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java)
 
 Each step exposes a label. By defining your own step types, you can export progress in a way that’s both human readable
                 and machine readable.
@@ -865,8 +863,6 @@ object VERIFYING_AND_SIGNING : ProgressTracker.Step("Verifying and signing trans
 ```
 {{% /tab %}}
 
-{{/* /en/docs/corda-enterprise/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt */}}
-
 {{% tab name="java" %}}
 ```java
 private static final ProgressTracker.Step VERIFYING_AND_SIGNING = new ProgressTracker.Step("Verifying and signing transaction proposal") {
@@ -879,9 +875,9 @@ private static final ProgressTracker.Step VERIFYING_AND_SIGNING = new ProgressTr
 
 ```
 {{% /tab %}}
-
-{{/* /en/docs/corda-enterprise/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java */}}
 {{< /tabs >}}
+
+![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java)
 
 Every tracker has not only the steps given to it at construction time, but also the singleton
                 `ProgressTracker.UNSTARTED` step and the `ProgressTracker.DONE` step. Once a tracker has become `DONE` its

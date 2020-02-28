@@ -220,9 +220,7 @@ certificates = {
     "::CORDA_NETWORK_MAP"
 }
 ```
-
-{{/* /en/docs/cenm/1.1/pki-tool/src/test/resources/configs/pki-tool-template-basic.conf */}}
-
+[pki-tool-template-basic.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-basic.conf)
 {{< note >}}
 This is the same configuration that is used as the default when no configuration file is passed to the PKI Tool. It
                                 represents the minimal configuration required to create a Corda network certificate hierarchy. It is mainly intended
@@ -297,9 +295,7 @@ certificates = {
     "::CORDA_NETWORK_MAP"
 }
 ```
-
-{{/* /en/docs/cenm/1.1/pki-tool/src/test/resources/configs/pki-tool-template-custom.conf */}}
-
+[pki-tool-template-custom.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-custom.conf)
 ##### Free-form Certificates
 As an alternative to using the templates, each key pair and certificate can defined using the standard configuration
                             options. See the [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) documentation for all possible parameters, and see below for examples
@@ -628,9 +624,7 @@ certificates = {
     }
 }
 ```
-
-{{/* /en/docs/cenm/1.1/pki-tool/src/test/resources/configs/pki-tool-local-full.conf */}}
-
+[pki-tool-local-full.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local-full.conf)
 #### Local Configuration
 ```docker
 defaultPassword = "password"
@@ -723,9 +717,7 @@ certificates = {
     }
 }
 ```
-
-{{/* /en/docs/cenm/1.1/pki-tool/src/test/resources/configs/pki-tool-local.conf */}}
-
+[pki-tool-local.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local.conf)
 #### Utimaco HSM Configuration
 ```docker
 hsmLibraries = [{
@@ -801,9 +793,7 @@ certificates = {
     }
 }
 ```
-
-{{/* /en/docs/cenm/1.1/pki-tool/src/test/resources/configs/pki-tool-utimaco-hsm.conf */}}
-
+[pki-tool-utimaco-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-utimaco-hsm.conf)
 #### Gemalto HSM Configuration
 ```docker
 hsmLibraries = [{
@@ -877,9 +867,7 @@ certificates = {
     }
 }
 ```
-
-{{/* /en/docs/cenm/1.1/pki-tool/src/test/resources/configs/pki-tool-gemalto-hsm.conf */}}
-
+[pki-tool-gemalto-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-gemalto-hsm.conf)
 #### Securosys HSM Configuration
 ```docker
 hsmLibraries = [{
@@ -954,9 +942,7 @@ certificates = {
     }
 }
 ```
-
-{{/* /en/docs/cenm/1.1/pki-tool/src/test/resources/configs/pki-tool-securosys-hsm.conf */}}
-
+[pki-tool-securosys-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-securosys-hsm.conf)
 #### Azure Key Vault HSM Configuration
 ```docker
 hsmLibraries = [{
@@ -1035,6 +1021,4 @@ certificates = {
     }
 }
 ```
-
-{{/* /en/docs/cenm/1.1/pki-tool/src/test/resources/configs/pki-tool-azure-key-vault-hsm.conf */}}
-
+[pki-tool-azure-key-vault-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-azure-key-vault-hsm.conf)

@@ -210,9 +210,7 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt */}}
-Here we can see that there are several steps:
+[NodeInterestRates.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)Here we can see that there are several steps:
 
 
 * Ensure that the transaction we have been sent is indeed valid and passes verification, even though we cannot see all
@@ -254,9 +252,7 @@ class Oracle(private val services: AppServiceHub) : SingletonSerializeAsToken() 
     }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt */}}
-The Corda node scans for any class with this annotation and initialises them. The only requirement is that the class provide
+[NodeInterestRates.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)The Corda node scans for any class with this annotation and initialises them. The only requirement is that the class provide
                     a constructor with a single parameter of type `ServiceHub`.
 
 ```kotlin
@@ -289,9 +285,7 @@ class FixQueryHandler(private val otherPartySession: FlowSession) : FlowLogic<Un
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt */}}
-These two flows leverage the oracle to provide the querying and signing operations. They get reference to the oracle,
+[NodeInterestRates.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)These two flows leverage the oracle to provide the querying and signing operations. They get reference to the oracle,
                     which will have already been initialised by the node, using `ServiceHub.cordaService`. Both flows are annotated with
                     `@InitiatedBy`. This tells the node which initiating flow (which are discussed in the next section) they are meant to
                     be executed with.
@@ -336,9 +330,7 @@ class FixSignFlow(val tx: TransactionBuilder, val oracle: Party,
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt */}}
-You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
+[RatesFixFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
                     You can find a further explanation of this in [Oracles](key-concepts-oracles.md). Below you will see how to build such a
                     transaction with hidden fields.
 
@@ -363,9 +355,7 @@ override fun call(): TransactionSignature {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt */}}
-As you can see, this:
+[RatesFixFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)As you can see, this:
 
 
 * Queries the oracle for the fact using the client sub-flow for querying defined above
@@ -412,9 +402,7 @@ Here’s an example of it in action from `FixingFlow.Fixer`.
         val sig = subFlow(addFixing)
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/FixingFlow.kt */}}
-
+[FixingFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/FixingFlow.kt)
 {{< note >}}
 When overriding be careful when making the sub-class an anonymous or inner class (object declarations in Kotlin),
                     because that kind of classes can access variables from the enclosing scope and cause serialization problems when
@@ -458,8 +446,6 @@ fun `verify that the oracle signs the transaction if the interest rate within al
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.3/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt */}}
-See [here](https://github.com/corda/corda/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt) for more examples.
+[OracleNodeTearOffTests.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt)See [here](https://github.com/corda/corda/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt) for more examples.
 
 

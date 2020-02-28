@@ -37,9 +37,7 @@ fun main(args: Array<String>) {
         val node = startNode(providedName = ALICE_NAME, rpcUsers = listOf(user)).get()
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt */}}
-Now we can connect to the node itself using a valid RPC user login and start generating transactions in a different
+[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)Now we can connect to the node itself using a valid RPC user login and start generating transactions in a different
             thread using `generateTransactions` (to be defined later):
 
 ```kotlin
@@ -51,9 +49,7 @@ thread {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt */}}
-`proxy` exposes the full RPC interface of the node:
+[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)`proxy` exposes the full RPC interface of the node:
 
 ```kotlin
     /** Returns a list of currently in-progress state machine infos. */
@@ -379,9 +375,7 @@ thread {
     fun isWaitingForShutdown(): Boolean
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt */}}
-The RPC operation we need in order to dump the transaction graph is `internalVerifiedTransactionsFeed`. The type
+[CordaRPCOps.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)The RPC operation we need in order to dump the transaction graph is `internalVerifiedTransactionsFeed`. The type
             signature tells us that the RPC operation will return a list of transactions and an `Observable` stream. This is a
             general pattern, we query some data and the node will return the current snapshot and future updates done to it.
             Observables are described in further detail in [Interacting with a node](clientrpc.md)
@@ -390,9 +384,7 @@ The RPC operation we need in order to dump the transaction graph is `internalVer
 val (transactions: List<SignedTransaction>, futureTransactions: Observable<SignedTransaction>) = proxy.internalVerifiedTransactionsFeed()
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt */}}
-The graph will be defined as follows:
+[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)The graph will be defined as follows:
 
 
 * Each transaction is a vertex, represented by printing `NODE <txhash>`
@@ -413,9 +405,7 @@ when (printOrVisualise) {
     }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt */}}
-Now we just need to create the transactions themselves!
+[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)Now we just need to create the transactions themselves!
 
 ```kotlin
 fun generateTransactions(proxy: CordaRPCOps) {
@@ -447,9 +437,7 @@ fun generateTransactions(proxy: CordaRPCOps) {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt */}}
-We utilise several RPC functions here to query things like the notaries in the node cluster or our own vault. These RPC
+[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)We utilise several RPC functions here to query things like the notaries in the node cluster or our own vault. These RPC
             functions also return `Observable` objects so that the node can send us updated values. However, we don’t need updates
             here and so we mark these observables as `notUsed` (as a rule, you should always either subscribe to an `Observable`
             or mark it as not used. Failing to do so will leak resources in the node).
@@ -492,9 +480,7 @@ Now let’s try to visualise the transaction graph. We will use a graph drawing 
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt */}}
-If we run the client with `Visualise` we should see a simple random graph being drawn as new transactions are being created.
+[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)If we run the client with `Visualise` we should see a simple random graph being drawn as new transactions are being created.
 
 
 ## Whitelisting classes from your CorDapp with the Corda node
@@ -515,9 +501,7 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 }
 
 ```
-
-{{/* /en/docs/corda-enterprise/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt */}}
-See more on plugins in [Running nodes locally](running-a-node.md).
+[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)See more on plugins in [Running nodes locally](running-a-node.md).
 
 
 ## Security
