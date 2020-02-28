@@ -34,9 +34,7 @@ These are tables that store the NodeInfo of other network participants.
 
 Read more here: network-map
 
-{{< img src="node/operating/resources/database/node_info_tables.png" alt="node info tables" >}}
-
-
+![node info tables](node/operating/resources/database/node_info_tables.png "node info tables")
 {{< table >}}
 
 |NODE_INFOS|Stores `NodeInfo` objects. The principal table.|
@@ -151,9 +149,7 @@ The ledger data is formed of transactions and attachments.
 ### Attachments
 Read more in tutorial-attachments and node-services
 
-{{< img src="node/operating/resources/database/attachments_tables.png" alt="attachments tables" >}}
-
-
+![attachments tables](node/operating/resources/database/attachments_tables.png "attachments tables")
 {{< table >}}
 
 |NODE_ATTACHMENTS|Stores attachments|
@@ -251,7 +247,7 @@ This table should be empty when no events are scheduled.
 
 {{< /table >}}
 The columns `PRIVATE_KEY_MATERIAL_WRAPPED` and `SCHEME_CODE_NAME` are populated, instead of the column `PRIVATE_KEY`,
-                    if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities]({{< relref "confidential-identities-hsm" >}}).
+                    if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities](confidential-identities-hsm.md).
 
 
 {{< table >}}
@@ -280,7 +276,7 @@ Read more in node-services
 This table will see the most intense read-write activity. Depending on the installed flows and the traffic on the node the I/O operations on this
                     table will be the main bottleneck of the node performance.
                     There will be an entry for every running flow.
-                    Draining the node means waiting for this table to become emtpy. Read more in: [Upgrading CorDapps on a node]({{< relref "node-operations-upgrade-cordapps" >}}).
+                    Draining the node means waiting for this table to become emtpy. Read more in: [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md).
 
 
 {{< table >}}
@@ -373,9 +369,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 {{< /table >}}
 
 ### Fungible states
-{{< img src="node/operating/resources/database/vault_fungible_states.png" alt="vault fungible states" >}}
-
-
+![vault fungible states](node/operating/resources/database/vault_fungible_states.png "vault fungible states")
 {{< table >}}
 
 |VAULT_FUNGIBLE_STATES|Properties specific to fungible states|
@@ -400,9 +394,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 {{< /table >}}
 
 ### Linear states
-{{< img src="node/operating/resources/database/vault_linear_states.png" alt="vault linear states" >}}
-
-
+![vault linear states](node/operating/resources/database/vault_linear_states.png "vault linear states")
 {{< table >}}
 
 |VAULT_LINEAR_STATES|Properties specific to linear states|

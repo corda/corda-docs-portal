@@ -23,21 +23,15 @@ Browse to [https://portal.azure.com](https://portal.azure.com) and log in with y
 ### STEP 1: Create a Resource Group
 Click on the “Resource groups” link in the side nav in the Azure Portal and then click “Add”:
 
-{{< img src="resources/azure-rg.png" alt="azure rg" >}}
+![azure rg](resources/azure-rg.png "azure rg")Fill in the form and click “Create”:
 
-Fill in the form and click “Create”:
-
-{{< img src="resources/azure-rg-2.png" alt="azure rg 2" >}}
-
-
+![azure rg 2](resources/azure-rg-2.png "azure rg 2")
 ### STEP 2: Launch the VM
 At the top of the left sidenav click on the button with the green cross “Create a resource”.
 
 In this example we are going to use an Ubuntu server so select the latest Ubuntu Server option:
 
-{{< img src="resources/azure-select-ubuntu.png" alt="azure select ubuntu" >}}
-
-Fill in the form:
+![azure select ubuntu](resources/azure-select-ubuntu.png "azure select ubuntu")Fill in the form:
 
 
 * Add a username (to log into the VM) and choose and enter a password
@@ -51,17 +45,11 @@ Fill in the form:
 
 Click on “OK”:
 
-{{< img src="resources/azure-vm-form.png" alt="azure vm form" >}}
+![azure vm form](resources/azure-vm-form.png "azure vm form")Choose a size (“D4S_V3 Standard” is recommended if available) and click “Select”:
 
-Choose a size (“D4S_V3 Standard” is recommended if available) and click “Select”:
+![azure instance type](resources/azure-instance-type.png "azure instance type")Click on “Public IP address” to open the “Settings” panel
 
-{{< img src="resources/azure-instance-type.png" alt="azure instance type" >}}
-
-Click on “Public IP address” to open the “Settings” panel
-
-{{< img src="resources/azure-vm-settings.png" alt="azure vm settings" >}}
-
-Set the IP address to “Static” under “Assignment” and click “OK”:
+![azure vm settings](resources/azure-vm-settings.png "azure vm settings")Set the IP address to “Static” under “Assignment” and click “OK”:
 
 
 {{< note >}}
@@ -69,13 +57,9 @@ This is so the IP address for your node does not change frequently in the global
 
 
 {{< /note >}}
-{{< img src="resources/azure-set-static-ip.png" alt="azure set static ip" >}}
+![azure set static ip](resources/azure-set-static-ip.png "azure set static ip")Next toggle “Network Security Group” to advanced and click on “Network security group (firewall)”:
 
-Next toggle “Network Security Group” to advanced and click on “Network security group (firewall)”:
-
-{{< img src="resources/azure-nsg.png" alt="azure nsg" >}}
-
-Add the following inbound rules for ports 8080 (webserver), and 10002-10003 for the P2P and RPC ports used by the Corda
+![azure nsg](resources/azure-nsg.png "azure nsg")Add the following inbound rules for ports 8080 (webserver), and 10002-10003 for the P2P and RPC ports used by the Corda
                     node respectively:
 
 ```bash
@@ -91,28 +75,18 @@ The priority has to be unique number in the range 900 (highest) and 4096 (lowest
 
 
 {{< /note >}}
-{{< img src="resources/azure-nsg-2.png" alt="azure nsg 2" >}}
+![azure nsg 2](resources/azure-nsg-2.png "azure nsg 2")Click “OK” and “OK” again on the “Settings” panel:
 
-Click “OK” and “OK” again on the “Settings” panel:
+![azure settings ok](resources/azure-settings-ok.png "azure settings ok")Click “Create” and wait a few minutes for your instance to be provisioned and start running:
 
-{{< img src="resources/azure-settings-ok.png" alt="azure settings ok" >}}
-
-Click “Create” and wait a few minutes for your instance to be provisioned and start running:
-
-{{< img src="resources/azure-create-vm.png" alt="azure create vm" >}}
-
-
+![azure create vm](resources/azure-create-vm.png "azure create vm")
 ### STEP 3: Connect to your VM and set up the environment
 Once your instance is running click on the “Connect” button and copy the ssh command:
 
-{{< img src="resources/azure-ssh.png" alt="azure ssh" >}}
-
-Enter the ssh command into your terminal. At the prompt, type “yes” to continue connecting and then enter the password
+![azure ssh](resources/azure-ssh.png "azure ssh")Enter the ssh command into your terminal. At the prompt, type “yes” to continue connecting and then enter the password
                     you configured earlier to log into the remote VM:
 
-{{< img src="resources/azure-shell.png" alt="azure shell" >}}
-
-
+![azure shell](resources/azure-shell.png "azure shell")
 ### STEP 4: Download and set up your Corda node
 Now that your Azure environment is configured you can switch to the
                     [Testnet dashboard](https://marketplace.r3.com/network/testnet/install-node) and click “Copy” to get a one-time installation
@@ -132,9 +106,7 @@ You can generate as many Testnet identites as you like by clicking “Generate n
 
 
 {{< /note >}}
-{{< img src="resources/testnet-platform.png" alt="testnet platform" >}}
-
-In the terminal of your cloud instance, paste the command you just copied to install and run your Corda node:
+![testnet platform](resources/testnet-platform.png "testnet platform")In the terminal of your cloud instance, paste the command you just copied to install and run your Corda node:
 
 ```bash
 sudo ONE_TIME_DOWNLOAD_KEY=YOUR_UNIQUE_DOWNLOAD_KEY_HERE bash -c "$(curl -L https://onboarder.prod.ws.r3.com/api/user/node/TESTNET/install.sh)"
@@ -153,7 +125,7 @@ tail -f /opt/corda/logs/node-<VM-NAME>.log
 ```
 
 ## Testing your deployment
-To test that your deployment is working correctly, follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet]({{< relref "testnet-explorer-corda" >}}) to set up
+To test that your deployment is working correctly, follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up
                 the Finance CorDapp and issue cash to a counterparty.
 
 This will also demonstrate how to install a custom CorDapp.

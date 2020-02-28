@@ -16,9 +16,7 @@ Operating System specific installers are provided as part of Corda Enterprise 4.
 Run the installer and follow instructions on the screen.
                 Once installer completes it will start `Corda DemoBench` application:
 
-{{< img src="../../tools/demobench/demobench-initial.png" alt="demobench initial" >}}
-
-
+![demobench initial](../../tools/demobench/demobench-initial.png "demobench initial")
 
 Configuring a Node
 Each node must have a unique name to identify it to the network map service. DemoBench will suggest node names, nearest cities and local port numbers to use.

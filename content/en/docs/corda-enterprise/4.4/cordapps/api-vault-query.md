@@ -84,7 +84,7 @@ There are four implementations of this interface which can be chained together t
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the Vault states table: status (UNCONSUMED,
                         CONSUMED), state reference(s), contract state type(s), notaries, soft locked states, timestamps (RECORDED, CONSUMED),
-                        state constraints (see [Constraint Types]({{< relref "api-contract-constraints#implicit-constraint-types" >}})), relevancy (ALL, RELEVANT, NON_RELEVANT),
+                        state constraints (see [Constraint Types](api-contract-constraints.md#implicit-constraint-types)), relevancy (ALL, RELEVANT, NON_RELEVANT),
                         participants (exact or any match).
 
 > 
@@ -570,9 +570,7 @@ The intuition here is that when these public keys are used to own or participate
                 persisted to a `PersistentParty` table. The `PersistentParty` table can be joined with the `PublicKeyHashToExternalId` table to create
                 a view which maps each state to one or more external IDs. The entity relationship diagram below helps to explain how this works.
 
-{{< img src="cordapps/resources/state-to-external-id.png" alt="state to external id" >}}
-
-When performing a vault query, it is now possible to query for states by external ID using the `externalIds` parameter in
+![state to external id](cordapps/resources/state-to-external-id.png "state to external id")When performing a vault query, it is now possible to query for states by external ID using the `externalIds` parameter in
                 `VaultQueryCriteria`.
 
 

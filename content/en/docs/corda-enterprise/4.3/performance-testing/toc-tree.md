@@ -8,21 +8,21 @@ date: 2020-01-08T09:59:25Z
 This section contains the documentation on running performance test of Corda Enterprise
 
 
-* [Introduction]({{< relref "introduction" >}})
+* [Introduction](introduction.md)
 
-* [Obtaining and Installing the Performance Test Suite]({{< relref "installation" >}})
+* [Obtaining and Installing the Performance Test Suite](installation.md)
 
-* [Running JMeter Corda]({{< relref "running-jmeter-corda" >}})
+* [Running JMeter Corda](running-jmeter-corda.md)
 
-* [JMeter Samplers]({{< relref "jmeter-samplers" >}})
+* [JMeter Samplers](jmeter-samplers.md)
 
-* [Understanding and Creating Testplans]({{< relref "jmeter-testplans" >}})
+* [Understanding and Creating Testplans](jmeter-testplans.md)
 
-* [Reproducing the R3 performance test numbers]({{< relref "r3-performance-runs" >}})
+* [Reproducing the R3 performance test numbers](r3-performance-runs.md)
 
-* [Practical Considerations]({{< relref "practical-considerations" >}})
+* [Practical Considerations](practical-considerations.md)
 
-* [Performance Tuning a Node]({{< relref "performance-tuning" >}})
+* [Performance Tuning a Node](performance-tuning.md)
 
 
 

@@ -187,7 +187,7 @@ Where:
 * `--version`, `-V`: Print version information and exit.
 
 
-Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 The format of `config-file`:
 
@@ -320,7 +320,7 @@ Parameters are passed to RPC or flow commands using a syntax called [Yaml](http:
 
 {{< note >}}
 If your CorDapp is written in Java, named arguments won’t work unless you compiled the node using the
-                        `-parameters` argument to javac. See [Creating nodes locally]({{< relref "generating-a-node" >}}) for how to specify it via Gradle.
+                        `-parameters` argument to javac. See [Creating nodes locally](generating-a-node.md) for how to specify it via Gradle.
 
 
 {{< /note >}}
@@ -457,7 +457,7 @@ This breaks down as follows:
 
 ### Attachments
 The shell can be used to upload and download attachments from the node. To learn more, see the tutorial
-                    “[Using attachments]({{< relref "tutorial-attachments" >}})”.
+                    “[Using attachments](tutorial-attachments.md)”.
 
 
 ### Getting help

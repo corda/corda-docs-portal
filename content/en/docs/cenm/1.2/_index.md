@@ -14,99 +14,99 @@ The Corda Enterprise Network Manager is a commercial offering from R3 that facil
 The *Corda Enterprise Network Manager* encompasses three main services:
 
 
-* [Identity Manager Service]({{< relref "identity-manager" >}}) - Enables nodes to join the network, as well as handles revocation of a nodes certificate
+* [Identity Manager Service](identity-manager.md) - Enables nodes to join the network, as well as handles revocation of a nodes certificate
 
 
-* [Network Map Service]({{< relref "network-map" >}}) - Provides a global view of the network
+* [Network Map Service](network-map.md) - Provides a global view of the network
 
 
-* [Signing Services]({{< relref "signing-service" >}}) - Provides a way to sign approved requests to join the network (CSRs) or revoke a certificate
+* [Signing Services](signing-service.md) - Provides a way to sign approved requests to join the network (CSRs) or revoke a certificate
                     (CRRs) as well as changes to the network map
 
 
-For a quick start guide on running the ENM services see [Enterprise Network Manager Quick-Start Guide]({{< relref "quick-start" >}}).
+For a quick start guide on running the ENM services see [Enterprise Network Manager Quick-Start Guide](quick-start.md).
 
 
 Concepts and Overview
-* [Corda Networks]({{< relref "corda-networks" >}})
+* [Corda Networks](corda-networks.md)
 
-* [Components of the Corda Enterprise Network Manager]({{< relref "enm-components" >}})
+* [Components of the Corda Enterprise Network Manager](enm-components.md)
 
-* [The Workflow]({{< relref "enm-components#the-workflow" >}})
+* [The Workflow](enm-components.md#the-workflow)
 
-* [Databases]({{< relref "enm-components#databases" >}})
+* [Databases](enm-components.md#databases)
 
-* [Public Key Infrastructure]({{< relref "enm-components#public-key-infrastructure" >}})
+* [Public Key Infrastructure](enm-components.md#public-key-infrastructure)
 
-* [The Node]({{< relref "enm-components#the-node" >}})
+* [The Node](enm-components.md#the-node)
 
-* [Sub Zones]({{< relref "sub-zones" >}})
+* [Sub Zones](sub-zones.md)
 
-* [Network Map Overview]({{< relref "network-map-overview" >}})
+* [Network Map Overview](network-map-overview.md)
 
-* [Certificate Revocation List (CRL)]({{< relref "certificate-revocation" >}})
+* [Certificate Revocation List (CRL)](certificate-revocation.md)
 
 
 
 CENM Releases
-* [Release notes]({{< relref "release-notes" >}})
+* [Release notes](release-notes.md)
 
-* [Upgrading Corda Enterprise Network Manager]({{< relref "upgrade-notes" >}})
+* [Upgrading Corda Enterprise Network Manager](upgrade-notes.md)
 
-* [Changelog]({{< relref "changelog" >}})
+* [Changelog](changelog.md)
 
 
 
 Operations
-* [Enterprise Network Manager Quick-Start Guide]({{< relref "quick-start" >}})
+* [Enterprise Network Manager Quick-Start Guide](quick-start.md)
 
-* [Identity Manager Service]({{< relref "identity-manager" >}})
+* [Identity Manager Service](identity-manager.md)
 
-* [Network Map Service]({{< relref "network-map" >}})
+* [Network Map Service](network-map.md)
 
-* [Signing Services]({{< relref "signing-service" >}})
+* [Signing Services](signing-service.md)
 
-* [Updating the network parameters]({{< relref "updating-network-parameters" >}})
+* [Updating the network parameters](updating-network-parameters.md)
 
-* [Upgrading Corda Enterprise Network Manager]({{< relref "upgrade-notes" >}})
+* [Upgrading Corda Enterprise Network Manager](upgrade-notes.md)
 
-* [CENM Databases]({{< relref "database-set-up" >}})
+* [CENM Databases](database-set-up.md)
 
-* [Troubleshooting Common Issues]({{< relref "troubleshooting-common-issues" >}})
+* [Troubleshooting Common Issues](troubleshooting-common-issues.md)
 
-* [CENM support matrix]({{< relref "cenm-support-matrix" >}})
+* [CENM support matrix](cenm-support-matrix.md)
 
 
 
 Configuration
-* [Identity Manager Configuration Parameters]({{< relref "config-identity-manager-parameters" >}})
+* [Identity Manager Configuration Parameters](config-identity-manager-parameters.md)
 
-* [Network Map Configuration Parameters]({{< relref "config-network-map-parameters" >}})
+* [Network Map Configuration Parameters](config-network-map-parameters.md)
 
-* [Network Parameters]({{< relref "config-network-parameters" >}})
+* [Network Parameters](config-network-parameters.md)
 
-* [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}})
+* [Configuring the ENM services to use SSL](enm-with-ssl.md)
 
-* [Workflow]({{< relref "workflow" >}})
+* [Workflow](workflow.md)
 
 
 
 Tools & Utilities
-* [Tools & Utilities]({{< relref "tools-index" >}})
+* [Tools & Utilities](tools-index.md)
 
-* [Embedded Shell]({{< relref "shell" >}})
+* [Embedded Shell](shell.md)
 
 
 
 Public Key Infrastructure
-* [Certificate Hierarchy Guide]({{< relref "pki-guide" >}})
+* [Certificate Hierarchy Guide](pki-guide.md)
 
-* [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool" >}})
+* [Public Key Infrastructure (PKI) Tool](pki-tool.md)
 
 
 
 Signing Plugin Samples
-* [EJBCA Sample Plugin]({{< relref "ejbca-plugin" >}})
+* [EJBCA Sample Plugin](ejbca-plugin.md)
 
 
 

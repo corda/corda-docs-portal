@@ -11,14 +11,14 @@ Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, 
 
 The documentation contains the required database user permission and schema creation steps
             for production systems node-database-admin for a new Corda installation
-            or [Database upgrade]({{< relref "node/operating/cm-upgrading-node#node-upgrade-notes-update-database-ref" >}}) for upgrading Corda nodes.
+            or [Database upgrade](node/operating/cm-upgrading-node.md#node-upgrade-notes-update-database-ref) for upgrading Corda nodes.
             Database schema updates may be also required when node-operations-cordapp-deployment
             or node-operations-upgrade-cordapps.
 
 For development/testing purposes node-database-developer covers database setup with simplified user permissions.
             node-database explains the differences between both setups.
 
-Corda Enterpise is released with the [Database Management Tool]({{< relref "node/operating/node-database#database-management-tool-ref" >}}).
+Corda Enterpise is released with the [Database Management Tool](node/operating/node-database.md#database-management-tool-ref).
             The tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
             It is intended to be used by Corda Enterprise node administrators during database schema creation.
 

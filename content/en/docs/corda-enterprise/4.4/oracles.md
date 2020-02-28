@@ -233,7 +233,7 @@ Here we can see that there are several steps:
 
 {{< note >}}
 Before reading any further, we advise that you understand the concept of flows and how to write them and use
-                        them. See [Writing flows]({{< relref "flow-state-machines" >}}).  Likewise some understanding of Cordapps, plugins and services will be helpful.
+                        them. See [Writing flows](flow-state-machines.md).  Likewise some understanding of Cordapps, plugins and services will be helpful.
                         See running-a-node.
 
 

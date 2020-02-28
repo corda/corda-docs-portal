@@ -104,7 +104,7 @@ API docs: all public methods, constants and classes **must** have doc comments i
                         is not always right.
 
 
-* Make good use of [{@link]({{< relref "mailto:{@link" >}})} annotations.
+* Make good use of [{@link](mailto:{@link.md)} annotations.
 
 
 Bad JavaDocs look like this:

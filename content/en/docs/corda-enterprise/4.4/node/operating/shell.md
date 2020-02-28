@@ -205,7 +205,7 @@ Where:
 * `--version`, `-V`: Print version information and exit.
 
 
-Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 The format of `config-file`:
 

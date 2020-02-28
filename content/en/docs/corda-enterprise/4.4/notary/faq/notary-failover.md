@@ -10,7 +10,7 @@ Corda has built in features that would retry flows on specific cases of failure.
 
 The FinalityFlow contains notary specific logic which can initiate a backpressure aware subflow since minimum platform version 4.
             The backpressure aware subflow has configured timeout and retry with specific logic relating
-            to the [ETA mechanism]({{< relref "eta-mechanism" >}}).
+            to the [ETA mechanism](eta-mechanism.md).
 
 
 ## How does the timeout work?
@@ -19,7 +19,7 @@ It is based on the `flowTimeout` section of the node configuration. Flows to HA 
 
 
 ## What is the back off mechanism?
-The back off mechanism is described in [ETA Mechanism Overview]({{< relref "eta-mechanism" >}}).
+The back off mechanism is described in [ETA Mechanism Overview](eta-mechanism.md).
 
 
 ## What happens on multiple successful responses caused by retrying?

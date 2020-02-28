@@ -71,7 +71,7 @@ There are also operations that allow starting/killing the flows or even stopping
                         allows the user to kill *any* flow, so please be careful when granting it!
 
 
-Description of RPC operations can be found in [API: RPC operations]({{< relref "api-rpc" >}}).
+Description of RPC operations can be found in [API: RPC operations](api-rpc.md).
 
 
 ## The shell via the local terminal
@@ -207,7 +207,7 @@ Where:
 * `--version`, `-V`: Print version information and exit.
 
 
-Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 The format of `config-file`:
 
@@ -257,7 +257,7 @@ This is a new mode added in the Enterprise 4.3 release to prevent the Crash shel
                 the internal shell will run in safe mode but will still be have the ability to execute RPC client calls as before based on
                 existing RPC permissions. No Corda functionality is affected by this change; only the ability to access to the Crash shell embedded commands.
                 When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items
-                in their RPC permission list, see [Using the client RPC API]({{< relref "tutorial-clientrpc-api" >}}) for more information about the RPC Client API. These shell changes are
+                in their RPC permission list, see [Using the client RPC API](tutorial-clientrpc-api.md) for more information about the RPC Client API. These shell changes are
                 also applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future,
                 the Crash shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they
                 are technically not part of Corda functionality.
@@ -348,7 +348,7 @@ Parameters are passed to RPC or flow commands using a syntax called [Yaml](http:
 
 {{< note >}}
 If your CorDapp is written in Java, named arguments won’t work unless you compiled the node using the
-                        `-parameters` argument to javac. See [Creating nodes locally]({{< relref "generating-a-node" >}}) for how to specify it via Gradle.
+                        `-parameters` argument to javac. See [Creating nodes locally](generating-a-node.md) for how to specify it via Gradle.
 
 
 {{< /note >}}
@@ -485,7 +485,7 @@ This breaks down as follows:
 
 ### Attachments
 The shell can be used to upload and download attachments from the node. To learn more, see the tutorial
-                    “[Using attachments]({{< relref "tutorial-attachments" >}})”.
+                    “[Using attachments](tutorial-attachments.md)”.
 
 
 ### Getting help

@@ -50,9 +50,7 @@ This sampler client has the class name `com.r3.corda.jmeter.EmptyFlowSampler` an
                             via RPC without adding any additional flow work, and can therefore be used to measure the pure overhead of invoking
                             a flow in a given set-up.
 
-{{< img src="performance-testing/resources/empty-flow-sampler.png" alt="empty flow sampler" >}}
-
-This sampler client requires the minimal set of properties to be required that it shares with all Corda sampler
+![empty flow sampler](performance-testing/resources/empty-flow-sampler.png "empty flow sampler")This sampler client requires the minimal set of properties to be required that it shares with all Corda sampler
                             clients documented here:
 
 
@@ -85,9 +83,7 @@ This sampler client has the class name `com.r3.corda.jmeter.CashIssueSampler` an
                             `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueFlow`. This flow will self-issue 1.1 billions
                             of cash tokens on the node it is running on and store it in the vault.
 
-{{< img src="performance-testing/resources/cash-issue-sampler.png" alt="cash issue sampler" >}}
-
-In addition to the common properties described above under `EmptyFlowSampler`, this sampler client also requires:
+![cash issue sampler](performance-testing/resources/cash-issue-sampler.png "cash issue sampler")In addition to the common properties described above under `EmptyFlowSampler`, this sampler client also requires:
 
 
 
@@ -105,9 +101,7 @@ This sampler client has the classname `com.r3.corda.jmeter.CashIssueAndPaySample
                             Either way it issues 2 million dollars in tokens and then transfers the sum to a configurable other node, thus
                             invoking the full vault access, peer-to-peer communication and notarisation cycle.
 
-{{< img src="performance-testing/resources/cash-issue-and-pay-sampler.png" alt="cash issue and pay sampler" >}}
-
-In addition to the parameters required for the `CashIssueSampler`, this also requires:
+![cash issue and pay sampler](performance-testing/resources/cash-issue-and-pay-sampler.png "cash issue and pay sampler")In addition to the parameters required for the `CashIssueSampler`, this also requires:
 
 
 
@@ -132,9 +126,7 @@ A sampler that issues cash once per run in its `setupTest` method, and then gene
                             each sample (unlike CashIssueAndPaySampler).
                             The classname of this sampler client is `com.r3.corda.jmeter.CashPaySampler`.
 
-{{< img src="performance-testing/resources/cash-pay-sampler.png" alt="cash pay sampler" >}}
-
-In addition to the base requirements as in the `CashIssueSampler`, this sampler client requires the following
+![cash pay sampler](performance-testing/resources/cash-pay-sampler.png "cash pay sampler")In addition to the base requirements as in the `CashIssueSampler`, this sampler client requires the following
                             parameters:
 
 

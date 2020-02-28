@@ -594,7 +594,7 @@ Next, you should read through Corda Key Concepts to understand how Corda works.
 
 By then, you’ll be ready to start writing your own CorDapps. Learn how to do this in the
                 Hello, World tutorial. You may want to refer to the
-                API documentation in the sidebar, the [flow cookbook]({{< relref "flow-cookbook" >}}) and the
+                API documentation in the sidebar, the [flow cookbook](flow-cookbook.md) and the
                 [samples](https://www.corda.net/samples/) along the way.
 
 If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via

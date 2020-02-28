@@ -55,7 +55,7 @@ It’s always a good idea to back up your data before upgrading any server. This
                 You can simply make a copy of the node’s data directory to enable this. If you use an external non-H2 database, consult your database
                 user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations]({{< relref "node-administration#backup-recommendations" >}}) .
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](node-administration.md#backup-recommendations) .
 
 
 ## Step 3. Update database
@@ -218,7 +218,7 @@ A script named *migration/*.sql* will be generated in the base directory.
                     This script will contain all the statements required to modify and create data structures (e.g. tables/indexes),
                     and inserts the Liquibase management table *DATABASECHANGELOG*.
                     The command doesn’t alter any tables itself.
-                    For descriptions of the options, refer to the [Corda Database Management Tool]({{< relref "node-database#database-management-tool-ref" >}}) manual.
+                    For descriptions of the options, refer to the [Corda Database Management Tool](node-database.md#database-management-tool-ref) manual.
 
 
 ### 3.3. Apply DDL scripts on a database

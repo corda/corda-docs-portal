@@ -13,15 +13,15 @@ A small number of tools are available to help with setting up, running and testi
 
 ## General Running Of Network
 
-* [Certificate Revocation Request Submission Tool]({{< relref "tool-crr-submission" >}})
+* [Certificate Revocation Request Submission Tool](tool-crr-submission.md)
 
 
 
 ## Other Tools
 
-* [Config Obfuscation Tool]({{< relref "config-obfuscation-tool" >}})
+* [Config Obfuscation Tool](config-obfuscation-tool.md)
 
-* [CRL Endpoint Check Tool]({{< relref "crl-endpoint-check-tool" >}})
+* [CRL Endpoint Check Tool](crl-endpoint-check-tool.md)
 
 
 

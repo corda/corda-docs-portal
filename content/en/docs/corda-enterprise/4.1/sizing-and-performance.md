@@ -22,7 +22,7 @@ It is expected that users should test their own configurations with the networks
                     was achieved with the test setup and the sample flows we use in our benchmarking.  These numbers should be treated
                     as an approximate guide only and actual performance of your CorDapp will depend on many factors.  Those flows
                     and other elements of our performance testing tool set are now available as part of this release to help calibrate
-                    infrastructure configurations and to help stress CorDapps through generated load. See the [Introduction]({{< relref "performance-testing/introduction" >}}) here.
+                    infrastructure configurations and to help stress CorDapps through generated load. See the [Introduction](performance-testing/introduction.md) here.
 
 
 {{< /note >}}
@@ -32,9 +32,7 @@ Figure 1 below compares the number of Transactions Per Second (TPS) carried out 
                 running **Microsoft SQL Server**.  Similar results were obtained against the other supported databases.
 
 
-{{< img src="resources/performance/ce4-comparison-chart.png" alt="ce4 comparison chart" >}}
-
-Figure 1
+![ce4 comparison chart](resources/performance/ce4-comparison-chart.png "ce4 comparison chart")Figure 1
 The x-axis represents the number of flows completing per second which equates to Transactions Per Second (TPS).
                 As you can see, Corda Enterprise 4 offers a substantial increase in Transactions Per Second (TPS) over the prior release on the same hardware.
 
@@ -43,9 +41,7 @@ Figure 2 shows how the relative performance of making multiple payments from one
                 be a technique for even greater throughput.
 
 
-{{< img src="resources/performance/states-per-second.png" alt="states per second" >}}
-
-Figure 2
+![states per second](resources/performance/states-per-second.png "states per second")Figure 2
 The y-axis represents the number of output contract states being recorded in the vault per second.  The x-axis represents the number of output
                 contract states in each transaction.
 
@@ -55,9 +51,7 @@ For comparing Corda Enterprise performance with differing node memory and CPU co
                 with minimal latency between the node VM and the database server VM.
 
 
-{{< img src="resources/performance/comparison-chart.png" alt="comparison chart" >}}
-
-Figure 3
+![comparison chart](resources/performance/comparison-chart.png "comparison chart")Figure 3
 The y-axis represents the number of flows completing per second, which we call Transactions Per Second (TPS) for simplicity although the actual number of
                 Corda transactions per flow completing varies depending on the type of flow.   The x-axis represents the performance with varying numbers
                 of CPU cores configured for the VMs.  Each bar indicates the performance of a particular type of flow and with a particular high-level node (or nodes)
@@ -177,7 +171,7 @@ We have established results for a number of different software configurations:
 
 
 * **Highly Available Notary**.  In Figure 3, this uses a notary cluster made up of 3 nodes in non-validating mode.  Normal node persistence uses a **Microsoft SQL Server** database
-                        but the notary state is maintained in a version of MySQL utilising a clustering technology as described in [Highly Available Notary Service Setup]({{< relref "running-a-notary-cluster/introduction" >}}).
+                        but the notary state is maintained in a version of MySQL utilising a clustering technology as described in [Highly Available Notary Service Setup](running-a-notary-cluster/introduction.md).
                         For full disclosure (and convenience for us) all 3 nodes are running in one data centre, which would not be a typical deployment.  Whilst the latency
                         between cluster members influences the performance of the notary itself, it is not operating at its limit even in that scenario here.  These notaries always ran on an 8 core VM.
 
@@ -249,7 +243,7 @@ Key to unlocking this scaling is the thread pool that the node utilises for runn
                 are for the number of threads to be 2x the number of cores, but capped at 30.  We require a database connection per flow and so that cap helps reduce unexpected
                 incidents of running out of database connections.  If your database server is configured to allow many more connections, and you have plenty of cores, then the flow thread
                 pool should be configured to be much larger.  A good starting point is to go with 4x core count.  e.g. on a 32 core host, set the `flowThreadPoolSize` to 128.
-                See [Node configuration]({{< relref "corda-configuration-file" >}}) for more details on how to configure this setting.
+                See [Node configuration](corda-configuration-file.md) for more details on how to configure this setting.
 
 We followed this ratio of 4x cores for `flowThreadPoolSize` when running our performance tests shown in the chart above.  Increasing the number of threads for flows
                 and the number of RPC clients currently just lead to an offsetting increase in database query times (and decrease in database throughput).
@@ -285,7 +279,7 @@ It is currently possible to start flows in the node at a faster rate than they c
 ## Network bandwidth
 In the highest throughput scenarios in Figure 1, node A experiences between 500 and 600Mbit/s outbound network traffic.  Inbound is much less,
                 since under normal circumstances flow checkpoint traffic is write-only.  In order to maximise the bandwidth available between two nodes it
-                is necessary to use the `useOpenSsl` option described in [Node configuration]({{< relref "corda-configuration-file" >}}).  The JVM implementation of SSL is restricted in the
+                is necessary to use the `useOpenSsl` option described in [Node configuration](corda-configuration-file.md).  The JVM implementation of SSL is restricted in the
                 bandwidth it can sustain over a single connection.
 
 

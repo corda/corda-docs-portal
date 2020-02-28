@@ -95,6 +95,6 @@ To create a flow test that uses your custom notary service, you can set the clas
 ```
 
 {{/* /en/docs/corda-os/4.3/testing/node-driver/src/test/kotlin/net/corda/testing/node/CustomNotaryTest.kt */}}
-After this, your custom notary will be the default notary on the mock network, and can be used in the same way as described in [Writing flow tests]({{< relref "flow-testing" >}}).
+After this, your custom notary will be the default notary on the mock network, and can be used in the same way as described in [Writing flow tests](flow-testing.md).
 
 

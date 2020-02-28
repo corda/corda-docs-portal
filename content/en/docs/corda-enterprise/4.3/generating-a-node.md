@@ -13,7 +13,7 @@ A node can be created manually by creating a folder that contains the following 
 * The Corda JAR, downloaded from [https://r3.bintray.com/corda/net/corda/corda/](https://r3.bintray.com/corda/net/corda/corda/) (under /4.3/corda-4.3.jar)
 
 
-* A node configuration file entitled `node.conf`, configured as per [Node configuration]({{< relref "corda-configuration-file" >}})
+* A node configuration file entitled `node.conf`, configured as per [Node configuration](corda-configuration-file.md)
 
 
 * A folder entitled `cordapps` containing any CorDapp JARs you want the node to load
@@ -33,7 +33,7 @@ A node can be created manually by creating a folder that contains the following 
 > 
 > 
 
-The remaining files and folders described in [Node folder structure]({{< relref "node-structure" >}}) will be generated at runtime.
+The remaining files and folders described in [Node folder structure](node-structure.md) will be generated at runtime.
 
 
 ## The Cordform task
@@ -138,7 +138,7 @@ The configuration values available in `deployNodes` task are as follows:
 * `name` <string>
 
 
-    * The legal identity name of the Corda node. (see [myLegalName]({{< relref "corda-configuration-file#corda-configuration-file-mylegalname" >}}))
+    * The legal identity name of the Corda node. (see [myLegalName](corda-configuration-file.md#corda-configuration-file-mylegalname))
 
 
     * e.g.
@@ -151,7 +151,7 @@ name "O=PartyA,L=London,C=GB"
 * `p2pAddress` <string> <**required if p2pPort not specified**>
 
 
-    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress]({{< relref "corda-configuration-file#corda-configuration-file-p2paddress" >}}))
+    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress](corda-configuration-file.md#corda-configuration-file-p2paddress))
 
 
     * e.g.
@@ -164,7 +164,7 @@ p2pAddress "example.com:10002"
 * `p2pPort` <integer>
 
 
-    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress]({{< relref "corda-configuration-file#corda-configuration-file-p2paddress" >}}))
+    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress](corda-configuration-file.md#corda-configuration-file-p2paddress))
 
 
     * e.g.
@@ -177,7 +177,7 @@ p2pPort 10006  // "localhost:10006"
 * `rpcSettings` <config>
 
 
-    * Specifies RPC settings for the node. (see [rpcSettings]({{< relref "corda-configuration-file#corda-configuration-file-rpc-settings" >}}))
+    * Specifies RPC settings for the node. (see [rpcSettings](corda-configuration-file.md#corda-configuration-file-rpc-settings))
 
 
     * e.g.
@@ -193,7 +193,7 @@ rpcSettings {
 
 ### Optional configuration
 
-* `notary` <config> (see [notary]({{< relref "corda-configuration-file#corda-configuration-file-notary" >}}))
+* `notary` <config> (see [notary](corda-configuration-file.md#corda-configuration-file-notary))
 
 
     * Optional configuration which specifies the node is a notary.
@@ -210,7 +210,7 @@ rpcSettings {
 * `devMode` <boolean>
 
 
-    * When true enables development mode. (see [devMode]({{< relref "corda-configuration-file#corda-configuration-file-dev-mode" >}}))
+    * When true enables development mode. (see [devMode](corda-configuration-file.md#corda-configuration-file-dev-mode))
 
 
     * e.g.
@@ -249,7 +249,7 @@ webPort  10011  // "localhost:10011"
 * `rpcUsers` <list>
 
 
-    * Set the RPC users for this node. (see [rpcUsers]({{< relref "corda-configuration-file#corda-configuration-file-rpc-users" >}}))
+    * Set the RPC users for this node. (see [rpcUsers](corda-configuration-file.md#corda-configuration-file-rpc-users))
 
 
     * e.g.
@@ -291,7 +291,7 @@ https true
 * `sshdPort` <integer>
 
 
-    * Specifies the port for sshd communication. (see [sshd]({{< relref "corda-configuration-file#corda-configuration-file-sshd" >}}))
+    * Specifies the port for sshd communication. (see [sshd](corda-configuration-file.md#corda-configuration-file-sshd))
 
 
     * e.g.
@@ -312,7 +312,7 @@ When adding nodes, make sure that there are no port clashes!
 
 {{< /warning >}}
 To extend node configuration beyond the properties defined in the `deployNodes` task use the `configFile` property with the path (relative or absolute) set to an additional configuration file.
-                    This file should follow the standard [Node configuration]({{< relref "corda-configuration-file" >}}) format, as per node.conf. The properties from this file will be appended to the generated node configuration. Note, if you add a property already created by the ‘deployNodes’ task, both properties will be present in the file.
+                    This file should follow the standard [Node configuration](corda-configuration-file.md) format, as per node.conf. The properties from this file will be appended to the generated node configuration. Note, if you add a property already created by the ‘deployNodes’ task, both properties will be present in the file.
                     The path to the file can also be added while running the Gradle task via the `-PconfigFile` command line option. However, the same file will be applied to all nodes.
                     Following the previous example `PartyB` node will have additional configuration options added from a file `none-b.conf`:
 
@@ -350,7 +350,7 @@ ext.jolokia_version = "1.6.1"
 ```
 
 ### Package namespace ownership
-To specify [Package namespace ownership]({{< relref "network-bootstrapper#package-namespace-ownership" >}}) configuration, the optional `networkParameterOverrides` and `packageOwnership` blocks can be used, similar to the configuration file used in [Network Bootstrapper]({{< relref "network-bootstrapper" >}}):
+To specify [Package namespace ownership](network-bootstrapper.md#package-namespace-ownership) configuration, the optional `networkParameterOverrides` and `packageOwnership` blocks can be used, similar to the configuration file used in [Network Bootstrapper](network-bootstrapper.md):
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -380,7 +380,7 @@ The default behaviour of Cordform is to deploy CorDapp JARs “as built”:
 > 
 > 
 The Cordform `signing` entry can be used to override and customise the signing of CorDapp JARs.
-                    Signing the CorDapp enables its contract classes to use signature constraints instead of other types of the constraints [API: Contract Constraints]({{< relref "api-contract-constraints" >}}).
+                    Signing the CorDapp enables its contract classes to use signature constraints instead of other types of the constraints [API: Contract Constraints](api-contract-constraints.md).
 
 The sign task may use an external keystore, or create a new one.
                     The `signing` entry may contain the following parameters:
@@ -448,8 +448,8 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 Contracts classes from signed CorDapp JARs will be checked by signature constraints by default.
                     You can force them to be checked by zone constraints by adding contract class names to `includeWhitelist` entry,
-                    the list will generate *include_whitelist.txt* file used internally by [Network Bootstrapper]({{< relref "network-bootstrapper" >}}) tool.
-                    Refer to [API: Contract Constraints]({{< relref "api-contract-constraints" >}}) to understand implication of different constraint types before adding `includeWhitelist` to `deployNodes` task.
+                    the list will generate *include_whitelist.txt* file used internally by [Network Bootstrapper](network-bootstrapper.md) tool.
+                    Refer to [API: Contract Constraints](api-contract-constraints.md) to understand implication of different constraint types before adding `includeWhitelist` to `deployNodes` task.
                     The snippet below configures contracts classes from Finance CorDapp to be verified using zone constraints instead of signature constraints:
 
 ```groovy
@@ -503,7 +503,7 @@ There is no need to specify the nodes’ ports, as every node has a separate con
                 Every node will expose port `10003` for RPC connections.
 
 The nodes’ webservers will not be started. Instead, you should interact with each node via its shell over SSH
-                (see the [node configuration options]({{< relref "corda-configuration-file" >}})). You have to enable the shell by adding the
+                (see the [node configuration options](corda-configuration-file.md)). You have to enable the shell by adding the
                 following line to each node’s `node.conf` file:
 
 > 

@@ -17,8 +17,8 @@ Corda has been designed to be cryptographically agile, in the sense that the ava
             with various HSM vendors, algorithm standardisation, variety of cryptographic primitives, business demand, option for
             post-quantum resistance, side channel security, efficiency and rigorous testing.
 
-Before we present the pool of supported schemes it is useful to be familiar with [Network certificates]({{< relref "permissioning" >}})
-            and [API: Identity]({{< relref "api-identity" >}}). An important design decision in Corda is its shared hierarchy between the
+Before we present the pool of supported schemes it is useful to be familiar with [Network certificates](permissioning.md)
+            and [API: Identity](api-identity.md). An important design decision in Corda is its shared hierarchy between the
             TLS and Node Identity certificates.
 
 
@@ -56,11 +56,9 @@ A Corda network has 8 types of keys and a regular node requires 4 of them:
 
 
 We can visualise the certificate structure as follows (for a detailed description of cert-hierarchy,
-                see [Network certificates]({{< relref "permissioning" >}})):
+                see [Network certificates](permissioning.md)):
 
-{{< img src="resources/certificate_structure.png" alt="certificate structure" >}}
-
-
+![certificate structure](resources/certificate_structure.png "certificate structure")
 ## Supported cipher suites
 Due to the shared certificate hierarchy, the following 4 key/certificate types: **root network CA**, **doorman CA**,
                 **node CA** and **tls** should be compatible with the standard TLS 1.2 protocol. The latter is a requirement from the

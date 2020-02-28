@@ -21,21 +21,21 @@ It’s worth planning for versioning and upgrades from the start, especially if 
             the world changes is a key part of any professionally built software.
 
 
-* [API stability guarantees]({{< relref "api-stability-guarantees" >}})
+* [API stability guarantees](api-stability-guarantees.md)
 
-* [Public API]({{< relref "api-stability-guarantees#public-api" >}})
+* [Public API](api-stability-guarantees.md#public-api)
 
-* [Non-public API (experimental)]({{< relref "api-stability-guarantees#non-public-api-experimental" >}})
+* [Non-public API (experimental)](api-stability-guarantees.md#non-public-api-experimental)
 
-* [The `@DoNotImplement` annotation]({{< relref "api-stability-guarantees#the-donotimplement-annotation" >}})
+* [The `@DoNotImplement` annotation](api-stability-guarantees.md#the-donotimplement-annotation)
 
-* [Versioning]({{< relref "versioning" >}})
+* [Versioning](versioning.md)
 
-* [Release new CorDapp versions]({{< relref "upgrading-cordapps" >}})
+* [Release new CorDapp versions](upgrading-cordapps.md)
 
-* [CorDapp constraints migration]({{< relref "cordapp-constraint-migration" >}})
+* [CorDapp constraints migration](cordapp-constraint-migration.md)
 
-* [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability" >}})
+* [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md)
 
 
 

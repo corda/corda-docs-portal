@@ -115,7 +115,7 @@ The returned [CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConne
 
 
 {{< /warning >}}
-For further information on using the RPC API, see [Using the client RPC API]({{< relref "tutorial-clientrpc-api" >}}).
+For further information on using the RPC API, see [Using the client RPC API](tutorial-clientrpc-api.md).
 
 
 ## RPC permissions
@@ -458,7 +458,7 @@ A method can also return a `CordaFuture` in its object graph and it will be trea
 
 
 ## Versioning
-The client RPC protocol is versioned using the node’s platform version number (see [Versioning]({{< relref "versioning" >}})). When a proxy is created
+The client RPC protocol is versioned using the node’s platform version number (see [Versioning](versioning.md)). When a proxy is created
                 the server is queried for its version, and you can specify your minimum requirement. Methods added in later versions
                 are tagged with the `@RPCSinceVersion` annotation. If you try to use a method that the server isn’t advertising support
                 of, an `UnsupportedOperationException` is thrown. If you want to know the version of the server, just use the
@@ -597,8 +597,8 @@ Note that, as shown by the test, during reconnecting some events might be lost.
 {{/* /en/docs/corda-os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt */}}
 
 ## Wire security
-If TLS communications to the RPC endpoint are required the node should be configured with `rpcSettings.useSSL=true` see [Node configuration]({{< relref "corda-configuration-file" >}}).
-                The node admin should then create a node specific RPC certificate and key, by running the node once with `generate-rpc-ssl-settings` command specified (see [Node command-line options]({{< relref "node-commandline" >}})).
+If TLS communications to the RPC endpoint are required the node should be configured with `rpcSettings.useSSL=true` see [Node configuration](corda-configuration-file.md).
+                The node admin should then create a node specific RPC certificate and key, by running the node once with `generate-rpc-ssl-settings` command specified (see [Node command-line options](node-commandline.md)).
                 The generated RPC TLS trust root certificate will be exported to a `certificates/export/rpcssltruststore.jks` file which should be distributed to the authorised RPC clients.
 
 The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](api/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
@@ -610,6 +610,6 @@ Note that RPC TLS does not use mutual authentication, and delegates fine grained
 ## Whitelisting classes with the Corda node
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
                 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-                `@CordaSerializable` annotation.  See [Object serialization]({{< relref "serialization" >}}). An example is shown in [Using the client RPC API]({{< relref "tutorial-clientrpc-api" >}}).
+                `@CordaSerializable` annotation.  See [Object serialization](serialization.md). An example is shown in [Using the client RPC API](tutorial-clientrpc-api.md).
 
 

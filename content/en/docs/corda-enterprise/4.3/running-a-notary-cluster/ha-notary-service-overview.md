@@ -24,9 +24,7 @@ In addition to the shared database for the notary state, each notary worker requ
 The can visualise this as follows, with the Corda client nodes in green on the top, the Corda
             notary worker nodes in red in the middle, and the database nodes on the bottom in blue.
 
-{{< img src="running-a-notary-cluster/resources/ha-notary-overview2.png" alt="ha notary overview2" >}}
-
-Client nodes requesting notarisation from the notary will connect to the available notary workers
+![ha notary overview2](running-a-notary-cluster/resources/ha-notary-overview2.png "ha notary overview2")Client nodes requesting notarisation from the notary will connect to the available notary workers
             in a round-robin fashion. The task of a worker node is to verify the notarisation request, the
             transaction timestamp (if present), and resolve and verify the transaction chain (if the notary
             service is validating). It then commits the transaction’s input states to the database.
@@ -48,6 +46,4 @@ In production you should consider running five nodes or more, to be able to
 If desired, you can choose to run each database server and its Corda notary worker on the same
             machine:
 
-{{< img src="running-a-notary-cluster/resources/ha-notary-colocated.png" alt="ha notary colocated" >}}
-
-
+![ha notary colocated](running-a-notary-cluster/resources/ha-notary-colocated.png "ha notary colocated")

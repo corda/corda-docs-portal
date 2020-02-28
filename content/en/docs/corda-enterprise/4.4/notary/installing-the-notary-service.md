@@ -134,7 +134,7 @@ notary {
 ## Configuration Obfuscation
 Corda Enterprise comes with a tool for obfuscating secret values in configuration files, which is strongly recommended for production deployments.
                 For a notary worker node, the database IP addresses, database user credentials, `keyStore` and `trustStore` password fields in
-                the configuration file should be obfuscated. Usage instructions can be found on the [Configuration Obfuscator]({{< relref "../tools-config-obfuscator" >}}) page.
+                the configuration file should be obfuscated. Usage instructions can be found on the [Configuration Obfuscator](../tools-config-obfuscator.md) page.
 
 Note that configuration obfuscation can be used with any notary.
 
@@ -173,7 +173,7 @@ dataSourceProperties = {
 {{/* /en/docs/corda-enterprise/4.4/docs/source/notary/resources/config_obfuscator */}}
 
 ## Obtaining the notary service identity
-The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration]({{< relref "../ha-utilities#notary-reg-tool" >}}).
+The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../ha-utilities.md#notary-reg-tool).
                 Once the service is registered, each worker node is registered using the `initial-registration` process. See ../joining-a-compatibility-zone.
 
 

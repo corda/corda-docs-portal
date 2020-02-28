@@ -11,7 +11,7 @@ The Signing Service is a service that forms part of the Corda Enterprise Network
                 Operator and Network Map. It acts as a bridge between the main CENM services and the HSM infrastructure, enabling a
                 network operator to verify and sign incoming requests and changes to the network.
 
-As mentioned in the CENM service documentation ([Identity Manager Service]({{< relref "identity-manager" >}}) and [Network Map Service]({{< relref "network-map" >}})), the main CENM services
+As mentioned in the CENM service documentation ([Identity Manager Service](identity-manager.md) and [Network Map Service](network-map.md)), the main CENM services
                 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
                 While this is convenient, it is intended for use within for testing and toy environments, and should **not** be used in
                 production environments. Instead, large and important changes to the network should go through a series of checks before
@@ -19,7 +19,7 @@ As mentioned in the CENM service documentation ([Identity Manager Service]({{< r
                 Parameter changes. The Signing Service provides this behaviour, with HSM integration enabling the signing of any
                 particular data to require authentication from multiple users.
 
-CENM supports the following HSMs (see [CENM support matrix]({{< relref "cenm-support-matrix" >}}) for more information):
+CENM supports the following HSMs (see [CENM support matrix](cenm-support-matrix.md) for more information):
 
 
 * Utimaco
@@ -70,12 +70,10 @@ Due to security concerns, the signing service should be hosted on private premis
                 sources, and outgoing connections to the HSMs for the configured signing keys. The overall flow of communication can be
                 seen in the below diagram:
 
-{{< img src="resources/signing-service-communication.png" alt="signing service communication" >}}
-
-
+![signing service communication](resources/signing-service-communication.png "signing service communication")
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
-                    [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}})
+                    [Configuring the ENM services to use SSL](enm-with-ssl.md)
 
 
 {{< /note >}}
@@ -149,7 +147,7 @@ The configuration for the service consists of the following sections:
 #### Shell Configuration
 The Signing Service is interacted with via the shell, which is configured at the top level of the config file. This
                         shell is similar to the interactive shell available in other ENM services and is configured in a similar way. See
-                        [Shell Configuration]({{< relref "shell#shell-config" >}}) for more information on how to configure the shell.
+                        [Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
 
 
 #### HSM Libraries
@@ -268,7 +266,7 @@ For each signing task, the data source for getting the unsigned data and persist
 
 {{< note >}}
 Communication with the configured service locations can be configured to use SSL for a secure, encrypted
-                        connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}) for more
+                        connection. This is strongly recommended for production deployments. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more
                         information.
 
 

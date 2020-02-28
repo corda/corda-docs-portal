@@ -40,7 +40,7 @@ The compatibility and interoperability assurances apply to nodes running at the 
 ### Known issues
 
 ### Upgrade notes
-As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.4]({{< relref "app-upgrade-notes-enterprise" >}})) to ease the upgrade
+As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.4](app-upgrade-notes-enterprise.md)) to ease the upgrade
                     of CorDapps to Corda Enterprise 4.4. In line with our commitment to API stability, code level changes are fairly minimal.
 
 For **developers**, switching CorDapps built using Corda (open source) 4.x to Corda Enterprise 4.4 is mostly effortless,

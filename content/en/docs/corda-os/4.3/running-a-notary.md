@@ -31,10 +31,10 @@ For a validating notary service specify:
 ```kotlin
 notary : { validating : true }
 ```
-See [Validation]({{< relref "key-concepts-notaries#key-concepts-notaries-validation" >}}) for more details about validating versus non-validating notaries.
+See [Validation](key-concepts-notaries.md#key-concepts-notaries-validation) for more details about validating versus non-validating notaries.
 
 For clients to be able to use the notary service, its identity must be added to the network parameters. This will be
-                done automatically when creating the network, if using [Network Bootstrapper]({{< relref "network-bootstrapper" >}}). See [Networks]({{< relref "corda-networks-index" >}})
+                done automatically when creating the network, if using [Network Bootstrapper](network-bootstrapper.md). See [Networks](corda-networks-index.md)
                 for more details.
 
 

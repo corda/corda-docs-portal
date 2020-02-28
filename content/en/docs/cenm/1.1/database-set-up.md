@@ -331,7 +331,7 @@ The following updates are required to the filesystem of a CENM service instance:
 > ```
 > 
 > {{< note >}}
-> The [CENM Database Configuration]({{< relref "config-database" >}}) doc page contains a complete list of database specific properties.
+> The [CENM Database Configuration](config-database.md) doc page contains a complete list of database specific properties.
 > 
 > 
 > {{< /note >}}

@@ -24,7 +24,7 @@ Use the `--help` flag for a full list of command line options.
                 `generate-internal-artemis-ssl-keystores`: Generate self-signed root and SSL certificates for internal communication between the services and external Artemis broker.
                 `generate-internal-tunnel-ssl-keystores`: Generate self-signed root and SSL certificates for internal communication between Bridge and Float.
                 `configure-artemis`: Generates required configuration files for the external Artemis broker.
-                `install-shell-extensions`: Install alias and autocompletion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+                `install-shell-extensions`: Install alias and autocompletion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 
 ### Node Registration Tool

@@ -53,7 +53,7 @@ Please note:
 
 
 * If an HA Bridge/Float deployment is required then a `Zookeeper 3.5.4-Beta` cluster will be required.
-                        Refer to [Hot-cold deployment]({{< relref "hot-cold-deployment" >}}) and Bridge configuration
+                        Refer to [Hot-cold deployment](hot-cold-deployment.md) and Bridge configuration
                         for more deployment information.
 
 
@@ -340,13 +340,13 @@ You can clone these repos to your local machine by running the command `git clon
 
 ## Next steps
 The best way to check that everything is working fine is by taking a deeper look at the
-                [example CorDapp]({{< relref "tutorial-cordapp" >}}).
+                [example CorDapp](tutorial-cordapp.md).
 
-Next, you should read through [Corda Key Concepts]({{< relref "key-concepts" >}}) to understand how Corda works.
+Next, you should read through [Corda Key Concepts](key-concepts.md) to understand how Corda works.
 
 By then, you’ll be ready to start writing your own CorDapps. Learn how to do this in the
-                [Hello, World tutorial]({{< relref "hello-world-introduction" >}}). You may want to refer to the
-                [API documentation]({{< relref "corda-api" >}}), the [flow cookbook]({{< relref "flow-cookbook" >}}) and the
+                [Hello, World tutorial](hello-world-introduction.md). You may want to refer to the
+                [API documentation](corda-api.md), the [flow cookbook](flow-cookbook.md) and the
                 [samples](https://www.corda.net/samples/) along the way.
 
 If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via

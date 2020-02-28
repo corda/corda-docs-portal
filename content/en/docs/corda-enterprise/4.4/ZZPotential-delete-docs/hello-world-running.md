@@ -90,9 +90,7 @@ This will start a terminal window for each node, and an additional terminal wind
                 the message, “Welcome to the Corda interactive shell.”.
 
 > 
-> {{< img src="ZZPotential-delete-docs/resources/running_node.png" alt="running node" >}}
-
-
+> ![running node](ZZPotential-delete-docs/resources/running_node.png "running node")
 ## Interacting with the nodes
 Now that our nodes are running, let’s order one of them to create an IOU by kicking off our `IOUFlow`. In a larger
                 app, we’d generally provide a web API sitting on top of our node. Here, for simplicity, we’ll be interacting with the

@@ -11,32 +11,32 @@ The Hello, World tutorials should be followed in sequence and show how to extend
             into a full CorDapp.
 
 
-* [Hello, World!]({{< relref "hello-world-introduction" >}})
+* [Hello, World!](hello-world-introduction.md)
 
-* [Hello, World! Pt.2 - Contract constraints]({{< relref "tut-two-party-introduction" >}})
+* [Hello, World! Pt.2 - Contract constraints](tut-two-party-introduction.md)
 
 
 The remaining tutorials cover individual platform features in isolation. They don’t depend on the code from the Hello,
             World tutorials, and can be read in any order.
 
 
-* [Writing a contract]({{< relref "tutorial-contract" >}})
+* [Writing a contract](tutorial-contract.md)
 
-* [Writing a contract test]({{< relref "tutorial-test-dsl" >}})
+* [Writing a contract test](tutorial-test-dsl.md)
 
-* [Integration testing]({{< relref "tutorial-integration-testing" >}})
+* [Integration testing](tutorial-integration-testing.md)
 
-* [Using the client RPC API]({{< relref "tutorial-clientrpc-api" >}})
+* [Using the client RPC API](tutorial-clientrpc-api.md)
 
-* [Building transactions]({{< relref "tutorial-building-transactions" >}})
+* [Building transactions](tutorial-building-transactions.md)
 
-* [Writing a custom notary service (experimental)]({{< relref "tutorial-custom-notary" >}})
+* [Writing a custom notary service (experimental)](tutorial-custom-notary.md)
 
-* [Transaction tear-offs]({{< relref "tutorial-tear-offs" >}})
+* [Transaction tear-offs](tutorial-tear-offs.md)
 
-* [Using attachments]({{< relref "tutorial-attachments" >}})
+* [Using attachments](tutorial-attachments.md)
 
-* [Observer nodes]({{< relref "tutorial-observer-nodes" >}})
+* [Observer nodes](tutorial-observer-nodes.md)
 
 
 

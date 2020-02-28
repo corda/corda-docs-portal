@@ -47,9 +47,7 @@ Corda nodes operate with the following assumptions on the certificates hierarchy
 > 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
-{{< img src="resources/hierarchy-agnostic.png" alt="hierarchy agnostic" >}}
-
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found .. _here: [https://docs.corda.net/head/permissioning.html](https://docs.corda.net/head/permissioning.html) .
+![hierarchy agnostic](resources/hierarchy-agnostic.png "hierarchy agnostic")At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found .. _here: [https://docs.corda.net/head/permissioning.html](https://docs.corda.net/head/permissioning.html) .
 
 
 ### Certificate Revocation List
@@ -62,9 +60,7 @@ The network operator is responsible for certificate issuance and maintenance for
                     at the Identity Manager and Network Map certificates. The rest of the certificate chain (i.e. every certificate below the Identity Manager certificate) falls into
                     node operator responsibility.
 
-{{< img src="resources/tls-hierarchy.png" alt="tls hierarchy" >}}
-
-The certificate revocation list verification applies to the entire chain. This means that every certificate in the chain
+![tls hierarchy](resources/tls-hierarchy.png "tls hierarchy")The certificate revocation list verification applies to the entire chain. This means that every certificate in the chain
                     is going to be validated against the corresponding certificate revocation list during the SSL handshake.
                     Consequently, this means that a node operator is expected to provide and maintain the certificate revocation list for the Node CA.
                     Even though Corda supports this scenario, it might be a tedious task that a node operator does not want to deal with.
@@ -80,9 +76,7 @@ The certificate revocation list verification applies to the entire chain. This m
 ## Example Scenario
 As an example, let us consider the following certificate hierarchy:
 
-{{< img src="resources/example-hierarchy.png" alt="example hierarchy" >}}
-
-The certificate hierarchy presented above is currently (as of the time of writing this document) used in the Corda Network.
+![example hierarchy](resources/example-hierarchy.png "example hierarchy")The certificate hierarchy presented above is currently (as of the time of writing this document) used in the Corda Network.
                 It follows practices applicable for certificate authorities providing a balance between security and simplicity of usage.
                 In this scenario, a network operator wants to create a CA hierarchy where the self-signed Root CA issues a certificate for the Subordinate CA which in turn issues
                 two certificates for both Identity Manager CA and Network Map (note that the Network Map is not a CA-type entity).
@@ -158,22 +152,22 @@ certificatesStores = {
     }
 }
 certificates = {
-    "tlscrlsigner" = {
+    "cordatlscrlsigner" = {
         key = {
             type = LOCAL
             includeIn = ["tls-crl-signer-key-store"]
         }
         isSelfSigned = true
-        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["truststore"]
         crl = {
             crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
             file = "./crl-files/tls.crl"
             indirectIssuer = true
-            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         }
     },
-    "rootca" = {
+    "cordarootca" = {
         key = {
             type = LOCAL
             includeIn = ["root-key-store"]
@@ -186,33 +180,33 @@ certificates = {
             file = "./crl-files/root.crl"
         }
     },
-    "subordinateca" = {
+    "cordasubordinateca" = {
         key = {
             type = LOCAL
             includeIn = ["subordinate-key-store"]
         }
-        signedBy = "rootca"
+        signedBy = "cordarootca"
         subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         crl = {
             crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
             file = "./crl-files/subordinate.crl"
         }
     },
-    "identitymanagerca" = {
+    "cordaidentitymanagerca" = {
         key = {
             type = LOCAL
             includeIn = ["identity-manager-key-store"]
         }
-        signedBy = "subordinateca"
+        signedBy = "cordasubordinateca"
         subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         role = DOORMAN_CA
     },
-    "networkmap" = {
+    "cordanetworkmap" = {
         key = {
             type = LOCAL
             includeIn = ["network-map-key-store"]
         }
-        signedBy = "subordinateca"
+        signedBy = "cordasubordinateca"
         issuesCertificates = false
         subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         role = NETWORK_MAP
@@ -227,7 +221,7 @@ To simplify things even more, the PKI Tool assumes default values as much as pos
 
 
 {{< note >}}
-To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool]({{< relref "pki-tool" >}}).
+To learn more about running the tool, see [Public Key Infrastructure (PKI) Tool](pki-tool.md).
 
 
 {{< /note >}}

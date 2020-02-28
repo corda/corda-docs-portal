@@ -44,7 +44,7 @@ The `PartyAndCertificate` class is also used by the network map service to repre
 
 {{< warning >}}
 The `confidential-identities` module is still not stabilised, so this API may change in future releases.
-                    See [Corda API]({{< relref "corda-api" >}}).
+                    See [Corda API](corda-api.md).
 
 
 {{< /warning >}}

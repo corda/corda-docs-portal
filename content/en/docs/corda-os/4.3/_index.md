@@ -13,8 +13,8 @@ date: 2020-01-08T09:59:25Z
 
 </embed>
 
-**Want to start coding on Corda?** Familiarise yourself with the [key concepts]({{< relref "key-concepts" >}}), then read
-            our [Hello, World! tutorial]({{< relref "hello-world-introduction" >}}).
+**Want to start coding on Corda?** Familiarise yourself with the [key concepts](key-concepts.md), then read
+            our [Hello, World! tutorial](hello-world-introduction.md).
 
 **Want background reading material?** The introductory white paper describes Corda’s mission and philosophy. It’s suitable for a business
             audience. The technical white paper describes the architecture and protocol.
@@ -38,31 +38,31 @@ You can read this site offline. Either [download the PDF](_static/corda-develope
 
 
 Corda API
-* [API: Contracts]({{< relref "api-contracts" >}})
+* [API: Contracts](api-contracts.md)
 
-* [API: Contract Constraints]({{< relref "api-contract-constraints" >}})
+* [API: Contract Constraints](api-contract-constraints.md)
 
-* [API: Core types]({{< relref "api-core-types" >}})
+* [API: Core types](api-core-types.md)
 
-* [API: Flows]({{< relref "api-flows" >}})
+* [API: Flows](api-flows.md)
 
-* [API: Identity]({{< relref "api-identity" >}})
+* [API: Identity](api-identity.md)
 
-* [API: Persistence]({{< relref "api-persistence" >}})
+* [API: Persistence](api-persistence.md)
 
-* [API: RPC operations]({{< relref "api-rpc" >}})
+* [API: RPC operations](api-rpc.md)
 
-* [API: Service Classes]({{< relref "api-service-classes" >}})
+* [API: Service Classes](api-service-classes.md)
 
-* [API: ServiceHub]({{< relref "api-service-hub" >}})
+* [API: ServiceHub](api-service-hub.md)
 
-* [API: States]({{< relref "api-states" >}})
+* [API: States](api-states.md)
 
-* [API: Testing]({{< relref "api-testing" >}})
+* [API: Testing](api-testing.md)
 
-* [API: Transactions]({{< relref "api-transactions" >}})
+* [API: Transactions](api-transactions.md)
 
-* [API: Vault Query]({{< relref "api-vault-query" >}})
+* [API: Vault Query](api-vault-query.md)
 
 
 

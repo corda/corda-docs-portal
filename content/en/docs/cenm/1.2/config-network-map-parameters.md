@@ -14,11 +14,11 @@ The host and port on which the service runs
 
 
 database
-See [CENM Database Configuration]({{< relref "config-database" >}})
+See [CENM Database Configuration](config-database.md)
 
 
 shell
-*(Optional)*  See [<no title>]({{< relref "config-shell" >}})
+*(Optional)*  See [Shell Configuration Parameters](config-shell.md)
 
 
 enmListener
@@ -39,12 +39,12 @@ Whether a client should be attempt to reconnect if the connection is dropped.
 
 
 ssl
-See [SSL Settings]({{< relref "config-ssl" >}})
+See [SSL Settings](config-ssl.md)
 
 
 checkRevocation
 If set to true then the Network Map will check with the Identity Manager’s revocation
-                        service weather the registering node is revoked.
+                        service whether the registering node is revoked.
 
 
 pollingInterval
@@ -52,7 +52,7 @@ How often nodes registering with the network map should check back for new entri
 
 
 identityManager
-details where the issuance service is on the network
+Details where the issuance service is on the network
 
 
 
@@ -65,11 +65,11 @@ To which port it’s enmListener is bound
 
 
 ssl
-See [SSL Settings]({{< relref "config-ssl" >}})
+See [SSL Settings](config-ssl.md)
 
 
 revocation
-details where the revocation service is on the network
+Details where the revocation service is on the network
 
 
 
@@ -82,24 +82,24 @@ To which port it’s enmListener is bound
 
 
 ssl
-See [SSL Settings]({{< relref "config-ssl" >}})
+See [SSL Settings](config-ssl.md)
 
 
 localSigner
 
 
-*(Optional)* Configuration of the local signer for the Identity Manager service. Useful for debug, testing or
+*(Optional)* Configuration of the local signer for the Network Map service. Useful for debug, testing or
 when HSM support is not available.
 
 
 
 keyStore
-Configuration for key store containing the Identity Manager key pair.
+Configuration for key store containing the Network Map key pair.
 
 
 
 file
-Path to the key store file containing the signing keys for the Identity Manager service.
+Path to the key store file containing the signing keys for the Network Map service.
 
 
 password
@@ -122,11 +122,6 @@ timeout
 *(Optional)* The maximum time allowed for execution of the signing process (in milliseconds). Defaults
                                     to 30 seconds. If the timeout threshold is reached then the signing process will be aborted and wait
                                     before retrying. The wait time after each failure is determined by an exponential backoff strategy.
-
-
-crlDistributionUrl
-*(Optional)* REST endpoint under which the certificate revocation list issued by Identity Manager can be obtained.
-                                    It is needed as this URL is encoded in certificates issued by Identity Manager.
 
 
 versionInfoValidation

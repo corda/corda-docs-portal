@@ -43,7 +43,7 @@ Corda Enterprise 4.0 can be used in mixed-version/mixed-distribution networks se
 > * Corda Enterprise 4.0 nodes can run, without recompilation, CorDapps developed on and packaged for Corda 4.x.
 >                         However, owing to advanced features in Corda Enterprise, such as database migration scripting support, we anticipate application developers
 >                         will build their CorDapp kernels (contracts, states) against Corda but supply separate Workflow Jars (that depend on the same kernel)
->                         that are optimised for the two distributions. See [Separation of CorDapp contracts, flows and services]({{< relref "cordapps/cordapp-build-systems#cordapp-separation-ref" >}}) for further information.
+>                         that are optimised for the two distributions. See [Separation of CorDapp contracts, flows and services](cordapps/cordapp-build-systems.md#cordapp-separation-ref) for further information.
 > 
 > 
 

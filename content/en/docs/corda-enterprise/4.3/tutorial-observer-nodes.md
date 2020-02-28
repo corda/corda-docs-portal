@@ -75,7 +75,7 @@ In this example, the `AutoOfferFlow` is the business logic, and we define two ve
                     we do want to passively observe states we can’t change. So overriding this behaviour is required.
 
 
-If the states define a relational mapping (see [API: Persistence]({{< relref "api-persistence" >}})) then the regulator will be able to query the
+If the states define a relational mapping (see [API: Persistence](api-persistence.md)) then the regulator will be able to query the
             reports from their database and observe new transactions coming in via RPC.
 
 

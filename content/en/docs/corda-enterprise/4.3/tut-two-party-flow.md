@@ -277,7 +277,7 @@ Once we’ve defined the `SignTransactionFlow` subclass, we invoke it using `Flo
 ## Conclusion
 We have now updated our flow to verify the transaction and gather the lender’s signature, in line with the constraints
                 defined in `IOUContract`. We can now re-run our updated CorDapp, using the
-                [same instructions as before]({{< relref "hello-world-running" >}}).
+                [same instructions as before](hello-world-running.md).
 
 Our CorDapp now imposes restrictions on the issuance of IOUs. Most importantly, IOU issuance now requires agreement
                 from both the lender and the borrower before an IOU can be created on the blockchain. This prevents either the lender or

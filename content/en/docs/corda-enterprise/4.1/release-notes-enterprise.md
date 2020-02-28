@@ -30,7 +30,7 @@ Support for node legal identity keys in [Futurex Excrypt SSP9000](https://www.fu
                             modules providing clients with increased security.
                             HSMs are standard in many enterprise organizations to store and safeguard cryptographic keys in tamper-proof hardware.
 
-See [Futurex HSM support]({{< relref "cryptoservice-configuration#hsm-futurex-ref" >}}) for more information.
+See [Futurex HSM support](cryptoservice-configuration.md#hsm-futurex-ref) for more information.
 
 
 * **HTTPS Proxy authentication support**
@@ -39,15 +39,15 @@ Corda allows a node to use an HTTPS proxy when communicating with the Identity M
                             This release improves security by adding username/password authentication configuration support for these proxies.
                             Note: this security capability is already present for Corda Firewall SOCKS proxies.
 
-Please refer to the [Network Services configuration]({{< relref "corda-configuration-file#corda-configuration-file-networkservices" >}}) section within the general
-                            [Node Configuration]({{< relref "corda-configuration-file" >}}) document for further details.
+Please refer to the [Network Services configuration](corda-configuration-file.md#corda-configuration-file-networkservices) section within the general
+                            [Node Configuration](corda-configuration-file.md) document for further details.
 
 
 
 ### Further improvements, additions and changes
 
 * Database schema generation fix and documentation clarifications: Corda Enterprise 4.1 should use the *runMigration* flag when running against non-H2
-                            databases and the *initialiseSchema* flag when running against an H2 database. See [Database properties]({{< relref "corda-configuration-file#database-properties-ref" >}}).
+                            databases and the *initialiseSchema* flag when running against an H2 database. See [Database properties](corda-configuration-file.md#database-properties-ref).
 
 
 
@@ -95,17 +95,17 @@ in Corda Enterprise 4.0 the *initialiseSchema* migration flag was being used for
 * Notary healthcheck includes transaction network parameters hash checking.
 
 
-* Improved Cloud and Docker documentation. See [Corda Enterprise cloud images]({{< relref "node-cloud" >}}) and [Official Corda Docker Image]({{< relref "docker-image" >}}).
+* Improved Cloud and Docker documentation. See [Corda Enterprise cloud images](node-cloud.md) and [Official Corda Docker Image](docker-image.md).
 
 
-* Additional documentation on signature constraints. See [Signature Constraints]({{< relref "api-contract-constraints#signature-constraints" >}}).
+* Additional documentation on signature constraints. See [Signature Constraints](api-contract-constraints.md#signature-constraints).
 
 
-* Database tables are now fully documented. See [Database tables]({{< relref "node-database-tables" >}}).
+* Database tables are now fully documented. See [Database tables](node-database-tables.md).
 
 
 * Users of the (Percona cluster) HA Notary Service must now manually install the associated mySQL JDBC Driver for every worker node. See
-                            [notary installation page]({{< relref "running-a-notary-cluster/installing-the-notary-service#mysql-driver" >}}) for more information.
+                            [notary installation page](running-a-notary-cluster/installing-the-notary-service.md#mysql-driver) for more information.
 
 
 
@@ -114,7 +114,7 @@ Please refer to same section in [Corda Enterprise 4](https://docs.corda.r3.com/r
 
 
 ### Upgrade notes
-As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.1]({{< relref "app-upgrade-notes-enterprise" >}})) to ease the upgrade
+As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.1](app-upgrade-notes-enterprise.md)) to ease the upgrade
                     of CorDapps to Corda Enterprise 4.1. In line with our commitment to API stability, code level changes are fairly minimal.
 
 For **developers**, switching CorDapps built using Corda (open source) 4.x to Corda Enterprise 4.1 is mostly effortless,
@@ -124,7 +124,7 @@ For **developers**, switching CorDapps built using Corda (open source) 4.x to Co
 ext.corda_release_version = '4.1'
 ext.corda_release_distribution = 'com.r3.corda'
 ```
-For **node operators**, it is advisable to follow the instructions outlined in [Upgrading a Corda Node]({{< relref "node-upgrade-notes" >}}).
+For **node operators**, it is advisable to follow the instructions outlined in [Upgrading a Corda Node](node-upgrade-notes.md).
 
 
 {{< note >}}

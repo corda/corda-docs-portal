@@ -9,9 +9,7 @@ CorDapps (Corda Distributed Applications) are distributed applications that run 
             CorDapp is to allow nodes to reach agreement on updates to the ledger. They achieve this goal by defining flows that
             Corda node owners can invoke over RPC:
 
-{{< img src="resources/node-diagram.png" alt="node diagram" >}}
-
-
+![node diagram](resources/node-diagram.png "node diagram")
 ## CorDapp components
 CorDapps take the form of a set of JAR files containing class definitions written in Java and/or Kotlin.
 
@@ -19,15 +17,15 @@ These class definitions will commonly include the following elements:
 
 
 * Flows: Define a routine for the node to run, usually to update the ledger
-                        (see [Key Concepts - Flows]({{< relref "key-concepts-flows" >}})). They subclass `FlowLogic`
+                        (see [Key Concepts - Flows](key-concepts-flows.md)). They subclass `FlowLogic`
 
 
-* States: Define the facts over which agreement is reached (see [Key Concepts - States]({{< relref "key-concepts-states" >}})).
+* States: Define the facts over which agreement is reached (see [Key Concepts - States](key-concepts-states.md)).
                         They implement the `ContractState` interface
 
 
 * Contracts, defining what constitutes a valid ledger update (see
-                        [Key Concepts - Contracts]({{< relref "key-concepts-contracts" >}})). They implement the `Contract` interface
+                        [Key Concepts - Contracts](key-concepts-contracts.md)). They implement the `Contract` interface
 
 
 * Services, providing long-lived utilities within the node. They subclass `SingletonSerializationToken`
@@ -82,7 +80,7 @@ Corda and Corda Enterprise are compatible and interoperable, which means you can
                 To make this work in practice you should follow these steps:
 
 
-* Ensure your CorDapp is designed per [Structuring a CorDapp]({{< relref "writing-a-cordapp" >}}) and annotated according to [CorDapp separation]({{< relref "cordapp-build-systems#cordapp-separation-ref" >}}).
+* Ensure your CorDapp is designed per [Structuring a CorDapp](writing-a-cordapp.md) and annotated according to [CorDapp separation](cordapp-build-systems.md#cordapp-separation-ref).
                         In particular, it is critical to separate the consensus-critical parts of your application (contracts, states and their dependencies) from
                         the rest of the business logic (flows, APIs, etc).
                         The former - the **CorDapp kernel** - is the Jar that will be attached to transactions creating/consuming your states and is the Jar
@@ -92,7 +90,7 @@ Corda and Corda Enterprise are compatible and interoperable, which means you can
 
 {{< note >}}
 It is also important to understand how to manage any dependencies a CorDapp may have on 3rd party libraries and other CorDapps.
-                    Please read [Setting your dependencies]({{< relref "cordapp-build-systems#cordapp-dependencies-ref" >}}) to understand the options and recommendations with regards to correctly Jar’ing CorDapp dependencies.
+                    Please read [Setting your dependencies](cordapp-build-systems.md#cordapp-dependencies-ref) to understand the options and recommendations with regards to correctly Jar’ing CorDapp dependencies.
 
 
 {{< /note >}}
@@ -107,7 +105,7 @@ It is also important to understand how to manage any dependencies a CorDapp may 
 
 
 {{< note >}}
-As of Corda 4 it is recommended to use [CorDapp Jar signing]({{< relref "cordapp-build-systems#cordapp-build-system-signing-cordapp-jar-ref" >}}) to leverage the new signature constraints functionality.
+As of Corda 4 it is recommended to use [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) to leverage the new signature constraints functionality.
 
 
 {{< /note >}}

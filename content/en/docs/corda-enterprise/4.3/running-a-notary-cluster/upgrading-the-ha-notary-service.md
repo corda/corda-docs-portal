@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 
 ## Version 4.2
 Since Corda Enterprise 4.2 the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
-                See [notary installation page]({{< relref "installing-the-notary-service#mysql-driver" >}}) for more information.
+                See [notary installation page](installing-the-notary-service.md#mysql-driver) for more information.
 
 
 ## Version 4.0
@@ -43,7 +43,7 @@ Upgrade steps:
 * In the unlikely event that the database gets corrupted, take all the notary worker nodes down and restore the database.
 
 
-* Perform a rolling upgrade on the notary worker nodes. Follow the [node upgrade guide]({{< relref "../node-upgrade-notes" >}}) for each node, and make sure the node is running and is no longer in flow draining mode before moving on to the next one.
+* Perform a rolling upgrade on the notary worker nodes. Follow the [node upgrade guide](../node-upgrade-notes.md) for each node, and make sure the node is running and is no longer in flow draining mode before moving on to the next one.
 
 
 

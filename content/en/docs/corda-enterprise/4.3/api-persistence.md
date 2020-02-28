@@ -9,7 +9,7 @@ date: 2020-01-08T09:59:25Z
 Corda offers developers the option to expose all or some parts of a contract state to an *Object Relational Mapping*
             (ORM) tool to be persisted in a *Relational Database Management System* (RDBMS).
 
-The purpose of this, is to assist [Vault]({{< relref "key-concepts-vault" >}})
+The purpose of this, is to assist [Vault](key-concepts-vault.md)
             development and allow for the persistence of state data to a custom database table. Persisted states held in the
             vault are indexed for the purposes of executing queries. This also allows for relational joins between Corda tables
             and the organization’s existing data.
@@ -22,7 +22,7 @@ The Object Relational Mapping is specified using [Java Persistence API](https://
 {{< note >}}
 By default, nodes use an H2 database which is accessed using *Java Database Connectivity* JDBC. Any database
                 with a JDBC driver is a candidate and several integrations have been contributed to by the community.
-                Please see the info in “[Node database]({{< relref "node-database" >}})” for details.
+                Please see the info in “[Node database](node-database.md)” for details.
 
 
 {{< /note >}}
@@ -461,7 +461,7 @@ Use the `ServiceHub` `jdbcSession` function to obtain a JDBC connection as illus
 ```
 
 {{/* /en/docs/corda-enterprise/4.3/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt */}}
-JDBC sessions can be used in flows and services (see “[Writing flows]({{< relref "flow-state-machines" >}})”).
+JDBC sessions can be used in flows and services (see “[Writing flows](flow-state-machines.md)”).
 
 The following example illustrates the creation of a custom Corda service using a `jdbcSession`:
 
@@ -542,7 +542,7 @@ which is then referenced within a custom flow:
 ```
 
 {{/* /en/docs/corda-enterprise/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt */}}
-For examples on testing `@CordaService` implementations, see the oracle example [here]({{< relref "oracles" >}}).
+For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md).
 
 
 ## JPA Support

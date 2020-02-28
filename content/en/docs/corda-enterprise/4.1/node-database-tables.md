@@ -32,11 +32,9 @@ These are tables that store the NodeInfo of other network participants.
                     They are just a local cache that is kept in sync with the network map server.
                     By calling `rpc.clearNetworkMapCache()` all these tables will be cleared and recreated from the network map server.
 
-Read more here: [The network map]({{< relref "network-map" >}})
+Read more here: [The network map](network-map.md)
 
-{{< img src="resources/database/node_info_tables.png" alt="node info tables" >}}
-
-
+![node info tables](resources/database/node_info_tables.png "node info tables")
 {{< table >}}
 
 |NODE_INFOS|Stores `NodeInfo` objects. The principal table.|
@@ -83,7 +81,7 @@ Read more here: [The network map]({{< relref "network-map" >}})
 The following two tables are used by the `IdentityService` and are created from the NodeInfos.
                     They are append only tables used for persistent caching.
                     They will also be cleared on `rpc.clearNetworkMapCache()`.
-                    Read more in [API: Identity]({{< relref "api-identity" >}}) and [Node services]({{< relref "node-services" >}})
+                    Read more in [API: Identity](api-identity.md) and [Node services](node-services.md)
 
 
 {{< table >}}
@@ -105,7 +103,7 @@ The following two tables are used by the `IdentityService` and are created from 
 {{< /table >}}
 
 ### Network parameters
-Read more here: [The network map]({{< relref "network-map" >}}).
+Read more here: [The network map](network-map.md).
                     Each downloaded network parameters file will create an entry in this table.
                     The historical network parameters are used when validating transactions, which makes this table logically part of the `Ledger`.
                     It is an append only table and the size will be fairly small.
@@ -127,15 +125,13 @@ Read more here: [The network map]({{< relref "network-map" >}}).
 ## Ledger
 The ledger data is formed of transactions and attachments.
                 In future versions this data will be encrypted using SGX.
-                Read more in [The ledger]({{< relref "key-concepts-ledger" >}})
+                Read more in [The ledger](key-concepts-ledger.md)
 
 
 ### Attachments
-Read more in [Using attachments]({{< relref "tutorial-attachments" >}}) and [Node services]({{< relref "node-services" >}})
+Read more in [Using attachments](tutorial-attachments.md) and [Node services](node-services.md)
 
-{{< img src="resources/database/attachments_tables.png" alt="attachments tables" >}}
-
-
+![attachments tables](resources/database/attachments_tables.png "attachments tables")
 {{< table >}}
 
 |NODE_ATTACHMENTS|Stores attachments|
@@ -170,7 +166,7 @@ Read more in [Using attachments]({{< relref "tutorial-attachments" >}}) and [Nod
 ### Transactions
 These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large.
                     It is an append-only table, and the data will never change.
-                    Read more in [Node services]({{< relref "node-services" >}}) - `DBTransactionStorage`
+                    Read more in [Node services](node-services.md) - `DBTransactionStorage`
                     This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
 
 
@@ -187,7 +183,7 @@ These are all the transactions that the node has created or has ever downloaded 
 > 
 
 ### Contract upgrades
-Read more in [Upgrading contracts]({{< relref "contract-upgrade" >}})
+Read more in [Upgrading contracts](contract-upgrade.md)
 
 
 {{< table >}}
@@ -202,7 +198,7 @@ This table should be empty when no states are authorised for upgrade or after au
 
 
 ### Scheduling
-Read more in [Event scheduling]({{< relref "event-scheduling" >}})
+Read more in [Event scheduling](event-scheduling.md)
 
 
 {{< table >}}
@@ -218,7 +214,7 @@ This table should be empty when no events are scheduled.
 
 
 ### Storage of private keys
-Read more in [HSM support for legal identity keys]({{< relref "cryptoservice-configuration" >}})
+Read more in [HSM support for legal identity keys](cryptoservice-configuration.md)
                     These tables are a less secure alternative for storing keys to using an HSM (Hardware Security Module).
 
 
@@ -245,7 +241,7 @@ These tables should be append only.
 
 
 ### Node state machine
-Read more in [Node services]({{< relref "node-services" >}})
+Read more in [Node services](node-services.md)
 
 
 {{< table >}}
@@ -259,7 +255,7 @@ Read more in [Node services]({{< relref "node-services" >}})
 This table will see the most intense read-write activity. Depending on the installed flows and the traffic on the node the I/O operations on this
                     table will be the main bottleneck of the node performance.
                     There will be an entry for every running flow.
-                    Draining the node means waiting for this table to become emtpy. Read more in: [Upgrading CorDapps on a node]({{< relref "node-operations-upgrade-cordapps" >}}).
+                    Draining the node means waiting for this table to become emtpy. Read more in: [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md).
 
 
 {{< table >}}
@@ -288,7 +284,7 @@ The *NodeJanitor* is a background process that will clean up old entries from th
 {{< /table >}}
 
 ## Vault tables
-Read more about the vault here [Vault]({{< relref "key-concepts-vault" >}}).
+Read more about the vault here [Vault](key-concepts-vault.md).
 
 Note that the vault tables are guaranteed to remain backwards compatible and are safe to be used directly by third party applications.
 
@@ -352,9 +348,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 {{< /table >}}
 
 ### Fungible states
-{{< img src="resources/database/vault_fungible_states.png" alt="vault fungible states" >}}
-
-
+![vault fungible states](resources/database/vault_fungible_states.png "vault fungible states")
 {{< table >}}
 
 |VAULT_FUNGIBLE_STATES|Properties specific to fungible states|
@@ -379,9 +373,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 {{< /table >}}
 
 ### Linear states
-{{< img src="resources/database/vault_linear_states.png" alt="vault linear states" >}}
-
-
+![vault linear states](resources/database/vault_linear_states.png "vault linear states")
 {{< table >}}
 
 |VAULT_LINEAR_STATES|Properties specific to linear states|

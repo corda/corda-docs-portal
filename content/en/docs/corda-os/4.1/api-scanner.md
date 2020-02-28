@@ -6,7 +6,7 @@ date: 2020-01-08T09:59:25Z
 
 # Checking API stability
 We have committed not to alter Corda’s API so that developers will not have to keep rewriting their CorDapps with each
-            new Corda release. The stable Corda modules are listed [here]({{< relref "corda-api#internal-apis-and-stability-guarantees" >}}). Our CI process runs an “API Stability”
+            new Corda release. The stable Corda modules are listed [here](corda-api.md#internal-apis-and-stability-guarantees). Our CI process runs an “API Stability”
             check for each GitHub pull request in order to check that we don’t accidentally introduce an API-breaking change.
 
 
@@ -34,7 +34,7 @@ There are three kinds of breaking change:
 
 
 * Exposure of an internal type via a public API. Internal types are considered to be anything in a `*.internal.` package
-                        or anything in a module that isn’t in the stable modules list [here]({{< relref "corda-api#internal-apis-and-stability-guarantees" >}}).
+                        or anything in a module that isn’t in the stable modules list [here](corda-api.md#internal-apis-and-stability-guarantees).
 
 
 Developers can execute these commands themselves before submitting their PR, to ensure that they haven’t inadvertently

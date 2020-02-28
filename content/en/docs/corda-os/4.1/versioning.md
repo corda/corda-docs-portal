@@ -107,7 +107,7 @@ It’s entirely expected and reasonable to have an open source contracts module 
 
 {{< important >}}
 The `versionId` specified for the JAR manifest is checked by the platform and is used for informative purposes only.
-                    See “[App versioning with Signature Constraints]({{< relref "api-contract-constraints#app-versioning-with-signature-constraints" >}})” for more information.
+                    See “[App versioning with Signature Constraints](api-contract-constraints.md#app-versioning-with-signature-constraints)” for more information.
 
 
 {{< /important >}}

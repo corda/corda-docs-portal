@@ -8,14 +8,14 @@ date: 2020-01-08T09:59:25Z
 # API: Contract Constraints
 
 {{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Contracts]({{< relref "key-concepts-contracts" >}}).
+Before reading this page, you should be familiar with the key concepts of [Contracts](key-concepts-contracts.md).
 
 
 {{< /note >}}
 
 {{< note >}}
 As of Corda 4.3 the *minimumPlatformVersion* required to use these features is 4
-                (see [Network Parameters]({{< relref "network-map#network-parameters" >}}) and [Corda Features to Versions]({{< relref "features-versions" >}}) for more details).
+                (see [Network Parameters](network-map.md#network-parameters) and [Corda Features to Versions](features-versions.md) for more details).
 
 
 {{< /note >}}
@@ -59,7 +59,7 @@ The advantage of pre-authorising upgrades using constraints is that you don’t 
                     anticipate a need to do so. But it requires everyone to sign, manually authorise the upgrade,
                     consumes notary and ledger resources, and is just in general more complex.
 
-This article focuses on the first approach. To learn about the second please see [Release new CorDapp versions]({{< relref "upgrading-cordapps" >}}).
+This article focuses on the first approach. To learn about the second please see [Release new CorDapp versions](upgrading-cordapps.md).
 
 
 ## Types of Contract Constraints
@@ -198,10 +198,10 @@ Below are two examples of possible scenarios around blacklisting signing keys:
 > > 
 > 
 Information on blacklisting attachment signing keys can be found in the
-                    [node configuration documentation]({{< relref "corda-configuration-file#corda-configuration-file-blacklisted-attachment-signer-keys" >}}).
+                    [node configuration documentation](corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys).
 
 More information on how to sign an app directly from Gradle can be found in the
-                    [CorDapp Jar signing]({{< relref "cordapp-build-systems#cordapp-build-system-signing-cordapp-jar-ref" >}}) section of the documentation.
+                    [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
 
 
 ### Using Signature Constraints in transactions
@@ -217,7 +217,7 @@ Signature Constraints are used by default except when a new transaction contains
 {{< /note >}}
 
 ### App versioning with Signature Constraints
-Signed apps require a version number to be provided, see [Versioning]({{< relref "versioning" >}}).
+Signed apps require a version number to be provided, see [Versioning](versioning.md).
 
 
 ## Hash Constraints
@@ -380,7 +380,7 @@ private fun transaction(): TransactionBuilder {
 
 
 ## CorDapps as attachments
-CorDapp JARs (see [What is a CorDapp?]({{< relref "cordapp-overview" >}})) that contain classes implementing the `Contract` interface are automatically
+CorDapp JARs (see [What is a CorDapp?](cordapp-overview.md)) that contain classes implementing the `Contract` interface are automatically
                 loaded into the `AttachmentStorage` of a node, and made available as `ContractAttachments`.
 
 They are retrievable by hash using `AttachmentStorage.openAttachment`. These JARs can either be installed on the
@@ -393,7 +393,7 @@ The obvious way to write a CorDapp is to put all you states, contracts, flows an
                     (1) it is inefficient, and (2) it means changes to your flows or other parts of the app will be seen by the ledger
                     as a “new app”, which may end up requiring essentially unnecessary upgrade procedures. It’s better to split your
                     app into multiple modules: one which contains just states, contracts and core data types. And another which contains
-                    the rest of the app. See [Modules]({{< relref "writing-a-cordapp#cordapp-structure" >}}).
+                    the rest of the app. See [Modules](writing-a-cordapp.md#cordapp-structure).
 
 
 {{< /warning >}}
@@ -422,7 +422,7 @@ During transaction building the `AutomaticPlaceholderConstraint` for output stat
 
 
 ## Constraints migration to Corda 4
-Please read [CorDapp constraints migration]({{< relref "cordapp-constraint-migration" >}}) to understand how to consume and evolve pre-Corda 4 issued hash or CZ whitelisted constrained states
+Please read [CorDapp constraints migration](cordapp-constraint-migration.md) to understand how to consume and evolve pre-Corda 4 issued hash or CZ whitelisted constrained states
                 using a Corda 4 signed CorDapp (using signature constraints).
 
 
@@ -433,7 +433,7 @@ If an attachment constraint cannot be resolved, a `MissingContractAttachments` e
 
 ### Not setting CorDapp packages in tests
 You are running a test and have not specified the CorDapp packages to scan.
-                    When using `MockNetwork` ensure you have provided a package containing the contract class in `MockNetworkParameters`. See [API: Testing]({{< relref "api-testing" >}}).
+                    When using `MockNetwork` ensure you have provided a package containing the contract class in `MockNetworkParameters`. See [API: Testing](api-testing.md).
 
 Similarly package names need to be provided when testing using `DriverDSl`. `DriverParameters` has a property `cordappsForAllNodes` (Kotlin)
                     or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp` created by utility method `TestCordapp.findCordapp(String)`.
@@ -479,7 +479,7 @@ Driver.driver(
 ### Starting a node missing CorDapp(s)
 When running the Corda node ensure all CordDapp JARs are placed in `cordapps` directory of each node.
                     By default Gradle Cordform task `deployNodes` copies all JARs if CorDapps to deploy are specified.
-                    See [Creating nodes locally]({{< relref "generating-a-node" >}}) for detailed instructions.
+                    See [Creating nodes locally](generating-a-node.md) for detailed instructions.
 
 
 ### Wrong fully-qualified contract name

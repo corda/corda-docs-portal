@@ -16,7 +16,7 @@ If you’re deploying VMs in your environment you might need to adjust the host 
 ## Configuration Files
 Below is a template for the notary configuration. Notice the parameters
                 `rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false` of the
-                JDBC URL.  See [Node configuration]({{< relref "../corda-configuration-file" >}}) for a complete reference.
+                JDBC URL.  See [Node configuration](../corda-configuration-file.md) for a complete reference.
 
 Put the IP address or host name of the nearest Percona server first in the JDBC
                 URL. When running a Percona and a Notary replica on a single machine, list the
@@ -96,9 +96,9 @@ Each worker node requires a MySQL JDBC driver to be placed in the `drivers` dire
 
 ## Next Steps
 
-* [Using the Bootstrapper]({{< relref "installing-the-notary-service-bootstrapper" >}})
+* [Using the Bootstrapper](installing-the-notary-service-bootstrapper.md)
 
-* [In a network with Doorman and Network map]({{< relref "installing-the-notary-service-netman" >}})
+* [In a network with Doorman and Network map](installing-the-notary-service-netman.md)
 
 
 

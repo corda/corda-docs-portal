@@ -22,9 +22,7 @@ The `version` property, which defaults to 1, specifies the flow’s version. Thi
 ### Defining a flow’s interface
 The flow interface is defined by the sequence of `send` and `receive` calls between an `InitiatingFlow` and an `InitiatedBy` flow, including the types of the data sent and received. We can picture a flow’s interface as follows:
 
-{{< img src="node/operating/resources/flow-interface.png" alt="flow interface" >}}
-
-In the diagram above, the `InitiatingFlow`:
+![flow interface](node/operating/resources/flow-interface.png "flow interface")In the diagram above, the `InitiatingFlow`:
 
 
 * Sends an `Int`
@@ -270,7 +268,7 @@ There are two types of contract/state upgrade:
                         using the contract upgrade flows
 
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here]({{< relref "../../cordapps/api-contract-constraints#implicit-vs-explicit-upgrades" >}}).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../../cordapps/api-contract-constraints.md#implicit-vs-explicit-upgrades).
 
 
 ### Performing explicit contract and state upgrades

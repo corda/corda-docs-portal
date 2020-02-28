@@ -36,7 +36,7 @@ A less common scenario that can occur is the notary workers get sent a very larg
                 to become overloaded. For example, if the notary worker receives messages at a greater rate than the maximum rate its Artemis message broker
                 can consume messages from the queue then message processing delays can start to occur.
 
-If running a HA notary cluster then scaling up the worker cluster size will help negate this problem. See [Scaling A Notary Cluster]({{< relref "scaling-a-notary-cluster" >}})
+If running a HA notary cluster then scaling up the worker cluster size will help negate this problem. See [Scaling A Notary Cluster](scaling-a-notary-cluster.md)
                 for more information. The backpressure within the flow engine should also help to prevent this scenario.
 
 

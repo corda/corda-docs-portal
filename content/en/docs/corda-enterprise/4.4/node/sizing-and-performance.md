@@ -32,9 +32,7 @@ Figure 1 below compares the number of Transactions Per Second (TPS) carried out 
                 running **Microsoft SQL Server**.  Similar results were obtained against the other supported databases.
 
 
-{{< img src="node/resources/performance/ce4-comparison-chart.png" alt="ce4 comparison chart" >}}
-
-Figure 1
+![ce4 comparison chart](node/resources/performance/ce4-comparison-chart.png "ce4 comparison chart")Figure 1
 The x-axis represents the number of flows completing per second which equates to Transactions Per Second (TPS).
                 As you can see, Corda Enterprise 4 offers a substantial increase in Transactions Per Second (TPS) over the prior release on the same hardware.
 
@@ -43,9 +41,7 @@ Figure 2 shows how the relative performance of making multiple payments from one
                 be a technique for even greater throughput.
 
 
-{{< img src="node/resources/performance/states-per-second.png" alt="states per second" >}}
-
-Figure 2
+![states per second](node/resources/performance/states-per-second.png "states per second")Figure 2
 The y-axis represents the number of output contract states being recorded in the vault per second.  The x-axis represents the number of output
                 contract states in each transaction.
 
@@ -55,9 +51,7 @@ For comparing Corda Enterprise performance with differing node memory and CPU co
                 with minimal latency between the node VM and the database server VM.
 
 
-{{< img src="node/resources/performance/comparison-chart.png" alt="comparison chart" >}}
-
-Figure 3
+![comparison chart](node/resources/performance/comparison-chart.png "comparison chart")Figure 3
 The y-axis represents the number of flows completing per second, which we call Transactions Per Second (TPS) for simplicity although the actual number of
                 Corda transactions per flow completing varies depending on the type of flow.   The x-axis represents the performance with varying numbers
                 of CPU cores configured for the VMs.  Each bar indicates the performance of a particular type of flow and with a particular high-level node (or nodes)

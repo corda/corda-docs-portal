@@ -9,7 +9,7 @@ You can skip this section when you’re setting up or joining a cluster with CEN
 
 Once the database is set up, you can prepare your configuration files of your notary
             nodes and use the bootstrapper to create a Corda network, see
-            [Network Bootstrapper]({{< relref "../network-bootstrapper" >}}). Remember to configure
+            [Network Bootstrapper](../network-bootstrapper.md). Remember to configure
             `notary.serviceLegalName` in addition to `myLegalName` for all members of
             your cluster.
 

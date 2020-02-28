@@ -7,9 +7,7 @@ date: 2020-01-08T09:59:25Z
 # Understanding the node
 It is useful to take a high level perspective of the Corda components, especially the various communication protocols that Corda employs in its operations. The diagram below illustrates the various communication protocols used by the Corda Node communicating with peers on the Corda Network.
 
-{{< img src="node/../resources/overview.png" alt="overview" >}}
-
-Corda Nodes communicate with each other using the asynchronous AMQP/TLS 1.2 protocols. HTTP communication is only used for initial registration of Corda Nodes and sharing the Corda Node address locations by way of the network map. Client applications communicate with Corda Nodes using RPC calls. A Node’s vault is a database that relies on JDBC connection from the Corda Node.
+![overview](node/../resources/overview.png "overview")Corda Nodes communicate with each other using the asynchronous AMQP/TLS 1.2 protocols. HTTP communication is only used for initial registration of Corda Nodes and sharing the Corda Node address locations by way of the network map. Client applications communicate with Corda Nodes using RPC calls. A Node’s vault is a database that relies on JDBC connection from the Corda Node.
 
 When hosting a Corda Node on-premise, it’s important to consider:
 
@@ -32,9 +30,7 @@ When hosting a Corda Node on-premise, it’s important to consider:
 In any given production deployment of Corda Enterprise, the most common components are the Corda Node, vault, and firewall.
 
 
-{{< img src="node/../resources/nodebridgefloat_nbrs.png" alt="nodebridgefloat nbrs" >}}
-
-A typical Node deployment.
+![nodebridgefloat nbrs](node/../resources/nodebridgefloat_nbrs.png "nodebridgefloat nbrs")A typical Node deployment.
 The diagram highlights that:
 
 

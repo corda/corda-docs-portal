@@ -7,7 +7,7 @@ date: 2020-01-08T09:59:25Z
 # Public Key Infrastructure (PKI) Tool
 
 ## Overview
-As described in the [Certificate Hierarchy Guide]({{< relref "pki-guide" >}}), a certificate hierarchy with certain properties is required to run a Corda
+As described in the [Certificate Hierarchy Guide](pki-guide.md), a certificate hierarchy with certain properties is required to run a Corda
                 network. Specifically, the certificate hierarchy should include the two main CENM entities - the Identity Manager and
                 the Network Map - and ensure that all entities map back to one common root of trust. The key pairs and certificates for
                 these entities are used within the Signing Service to sign related network data such as approved CSRs, CRRs, Network Map
@@ -120,7 +120,7 @@ For anything other than a simple test, a custom configuration file can be create
 
 
 {{< note >}}
-The full list of the configuration parameters can be found in [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters" >}}).
+The full list of the configuration parameters can be found in [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md).
 
 
 {{< /note >}}
@@ -128,7 +128,7 @@ The full list of the configuration parameters can be found in [Public Key Infras
 #### Key Stores Configuration
 This configuration block defines all key stores that should be used by the PKI Tool. Each key store can be either local
                         (backed by a Java key store file) or HSM (backed by a LAN HSM device). For HSM key stores, the available options and
-                        authentication methods will depend on the HSM being used. See [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters" >}}) for more details.
+                        authentication methods will depend on the HSM being used. See [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) for more details.
 
 A mixture of key store types is allowed. That is, it is possible to generate some key pairs within a HSM device and
                         others locally. Note that mixing key store types is not supported for a given entity.
@@ -152,7 +152,7 @@ The certificates configuration block defines the actual entities that form the d
                         reference the given entity throughout the rest of the PKI Tool config. Secondly, it also defines the alias for the
                         generated (or existing) certificate entry in the corresponding certificate store. The certificate configuration defines
                         the entity specific properties of both the X509 certificate and associated key pair. See
-                        [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters" >}}) for more information.
+                        [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) for more information.
 
 If the desire is to use the resultant certificate hierarchy in a Corda network, this configuration block must define a
                         set of certificates that meet some basic requirements. In addition to the hierarchy having to be under a single trust
@@ -303,7 +303,7 @@ certificates = {
 
 ##### Free-form Certificates
 As an alternative to using the templates, each key pair and certificate can defined using the standard configuration
-                            options. See the [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters" >}}) documentation for all possible parameters, and see below for examples
+                            options. See the [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) documentation for all possible parameters, and see below for examples
                             that use this approach. Note that the templates only support local key stores - using a HSM requires the certificate
                             hierarchy to be defined without templates.
 
@@ -314,7 +314,7 @@ Unless explicitly set, all configurations will be generated without CRL informat
                             generated without the `Certificate Revocation List Distribution Point` extension and will therefore be incompatible
                             with any network using strict revocation checking.
 
-As outlined in the [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters" >}}) doc, this extension is defined using the following logic:
+As outlined in the [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) doc, this extension is defined using the following logic:
 
 
 * If the certificate configuration has the `crlDistributionUrl` parameter set then use this.
@@ -368,7 +368,7 @@ This will result in the encoded CRL file `crl-files/subordinate.crl` being creat
 
 {{< note >}}
 Existing revocations can be added to the CRL file via the `crl.revocations` parameter. See
-                                    [Public Key Infrastructure (PKI) Tool Configuration Parameters]({{< relref "config-pki-tool-parameters" >}}) for more information.
+                                    [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) for more information.
 
 
 {{< /note >}}
@@ -395,7 +395,7 @@ certificates {
 ```
 As previously mentioned, it is up to the network operator to ensure that any configured CRL endpoints are available.
                                 The Identity Manager supports hosting of these CRL files (see the the “CRL Configuration” section of the
-                                [Identity Manager Service]({{< relref "identity-manager" >}}) doc).
+                                [Identity Manager Service](identity-manager.md) doc).
 
 
 ##### HSM Libraries
@@ -469,7 +469,7 @@ This will create a jar called `azure-keyvault-with-deps.jar` which can be refere
 
 
 ##### Generating SSL Keys
-As outlined in the [Configuring the ENM services to use SSL]({{< relref "enm-with-ssl" >}}) doc, all inter-service CENM communication can be configured to encrypt their
+As outlined in the [Configuring the ENM services to use SSL](enm-with-ssl.md) doc, all inter-service CENM communication can be configured to encrypt their
                             messages via SSL. This feature requires the operator to provide a set of SSL key pairs and certificates to each service,
                             which can be generated using the PKI tool.
 
@@ -495,7 +495,7 @@ certificates = {
 {{< note >}}
 HSM keys used by the Signing Service require an accompanying certificate store that contains all certificates in
                         the chain, from the signing entity back to the root. This is because the full chains cannot be stored within the
-                        HSMs. Refer to the [Signing Services]({{< relref "signing-service" >}}) documentation for more information.
+                        HSMs. Refer to the [Signing Services](signing-service.md) documentation for more information.
 
 
 {{< /note >}}
@@ -541,7 +541,7 @@ certificatesStores = {
     }
 }
 certificates = {
-    "tlscrlsigner" = {
+    "cordatlscrlsigner" = {
         key = {
             type = LOCAL
             includeIn = ["tls-crl-signer-key-store"]
@@ -562,7 +562,7 @@ certificates = {
             file = "./crl-files/tls.crl"
         }
     },
-    "rootca" = {
+    "cordarootca" = {
         key = {
             type = LOCAL
             includeIn = ["root-key-store"]
@@ -581,7 +581,7 @@ certificates = {
             file = "./crl-files/root.crl"
         }
     },
-    "subordinateca" = {
+    "cordasubordinateca" = {
         key = {
             type = LOCAL
             includeIn = ["subordinate-key-store"]
@@ -589,7 +589,7 @@ certificates = {
             password = "key-password"
         }
         isSelfSigned = false
-        signedBy = "rootca"
+        signedBy = "cordarootca"
         keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
         keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
         validDays = 7300
@@ -600,7 +600,7 @@ certificates = {
             file = "./crl-files/subordinate.crl"
         }
     },
-    "identitymanagerca" = {
+    "cordaidentitymanagerca" = {
         key = {
             type = LOCAL
             includeIn = ["identity-manager-key-store"]
@@ -608,7 +608,7 @@ certificates = {
             password = "key-password"
         }
         isSelfSigned = false
-        signedBy = "subordinateca"
+        signedBy = "cordasubordinateca"
         keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
         keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
         validDays = 7300
@@ -616,7 +616,7 @@ certificates = {
         issuesCertificates = true
         subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
     },
-    "networkmap" = {
+    "cordanetworkmap" = {
         key = {
             type = LOCAL
             includeIn = ["network-map-key-store"]
@@ -624,7 +624,7 @@ certificates = {
             password = "key-password"
         }
         isSelfSigned = false
-        signedBy = "subordinateca"
+        signedBy = "cordasubordinateca"
         keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
         keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
         validDays = 7300
@@ -632,7 +632,7 @@ certificates = {
         issuesCertificates = false
         subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
     },
-    "networkparameters" = {
+    "cordanetworkparameters" = {
         key = {
             type = LOCAL
             includeIn = ["network-parameters-key-store"]
@@ -640,7 +640,7 @@ certificates = {
             password = "key-password"
         }
         isSelfSigned = false
-        signedBy = "subordinateca"
+        signedBy = "cordasubordinateca"
         keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
         keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
         validDays = 7300
@@ -684,22 +684,22 @@ certificatesStores = {
     }
 }
 certificates = {
-    "tlscrlsigner" = {
+    "cordatlscrlsigner" = {
         key = {
             type = LOCAL
             includeIn = ["tls-crl-signer-key-store"]
         }
         isSelfSigned = true
-        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["truststore"]
         crl = {
             crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
             file = "./crl-files/tls.crl"
             indirectIssuer = true
-            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         }
     },
-    "rootca" = {
+    "cordarootca" = {
         key = {
             type = LOCAL
             includeIn = ["root-key-store"]
@@ -712,33 +712,33 @@ certificates = {
             file = "./crl-files/root.crl"
         }
     },
-    "subordinateca" = {
+    "cordasubordinateca" = {
         key = {
             type = LOCAL
             includeIn = ["subordinate-key-store"]
         }
-        signedBy = "rootca"
+        signedBy = "cordarootca"
         subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         crl = {
             crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
             file = "./crl-files/subordinate.crl"
         }
     },
-    "identitymanagerca" = {
+    "cordaidentitymanagerca" = {
         key = {
             type = LOCAL
             includeIn = ["identity-manager-key-store"]
         }
-        signedBy = "subordinateca"
+        signedBy = "cordasubordinateca"
         subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         role = DOORMAN_CA
     },
-    "networkmap" = {
+    "cordanetworkmap" = {
         key = {
             type = LOCAL
             includeIn = ["network-map-key-store"]
         }
-        signedBy = "subordinateca"
+        signedBy = "cordasubordinateca"
         issuesCertificates = false
         subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         role = NETWORK_MAP
@@ -779,18 +779,18 @@ certificatesStores = {
     }
 }
 certificates = {
-    "tlscrlsigner" = {
+    "cordatlscrlsigner" = {
         isSelfSigned = true
-        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["network-truststore", "certificate-store"]
         crl = {
             crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
             file = "./crl-files/tls.crl"
             indirectIssuer = true
-            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         }
     },
-    "rootca" = {
+    "cordarootca" = {
         isSelfSigned = true
         subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["network-truststore", "certificate-store"]
@@ -799,8 +799,8 @@ certificates = {
             file = "./crl-files/root.crl"
         }
     },
-    "subordinateca" = {
-        signedBy = "rootca"
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
         subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         crl = {
@@ -808,14 +808,14 @@ certificates = {
             file = "./crl-files/subordinate.crl"
         }
     },
-    "identitymanagerca" = {
-        signedBy = "subordinateca"
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
         subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         role = DOORMAN_CA
     },
-    "networkmap" = {
-        signedBy = "subordinateca"
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
         issuesCertificates = false
         subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
@@ -857,13 +857,13 @@ certificatesStores = {
 certificates = {
     "cordatlscrlsigner" = {
         isSelfSigned = true
-        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["network-truststore", "certificate-store"]
         crl = {
             crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
             file = "./crl-files/tls.crl"
             indirectIssuer = true
-            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         }
     },
     "cordarootca" = {
@@ -932,18 +932,18 @@ certificatesStores = {
     }
 }
 certificates = {
-    "tlscrlsigner" = {
+    "cordatlscrlsigner" = {
         isSelfSigned = true
-        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
         includeIn = ["network-truststore", "certificate-store"]
         crl = {
             crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
             file = "./crl-files/tls.crl"
             indirectIssuer = true
-            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
         }
     },
-    "rootca" = {
+    "cordarootca" = {
         isSelfSigned = true
         subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["network-truststore", "certificate-store"]
@@ -952,8 +952,8 @@ certificates = {
             file = "./crl-files/root.crl"
         }
     },
-    "subordinateca" = {
-        signedBy = "rootca"
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
         subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         crl = {
@@ -961,14 +961,14 @@ certificates = {
             file = "./crl-files/subordinate.crl"
         }
     },
-    "identitymanagerca" = {
-        signedBy = "subordinateca"
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
         subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         role = DOORMAN_CA
     },
-    "networkmap" = {
-        signedBy = "subordinateca"
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
         issuesCertificates = false
         subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
@@ -1013,18 +1013,18 @@ certificatesStores = {
 }
 
 certificates = {
-    "tlscrlsigner" = {
+    "cordatlscrlsigner" = {
         isSelfSigned = true
-        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["network-truststore", "certificate-store"]
         crl = {
             crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
             file = "./crl-files/tls.crl"
             indirectIssuer = true
-            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         }
     },
-    "rootca" = {
+    "cordarootca" = {
         isSelfSigned = true
         subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["network-truststore", "certificate-store"]
@@ -1033,8 +1033,8 @@ certificates = {
             file = "./crl-files/root.crl"
         }
     },
-    "subordinateca" = {
-        signedBy = "rootca"
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
         subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         crl = {
@@ -1042,14 +1042,14 @@ certificates = {
             file = "./crl-files/subordinate.crl"
         }
     },
-    "identitymanagerca" = {
-        signedBy = "subordinateca"
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
         subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         role = DOORMAN_CA
-    }
-    "networkmap" = {
-        signedBy = "subordinateca"
+    },
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
         issuesCertificates = false
         subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
@@ -1096,18 +1096,18 @@ certificatesStores = {
 }
 
 certificates = {
-    "tlscrlsigner" = {
+    "cordatlscrlsigner" = {
         isSelfSigned = true
-        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["network-truststore", "certificate-store"]
         crl = {
             crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
             file = "./crl-files/tls.crl"
             indirectIssuer = true
-            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         }
     },
-    "rootca" = {
+    "cordarootca" = {
         isSelfSigned = true
         subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["network-truststore", "certificate-store"]
@@ -1116,8 +1116,8 @@ certificates = {
             file = "./crl-files/root.crl"
         }
     },
-    "subordinateca" = {
-        signedBy = "rootca"
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
         subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         crl = {
@@ -1125,14 +1125,14 @@ certificates = {
             file = "./crl-files/subordinate.crl"
         }
     },
-    "identitymanagerca" = {
-        signedBy = "subordinateca"
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
         subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]
         role = DOORMAN_CA
-    }
-    "networkmap" = {
-        signedBy = "subordinateca"
+    },
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
         issuesCertificates = false
         subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
         includeIn = ["certificate-store"]

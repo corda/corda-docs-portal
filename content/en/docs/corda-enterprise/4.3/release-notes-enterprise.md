@@ -67,7 +67,7 @@ Corda Enterprise 4.3 introduces a Java Persistence API (JPA) interface for highl
 
 The supported databases when using this interface are CockroachDB 19.1.2 and Oracle RAC 12cR2.
 
-For more information, see [Configuring the notary backend - JPA]({{< relref "running-a-notary-cluster/installing-jpa" >}}).
+For more information, see [Configuring the notary backend - JPA](running-a-notary-cluster/installing-jpa.md).
 
 
 #### Notary key storage
@@ -119,7 +119,7 @@ There are currently three known issues:
 
 
 ### Upgrade notes
-As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.3]({{< relref "app-upgrade-notes-enterprise" >}})) to ease the upgrade
+As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.3](app-upgrade-notes-enterprise.md)) to ease the upgrade
                     of CorDapps to Corda Enterprise 4.3. In line with our commitment to API stability, code level changes are fairly minimal.
 
 For **developers**, switching CorDapps built using Corda (open source) 4.x to Corda Enterprise 4.3 is mostly effortless,
@@ -129,7 +129,7 @@ For **developers**, switching CorDapps built using Corda (open source) 4.x to Co
 ext.corda_release_version = '4.3'
 ext.corda_release_distribution = 'com.r3.corda'
 ```
-For **node operators**, it is advisable to follow the instructions outlined in [Upgrading a Corda Node]({{< relref "node-upgrade-notes" >}}).
+For **node operators**, it is advisable to follow the instructions outlined in [Upgrading a Corda Node](node-upgrade-notes.md).
 
 
 {{< note >}}

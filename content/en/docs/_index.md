@@ -5,6 +5,6 @@ date: 2020-01-08T09:59:25Z
 
 # Documentation for Corda projects
 
-* [Corda Enterprise]({{< relref "docs/corda-enterprise" >}})
-* [Corda Open Source]({{< relref "docs/corda-os" >}})
-* [Corda Enterprise Network Manager]({{< relref "docs/cenm" >}})
+* [Corda Enterprise](docs/corda-enterprise/_index.md)
+* [Corda Open Source](docs/corda-os/_index.md)
+* [Corda Enterprise Network Manager](docs/cenm/_index.md)

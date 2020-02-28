@@ -10,7 +10,7 @@ CorDapps run on the Corda platform and integrate with it and each other. This ar
 
 Applications on Corda (CorDapps) can be written in any language targeting the JVM. However, Corda itself and most of the samples are written in Kotlin. Kotlin is an [official Android language](https://developer.android.com/kotlin/index.html), and you can read more about why Kotlin is a strong successor to Java [here](https://medium.com/@octskyward/why-kotlin-is-my-next-programming-language-c25c001e26e3). If you’re unfamiliar with Kotlin, there is an official [getting started guide](https://kotlinlang.org/docs/tutorials/), and a series of [Kotlin Koans](https://kotlinlang.org/docs/tutorials/koans.html)
 
-To learn what a CorDapp is, please read [What is a CorDapp?]({{< relref "cordapp-overview" >}}).
+To learn what a CorDapp is, please read [What is a CorDapp?](cordapp-overview.md).
 
 
 ## CorDapp format
@@ -258,7 +258,7 @@ For further information about managing dependencies, see
 ### Signing the CorDapp JAR
 The `cordapp` plugin can sign the generated CorDapp JAR file using [JAR signing and verification tool](https://docs.oracle.com/javase/tutorial/deployment/jar/signing.html).
                     Signing the CorDapp enables its contract classes to use signature constraints instead of other types of the constraints,
-                    for constraints explanation refer to [Contract Constraints]({{< relref "api-contract-constraints" >}}).
+                    for constraints explanation refer to [Contract Constraints](api-contract-constraints.md).
                     By default the JAR file is signed by Corda development certificate.
                     The signing process can be disabled or configured to use an external keystore.
                     The `signing` entry may contain the following parameters:
@@ -321,7 +321,7 @@ CorDapp auto-signing allows to use signature constraints for contracts from the 
                     is accepted by Corda node only when running in the development mode. In case CordDapp signed by the (default)
                     development key is run on node in the production mode (e.g. for testing), the node may be set to accept the development
                     key by adding the `cordappSignerKeyFingerprintBlacklist = []` property set to empty list (see
-                    [Configuring a node]({{< relref "../node/setup/corda-configuration-file#corda-configuration-file-signer-blacklist" >}})).
+                    [Configuring a node](../node/setup/corda-configuration-file.md#corda-configuration-file-signer-blacklist)).
 
 Signing options can be contextually overwritten by the relevant system properties as described above. This allows the
                     single `build.gradle` file to be used for a development build (defaulting to the Corda development keystore) and for
@@ -460,7 +460,7 @@ The hash of the generated CorDapp JAR is not deterministic, as it depends on var
 The filename of the JAR must include a unique identifier to deduplicate it from other releases of the same CorDapp.
                 This is typically done by appending the version string to the CorDapp’s name. This unique identifier should not change
                 once the JAR has been deployed on a node. If it does, make sure no one is relying on `FlowContext.appName` in their
-                flows (see [Versioning]({{< relref "versioning" >}})).
+                flows (see [Versioning](versioning.md)).
 
 
 ## Installing the CorDapp JAR
@@ -683,7 +683,7 @@ As of Corda 4, CorDapp Contract JARs must be installed on a node by a trusted up
 * installing manually as per [Installing the CorDapp JAR](#cordapp-install-ref) and re-starting the node.
 
 
-* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC]({{< relref "../node/operating/clientrpc#clientrpc-connect-ref" >}}))
+* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](../node/operating/clientrpc.md#clientrpc-connect-ref))
                         or via the shell by issuing the following command:
 
 

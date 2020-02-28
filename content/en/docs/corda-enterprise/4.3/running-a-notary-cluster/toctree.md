@@ -9,118 +9,118 @@ This section contains information on deploying and operating Corda Enterprise no
             including in a highly-available configuration.
 
 
-* [Corda Enterprise notary service overview]({{< relref "ha-notary-service-overview" >}})
+* [Corda Enterprise notary service overview](ha-notary-service-overview.md)
 
-* [Corda Enterprise notary service set-up]({{< relref "ha-notary-service-setup" >}})
-    * [Notary implementations]({{< relref "ha-notary-service-setup#notary-implementations" >}})
+* [Corda Enterprise notary service set-up](ha-notary-service-setup.md)
+    * [Notary implementations](ha-notary-service-setup.md#notary-implementations)
 
-    * [HA notaries]({{< relref "ha-notary-service-setup#ha-notaries" >}})
+    * [HA notaries](ha-notary-service-setup.md#ha-notaries)
 
-    * [Prerequisites]({{< relref "ha-notary-service-setup#prerequisites" >}})
+    * [Prerequisites](ha-notary-service-setup.md#prerequisites)
 
-    * [Networking]({{< relref "ha-notary-service-setup#networking" >}})
+    * [Networking](ha-notary-service-setup.md#networking)
 
-    * [Legal names and identities]({{< relref "ha-notary-service-setup#legal-names-and-identities" >}})
+    * [Legal names and identities](ha-notary-service-setup.md#legal-names-and-identities)
 
-    * [Expected data volume]({{< relref "ha-notary-service-setup#expected-data-volume" >}})
+    * [Expected data volume](ha-notary-service-setup.md#expected-data-volume)
 
-    * [Security]({{< relref "ha-notary-service-setup#security" >}})
+    * [Security](ha-notary-service-setup.md#security)
 
-    * [Keys and certificates]({{< relref "ha-notary-service-setup#keys-and-certificates" >}})
-
-
-* [Configuring the notary backend - JPA]({{< relref "installing-jpa" >}})
-    * [Supported databases for highly available mode]({{< relref "installing-jpa#supported-databases-for-highly-available-mode" >}})
-
-    * [Configuring the notary backend - CockroachDB]({{< relref "installing-jpa#configuring-the-notary-backend-cockroachdb" >}})
-
-    * [Configuring notary backend - Oracle RAC 12cR2]({{< relref "installing-jpa#configuring-notary-backend-oracle-rac-12cr2" >}})
+    * [Keys and certificates](ha-notary-service-setup.md#keys-and-certificates)
 
 
-* [Configuring the notary backend - MySQL notary]({{< relref "installing-percona" >}})
-    * [MySQL driver]({{< relref "installing-percona#mysql-driver" >}})
+* [Configuring the notary backend - JPA](installing-jpa.md)
+    * [Supported databases for highly available mode](installing-jpa.md#supported-databases-for-highly-available-mode)
 
-    * [Networking]({{< relref "installing-percona#networking" >}})
+    * [Configuring the notary backend - CockroachDB](installing-jpa.md#configuring-the-notary-backend-cockroachdb)
 
-    * [Setup]({{< relref "installing-percona#setup" >}})
-
-    * [Installation]({{< relref "installing-percona#installation" >}})
-
-    * [Configuration]({{< relref "installing-percona#configuration" >}})
+    * [Configuring notary backend - Oracle RAC 12cR2](installing-jpa.md#configuring-notary-backend-oracle-rac-12cr2)
 
 
-* [Highly available database setup guidelines]({{< relref "db-guidelines" >}})
-    * [Consistency over availability]({{< relref "db-guidelines#consistency-over-availability" >}})
+* [Configuring the notary backend - MySQL notary](installing-percona.md)
+    * [MySQL driver](installing-percona.md#mysql-driver)
 
-    * [Synchronous replication]({{< relref "db-guidelines#synchronous-replication" >}})
+    * [Networking](installing-percona.md#networking)
 
-    * [Impact of latency on performance]({{< relref "db-guidelines#impact-of-latency-on-performance" >}})
+    * [Setup](installing-percona.md#setup)
 
-    * [Transaction isolation]({{< relref "db-guidelines#transaction-isolation" >}})
+    * [Installation](installing-percona.md#installation)
 
-
-* [Configuring the notary worker nodes]({{< relref "installing-the-notary-service" >}})
-    * [MySQL notary (deprecated)]({{< relref "installing-the-notary-service#mysql-notary-deprecated" >}})
-
-    * [Configuration Obfuscation]({{< relref "installing-the-notary-service#configuration-obfuscation" >}})
-
-    * [Obtaining the notary service identity]({{< relref "installing-the-notary-service#obtaining-the-notary-service-identity" >}})
+    * [Configuration](installing-percona.md#configuration)
 
 
-* [Joining a bootstrapped network]({{< relref "installing-the-notary-service-bootstrapper" >}})
-    * [Expected Outcome]({{< relref "installing-the-notary-service-bootstrapper#expected-outcome" >}})
+* [Highly available database setup guidelines](db-guidelines.md)
+    * [Consistency over availability](db-guidelines.md#consistency-over-availability)
+
+    * [Synchronous replication](db-guidelines.md#synchronous-replication)
+
+    * [Impact of latency on performance](db-guidelines.md#impact-of-latency-on-performance)
+
+    * [Transaction isolation](db-guidelines.md#transaction-isolation)
 
 
-* [Upgrading the notary to a new version of Corda Enterprise]({{< relref "upgrading-the-ha-notary-service" >}})
-    * [Version 4.2]({{< relref "upgrading-the-ha-notary-service#version-4-2" >}})
+* [Configuring the notary worker nodes](installing-the-notary-service.md)
+    * [MySQL notary (deprecated)](installing-the-notary-service.md#mysql-notary-deprecated)
 
-    * [Version 4.0]({{< relref "upgrading-the-ha-notary-service#version-4-0" >}})
+    * [Configuration Obfuscation](installing-the-notary-service.md#configuration-obfuscation)
 
-
-* [Highly-available notary backup and restore]({{< relref "backup-restore" >}})
-
-* [Notary database migration]({{< relref "notary-db-migration" >}})
-    * [When to migrate]({{< relref "notary-db-migration#when-to-migrate" >}})
-
-    * [Migration steps]({{< relref "notary-db-migration#migration-steps" >}})
+    * [Obtaining the notary service identity](installing-the-notary-service.md#obtaining-the-notary-service-identity)
 
 
-* [Notary worker migration]({{< relref "machine-migration" >}})
-
-* [Highly-available notary metrics]({{< relref "notary-metrics" >}})
-    * [Available metrics]({{< relref "notary-metrics#available-metrics" >}})
-
-    * [Notary monitoring recommendations]({{< relref "notary-metrics#notary-monitoring-recommendations" >}})
+* [Joining a bootstrapped network](installing-the-notary-service-bootstrapper.md)
+    * [Expected Outcome](installing-the-notary-service-bootstrapper.md#expected-outcome)
 
 
-* [Notary sizing considerations]({{< relref "notary-sizing" >}})
-    * [Notary disk space requirements]({{< relref "notary-sizing#notary-disk-space-requirements" >}})
+* [Upgrading the notary to a new version of Corda Enterprise](upgrading-the-ha-notary-service.md)
+    * [Version 4.2](upgrading-the-ha-notary-service.md#version-4-2)
 
-    * [Notary performance considerations]({{< relref "notary-sizing#notary-performance-considerations" >}})
-
-
-* [Notary HSM support]({{< relref "hsm-support" >}})
-    * [Overview]({{< relref "hsm-support#overview" >}})
-
-    * [Detailed instructions to deploy to Azure Key Vault]({{< relref "hsm-support#detailed-instructions-to-deploy-to-azure-key-vault" >}})
-
-    * [Using Multiple HSMs]({{< relref "hsm-support#using-multiple-hsms" >}})
+    * [Version 4.0](upgrading-the-ha-notary-service.md#version-4-0)
 
 
-* [Handling flag days]({{< relref "handling-flag-days" >}})
-    * [Consequences of flag days for the notary]({{< relref "handling-flag-days#consequences-of-flag-days-for-the-notary" >}})
+* [Highly-available notary backup and restore](backup-restore.md)
 
-    * [Single notary]({{< relref "handling-flag-days#single-notary" >}})
+* [Notary database migration](notary-db-migration.md)
+    * [When to migrate](notary-db-migration.md#when-to-migrate)
 
-    * [HA notary cluster]({{< relref "handling-flag-days#ha-notary-cluster" >}})
+    * [Migration steps](notary-db-migration.md#migration-steps)
 
 
-* [Frequently-Asked-Questions]({{< relref "faq/toctree" >}})
-    * [ETA Mechanism Overview]({{< relref "faq/eta-mechanism" >}})
+* [Notary worker migration](machine-migration.md)
 
-    * [Notary Load Balancing]({{< relref "faq/notary-load-balancing" >}})
+* [Highly-available notary metrics](notary-metrics.md)
+    * [Available metrics](notary-metrics.md#available-metrics)
 
-    * [Notary Failover]({{< relref "faq/notary-failover" >}})
+    * [Notary monitoring recommendations](notary-metrics.md#notary-monitoring-recommendations)
+
+
+* [Notary sizing considerations](notary-sizing.md)
+    * [Notary disk space requirements](notary-sizing.md#notary-disk-space-requirements)
+
+    * [Notary performance considerations](notary-sizing.md#notary-performance-considerations)
+
+
+* [Notary HSM support](hsm-support.md)
+    * [Overview](hsm-support.md#overview)
+
+    * [Detailed instructions to deploy to Azure Key Vault](hsm-support.md#detailed-instructions-to-deploy-to-azure-key-vault)
+
+    * [Using Multiple HSMs](hsm-support.md#using-multiple-hsms)
+
+
+* [Handling flag days](handling-flag-days.md)
+    * [Consequences of flag days for the notary](handling-flag-days.md#consequences-of-flag-days-for-the-notary)
+
+    * [Single notary](handling-flag-days.md#single-notary)
+
+    * [HA notary cluster](handling-flag-days.md#ha-notary-cluster)
+
+
+* [Frequently-Asked-Questions](faq/toctree.md)
+    * [ETA Mechanism Overview](faq/eta-mechanism.md)
+
+    * [Notary Load Balancing](faq/notary-load-balancing.md)
+
+    * [Notary Failover](faq/notary-failover.md)
 
 
 

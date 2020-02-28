@@ -5,10 +5,10 @@ date: 2020-01-08T09:59:25Z
 
 
 # Blob Inspector
-There are many benefits to having a custom binary serialisation format (see [Object serialization]({{< relref "serialization" >}}) for details) but one
+There are many benefits to having a custom binary serialisation format (see [Object serialization](serialization.md) for details) but one
             disadvantage is the inability to view the contents in a human-friendly manner. The Corda Blob Inspector tool alleviates
             this issue by allowing the contents of a binary blob file (or URL end-point) to be output in either YAML or JSON. It
-            uses `JacksonSupport` to do this (see [JSON]({{< relref "json" >}})).
+            uses `JacksonSupport` to do this (see [JSON](json.md)).
 
 The tool is distributed as part of Corda Enterprise 4.1 in the form of runnable JAR “corda-tools-blob-inspector-4.1.jar”.
 
@@ -138,6 +138,6 @@ blob-inspector [-hvV] [--full-parties] [--schema] [--format=type]
 
 
 ### Sub-commands
-`install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+`install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 

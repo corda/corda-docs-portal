@@ -36,14 +36,10 @@ There are alternative approaches to how these components are deployed. For the p
 When deploying Corda Enterprise in a testing environment the Node, Bridge, and Float components should be deployed in a non-HA configuration as shown in the following diagram.
 
 
-{{< img src="node/deploy/../../resources/nonha.png" alt="nonha" >}}
-
-When deploying Corda Enterprise in a production environment, the Node, Bridge, and Float components should be deployed in a high-availability configuration.
+![nonha](node/deploy/../../resources/nonha.png "nonha")When deploying Corda Enterprise in a production environment, the Node, Bridge, and Float components should be deployed in a high-availability configuration.
 
 
-{{< img src="node/deploy/../../resources/ha.png" alt="ha" >}}
-
-
+![ha](node/deploy/../../resources/ha.png "ha")
 ### Deployment details
 
 * Corda Nodes run in a Hot/Cold Setup.
@@ -232,9 +228,7 @@ This is a sample `node.conf` which details a configuration connecting to the Cor
 ### Implementing the Corda Firewall PKI
 In a bank environment there will typically be several layers of security protecting the firms data.
 
-{{< img src="node/deploy/../../resources/cordarch.png" alt="cordarch" >}}
-
-*Network Authentication*
+![cordarch](node/deploy/../../resources/cordarch.png "cordarch")*Network Authentication*
 
 
 * The Corda Node may be deployed behind the inner DMZ (no access to the Internet)
@@ -255,9 +249,7 @@ In a bank environment there will typically be several layers of security protect
 * Local PKI Authentication issued by separate CA will link the Bridge and Float i.e the purple keys indicated below trust and Bridge.
 
 
-{{< img src="node/deploy/../../resources/firewallpki.png" alt="firewallpki" >}}
-
-The key thing is to look at this from the perspective of a bank implementing these Corda and Local PKI keys.
+![firewallpki](node/deploy/../../resources/firewallpki.png "firewallpki")The key thing is to look at this from the perspective of a bank implementing these Corda and Local PKI keys.
 
 
 * Corda PKI Authentication will link the Node and Bridge and authenticate to Corda Network in the outside world. In other words, this permits mutual authentication between a Corda Node and its Peer Corda Nodes.
@@ -448,9 +440,7 @@ Administrative logins with the Corda Node happen via ssh whose port is configure
 
 The following image may be helpful in ensuring alignment between the Node, Bridge and Float configuration files.
 
-{{< img src="node/deploy/../../resources/CordaFirewallConfigAlign.png" alt="CordaFirewallConfigAlign" >}}
-
-
+![CordaFirewallConfigAlign](node/deploy/../../resources/CordaFirewallConfigAlign.png "CordaFirewallConfigAlign")
 {{< note >}}
 **p2pAddress** reflects the **publicly accessible address**, which may or may not be the Float inboundConfig.listeningAddress. If there is an internet firewall configured in front of the Float then ask the Network Administrator for the public address that routes to the Float’s **listeningAddress**, and use that public address for your **p2pAddress**.
 

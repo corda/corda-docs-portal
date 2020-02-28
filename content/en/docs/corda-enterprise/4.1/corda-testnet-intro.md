@@ -15,18 +15,14 @@ The Corda Testnet is currently in private beta. Interested parties can request i
 ## Deploying a Corda node to the Corda Testnet
 Access to the Corda Testnet is enabled by visiting [https://testnet.corda.network](https://testnet.corda.network).
 
-[{{< img src="resources/testnet-landing.png" alt="testnet landing" >}}
-
-](https://testnet.corda.network)
+[![testnet landing](resources/testnet-landing.png "testnet landing")](https://testnet.corda.network)
             Click on “Join the Corda Testnet”.
 
 Select whether you want to register a company or as an individual on the Testnet.
 
 This will create an account with the Testnet on-boarding application which will enable you to provision and manage multiple Corda nodes on Testnet. You will log in to this account to view and manage you Corda Testnet identity certificates.
 
-{{< img src="resources/testnet-account-type.png" alt="testnet account type" >}}
-
-Fill in the form with your details.
+![testnet account type](resources/testnet-account-type.png "testnet account type")Fill in the form with your details.
 
 
 {{< note >}}
@@ -34,19 +30,13 @@ Testnet is currently invitation only. If your request is approved you will recei
 
 
 {{< /note >}}
-{{< img src="resources/testnet-form.png" alt="testnet form" >}}
-
-Once you have been approved, navigate to [https://testnet.corda.network](https://testnet.corda.network) and click on “I have an invitation”.
+![testnet form](resources/testnet-form.png "testnet form")Once you have been approved, navigate to [https://testnet.corda.network](https://testnet.corda.network) and click on “I have an invitation”.
 
 Sign in using either your email address and password, or “Sign in with Google”:
 
-{{< img src="resources/testnet-signin.png" alt="testnet signin" >}}
+![testnet signin](resources/testnet-signin.png "testnet signin")If using Google accounts, approve the Testnet application when prompted:
 
-If using Google accounts, approve the Testnet application when prompted:
-
-{{< img src="resources/testnet-signin-auth.png" alt="testnet signin auth" >}}
-
-
+![testnet signin auth](resources/testnet-signin-auth.png "testnet signin auth")
 {{< note >}}
 At this point you may need to verify your email address is valid (if you are not using a Gmail address). If prompted check your email and click on the link to validate then return to the sign in page and sign in again.
 
@@ -54,13 +44,9 @@ At this point you may need to verify your email address is valid (if you are not
 {{< /note >}}
 Next agree to the terms of service:
 
-{{< img src="resources/testnet-terms.png" alt="testnet terms" >}}
+![testnet terms](resources/testnet-terms.png "testnet terms")You can now copy the `ONE-TIME-KEY` and paste it into the parameter form of your cloud template.
 
-You can now copy the `ONE-TIME-KEY` and paste it into the parameter form of your cloud template.
-
-{{< img src="resources/testnet-platform-clean.png" alt="testnet platform clean" >}}
-
-Once your cloud instance is set up you can install and run your Testnet pre-provisioned Corda node by clicking on “Copy” and pasting the one time link into your remote cloud terminal.
+![testnet platform clean](resources/testnet-platform-clean.png "testnet platform clean")Once your cloud instance is set up you can install and run your Testnet pre-provisioned Corda node by clicking on “Copy” and pasting the one time link into your remote cloud terminal.
 
 The installation script will download the Corda binaries as well as your PKI certificates, private keys and supporting files and will install and run Corda on your fresh cloud VM. Your node will register itself with the Corda Testnet when it first runs and be added to the global network map and be visible to counterparties after approximately 5 minutes.
 
@@ -68,7 +54,7 @@ Hosting a Corda node locally is possible but will require manually configuring f
 
 
 {{< note >}}
-If you host your node on your own machine or a corporate server you must ensure it is reachable from the public internet at a specific IP address. Please follow the instructions here: [<no title>]({{< relref "deploy-locally" >}}).
+If you host your node on your own machine or a corporate server you must ensure it is reachable from the public internet at a specific IP address. Please follow the instructions here: [<no title>](deploy-locally.md).
 
 
 {{< /note >}}

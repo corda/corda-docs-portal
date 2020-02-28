@@ -51,9 +51,7 @@ The structure of certificates above the doorman/network map is intentionally lef
 
 We can visualise the permissioning structure as follows:
 
-{{< img src="network/resources/certificate_structure.png" alt="certificate structure" >}}
-
-
+![certificate structure](network/resources/certificate_structure.png "certificate structure")
 ## Key pair and certificate formats
 The required key pairs and certificates take the form of the following Java-style keystores (this may change in future to
                 support PKCS#12 keystores) in the node’s `<workspace>/certificates/` folder:

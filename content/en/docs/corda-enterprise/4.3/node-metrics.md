@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 A Corda node exports a number of metrics for the purpose of monitoring the health of the node via JMX. This page documents the metrics
             exported by Corda.
 
-For more information about how to monitor a node, see [Node administration]({{< relref "node-administration" >}}).
+For more information about how to monitor a node, see [Node administration](node-administration.md).
 
 
 ## Attachments

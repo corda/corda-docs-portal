@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 # API: Flows
 
 {{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Flows]({{< relref "key-concepts-flows" >}}).
+Before reading this page, you should be familiar with the key concepts of [Flows](key-concepts-flows.md).
 
 
 {{< /note >}}
@@ -97,9 +97,7 @@ In our flow, the Initiator flow class will be doing the majority of the work:
 
 We can visualize the work performed by initiator as follows:
 
-{{< img src="resources/flow-overview.png" alt="flow overview" >}}
-
-
+![flow overview](resources/flow-overview.png "flow overview")
 ### Responder
 To respond to these actions, the responder takes the following steps:
 
@@ -269,7 +267,7 @@ public static class InitiatorFlow extends FlowLogic<Void> {
 ## ServiceHub
 Within `FlowLogic.call`, the flow developer has access to the node’s `ServiceHub`, which provides access to the
                 various services the node provides. We will use the `ServiceHub` extensively in the examples that follow. You can
-                also see [API: ServiceHub]({{< relref "api-service-hub" >}}) for information about the services the `ServiceHub` offers.
+                also see [API: ServiceHub](api-service-hub.md) for information about the services the `ServiceHub` offers.
 
 
 ## Common flow tasks
@@ -279,12 +277,12 @@ There are a number of common tasks that you will need to perform within `FlowLog
 
 ### Transaction building
 The majority of the work performed during a flow will be to build, verify and sign a transaction. This is covered
-                    in [API: Transactions]({{< relref "api-transactions" >}}).
+                    in [API: Transactions](api-transactions.md).
 
 
 ### Extracting states from the vault
 When building a transaction, you’ll often need to extract the states you wish to consume from the vault. This is
-                    covered in [API: Vault Query]({{< relref "api-vault-query" >}}).
+                    covered in [API: Vault Query](api-vault-query.md).
 
 
 ### Retrieving information about other nodes
@@ -745,7 +743,7 @@ Corda installs four initiating subflow pairs on each node by default:
 {{< warning >}}
 `SwapIdentitiesFlow`/`SwapIdentitiesHandler` are only installed if the `confidential-identities` module
                         is included. The `confidential-identities` module  is still not stabilised, so the
-                        `SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [Corda API]({{< relref "corda-api" >}}).
+                        `SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [Corda API](corda-api.md).
 
 
 {{< /warning >}}
@@ -863,8 +861,8 @@ Once a transaction has been notarised and its input states consumed by the flow 
                         transaction fail to verify it, or the receiving flow (the finality handler) fails due to some other error, we then have a scenario where not
                         all parties have the correct up to date view of the ledger (a condition where eventual consistency between participants takes longer than is
                         normally the case under Corda’s [eventual consistency model](https://en.wikipedia.org/wiki/Eventual_consistency)). To recover from this scenario,
-                        the receiver’s finality handler will automatically be sent to the [Flow Hospital]({{< relref "node-flow-hospital" >}}) where it’s suspended and retried from its last checkpoint
-                        upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour]({{< relref "node-flow-hospital#flow-hospital-runtime" >}}).
+                        the receiver’s finality handler will automatically be sent to the [Flow Hospital](node-flow-hospital.md) where it’s suspended and retried from its last checkpoint
+                        upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](node-flow-hospital.md#flow-hospital-runtime).
                         This gives the node operator the opportunity to recover from the error. Until the issue is resolved the node will continue to retry the flow
                         on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent once again.
 
@@ -1309,7 +1307,7 @@ Because of this, care must be taken when performing locking or waiting operation
 
 ### Locking
 Flows should avoid using locks or interacting with objects that are shared between flows (except for `ServiceHub` and other
-                    carefully crafted services such as Oracles.  See [Writing oracle services]({{< relref "oracles" >}})). Locks will significantly reduce the scalability of the
+                    carefully crafted services such as Oracles.  See [Writing oracle services](oracles.md)). Locks will significantly reduce the scalability of the
                     node, and can cause the node to deadlock if they remain locked across flow context switch boundaries (such as when sending
                     and receiving from peers, as discussed above, or sleeping, as discussed below).
 

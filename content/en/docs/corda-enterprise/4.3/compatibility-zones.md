@@ -17,16 +17,16 @@ Every Corda node is part of a “zone” (also sometimes called a Corda network)
 
 ### Bootstrapping a compatibility zone
 You can easily bootstrap a compatibility zone for testing or pre-production use with either the
-                    [Network Bootstrapper]({{< relref "network-bootstrapper" >}}) or the [Network Builder](https://docs.corda.net/network-builder.html) tools.
+                    [Network Bootstrapper](network-bootstrapper.md) or the [Network Builder](https://docs.corda.net/network-builder.html) tools.
 
 
 ### Joining an existing compatibility zone
 After the testing and pre-production phases, users are encouraged to join an existing compatibility zone such as Corda
-                    Network (the main compatibility zone) or the Corda Testnet. See [Joining an existing compatibility zone]({{< relref "joining-a-compatibility-zone" >}}).
+                    Network (the main compatibility zone) or the Corda Testnet. See [Joining an existing compatibility zone](joining-a-compatibility-zone.md).
 
 
 ### Setting up a dynamic compatibility zone
 Some users may also be interested in setting up their own dynamic compatibility zone. For instructions and a discussion
-                    of whether this approach is suitable for you, see [Setting up a dynamic compatibility zone]({{< relref "setting-up-a-dynamic-compatibility-zone" >}}).
+                    of whether this approach is suitable for you, see [Setting up a dynamic compatibility zone](setting-up-a-dynamic-compatibility-zone.md).
 
 

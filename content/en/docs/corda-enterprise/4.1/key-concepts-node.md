@@ -43,9 +43,7 @@ A Corda node is a JVM run-time environment with a unique identity on the network
 
 We can visualize the node’s internal architecture as follows:
 
-{{< img src="resources/node-architecture.png" alt="node architecture" >}}
-
-The core elements of the architecture are:
+![node architecture](resources/node-architecture.png "node architecture")The core elements of the architecture are:
 
 
 * A persistence layer for storing data
@@ -84,7 +82,7 @@ All communication with other nodes on the network is handled by the node itself,
 
 ## RPC interface
 The node’s owner interacts with the node via remote procedure calls (RPC). The key RPC operations the node exposes
-                are documented in [API: RPC operations]({{< relref "api-rpc" >}}).
+                are documented in [API: RPC operations](api-rpc.md).
 
 
 ## The service hub

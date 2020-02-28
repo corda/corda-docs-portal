@@ -260,11 +260,14 @@ class Translator:
                 __, ext = os.path.splitext(link)
                 # If it doesn't have a suffix, it's another page
                 if not ext:
-                    link = f'{{{{< relref "{link}" >}}}}'
-
-                if '#' in link:
-                    LOG.debug(f"# in link:  {link}")
-                    pass
+                    #  we're targeting hugo-flavoured markdown
+                    if not ARGS.md:
+                        link = f'{{{{< relref "{link}" >}}}}'
+                    else:
+                        if '#' in link:
+                            link = link.replace('#', '.md#')
+                        else:
+                            link = link + '.md'
 
             else:
                 LOG.debug(f"Regular link: {link}")
@@ -381,12 +384,17 @@ class Translator:
         # TODO:  wrap image in <div aria-label="..."> ?
         # and make that a shortcode?
         if 'uri' not in node.attrib:
-            image = '#'
+            url = '#'
             alt = 'missing'
         else:
-            image = node.attrib.get('uri', '#')
-            alt = os.path.splitext(os.path.basename(image))[0].replace('-', ' ').replace('_', ' ')
-        self.top.put_body(f'{{{{< img src="{image}" alt="{alt}" >}}}}\n\n')
+            url = node.attrib.get('uri', '#')
+            alt = os.path.splitext(os.path.basename(url))[0].replace('-', ' ').replace('_', ' ')
+
+        if not ARGS.md:
+            self.top.put_body(f'{{{{< img src="{url}" alt="{alt}" >}}}}\n\n')
+        else:
+            self.top.put_body(f'![{alt}]({url} "{alt}")')
+            
 
     def depart_image(self, node):
         pass
@@ -817,35 +825,18 @@ def _postprocess_xml():
 def copy_to_content():
     LOG.warning("Copying all md to content/")
 
-    files = [x for x in Path(REPOS).rglob('xml/xml/**/*.md')]
-    for src in files:
-        dest = str(src).replace('docs/xml/xml/', '').replace(REPOS, CONTENT)
-        if dest.endswith('/index.md'):
-            dest = dest.replace('/index.md', '/_index.md')
-
-        if not os.path.exists(os.path.dirname(dest)):
-            os.makedirs(os.path.dirname(dest), exist_ok=True)
-
-        LOG.debug(f"Copying {src} {dest}")
-        shutil.copyfile(src, dest)
-
-    LOG.warning(f"Copied {len(files)} files")
-
-
-def copy_to_content():
-    LOG.warning("Copying all md to content/")
-
     dirs = []
     files = [x for x in Path(REPOS).rglob('xml/xml/**/*.md')]
     for src in files:
         dest = str(src).replace('docs/xml/xml/', '').replace(REPOS, CONTENT)
-        dest_filename = os.path.basename(dest)
+        src_filename = os.path.basename(src)
         index_md = os.path.join(os.path.dirname(dest), '_index.md')
-        if dest_filename == '_index.md':
+        if src_filename == 'index.md':
             LOG.warning(f"Copying {src} to {dest}")
             dest = index_md # it was 'index.rst', copying to '_index.md'
-        elif dest_filename.endswith('index.md') and not os.path.exists(index_md):
+        elif src_filename.endswith('index.md') and not os.path.exists(index_md):
             # was something-index.rst, copying to _index.md
+            # fixes some of Ed's weird filenames
             LOG.warning(f"Copying {src} to {dest}")
             dest = index_md
 
@@ -897,6 +888,7 @@ def main():
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument("--toc", "-t", help="include table of contents in the page", default=False, action='store_true')
     parser.add_argument("--skip", "-s", help="skip rst conversion for speed if already done", default=False, action='store_true')
+    parser.add_argument("--md", "-g", help="generate (commonmark) markdown with fewer hugo tags", default=False, action='store_true')
     ARGS = parser.parse_args()
 
     _setup_logging()

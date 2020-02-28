@@ -46,7 +46,7 @@ If you want to upgrade, say, the version of sphinx that we’re using, you must:
 ## Building from the Command Line (non-docker)
 
 ### Requirements
-In order to build the documentation you will need a development environment set up as described under [Building Corda]({{< relref "building-corda" >}}).
+In order to build the documentation you will need a development environment set up as described under [Building Corda](building-corda.md).
 
 You will also need additional dependencies based on your O/S which are detailed below.
 

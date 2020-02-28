@@ -23,7 +23,7 @@ The utility performs the following steps:
 
 
 * It creates a certificate signing request based on the following information from the node’s configuration file (see
-                    [Node configuration]({{< relref "corda-configuration-file" >}})):
+                    [Node configuration](corda-configuration-file.md)):
 
 
 * **myLegalName** Your company’s legal name as an X.500 string. X.500 allows differentiation between entities with the same

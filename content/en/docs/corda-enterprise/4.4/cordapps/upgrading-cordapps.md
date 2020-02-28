@@ -73,9 +73,7 @@ The `version` property, which defaults to 1, specifies the flow’s version. Thi
 The flow interface is defined by the sequence of `send` and `receive` calls between an `InitiatingFlow` and an
                     `InitiatedBy` flow, including the types of the data sent and received. We can picture a flow’s interface as follows:
 
-{{< img src="cordapps/resources/flow-interface.png" alt="flow interface" >}}
-
-In the diagram above, the `InitiatingFlow`:
+![flow interface](cordapps/resources/flow-interface.png "flow interface")In the diagram above, the `InitiatingFlow`:
 
 
 * Sends an `Int`
@@ -362,14 +360,14 @@ Deleting checkpoints manually or via `killFlow` can lead to an inconsistent ledg
 There are two types of contract/state upgrade:
 
 
-* *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See [Contract Constraints]({{< relref "api-contract-constraints" >}}) to learn more.
+* *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See [Contract Constraints](api-contract-constraints.md) to learn more.
 
 
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
                         contract upgrade flows.
 
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints#implicit-vs-explicit-upgrades" >}}).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.md#implicit-vs-explicit-upgrades).
 
 
 ### Performing explicit contract and state upgrades
@@ -379,7 +377,7 @@ In an explicit upgrade, contracts and states can be changed in arbitrary ways, i
 
 
 {{< warning >}}
-In Corda 4 we’ve introduced the Signature Constraint (see [Contract Constraints]({{< relref "api-contract-constraints" >}})). States created or migrated to
+In Corda 4 we’ve introduced the Signature Constraint (see [Contract Constraints](api-contract-constraints.md)). States created or migrated to
                         the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
                         Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
@@ -410,7 +408,7 @@ interface UpgradedContract<in OldState : ContractState, out NewState : ContractS
 ```
 The `upgrade` method describes how the old state type is upgraded to the new state type.
 
-By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [Contract Constraints]({{< relref "api-contract-constraints" >}})).
+By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [Contract Constraints](api-contract-constraints.md)).
 
 
 {{< note >}}
@@ -450,7 +448,7 @@ Place the new CorDapp JAR file in the `cordapps` folder of all the relevant node
 
 #### 5. Stop the nodes
 Have each node operator stop their node. If you are also changing flow definitions, you should perform a
-                        [node drain]({{< relref "../node/operating/cm-updating-cordapp#draining-the-node" >}}) first to avoid the definition of states or contracts changing whilst a flow is
+                        [node drain](../node/operating/cm-updating-cordapp.md#draining-the-node) first to avoid the definition of states or contracts changing whilst a flow is
                         in progress.
 
 
@@ -490,7 +488,7 @@ Once the flow ends successfully, all the participants of the old state object sh
 
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
-Follow the guide in [Contract Constraints]({{< relref "api-contract-constraints" >}}).
+Follow the guide in [Contract Constraints](api-contract-constraints.md).
 
 
 ### Points to note

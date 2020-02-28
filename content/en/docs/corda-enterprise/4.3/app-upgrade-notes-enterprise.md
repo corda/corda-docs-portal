@@ -11,7 +11,7 @@ date: 2020-01-08T09:59:25Z
 
 ### Running on Corda Enterprise 4.3
 A prerequisite to upgrade to Corda Enterprise 4.3 is to ensure your CorDapp is upgraded to Open Source Corda 4.x.
-                    Please follow the instructions in [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}) section to complete this initial step.
+                    Please follow the instructions in [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md) section to complete this initial step.
 
 There is no requirement to re-compile your CorDapp to Corda Enterprise in order to run it on Corda Enterprise. If you wish your CorDapp to
                     be compatible with nodes running Open Source, then compiling against Open Source Corda V4.x will suffice.
@@ -21,7 +21,7 @@ There is no requirement to re-compile your CorDapp to Corda Enterprise in order 
 
 {{< note >}}
 Corda open source and Enterprise Public APIs are currently identical but this may change in future releases of Corda Enterprise.
-                        Please read [Corda and Corda Enterprise compatibility]({{< relref "version-compatibility" >}}) guarantees.
+                        Please read [Corda and Corda Enterprise compatibility](version-compatibility.md) guarantees.
 
 
 {{< /note >}}
@@ -166,7 +166,7 @@ dependencies {
 
 * Workflow CorDapps.
 
-Please follow the instructions listed in step 5 of [Upgrading apps to Corda 4]({{< relref "app-upgrade-notes#cordapp-upgrade-finality-flow-ref" >}}).
+Please follow the instructions listed in step 5 of [Upgrading apps to Corda 4](app-upgrade-notes.md#cordapp-upgrade-finality-flow-ref).
 
 
 

@@ -23,7 +23,7 @@ The node is using log4j2 asynchronous logging by default (configured via log4j2 
                 to ensure that log message flushing is not slowing down the actual processing.
                 If you need to switch to synchronous logging (e.g. for debugging/testing purposes), you can override this behaviour
                 by adding `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector` to the node’s
-                command line or to the `jvmArgs` section of the node configuration (see [Node configuration]({{< relref "corda-configuration-file" >}})).
+                command line or to the `jvmArgs` section of the node configuration (see [Node configuration](corda-configuration-file.md)).
 
 
 ### Example
@@ -61,12 +61,12 @@ To determine the name of the logger, for Corda objects, use the fully qualified 
 
 
 ## SSH access
-Node can be configured to run SSH server. See [Node shell]({{< relref "shell" >}}) for details.
+Node can be configured to run SSH server. See [Node shell](shell.md) for details.
 
 
 ## Database access
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-                (see [Database access when running H2]({{< relref "node-database-access-h2" >}})).
+                (see [Database access when running H2](node-database-access-h2.md)).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
                 database should be via the usual database tools mechanisms, including access control and restrictions.
@@ -150,9 +150,9 @@ Also ensure to have restrictive Jolokia access policy in place for access to pro
 ### Notes for development use
 When running in dev mode, Hibernate statistics are also available via the Jolkia interface. These are disabled otherwise
                     due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-                    `exportHibernateJMXStatistics` flag on the [database configuration]({{< relref "corda-configuration-file#database-properties-ref" >}}).
+                    `exportHibernateJMXStatistics` flag on the [database configuration](corda-configuration-file.md#database-properties-ref).
 
-When starting Corda nodes using Cordformation runner (see [Running nodes locally]({{< relref "running-a-node" >}})), you should see a startup message similar to the following:
+When starting Corda nodes using Cordformation runner (see [Running nodes locally](running-a-node.md)), you should see a startup message similar to the following:
                     **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:
@@ -160,9 +160,7 @@ When starting Corda nodes using the ‘driver DSL’, you should see a startup m
 
 The following diagram illustrates Corda flow metrics visualized using hawtio:
 
-{{< img src="resources/hawtio-jmx.png" alt="hawtio jmx" >}}
-
-
+![hawtio jmx](resources/hawtio-jmx.png "hawtio jmx")
 ### Monitoring via Graphite
 Corda nodes alternatively support publishing metrics collected via the Codahale metrics library directly to a graphite
                     server. This needs to be configured in the node configuration file:
@@ -249,7 +247,7 @@ If this approach is taken, the passwords will appear in the windows command prom
 {{< /warning >}}
 
 ## Obfuscating sensitive data
-Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [Configuration Obfuscator]({{< relref "tools-config-obfuscator" >}}) which allows the user to censor string properties in the configuration file. The config would look something like this:
+Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [Configuration Obfuscator](tools-config-obfuscator.md) which allows the user to censor string properties in the configuration file. The config would look something like this:
 
 ```kotlin
 keyStorePassword = "<{Kwby0G9c/+jxJM+c7Vaiow==:pdy+UaakdFSmmh8WWuBOoQ==}>"

@@ -35,8 +35,8 @@ A Corda node connects to a database using a single database user, and stores dat
 >                             This eases the operational maintenance for development and testing.
 > 
 > 
-Database setup for production systems (with **restricted permissions**) is described in [Database schema setup]({{< relref "node-database-admin" >}}),
-                and the recommended setup for development/testing environments are described in [Simplified database schema setup for development]({{< relref "node-database-developer" >}}).
+Database setup for production systems (with **restricted permissions**) is described in [Database schema setup](node-database-admin.md),
+                and the recommended setup for development/testing environments are described in [Simplified database schema setup for development](node-database-developer.md).
 
 
 ## Database schema objects management
@@ -215,7 +215,7 @@ Additional options:
 
 #### Database Manager shell extensions
 The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto completion for
-                        bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+                        bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 
 {{< note >}}
@@ -301,7 +301,7 @@ By default, the node database has the following tables:
 |V_PKEY_HASH_EX_ID_MAP|PUBLIC_KEY_HASH, TRANSACTION_ID, OUTPUT_INDEX, EXTERNAL_ID|
 
 {{< /table >}}
-For more details, see [Database tables]({{< relref "node-database-tables" >}}).
+For more details, see [Database tables](node-database-tables.md).
 
 The node database for a Simple Notary has additional tables:
 
@@ -315,14 +315,14 @@ The node database for a Simple Notary has additional tables:
 |NODE_NOTARY_REQUEST_LOG|ID, CONSUMING_TRANSACTION_ID, REQUESTING_PARTY_NAME, REQUEST_TIMESTAMP, REQUEST_SIGNATURE|
 
 {{< /table >}}
-The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend]({{< relref "../../notary/installing-jpa#configuring-jpa-notary-backend" >}}).
+The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend](../../notary/installing-jpa.md#configuring-jpa-notary-backend).
 
 The tables for other experimental notary implementations are not described here.
 
 
 ### Database Schema Migration Logging
 Database migration logs for Corda internal tables follow a structured format
-                    described in [Database Schema Migration Logging]({{< relref "../../node-database-migration-logging#database-schema-migration-logging" >}}).
+                    described in [Database Schema Migration Logging](../../node-database-migration-logging.md#database-schema-migration-logging).
 
 
 

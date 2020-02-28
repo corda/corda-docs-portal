@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 # API: States
 
 {{< note >}}
-Before reading this page, you should be familiar with the key concepts of [States]({{< relref "key-concepts-states" >}}).
+Before reading this page, you should be familiar with the key concepts of [States](key-concepts-states.md).
 
 
 {{< /note >}}
@@ -85,9 +85,7 @@ The behaviour of the state can be further customised by implementing sub-interfa
 
 We can picture the hierarchy as follows:
 
-{{< img src="resources/state-hierarchy.png" alt="state hierarchy" >}}
-
-
+![state hierarchy](resources/state-hierarchy.png "state hierarchy")
 ### LinearState
 The `LinearState` interface is defined as follows:
 
@@ -259,11 +257,11 @@ You can also customize your state by implementing the following interfaces:
 
 
 * `QueryableState`, which allows the state to be queried in the node’s database using custom attributes (see
-                            [API: Persistence]({{< relref "api-persistence" >}}))
+                            [API: Persistence](api-persistence.md))
 
 
 * `SchedulableState`, which allows us to schedule future actions for the state (e.g. a coupon payment on a bond) (see
-                            [Event scheduling]({{< relref "event-scheduling" >}}))
+                            [Event scheduling](event-scheduling.md))
 
 
 

@@ -101,7 +101,7 @@ There is currently no retry API. If you don’t want to install the cordapp, you
 
 
     * HSM timeouts:
-                                                        These errors will be generated when the HSM takes too long to respond to an action.  The timeout value is defined in [Node configuration]({{< relref "corda-configuration-file" >}}).
+                                                        These errors will be generated when the HSM takes too long to respond to an action.  The timeout value is defined in [Node configuration](corda-configuration-file.md).
                                                         - Error type: `TimedCryptoServiceException`
 
 
@@ -123,9 +123,7 @@ Flows that are kept in for observation are retried upon node restart.
 The Corda Enterprise Node Explorer can be used to visualize all flows within the “Flow Triage” panel, where these can be filtered by flow
                     status (for example, to only display errored flows):
 
-{{< img src="resources/explorer/flowTriageView.png" alt="flowTriageView" >}}
-
-As of Corda Enterprise 4.3, this UI is informational only (read-only). Future versions of Corda will extend the basic functionality to enable
+![flowTriageView](resources/explorer/flowTriageView.png "flowTriageView")As of Corda Enterprise 4.3, this UI is informational only (read-only). Future versions of Corda will extend the basic functionality to enable
                     operational controls such as manual recovery and retry, and cancellation of errored flows.
 
 

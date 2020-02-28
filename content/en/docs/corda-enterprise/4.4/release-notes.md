@@ -110,7 +110,7 @@ There have been several security upgrades, including changes to the Corda webser
 ### Platform version change
 Given the addition of a new API to support the Accounts feature, the platform version of Corda 4.3 has been bumped up from 4 to 5. This is to prevent CorDapps that use it being deployed onto nodes unable to host them. Note that the minimum platform version has not been changed - this means that older Corda nodes can still interoperate with Corda 4.3 nodes. Since the APIs added do not affect the wire protocol or have other zone-level implications, applications can take advantage of these new platform version 5 features even if the Corda 4.3 node is running on a network whose minimum platform version is 4.
 
-For more information on platform version, please see versioning. For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}).
+For more information on platform version, please see versioning. For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
 
 
 ### Deprecations
@@ -1072,11 +1072,11 @@ Welcome to the Corda 4 release notes. Please read these carefully to understand 
                 to wire and API stability, Corda 4 comes with those same guarantees. States and apps valid in
                 Corda 3 are transparently usable in Corda 4.
 
-For app developers, we strongly recommend reading “[Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}})”. This covers the upgrade
+For app developers, we strongly recommend reading “[Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md)”. This covers the upgrade
                 procedure, along with how you can adjust your app to opt-in to new features making your app more secure and
                 easier to upgrade in future.
 
-For node operators, we recommend reading “[Upgrading your node to Corda 4]({{< relref "node-upgrade-notes" >}})”. The upgrade procedure is simple but
+For node operators, we recommend reading “[Upgrading your node to Corda 4](node-upgrade-notes.md)”. The upgrade procedure is simple but
                 it can’t hurt to read the instructions anyway.
 
 Additionally, be aware that the data model improvements are changes to the Corda consensus rules. To use
@@ -1120,11 +1120,11 @@ When an app is signed, that automatically activates the use of signature constra
 
 **We strongly recommend all apps be signed and use signature constraints going forward.**
 
-Learn more about this new feature by reading the [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}).
+Learn more about this new feature by reading the [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
 
 
 #### State pointers
-[State Pointers]({{< relref "cordapps/api-states#state-pointers" >}}) formalize a recommended design pattern, in which states may refer to other states
+[State Pointers](cordapps/api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
                         on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
                         any information on the global ledger). State pointers work together with the reference states feature
                         to make it easy for data to point to the latest version of any other piece of data, with the right
@@ -1137,9 +1137,7 @@ A new graphical tool for building test Corda networks has been added. It can bui
 
 Learn more on the [https://docs.corda.net/network-builder.html](https://docs.corda.net/network-builder.html). page.
 
-{{< img src="_static/images/network-builder-v4.png" alt="network builder v4" >}}
-
-
+![network builder v4](_static/images/network-builder-v4.png "network builder v4")
 #### JPA access in flows and services
 Corda 3 provides the `jdbcConnection` API on `FlowLogic` to give access to an active connection to your
                         underlying database. It is fully intended that apps can store their own data in their own tables in the
@@ -1210,7 +1208,7 @@ Transactions created under a Corda 4+ node will have the currently valid signed 
                         from their classpath. Definitions for these classes will be synthesised on the fly from the binary schemas
                         embedded in the messages. The resulting dynamically created objects can then be fed into any framework that
                         uses reflection, such as XML formatters, JSON libraries, GUI construction toolkits, scripting engines and so on.
-                        This approach is how the [Blob Inspector]({{< relref "blob-inspector" >}}) tool works - it simply deserialises a message and then feeds
+                        This approach is how the [Blob Inspector](blob-inspector.md) tool works - it simply deserialises a message and then feeds
                         the resulting synthetic class graph into a JSON or YAML serialisation framework.
 
 Class synthesis will use interfaces that are implemented by the original objects if they are found on the
@@ -1281,7 +1279,7 @@ We’ve upgraded to Gradle 4.10.1.
 ### Changes for administrators in Corda 4
 
 #### Official Docker images
-Corda 4 adds an [Official Corda Docker Image]({{< relref "docker-image" >}}) for starting the node. It’s based on Ubuntu and uses the Azul Zulu
+Corda 4 adds an [Official Corda Docker Image](docker-image.md) for starting the node. It’s based on Ubuntu and uses the Azul Zulu
                         spin of Java 8. Other tools will have Docker images in future as well.
 
 
@@ -1357,7 +1355,7 @@ The TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 family of ciphers is retired from the li
 
 
 ### Miscellaneous changes
-To learn more about smaller changes, please read the [Changelog]({{< relref "changelog" >}}).
+To learn more about smaller changes, please read the [Changelog](changelog.md).
 
 Finally, we have added some new jokes. Thank you and good night!
 

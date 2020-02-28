@@ -2,7 +2,7 @@
 ROOT_DIR          := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 DOCKER             = docker
 DOCKER_RUN         = $(DOCKER) run --rm --volume $(ROOT_DIR):/src
-HUGO_VERSION       = 0.62.2
+HUGO_VERSION       = 0.65.3
 
 HUGO_DOCKER_IMAGE  = corda-docs-hugo
 PROD_IMAGE         = corda-docs-nginx

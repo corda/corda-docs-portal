@@ -22,7 +22,7 @@ For these reasons, test deployments can avail themselves of the Network Bootstra
                 node configurations from a common directory to generate the network parameters file, which is then copied to all the nodes’
                 directories. It also copies each node’s node-info file to every other node so that they can all be visible to each other.
 
-You can find out more about network maps and network parameters from [The network map]({{< relref "network-map" >}}).
+You can find out more about network maps and network parameters from [The network map](network-map.md).
 
 
 ## Bootstrapping a test network
@@ -78,7 +78,7 @@ The `cordapp-a.jar` and `cordapp-b.jar` will be installed in each node directory
 
 ### Whitelisting contracts
 Any CorDapps provided when bootstrapping a network will be scanned for contracts which will be used to create the
-                    *Zone whitelist* (see [API: Contract Constraints]({{< relref "api-contract-constraints" >}})) for the network.
+                    *Zone whitelist* (see [API: Contract Constraints](api-contract-constraints.md)) for the network.
 
 
 {{< note >}}
@@ -87,14 +87,14 @@ If you only wish to whitelist the CorDapps but not copy them to each node then r
 
 {{< /note >}}
 The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part
-                    of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` [The network map]({{< relref "network-map" >}})).
+                    of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` [The network map](network-map.md)).
 
 By default the Bootstrapper will whitelist all the contracts found in the unsigned CorDapp JARs (a JAR file not signed by jarSigner tool).
                     Whitelisted contracts are checked by *Zone constraints*, while contract classes from signed JARs will be checked by *Signature constraints*.
                     To prevent certain contracts from unsigned JARs from being whitelisted, add their fully qualified class name in the `exclude_whitelist.txt`.
                     These will instead use the more restrictive `HashAttachmentConstraint`.
                     To add certain contracts from signed JARs to whitelist, add their fully qualified class name in the `include_whitelist.txt`.
-                    Refer to [API: Contract Constraints]({{< relref "api-contract-constraints" >}}) to understand the implication of different constraint types before adding `exclude_whitelist.txt` or `include_whitelist.txt` files.
+                    Refer to [API: Contract Constraints](api-contract-constraints.md) to understand the implication of different constraint types before adding `exclude_whitelist.txt` or `include_whitelist.txt` files.
 
 For example:
 
@@ -106,7 +106,7 @@ net.corda.finance.contracts.asset.CommercialPaper
 ## Modifying a bootstrapped network
 The Network Bootstrapper is provided as a development tool for setting up Corda networks for development and testing.
                 There is some limited functionality which can be used to make changes to a network, but for anything more complicated consider
-                using a [Network Map]({{< relref "network-map" >}}) server.
+                using a [Network Map](network-map.md) server.
 
 When running the Network Bootstrapper, each `node-info` file needs to be gathered together in one directory. If
                 the nodes are being run on different machines you need to do the following:
@@ -495,6 +495,6 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
 
 
 ### Sub-commands
-`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 

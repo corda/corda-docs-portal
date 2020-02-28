@@ -55,7 +55,7 @@ The Interest Rate Swap (IRS) contract is a bilateral contract to implement a van
                 interest rate. They are often used as a hedging instrument, convert a fixed rate loan to a floating rate loan, vice
                 versa etc.
 
-See “[Interest rate swaps]({{< relref "contract-irs" >}})” for full details on the IRS contract.
+See “[Interest rate swaps](contract-irs.md)” for full details on the IRS contract.
 
 
 ## Obligation

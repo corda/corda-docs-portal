@@ -28,6 +28,6 @@ Copy the file before registering the individual identity of the notary worker, t
                 ———–
 
 The registration tool supports `Azure Key Vault` and `Securosys Primus X`, and if any of those is configured in the `node.config` the keys will be installed
-                there instead of `certificates/nodekeystore.jks`. See [HSM Support]({{< relref "running-a-notary-cluster/hsm-support#hsm-support" >}}) for more information.
+                there instead of `certificates/nodekeystore.jks`. See [HSM Support](running-a-notary-cluster/hsm-support.md#hsm-support) for more information.
 
 

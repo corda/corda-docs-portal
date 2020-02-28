@@ -63,10 +63,10 @@ Which will update the alias to point to the new location, and update command lin
 
 |Description|Alias|JAR Name|
 |---------------------------------------------------------|------------------------------|----------------------------------------------------------|
-|[Corda node]({{< relref "running-a-node#starting-an-individual-corda-node" >}})|`corda --<option>`|`corda-4.1.jar`|
-|[Network bootstrapper]({{< relref "network-bootstrapper" >}})|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.1.jar`|
-|[Standalone shell]({{< relref "shell#standalone-shell" >}})|`corda-shell --<option>`|`corda-tools-shell-cli-4.1.jar`|
-|[Blob inspector]({{< relref "blob-inspector" >}})|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.1.jar`|
+|[Corda node](running-a-node.md#starting-an-individual-corda-node)|`corda --<option>`|`corda-4.1.jar`|
+|[Network bootstrapper](network-bootstrapper.md)|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.1.jar`|
+|[Standalone shell](shell.md#standalone-shell)|`corda-shell --<option>`|`corda-tools-shell-cli-4.1.jar`|
+|[Blob inspector](blob-inspector.md)|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.1.jar`|
 
 {{< /table >}}
 

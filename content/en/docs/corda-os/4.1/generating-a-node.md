@@ -18,7 +18,7 @@ A node can be created manually by creating a folder that contains the following 
 > 
 > 
 
-* A node configuration file entitled `node.conf`, configured as per [Node configuration]({{< relref "corda-configuration-file" >}})
+* A node configuration file entitled `node.conf`, configured as per [Node configuration](corda-configuration-file.md)
 
 
 * A folder entitled `cordapps` containing any CorDapp JARs you want the node to load
@@ -35,7 +35,7 @@ A node can be created manually by creating a folder that contains the following 
 > 
 > 
 
-The remaining files and folders described in [Node folder structure]({{< relref "node-structure" >}}) will be generated at runtime.
+The remaining files and folders described in [Node folder structure](node-structure.md) will be generated at runtime.
 
 
 ## The Cordform task
@@ -146,7 +146,7 @@ When adding nodes, make sure that there are no port clashes!
 
 {{< /warning >}}
 To extend node configuration beyond the properties defined in the `deployNodes` task use the `configFile` property with the path (relative or absolute) set to an additional configuration file.
-                This file should follow the standard [Node configuration]({{< relref "corda-configuration-file" >}}) format, as per node.conf. The properties from this file will be appended to the generated node configuration. Note, if you add a property already created by the ‘deployNodes’ task, both properties will be present in the file.
+                This file should follow the standard [Node configuration](corda-configuration-file.md) format, as per node.conf. The properties from this file will be appended to the generated node configuration. Note, if you add a property already created by the ‘deployNodes’ task, both properties will be present in the file.
                 The path to the file can also be added while running the Gradle task via the `-PconfigFile` command line option. However, the same file will be applied to all nodes.
                 Following the previous example `PartyB` node will have additional configuration options added from a file `none-b.conf`:
 
@@ -189,7 +189,7 @@ The default behaviour of Cordform is to deploy CorDapp JARs “as built”:
 > 
 > 
 The Cordform `signing` entry can be used to override and customise the signing of CorDapp JARs.
-                    Signing the CorDapp enables its contract classes to use signature constraints instead of other types of the constraints [API: Contract Constraints]({{< relref "api-contract-constraints" >}}).
+                    Signing the CorDapp enables its contract classes to use signature constraints instead of other types of the constraints [API: Contract Constraints](api-contract-constraints.md).
 
 The sign task may use an external keystore, or create a new one.
                     The `signing` entry may contain the following parameters:
@@ -257,8 +257,8 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 Contracts classes from signed CorDapp JARs will be checked by signature constraints by default.
                     You can force them to be checked by zone constraints by adding contract class names to `includeWhitelist` entry,
-                    the list will generate *include_whitelist.txt* file used internally by [Network Bootstrapper]({{< relref "network-bootstrapper" >}}) tool.
-                    Refer to [API: Contract Constraints]({{< relref "api-contract-constraints" >}}) to understand implication of different constraint types before adding `includeWhitelist` to `deployNodes` task.
+                    the list will generate *include_whitelist.txt* file used internally by [Network Bootstrapper](network-bootstrapper.md) tool.
+                    Refer to [API: Contract Constraints](api-contract-constraints.md) to understand implication of different constraint types before adding `includeWhitelist` to `deployNodes` task.
                     The snippet below configures contracts classes from Finance CorDapp to be verified using zone constraints instead of signature constraints:
 
 ```groovy
@@ -313,7 +313,7 @@ There is no need to specify the nodes’ ports, as every node has a separate con
                 Every node will expose port `10003` for RPC connections.
 
 The nodes’ webservers will not be started. Instead, you should interact with each node via its shell over SSH
-                (see the [node configuration options]({{< relref "corda-configuration-file" >}})). You have to enable the shell by adding the
+                (see the [node configuration options](corda-configuration-file.md)). You have to enable the shell by adding the
                 following line to each node’s `node.conf` file:
 
 > 
@@ -393,6 +393,6 @@ This will create the nodes in the `build/nodes` folder. There will be a node fol
 If the task is a `Dockerform` task, running the task will also create an additional `Dockerfile` in each node
                 directory, and a `docker-compose.yml` file in the `build/nodes` directory.
 
-You can now run the nodes by following the instructions in [Running a node]({{< relref "running-a-node" >}}).
+You can now run the nodes by following the instructions in [Running a node](running-a-node.md).
 
 

@@ -6,37 +6,37 @@ date: 2020-01-08T09:59:25Z
 
 # CorDapps
 
-* [What is a CorDapp?]({{< relref "cordapp-overview" >}})
+* [What is a CorDapp?](cordapp-overview.md)
 
-* [Getting set up for CorDapp development]({{< relref "getting-set-up" >}})
+* [Getting set up for CorDapp development](getting-set-up.md)
 
-* [Running the example CorDapp]({{< relref "tutorial-cordapp" >}})
+* [Running the example CorDapp](tutorial-cordapp.md)
 
-* [CorDapp samples]({{< relref "building-a-cordapp-samples" >}})
+* [CorDapp samples](building-a-cordapp-samples.md)
 
-* [Structuring a CorDapp]({{< relref "writing-a-cordapp" >}})
+* [Structuring a CorDapp](writing-a-cordapp.md)
 
-* [Building and installing a CorDapp]({{< relref "cordapp-build-systems" >}})
+* [Building and installing a CorDapp](cordapp-build-systems.md)
 
-* [Building CorDapps against a non-release branch]({{< relref "building-against-master" >}})
+* [Building CorDapps against a non-release branch](building-against-master.md)
 
-* [Debugging a CorDapp]({{< relref "debugging-a-cordapp" >}})
+* [Debugging a CorDapp](debugging-a-cordapp.md)
 
-* [Versioning]({{< relref "versioning" >}})
+* [Versioning](versioning.md)
 
-* [Release new CorDapp versions]({{< relref "upgrading-cordapps" >}})
+* [Release new CorDapp versions](upgrading-cordapps.md)
 
-* [CorDapp constraints migration]({{< relref "cordapp-constraint-migration" >}})
+* [CorDapp constraints migration](cordapp-constraint-migration.md)
 
-* [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability" >}})
+* [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md)
 
-* [Secure coding guidelines]({{< relref "secure-coding-guidelines" >}})
+* [Secure coding guidelines](secure-coding-guidelines.md)
 
-* [Configuring Responder Flows]({{< relref "flow-overriding" >}})
+* [Configuring Responder Flows](flow-overriding.md)
 
-* [Flow cookbook]({{< relref "flow-cookbook" >}})
+* [Flow cookbook](flow-cookbook.md)
 
-* [Database management scripts]({{< relref "database-management" >}})
+* [Database management scripts](database-management.md)
 
 
 

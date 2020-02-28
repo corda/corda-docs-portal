@@ -13,7 +13,7 @@ You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/
                 `MockNetwork` to debug your CorDapp:
 
 
-* Define your flow tests as per [API: Testing]({{< relref "api-testing" >}})
+* Define your flow tests as per [API: Testing](api-testing.md)
 
 > 
 > 
@@ -35,7 +35,7 @@ You can also attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/
 
 ### With the nodes in-process
 
-* Define a network using the node driver as per [Integration testing]({{< relref "tutorial-integration-testing" >}})
+* Define a network using the node driver as per [Integration testing](tutorial-integration-testing.md)
 
 > 
 > 
@@ -60,7 +60,7 @@ You can also attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/
 
 ### With remote debugging
 
-* Define a network using the node driver as per [Integration testing]({{< relref "tutorial-integration-testing" >}})
+* Define a network using the node driver as per [Integration testing](tutorial-integration-testing.md)
 
 > 
 > 
@@ -105,6 +105,6 @@ You can also attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/
 
 
 ## By enabling remote debugging on a node
-See [Enabling remote debugging]({{< relref "running-a-node#enabling-remote-debugging" >}}).
+See [Enabling remote debugging](running-a-node.md#enabling-remote-debugging).
 
 

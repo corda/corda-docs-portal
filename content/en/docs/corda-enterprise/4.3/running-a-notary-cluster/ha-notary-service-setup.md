@@ -26,7 +26,7 @@ The table below lists the available notary implementations in Corda Enterprise:
 |JPA notary|Yes|Seperate connection|
 
 {{< /table >}}
-For a list of databases supported by each of the above notary implementations, please refer to the [Platform support matrix]({{< relref "../platform-support-matrix" >}})
+For a list of databases supported by each of the above notary implementations, please refer to the [Platform support matrix](../platform-support-matrix.md)
 
 
 ## HA notaries
@@ -170,6 +170,6 @@ Make sure you have the following credentials available, creating them if necessa
 
 ## Keys and certificates
 Notary keys are stored in the same way as for regular Corda nodes in the `certificates`
-                directory. You can find out more in the [Network certificates]({{< relref "../permissioning" >}}) document.
+                directory. You can find out more in the [Network certificates](../permissioning.md) document.
 
 

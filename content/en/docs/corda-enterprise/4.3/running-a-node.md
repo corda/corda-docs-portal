@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-                [Creating nodes locally]({{< relref "generating-a-node" >}}).
+                [Creating nodes locally](generating-a-node.md).
 
 
 {{< /note >}}
@@ -16,7 +16,7 @@ There are several ways to run a Corda node locally for testing purposes.
 
 
 ## Starting a Corda node using DemoBench
-See the instructions in [DemoBench]({{< relref "demobench" >}}).
+See the instructions in [DemoBench](demobench.md).
 
 
 ## Starting a Corda node from the command line
@@ -161,7 +161,7 @@ Parameters:
 
 `generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
 
-`install-shell-extensions`: Install `corda` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "cli-application-shell-extensions" >}}) for more info.
+`install-shell-extensions`: Install `corda` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 `validate-configuration`: Validates the actual configuration without starting the node.
 
@@ -181,7 +181,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command line will start the node with JMX metrics accessible via HTTP on port 7005.
 
-See [Monitoring via Jolokia]({{< relref "node-administration#monitoring-jolokia" >}}) for further details.
+See [Monitoring via Jolokia](node-administration.md#monitoring-jolokia) for further details.
 
 
 ## Starting all nodes at once on a local machine from the command line
@@ -236,7 +236,7 @@ By default, `Cordform` expects the nodes it generates to be run on the same mach
 To create nodes locally and run on a remote machine perform the following steps:
 
 
-* Configure Cordform task and deploy the nodes locally as described in [Creating nodes locally]({{< relref "generating-a-node" >}}).
+* Configure Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md).
 
 
 * Copy the generated directory structure to a remote machine using e.g. Secure Copy.
@@ -255,7 +255,7 @@ This is optional step when a remote machine doesn’t accept `localhost` address
 
 If required change host addresses in top level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress` , `rpcSettings.address` and  `rpcSettings.adminAddress`.
 
-Run the network bootstrapper tool to regenerate the nodes network map (see for more explanation [Network Bootstrapper]({{< relref "network-bootstrapper" >}})):
+Run the network bootstrapper tool to regenerate the nodes network map (see for more explanation [Network Bootstrapper](network-bootstrapper.md)):
 
 `java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`
 
@@ -268,7 +268,7 @@ The above steps create a test deployment as `deployNodes` Gradle task would do o
 
 ## Database migrations
 Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-                For more information refer to [Database management scripts]({{< relref "database-management" >}}).
+                For more information refer to [Database management scripts](database-management.md).
 
 
 ## Stability of the Corda Node

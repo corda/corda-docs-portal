@@ -42,7 +42,7 @@ Apache JMeter runs tests that repeatedly trigger an action, wait for a response 
                     timings and so on, and allow to view the result data interactively or rendered as reports in various formats. Run controls
                     like parallelising tasks, running tasks in a specific order and count and time based repetitions are already built in.
 
-The interactions with the system under test are done via so called *samplers* (see [JMeter Samplers]({{< relref "jmeter-samplers" >}})) that can be
+The interactions with the system under test are done via so called *samplers* (see [JMeter Samplers](jmeter-samplers.md)) that can be
                     triggered by JMeter and then
                     run an action. JMeter has a number of built-in samplers, mostly around web technology, e.g. for HTTP requests, database
                     queries, starting scripts and so on. It is also possible to provide custom samplers that can run Java code when invoked.
@@ -98,9 +98,7 @@ The driving app sits outside the network and connects to the JMeter servers thro
                     thus saturating the RPC handler and driving the node as hard as possible. The test typically e.g. issues cash on the node
                     (no interaction with other nodes) or sends cash to a second node which requires sending P2P messages back and forth.
 
-{{< img src="performance-testing/resources/jmeter-network-overview.png" alt="jmeter network overview" >}}
-
-
+![jmeter network overview](performance-testing/resources/jmeter-network-overview.png "jmeter network overview")
 ## Performance Tests
 There are a number of different parts of the system that can be benchmarked with different performance tests, represented
                 by different test plans and/or samplers. In general, the closer a performance test is to real world load, the less it is

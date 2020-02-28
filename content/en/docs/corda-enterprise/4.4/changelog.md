@@ -6,7 +6,7 @@ date: 2020-01-08T09:59:25Z
 
 # Changelog
 Here’s a summary of what’s changed in each Corda release. For guidance on how to upgrade code from the previous
-            release, see [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}).
+            release, see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
 
 
 ## Unreleased
@@ -62,7 +62,7 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
 
 
 * Introduced a new low level flow diagnostics tool: checkpoint agent (that can be used standalone or in conjunction with the `checkpoints dump` shell command).
-                        See [Checkpoint Tooling]({{< relref "checkpoint-tooling" >}}) for more information.
+                        See [Checkpoint Tooling](checkpoint-tooling.md) for more information.
 
 
 * `NotaryFlow.Client` now performs transaction verification by default to prevent accidentally sending an invalid transaction to a
@@ -134,29 +134,29 @@ This is only best-effort and there are no guarantees of reliability.
                         are whitelisted if another attachment is present on the node that is signed by the same public key.
 
 
-* [Package namespace ownership]({{< relref "node/deploy/env-dev#package-namespace-ownership" >}}) configurations can be now be set as described in
-                        [Package namespace ownership]({{< relref "node/deploy/generating-a-node#node-package-namespace-ownership" >}}), when using the Cordformation plugin version 4.0.43.
+* [Package namespace ownership](node/deploy/env-dev.md#package-namespace-ownership) configurations can be now be set as described in
+                        [Package namespace ownership](node/deploy/generating-a-node.md#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
 
 
 * Wildcards can now be used when specifying RPC permissions, for example `StartFlow.foo.bar.*` will allow users to start any flow in the
-                        `foo.bar` package. See [rpcUsers]({{< relref "node/setup/corda-configuration-file#corda-configuration-file-rpc-users" >}}) for more information.
+                        `foo.bar` package. See [rpcUsers](node/setup/corda-configuration-file.md#corda-configuration-file-rpc-users) for more information.
 
 
 * `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:+CrashOnOutOfMemoryError` have been added to the default JVM options of the node.
                         A node which is running out of memory is now expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
                         Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens.
-                        See [Setting JVM arguments]({{< relref "node/deploy/running-a-node#setting-jvm-args" >}}) and [Memory usage and tuning]({{< relref "node/operating/node-administration#memory-usage-and-tuning" >}}) for further details.
+                        See [Setting JVM arguments](node/deploy/running-a-node.md#setting-jvm-args) and [Memory usage and tuning](node/operating/node-administration.md#memory-usage-and-tuning) for further details.
 
 
 * Package namespace ownership configurations can be now be set as described in
-                        [Package namespace ownership]({{< relref "node/deploy/generating-a-node#node-package-namespace-ownership" >}}), when using the Cordformation plugin version 4.0.43.
+                        [Package namespace ownership](node/deploy/generating-a-node.md#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
 
 
 * Environment variables and system properties can now be provided with underscore separators instead of dots. Neither are case sensitive.
-                        See [overriding config values]({{< relref "node/setup/corda-configuration-file#corda-configuration-file-overriding-config" >}}) for more information.
+                        See [overriding config values](node/setup/corda-configuration-file.md#corda-configuration-file-overriding-config) for more information.
 
 
-* SSH server in the [Embedded Shell]({{< relref "shell" >}}) has been updated to remove outdated weak ciphers and algorithms.
+* SSH server in the [Embedded Shell](shell.md) has been updated to remove outdated weak ciphers and algorithms.
 
 
 * Removed support for external SSH connections to the standalone shell. As a result, `--sshd-port` and `--sshd-hostkey-directory`
@@ -212,7 +212,7 @@ This is only best-effort and there are no guarantees of reliability.
 
 * Introduction of unique CorDapp version identifiers in jar manifests for contract and flows/services CorDapps.
                         Updated all sample CorDapps to reflect new conventions.
-                        See [CorDapp separation]({{< relref "cordapps/cordapp-build-systems#cordapp-separation-ref" >}}) for further information.
+                        See [CorDapp separation](cordapps/cordapp-build-systems.md#cordapp-separation-ref) for further information.
 
 
 * Automatic Constraints propagation for hash-constrained states to signature-constrained states.
@@ -288,11 +288,11 @@ This is only best-effort and there are no guarantees of reliability.
 * `FinalityFlow` is now an inlined flow and requires `FlowSession` s to each party intended to receive the transaction. This is to fix the
                         security problem with the old API that required every node to accept any transaction it received without any checks. Existing CorDapp
                         binaries relying on this old behaviour will continue to function as previously. However, it is strongly recommended CorDapps switch to
-                        this new API. See [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}) for further details.
+                        this new API. See [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md) for further details.
 
 
 * For similar reasons, `SwapIdentitiesFlow`, from confidential-identities, is also now an inlined flow. The old API has been preserved but
-                        it is strongly recommended CorDapps switch to this new API. See [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}) for further details.
+                        it is strongly recommended CorDapps switch to this new API. See [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md) for further details.
 
 
 * Introduced new optional network bootstrapper command line option (–minimum-platform-version) to set as a network parameter
@@ -540,7 +540,7 @@ This is only best-effort and there are no guarantees of reliability.
                         The class is used as database Primary Key columns of other entities and databases already impose those columns as non-nullable
                         (even if JPA annotation nullable=false was absent).
                         In case your Cordapps use this entity class to persist data in own custom tables as non Primary Key columns refer to
-                        [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}) for upgrade instructions.
+                        [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md) for upgrade instructions.
 
 
 * Adding a public method to check if a public key satisfies Corda recommended algorithm specs, `Crypto.validatePublicKey(java.security.PublicKey)`.
@@ -598,7 +598,7 @@ This is only best-effort and there are no guarantees of reliability.
 
 
 * All sample CorDapps were split into separate apps: workflows and contracts to reflect new convention. It is recommended to structure your CorDapps
-                        this way, see [Upgrading CorDapps to newer Platform Versions]({{< relref "app-upgrade-notes" >}}) on upgrading your CorDapp.
+                        this way, see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md) on upgrading your CorDapp.
 
 
 * The format of the shell commands’ output can now be customized via the node shell, using the `output-format` command.
@@ -922,7 +922,7 @@ later than 2.12.3 (including 2.12.4) exhibit a different issue.
 >                                     parameter is no longer needed.
 > 
 > 
->     * For test deployments we’ve introduced a bootstrapping tool (see [Network Bootstrapper]({{< relref "network-bootstrapper" >}})).
+>     * For test deployments we’ve introduced a bootstrapping tool (see [Network Bootstrapper](network-bootstrapper.md)).
 > 
 > 
 >     * `extraAdvertisedServiceIds`, `notaryNodeAddress`, `notaryClusterAddresses` and `bftSMaRt` configs have been
@@ -2691,7 +2691,7 @@ New features in this release:
 >                                     are trees of public keys in which interior nodes can have validity thresholds attached, thus allowing
 >                                     boolean formulas of keys to be created. This is similar to Bitcoin’s multi-sig support and the data model
 >                                     is the same as the InterLedger Crypto-Conditions spec, which should aid interoperate in future. Read more about
->                                     key trees in the “[API: Core types]({{< relref "api-core-types" >}})” article.
+>                                     key trees in the “[API: Core types](api-core-types.md)” article.
 > 
 > 
 >     * A new tutorial has been added showing how to use transaction attachments in more detail.
@@ -2867,7 +2867,7 @@ API changes:
 >     * Simplifications to the way the demo is used from the command line.
 > 
 > 
->     * [Detailed documentation on how the contract works and can be used]({{< relref "contract-irs" >}}) has been written.
+>     * [Detailed documentation on how the contract works and can be used](contract-irs.md) has been written.
 > 
 > 
 >     * Better integration testing of the app.
@@ -2961,10 +2961,10 @@ API changes:
 New documentation:
 
 
-* [Contract catalogue]({{< relref "contract-catalogue" >}})
+* [Contract catalogue](contract-catalogue.md)
 
 
-* [Interest rate swaps]({{< relref "contract-irs" >}})
+* [Interest rate swaps](contract-irs.md)
 
 
 * tutorial-test-dsl
@@ -3021,10 +3021,10 @@ Highlights of this release:
 We have new documentation on:
 
 
-* [Event scheduling]({{< relref "event-scheduling" >}})
+* [Event scheduling](event-scheduling.md)
 
 
-* [API: Core types]({{< relref "api-core-types" >}})
+* [API: Core types](api-core-types.md)
 
 
 * key-concepts-consensus

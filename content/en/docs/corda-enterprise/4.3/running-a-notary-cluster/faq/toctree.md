@@ -8,40 +8,40 @@ date: 2020-01-08T09:59:25Z
 Frequently asked questions for anything notary related:
 
 
-* [ETA Mechanism Overview]({{< relref "eta-mechanism" >}})
-    * [What is the ETA mechanism?]({{< relref "eta-mechanism#what-is-the-eta-mechanism" >}})
+* [ETA Mechanism Overview](eta-mechanism.md)
+    * [What is the ETA mechanism?](eta-mechanism.md#what-is-the-eta-mechanism)
 
-    * [How is the ETA calculated?]({{< relref "eta-mechanism#how-is-the-eta-calculated" >}})
+    * [How is the ETA calculated?](eta-mechanism.md#how-is-the-eta-calculated)
 
-    * [Why is there an ETA mechanism?]({{< relref "eta-mechanism#why-is-there-an-eta-mechanism" >}})
+    * [Why is there an ETA mechanism?](eta-mechanism.md#why-is-there-an-eta-mechanism)
 
-    * [What happens if I just invoke FinalityFlow again after getting told to wait?]({{< relref "eta-mechanism#what-happens-if-i-just-invoke-finalityflow-again-after-getting-told-to-wait" >}})
+    * [What happens if I just invoke FinalityFlow again after getting told to wait?](eta-mechanism.md#what-happens-if-i-just-invoke-finalityflow-again-after-getting-told-to-wait)
 
-    * [How can I configure ETA threshold?]({{< relref "eta-mechanism#how-can-i-configure-eta-threshold" >}})
-
-
-* [Notary Load Balancing]({{< relref "notary-load-balancing" >}})
-    * [How are clustered notaries resolved by Artemis?]({{< relref "notary-load-balancing#how-are-clustered-notaries-resolved-by-artemis" >}})
-
-    * [Why is the load balancing on the client side?]({{< relref "notary-load-balancing#why-is-the-load-balancing-on-the-client-side" >}})
-
-    * [What happens if a notary in cluster becomes unavailable and does not respond?]({{< relref "notary-load-balancing#what-happens-if-a-notary-in-cluster-becomes-unavailable-and-does-not-respond" >}})
-
-    * [Can a specific notary from the cluster be selected for notarisation?]({{< relref "notary-load-balancing#can-a-specific-notary-from-the-cluster-be-selected-for-notarisation" >}})
-
-    * [In what order are notarisation requests processed?]({{< relref "notary-load-balancing#in-what-order-are-notarisation-requests-processed" >}})
+    * [How can I configure ETA threshold?](eta-mechanism.md#how-can-i-configure-eta-threshold)
 
 
-* [Notary Failover]({{< relref "notary-failover" >}})
-    * [How does the timeout work?]({{< relref "notary-failover#how-does-the-timeout-work" >}})
+* [Notary Load Balancing](notary-load-balancing.md)
+    * [How are clustered notaries resolved by Artemis?](notary-load-balancing.md#how-are-clustered-notaries-resolved-by-artemis)
 
-    * [What is the back off mechanism?]({{< relref "notary-failover#what-is-the-back-off-mechanism" >}})
+    * [Why is the load balancing on the client side?](notary-load-balancing.md#why-is-the-load-balancing-on-the-client-side)
 
-    * [What happens on multiple successful responses caused by retrying?]({{< relref "notary-failover#what-happens-on-multiple-successful-responses-caused-by-retrying" >}})
+    * [What happens if a notary in cluster becomes unavailable and does not respond?](notary-load-balancing.md#what-happens-if-a-notary-in-cluster-becomes-unavailable-and-does-not-respond)
 
-    * [Is it possible to receive a success and failure because of retrying?]({{< relref "notary-failover#is-it-possible-to-receive-a-success-and-failure-because-of-retrying" >}})
+    * [Can a specific notary from the cluster be selected for notarisation?](notary-load-balancing.md#can-a-specific-notary-from-the-cluster-be-selected-for-notarisation)
 
-    * [If there is a network outage/partition, how does this affect the notary?]({{< relref "notary-failover#if-there-is-a-network-outage-partition-how-does-this-affect-the-notary" >}})
+    * [In what order are notarisation requests processed?](notary-load-balancing.md#in-what-order-are-notarisation-requests-processed)
+
+
+* [Notary Failover](notary-failover.md)
+    * [How does the timeout work?](notary-failover.md#how-does-the-timeout-work)
+
+    * [What is the back off mechanism?](notary-failover.md#what-is-the-back-off-mechanism)
+
+    * [What happens on multiple successful responses caused by retrying?](notary-failover.md#what-happens-on-multiple-successful-responses-caused-by-retrying)
+
+    * [Is it possible to receive a success and failure because of retrying?](notary-failover.md#is-it-possible-to-receive-a-success-and-failure-because-of-retrying)
+
+    * [If there is a network outage/partition, how does this affect the notary?](notary-failover.md#if-there-is-a-network-outage-partition-how-does-this-affect-the-notary)
 
 
 

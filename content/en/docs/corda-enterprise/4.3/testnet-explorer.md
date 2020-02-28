@@ -23,7 +23,7 @@ It also assumes your node is provisioned and connected to the Corda Testnet alth
 
 
 {{< note >}}
-If you need to set up a Corda Enterprise node using the Cloud templates, see: [Using Azure Resource Manager Templates to deploy a Corda Enterprise node]({{< relref "azure-template-guide" >}}).
+If you need to set up a Corda Enterprise node using the Cloud templates, see: [Using Azure Resource Manager Templates to deploy a Corda Enterprise node](azure-template-guide.md).
 
 
 {{< /note >}}
@@ -124,9 +124,7 @@ The Enterprise Node Explorer is incompatible with open source versions of Corda 
 ```bash
 java -jar corda-tools-explorer-4.3.jar
 ```
-{{< img src="resources/explorer-login.png" alt="explorer login" >}}
-
-
+![explorer login](resources/explorer-login.png "explorer login")
 
 ## Connect to the node
 To connect to the node you will need:
@@ -149,30 +147,20 @@ Click on `Connect` to log into the node.
 ## Check your network identity and counterparties
 Once Explorer has logged in to your node over RPC click on the `Network` tab in the side navigation of the Explorer UI:
 
-{{< img src="resources/explorer-network.png" alt="explorer network" >}}
-
-If your Enterprise node is correctly configured and connected to the Testnet then you should be able to see the identities of
+![explorer network](resources/explorer-network.png "explorer network")If your Enterprise node is correctly configured and connected to the Testnet then you should be able to see the identities of
                 your node, the Testnet notary and the network map listing all the counterparties currently on the network.
 
 
 ## Test issuance transaction
 Now we are going to try and issue some cash to a ‘bank’. Click on the `Cash` tab.
 
-{{< img src="resources/explorer-cash-issue1.png" alt="explorer cash issue1" >}}
+![explorer cash issue1](resources/explorer-cash-issue1.png "explorer cash issue1")Now click on `New Transaction` and create an issuance to a known counterparty on the network by filling in the form:
 
-Now click on `New Transaction` and create an issuance to a known counterparty on the network by filling in the form:
+![explorer cash issue2](resources/explorer-cash-issue2.png "explorer cash issue2")Click `Execute` and the transaction will start.
 
-{{< img src="resources/explorer-cash-issue2.png" alt="explorer cash issue2" >}}
-
-Click `Execute` and the transaction will start.
-
-{{< img src="resources/explorer-cash-issue3.png" alt="explorer cash issue3" >}}
-
-Click on the red X to close the notification window and click on `Transactions` tab to see the transaction in progress,
+![explorer cash issue3](resources/explorer-cash-issue3.png "explorer cash issue3")Click on the red X to close the notification window and click on `Transactions` tab to see the transaction in progress,
                 or wait for a success message to be displayed:
 
-{{< img src="resources/explorer-transactions.png" alt="explorer transactions" >}}
-
-Congratulations! You have now successfully installed a CorDapp and executed a transaction on the Corda Testnet.
+![explorer transactions](resources/explorer-transactions.png "explorer transactions")Congratulations! You have now successfully installed a CorDapp and executed a transaction on the Corda Testnet.
 
 

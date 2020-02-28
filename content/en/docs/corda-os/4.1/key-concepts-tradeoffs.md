@@ -63,7 +63,7 @@ Corda also uses several other techniques to maximize privacy on the network:
 
 * **Transaction tear-offs**: Transactions are structured in a way that allows them to be digitally signed without
                         disclosing the transaction’s contents. This is achieved using a data structure called a Merkle tree. You can read
-                        more about this technique in [Transaction tear-offs]({{< relref "tutorial-tear-offs" >}}).
+                        more about this technique in [Transaction tear-offs](tutorial-tear-offs.md).
 
 
 * **Key randomisation**: The parties to a transaction are identified only by their public keys, and fresh key pairs are

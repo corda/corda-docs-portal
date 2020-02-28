@@ -89,8 +89,6 @@ Flows that are kept in for observation are retried upon node restart.
 The Corda Enterprise Node Explorer can be used to visualize all flows within the “Flow Triage” panel, where these can be filtered by flow
                     status (for example, to only display errored flows):
 
-{{< img src="resources/explorer/flowTriageView.png" alt="flowTriageView" >}}
-
-As of Corda Enterprise 4.1, this UI is informational only (read-only).
+![flowTriageView](resources/explorer/flowTriageView.png "flowTriageView")As of Corda Enterprise 4.1, this UI is informational only (read-only).
 
 

@@ -11,7 +11,7 @@ The MySQL notary service is tested against Percona XtraDB Cluster 5.7. Percona�
 
 
 {{< warning >}}
-The MySQL notary service is deprecated and will be removed in the future. A [JPA notary service]({{< relref "installing-jpa" >}})
+The MySQL notary service is deprecated and will be removed in the future. A [JPA notary service](installing-jpa.md)
                 should be used instead.
 
 
@@ -271,7 +271,7 @@ FLUSH PRIVILEGES;
 ### On all other Nodes
 Once you have updated the `wsrep.cnf` on all nodes, start MySQL on all the
                     remaining nodes of your cluster. Run this command on all nodes of your cluster,
-                    except the first one. The config file is shown [above]({{< relref "#wsrep-cnf" >}}).
+                    except the first one. The config file is shown [above](.md#wsrep-cnf).
 
 ```sh
 service mysql start
@@ -285,6 +285,6 @@ mysql
 mysql> use corda;
 # The output should be `Database changed`.
 ```
-In the next section, we’re [Configuring the notary worker nodes]({{< relref "installing-the-notary-service" >}}).
+In the next section, we’re [Configuring the notary worker nodes](installing-the-notary-service.md).
 
 

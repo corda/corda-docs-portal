@@ -29,9 +29,7 @@ Double curly braces `{{ }}` are used to represent placeholder values
 
 
 ## Overview
-{{< img src="running-a-notary-cluster/resources/ha-notary-overview2.png" alt="ha notary overview2" >}}
-
-The figure above displays Corda client nodes in green on the top, then the Corda
+![ha notary overview2](running-a-notary-cluster/resources/ha-notary-overview2.png "ha notary overview2")The figure above displays Corda client nodes in green on the top, then the Corda
                 notary worker nodes in red in the middle and on the bottom are the Percona nodes in blue.
 
 Client nodes that request a notarisation by the service name of the notary,
@@ -58,9 +56,7 @@ In production you should consider running five nodes or more, to be able to
 {{< /note >}}
 
 ### Colocating Percona and the Notary Service
-{{< img src="running-a-notary-cluster/resources/percona-colocated.png" alt="percona colocated" >}}
-
-You can run a Percona Server and a Corda notary worker on the same machine.
+![percona colocated](running-a-notary-cluster/resources/percona-colocated.png "percona colocated")You can run a Percona Server and a Corda notary worker on the same machine.
 
 
 ### Summary
@@ -198,22 +194,22 @@ Follow the [Percona documentation](https://www.percona.com/doc/percona-xtradb-cl
 |RPC Port|10003|RPC traffic (internal only)|
 
 {{< /table >}}
-Later in the tutorial we’re covering the notary service configuration in details, in [Setting up the Notary Service]({{< relref "installing-the-notary-service" >}}).
+Later in the tutorial we’re covering the notary service configuration in details, in [Setting up the Notary Service](installing-the-notary-service.md).
 
 
 ### Keys and Certificates
 Keys are stored the same way as for regular Corda nodes in the `certificates`
                     directory. If you’re interested in the details you can find out
-                    more in the [Network certificates]({{< relref "../permissioning" >}}) document.
+                    more in the [Network certificates](../permissioning.md) document.
 
 
 ## Next Steps
 
-* [Percona XtraDB Cluster, the underlying replicated Database]({{< relref "installing-percona" >}})
+* [Percona XtraDB Cluster, the underlying replicated Database](installing-percona.md)
 
-* [Setting up the Notary Service]({{< relref "installing-the-notary-service" >}})
+* [Setting up the Notary Service](installing-the-notary-service.md)
 
-* [Percona Monitoring, Backup and Restore (Advanced)]({{< relref "operating-percona" >}})
+* [Percona Monitoring, Backup and Restore (Advanced)](operating-percona.md)
 
 
 

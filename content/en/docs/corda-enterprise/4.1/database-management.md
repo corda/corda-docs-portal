@@ -6,17 +6,17 @@ date: 2020-01-08T09:59:25Z
 
 
 # Database management scripts
-Corda - the platform, and the installed CorDapps store their data in a relational database (see [API: Persistence]({{< relref "api-persistence" >}})).
+Corda - the platform, and the installed CorDapps store their data in a relational database (see [API: Persistence](api-persistence.md)).
             When a new CorDapp is installed, associated tables, indexes, foreign-keys, etc. must be created.
             Similarly, when a new version of a CorDapp is installed, its database schemas may have changed,
             but the existing data needs to be preserved or changed accordingly.
 
-In Corda Enteprise, CorDapps’ custom tables are created or upgraded automatically using [Liquibase]({{< relref "node-database#liquibase-ref" >}}).
+In Corda Enteprise, CorDapps’ custom tables are created or upgraded automatically using [Liquibase](node-database.md#liquibase-ref).
 
 
 ## Migration scripts structure
 Corda provides migration scripts in an XML format for its internal node and vault tables. CorDapps should provide
-                migration scripts for the tables they manage. In Corda, `MappedSchemas` (see [API: Persistence]({{< relref "api-persistence" >}})) manage JPA
+                migration scripts for the tables they manage. In Corda, `MappedSchemas` (see [API: Persistence](api-persistence.md)) manage JPA
                 Entities and thus the corresponding database tables. So `MappedSchemas` are the natural place to point to the
                 changelog file(s) that contain the change-sets for those tables. Nodes can configure which `MappedSchemas` are included
                 which means only the required tables are created. To follow standard best practices, our convention for structuring the

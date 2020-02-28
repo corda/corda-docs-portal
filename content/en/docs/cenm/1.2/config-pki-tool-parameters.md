@@ -254,8 +254,11 @@ Key store type. `AMAZON_CLOUD_HSM` in this case.
 
 credentialsAmazon
 The credentials for logging in to the HSM.
-                                :partition: Partition for the HSM. This can be found in the AWS console.
 
+
+
+partition
+Partition for the HSM. This can be found in the AWS console.
 
 
 userName

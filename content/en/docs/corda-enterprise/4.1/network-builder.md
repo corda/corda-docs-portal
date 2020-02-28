@@ -8,9 +8,7 @@ date: 2020-01-08T09:59:25Z
 The Corda Network Builder is a tool for building Corda networks for testing purposes. It leverages Docker and
             containers to abstract the complexity of managing a distributed network away from the user.
 
-{{< img src="_static/images/network-builder-v4.png" alt="network builder v4" >}}
-
-The network you build will either be made up of local `docker` nodes *or* of nodes spread across Azure
+![network builder v4](_static/images/network-builder-v4.png "network builder v4")The network you build will either be made up of local `docker` nodes *or* of nodes spread across Azure
             containers. More backends may be added in future. The tool is open source, so contributions to add more
             destinations for the containers are welcome!
 

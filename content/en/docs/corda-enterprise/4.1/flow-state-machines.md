@@ -260,17 +260,17 @@ For security reasons, we do not want Corda nodes to be able to just receive inst
                 via messaging, since this has been exploited in other Java application containers in the past.  Instead, we require
                 every class contained in messages to be whitelisted. Some classes are whitelisted by default (see `DefaultWhitelist`),
                 but others outside of that set need to be whitelisted either by using the annotation `@CordaSerializable` or via the
-                plugin framework.  See [Object serialization]({{< relref "serialization" >}}).  You can see above that the `SellerTradeInfo` has been annotated.
+                plugin framework.  See [Object serialization](serialization.md).  You can see above that the `SellerTradeInfo` has been annotated.
 
 
 ## Starting your flow
 The `StateMachineManager` is the class responsible for taking care of all running flows in a node. It knows
-                how to register handlers with the messaging system (see “[Networking and messaging]({{< relref "messaging" >}})”) and iterate the right state machine
+                how to register handlers with the messaging system (see “[Networking and messaging](messaging.md)”) and iterate the right state machine
                 when messages arrive. It provides the send/receive/sendAndReceive calls that let the code request network
                 interaction and it will save/restore serialised versions of the fiber at the right times.
 
 Flows can be invoked in several ways. For instance, they can be triggered by scheduled events (in which case they need to
-                be annotated with `@SchedulableFlow`), see “[Event scheduling]({{< relref "event-scheduling" >}})” to learn more about this. They can also be triggered
+                be annotated with `@SchedulableFlow`), see “[Event scheduling](event-scheduling.md)” to learn more about this. They can also be triggered
                 directly via the node’s RPC API from your app code (in which case they need to be annotated with *StartableByRPC*). It’s
                 possible for a flow to be of both types.
 
@@ -910,7 +910,7 @@ The flow framework is a key part of the platform and will be extended in major w
                 the features we have planned:
 
 
-* Exception management, with an improved [Flow Hospital]({{< relref "node-flow-hospital" >}}) facility to manually provide solutions to unavoidable
+* Exception management, with an improved [Flow Hospital](node-flow-hospital.md) facility to manually provide solutions to unavoidable
                         problems (e.g. the other side doesn’t know the trade)
 
 

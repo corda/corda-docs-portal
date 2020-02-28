@@ -43,7 +43,7 @@ Faced with the exercise of upgrading an existing Corda 3.x CorDapp to Corda 4, y
 * Should I use the **implicit** or **explicit** upgrade path?
 
 > 
-> The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here]({{< relref "api-contract-constraints#implicit-vs-explicit-upgrades" >}}).
+> The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.md#implicit-vs-explicit-upgrades).
 > 
 > **Implicit** upgrades allow pre-authorising multiple implementations of the contract ahead of time.
 >                         They do not require additional coding and do not incur a complex choreographed operational upgrade process.
@@ -53,7 +53,7 @@ Faced with the exercise of upgrading an existing Corda 3.x CorDapp to Corda 4, y
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (eg. same state definition, commands and verification code) and
                 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-                Contract CorDapp please read [Contract and state versioning]({{< relref "../node/operating/cm-updating-cordapp#contract-upgrading-ref" >}}) and [CorDapp Upgradeability Guarantees]({{< relref "cordapp-upgradeability" >}}) to understand your options.
+                Contract CorDapp please read [Contract and state versioning](../node/operating/cm-updating-cordapp.md#contract-upgrading-ref) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
 
 
 {{< /warning >}}
@@ -75,7 +75,7 @@ Corda 4.4 requires some additional steps to consume and evolve pre-existing on-l
 
 
 * All Corda Nodes in the same CZ or business network that may encounter a transaction chain with a hash constrained state must be started using
-                            relaxed hash constraint checking mode as described in [Hash constrained states in private networks]({{< relref "api-contract-constraints#relax-hash-constraints-checking-ref" >}}).
+                            relaxed hash constraint checking mode as described in [Hash constrained states in private networks](api-contract-constraints.md#relax-hash-constraints-checking-ref).
 
 
 * CorDapp flows that build transactions using pre-existing *hash-constrained* states must explicitly set output states to use *signature constraints*
@@ -136,7 +136,7 @@ These instructions only apply to CorDapp Contract JARs (unless otherwise stated)
 Corda 4.4 requires some additional steps to consume and evolve pre-existing on-ledger **CZ whitelisted** constrained states:
 
 
-* As the original developer of the CorDapp, the first step is to sign the latest version of the JAR that was released (see [Building and installing a CorDapp]({{< relref "cordapp-build-systems" >}})).
+* As the original developer of the CorDapp, the first step is to sign the latest version of the JAR that was released (see [Building and installing a CorDapp](cordapp-build-systems.md)).
                             The key used for signing will be used to sign all subsequent releases, so it should be stored appropriately. The JAR can be signed by multiple keys owned
                             by different parties and it will be expressed as a `CompositeKey` in the `SignatureAttachmentConstraint` (See api-core-types).
 
@@ -156,7 +156,7 @@ The process of CZ network CorDapp whitelisting depends on how the Corda network 
 > 
 > 
 > * if using a local network created using the Network Bootstrapper tool, please follow the instructions in
->                                         [Updating the contract whitelist for bootstrapped networks]({{< relref "../network-bootstrapper#bootstrapper-updating-whitelisted-contracts" >}}) to can add both CorDapp Contract JAR hashes.
+>                                         [Updating the contract whitelist for bootstrapped networks](../network-bootstrapper.md#bootstrapper-updating-whitelisted-contracts) to can add both CorDapp Contract JAR hashes.
 > 
 > 
 

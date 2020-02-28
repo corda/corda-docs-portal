@@ -366,9 +366,7 @@ It usually takes around 60 seconds for the nodes to finish starting up. Each nod
 
 * Click the green arrow to start the nodes:
 
-{{< img src="ZZPotential-delete-docs/resources/run-config-drop-down.png" alt="run config drop down" >}}
-
-
+![run config drop down](ZZPotential-delete-docs/resources/run-config-drop-down.png "run config drop down")
 * Select `cordapp-example.workflows-kotlin.test` for the Use classpath of module field, and then click Run
 
 
@@ -600,7 +598,7 @@ You can run the CorDapp’s integration tests by running the `Run Integration Te
 
 
 ### Running tests in IntelliJ
-See [Running tests in IntelliJ]({{< relref "../testing#tutorial-cordapp-alternative-test-runners" >}})
+See [Running tests in IntelliJ](../testing.md#tutorial-cordapp-alternative-test-runners)
 
 
 ## Debugging your CorDapp

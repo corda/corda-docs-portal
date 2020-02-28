@@ -8,7 +8,7 @@ date: 2020-01-08T09:59:25Z
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-                [Creating nodes locally]({{< relref "generating-a-node" >}}).
+                [Creating nodes locally](generating-a-node.md).
 
 
 {{< /note >}}
@@ -181,7 +181,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command line will start the node with JMX metrics accessible via HTTP on port 7005.
 
-See [Monitoring via Jolokia]({{< relref "../operating/node-administration#monitoring-jolokia" >}}) for further details.
+See [Monitoring via Jolokia](../operating/node-administration.md#monitoring-jolokia) for further details.
 
 
 ## Starting all nodes at once on a local machine from the command line
@@ -236,7 +236,7 @@ By default, `Cordform` expects the nodes it generates to be run on the same mach
 To create nodes locally and run on a remote machine perform the following steps:
 
 
-* Configure Cordform task and deploy the nodes locally as described in [Creating nodes locally]({{< relref "generating-a-node" >}}).
+* Configure Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md).
 
 
 * Copy the generated directory structure to a remote machine using e.g. Secure Copy.

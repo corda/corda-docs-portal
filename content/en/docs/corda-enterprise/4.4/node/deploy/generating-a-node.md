@@ -138,7 +138,7 @@ The configuration values available in `deployNodes` task are as follows:
 * `name` <string>
 
 
-    * The legal identity name of the Corda node. (see [myLegalName]({{< relref "../setup/corda-configuration-file#corda-configuration-file-mylegalname" >}}))
+    * The legal identity name of the Corda node. (see [myLegalName](../setup/corda-configuration-file.md#corda-configuration-file-mylegalname))
 
 
     * e.g.
@@ -151,7 +151,7 @@ name "O=PartyA,L=London,C=GB"
 * `p2pAddress` <string> <**required if p2pPort not specified**>
 
 
-    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress]({{< relref "../setup/corda-configuration-file#corda-configuration-file-p2paddress" >}}))
+    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress](../setup/corda-configuration-file.md#corda-configuration-file-p2paddress))
 
 
     * e.g.
@@ -164,7 +164,7 @@ p2pAddress "example.com:10002"
 * `p2pPort` <integer>
 
 
-    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress]({{< relref "../setup/corda-configuration-file#corda-configuration-file-p2paddress" >}}))
+    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress](../setup/corda-configuration-file.md#corda-configuration-file-p2paddress))
 
 
     * e.g.
@@ -177,7 +177,7 @@ p2pPort 10006  // "localhost:10006"
 * `rpcSettings` <config>
 
 
-    * Specifies RPC settings for the node. (see [rpcSettings]({{< relref "../setup/corda-configuration-file#corda-configuration-file-rpc-settings" >}}))
+    * Specifies RPC settings for the node. (see [rpcSettings](../setup/corda-configuration-file.md#corda-configuration-file-rpc-settings))
 
 
     * e.g.
@@ -193,7 +193,7 @@ rpcSettings {
 
 ### Optional configuration
 
-* `notary` <config> (see [notary]({{< relref "../setup/corda-configuration-file#corda-configuration-file-notary" >}}))
+* `notary` <config> (see [notary](../setup/corda-configuration-file.md#corda-configuration-file-notary))
 
 
     * Optional configuration which specifies the node is a notary.
@@ -210,7 +210,7 @@ rpcSettings {
 * `devMode` <boolean>
 
 
-    * When true enables development mode. (see [devMode]({{< relref "../setup/corda-configuration-file#corda-configuration-file-dev-mode" >}}))
+    * When true enables development mode. (see [devMode](../setup/corda-configuration-file.md#corda-configuration-file-dev-mode))
 
 
     * e.g.
@@ -249,7 +249,7 @@ webPort  10011  // "localhost:10011"
 * `rpcUsers` <list>
 
 
-    * Set the RPC users for this node. (see [rpcUsers]({{< relref "../setup/corda-configuration-file#corda-configuration-file-rpc-users" >}}))
+    * Set the RPC users for this node. (see [rpcUsers](../setup/corda-configuration-file.md#corda-configuration-file-rpc-users))
 
 
     * e.g.
@@ -291,7 +291,7 @@ https true
 * `sshdPort` <integer>
 
 
-    * Specifies the port for sshd communication. (see [sshd]({{< relref "../setup/corda-configuration-file#corda-configuration-file-sshd" >}}))
+    * Specifies the port for sshd communication. (see [sshd](../setup/corda-configuration-file.md#corda-configuration-file-sshd))
 
 
     * e.g.
@@ -350,7 +350,7 @@ ext.jolokia_version = "1.6.1"
 ```
 
 ### Package namespace ownership
-To specify [Package namespace ownership]({{< relref "env-dev#package-namespace-ownership" >}}) configuration, the optional `networkParameterOverrides` and `packageOwnership` blocks can be used, similar to the configuration file used in network-bootstrapper:
+To specify [Package namespace ownership](env-dev.md#package-namespace-ownership) configuration, the optional `networkParameterOverrides` and `packageOwnership` blocks can be used, similar to the configuration file used in network-bootstrapper:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {

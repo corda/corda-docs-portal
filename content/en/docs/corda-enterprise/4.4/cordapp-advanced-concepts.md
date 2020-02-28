@@ -52,9 +52,7 @@ Another relevant aspect to remember is that because states are serialised binary
 
 Behind the scenes, the matter is more complex. As can be seen in this illustration:
 
-{{< img src="resources/tx-chain.png" alt="tx chain" >}}
-
-
+![tx chain](resources/tx-chain.png "tx chain")
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
                         to output states from previous transactions (see api-transactions).
@@ -62,7 +60,7 @@ Corda’s design is based on the UTXO model. In a serialized transaction the inp
                         fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#attachments-classloader)).
                         This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
                         that when deserialising that state in the context of a transaction using the more recent code, that field could just disappear.
-                        In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution]({{< relref "serialization-default-evolution" >}})
+                        In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution](serialization-default-evolution.md)
 
 
 {{< /note >}}
@@ -101,7 +99,7 @@ The previous discussion explained the construction of a transaction that consume
 {{< note >}}
 The output states created by this transaction must also specify constraints and, to prevent a malicious transaction creator specifying
                         constraints that enable their malicious code to take control of a state in a future transaction, these constraints must be consistent
-                        with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation]({{< relref "cordapps/api-contract-constraints#constraints-propagation" >}}) .
+                        with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](cordapps/api-contract-constraints.md#constraints-propagation) .
 
 
 {{< /note >}}
@@ -275,7 +273,7 @@ Another way to look at bundling third party CorDapps is from the point of view o
                 This will create a `com.fruitcompany.Banana` signed by the `OrangeCo`, so there could be two types of Banana states on the network,
                 but “owned” by two different parties. This means that while they might have started using the same code, nothing stops these `Banana` contracts from diverging.
                 Parties on the network receiving a `com.fruitcompany.Banana` will need to explicitly check the constraint to understand what they received.
-                In Corda 4, to help avoid this type of confusion, we introduced the concept of Package Namespace Ownership (see “[Package namespace ownership]({{< relref "node/deploy/env-dev#package-namespace-ownership" >}})”).
+                In Corda 4, to help avoid this type of confusion, we introduced the concept of Package Namespace Ownership (see “[Package namespace ownership](node/deploy/env-dev.md#package-namespace-ownership)”).
                 Briefly, it allows companies to claim namespaces and anyone who encounters a class in that package that is not signed by the registered key knows is invalid.
 
 This new feature can be used to solve the above scenario. If `FruitCo` claims package ownership of `com.fruitcompany`, it will prevent anyone
