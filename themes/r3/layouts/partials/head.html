@@ -6,7 +6,5 @@
     {{- end -}}
     {{ end }}
 
-    {{ $style := resources.Get "sass/main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
-
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
 </head>

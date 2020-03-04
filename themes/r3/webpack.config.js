@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = [
     {
         entry: {
-            app: "./scripts",
+            app: ["./scripts", "./styles/scss/main.scss"],
             vendor: "./scripts/vendor"
         },
         output: {
@@ -17,6 +17,37 @@ module.exports = [
                     test: /\.(js|jsx)$/,
                     exclude: /node_modules/,
                     use: ["babel-loader", "eslint-loader"]
+                },
+                {
+                    test: /\.scss$/,
+                    use: [
+                        {
+                            loader: "file-loader",
+                            options: {
+                                name: "css/[name].css"
+                            }
+                        },
+                        {
+                            loader: "extract-loader"
+                        },
+                        {
+                            loader: "css-loader?-url"
+                        },
+                        {
+                            loader: "sass-loader"
+                        }
+                    ]
+                },
+                {
+                    test: /\.(png|jpg|gif)$/,
+                    use: [
+                        {
+                            loader: "url-loader",
+                            options: {
+                                limit: 5000
+                            }
+                        }
+                    ]
                 }
             ]
         }
