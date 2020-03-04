@@ -27,15 +27,9 @@ module.exports = [
                                 name: "css/[name].css"
                             }
                         },
-                        {
-                            loader: "extract-loader"
-                        },
-                        {
-                            loader: "css-loader?-url"
-                        },
-                        {
-                            loader: "sass-loader"
-                        }
+                        "extract-loader",
+                        "css-loader?-url",
+                        "sass-loader"
                     ]
                 },
                 {
