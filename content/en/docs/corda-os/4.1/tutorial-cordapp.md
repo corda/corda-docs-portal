@@ -4,7 +4,6 @@ menu:
   corda-os-4-1:
     parent: corda-os-4-1-tutorial
 title: Running the example CorDapp
-version: corda-os-4-1
 ---
 
 

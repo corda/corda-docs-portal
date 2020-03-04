@@ -1,14 +1,20 @@
-{{ if .Page.Params.version }}
+{{/* Either this page has a 'section_menu' in its front_matter, or the section */}}
+{{/* that the page belongs to should a 'section_menu' parameter */}}
+{{/* Generally, only the _index.md page of a section needs a 'section_menu' param */}}
+{{/* and the 'section_menu' matches its menu entry in menus.LANG.toml */}}
+{{ $sectionMenuForThisPage := or .Parent.Page.Params.section_menu .Page.Params.section_menu}}
+{{/* don't render this component if we don't have a 'section_menu' as we can't */}}
+{{/* correctly identify the menu we should be using for this page*/}}
+{{ if $sectionMenuForThisPage }}
 {{/* store the current page scope as '.' changes meaning in loops */}}
 {{ $currentPage := . }}
-{{/* the menu for the version this page is tagged with*/}}
-{{ $pageVersion := .Page.Params.version }}
-{{ $menuVersion := index .Site.Menus .Page.Params.version}}
-<!-- sidebar start -->
+{{/* the menu for the section_menu this page is tagged with*/}}
+{{ $menuEntries := index .Site.Menus $sectionMenuForThisPage}}
 <aside style="font-size: small; margin-top: 1rem;">
     <ul class="nav flex-column">
-        {{ range $menuVersion.ByWeight }}
-                <li class="nav-item{{ if $currentPage.HasMenuCurrent $pageVersion . }} active{{ end }}">
+        {{ range $menuEntries.ByWeight }}
+        {{ if .HasChildren }}
+                <li class="nav-item{{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
                     <a href="#">
                         {{ .Pre }}
                         <span>{{ .Name }}</span>
@@ -16,11 +22,19 @@
                 </li>
                 <ul class="sub-menu">
                     {{ range .Children }}
-                        <li class="nav-item{{ if $currentPage.IsMenuCurrent $pageVersion . }} active{{ end }}">
+                        <li class="nav-item{{ if $currentPage.IsMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
                             <a href="{{ .URL }}">{{ .Name }}</a>
                         </li>
                     {{ end }}
                 </ul>
+                {{ else }}
+                <li>
+                    <a href="{{ .URL }}">
+                        {{ .Pre }}
+                        <span>{{ .Name }}</span>
+                    </a>
+                </li>
+                {{end}}
         {{ end }}
     </ul>
 </aside>

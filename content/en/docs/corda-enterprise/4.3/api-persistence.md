@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-3:
     parent: corda-enterprise-4-3-api
 title: 'API: Persistence'
-version: corda-enterprise-4-3
 ---
 
 

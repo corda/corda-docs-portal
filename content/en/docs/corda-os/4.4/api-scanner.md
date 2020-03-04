@@ -4,7 +4,6 @@ menu:
   corda-os-4-4:
     parent: corda-os-4-4-api
 title: Checking API stability
-version: corda-os-4-4
 ---
 
 

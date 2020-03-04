@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-3:
     parent: corda-enterprise-4-3-concepts
 title: Oracles
-version: corda-enterprise-4-3
 ---
 
 

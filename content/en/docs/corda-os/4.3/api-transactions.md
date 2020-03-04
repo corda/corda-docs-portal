@@ -4,7 +4,6 @@ menu:
   corda-os-4-3:
     parent: corda-os-4-3-api
 title: 'API: Transactions'
-version: corda-os-4-3
 ---
 
 

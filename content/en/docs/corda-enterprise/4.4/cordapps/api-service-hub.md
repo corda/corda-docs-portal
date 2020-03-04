@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-4:
     parent: corda-enterprise-4-4-api
 title: Accessing node services
-version: corda-enterprise-4-4
 ---
 
 

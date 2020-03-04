@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-4:
     parent: corda-enterprise-4-4-node
 title: Flow Hospital
-version: corda-enterprise-4-4
 ---
 
 

@@ -1,17 +1,23 @@
+{{/* store the current page scope as '.' changes value */}}
 {{ $currentPage := . }}
+{{/* now get the current section version we're in */}}
 {{ $currentVersion := "Versions" }}
+{{/* Identify whether we're 'within' a section or not and store it  */}}
+{{ $sectionMenuForThisPage := or .Parent.Page.Params.section_menu .Page.Params.section_menu}}
 {{ range .Site.Menus.versions }}
-{{ if eq $currentPage.Params.version .Page.Params.version }}{{$currentVersion = .Name}}{{ end }}
+{{ if eq .Page.Params.section_menu $sectionMenuForThisPage }}{{$currentVersion = .Name}}{{ end }}
 {{ end }}
+{{/* We know know whether we're in 'corda-os-4.4' or not ('Versions') */}}
 <div class="dropdown">
     <button class="btn btn-sm dropdown-toggle" type="button" id="versionDropDown" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         {{ $currentVersion }}
     </button>
     <div class="dropdown-menu">
-        {{ range .Site.Menus.versions }}
+        {{ range .Site.Menus.versions.ByWeight }}
+        {{/* set a class against the active entry */}}
         {{ $active:=false}}
-        {{ if eq $currentPage.Params.version .Page.Params.version }}{{$active = true}}{{ end }}
+        {{ if eq .Page.Params.section_menu $sectionMenuForThisPage }}{{$active = true}}{{ end }}
         <a href="{{ .URL }}" class="small dropdown-item{{if $active}} active{{end}}">
             {{ .Pre }}
             <span>{{ .Name }}</span>

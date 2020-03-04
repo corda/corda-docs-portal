@@ -4,7 +4,6 @@ menu:
   corda-os-4-3:
     parent: corda-os-4-3-concepts
 title: Transaction tear-offs
-version: corda-os-4-3
 ---
 
 

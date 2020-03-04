@@ -1,10 +1,10 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-2: {}
-  versions: {}
+- cenm-1-2
+- versions
+section_menu: cenm-1-2
 title: CENM 1.2
-version: cenm-1-2
 ---
 
 

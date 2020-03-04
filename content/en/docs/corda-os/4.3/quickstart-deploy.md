@@ -1,9 +1,8 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-3: {}
+- corda-os-4-3
 title: Running the example CorDapp
-version: corda-os-4-3
 ---
 
 

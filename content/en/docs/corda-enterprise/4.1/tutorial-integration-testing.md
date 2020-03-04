@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-1:
     parent: corda-enterprise-4-1-tutorial
 title: Integration testing
-version: corda-enterprise-4-1
 ---
 
 

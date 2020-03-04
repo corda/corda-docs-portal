@@ -1,9 +1,8 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-4: {}
+- corda-enterprise-4-4
 title: Deploying in a testing or production environment
-version: corda-enterprise-4-4
 ---
 
 

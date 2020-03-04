@@ -1,9 +1,8 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-1: {}
+- corda-enterprise-4-1
 title: In a network with Doorman and Network map
-version: corda-enterprise-4-1
 ---
 
 

@@ -4,7 +4,6 @@ menu:
   corda-os-4-3:
     parent: corda-os-4-3-tutorial
 title: Observer nodes
-version: corda-os-4-3
 ---
 
 

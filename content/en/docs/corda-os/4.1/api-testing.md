@@ -4,7 +4,6 @@ menu:
   corda-os-4-1:
     parent: corda-os-4-1-api
 title: 'API: Testing'
-version: corda-os-4-1
 ---
 
 

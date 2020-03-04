@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-3:
     parent: corda-enterprise-4-3-tutorial
 title: Using the client RPC API
-version: corda-enterprise-4-3
 ---
 
 

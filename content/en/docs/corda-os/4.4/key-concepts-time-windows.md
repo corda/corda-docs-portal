@@ -4,7 +4,6 @@ menu:
   corda-os-4-4:
     parent: corda-os-4-4-concepts
 title: Time-windows
-version: corda-os-4-4
 ---
 
 

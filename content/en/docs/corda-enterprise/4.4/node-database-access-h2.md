@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-4:
     parent: corda-enterprise-4-4-node
 title: Database access when running H2
-version: corda-enterprise-4-4
 ---
 
 

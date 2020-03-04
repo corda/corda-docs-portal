@@ -1,9 +1,8 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-1: {}
+- corda-os-4-1
 title: Shell extensions for CLI Applications
-version: corda-os-4-1
 ---
 
 

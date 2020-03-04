@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-1:
     parent: corda-enterprise-4-1-node
 title: Upgrading a Corda (open source) Node to Corda Enterprise
-version: corda-enterprise-4-1
 ---
 
 

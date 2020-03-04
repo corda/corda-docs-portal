@@ -4,6 +4,5 @@ menu:
   corda-enterprise-4-4:
     parent: corda-enterprise-4-4-api
 title: api-scanner
-version: corda-enterprise-4-4
 ---
 

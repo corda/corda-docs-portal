@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-4:
     parent: corda-enterprise-4-4-api
 title: Using services in a flow
-version: corda-enterprise-4-4
 ---
 
 

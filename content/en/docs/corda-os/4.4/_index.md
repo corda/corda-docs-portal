@@ -1,10 +1,10 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-4: {}
-  versions: {}
+- corda-os-4-4
+- versions
+section_menu: corda-os-4-4
 title: Corda OS 4.4
-version: corda-os-4-4
 ---
 
 

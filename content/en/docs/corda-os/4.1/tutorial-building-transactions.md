@@ -4,7 +4,6 @@ menu:
   corda-os-4-1:
     parent: corda-os-4-1-tutorial
 title: Building transactions
-version: corda-os-4-1
 ---
 
 

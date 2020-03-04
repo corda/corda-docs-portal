@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-1:
     parent: corda-enterprise-4-1-node
 title: Upgrading your node to Corda Enterprise 4.1
-version: corda-enterprise-4-1
 ---
 
 

@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-3:
     parent: corda-enterprise-4-3-node
 title: Corda Enterprise cloud images
-version: corda-enterprise-4-3
 ---
 
 

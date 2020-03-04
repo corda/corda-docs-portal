@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-4:
     parent: corda-enterprise-4-4-node
 title: Deploying CorDapps on a node
-version: corda-enterprise-4-4
 ---
 
 

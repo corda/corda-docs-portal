@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-3:
     parent: corda-enterprise-4-3-node
 title: Database tables
-version: corda-enterprise-4-3
 ---
 
 

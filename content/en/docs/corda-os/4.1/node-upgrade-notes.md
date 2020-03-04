@@ -4,7 +4,6 @@ menu:
   corda-os-4-1:
     parent: corda-os-4-1-node
 title: Upgrading your node to Corda 4
-version: corda-os-4-1
 ---
 
 

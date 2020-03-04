@@ -1,11 +1,10 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-4: {}
-  versions: {}
-title: Corda Enterprise 4.4
-
-version: corda-enterprise-4-4
+- corda-enterprise-4-4
+- versions
+section_menu: corda-enterprise-4-4
+title: Introduction to Corda
 ---
 
 

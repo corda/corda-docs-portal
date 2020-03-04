@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-4:
     parent: corda-enterprise-4-4-node
 title: Database Schema Migration Logging
-version: corda-enterprise-4-4
 ---
 
 

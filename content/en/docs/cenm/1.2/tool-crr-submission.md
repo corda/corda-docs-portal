@@ -1,9 +1,8 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-2: {}
+- cenm-1-2
 title: Certificate Revocation Request Submission Tool
-version: cenm-1-2
 ---
 
 

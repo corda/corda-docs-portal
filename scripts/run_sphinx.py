@@ -429,34 +429,61 @@ class Translator:
         # we CANNOT have '.' in a 'toml' config section name - that implies hierarchy
         version = (dirs[1] + "-" + dirs[2]).replace(".", "-")
         filename_only = os.path.basename(os.path.splitext(self.filename)[0])
+        #  convienience
+        dest_file = str(self.filename).replace('docs/xml/xml/', '').replace(".xml", ".md")
+
+        dirname_only = os.path.basename(os.path.dirname(dest_file))
+        project_only = os.path.basename(os.path.dirname(os.path.dirname(dest_file)))
+        
+        # Are we parsing the index file under <project>/MAJOR.MINOR?
+        is_version_index = filename_only == "index" and re.findall(r"\d\.\d", dirname_only)
+
+        # Yes?  Rewrite the front matter titles to something consistent
+        if is_version_index:
+            if project_only == "corda-os":
+                self.front_matter["title"] = "Corda OS " + dirname_only
+            elif project_only == "corda-ent":
+                self.front_matter["title"] = "Corda Enterprise " + dirname_only
+            elif project_only == "cenm":
+                self.front_matter["title"] = "CENM " + dirname_only
+            
 
         # Menu entries that this page should occur in:
         menu = self.front_matter.get("menu", {})
-        this_menu = {}
-        if filename_only.startswith("api-"):
-            this_menu = { "parent": version + "-api" }
-        elif filename_only.startswith("key-concepts-"):
-            this_menu = { "parent": version + "-concepts" }
-        elif filename_only.startswith("node-"):
-            this_menu = { "parent": version + "-node" }
-        elif filename_only.startswith("tutorial-"):
-            this_menu = { "parent": version + "-tutorial" }
-        elif filename_only.startswith("config-"):
-            this_menu = { "parent": version + "-config" }
-        
-        menu[version] = this_menu
-            
-        if filename_only == "index":
-            LOG.warning(f"Adding {self.filename} to 'versions' menu")
-            menu["versions"] = {}
 
+        # Specifically figure out what this menu should be.
+        # Add each menu as a dict
+        menu_entry = {}
+        if filename_only.startswith("api-"):
+            menu_entry = { "parent": version + "-api" }
+        elif filename_only.startswith("key-concepts-"):
+            menu_entry = { "parent": version + "-concepts" }
+        elif filename_only.startswith("node-"):
+            menu_entry = { "parent": version + "-node" }
+        elif filename_only.startswith("tutorial-"):
+            menu_entry = { "parent": version + "-tutorial" }
+        elif filename_only.startswith("config-"):
+            menu_entry = { "parent": version + "-config" }
+        
+        # Set the menu entry for { "corda-os-4-3": { ... } }
+        menu[version] = menu_entry
+        
+        # e.g. if 4.4/index
+        if is_version_index:
+            LOG.warning(f"Adding {self.filename} to 'versions' menu")
+            menu["versions"] = {}        
+            LOG.warning(f"Adding parameter 'section_menu={version}' for this index page only'")
+            self.front_matter["section_menu"] = version
+
+        # All the values are empty dict, so we can safely use a list 
+        # of menus we're in instead.
+        if all(not bool(v) for __, v in menu.items()):
+            menu = [k for k, __ in menu.items()]
 
         # Add menu entry(-ies) to front matter
         self.front_matter["menu"] = menu
 
-        #  This simply indicates that this page should show the menu for this version
-        self.front_matter["version"] = version
-
+        # Finally, handle missing page titles, if any
         # use the filename (no extension) if the title is missing.
         if "title" not in self.front_matter:
             self.front_matter["title"] = filename_only
@@ -1145,22 +1172,24 @@ def copy_to_content(cms):
     for src in files:
         dest = str(src).replace('docs/xml/xml/', '').replace(REPOS, CONTENT)
         src_filename = os.path.basename(src)
+        dirname_only = os.path.basename(os.path.dirname(dest))
 
-        # # We need to rename index pages to _index.md for hugo and its sections
-        if ARGS.cms == "hugo":
+        # We need to rename index pages to _index.md (page bundle = section) 
+        # for hugo when we're in MAJOR.MINOR folders 
+        # otherwise, we're a plain-old "leaf bundle"
+        if ARGS.cms == "hugo" and re.findall(r"\d\.\d", dirname_only):
+            
             index_md = os.path.join(os.path.dirname(dest), '_index.md')
         
             if src_filename == 'index.md':
                 LOG.warning(f"Copying {src} to {dest}")
                 dest = index_md # it was 'index.rst', copying to '_index.md'
-            elif src_filename.endswith('index.md') and not os.path.exists(index_md):
-                # was something-index.rst, copying to _index.md
-                # fixes some of Ed's weird filenames
-                LOG.warning(f"Copying {src} to {dest}")
-                dest = index_md
 
         if not os.path.exists(os.path.dirname(dest)):
             os.makedirs(os.path.dirname(dest), exist_ok=True)
+
+        if dest.endswith("_index.md"):
+            LOG.error(f"Copying {src} {dest}")
 
         LOG.debug(f"Copying {src} {dest}")
         shutil.copyfile(src, dest)
@@ -1168,19 +1197,6 @@ def copy_to_content(cms):
             dirs.append(os.path.dirname(dest))
 
     LOG.warning(f"Copied {len(files)} files")
-    add_missing_index_md_files(dirs)
-
-
-def add_missing_index_md_files(dirs):
-    for dir in dirs:
-        _index_md = os.path.join(dir, '_index.md')
-        index_md = os.path.join(dir, 'index.md')
-        if not os.path.exists(index_md) and not os.path.exists(_index_md):
-            LOG.warning(f"Writing missing page bundle {_index_md}")
-            with open(_index_md, 'w') as f:
-                d = { 'title': os.path.basename(os.path.dirname(_index_md)) }
-                d['date'] ="2020-01-08T09:59:25Z"
-                write_frontmatter(f, d)
 
 
 def copy_resources_to_content():
@@ -1196,6 +1212,23 @@ def copy_resources_to_content():
     LOG.warning(f"Copied resources")
 
 
+def create_missing_pages():
+    if ARGS.cms not in ["hugo", "markdown"]:
+        LOG.warning("Don't know what to do for other CMSs")
+        return
+
+    parent_dir = os.path.join(CONTENT, "en", "docs")
+    
+    for dir in os.listdir(parent_dir):
+        item = os.path.join(parent_dir, dir)
+        if not os.path.isdir(item):
+            continue
+        index_md = os.path.join(item, "_index.md")
+        if not os.path.exists(index_md):
+            LOG.warning(f"Writing empty: {index_md}")
+            open(index_md, 'w').close()
+
+
 def main():
     global ARGS
     desc = "Convert rst files to md using sphinx"
@@ -1204,7 +1237,7 @@ def main():
     parser.add_argument("--skip", "-s", help="skip rst conversion for speed if already done", default=False, action='store_true')
     parser.add_argument("--cms", "-c", help="generate (commonmark) markdown for cms", default='hugo', choices=['gatsby', 'markdown', 'hugo'])
     ARGS = parser.parse_args()
-
+    ARGS.skip = True
     _setup_logging()
 
     LOG.warning(f"You need to clone the repositories you wish to convert to {REPOS}")
@@ -1230,6 +1263,7 @@ def main():
 
     copy_to_content(cms)
     copy_resources_to_content()
+    create_missing_pages()
 
 
 if __name__ == '__main__':

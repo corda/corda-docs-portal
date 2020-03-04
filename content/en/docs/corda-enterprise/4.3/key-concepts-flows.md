@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-3:
     parent: corda-enterprise-4-3-concepts
 title: Flows
-version: corda-enterprise-4-3
 ---
 
 

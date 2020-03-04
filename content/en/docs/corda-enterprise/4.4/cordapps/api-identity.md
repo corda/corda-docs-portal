@@ -4,7 +4,6 @@ menu:
   corda-enterprise-4-4:
     parent: corda-enterprise-4-4-api
 title: CorDapp Identities
-version: corda-enterprise-4-4
 ---
 
 
