@@ -18,20 +18,20 @@ $selected-page: "#{$class-object-prefix}selected-page";
 
     &__nav-toggle {
         line-height: 1;
-        color: $primary-01;
+        color: $red-500;
 
         svg:hover g path {
-            stroke: $primary-other-02;
+            stroke: $grey-500;
         }
     }
 
 
     &__toc-toggle {
         svg path {
-            fill: $primary-01;
+            fill: $red-500;
         }
         svg:hover > path  {
-            fill: $primary-other-02;
+            fill: $grey-500;
         }
     }
 
@@ -43,7 +43,7 @@ $selected-page: "#{$class-object-prefix}selected-page";
 }
 
 .#{$selected-page} {
-    background-color: $secondary-extra-05;
+    background-color: $blue-200;
     border-left: 1px solid black;
     padding-left: 1rem;
 }

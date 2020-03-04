@@ -1,17 +1,22 @@
 ---
-title: "Writing flows"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Writing flows
+version: corda-os-4-1
 ---
 
 
 
 # Writing flows
+
 This article explains our approach to modelling business processes and the lower level network protocols that implement
             them. It explains how the platform’s flow framework is used, and takes you through the code for a simple
             2-party asset trading flow which is included in the source.
 
 
 ## Introduction
+
 Shared distributed ledgers are interesting because they allow many different, mutually distrusting parties to
                 share a single source of truth about the ownership of assets. Digitally signed transactions are used to update that
                 shared ledger, and transactions may alter many states simultaneously and atomically.
@@ -64,6 +69,7 @@ As small contract-specific trading flows are a common occurrence in finance, we 
 
 
 ## Theory
+
 A *continuation* is a suspended stack frame stored in a regular object that can be passed around, serialised,
                 unserialised and resumed from where it was suspended. This concept is sometimes referred to as “fibers”. This may
                 sound abstract but don’t worry, the examples below will make it clearer. The JVM does not natively support
@@ -90,6 +96,7 @@ A *state machine* is a piece of code that moves through various *states*. These 
 
 
 ## A two party trading flow
+
 We would like to implement the “hello world” of shared transaction building flows: a seller wishes to sell some
                 *asset* (e.g. some commercial paper) in return for *cash*. The buyer wishes to purchase the asset using his cash. They
                 want the trade to be atomic so neither side is exposed to the risk of settlement failure. We assume that the buyer
@@ -187,9 +194,10 @@ object TwoPartyTradeFlow {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialFlowStateMachines.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt)
+[TutorialFlowStateMachines.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 This code defines several classes nested inside the main `TwoPartyTradeFlow` singleton. Some of the classes are
                 simply flow messages or exceptions. The other two represent the buyer and seller side of the flow.
@@ -237,6 +245,7 @@ Alright, so using this flow shouldn’t be too hard: in the simplest case we can
 
 
 ## Suspendable functions
+
 The `call` function of the buyer/seller classes is marked with the `@Suspendable` annotation. What does this mean?
 
 As mentioned above, our flow framework will at points suspend the code and serialise it to disk. For this to work,
@@ -254,6 +263,7 @@ Java 9 is likely to remove this pre-marking requirement completely.
 {{< /note >}}
 
 ## Whitelisted classes with the Corda node
+
 For security reasons, we do not want Corda nodes to be able to just receive instances of any class on the classpath
                 via messaging, since this has been exploited in other Java application containers in the past.  Instead, we require
                 every class contained in messages to be whitelisted. Some classes are whitelisted by default (see `DefaultWhitelist`),
@@ -262,6 +272,7 @@ For security reasons, we do not want Corda nodes to be able to just receive inst
 
 
 ## Starting your flow
+
 The `StateMachineManager` is the class responsible for taking care of all running flows in a node. It knows
                 how to register handlers with the messaging system (see “[Networking and messaging](messaging.md)”) and iterate the right state machine
                 when messages arrive. It provides the send/receive/sendAndReceive calls that let the code request network
@@ -295,6 +306,7 @@ The developer *must* then either subscribe to this `progress` observable or invo
 {{< /note >}}
 
 ## Implementing the seller
+
 Let’s implement the `Seller.call` method that will be run when the flow is invoked.
 
 
@@ -349,9 +361,10 @@ override fun call(): SignedTransaction {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 We start by sending information about the asset we wish to sell to the buyer. We fill out the initial flow message with
                 the trade info, and then call `otherSideSession.send`. which takes two arguments:
@@ -390,6 +403,7 @@ The transaction then needs to be finalized. This is the the process of sending t
 
 
 ## Implementing the buyer
+
 OK, let’s do the same for the buyer side:
 
 
@@ -484,9 +498,10 @@ private fun assembleSharedTX(assetForSale: StateAndRef<OwnableState>, tradeReque
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 This code is longer but no more complicated. Here are some things to pay attention to:
 
@@ -514,6 +529,7 @@ As you can see, the flow logic is straightforward and does not contain any callb
 
 
 ## Flow sessions
+
 It will be useful to describe how flows communicate with each other. A node may have many flows running at the same
                 time, and perhaps communicating with the same counterparty node but for different purposes. Therefore flows need a
                 way to segregate communication channels so that concurrent conversations between flows on the same set of nodes do
@@ -535,6 +551,7 @@ Taking a step back, we mentioned that the other side has to accept the session r
 
 
 ## Sub-flows
+
 Flows can be composed via nesting. Invoking a sub-flow looks similar to an ordinary function call:
 
 
@@ -566,6 +583,7 @@ Let’s take a look at the three subflows we invoke in this flow.
 
 
 ### FinalityFlow
+
 On the buyer side, we use `FinalityFlow` to finalise the transaction. It will:
 
 
@@ -610,6 +628,7 @@ Transaction dependency resolution assumes that the peer you got the transaction 
 {{< /note >}}
 
 ### CollectSignaturesFlow/SignTransactionFlow
+
 We also invoke two other subflows:
 
 
@@ -689,15 +708,17 @@ val txId = subFlow(signTransactionFlow).id
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 In this case, our custom validation logic ensures that the amount of cash outputs in the transaction equals the
                     price of the asset.
 
 
 ## Persisting flows
+
 If you look at the code for `FinalityFlow`, `CollectSignaturesFlow` and `SignTransactionFlow`, you’ll see calls
                 to both `receive` and `sendAndReceive`. Once either of these methods is called, the `call` method will be
                 suspended into a continuation and saved to persistent storage. If the node crashes or is restarted, the flow will
@@ -744,6 +765,7 @@ If a node has flows still in a suspended state, with flow continuations written 
 
 
 ## Exception handling
+
 Flows can throw exceptions to prematurely terminate their execution. The flow framework gives special treatment to
                 `FlowException` and its subtypes. These exceptions are treated as error responses of the flow and are propagated
                 to all counterparties it is communicating with. The receiving flows will throw the same exception the next time they do
@@ -766,6 +788,7 @@ Throwing a `FlowException` enables a flow to reject a piece of data it has recei
 
 
 ## Progress tracking
+
 Not shown in the code snippets above is the usage of the `ProgressTracker` API. Progress tracking exports information
                 from a flow about where it’s got up to in such a way that observers can render it in a useful manner to humans who
                 may need to be informed. It may be rendered via an API, in a GUI, onto a terminal window, etc.
@@ -824,9 +847,10 @@ private static final ProgressTracker.Step RECORDING = new ProgressTracker.Step(
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java)
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Each step exposes a label. By defining your own step types, you can export progress in a way that’s both human readable
                 and machine readable.
@@ -863,9 +887,10 @@ private static final ProgressTracker.Step VERIFYING_AND_SIGNING = new ProgressTr
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java)
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Every tracker has not only the steps given to it at construction time, but also the singleton
                 `ProgressTracker.UNSTARTED` step and the `ProgressTracker.DONE` step. Once a tracker has become `DONE` its
@@ -896,6 +921,7 @@ In future, the progress tracking framework will become a vital part of how excep
 
 
 ## Future features
+
 The flow framework is a key part of the platform and will be extended in major ways in future. Here are some of
                 the features we have planned:
 

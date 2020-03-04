@@ -1,12 +1,17 @@
 ---
-title: "Highly Available Notary Service Setup"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Highly Available Notary Service Setup
+version: corda-enterprise-4-1
 ---
 
 
 # Highly Available Notary Service Setup
 
+
 ## About the HA Notary Installation
+
 In this chapter you’ll learn how to set up, configure and start a highly
                 available (HA) Corda Enterprise notary service from scratch. If you’re targeting an
                 environment with doorman and network map, you require the registration tool. If
@@ -29,6 +34,7 @@ Double curly braces `{{ }}` are used to represent placeholder values
 
 
 ## Overview
+
 ![ha notary overview2](running-a-notary-cluster/resources/ha-notary-overview2.png "ha notary overview2")The figure above displays Corda client nodes in green on the top, then the Corda
                 notary worker nodes in red in the middle and on the bottom are the Percona nodes in blue.
 
@@ -55,10 +61,12 @@ In production you should consider running five nodes or more, to be able to
 {{< /note >}}
 
 ### Colocating Percona and the Notary Service
+
 ![percona colocated](running-a-notary-cluster/resources/percona-colocated.png "percona colocated")You can run a Percona Server and a Corda notary worker on the same machine.
 
 
 ### Summary
+
 
 * Client nodes communicate with the notary cluster via P2P messaging, the messaging layer handles selecting an appropriate notary worker node by the service legal name.
 
@@ -86,6 +94,7 @@ In production you should consider running five nodes or more, to be able to
 
 
 ### Legal Names and Identities
+
 Every notary worker node has two legal names. Its own legal name, specified by
                     `myLegalName`, e.g `O=Worker 1, C=GB, L=London` and the service legal name
                     specified in configuration by `notary.serviceLegalName`, e.g. `O=HA Notary,
@@ -103,6 +112,7 @@ Every notary worker’s keystore contains the private key of the worker and the
 
 ## Choosing Installation Path
 
+
 {{< note >}}
 If you want to connect to a Corda network with a doorman and network map service,
                     use the registration tool to create your service identity. In case you want
@@ -112,10 +122,12 @@ If you want to connect to a Corda network with a doorman and network map service
 {{< /note >}}
 
 ## Expected Data Volume
+
 For non-validating notaries the notary stores roughly one kilobyte per transaction.
 
 
 ## Prerequisites
+
 
 * Java runtime
 
@@ -146,7 +158,9 @@ Your Corda distribution should contain all the JARs listed above.
 
 ## Security
 
+
 ### Credentials
+
 Make sure you have the following credentials available, create them if necessary and always
                     keep them safe.
 
@@ -166,7 +180,9 @@ Make sure you have the following credentials available, create them if necessary
 
 ### Networking
 
+
 #### Percona Cluster
+
 
 {{< table >}}
 
@@ -184,6 +200,7 @@ Follow the [Percona documentation](https://www.percona.com/doc/percona-xtradb-cl
 
 #### Corda Node
 
+
 {{< table >}}
 
 |Port|Example|Purpose|
@@ -196,12 +213,14 @@ Later in the tutorial we’re covering the notary service configuration in detai
 
 
 ### Keys and Certificates
+
 Keys are stored the same way as for regular Corda nodes in the `certificates`
                     directory. If you’re interested in the details you can find out
                     more in the [Network certificates](../permissioning.md) document.
 
 
 ## Next Steps
+
 
 * [Percona XtraDB Cluster, the underlying replicated Database](installing-percona.md)
 

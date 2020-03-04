@@ -1,10 +1,14 @@
 ---
-title: "Versioning and upgrades"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Versioning and upgrades
+version: corda-os-4-4
 ---
 
 
 # Versioning and upgrades
+
 
 *Change is inevitable, except from a vending machine*– Abraham LincolnThis section of the guide covers how CorDapps are versioned and how to manage upgrades in a decentralised network. It should be read when
             you’re at a stage of your development that requires planning for post-launch iteration. You will learn:

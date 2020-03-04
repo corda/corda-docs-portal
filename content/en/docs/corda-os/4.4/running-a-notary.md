@@ -1,10 +1,14 @@
 ---
-title: "Setting up a notary service"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Setting up a notary service
+version: corda-os-4-4
 ---
 
 
 # Setting up a notary service
+
 Corda comes with several notary implementations built-in:
 
 
@@ -20,6 +24,7 @@ Corda comes with several notary implementations built-in:
 
 
 ## Single-node
+
 To have a regular Corda node provide a notary service you simply need to set appropriate `notary` configuration values
                 before starting it:
 
@@ -39,12 +44,14 @@ For clients to be able to use the notary service, its identity must be added to 
 
 
 ## Crash fault-tolerant (experimental)
+
 Corda provides a prototype [Raft-based](http://atomix.io/) highly available notary implementation. You can try it out on our
                 [notary demo](https://github.com/corda/corda/blob/release/os/4.4/samples/notary-demo) page. Note that it has known limitations
                 and is not recommended for production use.
 
 
 ## Byzantine fault-tolerant (experimental)
+
 A prototype BFT notary implementation based on [BFT-Smart](https://github.com/bft-smart/library) is available. You can
                 try it out on our [notary demo](https://github.com/corda/corda/blob/release/os/4.4/samples/notary-demo) page. Note that it
                 is still experimental and there is active work ongoing for a production ready solution. Additionally, BFT-Smart requires Java

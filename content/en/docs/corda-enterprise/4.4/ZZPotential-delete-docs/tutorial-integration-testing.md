@@ -1,11 +1,16 @@
 ---
-title: "Integration testing"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-tutorial
+title: Integration testing
+version: corda-enterprise-4-4
 ---
 
 
 
 # Integration testing
+
 Integration testing involves bringing up nodes locally and testing invariants about them by starting flows and inspecting
             their state.
 

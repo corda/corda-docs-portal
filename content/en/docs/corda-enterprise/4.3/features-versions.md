@@ -1,10 +1,14 @@
 ---
-title: "Corda Features to Versions"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Corda Features to Versions
+version: corda-enterprise-4-3
 ---
 
 
 # Corda Features to Versions
+
 New versions of Corda introduce new features. These fall into one of three categories which have subtle but important implications for
             node owners, application developers and network operators.
 
@@ -38,6 +42,7 @@ If there is a Platform Version below which your application will not run or is n
 {{< table >}}
 
 # Corda Features
+
 |Feature|Corda Platform Version (PV)|Min Network Platform Version (network mPV)|Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 |Observer Nodes|2|2|2.0|n/a|

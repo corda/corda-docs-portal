@@ -1,16 +1,21 @@
 ---
-title: "Contract catalogue"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Contract catalogue
+version: corda-os-4-3
 ---
 
 
 # Contract catalogue
+
 There are a number of contracts supplied with Corda, which cover both core functionality (such as cash on ledger) and
             provide examples of how to model complex contracts (such as interest rate swaps). There is also a `Dummy` contract.
             However it does not provide any meaningful functionality, and is intended purely for testing purposes.
 
 
 ## Cash
+
 The `Cash` contract’s state objects represent an amount of some issued currency, owned by some party. Any currency
                 can be issued by any party, and it is up to the recipient to determine whether they trust the issuer. Generally nodes
                 are expected to have criteria (such as a whitelist) that issuers must fulfil for cash they issue to be accepted.
@@ -36,11 +41,13 @@ Corda supports a pluggable cash selection algorithm by implementing the `CashSel
 {{< /note >}}
 
 ## Commodity
+
 The `Commodity` contract is an early stage example of a non-currency contract whose states implement the `FungibleAsset`
                 interface. This is used as a proof of concept for non-cash obligations.
 
 
 ## Commercial paper
+
 `CommercialPaper` is a very simple obligation to pay an amount of cash at some future point in time (the maturity
                 date), and exists primarily as a simplified contract for use in tutorials. Commercial paper supports issuing, moving
                 and redeeming (settling) states. Unlike the full obligation contract it does not support locking the state so it cannot
@@ -49,6 +56,7 @@ The `Commodity` contract is an early stage example of a non-currency contract wh
 
 
 ## Interest rate swap
+
 The Interest Rate Swap (IRS) contract is a bilateral contract to implement a vanilla fixed / floating same currency
                 interest rate swap. In general, an IRS allows two counterparties to modify their exposure from changes in the underlying
                 interest rate. They are often used as a hedging instrument, convert a fixed rate loan to a floating rate loan, vice
@@ -58,6 +66,7 @@ See “[Interest rate swaps](contract-irs.md)” for full details on the IRS con
 
 
 ## Obligation
+
 The obligation contract’s state objects represent an obligation to provide some asset, which would generally be a
                 cash state object, but can be any contract state object fulfilling the `FungibleAsset` interface, including other
                 obligations. The obligation contract uses objects referred to as `Terms` to group commands and state objects together.

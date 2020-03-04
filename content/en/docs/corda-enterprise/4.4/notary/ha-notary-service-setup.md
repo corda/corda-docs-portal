@@ -1,10 +1,14 @@
 ---
-title: "Corda Enterprise HA notary service set-up"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Corda Enterprise HA notary service set-up
+version: corda-enterprise-4-4
 ---
 
 
 # Corda Enterprise HA notary service set-up
+
 The Corda Enterprise notary service can be configured in high-availability (HA) mode. For the Corda Enterprise notary
             service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview](ha-notary-service-overview.md) for more information.
 
@@ -21,6 +25,7 @@ For a list of databases supported by each of the above notary implementations, p
 
 
 ## Prerequisites
+
 Before setting up an HA notary, your Corda Enterprise distribution should contain all the following `.JAR` files,
                 configuration information, and capabilities:
 
@@ -85,12 +90,14 @@ When writing the notary worker’s `node.conf` file, the notary worker must have
 
 
 ## HA Notary registration process
+
 Before a HA notary cluster can be run each worker needs a valid certificate to join the network and the HA notary
                 service must be included in the network parameters. The steps below assume the network includes an Identity Manager and
                 Network Map, and that the above prerequisites have been met.
 
 
 ### 1. Register the notary service identity
+
 Before any workers can be started up the HA notary service identity must be registered with the network’s Identity Manager.
                     To register the notary service identity with the Identity Manager, run the notary registration tool using the the notary
                     workers `node.conf` file.
@@ -104,6 +111,7 @@ See [notary registration](../ha-utilities.md#notary-reg-tool) for more informati
 
 
 ### 2. Register the notary workers
+
 After the notary service is registered with the Identity Manager, each notary worker must be registered with the Identity
                     Manager. This process is similar to registering a standard Corda Node, but the notary workers also require access to the
                     notary service key and certificate.
@@ -118,6 +126,7 @@ Register each notary worker using the Corda `initial-registration` command. Afte
 
 
 ### 3. Add the notary service to the Network Parameters
+
 In order for network participants to use the new HA notary the notary service must be present in the network parameters. This involves
                     configuring and setting the initial network parameters (if setting up a new network), or modifying the existing parameters and performing a
                     flag day (if using an existing network). Please refer to the [CENM documentation](https://docs.cenm.r3.com/) for more information on this

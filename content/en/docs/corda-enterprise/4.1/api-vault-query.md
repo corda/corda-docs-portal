@@ -1,13 +1,19 @@
 ---
-title: "API: Vault Query"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-api
+title: 'API: Vault Query'
+version: corda-enterprise-4-1
 ---
 
 
 
 # API: Vault Query
 
+
 ## Overview
+
 Corda has been architected from the ground up to encourage usage of industry standard, proven query frameworks and
                 libraries for accessing RDBMS backed transactional stores (including the Vault).
 
@@ -375,6 +381,7 @@ CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", false
 
 
 ## Pagination
+
 The API provides support for paging where large numbers of results are expected (by default, a page size is set to 200
                 results). Defining a sensible default page size enables efficient checkpointing within flows, and frees the developer
                 from worrying about pagination where result sets are expected to be constrained to 200 or fewer entries. Where large
@@ -408,7 +415,9 @@ A pages maximum size `MAX_PAGE_SIZE` is defined as `Int.MAX_VALUE` and should be
 
 ## Example usage
 
+
 ### Kotlin
+
 **General snapshot queries using** `VaultQueryCriteria`:
 
 Query for all unconsumed states (simplest query possible):
@@ -718,6 +727,7 @@ This will return only `DealState` states.
 {{< /note >}}
 
 ### Java examples
+
 Query for all unconsumed linear states:
 
 ```java
@@ -851,6 +861,7 @@ Vault.Page<ContractState> snapshot = results.getSnapshot();
 ```
 [VaultQueryJavaTests.java](https://github.com/corda/enterprise/blob/release/ent/4.1/node/src/test/java/net/corda/node/services/vault/VaultQueryJavaTests.java)
 ## Troubleshooting
+
 If the results your were expecting do not match actual returned query results we recommend you add an entry to your
                 `log4j2.xml` configuration file to enable display of executed SQL statements:
 
@@ -863,6 +874,7 @@ If the results your were expecting do not match actual returned query results we
 ```
 
 ## Behavioural notes
+
 
 * `TrackBy` updates do not take into account the full criteria specification due to different and more restrictive
                         syntax in [observables](https://github.com/ReactiveX/RxJava/wiki) filtering (vs full SQL-92 JDBC filtering as used
@@ -878,6 +890,7 @@ If the results your were expecting do not match actual returned query results we
 
 
 ## Other use case scenarios
+
 For advanced use cases that require sophisticated pagination, sorting, grouping, and aggregation functions, it is
                 recommended that the CorDapp developer utilise one of the many proven frameworks that ship with this capability out of
                 the box. Namely, implementations of JPQL (JPA Query Language) such as Hibernate for advanced SQL access, and
@@ -899,6 +912,7 @@ The Corda Tutorials provide examples satisfying these additional Use Cases:
 > > 
 
 ## Mapping owning keys to external IDs
+
 When creating new public keys via the `KeyManagementService`, it is possible to create an association between the newly created public
                 key and an external ID. This, in effect, allows CorDapp developers to group state ownership/participation keys by an account ID.
 

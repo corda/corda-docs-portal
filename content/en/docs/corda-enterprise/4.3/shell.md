@@ -1,11 +1,15 @@
 ---
-title: "Node shell"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Node shell
+version: corda-enterprise-4-3
 ---
 
 
 
 # Node shell
+
 The Corda shell is an embedded or standalone command line that allows an administrator to control and monitor a node. It is based on
             the [CRaSH](http://www.crashub.org/) shell and supports many of the same features. These features include:
 
@@ -33,6 +37,7 @@ The Corda shell is an embedded or standalone command line that allows an adminis
 
 
 ## Permissions
+
 When accessing the shell (embedded, standalone, via SSH) RPC permissions are required. This is because the shell actually communicates
                 with the node using RPC calls.
 
@@ -51,6 +56,7 @@ When accessing the shell (embedded, standalone, via SSH) RPC permissions are req
 
 ## The shell via the local terminal
 
+
 {{< note >}}
 Local terminal shell works only in development mode!
 
@@ -61,10 +67,12 @@ The shell will display in the node’s terminal window. It connects to the node 
 
 
 ## The shell via SSH
+
 The shell is also accessible via SSH.
 
 
 ### Enabling SSH access
+
 By default, the SSH server is *disabled*. To enable it, a port must be configured in the node’s `node.conf` file:
 
 ```bash
@@ -74,6 +82,7 @@ sshd {
 ```
 
 ### Authentication
+
 Users log in to shell via SSH using the same credentials as for RPC.
                     No RPC permissions are required to allow the connection and log in.
 
@@ -84,7 +93,9 @@ The host key is loaded from the `<node root directory>/sshkey/hostkey.pem` file.
 
 ### Connecting to the shell
 
+
 #### Linux and MacOS
+
 Run the following command from the terminal:
 
 ```bash
@@ -113,16 +124,19 @@ In development mode, restarting a node frequently may cause the host key to be r
 {{< /note >}}
 
 #### Windows
+
 Windows does not provide a built-in SSH tool. An alternative such as PuTTY should be used.
 
 
 ## The standalone shell
+
 The standalone shell is a standalone application interacting with a Corda node via RPC calls.
                 RPC node permissions are necessary for authentication and authorisation.
                 Certain operations, such as starting flows, require access to the CorDapp jars.
 
 
 ### Starting the standalone shell
+
 Run the following command from the terminal:
 
 ```bash
@@ -227,6 +241,7 @@ password : demo
 ```
 
 ## Standalone Shell via SSH
+
 The standalone shell can embed an SSH server which redirects interactions via RPC calls to the Corda node.
                 To run SSH server use `--sshd-port` option when starting standalone shell or `extensions.sshd` entry in the configuration file.
                 For connection to SSH refer to [Connecting to the shell](#connecting-to-the-shell).
@@ -234,6 +249,7 @@ The standalone shell can embed an SSH server which redirects interactions via RP
 
 
 ## Shell Safe Mode
+
 This is a new mode added in the Enterprise 4.3 release to prevent the Crash shell embedded commands (e.g. ‘java’, ‘system’) from being
                 executed by a user with insufficient privilege. This is part of a general security tightening initiative.
                 When a shell is running in unsafe mode, the shell behaviour will be the same as before and will include Crash built in commands. By default
@@ -247,6 +263,7 @@ This is a new mode added in the Enterprise 4.3 release to prevent the Crash shel
 
 
 ## Interacting with the node via the shell
+
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing
                 `run` followed by the name of the desired RPC method. For example, you’d see a list of the registered flows on your
                 node by running:
@@ -260,6 +277,7 @@ You can find a list of the available RPC methods
 
 
 ### Shutting down the node
+
 You can shut the node down via shell:
 
 
@@ -271,6 +289,7 @@ You can shut the node down via shell:
 
 
 ### Output Formats
+
 You can choose the format in which the output of the commands will be shown.
 
 To see what is the format that’s currently used, you can type `output-format get`.
@@ -281,6 +300,7 @@ The currently supported formats are `json`, `yaml`. The default format is `yaml`
 
 
 ### Flow commands
+
 The shell also has special commands for working with flows:
 
 
@@ -303,6 +323,7 @@ The shell also has special commands for working with flows:
 
 
 ### Parameter syntax
+
 Parameters are passed to RPC or flow commands using a syntax called [Yaml](http://www.yaml.org/spec/1.2/spec.html) (yet another markup language), a
                     simple JSON-like language. The key features of Yaml are:
 
@@ -336,6 +357,7 @@ If your CorDapp is written in Java, named arguments won’t work unless you comp
 {{< /note >}}
 
 #### Creating an instance of a class
+
 Class instances are created using curly-bracket syntax. For example, if we have a `Campaign` class with the following
                         constructor:
 
@@ -349,11 +371,13 @@ Where `newCampaign` is a parameter of type `Campaign`.
 
 
 #### Mappings from strings to types
+
 In addition to the types already supported by Jackson, several parameter types can automatically be mapped from strings.
                         We cover the most common types here.
 
 
 ##### Amount
+
 A parameter of type `Amount<Currency>` can be written as either:
 
 
@@ -365,19 +389,23 @@ A parameter of type `Amount<Currency>` can be written as either:
 
 
 ##### SecureHash
+
 A parameter of type `SecureHash` can be written as a hexadecimal string: `F69A7626ACC27042FEEAE187E6BFF4CE666E6F318DC2B32BE9FAF87DF687930C`
 
 
 ##### OpaqueBytes
+
 A parameter of type `OpaqueBytes` can be provided as a UTF-8 string.
 
 
 ##### PublicKey and CompositeKey
+
 A parameter of type `PublicKey` can be written as a Base58 string of its encoded format: `GfHq2tTVk9z4eXgyQXzegw6wNsZfHcDhfw8oTt6fCHySFGp3g7XHPAyc2o6D`.
                             `net.corda.core.utilities.EncodingUtils.toBase58String` will convert a `PublicKey` to this string format.
 
 
 ##### Party
+
 A parameter of type `Party` can be written in several ways:
 
 
@@ -396,24 +424,30 @@ A parameter of type `Party` can be written in several ways:
 
 
 ##### NodeInfo
+
 A parameter of type `NodeInfo` can be written in terms of one of its identities (see `Party` above)
 
 
 ##### AnonymousParty
+
 A parameter of type `AnonymousParty` can be written in terms of its `PublicKey` (see above)
 
 
 ##### NetworkHostAndPort
+
 A parameter of type `NetworkHostAndPort` can be written as a “host:port” string: `"localhost:1010"`
 
 
 ##### Instant and Date
+
 A parameter of `Instant` and `Date` can be written as an ISO-8601 string: `"2017-12-22T00:00:00Z"`
 
 
 #### Examples
 
+
 ##### Starting a flow
+
 We would start the `CashIssueFlow` flow as follows:
 
 `flow start CashIssueFlow amount: $1000, issuerBankPartyRef: 1234, notary: "O=Controller, L=London, C=GB"`
@@ -448,6 +482,7 @@ class CashIssueFlow(val amount: Amount<Currency>,
 
 
 ##### Querying the vault
+
 We would query the vault for `IOUState` states as follows:
 
 `run vaultQuery contractStateType: com.template.IOUState`
@@ -466,11 +501,13 @@ This breaks down as follows:
 
 
 ### Attachments
+
 The shell can be used to upload and download attachments from the node. To learn more, see the tutorial
                     “[Using attachments](tutorial-attachments.md)”.
 
 
 ### Getting help
+
 You can type `help` in the shell to list the available commands, and `man` to get interactive help on many
                     commands. You can also pass the `--help` or `-h` flags to a command to get info about what switches it supports.
 
@@ -479,6 +516,7 @@ Commands may have subcommands, in the same style as `git`. In that case, running
 
 
 ## Extending the shell
+
 THIS FUNCTIONALITY IS NOW ONLY AVAILABLE WHEN RUNNING THE SHELL IN UNSAFE MODE (see Safe Shell section above). This is because of possible
                 security vulnerabilities caused by the Crash shell embedded commands. When shell commands are executed via SSH, a remote user has the ability
                 to effect the node internal state (including running scripts, gc and even shutting down the node). Prior to Enterprise 4.3 this was possible
@@ -504,6 +542,7 @@ Commands written in Groovy ignore Java security checks, so have unrestricted acc
 
 
 ## Limitations
+
 The shell will be enhanced over time. The currently known limitations include:
 
 

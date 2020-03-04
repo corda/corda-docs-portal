@@ -1,10 +1,14 @@
 ---
-title: "Embedded Shell"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Embedded Shell
+version: corda-enterprise-4-4
 ---
 
 
 # Embedded Shell
+
 The embedded shell allows an administrator to control and monitor the suite of CENM services being run (Network Map,
             Identity Manager and Signing service). It is based on the [CRaSH](http://www.crashub.org/) shell and provides certain functions such as viewing
             the current state of the network (via the Network Map shell), viewing the CSRs awaiting approval (via the Identity
@@ -12,11 +16,13 @@ The embedded shell allows an administrator to control and monitor the suite of C
 
 
 ## Shell Configuration
+
 The optional `shell` configuration block can be added to the given CENM service configuration file to enable the
                 embedded shell. There are two modes that the shell can run in:
 
 
 ### SSH Mode
+
 The most versatile method to access the shell is via SSH. This can be configured by specifying the port, user and
                     password within the `shell` configuration block:
 
@@ -31,6 +37,7 @@ shell {
 ```
 
 ### Local Mode
+
 The service can be configured to boot straight into the local shell upon startup by setting the `shell.localShell`
                     optional configuration parameter to be true:
 
@@ -43,12 +50,14 @@ shell {
 ```
 
 ## SSH Authentication
+
 The host key is loaded from the `<BASE_DIRECTORY>/sshkey/hostkey.pem` file, where <BASE_DIRECTORY> corresponds to the
                 directory that the service is being run from. This can be overloaded with the `shell.sshHostKeyDirectory` config
                 parameter option. If this file does not exist, it is generated automatically.
 
 
 ## Connecting to the shell via SSH
+
 For Linux/Mac OS user, the following commands can be run from the terminal:
 
 ```bash
@@ -77,6 +86,7 @@ Restarting the service frequently may cause the host key to be regenerated. SSH 
 {{< /note >}}
 
 ## Supported Commands
+
 The top level list of available commands can be seen by executing `help` from the shell. There are currently two types
                 of commands:
 
@@ -102,14 +112,17 @@ man notaries
 ```
 
 ### Network Map Service
+
 The current supported commands that can be run from the shell are:
 
 
 ### Identity Manager Service
+
 The current supported commands that can be run from the shell are:
 
 
 ### Signing Service
+
 The current supported commands that can be run from the shell are:
 
 

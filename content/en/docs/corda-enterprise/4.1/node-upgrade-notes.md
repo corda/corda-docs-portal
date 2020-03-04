@@ -1,10 +1,15 @@
 ---
-title: "Upgrading your node to Corda Enterprise 4.1"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-node
+title: Upgrading your node to Corda Enterprise 4.1
+version: corda-enterprise-4-1
 ---
 
 
 # Upgrading your node to Corda Enterprise 4.1
+
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to
             applications. It consists of the following steps:
 
@@ -31,6 +36,7 @@ Note: The protocol is designed to tolerate node outages. During the upgrade proc
 
 
 ## Step 1. Drain the node
+
 Before a node, or an application on a node, can be upgraded, the node must be put in [Draining mode](key-concepts-node.md#draining-mode). This brings the currently running
                 [Flows](key-concepts-flows.md) to a smooth halt (existing work is finished, and new work is queued rather than being processed).
 
@@ -51,6 +57,7 @@ The length of time a node takes to drain depends both on how your applications a
 
 
 ## Step 2. Make a backup of your node directories and database
+
 It’s always a good idea to back up your data before upgrading any server. This will make it easy to roll back if there’s a problem.
                 You can simply make a copy of the node’s data directory to enable this. If you use an external non-H2 database, consult your database
                 user guide to learn how to make backups.
@@ -59,6 +66,7 @@ For a detailed explanation of Corda backup and recovery guarantees, see [Backup 
 
 
 ## Step 3. Update database
+
 This step should be performed for production systems.
 
 If you are updating a Corda node that is currently using the default H2 database (which should be used for development purposes),
@@ -85,6 +93,7 @@ database = {
 ```
 
 ### 3.1. Configure the Database Management Tool
+
 The Corda Database Management Tool needs access to a running database.
                     The tool is configured in a similar manner to the Corda node.
                     A base directory needs to be provided with the following content:
@@ -101,6 +110,7 @@ Create a `node.conf` with the properties for your database.
 
 
 #### Azure SQL
+
 The required `node.conf` settings for the Database Management Tool using Azure SQL:
 
 > 
@@ -129,6 +139,7 @@ The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center]
 
 
 #### SQL Server
+
 The required `node.conf` settings for the Database Management Tool using Azure SQL:
 
 ```groovy
@@ -156,6 +167,7 @@ The Microsoft JDBC 6.2 driver can be downloaded from [Microsoft Download Center]
 
 
 #### Oracle
+
 The required `node.conf` settings for the Database Management Tool using Oracle:
 
 ```groovy
@@ -181,6 +193,7 @@ Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 
 
 
 #### PostgreSQL
+
 The required `node.conf` settings for the Database Management Tool using PostgreSQL:
 
 ```groovy
@@ -207,6 +220,7 @@ Copy the PostgreSQL JDBC Driver *42.1.4* version *JDBC 4.2* into the `drivers` d
 
 
 ### 3.2. Extract DDL script using Database Management Tool
+
 To run the tool, use the following command:
 
 ```shell
@@ -222,6 +236,7 @@ A script named *migration/*.sql* will be generated in the base directory.
 
 
 ### 3.3. Apply DDL scripts on a database
+
 The generated DDL script can be applied by the database administrator using their tooling of choice.
                     The script needs to be run by a database user with *administrative* permissions,
                     with a *<schema>* set as the default schema for that user and matching the schema used by a Corda node.
@@ -245,6 +260,7 @@ The DDL scripts don’t contain any checks to prevent them from running twice.
 
 
 ### 3.4. Apply data updates on a database
+
 The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows
                     and specific node configuration (e.g. node legal name).
                     Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool (or a Corda node).
@@ -289,6 +305,7 @@ If you are reusing the tool configuration directory:
 
 
 ## Step 4. Replace `corda.jar` with the new version
+
 Replace the `corda.jar` with the latest version of Corda.
                 Make sure it’s available on your path, and that you’ve read the [Release notes for Corda 4](release-notes.md). Pay particular attention to which version of Java this
                 node requires.
@@ -301,11 +318,13 @@ Corda 4 requires Java 8u171 or any higher Java 8 patchlevel. Java 9+ is not curr
 {{< /important >}}
 
 ## Step 5. Start up the node
+
 Start the node in the usual manner you have selected. The node will perform any automatic data migrations required, which may take some
                 time. If the migration process is interrupted, it can be continued without harm simply by starting the node again.
 
 
 ## Step 6. Undrain the node
+
 You may now do any checks that you wish to perform, read the logs, and so on. When you are ready, use this command at the shell:
 
 `run setFlowsDrainingModeEnabled enabled: false`

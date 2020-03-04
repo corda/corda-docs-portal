@@ -1,11 +1,16 @@
 ---
-title: "Transaction tear-offs"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3:
+    parent: corda-os-4-3-tutorial
+title: Transaction tear-offs
+version: corda-os-4-3
 ---
 
 
 
 # Transaction tear-offs
+
 Suppose we want to construct a transaction that includes commands containing interest rate fix data as in
             [Writing oracle services](oracles.md). Before sending the transaction to the oracle to obtain its signature, we need to filter out every part
             of the transaction except for the `Fix` commands.
@@ -28,9 +33,10 @@ val filtering = Predicate<Any> {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt)
+[TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 We can now use our filtering function to construct a `FilteredTransaction`:
 
@@ -44,9 +50,10 @@ val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt)
+[TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 In the Oracle example this step takes place in `RatesFixFlow` by overriding the `filtering` function. See
             [Using an oracle](oracles.md#filtering-ref).
@@ -69,9 +76,10 @@ val timeWindow: TimeWindow? = ftx.timeWindow
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt)
+[TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 The following code snippet is taken from `NodeInterestRates.kt` and implements a signing part of an Oracle.
 

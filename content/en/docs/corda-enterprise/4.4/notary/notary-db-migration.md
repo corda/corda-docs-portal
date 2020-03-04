@@ -1,15 +1,20 @@
 ---
-title: "Notary database migration"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Notary database migration
+version: corda-enterprise-4-4
 ---
 
 
 # Notary database migration
+
 With the MySQL notary being deprecated, Corda Enterprise notary operators should consider moving to a database supported by the JPA notary
             instead.
 
 
 ## When to migrate
+
 Migrating from one notary implementation to another is a complex procedure and should not be attempted unless there is
                 significant benefit from the migration. Possible reasons for migration include:
 
@@ -34,6 +39,7 @@ Simple notary refers to running the notary using the built-in database connectio
 
 ## Migration steps
 
+
 {{< warning >}}
 Any data lost during the migration process could lead to a loss of ledger integrity.
 
@@ -47,6 +53,7 @@ The recommended migration path would be to migrate the data stored in the source
 
 ### Considerations
 
+
 * The JPA notary uses a different database schema to the Simple or MySQL notaries, and thus a transformation must be applied.
 
 
@@ -58,6 +65,7 @@ The recommended migration path would be to migrate the data stored in the source
 
 
 ### Schema differences - Simple notary to JPA notary
+
 
 {{< table >}}
 
@@ -71,6 +79,7 @@ The recommended migration path would be to migrate the data stored in the source
 
 ### Schema differences - MySQL notary to JPA notary
 
+
 {{< table >}}
 
 |Table|Source Column(s)|Target Column(s)|Expression|
@@ -83,6 +92,7 @@ The recommended migration path would be to migrate the data stored in the source
 {{< /table >}}
 
 ### Procedure
+
 
 * Use the [Corda Database Management Tool](../node/operating/node-database.md#database-management-tool-ref) to prepare the schema in the target database.
 

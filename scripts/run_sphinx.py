@@ -7,6 +7,9 @@ import sys
 import re
 import argparse
 from pathlib import Path
+import json
+import toml
+import yaml
 
 from sphinx.cmd.build import main as sphinx_main
 import xml.etree.ElementTree as ET
@@ -130,31 +133,31 @@ class Markdown:
         return '\n</div>\n'
 
     def visit_note(self):
-        return '<div class="r3-o-note" role="alert">\n\n'
+        return '<div class="r3-o-note" role="alert"><span>Note: </span>\n\n'
 
     def depart_note(self):
         return '\n</div>\n'
 
     def visit_warning(self):
-        return '<div class="r3-o-warning" role="alert">\n\n'
+        return '<div class="r3-o-warning" role="alert"><span>Warning: </span>\n\n'
 
     def depart_warning(self):
         return '\n</div>\n'
 
     def visit_attention(self):
-        return '<div class="r3-o-attention" role="alert">\n\n'
+        return '<div class="r3-o-attention" role="alert"><span>Attention: </span>\n\n'
 
     def depart_attention(self):
         return '\n</div>\n'
         
     def visit_important(self):
-        return '<div class="r3-o-important" role="alert">\n\n'
+        return '<div class="r3-o-important" role="alert"><span>Important: </span>\n\n'
 
     def depart_important(self):
         return '\n</div>\n'
 
     def visit_topic(self):
-        return '<div class="r3-o-topic" role="alert">\n\n'
+        return '<div class="r3-o-topic" role="alert"><span>Topic: </span>\n\n'
 
     def depart_topic(self):
         return '\n</div>\n'
@@ -165,6 +168,44 @@ class Markdown:
     def depart_table(self):
         return '\n</div>\n\n'
 
+    def visit_tabs_header(self):
+        return "<!-- tabs header end -->"
+
+    def depart_tabs_header(self):
+        return "<!-- tabs header end -->"
+
+    def tab_header(self, label, idx):
+        return f"<!-- tab header {label} {idx} -->"
+
+"""  Override raw Markdown with Hugo shortcodes  """
+class Gatsby(Markdown):
+    def __init__(self, *args, **kwargs):
+        super(Gatsby, self).__init__(**kwargs)
+        self.name = 'gatsby'
+        self.tab_index = 0
+
+    def visit_tab(self, lang):
+        return '<TabPanel value={value} index={' + str(self.tab_index) + '}>\n\n'
+
+    def depart_tab(self):
+        self.tab_index += 1
+        return '\n</TabPanel>\n'
+
+    def visit_tabs(self, idx):        
+        return f'<div>'
+
+    def depart_tabs(self):
+        self.tab_index = 0
+        return '\n</div>\n'
+
+    def visit_tabs_header(self):
+        return '<Tabs value={value} aria-label="code tabs">'
+
+    def depart_tabs_header(self):
+        return "</Tabs>"
+
+    def tab_header(self, label, idx):
+        return f'<Tab label="{label}" />'
 
 
 """  Override raw Markdown with Hugo shortcodes  """
@@ -226,6 +267,15 @@ class Hugo(Markdown):
 
     def depart_table(self):
         return "\n{{< /table >}}\n"
+
+    def visit_tabs_header(self):
+        return None
+
+    def depart_tabs_header(self):
+        return None
+
+    def tab_header(self, label, idx):
+        return None
 
 
 class Context:
@@ -360,11 +410,56 @@ class Translator:
 
     def walk(self, filename):
         tree = ET.parse(filename)
+        self.filename = filename
         self._walk([tree.getroot()])
+        self._add_front_matter()
 
     def _fix_up_javadoc(self, link):
         LOG.debug("TODO: fix up javadoc")
         return '#'
+
+    """ Add in some front-matter tags derived from the file """
+    def _add_front_matter(self):
+        dirs = str(self.filename).split("/")
+    
+        while dirs[0] != "docs":
+            dirs.pop(0)
+
+        # "version" that this page is in/under, e.g. corda-os-4-3
+        # we CANNOT have '.' in a 'toml' config section name - that implies hierarchy
+        version = (dirs[1] + "-" + dirs[2]).replace(".", "-")
+        filename_only = os.path.basename(os.path.splitext(self.filename)[0])
+
+        # Menu entries that this page should occur in:
+        menu = self.front_matter.get("menu", {})
+        this_menu = {}
+        if filename_only.startswith("api-"):
+            this_menu = { "parent": version + "-api" }
+        elif filename_only.startswith("key-concepts-"):
+            this_menu = { "parent": version + "-concepts" }
+        elif filename_only.startswith("node-"):
+            this_menu = { "parent": version + "-node" }
+        elif filename_only.startswith("tutorial-"):
+            this_menu = { "parent": version + "-tutorial" }
+        elif filename_only.startswith("config-"):
+            this_menu = { "parent": version + "-config" }
+        
+        menu[version] = this_menu
+            
+        if filename_only == "index":
+            LOG.warning(f"Adding {self.filename} to 'versions' menu")
+            menu["versions"] = {}
+
+
+        # Add menu entry(-ies) to front matter
+        self.front_matter["menu"] = menu
+
+        #  This simply indicates that this page should show the menu for this version
+        self.front_matter["version"] = version
+
+        # use the filename (no extension) if the title is missing.
+        if "title" not in self.front_matter:
+            self.front_matter["title"] = filename_only
 
     ###########################################################################
     # Visitors
@@ -397,7 +492,7 @@ class Translator:
         if self.section_depth == 1 and 'title' not in self.front_matter:
             self.front_matter['title'] = node.text
 
-        self.top.put_body('\n')
+        self.top.put_body('\n\n')
 
     def visit_block_quote(self, node):
         class QuoteContext(Context):
@@ -507,6 +602,7 @@ class Translator:
     def visit_literal_block(self, node):
         lang = node.attrib.get('language', '')
         if self.in_tabs:
+            self.top.put_head(lang)
             self.top.put_body(self.cms.visit_tab(lang))
         self.top.put_body(self.cms.visit_literal_block(lang) + '\n')
 
@@ -533,21 +629,38 @@ class Translator:
         pass
 
     def visit_container(self, node):
-        self.tabs_counter += 1
-        self.push_context(Context())
-        self.top.put_body(self.cms.visit_tabs(self.tabs_counter))
         self.in_tabs = True
+        self.tabs_counter += 1
+        self.top.put_body(self.cms.visit_tabs(self.tabs_counter))
+        # We are putting the links to the source in each tab in the footer.
+        # Similarly we store the tab title in the header (even if we don't use it)
+        self.push_context(Context())
 
     def depart_container(self, node):
-        self.top.put_body(self.cms.depart_tabs())
         # Gather up any source code links, and add them to the end.
         if (self.top.foot):
-            md = self.cms.image("/images/svg/github.svg", "github") + " " + " | ".join(self.top.foot) + "\n\n"
-            self.top.body.append(md)
-        # self.top.body.extend(f"*  {value}\n" for value in self.top.foot)
-        self.top.foot = []
-        self.pop_context()
+            self.top.foot.append(self.cms.image("/images/svg/github.svg", "github"))
+            md = "\n" + " | ".join(self.top.foot) + "\n\n"
+        else:
+            md = None
 
+        tabs_header = []
+        tabs_header.append(self.cms.visit_tabs_header())
+        idx = 0
+        for item in self.top.head:
+            tabs_header.append(self.cms.tab_header(item, idx))
+            idx += 1
+        tabs_header.append(self.cms.depart_tabs_header())
+        tabs_header = [x for x in tabs_header if x is not None]
+        self.top.body = tabs_header + self.top.body
+
+        self.top.foot = []
+        self.top.head = []
+        self.pop_context() # tab content was written to top which we're now popping.
+        if md:
+            self.top.body.append(md)
+
+        self.top.put_body(self.cms.depart_tabs())
         self.in_tabs = False
 
     def visit_definition_list(self, node):
@@ -907,7 +1020,7 @@ def configure_translator(filename):
         setattr(Translator, f'visit_{tag}', visit_unsupported)
 
         #  Output what the user needs to implement to support it
-        print("")
+        print("PASTE THIS IN TO THE PYTHON\n\n\n")
         print(f"\tdef visit_{tag}(self, node):\n\t\tLOG.debug('Not implemented {tag}')")
         print("")
         print(f"\tdef depart_{tag}(self, node):\n\t\tLOG.debug('Not implemented {tag}')")
@@ -919,14 +1032,13 @@ def configure_translator(filename):
         sys.exit(1)
 
 
-def write_frontmatter(f, translator):
+def write_frontmatter(f, front_matter):
+    f.write('---\n'),
+    f.write(yaml.dump(front_matter))
     f.write('---\n')
-    title = translator.front_matter.get('title', 'MISSING')
-    f.write(f'title: "{title}"\n')
-    for k,v in translator.front_matter.items():
-        if k != 'title':
-            f.write(f'{k}: {v}\n')
-    f.write('---\n')
+    # f.write('+++\n')
+    # f.write(toml.dumps(front_matter))
+    # f.write('+++\n')
 
 
 def convert_one_xml_file_to_cms_style_md(cms, filename):
@@ -939,7 +1051,7 @@ def convert_one_xml_file_to_cms_style_md(cms, filename):
 
         md = str(filename).replace('.xml', '.md')
         with open(md, 'w') as f:
-            write_frontmatter(f, t)
+            write_frontmatter(f, t.front_matter)
             f.write(t.astext())
     except ParseError as e:
         line, col = e.position
@@ -1034,18 +1146,18 @@ def copy_to_content(cms):
         dest = str(src).replace('docs/xml/xml/', '').replace(REPOS, CONTENT)
         src_filename = os.path.basename(src)
 
-        # We need to rename index pages to _index.md for hugo and its sections
-        if cms.name == "hugo":
+        # # We need to rename index pages to _index.md for hugo and its sections
+        if ARGS.cms == "hugo":
             index_md = os.path.join(os.path.dirname(dest), '_index.md')
-
-        if src_filename == 'index.md':
-            LOG.warning(f"Copying {src} to {dest}")
-            dest = index_md # it was 'index.rst', copying to '_index.md'
-        elif src_filename.endswith('index.md') and not os.path.exists(index_md):
-            # was something-index.rst, copying to _index.md
-            # fixes some of Ed's weird filenames
-            LOG.warning(f"Copying {src} to {dest}")
-            dest = index_md
+        
+            if src_filename == 'index.md':
+                LOG.warning(f"Copying {src} to {dest}")
+                dest = index_md # it was 'index.rst', copying to '_index.md'
+            elif src_filename.endswith('index.md') and not os.path.exists(index_md):
+                # was something-index.rst, copying to _index.md
+                # fixes some of Ed's weird filenames
+                LOG.warning(f"Copying {src} to {dest}")
+                dest = index_md
 
         if not os.path.exists(os.path.dirname(dest)):
             os.makedirs(os.path.dirname(dest), exist_ok=True)
@@ -1061,11 +1173,14 @@ def copy_to_content(cms):
 
 def add_missing_index_md_files(dirs):
     for dir in dirs:
-        index_md = os.path.join(dir, '_index.md')
-        if not os.path.exists(index_md):
-            LOG.warning(f"Writing missing {index_md}")
-            with open(index_md, 'w') as f:
-                write_frontmatter(f, os.path.basename(dir))
+        _index_md = os.path.join(dir, '_index.md')
+        index_md = os.path.join(dir, 'index.md')
+        if not os.path.exists(index_md) and not os.path.exists(_index_md):
+            LOG.warning(f"Writing missing page bundle {_index_md}")
+            with open(_index_md, 'w') as f:
+                d = { 'title': os.path.basename(os.path.dirname(_index_md)) }
+                d['date'] ="2020-01-08T09:59:25Z"
+                write_frontmatter(f, d)
 
 
 def copy_resources_to_content():
@@ -1075,16 +1190,8 @@ def copy_resources_to_content():
         dirs = [x for x in Path(REPOS).rglob(f'docs/source/{d}')]
         for src in dirs:
             dest = str(src).replace(f'docs/source/{d}', d).replace(REPOS, CONTENT)
-            if not os.path.exists(dest):
-                LOG.info(f"Copying {src} {dest}")
-                copy_tree(src, dest)
-            else:
-                files = [str(p.parent) for p in Path(dest).rglob('*') if p.is_file()]
-                #if len(files) == 0:
-                LOG.info(f"Copying {src} {dest}")
-                copy_tree(src, dest)
-                # else:
-                #     LOG.warning(f"Dest exists, not copying {src} to {dest}")
+            LOG.debug(f"Copying {src} {dest}")
+            copy_tree(src, dest)
 
     LOG.warning(f"Copied resources")
 
@@ -1095,7 +1202,7 @@ def main():
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument("--toc", "-t", help="include table of contents in the page", default=False, action='store_true')
     parser.add_argument("--skip", "-s", help="skip rst conversion for speed if already done", default=False, action='store_true')
-    parser.add_argument("--md", "-m", help="generate (commonmark) markdown with fewer hugo tags", default=False, action='store_true')
+    parser.add_argument("--cms", "-c", help="generate (commonmark) markdown for cms", default='hugo', choices=['gatsby', 'markdown', 'hugo'])
     ARGS = parser.parse_args()
 
     _setup_logging()
@@ -1109,18 +1216,16 @@ def main():
     else:
         LOG.warning("Skipping rst-to-xml")
 
-    if ARGS.md:
+    if ARGS.cms == 'markdown':
         cms = Markdown()
+    elif ARGS.cms == "gatsby":
+        cms = Gatsby() # which simply adds react tags <Tab> <Tabs> etc.
     else:
         cms = Hugo()
     
     convert_all_xml_to_md(cms)
 
-    # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/key-concepts-notaries.xml"
-    # filename = '/home/barry/dev/r3/sphinx2hugo/repos/en/docs/cenm/1.1/docs/xml/xml/cenm-support-matrix.xml'
-    # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/api-contracts.xml"
-    filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/api-flows.xml"
-    # # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/key-concepts-contracts.xml"
+    # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/api-contract-constraints.xml"
     # convert_one_xml_file_to_cms_style_md(filename)
 
     copy_to_content(cms)

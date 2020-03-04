@@ -1,11 +1,16 @@
 ---
-title: "Running the example CorDapp"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-tutorial
+title: Running the example CorDapp
+version: corda-enterprise-4-4
 ---
 
 
 
 # Running the example CorDapp
+
 The example CorDapp allows nodes to agree IOUs with each other, as long as they obey the following contract rules:
 
 
@@ -35,6 +40,7 @@ Because data is only propagated on a need-to-know basis, any IOUs agreed between
 
 
 ## Downloading the example CorDapp
+
 Start by downloading the example CorDapp from GitHub:
 
 
@@ -49,6 +55,7 @@ Start by downloading the example CorDapp from GitHub:
 
 
 ## Opening the example CorDapp in IntelliJ
+
 Let’s open the example CorDapp in IntelliJ IDEA:
 
 
@@ -73,6 +80,7 @@ Let’s open the example CorDapp in IntelliJ IDEA:
 
 
 ### Project structure
+
 The example CorDapp has the following structure:
 
 ```none
@@ -216,6 +224,7 @@ The key files and directories are as follows:
 
 
 ## Running the example CorDapp
+
 There are two ways to run the example CorDapp:
 
 
@@ -231,7 +240,9 @@ Both approaches will create a set of test nodes, install the CorDapp on these no
 
 ### Running the example CorDapp from the terminal
 
+
 #### Building the example CorDapp
+
 
 * Open a terminal window in the `cordapp-example` directory
 
@@ -295,6 +306,7 @@ CorDapps can be written in any language targeting the JVM. In our case, we’ve 
 {{< /note >}}
 
 #### Running the example CorDapp
+
 Start the nodes by running the following command from the root of the `cordapp-example` folder:
 
 
@@ -352,6 +364,7 @@ It usually takes around 60 seconds for the nodes to finish starting up. Each nod
 
 ### Running the example CorDapp from IntelliJ
 
+
 * Load the project by opening the project folder (Do not use “Import Project” functionality by IntelliJ because it will overwrite the pre-existing configuration)
 
 
@@ -374,7 +387,9 @@ It usually takes around 60 seconds for the nodes to finish starting up. Each nod
 
 ## Interacting with the example CorDapp
 
+
 ### Via HTTP
+
 The Spring Boot servers run locally on the following ports:
 
 
@@ -415,6 +430,7 @@ The content is only available for demonstration purposes and does not implement
 
 
 #### Creating an IOU via the endpoint
+
 An IOU can be created by sending a PUT request to the `/api/example/create-iou` endpoint directly, or by using the
                         the web form served from the home directory.
 
@@ -429,6 +445,7 @@ Note that both PartyA’s port number (`50005`) and PartyB are referenced in the
 
 
 #### Submitting an IOU via the web front-end
+
 To create an IOU between PartyA and PartyB, navigate to the home directory for the node, click the “create IOU” button at the top-left
                         of the page, and enter the IOU details into the web-form. The IOU must have a positive value. For example:
 
@@ -440,6 +457,7 @@ And click submit. Upon clicking submit, the modal dialogue will close, and the n
 
 
 #### Checking the output
+
 Assuming all went well, you can view the newly-created IOU by accessing the vault of PartyA or PartyB:
 
 *Via the HTTP API:*
@@ -465,6 +483,7 @@ The vault and web front-end of PartyC (at `localhost:50007`) will not display an
 
 
 ### Via the interactive shell (terminal only)
+
 Nodes started via the terminal will display an interactive shell:
 
 ```none
@@ -484,6 +503,7 @@ net.corda.core.flows.ContractUpgradeFlow$Initiate
 ```
 
 #### Creating an IOU via the interactive shell
+
 We can create a new IOU using the `ExampleFlow$Initiator` flow. For example, from the interactive shell of PartyA,
                         you can agree an IOU of 50 with PartyB by running
                         `flow start ExampleFlow$Initiator iouValue: 50, otherParty: "O=PartyB,L=New York,C=US"`.
@@ -506,6 +526,7 @@ This will print out the following progress steps:
 ```
 
 #### Checking the output
+
 We can also issue RPC operations to the node via the interactive shell. Type `run` to see the full list of available
                         operations.
 
@@ -515,11 +536,13 @@ As before, the interactive shell of PartyC will not display any IOUs.
 
 
 ### Via the h2 web console
+
 You can connect directly to your node’s database to see its stored states, transactions and attachments. To do so,
                     please follow the instructions in node-database.
 
 
 ## Running nodes across machines
+
 The nodes can be configured to communicate as a network even when distributed across several machines:
 
 
@@ -579,26 +602,32 @@ If you are using H2 and wish to use the same `h2port` value for two or more node
 {{< /note >}}
 
 ## Testing your CorDapp
+
 Corda provides several frameworks for writing unit and integration tests for CorDapps.
 
 
 ### Contract tests
+
 You can run the CorDapp’s contract tests by running the `Run Contract Tests - Kotlin` run configuration.
 
 
 ### Flow tests
+
 You can run the CorDapp’s flow tests by running the `Run Flow Tests - Kotlin` run configuration.
 
 
 ### Integration tests
+
 You can run the CorDapp’s integration tests by running the `Run Integration Tests - Kotlin` run configuration.
 
 
 ### Running tests in IntelliJ
+
 See [Running tests in IntelliJ](../testing.md#tutorial-cordapp-alternative-test-runners)
 
 
 ## Debugging your CorDapp
+
 See debugging-a-cordapp.
 
 

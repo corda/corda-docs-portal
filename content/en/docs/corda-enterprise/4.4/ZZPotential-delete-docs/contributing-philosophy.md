@@ -1,12 +1,17 @@
 ---
-title: "Contributing philosophy"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Contributing philosophy
+version: corda-enterprise-4-4
 ---
 
 
 # Contributing philosophy
 
+
 ## Mission
+
 Corda is an open source project with the aim of developing an enterprise-grade distributed ledger platform for business across a variety of
                 industries.  Corda was designed and developed to apply the concepts of blockchain and smart contract technologies to the requirements of
                 modern business transactions.  It is unique in its aim to build a platform for businesses to transact freely with any counter-party while
@@ -18,6 +23,7 @@ The project is supported and maintained by the [R3 Alliance](https://www.r3.com)
 
 
 ## Community Locations
+
 The Corda maintainers, developers and extended community make active use of the following channels:
 
 
@@ -43,6 +49,7 @@ The Corda maintainers, developers and extended community make active use of the 
 
 
 ## Project Leadership and Maintainers
+
 The leader of this project is currently [Mike Hearn](https://github.com/mikehearn), who is also the Lead Platform Engineer at R3. The
                 project leader appoints the project’s Community Maintainers, who are responsible for merging community contributions into the code base and
                 acting as points of contact.
@@ -54,6 +61,7 @@ In addition to the project leader and community maintainer(s), developers employ
 
 
 ### Community maintainers
+
 Current community maintainers:
 
 
@@ -73,11 +81,13 @@ We anticipate additional maintainers joining the project in the future from acro
 
 
 ## Existing Contributors
+
 Over two hundred individuals have contributed to the development of Corda. You can find a full list of contributors in the
                 [CONTRIBUTORS.md list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md).
 
 
 ## Transparency and Conflict Policy
+
 The project is supported and maintained by the [R3 Alliance](https://www.r3.com), which consists of over two hundred firms working together
                 to build and maintain this open source enterprise-grade blockchain platform. We develop in the open and publish our
                 [Jira](https://r3-cev.atlassian.net/projects/CORDA/summary) to give everyone visibility. R3 also maintains and distributes a commercial

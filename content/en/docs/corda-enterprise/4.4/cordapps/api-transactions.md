@@ -1,11 +1,16 @@
 ---
-title: "Understanding transactions"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: Understanding transactions
+version: corda-enterprise-4-4
 ---
 
 
 
 # Understanding transactions
+
 
 {{< note >}}
 Before reading this page, you should be familiar with the key concepts of key-concepts-transactions.
@@ -13,6 +18,7 @@ Before reading this page, you should be familiar with the key concepts of key-co
 {{< /note >}}
 
 ## Transaction lifecycle
+
 Between its creation and its final inclusion on the ledger, a transaction will generally occupy one of three states:
 
 
@@ -32,6 +38,7 @@ We can visualise the transitions between the three stages as follows:
 
 ![transaction flow](cordapps/resources/transaction-flow.png "transaction flow")
 ## Transaction components
+
 A transaction consists of six types of components:
 
 
@@ -66,6 +73,7 @@ Each component corresponds to a specific class in the Corda API. The following s
 
 
 ### Input states
+
 An input state is added to a transaction as a `StateAndRef`, which combines:
 
 
@@ -100,6 +108,7 @@ The `StateRef` links an input state back to the transaction that created it. Thi
 
 
 #### Reference input states
+
 
 {{< warning >}}
 Reference states are only available on Corda networks with a minimum platform version >= 4.
@@ -153,6 +162,7 @@ Caution should be taken when using this flow as it facilitates automated re-runn
 
 
 ### Output states
+
 Since a transaction’s output states do not exist until the transaction is committed, they cannot be referenced as the
                     outputs of previous transactions. Instead, we create the desired output states as `ContractState` instances, and
                     add them to the transaction directly:
@@ -187,6 +197,7 @@ Before our output state can be added to a transaction, we need to associate it w
 
 
 ### Commands
+
 A command is added to the transaction as a `Command`, which combines:
 
 
@@ -203,6 +214,7 @@ A command is added to the transaction as a `Command`, which combines:
 
 
 ### Attachments
+
 Attachments are identified by their hash:
 
 
@@ -214,6 +226,7 @@ The attachment with the corresponding hash must have been uploaded ahead of time
 
 
 ### Time-windows
+
 Time windows represent the period during which the transaction must be notarised. They can have a start and an end
                     time, or be open at either end:
 
@@ -239,7 +252,9 @@ Or as a start-time plus a duration:
 
 ## TransactionBuilder
 
+
 ### Creating a builder
+
 The first step when creating a transaction proposal is to instantiate a `TransactionBuilder`.
 
 If the transaction has input states or a time-window, we need to instantiate the builder with a reference to the notary
@@ -262,6 +277,7 @@ If the transaction does not have any input states or a time-window, it does not 
 
 
 ### Adding items
+
 The next step is to build up the transaction proposal by adding the desired components.
 
 We can add components to the builder using the `TransactionBuilder.withItems` method:
@@ -366,6 +382,7 @@ Or define the time-window as a time plus a duration (e.g. 45 seconds):
 
 
 ### Signing the builder
+
 Once the builder is ready, we finalize it by signing it and converting it into a `SignedTransaction`.
 
 We can either sign with our legal identity key:
@@ -386,6 +403,7 @@ Either way, the outcome of this process is to create an immutable `SignedTransac
 
 
 ## SignedTransaction
+
 A `SignedTransaction` is a combination of:
 
 
@@ -405,6 +423,7 @@ Before adding our signature to the transaction, we’ll want to verify both the 
 
 
 ### Verifying the transaction’s contents
+
 If a transaction has inputs, we need to retrieve all the states in the transaction’s dependency chain before we can
                     verify the transaction’s contents. This is because the transaction is only valid if its dependency chain is also valid.
                     We do this by requesting any states in the chain that our node doesn’t currently have in its local storage from the
@@ -444,6 +463,7 @@ We can now perform our additional verification. Here’s a simple example:
 
 
 ### Verifying the transaction’s signatures
+
 Aside from verifying that the transaction’s contents are valid, we also need to check that the signatures are valid. A
                     valid signature over the hash of the transaction prevents tampering.
 
@@ -486,6 +506,7 @@ Be very careful, however - this function neither guarantees that the signatures 
 
 
 ### Signing the transaction
+
 Once we are satisfied with the contents and existing signatures over the transaction, we add our signature to the
                     `SignedTransaction` to indicate that we approve the transaction.
 
@@ -521,6 +542,7 @@ Or using another one of our public keys:
 
 
 ### Notarising and recording
+
 Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [Writing CorDapp Flows](api-flows.md) for
                     more details.
 

@@ -1,13 +1,19 @@
 ---
-title: "The network"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-concepts
+title: The network
+version: corda-os-4-1
 ---
 
 
 # The network
 
+
 {{< topic >}}
 # Summary
+
 
 * *A Corda network is made up of nodes running Corda and CorDapps*
 
@@ -24,6 +30,7 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Network structure
+
 A Corda network is a peer-to-peer network of **nodes**. Each node runs the Corda software as well as Corda applications
                 known as **CorDapps**.
 
@@ -32,6 +39,7 @@ A Corda network is a peer-to-peer network of **nodes**. Each node runs the Corda
 
 
 ## Identity
+
 Each node has a single well-known identity. The node’s identity is used to represent the node in transactions, such as
                 when purchasing an asset.
 
@@ -50,6 +58,7 @@ Nodes can also generate confidential identities for individual transactions. The
 
 
 ## Admission to the network
+
 Corda networks are semi-private. To join a network, a node must obtain a certificate from the network operator. This
                 certificate maps a well-known node identity to:
 

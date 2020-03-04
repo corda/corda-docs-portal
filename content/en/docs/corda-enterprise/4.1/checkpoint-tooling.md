@@ -1,10 +1,14 @@
 ---
-title: "Checkpoint Tooling"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Checkpoint Tooling
+version: corda-enterprise-4-1
 ---
 
 
 # Checkpoint Tooling
+
 This page contains information about checkpoint tooling.
 
 Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows](key-concepts-flows.md) and [Writing flows](flow-state-machines.md).
@@ -24,6 +28,7 @@ A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and an
 {{< /note >}}
 
 ## Checkpoint dumper
+
 The checkpoint dumper outputs information about flows running on a node. This is useful for diagnosing the causes of stuck flows. Using the generated output,
                 corrective actions can be taken to resolve the issues flows are facing. One possible solution, is ending a flow using the `flow kill` command.
 
@@ -67,6 +72,7 @@ Below are some of the more important fields included in the output:
 
 
 ### Sample output
+
 Below is an example of the JSON output:
 
 ```json
@@ -159,6 +165,7 @@ Below is an example of the JSON output:
 ```
 
 ## Flow diagnostic process
+
 Lets assume a scenario where we have triggered a flow in a node (eg. node acting as a flow initiator) but the flow does not appear to complete.
 
 For example, you may see the following using the CRaSH shell `flow watch` command:

@@ -1,11 +1,16 @@
 ---
-title: "Using attachments"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-tutorial
+title: Using attachments
+version: corda-os-4-1
 ---
 
 
 
 # Using attachments
+
 Attachments are ZIP/JAR files referenced from transaction by hash, but not included in the transaction
             itself. These files are automatically requested from the node sending the transaction when needed and cached
             locally so they are not re-requested if encountered again. Attachments typically contain:
@@ -28,6 +33,7 @@ It is encouraged that where possible attachments are reusable data, so that node
 
 
 ## Uploading and downloading
+
 To upload an attachment to the node, or download an attachment named by its hash, you use [Interacting with a node](clientrpc.md). This
                 is also available for interactive use via the shell. To **upload** run:
 
@@ -53,6 +59,7 @@ which will then ask you to provide a path to save the file to. To do the same th
 
 
 ## Searching for attachments
+
 Attachment metadata can be queried in a similar way to the vault (see [API: Vault Query](api-vault-query.md)).
 
 `AttachmentQueryCriteria` can be used to build a query using the following set of column operations:
@@ -105,12 +112,14 @@ complexCondition =
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [NodeAttachmentServiceTest.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt)
+[NodeAttachmentServiceTest.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 
 ## Protocol
+
 Normally attachments on transactions are fetched automatically via the `ReceiveTransactionFlow`. Attachments
                 are needed in order to validate a transaction (they include, for example, the contract code), so must be fetched
                 before the validation process can run.
@@ -124,6 +133,7 @@ Future versions of Corda may support non-critical attachments that are not used 
 {{< /note >}}
 
 ## Attachments demo
+
 There is a worked example of attachments, which relays a simple document from one node to another. The “two party
                 trade flow” also includes an attachment, however it is a significantly more complex demo, and less well suited
                 for a tutorial.
@@ -189,9 +199,10 @@ fun recipient(rpc: CordaRPCOps, webPort: Int) {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.1/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt)
+[AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.1/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 The sender correspondingly builds a transaction with the attachment, then calls `FinalityFlow` to complete the
                 transaction and send it to the recipient node:
@@ -228,9 +239,10 @@ private fun sender(rpc: CordaRPCOps, inputStream: InputStream, hash: SecureHash.
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.1/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt)
+[AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.1/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 This side is a bit more complex. Firstly it looks up its counterparty by name in the network map. Then, if the node
                 doesn’t already have the attachment in its storage, we upload it from a JAR resource and check the hash was what

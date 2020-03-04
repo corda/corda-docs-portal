@@ -1,10 +1,15 @@
 ---
-title: "Writing a custom notary service (experimental)"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-tutorial
+title: Writing a custom notary service (experimental)
+version: corda-os-4-1
 ---
 
 
 # Writing a custom notary service (experimental)
+
 
 {{< warning >}}
 Customising a notary service is still an experimental feature and not recommended for most use-cases. The APIs

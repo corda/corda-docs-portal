@@ -1,10 +1,15 @@
 ---
-title: "Node command-line options"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-node
+title: Node command-line options
+version: corda-enterprise-4-1
 ---
 
 
 # Node command-line options
+
 The node can optionally be started with the following command-line options:
 
 
@@ -43,6 +48,7 @@ The node can optionally be started with the following command-line options:
 
 
 ## Sub-commands
+
 `clear-network-cache`: Clears local copy of network map, on node startup it will be restored from server or file system.
 
 `initial-registration`: Starts initial node registration with the compatibility zone to obtain a certificate from the Doorman.
@@ -66,6 +72,7 @@ Parameters:
 
 
 ## Enabling remote debugging
+
 To enable remote debugging of the node, run the node with the following JVM arguments:
 
 `java -Dcapsule.jvm.args="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005" -jar corda.jar`

@@ -1,10 +1,14 @@
 ---
-title: "Public Key Infrastructure (PKI) Tool Configuration Parameters"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Public Key Infrastructure (PKI) Tool Configuration Parameters
+version: cenm-1-2
 ---
 
 
 # Public Key Infrastructure (PKI) Tool Configuration Parameters
+
 
 
 defaultPassword
@@ -55,12 +59,14 @@ Map of user-defined certificate aliases to certificate configuration. The certif
 
 
 ## Key Store Configuration
+
 The key store configuration defines the type of the underlying key store along with any type specific information. The
                 possible key store types are currently the same set as the possible key types. That is, `LOCAL`, `UTIMACO_HSM`,
                 `GEMALTO_HSM`, `SECUROSYS_HSM`, `AZURE_KEY_VAULT_HSM` or `AMAZON_CLOUD_HSM`.
 
 
 ### Local Key Store Configuration
+
 
 
 type
@@ -76,6 +82,7 @@ Password for the key store.
 
 
 ### Utimaco HSM Key Store Configuration
+
 
 
 type
@@ -109,6 +116,7 @@ List of user authentication configurations. See below section on User Authentica
 
 
 #### User Authentication Configuration
+
 Each individual user authentication configuration will depend on the type of authentication that is being used. The
                         allowed parameters are:
 
@@ -151,6 +159,7 @@ Only relevant, if mode is `CARD_READER`. It specifies the connection string to t
 ### Gemalto HSM Key Store Configuration
 
 
+
 type
 Key store type. `GEMALTO_HSM` in this case.
 
@@ -171,6 +180,7 @@ Password for the keyStore. E.g. the corresponding crypto officer role’s passwo
 
 
 ### Securosys HSM Key Store Configuration
+
 
 
 type
@@ -195,6 +205,7 @@ Password associated with the user for the HSM. This can be omitted from the conf
 
 
 ### Azure Key Vault HSM Key Store Configuration
+
 
 
 type
@@ -239,6 +250,7 @@ ID of the client used during initial authentication.
 
 
 ### AWS CloudHSM Key Store Configuration
+
 First of all AWS CloudHSM requires a UNIX client running on the machine. It will use that to connect to the HSM.
                     For detailed documentation about setting up the client please visit Amazon’s
                     [Getting Started with AWS CloudHSM](https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html).
@@ -286,6 +298,7 @@ The password for the local certificate store
 
 
 ## Certificate Configuration
+
 The certificate configuration is specific to a particular entity within the hierarchy and defines all properties and
                 extensions for its X509 certificate as well as its key pair.
 
@@ -533,6 +546,7 @@ Certificate revocation list issuer (given in the X500 name format). This paramet
 
 
 ### Key Configuration
+
 The key configuration defines the properties of the key pair associated with the entity. This key pair can be generated
                     (or already exist) in either a local key store or a supported HSM. Similar to the key store configuration above, each
                     key configuration has an associated type, with possible values: `LOCAL`, `UTIMACO_HSM`, `GEMALTO_HSM`,
@@ -540,6 +554,7 @@ The key configuration defines the properties of the key pair associated with the
 
 
 #### Local Key Configuration
+
 
 
 type
@@ -584,6 +599,7 @@ Corda signature scheme name. Default value: `ECDSA_SECP256R1_SHA256`. Allowed va
 #### Utimaco HSM Key Configuration
 
 
+
 type
 Key type. `UTIMACO_HSM` in this case.
 
@@ -623,6 +639,7 @@ An integer value defining the key generation mechanism. This is a Utimaco specif
 
 
 #### Other HSM Key Configurations
+
 The remaining HSM key configurations follow the similar format:
 
 

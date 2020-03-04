@@ -1,10 +1,14 @@
 ---
-title: "Running the example CorDapp"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Running the example CorDapp
+version: corda-os-4-3
 ---
 
 
 # Running the example CorDapp
+
 At this point we’ve set up the development environment, and have an example CorDapp in an IntelliJ project. In this section, the CorDapp will be deployed to locally running Corda nodes.
 
 The local Corda network includes one notary, and three nodes, each representing parties in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](./key-concepts-node.html).
@@ -13,6 +17,7 @@ Before continuing, ensure that you’ve [set up your development environment](./
 
 
 ## Step One: Deploy the CorDapp locally
+
 The first step is to deploy the CorDapp to nodes running locally.
 
 
@@ -46,6 +51,7 @@ The first step is to deploy the CorDapp to nodes running locally.
 
 ## Step Two: Run a CorDapp transaction
 
+
 * Open the terminal window for PartyA. From this window, any flows executed will be from the perspective of PartyA.
 
 
@@ -62,6 +68,7 @@ A flow is the mechanism by which a transaction takes place using Corda. This flo
 
 
 ## Next steps
+
 After deploying the example CorDapp, the next step is to start [writing a CorDapp](./quickstart-build.html) containing your own contract, states, and flows.
 
 

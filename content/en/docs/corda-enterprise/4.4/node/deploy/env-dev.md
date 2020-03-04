@@ -1,12 +1,17 @@
 ---
-title: "Deploying in a development environment"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Deploying in a development environment
+version: corda-enterprise-4-4
 ---
 
 
 # Deploying in a development environment
 
+
 ## Development and local test deployments
+
 Nodes within a network see each other using the network map. This is a collection of statically signed node-info files, one for each node. Most production deployments will use a highly available, secure distribution of the network map via HTTP.
 
 For test deployments where the nodes (at least initially) reside on the same filesystem, these node-info files can be placed directly in the node’s `additional-node-infos` directory from where the node will pick them up and store them in its local network map cache. The node generates its own node-info file on startup.
@@ -19,6 +24,7 @@ You can find out more about network maps and network parameters from [network ma
 
 
 ## Bootstrapping a test network
+
 The Corda Network Bootstrapper can be downloaded from [here](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-bootstrapper/).
 
 Create a directory containing a node config file, ending in `_node.conf`, for each node you want to create. `devMode` must be set to true. Then run the following command:
@@ -53,6 +59,7 @@ Similarly, each node directory may contain its own `corda.jar`, which the Bootst
 
 
 ## Providing CorDapps to the Network Bootstrapper
+
 If you would like the Network Bootstrapper to include your CorDapps in each generated node, just place them in the directory
                 alongside the config files. For example, if your directory has this structure:
 
@@ -69,6 +76,7 @@ The `cordapp-a.jar` and `cordapp-b.jar` will be installed in each node directory
 
 
 ### Whitelisting contracts
+
 Any CorDapps provided when bootstrapping a network will be scanned for contracts which will be used to create the
                     *Zone whitelist* (see [API contract constraints](../api-contract-constraints.html)) for the network.
 
@@ -91,6 +99,7 @@ net.corda.finance.contracts.asset.CommercialPaper
 ```
 
 ### Adding a new node to the network
+
 Running the Bootstrapper again on the same network will allow a new node to be added and its
                     node-info distributed to the existing nodes.
 
@@ -162,6 +171,7 @@ The Network Bootstrapper is provided for test deployments and can only generate 
 {{< /note >}}
 
 ## Modifying the network parameters
+
 The Network Bootstrapper creates a network parameters file when bootstrapping a network, using a set of sensible defaults. However, if you would like
                 to override these defaults when testing, there are two ways of doing this. Options can be overridden via the command line or by supplying a configuration
                 file. If the same parameter is overridden both by a command line argument and in the configuration file, the command line value
@@ -169,11 +179,13 @@ The Network Bootstrapper creates a network parameters file when bootstrapping a 
 
 
 ### Overriding network parameters via command line
+
 The `--minimum-platform-version`, `--max-message-size`, `--max-transaction-size` and `--event-horizon` command line parameters can
                     be used to override the default network parameters. See [Command line options](#command-line-options) for more information.
 
 
 ### Overriding network parameters via a file
+
 You can provide a network parameters overrides file using the following syntax:
 
 ```bash
@@ -255,6 +267,7 @@ packageOwnership=[
 ```
 
 ## Package namespace ownership
+
 Package namespace ownership is a Corda feature that allows a compatibility zone to give ownership of parts of the Java package namespace to registered users (e.g. a CorDapp development organisation). The exact mechanism used to claim a namespace is up to the zone operator. A typical approach would be to accept an SSL certificate with the domain in it as proof of domain ownership, or to accept an email from that domain.
 
 
@@ -343,6 +356,7 @@ You can point to any existing bootstrapped corda network (this will have the eff
 
 
 ## Command line options
+
 The Network Bootstrapper can be started with the following command line options:
 
 ```shell
@@ -392,6 +406,7 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
 
 
 ### Sub-commands
+
 `install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [shell extensions for CLI applications](../cli-application-shell-extensions.html) for more info.
 
 

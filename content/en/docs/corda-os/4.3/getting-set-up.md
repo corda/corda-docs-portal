@@ -1,10 +1,14 @@
 ---
-title: "Getting set up for CorDapp development"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Getting set up for CorDapp development
+version: corda-os-4-3
 ---
 
 
 # Getting set up for CorDapp development
+
 There are four pieces of required software for CorDapp development: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle 4.10.
 
 
@@ -48,6 +52,7 @@ There are four pieces of required software for CorDapp development: the Java 8 J
 
 
 ## Next steps
+
 First, run the [example CorDapp](tutorial-cordapp.md).
 
 Next, read through the [Corda Key Concepts](key-concepts.md) to understand how Corda works.

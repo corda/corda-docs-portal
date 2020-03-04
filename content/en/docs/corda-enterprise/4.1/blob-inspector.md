@@ -1,10 +1,14 @@
 ---
-title: "Blob Inspector"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Blob Inspector
+version: corda-enterprise-4-1
 ---
 
 
 # Blob Inspector
+
 There are many benefits to having a custom binary serialisation format (see [Object serialization](serialization.md) for details) but one
             disadvantage is the inability to view the contents in a human-friendly manner. The Corda Blob Inspector tool alleviates
             this issue by allowing the contents of a binary blob file (or URL end-point) to be output in either YAML or JSON. It
@@ -25,6 +29,7 @@ When inspecting your custom data structures, there is no need to include the jar
 
 
 ## Supported formats
+
 The inspector can read **input data** in three formats: raw binary, hex encoded text and base64 encoded text. For instance
                 if you have retrieved your binary data and it looks like this:
 
@@ -56,6 +61,7 @@ One thing to note is that the binary blob may contain embedded `SerializedBytes`
 {{< /note >}}
 
 ## Example
+
 Here’s what a node-info file from the node’s data directory may look like:
 
 
@@ -102,6 +108,7 @@ Notice the file is actually a serialised `SignedNodeInfo` object, which has a `r
 
 
 ## Command-line options
+
 The blob inspector can be started with the following command-line options:
 
 ```shell
@@ -137,6 +144,7 @@ blob-inspector [-hvV] [--full-parties] [--schema] [--format=type]
 
 
 ### Sub-commands
+
 `install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 

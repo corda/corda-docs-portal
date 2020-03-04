@@ -1,11 +1,15 @@
 ---
-title: "Updating the flow"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Updating the flow
+version: corda-enterprise-4-1
 ---
 
 
 
 # Updating the flow
+
 We now need to update our flow to achieve three things:
 
 
@@ -22,6 +26,7 @@ We’ll do this by modifying the flow we wrote in the previous tutorial.
 
 
 ## Verifying the transaction
+
 In `IOUFlow.java`/`Flows.kt`, change the imports block to the following:
 
 
@@ -60,9 +65,10 @@ import java.util.List;
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [IOUFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java)
+[IOUFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 And update `IOUFlow.call` to the following:
 
@@ -137,9 +143,10 @@ return null;
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [IOUFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java)
+[IOUFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 In the original CorDapp, we automated the process of notarising a transaction and recording it in every party’s vault
                 by invoking a built-in flow called `FinalityFlow` as a subflow. We’re going to use another pre-defined flow,
@@ -158,6 +165,7 @@ Now that our state is governed by a real contract, we’ll want to check that ou
 
 
 ## Requesting the borrower’s signature
+
 Previously we wrote a responder flow for the borrower in order to receive the finalised transaction from the lender.
                 We use this same flow to first request their signature over the transaction.
 
@@ -176,6 +184,7 @@ We can then pass this fully-signed transaction into `FinalityFlow`.
 
 
 ## Updating the borrower’s flow
+
 On the lender’s side, we used `CollectSignaturesFlow` to automate the collection of signatures. To allow the borrower
                 to respond, we need to update its responder flow to first receive the partially signed transaction for signing. Update
                 `IOUFlowResponder.call` to be the following:
@@ -239,9 +248,10 @@ return null;
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [IOUFlowResponder.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java)
+[IOUFlowResponder.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 We could write our own flow to handle this process. However, there is also a pre-defined flow called
                 `SignTransactionFlow` that can handle the process automatically. The only catch is that `SignTransactionFlow` is an
@@ -249,6 +259,7 @@ We could write our own flow to handle this process. However, there is also a pre
 
 
 ### CheckTransactions
+
 `SignTransactionFlow` will automatically verify the transaction and its signatures before signing it. However, just
                     because a transaction is contractually valid doesn’t mean we necessarily want to sign. What if we don’t want to deal
                     with the counterparty in question, or the value is too high, or we’re not happy with the transaction’s structure?
@@ -274,6 +285,7 @@ Once we’ve defined the `SignTransactionFlow` subclass, we invoke it using `Flo
 
 
 ## Conclusion
+
 We have now updated our flow to verify the transaction and gather the lender’s signature, in line with the constraints
                 defined in `IOUContract`. We can now re-run our updated CorDapp, using the
                 [same instructions as before](hello-world-running.md).

@@ -1,10 +1,14 @@
 ---
-title: "Configuring the notary worker nodes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Configuring the notary worker nodes
+version: corda-enterprise-4-3
 ---
 
 
 # Configuring the notary worker nodes
+
 In configuring the notary worker nodes, please note the following:
 
 
@@ -91,14 +95,16 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/node.conf)
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/node.conf) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 See [Node configuration](../corda-configuration-file.md) for a complete reference.
 
 
 ## MySQL notary (deprecated)
+
 The configuration below will result in the MySQL notary being used. Note the lack of
                 the `jpa` configuration tag and the presence of the `mysql` configuration tag. Only the
                 `notary` tag is included in this excerpt - the remainder of the configuration file does not
@@ -126,12 +132,14 @@ notary {
 }
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [percona.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/percona.conf)
+[percona.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/percona.conf) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 
 ## Configuration Obfuscation
+
 Corda Enterprise comes with a tool for obfuscating secret values in configuration files, which is strongly recommended for production deployments.
                 For a notary worker node, the database IP addresses, database user credentials, `keyStore` and `trustStore` password fields in
                 the configuration file should be obfuscated. Usage instructions can be found on the [Configuration Obfuscator](../tools-config-obfuscator.md) page.
@@ -171,6 +179,7 @@ dataSourceProperties = {
 ```
 [config_obfuscator](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/config_obfuscator)
 ## Obtaining the notary service identity
+
 The notary service is registered with the CENM identity service using the registration tool as documented in [Notary Registration Tool](../notary-reg-tool.md).
                 Once the service is registered, each worker node is registered using the `initial-registration` process
                 [Joining an existing compatibility zone](../joining-a-compatibility-zone.md).

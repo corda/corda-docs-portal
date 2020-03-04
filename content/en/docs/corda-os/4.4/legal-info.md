@@ -1,10 +1,14 @@
 ---
-title: "Legal notice"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Legal notice
+version: corda-os-4-4
 ---
 
 
 # Legal notice
+
 CORDA Open Source 4.1 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
             Do Not Translate or Localize
 
@@ -1682,6 +1686,7 @@ javassist 3.23.1-GA
 
 
 # Javassist License
+
 **MOZILLA PUBLIC LICENSE**
             **Version 1.1**
 

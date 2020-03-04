@@ -1,12 +1,17 @@
 ---
-title: "Getting set up for CorDapp development"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Getting set up for CorDapp development
+version: corda-enterprise-4-1
 ---
 
 
 # Getting set up for CorDapp development
 
+
 ## Software requirements
+
 Corda uses industry-standard tools:
 
 
@@ -62,6 +67,7 @@ Following these software recommendations will minimize the number of errors you 
 
 
 ## Set-up instructions
+
 The instructions below will allow you to set up your development environment for running Corda and writing CorDapps. If
                 you have any issues, please reach out on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via
                 [our Slack channels](http://slack.corda.net/).
@@ -89,6 +95,7 @@ These setup instructions will guide you on how to install the Oracle JDK.
 
 ## Windows
 
+
 {{< warning >}}
 If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac](#mac-label), [Next steps](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
 
@@ -96,6 +103,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 
 ### Java
+
 
 * Visit [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -115,6 +123,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 ### Git
 
+
 * Visit [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
 
@@ -130,6 +139,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 ### IntelliJ
 
+
 * Visit [https://www.jetbrains.com/idea/download/download-thanks.html?code=IIC](https://www.jetbrains.com/idea/download/download-thanks.html?code=IIC)
 
 
@@ -142,6 +152,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 ## Mac
 
+
 {{< warning >}}
 If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [Windows](#windows-label), [Next steps](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
 
@@ -149,6 +160,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [
 
 
 ### Java
+
 
 * Visit [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -165,6 +177,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [
 
 ### IntelliJ
 
+
 * Visit [https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC](https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC)
 
 
@@ -177,6 +190,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [
 
 ## Debian/Ubuntu
 
+
 {{< warning >}}
 If you are using a Mac, Windows or Fedora machine, please follow the [Mac](#mac-label), [Windows](#windows-label) or [Fedora](#fedora-label) instructions instead.
 
@@ -186,6 +200,7 @@ These instructions were tested on Ubuntu Desktop 18.04 LTS.
 
 
 ### Java
+
 
 * Open a new terminal and add the Oracle PPA to your repositories by typing `sudo add-apt-repository ppa:webupd8team/java`. Press ENTER when prompted.
 
@@ -202,6 +217,7 @@ These instructions were tested on Ubuntu Desktop 18.04 LTS.
 
 ### Git
 
+
 * From the terminal, Git can be installed using apt with the command `sudo apt install git`
 
 
@@ -210,6 +226,7 @@ These instructions were tested on Ubuntu Desktop 18.04 LTS.
 
 
 ### IntelliJ
+
 Jetbrains offers a pre-built snap package that allows for easy, one-step installation of IntelliJ onto Ubuntu.
 
 
@@ -225,6 +242,7 @@ Jetbrains offers a pre-built snap package that allows for easy, one-step install
 
 ## Fedora
 
+
 {{< warning >}}
 If you are using a Mac, Windows or Debian/Ubuntu machine, please follow the [Mac](#mac-label), [Windows](#windows-label) or [Next steps](#deb-ubuntu-label) instructions instead.
 
@@ -234,6 +252,7 @@ These instructions were tested on Fedora 28.
 
 
 ### Java
+
 
 * Download the RPM installation file of Oracle JDK from [https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
@@ -250,6 +269,7 @@ These instructions were tested on Fedora 28.
 
 ### Git
 
+
 * From the terminal, Git can be installed using dnf with the command `sudo dnf install git`
 
 
@@ -258,6 +278,7 @@ These instructions were tested on Fedora 28.
 
 
 ### IntelliJ
+
 
 * Visit [https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC](https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC)
 
@@ -273,6 +294,7 @@ These instructions were tested on Fedora 28.
 
 
 ## Resolve Corda Enterprise binaries
+
 The Corda Enterprise binaries are not available in a publicly accessible Maven repository. Instead, the Corda Enterprise
                 binaries will be made available to your organisation as a compressed tarball (corda-4.1-developer-pack.tar.gz).
                 This tarball contains all of the Corda dependencies as they would appear in your local Maven repository located at
@@ -311,6 +333,7 @@ be done by firstly unpacking the corda-4.1-developer-pack.tar.gz compressed tarb
 
 
 ## Download and run a sample project
+
 Follow the instructions in [https://docs.corda.net/tutorial-cordapp.html](https://docs.corda.net/tutorial-cordapp.html).
 
 
@@ -321,6 +344,7 @@ Ensure you checkout the corresponding branch for for Corda Enterprise 4.1 by run
 
 
 ## CorDapp Templates and samples
+
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
 
 > 
@@ -337,6 +361,7 @@ You can clone these repos to your local machine by running the command `git clon
 
 
 ## Next steps
+
 The best way to check that everything is working fine is by taking a deeper look at the
                 [example CorDapp](tutorial-cordapp.md).
 

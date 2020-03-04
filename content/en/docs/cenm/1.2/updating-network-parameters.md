@@ -1,10 +1,14 @@
 ---
-title: "Updating the network parameters"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Updating the network parameters
+version: cenm-1-2
 ---
 
 
 # Updating the network parameters
+
 The initial network parameters can be subsequently changed through an update process. However, these changes must first
             be advertised to the entire network to allow nodes time to agree to the changes. Every time the server needs to be shutdown
             and run with one of the following flags: `--set-network-parameters`, `--flag-day` or `--cancel-update`. For change to be
@@ -92,7 +96,16 @@ java -jar networkmap.jar --cancel-update
 The Network Map service will continue to advertise the cancelled update until the new network map is signed.
 
 
+{{< note >}}
+It is not recommended to advertise new parameters or cancel the update during the period between flag day
+                issuance and the next network map signing, especially if the scheduled network map signing task is configured.
+                This can result in inconsistent parameters update record in the database and implicit cancellation of the
+                issued flag day.
+
+{{< /note >}}
+
 ## Updating the network paramaters via service’s shell
+
 Network parameters updates can be done via shell commands, eliminating the need to bring the Network Map service
                 offline during this time. The three commands for managing this process are:
 
@@ -122,6 +135,7 @@ Bear in mind initial network parameters setting cannot be done via shell since N
 {{< /note >}}
 
 ## Bootstrapping the network parameters
+
 When the Network Map service is running it will serve the current network map including the network parameters.
 
 The first time it is started it will need to know the initial value for those parameters, these

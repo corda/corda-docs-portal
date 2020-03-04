@@ -1,10 +1,14 @@
 ---
-title: "Corda Networks"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Corda Networks
+version: cenm-1-2
 ---
 
 
 # Corda Networks
+
 A Corda network is a collection of nodes with a vetted, unique identity that share a common “root of trust”
             upon which all certificates and signatures are ultimately chained back to. The tooling that enables this infrastructure
             is provided by the Enterprise Network Manager suite of tools, specifically the Identity Manager component.
@@ -47,6 +51,7 @@ At the end of this process a node will have successfully registered the legal id
 
 ## Sub Zones
 
+
 {{< note >}}
 This is an internal feature. Running a network with multiple sub-zones is not a supported configuration.
 
@@ -88,6 +93,7 @@ For more information, see [Sub Zones](sub-zones.md)
 
 
 ### Operating a Segregated Sub Zone
+
 From the perspective of a mature ENM deployment, operating a sub zone post ENM 0.3 is the same as operating a single
                     network under the old paradigm where there was only the one zone.
 

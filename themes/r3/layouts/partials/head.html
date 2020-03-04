@@ -1,5 +1,6 @@
 <head>
     <meta name="description" content='{{ .Param "description" }}' />
+    <meta charSet="utf-8"/>
     {{- if .IsTranslated }}
     {{- range .Translations -}}
     <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}" />

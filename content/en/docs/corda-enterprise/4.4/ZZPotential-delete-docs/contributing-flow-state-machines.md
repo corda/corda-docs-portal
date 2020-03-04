@@ -1,16 +1,21 @@
 ---
-title: "Extending the state machine"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Extending the state machine
+version: corda-enterprise-4-4
 ---
 
 
 
 # Extending the state machine
+
 This article explains how to extend the state machine code that underlies flow execution. It is intended for Corda
             contributors.
 
 
 ## How to add suspending operations
+
 To add a suspending operation for a simple request-response type function that perhaps involves some external IO we can
                 use `FlowExternalOperation` or `FlowExternalAsyncOperation`. These interfaces represent the public versions of the internal
                 `FlowAsyncOperation`.
@@ -19,6 +24,7 @@ See [calling external systems inside of flows](../cordapps/api-flows.md#api-flow
 
 
 ## How to test
+
 The recommended way to test flows and the state machine is using the Driver DSL. This ensures that you will test your
                 flow with a full node.
 
@@ -31,6 +37,7 @@ The above will spin up a node and run our example flow.
 
 
 ## How to debug issues
+
 Let’s assume we made a mistake in our summing operation:
 
 

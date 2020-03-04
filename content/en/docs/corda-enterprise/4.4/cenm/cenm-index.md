@@ -1,10 +1,14 @@
 ---
-title: "What is Corda Enterprise Network Manager?"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: What is Corda Enterprise Network Manager?
+version: corda-enterprise-4-4
 ---
 
 
 # What is Corda Enterprise Network Manager?
+
 The Corda Enterprise Network Manager is a commercial offering from R3 that facilitates the operation of a bespoke
             Corda network that gives the operator full control over all aspects of deployment, operation, and the consensus rules.
             This is provided as an alternative to taking advantage of utilising the service-level-managed production components

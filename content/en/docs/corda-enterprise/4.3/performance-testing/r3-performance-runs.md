@@ -1,15 +1,20 @@
 ---
-title: "Reproducing the R3 performance test numbers"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Reproducing the R3 performance test numbers
+version: corda-enterprise-4-3
 ---
 
 
 # Reproducing the R3 performance test numbers
+
 The performance test suite contains all the code and configuration to reproduce the performance tests run at R3 and
             presented or published occasionally.
 
 
 ## Test Network
+
 The performance test runs in a self contained test network consisting of
 
 
@@ -51,7 +56,9 @@ The default set-up uses Microsoft SQL Server instances as databases, but some te
 
 ### Machines in the Test Network
 
+
 #### Microsoft Azure
+
 The initial performance network was set up on a cluster of Microsoft Azure nodes. The following specs have been chosen
                         for the network setup
 
@@ -90,6 +97,7 @@ This set-up has been used to performance tune Corda until Autumn 2018. One of th
 
 
 #### Dedicated Hardware
+
 Due to the observed drawbacks with performance testing in the cloud, the performance testing has been moved to
                         dedicated hardware in a rented data center. To build up the performance test network, the following machine types are
                         acquired. They are all placed in the same data center, with 10Gb/s network connectivity.
@@ -109,6 +117,7 @@ Intel  Xeon E5-2687Wv4 - 12 cores hyperthreaded, 256GB DDR4 ECC 2133 MHz, 2 x 1G
 
 
 ### Node Configuration
+
 For performance runs, the nodes run with pretty standard configuration. However, there are a few tweaks:
 
 
@@ -147,6 +156,7 @@ Depending on the type of machines used, it is recommended that the `rpcThreadPoo
 
 
 ### Notary Configuration
+
 When using a simple, single node notary, it has the following configuration in addition to the above:
 
 ```kotlin
@@ -156,6 +166,7 @@ notary {
 ```
 
 ### Database Configuration
+
 Each node has its own, dedicated database server running Microsoft SQL Server 2016 Standard.
                     Note that the disk write latency and throughput on the database machine are critical for the node’s performance as the
                     Corda checkpointing mechanism means that many checkpoints are written to the database, and then deleted again when the
@@ -166,6 +177,7 @@ Each node has its own, dedicated database server running Microsoft SQL Server 20
 
 
 ## Test Plan
+
 For the test, JMeter server instances on 4 node machines and the simple notary machine all connect to one node via RPC
                 to drive the tests. A external JMeter client uses the `NightlyBenchmark.jmx` test plan to run the tests.
 

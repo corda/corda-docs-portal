@@ -1,10 +1,14 @@
 ---
-title: "Deterministic Corda Modules"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Deterministic Corda Modules
+version: corda-os-4-1
 ---
 
  .red {color:red} 
 # Deterministic Corda Modules
+
 A Corda contract’s verify function should always produce the same results for the same input data. To that end,
             Corda provides the following modules:
 
@@ -31,6 +35,7 @@ These modules are only a development aid. They cannot guarantee determinism with
 {{< /note >}}
 
 ## Generating the Deterministic Modules
+
 
 
 JDK 8
@@ -126,6 +131,7 @@ The build generates each of Corda’s deterministic JARs in six steps:
 > 
 
 ## Configuring IntelliJ with a Deterministic SDK
+
 We would like to configure IntelliJ so that it will highlight uses of non-deterministic Java APIs as not found.
                 Or, more specifically, we would like IntelliJ to use the `deterministic-rt.jar` as a “Module SDK” for deterministic
                 modules rather than the `rt.jar` from the default project SDK, to make IntelliJ consistent with Gradle.
@@ -245,6 +251,7 @@ but still build everything using Gradle with the full JDK.
 
 
 ## Testing the Deterministic Modules
+
 The `core-deterministic:testing` module executes some basic JUnit tests for the `core-deterministic` and
                 `serialization-deterministic` JARs. These tests are compiled against the deterministic `rt.jar`, although
                 they are still executed using the full JDK.
@@ -265,6 +272,7 @@ This module provides the test classes which the `testing` and `data` modules nee
 
 
 ## Applying @KeepForDJVM and @DeleteForDJVM annotations
+
 Corda developers need to understand how to annotate classes in the `core` and `serialization` modules correctly
                 in order to maintain the deterministic JARs.
 

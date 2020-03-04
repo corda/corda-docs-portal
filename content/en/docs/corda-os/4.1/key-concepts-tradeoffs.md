@@ -1,13 +1,19 @@
 ---
-title: "Trade-offs"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-concepts
+title: Trade-offs
+version: corda-os-4-1
 ---
 
 
 # Trade-offs
 
+
 {{< topic >}}
 # Summary
+
 
 * *Permissioned networks are better suited for financial use-cases*
 
@@ -21,6 +27,7 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Permissioned vs. permissionless
+
 Traditional blockchain networks are *permissionless*. The parties on the network are anonymous, and can join and
                 leave at will.
 
@@ -40,6 +47,7 @@ By contrast, Corda networks are *permissioned*. Each party on the network has a 
 
 
 ## Point-to-point vs. global broadcasts
+
 Traditional blockchain networks broadcast every message to every participant. The reason for this is two-fold:
 
 
@@ -72,6 +80,7 @@ Corda also uses several other techniques to maximize privacy on the network:
 
 
 ## UTXO vs. account model
+
 Corda uses a *UTXO* (unspent transaction output) model. Each transaction consumes a set of existing states to produce
                 a set of new states.
 
@@ -84,6 +93,7 @@ The main advantage of the UTXO model is that transactions with different inputs 
 
 
 ## Code-is-law vs. existing legal systems
+
 Financial institutions need the ability to resolve conflicts using the traditional legal system where required. Corda
                 is designed to make this possible by:
 
@@ -98,6 +108,7 @@ Financial institutions need the ability to resolve conflicts using the tradition
 
 
 ## Build vs. re-use
+
 Wherever possible, Corda re-uses existing technologies to make the platform more robust platform overall. For
                 example, Corda re-uses:
 

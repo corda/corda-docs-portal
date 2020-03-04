@@ -1,12 +1,17 @@
 ---
-title: "Notary HSM support"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Notary HSM support
+version: corda-enterprise-4-4
 ---
 
 
 # Notary HSM support
 
+
 ## Overview
+
 
 ![hsm support](notary/resources/hsm-support.png "hsm support")Two notary workers and their relevant cryptographic keys used for P2P messaging and transaction signing. The red rectangles represent the
                     Corda notary worker services. The distinct identity keys are represented by rectangles in green and yellow and the shared key of the
@@ -49,6 +54,7 @@ Currently Corda Enterprise notaries only support Azure Key Vault and Securosys P
 
 
 ## Detailed instructions to deploy to Azure Key Vault
+
 These instructions assume that a single Azure Key Vault is being used across all notary workers.
 
 Add the following entries to your workers node.conf files, replacing the placeholders with the relevant/chosen values:
@@ -108,6 +114,7 @@ To register a second notary worker, copy the `notary-service-keystore.jks` to th
 
 
 ## Using Multiple HSMs
+
 A highly-available HSM can be shared between notary workers in the current version of Corda, however each worker needs to be configured
                 to use a unique alias for the identity and client ca key. See the *enterpriseConfiguration* section of the corda-configuration-file
                 doc for more information on how to configure this.

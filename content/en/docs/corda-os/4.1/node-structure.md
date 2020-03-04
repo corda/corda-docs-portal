@@ -1,10 +1,15 @@
 ---
-title: "Node folder structure"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-node
+title: Node folder structure
+version: corda-os-4-1
 ---
 
 
 # Node folder structure
+
 A folder containing a Corda node files has the following structure:
 
 ```none

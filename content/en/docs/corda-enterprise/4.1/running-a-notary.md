@@ -1,10 +1,14 @@
 ---
-title: "Setting up a notary service"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Setting up a notary service
+version: corda-enterprise-4-1
 ---
 
 
 # Setting up a notary service
+
 Corda Enterprise comes with two notary implementations built-in:
 
 
@@ -17,6 +21,7 @@ Corda Enterprise comes with two notary implementations built-in:
 
 
 ## Single-node
+
 To have a regular Corda node provide a notary service you simply need to set appropriate `notary` configuration values
                 before starting it:
 
@@ -36,6 +41,7 @@ For clients to be able to use the notary service, its identity must be added to 
 
 
 ## Highly available
+
 Corda Enterprise provides a highly available notary service implementation backed by a replicated Percona XtraDB cluster.
                 This is the recommended implementation for production networks. See [Setting up a HA notary service](running-a-notary-cluster/toctree.md) for detailed
                 setup steps.

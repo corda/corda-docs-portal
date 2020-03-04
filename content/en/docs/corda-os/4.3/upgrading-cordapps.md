@@ -1,11 +1,15 @@
 ---
-title: "Release new CorDapp versions"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Release new CorDapp versions
+version: corda-os-4-3
 ---
 
 
 
 # Release new CorDapp versions
+
 
 {{< note >}}
 This document only concerns the upgrading of CorDapps and not the Corda platform itself (wire format, node
@@ -14,6 +18,7 @@ This document only concerns the upgrading of CorDapps and not the Corda platform
 {{< /note >}}
 
 ## CorDapp versioning
+
 The Corda platform does not mandate a version number on a per-CorDapp basis. Different elements of a CorDapp are
                 allowed to evolve separately:
 
@@ -41,6 +46,7 @@ Sometimes, however, a change to one element will require changes to other elemen
 
 
 ## Areas of consideration
+
 This document will consider the following types of versioning:
 
 
@@ -58,6 +64,7 @@ This document will consider the following types of versioning:
 
 
 ## Flow versioning
+
 Any flow that initiates other flows must be annotated with the `@InitiatingFlow` annotation, which is defined as:
 
 ```kotlin
@@ -69,6 +76,7 @@ The `version` property, which defaults to 1, specifies the flow’s version. Thi
 
 
 ### What defines the interface of a flow?
+
 The flow interface is defined by the sequence of `send` and `receive` calls between an `InitiatingFlow` and an
                     `InitiatedBy` flow, including the types of the data sent and received. We can picture a flow’s interface as follows:
 
@@ -108,6 +116,7 @@ As long as both the `InitiatingFlow` and the `InitiatedBy` flows conform to the 
 
 
 ### What constitutes a non-backwards compatible flow change?
+
 A flow can become backwards-incompatible in two main ways:
 
 
@@ -126,6 +135,7 @@ A flow can become backwards-incompatible in two main ways:
 
 
 ### What happens when running flows with incompatible versions?
+
 Pairs of `InitiatingFlow` flows and `InitiatedBy` flows that have incompatible interfaces are likely to exhibit the
                     following behaviour:
 
@@ -144,6 +154,7 @@ Pairs of `InitiatingFlow` flows and `InitiatedBy` flows that have incompatible i
 
 
 ### How do I upgrade my flows?
+
 
 * Update the flow and test the changes. Increment the flow version number in the `InitiatingFlow` annotation.
 
@@ -169,6 +180,7 @@ In situations where some nodes may still be using previous versions of a flow an
 
 
 ### How do I ensure flow backwards-compatibility?
+
 The `InitiatingFlow` version number is included in the flow session handshake and exposed to both parties via the
                     `FlowLogic.getFlowContext` method. This method takes a `Party` and returns a `FlowContext` object which describes
                     the flow running on the other side. In particular, it has a `flowVersion` property which can be used to
@@ -221,6 +233,7 @@ This code shows a flow that in its first version expected to receive an Int, but
 
 
 ### How do I deal with interface changes to inlined subflows?
+
 Here is an example of an in-lined subflow:
 
 
@@ -323,6 +336,7 @@ Flows which are not an `InitiatingFlow` or `InitiatedBy` flow, or inlined subflo
 
 
 ### Flow drains
+
 A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack.
                     Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when
                     sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts. Automatic
@@ -356,6 +370,7 @@ Deleting checkpoints manually or via `killFlow` can lead to an inconsistent ledg
 
 
 ## Contract and state versioning
+
 There are two types of contract/state upgrade:
 
 
@@ -370,6 +385,7 @@ The general recommendation for Corda 4 is to use **implicit** upgrades for the r
 
 
 ### Performing explicit contract and state upgrades
+
 In an explicit upgrade, contracts and states can be changed in arbitrary ways, if and only if all of the state’s
                     participants agree to the proposed upgrade. To ensure the continuity of the chain the upgraded contract needs to declare the contract and
                     constraint of the states it’s allowed to replace.
@@ -384,6 +400,7 @@ In Corda 4 we’ve introduced the Signature Constraint (see [API: Contract Const
 
 
 #### 1. Preserve the existing state and contract definitions
+
 Currently, all nodes must **permanently** keep **all** old state and contract definitions on their node’s classpath if the explicit upgrade
                         process was used on them.
 
@@ -395,6 +412,7 @@ This requirement will go away in a future version of Corda. In Corda 4, the cont
 {{< /note >}}
 
 #### 2. Write the new state and contract definitions
+
 Update the contract and state definitions. There are no restrictions on how states are updated. However,
                         upgraded contracts must implement the `UpgradedContract` interface. This interface is defined as:
 
@@ -435,30 +453,36 @@ override val legacyContractConstraint: AttachmentConstraint
 ```
 
 #### 3. Create the new CorDapp JAR
+
 Produce a new CorDapp JAR file. This JAR file should only contain the new contract and state definitions.
 
 
 #### 4. Distribute the new CorDapp JAR
+
 Place the new CorDapp JAR file in the `cordapps` folder of all the relevant nodes. You can do this while the nodes are still
                         running.
 
 
 #### 5. Stop the nodes
+
 Have each node operator stop their node. If you are also changing flow definitions, you should perform a
                         node drain first to avoid the definition of states or contracts changing whilst a flow is
                         in progress.
 
 
 #### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
+
 If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
                         re-run the network bootstrapper to whitelist the new contracts. See [Network Bootstrapper](network-bootstrapper.md).
 
 
 #### 7. Restart the nodes
+
 Have each node operator restart their node.
 
 
 #### 8. Authorise the upgrade
+
 Now that new states and contracts are on the classpath for all the relevant nodes, the next step is for all node to run the
                         `ContractUpgradeFlow.Authorise` flow. This flow takes a `StateAndRef` of the state to update as well as a reference
                         to the new contract, which must implement the `UpgradedContract` interface.
@@ -468,6 +492,7 @@ At any point, a node administrator may de-authorise a contract upgrade by runnin
 
 
 #### 9. Perform the upgrade
+
 Once all nodes have performed the authorisation process, a participant must be chosen to initiate the upgrade via the
                         `ContractUpgradeFlow.Initiate` flow for each state object. This flow has the following signature:
 
@@ -485,12 +510,15 @@ Once the flow ends successfully, all the participants of the old state object sh
 
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
+
 Follow the guide in [API: Contract Constraints](api-contract-constraints.md).
 
 
 ### Points to note
 
+
 #### Capabilities of the contract upgrade flows
+
 
 * Despite its name, the `ContractUpgradeFlow` handles the update of both state object definitions and contract logic
 
@@ -516,6 +544,7 @@ Follow the guide in [API: Contract Constraints](api-contract-constraints.md).
 
 #### Writing new states and contracts
 
+
 * If a property is removed from a state, any references to it must be removed from the contract code. Otherwise, you
                                 will not be able to compile your contract code. It is generally not advisable to remove properties from states. Mark
                                 them as deprecated instead
@@ -532,11 +561,13 @@ Follow the guide in [API: Contract Constraints](api-contract-constraints.md).
 
 #### Permissioning
 
+
 * Only node administrators are able to run the contract upgrade authorisation and deauthorisation flows
 
 
 
 #### Logistics
+
 
 * All nodes need to run the contract upgrade authorisation flow
 
@@ -550,6 +581,7 @@ Follow the guide in [API: Contract Constraints](api-contract-constraints.md).
 
 
 ## Serialisation
+
 Currently, the serialisation format for everything except flow checkpoints (which uses a Kryo-based format) is based
                 upon AMQP 1.0, a self-describing and controllable serialisation format. AMQP is desirable because it allows us to have
                 a schema describing what has been serialized alongside the data itself. This assists with versioning and deserialising
@@ -557,6 +589,7 @@ Currently, the serialisation format for everything except flow checkpoints (whic
 
 
 ### Writing classes
+
 Although not strictly related to versioning, AMQP serialisation dictates that we must write our classes in a particular way:
 
 
@@ -595,6 +628,7 @@ Although not strictly related to versioning, AMQP serialisation dictates that we
 
 
 ### Writing enums
+
 Elements cannot be added to enums in a new version of the code. Hence, enums are only a good fit for genuinely static
                     data that will never change (e.g. days of the week). A `Buy` or `Sell` flag is another. However, something like
                     `Trade Type` or `Currency Code` will likely change. For those, it is preferable to choose another representation,
@@ -602,6 +636,7 @@ Elements cannot be added to enums in a new version of the code. Hence, enums are
 
 
 ## State schemas
+
 By default, all state objects are serialised to the database as a string of bytes and referenced by their `StateRef`.
                 However, it is also possible to define custom schemas for serialising particular properties or combinations of
                 properties, so that they can be queried from a source other than the Corda Vault. This is done by implementing the
@@ -825,7 +860,9 @@ With this approach, whenever the state object is stored in the vault, a represen
 
 ## Serialisation
 
+
 ### The Corda serialisation format
+
 Currently, the serialisation format for everything except flow checkpoints (which uses a Kryo-based format) is based
                     on AMQP 1.0, a self-describing and controllable serialisation format. AMQP is desirable because it allows us to have
                     a schema describing what has been serialized alongside the data itself. This assists with versioning and deserialising
@@ -833,6 +870,7 @@ Currently, the serialisation format for everything except flow checkpoints (whic
 
 
 ### Writing classes that meet the serialisation format requirements
+
 Although not strictly related to versioning, AMQP serialisation dictates that we must write our classes in a particular way:
 
 
@@ -871,6 +909,7 @@ Although not strictly related to versioning, AMQP serialisation dictates that we
 
 
 ## Testing CorDapp upgrades
+
 At the time of this writing there is no platform support to test CorDapp upgrades. There are plans to add support in a future version.
                 This means that it is not possible to write automated tests using just the provided tooling.
 

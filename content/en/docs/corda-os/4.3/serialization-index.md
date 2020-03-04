@@ -1,10 +1,14 @@
 ---
-title: "Serialization"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Serialization
+version: corda-os-4-3
 ---
 
 
 # Serialization
+
 
 * [Object serialization](serialization.md)
 

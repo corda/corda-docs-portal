@@ -1,15 +1,20 @@
 ---
-title: "Running our CorDapp"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Running our CorDapp
+version: corda-os-4-1
 ---
 
 
 
 # Running our CorDapp
+
 Now that we’ve written a CorDapp, it’s time to test it by running it on some real Corda nodes.
 
 
 ## Deploying our CorDapp
+
 Let’s take a look at the nodes we’re going to deploy. Open the project’s `build.gradle` file and scroll down to the
                 `task deployNodes` section. This section defines three nodes. There are two standard nodes (`PartyA` and
                 `PartyB`), plus a special network map/notary node that is running the network map service and advertises a validating notary
@@ -70,6 +75,7 @@ gradlew clean deployNodes
 ```
 
 ## Running the nodes
+
 Running `deployNodes` will build the nodes under `build/nodes`. If we navigate to one of these folders, we’ll see
                 the three node folders. Each node folder has the following structure:
 
@@ -98,6 +104,7 @@ This will start a terminal window for each node, and an additional terminal wind
 > 
 > ![running node](resources/running_node.png "running node")
 ## Interacting with the nodes
+
 Now that our nodes are running, let’s order one of them to create an IOU by kicking off our `IOUFlow`. In a larger
                 app, we’d generally provide a web API sitting on top of our node. Here, for simplicity, we’ll be interacting with the
                 node via its built-in CRaSH shell.
@@ -179,6 +186,7 @@ This is the result of Corda’s privacy model. Because the notary was not involv
 
 
 ## Conclusion
+
 We have written a simple CorDapp that allows IOUs to be issued onto the ledger. Our CorDapp is made up of two key
                 parts:
 
@@ -200,6 +208,7 @@ After completing this tutorial, your CorDapp should look like this:
 
 
 ## Next steps
+
 There are a number of improvements we could make to this CorDapp:
 
 

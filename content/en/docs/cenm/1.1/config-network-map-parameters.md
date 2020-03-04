@@ -1,10 +1,14 @@
 ---
-title: "Network Map Configuration Parameters"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Network Map Configuration Parameters
+version: cenm-1-1
 ---
 
 
 # Network Map Configuration Parameters
+
 Configuration reference for the Network Map Service
 
 

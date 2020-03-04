@@ -1,14 +1,19 @@
 ---
-title: "Practical Considerations"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Practical Considerations
+version: corda-enterprise-4-3
 ---
 
 
 # Practical Considerations
+
 This page is listing some practical considerations and tips that might be useful when performance testing Corda Enterprise.
 
 
 ## Resetting a Node
+
 
 {{< warning >}}
 Resetting a node this way loses all data and states associated with this node! This process is intended to reset
@@ -51,15 +56,18 @@ Note that this will not reset the node registration, identity, keys or the netwo
 
 
 ### Wiping the database
+
 How to wipe the node database depends on the database being used:
 
 
 #### H2
+
 In H2, wiping the database simply consists of deleting the files `persistence.mv.db` and `persistence.trace.db` from the node’s working
                         directory
 
 
 #### Microsoft SQL Server
+
 To wipe the node’s database in SQL server, all the tables in the node’s schema need to be dropped - this is easiest to do in a
                         database administration tool. Note that it is fairly likely that not all tables can be deleted in one go as they have foreign key
                         indices depending on other tables, and SQL server does not allow dropping a table that other entities depend on. You can either drop
@@ -75,10 +83,12 @@ DROP VIEW <SCHEMA NAME>.v_pkey_hash_ex_id_map
 ```
 
 #### Postgres/Oracle
+
 In PostgreSQL and Oracle, it is possible to just drop the schema for the node - this will wipe all tables/sequences/indices/views.
 
 
 ## Interpreting and trouble-shooting JMeter output
+
 To collect the ouput of a JMeter performance run, we need to add listeners to the test plan. Some of the really useful listeners are:
 
 

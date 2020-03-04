@@ -1,14 +1,20 @@
 ---
-title: "Flow framework internals"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Flow framework internals
+version: corda-enterprise-4-3
 ---
 
 
 # Flow framework internals
 
+
 ## Quasar
 
+
 ### Instrumentation
+
 Quasar rewrites bytecode to achieve a couple of things:
 
 
@@ -123,6 +129,7 @@ The Quasar javaagent code doing the above rewriting can be found
 {{< /note >}}
 
 ### Fibers
+
 The above instrumentation allows the implementation of *co-operative* scheduling. That is, `@Suspendable` code can yield its execution by
                     throwing a `SuspendExecution` exception. This exception throw takes care of handing the control flow to a top-level try-catch, which then
                     has access to the thread-locally constructed execution stack, as well as a way to return to the suspension point using the “method entry”
@@ -143,6 +150,7 @@ For those adventurous enough to explore the implementation, the execution stack 
 {{< /note >}}
 
 ## Checkpoints
+
 The main idea behind checkpoints is to utilize the `Fiber` data structure and treat it as a serializable object capturing the state of a
                 running computation. Whenever a Corda-suspendable API is hit, we capture the execution stack and corresponding entry list, and serialize
                 it using [Kryo](https://github.com/EsotericSoftware/kryo), a reflection-based serialization library capable of serializing unstructured
@@ -168,6 +176,7 @@ The rest of the `Checkpoint` deals with internal bookkeeping. Sessions, the subf
 
 
 ## The state machine
+
 The internals of the flow framework were designed as a state machine. A flow is a strange event loop that has a state, and goes through
                 state transitions triggered by events. The transitions may be either
 
@@ -231,6 +240,7 @@ The event then goes through `TopLevelTransition`, which then passes it to `Deliv
 
 
 ## FlowStateMachineImpl
+
 The state machine is a pure function, so what is the “driver” of it, that actually executes the transitions and side-effects? This is what
                 `FlowStateMachineImpl` is doing, which is a `Fiber`. This class requires great care when it’s modified, as the programmer must be aware
                 of what’s on the stack, what fields get persisted as part of the `Checkpoint`, and how the control flow is wired.
@@ -257,6 +267,7 @@ The two main functions that call the above are the top-level `run`, which is the
 
 
 ## Suspensions
+
 Let’s take a look at `suspend`, which is the most delicate/brittle function in this class, and most probably the whole flow framework.
                 Examining it will reveal a lot about how flows and fibers work.
 
@@ -397,6 +408,7 @@ The `processEvent*` calls do explicit checks of database transaction state on en
 {{< /note >}}
 
 ## Event processing
+
 The processing of an event consists of two steps:
 
 
@@ -422,6 +434,7 @@ Here are a couple of highlighted transitions:
 
 
 ### Suspend
+
 Handling of `Event.Suspend` is quite straightforward and is done [here](https://github.com/corda/corda/blob/26855967989557e4c078bb08dd528231d30fad8b/node/src/main/kotlin/net/corda/node/services/statemachine/transitions/TopLevelTransition.kt#L143).
                     We take the serialized `Fiber` and the IO request and create a new checkpoint, then depending on whether we should persist or not we
                     either simply commit the database transaction and schedule a `DoRemainingWork` (to be explained later), or we persist the checkpoint, run
@@ -431,6 +444,7 @@ Every checkpoint persistence implies the above steps, in this specific order.
 
 
 ### DoRemainingWork
+
 This is a generic event that simply tells the state machine: inspect your current state, and decide what to do, if anything. Using this
                     event we can break down transitions into a <modify state> and <inspect and do stuff> transition, which compose well with other transitions,
                     as we don’t need to add special cases everywhere in the state machine.
@@ -460,18 +474,21 @@ Most of the state machine logic is therefore about the handling `DoRemainingWork
 
 
 ### Transition execution
+
 Once the transition has been calculated the transition is passed to the flow’s `TransitionExecutor`. The main executor is
                     `TransitionExecutorImpl`, which executes the transition’s `Action` s, and handles errors by manually erroring the flow’s state. This is
                     also when transition interceptors are triggered.
 
 
 ### Errors
+
 An error can manifest as either the whole flow erroring, or a specific session erroring. The former means that the whole flow is blocked
                     from resumption, and it will end up in the flow hospital. A session erroring blocks only that specific session. Any interaction with this
                     session will in turn error the flow. Session errors are created by a remote party propagating an error to our flow.
 
 
 ### How to modify the state machine
+
 Let’s say we wanted to change the session messaging protocol. How would we go about changing the state machine?
 
 The session logic is defined by
@@ -494,7 +511,9 @@ Let’s say we wanted to add more handshake steps. To do this we need to add new
 
 ## Atomicity
 
+
 ### DeduplicationHandler
+
 The flow framework guarantees atomicity of processing incoming events. This means that a flow or the node may be stopped at any time, even
                     during processing of an event and on restart the node will reconstruct the correct state of the flows and will proceed as if nothing
                     happened.
@@ -554,6 +573,7 @@ Internally a list of pending `DeduplicationHandler` s is accumulated in the stat
 
 
 ### In-memory flow retries
+
 Tracking of these handlers also allows us to do in-memory retries of flows. To do this we need to re-create the flow from the last
                     checkpoint and retry external events internally. For every flow we have two lists of such “events”, one is the yet-unprocessed event queue
                     of the flow, and one is the already processed but still pending list of `DeduplicationHandler` s. The concatenation of these events gives
@@ -568,6 +588,7 @@ There may be cases where there is no checkpoint yet for a flow that needs retryi
 {{< /note >}}
 
 ### Deduplication
+
 Full message deduplication is more complex, what we’ve discussed so far only dealt with the state machine bits.
 
 When we receive a message from Artemis it is eventually handled by
@@ -594,6 +615,7 @@ If the message isn’t a duplicate then it’s put into `beingProcessedMessages`
 
 
 ## Flow hospital
+
 The flow hospital is a place where errored flows end up. This is done using an interceptor that detects error transitions and notifies the
                 hospital.
 

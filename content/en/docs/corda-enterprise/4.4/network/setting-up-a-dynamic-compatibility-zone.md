@@ -1,13 +1,18 @@
 ---
-title: "Setting up a dynamic compatibility zone"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Setting up a dynamic compatibility zone
+version: corda-enterprise-4-4
 ---
 
 
 
 # Setting up a dynamic compatibility zone
 
+
 ## Do you need to create your own dynamic compatibility zone?
+
 By *dynamic compatibility zone*, we mean a compatibility zone that relies on a network map server to allow nodes to
                 join dynamically, instead of requiring each node to be bootstrapped and have the node-infos distributed manually. While
                 this may sound appealing, think twice before going down this route:
@@ -61,6 +66,7 @@ A production-ready Corda network and a new iteration of the testnet will be avai
 {{< /note >}}
 
 ## Why create your own zone?
+
 The primary reason to create a zone and provide the associated infrastructure is control over *network parameters*. These
                 are settings that control Corda’s operation, and on which all users in a network must agree. Failure to agree would create
                 the Corda equivalent of a blockchain “hard fork”. Parameters control things like the root of identity,
@@ -86,14 +92,18 @@ Creating a zone involves the following steps:
 
 ## How to create your own compatibility zone
 
+
 ### Using an existing network map implementation
+
 You can use an existing network map implementation such as the
                     [Cordite Network Map Service](https://gitlab.com/cordite/network-map-service) to create a dynamic compatibility zone.
 
 
 ### Creating your own network map implementation
 
+
 #### Writing a network map server
+
 This server implements a simple HTTP based protocol described in the “[The network map](network-map.md)” page.
                         The map server is responsible for gathering NodeInfo files from nodes, storing them, and distributing them back to the
                         nodes in the zone. By doing this it is also responsible for choosing who is in and who is out: having a signed
@@ -110,6 +120,7 @@ The network map server also distributes signed network parameter files and contr
 
 
 #### Writing a doorman server
+
 This step is optional because your users can obtain a signed certificate in many different ways. The doorman protocol
                         is again a very simple HTTP based approach in which a node creates keys and requests a certificate, polling until it
                         gets back what it expects. However, you could also integrate this process with the rest of your signup process. For example,
@@ -163,6 +174,7 @@ The protocol is:
 
 
 #### Setting zone parameters
+
 Zone parameters are stored in a file containing a Corda AMQP serialised `SignedDataWithCert<NetworkParameters>`
                         object. It is easy to create such a file with a small Java or Kotlin program. The `NetworkParameters` object is a
                         simple data holder that could be read from e.g. a config file, or settings from a database. Signing and saving the
@@ -215,6 +227,7 @@ Each individual parameter is documented in [the JavaDocs/KDocs for the NetworkPa
 
 
 ### Selecting parameter values
+
 How to choose the parameters? This is the most complex question facing you as a new zone operator. Some settings may seem
                     straightforward and others may involve cost/benefit tradeoffs specific to your business. For example, you could choose
                     to run a validating notary yourself, in which case you would (in the absence of SGX) see all the users’ data. Or you could

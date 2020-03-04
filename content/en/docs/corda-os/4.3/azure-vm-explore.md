@@ -1,10 +1,14 @@
 ---
-title: "Deploying Corda to Corda Testnet from an Azure Cloud Platform VM"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Deploying Corda to Corda Testnet from an Azure Cloud Platform VM
+version: corda-os-4-3
 ---
 
 
 # Deploying Corda to Corda Testnet from an Azure Cloud Platform VM
+
 This document will describe how to set up a virtual machine on the Azure Cloud Platform to deploy your pre-configured
             Corda node and automatically connnect to Testnet. A self-service download link can be obtained from
             [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet).
@@ -12,21 +16,25 @@ This document will describe how to set up a virtual machine on the Azure Cloud P
 
 ## Pre-requisites
 
+
 * Ensure you have a registered Microsoft Azure account which can create virtual machines.
 
 
 
 ## Deploy Corda node
+
 Browse to [https://portal.azure.com](https://portal.azure.com) and log in with your Microsoft account.
 
 
 ### STEP 1: Create a Resource Group
+
 Click on the “Resource groups” link in the side nav in the Azure Portal and then click “Add”:
 
 ![azure rg](resources/azure-rg.png "azure rg")Fill in the form and click “Create”:
 
 ![azure rg 2](resources/azure-rg-2.png "azure rg 2")
 ### STEP 2: Launch the VM
+
 At the top of the left sidenav click on the button with the green cross “Create a resource”.
 
 In this example we are going to use an Ubuntu server so select the latest Ubuntu Server option:
@@ -79,6 +87,7 @@ The priority has to be unique number in the range 900 (highest) and 4096 (lowest
 
 ![azure create vm](resources/azure-create-vm.png "azure create vm")
 ### STEP 3: Connect to your VM and set up the environment
+
 Once your instance is running click on the “Connect” button and copy the ssh command:
 
 ![azure ssh](resources/azure-ssh.png "azure ssh")Enter the ssh command into your terminal. At the prompt, type “yes” to continue connecting and then enter the password
@@ -86,6 +95,7 @@ Once your instance is running click on the “Connect” button and copy the ssh
 
 ![azure shell](resources/azure-shell.png "azure shell")
 ### STEP 4: Download and set up your Corda node
+
 Now that your Azure environment is configured you can switch to the
                     [Testnet dashboard](https://marketplace.r3.com/network/testnet/install-node) and click “Copy” to get a one-time installation
                     script.
@@ -121,6 +131,7 @@ tail -f /opt/corda/logs/node-<VM-NAME>.log
 ```
 
 ## Testing your deployment
+
 To test that your deployment is working correctly, follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up
                 the Finance CorDapp and issue cash to a counterparty.
 

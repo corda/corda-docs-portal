@@ -1,11 +1,15 @@
 ---
-title: "Database management scripts"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Database management scripts
+version: corda-enterprise-4-1
 ---
 
 
 
 # Database management scripts
+
 Corda - the platform, and the installed CorDapps store their data in a relational database (see [API: Persistence](api-persistence.md)).
             When a new CorDapp is installed, associated tables, indexes, foreign-keys, etc. must be created.
             Similarly, when a new version of a CorDapp is installed, its database schemas may have changed,
@@ -15,6 +19,7 @@ In Corda Enteprise, CorDapps’ custom tables are created or upgraded automatica
 
 
 ## Migration scripts structure
+
 Corda provides migration scripts in an XML format for its internal node and vault tables. CorDapps should provide
                 migration scripts for the tables they manage. In Corda, `MappedSchemas` (see [API: Persistence](api-persistence.md)) manage JPA
                 Entities and thus the corresponding database tables. So `MappedSchemas` are the natural place to point to the
@@ -90,6 +95,7 @@ As we can see in this example, database migrations can “destroy” data, so it
 
 
 ## Creating SQL migration scripts for CorDapps
+
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
                 It is intended to be used by Corda Enterprise node administrators but it can help to develop a Liquibase script for a CorDapp.
                 The `create-migration-sql-for-cordapp` subcommand can be used to create migration scripts for each `MappedSchema` in
@@ -135,6 +141,7 @@ Additional options:
 
 
 ## Distributing Liqubase database management scripts with CorDapps
+
 CorDapp developers who decide to store contract state in custom entities can create migration files for the `MappedSchema` they define.
 
 There are 2 ways of associating a migration file with a schema:
@@ -170,6 +177,7 @@ When developing a new version of an existing CorDapp, depending on the changes t
 
 
 ## Adding database migration scripts retrospectively to an existing CorDapp
+
 If a CorDapp does not include the required migration scripts for each `MappedSchema`, these can be generated and inspected before
                 being applied as follows:
 
@@ -198,6 +206,7 @@ If a CorDapp does not include the required migration scripts for each `MappedSch
 
 
 ## Considerations for migrating Open Source CorDapps to Corda Enterprise
+
 If a Corda Node is upgraded from Open Source to Enterprise, then any CorDapps need to contain Liquibase scripts.
                 Any custom tables, which are required by CorDapps, were created manually or by Hibernate upon node startup.
                 Because of that the database doesn’t contain an entry in the *DATABASECHANGELOG* table which is created by the Liquibase runner.

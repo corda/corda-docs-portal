@@ -1,14 +1,19 @@
 ---
-title: "Corda Enterprise notary service set-up"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Corda Enterprise notary service set-up
+version: corda-enterprise-4-3
 ---
 
 
 # Corda Enterprise notary service set-up
+
 Double curly braces `{{ }}` are used to represent placeholder values throughout this guide.
 
 
 ## Notary implementations
+
 Corda Enterprise contains more than one notary implementation. These multiple implementations exist to
                 serve different operational requirements. Ensure that the correct notary implementation is selected
                 according to the requirements.
@@ -30,6 +35,7 @@ For a list of databases supported by each of the above notary implementations, p
 
 
 ## HA notaries
+
 The Corda Enterprise notary service can be configured in highly available (HA) mode. Note that for the
                 Corda Enterprise notary service to operate in HA mode, a highly available database is required.
 
@@ -45,6 +51,7 @@ Running the Corda Enterprise notary service in highly available mode requires th
 > 
 
 ## Prerequisites
+
 
 * Java runtime
 
@@ -77,6 +84,7 @@ Your Corda Enterprise distribution should contain all the JARs listed above.
 
 
 ## Networking
+
 Client nodes communicate with the notary cluster via P2P messaging, with the messaging layer
                 selecting an appropriate notary worker node by the service legal name. The notary worker P2P ports
                 should be reachable from the internet (or at least from the rest of the Corda network you’re
@@ -113,6 +121,7 @@ The node will continue retrying notarisation requests automatically until it hea
 {{< /note >}}
 
 ## Legal names and identities
+
 Every notary worker node has two legal names:
 
 
@@ -142,12 +151,15 @@ If you want to connect to a Corda network with a doorman and network map service
 {{< /note >}}
 
 ## Expected data volume
+
 Non-validating notaries store roughly one kilobyte per transaction.
 
 
 ## Security
 
+
 ### Credentials
+
 Make sure you have the following credentials available, creating them if necessary and always
                     keeping them safe.
 
@@ -166,6 +178,7 @@ Make sure you have the following credentials available, creating them if necessa
 {{< /table >}}
 
 ## Keys and certificates
+
 Notary keys are stored in the same way as for regular Corda nodes in the `certificates`
                 directory. You can find out more in the [Network certificates](../permissioning.md) document.
 

@@ -1,16 +1,21 @@
 ---
-title: "What is a CorDapp?"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: What is a CorDapp?
+version: corda-enterprise-4-4
 ---
 
 
 # What is a CorDapp?
+
 CorDapps (Corda Distributed Applications) are distributed applications that run on the Corda platform. The goal of a
             CorDapp is to allow nodes to reach agreement on updates to the ledger. They achieve this goal by defining flows that
             Corda node owners can invoke over RPC:
 
 ![node diagram](cordapps/../resources/node-diagram.png "node diagram")
 ## CorDapp components
+
 CorDapps take the form of a set of JAR files containing class definitions written in Java and/or Kotlin.
 
 These class definitions will commonly include the following elements:
@@ -58,6 +63,7 @@ Serialization whitelists restrict the objects a node can deserialize when being 
 
 
 ## An example CorDapp
+
 In this example, we’ll go over the components of a CorDapp designed to trade bonds. This CorDapp would be deployed by all
                 Node owners wishing to establish a business network to trade bonds.
 

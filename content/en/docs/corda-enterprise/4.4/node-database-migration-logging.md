@@ -1,10 +1,15 @@
 ---
-title: "Database Schema Migration Logging"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-node
+title: Database Schema Migration Logging
+version: corda-enterprise-4-4
 ---
 
 
 # Database Schema Migration Logging
+
 Database migrations for the Corda node’s internal database objects are recorded in the node’s default log file.
 
 The detailed, unstructured logs produced by Liquibase can be enabled by providing additional log4j2 configuration.
@@ -14,6 +19,7 @@ The setup of CorDapps’ custom tables (which only happens automatically when us
 
 
 ## Log format
+
 The migration logs are in a fixed format, prefixed with *DatabaseInitialisation*.
                 The log consists of two parts, the sequence of the change sets to be run and the progress of change sets execution.
                 A change set is a single database schema change, defined in a Liquibase script, which may contain one or more DDL statements.
@@ -105,6 +111,7 @@ An example unsuccessful database initialisation log:
 ```
 
 ## Error codes
+
 As mentioned above, an error log entry includes a numeric `<CODE>` preceded by the `error_code=` label. These error codes serve
                 as predefined categories grouping potentially many specific errors.  The following codes are currently in use:
 
@@ -181,6 +188,7 @@ DatabaseInitialisation(id="e6KAmx6O";status="error";error_code="11";message="Inc
 
 
 ## Native Liquibase logs
+
 The native Liquibase logs are disabled by default.
                 They can be enabled by adding an extra log4j2 file with ‘INFO’ log level for the ‘liquibase’ logger:
 

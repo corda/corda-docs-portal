@@ -1,11 +1,15 @@
 ---
-title: "Upgrading contracts"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Upgrading contracts
+version: corda-os-4-4
 ---
 
 
 
 # Upgrading contracts
+
 While every care is taken in development of contract code, inevitably upgrades will be required to fix bugs (in either
             design or implementation). Upgrades can involve a substitution of one version of the contract code for another or
             changing to a different contract that understands how to migrate the existing state objects. When state objects are
@@ -14,6 +18,7 @@ While every care is taken in development of contract code, inevitably upgrades w
 
 
 ## Workflow
+
 Here’s the workflow for contract upgrades:
 
 
@@ -63,6 +68,7 @@ Here’s the workflow for contract upgrades:
 
 
 ## Authorising an upgrade
+
 Each of the participants in the state for which the contract is being upgraded will have to instruct their node that
                 they agree to the upgrade before the upgrade can take place. The `ContractUpgradeFlow` is used to manage the
                 authorisation process. Each node administrator can use RPC to trigger either an `Authorise` or a `Deauthorise` flow
@@ -85,6 +91,7 @@ class Deauthorise(val stateRef: StateRef) : FlowLogic<Void?>() {
 ```
 [ContractUpgradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
 ## Proposing an upgrade
+
 After all parties have authorised the contract upgrade for the state, one of the contract participants can initiate the
                 upgrade process by triggering the `ContractUpgradeFlow.Initiate` flow. `Initiate` creates a transaction including
                 the old state and the updated state, and sends it to each of the participants. Each participant will verify the
@@ -93,6 +100,7 @@ After all parties have authorised the contract upgrade for the state, one of the
 
 
 ## Example
+
 Suppose Bank A has entered into an agreement with Bank B which is represented by the state object
                 `DummyContractState` and governed by the contract code `DummyContract`. A few days after the exchange of contracts,
                 the developer of the contract code discovers a bug in the contract code.

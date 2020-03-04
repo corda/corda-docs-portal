@@ -1,10 +1,14 @@
 ---
-title: "Code style guide"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Code style guide
+version: corda-os-4-1
 ---
 
 
 # Code style guide
+
 This document explains the coding style used in the Corda repository. You will be expected to follow these
             recommendations when submitting patches for review. Please take the time to read them and internalise them, to save
             time during code review.
@@ -14,6 +18,7 @@ What follows are *recommendations* and not *rules*. They are in places intention
 
 
 ## 1. General style
+
 We use the standard [Kotlin coding style from JetBrains](https://kotlinlang.org/docs/reference/coding-conventions.html).
 
 In Kotlin code, KDoc is used rather than JavaDoc. It’s very similar except it uses Markdown for formatting instead
@@ -43,6 +48,7 @@ Never apply any design pattern religiously. There are no silver bullets in progr
 
 
 ### 1.1 Line Length and Spacing
+
 We aim for line widths of no more than 120 characters. That is wide enough to avoid lots of pointless wrapping but
                     narrow enough that with a widescreen monitor and a 12 point fixed width font (like Menlo) you can fit two files
                     next to each other. This is not a rigidly enforced rule and if wrapping a line would be excessively awkward, let it
@@ -57,6 +63,7 @@ We use spaces and not tabs, with indents being 4 spaces wide.
 
 
 ### 1.2 Naming
+
 Naming generally follows Java standard style (pascal case for class names, camel case for methods, properties and
                     variables). Where a class name describes a tuple, “And” should be included in order to clearly indicate the elements are
                     individual parts, for example `PartyAndReference`, not `PartyReference` (which sounds like a reference to a
@@ -64,6 +71,7 @@ Naming generally follows Java standard style (pascal case for class names, camel
 
 
 ## 2. Comments
+
 We like them as long as they add detail that is missing from the code. Comments that simply repeat the story already
                 told by the code are best deleted. Comments should:
 
@@ -136,6 +144,7 @@ We use C-style (`/** */`) comments for API docs and we use C++ style comments (`
 ```
 
 ## 3. Threading
+
 Classes that are thread safe should be annotated with the `@ThreadSafe` annotation. The class or method comments
                 should describe how threads are expected to interact with your code, unless it’s obvious because the class is
                 (for example) a simple immutable data holder.
@@ -183,6 +192,7 @@ We have an extension to the `Executor` interface called `AffinityExecutor`. It i
 
 
 ## 4. Assertions and errors
+
 We use them liberally and we use them at runtime, in production. That means we avoid the “assert” keyword in Java,
                 and instead prefer to use the `check()` or `require()` functions in Kotlin (for an `IllegalStateException` or
                 `IllegalArgumentException` respectively), or the Guava `Preconditions.check` method from Java. Assertions should
@@ -208,6 +218,7 @@ Note that Kotlin does not require exception types to be declared in method proto
 
 
 ## 5. Properties
+
 Where we want a public property to have one super-type in public and another sub-type in private (or internal), perhaps
                 to expose additional methods with a greater level of access to the code within the enclosing class, the style should be:
 
@@ -246,12 +257,14 @@ Notably:
 
 
 ## 6. Compiler warnings
+
 We do not allow compiler warnings, except in the experimental module where the usual standards do not apply and warnings
                 are suppressed. If a warning exists it should be either fixed or suppressed using @SuppressWarnings and if suppressed
                 there must be an accompanying explanation in the code for why the warning is a false positive.
 
 
 ## 7. When to update the docsite
+
 The documentation website (this site) must be updated in any PR that adds or changes something visible to app developers,
                 or people who operate a node. For the avoidance of doubt this includes the following kinds of changes:
 

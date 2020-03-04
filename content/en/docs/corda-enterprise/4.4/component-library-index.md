@@ -1,10 +1,14 @@
 ---
-title: "Component library"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Component library
+version: corda-enterprise-4-4
 ---
 
 
 # Component library
+
 
 * [Contract catalogue](contract-catalogue.md)
 

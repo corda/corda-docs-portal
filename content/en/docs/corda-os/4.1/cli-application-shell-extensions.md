@@ -1,12 +1,17 @@
 ---
-title: "Shell extensions for CLI Applications"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Shell extensions for CLI Applications
+version: corda-os-4-1
 ---
 
 
 # Shell extensions for CLI Applications
 
+
 ## Installing shell extensions
+
 Users of `bash` or `zsh` can install an alias and auto-completion for Corda applications that contain a command line interface. Run:
 
 ```shell
@@ -39,6 +44,7 @@ corda --<option>
 ```
 
 ## Upgrading shell extensions
+
 Once the shell extensions have been installed, you can upgrade them in one of two ways.
 
 
@@ -58,6 +64,7 @@ Which will update the alias to point to the new location, and update command lin
 
 
 ## List of existing CLI applications
+
 
 {{< table >}}
 

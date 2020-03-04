@@ -1,10 +1,14 @@
 ---
-title: "Setting up a HA notary service"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Setting up a HA notary service
+version: corda-enterprise-4-1
 ---
 
 
 # Setting up a HA notary service
+
 This section contains all the information required to add a HA notary service to a network.
 
 

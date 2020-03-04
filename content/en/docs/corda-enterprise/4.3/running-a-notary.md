@@ -1,10 +1,14 @@
 ---
-title: "Setting up a notary service"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Setting up a notary service
+version: corda-enterprise-4-3
 ---
 
 
 # Setting up a notary service
+
 Corda Enterprise comes with two notary implementations built-in:
 
 
@@ -24,6 +28,7 @@ Upgrading an existing single-node notary to be highly available is currently uns
 
 
 ## Single-node notary
+
 To have a regular Corda node provide a notary service you simply need to set appropriate `notary` configuration values
                 before starting it:
 

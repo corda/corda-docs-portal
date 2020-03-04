@@ -1,10 +1,15 @@
 ---
-title: "Welcome to Corda !"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+  versions: {}
+title: Corda OS 4.3
+version: corda-os-4-3
 ---
 
 
 # Welcome to Corda !
+
 [Corda](https://www.corda.net/) is an open-source blockchain platform. If you’d like a quick introduction to blockchains and how Corda is different, then watch this short video:
 
 <embed>

@@ -1,10 +1,15 @@
 ---
-title: "Confidential identities"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: Confidential identities
+version: corda-enterprise-4-4
 ---
 
 
 # Confidential identities
+
 
 {{< warning >}}
 The `confidential-identities` module is still not stabilised, so this API may change in future releases.
@@ -30,6 +35,7 @@ Where using outputs from a previous transaction in a new transaction, counterpar
 
 
 ## SwapIdentitiesFlow
+
 `SwapIdentitiesFlow` is typically run as a subflow of another flow. It takes as its sole constructor argument the
                 counterparty we want to exchange confidential identities with. It returns a mapping from the identities of the caller
                 and the counterparty to their new confidential identities. In the future, this flow will be extended to handle swapping
@@ -72,6 +78,7 @@ This ensures not only that the confidential identity X.509 certificates are sign
 
 
 ## IdentitySyncFlow
+
 When constructing a transaction whose input states reference confidential identities, it is common for counterparties
                 to require knowledge of which well-known identity each confidential identity maps to. `IdentitySyncFlow` handles this
                 process. You can see an example of its use in `TwoPartyTradeFlow.kt`.

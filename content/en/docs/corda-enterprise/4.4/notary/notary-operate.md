@@ -1,10 +1,14 @@
 ---
-title: "Operating a notary"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Operating a notary
+version: corda-enterprise-4-4
 ---
 
 
 # Operating a notary
+
 
 * [Highly-available notary backup and restore](backup-restore.md)
 

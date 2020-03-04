@@ -1,10 +1,15 @@
 ---
-title: "Node Explorer"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-node
+title: Node Explorer
+version: corda-enterprise-4-4
 ---
 
 
 # Node Explorer
+
 
 {{< note >}}
 To run Node Explorer on your machine, you will need JavaFX for Java 8. If you don’t have JavaFX
@@ -21,6 +26,7 @@ The tool is distributed in the form of runnable JAR file: “corda-tools-explore
 
 
 ## Running the UI
+
 ```kotlin
 > java -jar corda-tools-explorer-4.4.jar
 ```
@@ -33,6 +39,7 @@ In order to connect to a given node, the node explorer must have access to all C
 {{< /note >}}
 
 ## Running demo nodes
+
 Node Explorer is included with the [DemoBench](demobench.md) application, which allows
                 you to create local Corda networks on your desktop. For example:
 
@@ -64,6 +71,7 @@ When connected to a *Participant* node a user can only execute cash transaction 
 
 
 ## Interface
+
 
 
 Login

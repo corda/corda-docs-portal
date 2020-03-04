@@ -1,15 +1,20 @@
 ---
-title: "Changelog"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Changelog
+version: corda-enterprise-4-1
 ---
 
 
 # Changelog
+
 Here’s a summary of what’s changed in each Corda Enterprise release. For guidance on how to upgrade code from the previous
             release, see upgrade-notes.
 
 
 ## Unreleased
+
 
 * Changes in HA notary setup: the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
                         See [notary installation page](running-a-notary-cluster/installing-the-notary-service.md#mysql-driver) for more information.
@@ -17,6 +22,7 @@ Here’s a summary of what’s changed in each Corda Enterprise release. For gui
 
 
 ## Version 4.0
+
 Please refer to [Changelog](changelog.md) for all Open Source changes which automatically also apply to Enterprise.
 
 Changelog entries below refer to Enterprise-only changes.
@@ -101,6 +107,7 @@ The `corda-bridgserver.jar` has been renamed to `corda-firewall.jar` to be more 
 
 ## Version 3.1
 
+
 * Update the fast-classpath-scanner dependent library version from 2.0.21 to 2.12.3
 
 
@@ -115,6 +122,7 @@ Whilst this is not the latest version of this library, that being 2.18.1 at time
 
 
 ## Corda Enterprise 3.0 Developer Preview
+
 
 * Fix CORDA-1229. Setter-based serialization was broken with generic types when the property was stored as the raw type, List for example.
 

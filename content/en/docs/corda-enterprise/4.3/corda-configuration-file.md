@@ -1,12 +1,17 @@
 ---
-title: "Node configuration"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Node configuration
+version: corda-enterprise-4-3
 ---
 
 
 # Node configuration
 
+
 ## Configuration file location
+
 When starting a node, the `corda.jar` file defaults to reading the node’s configuration from a `node.conf` file in the directory from which the command to launch Corda is executed.
                 There are two command-line options to override this behaviour:
 
@@ -23,6 +28,7 @@ If you specify both command line arguments at the same time, the node will fail 
 
 
 ## Configuration file format
+
 The Corda configuration file uses the HOCON format which is a superset of JSON. Please visit
                 [https://github.com/typesafehub/config/blob/master/HOCON.md](https://github.com/typesafehub/config/blob/master/HOCON.md) for further details.
 
@@ -48,7 +54,9 @@ By default the node will fail to start in presence of unknown property keys.
 
 ## Overriding configuration values
 
+
 ### Placeholder Overrides
+
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
                     `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
                     environment variable isn’t present (see: [Hiding sensitive data](node-administration.md#hiding-sensitive-data) for more information).
@@ -61,6 +69,7 @@ rpcSettings {
 ```
 
 ### Direct Overrides
+
 It is also possible to directly override Corda configuration (regardless of whether the setting is already in the `node.conf`), by using
                     environment variables or JVM options. Simply prefix the field with `corda.` or `corda_`, using periods (`.`) or
                     underscores (`_`) to signify nested options. For example, to override the `rpcSettings.address` setting, you can override it via environment variables:
@@ -103,6 +112,7 @@ SET corda_jarDirs_1=./morelibs
 
 #### Limitations
 
+
 * If the same key is overridden by both an environment variable and system property, the system property takes precedence.
 
 
@@ -140,6 +150,7 @@ java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="000000000000000000000000000
 
 
 ## Configuration file fields
+
 
 {{< note >}}
 The available configuration fields are listed below in alphabetic order.
@@ -1186,6 +1197,7 @@ Internal option.
 
 
 ## Reference.conf
+
 A set of default configuration options are loaded from the built-in resource file `/node/src/main/resources/reference.conf`.
                 This file can be found in the `:node` gradle module of the [Corda repository](https://github.com/corda/corda).
                 Any options you do not specify in your own `node.conf` file will use these defaults.
@@ -1256,6 +1268,7 @@ verifierType = InMemory
 ```
 [reference.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/node/src/main/resources/reference.conf)
 ## Configuration examples
+
 General node configuration file for hosting the IRSDemo services
 
 ```none
@@ -1341,6 +1354,7 @@ networkServices {
 ```
 [example-node-with-networkservices.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
 ## Generating a public key hash
+
 This section details how a public key hash can be extracted and generated from a signed CorDapp. This is required for a select number of
                 configuration properties.
 

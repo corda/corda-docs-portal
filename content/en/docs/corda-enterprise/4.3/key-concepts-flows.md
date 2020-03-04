@@ -1,13 +1,19 @@
 ---
-title: "Flows"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-concepts
+title: Flows
+version: corda-enterprise-4-3
 ---
 
 
 # Flows
 
+
 {{< topic >}}
 # Summary
+
 
 * *Flows automate the process of agreeing ledger updates*
 
@@ -21,12 +27,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/214046145" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## Motivation
+
 Corda networks use point-to-point messaging instead of a global broadcast. This means that coordinating a ledger update
                 requires network participants to specify exactly what information needs to be sent, to which counterparties, and in
                 what order.
@@ -35,6 +43,7 @@ Here is a visualisation of the process of agreeing a simple ledger update betwee
 
 ![flow](resources/flow.gif "flow")
 ## The flow framework
+
 Rather than having to specify these steps manually, Corda automates the process using *flows*. A flow is a sequence
                 of steps that tells a node how to achieve a specific ledger update, such as issuing an asset or settling a trade.
 
@@ -42,6 +51,7 @@ Here is the sequence of flow steps involved in the simple ledger update above:
 
 ![flow sequence](resources/flow-sequence.png "flow sequence")
 ## Running flows
+
 Once a given business process has been encapsulated in a flow and installed on the node as part of a CorDapp, the node’s
                 owner can instruct the node to kick off this business process at any time using an RPC call. The flow abstracts all
                 the networking, I/O and concurrency issues away from the node owner.
@@ -52,6 +62,7 @@ All activity on the node occurs in the context of these flows. Unlike contracts,
 
 
 ### Inter-node communication
+
 Nodes communicate by passing messages between flows. Each node has zero or more flow classes that are registered to
                     respond to messages from a single other flow.
 
@@ -73,11 +84,13 @@ Now that a connection is established, Alice and Bob can communicate to agree a l
 
 
 ### Subflows
+
 Flows can be composed by starting a flow as a subprocess in the context of another flow. The flow that is started as
                     a subprocess is known as a *subflow*. The parent flow will wait until the subflow returns.
 
 
 #### The flow library
+
 Corda provides a library of flows to handle common tasks, meaning that developers do not have to redefine the
                         logic behind common processes such as:
 
@@ -95,6 +108,7 @@ Further information on the available built-in flows can be found in [API: Flows]
 
 
 ## Concurrency
+
 The flow framework allows nodes to have many flows active at once. These flows may last days, across node restarts and even upgrades.
 
 This is achieved by serializing flows to disk whenever they enter a blocking state (e.g. when they’re waiting on I/O

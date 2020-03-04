@@ -1,12 +1,18 @@
 ---
-title: "Deterministic JVM"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4:
+    parent: corda-os-4-4-concepts
+title: Deterministic JVM
+version: corda-os-4-4
 ---
 
 
 # Deterministic JVM
 
+
 ## Introduction
+
 It is important that all nodes that process a transaction always agree on whether it is valid or not. Because
                 transaction types are defined using JVM byte code, this means that the execution of that byte code must be fully
                 deterministic. Out of the box a standard JVM is not fully deterministic, thus we must make some modifications in order
@@ -30,6 +36,7 @@ Currently, it stands alone as an evaluation version. We want to give developers 
 {{< /important >}}
 
 ## Non-Determinism
+
 For a program running on the JVM, non-determinism could be introduced by a range of sources, for instance:
 
 > 
@@ -70,6 +77,7 @@ The byte code rewriting further allows us to patch up and control the default be
 
 
 ## Abstraction
+
 The sandbox is abstracted away as an executor which takes as input an implementation of the interface
                 `Function<in Input, out Output>`, dereferenced by a `ClassSource`. This interface has a single method that
                 needs implementing, namely `apply(Input): Output`.
@@ -129,6 +137,7 @@ Lastly, there is a set of emitters. These are used to instrument the byte code f
 
 
 ## Static Byte Code Analysis
+
 In summary, the byte code analysis currently performs the following checks. This is not an exhaustive list as further
                 work may well introduce additional constraints that we would want to place on the sandbox environment.
 
@@ -172,6 +181,7 @@ It is worth noting that not only smart contract code is instrumented by the sand
 {{< /note >}}
 
 ### Disallow Catching ThreadDeath Exception
+
 Prevents exception handlers from catching `ThreadDeath` exceptions. If the developer attempts to catch an `Error`
                     or a `Throwable` (both being transitive parent types of `ThreadDeath`), an explicit check will be injected into the
                     byte code to verify that exceptions that are trying to kill the current thread are not being silenced. Consequently,
@@ -179,6 +189,7 @@ Prevents exception handlers from catching `ThreadDeath` exceptions. If the devel
 
 
 ### Disallow Catching ThresholdViolationException
+
 The `ThresholdViolationException` is, as the name suggests, used to signal to the sandbox that a cost tracked by the
                     runtime cost accountant has been breached. For obvious reasons, the sandbox needs to protect against user code that
                     tries to catch such exceptions, as doing so would allow the user to bypass the thresholds set out in the execution
@@ -186,12 +197,14 @@ The `ThresholdViolationException` is, as the name suggests, used to signal to th
 
 
 ### Disallow Dynamic Invocation
+
 Forbids `invokedynamic` byte code as the libraries that support this functionality have historically had security
                     problems and it is primarily needed only by scripting languages. In the future, this constraint will be eased to allow
                     for dynamic invocation in the specific lambda and string concatenation meta-factories used by Java code itself.
 
 
 ### Disallow Native Methods
+
 Forbids native methods as these provide the user access into operating system functionality such as file handling,
                     network requests, general hardware interaction, threading, *etc.* These all constitute sources of non-determinism, and
                     allowing such code to be called arbitrarily from the JVM would require deterministic guarantees on the native machine
@@ -199,6 +212,7 @@ Forbids native methods as these provide the user access into operating system fu
 
 
 ### Disallow Finalizer Methods
+
 Forbids finalizers as these can be called at unpredictable times during execution, given that their invocation is
                     controlled by the garbage collector. As stated in the standard Java documentation:
 
@@ -208,6 +222,7 @@ Forbids finalizers as these can be called at unpredictable times during executio
 
 
 ### Disallow Overridden Sandbox Package
+
 Forbids attempts to override rewritten classes. For instance, loading a class `com.foo.Bar` into the sandbox,
                     analyses it, rewrites it and places it into `sandbox.com.foo.Bar`. Attempts to place originating classes in the
                     top-level `sandbox` package will therefore fail as this poses a security risk. Doing so would essentially bypass rule
@@ -215,21 +230,25 @@ Forbids attempts to override rewritten classes. For instance, loading a class `c
 
 
 ### Disallow Breakpoints
+
 For obvious reasons, the breakpoint operation code is forbidden as this can be exploited to unpredictably suspend code
                     execution and consequently interfere with any time bounds placed on the execution.
 
 
 ### Disallow Reflection
+
 For now, the use of reflection APIs is forbidden as the unmanaged use of these can provide means of breaking out of the
                     protected sandbox environment.
 
 
 ### Disallow Unsupported API Versions
+
 Ensures that loaded classes are targeting an API version between 1.5 and 1.8 (inclusive). This is merely to limit the
                     breadth of APIs from the standard runtime that needs auditing.
 
 
 ## Runtime Costing
+
 The runtime accountant inserts calls to an accounting object before expensive byte code. The goal of this rewrite is to
                 deterministically terminate code that has run for an unacceptably long amount of time or used an unacceptable amount of
                 memory. Types of expensive byte code include method invocation, memory allocation, branching and exception throwing.
@@ -266,13 +285,16 @@ The current thresholds have been set arbitrarily for demonstration purposes and 
 
 ## Instrumentation and Rewriting
 
+
 ### Always Use Strict Floating Point Arithmetic
+
 Sets the `strictfp` flag on all methods, which requires the JVM to do floating point arithmetic in a hardware
                     independent fashion. Whilst we anticipate that floating point arithmetic is unlikely to feature in most smart contracts
                     (big integer and big decimal libraries are available), it is available for those who want to use it.
 
 
 ### Always Use Exact Math
+
 Replaces integer and long addition and multiplication with calls to `Math.addExact()` and `Math.multiplyExact`,
                     respectively. Further work can be done to implement exact operations for increments, decrements and subtractions as
                     well. These calls into `java.lang.Math` essentially implement checked arithmetic over integers, which will throw an
@@ -280,6 +302,7 @@ Replaces integer and long addition and multiplication with calls to `Math.addExa
 
 
 ### Always Inherit From Sandboxed Object
+
 As mentioned further up, `Object.hashCode()` is typically implemented using either the memory address of the object
                     or a random number; which are both non-deterministic. The DJVM shields the runtime from this source of non-determinism
                     by rewriting all classes that inherit from `java.lang.Object` to derive from `sandbox.java.lang.Object` instead.
@@ -302,11 +325,13 @@ The loaded classes are further rewritten in two ways:
 > 
 
 ### Disable Synchronised Methods and Blocks
+
 The DJVM doesn’t support multi-threading and so synchronised methods and code blocks have little
                     use in sandboxed code. Consequently, we automatically transform them into ordinary methods and code blocks instead.
 
 
 ## Future Work
+
 Further work is planned:
 
 > 
@@ -334,6 +359,7 @@ Further work is planned:
 > 
 
 ## Command-line Tool
+
 You can download and unpack `corda-djvm-cli.zip` from the R3 Artifactory.
                 Alternatively, you can build it yourself from the source as follows.
 

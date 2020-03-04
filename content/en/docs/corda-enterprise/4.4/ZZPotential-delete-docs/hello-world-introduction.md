@@ -1,10 +1,14 @@
 ---
-title: "Hello, World!"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Hello, World!
+version: corda-enterprise-4-4
 ---
 
 
 # Hello, World!
+
 
 * [The CorDapp Template](hello-world-template.md)
 
@@ -25,6 +29,7 @@ If you’re a developer, the next step is to write your own CorDapp. CorDapps ar
 
 
 ## Our use-case
+
 We will write a CorDapp to model IOUs on the blockchain. Each IOU – short for “I O(we) (yo)U” – will record the fact that one node owes
                 another node a certain amount. This simple CorDapp will showcase several key benefits of Corda as a blockchain platform:
 
@@ -59,23 +64,27 @@ Our IOU CorDapp is no exception. It will define the following components:
 
 
 ### The IOUState
+
 Our state will be the `IOUState`, representing an IOU. It will contain the IOU’s value, its lender and its borrower. We can visualize
                     `IOUState` as follows:
 
 > 
 > ![tutorial state](ZZPotential-delete-docs/resources/tutorial-state.png "tutorial state")
 ### The IOUFlow
+
 Our flow will be the `IOUFlow`. This flow will completely automate the process of issuing a new IOU onto a ledger. It has the following
                     steps:
 
 > 
 > ![simple tutorial flow](ZZPotential-delete-docs/resources/simple-tutorial-flow.png "simple tutorial flow")
 ### The IOUContract
+
 For this tutorial, we will use the default `TemplateContract`. We will update it to create a fully-fledged `IOUContract` in the next
                     tutorial.
 
 
 ## Progress so far
+
 We’ve designed a simple CorDapp that will allow nodes to agree new IOUs on the blockchain.
 
 Next, we’ll take a look at the template project we’ll be using as the basis for our CorDapp.

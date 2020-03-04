@@ -1,10 +1,14 @@
 ---
-title: "Understanding the node"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Understanding the node
+version: corda-enterprise-4-4
 ---
 
 
 # Understanding the node
+
 It is useful to take a high level perspective of the Corda components, especially the various communication protocols that Corda employs in its operations. The diagram below illustrates the various communication protocols used by the Corda Node communicating with peers on the Corda Network.
 
 ![overview](node/../resources/overview.png "overview")Corda Nodes communicate with each other using the asynchronous AMQP/TLS 1.2 protocols. HTTP communication is only used for initial registration of Corda Nodes and sharing the Corda Node address locations by way of the network map. Client applications communicate with Corda Nodes using RPC calls. A Node’s vault is a database that relies on JDBC connection from the Corda Node.
@@ -63,6 +67,7 @@ The diagram highlights that:
 
 
 ## Corda Firewall
+
 The Corda Firewall is actually made up of two separate components, the Bridge and the Float. These handle outbound and inbound connections respectively, and allow a Node administrator to minimise the amount of code running in a network’s DMZ. Multiple Corda Nodes can connect to a single instance of the Corda Firewall.
 
 The primary function of the Corda Firewall is to act as an application level firewall and protocol break on all internet facing endpoints.

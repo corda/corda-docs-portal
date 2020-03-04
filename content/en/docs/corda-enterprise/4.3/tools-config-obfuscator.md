@@ -1,10 +1,14 @@
 ---
-title: "Configuration Obfuscator"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Configuration Obfuscator
+version: corda-enterprise-4-3
 ---
 
 
 # Configuration Obfuscator
+
 Corda ships with a command-line tool for obfuscating configuration files. An obfuscated file is usable
             by a Corda node running on a machine with a hardware address matching the one used as input in the obfuscation.
 
@@ -24,6 +28,7 @@ This feature will not make password protection completely secure. However, it wi
 
 
 ## Using the command-line tool
+
 The command-line tool is included as a JAR file, named `corda-tools-config-obfuscator-<version>.jar`.
                 This tool takes as input the configuration file that we want to obfuscate, denoted `CONFIG_FILE` in
                 the usage screen. If we want to override the hardware address that is used for processing, we can do so
@@ -91,6 +96,7 @@ The Corda Enterprise Network Manager ([https://docs.cenm.r3.com/](https://docs.c
 
 
 ## Configuration directives
+
 To indicate parts of the configuration that should be obfuscated, we can place text markers on the form
                 `<encrypt{...}>`, like so:
 
@@ -142,6 +148,7 @@ These directives can be placed arbitrarily within string properties in the confi
 ```
 
 ## Limitations
+
 
 * The `<encrypt{}>` blocks can only appear inside string properties. They cannot be used to obfuscate entire
                         configuration blocks. Otherwise, the node will not be able to decipher the obfuscated content. More explicitly,

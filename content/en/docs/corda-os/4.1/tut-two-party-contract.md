@@ -1,11 +1,15 @@
 ---
-title: "Writing the contract"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Writing the contract
+version: corda-os-4-1
 ---
 
 
 
 # Writing the contract
+
 It’s easy to imagine that most CorDapps will want to impose some constraints on how their states evolve over time:
 
 
@@ -33,6 +37,7 @@ Every state has an associated contract. A transaction is invalid if it does not 
 
 
 ## The Contract interface
+
 Just as every Corda state must implement the `ContractState` interface, every contract must implement the
                 `Contract` interface:
 
@@ -64,6 +69,7 @@ We can see that `Contract` expresses its constraints through a `verify` function
 > 
 
 ## Controlling IOU evolution
+
 What would a good contract for an `IOUState` look like? There is no right or wrong answer - it depends on how you
                 want your CorDapp to behave.
 
@@ -102,6 +108,7 @@ We can picture this transaction as follows:
 
 ![simple tutorial transaction 2](resources/simple-tutorial-transaction-2.png "simple tutorial transaction 2")
 ## Defining IOUContract
+
 Let’s write a contract that enforces these constraints. We’ll do this by modifying either `TemplateContract.java` or
                 `TemplateContract.kt` and updating to define an `IOUContract`:
 
@@ -198,9 +205,10 @@ public class IOUContract implements Contract {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [IOUContract.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUContract.kt) | [IOUContract.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java)
+[IOUContract.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUContract.kt) | [IOUContract.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 If you’re following along in Java, you’ll also need to rename `TemplateContract.java` to `IOUContract.java`.
 
@@ -208,6 +216,7 @@ Let’s walk through this code step by step.
 
 
 ### The Create command
+
 The first thing we add to our contract is a *command*. Commands serve two functions:
 
 
@@ -238,6 +247,7 @@ interface CommandData
 
 
 ### The verify logic
+
 Our contract also needs to define the actual contract constraints by implementing `verify`. Our goal in writing the
                     `verify` function is to write a function that, given a transaction:
 
@@ -284,6 +294,7 @@ Based on the constraints enumerated above, we need to write a `verify` function 
 
 
 #### Command constraints
+
 Our first constraint is around the transaction’s commands. We use Corda’s `requireSingleCommand` function to test for
                         the presence of a single `Create` command.
 
@@ -292,6 +303,7 @@ If the `Create` command isn’t present, or if the transaction has multiple `Cre
 
 
 #### Transaction constraints
+
 We also want our transaction to have no inputs and only a single output - an issuance transaction.
 
 In Kotlin, we impose these and the subsequent constraints using Corda’s built-in `requireThat` block. `requireThat`
@@ -310,6 +322,7 @@ In Java, we simply throw an `IllegalArgumentException` manually instead.
 
 
 #### IOU constraints
+
 We want to impose two constraints on the `IOUState` itself:
 
 
@@ -324,6 +337,7 @@ You can see that we’re not restricted to only writing constraints inside `veri
 
 
 #### Signer constraints
+
 Finally, we require both the lender and the borrower to be required signers on the transaction. A transaction’s
                         required signers is equal to the union of all the signers listed on the commands. We therefore extract the signers from
                         the `Create` command we retrieved earlier.
@@ -333,6 +347,7 @@ This is an absolutely essential constraint - it ensures that no `IOUState` can e
 
 
 ## Progress so far
+
 We’ve now written an `IOUContract` constraining the evolution of each `IOUState` over time:
 
 

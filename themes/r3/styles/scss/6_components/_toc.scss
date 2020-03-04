@@ -20,10 +20,10 @@ $toc-object: "#{$class-object-prefix}toc";
 
         svg {
             path {
-                stroke: $primary-01;
+                stroke: $red-500;
             }
             &:hover path {
-                stroke: $primary-02;
+                stroke: $grey-500;
             }
         }
     }
@@ -34,8 +34,8 @@ $toc-object: "#{$class-object-prefix}toc";
     }
 
     @media screen and (max-width: 1199px) {
-        background-color: $primary-04;
-        box-shadow: 1px 0px 4px -2px $secondary-02 inset;
+        background-color: $grey-100;
+        box-shadow: 1px 0px 4px -2px $blue-200 inset;
         bottom: 0;
         display: block !important;
         height: 100%;

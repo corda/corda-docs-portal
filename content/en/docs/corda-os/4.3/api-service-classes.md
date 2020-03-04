@@ -1,11 +1,16 @@
 ---
-title: "API: Service Classes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3:
+    parent: corda-os-4-3-api
+title: 'API: Service Classes'
+version: corda-os-4-3
 ---
 
 
 
 # API: Service Classes
+
 Service classes are long-lived instances that can trigger or be triggered by flows from within a node. A Service class is limited to a
             single instance per node. During startup, the node handles the creation of the service.
 
@@ -14,6 +19,7 @@ Services allow related, reusable, functions to be separated into their own class
 
 
 ## Creating a Service
+
 To define a Service class:
 
 > 
@@ -74,6 +80,7 @@ Code can be run during node startup when the class is being initialised. To do s
 
 
 ## Retrieving a Service
+
 A Service class can be retrieved by calling `ServiceHub.cordaService` which returns the single instance of the class passed into the function:
 
 
@@ -102,6 +109,7 @@ MyCordaService service = serviceHub.cordaService(MyCordaService.class);
 
 
 ## Starting Flows from a Service
+
 Starting flows via a service can lead to deadlock within the node’s flow worker queue, which will prevent new flows from
                 starting. To avoid this, the rules bellow should be followed:
 

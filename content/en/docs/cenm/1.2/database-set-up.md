@@ -1,10 +1,14 @@
 ---
-title: "CENM Databases"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: CENM Databases
+version: cenm-1-2
 ---
 
 
 # CENM Databases
+
 There are currently two types of Corda Enterprise Network Manager database:
 
 1. **Identity Manager**
@@ -21,6 +25,7 @@ Due to the way the migrations are defined, the services *must* use separate DB s
 
 
 ## Supported Databases
+
 Corda Enterprise Network Manager currently supports the following databases:
 
 
@@ -52,6 +57,7 @@ CENM uses H2 version 1.4.197, which does not support some SQL commands (e.g. *SE
 {{< /note >}}
 
 ## Database Schema Setup
+
 This document provides instructions describing how to create database schemas (user permissions, the CENM service tables, and other database objects),
                 and how to configure CENM services to connect to a database with *restricted permissions* for production use.
 
@@ -72,6 +78,7 @@ Setting up a CENM service (Identity Manager / Network Map) to connect to a datab
 
 
 ### 1. Creating a database user with schema permissions
+
 A database administrator must create a database user and a schema namespace with **restricted permissions**.
                     This grants the user access to DML execution only (to manipulate data itself e.g. select/delete rows).
                     This permission set is recommended for production environments.
@@ -111,6 +118,7 @@ Creating database users with schema permissions for:
 
 
 #### Azure SQL
+
 Two database users needed to be created; the first one with administrative permissions to create schema objects,
                         and the second with restrictive permissions for a CENM service instance.
                         The schema objects are created by a separate user rather than a default database administrator. This ensures the correct schema namespace
@@ -145,6 +153,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_
 ```
 
 #### SQL Server
+
 Two database users need to be created; the first with administrative permissions to create schema objects,
                         the second with restrictive permissions for a CENM service instance.
                         The schema objects are created by a separate user rather than a default database administrator. This ensures the correct schema namespace
@@ -184,6 +193,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_
 
 #### Oracle
 
+
 {{< note >}}
 CENM has been tested with Oracle database versions 12cR2 and 11gR2
 
@@ -222,6 +232,7 @@ The last permission for the *v_$parameter* view is needed when a database is run
 
 
 #### PostgreSQL
+
 Connect to the database as an administrator and run the following script to create a CENM service instance user:
 
 ```sql
@@ -240,6 +251,7 @@ If you provide a custom schema name (different to the user name), then the last 
 
 
 ## 2. Database schema creation
+
 The CENM services should first be deployed with database administrator credentials specified in the config files (`database.user`, `database.password`).
                 Given that the schema exists and the user has administrative permissions, the Liquibase migrations will run on
                 startup and automatically create the tables under the schema.
@@ -255,15 +267,18 @@ Ensure that `database.runMigration` is set to false for users with restricted pe
 
 
 ### 2.1. Add permission to use tables
+
 For some databases the specific permissions can be assigned only after the tables are created.
                     This step is required for Oracle databases only.
 
 
 #### Oracle
+
 Connect to the database as administrator and run the following DDL scripts:
 
 
 ##### Identity Manager
+
 > 
 > ```sql
 > CREATE USER my_user identified by my_password;
@@ -283,6 +298,7 @@ Connect to the database as administrator and run the following DDL scripts:
 ```
 
 ##### Network Map
+
 Run the script after running the Liquibase migrations, by setting the initial network parameters
                             using a configuration file with administrative database user credentials.
 
@@ -306,6 +322,7 @@ Run the script after running the Liquibase migrations, by setting the initial ne
 ```
 
 ## 3. CENM service configuration
+
 The following updates are required to the filesystem of a CENM service instance:
 
 > 
@@ -369,6 +386,7 @@ Configuration templates for each database vendor are shown below:
 
 
 ### Azure SQL
+
 Example CENM services configuration file for Azure SQL - initial deployment with administrative permissions:
 
 > 
@@ -406,6 +424,7 @@ The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center]
 
 
 ### SQL Server
+
 Example CENM services configuration file for SQL Server - initial deployment with administrative permissions:
 
 > 
@@ -448,6 +467,7 @@ Ensure JDBC connection properties match the SQL Server setup. Especially when tr
 
 
 ### Oracle
+
 Example CENM service configuration file for Oracle DB - initial deployment with administrative permissions:
 
 ```groovy
@@ -494,6 +514,7 @@ Use Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c.
 
 
 ### PostgreSQL
+
 Example CENM service configuration for PostgreSQL:
 
 > 
@@ -514,24 +535,29 @@ Replace the placeholders *<host>*, *<port>*, and *<database>* with appropriate v
 
 
 ## 4. Database configuration
+
 Additional vendor specific database configuration.
 
 
 ### SQL Server
+
 The database collation should be *case insensitive*, refer to
                     [Server Configuration documentation](https://docs.microsoft.com/en-us/sql/sql-server/install/server-configuration-collation?view=sql-server-2014&viewFallbackFrom=sql-server-2017).
 
 
 ### Oracle
+
 To allow *VARCHAR2* and *NVARCHAR2* column types to store more than 2000 characters, ensure the database instance is configured to use
                     extended data types. For example, for Oracle 12.1 refer to [MAX_STRING_SIZE](https://docs.oracle.com/database/121/REFRN/GUID-D424D23B-0933-425F-BC69-9C0E6724693C.htm#REFRN10321).
 
 
 ## 5. Tables
+
 Note that `<SCHEMA_NAME>` below is a placeholder value representing the actual name for the appropriate schema.
 
 
 ### Identity Manager
+
 The following is the list of tables created by the Identity Manager service:
 
 ```sql
@@ -549,6 +575,7 @@ The following is the list of tables created by the Identity Manager service:
 ```
 
 ### Network Map
+
 The following is the list of tables created by the Network Map service:
 
 ```sql
@@ -567,13 +594,16 @@ The following is the list of tables created by the Network Map service:
 ```
 
 ## Clearing The DB
+
 Clearing the DB will depend upon the exact database that you are running on, however the general scripts for clearing
                 the Identity Manager and Network Map DB are below:
 
 
 ### SQL Azure & SQL Server
 
+
 #### Identity Manager
+
 ```sql
 DROP TABLE IF EXISTS <SCHEMA_NAME>.DATABASECHANGELOG;
 DROP TABLE IF EXISTS <SCHEMA_NAME>.DATABASECHANGELOGLOCK;
@@ -590,6 +620,7 @@ DROP SEQUENCE IF EXISTS <SCHEMA_NAME>.hibernate_sequence;
 ```
 
 #### Network Map
+
 ```sql
 DROP TABLE IF EXISTS <SCHEMA_NAME>.DATABASECHANGELOG;
 DROP TABLE IF EXISTS <SCHEMA_NAME>.DATABASECHANGELOGLOCK;
@@ -608,7 +639,9 @@ DROP SEQUENCE IF EXISTS <SCHEMA_NAME>.hibernate_sequence;
 
 ### Oracle
 
+
 #### Identity Manager
+
 ```sql
 DROP TABLE <IM_ADMIN_USER>.DATABASECHANGELOG CASCADE CONSTRAINTS;
 DROP TABLE <IM_ADMIN_USER>.DATABASECHANGELOGLOCK CASCADE CONSTRAINTS;
@@ -625,6 +658,7 @@ DROP SEQUENCE <IM_ADMIN_USER>.hibernate_sequence;
 ```
 
 #### Network Map
+
 ```sql
 DROP TABLE <NM_ADMIN_USER>.DATABASECHANGELOG CASCADE CONSTRAINTS;
 DROP TABLE <NM_ADMIN_USER>.DATABASECHANGELOGLOCK CASCADE CONSTRAINTS;
@@ -642,6 +676,7 @@ DROP SEQUENCE <NM_ADMIN_USER>.hibernate_sequence;
 ```
 
 ### PostgreSQL
+
 To remove service tables run the following SQL script:
 
 > 

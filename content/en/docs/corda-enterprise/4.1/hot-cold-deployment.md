@@ -1,12 +1,17 @@
 ---
-title: "Hot-cold high availability deployment"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Hot-cold high availability deployment
+version: corda-enterprise-4-1
 ---
 
 
 # Hot-cold high availability deployment
 
+
 ## Overview
+
 This section describes hot-cold availability of Corda Enterprise nodes and their associated configuration setup. In such a set-up,
                 there is one back-up instance that can be started if the primary instance stops. Each instance of Corda should be hosted
                 on a separate server and represent the same entity in the Corda network.
@@ -38,6 +43,7 @@ This guide will cover all the steps required to configure and deploy the nodes a
 
 ![hot cold](resources/hot-cold.png "hot cold")
 ## Configuring the load balancer
+
 In a hot-cold environment, the load balancer is used to redirect incoming traffic (P2P, RPC and HTTP) towards the active
                 Corda Enterprise node instance. The internet facing IP address of the load balancer will be advertised to the rest of the Corda network
                 by each node as their P2P addresses. This is done by configuring the load balancer IP as the node’s P2P address in its
@@ -54,6 +60,7 @@ Set TCP as the protocol for P2P and RPC health probes.
 {{< /important >}}
 
 ### Microsoft Azure
+
 A guide on how to create an internet facing load balancer in Azure can be found [here](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-internet-portal).
                     The next step is to create health probes and load balancing rules for every port corresponding to each type of connection.
 
@@ -137,6 +144,7 @@ Using the health probe example, a possible load balancer configuration would be:
 {{< /table >}}
 
 ### Amazon Web Services
+
 A guide on how to create an internet facing load balancer in AWS can be found [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-getting-started.html).
                     AWS offers 3 types of load balancers: application, network, and classic. For this guide, only the classic load balancer
                     configuration is covered.
@@ -222,6 +230,7 @@ After creating a load balancer for each traffic type, the configuration should l
 {{< /table >}}
 
 ## Configuring the shared network drive
+
 The network drive is used to store the Artemis files, specifically those concerning P2P messages (the `artemis` directory
                 found in the node’s base directory). Therefore, it is recommended that the network drive be in close proximity to the machines
                 hosting the nodes to avoid performance loss caused by slow I/O to and from the network drive.
@@ -231,6 +240,7 @@ After the network drive is mounted on the node machine, it’s recommended to cr
 
 
 ### Microsoft Azure
+
 When deploying in Azure, a `File Share` component can be used. To create a file share, a `Storage Account` is required.
                     In order to create one, please follow the guide found [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account).
 
@@ -305,6 +315,7 @@ If *Secure transfer* is set to enabled, Azure only allows the file share to be m
 {{< /important >}}
 
 ### Amazon Web Services
+
 When deploying on AWS, an `Elastic File System` can be used. Creating one can be easily done by following [this](https://docs.aws.amazon.com/efs/latest/ug/getting-started.html) guide.
 
 During the creation, two performance modes are offered: **General Purpose** and **Max I/O**. For a simple hot-cold
@@ -335,6 +346,7 @@ EFS cannot be mounted on a Windows machine. Please see EFS limits [here](https:/
 
 
 ## Node deployment
+
 This section covers the deployment of the back-up Corda instance. It is assumed that the primary has already been deployed.
                 For instructions on how to do so, please see [Deploying a node to a server](deploying-a-node.md).
 
@@ -354,6 +366,7 @@ The following files and directories need to be copied from the primary instance 
 > 
 
 ## Mutual exclusion
+
 To avoid accidentally running all hot-cold nodes at the same time, a simple mechanism can be used by adding the following
                 section to the configuration files. The mechanism is called *Mutual Exclusion* and it ensures that only one active node
                 exists, all others will shut down shortly after starting.
@@ -394,6 +407,7 @@ Amount of time(milliseconds) to wait since last mutual exclusion lease update be
 
 
 ## Node configuration
+
 Both nodes, primary and back-up, should be configured the same way, with a few differences. Below is an example of a `node.conf`
                 file that can be used for either node:
 

@@ -1,14 +1,19 @@
 ---
-title: "Deploying Corda to Corda Testnet from a Google Cloud Platform VM"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Deploying Corda to Corda Testnet from a Google Cloud Platform VM
+version: corda-os-4-3
 ---
 
 
 # Deploying Corda to Corda Testnet from a Google Cloud Platform VM
+
 This document explains how to deploy a Corda node to Google Cloud Platform that can connect directly to the Corda Testnet. A self service download link can be obtained from [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet). This document will describe how to set up a virtual machine on the Google Cloud Platform (GCP) to deploy your pre-configured Corda node and automatically connnect to Testnet.
 
 
 ## Pre-requisites
+
 
 * Ensure you have a registered Google Cloud Platform account with
                         billing enabled ([https://cloud.google.com/billing/docs/how-to/manage-billing-account](https://cloud.google.com/billing/docs/how-to/manage-billing-account)) which can create virtual machines under your subscription(s) and you are logged on to the GCP console: [https://console.cloud.google.com](https://console.cloud.google.com).
@@ -16,6 +21,7 @@ This document explains how to deploy a Corda node to Google Cloud Platform that 
 
 
 ## Deploy Corda node
+
 Browse to [https://console.cloud.google.com](https://console.cloud.google.com) and log in with your
                 Google credentials.
 
@@ -108,6 +114,7 @@ tail -f /opt/corda/logs/node-<VM-NAME>.log
 ```
 
 ## Testing your deployment
+
 To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up the Finance CorDapp and issue cash to a counterparty.
 
 This will also demonstrate how to install a custom CorDapp.

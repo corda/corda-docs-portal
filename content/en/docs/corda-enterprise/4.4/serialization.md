@@ -1,13 +1,18 @@
 ---
-title: "Object serialization"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Object serialization
+version: corda-enterprise-4-4
 ---
 
 
 
 # Object serialization
 
+
 ## Introduction
+
 Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse
                 process of creating objects from a stream of bytes.  It takes place every time nodes pass objects to each other as
                 messages, when objects are sent to or from RPC clients from the node, and when we store transactions in the database.
@@ -50,6 +55,7 @@ Corda pervasively uses a custom form of type safe binary serialisation. This sta
 
 
 ## Whitelisting
+
 In classic Java serialization, any class on the JVM classpath can be deserialized. This is a source of exploits and
                 vulnerabilities that exploit the large set of third-party libraries that are added to the classpath as part of a JVM
                 application’s dependencies and carefully craft a malicious stream of bytes to be deserialized. In Corda, we strictly
@@ -103,6 +109,7 @@ Java 8 Lambda expressions are not serializable except in flow checkpoints, and t
 
 
 ## AMQP
+
 Corda uses an extended form of AMQP 1.0 as its binary wire protocol. You can learn more about the [Wire format](wire-format.md) Corda
                 uses if you intend to parse Corda messages from non-JVM platforms.
 
@@ -134,10 +141,12 @@ This document describes what is currently and what will be supported in the Cord
 
 
 ## Core Types
+
 This section describes the classes and interfaces that the AMQP serialization format supports.
 
 
 ### Collection Types
+
 The following collection types are supported.  Any implementation of the following will be mapped to *an* implementation
                     of the interface or class on the other end. For example, if you use a Guava implementation of a collection, it will
                     deserialize as the primitive collection type.
@@ -168,6 +177,7 @@ java.util.EnumMap (but only if there is at least one entry)
 ```
 
 ### JVM primitives
+
 All the primitive types are supported.
 
 ```kotlin
@@ -182,10 +192,12 @@ short
 ```
 
 ### Arrays
+
 Arrays of any type are supported, primitive or otherwise.
 
 
 ### JDK Types
+
 The following JDK library types are supported:
 
 ```kotlin
@@ -231,6 +243,7 @@ java.util.UUID
 ```
 
 ### Third-Party Types
+
 The following 3rd-party types are supported:
 
 ```kotlin
@@ -241,6 +254,7 @@ org.apache.activemq.artemis.api.core.SimpleString
 ```
 
 ### Corda Types
+
 Any classes and interfaces in the Corda codebase annotated with `@CordaSerializable` are supported.
 
 All Corda exceptions that are expected to be serialized inherit from `CordaThrowable` via either `CordaException` (for
@@ -250,12 +264,15 @@ All Corda exceptions that are expected to be serialized inherit from `CordaThrow
 
 
 ## Custom Types
+
 You own types must adhere to the following rules to be supported:
 
 
 ### Classes
 
+
 #### General Rules
+
 > 
 > 
 > * The class must be compiled with parameter names included in the `.class` file.  This is the default in Kotlin
@@ -285,6 +302,7 @@ You own types must adhere to the following rules to be supported:
 > 
 
 #### Constructor Instantiation
+
 The primary way Corda’s AMQP serialization framework instantiates objects is via a specified constructor. This is
                         used to first determine which properties of an object are to be serialised, then, on deserialization, it is used to
                         instantiate the object with the serialized values.
@@ -347,6 +365,7 @@ val e2 = e.serialize().deserialize() // e2.c will be 20, not 100!!!
 
 
 #### Setter Instantiation
+
 As an alternative to constructor-based initialisation, Corda can also determine the important elements of an
                         object by inspecting the getter and setter methods present on the class. If a class has **only** a default
                         constructor **and** properties then the serializable properties will be determined by the presence of
@@ -396,6 +415,7 @@ We do not recommend this pattern! Corda tries to use immutable data structures t
 
 
 ### Inaccessible Private Properties
+
 Whilst the Corda AMQP serialization framework supports private object properties without publicly
                     accessible getter methods, this development idiom is strongly discouraged.
 
@@ -473,6 +493,7 @@ class C {
 
 
 ### Mismatched Class Properties / Constructor Parameters
+
 Consider an example where you wish to ensure that a property of class whose type is some form of container is always sorted using some specific criteria yet you wish to maintain the immutability of the class.
 
 This could be codified as follows:
@@ -528,6 +549,7 @@ class ConfirmRequest(statesToConsume: List<StateRef>, val transactionId: SecureH
 
 
 ### Mutable Containers
+
 Because Java fundamentally provides no mechanism by which the mutability of a class can be determined this presents a
                     problem for the serialization framework. When reconstituting objects with container properties (lists, maps, etc) we
                     must chose whether to create mutable or immutable objects. Given the restrictions, we have decided it is better to
@@ -608,12 +630,14 @@ If mutability isn’t an issue at all then in the case of data classes a single 
 {{< /note >}}
 
 ### Enums
+
 All enums are supported, provided they are annotated with `@CordaSerializable`. Corda supports interoperability of
                     enumerated type versions. This allows such types to be changed over time without breaking backward (or forward)
                     compatibility. The rules and mechanisms for doing this are discussed in [Enum Evolution](serialization-enum-evolution.md).
 
 
 ### Exceptions
+
 The following rules apply to supported `Throwable` implementations.
 
 > 
@@ -628,6 +652,7 @@ The following rules apply to supported `Throwable` implementations.
 > 
 
 ### Kotlin Objects
+
 Kotlin’s non-anonymous `object` s (i.e. constructs like `object foo : Contract {...}`) are singletons and
                     treated differently.  They are recorded into the stream with no properties, and deserialize back to the
                     singleton instance. Currently, the same is not true of Java singletons, which will deserialize to new instances
@@ -638,6 +663,7 @@ Kotlin’s anonymous `object` s (i.e. constructs like `object : Contract {...}`)
 
 
 ## Class synthesis
+
 Corda serialization supports dynamically synthesising classes from the supplied schema when deserializing,
                 without the supporting classes being present on the classpath.  This can be useful where generic code might expect to
                 be able to use reflection over the deserialized data, for scripting languages that run on the JVM, and also for
@@ -650,6 +676,7 @@ If the original class implements some interfaces then the carpenter will make su
 
 
 ### Calculated values
+
 In some cases, for example the *exitKeys* field in `FungibleState`, a property in an interface may normally be implemented
                     as a *calculated* value, with a “getter” method for reading it but neither a corresponding constructor parameter nor a
                     “setter” method for writing it. In this case, it will not automatically be included among the properties to be serialized,
@@ -669,6 +696,7 @@ If the annotation is added to the method in the *interface*, then all implementi
 
 
 ### Future enhancements
+
 Possible future enhancements include:
 
 > 
@@ -683,6 +711,7 @@ Possible future enhancements include:
 > 
 
 ## Type Evolution
+
 Type evolution is the mechanism by which classes can be altered over time yet still remain serializable and deserializable across
                 all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized
                 and a version of the current state of the class instantiated.

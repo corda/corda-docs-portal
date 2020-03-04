@@ -1,16 +1,21 @@
 ---
-title: "Financial model"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Financial model
+version: corda-enterprise-4-3
 ---
 
 
 
 # Financial model
+
 Corda provides a large standard library of data types used in financial applications and contract state objects.
             These provide a common language for states and contracts.
 
 
 ## Amount
+
 The [Amount](api/kotlin/corda/net.corda.core.contracts/-amount/index.html) class is used to represent an amount of
                 some fungible asset. It is a generic class which wraps around a type used to define the underlying product, called
                 the *token*. For instance it can be the standard JDK type `Currency`, or an `Issued` instance, or this can be
@@ -66,6 +71,7 @@ To represent movements of `Amount` tokens use the `AmountTransfer` type, which r
 
 
 ## Financial states
+
 In additional to the common state types, a number of interfaces extend `ContractState` to model financial state such as:
 
 > 

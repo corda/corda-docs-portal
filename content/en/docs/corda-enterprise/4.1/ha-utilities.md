@@ -1,10 +1,14 @@
 ---
-title: "HA Utilities"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: HA Utilities
+version: corda-enterprise-4-1
 ---
 
 
 # HA Utilities
+
 Setting up multiple nodes behind shared Corda Firewall require preparation of various keystores and config files, which can be time consuming and error prone.
             The HA Utilities aims to provide tools to streamline the node provision and deployment process.
 
@@ -19,6 +23,7 @@ Use the `--help` flag for a full list of command line options.
 
 
 ## Sub-commands
+
 `node-registration`: Corda registration tool for registering 1 or more node with the Corda Network, using provided node configuration.
                 `import-ssl-key`: Key copying tool for creating bridge SSL keystore or add new node SSL identity to existing bridge SSL keystore.
                 `generate-internal-artemis-ssl-keystores`: Generate self-signed root and SSL certificates for internal communication between the services and external Artemis broker.
@@ -28,11 +33,13 @@ Use the `--help` flag for a full list of command line options.
 
 
 ### Node Registration Tool
+
 The registration tool can be used to register multiple Corda nodes with the network operator, it is useful when managing multiple identities and setting up multiple Corda nodes sharing Corda firewall infrastructures.
                     For convenience the tool is also downloading network parameters.
 
 
 #### Command-line options
+
 ```shell
 ha-utilities node-registration [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] -p=PASSWORD -t=FILE -f=FILE... [-f=FILE...]...
 ```
@@ -63,11 +70,13 @@ ha-utilities node-registration [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDE
 
 
 ### SSL key copier
+
 When using shared external bridge, the bridge will need to have access to nodes’ SSL key in order to establish connections to counterparties on behalf of the nodes.
                     The SSL key copier sub command can be used to provision the SSL keystore and add additional keys when adding more nodes to the shared infrastructure.
 
 
 #### Command-line options
+
 ```shell
 ha-utilities import-ssl-key [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] [-k=FILES] -p=PASSWORDS --node-keystore-passwords=PASSWORDS... [--node-keystore-passwords=PASSWORDS...]... --node-keystores=FILES... [--node-keystores=FILES...]...
 ```
@@ -101,11 +110,13 @@ ha-utilities import-ssl-key [-hvV] [--logging-level=<loggingLevel>] [-b=FOLDER] 
 
 
 ### Self signed internal Artemis SSL keystore
+
 TLS is used to ensure communications between HA components and standalone Artemis are secured. This tool can be used to generate the required keystores if TLS cert signing infrastructure is not available within your organisation.
                     Please note that for Artemis to work correctly, the password for the store and the password for the private key will need to be set to the same value.
 
 
 #### Command-line options
+
 ```shell
 ha-utilities generate-internal-artemis-ssl-keystores [-hvV] [--logging-level=<loggingLevel>] [-b=<baseDirectory>] [-c=<country>] [-l=<locality>] [-o=<organization>] [-p=<keyStorePassword>] [-t=<trustStorePassword>]
 ```
@@ -142,10 +153,12 @@ ha-utilities generate-internal-artemis-ssl-keystores [-hvV] [--logging-level=<lo
 
 
 ### Self signed internal Tunnel SSL keystore
+
 TLS is used for communications between Bridge and Float components. This tool can be used to generate the required keystores if TLS cert signing infrastructure is not available within your organisation.
 
 
 #### Command-line options
+
 ```shell
 ha-utilities generate-internal-tunnel-ssl-keystores [-hvV] [--logging-level=<loggingLevel>] [-b=<baseDirectory>] [-c=<country>] [-l=<locality>] [-o=<organization>] [-p=<keyStorePassword>] [-e=<entryPassword>] [-t=<trustStorePassword>]
 ```
@@ -185,6 +198,7 @@ ha-utilities generate-internal-tunnel-ssl-keystores [-hvV] [--logging-level=<log
 
 
 ### Artemis configuration
+
 Configuring an external Artemis broker to be used by Corda nodes and firewall components can be a little daunting. This tool will generate the necessary configuration files and install (if needed) a new Artemis instance.
                     Please note that the generated configuration files will be copied to a destination supplied as an argument to the command, replacing existing ones.
                     The keystore and truststore information will be downloaded by the clients when Artemis is configured in HA mode. Therefore, the tool will configure broker.xml with paths relative to the Artemis instance (for acceptors) and client’s working directory (for connectors).
@@ -192,6 +206,7 @@ Configuring an external Artemis broker to be used by Corda nodes and firewall co
 
 
 #### Command-line options
+
 ```shell
 ha-utilities configure-artemis [-hvV] [--logging-level=<loggingLevel>] [--install] [--distribution=<dist>] --path=<workingDir>  --user=<userX500Name> --acceptor-address=<acceptorHostAndPort> --keystore=<keyStore> --keystore-password=<keyStorePass> --truststore=<trustStore> --truststore-password=<trustStorePass> [--ha=<mode>] [--connectors=<connectors>[;<connectors>...]]
 ```

@@ -1,10 +1,14 @@
 ---
-title: "Corda Network Builder"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Corda Network Builder
+version: corda-enterprise-4-1
 ---
 
 
 # Corda Network Builder
+
 The Corda Network Builder is a tool for building Corda networks for testing purposes. It leverages Docker and
             containers to abstract the complexity of managing a distributed network away from the user.
 
@@ -17,6 +21,7 @@ The Corda Network Builder is a tool for building Corda networks for testing purp
 
 ## Prerequisites
 
+
 * **Docker:** docker > 17.12.0-ce
 
 
@@ -25,6 +30,7 @@ The Corda Network Builder is a tool for building Corda networks for testing purp
 
 
 ## Creating the base nodes
+
 The network builder uses a set of nodes as the base for all other operations. A node is anything that satisfies
                 the following layout:
 
@@ -50,9 +56,12 @@ An easy way to build a valid set of nodes is by running `deployNodes`. In this d
 
 ## Building a network via the command line
 
+
 ### Starting the nodes
 
+
 #### Quickstart Local Docker
+
 
 * `cd kotlin-source/build/nodes`
 
@@ -72,6 +81,7 @@ cf7ab689f493        node-notary:corda-network   "/run-corda.sh"     30 seconds a
 
 #### Quickstart Remote Azure
 
+
 * `cd kotlin-source/build/nodes`
 
 
@@ -85,6 +95,7 @@ The Azure configuration is handled by the az-cli utility. See the [Prerequisites
 {{< /note >}}
 
 ### Interacting with the nodes
+
 You can interact with the nodes by SSHing into them on the port that is mapped to 12222. For example, to SSH into the
                     `partya0` node, you would run:
 
@@ -109,6 +120,7 @@ Useful commands include 'help' to see what is available, and 'bye' to shut down 
 ```
 
 ### Adding additional nodes
+
 It is possible to add additional nodes to the network by reusing the nodes you built earlier. For example, to add a
                     node by reusing the existing `PartyA` node, you would run:
 
@@ -128,11 +140,13 @@ Tue Jul 17 15:47:14 GMT 2018>>> run networkMapSnapshot
 ```
 
 ## Building a network in Graphical User Mode
+
 The Corda Network Builder also provides a GUI for when automated interactions are not required. To launch it, run
                 `java -jar <path/to/network-builder-jar> -g`.
 
 
 ### Starting the nodes
+
 
 * Click `Open nodes ...` and select the folder where you built your nodes in [Creating the base nodes](#creating-the-base-nodes) and
                             click `Open`
@@ -161,10 +175,12 @@ cf7ab689f493        node-notary:corda-network   "/run-corda.sh"     30 seconds a
 ```
 
 ### Interacting with the nodes
+
 See [Interacting with the nodes](#interacting-with-the-nodes).
 
 
 ### Adding additional nodes
+
 It is possible to add additional nodes to the network by reusing the nodes you built earlier. For example, to add a
                     node by reusing the existing `PartyA` node, you would:
 
@@ -193,6 +209,7 @@ Tue Jul 17 15:47:14 GMT 2018>>> run networkMapSnapshot
 ```
 
 ## Shutting down the nodes
+
 Run `docker kill $(docker ps -q)` to kill all running Docker processes.
 
 

@@ -1,10 +1,14 @@
 ---
-title: "Deploying a node to a server"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Deploying a node to a server
+version: corda-os-4-3
 ---
 
 
 # Deploying a node to a server
+
 
 {{< note >}}
 These instructions are intended for people who want to deploy a Corda node to a server,
@@ -23,6 +27,7 @@ When deploying multiple nodes in parallel the package tool (Capsule) that Corda 
 {{< /note >}}
 
 ## Linux: Installing and running Corda as a system service
+
 We recommend creating system services to run a node and the optional test webserver. This provides logging and service
                 handling, and ensures the Corda service is run at boot.
 
@@ -265,6 +270,7 @@ You can run multiple nodes by creating multiple directories and Corda services, 
 
 
 ## Windows: Installing and running Corda as a Windows service
+
 We recommend running Corda as a Windows service. This provides service handling, ensures the Corda service is run
                 at boot, and means the Corda service stays running with no users connected to the server.
 
@@ -389,6 +395,7 @@ sc start cordanode1
 
 
 ## Testing your installation
+
 You can verify Corda is running by connecting to your RPC port from another host, e.g.:
 
 > 

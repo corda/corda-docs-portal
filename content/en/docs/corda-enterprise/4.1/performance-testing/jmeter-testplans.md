@@ -1,10 +1,14 @@
 ---
-title: "Understanding and Creating Testplans"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Understanding and Creating Testplans
+version: corda-enterprise-4-1
 ---
 
 
 # Understanding and Creating Testplans
+
 JMeter offers a very flexible and powerful tool kit to build a large variety of testplans. This document can only give
             a brief overview over what testplans are typically used for Corda performance testing. To get an overview of what is
             available in JMeter, and if you are looking into writing more elaborate testplans, please refer to the [JMeter user
@@ -12,6 +16,7 @@ JMeter offers a very flexible and powerful tool kit to build a large variety of 
 
 
 ## Structure of a Simple Testplan
+
 The testplan is a hierarchy of configuration elements. The only elements used in our simple test plans are
                 *Variables*, *Thread Groups*, *Samplers* and *Listeners*. Rather than creating a new testplan from scratch,
                 it might a good idea to take a copy of one of the provided example test plans and modify that.
@@ -80,6 +85,7 @@ Like the Aggregate Report, but also offers to tools to plot the results.
 
 
 ## Included Testplans
+
 Two testplans are included with the performance test suite, to be found in the `Sample Testplans` directory in the zip
                 file. Note that both testplans are examples how they can look and are not runnable out of the box - you need to supply
                 values for host names, party/notary names, RPC credentials and so on for your Corda installation.
@@ -105,6 +111,7 @@ A useful way to try out bits of the plan is to load it in an interactive JMeter 
 
 
 ## Creating Testplans
+
 The JMeter GUI can be used to create and try out new testplans. The easiest way of doing this to take a copy of an
                 existing testplan and modify this as the structure of all testplans is fairly similar.
 

@@ -1,11 +1,15 @@
 ---
-title: "JSON"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: JSON
+version: corda-enterprise-4-1
 ---
 
 
 
 # JSON
+
 Corda provides a module that extends the popular Jackson serialisation engine. Jackson is often used to serialise
             to and from JSON, but also supports other formats such as YaML and XML. Jackson is itself very modular and has
             a variety of plugins that extend its functionality. You can learn more at the [Jackson home page](https://github.com/FasterXML/jackson).

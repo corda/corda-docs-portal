@@ -1,12 +1,17 @@
 ---
-title: "Node configuration"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Node configuration
+version: corda-os-4-1
 ---
 
 
 # Node configuration
 
+
 ## Configuration file location
+
 When starting a node, the `corda.jar` file defaults to reading the node’s configuration from a `node.conf` file in the directory from which the command to launch Corda is executed.
                 There are two command-line options to override this behaviour:
 
@@ -23,6 +28,7 @@ If you specify both command line arguments at the same time, the node will fail 
 
 
 ## Configuration file format
+
 The Corda configuration file uses the HOCON format which is a superset of JSON. Please visit
                 [https://github.com/typesafehub/config/blob/master/HOCON.md](https://github.com/typesafehub/config/blob/master/HOCON.md) for further details.
 
@@ -40,6 +46,7 @@ By default the node will fail to start in presence of unknown property keys.
 ## Overriding values from node.conf
 
 
+
 Environment variables
 For example: `${NODE_TRUST_STORE_PASSWORD}` would be replaced by the contents of environment variable `NODE_TRUST_STORE_PASSWORD` (see: [Logging](node-administration.md#hiding-sensitive-data) section).
 
@@ -54,6 +61,7 @@ java -Dcorda.rpcSettings.ssl.keyStorePassword=mypassword -jar node.jar
 ```
 
 ## Configuration file fields
+
 
 {{< note >}}
 The available configuration fields are listed below in alphabetic order.
@@ -637,6 +645,7 @@ Internal option.
 
 
 ## Reference.conf
+
 A set of default configuration options are loaded from the built-in resource file `/node/src/main/resources/reference.conf`.
                 This file can be found in the `:node` gradle module of the [Corda repository](https://github.com/corda/corda).
                 Any options you do not specify in your own `node.conf` file will use these defaults.
@@ -677,7 +686,9 @@ verifierType = InMemory
 [reference.conf](https://github.com/corda/corda/blob/release/os/4.1/node/src/main/resources/reference.conf)
 ## Configuration examples
 
+
 ### Node configuration hosting the IRSDemo services
+
 General node configuration file for hosting the IRSDemo services
 
 ```kotlin
@@ -706,6 +717,7 @@ devMode = true
 ```
 [example-node.conf](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node.conf)
 ### Simple notary configuration file
+
 ```kotlin
 myLegalName = "O=Notary Service,OU=corda,L=London,C=GB"
 keyStorePassword = "cordacadevpass"
@@ -728,6 +740,7 @@ networkServices {
 ```
 
 ### Node configuration with diffrent URL for NetworkMap and Doorman
+
 Configuring a node where the Corda Compatibility Zone’s registration and Network Map services exist on different URLs
 
 ```kotlin

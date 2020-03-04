@@ -1,11 +1,15 @@
 ---
-title: "CorDapp constraints migration"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: CorDapp constraints migration
+version: corda-enterprise-4-1
 ---
 
 
 
 # CorDapp constraints migration
+
 
 {{< note >}}
 Before reading this page, you should be familiar with the key concepts of [Contract Constraints](api-contract-constraints.md).
@@ -69,12 +73,14 @@ Please also remember that *states are always consumable if the version of the Co
 
 ## Hash constraints migration
 
+
 {{< note >}}
 These instructions only apply to CorDapp Contract JARs (unless otherwise stated).
 
 {{< /note >}}
 
 ### Corda 4.0
+
 Corda 4.0 requires some additional steps to consume and evolve pre-existing on-ledger **hash** constrained states:
 
 
@@ -129,6 +135,7 @@ TransactionBuilder txBuilder = new TransactionBuilder(notary)
 
 
 ### Later releases
+
 The next version of Corda will provide automatic transition of *hash constrained* states. This means that signed CorDapps running on a Corda 4.x node will
                     automatically propagate any pre-existing on-ledger *hash-constrained* states (and generate *signature-constrained* outputs) when the system property
                     to break constraints is set.
@@ -136,12 +143,14 @@ The next version of Corda will provide automatic transition of *hash constrained
 
 ## CZ whitelisted constraints migration
 
+
 {{< note >}}
 These instructions only apply to CorDapp Contract JARs (unless otherwise stated).
 
 {{< /note >}}
 
 ### Corda 4.0
+
 Corda 4.0 requires some additional steps to consume and evolve pre-existing on-ledger **CZ whitelisted** constrained states:
 
 
@@ -216,6 +225,7 @@ TransactionBuilder txBuilder = new TransactionBuilder(notary)
 
 
 ### Later releases
+
 The next version of Corda will provide automatic transition of *CZ whitelisted* constrained states. This means that signed CorDapps running on a Corda 4.x node will
                     automatically propagate any pre-existing on-ledger *CZ whitelisted* constrained states (and generate *signature* constrained outputs).
 

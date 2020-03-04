@@ -1,12 +1,17 @@
 ---
-title: "Sizing and performance"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Sizing and performance
+version: corda-enterprise-4-1
 ---
 
 
 # Sizing and performance
 
+
 ## Overview
+
 This section describes how Corda Enterprise 4 nodes perform relative to Corda Enterprise 3 in certain circumstances.  It also shows how the
                 throughput changes with the number of output states per transaction and how that allows the node to achieve a greater number of Corda states
                 to be transacted per second.
@@ -61,6 +66,7 @@ See the sections below for a discussion of the configurations used in these test
 
 ### Observations
 
+
 * Corda Enterprise 4 has greater throughput than Corda Enterprise 3 (up to 2x in our tests).
 
 
@@ -93,6 +99,7 @@ See the sections below for a discussion of the configurations used in these test
 
 
 ### Sizing
+
 With all of the preceding caveats and those that follow in the more detailed sections regarding how much all this depends on the
                     CorDapps and workload, here are some simplistic node sizes.  Refer to detail elsewhere in this section on what processing can be achieved with
                     these sizings.
@@ -119,6 +126,7 @@ Performance in shared infrastructure environments varies over time dependent on 
 {{< /note >}}
 
 ## The flows used in the measurements
+
 The results currently cover two main types of flow:
 
 
@@ -158,6 +166,7 @@ We measure the time taken from the time just before we request the execution of 
 
 
 ## The node configurations used in the measurements
+
 We have established results for a number of different software configurations:
 
 
@@ -204,6 +213,7 @@ We used the following Azure VM types for the nodes in the original Corda Enterpr
 {{< /table >}}
 
 ## Database server configuration
+
 In the Corda Enterprise 4.0 testing for Figures 1 & 2 we have used dedicated database servers with single Intel Xeon E5-2687Wv4 giving 12 cores (24 hyper-threads),
                 256GB RAM and local SSDs.  They ran **SQL Server 2017 Standard Edition**.
 
@@ -217,6 +227,7 @@ It’s important to note that like many applications, the node is very sensitive
 
 
 ### Database storage
+
 In our performance tests, on **Microsoft SQL Server 2017**, we see database table space usage of around 10KB per state with an additional 10KB per transaction.  So a transaction with
                     3 output states would use 10KB + (3 x 10KB) = 40KB of storage.  This will obviously vary dependent on the complexity of the states and the extent to which they
                     implement vault schema mappings, and is something that is likely to be changed in future releases as we finesse transaction storage in the light of
@@ -224,6 +235,7 @@ In our performance tests, on **Microsoft SQL Server 2017**, we see database tabl
 
 
 ## Scaling with CPU core count
+
 Corda Enterprise is able to make use of multiple cores by running flows simultaneously.  When a flow is running (and not waiting for peer-to-peer messages)
                 it splits its time between computation (running contract verification, signing transactions, etc.) and database writes and reads.  When giving a node more and more
                 CPU cores in order to scale up, at some point the balance of processing will shift to the database and the node will no longer be able to take advantage of
@@ -237,6 +249,7 @@ Also see the section on heap size regarding Netty memory allocation as this is l
 
 
 ## Sizing the flow thread pool
+
 Key to unlocking this scaling is the thread pool that the node utilises for running flows in parallel.  This thread pool has a finite size.  The default settings
                 are for the number of threads to be 2x the number of cores, but capped at 30.  We require a database connection per flow and so that cap helps reduce unexpected
                 incidents of running out of database connections.  If your database server is configured to allow many more connections, and you have plenty of cores, then the flow thread
@@ -248,6 +261,7 @@ We followed this ratio of 4x cores for `flowThreadPoolSize` when running our per
 
 
 ## Sizing the heap
+
 We typically run our performance tests with 32GB heaps, because this seems to give plenty of breathing room to the node JVM process.  Settings below
                 1GB certainly start to apply memory pressure and can result in an `OutOfMemoryError` and are not recommended.  This is due to many internal data structures within the
                 Artemis MQ message broker and several caches in the Corda Enterprise node that have fixed upper bounds.  Typically you want to be generous with the heap size.
@@ -268,6 +282,7 @@ It’s also important to take into account the memory footprint of live (i.e. in
 
 
 ## Limiting outstanding flows
+
 It is currently possible to start flows in the node at a faster rate than they complete.  This will lead to increased memory footprint and heap usage
                 in the local node and potentially remote nodes.  Techniques for helping in this scenario will be the subject of future releases.  In the meantime, it
                 may be necessary to limit the number of outstanding flows in the RPC client, by only allowing a certain number of incomplete `Future`-s as returned
@@ -275,6 +290,7 @@ It is currently possible to start flows in the node at a faster rate than they c
 
 
 ## Network bandwidth
+
 In the highest throughput scenarios in Figure 1, node A experiences between 500 and 600Mbit/s outbound network traffic.  Inbound is much less,
                 since under normal circumstances flow checkpoint traffic is write-only.  In order to maximise the bandwidth available between two nodes it
                 is necessary to use the `useOpenSsl` option described in [Node configuration](corda-configuration-file.md).  The JVM implementation of SSL is restricted in the

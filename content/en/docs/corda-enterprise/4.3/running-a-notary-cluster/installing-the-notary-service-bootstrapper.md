@@ -1,10 +1,14 @@
 ---
-title: "Joining a bootstrapped network"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Joining a bootstrapped network
+version: corda-enterprise-4-3
 ---
 
 
 # Joining a bootstrapped network
+
 You can skip this section when you’re setting up or joining a cluster with CENM.
 
 Once the database is set up, you can prepare your configuration files of your notary
@@ -21,6 +25,7 @@ You can find the documentation of the bootstrapper at ../setting-up-a-corda-netw
 
 
 ## Expected Outcome
+
 You will go from a set of configuration files to a directory tree containing a fully functional Corda network.
 
 The notaries will be visible and available on the network. You can list available notaries using the node shell.

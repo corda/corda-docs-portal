@@ -1,0 +1,27 @@
+{{ if .Page.Params.version }}
+{{/* store the current page scope as '.' changes meaning in loops */}}
+{{ $currentPage := . }}
+{{/* the menu for the version this page is tagged with*/}}
+{{ $pageVersion := .Page.Params.version }}
+{{ $menuVersion := index .Site.Menus .Page.Params.version}}
+<!-- sidebar start -->
+<aside style="font-size: small; margin-top: 1rem;">
+    <ul class="nav flex-column">
+        {{ range $menuVersion.ByWeight }}
+                <li class="nav-item{{ if $currentPage.HasMenuCurrent $pageVersion . }} active{{ end }}">
+                    <a href="#">
+                        {{ .Pre }}
+                        <span>{{ .Name }}</span>
+                    </a>
+                </li>
+                <ul class="sub-menu">
+                    {{ range .Children }}
+                        <li class="nav-item{{ if $currentPage.IsMenuCurrent $pageVersion . }} active{{ end }}">
+                            <a href="{{ .URL }}">{{ .Name }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
+        {{ end }}
+    </ul>
+</aside>
+{{ end }}

@@ -1,11 +1,15 @@
 ---
-title: "Database management scripts"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Database management scripts
+version: corda-enterprise-4-3
 ---
 
 
 
 # Database management scripts
+
 Corda - the platform, and the installed CorDapps store their data in a relational database (see [API: Persistence](api-persistence.md)).
             When a new CorDapp is installed, associated tables, indexes, foreign-keys, etc. must be created.
             Similarly, when a new version of a CorDapp is installed, its database schema may have changed,
@@ -17,6 +21,7 @@ In Corda Enteprise, CorDapps’ custom tables are created or upgraded automatica
 
 
 ## Scripts structure
+
 The `MappedSchema` class should have a matching Liquibase script defining a table creation.
                 Liquibase scripts use declarative set of XML tags and attributes to express DDL in a cross database vendor way.
                 The script can also be written in SQL, however this doesn’t guarantee compatibility across different database vendors.
@@ -25,6 +30,7 @@ The `MappedSchema` class should have a matching Liquibase script defining a tabl
 
 
 ### Database table creation
+
 For initial table creation use tags like `createTable` and `addPrimaryKey`,
                     see [Liquibase documentation](https://www.liquibase.org/documentation/index.html) for examples and the complete Liquibase instruction list.
 
@@ -99,6 +105,7 @@ Each `changeSet` tag is uniquely identified by the combination of the `author` t
 
 
 ### Database table modification
+
 For any subsequent changes to a table driven by changes in a CorDapp, a new `changeSet` needs to be created.
                     The existing `changeSet` cannot be modified, as Liquibase needs to track the what was exactly created.
 
@@ -135,6 +142,7 @@ The column name change allowed us to have a simplified migration steps, avoiding
 
 
 ## Distributing scripts with CorDapps
+
 By default Corda expects a Liquibase script file name to be a hyphenated version of the `MappedSchema` name
                 (upper case letters changed to lowercase and be prefixed with hyphen, except the beginning of file).
                 E.g. for a `MappedSchema` named *MySchema*, Corda searches for a *my_schema.changelog.master.xml* file
@@ -216,6 +224,7 @@ Also the CorDapp should contain the initial script *my-schema.changelog-init.xml
 
 
 ## Creating script for initial table creation using Corda Database Management Tool
+
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_release_version}.jar`.
                 It is intended to be used by Corda Enterprise node administrators but it can help to develop an Liquibase script for a CorDapp.
                 A generated script has instruction in SQL format (DDL statements), which may be not portable across different databases.
@@ -305,6 +314,7 @@ As stated before, in most cases the generated script in SQL format contains DDL 
 
 
 ## Adding scripts retrospectively to an existing CorDapp
+
 If a CorDapp does not include the required migration scripts for each `MappedSchema`, these can be generated and inspected before
                 being applied as follows:
 
@@ -334,6 +344,7 @@ If a CorDapp does not include the required migration scripts for each `MappedSch
 
 
 ## Considerations for migrating Open Source CorDapps to Corda Enterprise
+
 If a Corda Node is upgraded from Open Source to Enterprise, then any CorDapps need to contain Liquibase scripts.
                 Any custom tables, which are required by CorDapps, were created manually or by Hibernate upon node startup.
                 Because of that the database doesn’t contain an entry in the *DATABASECHANGELOG* table which is created by the Liquibase runner.
@@ -344,6 +355,7 @@ See the Corda node upgrade procedure details steps how to obtain SQL statements.
 
 
 ## Notes on Liquibase specifics
+
 When writing data migrations, certain databases may have particular limitations which mean that database specific migration code is required. For example, in Oracle:
 
 
@@ -355,6 +367,7 @@ When writing data migrations, certain databases may have particular limitations 
 
 
 ## Example Liquibase with specialised logic
+
 When using Liquibase to work around the issue of VARCHAR length, you could create a changeset
                 specific to Oracle using the <changeset … dbms=”oracle”> with the supported Oracle value type, as Liquibase
                 itself does not do the conversion automatically.

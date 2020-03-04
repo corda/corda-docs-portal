@@ -1,16 +1,21 @@
 ---
-title: "Load testing"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Load testing
+version: corda-os-4-1
 ---
 
 
 # Load testing
+
 This section explains how to apply random load to nodes to stress test them. It also allows the specification of disruptions that strain different resources, allowing us to inspect the nodes’ behaviour under extreme conditions.
 
 The load-testing framework is incomplete and is not part of CI currently, but the basic pieces are there.
 
 
 ## Configuration of the load testing cluster
+
 The load-testing framework currently assumes the following about the node cluster:
 
 
@@ -55,6 +60,7 @@ rpcUser = {username = corda, password = not_blockchain, permissions = ["ALL"]}
 ```
 [loadtest-reference.conf](https://github.com/corda/corda/blob/release/os/4.1/tools/loadtest/src/main/resources/loadtest-reference.conf)
 ## Running the load tests
+
 In order to run the loadtests you need to have an active SSH-agent running with a single identity added that has SSH access to the loadtest cluster.
 
 You can use either IntelliJ or the gradle command line to start the tests.
@@ -72,6 +78,7 @@ To use IntelliJ simply run Main.kt with the config path supplied as an argument 
 
 
 ## Configuration of individual load tests
+
 The load testing configurations are not set-in-stone and are meant to be played with to see how the nodes react.
 
 There are a couple of top-level knobs to tweak test behaviour:
@@ -138,6 +145,7 @@ fun strainCpu(parallelism: Int, durationSeconds: Int) = Disruption("Put strain o
 
 
 ## How to write a load test
+
 A load test is basically defined by a random datastructure generator that specifies a unit of work a node should perform, a function that performs this work, and a function that predicts what state the node should end up in by doing so:
 
 ```kotlin
@@ -194,6 +202,7 @@ The last parameter `isConsistent` is used to poll for eventual consistency at th
 
 
 ## Stability Test
+
 Stability test is one variation of the load test, instead of flooding the nodes with request, the stability test uses execution frequency limit to achieve a constant execution rate.
 
 To run the stability test, set the load test mode to STABILITY_TEST (`mode=STABILITY_TEST` in config file or `-Dloadtest.mode=STABILITY_TEST` in system properties).

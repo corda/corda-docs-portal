@@ -1,11 +1,15 @@
 ---
-title: "Joining an existing compatibility zone"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Joining an existing compatibility zone
+version: corda-enterprise-4-3
 ---
 
 
 
 # Joining an existing compatibility zone
+
 To connect to a compatibility zone you need to register with its certificate signing authority (or *doorman*) by
             submitting a certificate signing request (CSR) to obtain a valid identity for the zone. This process is only necessary
             when the node connects to the network for the first time, or when the certificate expires. You could do this out of

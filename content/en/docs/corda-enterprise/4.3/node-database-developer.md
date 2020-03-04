@@ -1,10 +1,15 @@
 ---
-title: "Simplified database schema setup for development"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-node
+title: Simplified database schema setup for development
+version: corda-enterprise-4-3
 ---
 
 
 # Simplified database schema setup for development
+
 This document provides instructions on how to create database schema
             and configure a Corda node suitable for development and testing purposes.
             This setup allows the auto-creation of database objects by the node upon startup
@@ -33,6 +38,7 @@ The instructions cover all commercial 3rd party database vendors supported by Co
 > 
 
 ## Database schema setup
+
 Setting up a Corda node to connect to a database requires:
 
 
@@ -51,6 +57,7 @@ Corda ships out of the box with an [H2 database](http://www.h2database.com) whic
 
 
 ### 1. Creating a database user with schema permissions
+
 Before running a Corda node you must create a database user and schema namespace with **administrative permissions** (except H2 database).
                     This grants the database user full access to a Corda node, such that it can execute both DDL statements
                     (to define data structures/schema content e.g. tables) and DML queries (to manipulate data itself e.g. select/delete rows).
@@ -95,6 +102,7 @@ Creating database user with schema permissions for:
 
 
 #### SQL Azure
+
 Connect to the master database as an administrator
                         (e.g. *jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=master;[…]*).
                         Run the following script to create a user and a login:
@@ -119,6 +127,7 @@ GRANT CREATE VIEW TO my_user;
 ```
 
 #### SQL Server
+
 Connect to the master database as an administrator (e.g. *jdbc:sqlserver://<host>:<port>;databaseName=master*).
                         Run the following script to create a database, a user and a login:
 
@@ -147,6 +156,7 @@ GRANT CREATE VIEW TO my_user;
 ```
 
 #### Oracle
+
 This script uses the default tablespace *users* with *unlimited* database space quota assigned to the user.
                         Revise these settings depending on your nodes sizing requirements.
 
@@ -160,6 +170,7 @@ GRANT SELECT ON v_$parameter TO my_user;
 ```
 
 #### PostgreSQL
+
 Connect to the database as an administrator and run the following script to create a node user:
 
 ```sql
@@ -178,6 +189,7 @@ If you provide a custom schema name (different to the user name), then the last 
 
 
 ### 2. Corda node configuration
+
 The following updates are required to a nodes filesystem configuration:
 
 > 
@@ -245,11 +257,13 @@ Configuration templates for each database vendor are shown below:
 
 
 #### H2
+
 By default, nodes store their data in an H2 database.
                         No database setup is needed. Optionally remote H2 access/port can be configured. See [Database access when running H2](node-database-access-h2.md).
 
 
 #### Azure SQL
+
 Node configuration for Azure SQL:
 
 > 
@@ -278,6 +292,7 @@ The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center]
 
 
 #### SQL Server
+
 Node configuration for SQL Server:
 
 > 
@@ -312,6 +327,7 @@ Ensure JDBC connection properties match the SQL Server setup, especially when tr
 
 
 #### Oracle
+
 Node configuration for Oracle:
 
 > 
@@ -338,6 +354,7 @@ Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 
 
 
 #### PostgreSQL
+
 Node configuration for PostgreSQL:
 
 > 
@@ -367,17 +384,20 @@ Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* to the node director
 
 
 ### 3. Start the node to auto-create schema objects
+
 The node will create all database schema objects upon startup, as `runMigration` is set to `true`.
                     Additionally, the node will create any tables for CorDapps containing Liquibase database migration scripts.
 
 
 ## Database schema update
+
 As the Corda node is configured to automatically run migrations on startup,
                 no additional database update steps are required when upgrading Corda.
                 See the [Corda node upgrade notes](node-upgrade-notes.md#node-upgrade-notes-update-database-ref) for more information.
 
 
 ## Database schema setup when deploying a new CorDapp
+
 The procedure for Cordapp deployment is the same as for production systems
                 apart from a simplified database update step.
                 A CorDapp, which stores data in a custom table, should contain an embedded Liquibase database migration script.
@@ -419,17 +439,20 @@ You can optionally check if a CorDapp which is expected to store data in custom 
 > {{< /note >}}
 
 ## Database schema update when upgrading a CorDapp
+
 When an upgraded CorDapp contains a requires a database schema changes, the
                 database is automatically updated during a node restart, see:
                 [database schema update for a new CorDapp](#node-database-developer-database-schema-setup-when-deploying-a-new-cordapp-ref).
 
 
 ## Database schema cleanup
+
 When developing/testing CorDapps you may need cleanup the database between test runs
                 (e.g. when running using the Gradle plugin `Cordform` `deployNodes`).
 
 
 ### SQL Azure and SQL Server
+
 To remove node tables run the following SQL script against a user database:
 
 > 
@@ -499,6 +522,7 @@ To remove users’ logins, run the following script as a database administrator 
 ```
 
 ### Oracle
+
 To remove node tables run the following SQL script:
 
 > 
@@ -552,6 +576,7 @@ Also delete CorDapps specific tables.
 
 
 ### PostgreSQL
+
 To remove node and CorDapp specific tables run the following SQL script:
 
 > 

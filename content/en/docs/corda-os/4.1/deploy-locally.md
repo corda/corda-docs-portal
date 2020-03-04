@@ -1,10 +1,14 @@
 ---
-title: "Deploying Corda to Corda Testnet from your local environment"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Deploying Corda to Corda Testnet from your local environment
+version: corda-os-4-1
 ---
 
 
 # Deploying Corda to Corda Testnet from your local environment
+
 This document explains how to set up your local network to enable a
             Corda node to connect to the Corda Testnet. This assumes you are
             downloading a node ZIP from: [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet).
@@ -12,11 +16,13 @@ This document explains how to set up your local network to enable a
 
 ## Pre-requisites
 
+
 * Register for an account on [https://marketplace.r3.com/](https://marketplace.r3.com/).
 
 
 
 ## Set up your local network
+
 For a Corda node to be able to connect to the Corda Testnet and be
                 reachable by counterparties on that network it needs to be reachable
                 on the open internet. Corda is a server which requires an externally
@@ -38,6 +44,7 @@ The following steps will describe how to use port forwarding on your
 
 
 ### Set up static IP address local host machine
+
 The next steps will configure your router to forward
                     packets to the Corda node, but for this it is required to set the host
                     machine to have a static IP address. If this isn’t done, and the
@@ -50,6 +57,7 @@ Please consult your operating system documentation for instructions on
 
 
 ### Set up port forwarding on your router
+
 Port forwarding is a method of making a computer on your network
                     accessible to computers on the Internet, even though it is behind a router.
 
@@ -92,6 +100,7 @@ Please consult your router documentation for specific details on
 
 
 ### Open firewall ports
+
 If you are operating a firewall on your host machine or local network
                     you will also need to open the above ports for incoming traffic.
 
@@ -99,6 +108,7 @@ Please consult your firewall documentation for details.
 
 
 ### Optional: Configure a static external IP address
+
 Corda expects nodes to have stable addresses over long periods of
                     time. ISPs typically assign dynamic IP addresses to a router and so if
                     your router is rebooted it may not obtain the same external IP and
@@ -127,11 +137,13 @@ Corda nodes are expected to be online all the time and
 
 
 ### Test if the ports are open
+
 You can use a port checking tool to make sure the ports are open
                     properly.
 
 
 ### Download and install your node
+
 Navigate to [https://marketplace.r3.com/network/testnet/install-node](https://marketplace.r3.com/network/testnet/install-node).
 
 Click on the `Download Corda Node` button and wait for the ZIP
@@ -161,6 +173,7 @@ It is possible to copy the `node.zip` file from your local machine to any other 
 
 
 ## Testing your deployment
+
 To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up the Finance CorDapp and issue cash to a counterparty.
 
 

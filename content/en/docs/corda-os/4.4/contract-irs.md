@@ -1,10 +1,14 @@
 ---
-title: "Interest rate swaps"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Interest rate swaps
+version: corda-os-4-4
 ---
 
 
 # Interest rate swaps
+
 The Interest Rate Swap (IRS) Contract (source: IRS.kt, IRSUtils.kt, IRSExport.kt) is a bilateral contract to implement a
             vanilla fixed / floating same currency IRS.
 
@@ -49,6 +53,7 @@ This process continues until the swap reaches maturity and the final payments ar
 
 
 ## Creating an instance and lifecycle
+
 There are two valid operations on an IRS. The first is to generate via the `Agree` command (signed by both parties)
                 and the second (and repeated operation) is `Fix` to apply a rate fixing.
                 To see the minimum dataset required for the creation of an IRS, refer to `IRSTests.kt` which has two examples in the
@@ -67,6 +72,7 @@ Currently, there are no matured, termination or dispute operations.
 
 
 ## Technical details
+
 The contract itself comprises of 4 data state classes, `FixedLeg`, `FloatingLeg`, `Common` and `Calculation`.
                 Recall that the platform model is strictly immutable.  To further that, between states, the only class that is modified
                 is the `Calculation` class.

@@ -1,10 +1,14 @@
 ---
-title: "Config migration tool"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Config migration tool
+version: cenm-1-1
 ---
 
 
 # Config migration tool
+
 The config migration tool migrates v0.2.2 and v0.3+ Doorman and Network Map configs to v1.0 Identity Manager and
             Network Map configs. Norman (v0.2.2 combined Network Map and Doorman) configs produce separate Identity Manager and
             Network Map configs.
@@ -17,6 +21,7 @@ Only v0.2.2 or v0.3+ configs can be migrated using this tool.
 {{< /important >}}
 
 ## Usage
+
 ```bash
 java -jar config-migration-tool-<<version>>.jar --config-file <<config_file>> [options]
 ```
@@ -35,6 +40,7 @@ v0.2.2 deployments of CENM require the data to be migrated to the v0.3+ DB schem
 {{< /important >}}
 
 ## Example
+
 ```bash
 java -jar config-migration-tool-<<version>>.jar \
 --config-file ./doormanv022.conf \

@@ -1,16 +1,21 @@
 ---
-title: "Writing the state"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Writing the state
+version: corda-enterprise-4-3
 ---
 
 
 
 # Writing the state
+
 In Corda, shared facts on the blockchain are represented as states. Our first task will be to define a new state type to
             represent an IOU.
 
 
 ## The ContractState interface
+
 A Corda state is any instance of a class that implements the `ContractState` interface. The `ContractState`
                 interface is defined as follows:
 
@@ -51,6 +56,7 @@ If you do want to dive into Kotlin, there’s an official
 {{< /note >}}
 
 ## Modelling IOUs
+
 How should we define the `IOUState` representing IOUs on the blockchain? Beyond implementing the `ContractState`
                 interface, our `IOUState` will also need properties to track the relevant features of the IOU:
 
@@ -69,6 +75,7 @@ There are many more fields you could include, such as the IOU’s currency, but 
 
 
 ## Defining IOUState
+
 Let’s get started by opening `TemplateState.java` (for Java) or `TemplateState.kt` (for Kotlin) and updating
                 `TemplateState` to define an `IOUState`:
 
@@ -128,9 +135,10 @@ public class IOUState implements ContractState {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [IOUState.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUState.kt) | [IOUState.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java)
+[IOUState.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUState.kt) | [IOUState.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 If you’re following along in Java, you’ll also need to rename `TemplateState.java` to `IOUState.java`.
 
@@ -166,6 +174,7 @@ The IOUs that we issue onto a ledger will simply be instances of this class.
 
 
 ## Progress so far
+
 We’ve defined an `IOUState` that can be used to represent IOUs as shared facts on a ledger. As we’ve seen, states in
                 Corda are simply classes that implement the `ContractState` interface. They can have any additional properties and
                 methods you like.
@@ -175,6 +184,7 @@ All that’s left to do is write the `IOUFlow` that will allow a node to orchest
 
 
 ## What about the contract?
+
 If you’ve read the white paper or Key Concepts section, you’ll know that each state has an associated contract that
                 imposes invariants on how the state evolves over time. Including a contract isn’t crucial for our first CorDapp, so
                 we’ll just use the empty `TemplateContract` and `TemplateContract.Commands.Action` command defined by the template

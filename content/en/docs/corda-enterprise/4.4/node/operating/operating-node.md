@@ -1,10 +1,14 @@
 ---
-title: "Operating a Corda node"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Operating a Corda node
+version: corda-enterprise-4-4
 ---
 
 
 # Operating a Corda node
+
 
 * [Understanding the node database](node-database.md)
 

@@ -1,12 +1,17 @@
 ---
-title: "Testing your changes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Testing your changes
+version: corda-os-4-4
 ---
 
 
 # Testing your changes
 
+
 ## Automated tests
+
 Corda has a suite of tests that any contributing developers must maintain and extend when adding new code.
 
 There are several test suites:
@@ -26,6 +31,7 @@ There are several test suites:
 
 
 ### Running the automated tests
+
 These tests are mostly written with JUnit and can be run via `gradle`:
 
 
@@ -39,6 +45,7 @@ Before creating a pull request please make sure these pass.
 
 
 ## Manual testing
+
 You should manually test anything that would be impacted by your changes. The areas that usually need to be manually tested and when are
                 as follows:
 
@@ -60,6 +67,7 @@ How to manually test each of these areas differs and is currently not fully spec
 
 
 ## Running tests in IntelliJ
+
 We recommend editing your IntelliJ preferences so that you use the Gradle runner - this means that the quasar utils
                 plugin will make sure that some flags (like `-javaagent` - see [below](#tutorial-cordapp-alternative-test-runners)) are
                 set for you.

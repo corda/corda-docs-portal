@@ -1,10 +1,14 @@
 ---
-title: "Behaviour Under Excessive Load"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Behaviour Under Excessive Load
+version: corda-enterprise-4-4
 ---
 
 
 # Behaviour Under Excessive Load
+
 In high traffic networks, a notary can receive a large amount of notarisation requests in a short time window. Once this number starts
             approaching the capacity the the notary can quickly handle, the notarisation response time will increase.
 
@@ -16,6 +20,7 @@ To avoid a notarisation request being lost in the event of a notary worker tempo
 
 
 ## Flow Engine Behaviour
+
 When a node makes a notarisation request it will receive back an estimated time to completion. This value represents an upper bound value
                 for time that it should take to process the request, based on the current throughput of the cluster. Once the notarisation request has been
                 processed the node will receive the response, however if no response has been received before the estimated processing time is up then the
@@ -31,6 +36,7 @@ The backpressure mechanism is built into the notarisation flow logic within node
 {{< /note >}}
 
 ## Artemis Messaging Layer Behaviour
+
 A less common scenario that can occur is the notary workers get sent a very large amount of requests which causes the Artemis message broker
                 to become overloaded. For example, if the notary worker receives messages at a greater rate than the maximum rate its Artemis message broker
                 can consume messages from the queue then message processing delays can start to occur.

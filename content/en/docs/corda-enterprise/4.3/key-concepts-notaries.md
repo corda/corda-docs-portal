@@ -1,13 +1,19 @@
 ---
-title: "Notaries"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-concepts
+title: Notaries
+version: corda-enterprise-4-3
 ---
 
 
 # Notaries
 
+
 {{< topic >}}
 # Summary
+
 
 * *Notary clusters prevent “double-spends”*
 
@@ -24,12 +30,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/214138458" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## Overview
+
 A *notary cluster* is a network service that provides **uniqueness consensus** by attesting that, for a given
                 transaction, it has not already signed other transactions that consumes any of the proposed transaction’s input states.
 
@@ -54,6 +62,7 @@ Every state has an appointed notary cluster, and a notary cluster will only nota
 
 
 ## Consensus algorithms
+
 Corda has “pluggable” consensus, allowing notary clusters to choose a consensus algorithm based on their requirements in
                 terms of privacy, scalability, legal-system compatibility and algorithmic agility.
 
@@ -70,6 +79,7 @@ In particular, notary clusters may differ in terms of:
 
 
 ### Validation
+
 A notary cluster must also decide whether or not to provide **validity consensus** by validating each transaction
                     before committing it. In making this decision, it faces the following trade-off:
 
@@ -93,6 +103,7 @@ In the case of the validating model, the use of anonymous, freshly-generated pub
 
 
 ### Data visibility
+
 Below is a summary of what specific transaction components have to be revealed to each type of notary:
 
 
@@ -120,6 +131,7 @@ Both types of notaries record the calling party’s identity: the public key and
 
 
 ## Multiple notaries
+
 Each Corda network can have multiple notary clusters, each potentially running a different consensus algorithm. This
                 provides several benefits:
 
@@ -137,6 +149,7 @@ Each Corda network can have multiple notary clusters, each potentially running a
 
 
 ### Changing notaries
+
 Remember that a notary cluster will only sign a transaction if it is the appointed notary cluster of all of the
                     transaction’s input states. However, there are cases in which we may need to change a state’s appointed notary cluster.
                     These include:

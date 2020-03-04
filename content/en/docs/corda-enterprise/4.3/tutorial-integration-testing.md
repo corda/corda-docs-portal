@@ -1,11 +1,16 @@
 ---
-title: "Integration testing"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-tutorial
+title: Integration testing
+version: corda-enterprise-4-3
 ---
 
 
 
 # Integration testing
+
 Integration testing involves bringing up nodes locally and testing invariants about them by starting flows and inspecting
             their state.
 
@@ -73,9 +78,10 @@ driver(new DriverParameters()
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
+[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 The above code starts two nodes:
 
@@ -123,9 +129,10 @@ CordaRPCOps bobProxy = bobClient.start("bobUser", "testPassword2").getProxy();
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
+[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Next we connect to Alice and Bob from the test process using the test users we created. We establish RPC links that allow
             us to start flows and query state.
@@ -149,9 +156,10 @@ Observable<Vault.Update<Cash.State>> aliceVaultUpdates = aliceProxy.vaultTrack(C
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
+[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 We will be interested in changes to Alice’s and Bob’s vault, so we query a stream of vault updates from each.
 
@@ -209,9 +217,10 @@ expectEvents(bobVaultUpdates, true, () ->
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
+[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 We start a `CashIssueAndPaymentFlow` flow on the Alice node. We specify that we want Alice to self-issue $1000 which is
             to be payed to Bob. We specify the default notary identity created by the driver as the notary responsible for notarising
@@ -259,9 +268,10 @@ expectEvents(aliceVaultUpdates, true, () ->
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java)
+[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Next we want Bob to send this cash back to Alice.
 

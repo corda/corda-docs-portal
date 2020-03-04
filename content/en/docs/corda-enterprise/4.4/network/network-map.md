@@ -1,10 +1,14 @@
 ---
-title: "The network map"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: The network map
+version: corda-enterprise-4-4
 ---
 
 
 # The network map
+
 The network map is a collection of signed `NodeInfo` objects. Each NodeInfo is signed by the node it represents and
             thus cannot be tampered with. It forms the set of reachable nodes in a compatibility zone. A node can receive these
             objects from two sources:
@@ -31,6 +35,7 @@ In Corda Enterprise no implementation of the HTTP network map server is provided
 {{< /note >}}
 
 ## HTTP network map protocol
+
 If the node is configured with the `compatibilityZoneURL` config then it first uploads its own signed `NodeInfo`
                 to the server at that URL (and each time it changes on startup) and then proceeds to download the entire network map from
                 the same server. The network map consists of a list of `NodeInfo` hashes. The node periodically polls for the network map
@@ -54,6 +59,7 @@ The set of REST end-points for the network map service are as follows.
 {{< /table >}}
 
 ### Additional endpoints from R3
+
 Network maps hosted by R3 or other parties using R3’s commercial network management tools typically provide some
                     additional endpoints for users. These additional endpoints can be found [here](https://docs.cenm.r3.com/network-map-overview.html).
 
@@ -66,6 +72,7 @@ HTTP is used for the network map service instead of Corda’s own AMQP based pee
 
 
 ## The `additional-node-infos` directory
+
 Alongside the HTTP network map service, or as a replacement if the node isn’t connected to one, the node polls the
                 contents of the `additional-node-infos` directory located in its base directory. Each file is expected to be the same
                 signed `NodeInfo` object that the network map service vends. These are automatically added to the node’s cache and can
@@ -88,6 +95,7 @@ More information can be found in network-bootstrapper.
 
 
 ## Network parameters
+
 Network parameters are a set of values that every node participating in the zone needs to agree on and use to
                 correctly interoperate with each other. They can be thought of as an encapsulation of all aspects of a Corda deployment
                 on which reasonable people may disagree. Whilst other blockchain/DLT systems typically require a source code fork to
@@ -169,6 +177,7 @@ More parameters will be added in future releases to regulate things like allowed
 
 
 ## Network parameters update process
+
 Network parameters are controlled by the zone operator of the Corda network that you are a member of. Occasionally, they may need to change
                 these parameters. There are many reasons that can lead to this decision: adding a notary, setting new fields that were added to enable
                 smooth network interoperability, or a change of the existing compatibility constants is required, for example.
@@ -189,6 +198,7 @@ The fact a new set of parameters is being advertised shows up in the node logs w
 
 
 ### Automatic Acceptance
+
 If the only changes between the current and new parameters are for auto-acceptable parameters then, unless configured otherwise, the new
                     parameters will be accepted without user input. The following parameters with the `@AutoAcceptable` annotation are auto-acceptable:
 
@@ -218,6 +228,7 @@ networkParameterAcceptanceSettings {
 ```
 
 ### Manual Acceptance
+
 If the auto-acceptance behaviour is turned off via the configuration or the network parameters change involves parameters that are
                     not auto-acceptable then manual approval is required.
 
@@ -241,6 +252,7 @@ If the administrator does not accept the update then next time the node polls ne
 
 
 ## Private networks
+
 To allow business network operators to onboard nodes in the early period of the Corda Network and not to reveal their membership
                 to other entities on the network, the concept of private network maps was introduced. This is a temporary solution which will only
                 be used in the early stages when it’s possible to deduce the members of a business network. Once sufficient number of entities have
@@ -258,6 +270,7 @@ From the node operator’s perspective the process is simple. During the initial
 
 
 ## Cleaning the network map cache
+
 Sometimes it may happen that the node ends up with an inconsistent view of the network. This can occur due to changes in deployment
                 leading to stale data in the database, different data distribution time and mistakes in configuration. For these unlikely
                 events both RPC method and command line option for clearing local network map cache database exist. To use them

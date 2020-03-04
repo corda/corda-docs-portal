@@ -1,11 +1,16 @@
 ---
-title: "Observer nodes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-tutorial
+title: Observer nodes
+version: corda-enterprise-4-1
 ---
 
 
 
 # Observer nodes
+
 Posting transactions to an observer node is a common requirement in finance, where regulators often want
             to receive comprehensive reporting on all actions taken. By running their own node, regulators can receive a stream
             of digitally signed, de-duplicated reports useful for later processing.
@@ -57,9 +62,10 @@ Just define a new flow that wraps the SendTransactionFlow/ReceiveTransactionFlow
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [AutoOfferFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt)
+[AutoOfferFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 In this example, the `AutoOfferFlow` is the business logic, and we define two very short and simple flows to send
             the transaction to the regulator. There are two important aspects to note here:
@@ -80,6 +86,7 @@ If the states define a relational mapping (see [API: Persistence](api-persistenc
 
 
 ## Caveats
+
 
 * By default, vault queries do not differentiate between states you recorded as a participant/owner, and states you
                         recorded as an observer. You will have to write custom vault queries that only return states for which you are a

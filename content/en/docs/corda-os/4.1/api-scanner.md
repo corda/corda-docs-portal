@@ -1,16 +1,22 @@
 ---
-title: "Checking API stability"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-api
+title: Checking API stability
+version: corda-os-4-1
 ---
 
 
 # Checking API stability
+
 We have committed not to alter Corda’s API so that developers will not have to keep rewriting their CorDapps with each
             new Corda release. The stable Corda modules are listed [here](corda-api.md#internal-apis-and-stability-guarantees). Our CI process runs an “API Stability”
             check for each GitHub pull request in order to check that we don’t accidentally introduce an API-breaking change.
 
 
 ## Build Process
+
 As part of the build process the following commands are run for each PR:
 
 ```shell
@@ -42,6 +48,7 @@ Developers can execute these commands themselves before submitting their PR, to 
 
 
 ## How it works
+
 The `generateApi` Gradle task writes a summary of Corda’s public API into the file `build/api/api-corda-4.1.txt`.
                 The `.ci/check-api-changes.sh` script then compares this file with the contents of `.ci/api-current.txt`, which is a
                 managed file within the Corda repository.
@@ -50,6 +57,7 @@ The Gradle task itself is implemented by the API Scanner plugin. More informatio
 
 
 ## Updating the API
+
 As a rule, `api-current.txt` should only be updated by the release manager for each Corda release.
 
 We do not expect modifications to `api-current.txt` as part of normal development. However, we may sometimes need to adjust

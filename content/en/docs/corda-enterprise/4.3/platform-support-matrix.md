@@ -1,16 +1,21 @@
 ---
-title: "Platform support matrix"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Platform support matrix
+version: corda-enterprise-4-3
 ---
 
 
 # Platform support matrix
+
 Our supported Operating System platforms are a subset of those supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
 
 Production use of Corda Enterprise 4.3 is only supported on Linux OS, see details below.
 
 
 ## JDK support
+
 Corda Enterprise 4.3 has been tested and verified to work with **Oracle JDK 8 JVM 8u171+** and **Azul Zulu Enterprise 8**, downloadable from
                 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
@@ -32,6 +37,7 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 
 ## Operating systems supported in production
 
+
 {{< table >}}
 
 |Platform|CPU Architecture|Versions|
@@ -49,6 +55,7 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 
 ## Operating systems supported in development
 
+
 {{< table >}}
 
 |Platform|CPU Architecture|Versions|
@@ -64,6 +71,7 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 {{< /table >}}
 
 ## Node databases
+
 
 {{< table >}}
 
@@ -82,6 +90,7 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 
 ## MySQL notary databases
 
+
 {{< table >}}
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
@@ -94,6 +103,7 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 
 ## JPA notary databases
 
+
 {{< table >}}
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
@@ -105,6 +115,7 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 {{< /table >}}
 
 ## Hardware Security Modules (HSM)
+
 
 {{< table >}}
 

@@ -1,10 +1,14 @@
 ---
-title: "Backup and restoration of a Corda node"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Backup and restoration of a Corda node
+version: corda-enterprise-4-4
 ---
 
 
 # Backup and restoration of a Corda node
+
 
 Various components of the Corda platform read their configuration from the file system, and persist data to a database or into files on disk. Given that hardware can fail, operators of IT infrastructure must have a sound backup strategy in place. Whilst blockchain platforms can sometimes recover some lost data from their peers, it is rarely the case that a node can recover its full state in this way because real-world blockchain applications invariably contain private information (e.g., customer account information). Moreover, this private information must remain in sync with the ledger state. As such, we strongly recommend implementing a comprehensive backup strategy.
 
@@ -12,6 +16,7 @@ The following elements of a backup strategy are recommended:
 
 
 ## Database replication
+
 When properly configured, database replication prevents data loss from occurring in case the database host fails.
                 In general, the higher the number of replicas, and the further away they are deployed in terms of regions and availability zones, the more a setup is resilient to disasters.
                 The trade-off is that, ideally, replication should happen synchronously, meaning that a high number of replicas and a considerable network latency will impact the performance of the Corda nodes connecting to the cluster.
@@ -19,6 +24,7 @@ When properly configured, database replication prevents data loss from occurring
 
 
 ## Database snapshots
+
 Database replication is a powerful technique, but it is very sensitive to destructive SQL updates. Whether malicious or unintentional, a SQL statement might compromise data by getting propagated to all replicas.
                 Without rolling snapshots, data loss due to such destructive updates will be irreversible.
                 Using snapshots always implies some data loss in case of a disaster, and the trade-off is between highly frequent backups minimising such a loss, and less frequent backups consuming less resources.
@@ -27,6 +33,7 @@ Database replication is a powerful technique, but it is very sensitive to destru
 
 
 ## File backups
+
 Corda components read and write information from and to the file-system. The advice is to backup the entire root directory of the component, plus any external directories and files optionally specified in the configuration.
                 Corda assumes the filesystem is reliable. You must ensure that it is configured to provide this assurance, which means you must configure it to synchronously replicate to your backup/DR site.
                 If the above holds, Corda components will benefit from the following:

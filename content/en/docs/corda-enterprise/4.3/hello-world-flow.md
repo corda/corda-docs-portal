@@ -1,17 +1,22 @@
 ---
-title: "Writing the flow"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Writing the flow
+version: corda-enterprise-4-3
 ---
 
 
 
 # Writing the flow
+
 A flow encodes a sequence of steps that a node can perform to achieve a specific ledger update. By installing new flows
             on a node, we allow the node to handle new business processes. The flow we define will allow a node to issue an
             `IOUState` onto the ledger.
 
 
 ## Flow outline
+
 The goal of our flow will be to orchestrate an IOU issuance transaction. Transactions in Corda are the atomic units of
                 change that update the ledger. Each transaction is a proposal to mark zero or more existing states as historic (the
                 inputs), while creating zero or more new states (the outputs).
@@ -49,6 +54,7 @@ The execution of a flow is distributed in space and time, as the flow crosses no
 
 
 ### Subflows
+
 Tasks like recording a transaction or sending a transaction to a counterparty are very common in Corda. Instead of
                     forcing each developer to reimplement their own logic to handle these tasks, Corda provides a number of library flows
                     to handle these tasks. We call these flows that are invoked in the context of a larger flow to handle a repeatable task
@@ -56,6 +62,7 @@ Tasks like recording a transaction or sending a transaction to a counterparty ar
 
 
 ## FlowLogic
+
 All flows must subclass `FlowLogic`. You then define the steps taken by the flow by overriding `FlowLogic.call`.
 
 Let’s define our `IOUFlow`. Replace the definition of `Initiator` with the following:
@@ -172,9 +179,10 @@ public class IOUFlow extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [IOUFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java)
+[IOUFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 If you’re following along in Java, you’ll also need to rename `Initiator.java` to `IOUFlow.java`.
 
@@ -213,6 +221,7 @@ Let’s walk through the steps of `FlowLogic.call` itself. This is where we actu
 
 
 ### Choosing a notary
+
 Every transaction requires a notary to prevent double-spends and serve as a timestamping authority. The first thing we
                     do in our flow is retrieve the a notary from the node’s `ServiceHub`. `ServiceHub.networkMapCache` provides
                     information about the other nodes on the network and the services that they offer.
@@ -225,6 +234,7 @@ Whenever we need information within a flow - whether it’s about our own node�
 {{< /note >}}
 
 ### Building the transaction
+
 We’ll build our transaction proposal in two steps:
 
 
@@ -236,6 +246,7 @@ We’ll build our transaction proposal in two steps:
 
 
 #### Transaction items
+
 Our transaction will have the following structure:
 
 > 
@@ -264,6 +275,7 @@ Each `Command` contains a command type plus a list of public keys. For now, we u
 
 
 #### Creating a transaction builder
+
 To actually build the proposed transaction, we need a `TransactionBuilder`. This is a mutable transaction class to
                         which we can add inputs, outputs, commands, and any other items the transaction needs. We create a
                         `TransactionBuilder` that uses the notary we retrieved earlier.
@@ -282,6 +294,7 @@ Once we have the `TransactionBuilder`, we add our components:
 
 
 ### Signing the transaction
+
 Now that we have a valid transaction proposal, we need to sign it. Once the transaction is signed, no-one will be able
                     to modify the transaction without invalidating this signature. This effectively makes the transaction immutable.
 
@@ -290,6 +303,7 @@ We sign the transaction using `ServiceHub.signInitialTransaction`, which returns
 
 
 ### Finalising the transaction
+
 We now have a valid signed transaction. All that’s left to do is to get the notary to sign it, have that recorded
                     locally and then send it to all the relevant parties. Once that happens the transaction will become a permanent part of the
                     ledger. We use `FinalityFlow` which does all of this for the lender.
@@ -298,6 +312,7 @@ For the borrower to receive the transaction they just need a flow that responds 
 
 
 ### Creating the borrower’s flow
+
 The borrower has to use `ReceiveFinalityFlow` in order to receive and record the transaction; it needs to respond to
                     the lender’s flow. Let’s do that by replacing `Responder` from the template with the following:
 
@@ -341,9 +356,10 @@ public class IOUFlowResponder extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [IOUFlowResponder.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlowResponder.java)
+[IOUFlowResponder.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlowResponder.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 As with the `IOUFlow`, our `IOUFlowResponder` flow is a `FlowLogic` subclass where we’ve overridden `FlowLogic.call`.
 
@@ -353,6 +369,7 @@ The flow is annotated with `InitiatedBy(IOUFlow.class)`, which means that your n
 
 
 ## Progress so far
+
 Our flow, and our CorDapp, are now ready! We have now defined a flow that we can start on our node to completely
                 automate the process of issuing an IOU onto the ledger. All that’s left is to spin up some nodes and test our CorDapp.
 

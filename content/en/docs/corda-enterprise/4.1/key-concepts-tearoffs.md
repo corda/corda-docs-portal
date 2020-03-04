@@ -1,13 +1,19 @@
 ---
-title: "Transaction tear-offs"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-concepts
+title: Transaction tear-offs
+version: corda-enterprise-4-1
 ---
 
 
 # Transaction tear-offs
 
+
 {{< topic >}}
 # Summary
+
 
 * *Hide transaction components for privacy purposes*
 
@@ -18,6 +24,7 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Overview
+
 There are cases where some of the entities involved on the transaction could only have partial visibility on the
                 transaction parts. For instance, when an oracle should sign a transaction, the only information it needs to see is their
                 embedded, related to this oracle, command(s). Similarly, a non-validating notary only needs to see a transaction’s input
@@ -33,6 +40,7 @@ The advantage of a Merkle tree is that the parts of the transaction that were to
 
 
 ### Transaction Merkle trees
+
 A Merkle tree is constructed from a transaction by splitting the transaction into leaves, where each leaf contains
                     either an input, an output, a command, or an attachment. The final nested tree structure also contains the
                     other fields of the transaction, such as the time-window, the notary and the required signers. As shown in the picture
@@ -59,6 +67,7 @@ After computing the leaves, each Merkle tree is built in the normal way by hashi
 
 
 ### Hiding data
+
 Hiding data and providing the proof that it formed a part of a transaction is done by constructing partial Merkle trees
                     (or Merkle branches). A Merkle branch is a set of hashes, that given the leaves’ data, is used to calculate the
                     root’s hash. Then, that hash is compared with the hash of a whole transaction and if they match it means that data we

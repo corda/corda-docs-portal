@@ -1,12 +1,17 @@
 ---
-title: "Introduction"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Introduction
+version: corda-enterprise-4-3
 ---
 
 
 # Introduction
 
+
 ## Corda Performance Test Suite
+
 Use the Corda Enterprise performance test suite to stress/soak test a Corda installation, driving either a single
                 node or a small network of nodes including a notary.
                 It uses [Apache JMeter](https://jmeter.apache.org) to start flows on nodes via RPC calls, and
@@ -22,6 +27,7 @@ This guide assumes that you have a working Corda test network or
 
 
 ## Test Architecture
+
 A typical test architecture consists of the following components:
 
 
@@ -38,6 +44,7 @@ A typical test architecture consists of the following components:
 
 
 ### Apache JMeter
+
 Apache JMeter runs tests that repeatedly trigger an action, wait for a response and record start/success/failure
                     timings and so on, and allow to view the result data interactively or rendered as reports in various formats. Run controls
                     like parallelising tasks, running tasks in a specific order and count and time based repetitions are already built in.
@@ -53,6 +60,7 @@ For the Corda performance tests, a custom sampler is used that invokes one or mo
 
 
 #### Interactive Mode
+
 By default, JMeter runs in interactive mode, i.e. it brings up a graphical user interface (GUI) that allows the user to
                         create, view, modify and run a test definition. Tests can either be in process (i.e. the sampler runs in the GUI
                         process) or can be fanned out to a set of JMeter server instances that will run under the control of a JMeter client
@@ -60,11 +68,13 @@ By default, JMeter runs in interactive mode, i.e. it brings up a graphical user 
 
 
 #### Non-Interactive Mode
+
 Once a test definition is complete, it can be run in headless mode by providing the test definition and a report target
                         directory on the command line.
 
 
 #### Server Mode
+
 By adding the `-s` flag,  JMeter can run as a server process that runs samplers controlled by a client connected to it
                         via Java Remote Method Invocation (RMI).
                         This allows a single client to e.g. run load from various servers for one test run and collate all the results in the
@@ -72,6 +82,7 @@ By adding the `-s` flag,  JMeter can run as a server process that runs samplers 
 
 
 ### jmeter-corda
+
 Apache JMeter can be fairly tricky to run in a specific configuration - therefore the Corda Enterprise performance test
                     suite provides a wrapper around JMeter that comes in a fat JAR with all required dependencies and a default configuration,
                     and sets up the required directories and config files that JMeter needs to start. It is also bundled with a set of default
@@ -80,6 +91,7 @@ Apache JMeter can be fairly tricky to run in a specific configuration - therefor
 
 
 ### Performance Test CorDapp
+
 The performance test suite contains a performance test CorDapp (`perftest-cordapp.jar`) that is roughly modelled on the
                     finance CorDapp shipped with Corda Enterprise. It contains a number of flows that issue tokens, and pay them to other
                     parties. There are flows that e.g. issue and pay tokens with or without using coin selection, or create arbitrary
@@ -88,6 +100,7 @@ The performance test suite contains a performance test CorDapp (`perftest-cordap
 
 
 ### Basic Performance Test Set-Up
+
 The typical set-up used for performance tests at R3 consists of a small Corda network of 2-4 nodes and a notary to
                     notarise transactions. These all run inside a datacenter or virtual network in the cloud with open connectivity (or at
                     least Corda P2P and RPC communication enabled between the nodes). On each of the node machines, an instance of JMeter
@@ -100,6 +113,7 @@ The driving app sits outside the network and connects to the JMeter servers thro
 
 ![jmeter network overview](performance-testing/resources/jmeter-network-overview.png "jmeter network overview")
 ## Performance Tests
+
 There are a number of different parts of the system that can be benchmarked with different performance tests, represented
                 by different test plans and/or samplers. In general, the closer a performance test is to real world load, the less it is
                 possible to isolate pinch points in the system under test. Hence a typical performance test run consists a of a number
@@ -113,25 +127,30 @@ The performance test suite contains test plans, CorDapp and sampler for the foll
 
 
 ### Performance of a Single Node
+
 These tests stress components in a single node, without any dependencies on other nodes in the flow.
 
 
 #### Empty Flow
+
 This test starts a flow that does nothing - this gives us a timing for the overhead involved in starting a flow, i.e. RPC
                         handling, deserialization of the request, starting/winding down a flow and sending the response. Note that a flow that
                         requires inputs via RPC might have a larger overhead as these might need to be deserialised.
 
 
 #### Issuance
+
 A node issuing tokens to itself. In addition to the parts used above, this also loads/starts the CorDapp, creates states
                         in the vault and thus uses persistence to the database.
 
 
 ### Inter-Node Performance
+
 These are flows that are closer to modelling real world loads to varying degrees.
 
 
 #### Issue and Pay Flow
+
 This flow makes the node under test issue some cash to itself and then pays it to a second node. This involves initiating
                         a transaction with the target node, and then having the transaction notarised by a network notary, thus creating a load that
                         is similar to what a node will do under real world conditions. This flow has a few variations that can be controlled via
@@ -151,6 +170,7 @@ To test the throughput a single node can achieve, this flow is run against a sin
 
 
 #### Advanced Flows
+
 The issue and pay flow creates a somewhat realistic load but still has a very uniform, artificial usage pattern of resources.
                         Therefore more advanced test flows/test plans have been developed that allow to issue a large amount of cash once and
                         then start to break it up in smaller payments, allowing the following settings to be tweaked:

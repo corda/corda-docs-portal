@@ -1,12 +1,17 @@
 ---
-title: "Certificate Hierarchy Guide"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Certificate Hierarchy Guide
+version: cenm-1-1
 ---
 
 
 # Certificate Hierarchy Guide
 
+
 ## Overview
+
 The Corda security design heavily relies on the use of Public Key Infrastructure (PKI). The platform itself operates with the assumption that a
                 certificate authority will manage the node on-boarding and permissioning processes. As such, there is an inherent requirement
                 to provide an easy approach towards certificate hierarchy generation and deployment.
@@ -30,6 +35,7 @@ The PKI Tool is intended to make it easy to generate all the certificates needed
 
 
 ## Corda Requirements
+
 Corda nodes operate with the following assumptions on the certificates hierarchy:
 
 > 
@@ -51,6 +57,7 @@ Other than that, Corda nodes stay agnostic to the certificate hierarchy (in part
 
 
 ### Certificate Revocation List
+
 Every time two nodes communicate with each other they exchange their certificates and validate them against the Certificate Revocation List.
                     In Corda, the certificate chains of the nodes are validated only during the SSL handshake.
                     This means that every time an SSL connection is established between two nodes, the TLS certificates (together with the
@@ -74,6 +81,7 @@ The network operator is responsible for certificate issuance and maintenance for
 
 
 ## Example Scenario
+
 As an example, let us consider the following certificate hierarchy:
 
 ![example hierarchy](resources/example-hierarchy.png "example hierarchy")The certificate hierarchy presented above is currently (as of the time of writing this document) used in the Corda Network.

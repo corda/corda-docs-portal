@@ -1,10 +1,14 @@
 ---
-title: "Running JMeter Corda"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Running JMeter Corda
+version: corda-enterprise-4-3
 ---
 
 
 # Running JMeter Corda
+
 Jmeter Corda is distributed as a runnable “fat” JAR containing all the dependenices required to run the application.
             It comes prepacked with Corda [JMeter Samplers](jmeter-samplers.md) and a wrapper that sets up a basic configuration and allows
             configuration of SSH tunnels. The arguments for the `jmeter-corda` command line fall into two categories: there are
@@ -17,6 +21,7 @@ java -jar jmeter-corda-jar <wrapper arguments> -- <jmeter arguments>
 ```
 
 ## JMeter Corda Wrapper Arguments
+
 The JMeter Corda wrappper understands the following optional arguments:
 
 
@@ -67,6 +72,7 @@ This makes JMeter run in server mode, i.e. it will run headless and wait for ins
 
 
 ## Running the JMeter GUI
+
 By default, JMeter Corda will start up as client in GUI mode. The GUI allows to view/create test plans, and run tests
                 interactively either locally or remotely, and view results. The UI has a set of handy butons at the top that allow to
                 quickly create or load a testplan, control local or remote test runs, and clear any test results collected so far.
@@ -80,6 +86,7 @@ See [Understanding and Creating Testplans](jmeter-testplans.md) for details on t
 
 
 ## Running JMeter headless
+
 JMeter can be run in headless mode, i.e. without starting up a GUI, by giving it a test definition on the command line.
                 This allows to run performance tests excluding any influences from GUI rendering or interaction issues, and allows
                 to run performance tests in an automated manner, e.g. as part of a nightly build. This is controlled by JMeter arguments
@@ -113,6 +120,7 @@ See [JMeter documentation](https://jmeter.apache.org/usermanual/get-started.html
 
 
 ## Using remote JMeter
+
 JMeter can connect to JMeter server instances using Java Remote Invocation (RMI). The hosts and ports a JMeter client
                 instance can connect to are listed in the properties file it is using. When running the GUI, the remote hosts will be
                 used when using the start/stop remotely functions, while the simple start/stop will still work locally. When running
@@ -123,6 +131,7 @@ If no SSH tunneling is required, the `-R` option can be used to pass in a differ
 
 
 ### SSH Tunnel Set-Up
+
 The RMI traffic requires non-standard ports to be open, therefore the standard practice is to
                     route it via SSH tunnels. Therefore, the remote hosts in the default configuration are all specified as `127.0.0.1`,
                     i.e. localhost, with different port numbers, for which SSH tunnels will be opened to the hosts specified on the command
@@ -190,6 +199,7 @@ These values must be the same on client and server side and must match the confi
 
 
 ### Connecting to remote JMeter servers
+
 The default JMeter properties file in the Corda JMeter JAR assumes that 5 instances of JMeter server are running on hosts
                     that can be reached via SSH tunnels. When using the run remotely function in the GUI, JMeter will try to connect to the
                     hosts listed in its properties file.
@@ -201,6 +211,7 @@ If you need to specify a different list of remote hosts, e.g. for a different nu
 
 
 #### Running with SSH tunnels
+
 In order to run the client with SSH tunnels, a typical command line would be:
 
 ```kotlin
@@ -214,6 +225,7 @@ The SSH tunnel code assumes private/public key authentication, interactive authe
 
 
 #### Running without SSH tunnels
+
 If SSH tunneling is not required, the list of actual host names needs to be in the JMeter properties file as property
                         `remote_hosts`, or can be passed in with the JMeter argument `-R`:
 

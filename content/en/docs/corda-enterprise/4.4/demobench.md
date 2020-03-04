@@ -1,18 +1,24 @@
 ---
-title: "DemoBench"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: DemoBench
+version: corda-enterprise-4-4
 ---
 
 
 # DemoBench
+
 DemoBench is a standalone desktop application that makes it easy to configure and launch local Corda nodes. It is useful for training sessions, demos or just experimentation.
 
 
 ## Downloading
+
 Operating System specific installers are provided as part of Corda Enterprise 4.4 distribution, e.g. for Windows this will be “Corda DemoBench-4.4.exe”.
 
 
 ## Running DemoBench
+
 Run the installer and follow instructions on the screen.
                 Once installer completes it will start `Corda DemoBench` application:
 
@@ -67,6 +73,7 @@ DemoBench writes a log file to the following location:
 {{< /table >}}
 
 ## Building the Installers
+
 Gradle defines tasks that build DemoBench installers using JavaPackager. There are three scripts in the [tools/demobench](https://github.com/corda/corda/tree/master/tools/demobench) directory of the [Corda repository](https://github.com/corda/corda) to execute these tasks:
 
 > 
@@ -112,6 +119,7 @@ You will also need to define the environment variable `JAVA_HOME` to point to th
 
 
 ## JetBrains JDK
+
 Mac users should note that the best way to build a DemoBench DMG is with the [JetBrains JDK](https://github.com/JetBrains/jdk8u)
                 which has [binary downloads available from BinTray](https://bintray.com/jetbrains/intellij-jdk).
                 This JDK has some useful GUI fixes, most notably, when built with this JDK the DemoBench terminal will support emoji
@@ -122,6 +130,7 @@ This JDK does not include JavaPackager, which means that you will still need to 
 
 
 ## Developer Notes
+
 Developers wishing to run DemoBench *without* building a new installer each time can install it locally using Gradle:
 
 ```shell

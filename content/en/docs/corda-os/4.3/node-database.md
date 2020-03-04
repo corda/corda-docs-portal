@@ -1,14 +1,21 @@
 ---
-title: "Node database"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3:
+    parent: corda-os-4-3-node
+title: Node database
+version: corda-os-4-3
 ---
 
 
 # Node database
 
+
 ## Configuring the node database
 
+
 ### H2
+
 By default, nodes store their data in an H2 database. See [Database access when running H2](node-database-access-h2.md).
 
 Nodes can also be configured to use PostgreSQL and SQL Server. However, these are experimental community contributions.
@@ -16,6 +23,7 @@ Nodes can also be configured to use PostgreSQL and SQL Server. However, these ar
 
 
 ### PostgreSQL
+
 Nodes can also be configured to use PostgreSQL 9.6, using PostgreSQL JDBC Driver 42.1.4. Here is an example node
                     configuration for PostgreSQL:
 
@@ -53,6 +61,7 @@ CREATE SEQUENCE my_schema.hibernate_sequence INCREMENT BY 1 MINVALUE 1 MAXVALUE 
 
 
 ### SQLServer
+
 Nodes also have untested support for Microsoft SQL Server 2017, using Microsoft JDBC Driver 6.4 for SQL Server. Here is
                     an example node configuration for SQLServer:
 
@@ -77,6 +86,7 @@ Note that:
 
 
 ## Node database tables
+
 By default, the node database has the following tables:
 
 
@@ -120,6 +130,7 @@ For more details see: [Database tables](node-database-tables.md).
 
 
 ## Database connection pool
+
 Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating the connection pool.
                 To configure the connection pool any custom properties can be set in the *dataSourceProperties* section.
 

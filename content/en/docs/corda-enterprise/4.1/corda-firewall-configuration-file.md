@@ -1,12 +1,17 @@
 ---
-title: "Firewall Configuration"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Firewall Configuration
+version: corda-enterprise-4-1
 ---
 
 
 # Firewall Configuration
 
+
 ## File location
+
 When starting a standalone firewall (in bridge, or float mode), the `corda-firewall.jar` file defaults to reading the firewall’s configuration from a `firewall.conf` file in
                 the directory from which the command to launch the process is executed. The syntax is:
 
@@ -43,6 +48,7 @@ Where:
 
 
 ## Format
+
 The firewall configuration file uses the HOCON format which is superset of JSON. Please visit
                 [https://github.com/typesafehub/config/blob/master/HOCON.md](https://github.com/typesafehub/config/blob/master/HOCON.md) for further details.
 
@@ -58,6 +64,7 @@ Bridge setup will log *Config files should not contain ” in property names. Pl
 
 
 ## Defaults
+
 A set of default configuration options are loaded from the built-in resource file. Any options you do not specify in
                 your own `firewall.conf` file will use these defaults:
 
@@ -77,6 +84,7 @@ silencedIPs = []
 ```
 [firewalldefault.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/bridge/src/main/resources/firewalldefault.conf)
 ## Firewall operating modes
+
 
 {{< note >}}
 By default, the Corda node assumes that it will carry out the peer-to-peer functions of the `bridge` internally!
@@ -110,6 +118,7 @@ causes this instance of the `corda-firewall.jar` to run as a protocol break prox
 
 
 ## Fields
+
 The available config fields are listed below. `baseDirectory` is available as a substitution value and contains the
                 absolute path to the firewall’s base directory.
 
@@ -443,6 +452,7 @@ An optional list of strings of that will be compared to the remote IPv4/IPv6 sou
 
 
 ## Complete example
+
 As an example to show all features, the following is a walk-through of the configuration steps to set-up a pair of HA hot-cold nodes for two separate legal identities,
                 connected to by a HA hot-warm set of `BridgeInner` and `FloatOuter` that use some simple certificates to secure the
                 control tunnel and a SOCKS5 proxy for outgoing connectivity (see diagram).
@@ -480,6 +490,7 @@ This document does not describe how to perform SOCKS5 setup. It is assumed that 
 {{< /note >}}
 
 ### Keystores generation
+
 A special tool was created to simplify generation of the keystores. For more information please see [HA Utilities](ha-utilities.md).
                     This section explains how to generate a number of internally used keystores. Commands below can be executed on any machine as long as it will
                     be easy enough to copy results to the other machines including DMZ hosts.
@@ -497,6 +508,7 @@ Capsule unpacks content of the Fat Jar only once and subsequent runs perform fas
 {{< /note >}}
 
 #### Tunnel keystore generation
+
 For Float and Bridge to communicate a tunnel keystore has to be created as follows:
 
 ```kotlin
@@ -506,6 +518,7 @@ This should produce files: `tunnel/float.jks`, `tunnel/tunnel-truststore.jks` an
 
 
 #### Artemis keystore generation
+
 Bridge communicates to Artemis which requires a separate keystore.
 
 Due to Artemis limitations the password for the keystore should be the same as the password for the private keys in the store. The tool below caters for these
@@ -520,13 +533,16 @@ This should produce files: `artemis/artemis-truststore.jks`, `artemis/artemis.jk
 
 
 ### Node VMs setup
+
 As shown on the Physical deployment diagram above there will be two separate machines in two distinct data centres hosting Corda Nodes for Legal Entity A and Legal Entity B.
                     For this setup, each machine is powerful enough to host nodes for both entities with all the CorDapps and two datacentres are used for High Availability purposes.
 
 
 #### Prerequisites
 
+
 ##### Corda Network connectivity
+
 Before nodes can be configured, Corda Network administrator will need to provide:
 
 
@@ -541,6 +557,7 @@ Before nodes can be configured, Corda Network administrator will need to provide
 
 
 ##### Nodes inbound connectivity provisions
+
 In order for the nodes for both legal entities `Entity A` and `Entity B` to be reached from the outside of the organisation by other nodes, a **single** TCP endpoint
                             address is being exposed.
 
@@ -558,6 +575,7 @@ Out of `vmFloat1` and `vmFloat2` there will be at most one active host which wil
 
 
 ##### Databases setup
+
 Each legal entity is supposed to have it is own database(DB) schema in order to store Corda transaction data. Therefore `Entity A` and `Entity B`
                             should have different DB connectivity URLs.
 
@@ -570,6 +588,7 @@ Two empty schemas should be created for `Entity A` and `Entity B` and upon first
 
 
 ##### Base directory setup
+
 Initially, the nodes configuration is performed on `vmNodesPrimary` host and then there is a special paragraph that details `vmNodesSecondary` setup.
 
 Files `artemis/artemis.jks` and `artemis/artemis-truststore.jks` should be copied from [Artemis keystore generation](#artemis-keystore-generation) stage.
@@ -580,6 +599,7 @@ Any CorDapps the node is meant to be working with should be installed into `cord
 
 
 #### Creating node configuration files
+
 Since there will be two distinct nodes serving two different legal entities they are meant to have two difference X.500 names, please see
                         `myLegalName` field in the config files below.
 
@@ -725,6 +745,7 @@ sshd {
 ```
 
 #### Nodes keystores generation
+
 Given two configuration files above, in order to produce node keystores the following command should be used:
 
 ```kotlin
@@ -776,11 +797,13 @@ Copy the `network-parameters` file and the artemis certificates into the `entity
 ```
 
 #### CorDapps installation
+
 In the node’s base directory create `cordapps` sub-directory and install all the required CorDapps you intend to work with.
                         In this example we are going to use Finance CorDapp which is supplied as part of Corda Enterprise distribution.
 
 
 #### DB drivers installation
+
 As discussed above each of the nodes will be using database to store node’s data. Corda Enterprise supports a number of databases, however in order
                         for a Corda Node to store its data in the DB, a JDBC driver needs to be installed into `drivers` sub-directory.
 
@@ -788,6 +811,7 @@ In this example we are using MSSql Server DB, therefore `mssql-jdbc-6.2.1.jre8.j
 
 
 #### Keystore aggregation for the Bridge
+
 Since there is a single Bridge instance representing multiple nodes, it will need to have an aggregated SSL keystore representing all the nodes.
                         In order to produce such aggregated keystore, the following command should be used:
 
@@ -798,6 +822,7 @@ As a result `./nodesCertificates/nodesUnitedSslKeystore.jks` file will be produc
 
 
 #### `vmNodeSecondary` setup
+
 `vmNodeSecondary` is supposed to be an almost exact replica of `vmNodesPrimary` host. The only difference between those two machines that they are
                         residing in two different data centres for BCP purposes.
 
@@ -818,6 +843,7 @@ See `SWAP1` note in the `node.conf` files.
 
 
 ### Float VMs setup
+
 It is advisable for each of the hosts `vmFloat1` and `vmFloat2` to be dual homed machines with two network interfaces. However, this is not mandated.
                     Addresses `vmFloat1-int` and `vmFloat2-int` are exposed to the internal trusted zone only.
                     The externally accessible addresses of the DMZ servers are `vmFloat1-ext` and `vmFloat2-ext`, which the Internet facing firewall/load balancer maps to `banka.com`.
@@ -864,6 +890,7 @@ For reference, base directory for `vmFloat1` and `vmFloat2` should look as follo
 ```
 
 ### Infra VMs setup
+
 `vmInfra1` and `vmInfra2` are hosting infrastructural processes which enable nodes to perform in/out communication with the rest of Corda Network.
 
 The following process will be hosted by each of the VMs:
@@ -880,6 +907,7 @@ The following process will be hosted by each of the VMs:
 
 
 #### Apache ZooKeeper setup
+
 Apache ZooKeeper(ZK) is needed to facilitate leader election among two hot-warm Bridge Instances.
                         We require using version [3.5.4-beta](https://apache.org/dist/zookeeper/zookeeper-3.5.4-beta/zookeeper-3.5.4-beta.tar.gz) and have 3 cluster participants which will be hosted on `vmInfra1`, `vmInfra2` and `vmZkWitness`.
 
@@ -924,6 +952,7 @@ On `vmZkWitness` it should contain `3`.
 
 
 #### Bridge instances setup
+
 Base directory for Bridge instance should be created on each of the `vmInfra1` and `vmInfra2` hosts.
 
 File copy from previous stages:
@@ -1011,6 +1040,7 @@ For reference, base directory for the Bridge instance should look as follows:
 ```
 
 #### Artemis cluster participant
+
 Artemis will be deployed as a standalone process cluster and will be used as a communication bus for multiple applications(nodes and bridges). The required configuration files can be easily generated using
                         the `ha-utilities` command line tool. The tool can also install a configured Artemis instance provided that a distribution already exists. For the purpose of this example, commands are provided
                         to use the `ha-utilities` to install and configure 2 Artemis instances in HA mode.
@@ -1043,7 +1073,9 @@ Due to the way Artemis handles connections in HA mode, the `.jks` files are conf
 
 #### `vmInfra2` setup
 
+
 ##### `vmInfra2` Artemis cluster participant setup
+
 Repeat steps from [Artemis cluster participant](#artemis-cluster-participant) section for `WORKING_DIR` creation as well as keystores copy and Apache Artemis distribution download.
 
 `vmInfra2` box will host Artemis `slave` instance. To generate application distribution with the config files, please run:
@@ -1057,6 +1089,7 @@ Files `artemis/artemis.jks` and `artemis/artemis-truststore.jks` from [Artemis k
 
 
 ##### `vmInfra2` Bridge instance setup
+
 `vmInfra1` setup been done in the section above [Bridge instances setup](#bridge-instances-setup).
 
 For `vmInfra2` the whole of base directory can be copied across to `vmInfra2` and then `firewall.conf` ought to be modified.
@@ -1066,12 +1099,14 @@ Please see `SWAP2`, `SWAP3` and `SWAP4` comments in the configuration file. The 
 
 
 ### Starting all up
+
 Please see [Http Proxy Setup](#http-proxy-setup) note above on connectivity through the proxy.
 
 Please see [Capsule Cache Directory](#capsule-cache-directory) note above explaining details of running Capsule Fat Jars.
 
 
 #### Starting Float processes
+
 In order to run each of the Float processes on `vmFloat1` and `vmFloat2`, in the base directory chosen during [Float VMs setup](#float-vms-setup), the following command should be executed:
 
 ```bash
@@ -1110,6 +1145,7 @@ Traffic breakdown:
 ```
 
 #### Starting Apache ZooKeeper processes
+
 With configuration completed during [Apache ZooKeeper setup](#apache-zookeeper-setup) stage, start ZK instance using the following command in the base directory:
 
 On `vmInfra1` host:
@@ -1157,6 +1193,7 @@ Mode: leader
 ```
 
 #### Starting Artemis cluster
+
 In order to start Artemis, the following command should be issued for `master` on `vmInfra1`:
 
 ```kotlin
@@ -1183,6 +1220,7 @@ In this example, `5df84d6f-0ea4-11e9-bdbf-000d3aba482b` is the cluster ID of the
 
 
 #### Starting Bridge processes
+
 There will be two Bridge instances running on `vmInfra1` and `vmInfra2`. They will be running in Hot-Warm mode whereby one on the processes
                         is active(leader) and the other one is running, but it a passive mode(follower).
 
@@ -1208,6 +1246,7 @@ Waiting for activation by at least one bridge control inbox registration
 ```
 
 #### Domino effect
+
 There is a concept of chained activation of the services which is often internally called the Domino effect.
                         When services are not activated they run as Java operating system processes, however they are dormant from data processing point of view.
                         E.g. Float service when not activated does not even have the port for inbound communication open. This makes perfect sense as underlying backend infrastructure
@@ -1232,6 +1271,7 @@ When node starts the following happens:
 
 
 #### Starting node processes
+
 Each of the boxes `vmNodesPrimary` and `vmNodesSecondary` is capable of hosting both nodes for `Entity A` and `Entity B` at the same time.
 
 `vmNodesPrimary` and `vmNodesSecondary` are meant to be located in different datacentres and in case when one of the datacentres is unavailable, the whole application plant will be running
@@ -1263,7 +1303,9 @@ If the primary node is already running, secondary nodes will gracefully shutdown
 
 ### Performing basic health checks
 
+
 #### Checking Float port is open
+
 If the Domino effect happened successfully and all the services activated, one of the the Floats should be listening on port `10005`.
                         To check this is indeed the case, logon to `vmFloat1` or `vmFloat2` host and check that the port is bound:
 
@@ -1274,6 +1316,7 @@ This should produce a non-empty list of processes that are listening to this por
 
 
 #### Checking Float is reachable from the outside
+
 Using a computer that is capable to perform external communication to the environment, run:
 
 ```kotlin
@@ -1286,6 +1329,7 @@ This will ensure that the Float can be contacted from the outside and is perform
 
 
 #### Running some flows
+
 The ultimate test is of course running some flows.
                         it would make sense to check that `EntityA` can successfully talk to `Entity B`, as well as have some external node sending flows to `EntityA` and `Entity B`.
 

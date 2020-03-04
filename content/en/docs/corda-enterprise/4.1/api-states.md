@@ -1,11 +1,16 @@
 ---
-title: "API: States"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-api
+title: 'API: States'
+version: corda-enterprise-4-1
 ---
 
 
 
 # API: States
+
 
 {{< note >}}
 Before reading this page, you should be familiar with the key concepts of [States](key-concepts-states.md).
@@ -13,6 +18,7 @@ Before reading this page, you should be familiar with the key concepts of [State
 {{< /note >}}
 
 ## ContractState
+
 In Corda, states are instances of classes that implement `ContractState`. The `ContractState` interface is defined
                 as follows:
 
@@ -47,9 +53,10 @@ interface ContractState {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [ContractState.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt)
+[ContractState.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 `ContractState` has a single field, `participants`. `participants` is a `List` of the `AbstractParty` that
                 are considered to have a stake in the state. Among other things, the `participants` will:
@@ -66,6 +73,7 @@ interface ContractState {
 
 
 ## ContractState sub-interfaces
+
 The behaviour of the state can be further customised by implementing sub-interfaces of `ContractState`. The two most
                 common sub-interfaces are:
 
@@ -86,6 +94,7 @@ We can picture the hierarchy as follows:
 
 ![state hierarchy](resources/state-hierarchy.png "state hierarchy")
 ### LinearState
+
 The `LinearState` interface is defined as follows:
 
 
@@ -111,9 +120,10 @@ interface LinearState : ContractState {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
+[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Remember that in Corda, states are immutable and can’t be updated directly. Instead, we represent an evolving fact as a
                     sequence of `LinearState` states that share the same `linearId` and represent an audit trail for the lifecycle of
@@ -151,6 +161,7 @@ The new state will now become the latest state in the chain, representing the ne
 
 
 ### OwnableState
+
 The `OwnableState` interface is defined as follows:
 
 
@@ -180,9 +191,10 @@ interface OwnableState : ContractState {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
+[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Where:
 
@@ -199,6 +211,7 @@ Because `OwnableState` models fungible assets that can be merged and split over 
 
 
 #### FungibleState
+
 `FungibleState<T>` is an interface to represent things which are fungible, this means that there is an expectation that
                         these things can be split and merged. That’s the only assumption made by this interface. This interface should be
                         implemented if you want to represent fractional ownership in a thing, or if you have many things. Examples:
@@ -230,9 +243,10 @@ interface FungibleState<T : Any> : ContractState {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [FungibleState.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt)
+[FungibleState.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 As seen, the interface takes a type parameter `T` that represents the fungible thing in question. This should describe
                         the basic type of the asset e.g. GBP, USD, oil, shares in company <X>, etc. and any additional metadata (issuer, grade,
@@ -252,6 +266,7 @@ This interface has been added in addition to `FungibleAsset` to provide some add
 
 
 ### Other interfaces
+
 You can also customize your state by implementing the following interfaces:
 
 
@@ -265,6 +280,7 @@ You can also customize your state by implementing the following interfaces:
 
 
 ## User-defined fields
+
 Beyond implementing `ContractState` or a sub-interface, a state is allowed to have any number of additional fields
                 and methods. For example, here is the relatively complex definition for a state representing cash:
 
@@ -275,6 +291,7 @@ Beyond implementing `ContractState` or a sub-interface, a state is allowed to ha
 
 
 ## The vault
+
 Whenever a node records a new transaction, it also decides whether it should store each of the transaction’s output
                 states in its vault. The default vault implementation makes the decision based on the following rules:
 
@@ -291,6 +308,7 @@ States that are not considered relevant are not stored in the node’s vault. Ho
 
 
 ## TransactionState
+
 When a `ContractState` is added to a `TransactionBuilder`, it is wrapped in a `TransactionState`:
 
 
@@ -378,9 +396,10 @@ data class TransactionState<out T : ContractState> @JvmOverloads constructor(
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TransactionState.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt)
+[TransactionState.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Where:
 
@@ -403,6 +422,7 @@ Where:
 
 
 ## Reference States
+
 A reference input state is a `ContractState` which can be referred to in a transaction by the contracts of input and
                 output states but whose contract is not executed as part of the transaction verification process. Furthermore,
                 reference states are not consumed when the transaction is committed to the ledger but they are checked for
@@ -448,6 +468,7 @@ Currently, encumbrances should not be used with reference states. In the case wh
 
 
 ## State Pointers
+
 A `StatePointer` contains a pointer to a `ContractState`. The `StatePointer` can be included in a `ContractState` as a
                 property, or included in an off-ledger data structure. `StatePointer` s can be resolved to a `StateAndRef` by performing
                 a look-up. There are two types of pointers; linear and static.

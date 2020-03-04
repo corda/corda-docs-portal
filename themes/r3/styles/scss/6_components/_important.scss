@@ -3,5 +3,7 @@ $note-class: "#{$class-object-prefix}important";
 .#{$note-class} {
     @extend .alert;
     @extend .alert-primary;
-    border-left: 0.5rem solid theme-color-level(primary);
+    background-color: $red-200;
+    color: $red-900;
+    border-left: 0.5rem solid $red-500;
 }

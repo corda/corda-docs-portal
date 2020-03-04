@@ -1,10 +1,15 @@
 ---
-title: "Flow Hospital"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-node
+title: Flow Hospital
+version: corda-enterprise-4-1
 ---
 
 
 # Flow Hospital
+
 The **flow hospital** refers to a built-in node service that manages flows that have encountered an error.
 
 This service is responsible for recording, tracking, diagnosing, recovering and retrying. It determines whether errored flows should be retried from their previous checkpoints or have their errors propagate. Flows may be recoverable under certain scenarios (eg. manual intervention may be required to install a missing contract JAR version). For a given errored flow, the flow hospital service determines the next course of action towards recovery and retry.
@@ -13,6 +18,7 @@ This concept is analogous to *exception management handling* associated with ent
 
 
 ## Functionality
+
 Flow hospital functionality is enabled by default in Corda Enterprise 4.1. No explicit configuration settings are required.
 
 There are two aspects to the flow hospital:
@@ -26,6 +32,7 @@ There are two aspects to the flow hospital:
 
 
 ### Run-time behaviour
+
 Specifically, there are two main ways a flow is hospitalized:
 
 
@@ -85,6 +92,7 @@ Flows that are kept in for observation are retried upon node restart.
 {{< /note >}}
 
 ### Visualisation
+
 The Corda Enterprise Node Explorer can be used to visualize all flows within the “Flow Triage” panel, where these can be filtered by flow
                     status (for example, to only display errored flows):
 

@@ -1,12 +1,17 @@
 ---
-title: "Handling flag days"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Handling flag days
+version: corda-enterprise-4-4
 ---
 
 
 # Handling flag days
 
+
 ## Consequences of flag days for the notary
+
 A flag day signifies the point in time where the network stops using one set of Network Parameters and begins using the new, previously
                 proposed set of Network Parameters. This is discussed in the “Network parameters update process” within the network-map
                 documentation.
@@ -28,6 +33,7 @@ Outlined below is some basic suggestions to best deal with flag days. Note that 
 
 
 ## Single notary
+
 With a simple non-HA Notary service, a zero-downtime parameter update is not possible. After the flag day the service must be restarted,
                 either manually and immediately after the flag day (if the network operator in control of the flag day is also in control of the Notary) or
                 automatically when the Notary next polls the Network Map service (e.g. using a daemon to restart the service after any shutdowns).
@@ -38,6 +44,7 @@ Although immediately restarting manually after a flag day should be preferred, t
 
 
 ## HA notary cluster
+
 With a HA cluster of Notary worker nodes, a zero-downtime update is possible but is dependent on the Network Map service polling schedules.
                 The schedule of each Notary worker’s polling will be determined by both the polling interval (specified by the Network Map service) along
                 with the Notary service start time. As the node will shutdown when it next polls the Network Map service, having all polling schedules be in

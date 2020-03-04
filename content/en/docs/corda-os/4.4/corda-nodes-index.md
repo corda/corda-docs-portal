@@ -1,10 +1,14 @@
 ---
-title: "Nodes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Nodes
+version: corda-os-4-4
 ---
 
 
 # Nodes
+
 
 * [Node folder structure](node-structure.md)
 

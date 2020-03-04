@@ -1,79 +1,16 @@
 {{/* THIS IS THE SITE ROOT INDEX PAGE */}}
 {{ define "main" }}
-<main class="r3-o-wrapper-main col-12 col-xl-9 py-md-3 pl-md-5" role="main">
-    {{- .Content -}}
+<main class="r3-o-wrapper-main m-4" role="main">
+{{- .Content -}}
 </main>
 {{- end -}}
 <!DOCTYPE html>
 <html{{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
     {{ partial "head.html" . }}
-
     <body>
         <noscript>You need to enable javascript for this site</noscript>
         {{- partial "header.html" . -}}
         <div class="container-fluid">
-            <div class="jumbotron jumbotron-fluid m-4">
-                <div class="container">
-                    <h2 class="display-4 text-center">Corda Enterprise</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla enim eget
-                        convallis porttitor. Morbi nec malesuada velit, ac mattis diam. Nulla lobortis sem sit amet
-                        volutpat bibendum. Pellentesque sit amet urna lectus. Quisque eu molestie nisl, ut auctor metus.
-                        Praesent sit amet urna tortor. Aliquam erat enim, placerat id sodales non, facilisis nec sapien.
-                        Sed purus nibh, euismod sit amet turpis quis, malesuada facilisis massa. Aliquam interdum luctus
-                        nisi lobortis vehicula. Quisque eu interdum libero. In gravida fermentum lectus, molestie
-                        finibus est. </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m-4">
-                    <div class="card">
-                        <h3 class="card-title text-center p-4">Corda Enterprise Network Manager</h3>
-                        <div class="card-body">
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla enim eget convallis porttitor. Morbi nec malesuada velit, ac mattis diam. Nulla lobortis sem sit amet volutpat bibendum. Pellentesque sit amet urna lectus. Quisque eu molestie nisl, ut auctor metus. Praesent sit amet urna tortor. Aliquam erat enim, placerat id sodales non, facilisis nec sapien. Sed purus nibh, euismod sit amet turpis quis, malesuada facilisis massa. Aliquam interdum luctus nisi lobortis vehicula. Quisque eu interdum libero. In gravida fermentum lectus, molestie finibus est. </p>
-                        </div>
-                      </div>
-                </div>
-                <div class="col m-4">
-                    <div class="card">
-                        <h3 class="card-title text-center p-4">Corda Open Source</h3>
-                        <div class="card-body">
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla enim eget convallis porttitor. Morbi nec malesuada velit, ac mattis diam. Nulla lobortis sem sit amet volutpat bibendum. Pellentesque sit amet urna lectus. Quisque eu molestie nisl, ut auctor metus. Praesent sit amet urna tortor. Aliquam erat enim, placerat id sodales non, facilisis nec sapien. Sed purus nibh, euismod sit amet turpis quis, malesuada facilisis massa. Aliquam interdum luctus nisi lobortis vehicula. Quisque eu interdum libero. In gravida fermentum lectus, molestie finibus est. </p>
-                        </div>
-                      </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                <h2 class="text-center">Developer Resources</h2>
-            </div>
-            </div>
-            <div class="row">
-                <div class="col m-4">
-                    <div class="card">
-                        <h3 class="card-title text-center p-4">ide.corda.net</h3>
-                        <div class="card-body">
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla enim eget convallis porttitor. Morbi nec malesuada velit, ac mattis diam. Nulla lobortis sem sit amet volutpat bibendum. Pellentesque sit amet urna lectus. Quisque eu molestie nisl, ut auctor metus. Praesent sit amet urna tortor. Aliquam erat enim, placerat id sodales non, facilisis nec sapien. Sed purus nibh, euismod sit amet turpis quis, malesuada facilisis massa. Aliquam interdum luctus nisi lobortis vehicula. Quisque eu interdum libero. In gravida fermentum lectus, molestie finibus est. </p>
-                        </div>
-                      </div>
-                </div>
-                <div class="col m-4">
-                    <div class="card">
-                        <h3 class="card-title text-center p-4">Whitepapers</h3>
-                        <div class="card-body">
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla enim eget convallis porttitor. Morbi nec malesuada velit, ac mattis diam. Nulla lobortis sem sit amet volutpat bibendum. Pellentesque sit amet urna lectus. Quisque eu molestie nisl, ut auctor metus. Praesent sit amet urna tortor. Aliquam erat enim, placerat id sodales non, facilisis nec sapien. Sed purus nibh, euismod sit amet turpis quis, malesuada facilisis massa. Aliquam interdum luctus nisi lobortis vehicula. Quisque eu interdum libero. In gravida fermentum lectus, molestie finibus est. </p>
-                        </div>
-                      </div>
-                </div>
-                <div class="col m-4">
-                    <div class="card">
-                        <h3 class="card-title text-center p-4">Getting started</h3>
-                        <div class="card-body">
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla enim eget convallis porttitor. Morbi nec malesuada velit, ac mattis diam. Nulla lobortis sem sit amet volutpat bibendum. Pellentesque sit amet urna lectus. Quisque eu molestie nisl, ut auctor metus. Praesent sit amet urna tortor. Aliquam erat enim, placerat id sodales non, facilisis nec sapien. Sed purus nibh, euismod sit amet turpis quis, malesuada facilisis massa. Aliquam interdum luctus nisi lobortis vehicula. Quisque eu interdum libero. In gravida fermentum lectus, molestie finibus est. </p>
-                        </div>
-                      </div>
-                </div>
-
-            </div>
             <div class="row flex-xl-nowrap">
                 {{- block "main" . -}}{{- end -}}
             </div>
@@ -81,5 +18,4 @@
         {{- partial "footer.html" . -}}
         {{- partial "scripts.html" . -}}
     </body>
-
-    </html>
+</html>

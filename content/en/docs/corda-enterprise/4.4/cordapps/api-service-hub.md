@@ -1,10 +1,15 @@
 ---
-title: "Accessing node services"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: Accessing node services
+version: corda-enterprise-4-4
 ---
 
 
 # Accessing node services
+
 Within `FlowLogic.call`, the flow developer has access to the node’s `ServiceHub`, which provides access to the
             various services the node provides. The services offered by the `ServiceHub` are split into the following categories:
 

@@ -1,10 +1,14 @@
 ---
-title: "Getting started developing CorDapps"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Getting started developing CorDapps
+version: corda-os-4-4
 ---
 
 
 # Getting started developing CorDapps
+
 
 Getting started with Corda will walk you through the process of setting up a development environment, deploying an example CorDapp, and building your own CorDapp based on the example.
 
@@ -21,7 +25,9 @@ Getting started with Corda will walk you through the process of setting up a dev
 
 ## Setting up a development environment
 
+
 ### Prerequisites
+
 
 * **Java 8 JVK** - We require at least version 8u171, but do not currently support Java 9 or higher.
 
@@ -34,6 +40,7 @@ Getting started with Corda will walk you through the process of setting up a dev
 
 
 ### Step One: Downloading a sample project
+
 
 * Open a command prompt or terminal.
 
@@ -50,6 +57,7 @@ Getting started with Corda will walk you through the process of setting up a dev
 
 ### Step Two: Creating an IntelliJ project
 
+
 * Open IntelliJ. From the splash screen, click **Open**, navigate to and select the `cordapp-example` folder, and click **Ok**. This creates an IntelliJ project to work from.
 
 
@@ -63,6 +71,7 @@ Your CorDapp development environment is now complete.
 
 
 ## Next steps
+
 Now that you’ve successfully set up your CorDapp development environment, we’ll cover deploying an example CorDapp locally, before writing a CorDapp from scratch.
 
 

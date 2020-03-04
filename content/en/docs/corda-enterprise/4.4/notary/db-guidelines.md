@@ -1,15 +1,20 @@
 ---
-title: "Highly available database setup guidelines"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Highly available database setup guidelines
+version: corda-enterprise-4-4
 ---
 
 
 # Highly available database setup guidelines
+
 This document serves to capture general database guidelines to consider when setting up a highly available
             database for use with the JPA notary.
 
 
 ## Consistency over availability
+
 The CAP theorem states that no distributed system can simultaneously guarantee consistency, availability and
                 partition tolerance at the same time. Given that network failures are unavoidable, some form of partition
                 tolerance must be present in any distributed database setup. Therefore, a notary’s distributed database can
@@ -19,6 +24,7 @@ The CAP theorem states that no distributed system can simultaneously guarantee c
 
 
 ## Synchronous replication
+
 Due to the importance of consistency for the data that a notary stores, synchronous replication is required of
                 any database used with a notary. CockroachDB only supports synchronous replication, one of the reasons it was
                 chosen for the JPA notary.
@@ -28,6 +34,7 @@ Asynchronous replication could result in data loss if data is written to one nod
 
 
 ## Impact of latency on performance
+
 It is important to note that latency between database cluster members negatively affects the performance of
                 the database cluster as a whole. One possible cause of increased latency would be having one or more members
                 of the cluster were located in geographically separate data centres.
@@ -38,6 +45,7 @@ This is ideal from a disaster recovery perspective and is supported by Corda. Wh
 
 
 ## Transaction isolation
+
 Any database used with the JPA notary should have its transaction isolation level set to no lower than
                 `READ_COMMITTED`. The JPA notary itself will attempt to use a transaction isolation level of
                 `READ_COMMITTED`.

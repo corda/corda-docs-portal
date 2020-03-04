@@ -1,11 +1,15 @@
 ---
-title: "Upgrading CorDapps to newer Platform Versions"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Upgrading CorDapps to newer Platform Versions
+version: corda-enterprise-4-3
 ---
 
 
 
 # Upgrading CorDapps to newer Platform Versions
+
 These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
             non-experimental APIs that have been committed to. A list can be found in the [API stability guarantees](api-stability-guarantees.md) page.
 
@@ -25,6 +29,7 @@ The sample apps found in the Corda repository and the Corda samples repository a
 
 
 ## Upgrading apps to Platform Version 5
+
 This section provides instructions for upgrading your CorDapps from previous versions to take advantage of features and enhancements introduced
                 in platform version 5.
 
@@ -35,6 +40,7 @@ If you are upgrading from a platform version older than 4, then the upgrade note
 {{< /note >}}
 
 ### Step 1. Handle any source compatibility breaks (if using Kotlin)
+
 The following code, which compiled in Platform Version 4, will not compile in Platform Version 5:
 
 
@@ -98,6 +104,7 @@ This stops type inference from occurring and forces the variable to be of type `
 
 
 ### Step 2. Update Gradle version and associated dependencies
+
 Platform Version 5 requires Gradle 5.4 to build. If you use the Gradle wrapper, you can upgrade by running:
 
 > 
@@ -114,16 +121,19 @@ maven { url 'https://repo.gradle.org/gradle/libs-releases' }
 ```
 
 ## Upgrading apps to Platform Version 4
+
 This section provides instructions for upgrading your CorDapps from previous versions to platform version 4.
 
 
 ### Step 1. Switch any RPC clients to use the new RPC library
+
 Although the RPC API is backwards compatible with Corda 3, the RPC wire protocol isn’t. Therefore RPC clients like web servers need to be
                     updated in lockstep with the node to use the new version of the RPC library. Corda 4 delivers RPC wire stability and therefore in future you
                     will be able to update the node and apps without updating RPC clients.
 
 
 ### Step 2. Adjust the version numbers in your Gradle build files
+
 Alter the versions you depend on in your Gradle file like so:
 
 ```groovy
@@ -166,6 +176,7 @@ Platform Version 5 requires a different version of Gradle, so if you’re intend
 {{< /note >}}
 
 ### Step 3. Update your Gradle build file
+
 There are several adjustments that are beneficial to make to your Gradle build file, beyond simply incrementing the versions
                     as described in step 1.
 
@@ -237,6 +248,7 @@ If you use the finance demo app, you should adjust your dependencies so you depe
 
 
 ### Step 4. Remove any custom configuration from the node.conf
+
 CorDapps can no longer access custom configuration items in the `node.conf` file. Any custom CorDapp configuration should be added to a
                     CorDapp configuration file. The Node’s configuration will not be accessible. CorDapp configuration files should be placed in the
                     *config* subdirectory of the Node’s *cordapps* folder. The name of the file should match the name of the JAR of the CorDapp (eg; if your
@@ -271,6 +283,7 @@ See [CorDapp configuration files](cordapp-build-systems.md#cordapp-configuration
 
 
 ### Step 5. Security: Upgrade your use of FinalityFlow
+
 The previous `FinalityFlow` API is insecure. It doesn’t have a receive flow, so requires counterparty nodes to accept any and
                     all signed transactions that are sent to it, without checks. It is **highly** recommended that existing CorDapps migrate
                     away to the new API, as otherwise things like business network membership checks won’t be reliably enforced.
@@ -310,6 +323,7 @@ The upgrade is a three step process:
 
 
 #### Upgrading a non-initiating flow
+
 As an example, let’s take a very simple flow that finalises a transaction without the involvement of a counterpart flow:
 
 
@@ -344,9 +358,10 @@ public static class SimpleFlowUsingOldApi extends FlowLogic<SignedTransaction> {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
+[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 To use the new API, this flow needs to be annotated with `InitiatingFlow` and a `FlowSession` to the participant(s) of the transaction must be
                         passed to `FinalityFlow` :
@@ -390,9 +405,10 @@ public static class SimpleFlowUsingNewApi extends FlowLogic<SignedTransaction> {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
+[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 If there are more than one transaction participants then a session to each one must be initiated, excluding the local party
                         and the notary.
@@ -434,9 +450,10 @@ public static class SimpleNewResponderFlow extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
+[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 
 {{< note >}}
@@ -447,6 +464,7 @@ As described above, all the nodes in your business network will need the new Cor
 {{< /note >}}
 
 #### Upgrading an initiating flow
+
 For flows which are already initiating counterpart flows then it’s a matter of using the existing flow session.
                         Note however, the new `FinalityFlow` is inlined and so the sequence of sends and receives between the two flows will
                         change and will be incompatible with your current flows. You can use the flow version API to write your flows in a
@@ -510,9 +528,10 @@ public static class ExistingInitiatingFlow extends FlowLogic<SignedTransaction> 
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
+[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 For the responder flow, insert a call to `ReceiveFinalityFlow` at the location where it’s expecting to receive the
                         finalised transaction. If the initiator is written in a backwards compatible way then so must the responder.
@@ -567,9 +586,10 @@ if (otherSide.getCounterpartyFlowInfo().getFlowVersion() >= 2) {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java)
+[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 You may already be using `waitForLedgerCommit` in your responder flow for the finalised transaction to appear in the local node’s vault.
                         Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same thing, this is no longer necessary. The call to
@@ -577,6 +597,7 @@ You may already be using `waitForLedgerCommit` in your responder flow for the fi
 
 
 ### Step 6. Security: Upgrade your use of SwapIdentitiesFlow
+
 The [Confidential identities](api-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
                     has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
                     outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
@@ -584,6 +605,7 @@ The [Confidential identities](api-identity.md#confidential-identities-ref) API i
 
 
 ### Step 7. Possibly, adjust test code
+
 `MockNodeParameters` and functions creating it no longer use a lambda expecting a `NodeConfiguration` object.
                     Use a `MockNetworkConfigOverrides` object instead. This is an API change we regret, but unfortunately in Corda 3 we accidentally exposed
                     large amounts of the node internal code through this one API entry point. We have now insulated the test API from node internals and
@@ -719,6 +741,7 @@ If you have any CorDapp code (e.g. flows/contracts/states) that is only used by 
 {{< /note >}}
 
 ### Step 8. Security: Add BelongsToContract annotations
+
 In versions of the platform prior to v4, it was the responsibility of contract and flow logic to ensure that `TransactionState` objects
                     contained the correct class name of the expected contract class. If these checks were omitted, it would be possible for a malicious counterparty
                     to construct a transaction containing e.g. a cash state governed by a commercial paper contract. The contract would see that there were no
@@ -739,6 +762,7 @@ Learn more by reading [Contract/State Agreement](api-contract-constraints.md#con
 
 
 ### Step 9. Learn about signature constraints and JAR signing
+
 [Signature Constraints](api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
                     deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
                     the act of upgrading your app to use the version 4 Gradle plugins will result in your app being automatically signed, and new states
@@ -769,6 +793,7 @@ Please read the [CorDapp constraints migration](cordapp-constraint-migration.md)
 {{< /note >}}
 
 ### Step 10. Security: Package namespace handling
+
 Almost no apps will be affected by these changes, but they’re important to know about.
 
 There are two improvements to how Java package protection is handled in Corda 4:
@@ -800,6 +825,7 @@ When signing your JARs for Corda 4, your own apps will also become sealed, meani
 
 
 ### Step 11. Consider adding extension points to your flows
+
 In Corda 4 it is possible for flows in one app to subclass and take over flows from another. This allows you to create generic, shared
                     flow logic that individual users can customise at pre-agreed points (protected methods). For example, a site-specific app could be developed
                     that causes transaction details to be converted to a PDF and sent to a particular printer. This would be an inappropriate feature to put
@@ -809,6 +835,7 @@ If your flows could benefit from being extended in this way, read “[Configurin
 
 
 ### Step 12. Possibly update vault state queries
+
 In Corda 4 queries made on a node’s vault can filter by the relevancy of those states to the node. As this functionality does not exist in
                     Corda 3, apps will continue to receive all states in any vault queries. However, it may make sense to migrate queries expecting just those states relevant
                     to the node in question to query for only relevant states. See [API: Vault Query](api-vault-query.md) for more details on how to do this. Not doing this
@@ -816,6 +843,7 @@ In Corda 4 queries made on a node’s vault can filter by the relevancy of those
 
 
 ### Step 13. Explore other new features that may be useful
+
 Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
@@ -832,6 +860,7 @@ Please also read the [CorDapp Upgradeability Guarantees](cordapp-upgradeability.
 
 
 ### Step 14. Possibly update your checked in quasar.jar
+
 If your project is based on one of the official cordapp templates, it is likely you have a `lib/quasar.jar` checked in.  It is worth noting
                     that you only use this if you use the JUnit runner in IntelliJ.  In the latest release of the cordapp templates, this directory has
                     been removed.

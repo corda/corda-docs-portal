@@ -1,10 +1,14 @@
 ---
-title: "CENM Database Configuration"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: CENM Database Configuration
+version: corda-enterprise-4-4
 ---
 
 
 # CENM Database Configuration
+
 Both the Network Map and Identity Manager Components require a persistent layer to be available. This is described in
             their respective configs with the following configuration state.
 

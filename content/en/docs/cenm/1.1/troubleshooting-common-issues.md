@@ -1,14 +1,20 @@
 ---
-title: "Troubleshooting Common Issues"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Troubleshooting Common Issues
+version: cenm-1-1
 ---
 
 
 # Troubleshooting Common Issues
 
+
 ## General Debugging
 
+
 ### Enabling debug/trace logging
+
 Each service can be configured to run with a deeper log level via command line flags passed at startup:
 
 ```bash
@@ -16,6 +22,7 @@ java -DdefaultLogLevel=TRACE -DconsoleLogLevel=TRACE -jar <enm-service-jar>.jar 
 ```
 
 ### Verifying an ENM service is running and responsive
+
 As well as the service logs, the ENM services provide the following endpoints which can be used to determine the current
                     status of the service (whether it is executing and if it is reachable):
 
@@ -34,11 +41,14 @@ Note that the endpoints should be preceded with the address of the respective se
 
 ## Nodes are not appearing in the Network Map
 
+
 ### Issue
+
 The Network Map service and node is up and running, but the node cannot be seen from any other nodes on the network.
 
 
 ### Solution/Explanation
+
 There are a few different reasons why this could be:
 
 
@@ -77,7 +87,9 @@ Shell commands are also provided to aid with inspecting of the state of the node
 
 ## The CENM Service hangs on startup
 
+
 ### Issue
+
 The CENM service (Network Map, Identity Manager or Signer) hangs on startup and throws a *HikariPool* related exception:
 
 ```guess
@@ -87,6 +99,7 @@ com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initial
 ```
 
 ### Solution
+
 Run the service with the command `-Djava.security.egd=file:/dev/./urandom`. For example:
 
 ```bash
@@ -94,6 +107,7 @@ java -Djava.security.egd=file:/dev/./urandom -jar identitymanager.jar --config-f
 ```
 
 ### Explanation
+
 This issue *should* be Linux specific. During the establishing of the DB connection certain DB APIs (such as JDBC) use
                     random number generation via `java.security.SecureRandom` API. This API uses `/dev/random` which checks if there is
                     enough available estimated entropy. If it thinks that there is not enough then it will block whilst more is generated.
@@ -108,12 +122,15 @@ Switching the `java.security.SecureRandom` API to utilise `/dev/urandom` (which 
 
 ## Signing process timing out
 
+
 ### Issue
+
 When running the Identity Manager or Network Map service with local signer enabled the signing process times out
                     resulting in an error within the local signer log file.
 
 
 ### Solution
+
 There are multiple possible causes for this. The most likely candidates are:
 
 **DB overloaded and causing the signing process to dramatically slow**
@@ -126,6 +143,7 @@ There are multiple possible causes for this. The most likely candidates are:
 
 
 ### Explanation
+
 Each execution of the signing process is run with a timeout equal to the specified value in the configuration file (see
                     above linked docs for defaults). If this timeout limit is reached then an error will be logged and the process will be
                     retried using an exponential backoff strategy, doubling the wait period after each failure.

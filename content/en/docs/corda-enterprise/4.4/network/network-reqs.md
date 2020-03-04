@@ -1,12 +1,17 @@
 ---
-title: "Corda network considerations"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Corda network considerations
+version: corda-enterprise-4-4
 ---
 
 
 # Corda network considerations
 
+
 ## Corda network parameters
+
 There is a set of parameters that all Nodes on the network must agree on in order to interoperate. These are listed below.
 
 
@@ -48,6 +53,7 @@ List of the network-wide java packages that were successfully claimed by their o
 
 
 ### Flag days
+
 Network parameters are distributed alongside the network map in a separate file stored locally by each node.
 
 From time to time the Corda Network Operator (R3) will need to update parameters, for example if a new notary is added.
@@ -68,6 +74,7 @@ On distribution of the updated parameters, Corda 3.X design forces all nodes to 
 
 
 ### Flag day communications
+
 The Corda Network Operator will ensure customers are fully aware of impending and in-flight network parameter changes:
 
 
@@ -166,6 +173,7 @@ The diagram below outlines the overview of SSZ.
 
 
 ### Constraints
+
 
 * Sub-Zones must be mergeable
 

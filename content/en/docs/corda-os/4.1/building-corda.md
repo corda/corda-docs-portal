@@ -1,17 +1,23 @@
 ---
-title: "Building Corda"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Building Corda
+version: corda-os-4-1
 ---
 
 
 # Building Corda
+
 These instructions are for downloading and building the Corda code locally. If you only wish to develop CorDapps for
             use on Corda, you don’t need to do this, follow the instructions at [Getting set up for CorDapp development](getting-set-up.md) and use the precompiled binaries.
 
 
 ## Windows
 
+
 ### Java
+
 
 * Visit [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -37,6 +43,7 @@ These instructions are for downloading and building the Corda code locally. If y
 
 ### Git
 
+
 * Visit [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
 
@@ -52,6 +59,7 @@ These instructions are for downloading and building the Corda code locally. If y
 
 ### Building Corda
 
+
 * Open a command prompt
 
 
@@ -63,10 +71,12 @@ These instructions are for downloading and building the Corda code locally. If y
 
 
 ## Debian/Ubuntu Linux
+
 These instructions were tested on Ubuntu Server 18.04 LTS. This distribution includes `git` and `python` so only the following steps are required:
 
 
 ### Java
+
 
 * Run `sudo add-apt-repository ppa:webupd8team/java` from the terminal. Press ENTER when prompted.
 
@@ -82,6 +92,7 @@ These instructions were tested on Ubuntu Server 18.04 LTS. This distribution inc
 
 
 ### Building Corda
+
 
 * Open the terminal
 

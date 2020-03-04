@@ -1,10 +1,14 @@
 ---
-title: "Components of the Corda Enterprise Network Manager"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Components of the Corda Enterprise Network Manager
+version: corda-enterprise-4-4
 ---
 
 
 # Components of the Corda Enterprise Network Manager
+
 At the highest level, the CENM suite is deployed as shown in the following diagram:
 
 ![enm high level](cenm/../resources/enm-high-level.png "enm high level")The three main components of the CENM suite are
@@ -25,6 +29,7 @@ These, in conjunction, allow for the operation of a Corda network, the Registrat
 
 
 ## The Identity Manager
+
 The Identity Manager has two main aspects that control the identity of Nodes within a Corda Network. The
                 first is the issuance of that identity, essentially the provision of a certificate that pairs an X500 legal
                 name with a public key. The second is the revocation of those certificates when the controlling identity
@@ -36,6 +41,7 @@ This can be thought of as the Registration Authority for the Corda network repre
 
 
 ## The Signing Service
+
 The signing service is responsible for the actual signing of various materials within a Zone. These include
 
 
@@ -58,6 +64,7 @@ This can be thought of as the Certificate Authority for the Corda network repres
 
 
 ## The Network Map
+
 Acts as a location service for nodes once they have an identity granted to them by the Zone Operator. Additionally,
                 by joining a network, a node is agreeing to a set of parameters that dictate the rules for how consensus over the
                 zone is achieved. As such,the most important of those is a list of trusted notary services.
@@ -67,6 +74,7 @@ A zone can play host to any number of these sets of consensus rules, each formin
 
 
 # The Workflow
+
 The Identity Manager’s issuance and revocation services both allow for a workflow component that allows the steps
             the zone operator deems suitable for reaching certainty an entity requesting it’s Legal Identity be recognised truly
             is that identity be codified into a repeatable process. Ultimately a request is either accepted or rejected. Certain
@@ -91,6 +99,7 @@ Accepting a CRR is the opposite of accepting a CSR, it is a request to revoke a 
 
 
 # Databases
+
 The Identity Manager and Network Map(s) require their own persistence layer. The CENM suite supports in production
             environments:
 
@@ -108,6 +117,7 @@ For details of supported versions and configuration, see [CENM Databases](databa
 
 
 # Public Key Infrastructure
+
 The certificates and keys that represent the network’s PKI will be stored within an HSM. To prevent any breach of the
             systems integrity being able to generate a signed certificate the signers should be operated from an isolated network.
             By design, they only have the ability to talk *to* the other ENM components, they can never be asked to sign something.
@@ -117,6 +127,7 @@ In addition, signing a CRR or CSR, and potentially the Network Parameters, *shou
 
 
 # The Node
+
 Run by entities who wish to join the network, a node submits it’s Legal Identity to the Identity Manager for approval.
             On success, it will receive a PKI certificate linking that legal identity with its public key. It will then use that
             certificate to sign it’s Node Info (detailing it’s externally addressable location on the internet) and submit that to

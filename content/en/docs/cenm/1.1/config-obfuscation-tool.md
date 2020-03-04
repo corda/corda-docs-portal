@@ -1,12 +1,17 @@
 ---
-title: "Config Obfuscation Tool"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Config Obfuscation Tool
+version: cenm-1-1
 ---
 
 
 # Config Obfuscation Tool
 
+
 ## Overview
+
 The Config Obfuscation Tool allows users to obfuscate sensitive information in configuration files, such that the
                 data is protected at rest. The tool is an altered version of the config obfuscator used by Corda. There are two steps
                 a user shall take in order to make use of this tool:
@@ -24,6 +29,7 @@ The following subsections will explain in detail how each of these two steps sho
 
 
 ## Using the Config Obfuscation Tool
+
 The config obfuscation tool resides in the `configobfuscationtool.jar`. Fields in the config are obfuscated by
                 encapsulating the values to be obfuscated in a `<encrypt{...}>` block.
 
@@ -140,6 +146,7 @@ If one would like to print the obfuscated config file to console once it has bee
 
 
 ## Running services with obfuscated configs
+
 When using obfuscated config files for the Identity Manager, Network Map or Signing service, upon starting the
                 respective service one has to explicitly set the `-o` command line flag to indicate that the config has been
                 obfuscated.

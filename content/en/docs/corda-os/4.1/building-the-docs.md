@@ -1,15 +1,20 @@
 ---
-title: "Building the documentation"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Building the documentation
+version: corda-os-4-1
 ---
 
 
 # Building the documentation
+
 The documentation is under the `docs` folder, and is written in reStructuredText format. Documentation in HTML format
             is pre-generated, as well as code documentation, and this can be done automatically via a provided script.
 
 
 ## Building Using the Docker Image
+
 This is the method used during the build.  If you run:
 
 ```shell
@@ -22,6 +27,7 @@ This image is pre-built with the dependencies that were in requirements.txt at t
 
 
 ### Changing requirements
+
 If you want to upgrade, say, the version of sphinx that we’re using, you must:
 
 
@@ -45,7 +51,9 @@ If you want to upgrade, say, the version of sphinx that we’re using, you must:
 
 ## Building from the Command Line (non-docker)
 
+
 ### Requirements
+
 In order to build the documentation you will need a development environment set up as described under [Building Corda](building-corda.md).
 
 You will also need additional dependencies based on your O/S which are detailed below.
@@ -53,7 +61,9 @@ You will also need additional dependencies based on your O/S which are detailed 
 
 ### Windows
 
+
 #### Git, bash and make
+
 In order to build the documentation for Corda you need a `bash` emulator with `make` installed and accessible from the command prompt. Git for
                         Windows ships with a version of MinGW that contains a `bash` emulator, to which you can download and add a Windows port of
                         `make`, instructions for which are provided below. Alternatively you can install a full version of MinGW from [here](http://www.mingw.org/).
@@ -80,6 +90,7 @@ In order to build the documentation for Corda you need a `bash` emulator with `m
 
 
 #### Python, Pip and VirtualEnv
+
 
 * Visit [https://www.python.org/downloads](https://www.python.org/downloads)
 
@@ -113,6 +124,7 @@ In order to build the documentation for Corda you need a `bash` emulator with `m
 
 
 #### LaTeX
+
 Corda requires LaTeX to be available for building the documentation. The instructions below are for installing TeX Live
                         but other distributions are available.
 
@@ -134,10 +146,12 @@ Corda requires LaTeX to be available for building the documentation. The instruc
 
 
 ### Debian/Ubuntu Linux
+
 These instructions were tested on Ubuntu Server 18.04 LTS. This distribution includes `git` and `python` so only the following steps are required:
 
 
 #### Pip/VirtualEnv
+
 
 * Run `sudo apt-get install python-pip`
 
@@ -153,6 +167,7 @@ These instructions were tested on Ubuntu Server 18.04 LTS. This distribution inc
 
 
 #### LaTeX
+
 Corda requires LaTeX to be available for building the documentation. The instructions below are for installing TeX Live
                         but other distributions are available.
 
@@ -162,6 +177,7 @@ Corda requires LaTeX to be available for building the documentation. The instruc
 
 
 ### Build
+
 Once the requirements are installed, you can automatically build the HTML format user documentation, PDF, and
                     the API documentation by running the following script:
 

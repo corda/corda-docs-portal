@@ -1,12 +1,17 @@
 ---
-title: "CorDapp Upgradeability Guarantees"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: CorDapp Upgradeability Guarantees
+version: corda-os-4-4
 ---
 
 
 # CorDapp Upgradeability Guarantees
 
+
 ## Corda 4.0
+
 Corda 4 introduces a number of advanced features (such as signature constraints), and data security model improvements (such as attachments
                 trust checking and classloader isolation of contract attachments for transaction building and verification).
 
@@ -72,6 +77,7 @@ Recommendation: security hardening changes in flow processing, specifically the 
 
 
 ## Later releases
+
 The following additional capabilities are under consideration for delivery in follow-up releases to Corda 4.0:
 
 

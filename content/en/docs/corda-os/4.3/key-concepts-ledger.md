@@ -1,13 +1,19 @@
 ---
-title: "The ledger"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3:
+    parent: corda-os-4-3-concepts
+title: The ledger
+version: corda-os-4-3
 ---
 
 
 # The ledger
 
+
 {{< topic >}}
 # Summary
+
 
 * *The ledger is subjective from each peer’s perspective*
 
@@ -18,12 +24,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/213812040" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## The Ledger Data
+
 In Corda, there is **no single central store of data**. Instead, each node maintains its own database of those facts that it is aware of.
 
 The facts that a node knows about are those that it is involved with. For example, if there are nodes representing Alice and Bob on the network and Alice loans Bob some money, both Alice and Bob will store an identical record of the facts about that loan. If the only parties involved with the loan are Alice and Bob, then they will be the only nodes that ever see or store this data.
@@ -53,6 +61,7 @@ For example, Alice and Demi don’t share any facts, so they each see a complete
 
 
 ## Shared Facts
+
 In the previous diagram, we could see that although Carl, Demi and Ed are aware of shared fact 3, **Alice and Bob are not**.
 
 ﻿On Corda, there is no central or general ledger operating with agency on ﻿behalf of all of the nodes on the network. Instead, each node on the network maintains its own vault containing all of its known facts.

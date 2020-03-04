@@ -1,11 +1,16 @@
 ---
-title: "Contract Constraints"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: Contract Constraints
+version: corda-enterprise-4-4
 ---
 
 
 
 # Contract Constraints
+
 Contract constraints define the versions of a CorDapp can be used to provide the contract to a transaction. The constraints
             property is stored in each state.
 
@@ -15,6 +20,7 @@ Contract constraints also solve upgrade-related security problems. If an attacke
 
 
 ## Implicit vs Explicit Contract upgrades
+
 Constraints are not the only way to manage upgrades to transactions. There are two ways of handling
                 upgrades to a smart contract in Corda:
 
@@ -37,6 +43,7 @@ This article focuses on the first approach. To learn about the second please see
 
 
 ### Types of Contract Constraints
+
 Corda supports several types of constraints to cover a wide set of client requirements:
 
 
@@ -57,6 +64,7 @@ Corda supports several types of constraints to cover a wide set of client requir
 
 
 ### Signature Constraints
+
 The best kind of constraint to use is the **Signature Constraint**. If you sign your application it will be used automatically.
                     We recommend signature constraints because they let you express complex social and business relationships while allowing
                     smooth migration of existing data to new versions of your application.
@@ -76,6 +84,7 @@ Hash and zone whitelist constraints are left over from earlier Corda versions be
 
 
 ## Signing CorDapps for use with Signature Constraints
+
 Expanding on the previous section, for an app to use Signature Constraints, it must be signed by a `CompositeKey` or a simpler `PublicKey`.
                 The signers of the app can consist of a single organisation or multiple organisations. Once the app has been signed, it can be distributed
                 across the nodes that intend to use it.
@@ -177,6 +186,7 @@ More information on how to sign an app directly from Gradle can be found in the
 
 
 ## Using Signature Constraints in transactions
+
 If the app is signed, Signature Constraints will be used by default (in most situations) by the `TransactionBuilder` when adding output states.
                 This is expanded upon in [Using Contract Constraints in Transactions](#contract-constraints-in-transactions).
 
@@ -188,12 +198,15 @@ Signature Constraints are used by default except when a new transaction contains
 {{< /note >}}
 
 ## App versioning with Signature Constraints
+
 Signed apps require a version number to be provided, see [Versioning](versioning.md).
 
 
 ### Hash Constraints
 
+
 ## Issues when using the HashAttachmentConstraint
+
 When setting up a new network, it is possible to encounter errors when states are issued with the `HashAttachmentConstraint`,
                 but not all nodes have that same version of the CorDapp installed locally.
 
@@ -204,6 +217,7 @@ In this case, flows will fail with a `ContractConstraintRejection`, and are sent
 
 
 ## Hash constrained states in private networks
+
 Where private networks started life using CorDapps with hash constrained states, we have introduced a mechanism to relax the checking of
                 these hash constrained states when upgrading to signed CorDapps using signature constraints.
 
@@ -219,6 +233,7 @@ This flag should remain enabled until every hash constrained state is exited fro
 
 
 ### Contract/State Agreement
+
 Starting with Corda 4, a `ContractState` must explicitly indicate which `Contract` it belongs to. When a transaction is
                     verified, the contract bundled with each state in the transaction must be its “owning” contract, otherwise we cannot guarantee that
                     the transition of the `ContractState` will be verified against the business rules that should apply to it.
@@ -289,6 +304,7 @@ If a `ContractState`’s owning `Contract` cannot be identified by either of the
 
 
 ### Using Contract Constraints in Transactions
+
 The app version used by a transaction is defined by its attachments. The JAR containing the state and contract classes, and optionally its
                     dependencies, are all attached to the transaction. Nodes will download this JAR from other nodes if they haven’t seen it before,
                     so it can be used for verification.
@@ -351,6 +367,7 @@ private fun transaction(): TransactionBuilder {
 
 
 ### CorDapps as attachments
+
 CorDapp JARs (see [What is a CorDapp?](cordapp-overview.md)) that contain classes implementing the `Contract` interface are automatically
                     loaded into the `AttachmentStorage` of a node, and made available as `ContractAttachments`.
 
@@ -370,6 +387,7 @@ The obvious way to write a CorDapp is to put all you states, contracts, flows an
 
 
 ### Constraints propagation
+
 As was mentioned above, the `TransactionBuilder` API gives the CorDapp developer or even malicious node owner the possibility
                     to construct output states with a constraint of their choosing.
 
@@ -393,16 +411,19 @@ During transaction building the `AutomaticPlaceholderConstraint` for output stat
 
 
 ### Constraints migration to Corda 4
+
 Please read [CorDapp constraints migration](cordapp-constraint-migration.md) to understand how to consume and evolve pre-Corda 4 issued hash or CZ whitelisted constrained states
                     using a Corda 4 signed CorDapp (using signature constraints).
 
 
 ### Debugging
+
 If an attachment constraint cannot be resolved, a `MissingContractAttachments` exception is thrown. There are three common sources of
                     `MissingContractAttachments` exceptions:
 
 
 ## Not setting CorDapp packages in tests
+
 You are running a test and have not specified the CorDapp packages to scan.
                 When using `MockNetwork` ensure you have provided a package containing the contract class in `MockNetworkParameters`. See [API: Testing](api-testing.md).
 
@@ -448,12 +469,14 @@ Driver.driver(
 
 
 ## Starting a node missing CorDapp(s)
+
 When running the Corda node ensure all CordDapp JARs are placed in `cordapps` directory of each node.
                 By default Gradle Cordform task `deployNodes` copies all JARs if CorDapps to deploy are specified.
                 See generating-a-node for detailed instructions.
 
 
 ## Wrong fully-qualified contract name
+
 You are specifying the fully-qualified name of the contract incorrectly. For example, you’ve defined `MyContract` in
                 the package `com.mycompany.myapp.contracts`, but the fully-qualified contract name you pass to the
                 `TransactionBuilder` is `com.mycompany.myapp.MyContract` (instead of `com.mycompany.myapp.contracts.MyContract`).

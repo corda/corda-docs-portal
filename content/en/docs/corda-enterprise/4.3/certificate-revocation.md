@@ -1,10 +1,14 @@
 ---
-title: "Certificate revocation list"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Certificate revocation list
+version: corda-enterprise-4-3
 ---
 
 
 # Certificate revocation list
+
 The certificate revocation list consists of certificate serial numbers of issued certificates that are no longer valid.
             It is used by nodes when they establish a TLS connection between each other and need to ensure on certificate validity.
             In order to add entries to the certificate revocation list there is the certificate revocation process that resembles
@@ -23,6 +27,7 @@ Note: It is assumed that the signed certificate revocation list is always availa
 
 
 ## HTTP certificate revocation protocol
+
 The set of REST end-points for the revocation service are as follows.
 
 Submission of the certificate revocation requests expects the following fields to be present in the request payload:

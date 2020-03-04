@@ -1,10 +1,15 @@
 ---
-title: "Database schema setup"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-node
+title: Database schema setup
+version: corda-enterprise-4-3
 ---
 
 
 # Database schema setup
+
 Corda Enterprise supports the commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
             This document provides instructions describing how to create database schemas (user permissions, the Corda node’s tables, and other database objects),
             and how to configure Corda nodes to connect to a database with *restricted permissions* for production use.
@@ -27,6 +32,7 @@ Setting up a Corda node to connect to a database requires:
 
 
 ## 1. Creating a database user with schema permissions
+
 A database administrator must create a database user and a schema namespace with **restricted permissions**.
                 This grants the user access to DML execution only (to manipulate data itself e.g. select/delete rows).
                 This permission set is recommended for Corda nodes [Hot-cold high availability deployment](hot-cold-deployment.md) and production environments.
@@ -68,6 +74,7 @@ Creating database users with schema permissions for:
 
 
 ### Azure SQL
+
 Two database users need to be created; the first one with administrative permissions to create schema objects,
                     and the second with restrictive permissions for a Corda node.
                     The schema objects are created by a separate user rather than a default database administrator. This ensures the correct schema namespace
@@ -102,6 +109,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_
 ```
 
 ### SQL Server
+
 Two database users need to be created; the first with administrative permissions to create schema objects,
                     the second with restrictive permissions for a Corda node.
                     The schema objects are created by a separate user rather than a default database administrator. This ensures the correct schema namespace
@@ -140,6 +148,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_
 ```
 
 ### Oracle
+
 The design of Oracle is that a schema is essentially a user account. So the user has full control over that schema.
                     In order to restrict the permissions to the database, two users need to be created,
                     one with administrative permissions (*my_admin_user* in the SQL script) and the other with read only permissions (*my_user* in the SQL script).
@@ -172,6 +181,7 @@ The last permission for the *v_$parameter* view is needed when a database is run
 
 
 ### PostgreSQL
+
 Two database users need to be created; the first one with administrative permissions to create schema objects,
                     and the second with restrictive permissions for a Corda node.
                     Connect to the database as an administrator and run the following script to create both users:
@@ -202,6 +212,7 @@ ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences 
 ```
 
 ## 2. Database schema creation
+
 All data structures (tables, indexes) must be created before the Corda node connects to a database with **restricted permissions**.
                 Corda is released without a separate set of DDL scripts, instead a database administrator needs to use
                 the [Corda Database Management Tool](node-database.md#database-management-tool-ref) to output the DDL scripts and run the scripts against a database.
@@ -211,6 +222,7 @@ All data structures (tables, indexes) must be created before the Corda node conn
 
 
 ### 2.1. Create Liquibase management tables
+
 The Corda Database Management Tool needs to connect to a running database instance in order to output DDL script.
                     The presence of the *DATABASECHANGELOG* and *DATABASECHANGELOGLOCK* Liquibase management tables is required as well.
                     The database administrator needs to create these tables manually.
@@ -230,6 +242,7 @@ DDL script for management tables for:
 
 
 #### Azure SQL and SQL Server
+
 DDL script to create Liquibase control tables for Azure SQL and SQL Server:
 
 ```sql
@@ -258,6 +271,7 @@ CONSTRAINT PK_DATABASECHANGELOGLOCK PRIMARY KEY (ID));
 ```
 
 #### Oracle
+
 DDL script to create Liquibase control tables for Oracle, change the *users* tablespace if necessary:
 
 ```sql
@@ -286,6 +300,7 @@ CONSTRAINT "PK_DATABASECHANGELOGLOCK" PRIMARY KEY ("ID")) TABLESPACE users;
 ```
 
 #### PostgreSQL
+
 DDL script to create Liquibase control tables and allow the restricted user (*my_user*) read only access to the *databasechangelog* table.
                         Run th script as user with the schema administrative permissions (*my_admin_user*):
 
@@ -317,6 +332,7 @@ REVOKE INSERT, UPDATE, DELETE ON TABLE "my_schema".databasechangelog FROM my_use
 ```
 
 ### 2.2. Configure the Database Management Tool
+
 The Corda Database Management Tool needs access to a running database.
                     The tool is configured in a similar way to the Corda node.
                     A base directory needs to be provided with he following content:
@@ -350,6 +366,7 @@ Copy CorDapps to the *cordapps* subdirectory, this is required to collect and ex
 
 
 #### Azure SQL
+
 The required `node.conf` settings for the Database Management Tool using Azure SQL:
 
 > 
@@ -374,6 +391,7 @@ The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center]
 
 
 #### SQL Server
+
 The required `node.conf` settings for the Database Management Tool using SQL Server:
 
 > 
@@ -396,6 +414,7 @@ The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center]
 
 
 #### Oracle
+
 The required `node.conf` settings for the Database Management Tool using Oracle:
 
 > 
@@ -418,6 +437,7 @@ Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 
 
 
 #### PostgreSQL
+
 The required `node.conf` settings for the Database Management Tool using PostgreSQL:
 
 > 
@@ -441,6 +461,7 @@ Copy PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` direc
 
 
 ### 2.3. Extract the DDL script using Database Management Tool
+
 To run the tool use the following command:
 
 > 
@@ -457,6 +478,7 @@ A script will be generated named *migration/*.sql* in the base directory.
 
 
 ### 2.4. Apply DDL scripts on a database
+
 The generated DDL script can be applied by the database administrator using their tooling of choice.
 
 The script needs to be executed by a database user with the *administrative* permissions,
@@ -503,11 +525,13 @@ For Oracle databases the script may contain the command for *SQL Plus*, if you a
 ```
 
 ### 2.5. Add permission to use tables
+
 For some databases the specific permissions can be assigned only after the tables are created.
                     This step is required for Oracle databases only.
 
 
 ### Oracle
+
 Connect to the database as administrator (any user which can create other users, *my_admin_user* has no such privileges)
                     and run the following DDL script:
 
@@ -577,6 +601,7 @@ Grant *SELECT*, *INSERT*, *UPDATE*, *DELETE* permissions to *my_user* for all cu
 ```
 
 ## 3. Corda node configuration
+
 The following updates are required to the filesystem of a node:
 
 > 
@@ -647,6 +672,7 @@ Configuration templates for each database vendor are shown below:
 
 
 ### Azure SQL
+
 Example node configuration file for Azure SQL:
 
 > 
@@ -674,6 +700,7 @@ The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center]
 
 
 ### SQL Server
+
 Example node configuration file for  SQL Server:
 
 > 
@@ -707,6 +734,7 @@ Ensure JDBC connection properties match the SQL Server setup. Especially when tr
 
 
 ### Oracle
+
 Example node configuration file for Oracle:
 
 > 
@@ -802,6 +830,7 @@ Finally, start up the node with the following system properties set to the locat
 ```
 
 ### PostgreSQL
+
 Example node configuration file for PostgreSQL:
 
 > 
@@ -830,15 +859,18 @@ Place the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* in the node directo
 
 
 ## 4. Database configuration
+
 Additional vendor specific database configuration.
 
 
 ### SQL Server
+
 The database collation should be *case insensitive*, refer to
                     [Server Configuration documentation](https://docs.microsoft.com/en-us/sql/sql-server/install/server-configuration-collation?view=sql-server-2014&viewFallbackFrom=sql-server-2017).
 
 
 ### Oracle
+
 To allow *VARCHAR2* and *NVARCHAR2* column types to store more than 2000 characters, ensure the database instance is configured to use
                     extended data types. For example, for Oracle 12.1 refer to [MAX_STRING_SIZE](https://docs.oracle.com/database/121/REFRN/GUID-D424D23B-0933-425F-BC69-9C0E6724693C.htm#REFRN10321).
 

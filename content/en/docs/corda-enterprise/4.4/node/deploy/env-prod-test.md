@@ -1,10 +1,14 @@
 ---
-title: "Deploying in a testing or production environment"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Deploying in a testing or production environment
+version: corda-enterprise-4-4
 ---
 
 
 # Deploying in a testing or production environment
+
 These instructions will guide the user through the UAT or production configuration to deploy the following components. They are intended for firms deploying Corda Enterprise.
 
 
@@ -33,6 +37,7 @@ There are alternative approaches to how these components are deployed. For the p
 
 
 ## Deployment scenarios for testing and production environments
+
 When deploying Corda Enterprise in a testing environment the Node, Bridge, and Float components should be deployed in a non-HA configuration as shown in the following diagram.
 
 
@@ -41,6 +46,7 @@ When deploying Corda Enterprise in a testing environment the Node, Bridge, and F
 
 ![ha](node/deploy/../../resources/ha.png "ha")
 ### Deployment details
+
 
 * Corda Nodes run in a Hot/Cold Setup.
 
@@ -78,7 +84,9 @@ When deploying Corda Enterprise in a testing environment the Node, Bridge, and F
 
 ## Installation steps
 
+
 ### Installing Java 8 on the VM
+
 Java 8 JDK should be installed on your virtual machine. Refer to your internal processes for installation procedures.
 
 These are the configuration files that will be created during the process:
@@ -113,6 +121,7 @@ You can find examples of configuration files [available here](https://docs.corda
 
 
 ### Installing the Corda Node
+
 
 * Upload the appropriate `corda-<version>.jar` file to the Node root directory.
 
@@ -224,6 +233,7 @@ This is a sample `node.conf` which details a configuration connecting to the Cor
 ```
 [nodefull.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/nodefull.conf)
 ### Implementing the Corda Firewall PKI
+
 In a bank environment there will typically be several layers of security protecting the firms data.
 
 ![cordarch](node/deploy/../../resources/cordarch.png "cordarch")*Network Authentication*
@@ -258,6 +268,7 @@ In a bank environment there will typically be several layers of security protect
 
 
 ### Explanation of PKI Keys
+
 **Node Authentication**
 
 `truststore.jks` - this is the same trust store that the Node is bootstrapped with during initial registration. It contains the `cordarootca` certificate - this is the public, root certificate of the entire network. It needs to be copied to the Bridge when it is set up. Note that the truststore is also dynamically copied from the Bridge to the Float at runtime (and is held in memory only on the Float). The truststore is used for authenticating Nodes that connect to the Bridge and Float.
@@ -272,12 +283,14 @@ In a bank environment there will typically be several layers of security protect
 
 
 ### Generate Bridge and Float keystores
+
 For Float and Bridge to communicate a tunnel keystore must be created. To create a tunnel keystore, run the following command:
 
 `java -jar corda-tools-ha-utilities-4.1.jar generate-internal-tunnel-ssl-keystores -p tunnelStorePass -e tunnelPrivateKeyPassword -t tunnelTrustpass`
 
 
 ### Bridge Installation
+
 
 * Upload the `corda-firewall-4.1.jar` to the /opt/cordabridge directory.
 
@@ -340,6 +353,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 [bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge.conf)
 ### Float Installation
 
+
 * Create an /opt/cordafloat directory on your VM
 
 
@@ -384,10 +398,12 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade
+
 In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found here : [https://docs.corda.r3.com/releases/master/corda-firewall-upgrade.html](https://docs.corda.r3.com/releases/master/corda-firewall-upgrade.html)
 
 
 ### Port Policy and Network Configuration
+
 Connections with the Corda Network Doorman and Network Map services (inbound and outbound traffic) will be over HTTP/HTTPS on ports 80 and 443.
 
 Connections with peer Corda Nodes (including Notaries) will happen on a peer-to-peer connection using AMQP/TLS typically in a port range of 10000 - 10099, though port use is determined by the Node owner.
@@ -398,6 +414,7 @@ Administrative logins with the Corda Node happen via ssh whose port is configure
 
 
 ### Suggested Work flow for Corda Node & Corda Firewall Installation
+
 
 * Run ifconfig on Node VM.
 
@@ -441,10 +458,12 @@ The following image may be helpful in ensuring alignment between the Node, Bridg
 {{< /note >}}
 
 ### Proxy Configurations
+
 You will likely need to establish proxy servers, one for HTTP connection to the Doorman and Network Map services, and Socks proxy to be used with the Corda Firewall for P2P communication Corda Nodes. Please note the examples below are for demonstration purposes only, it is assumed most financial institutions will already have Enterprise Proxy Server deployments in place and available for use by the Corda Firewall.
 
 
 ## Using HTTP Proxy with Corda
+
 Many financial institutions will use an HTTP Proxy Server to monitor connections going out to the Internet. Corda facilitates the use of an HTTP Proxy to access the Doorman & Network map via HTTPS GET requests.
 
 The following is an example of how to set up a Squid Proxy Server and start the Corda Node to point to it as a “tunnel” to connect to Doorman and Network Map.
@@ -534,6 +553,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 > ```
 > [access.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/access.conf)
 ## Using Socks Proxy with Corda Bridge
+
 R3 strongly recommend the use of a SOCKS Proxy in conjunction with the Corda Firewall to access peers on the network for P2P communication.
 
 SOCKS is a general purpose proxy server that establishes a TCP connection to another server on behalf of a client, then routes all the traffic back and forth between the client and the server. It works for any kind of network protocol on any port. SOCKS Version 5 adds additional support for security and UDP. By contrast an HTTP Proxy only understands HTTP traffic.

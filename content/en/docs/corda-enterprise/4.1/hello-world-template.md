@@ -1,11 +1,15 @@
 ---
-title: "The CorDapp Template"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: The CorDapp Template
+version: corda-enterprise-4-1
 ---
 
 
 
 # The CorDapp Template
+
 When writing a new CorDapp, you’ll generally want to start from one of the standard templates:
 
 
@@ -23,6 +27,7 @@ Note that there’s no need to download and install Corda itself. The required l
 
 
 ## Downloading the template
+
 Open a terminal window in the directory where you want to download the CorDapp template, and run the following command:
 
 
@@ -44,11 +49,13 @@ git clone https://github.com/corda/cordapp-template-kotlin.git ; cd cordapp-temp
 
 
 ## Opening the template in IntelliJ
+
 Once the template is download, open it in IntelliJ by following the instructions here:
                 [https://docs.corda.net/tutorial-cordapp.html#opening-the-example-cordapp-in-intellij](https://docs.corda.net/tutorial-cordapp.html#opening-the-example-cordapp-in-intellij).
 
 
 ## Template structure
+
 For this tutorial, we will only be modifying the following files:
 
 
@@ -78,6 +85,7 @@ workflows/src/main/kotlin/com/template/flows/Flows.kt
 
 
 ## Progress so far
+
 We now have a template that we can build upon to define our IOU CorDapp. Let’s start by defining the `IOUState`.
 
 

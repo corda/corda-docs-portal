@@ -1,10 +1,14 @@
 ---
-title: "Secure coding guidelines"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Secure coding guidelines
+version: corda-os-4-4
 ---
 
 
 # Secure coding guidelines
+
 The platform does what it can to be secure by default and safe by design. Unfortunately the platform cannot
             prevent every kind of security mistake. This document describes what to think about when writing applications
             to block various kinds of attack. Whilst it may be tempting to just assume no reasonable counterparty would
@@ -14,6 +18,7 @@ The platform does what it can to be secure by default and safe by design. Unfort
 
 
 ## Flows
+
 [Writing flows](flow-state-machines.md) are how your app communicates with other parties on the network. Therefore they
                 are the typical entry point for malicious data into your app and must be treated with care.
 
@@ -47,6 +52,7 @@ The theme should be clear: signing is a very sensitive operation, so you need to
 
 
 ## Contracts
+
 Contracts are arbitrary functions inside a JVM sandbox and therefore they have a lot of leeway to shoot themselves
                 in the foot. Things to watch out for:
 

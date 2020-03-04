@@ -1,14 +1,19 @@
 ---
-title: "Using the Node Explorer to test a Corda node on Corda Testnet"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Using the Node Explorer to test a Corda node on Corda Testnet
+version: corda-os-4-1
 ---
 
 
 # Using the Node Explorer to test a Corda node on Corda Testnet
+
 This document will explain how to test the installation of a Corda node on Testnet.
 
 
 ## Prerequisites
+
 This guide assumes you have deployed a Corda node to the Corda Testnet.
 
 
@@ -18,6 +23,7 @@ If you need to set up a node on Testnet first please follow the instructions: [J
 {{< /note >}}
 
 ## Get the testing tools
+
 To run the tests and make sure your node is connecting correctly to the network you will need to download and install a
                 couple of resources.
 
@@ -95,6 +101,7 @@ java -jar corda-tools-explorer-4.1-corda.jar
 ![explorer login](resources/explorer-login.png "explorer login")
 
 ## Connect to the node
+
 To connect to the node you will need:
 
 
@@ -113,6 +120,7 @@ Click on `Connect` to log into the node.
 
 
 ## Check your network identity and counterparties
+
 Once Explorer has logged in to your node over RPC click on the `Network` tab in the side navigation of the Explorer UI:
 
 ![explorer network](resources/explorer-network.png "explorer network")If your Corda node is correctly configured and connected to the Testnet then you should be able to see the identities of
@@ -120,6 +128,7 @@ Once Explorer has logged in to your node over RPC click on the `Network` tab in 
 
 
 ## Test issuance transaction
+
 Now we are going to try and issue some cash to a ‘bank’. Click on the `Cash` tab.
 
 ![explorer cash issue1](resources/explorer-cash-issue1.png "explorer cash issue1")Now click on `New Transaction` and create an issuance to a known counterparty on the network by filling in the form:

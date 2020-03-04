@@ -1,10 +1,15 @@
 ---
-title: "Corda Enterprise cloud images"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-node
+title: Corda Enterprise cloud images
+version: corda-enterprise-4-1
 ---
 
 
 # Corda Enterprise cloud images
+
 Corda Enteprise is avaliable as a Virtual Machine image on AWS and Azure.
             These are simple Linux VM images with a JDK supported by both cloud providers and Corda Enterprise.
             Alongside the Corda Enterprise JAR the image contains an example `node.conf` file and `dbconfig.conf` file for H2 DB.
@@ -12,6 +17,7 @@ Corda Enteprise is avaliable as a Virtual Machine image on AWS and Azure.
 
 
 ## Corda Enterprise for Azure
+
 
 {{< note >}}
 Corda Enterprise for Azure is based on Ubuntu Linux and has Azul Enterprise OpenJDK installed.
@@ -72,6 +78,7 @@ sudo systemctl status corda
 ```
 
 ## Corda Enterprise for AWS
+
 
 {{< note >}}
 Corda Enterprise for AWS is based on Amazon Linux 2 and has Corretto JDK installed.

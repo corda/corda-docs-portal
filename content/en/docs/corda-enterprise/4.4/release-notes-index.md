@@ -1,10 +1,14 @@
 ---
-title: "Release Notes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Release Notes
+version: corda-enterprise-4-4
 ---
 
 
 # Release Notes
+
 
 * [Corda release notes](release-notes.md)
 

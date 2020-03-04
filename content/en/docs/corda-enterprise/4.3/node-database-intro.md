@@ -1,10 +1,15 @@
 ---
-title: "Database management"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-node
+title: Database management
+version: corda-enterprise-4-3
 ---
 
 
 # Database management
+
 The Corda platform, and the installed CorDapps store their data in a relational database.
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle and PostgreSQL.

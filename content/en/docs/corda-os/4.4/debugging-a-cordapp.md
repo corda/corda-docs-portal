@@ -1,14 +1,19 @@
 ---
-title: "Debugging a CorDapp"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Debugging a CorDapp
+version: corda-os-4-4
 ---
 
 
 # Debugging a CorDapp
+
 There are several ways to debug your CorDapp.
 
 
 ## Using a `MockNetwork`
+
 You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to a
                 `MockNetwork` to debug your CorDapp:
 
@@ -29,11 +34,13 @@ You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/
 
 
 ## Using the node driver
+
 You can also attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to nodes
                 running via the node driver to debug your CorDapp.
 
 
 ### With the nodes in-process
+
 
 * Define a network using the node driver as per [Integration testing](tutorial-integration-testing.md)
 
@@ -59,6 +66,7 @@ You can also attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/
 
 
 ### With remote debugging
+
 
 * Define a network using the node driver as per [Integration testing](tutorial-integration-testing.md)
 
@@ -105,6 +113,7 @@ You can also attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/
 
 
 ## By enabling remote debugging on a node
+
 See [Enabling remote debugging](node-commandline.md#enabling-remote-debugging).
 
 

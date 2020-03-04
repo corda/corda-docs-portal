@@ -1,10 +1,14 @@
 ---
-title: "Hello, World! Pt.2 - Contract constraints"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Hello, World! Pt.2 - Contract constraints
+version: corda-os-4-1
 ---
 
 
 # Hello, World! Pt.2 - Contract constraints
+
 
 {{< note >}}
 This tutorial extends the CorDapp built during the [Hello, World tutorial](hello-world-introduction.md).

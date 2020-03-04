@@ -1,10 +1,14 @@
 ---
-title: "Building CorDapps against a non-release branch"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Building CorDapps against a non-release branch
+version: corda-enterprise-4-4
 ---
 
 
 # Building CorDapps against a non-release branch
+
 It is advisable to develop CorDapps against the most recent Corda stable release. However, you may need to build a CorDapp
             against an unstable non-release branch if your CorDapp uses a very recent feature, or you are using the CorDapp to test a PR
             on the main codebase.

@@ -1,11 +1,16 @@
 ---
-title: "Using the client RPC API"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3:
+    parent: corda-os-4-3-tutorial
+title: Using the client RPC API
+version: corda-os-4-3
 ---
 
 
 
 # Using the client RPC API
+
 In this tutorial we will build a simple command line utility that connects to a node, creates some cash transactions
             and dumps the transaction graph to the standard output. We will then put some simple visualisation on top. For an
             explanation on how RPC works in Corda see [Interacting with a node](clientrpc.md).
@@ -489,6 +494,7 @@ Now let’s try to visualise the transaction graph. We will use a graph drawing 
 
 
 ## Whitelisting classes from your CorDapp with the Corda node
+
 As described in [Interacting with a node](clientrpc.md), you have to whitelist any additional classes you add that are needed in RPC
                 requests or responses with the Corda node.  Here’s an example of both ways you can do this for a couple of example classes.
 
@@ -510,6 +516,7 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 
 
 ## Security
+
 RPC credentials associated with a Client must match the permission set configured on the server node.
                 This refers to both authentication (username and password) and role-based authorisation (a permissioned set of RPC operations an
                 authenticated user is entitled to run).

@@ -1,10 +1,14 @@
 ---
-title: "Configuring the ENM services to use SSL"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Configuring the ENM services to use SSL
+version: cenm-1-1
 ---
 
 
 # Configuring the ENM services to use SSL
+
 The following components of the ENM suite can all be configured to encrypt their inter-process communication channels.
 
 
@@ -22,6 +26,7 @@ How to configure this is discussed in this section, whilst the flow of informati
 
 ![enm with ssl](resources/enm-with-ssl.png "enm with ssl")
 ## Recommended Key and Cert hierarchy
+
 For SSL to work some PKI infrastructure must be in place. We recommend generating a self signed root key that can
                 then be used to sign a key for each service. This way, all that needs distributing to the machines hosting the JVMs
                 running the ENM components is a keystore containing the trust root (the Certificate representing the root key) and a
@@ -56,6 +61,7 @@ A single self-signed key can be used. However, we consider this a less secure op
 {{< /note >}}
 
 ## Configuration
+
 In general ENM components are configured with SSL via the inclusion of an `ssl` config block
                 #. The SSL settings themselves, locations of keystores and passwords
                 #. The enabling of individual communication channels to use SSL.
@@ -79,6 +85,7 @@ By client, we are referring to elements of the ENM suite talking to another that
 {{< /note >}}
 
 ### SSL Certificate Configuring
+
 All components should be configured to use SSL with the following configuration block. More details can be found in
                     [Identity Manager Configuration Parameters](config-identity-manager-parameters.md) and [Network Map Configuration Parameters](config-network-map-parameters.md)
 
@@ -134,6 +141,7 @@ ssl = {
 ```
 
 ### Server Side Enablement
+
 Those services that open ports for other ENM components to talk to can enable SSL by including the above settings within
                     their `enmListener` configuration block:
 
@@ -161,6 +169,7 @@ This will include the `Network Map` as well as both the `Issuance` and `Revocati
 
 
 ### Client Side Enablement
+
 Those ENM services which need to talk to other services as a client are configured similarly to the above, on a
                     per-service basis. For example, the Network Map is configured to talk to the Identity Manager thusly:
 
@@ -184,6 +193,7 @@ When SSL is enabled on the Identity Manager it must be set here. This will cause
 
 
 ### Sharing SSL Settings
+
 For some services, such as the Network Map, it is possible multiple SSL configuration blocks within the configuration
                     file. It is considered to be most secure if each of these connections use a unique set of SSL keys, however in some
                     situations it may be desirable to use the same SSL keys and certificates across multiple connections. To avoid
@@ -225,12 +235,14 @@ revocation = {
 ```
 
 ## An Example
+
 The following configuration files configure a small test deployment of the ENM suite of tools on a single machine.
                 This is why all of the services are binding to localhost and can refer to a central location for the PKI and
                 SSL certificates as well as the JAR files.
 
 
 ### Identity Manager and Revocation Service
+
 ```docker
 address = "localhost:10000"
 
@@ -309,6 +321,7 @@ shell {
 ```
 [identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)
 ### Network Map Service
+
 ```docker
 address = "localhost:20000"
 
@@ -371,6 +384,7 @@ shell {
 ```
 [network-map-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-prod-valid.conf)
 ### Signing Service
+
 ```docker
 shell = {
   sshdPort = 20003

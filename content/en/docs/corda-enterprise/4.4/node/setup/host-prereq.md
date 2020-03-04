@@ -1,12 +1,17 @@
 ---
-title: "Host prerequisites and database requirements"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Host prerequisites and database requirements
+version: corda-enterprise-4-4
 ---
 
 
 # Host prerequisites and database requirements
 
+
 ## Operating Systems Supported in Production
+
 
 {{< table >}}
 
@@ -21,6 +26,7 @@ date: 2020-01-08T09:59:25Z
 
 ## Operating Systems Supported in Development
 
+
 {{< table >}}
 
 |Platform|CPU Architecture|Versions|
@@ -34,6 +40,7 @@ date: 2020-01-08T09:59:25Z
 {{< /table >}}
 
 ## Corda Vault
+
 
 {{< table >}}
 
@@ -51,16 +58,19 @@ date: 2020-01-08T09:59:25Z
 {{< /table >}}
 
 ## Sizing
+
 The recommended minimum vault database size is 2GB. As with the Corda node, the use case determines the sizing needs for the database. When testing in your development environment, pay attention to the size of objects created in the `NODE_CHECKPOINTS` and `NODE_TRANSACTIONS` tables, to inform the sizing requirements of your use case. Some guidance on this is provided in: [Sizing and Performance: Database server configuration](../sizing-and-performance.html). In a production implementation, a separate high availability database instance should be deployed for each Corda node. However, it’s possible to create separate schema for each node within a single database instance subject to performance, availability and security constraints (the schema to be used is defined in the node config file).
 
 Corda Enterprise uses Liquibase to generate the requisite database schemas for both the Corda node the CorDapps the node has installed. The `runMigration` parameter controls whether these database schemas are generated automatically. In many production scenarios, you may require more control over the creation and running of those scripts. In these cases, set `runMigration` to false. The [Corda Enterprise Database Management Tool](../database-management.html#creating-script-for-initial-table-creation-using-corda-database-management-tool) can assist a database administrator by creating scripts for initial table creation.
 
 
 ## Corda Node, Bridge and Float
+
 Prerequisite and sizing information for the Corda Node, Bridge and Float components.
 
 
 ### VM Sizing Guidelines
+
 
 {{< note >}}
 R3 recommend a max Java heap memory size of 4 GB be allocated to a Corda Node running in a production environment.
@@ -104,6 +114,7 @@ Recommended production specification for multiple nodes
 
 
 ### Additional Details
+
 JDBC Connectivity from the Corda node to the Corda vault is required to create Corda system tables on startup as well as storing application tables/logic. Corda stores information about several aspects of the Corda node and network in tables in the vault.
 
 During deployment the following system (not user) tables will be created in the vault database:

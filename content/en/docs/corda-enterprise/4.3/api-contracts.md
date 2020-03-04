@@ -1,11 +1,16 @@
 ---
-title: "API: Contracts"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-api
+title: 'API: Contracts'
+version: corda-enterprise-4-3
 ---
 
 
 
 # API: Contracts
+
 
 {{< note >}}
 Before reading this page, you should be familiar with the key concepts of [Contracts](key-concepts-contracts.md).
@@ -13,6 +18,7 @@ Before reading this page, you should be familiar with the key concepts of [Contr
 {{< /note >}}
 
 ## Contract
+
 Contracts are classes that implement the `Contract` interface. The `Contract` interface is defined as follows:
 
 
@@ -44,9 +50,10 @@ interface Contract {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
+[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 `Contract` has a single method, `verify`, which takes a `LedgerTransaction` as input and returns
                 nothing. This function is used to check whether a transaction proposal is valid, as follows:
@@ -132,6 +139,7 @@ public void verify(LedgerTransaction tx) {
 
 
 ## LedgerTransaction
+
 The `LedgerTransaction` object passed into `verify` has the following properties:
 
 
@@ -166,9 +174,10 @@ The `LedgerTransaction` object passed into `verify` has the following properties
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [LedgerTransaction.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt)
+[LedgerTransaction.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Where:
 
@@ -217,6 +226,7 @@ Where:
 
 
 ## requireThat
+
 `verify` can be written to manually throw an exception for each constraint:
 
 
@@ -288,6 +298,7 @@ For each <`String`, `Boolean`> pair within `requireThat`, if the boolean conditi
 
 
 ## Commands
+
 `LedgerTransaction` contains the commands as a list of `CommandWithParties` instances. `CommandWithParties` pairs
                 a `CommandData` with a list of required signers for the transaction:
 
@@ -310,9 +321,10 @@ data class CommandWithParties<out T : CommandData>(
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
+[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Where:
 
@@ -328,6 +340,7 @@ Where:
 
 
 ### Branching verify with commands
+
 Generally, we will want to impose different constraints on a transaction based on its commands. For example, we will
                     want to impose different constraints on a cash issuance transaction to on a cash transfer transaction.
 

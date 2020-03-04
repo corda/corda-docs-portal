@@ -1,10 +1,15 @@
 ---
-title: "Upgrading a Corda (open source) Node to Corda Enterprise"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-node
+title: Upgrading a Corda (open source) Node to Corda Enterprise
+version: corda-enterprise-4-3
 ---
 
 
 # Upgrading a Corda (open source) Node to Corda Enterprise
+
 A Corda (open source) node can be upgraded to Corda Enterprise.
             If the same database is to be reused, the most complicated steps are ensuring custom CorDapps contain
             Liquibase database management scripts and adding these scripts into the database change log table.
@@ -17,6 +22,7 @@ An upgrade from the older Corda (open source) release (3.x) is also feasible,
 
 
 ## Upgrade from Corda (open source) to Corda Enterprise
+
 To upgrade Corda (open source) to Corda Enterprise within the same major release version, follow the Corda node upgrade procedure.
                 The database upgrade steps need to be replaced by those specified below,
                 depending if you are [reusing the same database](#node-operations-upgrading-os-to-ent-1)
@@ -24,6 +30,7 @@ To upgrade Corda (open source) to Corda Enterprise within the same major release
 
 
 ### Reusing an existing database
+
 
 * Ensure CorDapps contain Liquibase database management scripts.
                             You can check if the CorDapp JAR contains Liquibase scripts as described in [here](node-operations-cordapp-deployment.md#cordapp-deploymnet-database-setup-ref).
@@ -75,6 +82,7 @@ Copy selected insert statements and execute them on the database, using the corr
 
 ### Migrating from the H2 database to another database vendor
 
+
 {{< note >}}
 Switching from an H2 development database to a commercial production database requires migrating both schemas and data.
                         Specialist third party tools are available on the market to facilitate this activity. Please contact R3 for advice on specialised tooling
@@ -101,6 +109,7 @@ The migration from the H2 database requires a third party specialized tool.
 
 
 ## Upgrade from an older Corda (open source) release to Corda Enterpise
+
 CorDapps, contracts and states written for Corda 3.x and Corda 4.x are compatible with Corda Enterprise 4.3, so upgrading
                 existing open source Corda nodes should be a simple case of updating the Corda JAR.
                 See [Upgrading your node to Corda 4](node-upgrade-notes.md) for general instructions on upgrading your node.
@@ -112,11 +121,13 @@ Please ensure you follow the instructions in [Upgrade Notes](https://docs.corda.
 
 
 ### Reusing an existing database
+
 To reuse an existing database, follow the same database instructions as
                     [upgrading withing the same Corda version](#node-operations-upgrading-os-to-ent-1).
 
 
 ### Migrating from H2 database to other database vendor
+
 
 {{< note >}}
 Switching from an H2 development database to a commercial production database requires the migration of both schema and data.
@@ -129,6 +140,7 @@ To migrate from a H2 database to another database, follow the same database inst
 
 
 ## Using a third-party tool to migrate data from a H2 database
+
 R3 has trialled the third-party commercial tool [Full Convert](https://www.spectralcore.com/fullconvert) for migrating from a H2 database
                 to a 3rd party commercial databases.
                 It can be used via the GUI application or from the command-line, however it only runs on Windows: Vista SP2 and later, as well as Windows Server 2008 and later.

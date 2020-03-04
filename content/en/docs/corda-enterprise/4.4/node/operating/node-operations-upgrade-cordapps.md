@@ -1,10 +1,15 @@
 ---
-title: "Upgrading CorDapps on a node"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-node
+title: Upgrading CorDapps on a node
+version: corda-enterprise-4-4
 ---
 
 
 # Upgrading CorDapps on a node
+
 In order to upgrade a CorDapp on a node to a new version, it needs to be determined whether any backwards compatible
             changes have been made. These could range from database changes, to changes in the protocol.
 
@@ -14,12 +19,14 @@ To be compatible with Corda Enterprise, CorDapps need to bundle database migarat
 
 
 ## Flow upgrades
+
 If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](../../cordapps/upgrading-cordapps.md#upgrading-cordapps-backwards-incompatible-flow-changes)
                 for more information), the upgrade method detailed below will need to be followed. Otherwise the CorDapp JAR can just
                 be replaced with the new version.
 
 
 ## Contract and State upgrades
+
 There are two types of contract/state upgrade:
 
 
@@ -48,6 +55,7 @@ In an explicit upgrade contracts and states can be changed in arbitrary ways, if
 
 
 ## Running the upgrade
+
 If a contract or state requires an explicit upgrade then all states will need updating to the new contract at a time agreed
                 by all participants. The updated CorDapp JAR needs to be distributed to all relevant parties in advance of the changeover
                 time.

@@ -1,10 +1,14 @@
 ---
-title: "Tutorials"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Tutorials
+version: corda-os-4-3
 ---
 
 
 # Tutorials
+
 This section is split into two parts.
 
 The Hello, World tutorials should be followed in sequence and show how to extend the Java or Kotlin CorDapp Template

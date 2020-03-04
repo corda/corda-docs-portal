@@ -1,10 +1,14 @@
 ---
-title: "Versioning"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Versioning
+version: corda-os-4-3
 ---
 
 
 # Versioning
+
 As the Corda platform evolves and new features are added it becomes important to have a versioning system which allows
             its users to easily compare versions and know what feature are available to them. Each Corda release uses the standard
             semantic versioning scheme of `major.minor`. This is useful when making releases in the public domain but is not
@@ -14,6 +18,7 @@ As the Corda platform evolves and new features are added it becomes important to
 
 
 ## Platform version
+
 It is much easier to use a single incrementing integer value to represent the API version of the Corda platform, which
                 is called the *platform version*. It is similar to Android’s [API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html).
                 It starts at 1 and will increment by exactly 1 for each release which changes any of the publicly exposed APIs in the
@@ -29,6 +34,7 @@ The platform version is part of the node’s `NodeInfo` object, which is availab
 
 
 ## Minimum platform version
+
 Applications can advertise a *minimum platform version* they require. If your app uses new APIs that were added in (for example) Corda 5,
                 you should specify a minimum version of 5. This will ensure the app won’t be loaded by older nodes. If you can *optionally* use the new
                 APIs, you can keep the minimum set to a lower number. Attempting to use new APIs on older nodes can cause `NoSuchMethodError` exceptions
@@ -36,6 +42,7 @@ Applications can advertise a *minimum platform version* they require. If your ap
 
 
 ## Target version
+
 Applications can also advertise a *target version*. This is similar to the concept of the same name in Android and iOS.
                 Apps should advertise the highest version of the platform they have been tested against. This allows the node to activate or deactivate
                 backwards compatibility codepaths depending on whether they’re necessary or not, as workarounds for apps designed for earlier versions.
@@ -55,6 +62,7 @@ Target versioning is one of the mechanisms we have to keep the platform evolving
 
 
 ## Publishing versions in your JAR manifests
+
 A well structured CorDapp should be split into two separate modules:
 
 

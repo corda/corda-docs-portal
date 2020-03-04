@@ -3,7 +3,7 @@
 baseURL = "http://docs.corda.net/"
 
 # Nice stuff...
-title = "Developer Portal"
+title = "Corda Documentation"
 
 # Of course...
 theme = "r3"
@@ -50,7 +50,7 @@ unsafe = true
 
 #  We're not using this?
 [permalinks]
-blog = "/:section/:year/:month/:day/:slug/"
+blog = "/blog/:section/:year/:month/:day/:slug/"
 
 
 # Any params set in here override the ones above for that particular site (one site = one lang).

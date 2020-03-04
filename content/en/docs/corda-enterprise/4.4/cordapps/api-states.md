@@ -1,11 +1,16 @@
 ---
-title: "Writing CorDapp States"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: Writing CorDapp States
+version: corda-enterprise-4-4
 ---
 
 
 
 # Writing CorDapp States
+
 In Corda, a contract state (or just ‘state’) contains data used by a CorDapp. It can be thought of as a disk file that
             the CorDapp can use to persist data across transactions. States are immutable: once created they are never updated,
             instead, any changes must generate a new successor state. States can be updated (consumed) only once: the notary is
@@ -46,6 +51,7 @@ Among other things, the `participants` will:
 
 
 ## ContractState sub-interfaces
+
 The behaviour of the state can be further customised by implementing sub-interfaces of `ContractState`. The two most
                 common sub-interfaces are `LinearState` and `OwnableState`.
 
@@ -59,6 +65,7 @@ We can picture the hierarchy as follows:
 
 ![state hierarchy](cordapps/../resources/state-hierarchy.png "state hierarchy")
 ### LinearState
+
 The `LinearState` interface is defined as follows:
 
 ```kotlin
@@ -108,6 +115,7 @@ The new state will now become the latest state in the chain, representing the ne
 
 
 ### OwnableState
+
 The `OwnableState` interface is defined as follows:
 
 ```kotlin
@@ -144,6 +152,7 @@ Because `OwnableState` models fungible assets that can be merged and split over 
 
 
 ### FungibleState
+
 `FungibleState<T>` is an interface to represent things which are fungible, this means that there is an expectation that
                     these things can be split and merged. That’s the only assumption made by this interface. This interface should be
                     implemented if you want to represent fractional ownership in a thing, or if you have many things. Examples:
@@ -186,6 +195,7 @@ This interface has been added in addition to `FungibleAsset` to provide some add
 
 
 ### Other interfaces
+
 You can also customize your state by implementing the following interfaces:
 
 
@@ -199,6 +209,7 @@ You can also customize your state by implementing the following interfaces:
 
 
 ## User-defined fields
+
 Beyond implementing `ContractState` or a sub-interface, a state is allowed to have any number of additional fields
                 and methods. For example, here is the relatively complex definition for a state representing cash:
 
@@ -250,6 +261,7 @@ data class State(
 ```
 
 ## The vault
+
 Whenever a node records a new transaction, it also decides whether it should store each of the transaction’s output
                 states in its vault. The default vault implementation makes the decision based on the following rules:
 
@@ -266,6 +278,7 @@ States that are not considered relevant are not stored in the node’s vault. Ho
 
 
 ## TransactionState
+
 When a `ContractState` is added to a `TransactionBuilder`, it is wrapped in a `TransactionState`:
 
 ```kotlin
@@ -367,6 +380,7 @@ Where:
 
 
 ## Reference States
+
 A reference input state is a `ContractState` which can be referred to in a transaction by the contracts of input and
                 output states but whose contract is not executed as part of the transaction verification process. Furthermore,
                 reference states are not consumed when the transaction is committed to the ledger but they are checked for
@@ -412,6 +426,7 @@ Currently, encumbrances should not be used with reference states. In the case wh
 
 
 ## State Pointers
+
 A `StatePointer` contains a pointer to a `ContractState`. The `StatePointer` can be included in a `ContractState` as a
                 property, or included in an off-ledger data structure. `StatePointer` s can be resolved to a `StateAndRef` by performing
                 a look-up. There are two types of pointers; linear and static.

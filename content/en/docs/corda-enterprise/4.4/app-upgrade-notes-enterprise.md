@@ -1,15 +1,21 @@
 ---
-title: "Upgrading CorDapps to Corda Enterprise 4.4"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Upgrading CorDapps to Corda Enterprise 4.4
+version: corda-enterprise-4-4
 ---
 
 
 
 # Upgrading CorDapps to Corda Enterprise 4.4
 
+
 ## Upgrading from Open Source
 
+
 ### Running on Corda Enterprise 4.4
+
 A prerequisite to upgrade to Corda Enterprise 4.4 is to ensure your CorDapp is upgraded to Open Source Corda 4.x.
                     Please follow the instructions in [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md) section to complete this initial step.
 
@@ -26,6 +32,7 @@ Corda open source and Enterprise Public APIs are currently identical but this ma
 {{< /note >}}
 
 ### Re-compiling for Corda Enterprise 4.4
+
 Re-compiling your CorDapp requires updating its associated Gradle build file as follows:
 
 ```shell
@@ -114,6 +121,7 @@ ext.os_corda_release_version = '4.0'
 
 
 ## Upgrading from Enterprise 4.3 or earlier
+
 From Corda Enterprise 4.4 onwards, we are moving towards an open core strategy - therefore, the common APIs will only be available in Corda
                 Open Source, and Corda Enterprise has a binary dependency on the matching Open Source version. Therefore, any CorDapps written against
                 Corda Enterprise 4.4 or later will have to depend on the open source version of `corda-core`.
@@ -137,6 +145,7 @@ cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_re
 ```
 
 ## Upgrading from Enterprise 3.x
+
 Firstly, please update all your CorDapp project dependencies as described in [re-compiling for Corda Enterprise](#recompiling-for-enterprise).
 
 Adjust your CorDapp source code as necessary to take into account the following upgrade constraints:
@@ -177,6 +186,7 @@ The “classloader fallback mechanism” will be removed in a future version of 
 
 
 ### Example
+
 CorDapps built using the new [Token SDK](https://github.com/corda/token-sdk) fall into this category, specifically any CorDapp that
                     extends the Token SDK `EvolvableTokenType` which is an abstract class that indirectly implements `Contract`. The `build.gradle`
                     file of the 3rd party Contract CorDapp should specify inclusive Token SDK CorDapp dependencies as follows:

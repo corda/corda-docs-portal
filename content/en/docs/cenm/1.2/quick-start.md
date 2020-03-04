@@ -1,17 +1,23 @@
 ---
-title: "Enterprise Network Manager Quick-Start Guide"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Enterprise Network Manager Quick-Start Guide
+version: cenm-1-2
 ---
 
 
 # Enterprise Network Manager Quick-Start Guide
 
+
 ## Overview
+
 The following is a simple step by step guide for creating a subzone, consisting of an **Identity Manager service**,
                 **Network Map service** and **Notary node**.
 
 
 ## Pre-Requisites
+
 
 * The Identity Manager distribution zip
 
@@ -40,13 +46,16 @@ Throughout this guide placeholder values for external endpoints are used (e.g. `
 
 ## Steps
 
+
 ### Generate the PKI
+
 Before starting any services, the PKI first needs to be generated. This involves creating the certificates and key pairs
                     for all ENM services and determines what entities the nodes will trust. More information on the certificate hierarchy
                     is available in the [Certificate Hierarchy Guide](pki-guide.md) doc.
 
 
 #### Example Configuration
+
 The following is an example configuration file (`pki-generation.conf`) using the placeholder
                         `<IDENTITY_MANAGER_ADDRESS>` value. This should be replaced with the actual value.
 
@@ -98,6 +107,7 @@ The passwords for the key stores are defaulted to “password” and the passwor
 {{< /note >}}
 
 #### Running The Tool
+
 The required certificate stores and key pairs can be generated using the [Public Key Infrastructure (PKI) Tool](pki-tool.md). The PKI tool distribution zip
                         archive should be extracted to a chosen location, after which it can be run via:
 
@@ -125,11 +135,13 @@ If the PKI tool was ran with the first example config then a further set of crl 
 
 
 ### Start the Identity Manager service
+
 Before running the service, the Identity Manager jar along with the `corda-identity-manager-keys.jks` file should be
                     copied over to the Identity Manager machine (or directory location if running locally).
 
 
 #### Example Configuration
+
 The following is an example configuration (`identity-manager.conf`) for the Identity Manager service, using automatic
                         approval and local signing for CSRs:
 
@@ -181,6 +193,7 @@ The example uses a local h2 database. You can modify this to point to an separat
 {{< /note >}}
 
 #### Running The Service
+
 The Identity Manager service can then be ran via:
 
 ```bash
@@ -194,6 +207,7 @@ Network management web services started on <IDENTITY_MANAGER_ADDRESS> with [Regi
 ```
 
 ### Register your Notary with the Identity Manager
+
 Before the Network Map service can be initialised the Notary nodes first need to register with the Identity Manager.
                     This is because the list of trusted notaries is stored within the Network Parameters, which in turn need to be passed to
                     the Network Map service during initialisation.
@@ -203,6 +217,7 @@ The truststore containing the network root certificate (`network-root-truststore
 
 
 #### Example Configuration
+
 The following is an example `node.conf` file, with dummy values for the end points. These endpoints are dependent on
                         the setup of the machines so should be replaced with their true values (e.g. IPs addresses for machines).
 
@@ -241,6 +256,7 @@ rpcSettings {
 ```
 
 #### Running Registration
+
 ```bash
 java -jar corda.jar --initial-registration --network-root-truststore-password trustpass --network-root-truststore network-root-truststore.jks
 ```
@@ -256,6 +272,7 @@ The `--initial-registration` flag was deprecated in the most recent Corda versio
 {{< /note >}}
 
 ### Set the initial network parameters
+
 Before initialising the parameters, the `corda-network-map-keys.jks` and `network-root-truststore.jks` files should
                     be copied over to the Network Map machine, along with the Network Map distribution zip which should also be unpacked.
 
@@ -269,7 +286,9 @@ The network parameters are a set of values that every node participating in the 
 
 #### Example Configuration
 
+
 ##### Service
+
 The following is an example configuration (`network-map.conf`) for the Network Map service, using automatic approval
                             and local signing for updates to the network map and parameters:
 
@@ -310,6 +329,7 @@ The example uses a local h2 database. You can modify this to point to an separat
 {{< /note >}}
 
 ##### Network Parameters
+
 The following is an example configuration file (`network-parameters.conf`) that is passed to the service when setting
                             the network parameters. Note that the <NOTARY_NODE_INFO_FILENAME> should correspond to the node info file copied across
                             during the previous step ([Register your Notary with the Identity Manager](#register-your-notary-with-the-identity-manager)).
@@ -328,6 +348,7 @@ eventHorizonDays = 30
 ```
 
 #### Setting the initial network parameters
+
 The following command should initialise the network parameters, including the Notary node that was registered in the
                         previous step:
 
@@ -353,6 +374,7 @@ NetworkParameters {
 ```
 
 ### Start the Network Map service
+
 The Network Map service can then be ran via:
 
 ```bash
@@ -366,6 +388,7 @@ Network management web services started on <NETWORK_MAP_ADDRESS> with [NetworkMa
 ```
 
 ### Start your Notary service
+
 The two main components of the Network should now be fully functional and hence the Notary node can be started:
 
 ```bash
@@ -373,6 +396,7 @@ java -jar corda.jar
 ```
 
 ## Further steps
+
 Nodes should now be able to register and join the network. To do this they will need to have a node configuration file
                 similar to the example Notary configuration above (including the correct Network Map and Identity Manager endpoints) as
                 well as a copy of the `network-root-truststore.jks` file.
@@ -402,6 +426,7 @@ See the configuration sections within the [Identity Manager Service](identity-ma
 
 
 ## Bundled Service alternative
+
 Steps mentioned above can be simplifed by using one service which bundles multiple services together.
                 The only new requirement is Bundled Service distribution zip. Service configuration files remain unchanged.
 
@@ -425,6 +450,7 @@ Network management web services started on <NETWORK_MAP_ADDRESS> with [NetworkMa
 ```
 
 ### Backwards compatibility
+
 There is also possibility of running this service as template for one of the services you want to run. Bundled
                     service deduces which service to run from configuration file, making this feature backwards compatible with CENM 1.1.
 

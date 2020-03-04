@@ -1,10 +1,14 @@
 ---
-title: "Configuring the notary backend - JPA"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Configuring the notary backend - JPA
+version: corda-enterprise-4-3
 ---
 
 
 # Configuring the notary backend - JPA
+
 Prior to using the JPA notary, the database must be prepared. This can be performed using the
             [Corda Database Management Tool](../node-database.md#database-management-tool-ref). If preferred, the required tables can be manually
             created. See below for example database scripts. Note that in these examples, a database named “corda” is created to
@@ -13,6 +17,7 @@ Prior to using the JPA notary, the database must be prepared. This can be perfor
 
 
 ## Supported databases for highly available mode
+
 The JPA notary uses the Java Persistence API (JPA) interface to connect to the notary state database. For performance
                 and ease of operation, the recommended database is CockroachDB 19.1.2. The full set of supported configurations is
                 listed in the [Platform support matrix](../platform-support-matrix.md).
@@ -27,6 +32,7 @@ Please note that CockroachDB is not supported by the Corda Database Management T
 {{< /note >}}
 
 ### Using the Corda Database Management Tool
+
 If using the Corda Database Management Tool to perform initial schema setup, take note of the following:
 
 > 
@@ -53,6 +59,7 @@ Creating the schema manually and then switching to using the Corda Database Mana
 {{< /note >}}
 
 #### DBM Tool configuration file format
+
 The configuration file used as an input to the Database Management Tool should closely resemble that of the notary itself.
                         Only some minor changes may be needed. Take note of the following:
 
@@ -92,9 +99,10 @@ notary {
 }
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [dbm.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/dbm.conf)
+[dbm.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/dbm.conf) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 If the Corda Database Management Tool’s `dry-run` mode is used, the `databasechangelog` and `databasechangeloglock` tables must already exist
                         and the database user would need read and write permissions. If the tool’s `execute-migration` mode is used, the database user would require
@@ -102,6 +110,7 @@ If the Corda Database Management Tool’s `dry-run` mode is used, the `databasec
 
 
 ### Database users
+
 We recommend creating one database user with schema modification rights so as to be able to create the schema objects
                     necessary for the operation of the notary. However, this user should not be used for the operation of the notary for
                     security reasons. We recommend the creation of a user with more limited permissions for the operation of the notary. This
@@ -109,6 +118,7 @@ We recommend creating one database user with schema modification rights so as to
 
 
 ## Configuring the notary backend - CockroachDB
+
 The JPA notary service is tested against CockroachDB 19.1.2. CockroachDB’s
                 [documentation page](https://www.cockroachlabs.com/docs/v19.1/) explains the installation
                 in detail.
@@ -117,6 +127,7 @@ Some information specific to the configuration of the JPA notary to interact wit
 
 
 ### Database setup
+
 To create the database, a user with administrative permissions is required. CockroachDB automatically creates a root user during setup.
                     This root user is the only user with administrative permissions, and so is the only user able to create databases. Only CockroachDB
                     Enterprise supports the creation of administrative users besides root. The CockroachDB root user can only authenticate with
@@ -160,6 +171,7 @@ create table corda.notary_request_log (
 ```
 
 ### Database user setup
+
 Once the database and tables have been created, create a user with restricted rights that the notary worker will use to log
                     in to the database. This user will only be able to insert and read data. It will not be able to delete or update data, nor
                     will it be able to modify any schemas. Ensure that the database name is correct if it was changed in the previous step. The
@@ -176,6 +188,7 @@ grant insert on table corda.* to corda;
 ```
 
 ### Generating a client certificate
+
 It is recommended that the CockroachDB installation be configured to use SSL for secure connections. This will
                     require certificates to be generated for the database user that Corda uses to connect to CockroachDB. When
                     generating the certificates, make sure that PKCS8 certificates are also generated. An example `bash` command
@@ -190,11 +203,13 @@ Once generated, ensure that the certificates are accessible by the user that is 
 
 
 ### JDBC driver
+
 The PostgresSQL driver should be used when attempting to connect the JPA notary to CockroachDB. The JPA notary
                     service has been tested with driver version 42.2.7. This JAR file should be placed in the `drivers` folder.
 
 
 ### Connection string
+
 The properties specifying the location of the client certificates must be passed in via the JDBC connection
                     string. It will not be possible to pass them in as configuration properties. See below for an example connection
                     string.
@@ -206,6 +221,7 @@ Refer to the section [Configuring the notary worker nodes](installing-the-notary
 
 
 ## Configuring notary backend - Oracle RAC 12cR2
+
 The JPA notary service is tested against Oracle RAC, with Oracle database version 12cR2.
                 Oracle’s [documentation page](https://docs.oracle.com/database/121/RACAD/toc.htm) explains the installation
                 in detail.
@@ -214,6 +230,7 @@ Some information specific to the configuration of the JPA notary to interact wit
 
 
 ### Database setup
+
 It is recommended that a pluggable database be created to house the notary data. This can be done by opening a
                     terminal window on the Oracle machine and running the following command in order to start sqlplus, the Oracle
                     SQL command line tool.
@@ -269,6 +286,7 @@ create table notary_request_log (
 ```
 
 ### Database user setup
+
 Once the database and tables have been created, create a user with restricted rights that the notary worker will use to
                     log in to the database. This user will be a local user with access rights only to the pluggable database created above.
                     Ensure that the container for the sqlplus session is still the Corda pluggable database as created above - this will make
@@ -290,11 +308,13 @@ GRANT SELECT, INSERT ON corda_adm.notary_request_log TO corda_pdb_user;
 ```
 
 ### JDBC driver
+
 The `ojdbc8` driver should be used when connecting to Oracle RAC database 12cR2. This JAR file
                     should be placed in the `drivers` folder.
 
 
 ### Connection string
+
 Below is an example connection string for use with an Oracle RAC database. Note that more than 2 host IP addresses
                     may be specified if desired. It is important to use the correct service name.
 

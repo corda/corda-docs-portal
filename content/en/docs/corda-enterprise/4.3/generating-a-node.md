@@ -1,12 +1,17 @@
 ---
-title: "Creating nodes locally"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Creating nodes locally
+version: corda-enterprise-4-3
 ---
 
 
 # Creating nodes locally
 
+
 ## Handcrafting a node
+
 A node can be created manually by creating a folder that contains the following items:
 
 
@@ -37,6 +42,7 @@ The remaining files and folders described in [Node folder structure](node-struct
 
 
 ## The Cordform task
+
 Corda provides a gradle plugin called `Cordform` that allows you to automatically generate and configure a set of
                 nodes for testing and demos. Here is an example `Cordform` task called `deployNodes` that creates three nodes, defined
                 in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V5/build.gradle#L95):
@@ -135,6 +141,7 @@ The configuration values available in `deployNodes` task are as follows:
 
 ### Required configuration
 
+
 * `name` <string>
 
 
@@ -192,6 +199,7 @@ rpcSettings {
 
 
 ### Optional configuration
+
 
 * `notary` <config> (see [notary](corda-configuration-file.md#corda-configuration-file-notary))
 
@@ -349,6 +357,7 @@ ext.jolokia_version = "1.6.1"
 ```
 
 ### Package namespace ownership
+
 To specify [Package namespace ownership](network-bootstrapper.md#package-namespace-ownership) configuration, the optional `networkParameterOverrides` and `packageOwnership` blocks can be used, similar to the configuration file used in [Network Bootstrapper](network-bootstrapper.md):
 
 ```groovy
@@ -368,6 +377,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 ### Signing CorDapp JARs
+
 The default behaviour of Cordform is to deploy CorDapp JARs “as built”:
 
 > 
@@ -458,6 +468,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 ### Specifying a custom webserver
+
 By default, any node listing a web port will use the default development webserver, which is not production-ready. You
                     can use your own webserver JAR instead by using the `webserverJar` argument in a `Cordform` `node` configuration
                     block:
@@ -480,6 +491,7 @@ This is an experimental feature. There is currently no support for reading the w
 
 
 ## The Dockerform task
+
 The `Dockerform` is a sister task of `Cordform` that provides an extra file allowing you to easily spin up nodes using `docker-compose`. It supports the following configuration options for each node:
 
 
@@ -596,6 +608,7 @@ To run the Dockerform task, follow these steps:
 
 
 ## Running the Cordform/Dockerform tasks
+
 To create the nodes defined in our `deployNodes` task, run the following command in a terminal window from the root
                 of the project where the `deployNodes` task is defined:
 

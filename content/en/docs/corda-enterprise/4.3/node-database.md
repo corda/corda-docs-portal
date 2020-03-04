@@ -1,10 +1,15 @@
 ---
-title: "Node database"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-node
+title: Node database
+version: corda-enterprise-4-3
 ---
 
 
 # Node database
+
 The Corda platform, and the installed CorDapps store their data in a relational database (see [API: Persistence](api-persistence.md)).
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
@@ -13,6 +18,7 @@ Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, 
 
 
 ## Database user permissions
+
 A Corda node connects to a database using a single database user, and stores data within a single database schema (a schema namespace).
                 A database schema can not be shared between two different nodes (except for [Hot-cold high availability deployment](hot-cold-deployment.md)).
                 Depending on how the schema objects are created, a Corda node can connect to the database with a different set of database permissions:
@@ -40,6 +46,7 @@ Database setup for production systems (with **restricted permissions**) is descr
 
 
 ## Database schema objects management
+
 Database DDL scripts defining database tables (and other schema objects) are embedded inside the Corda distribution (`corda.jar` file)
                 or within the CorDapp distributions (a JAR file). Therefore Corda, and custom CorDapps are shipped without separate DDL scripts for each database vendor.
                 Whenever a node operator or database administrator needs to obtain a DDL script to be run, they can use the Corda Database Management Tool.
@@ -67,6 +74,7 @@ Liquibase is a tool that implements an automated, version based database migrati
 
 
 ### Default Corda node configuration
+
 By default, a node will *not* attempt to execute database migration scripts at startup (even when a new version has been deployed),
                     but will check the database “version” and halt if the database is not in sync with the node, to avoid data corruption.
                     To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool-ref).
@@ -80,6 +88,7 @@ Running the migration at startup automatically can be configured by specifying t
 
 
 ### Database Management Tool
+
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
                     It is intended to be used by Corda Enterprise node administrators who want more control over database changes made in production
                     environments.
@@ -93,6 +102,7 @@ The database management tool is for production databases only. H2 databases cann
 {{< /note >}}
 
 #### Executing a dry run of the SQL migration scripts
+
 The `dry-run` subcommand can be used to output the database migration to the specified output file or to the console.
                         The output directory is the one specified by the `--base-directory` parameter.
 
@@ -135,6 +145,7 @@ Additional options:
 
 
 #### Executing SQL migration scripts
+
 The `execute-migration` subcommand runs migration scripts on the node’s database.
 
 Usage:
@@ -172,6 +183,7 @@ database-manager execute-migration [-hvV] [--doorman-jar-path=<doormanJarPath>]
 
 
 #### Releasing database locks
+
 The `release-lock` subcommand forces the release of database locks. Sometimes, when a node or the database management
                         tool crashes while running migrations, Liquibase will not release the lock. This can happen during some long
                         database operations, or when an admin kills the process (this cannot happen during normal operation of a node,
@@ -213,6 +225,7 @@ Additional options:
 
 
 #### Database Manager shell extensions
+
 The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto completion for
                         bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
@@ -229,6 +242,7 @@ It is good practice for node operators to back up the database before upgrading 
 
 
 #### Troubleshooting
+
 Symptom: Problems acquiring the lock, with output like this:
 
 > 
@@ -254,6 +268,7 @@ Advice: See [this StackOverflow question](https://stackoverflow.com/questions/15
 
 
 ## Node database tables
+
 By default, the node database has the following tables:
 
 

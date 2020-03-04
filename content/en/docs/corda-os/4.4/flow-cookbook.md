@@ -1,11 +1,15 @@
 ---
-title: "Flow cookbook"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Flow cookbook
+version: corda-os-4-4
 ---
 
 
 
 # Flow cookbook
+
 This flow showcases how to use Corda’s API, in both Java and Kotlin.
 
 
@@ -1386,8 +1390,9 @@ public class FlowCookbook {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java)
+[FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 

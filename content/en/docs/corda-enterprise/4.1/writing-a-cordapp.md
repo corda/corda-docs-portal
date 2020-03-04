@@ -1,12 +1,17 @@
 ---
-title: "Structuring a CorDapp"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Structuring a CorDapp
+version: corda-enterprise-4-1
 ---
 
 
 # Structuring a CorDapp
 
+
 ## Modules
+
 The source code for a CorDapp is divided into one or more modules, each of which will be compiled into a separate JAR.
                 Together, these JARs represent a single CorDapp. Typically, a Cordapp contains all the classes required for it to be
                 used standalone. However, some Cordapps are only libraries for other Cordapps and cannot be run standalone.
@@ -45,6 +50,7 @@ However, this two-module structure is not prescriptive:
 
 
 ## Template CorDapps
+
 You should base your project on one of the following templates:
 
 
@@ -59,6 +65,7 @@ Please use the branch of the template that corresponds to the major version of C
 
 
 ### Build system
+
 The templates are built using Gradle. A Gradle wrapper is provided in the `wrapper` folder, and the dependencies are
                     defined in the `build.gradle` files. See [Building and installing a CorDapp](cordapp-build-systems.md) for more information.
 
@@ -66,6 +73,7 @@ No templates are currently provided for Maven or other build systems.
 
 
 ### Modules
+
 The templates are split into two modules:
 
 
@@ -80,6 +88,7 @@ These modules will be compiled into two JARs - a `cordapp-contracts-states` JAR 
 
 
 #### Module one - cordapp-contracts-states
+
 Here is the structure of the `src` directory for the `cordapp-contracts-states` module of the Java template:
 
 ```kotlin
@@ -105,6 +114,7 @@ These are definitions for classes that we expect to have to send over the wire. 
 
 
 #### Module two - cordapp
+
 Here is the structure of the `src` directory for the `cordapp` module of the Java template:
 
 ```kotlin

@@ -1,12 +1,17 @@
 ---
-title: "Node monitoring and logging"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Node monitoring and logging
+version: corda-enterprise-4-4
 ---
 
 
 # Node monitoring and logging
 
+
 ## Logging
+
 By default the node log files are stored to the `logs` subdirectory of the working directory and are rotated. Logging can be printed to the console by passing the `--log-to-console` command line flag. The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules. Hibernate (the JPA provider used by Corda) specific log messages of level `WARN` and above will be logged to the diagnostic log file, which is stored in the same location as other log files (`logs` subdirectory by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be logged by Corda itself in the main node log file.
 
 It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take a closer look at Hibernate activity). So, for more bespoke logging configuration, the logging settings can be completely overridden with a [Log4j2](https://logging.apache.org/log4j/2.x) configuration file assigned to the `log4j.configurationFile` system property.
@@ -15,6 +20,7 @@ The node is using log4j2 asynchronous logging by default (configured via log4j2 
 
 
 ### Example
+
 Create a file `sql.xml` in the current working directory. Add the following text:
 
 ```xml
@@ -45,10 +51,12 @@ To determine the name of the logger, for Corda objects, use the fully qualified 
 
 
 ## SSH access
+
 Node can be configured to run SSH server.
 
 
 ## Database access
+
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
                 (see [database access when running H2](../node-database-access-h2.html)).
 
@@ -57,10 +65,12 @@ Note that in a production set up, it is highly recommended to use an enterprise 
 
 
 ## Monitoring your node
+
 This section covers monitoring performance and health of a node in Corda Enterprise with Jolokia and Graphite. General best practices for monitoring (e.g. setting up TCP checks for the ports the node communicates on, database health checks etc.) are not covered here but should be followed.
 
 
 ### Monitoring via Jolokia
+
 Like most Java servers, the node can be configured to export various useful metrics and management operations via the industry-standard
                     [JMX infrastructure](https://en.wikipedia.org/wiki/Java_Management_Extensions). JMX is a standard API
                     for registering *MBeans* … objects whose properties and methods are intended for server management. As Java
@@ -122,6 +132,7 @@ The following JMX statistics are exported:
 
 
 ### Notes for production use
+
 When using Jolokia monitoring in production, it is recommended to use a Jolokia agent that reads the metrics from the node
                     and pushes them to the metrics storage, rather than exposing a port on the production machine/process to the internet.
 
@@ -132,6 +143,7 @@ Also ensure to have restrictive Jolokia access policy in place for access to pro
 
 
 ### Notes for development use
+
 When running in dev mode, Hibernate statistics are also available via the Jolkia interface. These are disabled otherwise
                     due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
                     `exportHibernateJMXStatistics` flag on the [database configuration](../setup/corda-configuration-file.md#database-properties-ref).
@@ -146,6 +158,7 @@ The following diagram illustrates Corda flow metrics visualized using hawtio:
 
 ![hawtio jmx](node/operating/resources/hawtio-jmx.png "hawtio jmx")
 ### Monitoring via Graphite
+
 Corda nodes alternatively support publishing metrics collected via the Codahale metrics library directly to a graphite
                     server. This needs to be configured in the node configuration file:
 
@@ -163,6 +176,7 @@ The prefix should clearly indicate the node where the metrics are coming from, a
 
 
 ## Memory usage and tuning
+
 All garbage collected programs can run faster if you give them more memory, as they need to collect less
                 frequently. As a default JVM will happily consume all the memory on your system if you let it, Corda is
                 configured with a 512mb Java heap by default. When other overheads are added, this yields
@@ -183,6 +197,7 @@ Unfortunately the JVM does not let you limit the total memory usage of Java prog
 {{< /note >}}
 
 ## Hiding sensitive data
+
 A frequent requirement is that configuration files must not expose passwords to unauthorised readers. By leveraging environment variables, it is possible to hide passwords and other similar fields.
 
 Take a simple node config that wishes to protect the node cryptographic stores:
@@ -203,6 +218,7 @@ By delegating to a password store, and using *command substitution* it is possib
 
 
 ### Bash
+
 ```shell
 KEY_PASS=$(corporatePasswordStore --cordaKeyStorePassword) TRUST_PASS=$(corporatePasswordStore --cordaTrustStorePassword) java -jar corda.jar
 ```
@@ -214,6 +230,7 @@ If this approach is taken, the passwords will appear in the shell history.
 
 
 ### Windows PowerShell
+
 ```shell
 $env:KEY_PASS=$(corporatePasswordStore --cordaKeyStorePassword); $env:TRUST_PASS=$(corporatePasswordStore --cordaTrustStorePassword); java -jar corda.jar
 ```
@@ -230,6 +247,7 @@ If this approach is taken, the passwords will appear in the windows command prom
 
 
 ## Obfuscating sensitive data
+
 Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [configuration obfuscator](../tools-config-obfuscator.html) which allows the user to censor string properties in the configuration file. The config would look something like this:
 
 ```kotlin

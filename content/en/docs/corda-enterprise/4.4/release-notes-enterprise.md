@@ -1,12 +1,17 @@
 ---
-title: "Corda Enterprise Release notes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Corda Enterprise Release notes
+version: corda-enterprise-4-4
 ---
 
 
 # Corda Enterprise Release notes
 
+
 ## Corda Enterprise 4.4
+
 This release extends the [Corda Enterprise 4.3 release](https://docs.corda.r3.com/releases/4.3/release-notes-enterprise.html)
                 with
 
@@ -23,13 +28,16 @@ The compatibility and interoperability assurances apply to nodes running at the 
 
 ### Key new features and components
 
+
 #### Further Hardware Security Module (HSM) support
+
 > 
 > This release adds support for storing the node’s CA and legal identity key in a [nCipher nShield Connect](https://www.ncipher.com/products/general-purpose-hsms/nshield-connect) HSM.
 >                             Please refer to the associated section of the cryptoservice-configuration page for more details.
 
 
 #### Corda Open Core
+
 > 
 > Starting with Corda Enterprise 4.4, Corda Enterprise and Open Source will share the same core and API libraries - the Enterprise version
 >                             will have a binary dependency on the matching Open Source release. This will reduce the maintenance overhead, and improve API compatibility
@@ -38,7 +46,9 @@ The compatibility and interoperability assurances apply to nodes running at the 
 
 ### Known issues
 
+
 ### Upgrade notes
+
 As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.4](app-upgrade-notes-enterprise.md)) to ease the upgrade
                     of CorDapps to Corda Enterprise 4.4. In line with our commitment to API stability, code level changes are fairly minimal.
 

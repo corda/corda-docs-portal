@@ -1,12 +1,17 @@
 ---
-title: "Identity Manager Service"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Identity Manager Service
+version: cenm-1-1
 ---
 
 
 # Identity Manager Service
 
+
 ## Purpose
+
 The Identity Manager Service acts as the gatekeeper to the network. It is formed of two components:
 
 
@@ -21,6 +26,7 @@ endpoints that are used by participants to check a certificate’s revocation st
 
 
 ## Running The Identity Manager Service
+
 Once the Identity Manager has been configured, it can be run via the command:
 
 ```bash
@@ -33,6 +39,7 @@ Network management web services started on localhost:1300 with [RegistrationWebS
 ```
 
 ## Configuration
+
 The main elements that need to be configured for the Identity Manager are:
 
 
@@ -83,6 +90,7 @@ See [Identity Manager Configuration Parameters](config-identity-manager-paramete
 {{< /note >}}
 
 ### Address
+
 The `address` parameter must be included in the top level of the configuration and represents the host and port
                     number that the Identity Service will bind to upon startup. The host can either be the IP address or the hostname of
                     the machine that Identity Manager is running on. For example:
@@ -101,6 +109,7 @@ Depending on the configuration of your deployment the host may be different to t
 {{< /note >}}
 
 ### Database
+
 The Identity Manager service is backed by a SQL database which it uses to store information such as Certificate Signing
                     Requests (CSRs) and (optionally) Certificate Revocation Requests (CRRs). The connection settings must be included within
                     the `database` configuration block in the config file. The main options that should be included here are:
@@ -123,6 +132,7 @@ The Identity Manager service is backed by a SQL database which it uses to store 
 
 
 #### Database Setup
+
 The database can either be setup prior to running the Identity Manager service or, alternatively, it can be
                         automatically prepared on startup via the built-in migrations. To enable the running of database migrations on startup
                         the optional `runMigration` parameter within the `database` configuration should be set to true. Additionally, if
@@ -145,6 +155,7 @@ Due to the way the migrations are defined, if the Identity Manager and Network M
 {{< /note >}}
 
 #### Additional Properties
+
 Additional database properties can be loaded by including an optional *additionalProperties* config block. In CENM 1.0
                         these are restricted to HikariCP configuration settings.
 
@@ -160,6 +171,7 @@ database {
 ```
 
 #### Example
+
 An example configuration for an Identity Manager service using a Microsoft SQL Server database, configured to run the
                         migrations on startup is:
 
@@ -181,10 +193,12 @@ database {
 ```
 
 ### Embedded shell (optional)
+
 See [Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
 
 
 ### Issuance Workflow
+
 The Issuance workflow is one of two components within the Identity Manager. In order for a new node to join the network,
                     it first needs a certificate that is signed by the Identity Manager. It acquires this by submitting a Certificate
                     Signing Request (CSR) to the Identity Manager which is handled by the Issuance workflow. The workflow determines how the
@@ -192,6 +206,7 @@ The Issuance workflow is one of two components within the Identity Manager. In o
 
 
 #### CSR Approval Mechanism
+
 Before a certificate can be issued to a new node, its CSR first needs to be approved. The mechanism by which approval is
                         granted can vary from a basic automatic approval approach to a more manual, production grade approach like JIRA
                         integration. The approval mechanism is configured by specifying the plugin class responsible for handling CSR approvals
@@ -215,6 +230,7 @@ Auto Approval will approve every request without any oversight or checking. This
 
 
 ##### Auto Approval
+
 Auto approval results in the Issuance workflow blindly approving every request it receives. This is useful for testing
                             as it negates the need for an external approval process.
 
@@ -239,6 +255,7 @@ workflows {
 ```
 
 ##### JIRA Workflow
+
 The Identity Manager service can use JIRA to manage the certificate signing request approval work flow. This can be
                             enabled by referencing the JIRA CSR workflow plugin within the config file along with the associated configuration
                             parameters:
@@ -263,10 +280,12 @@ See [Workflow](workflow.md) for more information.
 
 
 ###### JIRA Project Configuration
+
 See [JIRA Set-Up](jira-setup.md) for more information about how to configure a JIRA project for CSR approval.
 
 
 #### CSR Signing Mechanism
+
 Once a CSR signing request has been approved then a certificate can be signed and issued to the node. Similarly to the
                         approval mechanism above, this can be achieved via one of two mechanisms:
 
@@ -279,6 +298,7 @@ Once a CSR signing request has been approved then a certificate can be signed an
 
 
 ##### Local Signing Service
+
 The local signing service is recommended for testing and toy environments. Given a local key store containing the
                             relevant signing keys, it provides the functionality to automatically sign all approved CSRs on a configured schedule.
                             No human interaction is needed and the credentials for the key stores have to be provided upfront. The service is an
@@ -307,6 +327,7 @@ In this example, the key store defined within the local signer should contain th
 
 
 ##### External Signing Service
+
 The production grade signing mechanism is the external [Signing Service](signing-service.md). This has all the functionality of the
                             integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
                             CSRs. It should be used in all production environments where maximum security and validation checks are required.
@@ -317,6 +338,7 @@ In order to retrieve the CSR information, the signing service will communicate w
 
 
 #### Issuance Internal Server
+
 Similarly to the other ENM services, the Identity Manager is designed to be able to communicate between other services
                         such as the Network Map and Signing services. Both the Issuance and, optionally, the Revocation workflows have their own
                         internal listening server that is created on startup which can receive and respond to messages from other ENM services.
@@ -352,6 +374,7 @@ All inter-service communication can be configured with SSL support. See [Configu
 {{< /note >}}
 
 ### Restricting A Node’s Corda Version (optional)
+
 The optional configuration `versionInfoValidation` can be added to the Issuance workflow configuration block to
                     exclude nodes running an old version of Corda from successfully submitting a CSR. The configuration parameter
                     `minimumPlatformVersion` represents the minimum platform version that a node has to be running to be able to submit
@@ -390,6 +413,7 @@ Sending of version info during registration was added to Corda OS in release ver
 {{< /note >}}
 
 ### Revocation Workflow (optional)
+
 The Revocation workflow is the second of the two main components in the Identity Manager service. It is an optional
                     component that is responsible for handling incoming Certificate Revocation Requests (CRRs) to revoke a node’s
                     certificate (acquired via a previously approved CSR) as well as hosting the Certificate Revocation Lists (CRLs) to
@@ -399,6 +423,7 @@ Similarly to the Issuance workflow, the Revocation workflow determines how a CRR
 
 
 #### CRR Approval Mechanism
+
 In order to revoke a node’s certificate and therefore be evicted from the network, a CRR needs to be approved and signed
                         by the network operator. The method by which the CRR is approved is, similar to the Issuance workflow, configured by
                         specifying the plugin class responsible for the handling of the CRRs within the Revocation workflow inside the Identity
@@ -421,6 +446,7 @@ Auto Approval will approve every request without any oversight or checking. As s
 
 
 ##### Auto Approval
+
 Auto approval results in the Revocation workflow blindly approving every request it receives. This is useful for testing
                             as it negates the need for an external approval process.
 
@@ -445,6 +471,7 @@ workflows {
 ```
 
 ##### JIRA Workflow
+
 The Issuance workflow can alternatively use JIRA to manage CRR approval. This can be enabled by referencing the JIRA
                             CRR workflow plugin within the config file along with the associated configuration parameters:
 
@@ -468,6 +495,7 @@ See [Workflow](workflow.md) for more information.
 
 
 #### CRR Signing Mechanism
+
 Once CRR have been approved they need to be signed by the Identity Manager. Similarly to the Issuance workflow, this
                         can be achieved via two mechanisms:
 
@@ -480,12 +508,14 @@ Once CRR have been approved they need to be signed by the Identity Manager. Simi
 
 
 ##### Local Signing Service
+
 As the local signer is a top-level configuration block, it is shared amongst all configured workflows within the
                             Identity Manager. That is, the same key used for signing approved CSRs will be used to sign approved CRRS. See the
                             “Local Signing Service” section within the above Issuance workflow documentation to see how to configured this.
 
 
 ##### External Signing Service
+
 Also similarly to CSR signing, the production grade signing mechanism for CRRs is the external [Signing Service](signing-service.md).
                             This has all the functionality of the integrated local signer as well as HSM integration and the ability for a user to
                             interactively verify and sign incoming CRRs. It should be used in all production environments where maximum security and
@@ -497,6 +527,7 @@ In order to retrieve the CRR information, the signing service will communicate w
 
 
 #### Revocation Internal Server
+
 Similarly to the Issuance workflow, the Revocation workflow is configured with an internal listening server to enable
                         communication between other services such as the Network Map and Signing services.  To configure this, the configuration
                         block `enmListener` should be added within the Revocation workflow’s config:
@@ -527,6 +558,7 @@ All inter-service communication can be configured with SSL support. See [Configu
 {{< /note >}}
 
 #### CRL Configuration
+
 There are an additional two parameters that need to be specified with the revocation workflow config block:
 
 
@@ -557,6 +589,7 @@ workflows {
 ```
 
 ##### TLS-level (empty) CRL
+
 The downside of enabling certificate revocation is that all issuing authorities within the same chain
                             must provide the infrastructure by which connections can retrieve the revocation lists for their keys:
 
@@ -602,6 +635,7 @@ There is of course no obligation of a zone to provide the empty list infrastruct
 {{< /attention >}}
 
 ### Node Configuration
+
 Running a Revocation service does not guarantee that revoked certificates will be checked before nodes communicate with
                     each other. Node configuration changes may be required to enable this behaviour. For more information see the
                     documentation for the specific release version of Corda of the node in question.
@@ -621,7 +655,9 @@ crlCheckSoftFail = false # strict CRL checking is enabled, meaning that the SSL 
 
 ### Example Configuration
 
+
 #### Test Configuration
+
 Below is an example of a testing configuration of the Identity Manager. It is configured with a Issuance and Revocation
                         workflow, using a local signer and auto approval of CSRs and CRRs.
 
@@ -680,6 +716,7 @@ shell {
 ```
 [identity-manager-test-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf)
 #### Production Configuration
+
 Below is an example of a more production-like configuration of the Identity Manager. It is configured with a Issuance
                         and Revocation workflow, using JIRA workflows for CSR/CRR approvals, no local signer and also using SSL for secure
                         communication between ENM services. In this scenario, all approved requests would be signed using an external signing

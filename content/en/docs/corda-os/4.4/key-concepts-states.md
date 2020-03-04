@@ -1,13 +1,19 @@
 ---
-title: "States"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4:
+    parent: corda-os-4-4-concepts
+title: States
+version: corda-os-4-4
 ---
 
 
 # States
 
+
 {{< topic >}}
 # Summary
+
 
 * *States represent on-ledger facts*
 
@@ -21,12 +27,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/213812054" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## Overview
+
 A *state* is an immutable object representing a fact known by one or more Corda nodes at a specific point in time.
                 States can contain arbitrary data, allowing them to represent facts of any kind (e.g. stocks, bonds, loans, KYC data,
                 identity information…).
@@ -40,6 +48,7 @@ As well as any information about the fact itself, the state also contains a refe
 
 
 ## State sequences
+
 As states are immutable, they cannot be modified directly to reflect a change in the state of the world.
 
 Instead, the lifecycle of a shared fact over time is represented by a **state sequence**. When a state needs to be
@@ -51,6 +60,7 @@ This sequence of state replacements gives us a full view of the evolution of the
 
 ![state sequence](resources/state-sequence.png "state sequence")
 ## The vault
+
 Each node on the network maintains a *vault* - a database where it tracks all the current and historic states that it
                 is aware of, and which it considers to be relevant to itself:
 
@@ -59,6 +69,7 @@ Each node on the network maintains a *vault* - a database where it tracks all th
 
 
 ## Reference states
+
 Not all states need to be updated by the parties which use them. In the case of reference data, there is a common pattern
                 where one party creates reference data, which is then used (but not updated) by other parties. For this use-case, the
                 states containing reference data are referred to as “reference states”. Syntactically, reference states are no different

@@ -1,11 +1,15 @@
 ---
-title: "Metering Collection Tool"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Metering Collection Tool
+version: corda-enterprise-4-4
 ---
 
 
 
 # Metering Collection Tool
+
 The Metering Collection Tool is used to collect metering data from a Corda Enterprise node. This page describes how
             the node records metering data, and how to run the collection tool in order to collect that data.
 
@@ -16,6 +20,7 @@ Note that Corda Enterprise nodes record metering data regardless of whether this
 
 
 ## Metering Data
+
 Metering within Corda Enterprise is based on the signing of transactions. The act of signing over a transaction is referred to as a
                 *signing event*. Whenever a signing event occurs, a small piece of data is recorded by the node. This describes which entity signed the
                 transaction, what CorDapps and commands were involved, and what time this occurred. Note that signing events are recorded on a per-node
@@ -27,6 +32,7 @@ Notaries running Corda Enterprise are also metered. In this case, data is record
 
 
 ## Overview of the Metering Collection Tool
+
 The Metering Collection Tool provides a mechanism for collecting metering data from both normal nodes and notaries running Corda Enterprise.
                 The tool provides three flows:
 
@@ -54,6 +60,7 @@ The `NotaryCollectionFlow` does not allow the collection of metering data for no
 
 
 ## Using the `MeteringCollectionFlow`
+
 As a flow, the `MeteringCollectionFlow` can be invoked in three main ways:
 
 > 
@@ -110,6 +117,7 @@ The paging specification is used to control database access by ensuring that onl
 
 
 ### Examples
+
 Collecting metering data for all CorDapps over the last 7 days:
 
 
@@ -174,6 +182,7 @@ fun collectData(rpc: CordaRPCOps): CollectedMeteringData {
 
 
 ## Output Format
+
 `MeteringCollectionFlow` outputs a data class that contains a structured representation of the metering data. The outputted data contains
                 the following:
 
@@ -197,6 +206,7 @@ The output object can also be serialized into JSON form, by calling `serialize`.
 
 
 ## Using the `MeteringCollectionFlow` from the shell
+
 `MeteringCollectionFlow` provides an additional interface to make working with the tool from the shell more straightforward. This interface
                 uses date strings instead of `Instant` objects to specify the time window and breaks the filter up into its constituent parts. It is also
                 possible to omit the filter entirely if all metering data is required. Note that the smallest time window that can be specified from the
@@ -208,6 +218,7 @@ When the metering collector is run from the shell, the data is output to the ter
 
 
 ### Examples
+
 Collecting all metering data over a particular week:
 
 ```bash

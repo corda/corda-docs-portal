@@ -1,11 +1,16 @@
 ---
-title: "Writing a contract"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-tutorial
+title: Writing a contract
+version: corda-enterprise-4-3
 ---
 
 
 
 # Writing a contract
+
 This tutorial will take you through writing a contract, using a simple commercial paper contract as an example.
             Smart contracts in Corda have three key elements:
 
@@ -37,6 +42,7 @@ This lifecycle for commercial paper is illustrated in the diagram below:
 
 ![contract cp](resources/contract-cp.png "contract cp")
 ## Starting the commercial paper class
+
 A smart contract is a class that implements the `Contract` interface. This can be either implemented directly, as done
                 here, or by subclassing an abstract contract such as `OnLedgerAsset`. The heart of any contract in Corda is the
                 `verify` function, which determines whether a given transaction is valid. This example shows how to write a
@@ -79,6 +85,7 @@ So far, so simple. Now we need to define the commercial paper *state*, which rep
 
 
 ## States
+
 A state is a class that stores data that is checked by the contract. A commercial paper state is structured as below:
 
 ![contract cp state](resources/contract-cp-state.png "contract cp state")
@@ -182,9 +189,10 @@ public class State implements OwnableState {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [State.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java)
+[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [State.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 We define a class that implements the `ContractState` interface.
 
@@ -220,6 +228,7 @@ The Java code compiles to almost identical bytecode as the Kotlin version, but a
 
 
 ## Commands
+
 The validation logic for a contract may vary depending on what stage of a state’s lifecycle it is automating. So it can
                 be useful to pass additional data into the contract code that isn’t represented by the states which exist permanently
                 in the ledger, in order to clarify intent of a transaction.
@@ -274,9 +283,10 @@ public static class Commands implements CommandData {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java)
+[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 We define a simple grouping interface or static class, this gives us a type that all our commands have in common,
                 then we go ahead and create three commands: `Move`, `Redeem`, `Issue`. `TypeOnlyCommandData` is a helpful utility
@@ -285,6 +295,7 @@ We define a simple grouping interface or static class, this gives us a type that
 
 
 ## The verify function
+
 The heart of a smart contract is the code that verifies a set of state transitions (a *transaction*). The function is
                 simple: it’s given a class representing the transaction, and if the function returns then the transaction is considered
                 acceptable. If it throws an exception, the transaction is rejected.
@@ -320,9 +331,10 @@ public void verify(@NotNull LedgerTransaction tx) {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java)
+[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 We start by using the `groupStates` method, which takes a type and a function. State grouping is a way of ensuring
                 your contract can handle multiple unrelated states of the same type in the same transaction, which is needed for
@@ -334,6 +346,7 @@ The second line does what the code suggests: it searches for a command object th
 
 
 ## Using state groups
+
 The simplest way to write a smart contract would be to say that each transaction can have a single input state and a
                 single output state of the kind covered by that contract. This would be easy for the developer, but would prevent many
                 important use cases.
@@ -454,6 +467,7 @@ For large states with many fields that must remain constant and only one or two 
 
 
 ## Checking the requirements
+
 After extracting the command and the groups, we then iterate over each group and verify it meets the required business
                 logic.
 
@@ -563,9 +577,10 @@ for (InOutGroup<State, State> group : groups) {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java)
+[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 This loop is the core logic of the contract.
 
@@ -650,6 +665,7 @@ As the prototype evolves, these requirements will be explored and this tutorial 
 
 
 ## How to test your contract
+
 Of course, it is essential to unit test your new nugget of business logic to ensure that it behaves as you expect.
                 As contract code is just a regular Java function you could write out the logic entirely by hand in the usual
                 manner. But this would be inconvenient, and then you’d get bored of writing tests and that would be bad: you
@@ -663,6 +679,7 @@ Testing contracts with this domain specific language is covered in the separate 
 
 
 ## Adding a generation API to your contract
+
 Contract classes **must** provide a verify function, but they may optionally also provide helper functions to simplify
                 their usage. A simple class of functions most contracts provide are *generation functions*, which either create or
                 modify a transaction to perform certain actions (an action is normally mappable 1:1 to a command, but doesn’t have to
@@ -697,9 +714,10 @@ fun generateIssue(issuance: PartyAndReference, faceValue: Amount<Issued<Currency
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt)
+[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 We take a reference that points to the issuing party (i.e. the caller) and which can contain any internal
                 bookkeeping/reference numbers that we may require. The reference field is an ideal place to put (for example) a
@@ -741,9 +759,10 @@ public static final String IOU_CONTRACT_ID = "com.example.contract.IOUContract";
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java)
+[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 This value, which is the fully qualified class name of the contract, tells the Corda platform where to find the contract
                 code that should be used to validate a transaction containing an output state of this contract type. Typically the contract
@@ -783,9 +802,10 @@ fun generateMove(tx: TransactionBuilder, paper: StateAndRef<State>, newOwner: Ab
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt)
+[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Here, the method takes a pre-existing `TransactionBuilder` and adds to it. This is correct because typically
                 you will want to combine a sale of CP atomically with the movement of some other asset, such as cash. So both
@@ -824,9 +844,10 @@ fun generateRedeem(tx: TransactionBuilder, paper: StateAndRef<State>, services: 
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt)
+[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 Here we can see an example of composing contracts together. When an owner wishes to redeem the commercial paper, the
                 issuer (i.e. the caller) must gather cash from its vault and send the face value to the owner of the paper.
@@ -864,6 +885,7 @@ You can see how transactions flow through the different stages of construction b
 
 
 ## How multi-party transactions are constructed and transmitted
+
 OK, so now we know how to define the rules of the ledger, and we know how to construct transactions that satisfy
                 those rules … and if all we were doing was maintaining our own data that might be enough. But we aren’t: Corda
                 is about keeping many different parties all in sync with each other.
@@ -877,6 +899,7 @@ You can learn how transactions are moved between peers and taken through the bui
 
 
 ## Non-asset-oriented smart contracts
+
 Although this tutorial covers how to implement an owned asset, there is no requirement that states and code contracts
                 *must* be concerned with ownership of an asset. It is better to think of states as representing useful facts about the
                 world, and (code) contracts as imposing logical relations on how facts combine to produce new facts. Alternatively
@@ -889,6 +912,7 @@ When writing a contract that handles deal-like entities rather than asset-like e
 
 
 ## Making things happen at a particular time
+
 It would be nice if you could program your node to automatically redeem your commercial paper as soon as it matures.
                 Corda provides a way for states to advertise scheduled events that should occur in future. Whilst this information
                 is by default ignored, if the corresponding *Cordapp* is installed and active in your node, and if the state is
@@ -898,6 +922,7 @@ It would be nice if you could program your node to automatically redeem your com
 
 
 ## Encumbrances
+
 All contract states may be *encumbered* by up to one other state, which we call an **encumbrance**.
 
 The encumbrance state, if present, forces additional controls over the encumbered state, since the encumbrance state

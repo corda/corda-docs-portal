@@ -1,10 +1,14 @@
 ---
-title: "SSL Settings"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: SSL Settings
+version: cenm-1-2
 ---
 
 
 # SSL Settings
+
 SSL Can be configured at both the client and listener ends of the CENM stack. The presence of the SSL
             configuration entity will enable the use of SSL communication between the two parties
 

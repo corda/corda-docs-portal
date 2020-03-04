@@ -1,10 +1,14 @@
 ---
-title: "Quickstart"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Quickstart
+version: corda-enterprise-4-1
 ---
 
 
 # Quickstart
+
 Welcome to the Corda Quickstart Guide. Follow the links below to help get going quickly with Corda.
 
 I want to:
@@ -28,6 +32,7 @@ I want to:
 
 ## Learn about Corda for the first time
 
+
 {{< table >}}
 
 |Useful links|Description|
@@ -39,6 +44,7 @@ I want to:
 {{< /table >}}
 
 ## Develop a CorDapp
+
 
 {{< table >}}
 
@@ -53,6 +59,7 @@ I want to:
 {{< /table >}}
 
 ## Run and test a CorDapp on local Corda network
+
 
 {{< table >}}
 
@@ -71,6 +78,7 @@ I want to:
 
 ## Add a node to an existing test Corda network
 
+
 {{< table >}}
 
 |Useful links|Description|
@@ -88,6 +96,7 @@ I want to:
 {{< /table >}}
 
 ## Add a node to an existing production network
+
 
 {{< table >}}
 

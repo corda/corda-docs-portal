@@ -1,12 +1,17 @@
 ---
-title: "EJBCA Sample Plugin"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: EJBCA Sample Plugin
+version: cenm-1-2
 ---
 
 
 # EJBCA Sample Plugin
 
+
 ## Overview
+
 Signable Material Retriever servce (SMR) ships with default CA and Non CA plugin for the CENM provided Signing Service.
                 These plugins demonstrate the connectivity to the CENM Signing Service which doesn’t persist the signable materials
                 requests, and the data needs to be stored on the plugin’s side (SMR Service). To illustrate the reverse setup, where a
@@ -21,6 +26,7 @@ The implementation shown below is meant for guiding the plugins development for 
 {{< /note >}}
 
 ## EJBCA Web Service Setup
+
 Web service setup follows the same steps as [the official documentation](https://doc.primekey.com/ejbca6152/tutorials-and-guides/quick-start-guide).
                 We will setup a local environment as specified in Quick Start Guide. After this step you will be able to access EJBCA
                 Administration UI on specified address.
@@ -123,6 +129,7 @@ At the end we must set up new end entity profile. This is done by accessing *End
 > 
 
 ## Implementation
+
 EJBCA is oriented on CA related type of signable material. This is why the sample plugin implements `CASigningPlugin`
                 interface. It also implements `ENMLoggable` interface which is our internal logging interface. However this is optional
                 and it’s added for convenience.
@@ -383,6 +390,7 @@ public class EJBCASigningPlugin implements CASigningPlugin, ENMLoggable {
 ```
 [EJBCASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugins/ejbca-plugin/src/main/java/com/r3/enm/smrplugins/ejbcaplugin/EJBCASigningPlugin.java)
 ## Running EJBCA plugin
+
 To run the plugin you simply need to specify its JAR path for CSR and CRL material management tasks in SMR’s
                 configuration. The class name to configure is `com.r3.enm.smrplugins.ejbcaplugin.EJBCASigningPlugin`.
 

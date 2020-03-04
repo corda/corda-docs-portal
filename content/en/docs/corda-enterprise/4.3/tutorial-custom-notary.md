@@ -1,11 +1,16 @@
 ---
-title: "Writing a custom notary service (experimental)"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-tutorial
+title: Writing a custom notary service (experimental)
+version: corda-enterprise-4-3
 ---
 
 
 
 # Writing a custom notary service (experimental)
+
 
 {{< warning >}}
 Customising a notary service is still an experimental feature and not recommended for most use-cases. The APIs
@@ -95,6 +100,7 @@ notary : {
 ```
 
 ## Testing your custom notary service
+
 To create a flow test that uses your custom notary service, you can set the class name of the custom notary service as follows in your flow test:
 
 ```kotlin

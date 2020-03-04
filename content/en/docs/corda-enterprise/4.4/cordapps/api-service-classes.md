@@ -1,11 +1,16 @@
 ---
-title: "Using services in a flow"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: Using services in a flow
+version: corda-enterprise-4-4
 ---
 
 
 
 # Using services in a flow
+
 Service classes are long-lived instances that can trigger or be triggered by flows from within a node. A Service class is limited to a
             single instance per node. During startup, the node handles the creation of the service. If there is problem when instantiating service
             the node will report in the log what the problem was and terminate.
@@ -15,6 +20,7 @@ Services allow related, reusable, functions to be separated into their own class
 
 
 ## Creating a Service
+
 To define a Service class:
 
 > 
@@ -109,6 +115,7 @@ Also the `AppServiceHub` provides ability for `CordaService` to subscribe for li
 
 
 ## Retrieving a Service
+
 A Service class can be retrieved by calling `ServiceHub.cordaService` which returns the single instance of the class passed into the function:
 
 
@@ -137,6 +144,7 @@ MyCordaService service = serviceHub.cordaService(MyCordaService.class);
 
 
 ## Starting Flows from a Service
+
 Starting flows via a service can lead to deadlock within the node’s flow worker queue, which will prevent new flows from
                 starting. To avoid this, the rules bellow should be followed:
 

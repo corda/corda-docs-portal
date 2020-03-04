@@ -1,10 +1,14 @@
 ---
-title: "Notary worker migration"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Notary worker migration
+version: corda-enterprise-4-4
 ---
 
 
 # Notary worker migration
+
 To migrate a notary worker from one physical machine or VM to another
             follow the steps outlined below.
 

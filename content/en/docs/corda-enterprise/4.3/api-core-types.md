@@ -1,15 +1,21 @@
 ---
-title: "API: Core types"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-api
+title: 'API: Core types'
+version: corda-enterprise-4-3
 ---
 
 
 
 # API: Core types
+
 Corda provides several more core classes as part of its API.
 
 
 ## SecureHash
+
 The `SecureHash` class is used to uniquely identify objects such as transactions and attachments by their hash.
                 Any object that needs to be identified by its hash should implement the `NamedByHash` interface:
 
@@ -26,15 +32,17 @@ interface NamedByHash {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt)
+[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 `SecureHash` is a sealed class that only defines a single subclass, `SecureHash.SHA256`. There are utility methods
                 to create and parse `SecureHash.SHA256` objects.
 
 
 ## CompositeKey
+
 Corda supports scenarios where more than one signature is required to authorise a state object transition. For example:
                 “Either the CEO or 3 out of 5 of his assistants need to provide signatures”.
 

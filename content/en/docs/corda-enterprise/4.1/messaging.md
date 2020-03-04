@@ -1,10 +1,14 @@
 ---
-title: "Networking and messaging"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Networking and messaging
+version: corda-enterprise-4-1
 ---
 
 
 # Networking and messaging
+
 Corda uses AMQP/1.0 over TLS/1.2 between nodes which is currently implemented using Apache Artemis, an embeddable message
             queue broker. Building on established MQ protocols gives us features like persistence to disk, automatic delivery
             retries with backoff and dead-letter routing, security, large message streaming and so on.
@@ -26,6 +30,7 @@ There are multiple ways of interacting with the network. When writing an applica
 
 
 ## Network Map Service
+
 Supporting the messaging layer is a network map service, which is responsible for tracking public nodes on the network.
 
 Nodes have an internal component, the network map cache, which contains a copy of the network map (which is backed up in the database
@@ -42,6 +47,7 @@ Additionally, on every restart and on daily basis nodes submit signed `NodeInfo`
 
 
 ## Message queues
+
 The node makes use of various queues for its operation. The more important ones are described below. Others are used
                 for maintenance and other minor purposes.
 
@@ -81,6 +87,7 @@ RPC clients are given permission to create a temporary queue incorporating their
 
 
 ## Security
+
 Clients attempting to connect to the node’s broker fall in one of four groups:
 
 
@@ -113,6 +120,7 @@ The broker also does host verification when connecting to another peer. It check
 
 
 ### Implementation details
+
 
 
 The components of the system that need to communicate and authenticate each other are:

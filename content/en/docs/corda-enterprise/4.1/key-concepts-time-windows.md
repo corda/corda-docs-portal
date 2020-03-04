@@ -1,13 +1,19 @@
 ---
-title: "Time-windows"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-concepts
+title: Time-windows
+version: corda-enterprise-4-1
 ---
 
 
 # Time-windows
 
+
 {{< topic >}}
 # Summary
+
 
 * *If a transaction includes a time-window, it can only be committed during that window*
 
@@ -21,12 +27,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/213879314" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## Time in a distributed system
+
 A notary also act as the *timestamping authority*, verifying that a transaction occurred during a specific time-window
                 before notarising it.
 
@@ -45,6 +53,7 @@ There will never be exact clock synchronisation between the party creating the t
 
 
 ## Time-windows
+
 For this reason, times in transactions are specified as time *windows*, not absolute times. In a distributed system
                 there can never be “true time”, only an approximation of it. Time windows can be open-ended (i.e. specify only one of
                 “before” and “after”) or they can be fully bounded.

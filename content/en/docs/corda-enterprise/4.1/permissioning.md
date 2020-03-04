@@ -1,13 +1,18 @@
 ---
-title: "Network certificates"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Network certificates
+version: corda-enterprise-4-1
 ---
 
 
 
 # Network certificates
 
+
 ## Certificate hierarchy
+
 A Corda network has three types of certificate authorities (CAs):
 
 
@@ -53,6 +58,7 @@ We can visualise the permissioning structure as follows:
 
 ![certificate structure](resources/certificate_structure.png "certificate structure")
 ## Key pair and certificate formats
+
 The required key pairs and certificates take the form of the following Java-style keystores (this may change in future to
                 support PKCS#12 keystores) in the node’s `<workspace>/certificates/` folder:
 
@@ -100,6 +106,7 @@ The key pairs and certificates must obey the following restrictions:
 
 
 ## Certificate role extension
+
 Corda certificates have a custom X.509v3 extension that specifies the role the certificate relates to. This extension
                 has the OID `1.3.6.1.4.1.50530.1.1` and is non-critical, so implementations outside of Corda nodes can safely ignore it.
                 The extension contains a single ASN.1 integer identifying the identity type the certificate is for:

@@ -1,16 +1,21 @@
 ---
-title: "Event scheduling"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Event scheduling
+version: corda-enterprise-4-3
 ---
 
 
 
 # Event scheduling
+
 This article explains our approach to modelling time based events in code. It explains how a contract
             state can expose an upcoming event and what action to take if the scheduled time for that event is reached.
 
 
 ## Introduction
+
 Many financial instruments have time sensitive components to them.  For example, an Interest Rate Swap has a schedule
                 for when:
 
@@ -39,6 +44,7 @@ Knowing when the next time sensitive event is due to occur is useful, but typica
 
 
 ## How to implement scheduled events
+
 There are two main steps to implementing scheduled events:
 
 
@@ -71,6 +77,7 @@ The production and consumption of `ContractStates` is observed by the scheduler 
 
 
 ## An example
+
 Let’s take an example of the interest rate swap fixings for our scheduled events.  The first task is to implement the
                 `nextScheduledActivity` method on the `State`.
 

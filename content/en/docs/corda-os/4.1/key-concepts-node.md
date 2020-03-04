@@ -1,13 +1,19 @@
 ---
-title: "Nodes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-concepts
+title: Nodes
+version: corda-os-4-1
 ---
 
 
 # Nodes
 
+
 {{< topic >}}
 # Summary
+
 
 * *A node is JVM run-time with a unique network identity running the Corda software*
 
@@ -29,6 +35,7 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <p><a href="https://vimeo.com/214168860">Corda Node, CorDapps and Network</a></p>
 
 <iframe src="https://player.vimeo.com/video/214168860" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
@@ -37,6 +44,7 @@ date: 2020-01-08T09:59:25Z
 <p></p>
 
 ## Node architecture
+
 A Corda node is a JVM run-time environment with a unique identity on the network that hosts Corda services and
                 CorDapps.
 
@@ -62,6 +70,7 @@ We can visualize the node’s internal architecture as follows:
 
 
 ## Persistence layer
+
 The persistence layer has two parts:
 
 
@@ -75,16 +84,19 @@ The node’s owner can query the node’s storage using the RPC interface (see b
 
 
 ## Network interface
+
 All communication with other nodes on the network is handled by the node itself, as part of running a flow. The
                 node’s owner does not interact with other network nodes directly.
 
 
 ## RPC interface
+
 The node’s owner interacts with the node via remote procedure calls (RPC). The key RPC operations the node exposes
                 are documented in [API: RPC operations](api-rpc.md).
 
 
 ## The service hub
+
 Internally, the node has access to a rich set of services that are used during flow execution to coordinate ledger
                 updates. The key services provided are:
 
@@ -106,6 +118,7 @@ Internally, the node has access to a rich set of services that are used during f
 
 
 ## The CorDapp provider
+
 The CorDapp provider is where new CorDapps are installed to extend the behavior of the node.
 
 The node also has several CorDapps installed by default to handle common tasks such as:
@@ -122,6 +135,7 @@ The node also has several CorDapps installed by default to handle common tasks s
 
 
 ## Draining mode
+
 In order to operate a clean shutdown of a node, it is important than no flows are in-flight, meaning no checkpoints should
                 be persisted. The node is able to be put in draining mode, during which:
 

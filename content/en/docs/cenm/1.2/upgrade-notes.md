@@ -1,10 +1,14 @@
 ---
-title: "Upgrading Corda Enterprise Network Manager"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Upgrading Corda Enterprise Network Manager
+version: cenm-1-2
 ---
 
 
 # Upgrading Corda Enterprise Network Manager
+
 These notes provide instructions for upgrading your network management (Doorman, Network Map or Revocation) service or
             signing service from previous versions to the newest version. Please consult the relevant release notes of the release
             in question. If not specified, you may assume the versions you are currently using are still in force.
@@ -13,11 +17,13 @@ We also strongly recommend cross referencing with the [Changelog](changelog.md) 
 
 
 ## 1.1 to 1.2
+
 > 
 > No upgrade is required.
 
 
 ## 1.0 to 1.1
+
 
 * **Dynamic loading of HSM Jars**
 
@@ -29,6 +35,7 @@ CENM 1.1 now supports multiple HSMs, however due to to the proprietary nature of
 
 
 ## 0.3+ to 1.0
+
 CENM 1.0 introduces an overhauled Signing Service, official PostgreSQL support and re-worked config files for
                 Identity Manager (formerly Doorman) and Network Map services.
 
@@ -100,12 +107,14 @@ CENM 1.0 Identity Manager and Network Map services are not backwards compatible 
 
 
 ## 0.2.X to 0.3
+
 The major change in 0.3 was the separation of the Network Map and Doorman database schemas. Prior to the schema
                 separation change, the Network Map heavily utilised the Doorman DB tables. To upgrade a 0.2.X Doorman and Network Map,
                 the data should first be migrated.
 
 
 ### Migration Of Existing Data
+
 To upgrade an existing Doorman or Network Map instance, a new DB instance must first be created for the service to use.
                     Once this has been done the following steps should be followed to upgrade the service:
 
@@ -130,11 +139,13 @@ For example for the Doorman service:
 
 ![separated services](resources/separated-services.png "separated services")
 ### Other Required Changes
+
 Separation of the schemas has also introduced some necessary modifications to existing processes and configuration
                     files. Most Notably:
 
 
 #### Network Map to Doorman/Revocation communication configuration needs to be added for private networks and certificate revocation checking
+
 If a node is a member of a private network, the current implementation of Corda only passes the node’s private network
                         id during its registration request to the Doorman (if configured on the node side). A consequence of this design and the
                         separation of Doorman and the Network Map service is that when a node submits its NodeInfo to a network map instance,
@@ -158,6 +169,7 @@ If you require private network functionality or node certificate revocation chec
 
 
 #### The Network Map signing service requires a configuration update to specify communication the Network Map service
+
 The release modifies the Network Map Signing Service to request data through the Network Map service rather than going
                         directly to the database. Therefore the configuration needs to change to remove the redundant DB configuration and
                         instead adding the service endpoint. As this information cannot be known by the config upgrader, this has to be added
@@ -165,17 +177,20 @@ The release modifies the Network Map Signing Service to request data through the
 
 
 #### The Certificate Revocation Request service requires a configuration update to specify communication the Revocation service
+
 Similarly to above, the CRR Signing Service now pulls data through the Revocation service and therefore requires a
                         configuration modification. See [Signing Services](signing-service.md) for more information on how to configure this.
 
 
 #### Setting the network parameters requires passing the root certificate
+
 When setting network parameters, the Network Map service cannot validate the proposed notary certificates using the Doorman DB.
                         Hence the trusted root certificate now needs to be passed during setting of parameters.
                         See the “Setting the Network Parameters” section of the [Network Map Service](network-map.md) doc for more information.
 
 
 ## 0.1 to 0.2.1
+
 The major change from 0.1 to 0.2+ was the support of an arbitrary length PKI hierarchy. As a result, many of the
                 configuration parameters for the network management and signing service were changed. 0.2.1 is very similar to 0.2,
                 but comes with backward compatibility along with a configuration upgrade tool.
@@ -184,6 +199,7 @@ There are two ways to upgrade your old 0.1 network services environment:
 
 
 ### Without Upgrading Your Configuration
+
 The 0.2.1 Doorman/Network Map Service and Signing Service JARs will work in place of their 0.1 counterparts, but
                     require an additional `--config-is-old` command line flag to be passed upon startup. This allows you to use you old
                     configuration files without and further steps. For example:
@@ -193,12 +209,14 @@ java -jar doorman-0.1.jar --config-file doorman-0.1.conf --config-is-old
 ```
 
 ### Upgrading Your Configuration File
+
 You can also use the configuration file upgrade tool to create a new config file from your old 0.1 file.
 
 The new JAR can then be run with the new configuration file with no extra steps or command line arguments.
 
 
 ## 0.2(.0) to 0.2.1
+
 
 * **Auto Enrolment in Private Networks**
 

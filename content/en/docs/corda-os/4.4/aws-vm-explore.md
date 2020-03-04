@@ -1,10 +1,14 @@
 ---
-title: "Deploying Corda to Corda Testnet from an AWS Cloud Platform VM"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Deploying Corda to Corda Testnet from an AWS Cloud Platform VM
+version: corda-os-4-4
 ---
 
 
 # Deploying Corda to Corda Testnet from an AWS Cloud Platform VM
+
 This document explains how to deploy a Corda node to AWS that can connect directly to the Corda Testnet.
             A self service download link can be obtained from [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet). This
             document will describe how to set up a virtual machine on the AWS
@@ -14,11 +18,13 @@ This document explains how to deploy a Corda node to AWS that can connect direct
 
 ## Pre-requisites
 
+
 * Ensure you have a registered Amazon AWS account which can create virtual machines and you are logged on to the AWS console: [https://console.aws.amazon.com](https://console.aws.amazon.com).
 
 
 
 ## Deploy Corda node
+
 Browse to [https://console.aws.amazon.com](https://console.aws.amazon.com) and log in with your AWS account.
 
 **STEP 1: Launch a new virtual machine**
@@ -98,6 +104,7 @@ tail -f /opt/corda/logs/node-<VM-NAME>.log
 ```
 
 ## Testing your deployment
+
 To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up the Finance CorDapp and issue cash to a counterparty.
 
 This will also demonstrate how to install a custom CorDapp.

@@ -1,12 +1,17 @@
 ---
-title: "Shell extensions for CLI Applications"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Shell extensions for CLI Applications
+version: corda-enterprise-4-3
 ---
 
 
 # Shell extensions for CLI Applications
 
+
 ## Installing shell extensions
+
 Users of `bash` or `zsh` can install an alias and auto-completion for Corda applications that contain a command line interface. Run:
 
 ```shell
@@ -39,6 +44,7 @@ corda --<option>
 ```
 
 ## Upgrading shell extensions
+
 Once the shell extensions have been installed, you can upgrade them in one of two ways.
 
 
@@ -59,6 +65,7 @@ Which will update the alias to point to the new location, and update command lin
 
 ## List of existing CLI applications
 
+
 {{< table >}}
 
 |Description|Alias|JAR Name|
@@ -71,6 +78,7 @@ Which will update the alias to point to the new location, and update command lin
 {{< /table >}}
 
 ## List of existing Enterprise CLI applications
+
 [Database Manager](database-management.md)                `database-manager --<option>`  `corda-tools-database-manager-4.3.jar`
                 Corda Firewall          `corda-firewall --<option>`    `corda-firewall-4.3.jar`                                 |
 

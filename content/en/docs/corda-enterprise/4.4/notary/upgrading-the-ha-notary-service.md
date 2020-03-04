@@ -1,12 +1,17 @@
 ---
-title: "Upgrading the notary to a new version of Corda Enterprise"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Upgrading the notary to a new version of Corda Enterprise
+version: corda-enterprise-4-4
 ---
 
 
 # Upgrading the notary to a new version of Corda Enterprise
 
+
 ## Version 4.3
+
 In Corda Enterprise 4.3 the `notary_request_log` table was extended to include the X500 name of the worker node that processed the request.
 
 Upgrade steps:
@@ -33,11 +38,13 @@ Upgrade steps:
 
 
 ## Version 4.2
+
 Since Corda Enterprise 4.2 the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
                 See [notary installation page](installing-the-notary-service.md#mysql-driver) for more information.
 
 
 ## Version 4.0
+
 In Corda Enterprise 4.0 an additional table `notary_committed_transactions` is being used by the HA notary to support the new reference state functionality.
 
 

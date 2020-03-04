@@ -1,12 +1,17 @@
 ---
-title: "How to contribute"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: How to contribute
+version: corda-os-4-1
 ---
 
 
 # How to contribute
 
+
 ## Identifying an area to contribute
+
 There are several ways to identify an area where you can contribute to Corda:
 
 
@@ -29,6 +34,7 @@ There are several ways to identify an area where you can contribute to Corda:
 
 
 ## Contribution guidelines
+
 We believe one of the things that makes Corda special is its coherent design and we seek to retain this defining characteristic. From the
                 outset we defined some guidelines to ensure new contributions only ever enhance the project:
 
@@ -59,6 +65,7 @@ We believe one of the things that makes Corda special is its coherent design and
 
 
 ## Making the required changes
+
 You should make your changes as follows:
 
 
@@ -79,6 +86,7 @@ You should make your changes as follows:
 
 
 ### Selecting a development branch
+
 Corda does not use the *master* branch for development. Instead, all development work is done on the branch named
                     according to the release that it represents. The following pattern is used for branch naming:
                     *release/os/{major version}.{minor version}*
@@ -93,6 +101,7 @@ Note that *release* is always part of the name of the branch, even for unrelease
 
 
 ### Things to check
+
 
 * **Make sure your error handling is up to scratch:** Errors should not leak to the UI. When writing tools intended for end users, like the
                             node or command line tools, remember to add `try`/`catch` blocks. Throw meaningful errors. For example, instead of throwing an
@@ -121,11 +130,13 @@ Note that *release* is always part of the name of the branch, even for unrelease
 
 
 ### Extending the flow state machine
+
 If you are interested in extending the flow state machine, you can find instructions on how to do this
                     [here](contributing-flow-state-machines.md).
 
 
 ## Testing the changes
+
 You should test your changes as follows:
 
 
@@ -150,6 +161,7 @@ You should test your changes as follows:
 
 
 ## Updating the docs
+
 You should document any changes to Corda’s public API as follows:
 
 
@@ -176,6 +188,7 @@ You should document any changes to Corda’s public API as follows:
 
 
 ## Merging the changes back into Corda
+
 You should merge the changes back into Corda as follows:
 
 
@@ -244,6 +257,7 @@ You should merge the changes back into Corda as follows:
 
 
 ## Developer Certificate of Origin
+
 All contributions to this project are subject to the terms of the Developer Certificate of Origin, available
                 [here](https://developercertificate.org/) and reproduced below:
 

@@ -1,12 +1,17 @@
 ---
-title: "Firewall Component Overview"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Firewall Component Overview
+version: corda-enterprise-4-1
 ---
 
 
 # Firewall Component Overview
 
+
 ## Introduction
+
 The Corda Firewall (bridge/float) component is designed for enterprise deployments and acts as an application level
                 firewall and protocol break on all internet facing endpoints. The `corda-firewall.jar` encapsulates the peer
                 network functionality of the basic Corda Enterprise node, so that this can be operated separately from the security sensitive
@@ -20,6 +25,7 @@ This document is intended to provide an overview of the architecture and options
 
 
 ## Terminology
+
 The component referred to here as the *bridge* is the library of code responsible for managing outgoing links to peer
                 nodes and implements the AMQP 1.0 protocol over TLS 1.2 between peers to provide reliable flow message delivery. This
                 component can be run as a simple integrated feature of the node. However, for enhanced security and features in Corda
@@ -44,6 +50,7 @@ All deployment modes of the bridge, float, or all-in-one node are transparently 
 {{< /note >}}
 
 ## Message path between peer nodes
+
 When a flow within a node needs to send a message to a peer there is a carefully orchestrated sequence of steps to ensure
                 correct secure routing based upon the network map information and to ensure safe, restartable delivery to the remote flow.
                 Adding the bridge and float to this process adds some extra steps and security checking of the messages.
@@ -143,9 +150,12 @@ That the message reply path is not via the inbound path, but instead is via a se
 
 ## Operating modes of the Bridge and Float with a single node
 
+
 ### Embedded Developer Node (node + artemis + internal bridge, no float, no DMZ)
 
+
 #### Prerequisites
+
 
 * Java runtime
 
@@ -161,7 +171,9 @@ The simplest development deployment of the node is without firewall and thus jus
 ![node embedded bridge](resources/bridge/node_embedded_bridge.png "node embedded bridge")
 ### Node + Combined Bridge/Float (no DMZ)
 
+
 #### Prerequisites
+
 
 * Java runtime
 
@@ -187,6 +199,7 @@ The next simplest deployment is to turn off the built in bridge using the `exter
 > {{< /note >}}
 ![simple bridge](resources/bridge/node_bridge/simple_bridge.png "simple bridge")
 #### node.conf
+
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
 
@@ -209,6 +222,7 @@ rpcSettings = {
 ```
 [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/node_bridge/node.conf)
 #### bridge.conf
+
 ```javascript
 firewallMode = SenderReceiver
 outboundConfig {
@@ -223,7 +237,9 @@ networkParametersPath = network-parameters
 [bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/node_bridge/bridge.conf)
 ### DMZ ready (node + bridge + float)
 
+
 #### Prerequisites
+
 
 * Java runtime
 
@@ -249,6 +265,7 @@ Note that whilst the bridge needs access to the official TLS private
 {{< /note >}}
 ![node bridge float](resources/bridge/node_bridge_float/node_bridge_float.png "node bridge float")
 #### node.conf
+
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
 
@@ -271,6 +288,7 @@ enterpriseConfiguration = {
 ```
 [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/node_bridge_float/node.conf)
 #### bridge.conf
+
 ```javascript
 firewallMode = BridgeInner
 outboundConfig {
@@ -291,6 +309,7 @@ networkParametersPath = network-parameters
 ```
 [bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/node_bridge_float/bridge.conf)
 #### float.conf
+
 ```javascript
 firewallMode = FloatOuter
 inboundConfig {
@@ -313,7 +332,9 @@ networkParametersPath = network-parameters
 [float.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/node_bridge_float/float.conf)
 ### DMZ ready with outbound SOCKS
 
+
 #### Prerequisites
+
 
 * Java runtime
 
@@ -333,6 +354,7 @@ Some organisations require dynamic outgoing connections to operate via a SOCKS p
 
 ![socks proxy](resources/bridge/socks_proxy/socks_proxy.png "socks proxy")
 #### node.conf
+
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
 
@@ -355,6 +377,7 @@ enterpriseConfiguration = {
 ```
 [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/socks_proxy/node.conf)
 #### bridge.conf
+
 ```javascript
 firewallMode = BridgeInner
 outboundConfig {
@@ -382,6 +405,7 @@ networkParametersPath = network-parameters
 ```
 [bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/socks_proxy/bridge.conf)
 #### float.conf
+
 ```javascript
 firewallMode = FloatOuter
 inboundConfig {
@@ -404,7 +428,9 @@ networkParametersPath = network-parameters
 [float.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/socks_proxy/float.conf)
 ### Full production HA DMZ ready mode (hot/cold node, hot/warm bridge)
 
+
 #### Prerequisites
+
 
 * Java runtime
 
@@ -430,6 +456,7 @@ Finally, we show a full HA solution as recommended for production. This does req
 
 ![ha nodes](resources/bridge/ha_nodes/ha_nodes.png "ha nodes")
 #### node.conf
+
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
 
@@ -458,6 +485,7 @@ enterpriseConfiguration = {
 ```
 [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/ha_nodes/node.conf)
 #### bridge.conf
+
 ```javascript
 firewallMode = BridgeInner
 outboundConfig {
@@ -482,6 +510,7 @@ networkParametersPath = network-parameters
 ```
 [bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/ha_nodes/bridge.conf)
 #### float.conf
+
 ```javascript
 firewallMode = FloatOuter
 inboundConfig {
@@ -503,9 +532,12 @@ networkParametersPath = network-parameters
 [float.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/ha_nodes/float.conf)
 ## Operating modes of shared Bridge and Float
 
+
 ### Multiple nodes + Bridge (no float, no DMZ)
 
+
 #### Prerequisites
+
 
 * Java runtime
 
@@ -528,6 +560,7 @@ It is possible to allow two or more Corda nodes (HA and/or non-HA) handle outgoi
 
 ![multiple nodes no ha](resources/bridge/multiple_non_ha_nodes/multiple_nodes_no_ha.png "multiple nodes no ha")
 #### bank-a-node.conf
+
 ```javascript
 myLegalName = "O=Bank A, L=New York, C=US"
 
@@ -558,6 +591,7 @@ rpcSettings = {
 ```
 [bank-a-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/multiple_non_ha_nodes/bank-a-node.conf)
 #### bank-b-node.conf
+
 ```javascript
 myLegalName = "O=Bank B, L=New York, C=US"
 
@@ -588,6 +622,7 @@ rpcSettings = {
 ```
 [bank-b-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/multiple_non_ha_nodes/bank-b-node.conf)
 #### bridge.conf
+
 ```javascript
 firewallMode = SenderReceiver
 
@@ -616,6 +651,7 @@ trustStoreFile = nodesCertificates/truststore.jks
 ```
 [bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/resources/bridge/multiple_non_ha_nodes/bridge.conf)
 ### Adding new nodes to existing shared Bridge
+
 Most of the HA components are agnostic to the node, with exception of the bridge which need to have access to the node’s SSL key in order to establish TLS connection to the counterparty nodes.
 
 The bridge’s SSL keystore will need to be updated when adding new node to the shared HA infrastructure. This can be done by using any keytool or by using [HA Utilities](ha-utilities.md),
@@ -646,6 +682,7 @@ A simple procedure for adding a new node might look like the following:
 > 
 
 ## Standalone Artemis server
+
 The Corda node can be configured to use a external Artemis broker instead of embedded broker to provide messaging layer HA capability in enterprise environment.
 
 Detailed setup instruction for Apache Artemis can be found in [Apache Artemis documentation](https://activemq.apache.org/artemis/docs/latest/index.html). Also see
@@ -660,11 +697,13 @@ We have tested Corda against Apache Artemis v2.6.2 and RedHat amq broker v7.2.2,
 
 
 ## Apache ZooKeeper
+
 Apache ZooKeeper is used in Corda firewall to manage the hot/warm bridge clusters, because hot/hot is not supported, ZooKeeper is used to ensure only 1 instance of the bridge is active at all time.
                 ZooKeeper instance is also used for signals failover when the active bridge is disconnected. ZooKeeper does not process or store any data regarding transactions or P2P communication.
 
 
 ### Setting up ZooKeeper cluster
+
 ZooKeeper can be deployed in single-server, or multi-server setup. A clustered (multi-Server) setup is recommended for production use, for added fault tolerance and reliability.
 
 Detailed setup instruction can be found in [Apache ZooKeeper documentation](https://zookeeper.apache.org/doc/r3.5.4-beta/zookeeperAdmin.html#sc_zkMulitServerSetup).
@@ -676,6 +715,7 @@ Only Apache ZooKeeper version 3.5.4-beta is compatible due to Apache Curator v4.
 {{< /note >}}
 
 ### Sharing ZooKeeper
+
 A single ZooKeeper cluster instance can be shared between multiple bridge clusters to reduce infrastructure cost, the `haConfig.haTopic` can be configured to allow each bridge cluster accessing different ZooKeeper path.
 
 ![zookeeper](resources/bridge/zookeeper.png "zookeeper")The above example shows multiple Corda bridges (NodeA and NodeB) connecting to the same ZooKeeper server.
@@ -685,6 +725,7 @@ This setup can be configured by setting NodeA and B’s `haConfig.haTopic` to `/
 
 
 ## ZooKeeper alternative
+
 It is possible to have the hot-warm capability of the bridge and float clusters without the added deployment complexity of a ZooKeeper cluster. The firewall provides a `Bully Algorithm` implementation for master election which can be enabled
                 by simply changing the `haConnectionString` configuration property from `zk://<host>:<port>` to the pseudo-url``bully://localhost`` (the host is a dummy string). This feature uses Publish/Subscribe messages on the P2P Artemis messaging broker for coordination. Please be aware that
                 this approach does not protect against network partitioning problems, therefore it is strongly recommended to use ZooKeeper in production environments.

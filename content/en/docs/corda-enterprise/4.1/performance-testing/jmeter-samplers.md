@@ -1,16 +1,21 @@
 ---
-title: "JMeter Samplers"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: JMeter Samplers
+version: corda-enterprise-4-1
 ---
 
 
 # JMeter Samplers
+
 JMeter uses samplers to interact with the system under test. It comes with a number of built-in
             [samplers](https://jmeter.apache.org/usermanual/component_reference.html#samplers),  mostly
             around testing web sites and infrastructure.
 
 
 ## Corda Flow Sampling
+
 For performance testing Corda, the [Java Request sampler](https://jmeter.apache.org/usermanual/component_reference.html#Java_Request) is used. This sampler works by calling
                 a Java class implementing the `org.apache.jmeter.protocol.java.sampler.JavaSamplerClient` interface and passing
                 a set of parameters:
@@ -35,6 +40,7 @@ When JMeter runs a test using such a sampler, the `setupTest` method is called o
 
 
 ## Provided Sampler Clients
+
 JMeter Corda provides a number of sampler client implementations that can be used with Java Request sampler. They all
                 share some common base infrastructure that allows them to invoke flows on a Corda node via RPC. All of these samplers
                 are built against a special performance test CorDapp called `perftestcordapp`. On each call to run the sampler, one
@@ -145,12 +151,14 @@ Switches the creation of anonymised per-transactions keys on and off.
 
 
 ## Custom Sampler Clients
+
 The sampler clients provided with JMeter Corda all target the performance test CorDapp developed along with the
                 performance test tool kit. In order to drive performance tests using different CorApps, custom samplers need to be
                 used that can drive the respective CorDapp via RPC.
 
 
 ### Loading a Custom Sampler Client
+
 The JAR file for the custom sampler needs to be added to the search path of JMeter in order for the Java sampler to
                     be able to load it. The `-XadditionalSearchPaths` flag can be used to do this. It takes a list of semicolon separated
                     directories or JAR files that all will be scanned by JMeter and added to the classpath to run tests.
@@ -179,6 +187,7 @@ In the case of JMeter remote invocation, the JMeter client might not actually  n
 
 
 ### Writing a Custom Sampler Client
+
 An SDK with examples on how to write samplers to drive different CorDapps is availabe at [https://github.com/corda/jmeter-sampler](https://github.com/corda/jmeter-sampler)
                     The SDK and sampler code is freely available, but please note that it requires access to a licensed local Corda Enterprise installation
                     to be used.

@@ -1,12 +1,18 @@
 ---
-title: "Building transactions"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-tutorial
+title: Building transactions
+version: corda-os-4-1
 ---
 
 
 # Building transactions
 
+
 ## Introduction
+
 Understanding and implementing transactions in Corda is key to building
                 and implementing real world smart contracts. It is only through
                 construction of valid Corda transactions containing appropriate data
@@ -20,6 +26,7 @@ Understanding and implementing transactions in Corda is key to building
 
 
 ## The Basic Lifecycle Of Transactions
+
 Transactions in Corda contain a number of elements:
 
 
@@ -71,6 +78,7 @@ The final stage of committing the transaction to the ledger is to notarise the `
 
 
 ## Gathering Inputs
+
 One of the first steps to forming a transaction is gathering the set of
                 input references. This process will clearly vary according to the nature
                 of the business process being captured by the smart contract and the
@@ -182,6 +190,7 @@ val latestRecord = serviceHub.vaultService.queryBy<TradeApprovalContract.State>(
 ```
 [WorkflowTransactionBuildTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/txbuild/WorkflowTransactionBuildTutorial.kt)
 ## Generating Commands
+
 For the commands that will be added to the transaction, these will need
                 to correctly reflect the task at hand. These must match because inside
                 the `Contract.verify` method the command will be used to select the
@@ -210,6 +219,7 @@ Another essential requirement for commands is that the correct set of
 
 
 ## Generating Outputs
+
 Having located a `StateAndRefs` set as the transaction inputs, the
                 flow has to generate the output states. Typically, this is a simple call
                 to the Kotlin `copy` method to modify the few fields that will
@@ -251,6 +261,7 @@ return Pair(inputs, outputs)
 ```
 [FxTransactionBuildTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FxTransactionBuildTutorial.kt)
 ## Building the SignedTransaction
+
 Having gathered all the components for the transaction we now need to use a `TransactionBuilder` to construct the
                 full `SignedTransaction`. We instantiate a `TransactionBuilder` and provide a notary that will be associated with
                 the output states. Then we keep adding inputs, outputs, commands and attachments to complete the transaction.
@@ -317,6 +328,7 @@ private fun buildTradeProposal(ourInputStates: List<StateAndRef<Cash.State>>,
 ```
 [FxTransactionBuildTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FxTransactionBuildTutorial.kt)
 ## Completing the SignedTransaction
+
 Having created an initial `TransactionBuilder` and converted this to a `SignedTransaction`, the process of
                 verifying and forming a full `SignedTransaction` begins and then completes with the
                 notarisation. In practice this is a relatively stereotypical process,
@@ -372,6 +384,7 @@ val completeTx = sourceSession.receive<SignedTransaction>().unwrap {
 
 
 ## Committing the Transaction
+
 Once all the signatures are applied to the `SignedTransaction`, the
                 final steps are notarisation and ensuring that all nodes record the fully-signed transaction. The
                 code for this is standardised in the `FinalityFlow`:
@@ -383,6 +396,7 @@ subFlow(FinalityFlow(allPartySignedTx, sourceSession))
 ```
 [WorkflowTransactionBuildTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/txbuild/WorkflowTransactionBuildTutorial.kt)
 ## Partially Visible Transactions
+
 The discussion so far has assumed that the parties need full visibility
                 of the transaction to sign. However, there may be situations where each
                 party needs to store private data for audit purposes, or for evidence to

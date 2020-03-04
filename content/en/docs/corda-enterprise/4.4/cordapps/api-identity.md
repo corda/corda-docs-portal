@@ -1,11 +1,16 @@
 ---
-title: "CorDapp Identities"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: CorDapp Identities
+version: corda-enterprise-4-4
 ---
 
 
 
 # CorDapp Identities
+
 Parties on the network are represented using the `AbstractParty` class. There are two types of `AbstractParty`:
 
 

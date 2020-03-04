@@ -1,12 +1,17 @@
 ---
-title: "CRL Endpoint Check Tool"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: CRL Endpoint Check Tool
+version: cenm-1-2
 ---
 
 
 # CRL Endpoint Check Tool
 
+
 ## Overview
+
 The CRL Endpoint Check Tool allows users to check health of CRL distribution endpoints in a given keystore. User
                 provides keystore file’s path and password. It iterates through all alias names in the keystore and their certificate
                 hierarchies. For each certificate it first checks whether it contains a CRL endpoint. If there is one, the tool
@@ -16,6 +21,7 @@ The CRL Endpoint Check Tool allows users to check health of CRL distribution end
 
 
 ## Using the CRL Endpoint Check Tool
+
 The CRL Endpoint Check tool resides in the `crlendpointchecktool.jar`. It is run by the following command:
 
 ```bash

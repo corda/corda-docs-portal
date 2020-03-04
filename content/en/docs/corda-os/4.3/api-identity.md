@@ -1,13 +1,19 @@
 ---
-title: "API: Identity"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3:
+    parent: corda-os-4-3-api
+title: 'API: Identity'
+version: corda-os-4-3
 ---
 
 
 
 # API: Identity
 
+
 ## Party
+
 Parties on the network are represented using the `AbstractParty` class. There are two types of `AbstractParty`:
 
 
@@ -42,6 +48,7 @@ The `PartyAndCertificate` class is also used by the network map service to repre
 
 ## Confidential identities
 
+
 {{< warning >}}
 The `confidential-identities` module is still not stabilised, so this API may change in future releases.
                     See [API stability guarantees](api-stability-guarantees.md).
@@ -66,6 +73,7 @@ Where using outputs from a previous transaction in a new transaction, counterpar
 
 
 ### SwapIdentitiesFlow
+
 `SwapIdentitiesFlow` is typically run as a subflow of another flow. It takes as its sole constructor argument the
                     counterparty we want to exchange confidential identities with. It returns a mapping from the identities of the caller
                     and the counterparty to their new confidential identities. In the future, this flow will be extended to handle swapping
@@ -88,9 +96,10 @@ override fun call(): SignedTransaction {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt)
+[TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 `SwapIdentitiesFlow` goes through the following key steps:
 
@@ -122,6 +131,7 @@ This ensures not only that the confidential identity X.509 certificates are sign
 
 
 ### IdentitySyncFlow
+
 When constructing a transaction whose input states reference confidential identities, it is common for counterparties
                     to require knowledge of which well-known identity each confidential identity maps to. `IdentitySyncFlow` handles this
                     process. You can see an example of its use in `TwoPartyTradeFlow.kt`.
@@ -157,9 +167,10 @@ val twiceSignedTx = partSignedTx + sellerSignature
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 The identity synchronization flow goes through the following key steps:
 
@@ -204,9 +215,10 @@ subFlow(IdentitySyncFlow.Receive(otherSideSession))
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt)
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 `IdentitySyncFlow` will serve all confidential identities in the provided transaction, irrespective of well-known
                     identity. This is important for more complex transaction cases with 3+ parties, for example:

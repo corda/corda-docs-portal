@@ -1,10 +1,14 @@
 ---
-title: "Corda Firewall"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Corda Firewall
+version: corda-enterprise-4-3
 ---
 
 
 # Corda Firewall
+
 Corda Enterprise ships a component called the *Corda Firewall*. The firewall is actually made up of two separate modules,
             called the *bridge* and the *float*. These handle outbound and inbound connections respectively, and allow a node
             administrator to minimise the amount of code running in a network’s DMZ. The firewall provides some basic protection

@@ -1,12 +1,17 @@
 ---
-title: "Highly-available notary metrics"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Highly-available notary metrics
+version: corda-enterprise-4-3
 ---
 
 
 # Highly-available notary metrics
 
+
 ## Available metrics
+
 A notary exports the standard metrics exported by all Corda nodes. See [Node administration](../node-administration.md). In addition, a
                 highly-available notary exports the following metrics:
 
@@ -50,6 +55,7 @@ A notary exports the standard metrics exported by all Corda nodes. See [Node adm
 {{< /table >}}
 
 ## Notary monitoring recommendations
+
 For each metric, a number of values are provided, including:
 
 

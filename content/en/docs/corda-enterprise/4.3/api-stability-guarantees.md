@@ -1,10 +1,15 @@
 ---
-title: "API stability guarantees"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-api
+title: API stability guarantees
+version: corda-enterprise-4-3
 ---
 
 
 # API stability guarantees
+
 Corda makes certain commitments about what parts of the API will preserve backwards compatibility as they change and
             which will not. Over time, more of the API will fall under the stability guarantees. Thus, APIs can be categorized in the following 2 broad categories:
 
@@ -17,6 +22,7 @@ Corda makes certain commitments about what parts of the API will preserve backwa
 
 
 # Public API
+
 The following modules form part of Corda’s public API and we commit to API/ABI backwards compatibility in following releases, unless an incompatible change is required for security reasons:
 
 
@@ -52,6 +58,7 @@ Additionally, the **Tokens SDK (com.r3.corda.lib.tokens)** available in [the Tok
 
 
 # Non-public API (experimental)
+
 The following modules are not part of the Corda’s public API and no backwards compatibility guarantees are provided. They are further categorized in 2 classes:
 
 
@@ -67,6 +74,7 @@ The **finance module** was the first CorDapp ever written and is a legacy module
 
 ## Corda incubating modules
 
+
 * **net.corda.confidential**: experimental support for confidential identities on the ledger
 
 
@@ -81,6 +89,7 @@ The **finance module** was the first CorDapp ever written and is a legacy module
 
 
 ## Corda internal modules
+
 Everything else is internal and will change without notice, even deleted, and should not be used. This also includes any package that has
                 `.internal` in it. So for example, `net.corda.core.internal` and sub-packages should not be used.
 
@@ -95,6 +104,7 @@ The web server module will be removed in future. You should call Corda nodes thr
 
 
 # The `@DoNotImplement` annotation
+
 Certain interfaces and abstract classes within the Corda API have been annotated
             as `@DoNotImplement`. While we undertake not to remove or modify any of these classes’ existing
             functionality, the annotation is a warning that we may need to extend them in future versions of Corda.

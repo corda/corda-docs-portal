@@ -1,13 +1,19 @@
 ---
-title: "Transactions"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-concepts
+title: Transactions
+version: corda-enterprise-4-3
 ---
 
 
 # Transactions
 
+
 {{< topic >}}
 # Summary
+
 
 * *Transactions are proposals to update the ledger*
 
@@ -28,12 +34,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/213879807" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## Overview
+
 Corda uses a *UTXO* (unspent transaction output) model where every state on the ledger is immutable. The ledger
                 evolves over time by applying *transactions*. Transactions update the ledger by marking zero or more existing ledger states
                 as historic (the *inputs*), and producing zero or more new ledger states (the *outputs*). Transactions represent a
@@ -66,6 +74,7 @@ There are two basic types of transactions:
 
 
 ## Transaction chains
+
 When creating a new transaction, the output states that the transaction proposes do not exist yet, and must
                 therefore be created by the proposer or proposers of the transaction. However, the input states already exist as the outputs of
                 previous transactions. We therefore include them in the proposed transaction by reference.
@@ -85,6 +94,7 @@ This situation can be illustrated as follows:
 
 
 ## Committing transactions
+
 Initially, a transaction is just a **proposal** to update the ledger. It represents the future state of the ledger
                 that is desired by the transaction builders:
 
@@ -104,6 +114,7 @@ Initially, a transaction is just a **proposal** to update the ledger. It represe
 
 
 ## Transaction validity
+
 Each required signer should only sign the transaction if the following two conditions hold:
 
 > 
@@ -129,6 +140,7 @@ If the transaction gathers all of the required signatures, but the preceding con
 
 
 ## Reference states
+
 As mentioned in [States](key-concepts-states.md), some states need to be referred to by the contracts of other input or output
                 states but not updated/consumed. This is where reference states come in. When a state is added to the references list of
                 a transaction, instead of the inputs or outputs list, it is treated as a *reference state*. There are two important
@@ -144,6 +156,7 @@ As mentioned in [States](key-concepts-states.md), some states need to be referre
 
 
 ## Other transaction components
+
 As well as input states and output states, transactions contain:
 
 
@@ -166,6 +179,7 @@ For example, suppose we have a transaction where Alice uses a £5 cash payment t
 
 ![full tx](resources/full-tx.png "full tx")
 ### Commands
+
 <iframe src="https://player.vimeo.com/video/213881538" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
@@ -202,6 +216,7 @@ We can visualize this situation as follows:
 
 ![commands](resources/commands.png "commands")
 ### Attachments
+
 <iframe src="https://player.vimeo.com/video/213879328" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
@@ -224,6 +239,7 @@ For this use case, we have *attachments*. Each transaction can refer to zero or 
 
 
 ### Time-window
+
 In some cases, we want a proposed transaction to only be approved during a certain time-window. For example:
 
 
@@ -238,6 +254,7 @@ In such cases, we can add a *time-window* to the transaction. Time-windows speci
 
 
 ### Notary
+
 A notary pool is a network service that provides uniqueness consensus by attesting that, for a given transaction,
                     it has not already signed other transactions that consume any of the proposed transaction’s input states.
                     The notary pool provides the point of finality in the system.

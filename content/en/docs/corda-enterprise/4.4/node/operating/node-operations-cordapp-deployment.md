@@ -1,10 +1,15 @@
 ---
-title: "Deploying CorDapps on a node"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-node
+title: Deploying CorDapps on a node
+version: corda-enterprise-4-4
 ---
 
 
 # Deploying CorDapps on a node
+
 To deploy a new CorDapp on a node:
 
 
@@ -25,6 +30,7 @@ To deploy a new CorDapp on a node:
 
 
 ## Database update
+
 For a Corda node connecting to a database with **restricted permissions**, any tables need to be created manually with the
                 help of the Corda Database Management Tool. This requires that a custom table used by a CorDapp
                 is created before the CorDapp is deployed.
@@ -37,6 +43,7 @@ Creating a new database table requires a similar procedure to creating a Corda d
 
 
 ### 1. Check if the CorDapp requires custom tables
+
 Refer to the CorDapp documentation or consult a CorDapp provider if the CorDapp requires custom backing tables.
                     You can verify a CorDapp JAR manually to check the presence of script files inside *migration* director, e.g. for Linux:
 
@@ -56,6 +63,7 @@ If the CorDapps don’t contain any migration scripts, then they don’t require
 > {{< /note >}}
 
 ### 2. Configure Database Management Tool
+
 Corda Database Management Tool needs access to a running database.
                     The tool is configured in a similar manner to the Corda node.
                     A base directory needs to be provided with he following content: a `node.conf` file with database connection settings, a
@@ -80,6 +88,7 @@ Copy CorDapps to the *cordapps* subdirectory. This is required to collect and ru
 
 
 #### Azure SQL
+
 Database Management Tool settings in configuration file `node.conf` for Azure SQL:
 
 > 
@@ -103,6 +112,7 @@ Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](htt
 
 
 #### SQL Server
+
 Database Management Tool settings in configuration file `node.conf` for SQL Server:
 
 > 
@@ -125,6 +135,7 @@ Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](htt
 
 
 #### Oracle
+
 Database Management Tool settings in the configuration file `node.conf` for Oracle:
 
 > 
@@ -148,6 +159,7 @@ Copy Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c 
 
 
 #### PostgreSQL
+
 Database Management Tool settings in configuration file `node.conf` for PostgreSQL:
 
 > 
@@ -171,6 +183,7 @@ Copy PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` direc
 
 
 ### 3. Extract DDL script using Database Management Tool
+
 To run the tool, use the following command:
 
 > 
@@ -187,6 +200,7 @@ A generated script named *migration/*.sql* will be present in the base directory
 
 
 ### 4. Apply DDL scripts on a database
+
 The generated DDL script can be applied by the database administrator using their tooling of choice.
                     The script needs to be executed by a database user with *administrative* permissions,
                     with a *<schema>* set as the default schema for that user and matching the schema used by a Corda node.
@@ -210,11 +224,13 @@ The DDL scripts don’t contain any check preventing running them twice.
 
 
 ### 5. Add permission to use tables
+
 For some databases, the permission to use tables can only be assigned after the tables are created.
                     This step is required for the Oracle database only.
 
 
 #### Oracle
+
 Connect to the database as administrator
                         and grand *SELECT*, *INSERT*, *UPDATE*, *DELETE* permissions to *my_user* for all CorDapps custom tables:
 

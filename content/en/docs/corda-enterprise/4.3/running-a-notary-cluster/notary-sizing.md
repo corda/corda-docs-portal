@@ -1,12 +1,17 @@
 ---
-title: "Notary sizing considerations"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Notary sizing considerations
+version: corda-enterprise-4-3
 ---
 
 
 # Notary sizing considerations
 
+
 ## Notary disk space requirements
+
 The disk space required for a notary depends on how many transactions are notarised and how many states each of those
                 transactions contain. Disk space required increases linearly with the number of notarisation requests, notarised
                 transactions and notarised states. Note that even unsuccessfully notarised requests will consume disk space, while
@@ -19,6 +24,7 @@ Notaries store their data in two databases - the replicated database for storing
 
 
 ### Maximum disk space formula
+
 The following formula can be helpful in estimating the maximum disk space required for notarisation results:
 
 ```none
@@ -45,6 +51,7 @@ The following table contains some example scenarios that could be useful in dete
 
 ### Maximum disk space required for notary storage
 
+
 {{< table >}}
 
 |Notarised transations|States per transaction|Percentage of transations retried|Max space required (gigabytes)|
@@ -56,6 +63,7 @@ The following table contains some example scenarios that could be useful in dete
 {{< /table >}}
 
 ## Notary performance considerations
+
 Notary performance is defined by the ability of the notary to service incoming requests at a high enough rate that the latency
                 for such requests does not grow to unacceptable levels. Thus, the throughput of the notary in terms of states per second is
                 used as a proxy for the latency. For more details on notary performance measurement, see [Highly-available notary metrics](notary-metrics.md).
@@ -75,6 +83,7 @@ The following tables show the relationship between minimum input states per seco
 
 
 ### Performance table for low spec notary
+
 The below table shows the performance of a notary cluster configured using the below minimum specifications:
 
 > 
@@ -110,6 +119,7 @@ Note that the performance below is representative only.
 {{< /table >}}
 
 ### Performance table for high spec notary
+
 The below table shows the performance of a notary configured using the below high specifications:
 
 > 

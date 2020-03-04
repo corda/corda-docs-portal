@@ -1,12 +1,17 @@
 ---
-title: "Getting set up for CorDapp development"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Getting set up for CorDapp development
+version: corda-enterprise-4-3
 ---
 
 
 # Getting set up for CorDapp development
 
+
 ## Software requirements
+
 Corda uses industry-standard tools:
 
 
@@ -62,6 +67,7 @@ Following these software recommendations will minimize the number of errors you 
 
 
 ## Set-up instructions
+
 The instructions below will allow you to set up your development environment for running Corda and writing CorDapps. If
                 you have any issues, please reach out on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via
                 [our Slack channels](http://slack.corda.net/).
@@ -120,6 +126,7 @@ These setup instructions will guide you on how to install the Oracle JDK. Each J
 
 ## Windows
 
+
 {{< warning >}}
 If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac](#mac-label), deb-ubuntu-label or [Fedora](#fedora-label) instructions instead.
 
@@ -127,6 +134,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 
 ### Java
+
 
 * Visit [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -146,6 +154,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 ### Git
 
+
 * Visit [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
 
@@ -161,6 +170,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 ### IntelliJ
 
+
 * Visit [https://www.jetbrains.com/idea/download/download-thanks.html?code=IIC](https://www.jetbrains.com/idea/download/download-thanks.html?code=IIC)
 
 
@@ -172,6 +182,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 
 ### Download a sample project
+
 
 * Open a command prompt
 
@@ -187,6 +198,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 
 ### Resolve Corda Enterprise binaries
+
 The Corda Enterprise binaries are not available in a publicly accessible Maven repository. Instead, the Corda Enterprise
                     binaries will be made available to your organisation as a compressed tarball (`corda-3.1-developer-pack.tar.gz`).
                     This tarball contains all of the Corda dependencies as they would appear in your local Maven repository located at
@@ -224,6 +236,7 @@ Upon receiving the binaries, the quickest way to get started developing your Cor
 
 ### Run from the command prompt
 
+
 * Move into the `cordapp-example` folder by running `cd cordapp-example`
 
 
@@ -241,6 +254,7 @@ Upon receiving the binaries, the quickest way to get started developing your Cor
 
 
 ### Run from IntelliJ
+
 
 * Open IntelliJ Community Edition
 
@@ -282,6 +296,7 @@ If you click `Import Project` instead of `Open`, the project’s run configurati
 
 ## Mac
 
+
 {{< warning >}}
 If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the windows-label, deb-ubuntu-label or [Fedora](#fedora-label) instructions instead.
 
@@ -289,6 +304,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the w
 
 
 ### Java
+
 
 * Visit [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -305,6 +321,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the w
 
 ### IntelliJ
 
+
 * Visit [https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC](https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC)
 
 
@@ -316,6 +333,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the w
 
 
 ### Download a sample project
+
 
 * Open a terminal
 
@@ -331,6 +349,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the w
 
 
 ### Resolve Corda Enterprise binaries
+
 The Corda Enterprise binaries are not available in a publicly accessible Maven repository. Instead, the Corda Enterprise
                     binaries will be made available to your organisation as a compressed tarball (`corda-3.1-developer-pack.tar.gz`).
                     This tarball contains all of the Corda dependencies as they would appear in your local Maven repository located at
@@ -382,6 +401,7 @@ be done by firstly unpacking the `corda-3.1-developer-pack.tar.gz` compressed ta
 
 ### Run from the terminal
 
+
 * Move into the `cordapp-example` folder by running `cd cordapp-example`
 
 
@@ -399,6 +419,7 @@ be done by firstly unpacking the `corda-3.1-developer-pack.tar.gz` compressed ta
 
 
 ### Run from IntelliJ
+
 
 * Open IntelliJ Community Edition
 
@@ -439,6 +460,7 @@ If you click `Import Project` instead of `Open`, the project’s run configurati
 
 
 ## CorDapp Templates and samples
+
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
 
 > 
@@ -456,6 +478,7 @@ You can clone these repos to your local machine by running the command `git clon
 
 ## Debian/Ubuntu
 
+
 {{< warning >}}
 If you are using a Mac, Windows or Fedora machine, please follow the [Mac](#mac-label), windows-label or [Fedora](#fedora-label) instructions instead.
 
@@ -465,6 +488,7 @@ These instructions were tested on Ubuntu Desktop 18.04 LTS.
 
 
 ### Java
+
 
 * Go to [https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html) and download `jdk-8u202-linux-x64.tar.gz`.
                             You will be redirected to an Oracle login page. Login or create an account to download the JDK.
@@ -512,6 +536,7 @@ These instructions were tested on Ubuntu Desktop 18.04 LTS.
 
 ### Git
 
+
 * From the terminal, Git can be installed using apt with the command `sudo apt install git`
 
 
@@ -520,6 +545,7 @@ These instructions were tested on Ubuntu Desktop 18.04 LTS.
 
 
 ### IntelliJ
+
 Jetbrains offers a pre-built snap package that allows for easy, one-step installation of IntelliJ onto Ubuntu.
 
 
@@ -535,6 +561,7 @@ Jetbrains offers a pre-built snap package that allows for easy, one-step install
 
 ## Fedora
 
+
 {{< warning >}}
 If you are using a Mac, Windows or Debian/Ubuntu machine, please follow the [Mac](#mac-label), windows-label or deb-ubuntu-label instructions instead.
 
@@ -544,6 +571,7 @@ These instructions were tested on Fedora 28.
 
 
 ### Java
+
 
 * Download the RPM installation file of Oracle JDK from [https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
@@ -560,6 +588,7 @@ These instructions were tested on Fedora 28.
 
 ### Git
 
+
 * From the terminal, Git can be installed using dnf with the command `sudo dnf install git`
 
 
@@ -568,6 +597,7 @@ These instructions were tested on Fedora 28.
 
 
 ### IntelliJ
+
 
 * Visit [https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC](https://www.jetbrains.com/idea/download/download-thanks.html?platform=linux&code=IIC)
 
@@ -585,6 +615,7 @@ You can clone these repos to your local machine by running the command `git clon
 
 
 ## Next steps
+
 The best way to check that everything is working fine is by taking a deeper look at the
                 [example CorDapp](tutorial-cordapp.md).
 

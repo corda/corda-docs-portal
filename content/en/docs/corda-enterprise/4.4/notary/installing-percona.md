@@ -1,10 +1,14 @@
 ---
-title: "Configuring the MySQL notary backend"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Configuring the MySQL notary backend
+version: corda-enterprise-4-4
 ---
 
 
 # Configuring the MySQL notary backend
+
 
 {{< warning >}}
 The MySQL notary service is deprecated and will be removed in the future. A [JPA notary service](installing-jpa.md)
@@ -27,6 +31,7 @@ Note also that **each** Percona XtraDB Cluster node requires multiple ports to b
 {{< /note >}}
 
 ## MySQL driver
+
 If Percona is used as the database, each worker node requires a MySQL JDBC driver to be placed in
                 the `drivers` directory to be able to communicate with the Percona XtraDB Cluster. The official
                 driver can be obtained from Maven or the
@@ -34,6 +39,7 @@ If Percona is used as the database, each worker node requires a MySQL JDBC drive
 
 
 ## Networking
+
 The Percona nodes communicate with each other via group communication (GComm). The Percona
                 replicas should only be reachable from each other and from the worker nodes.
 
@@ -42,6 +48,7 @@ We recommend running the worker nodes and the Percona service in a joined privat
 
 
 ## Setup
+
 In this section we’re setting up a three-node Percona cluster.  A three-node cluster can tolerate one crash
                 fault. In production, you probably want to run five nodes, to be able to tolerate up to two faults.
 
@@ -59,6 +66,7 @@ Host names and IP addresses used in the example are listed in the table below.
 {{< /table >}}
 
 ## Installation
+
 Percona provides repositories for the YUM and APT package managers.
                 Alternatively you can install from source. For simplicity, we are going to
                 install Percona using the default data directory `/var/lib/mysql`.
@@ -88,18 +96,22 @@ The service will start up automatically after the installation, you can confirm 
 
 ## Configuration
 
+
 ### Configure the MySQL Root Password (if necessary)
+
 Some distributions allow root access to the database through a Unix domain socket, others
                     require you to find the temporary password in the log file and change it upon
                     first login.
 
 
 ### Stop the Service
+
 ```sh
 sudo service mysql stop
 ```
 
 ### Setup replication
+
 Variables you need to change from the defaults are listed in the table below.
 
 
@@ -176,22 +188,26 @@ wsrep_sst_auth={{ sst_user }}:{{ sst_pass }}
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [wsrep.cnf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/notary/resources/wsrep.cnf)
+[wsrep.cnf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/notary/resources/wsrep.cnf) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 The file `/etc/mysql/percona-xtradb-cluster.conf.d/mysqld.cnf` contains additional settings like the data directory. We’re assuming
                     you keep the default `/var/lib/mysql`.
 
 
 ### Configure AppArmor, SELinux or other Kernel Security Module
+
 If you’re changing the location of the database data directory, you might need to
                     configure your security module accordingly.
 
 
 ### On the first Percona node
 
+
 #### Start the Database
+
 ```sh
 sudo /etc/init.d/mysql bootstrap-pxc
 ```
@@ -202,11 +218,13 @@ You can now connect to the database using a standard tool (e.g. the `mysql` comm
 
 
 #### Create the Corda User
+
 ```sql
 CREATE USER corda IDENTIFIED BY '{{ password }}';
 ```
 
 #### Create the Database and Tables
+
 We need to create three tables in our database:
 
 
@@ -260,6 +278,7 @@ GRANT SELECT, INSERT ON corda.notary_committed_transactions TO 'corda';
 ```
 
 #### Create the SST User
+
 ```sql
 CREATE USER ‘{{ sst_user }}’@’localhost’ IDENTIFIED BY ‘{{ sst_pass }}‘;
 GRANT RELOAD, LOCK TABLES, PROCESS, REPLICATION CLIENT ON *.* TO ‘{{ sst_user }}’@’localhost’;
@@ -267,6 +286,7 @@ FLUSH PRIVILEGES;
 ```
 
 ### On all other Nodes
+
 Once you have updated the `wsrep.cnf` on all nodes, start MySQL on all the
                     remaining nodes of your cluster. Run this command on all nodes of your cluster,
                     except the first one. The config file is shown [above](.md#wsrep-cnf).

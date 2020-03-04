@@ -1,10 +1,14 @@
 ---
-title: "CorDapp compatibility between Corda and Corda Enterprise"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: CorDapp compatibility between Corda and Corda Enterprise
+version: corda-enterprise-4-4
 ---
 
 
 # CorDapp compatibility between Corda and Corda Enterprise
+
 Corda and Corda Enterprise have an Open Core approach. This means that both Corda and Corda Enterprise are compiled
             against the Corda Core library.
 

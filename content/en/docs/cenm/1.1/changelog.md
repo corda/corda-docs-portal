@@ -1,15 +1,20 @@
 ---
-title: "Changelog"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Changelog
+version: cenm-1-1
 ---
 
 
 # Changelog
+
 Here’s a summary of what’s changed in each Enterprise Network Manager release. For guidance on how to upgrade code from
             the previous release, see [Upgrading Corda Enterprise Network Manager](upgrade-notes.md).
 
 
 ## CENM 1.1
+
 
 * Remove shell functionality for private network maps ahead of removing them entirely in a future release.
                         As part of this the *privateNetworkAutoEnrolment* configuration option has been removed.
@@ -67,6 +72,7 @@ Here’s a summary of what’s changed in each Enterprise Network Manager releas
 
 ## CENM 1.0
 
+
 * CSR and CRR workflow logic rewritten according to the new design.
                         The new implementation removes DB queries over a large data sets and separates workflow-related logic from other parts of the system.
 
@@ -113,6 +119,7 @@ Here’s a summary of what’s changed in each Enterprise Network Manager releas
 
 
 ## ENM 0.4
+
 
 * Fixed Jira synchronisation issue for the rejected CSR/CRRs.
 

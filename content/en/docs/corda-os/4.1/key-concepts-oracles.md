@@ -1,13 +1,19 @@
 ---
-title: "Oracles"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-concepts
+title: Oracles
+version: corda-os-4-1
 ---
 
 
 # Oracles
 
+
 {{< topic >}}
 # Summary
+
 
 * *A fact can be included in a transaction as part of a command*
 
@@ -18,12 +24,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/214157956" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## Overview
+
 In many cases, a transaction’s contractual validity depends on some external piece of data, such as the current
                 exchange rate. However, if we were to let each participant evaluate the transaction’s validity based on their own
                 view of the current exchange rate, the contract’s execution would be non-deterministic: some signers would consider the

@@ -1,12 +1,17 @@
 ---
-title: "Official Corda Docker Image"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Official Corda Docker Image
+version: corda-os-4-4
 ---
 
 
 # Official Corda Docker Image
 
+
 ## Running a node connected to a Compatibility Zone in Docker
+
 
 {{< note >}}
 Requirements: A valid node.conf and a valid set of certificates - (signed by the CZ)
@@ -56,6 +61,7 @@ If there is no dataSourceProperties key in the node.conf, the docker container o
 
 ## Running a node connected to a Bootstrapped Network
 
+
 {{< note >}}
 Requirements: A valid node.conf, a valid set of certificates, and an existing network-parameters file
 
@@ -82,10 +88,12 @@ There is a new mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-n
 
 
 ## Generating configs and certificates
+
 It is possible to utilize the image to automatically generate a sensible minimal configuration for joining an existing Corda network.
 
 
 ## Joining TestNet
+
 
 {{< note >}}
 Requirements: A valid registration for TestNet and a one-time code for joining TestNet. Certificate and configuration folders should be accessible from the container. Docker will create folders using the permissions of it’s daemon if they don’t exist and the container may fail accessing them.
@@ -130,6 +138,7 @@ docker run -ti \
 ```
 
 ## Joining an existing Compatibility Zone
+
 
 {{< note >}}
 Requirements: A Compatibility Zone, the Zone Trust Root and authorisation to join said Zone.

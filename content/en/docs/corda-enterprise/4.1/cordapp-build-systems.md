@@ -1,16 +1,21 @@
 ---
-title: "Building and installing a CorDapp"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Building and installing a CorDapp
+version: corda-enterprise-4-1
 ---
 
 
 
 # Building and installing a CorDapp
+
 CorDapps run on the Corda platform and integrate with it and each other. This article explains how to build CorDapps.
             To learn what a CorDapp is, please read [What is a CorDapp?](cordapp-overview.md).
 
 
 ## CorDapp format
+
 A CorDapp is a semi-fat JAR that contains all of the CorDapp’s dependencies *except* the Corda core libraries and any
                 other CorDapps it depends on.
 
@@ -26,6 +31,7 @@ For example, if a Cordapp depends on `corda-core`, `your-other-cordapp` and `apa
 
 
 ## Build tools
+
 In the instructions that follow, we assume you are using Gradle and the `cordapp` plugin to build your
                 CorDapp. You can find examples of building a CorDapp using these tools in the
                 [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) and the
@@ -48,7 +54,9 @@ To ensure you are using the correct version of Gradle, you should use the provid
 
 ## Setting your dependencies
 
+
 ### Choosing your Corda, Quasar and Kotlin versions
+
 Several `ext` variables are used in a CorDapp’s `build.gradle` file to define version numbers that should match the version of
                     Corda you’re developing against:
 
@@ -88,6 +96,7 @@ In certain cases, you may also wish to build against the unstable Master branch.
 
 
 ### Corda dependencies
+
 The `cordapp` plugin adds three new gradle configurations:
 
 
@@ -211,6 +220,7 @@ Here is an overview of the various Corda dependencies:
 
 
 ### Dependencies on other CorDapps
+
 Your CorDapp may also depend on classes defined in another CorDapp, such as states, contracts and flows. There are two
                     ways to add another CorDapp as a dependency in your CorDapp’s `build.gradle` file:
 
@@ -236,6 +246,7 @@ Note that the `cordformation` and `cordapp` Gradle plugins can be used together.
 
 
 ### Other dependencies
+
 If your CorDapps have any additional external dependencies, they can be specified like normal Kotlin/Java dependencies
                     in Gradle. See the example below, specifically the `apache-commons` include.
 
@@ -244,6 +255,7 @@ For further information about managing dependencies, see
 
 
 ### Signing the CorDapp JAR
+
 The `cordapp` plugin can sign the generated CorDapp JAR file using [JAR signing and verification tool](https://docs.oracle.com/javase/tutorial/deployment/jar/signing.html).
                     Signing the CorDapp enables its contract classes to use signature constraints instead of other types of the constraints,
                     for constraints explanation refer to [API: Contract Constraints](api-contract-constraints.md).
@@ -383,6 +395,7 @@ The task creates a new JAR file named **-signed.jar* which should be used furthe
 
 
 ### Example
+
 Below is a sample CorDapp Gradle dependencies block. When building your own CorDapp, use the `build.gradle` file of the
                     [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the
                     [Java CorDapp Template](https://github.com/corda/cordapp-template-java) as a starting point.
@@ -425,6 +438,7 @@ dependencies {
 
 
 ## Creating the CorDapp JAR
+
 Once your dependencies are set correctly, you can build your CorDapp JAR(s) using the Gradle `jar` task
 
 
@@ -453,6 +467,7 @@ The filename of the JAR must include a unique identifier to deduplicate it from 
 
 ## Installing the CorDapp JAR
 
+
 {{< note >}}
 Before installing a CorDapp, you must create one or more nodes to install it on. For instructions, please see
                     [Creating nodes locally](generating-a-node.md).
@@ -464,6 +479,7 @@ At start-up, nodes will load any CorDapps present in their `cordapps` folder. In
 
 
 ## CorDapp configuration files
+
 CorDapp configuration files should be placed in `<node_dir>/cordapps/config`. The name of the file should match the
                 name of the JAR of the CorDapp (eg; if your CorDapp is called `hello-0.1.jar` the config should be `config/hello-0.1.conf`).
 
@@ -489,6 +505,7 @@ class GetStringConfigFlow(private val configKey: String) : FlowLogic<String>() {
 ```
 [GetStringConfigFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/cordapp-configuration/workflows/src/main/kotlin/net/corda/configsample/GetStringConfigFlow.kt)
 ### Using CorDapp configuration with the deployNodes task
+
 If you want to generate CorDapp configuration when using the `deployNodes` Gradle task, then you can use the `cordapp` or `projectCordapp`
                     properties on the node. For example:
 
@@ -532,6 +549,7 @@ There is an example project that demonstrates this in the `samples` folder of th
 
 
 ## Minimum and target platform version
+
 CorDapps can advertise their minimum and target platform version. The minimum platform version indicates that a node has to run at least this
                 version in order to be able to run this CorDapp. The target platform version indicates that a CorDapp was tested with this version of the Corda
                 Platform and should be run at this API level if possible. It provides a means of maintaining behavioural compatibility for the cases where the
@@ -569,6 +587,7 @@ cordapp {
 
 
 ## Separation of CorDapp contracts, flows and services
+
 It is recommended that **contract** code (states, commands, verification logic) be packaged separately from **business flows** (and associated services).
                 This decoupling enables *contracts* to evolve independently from the *flows* and *services* that use them. Contracts may even be specified and implemented by different
                 providers (eg. Corda currently ships with a cash financial contract which in turn is used in many other flows and many other CorDapps).
@@ -678,6 +697,7 @@ Contract states may optionally specify a custom schema mapping (by implementing 
 
 
 ## CorDapp Contract Attachments
+
 As of Corda 4, CorDapp Contract JARs must be installed on a node by a trusted uploader, either by
 
 

@@ -1,16 +1,21 @@
 ---
-title: "Extending the state machine"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Extending the state machine
+version: corda-os-4-4
 ---
 
 
 
 # Extending the state machine
+
 This article explains how to extend the state machine code that underlies flow execution. It is intended for Corda
             contributors.
 
 
 ## How to add suspending operations
+
 To add a suspending operation for a simple request-response type function that perhaps involves some external IO we can
                 use `FlowExternalOperation` or `FlowExternalAsyncOperation`. These interfaces represent the public versions of the internal
                 `FlowAsyncOperation`.
@@ -19,6 +24,7 @@ See [calling external systems inside of flows](api-flows.md#api-flows-external-o
 
 
 ## How to test
+
 The recommended way to test flows and the state machine is using the Driver DSL. This ensures that you will test your
                 flow with a full node.
 
@@ -67,14 +73,16 @@ The recommended way to test flows and the state machine is using the Driver DSL.
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialFlowAsyncOperationTest.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt) | [TutorialFlowAsyncOperationTest.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java)
+[TutorialFlowAsyncOperationTest.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt) | [TutorialFlowAsyncOperationTest.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 The above will spin up a node and run our example flow.
 
 
 ## How to debug issues
+
 Let’s assume we made a mistake in our summing operation:
 
 
@@ -120,9 +128,10 @@ public final class SummingOperationThrowing implements FlowAsyncOperation<Intege
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [TutorialFlowAsyncOperation.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt) | [SummingOperationThrowing.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java)
+[TutorialFlowAsyncOperation.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt) | [SummingOperationThrowing.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 The operation now throws a rude exception. If we modify the example flow to use this and run the same test we will get
                 a lot of logs about the error condition (as we are in dev mode). The interesting bit looks like this:

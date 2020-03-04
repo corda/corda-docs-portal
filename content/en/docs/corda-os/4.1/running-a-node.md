@@ -1,10 +1,14 @@
 ---
-title: "Running nodes locally"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Running nodes locally
+version: corda-os-4-1
 ---
 
 
 # Running nodes locally
+
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
@@ -15,10 +19,12 @@ There are several ways to run a Corda node locally for testing purposes.
 
 
 ## Starting a Corda node using DemoBench
+
 See the instructions in [DemoBench](demobench.md).
 
 
 ## Starting a Corda node from the command line
+
 Run a node by opening a terminal window in the node’s folder and running:
 
 ```shell
@@ -41,6 +47,7 @@ The node webserver is for testing purposes only and will be removed soon.
 
 
 ### Setting JVM arguments
+
 There are several ways of setting JVM arguments for the node process (particularly the garbage collector and the memory settings).
                     They are listed here in order of increasing priority, i.e. if the same flag is set in a way later in this list, it will override
                     anything set earlier.
@@ -84,7 +91,9 @@ You can set JVM args on the command line that apply to the launcher process and 
 
 ## Starting all nodes at once on a local machine from the command line
 
+
 ### Native
+
 If you created your nodes using `deployNodes`, a `runnodes` shell script (or batch file on Windows) will have been
                     generated to allow you to quickly start up all nodes and their webservers. `runnodes` should only be used for testing
                     purposes.
@@ -111,6 +120,7 @@ If you receive an `OutOfMemoryError` exception when interacting with the nodes, 
 
 
 ### docker-compose
+
 If you created your nodes using `Dockerform`, the `docker-compose.yml` file and corresponding `Dockerfile` for
                     nodes has been created and configured appropriately. Navigate to `build/nodes` directory and run `docker-compose up`
                     command. This will startup nodes inside new, internal network.
@@ -127,6 +137,7 @@ You need both `Docker` and `docker-compose` installed and enabled to use this me
 
 
 ## Starting all nodes at once on a remote machine from the command line
+
 By default, `Cordform` expects the nodes it generates to be run on the same machine where they were generated.
                 In order to run the nodes remotely, the nodes can be deployed locally and then copied to a remote server.
                 If after copying the nodes to the remote machine you encounter errors related to `localhost` resolution, you will additionally need to follow the steps below.

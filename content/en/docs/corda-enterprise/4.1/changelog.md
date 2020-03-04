@@ -1,15 +1,20 @@
 ---
-title: "Changelog"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Changelog
+version: corda-enterprise-4-1
 ---
 
 
 # Changelog
+
 Here’s a summary of what’s changed in each Corda release. For guidance on how to upgrade code from the previous
             release, see [Upgrading apps to Corda 4](app-upgrade-notes.md).
 
 
 ## Unreleased
+
 
 * Removed the RPC exception privacy feature. Previously, in production mode, the exceptions thrown on the node were stripped of all content
                         when rethrown on the RPC client.
@@ -64,6 +69,7 @@ The only exception to this is `Interpolator` and related classes. These are now 
 
 
 ## Version 4.0
+
 
 * Fixed race condition between `NodeVaultService.trackBy` and `NodeVaultService.notifyAll`, where there could be states that were not reflected
                         in the data feed returned from `trackBy` (either in the query’s result snapshot or the observable).
@@ -527,6 +533,7 @@ The only exception to this is `Interpolator` and related classes. These are now 
 
 ## Version 3.3
 
+
 * Vault query fix: support query by parent classes of Contract State classes (see [https://github.com/corda/corda/issues/3714](https://github.com/corda/corda/issues/3714))
 
 
@@ -618,6 +625,7 @@ The only exception to this is `Interpolator` and related classes. These are now 
 
 ## Version 3.2
 
+
 * Doorman and NetworkMap URLs can now be configured individually rather than being assumed to be
                         the same server. Current `compatibilityZoneURL` configurations remain valid. See both [Node configuration](corda-configuration-file.md)
                         and [Network certificates](permissioning.md) for details.
@@ -628,6 +636,7 @@ The only exception to this is `Interpolator` and related classes. These are now 
 
 
 ## Version 3.1
+
 
 * Update the fast-classpath-scanner dependent library version from 2.0.21 to 2.12.3
 
@@ -657,6 +666,7 @@ later than 2.12.3 (including 2.12.4) exhibit a different issue.
 
 
 ## Version 3.0
+
 
 * Due to a security risk, the *conflict* property has been removed from *NotaryError.Conflict* error object. It has been replaced
                         with *consumedStates* instead. The new property no longer specifies the original requesting party and transaction id for
@@ -999,6 +1009,7 @@ later than 2.12.3 (including 2.12.4) exhibit a different issue.
 
 
 ## Release 1.0
+
 
 * Unification of VaultQuery And VaultService APIs
                         Developers now only need to work with a single Vault Service API for all needs.
@@ -1366,6 +1377,7 @@ Renamed configuration property key *basedir* to *baseDirectory*. This will requi
 
 ## Milestone 14
 
+
 * Changes in `NodeInfo`:
 
 > 
@@ -1518,6 +1530,7 @@ Renamed configuration property key *basedir* to *baseDirectory*. This will requi
 
 
 ## Milestone 13
+
 Special thank you to [Frederic Dalibard](https://github.com/FredericDalibard), for his contribution which adds
                 support for more currencies to the DemoBench and Explorer tools.
 
@@ -1638,6 +1651,7 @@ Dependencies changes:
 
 
 ## Milestone 12 (First Public Beta)
+
 
 * Quite a few changes have been made to the flow API which should make things simpler when writing CorDapps:
 
@@ -1780,6 +1794,7 @@ The old keystore will need to be removed when upgrading to this version.
 
 ## Milestone 11.1
 
+
 * Fix serialisation error when starting a flow.
 
 
@@ -1794,6 +1809,7 @@ The old keystore will need to be removed when upgrading to this version.
 
 
 ## Milestone 11.0
+
 
 * 
 
@@ -1872,6 +1888,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
 
 
 ## Milestone 10.0
+
 Special thank you to [Qian Hong](https://github.com/fracting), [Marek Skocovsky](https://github.com/marekdapps),
                 [Karel Hajek](https://github.com/polybioz), and [Jonny Chiu](https://github.com/johnnyychiu) for their contributions
                 to Corda in M10.
@@ -2088,6 +2105,7 @@ Bug fixes:
 
 ## Milestone 9.1
 
+
 * Correct web server ports for IRS demo.
 
 
@@ -2096,6 +2114,7 @@ Bug fixes:
 
 
 ## Milestone 9
+
 
 * With thanks to [Thomas Schroeter](https://github.com/thschroeter) for the Byzantine fault tolerant (BFT)
                         notary prototype.
@@ -2190,6 +2209,7 @@ General:
 
 ## Milestone 8
 
+
 * Node memory usage and performance improvements, demo nodes now only require 200 MB heap space to run.
 
 
@@ -2232,6 +2252,7 @@ General:
 
 
 ## Milestone 7
+
 
 * With thanks to [Thomas Schroeter](https://github.com/thschroeter) `NotaryFlow` is now idempotent.
 
@@ -2305,6 +2326,7 @@ General:
 
 
 ## Milestone 6
+
 
 * Added the [Corda technical white paper](_static/corda-technical-whitepaper.pdf). Note that its current version
                         is 0.5 to reflect the fact that the Corda design is still evolving. Although we expect only relatively small tweaks
@@ -2432,6 +2454,7 @@ API changes:
 
 ## Milestone 5
 
+
 * A simple RPC access control mechanism. Users, passwords and permissions can be defined in a configuration file.
                         This mechanism will be extended in future to support standard authentication systems like LDAP.
 
@@ -2497,6 +2520,7 @@ API changes:
 
 
 ## Milestone 4
+
 New features in this release:
 
 
@@ -2678,6 +2702,7 @@ API changes:
 
 ## Milestone 3
 
+
 * More work on preparing for the testnet:
 
 > 
@@ -2731,6 +2756,7 @@ API changes:
 
 
 ## Milestone 2
+
 
 * Big improvements to the interest rate swap app:
 
@@ -2848,6 +2874,7 @@ New documentation:
 
 
 ## Milestone 1
+
 Highlights of this release:
 
 
@@ -2972,6 +2999,7 @@ Summary of API changes (not exhaustive):
 
 
 ## Milestone 0
+
 This is the first release, which includes:
 
 

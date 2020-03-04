@@ -1,10 +1,14 @@
 ---
-title: "Notary Registration Tool"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Notary Registration Tool
+version: corda-enterprise-4-3
 ---
 
 
 # Notary Registration Tool
+
 The notary registration tool is used to register the identity of the notary service,
             and generates the key of the notary service that is shared by all workers of the notary cluster.
 
@@ -12,6 +16,7 @@ The tool is distributed with the Corda Enterprise developer pack.
 
 
 ## Running the notary registration tool
+
 ```sh
 java -jar corda-tools-notary-registration-4.3.jar register \
      --config-file=node.conf \

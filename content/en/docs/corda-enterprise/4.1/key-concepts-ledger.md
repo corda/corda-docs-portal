@@ -1,13 +1,19 @@
 ---
-title: "The ledger"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-concepts
+title: The ledger
+version: corda-enterprise-4-1
 ---
 
 
 # The ledger
 
+
 {{< topic >}}
 # Summary
+
 
 * *The ledger is subjective from each peer’s perspective*
 
@@ -18,12 +24,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/213812040" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## Overview
+
 In Corda, there is **no single central store of data**. Instead, each node maintains a separate database of known
                 facts. As a result, each peer only sees a subset of facts on the ledger, and no peer is aware of the ledger in its
                 entirety.

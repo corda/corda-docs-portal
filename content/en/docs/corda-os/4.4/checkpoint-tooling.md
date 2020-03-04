@@ -1,10 +1,14 @@
 ---
-title: "Checkpoint Tooling"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Checkpoint Tooling
+version: corda-os-4-4
 ---
 
 
 # Checkpoint Tooling
+
 This page contains information about checkpoint tooling. These tools can be used to debug the causes of stuck flows.
 
 Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows](key-concepts-flows.md) and [Writing flows](flow-state-machines.md).
@@ -33,6 +37,7 @@ The checkpoint tools available are:
 
 
 ## Checkpoint dumper
+
 The checkpoint dumper outputs information about flows running on a node. This is useful for diagnosing the causes of stuck flows. Using the generated output,
                 corrective actions can be taken to resolve the issues flows are facing. One possible solution, is ending a flow using the `flow kill` command.
 
@@ -76,6 +81,7 @@ Below are some of the more important fields included in the output:
 
 
 ### Sample output
+
 Below is an example of the JSON output:
 
 ```json
@@ -168,6 +174,7 @@ Below is an example of the JSON output:
 ```
 
 ## Checkpoint Agent
+
 The Checkpoint Agent is a very low level diagnostics tool that can be used to output the type, size and content of flow *checkpoints* at node runtime.
                 It is primarily targeted at users developing and testing code that may exhibit flow mis-behaviour (preferably before going into production).
 
@@ -207,6 +214,7 @@ The agent can be customised with a number of optional parameters described below
 
 
 ### Configuration
+
 The checkpoint agent can be started with the following optional parameters:
 
 ```shell
@@ -243,6 +251,7 @@ Arguments may be passed into the agent in any order and should **not** contain s
 {{< /note >}}
 
 ### Checkpoint Dump support
+
 When used in combination with the `checkpoints dump` shell command (see [Checkpoint Dumper](#checkpoint-dumper)),
                     the checkpoint agent will automatically output additional diagnostic information for all checkpoints dumped by the aforementioned tool.
 
@@ -277,6 +286,7 @@ The checkpoint agent JAR file must be called “checkpoint-agent.jar” as the c
 
 
 ### Logging configuration
+
 The agent will log output to a log4j2 configured logger.
 
 It is recommended to configure a separate log file to capture this information by configuring an appender as follows:
@@ -326,6 +336,7 @@ The *log4j2.xml* containing the above configuration must now be be passed to the
 ```
 
 ### Sample output
+
 Using the *log4j2* configuration described above, the following output is generated to a file called `checkpoints_agent-<DATE>.log` under
                     the Corda node `logs` directory for a single flow execution (in this case):
 
@@ -368,6 +379,7 @@ Note,
 
 
 ## Flow diagnostic process
+
 Lets assume a scenario where we have triggered a flow in a node (eg. node acting as a flow initiator) but the flow does not appear to complete.
 
 For example, you may see the following using the CRaSH shell `flow watch` command:

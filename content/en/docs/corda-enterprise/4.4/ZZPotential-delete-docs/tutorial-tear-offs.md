@@ -1,11 +1,16 @@
 ---
-title: "Transaction tear-offs"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-tutorial
+title: Transaction tear-offs
+version: corda-enterprise-4-4
 ---
 
 
 
 # Transaction tear-offs
+
 Suppose we want to construct a transaction that includes commands containing interest rate fix data as in
             oracles. Before sending the transaction to the oracle to obtain its signature, we need to filter out every part
             of the transaction except for the `Fix` commands.

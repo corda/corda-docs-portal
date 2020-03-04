@@ -1,10 +1,14 @@
 ---
-title: "Contract Whitelist Generation"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Contract Whitelist Generation
+version: cenm-1-1
 ---
 
 
 # Contract Whitelist Generation
+
 When setting or updating the network parameters, the Network Map Service scans the JAR files referenced in the
             configuration file (i.e. *cordappsJar* ) for the presence of any contract classes. If such a class is found then it is
             added to the whitelist. It is possible to exclude certain contract classes by adding their package names to the

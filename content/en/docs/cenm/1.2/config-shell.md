@@ -1,10 +1,14 @@
 ---
-title: "Shell Configuration Parameters"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Shell Configuration Parameters
+version: cenm-1-2
 ---
 
 
 # Shell Configuration Parameters
+
 
 
 shell

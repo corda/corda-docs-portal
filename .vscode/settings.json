@@ -5,17 +5,18 @@
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        "./scripts/rst_to_md/tests",
+        "./scripts/tests",
         "-p",
         "test_*.py"
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.unittestEnabled": true,
+    "python.testing.unittestEnabled": false,
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/node_modules/**": true,
         "**/repos/**": true
-    }
+    },
+    "python.testing.promptToConfigure": false
 }

@@ -1,10 +1,14 @@
 ---
-title: "Updating to a new version"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Updating to a new version
+version: corda-enterprise-4-4
 ---
 
 
 # Updating to a new version
+
 
 * [Upgrading CorDapps to Corda Enterprise 4.4](app-upgrade-notes-enterprise.md)
 

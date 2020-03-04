@@ -1,11 +1,15 @@
 ---
-title: "Health Survey Tool"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Health Survey Tool
+version: corda-enterprise-4-4
 ---
 
 
 
 # Health Survey Tool
+
 The Health Survey Tool is a command line utility that can be used to collect information about a node,
             which can be used by the R3 support team as an aid to diagnose support issues. It works by scanning through a provided
             node base directory and archiving some of the important files. Furthermore, it does a deployment status check by connecting to the node and probing
@@ -13,6 +17,7 @@ The Health Survey Tool is a command line utility that can be used to collect inf
 
 
 ## Running
+
 ```kotlin
 > java -jar corda-tools-health-survey-4.4.jar --base-directory DIRECTORY [--node-configuration DIRECTORY]
 ```
@@ -77,6 +82,7 @@ Running the tool with no arguments assumes that the base-directory argument is t
 
 
 ## Access to node using RPC
+
 Health Survey tool uses the first user name and password recorded in the *users* section of the node.conf *security* block:
 
 ```kotlin
@@ -104,10 +110,12 @@ Health Survey tool also cannot retrieve passwords hashed using Shiro or recorded
 
 
 ## Output
+
 The tool generates the archive of the collected files in the same directory it is ran in. The names are in the format: `report-date-time.zip`
 
 ![health survey photo](resources/health-survey/health-survey-photo.png "health survey photo")
 ## Deployment health check
+
 The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise Node. The tool supports the following deployment configurations:
 
 > 
@@ -142,6 +150,7 @@ The Corda Health Survey is designed to help operators with initial setup of a No
 {{< /note >}}
 
 ## Report format
+
 After each run, the Corda Health Survey collects and packages up into a .zip file information that R3 Support can use to help a customer with a support request, including:
 
 
@@ -170,12 +179,14 @@ Instead of zipping the reports, operators can print them to a text file using th
 
 
 ## Using Health Survey Tool in HA Environments
+
 In deployments with separate Bridge/Float configuration the ECHO test will receive a response from the Corda node plus one echo
                 from each bridge plus a single echo from the active float.
                 Hence in an HA environment with two bridges and two floats the ECHO test will receive four responses.
 
 
 ## Ping Remote Nodes
+
 The ping, notary and ping-notary commands will attempt to resolve the legal name against the node’s network map to obtain the remote
                 node’s IP address and port. The Health Survey tool will then establish an AMQP connection via the active bridge and/or SOCKS proxy
                 to the remote port. This test is to verify that the local and remote firewall rules allow AMQP connections across the network.
@@ -189,6 +200,7 @@ The option –ping-notary should only be used to test a notary cluster. To test 
 {{< /note >}}
 
 ## Toggle Active Bridge
+
 The toggle-bridge command can be used in HA environments to temporarily shut down the active bridge to allow passive bridge
                 to become the master.
 
@@ -196,6 +208,7 @@ This command can be used to verify that the firewall settings for both bridges h
 
 
 ## Disabling the Corda Health Survey in production
+
 The tool relies on dedicated Artemis queues to relay configuration and runtime information from the Corda Firewall components. This functionality is enabled by default.
                 After verifying a production deployment, operators are advised to disable the health checking functionality (in order to use the standard Artemis setup for Corda Enterprise) by adding the following entry in the Node configuration file:
 
@@ -209,6 +222,7 @@ healthCheck = false
 ```
 
 ## Starting Health Survey as a Corda flow
+
 The Health Survey tool can be started as a Corda flow by installing the Health Survey CorDapp and starting the flow on the console.
 
 ```none

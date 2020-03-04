@@ -1,11 +1,16 @@
 ---
-title: "API: Persistence"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4:
+    parent: corda-os-4-4-api
+title: 'API: Persistence'
+version: corda-os-4-4
 ---
 
 
 
 # API: Persistence
+
 Corda offers developers the option to expose all or some parts of a contract state to an *Object Relational Mapping*
             (ORM) tool to be persisted in a *Relational Database Management System* (RDBMS).
 
@@ -27,6 +32,7 @@ By default, nodes use an H2 database which is accessed using *Java Database Conn
 {{< /note >}}
 
 ## Schemas
+
 Every `ContractState` may implement the `QueryableState` interface if it wishes to be inserted into a custom table in the node’s
                 database and made accessible using SQL.
 
@@ -159,6 +165,7 @@ It is intended that there should be plugin support for the `SchemaService` to of
 {{< /note >}}
 
 ## Custom schema registration
+
 Custom contract schemas are automatically registered at startup time for CorDapps. The node bootstrap process will scan for states that implement
                 the Queryable state interface. Tables are then created as specified by the `MappedSchema` identified by each state’s `supportedSchemas` method.
 
@@ -178,6 +185,7 @@ Tests using the *DriverDSL* will automatically register your custom schemas if t
 {{< /note >}}
 
 ## Object relational mapping
+
 To facilitate the ORM, the persisted representation of a `QueryableState` should be an instance of a `PersistentState` subclass,
                 constructed either by the state itself or a plugin to the `SchemaService`. This allows the ORM layer to always
                 associate a `StateRef` with a persisted representation of a `ContractState` and allows joining with the set of
@@ -248,9 +256,10 @@ object CashSchemaV1 : MappedSchema(schemaFamily = CashSchema.javaClass, version 
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [CashSchemaV1.kt](https://github.com/corda/corda/blob/release/os/4.4/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt)
+[CashSchemaV1.kt](https://github.com/corda/corda/blob/release/os/4.4/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 
 {{< note >}}
@@ -262,6 +271,7 @@ If Cordapp needs to be portable between Corda OS (running against H2) and Corda 
 {{< /note >}}
 
 ## Persisting Hierarchical Data
+
 You may wish to persist hierarchical relationships within states using multiple database tables
 
 You may wish to persist hierarchical relationships within state data using multiple database tables. In order to facillitate this, multiple `PersistentState`
@@ -479,6 +489,7 @@ object SchemaV1 : MappedSchema(schemaFamily = Schema::class.java, version = 1, m
 
 
 ## Identity mapping
+
 Schema entity attributes defined by identity types (`AbstractParty`, `Party`, `AnonymousParty`) are automatically
                 processed to ensure only the `X500Name` of the identity is persisted where an identity is well known, otherwise a null
                 value is stored in the associated column. To preserve privacy, identity keys are never persisted. Developers should use
@@ -486,6 +497,7 @@ Schema entity attributes defined by identity types (`AbstractParty`, `Party`, `A
 
 
 ## JDBC session
+
 Apps may also interact directly with the underlying Node’s database by using a standard
                 JDBC connection (session) as described by the [Java SQL Connection API](https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html)
 
@@ -581,6 +593,7 @@ object CustomVaultQuery {
 
 
 ## JPA Support
+
 In addition to `jdbcSession`, `ServiceHub` also exposes the Java Persistence API to flows via the `withEntityManager`
                 method. This method can be used to persist and query entities which inherit from `MappedSchema`. This is particularly
                 useful if off-ledger data must be maintained in conjunction with on-ledger state data.

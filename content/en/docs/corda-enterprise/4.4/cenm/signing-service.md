@@ -1,12 +1,17 @@
 ---
-title: "Signing Services"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Signing Services
+version: corda-enterprise-4-4
 ---
 
 
 # Signing Services
 
+
 ## Purpose
+
 The Signable Material Retriever (SMR) and Signing Service are services that form part of
                 Corda Enterprise Network Manager, alongside the Identity Operator and Network Map. They act as
                 a bridge between the main CENM services and PKI/HSM infrastructure, enabling a network operator
@@ -22,12 +27,14 @@ As mentioned in the CENM service documentation ([Identity Manager Service](ident
 
 
 ## Signable Material Retriever
+
 The Signable Material Retriever service acts as a bridge between other CENM services and one or more
                 signing services. It delegates signing to a plugin, which routes work either to the CENM Signing Service,
                 or to a third party service. Third party integration plugins are not provided as part of CENM.
 
 
 ### Running the Signable Material Retriever Service
+
 Once the Signable Material Retriever has been configured, it can be run via the command:
 
 ```bash
@@ -50,6 +57,7 @@ SMR Service started
 ```
 
 ### SMR Configuration
+
 The configuration of the SMR service consists of the following two components:
 
 
@@ -61,6 +69,7 @@ The configuration of the SMR service consists of the following two components:
 
 
 #### CENM Service Locations
+
 For each material management task, the data source for getting the unsigned data and persisting signed data must be
                         defined. One data source could be potentially used across multiple material management tasks, hence they are configured
                         as a map of human-readable aliases (referenced by the material management task configuration) to ENM service locations.
@@ -76,6 +85,7 @@ Configuration parameters are same as in [Signable Material Retriever Location Ex
 
 
 #### Material Management Tasks
+
 Each material management task is configured as a map of human-readable aliases (exactly the same as in singing tasks
                         configuration of Signing Service) to Material Management Task configuration.
 
@@ -112,15 +122,18 @@ The class that will be loaded from plugin JAR file and will be its entry point f
 
 
 ### Example SMR Configuration
+
 Here is example of complete SMR configuration:
 
 
 ### Signing Plugin
+
 As mentioned before, we enable possibility of writing custom plugin to support external Signing infrastructures. Each
                     plugin must implement following *SigningPlugin* interface which methods have predefined input and output parameters:
 
 
 ### Internal Signing Plugin
+
 SMR ships with a plugin for the CENM provided Signing ServiceThe only requirement is to provide
                     the plugin’s JAR path. The plugin class name to configure is always *com.r3.enm.smrplugin.SMRSigningPlugin*.
 
@@ -139,6 +152,7 @@ Plugin’s configuration file must be in same directory as plugin’s JAR file a
 {{< /note >}}
 
 ## Signing Service
+
 CENM’s Signing Service supports the following HSMs (see [CENM support matrix](cenm-support-matrix.md) for more information):
 
 
@@ -204,6 +218,7 @@ This document does not cover HSM setup, rather assumes that the HSM(s) have alre
 {{< /note >}}
 
 ### Running the Signing Service
+
 Once the Signing Service has been configured, it can be run via the command:
 
 ```bash
@@ -219,6 +234,7 @@ The service can then be accessed via ssh, either locally on the machine or from 
 
 
 ### Executing A Signing Task
+
 Once the configured service is up and running, a user can execute a signing task via the interactive shell via the `run
 signer name: <SIGNING_TASK_ALIAS>` command. This will execute the task, prompting the user for signing key
                     authentication, if required, and verification of the changes.
@@ -230,11 +246,13 @@ Any configured task can be run through the shell, even automated scheduled tasks
 {{< /note >}}
 
 ### Viewing Available Signing Tasks
+
 A user can see what signing tasks are available by executing the `view signers` command within the shell. This will
                     output all tasks that can be run along with their schedule, if applicable.
 
 
 ### Performing A Health Check
+
 To verify that SMR data source is reachable by the Signing Service, a health check can be performed by running the
                     `run clientHealthCheck`. This will send a simple ping message and verify a successful response. Any unsuccessful
                     connection attempts will be displayed to the console. This method is especially useful after the initial setup to
@@ -242,6 +260,7 @@ To verify that SMR data source is reachable by the Signing Service, a health che
 
 
 ## Signing Service Configuration
+
 The configuration for the Signing Service consists of the following sections:
 
 
@@ -260,13 +279,16 @@ The configuration for the Signing Service consists of the following sections:
 
 ### Global Configuration Options
 
+
 #### Shell Configuration
+
 The Signing Service is interacted with via the shell, which is configured at the top level of the config file. This
                         shell is similar to the interactive shell available in other ENM services and is configured in a similar way. See
                         [Shell Configuration](../shell.md#shell-config) for more information on how to configure the shell.
 
 
 #### HSM Libraries
+
 If using the Signing Service with a HSM then, due to the proprietary nature of the HSM libraries, the appropriate Jars
                         need to be provided separately and referenced within the configuration file. The libraries that are required will depend
                         on the HSM that is being used.
@@ -296,6 +318,7 @@ See the `Example Configuration`_ section below for examples of these config bloc
 
 
 ##### Azure Key Vault
+
 To keep inline with the other HSMs, the Azure Key Vault client jar needs to provided as above. Unlike the other HSMs,
                             there are many dependent libraries. The top-level dependencies are `azure-keyvault` and `adal4j`, however these both
                             have transitive dependencies that need to be included. That is, either all jars need to be provided separately (via a
@@ -337,6 +360,7 @@ This will create a jar called `azure-keyvault-with-deps.jar` which can be refere
 
 
 #### Global Certificate Store
+
 Signing keys that use a HSM require a certificate store to be defined also, containing all certificates to build the
                         entire certificate chain from the signing key back to the root. If a global certificate store is used containing all
                         required certificates for different signing keys then repetition in the configuration can occur - hence a top level
@@ -353,6 +377,7 @@ globalCertificateStore = {
 ```
 
 ### Signing Keys
+
 The signing keys that are used across all signing task need to be configured. As, potentially, one signing key could be
                     reused across several signing tasks these are configured in the form of a map of human-readable aliases (referenced by
                     the signing task configuration) to signing keys.
@@ -373,6 +398,7 @@ More detailed descriptions of how to configure a signing key can be found in the
 
 
 ### Data Source (SMR Service Location)
+
 For all signing tasks, global data source for getting the unsigned data and persisting the signed data needs to be
                     defined. This is ENM location of Signable Material Retriever Service.
 
@@ -385,6 +411,7 @@ Communication with the configured SMR service location can be configured to use 
 {{< /note >}}
 
 #### Signing Tasks
+
 This configuration section defines each signing task that can be run via the service. Each task is defined by adding an
                         entry to the `signers` configuration map, keyed by the human-readable alias for the task (used when interacting with
                         the service via shell). The value for the entry consists of the configuration options specific to that task such as the
@@ -408,6 +435,7 @@ Each signing task maps to exactly one of four possibly data types:
 
 
 #### Scheduling Signing Tasks
+
 A signing task can be configured to automatically run on a set schedule, providing *no manual user input is required*.
                         That is, the signing key that is configured for the task requires no user input to authenticate (e.g. keyfile or
                         username/password provided in configuration file). This behaviour can be useful for testing and toy environments, as
@@ -465,6 +493,7 @@ Attempting to configure a non-schedulable signing task (e.g. signing via HSM req
 {{< /note >}}
 
 ### Detailed Example Signing Task Execution
+
 Listed below are the steps involved in signing an example Network Parameter update. The steps involved in signing other
                     data types are very similar.
 
@@ -528,6 +557,7 @@ The signing of the Network Map is completely separate from the signing of the Ne
 {{< /note >}}
 
 ## Signing Service Configuration Parameters
+
 The configuration file for the Signing Service should include the following parameters (optional arguments are marked as
                 such where appropriate):
 
@@ -586,6 +616,7 @@ Map of human-readable aliases (string) to signing task configuration. Defines th
 
 
 ### Signing Key Map Entry Example
+
 Each entry in the `signingKeys` map should be keyed on the user-defined, human-readable alias. This can be any string
                     and is used only within the config to map the signing keys to each signing task that use it.
 
@@ -593,6 +624,7 @@ A signing key can come from two sources - a local Java key store or a HSM.
 
 
 #### Local Signing Key Example
+
 
 
 alias
@@ -612,6 +644,7 @@ Password to access the key store
 
 
 #### Utimaco HSM Signing Key Example
+
 If the signing key is within a Utimaco HSM then the HSM connection details needs to be included in the configuration as
                         well as a list of authentication credentials. The setup of the HSM determines the authentication thresholds are required
                         to access the keys so this should be checked with the appropriate security engineer. Note that the credentials that can
@@ -709,6 +742,7 @@ Certificate store password.
 
 
 #### Gemalto Luna HSM Signing Key Example
+
 If the signing key is within a Gemalto HSM then the configuration is simpler than the Utimaco example. This is due to
                         a lot of the connection logic being within the Java provider library which has to be installed and setup prior to
                         running the Signing Service (see Gemalto documentation for this). A partition should have been previously set up within
@@ -755,6 +789,7 @@ Certificate store password.
 
 
 ### Signable Material Retriever Location Example
+
 
 
 enmService
@@ -812,6 +847,7 @@ password for the trust root keystore.
 
 
 ### Signers Map Entry Example
+
 Each entry in the `signers` map should be keyed on the user-defined, human-readable alias. This can be any
                     string and is used by the user when viewing and invoking the signing task from within the interactive shell.
 
@@ -871,11 +907,14 @@ The duration interval between signing executions. Either a number representing t
 
 
 ## Example Signing Service Configuration
+
 Below are two example configuration files, one using signing keys from local key stores and the other using signing keys
                 from a HSM. If desired, any combination of local/HSM signing keys can be included within the configuration file.
 
 
 ### Signing Keys From Local Key Store
 
+
 ### Signing Keys From HSM
+
 

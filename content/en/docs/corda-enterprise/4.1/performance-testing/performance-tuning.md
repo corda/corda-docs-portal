@@ -1,10 +1,14 @@
 ---
-title: "Performance Tuning a Node"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Performance Tuning a Node
+version: corda-enterprise-4-1
 ---
 
 
 # Performance Tuning a Node
+
 Great, so we have set up a test cluster, have all the CorDapps and JMeter installed, sorted out the firewall rules, we can get a request
             go through via the JMeter GUI (see [View Results in Table](practical-considerations.md#view-results-in-table) for details how to verify that), we have sorted
             out an initial test plan and have run a performance test, but these throughput numbers are not quite what we would like to see there.
@@ -12,6 +16,7 @@ Great, so we have set up a test cluster, have all the CorDapps and JMeter instal
 
 
 ## Tweaking the node settings
+
 The main parameters that can be tweaked for a Corda Enterprise node are
 
 
@@ -37,6 +42,7 @@ In Corda Enterprise, these properties can be controlled via the node configurati
 
 
 ### Tweaking the memory
+
 The first tweak should be to give the node more memory - the instructions  [how to deploy a node](../deploying-a-node.md) recommend at
                     least 2GB of memory. Performance tests at R3 typically use 8GB of memory for one node. This depends on the available memory and
                     how many nodes (and other processes) are run on the same machine. There are various ways to set the heap memory of the node documented at
@@ -55,6 +61,7 @@ In general, more memory is better for the node, so it might be a good idea to st
 
 
 ### Tweaking the threads count
+
 Especially on large server machines, the default number of flow threads might be on the upper limit of what is sensible. In order to find
                     the optimal number, it is necessary to tweak that number via the configuration, restart the node(s), and rerun a test plan to see how the
                     numbers have changed. In order to keep the tests reproducible, it might be a good idea to wipe the database between tests so index sizes
@@ -77,6 +84,7 @@ The recommended approach is to start with a low number of flow threads (e.g. 1 p
 
 
 ### Disk access
+
 The node needs to write log files to disk, and has an Artemis spool directory that is used for the durable queues on the hard disk, so disk
                     I/O for the node’s working directory has an impact on the node performance. For optimal performance, this should be on a fast, local disk.
                     For the Artemis spool directory, this leads to an inherent contradiction, a trade-off for which needs to be carefully considered and tested for
@@ -86,16 +94,19 @@ The node needs to write log files to disk, and has an Artemis spool directory th
 
 
 ## Database optimisation
+
 The node has a high level of interaction with its database, so the performance of the database has a large impact on the node performance.
 
 
 ### Use an enterprise database
+
 The H2 database that is used by Corda by default is very handy for development, but it cannot handle the throughput that a serious
                     performance test will generate on any sensible hardware. It has internal locks that will throttle the throughput of the node. To test
                     actual performance of a Corda system, it is required to use an enterprise level database.
 
 
 ### Database server
+
 The database should be running on a separate server. Corda has some rather unusual requirements for the database: as the node writes its
                     checkpoints to the database, but only ever reads them when a flow needs to be restarted, the amount of data written to the database can
                     vastly exceed the amount of data read and index look-ups performed. Checkpoints are usually written once and removed once the flow finishes.
@@ -108,12 +119,14 @@ Depending on the write performance of the database, it might be useful to have a
 
 
 ## Node interactions
+
 For any flow that only works within one node (e.g. Cash Issuance), the above should allow to tweak the node to be performant. Any flows
                 that involve connections to other nodes (e.g. to the recipient of a payment or a notary) might also be bottlenecked on the performance
                 of their peers, so they might need to be tweaked as well.
 
 
 ### Peers
+
 How much memory and how many threads are required on a peer node depends on the app being tested. When using the `CashIssueAndPayment`
                     flow from the performance CorDapp, the receiving node typically only needs half the number of threads/memory compared to the issuing
                     node to keep up with processing, but this might also depend on the hardware. Keeping one node configuration constant and modifying a peer
@@ -121,10 +134,12 @@ How much memory and how many threads are required on a peer node depends on the 
 
 
 ### Notaries
+
 Any flows that require notarisations might be limited by the throughput of the notary.
 
 
 ### TLS connections
+
 Corda uses TLS to encrypt the peer to peer connections between nodes. It can be shown that the maximal throughput that is achievable with
                     the JVM TLS layer can limit the node throughput for flows that need to send sufficient amount of data between peers. This is e.g. the case
                     for the *CashIssueAndPayment* flow in the performance test CorDapp.
@@ -137,6 +152,7 @@ useOpenSsl=true
 ```
 
 ## Varying the load
+
 The throughput of the system also varies with the load that is created from the client side - if the incoming request rate is too low, the
                 system will not reach maximum throughput, if it is too high, resource contention might actually lower the throughput as well. Varying the
                 load to identify the number of connections at which the node gets saturated and at which point throughput might start to suffer is not
@@ -154,6 +170,7 @@ Increasing the number of threads too high might lead to contention on the JMeter
 
 
 ## Final considerations
+
 After optimising the node using a specific test plan, do keep in mind that this might have optimised the node for this specific load that
                 gets generated by JMeter. While this is probably a good starting point to configure nodes for real world production uses, it is in no way
                 guaranteed that the configuration is suitable.

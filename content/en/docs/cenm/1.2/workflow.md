@@ -1,16 +1,21 @@
 ---
-title: "Workflow"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Workflow
+version: cenm-1-2
 ---
 
 
 # Workflow
+
 The certificate signing request and certificate revocation request workflow can be extended by custom workflow plugin.
             This can be used to synchronise statuses and interact between the ENM workflow and external workflow/ticketing system
             like JIRA.
 
 
 ## Adding workflow plugin
+
 The workflow plugin can be configured via config file.
 
 For certificate signing request:
@@ -92,6 +97,7 @@ workflow {
 ```
 
 ## Creating a workflow plugin
+
 The workflow plugin must extend *WorkflowPlugin* for certificate signing request or certificate revocation request respectively, issuance and revocation workflows
                 can be configured with specific plugin classes as per the configuration shown above. The plugin will need to be made available to the ENM process by including the plugin jar in the classpath.
                 This can be done by specifying the jar path via the *pluginJar* configuration option.
@@ -114,6 +120,7 @@ CSR requests can contain additional information that can be used in the workflow
 {{< /note >}}
 
 ## Example 1
+
 This sample workflow plugin creates a request file in *basedir* when the Identity Manager received a certificate signing request, user can then approve or reject the request by moving the request files to *approved* or *rejected* folder.
                 The certificate signing process will then issue a certificate for the request (require signer configuration), and move the request files to *done* folder.
 
@@ -144,6 +151,7 @@ File base plugin implementation:
 
 
 ## Example 2
+
 This sample workflow auto-approves CSRs based on a token provided in the request.
 
 Config file:
@@ -215,6 +223,7 @@ class ExamplePlugin(config: Config?, val logger: PluginLogger) : WorkflowPlugin<
 ```
 
 ## Certificate Signing Request Rejection Reasons
+
 The workflow is expected to provide a valid rejection reason (see below for allowed values) for each certificate
                 signing request being rejected.
                 Those rejection reasons are then forwarded and passed to a node in its certificate
@@ -252,6 +261,7 @@ The above are the only values accepted from the workflow plugin. Any other value
 
 
 ### Node CSR Rejection Response
+
 Node CSR rejection response follows the following format:
 
 “Rejection reason code: <<Rejection Code>>. Rejection reason description: <<Rejection Description>>. Additional remark: <<Remark If Any>>.”

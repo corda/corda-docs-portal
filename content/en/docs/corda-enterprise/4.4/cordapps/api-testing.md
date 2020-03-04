@@ -1,15 +1,22 @@
 ---
-title: "API: Testing"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: 'API: Testing'
+version: corda-enterprise-4-4
 ---
 
 
 
 # API: Testing
 
+
 ## Flow testing
 
+
 ### MockNetwork
+
 Flow testing can be fully automated using a `MockNetwork` composed of `StartedMockNode` nodes. Each
                     `StartedMockNode` behaves like a regular Corda node, but its services are either in-memory or mocked out.
 
@@ -28,6 +35,7 @@ The `MockNetwork` requires at a minimum a list of CorDapps to be installed on ea
 
 
 ### Adding nodes to the network
+
 Nodes are created on the `MockNetwork` using:
 
 
@@ -43,6 +51,7 @@ Nodes added using `createNode` are provided a default set of node parameters. Ho
 
 
 ### Running the network
+
 When using a `MockNetwork`, you must be careful to ensure that all the nodes have processed all the relevant messages
                     before making assertions about the result of performing some action. For example, if you start a flow to update the ledger
                     but don’t wait until all the nodes involved have processed all the resulting messages, your nodes’ vaults may not be in
@@ -70,6 +79,7 @@ If `threadPerNode` is set to `true`, `networkSendManuallyPumped` must also be se
 
 
 ### Running flows
+
 A `StartedMockNode` starts a flow using the `StartedNodeServices.startFlow` method. This method returns a future
                     representing the output of running the flow.
 
@@ -118,7 +128,9 @@ SignedTransaction signedTransaction = future.get();
 
 ### Accessing `StartedMockNode` internals
 
+
 #### Querying a node’s vault
+
 Recorded states can be retrieved from the vault of a `StartedMockNode` using:
 
 
@@ -142,6 +154,7 @@ This allows you to check whether a given state has (or has not) been stored, and
 
 
 #### Examining a node’s transaction storage
+
 Recorded transactions can be retrieved from the transaction storage of a `StartedMockNode` using:
 
 
@@ -169,6 +182,7 @@ This allows you to check whether a given state has (or has not) been stored, and
 
 ### Further examples
 
+
 * See the flow testing tutorial here
 
 
@@ -182,11 +196,13 @@ This allows you to check whether a given state has (or has not) been stored, and
 
 
 ## Contract testing
+
 The Corda test framework includes the ability to create a test ledger by calling the `ledger` function
                 on an implementation of the `ServiceHub` interface.
 
 
 ### Test identities
+
 You can create dummy identities to use in test transactions using the `TestIdentity` class:
 
 
@@ -242,6 +258,7 @@ TestIdentity uniqueTestIdentity = TestIdentity.Companion.fresh("orgName");
 
 
 ### MockServices
+
 A mock implementation of `ServiceHub` is provided in `MockServices`. This is a minimal `ServiceHub` that
                     suffices to test contract logic. It has the ability to insert states into the vault, query the vault, and
                     construct and check transactions.
@@ -263,6 +280,7 @@ Alternatively, there is a helper constructor which just accepts a list of `TestI
 
 
 ### Writing tests using a test ledger
+
 The `ServiceHub.ledger` extension function allows you to create a test ledger. Within the ledger wrapper you can create
                     transactions using the `transaction` function. Within a transaction you can define the `input` and
                     `output` states for the transaction, alongside any commands that are being executed, the `timeWindow` in which the
@@ -277,6 +295,7 @@ Once all the transaction components have been specified, you can run `verifies()
 
 
 #### Checking for failure states
+
 In order to test for failures, you can use the `failsWith` method, or in Kotlin the `fails with` helper method, which
                         assert that the transaction fails with a specific error. If you just want to assert that the transaction has failed without
                         verifying the message, there is also a `fails` method.
@@ -293,6 +312,7 @@ The transaction DSL forces the last line of the test to be either a `verifies` o
 {{< /note >}}
 
 #### Testing multiple scenarios at once
+
 Within a single transaction block, you can assert several times that the transaction constructed so far either passes or
                         fails verification. For example, you could test that a contract fails to verify because it has no output states, and then
                         add the relevant output state and check that the contract verifies successfully, as in the following example:
@@ -312,6 +332,7 @@ You can also use the `tweak` function to create a locally scoped transaction tha
 
 
 #### Chaining transactions
+
 The following example shows that within a `ledger`, you can create more than one `transaction` in order to test chains
                         of transactions. In addition to `transaction`, `unverifiedTransaction` can be used, as in the example below, to create
                         transactions on the ledger without verifying them, for pre-populating the ledger with existing data. When chaining transactions,
@@ -325,6 +346,7 @@ The following example shows that within a `ledger`, you can create more than one
 
 
 ### Further examples
+
 
 * See the flow testing tutorial here
 

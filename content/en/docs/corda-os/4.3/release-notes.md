@@ -1,14 +1,19 @@
 ---
-title: "Release notes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Release notes
+version: corda-os-4-3
 ---
 
 
 # Release notes
+
 Welcome to the Corda 4.3 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.3 comes with those same guarantees. States and apps valid in Corda 3.0 are transparently usable in Corda 4.3.
 
 
 ## Corda 4.3
+
 Corda 4.1 was released with a great suite of new features to build on top of the success of Corda 4. Now, Corda 4.3 extends upon that with some powerful new capabilities. Corda 4.3 contains over 400 fixes and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
 
 We recommend you upgrade from Corda 4.1 to Corda 4.3 as soon as possible.
@@ -16,7 +21,9 @@ We recommend you upgrade from Corda 4.1 to Corda 4.3 as soon as possible.
 
 ### Changes for developers in Corda 4.3
 
+
 #### Introduction of Accounts
+
 With Corda 4.3 we are introducing the concept of “Accounts”. Vaults can be logically partitioned into subsets, each subset representing an account.
 
 This is advantageous for several reasons:
@@ -40,6 +47,7 @@ Please find more information on Accounts functionality in the [documentatation](
 
 
 #### Confidential Identities
+
 Confidential Identities have been revisited, and nodes no longer use or store X.500 certificates. Keys used for signing confidential transactions have been decoupled from the node’s identity, and a nonce challenge is used to confirm a Confidential Identity belongs to the legal identity claiming it.
 
 This removes the requirement to serialize and store the certificate chain for each new key that is registered.
@@ -48,6 +56,7 @@ In addition, confidential identities can now be shared without needing a transac
 
 
 #### Improved RPC client connectivity
+
 The CordaRPCClient library has been improved in Corda 4.3 to address issues where the library does not automatically reconnect to the node if the RPC connection is broken.
 
 The improved library provides the following enhancements:
@@ -66,6 +75,7 @@ We’re confident in the improvements made to RPC client connectivity but would 
 
 
 #### Additional flexibility in recording transactions
+
 In Corda 4.3, nodes can choose to record a transaction with three different levels of visibility:
 
 
@@ -86,11 +96,14 @@ In Corda 4.3, an enhancement has been made to observer node functionality to all
 
 ### Changes for operators in Corda 4.3
 
+
 #### Additional flexibility for RPC permissioning
+
 RPC permissions can now contain wildcards; for example: com.example.* matches both com.example.foo.ExampleFlow and com.example.bar.BogusFlow
 
 
 #### Security Upgrades
+
 There have been several security upgrades, including changes to the Corda webserver, dependency changes, changes to X509 extended key usage, and whitelisting attachments.
 
 
@@ -108,18 +121,21 @@ There have been several security upgrades, including changes to the Corda webser
 
 
 ### Platform version change
+
 Given the addition of a new API to support the Accounts feature, the platform version of Corda 4.3 has been bumped up from 4 to 5. This is to prevent CorDapps that use it being deployed onto nodes unable to host them. Note that the minimum platform version has not been changed - this means that older Corda nodes can still interoperate with Corda 4.3 nodes. Since the APIs added do not affect the wire protocol or have other zone-level implications, applications can take advantage of these new platform version 5 features even if the Corda 4.3 node is running on a network whose minimum platform version is 4.
 
 For more information on platform version, please see [Versioning](versioning.md). For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
 
 
 ### Deprecations
+
 The Corda Finance library is now deprecated and has been superseded by the Corda Tokens SDK. While the finance library is not yet being removed, we are no longer improving or updating it. We strongly encourage users to transition from the Corda Finance library to the Corda Tokens SDK. Find more information and begin using the tokens SDK in the GitHub repository [here](https://github.com/corda/token-sdk)
 
 Any confidential identities registered using the old API will not be reflected in the new tables after migration to Corda 4.3. However, the standard APIs work with both old and new confidential identities tables. For this reason, we do not recommend the use of both old and new confidential identities APIs in the same deployment. The old confidential identities API will be deprecated in a future release.
 
 
 ### Issues Fixed
+
 
 * Register custom serializers for jackson as well as amqp [[CORDA-3152](https://r3-cev.atlassian.net/browse/CORDA-3152)]
 
@@ -642,6 +658,7 @@ Any confidential identities registered using the old API will not be reflected i
 
 
 ## Corda 4.1
+
 It’s been a little under 3 1/2 months since the release of Corda 4.0 and all of the brand new features that added to the powerful suite
                 of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we are proud to release Corda 4.1, bringing over 150 fixes
                 and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
@@ -659,6 +676,7 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 
 
 ### Issues Fixed
+
 
 * Docker images do not support passing a prepared config with initial registration [[CORDA-2888](https://r3-cev.atlassian.net/browse/CORDA-2888)]
 
@@ -1067,6 +1085,7 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 
 
 ## Corda 4
+
 Welcome to the Corda 4 release notes. Please read these carefully to understand what’s new in this
                 release and how the changes can help you. Just as prior releases have brought with them commitments
                 to wire and API stability, Corda 4 comes with those same guarantees. States and apps valid in
@@ -1095,7 +1114,9 @@ There is a bug in Corda 3.3 that causes problems when receiving a `FungibleState
 
 ### Changes for developers in Corda 4
 
+
 #### Reference states
+
 With Corda 4 we are introducing the concept of “reference input states”. These allow smart contracts
                         to reference data from the ledger in a transaction without simultaneously updating it. They’re useful
                         not only for any kind of reference data such as rates, healthcare codes, geographical information etc,
@@ -1110,6 +1131,7 @@ A reference input state is a `ContractState` which can be referred to in a trans
 
 
 #### Signature constraints
+
 CorDapps built by the `corda-gradle-plugins` are now signed and sealed JAR files by default. This
                         signing can be configured or disabled with the default certificate being the Corda development certificate.
 
@@ -1124,6 +1146,7 @@ Learn more about this new feature by reading the [Upgrading CorDapps to newer Pl
 
 
 #### State pointers
+
 [State Pointers](api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
                         on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
                         any information on the global ledger). State pointers work together with the reference states feature
@@ -1132,6 +1155,7 @@ Learn more about this new feature by reading the [Upgrading CorDapps to newer Pl
 
 
 #### New network builder tool
+
 A new graphical tool for building test Corda networks has been added. It can build Docker images for local
                         deployment and can also remotely control Microsoft Azure, to create a test network in the cloud.
 
@@ -1139,6 +1163,7 @@ Learn more on the [Corda Network Builder](network-builder.md) page.
 
 ![network builder v4](_static/images/network-builder-v4.png "network builder v4")
 #### JPA access in flows and services
+
 Corda 3 provides the `jdbcConnection` API on `FlowLogic` to give access to an active connection to your
                         underlying database. It is fully intended that apps can store their own data in their own tables in the
                         node database, so app-specific tables can be updated atomically with the ledger data itself. But JDBC is
@@ -1160,6 +1185,7 @@ Please do not attempt to write to tables starting with `node_` or `contract_` as
 {{< /important >}}
 
 #### Security upgrades
+
 **Sealing.** Sealed JARs are a security upgrade that ensures JARs cannot define classes in each other’s packages,
                         thus ensuring Java’s package-private visibility feature works. The Gradle plugins now seal your JARs
                         by default.
@@ -1189,6 +1215,7 @@ Please do not attempt to write to tables starting with `node_` or `contract_` as
 
 
 #### Network parameters in transactions
+
 Transactions created under a Corda 4+ node will have the currently valid signed `NetworkParameters`
                         file attached to each transaction. This will allow future introspection of states to ascertain what was
                         the accepted global state of the network at the time they were notarised. Additionally, new signatures must
@@ -1198,6 +1225,7 @@ Transactions created under a Corda 4+ node will have the currently valid signed 
 
 
 #### RPC upgrades
+
 **AMQP/1.0** is now default serialization framework across all of Corda (checkpointing aside), swapping the RPC
                         framework from using the older Kryo implementation. This means Corda open source and Enterprise editions are
                         now RPC wire compatible and either client library can be used. We previously started using AMQP/1.0 for the
@@ -1223,6 +1251,7 @@ Class synthesis will use interfaces that are implemented by the original objects
 
 
 #### Preview of the deterministic DJVM
+
 It is important that all nodes that process a transaction always agree on whether it is valid or not.
                         Because transaction types are defined using JVM byte code, this means that the execution of that byte
                         code must be fully deterministic. Out of the box a standard JVM is not fully deterministic, thus we must
@@ -1242,6 +1271,7 @@ Currently, it is released as an evaluation version. We want to give developers t
 
 
 #### Configurable flow responders
+
 In Corda 4 it is possible for flows in one app to subclass and take over flows from another. This allows you to create generic, shared
                         flow logic that individual users can customise at pre-agreed points (protected methods). For example, a site-specific app could be developed
                         that causes transaction details to be converted to a PDF and sent to a particular printer. This would be an inappropriate feature to put
@@ -1251,6 +1281,7 @@ If your flows could benefit from being extended in this way, read “[Configurin
 
 
 #### Target/minimum versions
+
 Applications can now specify a **target version** in their JAR manifest. The target version declares
                         which version of the platform the app was tested against. By incrementing the target version, app developers
                         can opt in to desirable changes that might otherwise not be entirely backwards compatible. For example
@@ -1269,6 +1300,7 @@ Applications may also specify a **minimum platform version**. If you try to inst
 
 
 #### Dependency upgrades
+
 We’ve raised the minimum JDK to 8u171, needed to get fixes for certain ZIP compression bugs.
 
 We’ve upgraded to Kotlin 1.2.71 so your apps can now benefit from the new features in this language release.
@@ -1278,12 +1310,15 @@ We’ve upgraded to Gradle 4.10.1.
 
 ### Changes for administrators in Corda 4
 
+
 #### Official Docker images
+
 Corda 4 adds an [Official Corda Docker Image](docker-image.md) for starting the node. It’s based on Ubuntu and uses the Azul Zulu
                         spin of Java 8. Other tools will have Docker images in future as well.
 
 
 #### Auto-acceptance for network parameters updates
+
 Changes to the parameters of a compatibility zone require all nodes to opt in before a flag day.
 
 Some changes are trivial and very unlikely to trigger any disagreement. We have added auto-acceptance
@@ -1293,6 +1328,7 @@ Some changes are trivial and very unlikely to trigger any disagreement. We have 
 
 
 #### Automatic error codes
+
 Errors generated in Corda are now hashed to produce a unique error code that can be
                         used to perform a lookup into a knowledge base. The lookup URL will be printed to the logs when an error
                         occur. Here’s an example:
@@ -1308,6 +1344,7 @@ At the moment, Stack Overflow is that knowledge base, with the error codes being
 
 
 #### Standardisation of command line argument handling
+
 In Corda 4 we have ported the node and all our tools to use a new command line handling framework. Advantages for you:
 
 
@@ -1324,6 +1361,7 @@ You can learn more by reading our [CLI user experience guidelines](cli-ux-guidel
 
 
 #### Liquibase for database schema upgrades
+
 We have open sourced the Liquibase schema upgrade feature from Corda Enterprise. The node now uses Liquibase to
                         bootstrap and update itself automatically. This is a transparent change with pre Corda 4 nodes seamlessly
                         upgrading to operate as if they’d been bootstrapped in this way. This also applies to the finance CorDapp module.
@@ -1336,6 +1374,7 @@ If you’re upgrading a node from Corda 3 to Corda 4 and there is old data in th
 {{< /important >}}
 
 #### Ability to pre-validate configuration files
+
 A new command has been added that lets you verify a config file is valid without starting up the rest of the node:
 
 ```kotlin
@@ -1343,18 +1382,21 @@ java -jar corda-4.0.jar validate-configuration
 ```
 
 #### Flow control for notaries
+
 Notary clusters can now exert backpressure on clients, to stop them from being overloaded. Nodes will be ordered
                         to back off if a notary is getting too busy, and app flows will pause to give time for the load spike to pass.
                         This change is transparent to both developers and administrators.
 
 
 #### Retirement of non-elliptic Diffie-Hellman for TLS
+
 The TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 family of ciphers is retired from the list of allowed ciphers for TLS
                         as it is a legacy cipher family not supported by all native SSL/TLS implementations. We anticipate that this
                         will have no impact on any deployed configurations.
 
 
 ### Miscellaneous changes
+
 To learn more about smaller changes, please read the [Changelog](changelog.md).
 
 Finally, we have added some new jokes. Thank you and good night!

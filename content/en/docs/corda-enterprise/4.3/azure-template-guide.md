@@ -1,18 +1,24 @@
 ---
-title: "Using Azure Resource Manager Templates to deploy a Corda Enterprise node"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Using Azure Resource Manager Templates to deploy a Corda Enterprise node
+version: corda-enterprise-4-3
 ---
 
 
 # Using Azure Resource Manager Templates to deploy a Corda Enterprise node
+
 This document will explain how to deploy a Corda Enterprise node to the Azure cloud using the Azure Resource Manager templates via the Azure Marketplace.
 
 
 ## Prerequisites
+
 You will need a Microsoft Azure account which can create new resource groups and resources within that group.
 
 
 ## Find Corda Enterprise on Azure Marketplace
+
 Go to [https://azuremarketplace.microsoft.com/en-us/](https://azuremarketplace.microsoft.com/en-us/) and search for `corda enterprise` and select the `Corda Enterprise Single Node` option:
 
 ![azure template search](resources/azure-template-search.png "azure template search")Click on `GET IT NOW`:
@@ -54,6 +60,7 @@ You can now log in to your resource by selecting the virtual machine in the reso
 
 
 ## Testing the deployment
+
 You can test the deployment by following the instructions in [Using the Node Explorer to test a Corda Enterprise node on Corda Testnet](testnet-explorer.md).
 
 

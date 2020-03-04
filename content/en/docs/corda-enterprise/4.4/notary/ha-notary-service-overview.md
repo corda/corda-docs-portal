@@ -1,10 +1,14 @@
 ---
-title: "Corda Enterprise notary service overview"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Corda Enterprise notary service overview
+version: corda-enterprise-4-4
 ---
 
 
 # Corda Enterprise notary service overview
+
 A high-availability Corda notary service is made up of two components:
 
 > 
@@ -46,6 +50,7 @@ If desired, you can choose to run each database server and its Corda notary work
 
 ![ha notary colocated](notary/resources/ha-notary-colocated.png "ha notary colocated")
 ## Notary implementations
+
 Corda Enterprise contains more than one notary implementation. These implementations serve different operational
                 requirements. Ensure that the correct notary implementation is selected according to the requirements.
 
@@ -72,11 +77,13 @@ Due to its lack of resiliency, a simple notary is not suited to a production env
 {{< /note >}}
 
 ## Notary configuration
+
 Notary workers use `node.conf` files but must include additional properties. For more information, please refer to
                 ../node-configuration-file.
 
 
 ## Legal names and identities
+
 In a simple notary, each notary only requires its own legal name, specified in the node’s configuration file.
 
 In a high-availability notary implementation, every notary worker node must be configured with two legal names:
@@ -98,6 +105,7 @@ serviceHub.networkMapCache.getNotary(CordaX500Name("HA Notary", "London", "GB"))
 ```
 
 ## Keys and certificates
+
 As described above, every notary worker is configured with its own legal name and the shared service legal name. These names correspond to
                 identities that have their own key pair and certificate, which should be accessible by the notary worker.
 
@@ -115,6 +123,7 @@ The key store aliases for the worker identity, worker node CA and notary service
 {{< /note >}}
 
 ## Expected data volume
+
 Non-validating notaries store roughly one kilobyte per transaction.
 
 

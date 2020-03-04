@@ -1,11 +1,15 @@
 ---
-title: "Updating the flow"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Updating the flow
+version: corda-enterprise-4-4
 ---
 
 
 
 # Updating the flow
+
 We now need to update our flow to achieve three things:
 
 
@@ -22,6 +26,7 @@ We’ll do this by modifying the flow we wrote in the previous tutorial.
 
 
 ## Verifying the transaction
+
 In `IOUFlow.java`/`Flows.kt`, change the imports block to the following:
 
 
@@ -53,6 +58,7 @@ Now that our state is governed by a real contract, we’ll want to check that ou
 
 
 ## Requesting the borrower’s signature
+
 Previously we wrote a responder flow for the borrower in order to receive the finalised transaction from the lender.
                 We use this same flow to first request their signature over the transaction.
 
@@ -71,6 +77,7 @@ We can then pass this fully-signed transaction into `FinalityFlow`.
 
 
 ## Updating the borrower’s flow
+
 On the lender’s side, we used `CollectSignaturesFlow` to automate the collection of signatures. To allow the borrower
                 to respond, we need to update its responder flow to first receive the partially signed transaction for signing. Update
                 `IOUFlowResponder.call` to be the following:
@@ -86,6 +93,7 @@ We could write our own flow to handle this process. However, there is also a pre
 
 
 ### CheckTransactions
+
 `SignTransactionFlow` will automatically verify the transaction and its signatures before signing it. However, just
                     because a transaction is contractually valid doesn’t mean we necessarily want to sign. What if we don’t want to deal
                     with the counterparty in question, or the value is too high, or we’re not happy with the transaction’s structure?
@@ -111,6 +119,7 @@ Once we’ve defined the `SignTransactionFlow` subclass, we invoke it using `Flo
 
 
 ## Conclusion
+
 We have now updated our flow to verify the transaction and gather the lender’s signature, in line with the constraints
                 defined in `IOUContract`. We can now re-run our updated CorDapp, using the
                 [same instructions as before](hello-world-running.md).

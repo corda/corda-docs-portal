@@ -1,10 +1,14 @@
 ---
-title: "Cipher suites supported by Corda"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: Cipher suites supported by Corda
+version: corda-os-4-3
 ---
 
 
 # Cipher suites supported by Corda
+
 The set of signature schemes supported forms a part of the consensus rules for a Corda DLT network.
             Thus, it is important that implementations do not support pluggability of any crypto algorithms and do take measures
             to prevent algorithms supported by any underlying cryptography library from becoming accidentally accessible.
@@ -23,6 +27,7 @@ Before we present the pool of supported schemes it is useful to be familiar with
 
 
 ## Certificate hierarchy
+
 A Corda network has 8 types of keys and a regular node requires 4 of them:
 
 **Network Keys**
@@ -60,6 +65,7 @@ We can visualise the certificate structure as follows (for a detailed descriptio
 
 ![certificate structure](resources/certificate_structure.png "certificate structure")
 ## Supported cipher suites
+
 Due to the shared certificate hierarchy, the following 4 key/certificate types: **root network CA**, **doorman CA**,
                 **node CA** and **tls** should be compatible with the standard TLS 1.2 protocol. The latter is a requirement from the
                 TLS certificate-path validator. It is highlighted that the rest of the keys can be any of the 5 supported cipher suites.

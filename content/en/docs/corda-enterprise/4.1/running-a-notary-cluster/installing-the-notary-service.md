@@ -1,10 +1,14 @@
 ---
-title: "Setting up the Notary Service"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Setting up the Notary Service
+version: corda-enterprise-4-1
 ---
 
 
 # Setting up the Notary Service
+
 In the previous section of this tutorial we set up a Percona cluster.
 
 On top of the Percona XtraDB Cluster we’re deploying three notary worker nodes `notary-{1,2,3}` and
@@ -14,6 +18,7 @@ If you’re deploying VMs in your environment you might need to adjust the host 
 
 
 ## Configuration Files
+
 Below is a template for the notary configuration. Notice the parameters
                 `rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false` of the
                 JDBC URL.  See [Node configuration](../corda-configuration-file.md) for a complete reference.
@@ -78,9 +83,10 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/running-a-notary-cluster/resources/node.conf)
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/running-a-notary-cluster/resources/node.conf) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 
 {{< note >}}
@@ -89,11 +95,13 @@ Omit `compatibilityZoneURL` and set `devMode = true` when using the bootstrapper
 {{< /note >}}
 
 ## MySQL JDBC Driver
+
 Each worker node requires a MySQL JDBC driver to be placed in the `drivers` directory to be able to communicate with the Percona XtraDB Cluster.
                 The official driver can be obtained from Maven or the [MySQL Connector/J download page](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-installing.html).
 
 
 ## Next Steps
+
 
 * [Using the Bootstrapper](installing-the-notary-service-bootstrapper.md)
 

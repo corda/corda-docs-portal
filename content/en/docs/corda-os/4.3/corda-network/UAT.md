@@ -1,10 +1,14 @@
 ---
-title: "Corda Network: Pre-Production Environment"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: 'Corda Network: Pre-Production Environment'
+version: corda-os-4-3
 ---
 
 
 # Corda Network: Pre-Production Environment
+
 Corda Network Pre-Production (or UAT) seeks to provide a test environment which is as close as possible to Corda Network in its make-up and operation.
 
 For owners of tested CorDapps with a firm plan to take them into production, a bespoke Pre-Production environment is provided. Here, such CorDapps can be further tested in the network configuration they will experience in production, utilising relevant Corda Network Services (including the Identity Operator, Network Map and notaries).
@@ -17,6 +21,7 @@ More information about UAT will continue to be uploaded on this site or related 
 
 
 ## Joining the Pre-Production environment
+
 *The below joining steps assume the potential participant is joining the Pre-Production environment directly, and as such is not “sponsoring” or onboarding other participants. If this is the case, please contact your Corda representative for how to ‘sponsor’ end-participants on.*
 
 **Pre-requisites:**
@@ -47,6 +52,7 @@ More information about UAT will continue to be uploaded on this site or related 
 
 
 ## Steps to join the Pre-Production environment
+
 Steps to join are outlined on the [Corda Network microsite](https://corda.network/participation/index.html) - follow any specific instructions for ‘Pre-Production’.
 
 For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network) or at [info@corda.network](mailto:info@corda.network)

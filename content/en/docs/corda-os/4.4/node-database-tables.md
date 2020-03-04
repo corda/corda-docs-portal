@@ -1,10 +1,15 @@
 ---
-title: "Database tables"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4:
+    parent: corda-os-4-4-node
+title: Database tables
+version: corda-os-4-4
 ---
 
 
 # Database tables
+
 A Corda node database contains tables corresponding to the various services that the node provides.
             It also contains custom tables defined by the CorDapps that are installed on the node.
             Currently all these tables share the same database schema, but in a future release they will be isolated from each other.
@@ -26,7 +31,9 @@ Manually adding, removing or updating any data should only be done with great ca
 
 ## Network map
 
+
 ### Node Infos
+
 These are tables that store the NodeInfo of other network participants.
                     They are just a local cache that is kept in sync with the network map server.
                     By calling `rpc.clearNetworkMapCache()` all these tables will be cleared and recreated from the network map server.
@@ -77,6 +84,7 @@ Read more here: [The network map](network-map.md)
 {{< /table >}}
 
 ### Node identities
+
 The following four tables are used by the `IdentityService` and are created from the NodeInfos.
                     They are append only tables used for persistent caching.
                     They will also be cleared on `rpc.clearNetworkMapCache()`.
@@ -120,6 +128,7 @@ The following four tables are used by the `IdentityService` and are created from
 {{< /table >}}
 
 ### Network parameters
+
 Read more here: [The network map](network-map.md).
                     Each downloaded network parameters file will create an entry in this table.
                     The historical network parameters are used when validating transactions, which makes this table logically part of the `Ledger`.
@@ -140,12 +149,14 @@ Read more here: [The network map](network-map.md).
 {{< /table >}}
 
 ## Ledger
+
 The ledger data is formed of transactions and attachments.
                 In future versions this data will be encrypted using SGX.
                 Read more in [The ledger](key-concepts-ledger.md)
 
 
 ### Attachments
+
 Read more in [Using attachments](tutorial-attachments.md) and [Node services](node-services.md)
 
 ![attachments tables](resources/database/attachments_tables.png "attachments tables")
@@ -181,6 +192,7 @@ Read more in [Using attachments](tutorial-attachments.md) and [Node services](no
 {{< /table >}}
 
 ### Transactions
+
 These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large.
                     It is an append-only table, and the data will never change.
                     Read more in [Node services](node-services.md) - `DBTransactionStorage`
@@ -201,6 +213,7 @@ These are all the transactions that the node has created or has ever downloaded 
 > 
 
 ### Contract upgrades
+
 Read more in [Upgrading contracts](contract-upgrade.md)
 
 
@@ -216,6 +229,7 @@ This table should be empty when no states are authorised for upgrade or after au
 
 
 ### Scheduling
+
 Read more in [Event scheduling](event-scheduling.md)
 
 
@@ -232,6 +246,7 @@ This table should be empty when no events are scheduled.
 
 
 ### Storage of private keys
+
 
 {{< table >}}
 
@@ -255,6 +270,7 @@ These tables should be append only.
 
 
 ### Node state machine
+
 Read more in [Node services](node-services.md)
 
 
@@ -285,6 +301,7 @@ This table will see the most intense read-write activity. Depending on the insta
 
 ### Key value store
 
+
 {{< table >}}
 
 |NODE_PROPERTIES|General key value store. Currently only used for the flow draining mode.|
@@ -295,6 +312,7 @@ This table will see the most intense read-write activity. Depending on the insta
 {{< /table >}}
 
 ## Vault tables
+
 Read more about the vault here [Vault](key-concepts-vault.md).
 
 Note that the vault tables are guaranteed to remain backwards compatible and are safe to be used directly by third party applications.
@@ -359,6 +377,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 {{< /table >}}
 
 ### Fungible states
+
 ![vault fungible states](resources/database/vault_fungible_states.png "vault fungible states")
 {{< table >}}
 
@@ -384,6 +403,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 {{< /table >}}
 
 ### Linear states
+
 ![vault linear states](resources/database/vault_linear_states.png "vault linear states")
 {{< table >}}
 
@@ -407,6 +427,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 {{< /table >}}
 
 ## Liquibase database migration
+
 These are [Liquibase](https://www.liquibase.org) proprietary tables used by Corda internally to manage schema change and evolution.
 
 

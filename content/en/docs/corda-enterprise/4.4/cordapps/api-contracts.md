@@ -1,11 +1,16 @@
 ---
-title: "Writing CorDapp Contracts"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: Writing CorDapp Contracts
+version: corda-enterprise-4-4
 ---
 
 
 
 # Writing CorDapp Contracts
+
 In the context of a CorDapp, contracts define rules that are used to verify transaction inputs and outputs. A CorDapp
             can have one more contracts, and each contract defines rules for one or more states. The goal of a contract is to ensure
             that input and output states in transactions are valid and to prevent invalid transactions.
@@ -39,6 +44,7 @@ class XContract : Contract {
 ```
 
 ## Understanding the `Contract` class
+
 As a contract is a part of a CorDapp, all parties wishing to transact in a network must have copy of the CorDapp running
                 on their Node. All parties will run the contract for any transaction they’re a party to, verifying that the transaction
                 is valid.
@@ -67,6 +73,7 @@ The `Contract` interface has a single method, `verify`, which takes a `LedgerTra
 
 
 ### Understanding the `verify` function
+
 When a contract is used to verify a transaction, the verify function contains all of the rules and requirements that are
                     applied to the transaction to test whether it is valid.
 
@@ -99,6 +106,7 @@ override fun verify(tx: LedgerTransaction) {
 ```
 
 ### Understanding the `LedgerTransaction` object
+
 The `LedgerTransaction` object contains a variety of information describing the transaction that is being evaluated.
                     This information is expressed as properties, and can be accessed using utility methods. The information contained in the
                     `LedgerTransaction` object is the only information that can be used within the `verify` function.
@@ -162,6 +170,7 @@ The `LedgerTransaction` object also exposes a large number of utility methods to
 
 
 ## Writing verification logic
+
 In most cases, there are many requirements or verification statements that must be true for a given transaction to be
                 deemed valid. For example, in a state issuance transaction the following verification might apply:
 
@@ -190,6 +199,7 @@ For each string and boolean pair within `requireThat`, if the boolean condition 
 
 
 ### Customising verification by command
+
 The `LedgerTransaction` object contains the commands as a list of `CommandWithParties` instances.
                     `CommandWithParties` pairs a `CommandData` with a list of required signers for the transaction:
 
@@ -240,6 +250,7 @@ class XContract : Contract {
 ```
 
 ## What next?
+
 After learning about writing contracts, we suggest you either learn more about how contract constraints can be used in
                 [Contract Constraints](api-contract-constraints.md), or learn about [Writing CorDapp States](api-states.md), or [Writing CorDapp Flows](api-flows.md).
 

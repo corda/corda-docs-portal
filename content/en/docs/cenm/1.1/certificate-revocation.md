@@ -1,10 +1,14 @@
 ---
-title: "Certificate Revocation List (CRL)"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Certificate Revocation List (CRL)
+version: cenm-1-1
 ---
 
 
 # Certificate Revocation List (CRL)
+
 The certificate revocation list consists of certificate serial numbers of issued certificates that are no longer valid.
             It is used by nodes when they establish a TLS connection between each other and need to ensure on certificate validity.
             In order to add entries to the certificate revocation list there is the certificate revocation process that resembles
@@ -23,6 +27,7 @@ Note: It is assumed that the signed certificate revocation list is always availa
 
 
 ## HTTP certificate revocation protocol
+
 The set of REST end-points for the revocation service are as follows.
 
 
@@ -38,6 +43,7 @@ The set of REST end-points for the revocation service are as follows.
 {{< /table >}}
 
 ## Empty Certificate Revocation List
+
 The SSL-level certificate revocation check validates the entire certificate chain. It means that for each certificate in the
                 certificate path the corresponding CRL will be downloaded and the certificate will be checked against that CRL.
                 However, this introduces a requirement on each Certificate Authority (including the Node CA) to provide a CRL for the
@@ -48,6 +54,7 @@ The SSL-level certificate revocation check validates the entire certificate chai
 
 
 ## Certificate Revocation Request submission
+
 Submission of the certificate revocation requests expects the following fields to be present in the request payload:
 
 
@@ -105,6 +112,7 @@ Because of the proprietary serialization mechanism, it is assumed that those end
 
 
 ## Internal protocol
+
 There is an internal communication protocol between the revocation service and the HSM signing service for producing the signed CRLs.
                 This does not use HTTP to avoid exposing any web vulnerabilities to the signing process.
 

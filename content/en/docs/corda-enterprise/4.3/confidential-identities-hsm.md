@@ -1,10 +1,14 @@
 ---
-title: "Options for confidential identities"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Options for confidential identities
+version: corda-enterprise-4-3
 ---
 
 
 # Options for confidential identities
+
 In Corda, all nodes are associated with a public key. However, when additional privacy is required, nodes can use confidential identities. A confidential identity is a new key pair, referred to as a **confidential identity key**, that can be communicated to other specific nodes, which then associate the new key pair with the node that generated them.
 
 This system allows the **confidential identity keys** to be used to sign transactions, without the wider network being able to associate the key pair with the signing node. Confidential identity keys can be used either by using the `KeyManagementService` APIs, where a CorDapp generates a fresh key pair, and communicates it to other nodes; or with the `SwapIdentitiesFlow` and `IdentitySyncFlow`.
@@ -17,10 +21,12 @@ When using a confidential identity, the keys are stored in the node database in 
 
 
 ## Using confidential identities with an HSM
+
 By using an HSM, the confidential identity keys can be stored in the node database in an encrypted form. There are two supported modes for combining HSMs and confidential identities on Corda Enterprise; **wrapped** and **degraded wrapped**. Both of these modes are more secure than using confidential identities without an HSM.
 
 
 ### Wrapped mode
+
 The wrapped mode is the most secure, but requires specific APIs from the HSM, and not all HSMs are supported. The wrapped mode functions as detailed below:
 
 
@@ -40,6 +46,7 @@ This method prevents the node from having access to the unencrypted private key 
 
 
 ### Degraded wrapped mode
+
 The degraded wrapped mode is slightly less secure than the wrapped mode, but can be supported by a wider variety of HSMs. The degraded wrapped mode functions as detailed below:
 
 
@@ -66,6 +73,7 @@ The degraded wrapped mode is considered less secure than the wrapped mode, as th
 
 
 ## Using confidential identities with a filesystem keystore
+
 Confidential identities can be used with a keystore in the node filesystem. The filesystem keystore takes the role of the HSM, however, the filesystem keystore is only compatible with the degraded wrapped mode.
 
 
@@ -76,6 +84,7 @@ This method is less secure than the degraded wrapped HSM mode, and is recommende
 
 
 ## Configuring nodes for confidential identities
+
 Using an HSM with confidential identities is not enabled by default. To enable this, the node configuration file must include the `freshIdentitiesConfiguration` field.
 
 The `freshIdentitiesConfiguration` field contains the following attributes:
@@ -105,6 +114,7 @@ freshIdentitiesConfiguration: {
 ```
 
 ## Support matrix
+
 The following table contains the current support and the associated configuration values:
 
 
@@ -118,6 +128,7 @@ The following table contains the current support and the associated configuratio
 {{< /table >}}
 
 ## Additional notes
+
 
 * For Securosys’ PrimusX HSM, this feature has been tested with an HSM running firmware version 2.7.4 and the version 1.8.2 of the PrimusX JCA provider.
 

@@ -1,10 +1,14 @@
 ---
-title: "Network Parameters"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Network Parameters
+version: cenm-1-2
 ---
 
 
 # Network Parameters
+
 Allowed parameters are:
 
 
@@ -15,14 +19,28 @@ The minimum platform version that the nodes must be running. Any node which is b
 
 
 notaries
-Ordered list of file paths to the node info files of the notaries which are permitted in the network.
-                        Note that once a network has started, the only supported changes to notaries
-                        is to add new notaries at the end of the list.  Notaries cannot
-                        be removed as this would leave any states using the notary unable to
-                        be transacted. Notaries must be added to the end as Flows often
-                        use the ordering of notaries during selection (i.e. pick the first),
+Ordered list of file paths to the node info files, or X500 names, of the notaries which are permitted in the
+                        network. Note that once a network has started, the only supported changes to notaries
+                        are to add new notaries at the end of the list or to remove existing ones as part of a decommissioning process.  Notaries can
+                        be removed from the list, in which case no new states can be created and reference it. The existing states which reference
+                        the removed Notary have to be moved to a new Notary before the pointed one is decommissioned. Notaries must be added
+                        to the end as Flows often use the ordering of notaries during selection (i.e. pick the first),
                         and therefore changing the order could cause errors elsewhere.
+                        Also note you can provide only file path to the node info file or X500 name of the notary, not both.
                         Guidance on using notaries in flows: [https://docs.corda.net/api-flows.html?highlight=flow#notaries](https://docs.corda.net/api-flows.html?highlight=flow#notaries)
+
+
+
+notaryNodeInfoFile
+File path to the notaries’ node info file.
+
+
+notaryX500Name
+Notaries’ X500 name.
+
+
+validating
+Boolean to determine whether the notary is a validating or non-validating one.
 
 
 maxMessageSize

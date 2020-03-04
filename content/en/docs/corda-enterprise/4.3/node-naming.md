@@ -1,10 +1,15 @@
 ---
-title: "Node identity"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-node
+title: Node identity
+version: corda-enterprise-4-3
 ---
 
 
 # Node identity
+
 A node’s name must be a valid X.500 distinguished name. In order to be compatible with other implementations
             (particularly TLS implementations), we constrain the allowed X.500 name attribute types to a subset of the minimum
             supported set for X.509 certificates (specified in RFC 3280), plus the locality attribute:
@@ -105,6 +110,7 @@ The network operator of a Corda Network may put additional constraints on node n
 {{< /note >}}
 
 ## External identifiers
+
 Mappings to external identifiers such as Companies House nos., LEI, BIC, etc. should be stored in custom X.509
                 certificate extensions. These values may change for operational reasons, without the identity they’re associated with
                 necessarily changing, and their inclusion in the distinguished name would cause significant logistical complications.

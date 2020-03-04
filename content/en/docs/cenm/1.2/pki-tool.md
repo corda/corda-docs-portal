@@ -1,12 +1,17 @@
 ---
-title: "Public Key Infrastructure (PKI) Tool"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Public Key Infrastructure (PKI) Tool
+version: cenm-1-2
 ---
 
 
 # Public Key Infrastructure (PKI) Tool
 
+
 ## Overview
+
 As described in the [Certificate Hierarchy Guide](pki-guide.md), a certificate hierarchy with certain properties is required to run a Corda
                 network. Specifically, the certificate hierarchy should include the two main CENM entities - the Identity Manager and
                 the Network Map - and ensure that all entities map back to one common root of trust. The key pairs and certificates for
@@ -38,6 +43,7 @@ The PKI Tool is a CENM provided utility that can be used to generate a Corda com
 
 ## Features
 
+
 * Allows a user to define their desired certificate hierarchy via a configuration file.
 
 
@@ -55,6 +61,7 @@ The PKI Tool is a CENM provided utility that can be used to generate a Corda com
 
 
 ## Running the PKI Tool
+
 The tool is designed to be executed from the command line, where the entire certificate hierarchy is specified in the
                 configuration file:
 
@@ -63,6 +70,7 @@ java -jar pkitool.jar --config-file <CONFIG_FILE>
 ```
 
 ### Generating Certificates for non-Production Deployments
+
 By default, a check will be done on the proposed certificate hierarchy before any generation steps to ensure that CRL
                     information is present for all entities. If this is not required then this check can be disabled by passing the
                     `--ignore-missing-crl` or `-i` startup flag:
@@ -78,7 +86,9 @@ See [Certificate Revocation List Information](#certificate-revocation-list-infor
 
 ## Configuration
 
+
 ### Default Configuration
+
 The PKI tool comes with the default configuration which can be used for testing. This configuration resembles a basic
                     version of the Corda Network certificate hierarchy, with the key omission of any CRL information. To generate the
                     certificate hierarchy using the default configuration, omit the `--config-file` argument:
@@ -97,6 +107,7 @@ The generated hierarchy will not have any CRL-related extensions included, hence
 {{< /note >}}
 
 ### Custom Configuration
+
 For anything other than a simple test, a custom configuration file can be created to define the hierarchy. Along with
                     other parameters, the configuration is composed of three main sections:
 
@@ -123,6 +134,7 @@ The full list of the configuration parameters can be found in [Public Key Infras
 {{< /note >}}
 
 #### Key Stores Configuration
+
 This configuration block defines all key stores that should be used by the PKI Tool. Each key store can be either local
                         (backed by a Java key store file) or HSM (backed by a LAN HSM device). For HSM key stores, the available options and
                         authentication methods will depend on the HSM being used. See [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) for more details.
@@ -132,6 +144,7 @@ A mixture of key store types is allowed. That is, it is possible to generate som
 
 
 #### Certificates Stores Configuration
+
 This configuration block defines all certificate stores that will contain generated certificates. All certificate stores
                         take the form of locally stored Java key store files, and contain no private keys.
 
@@ -143,6 +156,7 @@ A generated certificate will only be stored in a certificate store if explicitly
 {{< /note >}}
 
 #### Certificates Configurations
+
 The certificates configuration block defines the actual entities that form the desired hierarchy, It is expressed as a
                         map from the user-defined alias to certificate configuration. The alias serves two purposes. Firstly, it can be used to
                         reference the given entity throughout the rest of the PKI Tool config. Secondly, it also defines the alias for the
@@ -160,23 +174,8 @@ If the desire is to use the resultant certificate hierarchy in a Corda network, 
                         section below).
 
 
-{{< note >}}
-An additional `NETWORK_PARAMETERS` certificate role is available which can be used to create a different entity,
-                            separate from the Network Map entity, that is responsible for signing Network Parameter changes. This can be useful
-                            as a network operator will often want to have the Network Map signing task run automatically on a schedule. Having a
-                            different PKI entity for each task allows the operator to keep the process of signing the high risk and infrequent
-                            Network Parameter changes isolated from the low risk and frequent process of signing Network Map changes.
-
-{{< /note >}}
-
-{{< warning >}}
-The additional `NETWORK_PARAMETERS` role is only supported in Corda nodes running platform version 4+. Therefore,
-                            this should only ever be used in a network with `minimumPlatformVersion` >= 4.
-
-{{< /warning >}}
-
-
 ##### Certificate Templates
+
 Out of the box, the PKI Tool comes with some predefined certificate templates that can be used to generate a basic,
                             Corda compliant certificate hierarchy. Each template defines all necessary parameters, such as certificate subject, role
                             and signedBy attributes, and greatly reduces the size of the configuration file.
@@ -227,6 +226,7 @@ This is the same configuration that is used as the default when no configuration
 {{< /note >}}
 
 ###### Customising The Templates
+
 Customisation of the templates is supporting, allowing the default values within each template to be overridden. This
                                 can be achieved by extending the template:
 
@@ -291,6 +291,7 @@ certificates = {
 ```
 [pki-tool-template-custom.conf](https://github.com/corda/network-services/blob/release/1.2/pki-tool/src/test/resources/configs/pki-tool-template-custom.conf)
 ##### Free-form Certificates
+
 As an alternative to using the templates, each key pair and certificate can defined using the standard configuration
                             options. See the [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) documentation for all possible parameters, and see below for examples
                             that use this approach. Note that the templates only support local key stores - using a HSM requires the certificate
@@ -298,6 +299,7 @@ As an alternative to using the templates, each key pair and certificate can defi
 
 
 ##### Certificate Revocation List Information
+
 Unless explicitly set, all configurations will be generated without CRL information. That is, unless the configuration
                             explicitly defines all necessary CRL file configurations or all CRL distribution URLs, all certificates will be
                             generated without the `Certificate Revocation List Distribution Point` extension and will therefore be incompatible
@@ -324,6 +326,7 @@ For a given certificate chain (e.g. a chain from the Node CA certificate back to
 {{< /note >}}
 
 ###### CRL File Configuration
+
 As referenced above, the PKI Tool can be configured to generate an accompanying CRL file for each CA entity via the
                                 `crl` configuration block. This configuration determines the resulting CRL file for that entity as well as, by
                                 association, the CRL endpoint configuration for any child entities in the hierarchy.
@@ -386,6 +389,7 @@ As previously mentioned, it is up to the network operator to ensure that any con
 
 
 ##### HSM Libraries
+
 If using the PKI Tool with a HSM then, due to the proprietary nature of the HSM libraries, the appropriate jars need to
                             be provided separately and referenced within the configuration file. The libraries that are required will depend on the
                             HSM that is being used.
@@ -415,6 +419,7 @@ See the example configurations below to see these config blocks being used in a 
 
 
 ###### Azure Key Vault
+
 To keep inline with the other HSMs, the Azure Key Vault client jar needs to provided as above. Unlike the other HSMs,
                                 there are many dependent libraries. The top-level dependencies are `azure-keyvault` and `adal4j`, however these both
                                 have transitive dependencies that need to be included. That is, either all jars need to be provided separately (via a
@@ -456,6 +461,7 @@ This will create a jar called `azure-keyvault-with-deps.jar` which can be refere
 
 
 ##### Generating SSL Keys
+
 As outlined in the [Configuring the ENM services to use SSL](enm-with-ssl.md) doc, all inter-service CENM communication can be configured to encrypt their
                             messages via SSL. This feature requires the operator to provide a set of SSL key pairs and certificates to each service,
                             which can be generated using the PKI tool.
@@ -479,6 +485,7 @@ certificates = {
 
 ### Configuration Examples
 
+
 {{< note >}}
 HSM keys used by the Signing Service require an accompanying certificate store that contains all certificates in
                         the chain, from the signing entity back to the root. This is because the full chains cannot be stored within the
@@ -487,6 +494,7 @@ HSM keys used by the Signing Service require an accompanying certificate store t
 {{< /note >}}
 
 #### Full Configuration (using Local key stores)
+
 ```docker
 keyStores = {
     "identity-manager-key-store" = {
@@ -630,7 +638,7 @@ certificates = {
         keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
         keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
         validDays = 7300
-        role = NETWORK_PARAMETERS
+        role = NETWORK_MAP
         issuesCertificates = false
         subject = "CN=Test Network Parameters Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
     }
@@ -638,6 +646,7 @@ certificates = {
 ```
 [pki-tool-local-full.conf](https://github.com/corda/network-services/blob/release/1.2/pki-tool/src/test/resources/configs/pki-tool-local-full.conf)
 #### Local Configuration
+
 ```docker
 defaultPassword = "password"
 keyStores = {
@@ -731,6 +740,7 @@ certificates = {
 ```
 [pki-tool-local.conf](https://github.com/corda/network-services/blob/release/1.2/pki-tool/src/test/resources/configs/pki-tool-local.conf)
 #### Utimaco HSM Configuration
+
 ```docker
 hsmLibraries = [{
     type = UTIMACO_HSM
@@ -807,6 +817,7 @@ certificates = {
 ```
 [pki-tool-utimaco-hsm.conf](https://github.com/corda/network-services/blob/release/1.2/pki-tool/src/test/resources/configs/pki-tool-utimaco-hsm.conf)
 #### Gemalto HSM Configuration
+
 ```docker
 hsmLibraries = [{
     type = GEMALTO_HSM
@@ -881,6 +892,7 @@ certificates = {
 ```
 [pki-tool-gemalto-hsm.conf](https://github.com/corda/network-services/blob/release/1.2/pki-tool/src/test/resources/configs/pki-tool-gemalto-hsm.conf)
 #### Securosys HSM Configuration
+
 ```docker
 hsmLibraries = [{
     type = SECUROSYS_HSM
@@ -956,6 +968,7 @@ certificates = {
 ```
 [pki-tool-securosys-hsm.conf](https://github.com/corda/network-services/blob/release/1.2/pki-tool/src/test/resources/configs/pki-tool-securosys-hsm.conf)
 #### Azure Key Vault HSM Configuration
+
 ```docker
 hsmLibraries = [{
     type = AZURE_KEY_VAULT_HSM
@@ -1035,6 +1048,7 @@ certificates = {
 ```
 [pki-tool-azure-key-vault-hsm.conf](https://github.com/corda/network-services/blob/release/1.2/pki-tool/src/test/resources/configs/pki-tool-azure-key-vault-hsm.conf)
 #### AWS CloudHSM Configuration
+
 ```docker
 hsmLibraries = [{
     type = AMAZON_CLOUD_HSM

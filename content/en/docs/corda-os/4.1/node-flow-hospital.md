@@ -1,12 +1,18 @@
 ---
-title: "Flow Hospital"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-node
+title: Flow Hospital
+version: corda-os-4-1
 ---
 
 
 # Flow Hospital
 
+
 ## Overview
+
 The **flow hospital** refers to a built-in node service that manages flows that have encountered an error.
 
 This service is responsible for recording, tracking, diagnosing, recovering and retrying. It determines whether errored flows should be retried
@@ -25,6 +31,7 @@ This concept is analogous to *exception management handling* associated with ent
 
 
 ## Functionality
+
 Flow hospital functionality is enabled by default in Master. No explicit configuration settings are required.
 
 There are two aspects to the flow hospital:
@@ -38,6 +45,7 @@ There are two aspects to the flow hospital:
 
 
 ### Run-time behaviour
+
 Specifically, there are two main ways a flow is hospitalized:
 
 
@@ -83,6 +91,7 @@ There is currently no retry API. If you don’t want to install the cordapp, you
 
 
 ## Futures
+
 The flow hospital will be extended in the following areas:
 
 

@@ -1,12 +1,17 @@
 ---
-title: "Firewall upgrade"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Firewall upgrade
+version: corda-enterprise-4-3
 ---
 
 
 # Firewall upgrade
 
+
 ## Introduction
+
 Corda Firewall 4.x brings with it an few changes, some related to deployment and configuration. The first part of the guide
                 covers the upgrade of existing firewall deployments, from the simplest operating mode to the full HA DMZ ready mode. For
                 more information on supported operating modes please see [Operating modes of the Bridge and Float](corda-firewall-component.md).
@@ -16,6 +21,7 @@ Corda Firewall 4.x brings with it an few changes, some related to deployment and
 
 
 ## Upgrade
+
 When upgrading, it’s important to note that one of the main configuration differences is the renaming of all terms containing *bridge*
                 to use *firewall*. This applies to the configuration files for the bridge and float which are now called *firewall.conf*.
                 There are properties which have been renamed or reworked, such as *customSSLConfiguration* which was previously
@@ -26,6 +32,7 @@ When upgrading, it’s important to note that one of the main configuration diff
 
 
 ### Node + Bridge (no float, no DMZ)
+
 For this type of deployment, version 3.x would have the following configuration:
 
 
@@ -104,6 +111,7 @@ trustStorePassword = "trustPass"
 {{< /table >}}
 
 ### DMZ ready (node + bridge + float)
+
 
 {{< table >}}
 
@@ -239,11 +247,13 @@ floatOuterConfig {
 {{< /table >}}
 
 ### DMZ ready with outbound SOCKS
+
 The changes for this deployment are the same as for **DMZ ready (node + bridge + float)** with the additional renaming of the
                     SOCKS configuration property from **socksProxyConfig** to **proxyConfig**.
 
 
 ### Full production HA DMZ ready (hot/cold node, hot/warm bridge)
+
 
 {{< table >}}
 
@@ -490,6 +500,7 @@ floatOuterConfig {
 {{< /table >}}
 
 ## Reconfiguring to the shared Corda Firewall Architecture
+
 In 4.x, it is possible to for multiple nodes representing multiple identities to reside behind the same Corda Firewall.
                 To achieve this, the nodes can be configured to use an external Artemis server. Furthermore, the Artemis server can be run
                 in HA mode with replication and failback. Reconfiguring a node and bridge to use external artemis does not affect the float configuration,
@@ -504,6 +515,7 @@ For the purpose of this guide, the Artemis connection key and trust stores will 
 
 
 ### Node + Bridge to Node + Artemis + Bridge
+
 
 {{< table >}}
 
@@ -610,6 +622,7 @@ trustStorePassword = "trustPass"
 {{< /table >}}
 
 ### Multiple nodes behind the Bridge
+
 To add additional nodes behind the same Corda firewall (either all-in-one bridge or bridge and float), it’s sufficient
                     to configure the new nodes to connect to Artemis as shown in the previous section. The same applies for the bridge. The additional
                     nodes need to set their P2P address as the shared float’s address. Furthermore, all previous floats except the shared one need to be shut down.

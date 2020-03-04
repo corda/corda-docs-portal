@@ -1,20 +1,26 @@
 ---
-title: "Notary Health Check"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Notary Health Check
+version: corda-enterprise-4-4
 ---
 
 
 # Notary Health Check
+
 This is a simple CorDapp to check if notaries on a Corda network are up and responsive.
 
 
 ## Installation
+
 To install the app, copy the `notaryhealthcheck-cordapp` and the `notaryhealthcheck-contract` JARs to the `cordapps` directory
                 of a node that will run the checks. The `notaryhealthcheck-contract` JAR also needs to be installed on all validating
                 notaries that are to be checked.
 
 
 ## Usage
+
 To set up periodic health checks for a notary service identity or a specific HA notary cluster member, there are two options:
 
 
@@ -26,6 +32,7 @@ To set up periodic health checks for a notary service identity or a specific HA 
 
 
 ### Configuration file
+
 A standard CorDapp configuration file is used. It must be placed in the `cordapps/config` directory have have the same filename as the CorDapp, apart from the extension.
                     E.g. for `notaryhealthcheck-cordapp-4.0.jar` the configuration file should be named `notaryhealthcheck-cordapp-4.0.conf`.
 
@@ -41,6 +48,7 @@ If a target is a notary service identity, all individual notary cluster members 
 
 
 ### Command-line client
+
 To simplify controlling the checks, a command line client is provided that will call the respective flows via RPC.
                     The `notaryhealthcheck-client` is built into a fat JAR and can be executed via Java:
 
@@ -104,7 +112,9 @@ A string representation of the X500 name of the notary service the target is par
 
 ## Monitoring
 
+
 ### Logfile
+
 Every state change of the check (starting a check, successful check,
                     failed check, check still in-flight when the next is scheduled) will generate a log line with all the relevant stats.
                     By redirecting the logs for the name `net.corda.notaryhealthcheck.cordapp` to a separate file,
@@ -148,6 +158,7 @@ The second set of two lines shows a failed check, showing the notary that was ch
 ```
 
 ### JMX/Jolokia
+
 The flow also populates a set of JMX metrics in the namespace `net.corda.notaryhealthcheck` that can be used to
                     monitor notary health via a dashboard or hook up an alerter. As an example, this is the  [hawtio](https://hawt.io)
                     view on a failing notary check. Note the metrics for *success*, *fail*, *inflight*, and *maxinflightTime* for the

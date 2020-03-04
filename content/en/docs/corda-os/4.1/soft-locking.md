@@ -1,10 +1,14 @@
 ---
-title: "Soft Locking"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Soft Locking
+version: corda-os-4-1
 ---
 
 
 # Soft Locking
+
 Soft Locking is implemented in the vault to try and prevent a node constructing transactions that attempt to use the same input(s) simultaneously.
             Such transactions would result in naturally wasted work when the notary rejects them as double spend attempts.
 
@@ -51,6 +55,7 @@ In addition, the `VaultService` exposes a number of functions a developer may us
 ```
 [VaultService.kt](https://github.com/corda/corda/blob/release/os/4.1/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 ## Query
+
 By default vault queries will always include locked states in its result sets.
                 Custom filterable criteria can be specified using the `SoftLockingCondition` attribute of `VaultQueryCriteria`:
 
@@ -69,6 +74,7 @@ By default vault queries will always include locked states in its result sets.
 ```
 [QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.1/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 ## Explicit Usage
+
 Soft locks are associated with transactions, and typically within the lifecycle of a flow. Specifically, every time a
                 flow is started a soft lock identifier is associated with that flow for its duration (and released upon it’s natural
                 termination or in the event of an exception). The `VaultSoftLockManager` is responsible within the Node for
@@ -83,6 +89,7 @@ Upon building a new transaction to perform some action for a set of states on a 
 
 
 ## Use Cases
+
 A prime example where *soft locking* is automatically enabled is within the process of issuance and transfer of fungible
                 state (eg. Cash). An issuer of some fungible asset (eg. Bank of Corda) may wish to transfer that new issue immediately
                 to the issuance requester (eg. Big Corporation). This issuance and transfer operation must be *atomic* such that another

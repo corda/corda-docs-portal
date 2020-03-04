@@ -1,10 +1,15 @@
 ---
-title: "Corda Enterprise 4.3"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+  versions: {}
+title: Corda Enterprise 4.3
+version: corda-enterprise-4-3
 ---
 
 
 # Corda Enterprise 4.3
+
 Welcome to the documentation website for Corda Enterprise 4.3, based on the Corda 4.0 open source release.
 
 Corda Enterprise 4.3 builds on the performance, scalability, high-availability, enhanced DMZ security, and multiple database vendor support

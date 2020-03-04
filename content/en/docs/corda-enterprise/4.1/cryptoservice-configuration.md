@@ -1,16 +1,21 @@
 ---
-title: "HSM support for legal identity keys"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: HSM support for legal identity keys
+version: corda-enterprise-4-1
 ---
 
 
 # HSM support for legal identity keys
+
 By default, the private keys that belong to the node CA and legal identity are stored in a key store file in the node’s certificates directory. Users may wish to instead store this key in a hardware security module (HSM) or similar. For this purpose, Corda Enterprise supports HSMs by [Utimaco](https://hsm.utimaco.com), [Gemalto](https://www.gemalto.com), and [Azure KeyVault](https://azure.microsoft.com/en-gb/services/key-vault).
 
 Note that only the private and public key of node CA and the legal identity are stored this way. The certificate chain is still stored in a file-based key store.
 
 
 ## Configuration
+
 As mentioned in the description of the configuration file ([Node configuration](corda-configuration-file.md)), the `node.conf` has two relevant fields, `cryptoServiceName` and `cryptoServiceConf`.
 
 
@@ -21,6 +26,7 @@ The file containing the configuration for the HSM (referenced by the `cryptoServ
 
 
 ## Utimaco
+
 Corda Enterprise nodes can be configured to store their legal identity keys in [Utimaco’s SecurityServer Se Gen2](https://hsm.utimaco.com/products-hardware-security-modules/general-purpose-hsm/securityserver-se-gen2/) running firmware version 4.21.1.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “UTIMACO”, and `cryptoServiceConf` should contain the path to the configuration for Utimaco, as shown below.
@@ -104,6 +110,7 @@ In addition to the configuration, the node needs to access binaries provided by 
 
 
 ## Gemalto Luna
+
 Corda Enterprise nodes can be configured to store their legal identity keys in [Gemalto Luna](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm) HSMs running firmware version 7.3.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “GEMALTO_LUNA”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down.
@@ -133,6 +140,7 @@ Note that the Gemalto’s JCA provider has to be installed as described in the d
 
 
 ## Futurex
+
 Corda Enterprise nodes can be configured to store their legal identity keys in [Futurex Excrypt SSP9000](https://www.futurex.com/products/excrypt-ssp9000) HSMs running firmware version 3.1.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “FUTUREX”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down.
@@ -154,6 +162,7 @@ When starting Corda the environment variables `FXPKCS11_CFG` and `FXPKCS11_MODUL
 
 
 ## Azure KeyVault
+
 In the `node.conf`, the `cryptoServiceName` needs to be set to “AZURE_KEY_VAULT” and `cryptoServiceConf` should cointain the path to the configuration for Azure KeyVault, as shown below.
 
 ```kotlin
@@ -199,6 +208,7 @@ protection: "HARDWARE"
 ```
 
 ## Securosys Primus X
+
 Corda Enterprise nodes can be configured to store their legal identity keys in [Securosys Primus X](https://www.securosys.ch/product/high-availability-high-performance-hardware-security-module) HSMs running firmware version 2.7.3.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “PRIMUS_X”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down.

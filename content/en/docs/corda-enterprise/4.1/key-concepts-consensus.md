@@ -1,13 +1,19 @@
 ---
-title: "Consensus"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-concepts
+title: Consensus
+version: corda-enterprise-4-1
 ---
 
 
 # Consensus
 
+
 {{< topic >}}
 # Summary
+
 
 * *To be committed, transactions must achieve both validity and uniqueness consensus*
 
@@ -21,12 +27,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/214138438" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## Two types of consensus
+
 Determining whether a proposed transaction is a valid ledger update involves reaching two types of consensus:
 
 
@@ -38,6 +46,7 @@ Determining whether a proposed transaction is a valid ledger update involves rea
 
 
 ## Validity consensus
+
 Validity consensus is the process of checking that the following conditions hold both for the proposed transaction,
                 and for every transaction in the transaction chain that generated the inputs to the proposed transaction:
 
@@ -70,6 +79,7 @@ The only way to be sure of both conditions is to walk the transaction’s chain.
 
 
 ## Uniqueness consensus
+
 Imagine that Bob holds a valid central-bank-issued cash state of $1,000,000. Bob can now create two transaction
                 proposals:
 

@@ -1,11 +1,15 @@
 ---
-title: "CorDapp constraints migration"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: CorDapp constraints migration
+version: corda-enterprise-4-4
 ---
 
 
 
 # CorDapp constraints migration
+
 Corda 4 recommends building signed CorDapps that issue states with signature constraints. When building transactions in
             Corda 4, existing on-ledger states issued before Corda 4 are only automatically transitioned to the new Signature
             Constraint if they were originally using the CZ Whitelisted Constraint. This document explains how to modify existing CorDapp flows to
@@ -64,12 +68,14 @@ Please also remember that *states are always consumable if the version of the Co
 
 ## Hash constraints migration
 
+
 {{< note >}}
 These instructions only apply to CorDapp Contract JARs (unless otherwise stated).
 
 {{< /note >}}
 
 ### Corda 4.4
+
 Corda 4.4 requires some additional steps to consume and evolve pre-existing on-ledger **hash** constrained states:
 
 
@@ -125,12 +131,14 @@ TransactionBuilder txBuilder = new TransactionBuilder(notary)
 
 ## CZ whitelisted constraints migration
 
+
 {{< note >}}
 These instructions only apply to CorDapp Contract JARs (unless otherwise stated).
 
 {{< /note >}}
 
 ### Corda 4.4
+
 Corda 4.4 requires some additional steps to consume and evolve pre-existing on-ledger **CZ whitelisted** constrained states:
 
 

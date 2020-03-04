@@ -1,15 +1,20 @@
 ---
-title: "Obtaining and Installing the Performance Test Suite"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Obtaining and Installing the Performance Test Suite
+version: corda-enterprise-4-3
 ---
 
 
 # Obtaining and Installing the Performance Test Suite
+
 As a registered user of Corda Enterprise, you can get the performance test suite as a zip file from the same location where the Corda
             Enterprise artifacts are available. Look for a file called `jmeter-corda-<version>-testsuite.zip`.
 
 
 ## File Contents
+
 The performance test suite comes as a zip file containing the following files:
 
 
@@ -41,7 +46,9 @@ An annotated sample for the server RMI mapping required to use remote JMeter ove
 
 ## Installation
 
+
 ### Client Installation
+
 Simply create a working directory for JMeter Corda on the client machine and unzip the performance test suite to this
                     directory. This app requires an Oracle JRE version 1.8 build 172 or later. After unpacking,
                     you should immediately be able to run it from a shell by typing `java -jar jmeter-corda.jar`. Please refer to
@@ -49,6 +56,7 @@ Simply create a working directory for JMeter Corda on the client machine and unz
 
 
 ### Installing JMeter server
+
 The same JAR file used for running the client can be run as a server as well by starting it with the `-s` flag as part
                     of the JMeter arguments. It can be installed by simply copying the JAR file to the server and having an adequate JRE
                     installed.

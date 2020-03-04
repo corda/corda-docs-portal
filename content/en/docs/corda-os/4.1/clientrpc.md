@@ -1,13 +1,18 @@
 ---
-title: "Interacting with a node"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Interacting with a node
+version: corda-os-4-1
 ---
 
 
 
 # Interacting with a node
 
+
 ## Overview
+
 To interact with your node, you need to write a client in a JVM-compatible language using the [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class.
                 This class allows you to connect to your node via a message queue protocol and provides a simple RPC interface for
                 interacting with the node. You make calls on a JVM object as normal, and the marshalling back-and-forth is handled for
@@ -24,6 +29,7 @@ The built-in Corda webserver is deprecated and unsuitable for production use. If
 
 
 ## Connecting to a node via RPC
+
 To use [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `net.corda:corda-rpc:$corda_release_version` as a `cordaCompile` dependency
                 in your client’s `build.gradle` file.
 
@@ -100,9 +106,10 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [ClientRpcExample.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java)
+[ClientRpcExample.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 
 {{< warning >}}
@@ -117,6 +124,7 @@ For further information on using the RPC API, see [Using the client RPC API](tut
 
 
 ## RPC permissions
+
 For a node’s owner to interact with their node via RPC, they must define one or more RPC users. Each user is
                 authenticated with a username and password, and is assigned a set of permissions that control which RPC operations they
                 can perform. Permissions are not required to interact with the node via the shell, unless the shell is being accessed via SSH.
@@ -145,6 +153,7 @@ By default, RPC users are not permissioned to perform any RPC operations.
 
 
 ### Granting flow permissions
+
 You provide an RPC user with the permission to start a specific flow using the syntax
                     `StartFlow.<fully qualified flow name>`:
 
@@ -194,6 +203,7 @@ rpcUsers=[
 
 
 ### Granting other RPC permissions
+
 You provide an RPC user with the permission to perform a specific RPC operation using the syntax
                     `InvokeRpc.<rpc method name>`:
 
@@ -220,6 +230,7 @@ rpcUsers=[
 
 
 ### Granting all permissions
+
 You can provide an RPC user with the permission to perform any RPC operation (including starting any flow) using the
                     `ALL` permission:
 
@@ -245,6 +256,7 @@ rpcUsers=[
 
 
 ## RPC security management
+
 Setting `rpcUsers` provides a simple way of granting RPC permissions to a fixed set of users, but has some
                 obvious shortcomings. To support use cases aiming for higher security and flexibility, Corda offers additional security
                 features such as:
@@ -331,6 +343,7 @@ A valid configuration cannot specify both the `rpcUsers` and `security` fields. 
 
 
 ### Authentication/authorisation data
+
 The `dataSource` structure defines the data provider supplying credentials and permissions for users. There exist two
                     supported types of such data source, identified by the `dataSource.type` field:
 
@@ -367,6 +380,7 @@ The `dataSource` structure defines the data provider supplying credentials and p
 > {{< /note >}}
 
 ### Password encryption
+
 Storing passwords in plain text is discouraged in applications where security is critical. Passwords are assumed
                     to be in plain format by default, unless a different format is specified by the `passwordEncryption` field, like:
 
@@ -388,6 +402,7 @@ passwordEncryption = SHIRO_1_CRYPT
 
 
 ### Caching user accounts data
+
 A cache layer on top of the external data source of users credentials and permissions can significantly improve
                     performances in some cases, with the disadvantage of causing a (controllable) delay in picking up updates to the underlying data.
                     Caching is disabled by default, it can be enabled by defining the `options.cache` field in `security.authService`,
@@ -414,6 +429,7 @@ This will enable a non-persistent cache contained in the node’s memory with ma
 
 
 ## Observables
+
 The RPC system handles observables in a special way. When a method returns an observable, whether directly or
                 as a sub-object of the response object graph, an observable is created on the client to match the one on the
                 server. Objects emitted by the server-side observable are pushed onto a queue which is then drained by the client.
@@ -448,12 +464,14 @@ Observables can only be used as return arguments of an RPC call. It is not curre
 {{< /note >}}
 
 ## Futures
+
 A method can also return a `CordaFuture` in its object graph and it will be treated in a similar manner to
                 observables. Calling the `cancel` method on the future will unsubscribe it from any future value and release
                 any resources.
 
 
 ## Versioning
+
 The client RPC protocol is versioned using the node’s platform version number (see [Versioning](versioning.md)). When a proxy is created
                 the server is queried for its version, and you can specify your minimum requirement. Methods added in later versions
                 are tagged with the `@RPCSinceVersion` annotation. If you try to use a method that the server isn’t advertising support
@@ -468,12 +486,14 @@ The RPC client library defaults to requiring the platform version it was built w
 
 
 ## Thread safety
+
 A proxy is thread safe, blocking, and allows multiple RPCs to be in flight at once. Any observables that are returned and
                 you subscribe to will have objects emitted in order on a background thread pool. Each Observable stream is tied to a single
                 thread, however note that two separate Observables may invoke their respective callbacks on different threads.
 
 
 ## Error handling
+
 If something goes wrong with the RPC infrastructure itself, an `RPCException` is thrown. If you call a method that
                 requires a higher version of the protocol than the server supports, `UnsupportedOperationException` is thrown.
                 Otherwise the behaviour depends on the `devMode` node configuration option.
@@ -487,6 +507,7 @@ When not in `devMode`, the server will mask exceptions not meant for clients and
 
 
 ## Reconnecting RPC clients
+
 In the current version of Corda the RPC connection and all the observervables that are created by a client will just throw exceptions and die
                 when the node or TCP connection become unavailable.
 
@@ -584,6 +605,7 @@ How to initialize the *ReconnectingCordaRPCOps*:
 ```
 [RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
 ## Wire security
+
 If TLS communications to the RPC endpoint are required the node should be configured with `rpcSettings.useSSL=true` see [Node configuration](corda-configuration-file.md).
                 The node admin should then create a node specific RPC certificate and key, by running the node once with `generate-rpc-ssl-settings` command specified (see [Node command-line options](node-commandline.md)).
                 The generated RPC TLS trust root certificate will be exported to a `certificates/export/rpcssltruststore.jks` file which should be distributed to the authorised RPC clients.
@@ -595,6 +617,7 @@ Note that RPC TLS does not use mutual authentication, and delegates fine grained
 
 
 ## Whitelisting classes with the Corda node
+
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
                 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
                 `@CordaSerializable` annotation.  See [Object serialization](serialization.md). An example is shown in [Using the client RPC API](tutorial-clientrpc-api.md).

@@ -1,10 +1,14 @@
 ---
-title: "Network Parameters"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Network Parameters
+version: cenm-1-1
 ---
 
 
 # Network Parameters
+
 Allowed parameters are:
 
 

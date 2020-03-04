@@ -1,11 +1,16 @@
 ---
-title: "Writing a contract test"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-tutorial
+title: Writing a contract test
+version: corda-enterprise-4-4
 ---
 
 
 
 # Writing a contract test
+
 This tutorial will take you through the steps required to write a contract test using Kotlin and Java.
 
 The testing DSL allows one to define a piece of the ledger with transactions referring to each other, and ways of
@@ -13,6 +18,7 @@ The testing DSL allows one to define a piece of the ledger with transactions ref
 
 
 ## Setting up the test
+
 Before writing the individual tests, the general test setup must be configured:
 
 
@@ -46,6 +52,7 @@ The `ledgerServices` object will provide configuration to the `ledger` DSL in th
 
 
 ## Testing single transactions
+
 We start with the empty ledger:
 
 
@@ -231,6 +238,7 @@ We now have a neat little test that tests a single transaction. This is already 
 
 
 ## Chaining transactions
+
 Now that we know how to define a single transaction, let’s look at how to define a chain of them:
 
 

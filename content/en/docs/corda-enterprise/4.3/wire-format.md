@@ -1,16 +1,21 @@
 ---
-title: "Wire format"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Wire format
+version: corda-enterprise-4-3
 ---
 
 
 # Wire format
+
 This document describes the Corda wire format. With the following information and an implementation of the AMQP/1.0
             specification, you can read Corda serialised binary messages. An example implementation of AMQP/1.0 would be Apache
             Qpid Proton, or Microsoft AMQP.NET Lite.
 
 
 ## Header
+
 All messages start with the 5 byte sequence `corda` followed by three versioning bytes: major, minor and encoding.
                 That means you can’t directly feed a Corda message into an AMQP library. You must check the header string and
                 then skip it. This is deliberate, to enable other message formats in future.
@@ -23,6 +28,7 @@ The first version byte is set to 1 and indicates the major version of the format
 
 
 ## AMQP intro
+
 AMQP/1.0 (which is quite different to AMQP/0.9) is protocol that contains a standardised binary encoding scheme, comparable to but
                 more advanced than Google protocol buffers. [The AMQP specification](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-types-v1.0-os.html)
                 is quite concise and easy to read: this document will reference it in many places. It also provides a variety of encoded examples
@@ -55,6 +61,7 @@ Due to this design you can think of a serialised message as being interpretable 
 
 
 ## Extended AMQP
+
 So far we’ve got collections that contain primitives or more collections, and any element can be labelled with a
                 string or numeric code. This is good, but compared to a format like JSON or XML it’s not really self describing.
                 A class will be mapped to a list of field contents. Even if we know the name of that class, we still won’t really know
@@ -85,6 +92,7 @@ It is a deliberate choice to sacrifice encoding efficiency for self-description:
 {{< /note >}}
 
 ## Descriptors
+
 Serialised messages use described types extensively. There are two types of descriptor:
 
 
@@ -145,6 +153,7 @@ In this document, the term “record” is used to mean an AMQP list described w
 
 
 ## High level format
+
 Every Corda message is at the top level an *ENVELOPE* record containing three elements:
 
 
@@ -218,6 +227,7 @@ The other parts of the schema map to the AMQP XML schema specification in the sa
 
 
 ## Mapping JVM classes to composite types
+
 Corda does not need or use a separate schema definition language. Instead, source code is used as a way to define schemas
                 via regular class definitions in any statically typed JVM-bytecode targeting language. This specification will thus
                 frequently refer to types whose only definitions are found in the Corda source code: these definitions are canonical and not
@@ -246,6 +256,7 @@ The above implies that you cannot handle format evolution by simply skipping fie
 
 
 ## Containers
+
 AMQP defines encodings for maps and lists, which are mapped to/from `java.util.Map` and `java.util.List` in JVM code. You don’t need
                 any special support to read these if you don’t care about the higher level type system.
 
@@ -310,6 +321,7 @@ Descriptor: [
 
 
 ## Signed data
+
 A common pattern in Corda is that an outer wrapper serialised message contains signatures and certificates for an inner
                 serialised message. The inner message is represented as ‘binary’, thus it requires two passes to deserialise such a
                 message fully. This is intended as a form of security firebreak, because it means you can avoid processing any serialised
@@ -349,6 +361,7 @@ The signature bytes are opaque and their format depends on the cryptographic sch
 
 
 ## Examples
+
 The following sample shows how a few lines of Kotlin code defining some sophisticated data structures maps to an AMQP message.
 
 ```kotlin

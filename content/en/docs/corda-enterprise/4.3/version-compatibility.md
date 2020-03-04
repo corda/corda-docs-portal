@@ -1,10 +1,14 @@
 ---
-title: "Corda and Corda Enterprise compatibility"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Corda and Corda Enterprise compatibility
+version: corda-enterprise-4-3
 ---
 
 
 # Corda and Corda Enterprise compatibility
+
 Corda Enterprise 4.0 guarantees the wire stability and compatibility baseline introduced in version 3.0 of the open-source release of Corda
             is maintained with future versions of Corda Enterprise.
 

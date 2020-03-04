@@ -1,10 +1,14 @@
 ---
-title: "Sub Zones"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Sub Zones
+version: cenm-1-1
 ---
 
 
 # Sub Zones
+
 
 {{< note >}}
 This is an internal feature. Running a network with multiple sub-zones is not a supported configuration.
@@ -12,6 +16,7 @@ This is an internal feature. Running a network with multiple sub-zones is not a 
 {{< /note >}}
 
 ## From a Node’s Perspective
+
 From the perspective of a node a network is defined by the Identity Manager and Network Map services it is configured
                 to connect to. It has no comprehension of sub zones. It simply connects to the services configured within its
                 configuration file and, once registered with both, interacts with other nodes and the apps deployed upon it via the
@@ -22,6 +27,7 @@ From the perspective of a node a network is defined by the Identity Manager and 
 
 
 ## From the Perspective of the Zone
+
 From the perspective of the operator of that zone however, things are a lot more interesting:
 
 ![simple sub zones](resources/simple-sub-zones.png "simple sub zones")
@@ -51,6 +57,7 @@ Interesting features
 
 
 ## Segregated Sub Zones
+
 The fundamental difference between a public sub zone and a segregated one is the operation of the notaries is
                 deferred to a third party.
 

@@ -1,17 +1,23 @@
 ---
-title: "CLI UX Guide"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: CLI UX Guide
+version: corda-os-4-4
 ---
 
 
 
 # CLI UX Guide
 
+
 ## Command line options
+
 Command line utilities should use picocli ([http://picocli.info](http://picocli.info)) to provide a unified interface and follow the conventions in the picocli documentation, some of the more important of which are repeated below.
 
 
 ### Option names
+
 
 * Options should be specified on the command line using a double dash, e.g. `--parameter`.
 
@@ -21,6 +27,7 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 
 
 ### Short names
+
 
 * Where possible a POSIX style short option should be provided for ease of use (see [http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02)).
 
@@ -44,6 +51,7 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 
 ### Positional parameters
 
+
 * Parameters specified without an option should ideally all be part of a list.
 
 
@@ -64,6 +72,7 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 
 ### Standard options
 
+
 * A `--help` option should be provided which details all possible options with a brief description and any short name equivalents. A `-h` short option should also be provided.
 
 
@@ -80,11 +89,13 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 
 ### Standard subcommands
 
+
 * An `install-shell-extensions` subcommand should be provided that creates and installs a bash completion file.
 
 
 
 ### Defaults
+
 
 * Flags should have sensible defaults.
 
@@ -98,6 +109,7 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 
 ### Adding a new option
 
+
 * Boolean options should start with is, has or with. For example, `--is-cheesy`, `--with-cheese`, `--has-cheese-on`.
 
 
@@ -110,6 +122,7 @@ Command line utilities should use picocli ([http://picocli.info](http://picocli.
 
 ### Parameter stability
 
+
 * 
 
 Avoid removing parameters. If, for some reason, a parameter needs to be renamed, add a new parameter with the new name and deprecate the old parameter, or alternatively
@@ -119,7 +132,9 @@ keep both versions of the parameter. See [Backwards Compatibility](#cli-ux-backw
 
 ## Notes for adding a new a command line application
 
+
 ### The `CordaCliWrapper` base class
+
 The `CordaCliWrapper` base class from the `cliutils` module should be used as a base where practicable, this will provide a set of default options out of the box.
                     In order to use it, create a class containing your command line options using the syntax provided at (see the [picocli](https://picocli.info/) website for more information)
 
@@ -182,6 +197,7 @@ fun main(args: Array<String>) {
 
 ### Application behavior
 
+
 * Set exit codes using exitProcess.
 
 
@@ -209,11 +225,13 @@ fun main(args: Array<String>) {
 
 
 ## Backwards Compatibility
+
 Our commitment to API stability (See [Checking API stability](api-scanner.md) for more information) extends to new versions of our CLI tools. Removing and renaming
                 parameters may cause existing scripts users may have written to fail, and should be avoided unless absolutely necessary.
 
 
 ### Deprecating command line parameters
+
 Command line parameters that are no longer necessary should be deprecated rather than removed. Picocli allows parameters to be hidden by use
                     of the `hidden` option, for example:
 
@@ -248,12 +266,14 @@ This will cause the option to still be usable, but means it won’t be shown whe
 
 
 ### Changing the type of existing command line parameters
+
 Don’t change the type of an existing command line parameter if that change would not be backwards compatible. For example, adding a
                     value to an enumeration based parameter would be fine, but removing one would not. Instead of changing the type, consider adding a new parameter,
                     deprecating the old parameter as described above, and redirecting inputs from the old parameter to the new parameter internally.
 
 
 ### Testing backwards compatibility
+
 When adding a new command line tool, a backwards compatibility test should be created by adding the `test-cli` as a test dependency of your project
                     and then creating a test class that extends `CliBackwardsCompatibleTest` for the class, like so:
 
@@ -279,6 +299,7 @@ In order to generate the file, create and run the test for your application. The
 
 
 ### Release process
+
 As part of the release process, the release manager should regenerate the YAML files for each command line tool by following the following steps:
 
 

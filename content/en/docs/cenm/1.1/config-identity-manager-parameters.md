@@ -1,10 +1,14 @@
 ---
-title: "Identity Manager Configuration Parameters"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Identity Manager Configuration Parameters
+version: cenm-1-1
 ---
 
 
 # Identity Manager Configuration Parameters
+
 Configuration reference for the Identity Manager service.
 
 

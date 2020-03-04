@@ -1,15 +1,21 @@
 ---
-title: "API: Core types"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+title: 'API: Core types'
+version: corda-enterprise-4-4
 ---
 
 
 
 # API: Core types
+
 Corda provides several more core classes as part of its API.
 
 
 ## SecureHash
+
 The `SecureHash` class is used to uniquely identify objects such as transactions and attachments by their hash.
                 Any object that needs to be identified by its hash should implement the `NamedByHash` interface:
 
@@ -23,6 +29,7 @@ The `SecureHash` class is used to uniquely identify objects such as transactions
 
 
 ## CompositeKey
+
 Corda supports scenarios where more than one signature is required to authorise a state object transition. For example:
                 “Either the CEO or 3 out of 5 of his assistants need to provide signatures”.
 

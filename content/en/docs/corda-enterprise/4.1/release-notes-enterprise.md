@@ -1,12 +1,17 @@
 ---
-title: "Release notes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Release notes
+version: corda-enterprise-4-1
 ---
 
 
 # Release notes
 
+
 ## Corda Enterprise 4.1
+
 This release extends [Corda Enterprise 4](https://docs.corda.r3.com/releases/4.0/release-notes-enterprise.html) with additional
                 support for Futurex HSM (hardware security module) signing devices, and improved security for HTTPS proxy configurations.
 
@@ -22,6 +27,7 @@ The compatibility and interoperability assurances apply to nodes running at the 
 {{< /note >}}
 
 ### Key new features and components
+
 
 * **Futurex Hardware Security Module (HSM) support**
 
@@ -44,6 +50,7 @@ Please refer to the [Network Services configuration](corda-configuration-file.md
 
 
 ### Further improvements, additions and changes
+
 
 * Database schema generation fix and documentation clarifications: Corda Enterprise 4.1 should use the *runMigration* flag when running against non-H2
                             databases and the *initialiseSchema* flag when running against an H2 database. See [Database properties](corda-configuration-file.md#database-properties-ref).
@@ -108,10 +115,12 @@ in Corda Enterprise 4.0 the *initialiseSchema* migration flag was being used for
 
 
 ### Known issues
+
 Please refer to same section in [Corda Enterprise 4](https://docs.corda.r3.com/releases/4.0/release-notes-enterprise.html)
 
 
 ### Upgrade notes
+
 As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.1](app-upgrade-notes-enterprise.md)) to ease the upgrade
                     of CorDapps to Corda Enterprise 4.1. In line with our commitment to API stability, code level changes are fairly minimal.
 

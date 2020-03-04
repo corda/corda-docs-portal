@@ -1,15 +1,20 @@
 ---
-title: "In a network with Doorman and Network map"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: In a network with Doorman and Network map
+version: corda-enterprise-4-1
 ---
 
 
 # In a network with Doorman and Network map
+
 You can skip this section if you’re not setting up or joining a network with
             doorman and network map service.
 
 
 ## Expected Outcome
+
 You will go from a set of configuration files to a fully functional Corda network.
                 The network map will be advertising the service identity of the notary. Every
                 notary worker has obtained its own identity and the shared service identity
@@ -51,6 +56,7 @@ Every notary worker’s keystore contains the private key of the replica and the
 
 
 ## The Notary, the Doorman and the Network Map
+
 The notary is an essential component of every Corda network, therefore the
                 notary identity needs to be created first, before other nodes can join the
                 network, since the Notary identity is part of the network parameters.
@@ -69,7 +75,9 @@ The notary is an essential component of every Corda network, therefore the
 
 ## Registering with the Doorman
 
+
 ### Obtaining the individual Node Identities
+
 Write the configuration files for your notary nodes as described in [Setting up the Notary Service](installing-the-notary-service.md).
 
 Register all the nodes with the doorman using the `--initial-registration`  flag.
@@ -81,6 +89,7 @@ java -jar corda.jar --initial-registration \
 ```
 
 ### Obtaining the distributed Service Identity
+
 Once you completed the initial registration for all notary nodes, you can use
                     the registration tool to submit the certificate signing request (CSR) for the
                     service identity of your notary cluster. Read the documentation about the
@@ -135,6 +144,7 @@ keytool -list -v -keystore certificates/nodekeystore.jks | grep Alias
 ```
 
 ## Network Map: Setting the Network Parameters
+
 This step is only applicable if you’re the operator of the network map service.
                 In case the network map is operated by somebody else, you might need to send
                 them the node-info file of one of your notary nodes for inclusion in the

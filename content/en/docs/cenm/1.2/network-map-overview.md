@@ -1,10 +1,14 @@
 ---
-title: "Network Map Overview"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Network Map Overview
+version: cenm-1-2
 ---
 
 
 # Network Map Overview
+
 The network map is a collection of signed `NodeInfo` objects. Each NodeInfo is signed by the node it represents and
             thus cannot be tampered with. It forms the set of reachable nodes in a network. A node can receive these objects from
             two sources:
@@ -31,6 +35,7 @@ In Corda 3 no implementation of the HTTP network map server is provided. This is
 {{< /note >}}
 
 ## HTTP network map protocol
+
 If the node is configured to connect with a network using the `networkServices` section of the config, then it first uploads its own signed `NodeInfo`
                 to the server at the `networkMapUrl` (and each time it changes on startup) and then proceeds to download the entire network map from
                 the same server. The network map consists of a list of `NodeInfo` hashes. The node periodically polls for the network map
@@ -74,6 +79,7 @@ HTTP is used for the network map service instead of Corda’s own AMQP based pee
 
 
 ## Node Info
+
 The node info consists the following data:
 
 > 
@@ -96,6 +102,7 @@ The node info consists the following data:
 
 
 ## The `additional-node-infos` directory
+
 Alongside the HTTP network map service, or as a replacement if the node isn’t connected to one, the node polls the
                 contents of the `additional-node-infos` directory located in its base directory. Each file is expected to be the same
                 signed `NodeInfo` object that the network map service vends. These are automatically added to the node’s cache and can
@@ -116,6 +123,7 @@ Usually, test networks have a structure that is known ahead of time. For the cre
 
 
 ## Network parameters
+
 Network parameters are a set of values that every node participating in the network needs to agree on and use to
                 correctly interoperate with each other. They can be thought of as an encapsulation of all aspects of a Corda deployment
                 on which reasonable people may disagree. Whilst other blockchain/DLT systems typically require a source code fork to
@@ -193,6 +201,7 @@ More parameters may be added in future releases to regulate things like allowed 
 
 
 ## Network parameters update process
+
 In case of the need to change network parameters Corda network operator will start the update process. There are many
                 reasons that may lead to this decision: adding a notary, setting new fields that were added to enable smooth network
                 interoperability, or a change of the existing compatibility constants is required, for example.
@@ -229,7 +238,16 @@ If the administrator does not accept the update then next time the node polls ne
                 At this point the node will automatically shutdown and will require the node operator to bring it back again.
 
 
+{{< note >}}
+It is not recommended to advertise new parameters or cancel the update during the period between flag day
+                    issuance and the next network map signing, especially if the scheduled network map signing task is configured.
+                    This can result in inconsistent parameters update record in the database and implicit cancellation of the
+                    issued flag day.
+
+{{< /note >}}
+
 ## Node’s host IP address
+
 The network map service provides an endpoint that can be used to determine the IP address of the querying host. This is
                 useful especially when dealing with node’s deployment in environments with IP address translation.
 

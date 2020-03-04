@@ -1,10 +1,14 @@
 ---
-title: "Updating the network parameters"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1: {}
+title: Updating the network parameters
+version: cenm-1-1
 ---
 
 
 # Updating the network parameters
+
 The initial network parameters can be subsequently changed through an update process. However, these changes must first
             be advertised to the entire network to allow nodes time to agree to the changes. Every time the server needs to be shutdown
             and run with one of the following flags: `--set-network-parameters`, `--flag-day` or `--cancel-update`. For change to be
@@ -86,6 +90,7 @@ The Network Map service will continue to advertise the cancelled update until th
 
 
 ## Bootstrapping the network parameters
+
 When the Network Map service is running it will serve the current network map including the network parameters.
 
 The first time it is started it will need to know the initial value for those parameters, these

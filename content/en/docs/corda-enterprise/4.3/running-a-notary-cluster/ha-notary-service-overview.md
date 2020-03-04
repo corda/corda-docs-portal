@@ -1,10 +1,14 @@
 ---
-title: "Corda Enterprise notary service overview"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Corda Enterprise notary service overview
+version: corda-enterprise-4-3
 ---
 
 
 # Corda Enterprise notary service overview
+
 A highly-available Corda notary service is made up of two components:
 
 > 

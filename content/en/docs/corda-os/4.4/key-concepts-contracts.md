@@ -1,13 +1,19 @@
 ---
-title: "Contracts"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4:
+    parent: corda-os-4-4-concepts
+title: Contracts
+version: corda-os-4-4
 ---
 
 
 # Contracts
 
+
 {{< topic >}}
 # Summary
+
 
 * *A transaction is contractually valid if all of its input and output states are acceptable according to the contract.*
 
@@ -21,12 +27,14 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Video
+
 <iframe src="https://player.vimeo.com/video/214168839" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 
 <p></p>
 
 ## Transaction verification
+
 Recall that a transaction is only valid if it is digitally signed by all required signers. However, even if a
                 transaction gathers all the required signatures, it is only valid if it is also **contractually valid**.
 
@@ -72,6 +80,7 @@ A transaction that is not contractually valid is not a valid proposal to update 
 
 
 ## The contract sandbox
+
 Transaction verification must be *deterministic* - a contract should either **always accept** or **always reject** a
                 given transaction. For example, transaction validity cannot depend on the time at which validation is conducted, or
                 the amount of information the peer running the contract holds. This is a necessary condition to ensure that all peers
@@ -88,6 +97,7 @@ Future versions of Corda will evaluate transactions in a strictly deterministic 
 
 
 ## Contract limitations
+
 Since a contract has no access to information from the outside world, it can only check the transaction for internal
                 validity. It cannot check, for example, that the transaction is in accordance with what was originally agreed with the
                 counterparties.
@@ -99,11 +109,13 @@ Peers should therefore check the contents of a transaction before signing it, *e
 
 
 ## Oracles
+
 Sometimes, transaction validity will depend on some external piece of information, such as an exchange rate. In
                 these cases, an oracle is required. See [Oracles](key-concepts-oracles.md) for further details.
 
 
 ## Legal prose
+
 <iframe src="https://player.vimeo.com/video/213879293" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
 
 

@@ -1,15 +1,20 @@
 ---
-title: "Changelog"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Changelog
+version: corda-os-4-1
 ---
 
 
 # Changelog
+
 Here’s a summary of what’s changed in each Corda release. For guidance on how to upgrade code from the previous
             release, see [Upgrading apps to Corda 4](app-upgrade-notes.md).
 
 
 ## Unreleased
+
 
 * Fix a bug in Corda 4.0 that combined commands in `TransactionBuilder` if they only differed by the signers list.  The behaviour is now consistent with prior Corda releases.
 
@@ -23,6 +28,7 @@ Here’s a summary of what’s changed in each Corda release. For guidance on ho
 
 
 ## Version 4.0
+
 
 * Fixed race condition between `NodeVaultService.trackBy` and `NodeVaultService.notifyAll`, where there could be states that were not reflected
                         in the data feed returned from `trackBy` (either in the query’s result snapshot or the observable).

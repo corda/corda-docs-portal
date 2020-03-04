@@ -1,16 +1,21 @@
 ---
-title: "AWS Marketplace"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3: {}
+title: AWS Marketplace
+version: corda-os-4-3
 ---
 
 
 # AWS Marketplace
+
 To help you design, build and test applications on Corda, called CorDapps, a Corda network AMI can be deployed from the [AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077PG9SP5). Instructions on running Corda nodes can be found [here](https://docs.corda.net/deploying-a-node.html).
 
 This Corda network offering builds a pre-configured network of Corda nodes as Ubuntu virtual machines (VM). The network consists of a Notary node and three Corda nodes using version 1 of Corda. The following guide will also show you how to load one of four [Corda Sample apps](https://www.corda.net/samples) which demonstrates the basic principles of Corda. When you are ready to go further with developing on Corda and start making contributions to the project head over to the [Corda.net](https://www.corda.net/).
 
 
 ## Pre-requisites
+
 
 * Ensure you have a registered AWS account which can create virtual machines under your subscription(s) and you are logged on to the [AWS portal](https://console.aws.amazon.com)
 
@@ -20,12 +25,14 @@ This Corda network offering builds a pre-configured network of Corda nodes as Ub
 
 
 ## Deploying a Corda Network
+
 Browse to the [AWS Marketplace](https://aws.amazon.com/marketplace) and search for Corda.
 
 Follow the instructions to deploy the AMI to an instance of EC2 which is in a region near to your location.
 
 
 ## Build and Run a Sample CorDapp
+
 Once the instance is running ssh into the instance using your keypair
 
 ```shell
@@ -64,6 +71,7 @@ You can now interact with your running CorDapp. See the instructions [here](http
 
 
 ## Next Steps
+
 Now you have built a Corda network and used a basic Corda Cordapp do go and visit the [dedicated Corda website](https://www.corda.net)
 
 Additional support is available on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) and the [Corda Slack channel](https://slack.corda.net/).

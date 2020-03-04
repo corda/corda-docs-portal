@@ -1,10 +1,15 @@
 ---
-title: "Node services"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-node
+title: Node services
+version: corda-os-4-1
 ---
 
 
 # Node services
+
 This document is intended as a very brief introduction to the current
             service components inside the node. Whilst not at all exhaustive it is
             hoped that this will give some context when writing applications and
@@ -13,6 +18,7 @@ This document is intended as a very brief introduction to the current
 
 
 ## Services within the node
+
 The node services represent the various sub functions of the Corda node.
                 Some are directly accessible to contracts and flows through the
                 `ServiceHub`, whilst others are the framework internals used to host
@@ -30,7 +36,9 @@ The roles of the individual services are described below.
 
 ## Key management and identity services
 
+
 ### InMemoryIdentityService
+
 The `InMemoryIdentityService` implements the `IdentityService`
                     interface and provides a store of remote mappings between `PublicKey`
                     and remote `Parties`. It is automatically populated from the
@@ -45,6 +53,7 @@ The `InMemoryIdentityService` implements the `IdentityService`
 
 
 ### PersistentKeyManagementService and E2ETestKeyManagementService
+
 Typical usage of these services is to locate an appropriate
                     `PrivateKey` to complete and sign a verified transaction as part of a
                     flow. The normal node legal identifier keys are typically accessed via
@@ -67,7 +76,9 @@ The `PersistentKeyManagementService` is a persistent implementation of
 
 ## Messaging and network management services
 
+
 ### ArtemisMessagingServer
+
 The `ArtemisMessagingServer` service is run internally by the Corda
                     node to host the `ArtemisMQ` messaging broker that is used for
                     reliable node communications. Although the node can be configured to
@@ -96,6 +107,7 @@ The `ArtemisMessagingServer` service is run internally by the Corda
 
 
 ### P2PMessagingClient
+
 The `P2PMessagingClient` is the implementation of the
                     `MessagingService` interface operating across the `ArtemisMQ`
                     middleware layer. It typically connects to the local `ArtemisMQ`
@@ -110,6 +122,7 @@ The `P2PMessagingClient` is the implementation of the
 
 
 ### InMemoryNetworkMapCache
+
 The `InMemoryNetworkMapCache` implements the `NetworkMapCache`
                     interface and is responsible for tracking the identities and advertised
                     services of authorised nodes provided by the remote
@@ -125,7 +138,9 @@ The `InMemoryNetworkMapCache` implements the `NetworkMapCache`
 
 ## Storage and persistence related services
 
+
 ### DBCheckpointStorage
+
 The `DBCheckpointStorage` service is used from within the
                     `StateMachineManager` code to persist the progress of flows. Thus
                     ensuring that if the program terminates the flow can be restarted
@@ -134,6 +149,7 @@ The `DBCheckpointStorage` service is used from within the
 
 
 ### DBTransactionMappingStorage and InMemoryStateMachineRecordedTransactionMappingStorage
+
 The `DBTransactionMappingStorage` is used within the
                     `StateMachineManager` code to relate transactions and flows. This
                     relationship is exposed in the eventing interface to the RPC clients,
@@ -145,6 +161,7 @@ The `DBTransactionMappingStorage` is used within the
 
 
 ### DBTransactionStorage
+
 The `DBTransactionStorage` service is a persistent implementation of
                     the `TransactionStorage` interface and allows flows read-only
                     access to full transactions, plus transaction level event callbacks.
@@ -154,6 +171,7 @@ The `DBTransactionStorage` service is a persistent implementation of
 
 
 ### NodeAttachmentService
+
 The `NodeAttachmentService` provides an implementation of the
                     `AttachmentStorage` interface exposed on the `ServiceHub` allowing
                     transactions to add documents, copies of the contract code and binary
@@ -163,7 +181,9 @@ The `NodeAttachmentService` provides an implementation of the
 
 ## Flow framework and event scheduling services
 
+
 ### StateMachineManager
+
 The `StateMachineManager` is the service that runs the active
                     flows of the node whether initiated by an RPC client, the web
                     interface, a scheduled state activity, or triggered by receipt of a
@@ -207,6 +227,7 @@ The `StateMachineManager` service is not directly exposed to the
 
 
 ### NodeSchedulerService
+
 The `NodeSchedulerService` implements the `SchedulerService`
                     interface and monitors the Vault updates to track any new states that
                     implement the `SchedulableState` interface and require automatic
@@ -221,7 +242,9 @@ The `NodeSchedulerService` implements the `SchedulerService`
 
 ## Vault related services
 
+
 ### NodeVaultService
+
 The `NodeVaultService` implements the `VaultService` interface to
                     allow access to the node’s own set of unconsumed states. The service
                     does this by tracking update notifications from the
@@ -236,6 +259,7 @@ The `NodeVaultService` implements the `VaultService` interface to
 
 
 ### NodeSchemaService and HibernateObserver
+
 The `HibernateObserver` runs within the node framework and listens for
                     vault state updates, the `HibernateObserver` then uses the mapping
                     services of the `NodeSchemaService` to record the states in auxiliary
@@ -246,6 +270,7 @@ The `HibernateObserver` runs within the node framework and listens for
 
 
 ## Corda Web Server
+
 A simple web server is provided that embeds the Jetty servlet container.
                 The Corda web server is not meant to be used for real, production-quality
                 web apps. Instead it shows one example way of using Corda RPC in web apps

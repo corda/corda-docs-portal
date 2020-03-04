@@ -1,14 +1,20 @@
 ---
-title: "Release notes"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+title: Release notes
+version: cenm-1-2
 ---
 
 
 # Release notes
 
+
 ## Release 1.2
 
+
 ### Major Features
+
 **Support for External PKI**
 
 To satisfy clients who wish to use external PKI for CENM certificates, the Signing Service has
@@ -23,6 +29,7 @@ See [Signing Services](signing-service.md) for more details. Also see [EJBCA Sam
 
 
 ### Minor Features
+
 **Automating Node Registration**
 
 Customers’ nodes can now provide a header “X-CENM-Submission-Token” when submitting certificate signing requests (CSR).
@@ -44,6 +51,7 @@ For high availability (HA) notaries only, the network map will now fetch the nod
 
 
 ### Other Improvements
+
 
 * Default log file paths now include the name of the service (i.e. “network-map”) that generates them,
                             so if multiple services run from the same folder, their dump log filenames do not collide.
@@ -102,13 +110,25 @@ For high availability (HA) notaries only, the network map will now fetch the nod
 
 ### Security Improvements
 
+
 * Shell interface (Signer and Identity Manager services) no longer allow access to commands which allow scripting
 
 
 of Java.
 
 
+### Known Issues
+
+
+* Identity Manager’s WorkflowPlugin keeps trying to create new request in an external system,
+                            until the request is REJECTED or APPROVED. This means the external system needs to internally record which requests
+                            are currently being processed and reject surplus creation attempts. The Identity Manager service records this in logs
+                            as warning: “There is already a ticket: ‘<TICKET ID>’ corresponding to *Request ID* = <VALUE>, not creating a new one.”
+
+
+
 ## Release 1.1
+
 The R3 Network Services team is excited to announce the release of CENM 1.1,
                 introducing support for a number of additional HSMs as well as adding support for Oracle DB.
                 For deployments of pre-1.0 CENM a migration tool has been added to rewrite legacy
@@ -116,6 +136,7 @@ The R3 Network Services team is excited to announce the release of CENM 1.1,
 
 
 ### Major New Features
+
 **Oracle Database Support**
 
 Support has been added for Oracle DB versions 12cR2 and 11gR2 as a backend data store.
@@ -136,6 +157,7 @@ Support for HSMs has been significantly extended, and as part of this work the H
 
 
 ### Other Improvements
+
 
 * CENM now supports encryption of passwords in configuration files, using encryption keys derived from
                             hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
@@ -159,6 +181,7 @@ Support for HSMs has been significantly extended, and as part of this work the H
 
 ### Known Issues
 
+
 * The PKI tool fails if the password for a key store and key are different. This only applies to local key
                             stores. Please ensure key passwords match the key store password to avoid this issue.
 
@@ -179,6 +202,7 @@ Support for HSMs has been significantly extended, and as part of this work the H
 
 
 ## Release 1.0
+
 R3 and The Network Services team are proud to deliver the inaugural release of the Corda Enterprise
                 Network Manager version 1.0. The CENM can be used to operate a bespoke Corda network when the requirement
                 for an entity to be in complete control of the consensus rules, identity, and deployment topology exists.
@@ -192,6 +216,7 @@ Please note, whilst this is the first public release of the Corda Enterprise Net
 
 
 ### Major New Features
+
 **The Signing Service**
 
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
@@ -214,6 +239,7 @@ All CENM components now communicate over SSL with one another, this completes th
 
 
 ### Minor Features
+
 **Postgresql Support**
 
 As well as SQLServer, the CENM suite now supports postgresql as a backend data store.
@@ -227,6 +253,7 @@ In pre release versions of CENM the user information REST endpoints shared a nam
 
 
 ### Major New Features
+
 
 * `/network-map`
 
@@ -260,6 +287,7 @@ Added multi-phase parsing of config files. Parsing and validation errors are now
 
 
 ### Minor Features
+
 **Postgresql Support**
 
 Due to the database schema separation outlined below, the 0.3 release now supports segregated sub zones. That is,

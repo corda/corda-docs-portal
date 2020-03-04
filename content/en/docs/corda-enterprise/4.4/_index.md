@@ -1,10 +1,16 @@
 ---
-title: "Introduction to Corda"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+  versions: {}
+title: Corda Enterprise 4.4
+
+version: corda-enterprise-4-4
 ---
 
 
 # Introduction to Corda
+
 A Corda Network is a peer-to-peer network of [Nodes](../nodedocs.html), each representing a party on the network.
             These Nodes run Corda applications ([CorDapps](../cordapps.html)), and transact between Nodes using public or
             confidential identities.
@@ -17,11 +23,13 @@ For all Corda release notes, see the [Release Notes](release-notes-index.md) ind
 
 
 ## Corda Offerings
+
 There are several commercial Corda offerings available for different solutions requirements. Corda is an open-source platform,
                 with several enterprise offerings.
 
 
 ### Corda Enterprise
+
 Corda Enterprise is a commercial edition of the Corda platform, specifically optimized to meet the privacy, security and
                     throughput demands of modern day business. Corda Enterprise is interoperable and compatible with Corda open source and
                     is designed for organizations with exacting requirements around quality of service and the network infrastructure in
@@ -32,6 +40,7 @@ Corda Enterprise contains all the core Corda functionality, but also includes th
 
 
 ### Corda Enterprise Network Manager
+
 [Corda Enterprise Network Manager](../cenmdocs.html) empowers Corda Network operators, giving greater control over all
                     aspects of deployment, operation, and consensus rules.
 

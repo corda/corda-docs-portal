@@ -1,11 +1,15 @@
 ---
-title: "Configuring Responder Flows"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Configuring Responder Flows
+version: corda-enterprise-4-3
 ---
 
 
 
 # Configuring Responder Flows
+
 A flow can be a fairly complex thing that interacts with many backend systems, and so it is likely that different users
             of a specific CorDapp will require differences in how flows interact with their specific infrastructure.
 
@@ -13,6 +17,7 @@ Corda supports this functionality by providing two mechanisms to modify the beha
 
 
 ## Subclassing a Flow
+
 If you have a workflow which is mostly common, but also requires slight alterations in specific situations, most developers would be familiar
                 with refactoring into *Base* and *Sub* classes. A simple example is shown below.
 
@@ -103,6 +108,7 @@ The flows do not need to be within the same CorDapp, or package, therefore to cu
 {{< /note >}}
 
 ## Overriding a flow via node configuration
+
 Whilst the subclassing approach is likely to be useful for most applications, there is another mechanism to override this behaviour.
                 This would be useful if for example, a specific CorDapp user requires such a different responder that subclassing an existing flow
                 would not be a good solution. In this case, it’s possible to specify a hardcoded flow via the node configuration.
@@ -160,6 +166,7 @@ This will generate the corresponding `flowOverrides` section and place it in the
 
 
 ## Modifying the behaviour of @InitiatingFlow(s)
+
 It is likely that initiating flows will also require changes to reflect the different systems that are likely to be encountered.
                 At the moment, corda provides the ability to subclass an Initiator, and ensures that the correct responder will be invoked.
                 In the below example, we will change the behaviour of an Initiator from filtering Notaries out from comms, to only communicating with Notaries

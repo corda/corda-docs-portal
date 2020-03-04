@@ -1,10 +1,14 @@
 ---
-title: "Identity Manager Configuration Parameters"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+title: Identity Manager Configuration Parameters
+version: corda-enterprise-4-4
 ---
 
 
 # Identity Manager Configuration Parameters
+
 Configuration reference for the Identity Manager service.
 
 

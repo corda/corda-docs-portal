@@ -1,10 +1,14 @@
 ---
-title: "Advanced CorDapp Concepts"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Advanced CorDapp Concepts
+version: corda-enterprise-4-3
 ---
 
 
 # Advanced CorDapp Concepts
+
 At the heart of the Corda design and security model is the idea that a transaction is valid if and only if all the *verify()* functions in
             the contract code associated with each state in the transaction succeed. The contract constraints features in Corda provide a rich set
             of tools for specifying and constraining which verify functions out of the universe of possibilities can legitimately be used in (attached to) a transaction.
@@ -21,6 +25,7 @@ This document provides the information you need in order to understand what happ
 
 
 ## How transactions are verified in Corda
+
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
                 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
                 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
@@ -28,6 +33,7 @@ Corda transactions evolve input states into output states. A state is a data str
 
 
 ### The basic threat model and security requirement.
+
 Being a decentralized system, anyone who can build transactions can create *.java* files, compile and bundle them in a JAR, and then reference
                     this code in the transaction he created. If it were possible to do this without any restrictions, an attacker seeking to steal your money,
                     for example, might create a transaction that transitions a *Cash* contract owned by you to one owned by the attacker.
@@ -45,6 +51,7 @@ To prevent the types of attacks that can arise if there were no restrictions on 
 
 
 ### The LedgerTranscation
+
 Another relevant aspect to remember is that because states are serialised binary objects, to perform any useful operation on them they need to
                     be deserialized into instances of Java objects. All these instances are made available to the contract code as the *LedgerTransaction* parameter
                     passed to the *verify* method. The *LedgerTransaction* class abstracts away a lot of complexity and offers contracts a usable data structure where
@@ -65,6 +72,7 @@ Corda’s design is based on the UTXO model. In a serialized transaction the inp
 {{< /note >}}
 
 ### Simple example of transaction verification.
+
 Let’s consider a very simple case, a transaction swapping *Apples* for *Oranges*. Each of the states that need to be swapped is the output of a previous transaction.
                     Similar to the above image the *Apples* state is the output of some previous transaction, through which it came to be possessed by the party now paying it away in return for some oranges.
                     The *Apples* and *Oranges* states that will be consumed in this new transaction exist as serialised `TransactionState`s.
@@ -88,6 +96,7 @@ This combination of fully qualified contract class name and constraint ensures t
 
 
 ### Verify attachment constraints. Introduce constraints propagation.
+
 The previous discussion explained the construction of a transaction that consumes one or more states. Now let’s consider this from the perspective
                     of somebody verifying a transaction they are presented with.
                     The first thing the node has to do is to ensure that the transaction was formed correctly and then execute the contract verification logic.
@@ -111,6 +120,7 @@ This rule, together with the no-overlap rule - which we’ll introduce below - e
 
 
 ### Contract execution in the AttachmentsClassloader and the no-overlap rule.
+
 After ensuring that the contract code is correct the node needs to execute it to verify the business rules of the transaction.
                     This is done by creating an *AttachmentsClassloader* from all the attachments listed by the transaction, then deserialising the binary
                     representation of the transaction inside this classloader, creating the *LedgerTransaction* and then running the contract verification code
@@ -146,6 +156,7 @@ Another surprise might be the fact that if every state has its own governing cod
 
 
 ## CorDapp dependencies
+
 Exchanging Apples for Oranges is a contrived example, of course, but this pattern is not uncommon. And a common scenario is one where code
                 that is common to a collection of state types is abstracted into a common library.
                 For example, imagine Apples and Oranges both depended on a *Fruit* library developed by a third party as part of their verification logic.
@@ -194,6 +205,7 @@ In Corda 4, it is the responsibility of the CorDapp developer to ensure that all
 
 
 ### CorDapps depending on the same library.
+
 It should be evident now that each CorDapp must add its own dependencies to the transaction, but what happens when two CorDapps depend on different versions of the same library?
                     The node that is building the transaction must ensure that the attached JARs contain all code needed for all CorDapps and also do not break the *no-overlap* rule.
 
@@ -231,6 +243,7 @@ Currently the *cordapp* gradle plugin that ships with Corda only supports bundli
 {{< /note >}}
 
 ## CorDapp depending on other CorDapp(s)
+
 We presented the “complex” business requirement earlier where the *Apples* contract has to check that it can’t allow swapping Pink Lady apples for anything
                 but Valencia Oranges. This requirement translates into the fact that the library that the *Apples* CorDapp depends on is itself a CorDapp (the *Oranges* CorDapp).
 
@@ -281,6 +294,7 @@ Same as for normal dependencies, CorDapp developers can use alternative strategi
 {{< /note >}}
 
 ## Code samples for dependent libraries and CorDapps
+
 Add this to the flow:
 
 
@@ -356,6 +370,7 @@ Dependencies that are not Corda specific need to be imported using the *uploadAt
 {{< /note >}}
 
 ## Changes between version 3 and version 4 of Corda
+
 In Corda v3 transactions were verified inside the System Classloader that contained all the installed CorDapps.
                 This was a temporary simplification and we explained above why it could only be short-lived.
 
@@ -389,6 +404,7 @@ Corda 4 maintains backwards compatibility for existing data even for CorDapps th
 {{< /note >}}
 
 ## The demo *finance* CorDapp
+
 Corda ships with a *finance* CorDapp demo that brings some handy utilities that can be used by code in other CorDapps, some abstract base types like *OnLedgerAsset*,
                 but also comes with its own ready-to-use contracts like: *Cash*, *Obligation* and *Commercial Paper*.
 

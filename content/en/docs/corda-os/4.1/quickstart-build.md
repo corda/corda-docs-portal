@@ -1,17 +1,22 @@
 ---
-title: "Building your own CorDapp"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Building your own CorDapp
+version: corda-os-4-1
 ---
 
 
 
 # Building your own CorDapp
+
 After examining a functioning CorDapp, the next challenge is to create one of your own. We’re going to build a simple supply chain CorDapp representing a network between a car dealership, a car manufacturer, and a bank.
 
 To model this network, you need to create one state (representing cars), one contract (to control the rules governing cars), and one flow (to create cars). This CorDapp will be very basic, but entirely functional and deployable.
 
 
 ## Step One: Download a template CorDapp
+
 The first thing you need to do is clone a CorDapp template to modify.
 
 
@@ -32,6 +37,7 @@ The first thing you need to do is clone a CorDapp template to modify.
 
 
 ## Step Two: Creating states
+
 Since the CorDapp models a car dealership network, a state must be created to represent cars. States are immutable objects representing on-ledger facts. A state might represent a physical asset like a car, or an intangible asset or agreement like an IOU. For more information on states, see the [state documentation](./key-concepts-states.html).
 
 
@@ -164,6 +170,7 @@ The `CarState` definition has now been created. It lists the properties and asso
 
 
 ## Step Three: Creating contracts
+
 After creating a state, you must create a contract. Contracts define the rules that govern how states can be created and evolved. For example, a contract for a Cash state should check that any transaction that changes the ownership of the cash is signed by the current owner and does not create cash from thin air. To learn more about contracts, see the [contracts documentation](./key-concepts-contracts.html).
 
 
@@ -301,6 +308,7 @@ class CarContract : Contract {
 
 
 ## Step Four: Creating a flow
+
 
 * From IntelliJ, expand the project source and navigate to: `workflows > src > main > kotlin > com.template.flows > Flows.kt`
 
@@ -652,6 +660,7 @@ class CarIssueResponder(val counterpartySession: FlowSession) : FlowLogic<Signed
 
 
 ## Step Five: Update the Gradle build
+
 The Gradle build files must be updated to change the node configuration.
 
 
@@ -717,6 +726,7 @@ The Gradle build files must be updated to change the node configuration.
 
 
 ## Step Six: Deploying your CorDapp locally
+
 Now that the CorDapp code has been completed and the build file updated, the CorDapp can be deployed.
 
 
@@ -767,6 +777,7 @@ Now that the CorDapp code has been completed and the build file updated, the Cor
 
 
 ## Next steps
+
 The getting started experience is designed to be lightweight and get to code as quickly as possible, for more detail, see the following documentation:
 
 

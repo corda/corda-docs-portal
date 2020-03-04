@@ -1,0 +1,21 @@
+{{ $currentPage := . }}
+{{ $currentVersion := "Versions" }}
+{{ range .Site.Menus.versions }}
+{{ if eq $currentPage.Params.version .Page.Params.version }}{{$currentVersion = .Name}}{{ end }}
+{{ end }}
+<div class="dropdown">
+    <button class="btn btn-sm dropdown-toggle" type="button" id="versionDropDown" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        {{ $currentVersion }}
+    </button>
+    <div class="dropdown-menu">
+        {{ range .Site.Menus.versions }}
+        {{ $active:=false}}
+        {{ if eq $currentPage.Params.version .Page.Params.version }}{{$active = true}}{{ end }}
+        <a href="{{ .URL }}" class="small dropdown-item{{if $active}} active{{end}}">
+            {{ .Pre }}
+            <span>{{ .Name }}</span>
+        </a>
+        {{ end }}
+    </div>
+</div>

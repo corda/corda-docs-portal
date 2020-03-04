@@ -1,10 +1,14 @@
 ---
-title: "Key concepts"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-4: {}
+title: Key concepts
+version: corda-os-4-4
 ---
 
 
 # Key concepts
+
 This section describes the key concepts and features of the Corda platform. It is intended for readers who are new to
             Corda, and want to understand its architecture. It does not contain any code, and is suitable for non-developers.
 

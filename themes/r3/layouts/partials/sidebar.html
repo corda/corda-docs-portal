@@ -27,7 +27,17 @@
             </nav>
             <nav>
                 <div>
-                    {{- partialCached "sections-tree" . -}}
+                    {{- partial "menu/versions.html" . -}}
+                </div>
+            </nav>
+            <nav>
+                <div>
+                    {{- partial "menu/pages-in-version.html" . -}}
+                </div>
+            </nav>
+            <nav>
+                <div>
+                    {{/* - partialCached "sections-tree" . - */}}
                 </div>
             </nav>
         </nav>

@@ -1,10 +1,14 @@
 ---
-title: "Contributing"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1: {}
+title: Contributing
+version: corda-os-4-1
 ---
 
 
 # Contributing
+
 Corda is an open-source project and contributions are welcome!
 
 

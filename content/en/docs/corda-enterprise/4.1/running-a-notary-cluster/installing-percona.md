@@ -1,10 +1,14 @@
 ---
-title: "Percona XtraDB Cluster, the underlying replicated Database"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1: {}
+title: Percona XtraDB Cluster, the underlying replicated Database
+version: corda-enterprise-4-1
 ---
 
 
 # Percona XtraDB Cluster, the underlying replicated Database
+
 Percona’s [documentation page](https://www.percona.com/doc/percona-xtradb-cluster/LATEST/index.html) explains the installation in detail.
 
 
@@ -33,6 +37,7 @@ Host names and IP addresses used in the example are listed in the table below.
 {{< /table >}}
 
 ## Installation
+
 Percona provides repositories for the YUM and APT package managers.
                 Alternatively you can install from source. For simplicity, we are going to
                 install Percona using the default data directory `/var/lib/mysql`.
@@ -62,18 +67,22 @@ The service will start up automatically after the installation, you can confirm 
 
 ## Configuration
 
+
 ### Configure the MySQL Root Password (if necessary)
+
 Some distributions allow root access to the database through a Unix domain socket, others
                     require you to find the temporary password in the log file and change it upon
                     first login.
 
 
 ### Stop the Service
+
 ```sh
 sudo service mysql stop
 ```
 
 ### Setup replication
+
 Variables you need to change from the defaults are listed in the table below.
 
 
@@ -150,22 +159,26 @@ wsrep_sst_auth={{ sst_user }}:{{ sst_pass }}
 
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
-![github](/images/svg/github.svg "github") [wsrep.cnf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/running-a-notary-cluster/resources/wsrep.cnf)
+[wsrep.cnf](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/running-a-notary-cluster/resources/wsrep.cnf) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
 
 The file `/etc/mysql/percona-xtradb-cluster.conf.d/mysqld.cnf` contains additional settings like the data directory. We’re assuming
                     you keep the default `/var/lib/mysql`.
 
 
 ### Configure AppArmor, SELinux or other Kernel Security Module
+
 If you’re changing the location of the database data directory, you might need to
                     configure your security module accordingly.
 
 
 ### On the first Percona node
 
+
 #### Start the Database
+
 ```sh
 sudo /etc/init.d/mysql bootstrap-pxc
 ```
@@ -174,11 +187,13 @@ Watch the logs using `tail -f /var/log/mysqld.log`. Look for a log entry like
 
 
 #### Create the Corda User
+
 ```sql
 CREATE USER corda IDENTIFIED BY '{{ password }}';
 ```
 
 #### Create the Database and Tables
+
 ```sql
 CREATE DATABASE corda;
 
@@ -211,6 +226,7 @@ GRANT SELECT, INSERT ON corda.notary_committed_transactions TO 'corda';
 ```
 
 #### Create the SST User
+
 ```sql
 CREATE USER ‘{{ sst_user }}’@’localhost’ IDENTIFIED BY ‘{{ sst_pass }}‘;
 GRANT RELOAD, LOCK TABLES, PROCESS, REPLICATION CLIENT ON *.* TO ‘{{ sst_user }}’@’localhost’;
@@ -218,6 +234,7 @@ FLUSH PRIVILEGES;
 ```
 
 ### On all other Nodes
+
 Once you have updated the `wsrep.cnf` on all nodes, start MySQL on all the
                     remaining nodes of your cluster. Run this command on all nodes of your cluster,
                     except the first one. The config file is shown [above](.md#wsrep-cnf).

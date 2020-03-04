@@ -1,13 +1,19 @@
 ---
-title: "The network"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-concepts
+title: The network
+version: corda-enterprise-4-3
 ---
 
 
 # The network
 
+
 {{< topic >}}
 # Summary
+
 
 * *A Corda network is made up of nodes, each of which runs an instance of Corda and one or more CorDapps*
 
@@ -24,6 +30,7 @@ date: 2020-01-08T09:59:25Z
 
 {{< /topic >}}
 ## Network structure
+
 A Corda network is a peer-to-peer network of **nodes**. Each node represents a legal entity, and each runs the Corda software (an instance of Corda and one or more Corda applications, known as **CorDapps**).
 
 ![network](resources/network.png "network")All communication between nodes is point-to-point and encrypted using transport-layer security. This means that data is
@@ -37,6 +44,7 @@ Because the connections on the graph do not have to be persistent. On the networ
 
 
 ## Identities and Discovery
+
 Each node has a single well-known identity. The node’s identity is used to represent the node in transactions; for example, if the node were involved in a transaction to purchase an asset.
 
 The network map service maps each well-known node identity to an IP address. These IP
@@ -53,6 +61,7 @@ Corda nodes discover each other via a **network map service**. You can think of 
 
 
 ## Admission to the network
+
 Unlike traditional blockchain, Corda networks are semi-private. To join a network, a node must obtain a certificate from the network operator. This
                 certificate maps a well-known node identity to:
 

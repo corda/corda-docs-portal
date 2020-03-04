@@ -1,10 +1,15 @@
 ---
-title: "Metrics"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-node
+title: Metrics
+version: corda-enterprise-4-4
 ---
 
 
 # Metrics
+
 A Corda node exports a number of metrics for the purpose of monitoring the health of the node via JMX. This page documents the metrics
             exported by Corda.
 
@@ -12,6 +17,7 @@ For more information about how to monitor a node, see node-administration.
 
 
 ## Attachments
+
 
 {{< table >}}
 
@@ -22,6 +28,7 @@ For more information about how to monitor a node, see node-administration.
 {{< /table >}}
 
 ## Caches
+
 A Corda node maintains a number of caches. For each of the metrics below, the name of the cache must be supplied in the component field to
                 show metrics for that cache. There are two sorts of caches: size-based and weight-based. Size-based caches are measured in the number
                 of entries in the cache, while weight-based caches are measured in the bytes of memory occupied by the entries. Note that the set of metrics
@@ -51,6 +58,7 @@ A Corda node maintains a number of caches. For each of the metrics below, the na
 
 ## Flows
 
+
 {{< table >}}
 
 |Metric Query|Description|
@@ -71,6 +79,7 @@ A Corda node maintains a number of caches. For each of the metrics below, the na
 
 ## Metering
 
+
 {{< table >}}
 
 |Metric Query|Description|
@@ -84,6 +93,7 @@ A Corda node maintains a number of caches. For each of the metrics below, the na
 {{< /table >}}
 
 ## P2P
+
 
 {{< table >}}
 

@@ -1,10 +1,14 @@
 ---
-title: "Corda Enterprise notary services"
-date: 2020-01-08T09:59:25Z
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3: {}
+title: Corda Enterprise notary services
+version: corda-enterprise-4-3
 ---
 
 
 # Corda Enterprise notary services
+
 This section contains information on deploying and operating Corda Enterprise notary services,
             including in a highly-available configuration.
 
