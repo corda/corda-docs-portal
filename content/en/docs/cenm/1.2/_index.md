@@ -2,7 +2,13 @@
 date = "2020-01-08T09:59:25Z"
 title = "CENM 1.2"
 section_menu = "cenm-1-2"
-menu = [ "cenm-1-2", "versions",]
+version = "1.2"
+project = "cenm"
+
+[menu.versions]
+weight = 1088
+
+[menu.cenm-1-2]
 +++
 
 

@@ -1,8 +1,14 @@
 +++
 date = "2020-01-08T09:59:25Z"
-title = "Introduction to Corda"
+title = "Corda Enterprise 4.4"
 section_menu = "corda-enterprise-4-4"
-menu = [ "corda-enterprise-4-4", "versions",]
+version = "4.4"
+project = "corda-enterprise"
+
+[menu.versions]
+weight = 156
+
+[menu.corda-enterprise-4-4]
 +++
 
 

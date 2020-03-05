@@ -2,7 +2,13 @@
 date = "2020-01-08T09:59:25Z"
 title = "Corda OS 4.3"
 section_menu = "corda-os-4-3"
-menu = [ "corda-os-4-3", "versions",]
+version = "4.3"
+project = "corda-os"
+
+[menu.versions]
+weight = 557
+
+[menu.corda-os-4-3]
 +++
 
 

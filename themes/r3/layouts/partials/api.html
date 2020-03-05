@@ -1,3 +1,9 @@
+{{/* project and version must be defined in the section _index.md page */}}
+{{/* we then 'look up' into our parent section to find the values */}}
+{{- $version := or .Parent.Page.Params.version .Page.Params.version -}}
+{{- $project := or .Parent.Page.Params.project .Page.Params.project -}}
+{{- $relPath := "" -}}
+{{- if and $version $project -}}{{ $relPath = print "/" $project "/" $version "/"}}{{ end }}
 <div class="api">
-    API: <a href="https://api.corda.net/kotlin">Kotlin</a> / <a href="https://api.corda.net/java">JavaDoc</a>
+    API: <a href="https://api.corda.net/kotlin{{ if $relPath }}{{$relPath}}{{end}}">Kotlin</a> / <a href="https://api.corda.net/java{{ if $relPath }}{{$relPath}}{{end}}">JavaDoc</a>
 </div>

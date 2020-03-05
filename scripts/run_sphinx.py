@@ -427,7 +427,10 @@ class Translator:
 
         # "version" that this page is in/under, e.g. corda-os-4-3
         # we CANNOT have '.' in a 'toml' config section name - that implies hierarchy
-        version = (dirs[1] + "-" + dirs[2]).replace(".", "-")
+        project_name = dirs[1]
+        semantic_version = dirs[2]
+        version = (project_name + "-" + semantic_version).replace(".", "-")
+
         filename_only = os.path.basename(os.path.splitext(self.filename)[0])
         #  convienience
         dest_file = str(self.filename).replace('docs/xml/xml/', '').replace(".xml", ".md")
@@ -464,15 +467,25 @@ class Translator:
         elif filename_only.startswith("config-"):
             menu_entry = { "parent": version + "-config" }
 
-        # Set the menu entry for { "corda-os-4-3": { ... } }
-        menu[version] = menu_entry
-
         # e.g. if 4.4/index
         if is_version_index:
             LOG.warning(f"Adding {self.filename} to 'versions' menu")
-            menu["versions"] = {}
+            versions_menu_entry = {}
             LOG.warning(f"Adding parameter 'section_menu={version}' for this index page only'")
             self.front_matter["section_menu"] = version
+            self.front_matter["version"] = semantic_version
+            self.front_matter["project"] = project_name
+            # Ordering in the versions menu
+            if project_name == "cenm":
+                versions_menu_entry["weight"] = (100 - int(float(semantic_version)*10)) + 1000
+            elif project_name == "corda-os":
+                versions_menu_entry["weight"] = (100 - int(float(semantic_version)*10)) + 500
+            if project_name == "corda-enterprise":
+                versions_menu_entry["weight"] = (100 - int(float(semantic_version)*10)) + 100
+            menu["versions"] = versions_menu_entry
+
+        # Set the menu entry for { "corda-os-4-3": { ... } }
+        menu[version] = menu_entry
 
         # All the values are empty dict, so we can safely use a list
         # of menus we're in instead.
