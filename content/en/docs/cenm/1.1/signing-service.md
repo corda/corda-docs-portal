@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Signing Service"
 menu = [ "cenm-1-1",]
-categories = [ "signing", "service",]
+tags = [ "signing", "service",]
 +++
 
 

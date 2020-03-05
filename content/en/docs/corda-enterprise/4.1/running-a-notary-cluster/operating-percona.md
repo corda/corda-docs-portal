@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Percona Monitoring, Backup and Restore (Advanced)"
 menu = [ "corda-enterprise-4-1",]
-categories = [ "operating", "percona",]
+tags = [ "operating", "percona",]
 +++
 
 

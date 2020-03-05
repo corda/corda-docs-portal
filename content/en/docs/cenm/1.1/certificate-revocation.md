@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Certificate Revocation List (CRL)"
 menu = [ "cenm-1-1",]
-categories = [ "certificate", "revocation",]
+tags = [ "certificate", "revocation",]
 +++
 
 

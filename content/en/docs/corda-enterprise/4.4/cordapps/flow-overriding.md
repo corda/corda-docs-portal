@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Configuring Responder Flows"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "flow", "overriding",]
+tags = [ "flow", "overriding",]
 +++
 
 

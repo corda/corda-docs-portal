@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Identity Manager Configuration Parameters"
-categories = [ "config", "identity", "manager", "parameters",]
+tags = [ "config", "identity", "manager", "parameters",]
 
 [menu.cenm-1-1]
 parent = "cenm-1-1-config"

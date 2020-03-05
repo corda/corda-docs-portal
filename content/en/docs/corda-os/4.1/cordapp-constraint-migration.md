@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "CorDapp constraints migration"
 menu = [ "corda-os-4-1",]
-categories = [ "cordapp", "constraint", "migration",]
+tags = [ "cordapp", "constraint", "migration",]
 +++
 
 

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Behaviour Under Excessive Load"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "notary", "load", "handling",]
+tags = [ "notary", "load", "handling",]
 +++
 
 

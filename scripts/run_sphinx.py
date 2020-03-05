@@ -76,7 +76,7 @@ class Markdown:
         return f'<-- {text} -->'
 
     def toc(self):
-        return self.comment("page table of contents removed")    
+        return self.comment("page table of contents tags_to_removed")
 
     def visit_emphasis(self):
         return '*'
@@ -93,7 +93,7 @@ class Markdown:
     def visit_subscript(self):
         return '<sub>'
 
-    def depart_subscript(self): 
+    def depart_subscript(self):
         return '</sub>'
 
     def visit_superscript(self):
@@ -126,7 +126,7 @@ class Markdown:
     def depart_tab(self):
         return '\n</div>\n'
 
-    def visit_tabs(self, idx):        
+    def visit_tabs(self, idx):
         return f'<div class="r3-tabs" id="tabs-{idx}">\n\n'
 
     def depart_tabs(self):
@@ -149,7 +149,7 @@ class Markdown:
 
     def depart_attention(self):
         return '\n</div>\n'
-        
+
     def visit_important(self):
         return '<div class="r3-o-important" role="alert"><span>Important: </span>\n\n'
 
@@ -191,7 +191,7 @@ class Gatsby(Markdown):
         self.tab_index += 1
         return '\n</TabPanel>\n'
 
-    def visit_tabs(self, idx):        
+    def visit_tabs(self, idx):
         return f'<div>'
 
     def depart_tabs(self):
@@ -421,7 +421,7 @@ class Translator:
     """ Add in some front-matter tags derived from the file """
     def _add_front_matter(self):
         dirs = str(self.filename).split("/")
-    
+
         while dirs[0] != "docs":
             dirs.pop(0)
 
@@ -434,7 +434,7 @@ class Translator:
 
         dirname_only = os.path.basename(os.path.dirname(dest_file))
         project_only = os.path.basename(os.path.dirname(os.path.dirname(dest_file)))
-        
+
         # Are we parsing the index file under <project>/MAJOR.MINOR?
         is_version_index = filename_only == "index" and re.findall(r"\d\.\d", dirname_only)
 
@@ -446,7 +446,6 @@ class Translator:
                 self.front_matter["title"] = "Corda Enterprise " + dirname_only
             elif project_only == "cenm":
                 self.front_matter["title"] = "CENM " + dirname_only
-            
 
         # Menu entries that this page should occur in:
         menu = self.front_matter.get("menu", {})
@@ -464,18 +463,18 @@ class Translator:
             menu_entry = { "parent": version + "-tutorial" }
         elif filename_only.startswith("config-"):
             menu_entry = { "parent": version + "-config" }
-        
+
         # Set the menu entry for { "corda-os-4-3": { ... } }
         menu[version] = menu_entry
-        
+
         # e.g. if 4.4/index
         if is_version_index:
             LOG.warning(f"Adding {self.filename} to 'versions' menu")
-            menu["versions"] = {}        
+            menu["versions"] = {}
             LOG.warning(f"Adding parameter 'section_menu={version}' for this index page only'")
             self.front_matter["section_menu"] = version
 
-        # All the values are empty dict, so we can safely use a list 
+        # All the values are empty dict, so we can safely use a list
         # of menus we're in instead.
         if all(not bool(v) for __, v in menu.items()):
             menu = [k for k, __ in menu.items()]
@@ -488,15 +487,20 @@ class Translator:
         if "title" not in self.front_matter:
             self.front_matter["title"] = filename_only
 
-        remove = ['index', '_index', 'and', 'a', 'the', 'if', 'key', 'hello', 'world', 'toc', 'toctree', 'one', 'two', 'three', 'up', 'with', 'dir' 'docs', 'eta', 'non', 'reg', 'reqs', 'run', 'runs', 'sub', 'soft', 'tree', 'to', 'up', 'writing']
+        self._front_matter_add_tags_and_categories(filename_only)
 
-        categories = filename_only.split("-")
-        for r in remove:
-            if r in categories: categories.remove(r)
+    """  Add some tags based on the filename into the front matter
+    and add some reasonable categories too """
+    def _front_matter_add_tags_and_categories(self, filename_only):
+        tags_to_remove = ['index', '_index', 'and', 'a', 'the', 'if', 'key', 'hello', 'world', 'toc', 'toctree', 'one', 'two', 'three', 'up', 'with', 'dir' 'docs', 'eta', 'non', 'reg', 'reqs', 'run', 'runs', 'sub', 'soft', 'tree', 'to', 'up', 'writing']
 
-        if categories:
-            self.front_matter['categories'] = categories
-                
+        tags = filename_only.split("-")
+        for r in tags_to_remove:
+            if r in tags: tags.remove(r)
+
+        if tags:
+            self.front_matter['tags'] = tags
+
 
     ###########################################################################
     # Visitors
@@ -740,7 +744,7 @@ class Translator:
             url = node.attrib.get('uri', '#')
             alt = os.path.splitext(os.path.basename(url))[0].replace('-', ' ').replace('_', ' ')
 
-        self.top.put_body(self.cms.image(url, os.path.basename(alt)))            
+        self.top.put_body(self.cms.image(url, os.path.basename(alt)))
 
     def depart_image(self, node):
         pass
@@ -1186,16 +1190,16 @@ def copy_to_content(cms):
         src_filename = os.path.basename(src)
         dirname_only = os.path.basename(os.path.dirname(dest))
 
-        # We need to rename index pages to _index.md (page bundle = section) 
-        # for hugo when we're in MAJOR.MINOR folders 
+        # We need to rename index pages to _index.md (page bundle = section)
+        # for hugo when we're in MAJOR.MINOR folders
         # otherwise, we're a plain-old "leaf bundle"
         if ARGS.cms == "hugo" and re.findall(r"\d\.\d", dirname_only):
-            
+
             index_md = os.path.join(os.path.dirname(dest), '_index.md')
-        
+
             if src_filename == 'index.md':
                 LOG.warning(f"Copying {src} to {dest}")
-                dest = index_md # it was 'index.rst', copying to '_index.md'
+                dest = index_md  # it was 'index.rst', copying to '_index.md'
 
         if not os.path.exists(os.path.dirname(dest)):
             os.makedirs(os.path.dirname(dest), exist_ok=True)
@@ -1230,7 +1234,7 @@ def create_missing_pages():
         return
 
     parent_dir = os.path.join(CONTENT, "en", "docs")
-    
+
     for dir in os.listdir(parent_dir):
         item = os.path.join(parent_dir, dir)
         if not os.path.isdir(item):
@@ -1263,12 +1267,12 @@ def main():
         LOG.warning("Skipping rst-to-xml")
 
     if ARGS.cms == 'markdown':
-        cms = Markdown()
+        cms = Markdown()  #  Generates hugo-shortcode free markdown - uses divs instead
     elif ARGS.cms == "gatsby":
-        cms = Gatsby() # which simply adds react tags <Tab> <Tabs> etc.
+        cms = Gatsby()  # which simply adds react tags <Tab> <Tabs> etc.
     else:
         cms = Hugo()
-    
+
     convert_all_xml_to_md(cms)
 
     # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/api-contract-constraints.xml"

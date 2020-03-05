@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Deploying Corda to Corda Testnet from a Google Cloud Platform VM"
 menu = [ "corda-os-4-4",]
-categories = [ "gcp", "vm",]
+tags = [ "gcp", "vm",]
 +++
 
 

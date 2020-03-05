@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Public Key Infrastructure (PKI) Tool Configuration Parameters"
-categories = [ "config", "pki", "tool", "parameters",]
+tags = [ "config", "pki", "tool", "parameters",]
 
 [menu.cenm-1-1]
 parent = "cenm-1-1-config"

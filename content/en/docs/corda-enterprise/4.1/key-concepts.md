@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Key concepts"
 menu = [ "corda-enterprise-4-1",]
-categories = [ "concepts",]
+tags = [ "concepts",]
 +++
 
 

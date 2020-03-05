@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Configuring the notary backend - MySQL notary"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "installing", "percona",]
+tags = [ "installing", "percona",]
 +++
 
 

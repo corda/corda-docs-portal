@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "CLI UX Guide"
 menu = [ "corda-os-4-1",]
-categories = [ "cli", "ux", "guidelines",]
+tags = [ "cli", "ux", "guidelines",]
 +++
 
 

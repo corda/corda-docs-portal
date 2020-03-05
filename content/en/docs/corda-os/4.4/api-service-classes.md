@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Service Classes"
-categories = [ "api", "service", "classes",]
+tags = [ "api", "service", "classes",]
 
 [menu.corda-os-4-4]
 parent = "corda-os-4-4-api"

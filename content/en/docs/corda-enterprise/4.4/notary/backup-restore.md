@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Highly-available notary backup and restore"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "backup", "restore",]
+tags = [ "backup", "restore",]
 +++
 
 

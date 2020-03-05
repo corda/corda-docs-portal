@@ -1,8 +1,6 @@
-$note-class: "#{$class-object-prefix}attention";
+$attn-class: "#{$class-object-prefix}attention";
 
-.#{$note-class} {
-    @extend .alert;
-    @extend .alert-success;
+.#{$attn-class} {
     background-color: $green-200;
     color: $green-900;
     border-left: 0.5rem solid $green-500;

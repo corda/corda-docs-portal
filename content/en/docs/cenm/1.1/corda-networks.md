@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Corda Networks"
 menu = [ "cenm-1-1",]
-categories = [ "corda", "networks",]
+tags = [ "corda", "networks",]
 +++
 
 

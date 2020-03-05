@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node folder structure"
-categories = [ "node", "structure",]
+tags = [ "node", "structure",]
 
 [menu.corda-enterprise-4-1]
 parent = "corda-enterprise-4-1-node"

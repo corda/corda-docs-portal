@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Simplified database schema setup for development"
-categories = [ "node", "database", "developer",]
+tags = [ "node", "database", "developer",]
 
 [menu.corda-enterprise-4-4]
 parent = "corda-enterprise-4-4-node"

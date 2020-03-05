@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Network Map Service"
 menu = [ "cenm-1-2",]
-categories = [ "network", "map",]
+tags = [ "network", "map",]
 +++
 
 

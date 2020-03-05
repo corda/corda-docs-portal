@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Database access when running H2"
-categories = [ "node", "database", "access", "h2",]
+tags = [ "node", "database", "access", "h2",]
 
 [menu.corda-os-4-1]
 parent = "corda-os-4-1-node"

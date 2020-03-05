@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "CRL Endpoint Check Tool"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "crl", "endpoint", "check", "tool",]
+tags = [ "crl", "endpoint", "check", "tool",]
 +++
 
 

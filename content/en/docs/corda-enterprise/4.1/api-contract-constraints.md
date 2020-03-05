@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Contract Constraints"
-categories = [ "api", "contract", "constraints",]
+tags = [ "api", "contract", "constraints",]
 
 [menu.corda-enterprise-4-1]
 parent = "corda-enterprise-4-1-api"

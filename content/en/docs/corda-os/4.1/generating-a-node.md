@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Creating nodes locally"
 menu = [ "corda-os-4-1",]
-categories = [ "generating", "node",]
+tags = [ "generating", "node",]
 +++
 
 

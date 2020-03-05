@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "CorDapp Identities"
-categories = [ "api", "identity",]
+tags = [ "api", "identity",]
 
 [menu.corda-enterprise-4-4]
 parent = "corda-enterprise-4-4-api"

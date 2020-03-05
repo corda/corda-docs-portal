@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Default Class Evolution"
 menu = [ "corda-os-4-4",]
-categories = [ "serialization", "default", "evolution",]
+tags = [ "serialization", "default", "evolution",]
 +++
 
 

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Handling flag days"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "handling", "flag", "days",]
+tags = [ "handling", "flag", "days",]
 +++
 
 

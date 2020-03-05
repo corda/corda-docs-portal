@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Deterministic Corda Modules"
 menu = [ "corda-enterprise-4-1",]
-categories = [ "deterministic", "modules",]
+tags = [ "deterministic", "modules",]
 +++
 
  .red {color:red} 

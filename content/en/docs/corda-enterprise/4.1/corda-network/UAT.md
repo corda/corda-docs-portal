@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Corda Network: UAT Environment"
 menu = [ "corda-enterprise-4-1",]
-categories = [ "UAT",]
+tags = [ "UAT",]
 +++
 
 

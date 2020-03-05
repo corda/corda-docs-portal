@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing a contract"
-categories = [ "tutorial", "contract",]
+tags = [ "tutorial", "contract",]
 
 [menu.corda-os-4-1]
 parent = "corda-os-4-1-tutorial"

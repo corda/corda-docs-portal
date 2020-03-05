@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "HSM exception support in Flow Hospital"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "cryptoservice", "hospitalization",]
+tags = [ "cryptoservice", "hospitalization",]
 +++
 
 

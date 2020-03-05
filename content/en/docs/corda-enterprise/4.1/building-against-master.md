@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Building CorDapps against a non-release branch"
 menu = [ "corda-enterprise-4-1",]
-categories = [ "building", "against", "master",]
+tags = [ "building", "against", "master",]
 +++
 
 

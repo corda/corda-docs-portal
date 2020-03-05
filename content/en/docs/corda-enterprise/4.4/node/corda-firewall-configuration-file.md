@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Configuring the Corda Enterprise Firewall"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "corda", "firewall", "configuration", "file",]
+tags = [ "corda", "firewall", "configuration", "file",]
 +++
 
 

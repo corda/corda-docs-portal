@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Running JMeter Corda"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "running", "jmeter", "corda",]
+tags = [ "running", "jmeter", "corda",]
 +++
 
 

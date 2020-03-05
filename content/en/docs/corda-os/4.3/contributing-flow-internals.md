@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Flow framework internals"
 menu = [ "corda-os-4-3",]
-categories = [ "contributing", "flow", "internals",]
+tags = [ "contributing", "flow", "internals",]
 +++
 
 

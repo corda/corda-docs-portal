@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Using an HSM with confidential identities"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "confidential", "identities", "hsm",]
+tags = [ "confidential", "identities", "hsm",]
 +++
 
 

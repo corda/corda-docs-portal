@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Metering Collection Tool"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "metering", "collector",]
+tags = [ "metering", "collector",]
 +++
 
 

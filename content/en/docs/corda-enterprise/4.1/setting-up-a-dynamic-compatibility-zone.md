@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Setting up a dynamic compatibility zone"
 menu = [ "corda-enterprise-4-1",]
-categories = [ "setting", "dynamic", "compatibility", "zone",]
+tags = [ "setting", "dynamic", "compatibility", "zone",]
 +++
 
 

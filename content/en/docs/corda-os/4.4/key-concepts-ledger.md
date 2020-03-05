@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "The ledger"
-categories = [ "concepts", "ledger",]
+tags = [ "concepts", "ledger",]
 
 [menu.corda-os-4-4]
 parent = "corda-os-4-4-concepts"

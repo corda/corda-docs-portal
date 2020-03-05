@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Upgrading CorDapps on a node"
-categories = [ "node", "operations", "upgrade", "cordapps",]
+tags = [ "node", "operations", "upgrade", "cordapps",]
 
 [menu.corda-os-4-4]
 parent = "corda-os-4-4-node"

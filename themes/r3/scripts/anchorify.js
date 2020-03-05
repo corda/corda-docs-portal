@@ -2,7 +2,7 @@ var anchorForId = function(id) {
     var anchor = document.createElement("a");
     anchor.className = "header-link";
     anchor.href = "#" + id;
-    anchor.innerHTML = ' <img src="/images/svg/anchor.svg" alt="#" title="#" />';
+    anchor.innerHTML = ' <img src="/images/svg/link.svg" alt="#" title="#" />';
     return anchor;
 };
 

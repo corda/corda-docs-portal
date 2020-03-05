@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "CENM Database Configuration"
-categories = [ "config", "database",]
+tags = [ "config", "database",]
 
 [menu.corda-enterprise-4-4]
 parent = "corda-enterprise-4-4-config"

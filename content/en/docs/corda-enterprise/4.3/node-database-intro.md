@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Database management"
-categories = [ "node", "database", "intro",]
+tags = [ "node", "database", "intro",]
 
 [menu.corda-enterprise-4-3]
 parent = "corda-enterprise-4-3-node"

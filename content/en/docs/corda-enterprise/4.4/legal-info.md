@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Legal notice"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "legal", "info",]
+tags = [ "legal", "info",]
 +++
 
 

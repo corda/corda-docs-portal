@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Updating the network parameters"
 menu = [ "cenm-1-1",]
-categories = [ "updating", "network", "parameters",]
+tags = [ "updating", "network", "parameters",]
 +++
 
 

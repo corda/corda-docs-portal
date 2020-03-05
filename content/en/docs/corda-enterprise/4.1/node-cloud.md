@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda Enterprise cloud images"
-categories = [ "node", "cloud",]
+tags = [ "node", "cloud",]
 
 [menu.corda-enterprise-4-1]
 parent = "corda-enterprise-4-1-node"

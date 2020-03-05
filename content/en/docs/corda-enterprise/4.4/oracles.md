@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Writing oracle services"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "oracles",]
+tags = [ "oracles",]
 +++
 
 

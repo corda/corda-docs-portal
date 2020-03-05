@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Component library"
 menu = [ "corda-os-4-4",]
-categories = [ "component", "library",]
+tags = [ "component", "library",]
 +++
 
 

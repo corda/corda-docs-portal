@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Shell Configuration Parameters"
-categories = [ "config", "shell",]
+tags = [ "config", "shell",]
 
 [menu.cenm-1-2]
 parent = "cenm-1-2-config"

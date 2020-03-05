@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Network Parameters"
-categories = [ "config", "network", "parameters",]
+tags = [ "config", "network", "parameters",]
 
 [menu.corda-enterprise-4-4]
 parent = "corda-enterprise-4-4-config"

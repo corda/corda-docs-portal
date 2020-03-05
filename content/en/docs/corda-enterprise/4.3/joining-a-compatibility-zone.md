@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Joining an existing compatibility zone"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "joining", "compatibility", "zone",]
+tags = [ "joining", "compatibility", "zone",]
 +++
 
 

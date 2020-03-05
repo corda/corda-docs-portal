@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Host prerequisites and database requirements"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "host", "prereq",]
+tags = [ "host", "prereq",]
 +++
 
 

@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Building transactions"
-categories = [ "tutorial", "building", "transactions",]
+tags = [ "tutorial", "building", "transactions",]
 
 [menu.corda-enterprise-4-3]
 parent = "corda-enterprise-4-3-tutorial"

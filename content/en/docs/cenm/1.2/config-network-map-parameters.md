@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Network Map Configuration Parameters"
-categories = [ "config", "network", "map", "parameters",]
+tags = [ "config", "network", "map", "parameters",]
 
 [menu.cenm-1-2]
 parent = "cenm-1-2-config"

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Extending the state machine"
 menu = [ "corda-os-4-4",]
-categories = [ "contributing", "flow", "state", "machines",]
+tags = [ "contributing", "flow", "state", "machines",]
 +++
 
 

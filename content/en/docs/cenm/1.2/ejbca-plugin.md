@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "EJBCA Sample Plugin"
 menu = [ "cenm-1-2",]
-categories = [ "ejbca", "plugin",]
+tags = [ "ejbca", "plugin",]
 +++
 
 

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Deploying in a testing or production environment"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "env", "prod", "test",]
+tags = [ "env", "prod", "test",]
 +++
 
 

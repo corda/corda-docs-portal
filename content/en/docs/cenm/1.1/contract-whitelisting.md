@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Contract Whitelist Generation"
 menu = [ "cenm-1-1",]
-categories = [ "contract", "whitelisting",]
+tags = [ "contract", "whitelisting",]
 +++
 
 

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Running the example CorDapp"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "quickstart", "deploy",]
+tags = [ "quickstart", "deploy",]
 +++
 
 

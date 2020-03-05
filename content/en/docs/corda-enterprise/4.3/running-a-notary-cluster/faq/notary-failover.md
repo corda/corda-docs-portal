@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Notary Failover"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "notary", "failover",]
+tags = [ "notary", "failover",]
 +++
 
 

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Certificate Revocation Request Submission Tool"
 menu = [ "cenm-1-1",]
-categories = [ "tool", "crr", "submission",]
+tags = [ "tool", "crr", "submission",]
 +++
 
 

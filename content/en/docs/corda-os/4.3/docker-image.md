@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Official Corda Docker Image"
 menu = [ "corda-os-4-3",]
-categories = [ "docker", "image",]
+tags = [ "docker", "image",]
 +++
 
 

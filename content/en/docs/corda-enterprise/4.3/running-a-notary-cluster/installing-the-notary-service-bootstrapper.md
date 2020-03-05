@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Joining a bootstrapped network"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "installing", "notary", "service", "bootstrapper",]
+tags = [ "installing", "notary", "service", "bootstrapper",]
 +++
 
 

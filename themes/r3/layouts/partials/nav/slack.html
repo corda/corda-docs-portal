@@ -1,0 +1,7 @@
+{{- if .Site.Params.slack -}}
+<li class="nav-item r3-o-nav-item">
+    <a class="r3-o-svg" href="https://{{- .Site.Params.slack -}}.slack.com/" name="slack" alt="slack" aria-label="slack">
+        {{- partial "svg/slack.svg" . -}}
+    </a>
+</li>
+{{- end -}}

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "JIRA Set-Up"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "jira", "setup",]
+tags = [ "jira", "setup",]
 +++
 
 

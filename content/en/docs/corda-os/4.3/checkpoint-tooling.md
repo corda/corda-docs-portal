@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Checkpoint Tooling"
 menu = [ "corda-os-4-3",]
-categories = [ "checkpoint", "tooling",]
+tags = [ "checkpoint", "tooling",]
 +++
 
 

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Deploying a node to a server"
 menu = [ "corda-os-4-3",]
-categories = [ "deploying", "node",]
+tags = [ "deploying", "node",]
 +++
 
 

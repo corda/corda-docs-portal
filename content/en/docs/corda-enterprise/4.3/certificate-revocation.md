@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Certificate revocation list"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "certificate", "revocation",]
+tags = [ "certificate", "revocation",]
 +++
 
 

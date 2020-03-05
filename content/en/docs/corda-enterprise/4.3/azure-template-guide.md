@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Using Azure Resource Manager Templates to deploy a Corda Enterprise node"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "azure", "template", "guide",]
+tags = [ "azure", "template", "guide",]
 +++
 
 

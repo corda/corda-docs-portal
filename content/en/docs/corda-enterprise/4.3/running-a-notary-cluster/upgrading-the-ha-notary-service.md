@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Upgrading the notary to a new version of Corda Enterprise"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "upgrading", "ha", "notary", "service",]
+tags = [ "upgrading", "ha", "notary", "service",]
 +++
 
 

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Hello, World! Pt.2 - Contract constraints"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "tut", "party", "introduction",]
+tags = [ "tut", "party", "introduction",]
 +++
 
 

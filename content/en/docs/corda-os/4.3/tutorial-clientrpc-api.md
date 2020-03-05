@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Using the client RPC API"
-categories = [ "tutorial", "clientrpc", "api",]
+tags = [ "tutorial", "clientrpc", "api",]
 
 [menu.corda-os-4-3]
 parent = "corda-os-4-3-tutorial"

@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Using the Node Explorer to test a Corda node on Corda Testnet"
 menu = [ "corda-os-4-4",]
-categories = [ "testnet", "explorer", "corda",]
+tags = [ "testnet", "explorer", "corda",]
 +++
 
 

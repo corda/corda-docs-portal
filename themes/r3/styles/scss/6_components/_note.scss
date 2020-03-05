@@ -1,8 +1,6 @@
 $note-class: "#{$class-object-prefix}note";
 
 .#{$note-class} {
-    @extend .alert;
-    @extend .alert-info;
     background-color: $blue-200;
     color: $blue-900;
     border-left: 0.5rem solid $blue-500;

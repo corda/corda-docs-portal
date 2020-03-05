@@ -10,10 +10,14 @@
         <span class="">{{- .Site.Title -}}</span>
     </a>
     <ul class="navbar-nav ml-sm-2 ml-md-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="http://www.r3.com">R3 <span class="sr-only">(current)</span></a>
+        {{ partial "nav/github.html" . }}
+        {{ partial "nav/twitter.html" . }}
+        {{ partial "nav/slack.html" . }}
+        <li class="nav-item r3-o-nav-item">
+            <a class="nav-link" href="http://www.r3.com">
+                {{- partial "svg/r3.svg" . }}
+                <span class="sr-only">R3</span></a>
         </li>
-        {{/* partial "nav/version.html" . */}}
         {{ partial "nav/lang.html" . }}
     </ul>
 </nav>

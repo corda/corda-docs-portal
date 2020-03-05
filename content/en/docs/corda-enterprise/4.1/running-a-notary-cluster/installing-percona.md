@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Percona XtraDB Cluster, the underlying replicated Database"
 menu = [ "corda-enterprise-4-1",]
-categories = [ "installing", "percona",]
+tags = [ "installing", "percona",]
 +++
 
 

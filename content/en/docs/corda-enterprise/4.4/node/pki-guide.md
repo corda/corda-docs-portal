@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Certificate Hierarchy Guide"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "pki", "guide",]
+tags = [ "pki", "guide",]
 +++
 
 

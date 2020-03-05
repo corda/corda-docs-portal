@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Database Schema Migration Logging"
-categories = [ "node", "database", "migration", "logging",]
+tags = [ "node", "database", "migration", "logging",]
 
 [menu.corda-enterprise-4-4]
 parent = "corda-enterprise-4-4-node"

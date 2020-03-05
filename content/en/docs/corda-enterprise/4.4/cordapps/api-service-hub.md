@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Accessing node services"
-categories = [ "api", "service", "hub",]
+tags = [ "api", "service", "hub",]
 
 [menu.corda-enterprise-4-4]
 parent = "corda-enterprise-4-4-api"

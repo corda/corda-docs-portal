@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing a custom notary service (experimental)"
-categories = [ "tutorial", "custom", "notary",]
+tags = [ "tutorial", "custom", "notary",]
 
 [menu.corda-os-4-3]
 parent = "corda-os-4-3-tutorial"

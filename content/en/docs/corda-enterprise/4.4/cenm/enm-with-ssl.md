@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Configuring the ENM services to use SSL"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "enm", "ssl",]
+tags = [ "enm", "ssl",]
 +++
 
 

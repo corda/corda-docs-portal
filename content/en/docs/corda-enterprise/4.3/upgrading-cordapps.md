@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Release new CorDapp versions"
 menu = [ "corda-enterprise-4-3",]
-categories = [ "upgrading", "cordapps",]
+tags = [ "upgrading", "cordapps",]
 +++
 
 

@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Running the example CorDapp"
-categories = [ "tutorial", "cordapp",]
+tags = [ "tutorial", "cordapp",]
 
 [menu.corda-os-4-1]
 parent = "corda-os-4-1-tutorial"

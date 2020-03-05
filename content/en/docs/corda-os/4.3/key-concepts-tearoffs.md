@@ -1,7 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Transaction tear-offs"
-categories = [ "concepts", "tearoffs",]
+tags = [ "concepts", "tearoffs",]
 
 [menu.corda-os-4-3]
 parent = "corda-os-4-3-concepts"

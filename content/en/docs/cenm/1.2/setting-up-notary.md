@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Setting Up A Notary Node"
 menu = [ "cenm-1-2",]
-categories = [ "setting", "notary",]
+tags = [ "setting", "notary",]
 +++
 
 

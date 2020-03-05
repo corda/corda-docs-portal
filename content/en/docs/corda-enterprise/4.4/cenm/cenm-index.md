@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "What is Corda Enterprise Network Manager?"
 menu = [ "corda-enterprise-4-4",]
-categories = [ "cenm",]
+tags = [ "cenm",]
 +++
 
 

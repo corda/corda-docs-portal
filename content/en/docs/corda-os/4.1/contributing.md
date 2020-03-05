@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "How to contribute"
 menu = [ "corda-os-4-1",]
-categories = [ "contributing",]
+tags = [ "contributing",]
 +++
 
 

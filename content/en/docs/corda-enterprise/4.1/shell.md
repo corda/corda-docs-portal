@@ -2,7 +2,7 @@
 date = "2020-01-08T09:59:25Z"
 title = "Node shell"
 menu = [ "corda-enterprise-4-1",]
-categories = [ "shell",]
+tags = [ "shell",]
 +++
 
 
