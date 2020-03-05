@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node Explorer"
+aliases = [ "/releases/4.1/node-explorer.html",]
 tags = [ "node", "explorer",]
 
 [menu.corda-enterprise-4-1]
@@ -19,16 +20,20 @@ To run Node Explorer on your machine, you will need JavaFX for Java 8. If you do
 
 {{< /note >}}
 The node explorer provides views into a node’s vault and transaction data using Corda’s RPC framework.
-            Node Explorer assumes that “corda-finance-4.1.jar” CorDapp is deployed on the node.
             The user can execute cash transaction commands to issue and move cash to other parties on the network or exit cash (eg. remove from the ledger)
-
-The tool is distributed in the form of runnable JAR file: “corda-tools-explorer-4.1.jar”.
 
 
 ## Running the UI
 
+**Windows**:
+
 ```kotlin
-> java -jar corda-tools-explorer-4.1.jar
+gradlew.bat tools:explorer:run
+```
+**Other**:
+
+```kotlin
+./gradlew tools:explorer:run
 ```
 
 {{< note >}}
@@ -69,6 +74,18 @@ When connected to an *Issuer* node, a user can execute cash transaction commands
 
 When connected to a *Participant* node a user can only execute cash transaction commands to move cash to other parties on the network.
 
+The Node Explorer is also available as a stand-alone JavaFX application. It is
+                available from the Corda repositories as `corda-tools-explorer`, and can be
+                run as
+
+> 
+> java -jar corda-tools-explorer.jar
+
+
+{{< note >}}
+Use the Explorer in conjunction with the Trader Demo and Bank of Corda samples to use other *Issuer* nodes.
+
+{{< /note >}}
 
 ## Interface
 

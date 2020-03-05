@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Contract Constraints"
+aliases = [ "/releases/4.1/api-contract-constraints.html",]
 tags = [ "api", "contract", "constraints",]
 
 [menu.corda-enterprise-4-1]
@@ -101,6 +102,8 @@ More complex policies can be expressed through Signature Constraints if required
 Hash and zone whitelist constraints are left over from earlier Corda versions before Signature Constraints were
                 implemented. They make it harder to upgrade applications than when using signature constraints, so they’re best avoided.
 
+Further information into the design of Signature Constraints can be found in its [design document](design/data-model-upgrades/signature-constraints.md).
+
 
 ### Signing CorDapps for use with Signature Constraints
 
@@ -110,14 +113,6 @@ Expanding on the previous section, for an app to use Signature Constraints, it m
 
 Each transaction received by a node will then verify that the apps attached to it have the correct signers as specified by its
                     Signature Constraints. This ensures that the version of each app is acceptable to the transaction’s input states.
-
-If a node receives a transaction that uses a contract attachment that it doesn’t trust, but there is an attachment present on the node with
-                    the same contract classes and same signatures, then the node will execute that contract’s code as if it were trusted. This means that nodes
-                    are no longer required to have every version of a CorDapp uploaded to them in order to verify transactions running older version of a CorDapp.
-                    Instead, it is sufficient to have any version of the CorDapp contract installed.
-
-For third party dependencies attached to the transaction, the rule is slightly different. In this case, the attachment will be trusted by the
-                    node provided there is another trusted attachment in the node’s attachment store that has been signed with the same keys.
 
 More information on how to sign an app directly from Gradle can be found in the
                     [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
@@ -150,8 +145,8 @@ Signed apps require a version number to be provided, see [Versioning](versioning
 When setting up a new network, it is possible to encounter errors when states are issued with the `HashAttachmentConstraint`,
                     but not all nodes have that same version of the CorDapp installed locally.
 
-In this case, flows will fail with a `ContractConstraintRejection`, and the failed flow will be sent to the [Flow Hospital](node-flow-hospital.md).
-                    From there it’s suspended waiting to be retried on node restart.
+In this case, flows will fail with a `ContractConstraintRejection`, and are sent to the flow hospital.
+                    From there, they are suspended, waiting to be retried on node restart.
                     This gives the node operator the opportunity to recover from those errors, which in the case of constraint violations means
                     adding the right cordapp jar to the `cordapps` folder.
 
@@ -181,36 +176,20 @@ Starting with Corda 4, a `ContractState` must explicitly indicate which `Contrac
 There are two mechanisms for indicating ownership. One is to annotate the `ContractState` with the `BelongsToContract` annotation,
                 indicating the `Contract` class to which it is tied:
 
-
-{{< tabs name="tabs-1" >}}
-
-
-{{% tab name="java" %}}
 ```java
 @BelongToContract(MyContract.class)
 public class MyState implements ContractState {
     // implementation goes here
 }
 ```
-{{% /tab %}}
-
-{{% tab name="kotlin" %}}
 ```kotlin
 @BelongsToContract(MyContract::class)
 data class MyState(val value: Int) : ContractState {
     // implementation goes here
 }
 ```
-{{% /tab %}}
-{{< /tabs >}}
+The other is to define the `ContractState` class as an inner class of the `Contract` class
 
-The other is to define the `ContractState` class as an inner class of the `Contract` class:
-
-
-{{< tabs name="tabs-2" >}}
-
-
-{{% tab name="java" %}}
 ```java
 public class MyContract implements Contract {
 
@@ -221,22 +200,11 @@ public class MyContract implements Contract {
     // contract implementation goes here
 }
 ```
-{{% /tab %}}
-
-{{% tab name="kotlin" %}}
 ```kotlin
 class MyContract : Contract {
-
-    data class MyState(val value: Int) : ContractState {
-        // state implementation goes here
-    }
-
-    // contract implementation goes here
+    data class MyState(val value: Int) : ContractState
 }
 ```
-{{% /tab %}}
-{{< /tabs >}}
-
 If a `ContractState`’s owning `Contract` cannot be identified by either of these mechanisms, and the `targetVersion` of the
                 CorDapp is 4 or greater, then transaction verification will fail with a `TransactionRequiredContractUnspecifiedException`. If
                 the owning `Contract` *can* be identified, but the `ContractState` has been bundled with a different contract, then
@@ -258,48 +226,53 @@ By default the `TransactionBuilder` will use [Signature Constraints](#signature-
 
 To manually define the Contract Constraint of an output state, see the example below:
 
-In this case, flows will fail with a `ContractConstraintRejection`, and the failed flow will be sent to the flow hospital.
-                From there it’s suspended waiting to be retried on node restart.
-                This gives the node operator the opportunity to recover from those errors, which in the case of constraint violations means
-                adding the right cordapp jar to the `cordapps` folder.
 
-> 
-> ```java
-> TransactionBuilder transaction() {
->     TransactionBuilder transaction = new TransactionBuilder(notary());
->     // Signature Constraint used if app is signed
->     transaction.addOutputState(state);
->     // Explicitly using a Signature Constraint
->     transaction.addOutputState(state, CONTRACT_ID, new SignatureAttachmentConstraint(getOurIdentity().getOwningKey()));
->     // Explicitly using a Hash Constraint
->     transaction.addOutputState(state, CONTRACT_ID, new HashAttachmentConstraint(getServiceHub().getCordappProvider().getContractAttachmentID(CONTRACT_ID)));
->     // Explicitly using a Whitelisted by Zone Constraint
->     transaction.addOutputState(state, CONTRACT_ID, WhitelistedByZoneAttachmentConstraint.INSTANCE);
->     // Explicitly using an Always Accept Constraint
->     transaction.addOutputState(state, CONTRACT_ID, AlwaysAcceptAttachmentConstraint.INSTANCE);
-> 
->     // other transaction stuff
->     return transaction;
-> }
-> ```
-> ```kotlin
-> private fun transaction(): TransactionBuilder {
->     val transaction = TransactionBuilder(notary())
->     // Signature Constraint used if app is signed
->     transaction.addOutputState(state)
->     // Explicitly using a Signature Constraint
->     transaction.addOutputState(state, constraint = SignatureAttachmentConstraint(ourIdentity.owningKey))
->     // Explicitly using a Hash Constraint
->     transaction.addOutputState(state, constraint = HashAttachmentConstraint(serviceHub.cordappProvider.getContractAttachmentID(CONTRACT_ID)!!))
->     // Explicitly using a Whitelisted by Zone Constraint
->     transaction.addOutputState(state, constraint = WhitelistedByZoneAttachmentConstraint)
->     // Explicitly using an Always Accept Constraint
->     transaction.addOutputState(state, constraint = AlwaysAcceptAttachmentConstraint)
-> 
->     // other transaction stuff
->     return transaction
-> }
+{{< tabs name="tabs-1" >}}
+
+
+{{% tab name="java" %}}
+```java
+TransactionBuilder transaction() {
+    TransactionBuilder transaction = new TransactionBuilder(notary());
+    // Signature Constraint used if app is signed
+    transaction.addOutputState(state);
+    // Explicitly using a Signature Constraint
+    transaction.addOutputState(state, CONTRACT_ID, new SignatureAttachmentConstraint(getOurIdentity().getOwningKey()));
+    // Explicitly using a Hash Constraint
+    transaction.addOutputState(state, CONTRACT_ID, new HashAttachmentConstraint(getServiceHub().getCordappProvider().getContractAttachmentID(CONTRACT_ID)));
+    // Explicitly using a Whitelisted by Zone Constraint
+    transaction.addOutputState(state, CONTRACT_ID, WhitelistedByZoneAttachmentConstraint.INSTANCE);
+    // Explicitly using an Always Accept Constraint
+    transaction.addOutputState(state, CONTRACT_ID, AlwaysAcceptAttachmentConstraint.INSTANCE);
+
+    // other transaction stuff
+    return transaction;
+}
 ```
+{{% /tab %}}
+
+{{% tab name="kotlin" %}}
+```kotlin
+private fun transaction(): TransactionBuilder {
+    val transaction = TransactionBuilder(notary())
+    // Signature Constraint used if app is signed
+    transaction.addOutputState(state)
+    // Explicitly using a Signature Constraint
+    transaction.addOutputState(state, constraint = SignatureAttachmentConstraint(ourIdentity.owningKey))
+    // Explicitly using a Hash Constraint
+    transaction.addOutputState(state, constraint = HashAttachmentConstraint(serviceHub.cordappProvider.getContractAttachmentID(CONTRACT_ID)!!))
+    // Explicitly using a Whitelisted by Zone Constraint
+    transaction.addOutputState(state, constraint = WhitelistedByZoneAttachmentConstraint)
+    // Explicitly using an Always Accept Constraint
+    transaction.addOutputState(state, constraint = AlwaysAcceptAttachmentConstraint)
+
+    // other transaction stuff
+    return transaction
+}
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 
 ## CorDapps as attachments
 
@@ -362,43 +335,25 @@ You are running a test and have not specified the CorDapp packages to scan.
 Similarly package names need to be provided when testing using `DriverDSl`. `DriverParameters` has a property `cordappsForAllNodes` (Kotlin)
                 or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp` created by utility method `TestCordapp.findCordapp(String)`.
 
-Example of creation of two Cordapps with Finance App Flows and Finance App Contracts:
+Example of creation of two Cordapps with Finance App Flows and Finance App Contracts in Kotlin:
 
-
-{{< tabs name="tabs-3" >}}
-
-
-{{% tab name="kotlin" %}}
-```kotlin
-Driver.driver(DriverParameters(
-    cordappsForAllNodes = listOf(
-        TestCordapp.findCordapp("net.corda.finance.schemas"),
-        TestCordapp.findCordapp("net.corda.finance.flows")
-    )
-) {
-    // Your test code goes here
-})
+> 
+> ```kotlin
+> Driver.driver(DriverParameters(cordappsForAllNodes = listOf(TestCordapp.findCordapp("net.corda.finance.schemas"),
+>         TestCordapp.findCordapp("net.corda.finance.flows"))) {
+>     // Your test code goes here
+> })
 ```
-{{% /tab %}}
+The same example in Java:
 
-{{% tab name="java" %}}
-```java
-Driver.driver(
-    new DriverParameters()
-        .withCordappsForAllNodes(
-            Arrays.asList(
-                TestCordapp.findCordapp("net.corda.finance.schemas"),
-                TestCordapp.findCordapp("net.corda.finance.flows")
-            )
-        ),
-    dsl -> {
-      // Your test code goes here
-    }
-);
+> 
+> ```java
+> Driver.driver(new DriverParameters()
+>         .withCordappsForAllNodes(Arrays.asList(TestCordapp.findCordapp("net.corda.finance.schemas"),
+>         TestCordapp.findCordapp("net.corda.finance.flows"))), dsl -> {
+>     // Your test code goes here
+> });
 ```
-{{% /tab %}}
-{{< /tabs >}}
-
 When running the Corda node ensure all CordDapp JARs are placed in `cordapps` directory of each node.
                 By default Gradle Cordform task `deployNodes` copies all JARs if CorDapps to deploy are specified.
                 See [Creating nodes locally](generating-a-node.md) for detailed instructions.

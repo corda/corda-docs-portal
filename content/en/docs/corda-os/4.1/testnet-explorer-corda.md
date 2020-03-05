@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Using the Node Explorer to test a Corda node on Corda Testnet"
+aliases = [ "/releases/release-V4.1/testnet-explorer-corda.html",]
 menu = [ "corda-os-4-1",]
 tags = [ "testnet", "explorer", "corda",]
 +++

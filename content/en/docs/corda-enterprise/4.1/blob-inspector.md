@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Blob Inspector"
+aliases = [ "/releases/4.1/blob-inspector.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "blob", "inspector",]
 +++
@@ -13,18 +14,18 @@ There are many benefits to having a custom binary serialisation format (see [Obj
             this issue by allowing the contents of a binary blob file (or URL end-point) to be output in either YAML or JSON. It
             uses `JacksonSupport` to do this (see [JSON](json.md)).
 
-The tool is distributed as part of Corda Enterprise 4.1 in the form of runnable JAR “corda-tools-blob-inspector-4.1.jar”.
+The tool can be downloaded from [here](https://corda.net/resources).
 
 To run simply pass in the file or URL as the first parameter:
 
 ```kotlin
-> java -jar corda-tools-blob-inspector-4.1.jar <file or URL>
+java -jar blob-inspector.jar <file or URL>
 ```
 Use the `--help` flag for a full list of command line options.
 
-When inspecting your custom data structures, there is no need to include the jars containing the class definitions for them
-            in the classpath. The blob inspector (or rather the serialization framework) is able to synthesis any classes found in the
-            blob that are not on the classpath.
+When inspecting your custom data structures, there’s no need to include the jars containing the class definitions for them
+            in the classpath. The blob inspector (or rather the serialization framework) is able to synthesize any classes found in the
+            blob that aren’t on the classpath.
 
 
 ## Supported formats

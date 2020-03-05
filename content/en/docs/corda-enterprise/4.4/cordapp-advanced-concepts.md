@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Advanced CorDapp Concepts"
+aliases = [ "/releases/4.4/cordapp-advanced-concepts.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "cordapp", "advanced", "concepts",]
 +++

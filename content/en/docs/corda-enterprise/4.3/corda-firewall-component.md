@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Firewall Component Overview"
+aliases = [ "/releases/4.3/corda-firewall-component.html", "/corda-firewall-component.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "corda", "firewall", "component",]
 +++

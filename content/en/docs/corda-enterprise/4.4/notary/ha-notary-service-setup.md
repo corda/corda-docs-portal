@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda Enterprise HA notary service set-up"
+aliases = [ "/releases/4.4/notary/ha-notary-service-setup.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "ha", "notary", "service", "setup",]
 +++

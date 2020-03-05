@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Persistence"
+aliases = [ "/releases/release-V4.4/api-persistence.html",]
 tags = [ "api", "persistence",]
 
 [menu.corda-os-4-4]

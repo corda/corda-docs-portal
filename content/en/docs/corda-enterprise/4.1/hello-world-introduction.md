@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Hello, World!"
+aliases = [ "/releases/4.1/hello-world-introduction.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "introduction",]
 +++

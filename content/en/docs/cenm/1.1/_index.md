@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "CENM 1.1"
+aliases = [ "/releases/release-1.1/index.html", "/index.html",]
 section_menu = "cenm-1-1"
 version = "1.1"
 project = "cenm"

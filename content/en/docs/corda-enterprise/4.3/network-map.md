@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "The network map"
+aliases = [ "/releases/4.3/network-map.html", "/network-map.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "network", "map",]
 +++

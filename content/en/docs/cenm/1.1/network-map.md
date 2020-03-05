@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Network Map Service"
+aliases = [ "/releases/release-1.1/network-map.html", "/network-map.html",]
 menu = [ "cenm-1-1",]
 tags = [ "network", "map",]
 +++

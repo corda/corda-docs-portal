@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API stability guarantees"
+aliases = [ "/releases/4.3/api-stability-guarantees.html", "/api-stability-guarantees.html",]
 tags = [ "api", "stability", "guarantees",]
 
 [menu.corda-enterprise-4-3]

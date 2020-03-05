@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Config migration tool"
+aliases = [ "/releases/release-1.2/tool-config-migration.html",]
 menu = [ "cenm-1-2",]
 tags = [ "tool", "config", "migration",]
 +++

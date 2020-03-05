@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Serialization"
+aliases = [ "/releases/4.3/serialization-index.html", "/serialization-index.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "serialization",]
 +++

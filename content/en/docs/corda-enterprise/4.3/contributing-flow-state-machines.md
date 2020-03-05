@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Extending the state machine"
+aliases = [ "/releases/4.3/contributing-flow-state-machines.html", "/contributing-flow-state-machines.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "contributing", "flow", "state", "machines",]
 +++

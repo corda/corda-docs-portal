@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node monitoring and logging"
+aliases = [ "/releases/4.4/node/operating/monitoring-logging.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "monitoring", "logging",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Transactions"
+aliases = [ "/releases/4.1/api-transactions.html",]
 tags = [ "api", "transactions",]
 
 [menu.corda-enterprise-4-1]
@@ -712,7 +713,7 @@ val txState: TransactionState<DummyState> = TransactionState(ourOutputState, Dum
 
 {{% tab name="java" %}}
 ```java
-TransactionState txState = new TransactionState<>(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
+TransactionState txState = new TransactionState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
 
 ```
 {{% /tab %}}

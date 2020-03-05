@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Interest rate swaps"
+aliases = [ "/releases/release-V4.3/contract-irs.html",]
 menu = [ "corda-os-4-3",]
 tags = [ "contract", "irs",]
 +++

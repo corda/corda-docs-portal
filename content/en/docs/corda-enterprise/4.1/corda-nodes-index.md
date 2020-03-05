@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Nodes"
+aliases = [ "/releases/4.1/corda-nodes-index.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "corda", "nodes",]
 +++
@@ -23,17 +24,7 @@ tags = [ "corda", "nodes",]
 
 * [Node database](node-database.md)
 
-* [Database tables](node-database-tables.md)
-
-* [Database schema setup](node-database-admin.md)
-
-* [Simplified database schema setup for development](node-database-developer.md)
-
-* [Upgrading a Corda (open source) Node to Corda Enterprise](node-operations-upgrading-os-to-ent.md)
-
-* [Deploying CorDapps on a node](node-operations-cordapp-deployment.md)
-
-* [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md)
+* [Database access when running H2](node-database-access-h2.md)
 
 * [Node shell](shell.md)
 
@@ -42,8 +33,6 @@ tags = [ "corda", "nodes",]
 * [Creating nodes locally](generating-a-node.md)
 
 * [Running nodes locally](running-a-node.md)
-
-* [Flow Hospital](node-flow-hospital.md)
 
 
 

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Certificate Hierarchy Guide"
+aliases = [ "/releases/release-1.1/pki-guide.html", "/pki-guide.html",]
 menu = [ "cenm-1-1",]
 tags = [ "pki", "guide",]
 +++

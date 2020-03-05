@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Flows"
+aliases = [ "/releases/4.1/api-flows.html",]
 tags = [ "api", "flows",]
 
 [menu.corda-enterprise-4-1]
@@ -341,7 +342,7 @@ val firstNotary: Party = serviceHub.networkMapCache.notaryIdentities.first()
 {{% tab name="java" %}}
 ```java
 CordaX500Name notaryName = new CordaX500Name("Notary Service", "London", "GB");
-Party specificNotary = Objects.requireNonNull(getServiceHub().getNetworkMapCache().getNotary(notaryName));
+Party specificNotary = getServiceHub().getNetworkMapCache().getNotary(notaryName);
 // Alternatively, we can pick an arbitrary notary from the notary
 // list. However, it is always preferable to specify the notary
 // explicitly, as the notary list might change when new notaries are
@@ -686,6 +687,312 @@ counterpartySession.send(true);
 {{< /tabs >}}
 
 
+### Why sessions?
+
+Before `FlowSession` s were introduced the send/receive API looked a bit different. They were functions on
+                    `FlowLogic` and took the address `Party` as argument. The platform internally maintained a mapping from `Party` to
+                    session, hiding sessions from the user completely.
+
+Although this is a convenient API it introduces subtle issues where a message that was originally meant for a specific
+                    session may end up in another.
+
+Consider the following contrived example using the old `Party` based API:
+
+
+{{< tabs name="tabs-13" >}}
+
+
+{{% tab name="kotlin" %}}
+```kotlin
+@InitiatingFlow
+class LaunchSpaceshipFlow : FlowLogic<Unit>() {
+    @Suspendable
+    override fun call() {
+        val shouldLaunchSpaceship = receive<Boolean>(getPresident()).unwrap { it }
+        if (shouldLaunchSpaceship) {
+            launchSpaceship()
+        }
+    }
+
+    fun launchSpaceship() {
+    }
+
+    fun getPresident(): Party {
+        TODO()
+    }
+}
+
+@InitiatedBy(LaunchSpaceshipFlow::class)
+@InitiatingFlow
+class PresidentSpaceshipFlow(val launcher: Party) : FlowLogic<Unit>() {
+    @Suspendable
+    override fun call() {
+        val needCoffee = true
+        send(getSecretary(), needCoffee)
+        val shouldLaunchSpaceship = false
+        send(launcher, shouldLaunchSpaceship)
+    }
+
+    fun getSecretary(): Party {
+        TODO()
+    }
+}
+
+@InitiatedBy(PresidentSpaceshipFlow::class)
+class SecretaryFlow(val president: Party) : FlowLogic<Unit>() {
+    @Suspendable
+    override fun call() {
+        // ignore
+    }
+}
+
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+@InitiatingFlow
+class LaunchSpaceshipFlow extends FlowLogic<Void> {
+    @Suspendable
+    @Override
+    public Void call() throws FlowException {
+        boolean shouldLaunchSpaceship = receive(Boolean.class, getPresident()).unwrap(s -> s);
+        if (shouldLaunchSpaceship) {
+            launchSpaceship();
+        }
+        return null;
+    }
+
+    public void launchSpaceship() {
+    }
+
+    public Party getPresident() {
+        throw new AbstractMethodError();
+    }
+}
+
+@InitiatedBy(LaunchSpaceshipFlow.class)
+@InitiatingFlow
+class PresidentSpaceshipFlow extends FlowLogic<Void> {
+    private final Party launcher;
+
+    public PresidentSpaceshipFlow(Party launcher) {
+        this.launcher = launcher;
+    }
+
+    @Suspendable
+    @Override
+    public Void call() {
+        boolean needCoffee = true;
+        send(getSecretary(), needCoffee);
+        boolean shouldLaunchSpaceship = false;
+        send(launcher, shouldLaunchSpaceship);
+        return null;
+    }
+
+    public Party getSecretary() {
+        throw new AbstractMethodError();
+    }
+}
+
+@InitiatedBy(PresidentSpaceshipFlow.class)
+class SecretaryFlow extends FlowLogic<Void> {
+    private final Party president;
+
+    public SecretaryFlow(Party president) {
+        this.president = president;
+    }
+
+    @Suspendable
+    @Override
+    public Void call() {
+        // ignore
+        return null;
+    }
+}
+
+```
+{{% /tab %}}
+
+[LaunchSpaceshipFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/LaunchSpaceshipFlow.kt) | [LaunchSpaceshipFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/LaunchSpaceshipFlow.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+The intention of the flows is very clear: LaunchSpaceshipFlow asks the president whether a spaceship should be launched.
+                    It is expecting a boolean reply. The president in return first tells the secretary that they need coffee, which is also
+                    communicated with a boolean. Afterwards the president replies to the launcher that they don’t want to launch.
+
+However the above can go horribly wrong when the `launcher` happens to be the same party `getSecretary` returns. In
+                    this case the boolean meant for the secretary will be received by the launcher!
+
+This indicates that `Party` is not a good identifier for the communication sequence, and indeed the `Party` based
+                    API may introduce ways for an attacker to fish for information and even trigger unintended control flow like in the
+                    above case.
+
+Hence we introduced `FlowSession`, which identifies the communication sequence. With `FlowSession` s the above set
+                    of flows would look like this:
+
+
+{{< tabs name="tabs-14" >}}
+
+
+{{% tab name="kotlin" %}}
+```kotlin
+@InitiatingFlow
+class LaunchSpaceshipFlowCorrect : FlowLogic<Unit>() {
+    @Suspendable
+    override fun call() {
+        val presidentSession = initiateFlow(getPresident())
+        val shouldLaunchSpaceship = presidentSession.receive<Boolean>().unwrap { it }
+        if (shouldLaunchSpaceship) {
+            launchSpaceship()
+        }
+    }
+
+    fun launchSpaceship() {
+    }
+
+    fun getPresident(): Party {
+        TODO()
+    }
+}
+
+@InitiatedBy(LaunchSpaceshipFlowCorrect::class)
+@InitiatingFlow
+class PresidentSpaceshipFlowCorrect(val launcherSession: FlowSession) : FlowLogic<Unit>() {
+    @Suspendable
+    override fun call() {
+        val needCoffee = true
+        val secretarySession = initiateFlow(getSecretary())
+        secretarySession.send(needCoffee)
+        val shouldLaunchSpaceship = false
+        launcherSession.send(shouldLaunchSpaceship)
+    }
+
+    fun getSecretary(): Party {
+        TODO()
+    }
+}
+
+@InitiatedBy(PresidentSpaceshipFlowCorrect::class)
+class SecretaryFlowCorrect(val presidentSession: FlowSession) : FlowLogic<Unit>() {
+    @Suspendable
+    override fun call() {
+        // ignore
+    }
+}
+
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+@InitiatingFlow
+class LaunchSpaceshipFlowCorrect extends FlowLogic<Void> {
+    @Suspendable
+    @Override
+    public Void call() throws FlowException {
+        FlowSession presidentSession = initiateFlow(getPresident());
+        boolean shouldLaunchSpaceship = presidentSession.receive(Boolean.class).unwrap(s -> s);
+        if (shouldLaunchSpaceship) {
+            launchSpaceship();
+        }
+        return null;
+    }
+
+    public void launchSpaceship() {
+    }
+
+    public Party getPresident() {
+        throw new AbstractMethodError();
+    }
+}
+
+@InitiatedBy(LaunchSpaceshipFlowCorrect.class)
+@InitiatingFlow
+class PresidentSpaceshipFlowCorrect extends FlowLogic<Void> {
+    private final FlowSession launcherSession;
+
+    public PresidentSpaceshipFlowCorrect(FlowSession launcherSession) {
+        this.launcherSession = launcherSession;
+    }
+
+    @Suspendable
+    @Override
+    public Void call() {
+        boolean needCoffee = true;
+        FlowSession secretarySession = initiateFlow(getSecretary());
+        secretarySession.send(needCoffee);
+        boolean shouldLaunchSpaceship = false;
+        launcherSession.send(shouldLaunchSpaceship);
+        return null;
+    }
+
+    public Party getSecretary() {
+        throw new AbstractMethodError();
+    }
+}
+
+@InitiatedBy(PresidentSpaceshipFlowCorrect.class)
+class SecretaryFlowCorrect extends FlowLogic<Void> {
+    private final FlowSession presidentSession;
+
+    public SecretaryFlowCorrect(FlowSession presidentSession) {
+        this.presidentSession = presidentSession;
+    }
+
+    @Suspendable
+    @Override
+    public Void call() {
+        // ignore
+        return null;
+    }
+}
+
+```
+{{% /tab %}}
+
+[LaunchSpaceshipFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/LaunchSpaceshipFlow.kt) | [LaunchSpaceshipFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/LaunchSpaceshipFlow.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+Note how the president is now explicit about which session it wants to send to.
+
+
+### Porting from the old Party-based API
+
+In the old API the first `send` or `receive` to a `Party` was the one kicking off the counter-flow. This is now
+                    explicit in the `initiateFlow` function call. To port existing code:
+
+
+{{< tabs name="tabs-15" >}}
+
+
+{{% tab name="kotlin" %}}
+```kotlin
+send(regulator, Any()) // Old API
+// becomes
+val session = initiateFlow(regulator)
+session.send(Any())
+
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+send(regulator, new Object()); // Old API
+// becomes
+FlowSession session = initiateFlow(regulator);
+session.send(new Object());
+
+```
+{{% /tab %}}
+
+[FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+
 ## Subflows
 
 Subflows are pieces of reusable flows that may be run by calling `FlowLogic.subFlow`. There are two broad categories
@@ -794,7 +1101,7 @@ Let’s look at some of these flows in more detail.
                         the transaction’s states:
 
 
-{{< tabs name="tabs-13" >}}
+{{< tabs name="tabs-16" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -818,7 +1125,7 @@ SignedTransaction notarisedTx1 = subFlow(new FinalityFlow(fullySignedTx, singlet
 We can also choose to send the transaction to additional parties who aren’t one of the state’s participants:
 
 
-{{< tabs name="tabs-14" >}}
+{{< tabs name="tabs-17" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -846,7 +1153,7 @@ Only one party has to call `FinalityFlow` for a given transaction to be recorded
                         flow to receive the transaction:
 
 
-{{< tabs name="tabs-15" >}}
+{{< tabs name="tabs-18" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -900,7 +1207,7 @@ The list of parties who need to sign a transaction is dictated by the transactio
                         `CollectSignaturesFlow`:
 
 
-{{< tabs name="tabs-16" >}}
+{{< tabs name="tabs-19" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -925,7 +1232,7 @@ Each required signer will need to respond by invoking its own `SignTransactionFl
                         transaction (by implementing the `checkTransaction` method) and provide their signature if they are satisfied:
 
 
-{{< tabs name="tabs-17" >}}
+{{< tabs name="tabs-20" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -951,7 +1258,7 @@ class SignTxFlow extends SignTransactionFlow {
     }
 
     @Override
-    protected void checkTransaction(@NotNull SignedTransaction stx) {
+    protected void checkTransaction(SignedTransaction stx) {
         requireThat(require -> {
             // Any additional checking we see fit...
             DummyState outputState = (DummyState) stx.getTx().getOutputs().get(0).getData();
@@ -994,7 +1301,7 @@ Verifying a transaction received from a counterparty also requires verification 
                         transaction data vending requests as the receiver walks the dependency chain using `ReceiveTransactionFlow`:
 
 
-{{< tabs name="tabs-18" >}}
+{{< tabs name="tabs-21" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -1034,7 +1341,7 @@ We can receive the transaction using `ReceiveTransactionFlow`, which will automa
                         dependencies and verify the transaction:
 
 
-{{< tabs name="tabs-19" >}}
+{{< tabs name="tabs-22" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -1058,7 +1365,7 @@ SignedTransaction verifiedTransaction = subFlow(new ReceiveTransactionFlow(count
 We can also send and receive a `StateAndRef` dependency chain and automatically resolve its dependencies:
 
 
-{{< tabs name="tabs-20" >}}
+{{< tabs name="tabs-23" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -1110,7 +1417,7 @@ If you wish to notify any waiting counterparties of the cause of the exception, 
                 `FlowException`:
 
 
-{{< tabs name="tabs-21" >}}
+{{< tabs name="tabs-24" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -1177,7 +1484,7 @@ We can give our flow a progress tracker. This allows us to see the flow’s prog
 To provide a progress tracker, we have to override `FlowLogic.progressTracker` in our flow:
 
 
-{{< tabs name="tabs-22" >}}
+{{< tabs name="tabs-25" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -1265,7 +1572,7 @@ private final ProgressTracker progressTracker = new ProgressTracker(
 We then update the progress tracker’s current step as we progress through the flow as follows:
 
 
-{{< tabs name="tabs-23" >}}
+{{< tabs name="tabs-26" >}}
 
 
 {{% tab name="kotlin" %}}

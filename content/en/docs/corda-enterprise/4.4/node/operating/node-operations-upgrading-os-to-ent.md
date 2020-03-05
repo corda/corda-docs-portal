@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Upgrading a Corda (open source) Node to Corda Enterprise"
+aliases = [ "/releases/4.4/node/operating/node-operations-upgrading-os-to-ent.html",]
 tags = [ "node", "operations", "upgrading", "os", "ent",]
 
 [menu.corda-enterprise-4-4]

@@ -138,6 +138,12 @@ class Markdown:
     def depart_note(self):
         return '\n</div>\n'
 
+    def visit_tip(self):
+        return '<div class="r3-o-note" role="alert"><span>Note: </span>\n\n'
+
+    def depart_tip(self):
+        return '\n</div>\n'
+
     def visit_warning(self):
         return '<div class="r3-o-warning" role="alert"><span>Warning: </span>\n\n'
 
@@ -248,6 +254,12 @@ class Hugo(Markdown):
         return "\n{{< attention >}}\n"
 
     def depart_attention(self):
+        return "\n{{< /attention >}}\n"
+
+    def visit_tip(self):
+        return "\n{{< attention >}}\n"
+
+    def depart_tip(self):
         return "\n{{< /attention >}}\n"
 
     def visit_important(self):
@@ -421,7 +433,7 @@ class Translator:
     """ Add in some front-matter tags derived from the file """
     def _add_front_matter(self):
         dirs = str(self.filename).split("/")
-
+        #  locate 'docs'
         while dirs[0] != "docs":
             dirs.pop(0)
 
@@ -430,10 +442,24 @@ class Translator:
         project_name = dirs[1]
         semantic_version = dirs[2]
         version = (project_name + "-" + semantic_version).replace(".", "-")
-
         filename_only = os.path.basename(os.path.splitext(self.filename)[0])
-        #  convienience
         dest_file = str(self.filename).replace('docs/xml/xml/', '').replace(".xml", ".md")
+
+        #  Add docs.corda.net alias in case we get deployed there.
+        suffix = "/" + "/".join(dirs[3:]).replace(".xml", ".html").replace('docs/xml/xml/', '')
+        #  Oh joy.  Couldn't make it up really..
+        if project_name == "corda-os":
+            self.front_matter["aliases"] = ["/releases/release-V" + semantic_version + suffix]            
+            # don't add the open-source defaut-without-a-version links, because they're duplicated
+            # by enterprise, so just redirect there instead.
+        elif project_name.startswith("corda-ent"):
+            self.front_matter["aliases"] = ["/releases/" + semantic_version + suffix]
+            if semantic_version == "4.3": # latest old release
+                self.front_matter["aliases"].append(suffix)
+        elif project_name.startswith("cenm"): # latest old release
+            self.front_matter["aliases"] = ["/releases/release-" + semantic_version + suffix]
+            if semantic_version == "1.1":
+                self.front_matter["aliases"].append(suffix)
 
         dirname_only = os.path.basename(os.path.dirname(dest_file))
         project_only = os.path.basename(os.path.dirname(os.path.dirname(dest_file)))
@@ -445,7 +471,7 @@ class Translator:
         if is_version_index:
             if project_only == "corda-os":
                 self.front_matter["title"] = "Corda OS " + dirname_only
-            elif project_only == "corda-ent":
+            elif project_only.startswith("corda-ent") and semantic_version != "4.4":
                 self.front_matter["title"] = "Corda Enterprise " + dirname_only
             elif project_only == "cenm":
                 self.front_matter["title"] = "CENM " + dirname_only
@@ -453,6 +479,8 @@ class Translator:
         # Menu entries that this page should occur in:
         menu = self.front_matter.get("menu", {})
 
+        # Try and automatically group together some pages to get us
+        # started with hugo menus
         # Specifically figure out what this menu should be.
         # Add each menu as a dict
         menu_entry = {}
@@ -467,7 +495,7 @@ class Translator:
         elif filename_only.startswith("config-"):
             menu_entry = { "parent": version + "-config" }
 
-        # e.g. if 4.4/index
+        # Are we a (project+version) section/index page? e.g. if 4.4/index
         if is_version_index:
             LOG.warning(f"Adding {self.filename} to 'versions' menu")
             versions_menu_entry = {}
@@ -484,11 +512,12 @@ class Translator:
                 versions_menu_entry["weight"] = (100 - int(float(semantic_version)*10)) + 100
             menu["versions"] = versions_menu_entry
 
-        # Set the menu entry for { "corda-os-4-3": { ... } }
+        # Add this page as a menu entry for the given 
+        # 'section menu', i.e. { "corda-os-4-3": { ... } }
         menu[version] = menu_entry
 
-        # All the values are empty dict, so we can safely use a list
-        # of menus we're in instead.
+        # If all the menu values are empty dictionaries, we can safely use a list
+        # of menus we belong to instead.  This more human-friendly.
         if all(not bool(v) for __, v in menu.items()):
             menu = [k for k, __ in menu.items()]
 
@@ -1044,10 +1073,16 @@ class Translator:
         self.top.put_body(f"</{node.tag}>")
 
     def visit_toctree(self, node):
-            LOG.debug('Not implemented toctree')
+        LOG.debug('Not implemented toctree')
 
     def depart_toctree(self, node):
-            LOG.debug('Not implemented toctree')
+        LOG.debug('Not implemented toctree')
+
+    def visit_tip(self, node):
+        self.top.put_body(self.cms.visit_tip())
+
+    def depart_tip(self, node):
+        self.top.put_body(self.cms.depart_tip())
 
 
 ############################################################################
@@ -1267,7 +1302,6 @@ def main():
     parser.add_argument("--skip", "-s", help="skip rst conversion for speed if already done", default=False, action='store_true')
     parser.add_argument("--cms", "-c", help="generate (commonmark) markdown for cms", default='hugo', choices=['gatsby', 'markdown', 'hugo'])
     ARGS = parser.parse_args()
-
     _setup_logging()
 
     LOG.warning(f"You need to clone the repositories you wish to convert to {REPOS}")

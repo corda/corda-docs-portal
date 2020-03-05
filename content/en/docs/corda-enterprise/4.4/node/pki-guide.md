@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Certificate Hierarchy Guide"
+aliases = [ "/releases/4.4/node/pki-guide.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "pki", "guide",]
 +++

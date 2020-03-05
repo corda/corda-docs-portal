@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Identity"
+aliases = [ "/releases/release-V4.1/api-identity.html",]
 tags = [ "api", "identity",]
 
 [menu.corda-os-4-1]

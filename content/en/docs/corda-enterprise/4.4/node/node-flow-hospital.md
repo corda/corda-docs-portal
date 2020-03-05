@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Flow Hospital"
+aliases = [ "/releases/4.4/node/node-flow-hospital.html",]
 tags = [ "node", "flow", "hospital",]
 
 [menu.corda-enterprise-4-4]

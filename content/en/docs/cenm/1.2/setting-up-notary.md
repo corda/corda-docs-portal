@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Setting Up A Notary Node"
+aliases = [ "/releases/release-1.2/setting-up-notary.html",]
 menu = [ "cenm-1-2",]
 tags = [ "setting", "notary",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Upgrading apps to Corda 4"
+aliases = [ "/releases/4.1/app-upgrade-notes.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "app", "upgrade", "notes",]
 +++
@@ -42,17 +43,7 @@ Alter the versions you depend on in your Gradle file like so:
 ext.corda_release_version = '4.1'
 ext.corda_gradle_plugins_version = '4.0.42'
 ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.11_r3'
-```
-You also need a add `corda-dependencies` to the list of repositories to make the custom built version of Quasar available:
-
-```groovy
-repositories {
-    mavenCentral()
-    jcenter()
-    // ... Repository access for Corda Enterprise and any other dependencies
-    maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar version
-}
+ext.quasar_version = '0.7.10'
 ```
 
 {{< note >}}
@@ -119,7 +110,7 @@ The minimum platform version is the platform version of the node that you requir
 
 {{< note >}}
 Whilst it’s currently a convention that Corda releases have the platform version number as their
-                    major version i.e. Corda 3.4 implements platform version 3, this is not actually required and may in
+                    major version i.e. Corda 3.3 implements platform version 3, this is not actually required and may in
                     future not hold true. You should know the platform version of the node releases you want to target.
 
 {{< /note >}}
@@ -508,42 +499,121 @@ If you are constructing a MockServices for testing contracts, and your contract 
                 now need to explicitly add `net.corda.finance.contracts` to the list of `cordappPackages`. This is a part of the work to disentangle
                 the finance app (which is really a demo app) from the Corda internals. Example:
 
+
+{{< tabs name="tabs-6" >}}
+
+
+{{% tab name="kotlin" %}}
 ```kotlin
 val ledgerServices = MockServices(
     listOf("net.corda.examples.obligation", "net.corda.testing.contracts"),
-    identityService = makeTestIdentityService(),
-    initialIdentity = TestIdentity(CordaX500Name("TestIdentity", "", "GB"))
+    initialIdentity = TestIdentity(CordaX500Name("TestIdentity", "", "GB")),
+    identityService = makeTestIdentityService()
 )
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+MockServices ledgerServices = new MockServices(
+    Arrays.asList("net.corda.examples.obligation", "net.corda.testing.contracts"),
+    new TestIdentity(new CordaX500Name("TestIdentity", "", "GB")),
+    makeTestIdentityService()
+);
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 becomes:
 
+
+{{< tabs name="tabs-7" >}}
+
+
+{{% tab name="kotlin" %}}
 ```kotlin
 val ledgerServices = MockServices(
     listOf("net.corda.examples.obligation", "net.corda.testing.contracts", "net.corda.finance.contracts"),
-    identityService = makeTestIdentityService(),
-    initialIdentity = TestIdentity(CordaX500Name("TestIdentity", "", "GB"))
+    initialIdentity = TestIdentity(CordaX500Name("TestIdentity", "", "GB")),
+    identityService = makeTestIdentityService()
 )
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+MockServices ledgerServices = new MockServices(
+    Arrays.asList("net.corda.examples.obligation", "net.corda.testing.contracts", "net.corda.finance.contracts"),
+    new TestIdentity(new CordaX500Name("TestIdentity", "", "GB")),
+    makeTestIdentityService()
+);
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 You may need to use the new `TestCordapp` API when testing with the node driver or mock network, especially if you decide to stick with the
                 pre-Corda 4 `FinalityFlow` API. The previous way of pulling in CorDapps into your tests (i.e. via using the `cordappPackages` parameter) does not honour CorDapp versioning.
                 The new API `TestCordapp.findCordapp()` discovers the CorDapps that contain the provided packages scanning the classpath, so you have to ensure that the classpath the tests are running under contains either the CorDapp `.jar` or (if using Gradle) the relevant Gradle sub-project.
                 In the first case, the versioning information in the CorDapp `.jar` file will be maintained. In the second case, the versioning information will be retrieved from the Gradle `cordapp` task.
                 For example, if you are using `MockNetwork` for your tests, the following code:
 
+
+{{< tabs name="tabs-8" >}}
+
+
+{{% tab name="kotlin" %}}
 ```kotlin
 val mockNetwork = MockNetwork(
     cordappPackages = listOf("net.corda.examples.obligation", "net.corda.finance.contracts"),
     notarySpecs = listOf(MockNetworkNotarySpec(notary))
 )
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+MockNetwork mockNetwork = new MockNetwork(
+    Arrays.asList("net.corda.examples.obligation", "net.corda.finance.contracts"),
+    new MockNetworkParameters().withNotarySpecs(Arrays.asList(new MockNetworkNotarySpec(notary)))
+);
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 would need to be transformed into:
 
+
+{{< tabs name="tabs-9" >}}
+
+
+{{% tab name="kotlin" %}}
 ```kotlin
-val mockNetwork = MockNetwork(MockNetworkParameters(
-    cordappsForAllNodes = listOf(TestCordapp.findCordapp("net.corda.businessnetworks.membership")),
-    notarySpecs = listOf(MockNetworkNotarySpec(notary))
-))
+val mockNetwork = MockNetwork(
+    MockNetworkParameters(
+        cordappsForAllNodes = listOf(
+            TestCordapp.findCordapp("net.corda.examples.obligation.contracts"),
+            TestCordapp.findCordapp("net.corda.examples.obligation.flows")
+        ),
+        notarySpecs = listOf(MockNetworkNotarySpec(notary))
+    )
+)
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+MockNetwork mockNetwork = new MockNetwork(
+    new MockNetworkParameters(
+        Arrays.asList(
+            TestCordapp.findCordapp("net.corda.examples.obligation.contracts"),
+            TestCordapp.findCordapp("net.corda.examples.obligation.flows")
+        )
+    ).withNotarySpecs(Arrays.asList(new MockNetworkNotarySpec(notary)))
+);
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 Note that every package should exist in only one CorDapp, otherwise the discovery process won’t be able to determine which one to use and you will most probably see an exception telling you `There is more than one CorDapp containing the package`.
                 For instance, if you have 2 CorDapps containing the packages `net.corda.examples.obligation.contracts` and `net.corda.examples.obligation.flows`, you will get this error if you specify the package `net.corda.examples.obligation`.
 
@@ -581,17 +651,6 @@ Learn more by reading [Contract/State Agreement](api-contract-constraints.md#con
                 deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
                 the act of upgrading your app to use the version 4 Gradle plugins will result in your app being automatically signed, and new states
                 automatically using new signature constraints selected automatically based on these signing keys.
-
-
-{{< important >}}
-You will be able to use this feature if the compatibility zone you plan to deploy on has raised its minimum platform version
-
-
-{{< /important >}}
-
-
-to 4. Otherwise attempting to use signature constraints will throw an exception, because other nodes would not understand it or be able
-to check the correctness of the transaction. Please take this into account for your own schedule planning.
 
 You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
                 automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
@@ -634,7 +693,8 @@ When signing your JARs for Corda 4, your own apps will also become sealed, meani
                 and request ownership of your root package namespaces (e.g. `com.megacorp.*`), with the signing keys you will be using to sign your app JARs.
                 The zone operator can then add your signing key to the network parameters, and prevent attackers defining types in your own package namespaces.
                 Whilst this feature is optional and not strictly required, it may be helpful to block attacks at the boundaries of a Corda based application
-                where type names may be taken “as read”.
+                where type names may be taken “as read”. You can learn more about this feature and the motivation for it by reading
+                “[Package namespace ownership](design/data-model-upgrades/package-namespace-ownership.md)”.
 
 
 ## Step 11. Consider adding extension points to your flows
@@ -681,7 +741,7 @@ If your project is based on one of the official cordapp templates, it is likely 
 You have some choices here:
 
 
-* Upgrade your `quasar.jar` to `0.7.11_r3`
+* Upgrade your `quasar.jar` to `0.7.10`
 
 
 * Delete your `lib` directory and switch to using the Gradle test runner

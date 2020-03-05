@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Notary sizing considerations"
+aliases = [ "/releases/4.4/notary/notary-sizing.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "notary", "sizing",]
 +++

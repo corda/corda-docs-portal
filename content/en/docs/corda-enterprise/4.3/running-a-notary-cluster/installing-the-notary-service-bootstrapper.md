@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Joining a bootstrapped network"
+aliases = [ "/releases/4.3/running-a-notary-cluster/installing-the-notary-service-bootstrapper.html", "/running-a-notary-cluster/installing-the-notary-service-bootstrapper.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "installing", "notary", "service", "bootstrapper",]
 +++

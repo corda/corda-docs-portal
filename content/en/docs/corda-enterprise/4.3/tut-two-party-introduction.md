@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Hello, World! Pt.2 - Contract constraints"
+aliases = [ "/releases/4.3/tut-two-party-introduction.html", "/tut-two-party-introduction.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "tut", "party", "introduction",]
 +++

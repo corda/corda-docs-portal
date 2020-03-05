@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Blob Inspector"
+aliases = [ "/releases/4.3/blob-inspector.html", "/blob-inspector.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "blob", "inspector",]
 +++

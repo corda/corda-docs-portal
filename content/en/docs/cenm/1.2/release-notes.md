@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Release notes"
+aliases = [ "/releases/release-1.2/release-notes.html",]
 menu = [ "cenm-1-2",]
 tags = [ "release", "notes",]
 +++

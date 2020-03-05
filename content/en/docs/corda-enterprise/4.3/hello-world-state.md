@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing the state"
+aliases = [ "/releases/4.3/hello-world-state.html", "/hello-world-state.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "state",]
 +++

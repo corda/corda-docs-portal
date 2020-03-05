@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Understanding and Creating Testplans"
+aliases = [ "/releases/4.4/performance-testing/jmeter-testplans.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "jmeter", "testplans",]
 +++

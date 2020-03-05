@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Highly available database setup guidelines"
+aliases = [ "/releases/4.3/running-a-notary-cluster/db-guidelines.html", "/running-a-notary-cluster/db-guidelines.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "db", "guidelines",]
 +++

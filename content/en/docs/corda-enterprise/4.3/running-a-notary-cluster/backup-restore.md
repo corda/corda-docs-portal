@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Highly-available notary backup and restore"
+aliases = [ "/releases/4.3/running-a-notary-cluster/backup-restore.html", "/running-a-notary-cluster/backup-restore.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "backup", "restore",]
 +++

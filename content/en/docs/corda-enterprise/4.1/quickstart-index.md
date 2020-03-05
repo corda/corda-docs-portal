@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Quickstart"
+aliases = [ "/releases/4.1/quickstart-index.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "quickstart",]
 +++
@@ -85,8 +86,8 @@ I want to:
 |[Node folder structure](node-structure.md)|The Corda node folder structure and how to name your node|
 |[Node configuration](corda-configuration-file.md)|A detailed description of the Corda node configuration file with examples|
 |[Deploying a node to a server](deploying-a-node.md)|A step-by-step guide on deploying a Corda node to your own server|
-|[<no title>](azure-vm.md)|A step-by-step guide on creating a Corda Network on Azure|
-|aws-vm|A step-by-step guide on creating a Corda Network on AWS|
+|[Azure Marketplace](azure-vm.md)|A step-by-step guide on creating a Corda Network on Azure|
+|[AWS Marketplace](aws-vm.md)|A step-by-step guide on creating a Corda Network on AWS|
 |[Node shell](shell.md)|Guidance on using an embedded command line to control and monitor a node|
 |[Node administration](node-administration.md)|How to monitor a Corda node using an RPC interface|
 |[Node Explorer](node-explorer.md)|A GUI-based tool to view transactional data and transactional history for a node|

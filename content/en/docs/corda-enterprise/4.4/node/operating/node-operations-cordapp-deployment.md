@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Deploying CorDapps on a node"
+aliases = [ "/releases/4.4/node/operating/node-operations-cordapp-deployment.html",]
 tags = [ "node", "operations", "cordapp", "deployment",]
 
 [menu.corda-enterprise-4-4]

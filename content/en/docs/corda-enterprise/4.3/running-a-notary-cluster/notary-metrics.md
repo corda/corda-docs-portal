@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Highly-available notary metrics"
+aliases = [ "/releases/4.3/running-a-notary-cluster/notary-metrics.html", "/running-a-notary-cluster/notary-metrics.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "notary", "metrics",]
 +++

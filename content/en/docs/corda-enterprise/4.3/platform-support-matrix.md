@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Platform support matrix"
+aliases = [ "/releases/4.3/platform-support-matrix.html", "/platform-support-matrix.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "platform", "support", "matrix",]
 +++

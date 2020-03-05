@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "The network"
+aliases = [ "/releases/4.1/key-concepts-ecosystem.html",]
 tags = [ "concepts", "ecosystem",]
 
 [menu.corda-enterprise-4-1]

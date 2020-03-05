@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Troubleshooting Common Issues"
+aliases = [ "/releases/4.4/cenm/troubleshooting-common-issues.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "troubleshooting", "common", "issues",]
 +++

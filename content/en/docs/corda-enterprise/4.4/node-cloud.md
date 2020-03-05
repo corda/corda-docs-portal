@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda Enterprise cloud images"
+aliases = [ "/releases/4.4/node-cloud.html",]
 tags = [ "node", "cloud",]
 
 [menu.corda-enterprise-4-4]

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Release notes"
+aliases = [ "/releases/release-V4.4/release-notes.html",]
 menu = [ "corda-os-4-4",]
 tags = [ "release", "notes",]
 +++
@@ -71,6 +72,118 @@ For more information on platform version, please see [Versioning](versioning.md)
 
 
 ### Issues Fixed
+
+
+* A failure response from Doorman during initial registration causes a class cast exception [[CORDA-2744](https://r3-cev.atlassian.net/browse/CORDA-2744)]
+
+
+* Add an exception for Unrecoverable RPC errors [[CORDA-3192](https://r3-cev.atlassian.net/browse/CORDA-3192)]
+
+
+* Fix the misleading Flow has been waiting message [[CORDA-3197](https://r3-cev.atlassian.net/browse/CORDA-3197)]
+
+
+* Update Quasar agent so that we can exclude entire ClassLoaders from being instrumented [[CORDA-3228](https://r3-cev.atlassian.net/browse/CORDA-3228)]
+
+
+* Don’t fail on liquibase errors when using H2 [[CORDA-3302](https://r3-cev.atlassian.net/browse/CORDA-3302)]
+
+
+* Exceptions thrown in raw vault observers can cause critical issues [[CORDA-3329](https://r3-cev.atlassian.net/browse/CORDA-3329)]
+
+
+* Migration from Corda 3.x to 4.x for PostgreSQL require a manual workaround [[CORDA-3348](https://r3-cev.atlassian.net/browse/CORDA-3348)]
+
+
+* Prepare DJVM library for 1.0 release [[CORDA-3377](https://r3-cev.atlassian.net/browse/CORDA-3377)]
+
+
+* Improve node configuration override documentation [[CORDA-3386](https://r3-cev.atlassian.net/browse/CORDA-3386)]
+
+
+* Allow EvolutionSerializer to handle primitive types becoming nullable [[CORDA-3390](https://r3-cev.atlassian.net/browse/CORDA-3390)]
+
+
+* Fix caching of local AMQPSerializer [[CORDA-3392](https://r3-cev.atlassian.net/browse/CORDA-3392)]
+
+
+* Fixed NPE in BlobInspector [[CORDA-3396](https://r3-cev.atlassian.net/browse/CORDA-3396)]
+
+
+* Update DemoBench so that using the DJVM is configurable [[CORDA-3406](https://r3-cev.atlassian.net/browse/CORDA-3406)]
+
+
+* Scanning for Custom Serializers in the context of transaction verification is broken [[CORDA-3464](https://r3-cev.atlassian.net/browse/CORDA-3464)]
+
+
+* Allow EvolutionSerializer to handle boxed types becoming primitive [[CORDA-3469](https://r3-cev.atlassian.net/browse/CORDA-3469)]
+
+
+* Create interface to perform transactional operations from custom CordaServices [[CORDA-3471](https://r3-cev.atlassian.net/browse/CORDA-3471)]
+
+
+* Fix typo in node database table documentation [[CORDA-3476](https://r3-cev.atlassian.net/browse/CORDA-3476)]
+
+
+* Fix node database page [[CORDA-3477](https://r3-cev.atlassian.net/browse/CORDA-3477)]
+
+
+* Add timestamp column to NODE_TRANSACTIONS table [[CORDA-3479](https://r3-cev.atlassian.net/browse/CORDA-3479)]
+
+
+* Support adding new mandatory field and removal of optional [[CORDA-3489](https://r3-cev.atlassian.net/browse/CORDA-3489)]
+
+
+* Fix link to network builder [[CORDA-3495](https://r3-cev.atlassian.net/browse/CORDA-3495)]
+
+
+* Provide option for user to specify custom serializers without classpath scanning [[CORDA-3501](https://r3-cev.atlassian.net/browse/CORDA-3501)]
+
+
+* The CordaRPCClientConfiguration is not respected when GracefulReconnect is used [[CORDA-3507](https://r3-cev.atlassian.net/browse/CORDA-3507)]
+
+
+* Fix for Could not start flow as connection failed error on starting flow via ShellCli if user is not authorized to use this flow [[CORDA-3513](https://r3-cev.atlassian.net/browse/CORDA-3513)]
+
+
+* Support whitelists and custom serializers inside the DJVM [[CORDA-3523](https://r3-cev.atlassian.net/browse/CORDA-3523)]
+
+
+* Load DJVM serialization types more precisely to avoid runtime warnings [[CORDA-3536](https://r3-cev.atlassian.net/browse/CORDA-3536)]
+
+
+* Use the config values for reconnecting retry interval and max reconnect attempts [[CORDA-3542](https://r3-cev.atlassian.net/browse/CORDA-3542)]
+
+
+* SSH memory leak and security [[CORDA-3520](https://r3-cev.atlassian.net/browse/CORDA-3520)]
+
+
+* Remove support for outdated ciphers and algorithms from SSH [[CORDA-3550](https://r3-cev.atlassian.net/browse/CORDA-3550)]
+
+
+* Deserialization using the DJVM creates too many SerializerFactory objects [[CORDA-3552](https://r3-cev.atlassian.net/browse/CORDA-3552)]
+
+
+* Allow initial registration errors to propagate up so the node exits with a failure code [[CORDA-3558](https://r3-cev.atlassian.net/browse/CORDA-3558)]
+
+
+* Remove reference to man run [[CORDA-3559](https://r3-cev.atlassian.net/browse/CORDA-3559)]
+
+
+* Always add TestCordapps to the classpath when building _driverSerializationEnv [[CORDA-3566](https://r3-cev.atlassian.net/browse/CORDA-3566)]
+
+
+* Use the connectionMaxRetryInterval configuration when reconnection the RPC client [[CORDA-3576](https://r3-cev.atlassian.net/browse/CORDA-3576)]
+
+
+* Update docs for X500 name and SSH hostkey [[CORDA-3585](https://r3-cev.atlassian.net/browse/CORDA-3585)]
+
+
+* hashLookup command help misspelling [[CORDA-3587](https://r3-cev.atlassian.net/browse/CORDA-3587)]
+
+
+* Exit the InteractiveShell on shutdown command [[CORDA-3593](https://r3-cev.atlassian.net/browse/CORDA-3593)]
+
 
 
 ## Corda 4.3

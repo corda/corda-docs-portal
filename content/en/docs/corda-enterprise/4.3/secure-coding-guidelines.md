@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Secure coding guidelines"
+aliases = [ "/releases/4.3/secure-coding-guidelines.html", "/secure-coding-guidelines.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "secure", "coding", "guidelines",]
 +++

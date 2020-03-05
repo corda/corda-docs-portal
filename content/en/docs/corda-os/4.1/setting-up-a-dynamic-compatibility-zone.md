@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Setting up a dynamic compatibility zone"
+aliases = [ "/releases/release-V4.1/setting-up-a-dynamic-compatibility-zone.html",]
 menu = [ "corda-os-4-1",]
 tags = [ "setting", "dynamic", "compatibility", "zone",]
 +++

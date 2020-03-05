@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Creating nodes locally"
+aliases = [ "/releases/4.1/generating-a-node.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "generating", "node",]
 +++
@@ -14,11 +15,11 @@ tags = [ "generating", "node",]
 A node can be created manually by creating a folder that contains the following items:
 
 
-* The Corda Enterprise JAR
+* The Corda JAR
 
 > 
 > 
->     * The binary `corda-4.1.jar` provided to your organisation.
+>     * Can be downloaded from [https://r3.bintray.com/corda/net/corda/corda/](https://r3.bintray.com/corda/net/corda/corda/) (under /4.1/corda-4.1.jar)
 > 
 > 
 
@@ -28,11 +29,11 @@ A node can be created manually by creating a folder that contains the following 
 * A folder entitled `cordapps` containing any CorDapp JARs you want the node to load
 
 
-* **Optional:** A webserver JAR entitled `corda-webserver-4.1.jar` that will connect to the node via RPC
+* **Optional:** A webserver JAR entitled `corda-webserver.jar` that will connect to the node via RPC
 
 > 
 > 
->     * The (deprecated) default webserver is available to you for testing and should not be used in a production environment.
+>     * The (deprecated) default webserver can be downloaded from [http://r3.bintray.com/corda/net/corda/corda-webserver/](http://r3.bintray.com/corda/net/corda/corda-webserver/) (under /4.1/corda-4.1.jar)
 > 
 > 
 >     * A Spring Boot alternative can be found here: [https://github.com/corda/spring-webserver](https://github.com/corda/spring-webserver)
@@ -51,6 +52,15 @@ Corda provides a gradle plugin called `Cordform` that allows you to automaticall
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     directory "./build/nodes"
+
+    nodeDefaults {
+            cordapps = [
+            "net.corda:corda-finance-contracts:$corda_release_version",
+            "net.corda:corda-finance-workflows:$corda_release_version",
+            "net.corda:corda-confidential-identities:$corda_release_version"
+            ]
+    }
+
     node {
         name "O=Notary,L=London,C=GB"
         // The notary will offer a validating notary service.
@@ -64,8 +74,6 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         h2Port   10004
         // Starts an internal SSH server providing a management shell on the node.
         sshdPort 2223
-        // Includes the corda-finance CorDapp on our node.
-        cordapps = ["$corda_release_distribution:corda-finance:$corda_release_version"]
         extraConfig = [
             // Setting the JMX reporter type.
             jmxReporterType: 'JOLOKIA',
@@ -82,7 +90,6 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         }
         webPort  10007
         h2Port   10008
-        cordapps = ["$corda_release_distribution:corda-finance:$corda_release_version"]
         // Grants user1 all RPC permissions.
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
@@ -95,14 +102,11 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         }
         webPort  10011
         h2Port   10012
-        cordapps = ["$corda_release_distribution:corda-finance:$corda_release_version"]
         // Grants user1 the ability to start the MyFlow flow.
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
     }
 }
 ```
-Ensure Corda Enterprise binaries are available on your machine as described in Getting Set Up.
-
 Running this task will create three nodes in the `build/nodes` folder:
 
 
@@ -164,9 +168,6 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     }
 }
 ```
-Additional properties can be also specified directly by the `extraConfig` property which defines a map of keys and values. The example config above uses `extraConfig` to set value of the `jvmArgs` property.
-                See the extended example of [adding database configuration](testing.md#testing-cordform-ref).
-
 Cordform parameter *drivers* of the *node* entry lists paths of the files to be copied to the *./drivers* subdirectory of the node.
                 To copy the same file to all nodes *ext.drivers* can be defined in the top level and reused for each node via *drivers=ext.drivers`*.
 
@@ -329,7 +330,7 @@ The nodes’ webservers will not be started. Instead, you should interact with e
 
 Where `2222` is the port you want to open to SSH into the shell.
 
-Below you can find the example task from the [IRS Demo](https://github.com/corda/corda/blob/release/os/4.1/samples/irs-demo/cordapp/build.gradle#L111) included in the samples directory of main Corda GitHub repository:
+Below you can find the example task from the [IRS Demo](https://github.com/corda/corda/blob/release/4/samples/irs-demo/cordapp/build.gradle#L111) included in the samples directory of main Corda GitHub repository:
 
 ```groovy
 def rpcUsersList = [
@@ -350,28 +351,32 @@ def rpcUsersList = [
 
 task deployNodes(type: net.corda.plugins.Dockerform, dependsOn: ['jar']) {
 
+    nodeDefaults {
+            cordapps = [
+            "net.corda:corda-finance-contracts:$corda_release_version",
+            "net.corda:corda-finance-workflows:$corda_release_version",
+            "net.corda:corda-confidential-identities:$corda_release_version"
+            ]
+    }
+
     node {
         name "O=Notary Service,L=Zurich,C=CH"
         notary = [validating : true]
-        cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = rpcUsersList
         useTestClock true
     }
     node {
         name "O=Bank A,L=London,C=GB"
-        cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = rpcUsersList
         useTestClock true
     }
     node {
         name "O=Bank B,L=New York,C=US"
-        cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = rpcUsersList
         useTestClock true
     }
     node {
         name "O=Regulator,L=Moscow,C=RU"
-        cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = rpcUsersList
         useTestClock true
     }

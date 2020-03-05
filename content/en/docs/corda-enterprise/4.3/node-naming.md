@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node identity"
+aliases = [ "/releases/4.3/node-naming.html", "/node-naming.html",]
 tags = [ "node", "naming",]
 
 [menu.corda-enterprise-4-3]

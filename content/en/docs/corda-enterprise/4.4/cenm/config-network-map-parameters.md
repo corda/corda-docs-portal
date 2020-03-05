@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Network Map Configuration Parameters"
+aliases = [ "/releases/4.4/cenm/config-network-map-parameters.html",]
 tags = [ "config", "network", "map", "parameters",]
 
 [menu.corda-enterprise-4-4]

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda Network Builder"
+aliases = [ "/releases/4.1/network-builder.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "network", "builder",]
 +++
@@ -15,7 +16,7 @@ The Corda Network Builder is a tool for building Corda networks for testing purp
             containers. More backends may be added in future. The tool is open source, so contributions to add more
             destinations for the containers are welcome!
 
-[Download the Corda Network Builder](https://software.r3.com/artifactory/corda-releases/net/corda/corda-network-builder/4.0-corda/corda-network-builder-4.0-corda-executable.jar).
+[Download the Corda Network Builder](https://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-network-builder/4.0-corda/corda-network-builder-4.0-corda-executable.jar).
 
 
 ## Prerequisites

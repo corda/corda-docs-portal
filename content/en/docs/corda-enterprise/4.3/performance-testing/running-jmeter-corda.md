@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Running JMeter Corda"
+aliases = [ "/releases/4.3/performance-testing/running-jmeter-corda.html", "/performance-testing/running-jmeter-corda.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "running", "jmeter", "corda",]
 +++

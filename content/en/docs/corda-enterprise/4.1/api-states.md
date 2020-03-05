@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: States"
+aliases = [ "/releases/4.1/api-states.html",]
 tags = [ "api", "states",]
 
 [menu.corda-enterprise-4-1]
@@ -286,6 +287,59 @@ Beyond implementing `ContractState` or a sub-interface, a state is allowed to ha
 
 
 {{< tabs name="tabs-5" >}}
+
+
+{{% tab name="kotlin" %}}
+```kotlin
+    /** A state representing a cash claim against some party. */
+    @BelongsToContract(Cash::class)
+    data class State(
+            override val amount: Amount<Issued<Currency>>,
+
+            /** There must be a MoveCommand signed by this key to claim the amount. */
+            override val owner: AbstractParty
+    ) : FungibleAsset<Currency>, QueryableState {
+        constructor(deposit: PartyAndReference, amount: Amount<Currency>, owner: AbstractParty)
+                : this(Amount(amount.quantity, Issued(deposit, amount.token)), owner)
+
+        override val exitKeys = setOf(owner.owningKey, amount.token.issuer.party.owningKey)
+        override val participants = listOf(owner)
+
+        override fun withNewOwnerAndAmount(newAmount: Amount<Issued<Currency>>, newOwner: AbstractParty): FungibleAsset<Currency>
+                = copy(amount = amount.copy(newAmount.quantity), owner = newOwner)
+
+        override fun toString() = "${Emoji.bagOfCash}Cash($amount at ${amount.token.issuer} owned by $owner)"
+
+        override fun withNewOwner(newOwner: AbstractParty) = CommandAndState(Commands.Move(), copy(owner = newOwner))
+        infix fun ownedBy(owner: AbstractParty) = copy(owner = owner)
+        infix fun issuedBy(party: AbstractParty) = copy(amount = Amount(amount.quantity, amount.token.copy(issuer = amount.token.issuer.copy(party = party))))
+        infix fun issuedBy(deposit: PartyAndReference) = copy(amount = Amount(amount.quantity, amount.token.copy(issuer = deposit)))
+        infix fun withDeposit(deposit: PartyAndReference): Cash.State = copy(amount = amount.copy(token = amount.token.copy(issuer = deposit)))
+
+        /** Object Relational Mapping support. */
+        override fun generateMappedObject(schema: MappedSchema): PersistentState {
+            return when (schema) {
+                is CashSchemaV1 -> CashSchemaV1.PersistentCashState(
+                        owner = this.owner,
+                        pennies = this.amount.quantity,
+                        currency = this.amount.token.product.currencyCode,
+                        issuerPartyHash = this.amount.token.issuer.party.owningKey.toStringShort(),
+                        issuerRef = this.amount.token.issuer.reference.bytes
+                )
+            /** Additional schema mappings would be added here (eg. CashSchemaV2, CashSchemaV3, ...) */
+                else -> throw IllegalArgumentException("Unrecognised schema $schema")
+            }
+        }
+
+        /** Object Relational Mapping support. */
+        override fun supportedSchemas(): Iterable<MappedSchema> = listOf(CashSchemaV1)
+        /** Additional used schemas would be added here (eg. CashSchemaV2, CashSchemaV3, ...) */
+    }
+
+```
+{{% /tab %}}
+
+[Cash.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/finance/contracts/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Changelog"
+aliases = [ "/releases/release-1.1/changelog.html", "/changelog.html",]
 menu = [ "cenm-1-1",]
 tags = [ "changelog",]
 +++

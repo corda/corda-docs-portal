@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "The network map"
+aliases = [ "/releases/4.1/network-map.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "network", "map",]
 +++
@@ -24,11 +25,11 @@ The network map server also distributes the parameters file that define values f
 
 
 {{< note >}}
-In Corda Enterprise no implementation of the HTTP network map server is provided. This is because the details of how
+In Corda 3 no implementation of the HTTP network map server is provided. This is because the details of how
                 a compatibility zone manages its membership (the databases, ticketing workflows, HSM hardware etc) is expected to vary
                 between operators, so we provide a simple REST based protocol for uploading/downloading NodeInfos and managing
                 network parameters. A future version of Corda may provide a simple “stub” implementation for running test zones.
-                In the current version the right way to run a test network is through distribution of the relevant files via your own mechanisms.
+                In Corda 3 the right way to run a test network is through distribution of the relevant files via your own mechanisms.
                 We provide a tool to automate the bulk of this task (see below).
 
 {{< /note >}}
@@ -182,6 +183,7 @@ List of the network-wide java packages that were successfully claimed by their o
                             This ensures that when a node encounters an owned contract it can uniquely identify it and knows that all other nodes can do the same.
                             Encountering an owned contract in a JAR that is not signed by the rightful owner is most likely a sign of malicious behaviour, and should be reported.
                             The transaction verification logic will throw an exception when this happens.
+                            Read more about *Package ownership* here [Package namespace ownership](design/data-model-upgrades/package-namespace-ownership.md).
 
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6
                 connectivity is required for zone members, required cryptographic algorithms and roll-out schedules (e.g. for moving to post quantum cryptography), parameters related to SGX and so on.
@@ -319,24 +321,6 @@ To send back parameters approval to the zone operator, the RPC method `fun accep
 If the administrator does not accept the update then next time the node polls network map after the deadline, the
                     advertised network parameters will be the updated ones. The previous set of parameters will no longer be valid.
                     At this point the node will automatically shutdown and will require the node operator to bring it back again.
-
-
-## Private networks
-
-To allow business network operators to onboard nodes in the early period of the Corda Network and not to reveal their membership
-                to other entities on the network, the concept of private network maps was introduced. This is a temporary solution which will only
-                be used in the early stages when it’s possible to deduce the members of a business network. Once sufficient number of entities have
-                joined the Network, this feature will be turned off and previously private nodes will be made visible in the public network map.
-
-An additional REST `/network-map/{uuid}` endpoint serving private network maps was introduced. For nodes to be able to query
-                that information automatically you need to change `node.conf` to include private network UUIDs in `extraNetworkMapKeys` see [Node configuration](corda-configuration-file.md).
-
-From the node operator’s perspective the process is simple. During the initial registration the Compatibility Zone operator will
-                mark the node as belonging to the private network map and will provide the node operator with UUID that should be put in the node’s config file.
-                Then node can be started as usual. At some point in time, nodes will gradually join public network without leaking confidential
-                information on business relations with operators. Private networks are not separate networks, nodes are still part of bigger
-                compatibility zone, only hidden. We reuse all the infrastructure of the compatibility zone like notaries, permissioning service,
-                so the interoperability between nodes is kept.
 
 
 ## Cleaning the network map cache

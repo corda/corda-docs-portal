@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node command-line options"
+aliases = [ "/releases/release-V4.3/node-commandline.html",]
 tags = [ "node", "commandline",]
 
 [menu.corda-os-4-3]

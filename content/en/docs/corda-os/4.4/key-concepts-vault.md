@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Vault"
+aliases = [ "/releases/release-V4.4/key-concepts-vault.html",]
 tags = [ "concepts", "vault",]
 
 [menu.corda-os-4-4]

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Release notes"
+aliases = [ "/releases/release-V4.1/release-notes.html",]
 menu = [ "corda-os-4-1",]
 tags = [ "release", "notes",]
 +++

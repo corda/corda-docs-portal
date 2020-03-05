@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "The CorDapp Template"
+aliases = [ "/releases/4.3/hello-world-template.html", "/hello-world-template.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "template",]
 +++

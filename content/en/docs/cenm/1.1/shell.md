@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Embedded Shell"
+aliases = [ "/releases/release-1.1/shell.html", "/shell.html",]
 menu = [ "cenm-1-1",]
 tags = [ "shell",]
 +++

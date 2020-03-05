@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Creating nodes locally"
+aliases = [ "/releases/4.4/node/deploy/generating-a-node.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "generating", "node",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "DemoBench"
+aliases = [ "/releases/4.1/demobench.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "demobench",]
 +++
@@ -13,15 +14,12 @@ DemoBench is a standalone desktop application that makes it easy to configure an
 
 ## Downloading
 
-Operating System specific installers are provided as part of Corda Enterprise 4.1 distribution, e.g. for Windows this will be “Corda DemoBench-4.1.exe”.
+Installers compatible with the latest Corda release can be downloaded from the [Corda website](https://www.corda.net/downloads).
 
 
 ## Running DemoBench
 
-Run the installer and follow instructions on the screen.
-                Once installer completes it will start `Corda DemoBench` application:
 
-![demobench initial](../../tools/demobench/demobench-initial.png "demobench initial")
 
 Configuring a Node
 Each node must have a unique name to identify it to the network map service. DemoBench will suggest node names, nearest cities and local port numbers to use.

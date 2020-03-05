@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Observer nodes"
+aliases = [ "/releases/4.3/tutorial-observer-nodes.html", "/tutorial-observer-nodes.html",]
 tags = [ "tutorial", "observer", "nodes",]
 
 [menu.corda-enterprise-4-3]

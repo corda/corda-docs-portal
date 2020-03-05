@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "SSL Settings"
+aliases = [ "/releases/release-1.2/config-ssl.html",]
 tags = [ "config", "ssl",]
 
 [menu.cenm-1-2]

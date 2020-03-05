@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Joining Corda Testnet"
+aliases = [ "/releases/4.3/corda-testnet-intro.html", "/corda-testnet-intro.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "corda", "testnet", "intro",]
 +++

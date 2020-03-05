@@ -1,12 +1,12 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing a custom notary service (experimental)"
+aliases = [ "/releases/4.1/tutorial-custom-notary.html",]
 tags = [ "tutorial", "custom", "notary",]
 
 [menu.corda-enterprise-4-1]
 parent = "corda-enterprise-4-1-tutorial"
 +++
-
 
 
 # Writing a custom notary service (experimental)
@@ -39,7 +39,7 @@ class MyCustomValidatingNotaryService(override val services: ServiceHubInternal,
             `NotaryFlow.Service` template). Below is an example of a custom flow for a *validating* notary service:
 
 ```kotlin
-class MyValidatingNotaryFlow(otherSide: FlowSession, service: MyCustomValidatingNotaryService) : ValidatingNotaryFlow(otherSide, service, defaultEstimatedWaitTime) {
+class MyValidatingNotaryFlow(otherSide: FlowSession, service: MyCustomValidatingNotaryService) : ValidatingNotaryFlow(otherSide, service) {
     override fun verifyTransaction(requestPayload: NotarisationPayload) {
         try {
             val stx = requestPayload.signedTransaction

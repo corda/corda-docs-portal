@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Network Bootstrapper"
+aliases = [ "/releases/4.1/network-bootstrapper.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "network", "bootstrapper",]
 +++
@@ -31,14 +32,13 @@ You can find out more about network maps and network parameters from [The networ
 
 ## Bootstrapping a test network
 
-The Corda Network Bootstrapper can be downloaded from [here](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-bootstrapper).
+The Corda Network Bootstrapper can be downloaded from [here](https://www.corda.net/resources).
 
 Create a directory containing a node config file, ending in “_node.conf”, for each node you want to create. “devMode” must be set to true. Then run the
                 following command:
 
-```bash
-java -jar corda-tools-network-bootstrapper-4.1.jar --dir <nodes-root-dir>
-```
+`java -jar network-bootstrapper-4.1.jar --dir <nodes-root-dir>`
+
 For example running the command on a directory containing these files:
 
 ```none
@@ -165,9 +165,8 @@ As an example, if we have an existing bootstrapped network, with a Notary and Pa
 ```
 Then run the Network Bootstrapper again from the root dir:
 
-```bash
-java -jar corda-tools-network-bootstrapper-4.1.jar --dir <nodes-root-dir>
-```
+`java -jar network-bootstrapper-4.1.jar --dir <nodes-root-dir>`
+
 Which will give the following:
 
 ```none
@@ -236,9 +235,8 @@ If the network already has a set of network parameters defined (i.e. the node di
 ```
 Then run the Network Bootstrapper again from the root dir:
 
-```bash
-java -jar corda-tools-network-bootstrapper-4.1.jar --dir <nodes-root-dir>
-```
+`java -jar network-bootstrapper-4.1.jar --dir <nodes-root-dir>`
+
 To give the following:
 
 ```none
@@ -286,14 +284,12 @@ The `--minimum-platform-version`, `--max-message-size`, `--max-transaction-size`
 
 You can provide a network parameters overrides file using the following syntax:
 
-```bash
-java -jar corda-tools-network-bootstrapper-4.1.jar --network-parameter-overrides=<path_to_file>
-```
+`java -jar network-bootstrapper-4.1.jar --network-parameter-overrides=<path_to_file>`
+
 Or alternatively, by using the short form version:
 
-```bash
-java -jar corda-tools-network-bootstrapper-4.1.jar -n=<path_to_file>
-```
+`java -jar network-bootstrapper-4.1.jar -n=<path_to_file>`
+
 The network parameter overrides file is a HOCON file with the following fields, all of which are optional. Any field that is not provided will be
                     ignored. If a field is not provided and you are bootstrapping a new network, a sensible default value will be used. If a field is not provided and you
                     are updating an existing network, the value in the existing network parameters file will be used.
@@ -370,6 +366,11 @@ Package namespace ownership is a Corda security feature that allows a compatibil
                 namespace to registered users (e.g. a CorDapp development organisation). The exact mechanism used to claim a namespace is up to the zone
                 operator. A typical approach would be to accept an SSL certificate with the domain in it as proof of domain ownership, or to accept an email from that domain.
 
+
+{{< note >}}
+Read more about *Package ownership* [here](design/data-model-upgrades/package-namespace-ownership.md).
+
+{{< /note >}}
 A Java package namespace is case insensitive and cannot be a sub-package of an existing registered namespace.
                 See [Naming a Package](https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html) and [Naming Conventions](https://www.oracle.com/technetwork/java/javase/documentation/codeconventions-135099.html#28840forguidelinesandconventions) for guidelines on naming conventions.
 

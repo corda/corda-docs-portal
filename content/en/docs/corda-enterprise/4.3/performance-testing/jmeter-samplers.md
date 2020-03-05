@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "JMeter Samplers"
+aliases = [ "/releases/4.3/performance-testing/jmeter-samplers.html", "/performance-testing/jmeter-samplers.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "jmeter", "samplers",]
 +++

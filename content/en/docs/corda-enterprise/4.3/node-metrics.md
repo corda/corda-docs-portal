@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Metrics"
+aliases = [ "/releases/4.3/node-metrics.html", "/node-metrics.html",]
 tags = [ "node", "metrics",]
 
 [menu.corda-enterprise-4-3]

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "HSM exception support in Flow Hospital"
+aliases = [ "/releases/4.3/cryptoservice-hospitalization.html", "/cryptoservice-hospitalization.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "cryptoservice", "hospitalization",]
 +++

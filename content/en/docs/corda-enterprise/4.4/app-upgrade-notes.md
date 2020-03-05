@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Upgrading CorDapps to newer Platform Versions"
+aliases = [ "/releases/4.4/app-upgrade-notes.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "app", "upgrade", "notes",]
 +++

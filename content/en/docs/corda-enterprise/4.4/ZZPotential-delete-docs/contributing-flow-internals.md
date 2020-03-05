@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Flow framework internals"
+aliases = [ "/releases/4.4/ZZPotential-delete-docs/contributing-flow-internals.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "contributing", "flow", "internals",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Shell extensions for CLI Applications"
+aliases = [ "/releases/4.3/cli-application-shell-extensions.html", "/cli-application-shell-extensions.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "cli", "application", "shell", "extensions",]
 +++

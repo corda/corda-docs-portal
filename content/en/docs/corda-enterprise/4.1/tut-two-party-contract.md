@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing the contract"
+aliases = [ "/releases/4.1/tut-two-party-contract.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "tut", "party", "contract",]
 +++

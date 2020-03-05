@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node configuration"
+aliases = [ "/releases/release-V4.3/corda-configuration-file.html",]
 menu = [ "corda-os-4-3",]
 tags = [ "corda", "configuration", "file",]
 +++

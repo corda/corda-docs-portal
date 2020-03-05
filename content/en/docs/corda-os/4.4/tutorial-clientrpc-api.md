@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Using the client RPC API"
+aliases = [ "/releases/release-V4.4/tutorial-clientrpc-api.html",]
 tags = [ "tutorial", "clientrpc", "api",]
 
 [menu.corda-os-4-4]

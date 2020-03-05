@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing oracle services"
+aliases = [ "/releases/4.1/oracles.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "oracles",]
 +++
@@ -133,6 +134,17 @@ The oracle consists of a core class that implements the query/sign operations (f
 Here is an extract from the `NodeInterestRates.Oracle` class and supporting types:
 
 ```kotlin
+/** A [FixOf] identifies the question side of a fix: what day, tenor and type of fix ("LIBOR", "EURIBOR" etc) */
+@CordaSerializable
+data class FixOf(val name: String, val forDay: LocalDate, val ofTenor: Tenor)
+
+```
+[FinanceTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)```kotlin
+/** A [Fix] represents a named interest rate, on a given day, for a given duration. It can be embedded in a tx. */
+data class Fix(val of: FixOf, val value: BigDecimal) : CommandData
+
+```
+[FinanceTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/finance/contracts/src/main/kotlin/net/corda/finance/contracts/FinanceTypes.kt)```kotlin
 class Oracle {
     fun query(queries: List<FixOf>): List<Fix>
 

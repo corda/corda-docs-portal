@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Identity Manager Configuration Parameters"
+aliases = [ "/releases/release-1.2/config-identity-manager-parameters.html",]
 tags = [ "config", "identity", "manager", "parameters",]
 
 [menu.cenm-1-2]

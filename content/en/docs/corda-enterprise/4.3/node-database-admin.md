@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Database schema setup"
+aliases = [ "/releases/4.3/node-database-admin.html", "/node-database-admin.html",]
 tags = [ "node", "database", "admin",]
 
 [menu.corda-enterprise-4-3]

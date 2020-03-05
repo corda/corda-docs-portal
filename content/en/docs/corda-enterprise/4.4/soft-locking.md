@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Soft Locking"
+aliases = [ "/releases/4.4/soft-locking.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "locking",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "EJBCA Sample Plugin"
+aliases = [ "/releases/release-1.2/ejbca-plugin.html",]
 menu = [ "cenm-1-2",]
 tags = [ "ejbca", "plugin",]
 +++

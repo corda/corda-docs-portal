@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda Network"
+aliases = [ "/releases/release-V4.3/corda-network/index.html",]
 menu = [ "corda-os-4-3",]
 +++
 

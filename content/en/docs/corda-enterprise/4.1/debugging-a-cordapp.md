@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Debugging a CorDapp"
+aliases = [ "/releases/4.1/debugging-a-cordapp.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "debugging", "cordapp",]
 +++
@@ -113,6 +114,6 @@ You can also attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/
 
 ## By enabling remote debugging on a node
 
-See [Enabling remote debugging](running-a-node.md#enabling-remote-debugging).
+See [Enabling remote debugging](node-commandline.md#enabling-remote-debugging).
 
 

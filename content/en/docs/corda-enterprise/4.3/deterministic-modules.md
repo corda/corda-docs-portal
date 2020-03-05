@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Deterministic Corda Modules"
+aliases = [ "/releases/4.3/deterministic-modules.html", "/deterministic-modules.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "deterministic", "modules",]
 +++

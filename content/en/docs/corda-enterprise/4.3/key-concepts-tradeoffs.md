@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Trade-offs"
+aliases = [ "/releases/4.3/key-concepts-tradeoffs.html", "/key-concepts-tradeoffs.html",]
 tags = [ "concepts", "tradeoffs",]
 
 [menu.corda-enterprise-4-3]

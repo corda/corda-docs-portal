@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda API"
+aliases = [ "/releases/4.1/corda-api.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "corda", "api",]
 +++
@@ -28,6 +29,8 @@ The following are the core APIs that are used in the development of CorDapps:
 * [API: Identity](api-identity.md)
 
 * [API: ServiceHub](api-service-hub.md)
+
+* [API: Service Classes](api-service-classes.md)
 
 * [API: RPC operations](api-rpc.md)
 

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Configuring the Corda Enterprise Firewall"
+aliases = [ "/releases/4.4/node/corda-firewall-configuration-file.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "corda", "firewall", "configuration", "file",]
 +++

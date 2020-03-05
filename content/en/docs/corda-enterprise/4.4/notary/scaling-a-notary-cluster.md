@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Scaling A Notary Cluster"
+aliases = [ "/releases/4.4/notary/scaling-a-notary-cluster.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "scaling", "notary", "cluster",]
 +++

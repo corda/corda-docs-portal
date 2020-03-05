@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Updating the flow"
+aliases = [ "/releases/4.3/tut-two-party-flow.html", "/tut-two-party-flow.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "tut", "party", "flow",]
 +++

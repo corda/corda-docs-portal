@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Network Map Configuration Parameters"
+aliases = [ "/releases/release-1.1/config-network-map-parameters.html", "/config-network-map-parameters.html",]
 tags = [ "config", "network", "map", "parameters",]
 
 [menu.cenm-1-1]

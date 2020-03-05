@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Structuring a CorDapp"
+aliases = [ "/releases/4.3/writing-a-cordapp.html", "/writing-a-cordapp.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "cordapp",]
 +++

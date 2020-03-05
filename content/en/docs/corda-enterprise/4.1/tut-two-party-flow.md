@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Updating the flow"
+aliases = [ "/releases/4.1/tut-two-party-flow.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "tut", "party", "flow",]
 +++
@@ -194,56 +195,53 @@ On the lender’s side, we used `CollectSignaturesFlow` to automate the collecti
 
 {{% tab name="kotlin" %}}
 ```kotlin
-hese imports:
-et.corda.core.contracts.requireThat
-et.corda.core.transactions.SignedTransaction
-
-e IOUFlowResponder:
-edBy(IOUFlow::class)
-UFlowResponder(val otherPartySession: FlowSession) : FlowLogic<Unit>() {
-pendable
-ride fun call() {
-// DOCSTART 01
-val signTransactionFlow = object : SignTransactionFlow(otherPartySession) {
-    override fun checkTransaction(stx: SignedTransaction) = requireThat {
-        val output = stx.tx.outputs.single().data
-        "This must be an IOU transaction." using (output is IOUState)
-        val iou = output as IOUState
-        "The IOU's value can't be too high." using (iou.value < 100)
+@Suspendable
+override fun call() {
+    val signTransactionFlow = object : SignTransactionFlow(otherPartySession) {
+        override fun checkTransaction(stx: SignedTransaction) = requireThat {
+            val output = stx.tx.outputs.single().data
+            "This must be an IOU transaction." using (output is IOUState)
+            val iou = output as IOUState
+            "The IOU's value can't be too high." using (iou.value < 100)
+        }
     }
+
+    val expectedTxId = subFlow(signTransactionFlow).id
+
+    subFlow(ReceiveFinalityFlow(otherPartySession, expectedTxId))
 }
-
-val expectedTxId = subFlow(signTransactionFlow).id
-
-subFlow(ReceiveFinalityFlow(otherPartySession, expectedTxId))
 
 ```
 {{% /tab %}}
 
 {{% tab name="java" %}}
 ```java
-class SignTxFlow extends SignTransactionFlow {
-    private SignTxFlow(FlowSession otherPartySession) {
-        super(otherPartySession);
+@Suspendable
+@Override
+public Void call() throws FlowException {
+    class SignTxFlow extends SignTransactionFlow {
+        private SignTxFlow(FlowSession otherPartySession) {
+            super(otherPartySession);
+        }
+
+        @Override
+        protected void checkTransaction(SignedTransaction stx) {
+            requireThat(require -> {
+                ContractState output = stx.getTx().getOutputs().get(0).getData();
+                require.using("This must be an IOU transaction.", output instanceof IOUState);
+                IOUState iou = (IOUState) output;
+                require.using("The IOU's value can't be too high.", iou.getValue() < 100);
+                return null;
+            });
+        }
     }
 
-    @Override
-    protected void checkTransaction(SignedTransaction stx) {
-        requireThat(require -> {
-            ContractState output = stx.getTx().getOutputs().get(0).getData();
-            require.using("This must be an IOU transaction.", output instanceof IOUState);
-            IOUState iou = (IOUState) output;
-            require.using("The IOU's value can't be too high.", iou.getValue() < 100);
-            return null;
-        });
-    }
+    SecureHash expectedTxId = subFlow(new SignTxFlow(otherPartySession)).getId();
+
+    subFlow(new ReceiveFinalityFlow(otherPartySession, expectedTxId));
+
+    return null;
 }
-
-SecureHash expectedTxId = subFlow(new SignTxFlow(otherPartySession)).getId();
-
-subFlow(new ReceiveFinalityFlow(otherPartySession, expectedTxId));
-
-return null;
 
 ```
 {{% /tab %}}

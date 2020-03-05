@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "The ledger"
+aliases = [ "/releases/4.1/key-concepts-ledger.html",]
 tags = [ "concepts", "ledger",]
 
 [menu.corda-enterprise-4-1]

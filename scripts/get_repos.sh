@@ -59,16 +59,23 @@ function clone_or_pull {
     popd
 }
 
+# See https://github.com/corda/corda-docs-builder/blob/master/configs/corda-os.json
+
 clone_or_pull git@github.com:corda/corda.git $R_OS/4.4 release/os/4.4
 clone_or_pull $R_OS/4.4 $R_OS/4.3 release/os/4.3 git@github.com:corda/corda.git
 clone_or_pull $R_OS/4.4 $R_OS/4.1 release/os/4.1 git@github.com:corda/corda.git
+clone_or_pull $R_OS/4.4 $R_OS/4.0 release/4.0 git@github.com:corda/corda.git
+clone_or_pull $R_OS/4.4 $R_OS/3.4 release-V3 git@github.com:corda/corda.git
 
 #clone_or_pull git@github.com:corda/enterprise.git $R_ENT/4.4 release/ent/4.4
-
 clone_or_pull git@github.com:corda/enterprise.git $R_ENT/4.4 EdP/docs-2.0
 clone_or_pull $R_ENT/4.4 $R_ENT/4.3 release/ent/4.3 git@github.com:corda/enterprise.git
-clone_or_pull $R_ENT/4.4 $R_ENT/4.1 release/ent/4.1 git@github.com:corda/enterprise.git
+clone_or_pull $R_ENT/4.4 $R_ENT/4.2 release/ent/4.2 git@github.com:corda/enterprise.git
+clone_or_pull $R_ENT/4.4 $R_ENT/4.1 release/4.1 git@github.com:corda/enterprise.git
+clone_or_pull $R_ENT/4.4 $R_ENT/4.0 release-V4.0 git@github.com:corda/enterprise.git
+clone_or_pull $R_ENT/4.4 $R_ENT/3.3 release/release-V3 git@github.com:corda/enterprise.git
 
 clone_or_pull git@github.com:corda/network-services.git $R_CENM/1.2 release/1.2
 clone_or_pull $R_CENM/1.2 $R_CENM/1.1 release/1.1 git@github.com:corda/network-services.git
+clone_or_pull $R_CENM/1.2 $R_CENM/1.0 release/1.0 git@github.com:corda/network-services.git
 

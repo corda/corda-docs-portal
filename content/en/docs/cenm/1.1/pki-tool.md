@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Public Key Infrastructure (PKI) Tool"
+aliases = [ "/releases/release-1.1/pki-tool.html", "/pki-tool.html",]
 menu = [ "cenm-1-1",]
 tags = [ "pki", "tool",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "CENM support matrix"
+aliases = [ "/releases/release-1.2/cenm-support-matrix.html",]
 menu = [ "cenm-1-2",]
 tags = [ "cenm", "support", "matrix",]
 +++

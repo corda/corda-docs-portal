@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda Enterprise notary service overview"
+aliases = [ "/releases/4.3/running-a-notary-cluster/ha-notary-service-overview.html", "/running-a-notary-cluster/ha-notary-service-overview.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "ha", "notary", "service", "overview",]
 +++

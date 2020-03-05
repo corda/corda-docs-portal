@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Deploying in a development environment"
+aliases = [ "/releases/4.4/node/deploy/env-dev.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "env", "dev",]
 +++

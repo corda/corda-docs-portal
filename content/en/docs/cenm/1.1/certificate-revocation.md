@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Certificate Revocation List (CRL)"
+aliases = [ "/releases/release-1.1/certificate-revocation.html", "/certificate-revocation.html",]
 menu = [ "cenm-1-1",]
 tags = [ "certificate", "revocation",]
 +++

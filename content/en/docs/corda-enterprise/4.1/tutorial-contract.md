@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing a contract"
+aliases = [ "/releases/4.1/tutorial-contract.html",]
 tags = [ "tutorial", "contract",]
 
 [menu.corda-enterprise-4-1]
@@ -325,7 +326,7 @@ override fun verify(tx: LedgerTransaction) {
 {{% tab name="java" %}}
 ```java
 @Override
-public void verify(@NotNull LedgerTransaction tx) {
+public void verify(LedgerTransaction tx) {
     List<InOutGroup<State, State>> groups = tx.groupStates(State.class, State::withoutOwner);
     CommandWithParties<Commands> cmd = requireSingleCommand(tx.getCommands(), Commands.class);
 
@@ -528,7 +529,7 @@ for ((inputs, outputs, _) in groups) {
 ```java
 TimeWindow timeWindow = tx.getTimeWindow();
 
-for (InOutGroup<State, State> group : groups) {
+for (InOutGroup group : groups) {
     List<State> inputs = group.getInputs();
     List<State> outputs = group.getOutputs();
 
@@ -548,7 +549,6 @@ for (InOutGroup<State, State> group : groups) {
         Amount<Issued<Currency>> received = sumCashBy(tx.getOutputStates(), input.getOwner());
         if (timeWindow == null) throw new IllegalArgumentException("Redemptions must be timestamped");
         Instant time = timeWindow.getFromTime();
-        if (time == null) throw new IllegalArgumentException("Redemptions must have a from time");
         requireThat(require -> {
             require.using("the paper must have matured", time.isAfter(input.getMaturityDate()));
             require.using("the received amount equals the face value", received == input.getFaceValue());
@@ -560,7 +560,6 @@ for (InOutGroup<State, State> group : groups) {
         State output = outputs.get(0);
         if (timeWindow == null) throw new IllegalArgumentException("Issuances must have a time-window");
         Instant time = timeWindow.getUntilTime();
-        if (time == null) throw new IllegalArgumentException("Issuances must have an until time");
         requireThat(require -> {
             // Don't allow people to issue commercial paper under other entities identities.
             require.using("output states are issued by a command signer", cmd.getSigners().contains(output.getIssuance().getParty().getOwningKey()));

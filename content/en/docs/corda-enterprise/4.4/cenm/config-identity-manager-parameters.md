@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Identity Manager Configuration Parameters"
+aliases = [ "/releases/4.4/cenm/config-identity-manager-parameters.html",]
 tags = [ "config", "identity", "manager", "parameters",]
 
 [menu.corda-enterprise-4-4]

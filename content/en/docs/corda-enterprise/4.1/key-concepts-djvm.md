@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Deterministic JVM"
+aliases = [ "/releases/4.1/key-concepts-djvm.html",]
 tags = [ "concepts", "djvm",]
 
 [menu.corda-enterprise-4-1]
@@ -360,17 +361,7 @@ Further work is planned:
 
 ## Command-line Tool
 
-You can download and unpack `corda-djvm-cli.zip` from the R3 Artifactory.
-                Alternatively, you can build it yourself from the source as follows.
-
-Open your terminial and clone the DJVM repository from GitHub:
-
-:: shell
-
-> 
-> $ git clone [https://github.com/corda/djvm](https://github.com/corda/djvm)
-
-Navigate to this newly created `djvm` directory, and then issue the following command:
+Open your terminal and navigate to the `djvm` directory in the Corda source tree. Then issue the following command:
 
 ```kotlin
 $ djvm/shell/install

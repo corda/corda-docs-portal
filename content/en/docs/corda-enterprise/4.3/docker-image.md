@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Official Corda Docker Image"
+aliases = [ "/releases/4.3/docker-image.html", "/docker-image.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "docker", "image",]
 +++

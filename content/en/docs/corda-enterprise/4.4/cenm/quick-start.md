@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Enterprise Network Manager Quick-Start Guide"
+aliases = [ "/releases/4.4/cenm/quick-start.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "quick", "start",]
 +++

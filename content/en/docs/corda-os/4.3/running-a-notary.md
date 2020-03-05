@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Setting up a notary service"
+aliases = [ "/releases/release-V4.3/running-a-notary.html",]
 menu = [ "corda-os-4-3",]
 tags = [ "running", "notary",]
 +++

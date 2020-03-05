@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Time-windows"
+aliases = [ "/releases/release-V4.1/key-concepts-time-windows.html",]
 tags = [ "concepts", "time", "windows",]
 
 [menu.corda-os-4-1]

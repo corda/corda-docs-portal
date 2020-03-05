@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Configuring the notary worker nodes"
+aliases = [ "/releases/4.4/notary/installing-the-notary-service.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "installing", "notary", "service",]
 +++

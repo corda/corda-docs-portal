@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Azure Marketplace"
+aliases = [ "/releases/release-V4.3/azure-vm.html",]
 menu = [ "corda-os-4-3",]
 tags = [ "azure", "vm",]
 +++

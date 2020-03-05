@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node folder structure"
+aliases = [ "/releases/4.4/node/setup/node-structure.html",]
 tags = [ "node", "structure",]
 
 [menu.corda-enterprise-4-4]

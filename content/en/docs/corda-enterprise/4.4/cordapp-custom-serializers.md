@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Pluggable Serializers for CorDapps"
+aliases = [ "/releases/4.4/cordapp-custom-serializers.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "cordapp", "custom", "serializers",]
 +++

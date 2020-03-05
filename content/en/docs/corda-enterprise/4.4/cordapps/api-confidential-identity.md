@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Confidential identities"
+aliases = [ "/releases/4.4/cordapps/api-confidential-identity.html",]
 tags = [ "api", "confidential", "identity",]
 
 [menu.corda-enterprise-4-4]

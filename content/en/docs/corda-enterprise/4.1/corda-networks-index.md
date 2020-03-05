@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Networks"
+aliases = [ "/releases/4.1/corda-networks-index.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "corda", "networks",]
 +++
@@ -15,14 +16,6 @@ tags = [ "corda", "networks",]
 
 * [The network map](network-map.md)
 
-* [Versioning](versioning.md)
-
-* [Joining Corda Testnet](corda-testnet-intro.md)
-
-* [Using Azure Resource Manager Templates to deploy a Corda Enterprise node](azure-template-guide.md)
-
-* [Using the Node Explorer to test a Corda Enterprise node on Corda Testnet](testnet-explorer.md)
-
 * [Cipher suites supported by Corda](cipher-suites.md)
 
 * [Joining an existing compatibility zone](joining-a-compatibility-zone.md)
@@ -30,6 +23,8 @@ tags = [ "corda", "networks",]
 * [Joining Corda Testnet](corda-testnet-intro.md)
 
 * [Deploying Corda to Testnet](deploy-to-testnet-index.md)
+
+* [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md)
 
 * [Setting up a dynamic compatibility zone](setting-up-a-dynamic-compatibility-zone.md)
 

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing a contract"
+aliases = [ "/releases/4.4/ZZPotential-delete-docs/tutorial-contract.html",]
 tags = [ "tutorial", "contract",]
 
 [menu.corda-enterprise-4-4]

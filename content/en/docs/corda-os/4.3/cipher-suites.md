@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Cipher suites supported by Corda"
+aliases = [ "/releases/release-V4.3/cipher-suites.html",]
 menu = [ "corda-os-4-3",]
 tags = [ "cipher", "suites",]
 +++

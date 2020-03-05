@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Config Obfuscation Tool"
+aliases = [ "/releases/release-1.1/config-obfuscation-tool.html", "/config-obfuscation-tool.html",]
 tags = [ "config", "obfuscation", "tool",]
 
 [menu.cenm-1-1]

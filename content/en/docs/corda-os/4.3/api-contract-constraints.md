@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Contract Constraints"
+aliases = [ "/releases/release-V4.3/api-contract-constraints.html",]
 tags = [ "api", "contract", "constraints",]
 
 [menu.corda-os-4-3]

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Public Key Infrastructure (PKI) Tool Configuration Parameters"
+aliases = [ "/releases/4.4/cenm/config-pki-tool-parameters.html",]
 tags = [ "config", "pki", "tool", "parameters",]
 
 [menu.corda-enterprise-4-4]

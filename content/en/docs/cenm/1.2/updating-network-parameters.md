@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Updating the network parameters"
+aliases = [ "/releases/release-1.2/updating-network-parameters.html",]
 menu = [ "cenm-1-2",]
 tags = [ "updating", "network", "parameters",]
 +++

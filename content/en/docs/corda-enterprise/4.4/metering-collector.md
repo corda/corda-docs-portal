@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Metering Collection Tool"
+aliases = [ "/releases/4.4/metering-collector.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "metering", "collector",]
 +++

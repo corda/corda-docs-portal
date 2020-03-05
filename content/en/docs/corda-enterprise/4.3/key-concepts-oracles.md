@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Oracles"
+aliases = [ "/releases/4.3/key-concepts-oracles.html", "/key-concepts-oracles.html",]
 tags = [ "concepts", "oracles",]
 
 [menu.corda-enterprise-4-3]

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda Networks"
+aliases = [ "/releases/release-1.2/corda-networks.html",]
 menu = [ "cenm-1-2",]
 tags = [ "corda", "networks",]
 +++

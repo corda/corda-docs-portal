@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Building CorDapps against a non-release branch"
+aliases = [ "/releases/4.3/building-against-non-release.html", "/building-against-non-release.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "building", "against", "release",]
 +++

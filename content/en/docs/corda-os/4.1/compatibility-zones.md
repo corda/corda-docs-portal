@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "What is a compatibility zone?"
+aliases = [ "/releases/release-V4.1/compatibility-zones.html",]
 menu = [ "corda-os-4-1",]
 tags = [ "compatibility", "zones",]
 +++

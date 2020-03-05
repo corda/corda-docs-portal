@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "CENM Database Configuration"
+aliases = [ "/releases/release-1.2/config-database.html",]
 tags = [ "config", "database",]
 
 [menu.cenm-1-2]

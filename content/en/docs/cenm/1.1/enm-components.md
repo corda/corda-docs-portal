@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Components of the Corda Enterprise Network Manager"
+aliases = [ "/releases/release-1.1/enm-components.html", "/enm-components.html",]
 menu = [ "cenm-1-1",]
 tags = [ "enm", "components",]
 +++

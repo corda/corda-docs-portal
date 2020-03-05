@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Database access when running H2"
+aliases = [ "/releases/4.4/node-database-access-h2.html",]
 tags = [ "node", "database", "access", "h2",]
 
 [menu.corda-enterprise-4-4]

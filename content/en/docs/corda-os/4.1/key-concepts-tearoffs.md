@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Transaction tear-offs"
+aliases = [ "/releases/release-V4.1/key-concepts-tearoffs.html",]
 tags = [ "concepts", "tearoffs",]
 
 [menu.corda-os-4-1]

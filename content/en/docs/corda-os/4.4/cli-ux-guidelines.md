@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "CLI UX Guide"
+aliases = [ "/releases/release-V4.4/cli-ux-guidelines.html",]
 menu = [ "corda-os-4-4",]
 tags = [ "cli", "ux", "guidelines",]
 +++

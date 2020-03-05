@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "CRL Endpoint Check Tool"
+aliases = [ "/releases/release-1.2/crl-endpoint-check-tool.html",]
 menu = [ "cenm-1-2",]
 tags = [ "crl", "endpoint", "check", "tool",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Flow cookbook"
+aliases = [ "/releases/4.1/flow-cookbook.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "flow", "cookbook",]
 +++
@@ -595,6 +596,13 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         val partySessions: List<FlowSession> = listOf(counterpartySession, initiateFlow(regulator))
         val notarisedTx2: SignedTransaction = subFlow(FinalityFlow(fullySignedTx, partySessions, FINALISATION.childProgressTracker()))
         // DOCEND 10
+
+        // DOCSTART FlowSession porting
+        send(regulator, Any()) // Old API
+        // becomes
+        val session = initiateFlow(regulator)
+        session.send(Any())
+        // DOCEND FlowSession porting
     }
 }
 
@@ -716,8 +724,6 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static java.util.Collections.*;
@@ -812,7 +818,7 @@ public class FlowCookbook {
             // We retrieve a notary from the network map.
             // DOCSTART 01
             CordaX500Name notaryName = new CordaX500Name("Notary Service", "London", "GB");
-            Party specificNotary = Objects.requireNonNull(getServiceHub().getNetworkMapCache().getNotary(notaryName));
+            Party specificNotary = getServiceHub().getNetworkMapCache().getNotary(notaryName);
             // Alternatively, we can pick an arbitrary notary from the notary
             // list. However, it is always preferable to specify the notary
             // explicitly, as the notary list might change when new notaries are
@@ -1060,7 +1066,7 @@ public class FlowCookbook {
             // Or we can add the output state as a ``TransactionState``, which already specifies
             // the output's contract and notary.
             // DOCSTART 51
-            TransactionState txState = new TransactionState<>(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
+            TransactionState txState = new TransactionState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
             // DOCEND 51
 
             // Commands can be added as ``Command``s.
@@ -1275,6 +1281,13 @@ public class FlowCookbook {
             SignedTransaction notarisedTx2 = subFlow(new FinalityFlow(fullySignedTx, partySessions, FINALISATION.childProgressTracker()));
             // DOCEND 10
 
+            // DOCSTART FlowSession porting
+            send(regulator, new Object()); // Old API
+            // becomes
+            FlowSession session = initiateFlow(regulator);
+            session.send(new Object());
+            // DOCEND FlowSession porting
+
             return null;
         }
     }
@@ -1344,7 +1357,7 @@ public class FlowCookbook {
                 }
 
                 @Override
-                protected void checkTransaction(@NotNull SignedTransaction stx) {
+                protected void checkTransaction(SignedTransaction stx) {
                     requireThat(require -> {
                         // Any additional checking we see fit...
                         DummyState outputState = (DummyState) stx.getTx().getOutputs().get(0).getData();

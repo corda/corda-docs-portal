@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Core types"
+aliases = [ "/releases/4.4/api-core-types.html",]
 tags = [ "api", "core", "types",]
 
 [menu.corda-enterprise-4-4]

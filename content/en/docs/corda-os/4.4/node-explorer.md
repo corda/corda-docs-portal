@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node Explorer"
+aliases = [ "/releases/release-V4.4/node-explorer.html",]
 tags = [ "node", "explorer",]
 
 [menu.corda-os-4-4]

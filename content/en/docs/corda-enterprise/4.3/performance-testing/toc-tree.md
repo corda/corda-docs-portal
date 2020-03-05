@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda Enterprise Performance Testing"
+aliases = [ "/releases/4.3/performance-testing/toc-tree.html", "/performance-testing/toc-tree.html",]
 menu = [ "corda-enterprise-4-3",]
 +++
 

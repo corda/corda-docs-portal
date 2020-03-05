@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Running nodes locally"
+aliases = [ "/releases/4.1/running-a-node.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "running", "node",]
 +++
@@ -88,89 +89,6 @@ You can set JVM args on the command line that apply to the launcher process and 
                                 above. This will override any value for the same flag set any other way, but will leave any other JVM arguments alone.
 
 
-### Command-line options
-
-The node can optionally be started with the following command-line options:
-
-
-* `--base-directory`, `-b`: The node working directory where all the files are kept (default: `.`).
-
-
-* `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
-
-
-* `--dev-mode`, `-d`: Runs the node in development mode. Unsafe in production. Defaults to true on MacOS and desktop versions of Windows. False otherwise.
-
-
-* `--no-local-shell`, `-n`: Do not start the embedded shell locally.
-
-
-* `--on-unknown-config-keys <[FAIL,INFO]>`: How to behave on unknown node configuration. Defaults to FAIL.
-
-
-* `--sshd`: Enables SSH server for node administration.
-
-
-* `--sshd-port`: Sets the port for the SSH server. If not supplied and SSH server is enabled, the port defaults to 2222.
-
-
-* `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
-
-
-* `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
-
-
-* `--help`, `-h`: Show this help message and exit.
-
-
-* `--version`, `-V`: Print version information and exit.
-
-
-
-#### Sub-commands
-
-`clear-network-cache`: Clears local copy of network map, on node startup it will be restored from server or file system.
-
-`initial-registration`: Starts initial node registration with the compatibility zone to obtain a certificate from the Doorman.
-
-Parameters:
-
-
-* `--network-root-truststore`, `-t` **required**: Network root trust store obtained from network operator.
-
-
-* `--network-root-truststore-password`, `-p`: Network root trust store password obtained from network operator.
-
-
-`generate-node-info`: Performs the node start-up tasks necessary to generate the nodeInfo file, saves it to disk, then exits.
-
-`generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
-
-`install-shell-extensions`: Install `corda` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
-
-`validate-configuration`: Validates the actual configuration without starting the node.
-
-
-### Enabling remote debugging
-
-To enable remote debugging of the node, run the node with the following JVM arguments:
-
-`java -Dcapsule.jvm.args="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005" -jar corda.jar`
-
-This will allow you to attach a debugger to your node on port 5005.
-
-
-## Starting a node with JMX monitoring enabled
-
-To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), run the following from the terminal window:
-
-`java -Dcapsule.jvm.args="-javaagent:drivers/jolokia-jvm-1.3.7-agent.jar=port=7005" -jar corda.jar`
-
-This command line will start the node with JMX metrics accessible via HTTP on port 7005.
-
-See Monitoring your node for further details.
-
-
 ## Starting all nodes at once on a local machine from the command line
 
 
@@ -233,13 +151,6 @@ To create nodes locally and run on a remote machine perform the following steps:
 * Copy the generated directory structure to a remote machine using e.g. Secure Copy.
 
 
-* Optionally, add database configuration settings if they weren’t specified in the first step.
-
-This step needs to be performed if the local machine doesn’t have access to the remote database (a database couldn’t be configured in the first step).
-                        In each top level `[NODE NAME]_node.conf` configuration file add the database settings and copy the JDBC driver JAR (if required).
-                        Edit the top level `[NODE NAME]_node.conf` files only and not the files (`node.conf`) inside the node subdirectories.
-
-
 * Optionally, bootstrap the network on the remote machine.
 
 This is optional step when a remote machine doesn’t accept `localhost` addresses, or the generated nodes are configured to run on another host’s IP address.
@@ -255,11 +166,5 @@ Run the network bootstrapper tool to regenerate the nodes network map (see for m
 
 
 The above steps create a test deployment as `deployNodes` Gradle task would do on a local machine.
-
-
-## Database migrations
-
-Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-                For more information refer to [Database management scripts](database-management.md).
 
 

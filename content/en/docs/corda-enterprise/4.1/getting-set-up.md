@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Getting set up for CorDapp development"
+aliases = [ "/releases/4.1/getting-set-up.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "getting", "set",]
 +++
@@ -56,11 +57,6 @@ Please note:
 * IntelliJ IDEA is recommended due to the strength of its Kotlin integration.
 
 
-* If an HA Bridge/Float deployment is required then a `Zookeeper 3.5.4-Beta` cluster will be required.
-                        Refer to [Hot-cold deployment](hot-cold-deployment.md) and Bridge configuration
-                        for more deployment information.
-
-
 Following these software recommendations will minimize the number of errors you encounter, and make it easier for
                 others to provide support. However, if you do use other tools, we’d be interested to hear about any issues that arise.
 
@@ -74,13 +70,13 @@ The instructions below will allow you to set up your development environment for
 The set-up instructions are available for the following platforms:
 
 
-* [Windows](#windows-label) (or [in video form](https://vimeo.com/217462250))
+* windows-label (or [in video form](https://vimeo.com/217462250))
 
 
 * [Mac](#mac-label) (or [in video form](https://vimeo.com/217462230))
 
 
-* [Next steps](#deb-ubuntu-label)
+* [Debian/Ubuntu](#deb-ubuntu-label)
 
 
 * [Fedora](#fedora-label)
@@ -88,7 +84,20 @@ The set-up instructions are available for the following platforms:
 
 
 {{< note >}}
-These setup instructions will guide you on how to install the Oracle JDK.
+These setup instructions will guide you on how to install the Oracle JDK. Each JDK can be found on their respective sites:
+
+
+* [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+
+* [Amazon Corretto](https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html)
+
+
+* [Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/download/)
+
+
+* [Zulu OpenJDK](https://www.azul.com/downloads/zulu/)
+
 
 {{< /note >}}
 
@@ -96,7 +105,7 @@ These setup instructions will guide you on how to install the Oracle JDK.
 
 
 {{< warning >}}
-If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac](#mac-label), [Next steps](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
+If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac](#mac-label), [Debian/Ubuntu](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
 
 {{< /warning >}}
 
@@ -153,7 +162,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 
 {{< warning >}}
-If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [Windows](#windows-label), [Next steps](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
+If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the windows-label, [Debian/Ubuntu](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
 
 {{< /warning >}}
 
@@ -183,7 +192,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [
 * Download and run the executable to install IntelliJ Community Edition (use the default settings)
 
 
-* Ensure the Kotlin plugin in IntelliJ is updated to version 1.2.71 (new installs will contains this version)
+* Ensure the Kotlin plugin in Intellij is updated to version 1.2.71 (new installs will contains this version)
 
 
 
@@ -191,7 +200,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [
 
 
 {{< warning >}}
-If you are using a Mac, Windows or Fedora machine, please follow the [Mac](#mac-label), [Windows](#windows-label) or [Fedora](#fedora-label) instructions instead.
+If you are using a Mac, Windows or Fedora machine, please follow the [Mac](#mac-label), windows-label or [Fedora](#fedora-label) instructions instead.
 
 {{< /warning >}}
 
@@ -243,7 +252,7 @@ Jetbrains offers a pre-built snap package that allows for easy, one-step install
 
 
 {{< warning >}}
-If you are using a Mac, Windows or Debian/Ubuntu machine, please follow the [Mac](#mac-label), [Windows](#windows-label) or [Next steps](#deb-ubuntu-label) instructions instead.
+If you are using a Mac, Windows or Debian/Ubuntu machine, please follow the [Mac](#mac-label), windows-label or [Debian/Ubuntu](#deb-ubuntu-label) instructions instead.
 
 {{< /warning >}}
 
@@ -292,79 +301,11 @@ These instructions were tested on Fedora 28.
 
 
 
-## Resolve Corda Enterprise binaries
-
-The Corda Enterprise binaries are not available in a publicly accessible Maven repository. Instead, the Corda Enterprise
-                binaries will be made available to your organisation as a compressed tarball (corda-4.1-developer-pack.tar.gz).
-                This tarball contains all of the Corda dependencies as they would appear in your local Maven repository located at
-                `C:\Documents and Settings\{your-username}\.m2`.
-
-To build CorDapps on development machines the Corda Enterprise binaries will need to be discoverable by Gradle. The
-                [build.gradle](https://github.com/corda/samples/tree/release-V4-enterprise/cordapp-example/build.gradle) file in the Corda
-                samples repository (`release-V4-enterprise` branch) includes instructions on how to allow Gradle to discover dependencies.
-
-
-* Open `samples\cordapp-example\build.gradle`
-
-
-* Do any of the following to allow Gradle to resolve Corda Enterprise binaries, for more information read the commented code in `build.gradle`:
-
-
-* Add Corda Enterprise binaries and dependencies to your local maven repository path (e.g., `C:\Documents and Settings\{your-username}\.m2`).
-
-
-* Upload Corda Enterprise binaries and dependencies to your company’s private Maven repository and register the repository with Gradle.
-
-
-* Add Corda Enterprise binaries to a local directory and register a local Maven repository pointing to this directory with Gradle.
-
-
-
-
-{{< note >}}
-Upon receiving the binaries, the quickest way to get started developing your CorDapps is **option a**. This can
-
-{{< /note >}}
-
-
-be done by firstly unpacking the corda-4.1-developer-pack.tar.gz compressed tarball. Then, copy the unpacked
-`respository` folder to your local Maven repository located at `C:\Documents and Settings\{your-username}\.m2`.
-
-
-## Download and run a sample project
-
-Follow the instructions in [https://docs.corda.net/tutorial-cordapp.html](https://docs.corda.net/tutorial-cordapp.html).
-
-
-{{< warning >}}
-Ensure you checkout the corresponding branch for for Corda Enterprise 4.1 by running `git checkout release-V4-enterprise` in the samples directory
-
-{{< /warning >}}
-
-
-## CorDapp Templates and samples
-
-A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
-
-> 
-> [https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
-> 
-> [https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
-
-A comprehensive list of samples, including CorDapps written by R3 and community CorDapps and projects, are available here:
-
-> 
-> [https://www.corda.net/samples/](https://www.corda.net/samples/)
-
-You can clone these repos to your local machine by running the command `git clone [repo URL]`.
-
-
 ## Next steps
 
-The best way to check that everything is working fine is by taking a deeper look at the
-                [example CorDapp](tutorial-cordapp.md).
+First, run the [example CorDapp](tutorial-cordapp.md).
 
-Next, you should read through [Corda Key Concepts](key-concepts.md) to understand how Corda works.
+Next, read through the [Corda Key Concepts](key-concepts.md) to understand how Corda works.
 
 By then, you’ll be ready to start writing your own CorDapps. Learn how to do this in the
                 [Hello, World tutorial](hello-world-introduction.md). You may want to refer to the

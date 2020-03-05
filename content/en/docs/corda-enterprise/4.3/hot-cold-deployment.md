@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Hot-cold high availability deployment"
+aliases = [ "/releases/4.3/hot-cold-deployment.html", "/hot-cold-deployment.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "hot", "cold", "deployment",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: States"
+aliases = [ "/releases/release-V4.4/api-states.html",]
 tags = [ "api", "states",]
 
 [menu.corda-os-4-4]

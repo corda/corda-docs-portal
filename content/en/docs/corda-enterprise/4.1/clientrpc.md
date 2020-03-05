@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Interacting with a node"
+aliases = [ "/releases/4.1/clientrpc.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "clientrpc",]
 +++
@@ -29,17 +30,9 @@ The built-in Corda webserver is deprecated and unsuitable for production use. If
 
 ## Connecting to a node via RPC
 
-To use [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `com.r3.corda:corda-rpc:$corda_release_version` as a `compile` dependency
-                in your client’s `build.gradle` file. As the RPC library has a transitive dependency on a patched version of Caffeine in Corda
-                Enterprise 4.0, you also need to add `corda-dependencies` to the list of repositories for your project in order to resolve
-                this dependency:
+To use [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `net.corda:corda-rpc:$corda_release_version` as a `cordaCompile` dependency
+                in your client’s `build.gradle` file.
 
-```kotlin
-repositories {
-    // ... other dependencies
-    maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Caffeine version
-}
-```
 [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
                 [CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](api/javadoc/net/corda/core/messaging/CordaRPCOps.html)
                 object that you can use to interact with the node.
@@ -505,7 +498,7 @@ If something goes wrong with the RPC infrastructure itself, an `RPCException` is
                 requires a higher version of the protocol than the server supports, `UnsupportedOperationException` is thrown.
                 Otherwise the behaviour depends on the `devMode` node configuration option.
 
-If the server implementation throws an exception, that exception is serialised and rethrown on the client
+In `devMode`, if the server implementation throws an exception, that exception is serialised and rethrown on the client
                 side as if it was thrown from inside the called RPC method. These exceptions can be caught as normal.
 
 When not in `devMode`, the server will mask exceptions not meant for clients and return an `InternalNodeException` instead.
@@ -513,94 +506,104 @@ When not in `devMode`, the server will mask exceptions not meant for clients and
                 `ClientRelevantError` to allow them to reach RPC clients.
 
 
-## Connection management
+## Reconnecting RPC clients
 
-It is possible to not be able to connect to the server on the first attempt. In that case, the `CordaRPCClient.start()`
-                method will throw an exception. The following code snippet is an example of how to write a simple retry mechanism for
-                such situations:
+In the current version of Corda the RPC connection and all the observervables that are created by a client will just throw exceptions and die
+                when the node or TCP connection become unavailable.
+
+It is the client’s responsibility to handle these errors and reconnect once the node is running again. Running RPC commands against a stopped
+                node will just throw exceptions. Previously created Observables will not emit any events after the node restarts. The client must explicitly re-run the command and
+                re-subscribe to receive more events.
+
+RPCs which have a side effect, such as starting flows, may have executed on the node even if the return value is not received by the client.
+                The only way to confirm is to perform a business-level query and retry accordingly. The sample *runFlowWithLogicalRetry* helps with this.
+
+In case users require such a functionality to write a resilient RPC client we have a sample that showcases how this can be implemented and also
+                a thorough test that demonstrates it works as expected.
+
+The code that performs the reconnecting logic is: [ReconnectingCordaRPCOps.kt](https://github.com/corda/samples/blob/release-V4/net/corda/client/rpc/internal/ReconnectingCordaRPCOps.kt).
+
+
+{{< note >}}
+This sample code is not exposed as an official Corda API, and must be included directly in the client codebase and adjusted.
+
+{{< /note >}}
+The usage is showcased in the: [RpcReconnectTests.kt](https://github.com/corda/samples/blob/release-V4/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt).
+                In case resiliency is a requirement, then it is recommended that users will write a similar test.
+
+How to initialize the *ReconnectingCordaRPCOps*:
 
 ```kotlin
-    private fun establishConnectionWithRetry(nodeHostAndPorts: List<NetworkHostAndPort>, username: String, password: String): CordaRPCConnection {
-        val retryInterval = 5.seconds
-        var connection: CordaRPCConnection?
-        do {
-            connection = try {
-                logger.info("Connecting to: $nodeHostAndPorts")
-                val client = CordaRPCClient(
-                        nodeHostAndPorts,
-                        CordaRPCClientConfiguration(connectionMaxRetryInterval = retryInterval)
-                )
-                val _connection = client.start(username, password)
-                // Check connection is truly operational before returning it.
-                val nodeInfo = _connection.proxy.nodeInfo()
-                require(nodeInfo.legalIdentitiesAndCerts.isNotEmpty())
-                _connection
-            } catch (secEx: ActiveMQSecurityException) {
-                // Happens when incorrect credentials provided - no point retrying connection
-                logger.info("Security exception upon attempt to establish connection: " + secEx.message)
-                throw secEx
-            } catch (ex: RPCException) {
-                logger.info("Exception upon attempt to establish connection: " + ex.message)
-                null    // force retry after sleep
+            val bankAReconnectingRpc = ReconnectingCordaRPCOps(bankAAddress, demoUser.username, demoUser.password)
+
+```
+[RpcReconnectTests.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)How to track the vault :
+
+```kotlin
+            val vaultFeed = bankAReconnectingRpc.vaultTrackByWithPagingSpec(
+                    Cash.State::class.java,
+                    QueryCriteria.VaultQueryCriteria(),
+                    PageSpecification(1, 1))
+            val vaultObserverHandle = vaultFeed.updates.asReconnecting().subscribe { update: Vault.Update<Cash.State> ->
+                log.info("vault update produced ${update.produced.map { it.state.data.amount }} consumed ${update.consumed.map { it.ref }}")
+                vaultEvents.add(update)
             }
-            // Could not connect this time round - pause before giving another try.
-            Thread.sleep(retryInterval.toMillis())
-        } while (connection == null)
-
-        logger.info("Connection successfully established with: ${connection.proxy.nodeInfo()}")
-        return connection
-    }
 
 ```
-[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
-{{< warning >}}
-The list of `NetworkHostAndPort` passed to this function should represent one or more addresses reflecting the number of
-                    instances of a node configured to service the client RPC request. See `haAddressPool` in [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) for further information on
-                    using an RPC Client for load balancing and failover.
-
-{{< /warning >}}
-
-After a successful connection, it is possible for the server to become unavailable. In this case, all RPC calls will throw
-                an exception and created observables will no longer receive observations. Below is an example of how to reconnect and
-                back-fill any data that might have been missed while the connection was down. This is done by using the `onError` handler
-                on the `Observable` returned by `CordaRPCOps`.
+[RpcReconnectTests.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)How to start a flow with a logical retry function that checks for the side effects of the flow:
 
 ```kotlin
-    fun performRpcReconnect(nodeHostAndPorts: List<NetworkHostAndPort>, username: String, password: String): CordaRPCConnection {
-        val connection = establishConnectionWithRetry(nodeHostAndPorts, username, password)
-        val proxy = connection.proxy
+                bankAReconnectingRpc.runFlowWithLogicalRetry(
+                        runFlow = { rpc ->
+                            log.info("Starting CashIssueAndPaymentFlow for $amount")
+                            val flowHandle = rpc.startTrackedFlowDynamic(
+                                    CashIssueAndPaymentFlow::class.java,
+                                    baseAmount.plus(Amount.parseCurrency("$amount USD")),
+                                    issuerRef,
+                                    bankB.nodeInfo.legalIdentities.first(),
+                                    false,
+                                    notary
+                            )
+                            val flowId = flowHandle.id
+                            log.info("Started flow $amount with flowId: $flowId")
+                            flowProgressEvents.addEvent(flowId, null)
 
-        val (stateMachineInfos, stateMachineUpdatesRaw) = proxy.stateMachinesFeed()
-
-        val retryableStateMachineUpdatesSubscription: AtomicReference<Subscription?> = AtomicReference(null)
-        val subscription: Subscription = stateMachineUpdatesRaw
-                .startWith(stateMachineInfos.map { StateMachineUpdate.Added(it) })
-                .subscribe({ /* Client code here */ }, {
-                    // Terminate subscription such that nothing gets past this point to downstream Observables.
-                    retryableStateMachineUpdatesSubscription.get()?.unsubscribe()
-                    // It is good idea to close connection to properly mark the end of it. During re-connect we will create a new
-                    // client and a new connection, so no going back to this one. Also the server might be down, so we are
-                    // force closing the connection to avoid propagation of notification to the server side.
-                    connection.forceClose()
-                    // Perform re-connect.
-                    performRpcReconnect(nodeHostAndPorts, username, password)
-                })
-
-        retryableStateMachineUpdatesSubscription.set(subscription)
-        return connection
-    }
+                            // No reconnecting possible.
+                            flowHandle.progress.subscribe(
+                                    { prog ->
+                                        flowProgressEvents.addEvent(flowId, prog)
+                                        log.info("Progress $flowId : $prog")
+                                    },
+                                    { error ->
+                                        log.error("Error thrown in the flow progress observer", error)
+                                    })
+                            flowHandle.id
+                        },
+                        hasFlowStarted = { rpc ->
+                            // Query for a state that is the result of this flow.
+                            val criteria = QueryCriteria.VaultCustomQueryCriteria(builder { CashSchemaV1.PersistentCashState::pennies.equal(amount.toLong() * 100) }, status = Vault.StateStatus.ALL)
+                            val results = rpc.vaultQueryByCriteria(criteria, Cash.State::class.java)
+                            log.info("$amount - Found states ${results.states}")
+                            // The flow has completed if a state is found
+                            results.states.isNotEmpty()
+                        },
+                        onFlowConfirmed = {
+                            flowsCountdownLatch.countDown()
+                            log.info("Flow started for $amount. Remaining flows: ${flowsCountdownLatch.count}")
+                        }
+                )
 
 ```
-[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)In this code snippet it is possible to see that the function `performRpcReconnect` creates an RPC connection and implements
-                the error handler upon subscription to an `Observable`. The call to this `onError` handler will be triggered upon failover, at which
-                point the client will terminate its existing subscription, close its RPC connection and recursively call `performRpcReconnect`,
-                which will re-subscribe once the RPC connection is re-established.
+[RpcReconnectTests.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)Note that, as shown by the test, during reconnecting some events might be lost.
 
-Within the body of the `subscribe` function itself, the client code receives instances of `StateMachineInfo`. Upon re-connecting, this code receives
-                *all* the instances of `StateMachineInfo`, some of which may already been delivered to the client code prior to previous disconnect.
-                It is the responsibility of the client code to handle potential duplicated instances of `StateMachineInfo` as appropriate.
+```kotlin
+            // Check that enough vault events were received.
+            // This check is fuzzy because events can go missing during node restarts.
+            // Ideally there should be nrOfFlowsToRun events receive but some might get lost for each restart.
+            assertTrue(vaultEvents!!.size + nrFailures * 2 >= nrOfFlowsToRun, "Not all vault events were received")
 
-
+```
+[RpcReconnectTests.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
 ## Wire security
 
 If TLS communications to the RPC endpoint are required the node should be configured with `rpcSettings.useSSL=true` see [Node configuration](corda-configuration-file.md).

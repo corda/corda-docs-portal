@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Event scheduling"
+aliases = [ "/releases/4.1/event-scheduling.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "event", "scheduling",]
 +++
@@ -93,8 +94,12 @@ override fun nextScheduledActivity(thisStateRef: StateRef, flowLogicRefFactory: 
     val instant = suggestInterestRateAnnouncementTimeWindow(index = nextFixingOf.name, source = floatingLeg.indexSource, date = nextFixingOf.forDay).fromTime!!
     return ScheduledActivity(flowLogicRefFactory.create("net.corda.irs.flows.FixingFlow\$FixingRoleDecider", thisStateRef), instant)
 }
+
 ```
 {{% /tab %}}
+
+[IRS.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/irs-demo/cordapp/contracts-irs/src/main/kotlin/net/corda/irs/contract/IRS.kt) | ![github](/images/svg/github.svg "github")
+
 {{< /tabs >}}
 
 The first thing this does is establish if there are any remaining fixings.  If there are none, then it returns `null`

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Options for confidential identities"
+aliases = [ "/releases/4.3/confidential-identities-hsm.html", "/confidential-identities-hsm.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "confidential", "identities", "hsm",]
 +++

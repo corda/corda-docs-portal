@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Tutorials"
+aliases = [ "/releases/4.1/tutorials-index.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "tutorials",]
 +++

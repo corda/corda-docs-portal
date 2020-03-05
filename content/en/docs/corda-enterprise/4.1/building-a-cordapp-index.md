@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "CorDapps"
+aliases = [ "/releases/4.1/building-a-cordapp-index.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "building", "cordapp",]
 +++
@@ -38,8 +39,6 @@ tags = [ "building", "cordapp",]
 * [Configuring Responder Flows](flow-overriding.md)
 
 * [Flow cookbook](flow-cookbook.md)
-
-* [Database management scripts](database-management.md)
 
 
 

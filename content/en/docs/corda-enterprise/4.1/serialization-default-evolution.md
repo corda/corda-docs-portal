@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Default Class Evolution"
+aliases = [ "/releases/4.1/serialization-default-evolution.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "serialization", "default", "evolution",]
 +++

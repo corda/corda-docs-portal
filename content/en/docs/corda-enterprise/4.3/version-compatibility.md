@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda and Corda Enterprise compatibility"
+aliases = [ "/releases/4.3/version-compatibility.html", "/version-compatibility.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "version", "compatibility",]
 +++

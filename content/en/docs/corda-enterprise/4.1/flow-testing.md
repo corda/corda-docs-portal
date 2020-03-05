@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing flow tests"
+aliases = [ "/releases/4.1/flow-testing.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "flow", "testing",]
 +++

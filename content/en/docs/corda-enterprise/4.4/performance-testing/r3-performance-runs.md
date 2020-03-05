@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Reproducing the R3 performance test numbers"
+aliases = [ "/releases/4.4/performance-testing/r3-performance-runs.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "r3", "performance",]
 +++

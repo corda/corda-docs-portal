@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing a contract test"
+aliases = [ "/releases/4.1/tutorial-test-dsl.html",]
 tags = [ "tutorial", "test", "dsl",]
 
 [menu.corda-enterprise-4-1]
@@ -17,9 +18,9 @@ The testing DSL allows one to define a piece of the ledger with transactions ref
             verifying their correctness.
 
 
-## Testing single transactions
+## Setting up the test
 
-We start with the empty ledger:
+Before writing the individual tests, the general test setup must be configured:
 
 
 {{< tabs name="tabs-1" >}}
@@ -27,12 +28,10 @@ We start with the empty ledger:
 
 {{% tab name="kotlin" %}}
 ```kotlin
-class CommercialPaperTest{
-    @Test
-    fun emptyLedger() {
-        ledger {
-        }
-    }
+class CommercialPaperTest {
+    private val miniCorp = TestIdentity(CordaX500Name("MiniCorp", "London", "GB"))
+    private val megaCorp = TestIdentity(CordaX500Name("MegaCorp", "London", "GB"))
+    private val ledgerServices = MockServices(listOf("net.corda.finance.schemas"), megaCorp, miniCorp)
     ...
 }
 ```
@@ -40,14 +39,47 @@ class CommercialPaperTest{
 
 {{% tab name="java" %}}
 ```java
-import org.junit.Test;
+public class CommercialPaperTest {
+    private TestIdentity megaCorp = new TestIdentity(new CordaX500Name("MegaCorp", "London", "GB"));
+    private TestIdentity miniCorp = new TestIdentity(new CordaX500Name("MiniCorp", "London", "GB"));
+    MockServices ledgerServices = new MockServices(Arrays.asList("net.corda.finance.schemas"), megaCorp, miniCorp);
+    ...
+}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
-import static net.corda.testing.NodeTestUtils.ledger;
+The `ledgerServices` object will provide configuration to the `ledger` DSL in the individual tests.
 
+
+## Testing single transactions
+
+We start with the empty ledger:
+
+
+{{< tabs name="tabs-2" >}}
+
+
+{{% tab name="kotlin" %}}
+```kotlin
+class CommercialPaperTest {
+    @Test
+    fun emptyLedger() {
+        ledgerServices.ledger {
+            ...
+        }
+    }
+}
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
 public class CommercialPaperTest {
     @Test
     public void emptyLedger() {
-        ledger(l -> {
+        ledger(ledgerServices, l -> {
+            ...
             return null;
         });
     }
@@ -62,7 +94,7 @@ The DSL keyword `ledger` takes a closure that can build up several transactions 
 We will start with defining helper function that returns a `CommercialPaper` state:
 
 
-{{< tabs name="tabs-2" >}}
+{{< tabs name="tabs-3" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -88,7 +120,7 @@ It’s a `CommercialPaper` issued by `MEGA_CORP` with face value of $1000 and ma
 Let’s add a `CommercialPaper` transaction:
 
 
-{{< tabs name="tabs-3" >}}
+{{< tabs name="tabs-4" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -110,7 +142,7 @@ fun simpleCPDoesntCompile() {
 @Test
 public void simpleCPDoesntCompile() {
     ICommercialPaperState inState = getPaper();
-    ledger(l -> {
+    ledger(ledgerServices, l -> {
         l.transaction(tx -> {
             tx.input(inState);
         });
@@ -131,7 +163,7 @@ The above `input` call is a bit special; transactions don’t actually contain i
 The above code however doesn’t compile:
 
 
-{{< tabs name="tabs-4" >}}
+{{< tabs name="tabs-5" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -151,7 +183,7 @@ This is deliberate: The DSL forces us to specify either `verifies()` or ``fails 
                 last line of `transaction`:
 
 
-{{< tabs name="tabs-5" >}}
+{{< tabs name="tabs-6" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -198,7 +230,7 @@ public void simpleCP() {
 Let’s take a look at a transaction that fails.
 
 
-{{< tabs name="tabs-6" >}}
+{{< tabs name="tabs-7" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -247,7 +279,7 @@ public void simpleCPMove() {
 When run, that code produces the following error:
 
 
-{{< tabs name="tabs-7" >}}
+{{< tabs name="tabs-8" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -267,7 +299,7 @@ The transaction verification failed, because we wanted to move paper but didn’
                 However we can specify that this is an intended behaviour by changing `verifies()` to ``fails with`("the state is propagated")`:
 
 
-{{< tabs name="tabs-8" >}}
+{{< tabs name="tabs-9" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -314,7 +346,7 @@ public void simpleCPMoveFails() {
 We can continue to build the transaction until it `verifies`:
 
 
-{{< tabs name="tabs-9" >}}
+{{< tabs name="tabs-10" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -372,7 +404,7 @@ What should we do if we wanted to test what happens when the wrong party signs t
                 `command` it will permanently ruin the transaction… Enter `tweak`:
 
 
-{{< tabs name="tabs-10" >}}
+{{< tabs name="tabs-11" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -435,7 +467,7 @@ We now have a neat little test that tests a single transaction. This is already 
                 ledger with a single transaction:
 
 
-{{< tabs name="tabs-11" >}}
+{{< tabs name="tabs-12" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -491,7 +523,7 @@ public void simpleIssuanceWithTweakTopLevelTx() {
 Now that we know how to define a single transaction, let’s look at how to define a chain of them:
 
 
-{{< tabs name="tabs-12" >}}
+{{< tabs name="tabs-13" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -587,7 +619,7 @@ We can also test whole ledger calling `verifies()` and `fails()` on the ledger l
                 To do so let’s create a simple example that uses the same input twice:
 
 
-{{< tabs name="tabs-13" >}}
+{{< tabs name="tabs-14" >}}
 
 
 {{% tab name="kotlin" %}}
@@ -692,7 +724,7 @@ The transactions `verifies()` individually, however the state was spent twice! T
                 verification (`fails()` at the end). As in previous examples we can use `tweak` to create a local copy of the whole ledger:
 
 
-{{< tabs name="tabs-14" >}}
+{{< tabs name="tabs-15" >}}
 
 
 {{% tab name="kotlin" %}}

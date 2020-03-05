@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Running the example CorDapp"
+aliases = [ "/releases/release-V4.1/tutorial-cordapp.html",]
 tags = [ "tutorial", "cordapp",]
 
 [menu.corda-os-4-1]

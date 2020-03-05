@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Troubleshooting Common Issues"
+aliases = [ "/releases/release-1.2/troubleshooting-common-issues.html",]
 menu = [ "cenm-1-2",]
 tags = [ "troubleshooting", "common", "issues",]
 +++

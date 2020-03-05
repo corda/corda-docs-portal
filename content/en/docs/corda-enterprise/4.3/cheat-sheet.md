@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Cheat sheet"
+aliases = [ "/releases/4.3/cheat-sheet.html", "/cheat-sheet.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "cheat", "sheet",]
 +++

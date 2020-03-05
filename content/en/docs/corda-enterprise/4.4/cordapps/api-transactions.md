@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Understanding transactions"
+aliases = [ "/releases/4.4/cordapps/api-transactions.html",]
 tags = [ "api", "transactions",]
 
 [menu.corda-enterprise-4-4]

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Obtaining and Installing the Performance Test Suite"
+aliases = [ "/releases/4.4/performance-testing/installation.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "installation",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Configuring the notary backend - JPA"
+aliases = [ "/releases/4.3/running-a-notary-cluster/installing-jpa.html", "/running-a-notary-cluster/installing-jpa.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "installing", "jpa",]
 +++

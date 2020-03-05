@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Object serialization"
+aliases = [ "/releases/release-V4.3/serialization.html",]
 menu = [ "corda-os-4-3",]
 tags = [ "serialization",]
 +++

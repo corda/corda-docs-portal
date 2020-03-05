@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Deploying a node to a server"
+aliases = [ "/releases/4.1/deploying-a-node.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "deploying", "node",]
 +++
@@ -40,11 +41,12 @@ We recommend creating system services to run a node and the optional webserver. 
 `mkdir /opt/corda; chown corda:corda /opt/corda`
 
 
-* Place the Enterprise Corda JAR `corda-4.1.jar` in `/opt/corda`
+* Download the [Corda jar](https://r3.bintray.com/corda/net/corda/corda/)
+                        (under `/4.1/corda-4.1.jar`) and place it in `/opt/corda`
 
 
-* (Optional) Copy the Corda webserver JAR provided to your organization
-                        (under `/corda-webserver-4.1.jar`) and place it in `/opt/corda`
+* (Optional) Download the [Corda webserver jar](http://r3.bintray.com/corda/net/corda/corda-webserver/)
+                        (under `/4.1/corda-4.1.jar`) and place it in `/opt/corda`
 
 
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
@@ -223,10 +225,6 @@ exec java -jar /opt/corda/corda-webserver.jar
                         [Network certificates](permissioning.md)
 
 
-* Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-                        For more information refer to [Database management scripts](database-management.md)
-
-
 * **SystemD**: You can now start a node and its webserver and set the services to start on boot by running the
                         following `systemctl` commands:
 
@@ -273,12 +271,12 @@ We recommend running Corda as a Windows service. This provides service handling,
 > 
 > 
 
-* Create a Corda directory and copy the Enterprise Corda JAR `corda-4.1.jar`.
-                        Here’s an example using PowerShell:
+* Create a Corda directory and download the Corda jar. Here’s an
+                        example using PowerShell:
 
 ```kotlin
 mkdir C:\Corda
-copy PATH_TO_CORDA_JAR/corda-4.1.jar C:\Corda\corda.jar
+wget http://jcenter.bintray.com/net/corda/corda/4.1/corda-4.1.jar -OutFile C:\Corda\corda.jar
 ```
 
 * Create a directory called `cordapps` in `C:\Corda\` and save your CorDapp jar file to it. Alternatively,
@@ -364,10 +362,6 @@ sc start cordanode1
 
 * Provision the required certificates to your node. Contact the network permissioning service or see
                         [Network certificates](permissioning.md)
-
-
-* Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-                        For more information refer to [Database management scripts](database-management.md)
 
 
 * Run the batch file by clicking on it or from a command prompt

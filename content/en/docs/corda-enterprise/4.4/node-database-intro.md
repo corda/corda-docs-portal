@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Database management"
+aliases = [ "/releases/4.4/node-database-intro.html",]
 tags = [ "node", "database", "intro",]
 
 [menu.corda-enterprise-4-4]

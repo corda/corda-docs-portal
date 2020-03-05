@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Flows"
+aliases = [ "/releases/4.1/key-concepts-flows.html",]
 tags = [ "concepts", "flows",]
 
 [menu.corda-enterprise-4-1]

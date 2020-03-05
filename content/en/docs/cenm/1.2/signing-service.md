@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Signing Services"
+aliases = [ "/releases/release-1.2/signing-service.html",]
 menu = [ "cenm-1-2",]
 tags = [ "signing", "service",]
 +++

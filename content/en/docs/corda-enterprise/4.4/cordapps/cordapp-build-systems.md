@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Building and installing a CorDapp"
+aliases = [ "/releases/4.4/cordapps/cordapp-build-systems.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "cordapp", "build", "systems",]
 +++

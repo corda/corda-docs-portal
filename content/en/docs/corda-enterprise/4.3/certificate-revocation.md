@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Certificate revocation list"
+aliases = [ "/releases/4.3/certificate-revocation.html", "/certificate-revocation.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "certificate", "revocation",]
 +++

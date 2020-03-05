@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Backup and restoration of a Corda node"
+aliases = [ "/releases/4.4/node/operating/cm-backup.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "cm", "backup",]
 +++

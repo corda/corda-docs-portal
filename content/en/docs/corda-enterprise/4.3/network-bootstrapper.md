@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Network Bootstrapper"
+aliases = [ "/releases/4.3/network-bootstrapper.html", "/network-bootstrapper.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "network", "bootstrapper",]
 +++

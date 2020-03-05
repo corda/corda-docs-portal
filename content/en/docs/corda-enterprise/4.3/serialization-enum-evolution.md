@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Enum Evolution"
+aliases = [ "/releases/4.3/serialization-enum-evolution.html", "/serialization-enum-evolution.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "serialization", "enum", "evolution",]
 +++

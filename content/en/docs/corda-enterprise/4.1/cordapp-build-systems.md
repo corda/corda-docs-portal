@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Building and installing a CorDapp"
+aliases = [ "/releases/4.1/cordapp-build-systems.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "cordapp", "build", "systems",]
 +++
@@ -77,19 +78,8 @@ The current versions used are as follows:
 ```groovy
 ext.corda_release_version = '4.1'
 ext.corda_gradle_plugins_version = '4.0.42'
-ext.quasar_version = '0.7.11_r3'
+ext.quasar_version = '0.7.10'
 ext.kotlin_version = '1.2.71'
-```
-Please note that Corda Enterprise 4 uses patched releases of Quasar and Caffeine to work around shortcomings identified in
-                    these libraries while a proper fix is under way. In order to get hold of the patched versions of these libraries,
-                    `corda-dependencies` needs to be added to your list of gradle repositories. This repository is required for any project
-                    referencing Corda Enterprise 4 packages to provide transitive dependencies:
-
-```groovy
-repositories {
-    // ... other dependencies
-    maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar and Caffeine version
-}
 ```
 In certain cases, you may also wish to build against the unstable Master branch. See [Building CorDapps against a non-release branch](building-against-master.md).
 
@@ -407,22 +397,22 @@ Below is a sample CorDapp Gradle dependencies block. When building your own CorD
 ```groovy
 dependencies {
     // Corda integration dependencies
-    cordaCompile "$corda_release_distribution:corda-core:$corda_release_version"
-    cordaCompile "$corda_release_distribution:corda-finance-contracts:$corda_release_version"
+    cordaCompile "net.corda:corda-core:$corda_release_version"
+    cordaCompile "net.corda:corda-finance-contracts:$corda_release_version"
     cordaCompile "net.corda:corda-finance-workflows:$corda_release_version"
-    cordaCompile "$corda_release_distribution:corda-jackson:$corda_release_version"
-    cordaCompile "$corda_release_distribution:corda-rpc:$corda_release_version"
-    cordaCompile "$corda_release_distribution:corda-node-api:$corda_release_version"
-    cordaCompile "$corda_release_distribution:corda-webserver-impl:$corda_release_version"
-    cordaRuntime "$corda_release_distribution:corda:$corda_release_version"
-    cordaRuntime "$corda_release_distribution:corda-webserver:$corda_release_version"
-    testCompile "$corda_release_distribution:corda-test-utils:$corda_release_version"
+    cordaCompile "net.corda:corda-jackson:$corda_release_version"
+    cordaCompile "net.corda:corda-rpc:$corda_release_version"
+    cordaCompile "net.corda:corda-node-api:$corda_release_version"
+    cordaCompile "net.corda:corda-webserver-impl:$corda_release_version"
+    cordaRuntime "net.corda:corda:$corda_release_version"
+    cordaRuntime "net.corda:corda-webserver:$corda_release_version"
+    testCompile "net.corda:corda-test-utils:$corda_release_version"
 
     // Corda Plugins: dependent flows and services
     // Identifying a CorDapp by its module in the same project.
     cordapp project(":cordapp-contracts-states")
     // Identifying a CorDapp by its fully-qualified name.
-    cordapp "$corda_release_distribution:bank-of-corda-demo:1.0"
+    cordapp "net.corda:bank-of-corda-demo:1.0"
 
     // Some other dependencies
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -710,7 +700,7 @@ As of Corda 4, CorDapp Contract JARs must be installed on a node by a trusted up
 `>>> run uploadAttachment jar: path/to/the/file.jar`
 
 Contract attachments that are received from a peer over the p2p network are considered **untrusted** and will throw a *UntrustedAttachmentsException* exception
-                when processed by a listening flow that cannot resolve that attachment from its local attachment storage. The flow will be suspended and sent to the nodes [Flow Hospital](node-flow-hospital.md) for recovery and retry.
+                when processed by a listening flow that cannot resolve that attachment from its local attachment storage. The flow will be aborted and sent to the nodes flow hospital for recovery and retry.
                 The untrusted attachment JAR will be stored in the nodes local attachment store for review by a node operator. It can be downloaded for viewing using the following CRaSH shell command:
 
 `>>> run openAttachment id: <hash of untrusted attachment given by `UntrustedAttachmentsException` exception`

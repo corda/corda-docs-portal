@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Corda Network: Pre-Production Environment"
+aliases = [ "/releases/release-V4.4/corda-network/UAT.html",]
 menu = [ "corda-os-4-4",]
 tags = [ "UAT",]
 +++

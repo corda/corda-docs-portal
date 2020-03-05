@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Networking and messaging"
+aliases = [ "/releases/4.1/messaging.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "messaging",]
 +++
@@ -8,7 +9,7 @@ tags = [ "messaging",]
 
 # Networking and messaging
 
-Corda uses AMQP/1.0 over TLS/1.2 between nodes which is currently implemented using Apache Artemis, an embeddable message
+Corda uses AMQP/1.0 over TLS between nodes which is currently implemented using Apache Artemis, an embeddable message
             queue broker. Building on established MQ protocols gives us features like persistence to disk, automatic delivery
             retries with backoff and dead-letter routing, security, large message streaming and so on.
 

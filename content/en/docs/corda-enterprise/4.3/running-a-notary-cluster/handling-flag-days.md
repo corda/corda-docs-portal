@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Handling flag days"
+aliases = [ "/releases/4.3/running-a-notary-cluster/handling-flag-days.html", "/running-a-notary-cluster/handling-flag-days.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "handling", "flag", "days",]
 +++

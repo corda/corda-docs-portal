@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node shell"
+aliases = [ "/releases/4.1/shell.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "shell",]
 +++

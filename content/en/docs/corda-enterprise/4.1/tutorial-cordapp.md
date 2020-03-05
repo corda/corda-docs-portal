@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Running the example CorDapp"
+aliases = [ "/releases/4.1/tutorial-cordapp.html",]
 tags = [ "tutorial", "cordapp",]
 
 [menu.corda-enterprise-4-1]
@@ -621,46 +622,7 @@ You can run the CorDapp’s integration tests by running the `Run Integration Te
 
 ### Running tests in IntelliJ
 
-We recommend editing your IntelliJ preferences so that you use the Gradle runner - this means that the quasar utils
-                    plugin will make sure that some flags (like `-javaagent` - see [below](#tutorial-cordapp-alternative-test-runners)) are
-                    set for you.
-
-To switch to using the Gradle runner:
-
-
-* Navigate to `Build, Execution, Deployment -> Build Tools -> Gradle -> Runner` (or search for *runner*)
-
-
-    * Windows: this is in “Settings”
-
-
-    * MacOS: this is in “Preferences”
-
-
-
-* Set “Delegate IDE build/run actions to gradle” to true
-
-
-* Set “Run test using:” to “Gradle Test Runner”
-
-
-If you would prefer to use the built in IntelliJ JUnit test runner, you can add some code to your `build.gradle` file and
-                    it will copy your quasar JAR file to the lib directory. You will also need to specify `-javaagent:lib/quasar.jar`
-                    and set the run directory to the project root directory for each test.
-
-Add the following to your `build.gradle` file - ideally to a `build.gradle` that already contains the quasar-utils plugin line:
-
-```groovy
-apply plugin: 'net.corda.plugins.quasar-utils'
-
-task installQuasar(type: Copy) {
-    destinationDir rootProject.file("lib")
-    from(configurations.quasar) {
-        rename 'quasar-core(.*).jar', 'quasar.jar'
-    }
-}
-```
-and then you can run `gradlew installQuasar`.
+See [Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners)
 
 
 ## Debugging your CorDapp

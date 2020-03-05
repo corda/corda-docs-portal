@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Database tables"
+aliases = [ "/releases/4.3/node-database-tables.html", "/node-database-tables.html",]
 tags = [ "node", "database", "tables",]
 
 [menu.corda-enterprise-4-3]

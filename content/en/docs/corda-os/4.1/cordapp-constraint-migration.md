@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "CorDapp constraints migration"
+aliases = [ "/releases/release-V4.1/cordapp-constraint-migration.html",]
 menu = [ "corda-os-4-1",]
 tags = [ "cordapp", "constraint", "migration",]
 +++

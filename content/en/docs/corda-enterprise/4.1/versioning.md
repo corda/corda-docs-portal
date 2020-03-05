@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Versioning"
+aliases = [ "/releases/4.1/versioning.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "versioning",]
 +++
@@ -118,4 +119,9 @@ The `versionId` specified for the JAR manifest is checked by the platform and is
 
 
 {{< /important >}}
+
+{{< note >}}
+You can read the original design doc here: [CorDapp Minimum and Target Platform Version](design/targetversion/design.md).
+
+{{< /note >}}
 

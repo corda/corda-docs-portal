@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Persistence"
+aliases = [ "/releases/4.1/api-persistence.html",]
 tags = [ "api", "persistence",]
 
 [menu.corda-enterprise-4-1]
@@ -208,11 +209,68 @@ Several examples of entities and mappings are provided in the codebase, includin
 
 {{< tabs name="tabs-1" >}}
 
+
+{{% tab name="kotlin" %}}
+```kotlin
+package net.corda.finance.schemas
+
+import net.corda.core.identity.AbstractParty
+import net.corda.core.schemas.MappedSchema
+import net.corda.core.schemas.PersistentState
+import net.corda.core.serialization.CordaSerializable
+import net.corda.core.utilities.MAX_HASH_HEX_SIZE
+import net.corda.core.contracts.MAX_ISSUER_REF_SIZE
+import org.hibernate.annotations.Type
+import javax.persistence.*
+
+/**
+ * An object used to fully qualify the [CashSchema] family name (i.e. independent of version).
+ */
+object CashSchema
+
+/**
+ * First version of a cash contract ORM schema that maps all fields of the [Cash] contract state as it stood
+ * at the time of writing.
+ */
+@CordaSerializable
+object CashSchemaV1 : MappedSchema(schemaFamily = CashSchema.javaClass, version = 1, mappedTypes = listOf(PersistentCashState::class.java)) {
+
+    override val migrationResource = "cash.changelog-master"
+
+    @Entity
+    @Table(name = "contract_cash_states", indexes = [Index(name = "ccy_code_idx", columnList = "ccy_code"), Index(name = "pennies_idx", columnList = "pennies")])
+    class PersistentCashState(
+            /** X500Name of owner party **/
+            @Column(name = "owner_name", nullable = true)
+            var owner: AbstractParty?,
+
+            @Column(name = "pennies", nullable = false)
+            var pennies: Long,
+
+            @Column(name = "ccy_code", length = 3, nullable = false)
+            var currency: String,
+
+            @Column(name = "issuer_key_hash", length = MAX_HASH_HEX_SIZE, nullable = false)
+            var issuerPartyHash: String,
+
+            @Column(name = "issuer_ref", length = MAX_ISSUER_REF_SIZE, nullable = false)
+            @Type(type = "corda-wrapper-binary")
+            var issuerRef: ByteArray
+    ) : PersistentState()
+}
+
+```
+{{% /tab %}}
+
+[CashSchemaV1.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt) | ![github](/images/svg/github.svg "github")
+
 {{< /tabs >}}
 
 
 {{< note >}}
-Ensure table and column names are compatible with the naming convention of database vendors for which the Cordapp will be deployed,
+If Cordapp needs to be portable between Corda OS (running against H2) and Corda Enterprise (running against a standalone database),
+                    consider database vendors specific requirements.
+                    Ensure that table and column names are compatible with the naming convention of the database vendors for which the Cordapp will be deployed,
                     e.g. for Oracle database, prior to version 12.2 the maximum length of table/column name is 30 bytes (the exact number of characters depends on the database encoding).
 
 {{< /note >}}

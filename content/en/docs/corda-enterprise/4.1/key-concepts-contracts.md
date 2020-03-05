@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Contracts"
+aliases = [ "/releases/4.1/key-concepts-contracts.html",]
 tags = [ "concepts", "contracts",]
 
 [menu.corda-enterprise-4-1]
@@ -89,7 +90,8 @@ Future versions of Corda will evaluate transactions in a strictly deterministic 
                 libraries, for example. Ultimately, the only information available to the contract when verifying the transaction is
                 the information included in the transaction itself.
 
-Developers can pre-verify their CorDapps are determinsitic by linking their CorDapps against the deterministic modules.
+Developers can pre-verify their CorDapps are determinsitic by linking their CorDapps against the deterministic modules
+                (see the [Deterministic Corda Modules](deterministic-modules.md)).
 
 
 ## Contract limitations

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Wire format"
+aliases = [ "/releases/4.4/wire-format.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "wire", "format",]
 +++

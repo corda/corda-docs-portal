@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Integration testing"
+aliases = [ "/releases/4.3/tutorial-integration-testing.html", "/tutorial-integration-testing.html",]
 tags = [ "tutorial", "integration", "testing",]
 
 [menu.corda-enterprise-4-3]

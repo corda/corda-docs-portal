@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "HSM support for legal identity keys"
+aliases = [ "/releases/4.3/cryptoservice-configuration.html", "/cryptoservice-configuration.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "cryptoservice", "configuration",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Notary HSM support"
+aliases = [ "/releases/4.3/running-a-notary-cluster/hsm-support.html", "/running-a-notary-cluster/hsm-support.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "hsm", "support",]
 +++

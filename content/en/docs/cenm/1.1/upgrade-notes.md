@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Upgrading Corda Enterprise Network Manager"
+aliases = [ "/releases/release-1.1/upgrade-notes.html", "/upgrade-notes.html",]
 menu = [ "cenm-1-1",]
 tags = [ "upgrade", "notes",]
 +++

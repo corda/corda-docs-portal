@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Using attachments"
+aliases = [ "/releases/4.1/tutorial-attachments.html",]
 tags = [ "tutorial", "attachments",]
 
 [menu.corda-enterprise-4-1]
@@ -92,22 +93,22 @@ The `and` and `or` operators can be used to build complex queries. For example:
 {{% tab name="kotlin" %}}
 ```kotlin
 
-assertEquals(
-        emptyList(),
-        storage.queryAttachments(
-                AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexA"))
-                        .and(AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexB"))))
-)
+rtEquals(
+    emptyList(),
+    storage.queryAttachments(
+            AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexA"))
+                    .and(AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexB"))))
 
-assertEquals(
-        listOf(hashA, hashB),
-        storage.queryAttachments(
-                AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexA"))
-                        .or(AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexB"))))
-)
 
-val complexCondition =
-        (uploaderCondition("complexB").and(filenamerCondition("archiveB.zip"))).or(filenamerCondition("archiveC.zip"))
+rtEquals(
+    listOf(hashA, hashB),
+    storage.queryAttachments(
+            AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexA"))
+                    .or(AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexB"))))
+
+
+complexCondition =
+    (uploaderCondition("complexB").and(filenamerCondition("archiveB.zip"))).or(filenamerCondition("archiveC.zip"))
 
 
 ```

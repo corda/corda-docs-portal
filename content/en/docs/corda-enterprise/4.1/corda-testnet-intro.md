@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Joining Corda Testnet"
+aliases = [ "/releases/4.1/corda-testnet-intro.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "corda", "testnet", "intro",]
 +++
@@ -46,7 +47,9 @@ At this point you may need to verify your email address is valid (if you are not
 {{< /note >}}
 Next agree to the terms of service:
 
-![testnet terms](resources/testnet-terms.png "testnet terms")You can now copy the `ONE-TIME-KEY` and paste it into the parameter form of your cloud template.
+![testnet terms](resources/testnet-terms.png "testnet terms")You can now choose how to deploy your Corda node to the Corda Testnet. We strongly recommend hosting your Corda node on a public cloud resource.
+
+Select the cloud provider you wish to use for documentation on how to specifically configure Corda for that environment.
 
 ![testnet platform clean](resources/testnet-platform-clean.png "testnet platform clean")Once your cloud instance is set up you can install and run your Testnet pre-provisioned Corda node by clicking on “Copy” and pasting the one time link into your remote cloud terminal.
 
@@ -56,7 +59,7 @@ Hosting a Corda node locally is possible but will require manually configuring f
 
 
 {{< note >}}
-If you host your node on your own machine or a corporate server you must ensure it is reachable from the public internet at a specific IP address. Please follow the instructions here: [<no title>](deploy-locally.md).
+If you host your node on your own machine or a corporate server you must ensure it is reachable from the public internet at a specific IP address. Please follow the instructions here: [Deploying Corda to Corda Testnet from your local environment](deploy-locally.md).
 
 {{< /note >}}
 

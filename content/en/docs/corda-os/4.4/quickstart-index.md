@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Getting started developing CorDapps"
+aliases = [ "/releases/release-V4.4/quickstart-index.html",]
 menu = [ "corda-os-4-4",]
 tags = [ "quickstart",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Deploying a node to a server"
+aliases = [ "/releases/release-V4.3/deploying-a-node.html",]
 menu = [ "corda-os-4-3",]
 tags = [ "deploying", "node",]
 +++

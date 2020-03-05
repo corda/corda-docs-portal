@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Setting up a notary service"
+aliases = [ "/releases/4.1/running-a-notary.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "running", "notary",]
 +++
@@ -8,14 +9,17 @@ tags = [ "running", "notary",]
 
 # Setting up a notary service
 
-Corda Enterprise comes with two notary implementations built-in:
+Corda comes with several notary implementations built-in:
 
 
-* **Single-node**: a simple notary service that persists notarisation requests in the node’s database. It is easy to configure
-                    and can be used for testing, or networks that do not have strict availability requirements.
+* **Single-node**: a simple notary service that persists notarisation requests in the node’s database. It is easy to set up
+                    and is recommended for testing, and production networks that do not have strict availability requirements.
 
 
-* **Highly available**: a clustered notary service operated by a single party, able to tolerate crash faults.
+* **Crash fault-tolerant** *(experimental)*: a highly available notary service operated by a single party.
+
+
+* **Byzantine fault-tolerant** *(experimental)*: a decentralised highly available notary service operated by a group of parties.
 
 
 
@@ -39,16 +43,21 @@ For clients to be able to use the notary service, its identity must be added to 
                 for more details.
 
 
-## Highly available
+## Crash fault-tolerant (experimental)
 
-Corda Enterprise provides a highly available notary service implementation backed by a replicated Percona XtraDB cluster.
-                This is the recommended implementation for production networks. See [Setting up a HA notary service](running-a-notary-cluster/toctree.md) for detailed
-                setup steps.
+Corda provides a prototype [Raft-based](http://atomix.io/) highly available notary implementation. You can try it out on our
+                [notary demo](https://github.com/corda/corda/tree/release/4/samples/notary-demo) page. Note that it has known limitations
+                and is not recommended for production use.
 
 
-{{< warning >}}
-Upgrading an existing single-node notary to be highly available is currently unsupported.
+## Byzantine fault-tolerant (experimental)
 
-{{< /warning >}}
+A prototype BFT notary implementation based on [BFT-Smart](https://github.com/bft-smart/library) is available. You can
+                try it out on our [notary demo](https://github.com/corda/corda/tree/release/4/samples/notary-demo) page. Note that it
+                is still experimental and there is active work ongoing for a production ready solution. Additionally, BFT-Smart requires Java
+                serialization which is disabled by default in Corda due to security risks, and it will only work in dev mode where this can
+                be customised.
+
+We do not recommend using it in any long-running test or production deployments.
 
 

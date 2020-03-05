@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Firewall upgrade"
+aliases = [ "/releases/4.3/corda-firewall-upgrade.html", "/corda-firewall-upgrade.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "corda", "firewall", "upgrade",]
 +++

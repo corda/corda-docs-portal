@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Checkpoint Tooling"
+aliases = [ "/releases/4.4/checkpoint-tooling.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "checkpoint", "tooling",]
 +++

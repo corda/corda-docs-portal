@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Notary Load Balancing"
+aliases = [ "/releases/4.3/running-a-notary-cluster/faq/notary-load-balancing.html", "/running-a-notary-cluster/faq/notary-load-balancing.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "notary", "load", "balancing",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: Flows"
+aliases = [ "/releases/4.3/api-flows.html", "/api-flows.html",]
 tags = [ "api", "flows",]
 
 [menu.corda-enterprise-4-3]

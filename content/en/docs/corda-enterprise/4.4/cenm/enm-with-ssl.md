@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Configuring the ENM services to use SSL"
+aliases = [ "/releases/4.4/cenm/enm-with-ssl.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "enm", "ssl",]
 +++

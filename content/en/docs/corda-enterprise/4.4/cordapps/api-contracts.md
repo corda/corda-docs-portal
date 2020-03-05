@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Writing CorDapp Contracts"
+aliases = [ "/releases/4.4/cordapps/api-contracts.html",]
 tags = [ "api", "contracts",]
 
 [menu.corda-enterprise-4-4]

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Creating nodes locally"
+aliases = [ "/releases/release-V4.1/generating-a-node.html",]
 menu = [ "corda-os-4-1",]
 tags = [ "generating", "node",]
 +++

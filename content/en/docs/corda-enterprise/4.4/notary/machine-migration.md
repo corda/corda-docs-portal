@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Notary worker migration"
+aliases = [ "/releases/4.4/notary/machine-migration.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "machine", "migration",]
 +++

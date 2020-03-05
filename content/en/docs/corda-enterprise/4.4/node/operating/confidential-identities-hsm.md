@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Using an HSM with confidential identities"
+aliases = [ "/releases/4.4/node/operating/confidential-identities-hsm.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "confidential", "identities", "hsm",]
 +++

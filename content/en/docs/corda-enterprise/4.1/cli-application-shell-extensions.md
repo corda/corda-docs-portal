@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Shell extensions for CLI Applications"
+aliases = [ "/releases/4.1/cli-application-shell-extensions.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "cli", "application", "shell", "extensions",]
 +++
@@ -75,10 +76,4 @@ Which will update the alias to point to the new location, and update command lin
 |[Blob inspector](blob-inspector.md)|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.1.jar`|
 
 {{< /table >}}
-
-## List of existing Enterprise CLI applications
-
-[Database Manager](database-management.md)                `database-manager --<option>`  `corda-tools-database-manager-4.1.jar`
-                Corda Firewall          `corda-firewall --<option>`    `corda-firewall-4.1.jar`                                 |
-
 

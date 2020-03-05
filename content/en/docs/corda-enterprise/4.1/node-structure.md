@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Node folder structure"
+aliases = [ "/releases/4.1/node-structure.html",]
 tags = [ "node", "structure",]
 
 [menu.corda-enterprise-4-1]
@@ -25,7 +26,7 @@ A folder containing a Corda node files has the following structure:
 ├── logs                    // The node's logs
 ├── network-parameters      // The network parameters automatically downloaded from the network map server
 ├── node.conf               // The node's configuration files
-├── persistence.mv.db       // The node's database (present when the node uses the embedded H2 database instance)
+├── persistence.mv.db       // The node's database
 └── shell-commands          // Custom shell commands defined by the node owner
 ```
 You install CorDapps on the node by placing CorDapp JARs in the `cordapps` folder.

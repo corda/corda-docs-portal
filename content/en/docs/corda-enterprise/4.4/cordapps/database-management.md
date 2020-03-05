@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Database management scripts"
+aliases = [ "/releases/4.4/cordapps/database-management.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "database", "management",]
 +++

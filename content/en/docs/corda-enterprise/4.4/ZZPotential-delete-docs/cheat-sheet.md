@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Cheat sheet"
+aliases = [ "/releases/4.4/ZZPotential-delete-docs/cheat-sheet.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "cheat", "sheet",]
 +++

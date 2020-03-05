@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Contributing philosophy"
+aliases = [ "/releases/4.4/ZZPotential-delete-docs/contributing-philosophy.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "contributing", "philosophy",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Configuring the MySQL notary backend"
+aliases = [ "/releases/4.4/notary/installing-percona.html",]
 menu = [ "corda-enterprise-4-4",]
 tags = [ "installing", "percona",]
 +++

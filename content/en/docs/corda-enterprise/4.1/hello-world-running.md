@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Running our CorDapp"
+aliases = [ "/releases/4.1/hello-world-running.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "running",]
 +++
@@ -21,20 +22,27 @@ Let’s take a look at the nodes we’re going to deploy. Open the project’s `
 
 ```bash
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
+
+    nodeDefaults {
+            cordapps = [
+            "net.corda:corda-finance-contracts:$corda_release_version",
+            "net.corda:corda-finance-workflows:$corda_release_version",
+            "net.corda:corda-confidential-identities:$corda_release_version"
+            ]
+    }
+
     directory "./build/nodes"
     node {
         name "O=Notary,L=London,C=GB"
         notary = [validating : true]
         p2pPort 10002
         rpcPort 10003
-        cordapps = ["$corda_release_distribution:corda-finance:$corda_release_version"]
     }
     node {
         name "O=PartyA,L=London,C=GB"
         p2pPort 10005
         rpcPort 10006
         webPort 10007
-        cordapps = ["$corda_release_distribution:corda-finance:$corda_release_version"]
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL]]]
     }
     node {
@@ -43,7 +51,6 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         rpcPort 10009
         webPort 10010
         sshdPort 10024
-        cordapps = ["$corda_release_distribution:corda-finance:$corda_release_version"]
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
 }

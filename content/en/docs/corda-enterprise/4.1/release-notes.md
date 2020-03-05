@@ -1,9 +1,437 @@
 +++
 date = "2020-01-08T09:59:25Z"
-title = "Release notes for Corda 4"
+title = "Release notes for Corda 4.1"
+aliases = [ "/releases/4.1/release-notes.html",]
 menu = [ "corda-enterprise-4-1",]
 tags = [ "release", "notes",]
 +++
+
+
+# Release notes for Corda 4.1
+
+It’s been a little under 3 1/2 months since the release of Corda 4.0 and all of the brand new features that added to the powerful suite
+            of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we are proud to release Corda 4.1, bringing over 150 fixes
+            and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
+
+Information on Corda Enterprise 4.0 can be found *here <https://www.r3.com/wp-content/uploads/2019/05/CordaEnterprise4_Enhancements_FS.pdf*>_ and
+            [here](https://docs.corda.r3.com/releases/4.0/release-notes.html). (It’s worth noting that normally this document would have started with a comment
+            about whether or not you’d been recently domiciled under some solidified mineral material regarding the release of Corda Enterprise 4.0. Alas, we made
+            that joke when we shipped the first release of Corda after Enterprise 3.0 shipped, so the thunder has been stolen and repeating ourselves would be terribly gauche.)
+
+Corda 4.1 brings the lessons and bug fixes discovered during the process of building and shipping Enterprise 4.0 back to the open source community. As mentioned above
+            there are over 150 fixes and tweaks here. With this release the core feature sets of both entities are far closer aligned than past major
+            releases of the Corda that should make testing your CorDapps in mixed type environments much easier.
+
+As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
+
+
+## Issues Fixed
+
+
+* Docker images do not support passing a prepared config with initial registration [[CORDA-2888](https://r3-cev.atlassian.net/browse/CORDA-2888)]
+
+
+* Different hashes for container Corda and normal Corda jars [[CORDA-2884](https://r3-cev.atlassian.net/browse/CORDA-2884)]
+
+
+* Auto attachment of dependencies fails to find class [[CORDA-2863](https://r3-cev.atlassian.net/browse/CORDA-2863)]
+
+
+* Artemis session can’t be used in more than one thread [[CORDA-2861](https://r3-cev.atlassian.net/browse/CORDA-2861)]
+
+
+* Property type checking is overly strict [[CORDA-2860](https://r3-cev.atlassian.net/browse/CORDA-2860)]
+
+
+* Serialisation bug (or not) when trying to run SWIFT Corda Settler tests [[CORDA-2848](https://r3-cev.atlassian.net/browse/CORDA-2848)]
+
+
+* Custom serialisers not found when running mock network tests [[CORDA-2847](https://r3-cev.atlassian.net/browse/CORDA-2847)]
+
+
+* Base directory error message where directory does not exist is slightly misleading [[CORDA-2834](https://r3-cev.atlassian.net/browse/CORDA-2834)]
+
+
+* Progress tracker not reloadable in checkpoints written in Java [[CORDA-2825](https://r3-cev.atlassian.net/browse/CORDA-2825)]
+
+
+* Missing quasar error points to non-existent page [[CORDA-2821](https://r3-cev.atlassian.net/browse/CORDA-2821)]
+
+
+* `TransactionBuilder` can build unverifiable transactions in V5 if more than one CorDapp loaded [[CORDA-2817](https://r3-cev.atlassian.net/browse/CORDA-2817)]
+
+
+* The node hangs when there is a dis-connection of Oracle database [[CORDA-2813](https://r3-cev.atlassian.net/browse/CORDA-2813)]
+
+
+* Docs: fix the latex warnings in the build [[CORDA-2809](https://r3-cev.atlassian.net/browse/CORDA-2809)]
+
+
+* Docs: build the docs page needs updating [[CORDA-2808](https://r3-cev.atlassian.net/browse/CORDA-2808)]
+
+
+* Don’t retry database transaction in abstract node start [[CORDA-2807](https://r3-cev.atlassian.net/browse/CORDA-2807)]
+
+
+* Upgrade Corda Core to use Java Persistence API 2.2 [[CORDA-2804](https://r3-cev.atlassian.net/browse/CORDA-2804)]
+
+
+* Network map stopped updating on Testnet staging notary [[CORDA-2803](https://r3-cev.atlassian.net/browse/CORDA-2803)]
+
+
+* Improve test reliability by eliminating fixed-duration Thread.sleeps [[CORDA-2802](https://r3-cev.atlassian.net/browse/CORDA-2802)]
+
+
+* Not handled exception when certificates directory is missing [[CORDA-2786](https://r3-cev.atlassian.net/browse/CORDA-2786)]
+
+
+* Unable to run FinalityFlow if the initiating app has `targetPlatformVersion=4` and the recipient is using the old version [[CORDA-2784](https://r3-cev.atlassian.net/browse/CORDA-2784)]
+
+
+* Performing a registration with an incorrect Config gives error without appropriate info [[CORDA-2783](https://r3-cev.atlassian.net/browse/CORDA-2783)]
+
+
+* Regression: `java.lang.Comparable` is not on the default whitelist but never has been [[CORDA-2782](https://r3-cev.atlassian.net/browse/CORDA-2782)]
+
+
+* Docs: replace version string with things that get substituted [[CORDA-2781](https://r3-cev.atlassian.net/browse/CORDA-2781)]
+
+
+* Inconsistent docs between internal and external website [[CORDA-2779](https://r3-cev.atlassian.net/browse/CORDA-2779)]
+
+
+* Change the doc substitution so that it works in code blocks as well as in other places [[CORDA-2777](https://r3-cev.atlassian.net/browse/CORDA-2777)]
+
+
+* `net.corda.core.internal.LazyStickyPool#toIndex` can create a negative index [[CORDA-2772](https://r3-cev.atlassian.net/browse/CORDA-2772)]
+
+
+* `NetworkMapUpdater#fileWatcherSubscription` is never assigned and hence the subscription is never cleaned up [[CORDA-2770](https://r3-cev.atlassian.net/browse/CORDA-2770)]
+
+
+* Infinite recursive call in `NetworkParameters.copy` [[CORDA-2769](https://r3-cev.atlassian.net/browse/CORDA-2769)]
+
+
+* Unexpected exception de-serializing throwable for `OverlappingAttachmentsException` [[CORDA-2765](https://r3-cev.atlassian.net/browse/CORDA-2765)]
+
+
+* Always log config to log file [[CORDA-2763](https://r3-cev.atlassian.net/browse/CORDA-2763)]
+
+
+* `ReceiveTransactionFlow` states to record flag gets quietly ignored if `checkSufficientSignatures = false` [[CORDA-2762](https://r3-cev.atlassian.net/browse/CORDA-2762)]
+
+
+* Fix Driver’s `PortAllocation` class, and then use it for Node’s integration tests. [[CORDA-2759](https://r3-cev.atlassian.net/browse/CORDA-2759)]
+
+
+* State machine logs an error prior to deciding to escalate to an error [[CORDA-2757](https://r3-cev.atlassian.net/browse/CORDA-2757)]
+
+
+* Migrate DJVM into a separate module [[CORDA-2750](https://r3-cev.atlassian.net/browse/CORDA-2750)]
+
+
+* Error in `HikariPool` in the performance cluster [[CORDA-2748](https://r3-cev.atlassian.net/browse/CORDA-2748)]
+
+
+* Package DJVM CLI for standalone distribution [[CORDA-2747](https://r3-cev.atlassian.net/browse/CORDA-2747)]
+
+
+* Unable to insert state into vault if notary not on network map [[CORDA-2745](https://r3-cev.atlassian.net/browse/CORDA-2745)]
+
+
+* Create sample code and integration tests to showcase rpc operations that support reconnection [[CORDA-2743](https://r3-cev.atlassian.net/browse/CORDA-2743)]
+
+
+* RPC v4 client unable to subscribe to progress tracker events from Corda 3.3 node [[CORDA-2742](https://r3-cev.atlassian.net/browse/CORDA-2742)]
+
+
+* Doc Fix: Rpc client connection management section not fully working in Corda 4 [[CORDA-2741](https://r3-cev.atlassian.net/browse/CORDA-2741)]
+
+
+* `AnsiProgressRenderer` may start reporting incorrect progress if tree contains identical steps [[CORDA-2738](https://r3-cev.atlassian.net/browse/CORDA-2738)]
+
+
+* The `FlowProgressHandle` does not always return expected results [[CORDA-2737](https://r3-cev.atlassian.net/browse/CORDA-2737)]
+
+
+* Doc fix: integration testing tutorial could do with some gradle instructions [[CORDA-2729](https://r3-cev.atlassian.net/browse/CORDA-2729)]
+
+
+* Release upgrade to Corda 4 notes: include upgrading quasar.jar explicitly in the Corda Kotlin template [[CORDA-2728](https://r3-cev.atlassian.net/browse/CORDA-2728)]
+
+
+* DJVM CLI log file is always empty [[CORDA-2725](https://r3-cev.atlassian.net/browse/CORDA-2725)]
+
+
+* DJVM documentation incorrect around *djvm check* [[CORDA-2721](https://r3-cev.atlassian.net/browse/CORDA-2721)]
+
+
+* Doc fix: reflect the CorDapp template doc changes re quasar/test running the official docs [[CORDA-2715](https://r3-cev.atlassian.net/browse/CORDA-2715)]
+
+
+* Upgrade to Corda 4 test docs only have Kotlin examples [[CORDA-2710](https://r3-cev.atlassian.net/browse/CORDA-2710)]
+
+
+* Log message “Cannot find flow corresponding to session” should not be a warning [[CORDA-2706](https://r3-cev.atlassian.net/browse/CORDA-2706)]
+
+
+* Flow failing due to “Flow sessions were not provided” for its own identity [[CORDA-2705](https://r3-cev.atlassian.net/browse/CORDA-2705)]
+
+
+* RPC user security using `Shiro` docs have errant commas in example config [[CORDA-2703](https://r3-cev.atlassian.net/browse/CORDA-2703)]
+
+
+* The `crlCheckSoftFail` option is not respected, allowing transactions even if strict checking is enabled [[CORDA-2701](https://r3-cev.atlassian.net/browse/CORDA-2701)]
+
+
+* Vault paging fails if setting max page size to *Int.MAX_VALUE* [[CORDA-2698](https://r3-cev.atlassian.net/browse/CORDA-2698)]
+
+
+* Upgrade to Corda Gradle Plugins 4.0.41 [[CORDA-2697](https://r3-cev.atlassian.net/browse/CORDA-2697)]
+
+
+* Corda complaining of duplicate classes upon start-up when it doesn’t need to [[CORDA-2696](https://r3-cev.atlassian.net/browse/CORDA-2696)]
+
+
+* Launching node explorer for node creates error and explorer closes [[CORDA-2694](https://r3-cev.atlassian.net/browse/CORDA-2694)]
+
+
+* Transactions created in V3 cannot be verified in V4 if any of the state types were included in “depended upon” CorDapps which were not attached to the transaction [[CORDA-2692](https://r3-cev.atlassian.net/browse/CORDA-2692)]
+
+
+* Reduce CorDapp scanning logging [[CORDA-2690](https://r3-cev.atlassian.net/browse/CORDA-2690)]
+
+
+* Clean up verbose warning: *ProgressTracker has not been started* [[CORDA-2689](https://r3-cev.atlassian.net/browse/CORDA-2689)]
+
+
+* Add a no-carpenter context [[CORDA-2688](https://r3-cev.atlassian.net/browse/CORDA-2688)]
+
+
+* Improve CorDapp upgrade guidelines for migrating existing states on ledger (pre-V4) [[CORDA-2684](https://r3-cev.atlassian.net/browse/CORDA-2684)]
+
+
+* `SessionRejectException.UnknownClass` trapped by flow hospital but no way to call dropSessionInit() [[CORDA-2683](https://r3-cev.atlassian.net/browse/CORDA-2683)]
+
+
+* Repeated `CordFormations` can fail with ClassLoader exception. [[CORDA-2676](https://r3-cev.atlassian.net/browse/CORDA-2676)]
+
+
+* Backwards compatibility break in serialisation engine when deserialising nullable fields [[CORDA-2674](https://r3-cev.atlassian.net/browse/CORDA-2674)]
+
+
+* Simplify sample CorDapp projects. [[CORDA-2672](https://r3-cev.atlassian.net/browse/CORDA-2672)]
+
+
+* Remove `ExplorerSimulator` from Node Explorer [[CORDA-2671](https://r3-cev.atlassian.net/browse/CORDA-2671)]
+
+
+* Reintroduce `pendingFlowsCount` to the public API [[CORDA-2669](https://r3-cev.atlassian.net/browse/CORDA-2669)]
+
+
+* Trader demo integration tests fails with jar not found exception [[CORDA-2668](https://r3-cev.atlassian.net/browse/CORDA-2668)]
+
+
+* Fix Source ClassLoader for DJVM [[CORDA-2667](https://r3-cev.atlassian.net/browse/CORDA-2667)]
+
+
+* Issue with simple transfer of ownable asset  [[CORDA-2665](https://r3-cev.atlassian.net/browse/CORDA-2665)]
+
+
+* Fix references to Docker images in docs [[CORDA-2664](https://r3-cev.atlassian.net/browse/CORDA-2664)]
+
+
+* Add something to docsite the need for a common contracts Jar between OS/ENT and how it should be compiled against OS [[CORDA-2656](https://r3-cev.atlassian.net/browse/CORDA-2656)]
+
+
+* Create document outlining CorDapp Upgrade guarantees [[CORDA-2655](https://r3-cev.atlassian.net/browse/CORDA-2655)]
+
+
+* Fix DJVM CLI tool [[CORDA-2654](https://r3-cev.atlassian.net/browse/CORDA-2654)]
+
+
+* Corda Service needs Thread Context ClassLoader [[CORDA-2653](https://r3-cev.atlassian.net/browse/CORDA-2653)]
+
+
+* Useless migration error when finance workflow jar is not installed [[CORDA-2651](https://r3-cev.atlassian.net/browse/CORDA-2651)]
+
+
+* Database connection pools leaking memory on every checkpoint [[CORDA-2646](https://r3-cev.atlassian.net/browse/CORDA-2646)]
+
+
+* Exception swallowed when querying vault via RPC with bad page spec [[CORDA-2645](https://r3-cev.atlassian.net/browse/CORDA-2645)]
+
+
+* Applying CordFormation and Cordapp Gradle plugins together includes Jolokia into the Cordapp. [[CORDA-2642](https://r3-cev.atlassian.net/browse/CORDA-2642)]
+
+
+* Wrong folder ownership while trying to connect to Testnet using  RC* docker image [[CORDA-2641](https://r3-cev.atlassian.net/browse/CORDA-2641)]
+
+
+* Provide a better error message on an incompatible implicit contract upgrade [[CORDA-2633](https://r3-cev.atlassian.net/browse/CORDA-2633)]
+
+
+* `uploadAttachment` via shell can fail with unhelpful message if the result of the command is unsuccessful [[CORDA-2632](https://r3-cev.atlassian.net/browse/CORDA-2632)]
+
+
+* Provide a better error msg when the notary type is misconfigured on the net params [[CORDA-2629](https://r3-cev.atlassian.net/browse/CORDA-2629)]
+
+
+* Maybe tone down the level of panic when somebody types their SSH password in incorrectly… [[CORDA-2621](https://r3-cev.atlassian.net/browse/CORDA-2621)]
+
+
+* Cannot complete transaction that has unknown states in the transaction history [[CORDA-2615](https://r3-cev.atlassian.net/browse/CORDA-2615)]
+
+
+* Switch off the codepaths that disable the FinalityHandler [[CORDA-2613](https://r3-cev.atlassian.net/browse/CORDA-2613)]
+
+
+* is our API documentation (what is stable and what isn’t) correct? [[CORDA-2610](https://r3-cev.atlassian.net/browse/CORDA-2610)]
+
+
+* Getting set up guide needs to be updated to reflect Java 8 fun and games [[CORDA-2602](https://r3-cev.atlassian.net/browse/CORDA-2602)]
+
+
+* Not handle exception when Explorer tries to connect to inaccessible server [[CORDA-2586](https://r3-cev.atlassian.net/browse/CORDA-2586)]
+
+
+* Errors received from peers can’t be distinguished from local errors [[CORDA-2572](https://r3-cev.atlassian.net/browse/CORDA-2572)]
+
+
+* Add *flow kill* command, deprecate *run killFlow* [[CORDA-2569](https://r3-cev.atlassian.net/browse/CORDA-2569)]
+
+
+* Hash to signature constraints migration: add a config option that makes hash constraints breakable. [[CORDA-2568](https://r3-cev.atlassian.net/browse/CORDA-2568)]
+
+
+* Deadlock between database and AppendOnlyPersistentMap [[CORDA-2566](https://r3-cev.atlassian.net/browse/CORDA-2566)]
+
+
+* Docfix: Document custom cordapp configuration [[CORDA-2560](https://r3-cev.atlassian.net/browse/CORDA-2560)]
+
+
+* Bootstrapper - option to include contracts to whitelist from signed jars [[CORDA-2554](https://r3-cev.atlassian.net/browse/CORDA-2554)]
+
+
+* Explicit contract upgrade sample fails upon initiation (ClassNotFoundException) [[CORDA-2550](https://r3-cev.atlassian.net/browse/CORDA-2550)]
+
+
+* IRS demo app missing demodate endpoint [[CORDA-2535](https://r3-cev.atlassian.net/browse/CORDA-2535)]
+
+
+* Doc fix: Contract testing tutorial errors [[CORDA-2528](https://r3-cev.atlassian.net/browse/CORDA-2528)]
+
+
+* Unclear error message when receiving state from node on higher version of signed cordapp [[CORDA-2522](https://r3-cev.atlassian.net/browse/CORDA-2522)]
+
+
+* Terminating ssh connection to node results in stack trace being thrown to the console [[CORDA-2519](https://r3-cev.atlassian.net/browse/CORDA-2519)]
+
+
+* Error propagating hash to signature constraints [[CORDA-2515](https://r3-cev.atlassian.net/browse/CORDA-2515)]
+
+
+* Unable to import trusted attachment  [[CORDA-2512](https://r3-cev.atlassian.net/browse/CORDA-2512)]
+
+
+* Invalid node command line options not always gracefully handled [[CORDA-2506](https://r3-cev.atlassian.net/browse/CORDA-2506)]
+
+
+* node.conf with rogue line results non-comprehensive error [[CORDA-2505](https://r3-cev.atlassian.net/browse/CORDA-2505)]
+
+
+* Fix v4’s inability to migrate V3 vault data [[CORDA-2487](https://r3-cev.atlassian.net/browse/CORDA-2487)]
+
+
+* Vault Query fails to process states upon CorDapp Contract upgrade [[CORDA-2486](https://r3-cev.atlassian.net/browse/CORDA-2486)]
+
+
+* Signature Constraints end-user documentation is limited [[CORDA-2477](https://r3-cev.atlassian.net/browse/CORDA-2477)]
+
+
+* Docs update: document transition from the whitelist constraint to the sig constraint [[CORDA-2465](https://r3-cev.atlassian.net/browse/CORDA-2465)]
+
+
+* The `ContractUpgradeWireTransaction` does not support the Signature Constraint [[CORDA-2456](https://r3-cev.atlassian.net/browse/CORDA-2456)]
+
+
+* Intermittent *relation “hibernate_sequence” does not exist* error when using Postgres [[CORDA-2393](https://r3-cev.atlassian.net/browse/CORDA-2393)]
+
+
+* Implement package namespace ownership [[CORDA-1947](https://r3-cev.atlassian.net/browse/CORDA-1947)]
+
+
+* Show explicit error message when new version of OS CorDapp contains schema changes [[CORDA-1596](https://r3-cev.atlassian.net/browse/CORDA-1596)]
+
+
+* Dockerfile improvements and image size reduction [[CORDA-2929](https://r3-cev.atlassian.net/browse/CORDA-2929)]
+
+
+* Update QPID Proton-J library to latest [[CORDA-2856](https://r3-cev.atlassian.net/browse/CORDA-2856)]
+
+
+* Not handled excpetion when certificates directory is missing [[CORDA-2786](https://r3-cev.atlassian.net/browse/CORDA-2786)]
+
+
+* The DJVM cannot sandbox instances of Contract.verify(LedgerTransaction) when testing CorDapps. [[CORDA-2775](https://r3-cev.atlassian.net/browse/CORDA-2775)]
+
+
+* State machine logs an error prior to deciding to escalate to an error [[CORDA-2757](https://r3-cev.atlassian.net/browse/CORDA-2757)]
+
+
+* Should Jolokia be included in the built jar files? [[CORDA-2699](https://r3-cev.atlassian.net/browse/CORDA-2699)]
+
+
+* Transactions created in V3 cannot be verified in V4 if any of the state types were included in “depended upon” CorDapps which were not attached to the transaction [[CORDA-2692](https://r3-cev.atlassian.net/browse/CORDA-2692)]
+
+
+* Prevent a node re-registering with the doorman if it did already and the node “state” has not been erased [[CORDA-2647](https://r3-cev.atlassian.net/browse/CORDA-2647)]
+
+
+* The cert hierarchy diagram for C4 is the same as C3.0 but I thought we changed it between C3.1 and 3.2? [[CORDA-2604](https://r3-cev.atlassian.net/browse/CORDA-2604)]
+
+
+* Windows build fails with *FileSystemException* in *TwoPartyTradeFlowTests* [[CORDA-2363](https://r3-cev.atlassian.net/browse/CORDA-2363)]
+
+
+* *Cash.generateSpend* cannot be used twice to generate two cash moves in the same tx [[CORDA-2162](https://r3-cev.atlassian.net/browse/CORDA-2162)]
+
+
+* FlowException thrown by session.receive is not propagated back to a counterparty
+
+
+* invalid command line args for corda result in 0 exit code
+
+
+* Windows build fails on TwoPartyTradeFlowTests
+
+
+* C4 performance below C3, bring it back into parity
+
+
+* Deserialisation of ContractVerificationException blows up trying to put null into non-null field
+
+
+* Reference state test (R3T-1918) failing probably due to unconsumed linear state that was referenced.
+
+
+* Signature constraint: Jarsigner verification allows removal of files from the archive.
+
+
+* Node explorer bug revealed from within Demobench: serialisation failed error is shown
+
+
+* Security: Fix vulnerability where an attacker can use CustomSerializers to alter the meaning of serialized data
+
+
+* Node/RPC is broken after CorDapp upgrade
+
+
+* RPC client disconnects shouldn’t be a warning
+
+
+* Hibernate logs warning and errors for some conditions we handle
+
 
 
 # Release notes for Corda 4
@@ -17,7 +445,7 @@ For app developers, we strongly recommend reading “[Upgrading apps to Corda 4]
             procedure, along with how you can adjust your app to opt-in to new features making your app more secure and
             easier to upgrade in future.
 
-For node operators, we recommend reading “[Upgrading your node to Corda Enterprise 4.1](node-upgrade-notes.md)”. The upgrade procedure is simple but
+For node operators, we recommend reading “[Upgrading your node to Corda 4](node-upgrade-notes.md)”. The upgrade procedure is simple but
             it can’t hurt to read the instructions anyway.
 
 Additionally, be aware that the data model improvements are changes to the Corda consensus rules. To use
@@ -279,7 +707,7 @@ In Corda 4 we have ported the node and all our tools to use a new command line h
 * All programs can now generate bash/zsh auto completion files.
 
 
-You can learn more by reading our CLI user experience guidelines document.
+You can learn more by reading our [CLI user experience guidelines](cli-ux-guidelines.md) document.
 
 
 ### Liquibase for database schema upgrades

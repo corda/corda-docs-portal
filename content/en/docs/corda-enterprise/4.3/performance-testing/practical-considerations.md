@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "Practical Considerations"
+aliases = [ "/releases/4.3/performance-testing/practical-considerations.html", "/performance-testing/practical-considerations.html",]
 menu = [ "corda-enterprise-4-3",]
 tags = [ "practical", "considerations",]
 +++

@@ -1,6 +1,7 @@
 +++
 date = "2020-01-08T09:59:25Z"
 title = "API: ServiceHub"
+aliases = [ "/releases/4.3/api-service-hub.html", "/api-service-hub.html",]
 tags = [ "api", "service", "hub",]
 
 [menu.corda-enterprise-4-3]
