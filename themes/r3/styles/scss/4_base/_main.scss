@@ -2,7 +2,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 
 #{$wrapper-object}-side {
     background-color: #f7fafc;
-    order: 0;
+    order: 2;
 
     @media screen and (max-width: 1199px) {
         position: -webkit-sticky; /* Safari */
