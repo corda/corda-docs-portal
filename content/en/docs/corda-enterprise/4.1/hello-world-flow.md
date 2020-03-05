@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
-title: Writing the flow
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Writing the flow"
+menu = [ "corda-enterprise-4-1",]
+categories = [ "flow",]
++++
 
 
 

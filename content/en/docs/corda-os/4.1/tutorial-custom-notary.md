@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-os-4-1:
-    parent: corda-os-4-1-tutorial
-title: Writing a custom notary service (experimental)
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Writing a custom notary service (experimental)"
+categories = [ "tutorial", "custom", "notary",]
+
+[menu.corda-os-4-1]
+parent = "corda-os-4-1-tutorial"
++++
 
 
 # Writing a custom notary service (experimental)

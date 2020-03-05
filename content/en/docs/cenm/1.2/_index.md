@@ -1,11 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-- versions
-section_menu: cenm-1-2
-title: CENM 1.2
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "CENM 1.2"
+section_menu = "cenm-1-2"
+menu = [ "cenm-1-2", "versions",]
++++
 
 
 # Welcome to the Corda Enterprise Network Manager
@@ -41,7 +39,7 @@ Concepts and Overview
 
 * [Databases](enm-components.md#databases)
 
-* [Public Key Infrastructure](enm-components.md#public-key-infrastructure)
+* [Public Key Infrastructure (PKI)](enm-components.md#public-key-infrastructure-pki)
 
 * [The Node](enm-components.md#the-node)
 
@@ -49,7 +47,7 @@ Concepts and Overview
 
 * [Network Map Overview](network-map-overview.md)
 
-* [Certificate Revocation List (CRL)](certificate-revocation.md)
+* [Certificate Revocation List](certificate-revocation.md)
 
 
 

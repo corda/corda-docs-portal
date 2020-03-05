@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  cenm-1-1:
-    parent: cenm-1-1-config
-title: Config Obfuscation Tool
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Config Obfuscation Tool"
+categories = [ "config", "obfuscation", "tool",]
+
+[menu.cenm-1-1]
+parent = "cenm-1-1-config"
++++
 
 
 # Config Obfuscation Tool

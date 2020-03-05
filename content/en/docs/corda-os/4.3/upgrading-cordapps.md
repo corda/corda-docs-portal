@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
-title: Release new CorDapp versions
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Release new CorDapp versions"
+menu = [ "corda-os-4-3",]
+categories = [ "upgrading", "cordapps",]
++++
 
 
 

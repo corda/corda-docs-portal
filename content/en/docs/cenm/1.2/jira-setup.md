@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: JIRA Set-Up
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "JIRA Set-Up"
+menu = [ "cenm-1-2",]
+categories = [ "jira", "setup",]
++++
 
 
 # JIRA Set-Up

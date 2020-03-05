@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-1
-title: Joining an existing compatibility zone
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Joining an existing compatibility zone"
+menu = [ "corda-os-4-1",]
+categories = [ "joining", "compatibility", "zone",]
++++
 
 
 

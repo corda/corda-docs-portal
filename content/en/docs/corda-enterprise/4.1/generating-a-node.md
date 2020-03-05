@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
-title: Creating nodes locally
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Creating nodes locally"
+menu = [ "corda-enterprise-4-1",]
+categories = [ "generating", "node",]
++++
 
 
 # Creating nodes locally

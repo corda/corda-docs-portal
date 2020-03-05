@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-os-4-1:
-    parent: corda-os-4-1-concepts
-title: Nodes
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Nodes"
+categories = [ "concepts", "node",]
+
+[menu.corda-os-4-1]
+parent = "corda-os-4-1-concepts"
++++
 
 
 # Nodes

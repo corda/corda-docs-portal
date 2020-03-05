@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-config
-title: Identity Manager Configuration Parameters
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Identity Manager Configuration Parameters"
+categories = [ "config", "identity", "manager", "parameters",]
+
+[menu.corda-enterprise-4-4]
+parent = "corda-enterprise-4-4-config"
++++
 
 
 # Identity Manager Configuration Parameters

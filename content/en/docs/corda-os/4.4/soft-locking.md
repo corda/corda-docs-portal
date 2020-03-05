@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: Soft Locking
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Soft Locking"
+menu = [ "corda-os-4-4",]
+categories = [ "locking",]
++++
 
 
 # Soft Locking

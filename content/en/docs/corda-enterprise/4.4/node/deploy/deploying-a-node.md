@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Deploying a node to a server
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Deploying a node to a server"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "deploying", "node",]
++++
 
 
 # Deploying a node to a server

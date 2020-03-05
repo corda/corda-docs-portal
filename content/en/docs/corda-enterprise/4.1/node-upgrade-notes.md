@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-1:
-    parent: corda-enterprise-4-1-node
-title: Upgrading your node to Corda Enterprise 4.1
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Upgrading your node to Corda Enterprise 4.1"
+categories = [ "node", "upgrade", "notes",]
+
+[menu.corda-enterprise-4-1]
+parent = "corda-enterprise-4-1-node"
++++
 
 
 # Upgrading your node to Corda Enterprise 4.1

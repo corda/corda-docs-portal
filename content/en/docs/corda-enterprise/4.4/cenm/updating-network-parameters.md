@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Updating the network parameters
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Updating the network parameters"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "updating", "network", "parameters",]
++++
 
 
 # Updating the network parameters

@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
-title: Deploying Corda to Corda Testnet from an AWS Cloud Platform VM
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Deploying Corda to Corda Testnet from an AWS Cloud Platform VM"
+menu = [ "corda-os-4-3",]
+categories = [ "aws", "vm", "explore",]
++++
 
 
 # Deploying Corda to Corda Testnet from an AWS Cloud Platform VM

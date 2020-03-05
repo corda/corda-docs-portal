@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
-title: Running the example CorDapp
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Running the example CorDapp"
+menu = [ "corda-os-4-3",]
+categories = [ "quickstart", "deploy",]
++++
 
 
 # Running the example CorDapp

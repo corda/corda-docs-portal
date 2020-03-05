@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-1
-title: Node configuration
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Node configuration"
+menu = [ "corda-os-4-1",]
+categories = [ "corda", "configuration", "file",]
++++
 
 
 # Node configuration

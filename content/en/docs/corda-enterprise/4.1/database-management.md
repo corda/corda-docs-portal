@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
-title: Database management scripts
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Database management scripts"
+menu = [ "corda-enterprise-4-1",]
+categories = [ "database", "management",]
++++
 
 
 

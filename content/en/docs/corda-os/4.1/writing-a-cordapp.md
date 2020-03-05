@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-1
-title: Structuring a CorDapp
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Structuring a CorDapp"
+menu = [ "corda-os-4-1",]
+categories = [ "cordapp",]
++++
 
 
 # Structuring a CorDapp

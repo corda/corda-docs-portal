@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Network Map Service
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Network Map Service"
+menu = [ "cenm-1-2",]
+categories = [ "network", "map",]
++++
 
 
 # Network Map Service
@@ -298,7 +298,7 @@ pollingInterval = 600000
 
 ### Node Certificate Revocation Checking
 
-In cases when the certificate revocation list infrastructure (See [Certificate Revocation List (CRL)](certificate-revocation.md) for more information)
+In cases when the certificate revocation list infrastructure (See [Certificate Revocation List](certificate-revocation.md) for more information)
                     is provided, the additional validation for the node’s certificates can be enabled in the Network Map service. This is
                     achieved via the top-level `checkRevocation` flag set in the configuration file. This ensures that any node within the
                     Network Map has a valid, trusted certificate.

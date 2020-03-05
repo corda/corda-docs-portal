@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
-title: Joining Corda Testnet
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Joining Corda Testnet"
+menu = [ "corda-os-4-3",]
+categories = [ "corda", "testnet", "intro",]
++++
 
 
 # Joining Corda Testnet

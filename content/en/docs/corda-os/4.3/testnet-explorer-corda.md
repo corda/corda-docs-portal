@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
-title: Using the Node Explorer to test a Corda node on Corda Testnet
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Using the Node Explorer to test a Corda node on Corda Testnet"
+menu = [ "corda-os-4-3",]
+categories = [ "testnet", "explorer", "corda",]
++++
 
 
 # Using the Node Explorer to test a Corda node on Corda Testnet

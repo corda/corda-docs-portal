@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Release notes
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Release notes"
+menu = [ "cenm-1-2",]
+categories = [ "release", "notes",]
++++
 
 
 # Release notes
@@ -25,6 +25,14 @@ SMR extracts signable material from the Identity Manager and Network Map service
                     relevant CENM service.
 
 See [Signing Services](signing-service.md) for more details. Also see [EJBCA Sample Plugin](ejbca-plugin.md) for a sample open source CA implementation.
+
+**CRL Endpoint Check tool**
+
+As a diagnostic aid in case of problems with TLS connections, CENM 1.2 introduces a CRL Endpoint Check tool.
+                    This stand alone tool checks CRL endpoint health of all certificates in a provided keystore, as a simpler
+                    alternative to manually extracting CRL endpoints individually from the certificate and then verifying them.
+
+See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for usage and further details.
 
 
 ### Minor Features
@@ -79,9 +87,6 @@ For high availability (HA) notaries only, the network map will now fetch the nod
                             which can help to monitor the procedure of [Updating the network parameters](updating-network-parameters.md).
 
 
-* Introduce CRL Endpoint Check tool which checks CRL endpoint health of all certificates in the provided keystore.
-
-
 * Add working directory argument for CENM services, which is a path prefix for config and certificate files.
 
 
@@ -104,6 +109,12 @@ For high availability (HA) notaries only, the network map will now fetch the nod
 
 * Improved logs created by Registration Web Service - request validation exceptions (e.g. invalid character in a subject name,
                             invalid platform version) are now logged with WARN level instead of ERROR level.
+
+
+* 
+
+Bug fix: The configuration option ‘database.initialiseSchema’, which was used for H2 database only, is now deprecated,
+use ‘database.runMigration’ instead.
 
 
 

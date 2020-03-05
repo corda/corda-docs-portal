@@ -1,11 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-1
-- versions
-section_menu: cenm-1-1
-title: CENM 1.1
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "CENM 1.1"
+section_menu = "cenm-1-1"
+menu = [ "cenm-1-1", "versions",]
++++
 
 
 # Welcome to the Corda Enterprise Network Manager

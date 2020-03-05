@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: Official Corda Docker Image
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Official Corda Docker Image"
+menu = [ "corda-os-4-4",]
+categories = [ "docker", "image",]
++++
 
 
 # Official Corda Docker Image
@@ -158,7 +158,7 @@ docker run -ti --net="host" \
         -e MY_EMAIL_ADDRESS="cordauser@r3.com"      \
         -v /home/user/docker/config:/etc/corda          \
         -v /home/user/docker/certificates:/opt/corda/certificates \
-        corda/corda-zulu-java1.8-4.4:latest config-generator --generic
+        corda/corda-zulu-java1.8-4.4:latest config-generator --generic --exit-on-generate
 ```
 Several environment variables must also be passed to the container to allow it to register:
 

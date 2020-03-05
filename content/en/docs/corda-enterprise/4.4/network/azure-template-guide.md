@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Using Azure Resource Manager Templates to deploy a Corda Enterprise node
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Using Azure Resource Manager Templates to deploy a Corda Enterprise node"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "azure", "template", "guide",]
++++
 
 
 # Using Azure Resource Manager Templates to deploy a Corda Enterprise node

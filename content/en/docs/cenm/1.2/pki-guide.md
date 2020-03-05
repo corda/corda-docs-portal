@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Certificate Hierarchy Guide
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Certificate Hierarchy Guide"
+menu = [ "cenm-1-2",]
+categories = [ "pki", "guide",]
++++
 
 
 # Certificate Hierarchy Guide
@@ -23,8 +23,12 @@ In Corda, we distinguish between two types of PKI entities: Certificate Authorit
                 An entity’s certificate binds the legal name of the entity to its public key, with the signature of the certificate’s issuer providing the attestation to this binding.
                 As well as issuing certificates, each CA is also responsible for maintaining information about certificate’s validity.
                 Certificates can become invalid due to different reasons (e.g. keys being compromised or cessation of operation) and as such need to be revoked.
-                To be able to know which certificates are valid and which are revoked, each CA maintains a Certificate Revocation List (CRL).
-                That CRL needs to be published such that it can be accessed by anybody who may participate in the network.
+
+To be able to know whether a certificate has been revoked, each CA maintains a Certificate Revocation List (CRL).
+                That CRL needs to be published such that it can be accessed by anybody who may participate in the network. By
+                default the CRL is exposed via the Identity Manager service, although it is recommended that this endpoint is
+                wrapped in a caching HTTP proxy. This proxy layer can be behind a load balancer, providing high availability for
+                delivery of the CRL.
 
 With all of the above in mind, the output of the PKI Tool execution is a certificate hierarchy comprising of the key pairs (for each defined entity)
                 accompanied with the certificates associated with those key pairs as well as signed static certificate revocation lists.
@@ -56,11 +60,11 @@ Other than that, Corda nodes stay agnostic to the certificate hierarchy (in part
 ![hierarchy agnostic](resources/hierarchy-agnostic.png "hierarchy agnostic")At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here](https://docs.corda.net/head/permissioning.html) .
 
 
-### Certificate Revocation List
+### Certificate Revocation List (CRL)
 
 Every time two nodes communicate with each other they exchange their certificates and validate them against the Certificate Revocation List.
-                    In Corda, the certificate chains of the nodes are validated only during the SSL handshake.
-                    This means that every time an SSL connection is established between two nodes, the TLS certificates (together with the
+                    In Corda, the certificate chains of the nodes are validated only during the TLS handshake.
+                    This means that every time an TLS connection is established between two nodes, the TLS certificates (together with the
                     remaining certificate chain ending at the root certificate) are exchanged and validated at each node.
 
 The network operator is responsible for certificate issuance and maintenance for each certificate starting at the Root certificate and ending
@@ -73,11 +77,15 @@ The network operator is responsible for certificate issuance and maintenance for
                     Even though Corda supports this scenario, it might be a tedious task that a node operator does not want to deal with.
                     As such, Corda offers also an alternative solution, which allows a node to benefit from the certificate revocation list validation and at the
                     same time waives away the necessity of the certificate revocation list maintenance from the node operator.
-                    The certificate revocation list validation process allows the certificate revocation list to be signed by a third party
+
+The certificate revocation list validation process allows the certificate revocation list to be signed by a third party
                     authority (i.e. associated key pair) as long as its certificate is self-signed and trusted (i.e. it is present in the node’s trust store).
                     As such, in Corda, the certificate revocation list for the TLS level is signed by a dedicated self-signed certificate called TLS Signer,
                     which is then added to node’s trust store (in a similar way as the Corda Root certificate - distributed with the `network-trust-store.jks`).
                     During the certificate revocation list validation process the trust store is consulted for the presence of the TLS Signer certificate.
+
+See [Certificate Revocation List](certificate-revocation.md) for instructions on revoking certificates, and [Signing Services](signing-service.md) for
+                    configuration of the signer for CRLs (especially the “updatePeriod” option).
 
 
 ## Example Scenario

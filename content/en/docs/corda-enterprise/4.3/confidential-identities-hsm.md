@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Options for confidential identities
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Options for confidential identities"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "confidential", "identities", "hsm",]
++++
 
 
 # Options for confidential identities

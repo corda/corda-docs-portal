@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: What is a compatibility zone?
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "What is a compatibility zone?"
+menu = [ "corda-os-4-4",]
+categories = [ "compatibility", "zones",]
++++
 
 
 

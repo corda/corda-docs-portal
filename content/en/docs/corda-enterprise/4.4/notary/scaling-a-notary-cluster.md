@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Scaling A Notary Cluster
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Scaling A Notary Cluster"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "scaling", "notary", "cluster",]
++++
 
 
 # Scaling A Notary Cluster

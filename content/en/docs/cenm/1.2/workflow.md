@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Workflow
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Workflow"
+menu = [ "cenm-1-2",]
+categories = [ "workflow",]
++++
 
 
 # Workflow
@@ -20,7 +20,7 @@ The workflow plugin can be configured via config file.
 For certificate signing request:
 
 ```guess
-workflow {
+workflows {
     issuer {
         type = ISSUANCE
         updateInterval = 10000
@@ -29,8 +29,8 @@ workflow {
             port = 6000
         }
 
-        workflow {
-            plugin = "com.r3.enm.services.identitymanager.workflow.StubbedWorkflowPlugin"
+        plugin {
+            pluginClass = "com.r3.enm.services.identitymanager.workflow.StubbedWorkflowPlugin"
             config {
                 customConfig = "some config"
                 .
@@ -44,7 +44,7 @@ workflow {
 For certificate revocation request:
 
 ```guess
-workflow {
+workflows {
     issuer {
         type = ISSUANCE
         updateInterval = 10000
@@ -97,24 +97,98 @@ workflow {
 
 ## Creating a workflow plugin
 
-The workflow plugin must extend *WorkflowPlugin* for certificate signing request or certificate revocation request respectively, issuance and revocation workflows
+The workflow plugin must extend `WorkflowPlugin` for certificate signing request or certificate revocation request respectively, issuance and revocation workflows
                 can be configured with specific plugin classes as per the configuration shown above. The plugin will need to be made available to the ENM process by including the plugin jar in the classpath.
-                This can be done by specifying the jar path via the *pluginJar* configuration option.
+                This can be done by specifying the jar path via the `pluginJar` configuration option.
 
 
 {{< note >}}
 For release 1.0 only a simple issuance and optional revocation workflow pair are supported.
 
 {{< /note >}}
+```kotlin
+/*
+ * R3 Proprietary and Confidential
+ *
+ * Copyright (c) 2018 R3 Limited.  All rights reserved.
+ *
+ * The intellectual and technical concepts contained herein are proprietary to R3 and its suppliers and are protected by trade secret law.
+ *
+ * Distribution of this file or any portion thereof via any medium without the express permission of R3 is strictly prohibited.
+ */
 
+package com.r3.enm.workflow.api
+
+import com.r3.enm.model.Request
+import com.r3.enm.nsdefaults.ENMDefaults
+import net.corda.core.identity.CordaX500Name
+
+/**
+ * Workflow plugin interface for adding custom functionality to the network services workflow.
+ * @param <R> Type of the request
+ */
+interface WorkflowPlugin<R : Request> {
+    /**
+     * Create ticket in the external system. The method will ensure that the ticket is created.
+     * The request remains in [RequestStatus.NEW] state and a workflow may keep trying to create the ticket
+     * in the external system until the request is updated to [RequestStatus.APPROVED],
+     * [RequestStatus.REJECTED] or [RequestStatus.DONE].
+     */
+    fun createTicket(request: R)
+
+    /**
+     * Move ticket status to done state, the status of the request will be updated to [RequestStatus.DONE] once this method is executed successfully.
+     */
+    fun markAsDone(request: R)
+
+    /**
+     * Retrieve ticket with the given request ID.
+     */
+    fun getRequest(requestId: String): WorkflowPluginRequest?
+
+    /**
+     * Runs the interactive shell commands of the plugin.
+     */
+    fun runCommandDriver() {}
+
+    /**
+     * Retrieve the alias for the plugin.
+     */
+    fun getAlias(): String = ENMDefaults.NOT_AVAILABLE
+}
+
+/**
+ * Command driver interface for adding custom functionality for interacting with users via the interactive shell
+ */
+interface CommandDriver {
+/**
+ * Outputs a menu based on the available commands defined within the class, containing the methods for handling any
+ * further interaction logic.
+ */
+    fun showMenu()
+}
+
+/**
+ * A class representing the workflow plugin request data.
+ */
+data class WorkflowPluginRequest(val requestId: String,
+                                 val status: RequestStatus,
+                                 val modifiedBy: String? = null,
+                                 val rejectionData: RejectionData? = null,
+                                 val legalName: CordaX500Name? = null)
+
+```
+[WorkflowPlugin.kt](https://github.com/corda/network-services/blob/release/1.2/workflow/src/main/kotlin/com/r3/enm/workflow/api/WorkflowPlugin.kt)
 {{< note >}}
-Currently, any implementation of the *WorkflowPlugin* interface **must** provide a constructor which takes exactly two arguments of types *com.typesafe.config.Config* and *com.r3.enm.workflow.api.plugins.PluginLogger* (in this order).
+Currently, any implementation of the `WorkflowPlugin` interface **must** provide a constructor which takes
+                    exactly two arguments of types `com.typesafe.config.Config` and `com.r3.enm.workflow.api.plugins.PluginLogger` (in this order).
 
 {{< /note >}}
 
 {{< note >}}
-CSR requests can contain additional information that can be used in the workflow plugins (see *Example 2*). This information comes in the form of a *String* token retrieved via **CertificateSigningRequest.submissionToken**. This submission token
-                    can be added to the node’s configuration via the property *networkServices.csrToken*
+CSR requests can contain additional information that can be used in the workflow plugins (see *Example 2*).
+                    This information comes in the form of a `String` token retrieved via `CertificateSigningRequest.submissionToken`.
+                    This submission token can be added to the node’s configuration via the property `networkServices.csrToken`.
 
 {{< /note >}}
 
@@ -128,27 +202,111 @@ Config file:
 ```guess
 address = "localhost:1300"
 
-workflow {
-     issuer {
-         type = ISSUANCE
-         updateInterval = 10000
+workflows {
+    issuer {
+        type = ISSUANCE
+        updateInterval = 10000
 
-         enmListener = {
-             port = 6000
-         }
+        enmListener = {
+            port = 6000
+        }
 
-         plugin {
-            pluginClass = "com.r3.enm.workflow.api.example.FileBaseCSRPlugin"
+        plugin {
+            pluginClass = "com.r3.enmplugins.example.FileBaseCSRPlugin"
             config {
                 baseDir = "workflowDirectory"
             }
-         }
-     }
- }
+        }
+    }
+}
 ```
 File base plugin implementation:
 
+```kotlin
+package com.r3.enmplugins.example
 
+import com.r3.enm.model.CertificateSigningRequest
+import com.r3.enm.model.RejectionReason
+import com.r3.enm.workflow.api.RejectionData
+import com.r3.enm.workflow.api.RequestStatus
+import com.r3.enm.workflow.api.WorkflowPlugin
+import com.r3.enm.workflow.api.WorkflowPluginRequest
+import com.r3.enm.workflow.api.plugins.PluginLogger
+import com.typesafe.config.Config
+import net.corda.core.internal.createDirectories
+import net.corda.core.internal.list
+import org.bouncycastle.openssl.jcajce.JcaPEMWriter
+import org.bouncycastle.util.io.pem.PemObject
+import java.io.StringWriter
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
+import java.nio.file.attribute.FileOwnerAttributeView
+
+class FileBaseCSRPlugin(
+        config: Config?,
+        val logger: PluginLogger
+) : WorkflowPlugin<CertificateSigningRequest> {
+    private val baseDir = if (config != null) {
+        Paths.get(config.getString("baseDir") ?: "workflowDirectory")
+    } else {
+        Paths.get("workflowDirectory")
+    }.also { it.createDirectories() }
+    private val approvedFolder = baseDir.resolve("approved").also { it.createDirectories() }
+    private val rejectedFolder = baseDir.resolve("rejected").also { it.createDirectories() }
+    private val doneFolder = baseDir.resolve("done").also { it.createDirectories() }
+
+    override fun getRequest(requestId: String): WorkflowPluginRequest? {
+        logger.info("Retrieving CSR with id $requestId")
+        return findWorkflowPluginRequest(requestId, baseDir, RequestStatus.NEW)
+                ?: findWorkflowPluginRequest(requestId, approvedFolder, RequestStatus.APPROVED)
+                ?: findWorkflowPluginRequest(requestId, rejectedFolder, RequestStatus.REJECTED)
+                ?: findWorkflowPluginRequest(requestId, doneFolder, RequestStatus.DONE)
+    }
+
+    private fun findWorkflowPluginRequest(requestId: String, directory: Path, status: RequestStatus): WorkflowPluginRequest? {
+        return directory.list().findLast { it.toFile().name == requestId }?.let {
+            WorkflowPluginRequest(
+                    requestId,
+                    status,
+                    Files.getFileAttributeView(it, FileOwnerAttributeView::class.java).owner.name,
+                    RejectionData(RejectionReason.UNKNOWN, "Not specified"))
+        }
+    }
+
+    override fun createTicket(request: CertificateSigningRequest) {
+        val subject = request.legalName
+
+        val data = mapOf(
+                "Common Name" to subject.commonName,
+                "Organisation" to subject.organisation,
+                "Organisation Unit" to subject.organisationUnit,
+                "State" to subject.state,
+                "Nearest City" to subject.locality,
+                "Country" to subject.country,
+                "X500 Name" to subject.toString())
+
+        val requestPemString = StringWriter().apply {
+            JcaPEMWriter(this).use {
+                it.writeObject(PemObject("CERTIFICATE REQUEST", request.pkcS10CertificationRequest.encoded))
+            }
+        }.toString()
+
+        val ticketDescription = data.filter { it.value != null }.map { "${it.key}: ${it.value}" } + requestPemString
+
+        Files.write(baseDir.resolve(request.requestId), ticketDescription)
+
+        logger.info("Creating Certificate Signing Request ticket for request : ${request.requestId}")
+    }
+
+    override fun markAsDone(request: CertificateSigningRequest) {
+        logger.info("Marking CSR as done")
+        Files.move(approvedFolder.resolve(request.requestId), doneFolder.resolve(request.requestId))
+    }
+}
+
+```
+[FileBaseCSRPlugin.kt](https://github.com/corda/network-services/blob/release/1.2/plugins/src/main/kotlin/com/r3/enmplugins/example/FileBaseCSRPlugin.kt)
 ## Example 2
 
 This sample workflow auto-approves CSRs based on a token provided in the request.
@@ -158,28 +316,30 @@ Config file:
 ```guess
 address = "localhost:1300"
 
-    workflow {
-         issuer {
-             type = ISSUANCE
-             updateInterval = 10000
+workflows {
+    issuer {
+        type = ISSUANCE
+        updateInterval = 10000
 
-             enmListener = {
-                 port = 6000
-             }
+        enmListener = {
+            port = 6000
+        }
 
-             plugin {
-                pluginClass = "com.r3.enm.csrplugin.ExamplePlugin"
-                pluginJar = "workflowPluginExample.jar"
-                config {
-                    .
-                    .
-                    .
-                }
-             }
-         }
-     }
+        plugin {
+            pluginClass = "com.r3.enm.csrplugin.ExamplePlugin"
+            pluginJar = "workflowPluginExample.jar"
+            config {
+                .
+                .
+                .
+            }
+        }
+    }
+}
 ```
-```guess
+Auto-approval plugin implementation:
+
+```Kotlin
 class ExamplePlugin(config: Config?, val logger: PluginLogger) : WorkflowPlugin<CertificateSigningRequest> {
 
     private val done = ConcurrentHashMap<String, WorkflowPluginRequest?>()
@@ -220,6 +380,12 @@ class ExamplePlugin(config: Config?, val logger: PluginLogger) : WorkflowPlugin<
     }
 }
 ```
+
+{{< note >}}
+This example is not included in CENM and the user is expected to copy, modify or build as is,
+                    deploy and test it.
+
+{{< /note >}}
 
 ## Certificate Signing Request Rejection Reasons
 

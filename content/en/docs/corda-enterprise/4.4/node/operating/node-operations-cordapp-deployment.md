@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-node
-title: Deploying CorDapps on a node
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Deploying CorDapps on a node"
+categories = [ "node", "operations", "cordapp", "deployment",]
+
+[menu.corda-enterprise-4-4]
+parent = "corda-enterprise-4-4-node"
++++
 
 
 # Deploying CorDapps on a node

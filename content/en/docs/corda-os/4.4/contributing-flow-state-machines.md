@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: Extending the state machine
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Extending the state machine"
+menu = [ "corda-os-4-4",]
+categories = [ "contributing", "flow", "state", "machines",]
++++
 
 
 
@@ -51,14 +51,12 @@ The recommended way to test flows and the state machine is using the Driver DSL.
 {{% tab name="java" %}}
 ```java
     @Test
-    public final void summingWorks() {
-        Driver.driver(new DriverParameters(), (DriverDSL dsl) -> {
-            User aliceUser = new User("aliceUser", "testPassword1",
-                    new HashSet<>(Collections.singletonList(Permissions.all()))
-            );
+    public void summingWorks() {
+        driver(new DriverParameters(singletonList(cordappWithPackages("net.corda.docs.java.tutorial.flowstatemachines"))), (DriverDSL dsl) -> {
+            User aliceUser = new User("aliceUser", "testPassword1", singleton(Permissions.all()));
             Future<NodeHandle> aliceFuture = dsl.startNode(new NodeParameters()
                     .withProvidedName(ALICE_NAME)
-                    .withRpcUsers(Collections.singletonList(aliceUser))
+                    .withRpcUsers(singletonList(aliceUser))
             );
             NodeHandle alice = KotlinUtilsKt.getOrThrow(aliceFuture, null);
             CordaRPCClient aliceClient = new CordaRPCClient(alice.getRpcAddress());
@@ -66,7 +64,7 @@ The recommended way to test flows and the state machine is using the Driver DSL.
             Future<Integer> answerFuture = aliceProxy.startFlowDynamic(ExampleSummingFlow.class).getReturnValue();
             int answer = KotlinUtilsKt.getOrThrow(answerFuture, null);
             assertEquals(3, answer);
-            return Unit.INSTANCE;
+            return null;
         });
     }
 

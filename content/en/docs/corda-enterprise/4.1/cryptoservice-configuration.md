@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
-title: HSM support for legal identity keys
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "HSM support for legal identity keys"
+menu = [ "corda-enterprise-4-1",]
+categories = [ "cryptoservice", "configuration",]
++++
 
 
 # HSM support for legal identity keys

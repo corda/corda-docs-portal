@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-1
-title: Embedded Shell
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Embedded Shell"
+menu = [ "cenm-1-1",]
+categories = [ "shell",]
++++
 
 
 # Embedded Shell

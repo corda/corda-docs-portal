@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Notary Registration Tool
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Notary Registration Tool"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "notary", "tool",]
++++
 
 
 # Notary Registration Tool

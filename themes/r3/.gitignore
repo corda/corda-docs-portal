@@ -1,5 +1,2 @@
-# Don't ignore stuff in here
 node_modules/
 
-static/css/
-static/js/

@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: Upgrading contracts
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Upgrading contracts"
+menu = [ "corda-os-4-4",]
+categories = [ "contract", "upgrade",]
++++
 
 
 

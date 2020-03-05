@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Notary sizing considerations
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Notary sizing considerations"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "notary", "sizing",]
++++
 
 
 # Notary sizing considerations

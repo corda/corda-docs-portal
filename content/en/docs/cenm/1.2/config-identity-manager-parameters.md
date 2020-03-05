@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  cenm-1-2:
-    parent: cenm-1-2-config
-title: Identity Manager Configuration Parameters
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Identity Manager Configuration Parameters"
+categories = [ "config", "identity", "manager", "parameters",]
+
+[menu.cenm-1-2]
+parent = "cenm-1-2-config"
++++
 
 
 # Identity Manager Configuration Parameters
@@ -108,6 +109,10 @@ The main class of the plugin being loaded.
 For automatic acceptance of requests, set this to the ApproveAll plugin (“com.r3.enmplugins.approveall.ApproveAll”)
 
 {{< /note >}}
+
+pluginJar
+*(Optional)* The absolute path to workflow plugin JAR file.
+
 
 config
 *(Optional)* a free-form map that allows options to be passed to the plugin class

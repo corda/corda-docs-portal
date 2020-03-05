@@ -1,21 +1,25 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Certificate Revocation List (CRL)
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Certificate Revocation List"
+menu = [ "cenm-1-2",]
+categories = [ "certificate", "revocation",]
++++
 
 
-# Certificate Revocation List (CRL)
+# Certificate Revocation List
 
-The certificate revocation list consists of certificate serial numbers of issued certificates that are no longer valid.
+The certificate revocation list (CRL) consists of certificate serial numbers of issued certificates that are no longer valid.
             It is used by nodes when they establish a TLS connection between each other and need to ensure on certificate validity.
             In order to add entries to the certificate revocation list there is the certificate revocation process that resembles
             the one from the certificate signing request (CSR).
-            Note that, once added the entries cannot be removed from the certificate revocation list.
 
-In the similar vein as CSR, it is integrated with the JIRA tool, and the submitted requests follow exactly the same lifecycle.
-            To support the above functionality, there are two externally available REST endpoints: one for the certificate revocation request submission and
+For context on how the certificate revocation list fits into the wider context, please see [Certificate Hierarchy Guide](pki-guide.md).
+
+Note that, once added the entries cannot be removed from the certificate revocation list.
+
+In the similar vein as CSR, by default the approval workflow for revocation requests is integrated with the JIRA tool,
+            and the submitted requests follow exactly the same lifecycle. To support the above functionality, there are two
+            externally available REST endpoints: one for the certificate revocation request submission and
             one for the certificate revocation list retrieval.
 
 Since the certificate revocation list needs to be signed, the revocation process integrates with the HSM signing service.
@@ -24,15 +28,15 @@ Since the certificate revocation list needs to be signed, the revocation process
 
 
 {{< note >}}
-It is assumed that the signed certificate revocation list is always available - even if it’s empty.
+It is assumed that the signed certificate revocation list is always available - even if it’s empty. Nodes
+                will refuse to make TLS connections if they cannot verify the revocation status of certificates in the
+                remote peer’s chain, and therefore the CRL must remain available for the network to operate.
 
 {{< /note >}}
 
 {{< note >}}
-CRLs should be signed manually from time to time depending on its’ `nextUpdate` property. This is to ensure
-                an up-to-date CRL is distributed in the network before the previous one expires. Conventionally they have a
-                lifecycle of 6 months and are manually signed every 3 months. See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for more
-                information how to check CRLs’ update deadlines.
+CRLs should be signed manually from time to time depending on its’ `nextUpdate` property. Further details
+                on CRL lifecycle are covered under [Lifecycle](#crl-lifecycle).
 
 {{< /note >}}
 
@@ -54,7 +58,7 @@ The set of REST end-points for the revocation service are as follows.
 
 ## Empty Certificate Revocation List
 
-The SSL-level certificate revocation check validates the entire certificate chain. It means that for each certificate in the
+The TLS-level certificate revocation check validates the entire certificate chain. It means that for each certificate in the
                 certificate path the corresponding CRL will be downloaded and the certificate will be checked against that CRL.
                 However, this introduces a requirement on each Certificate Authority (including the Node CA) to provide a CRL for the
                 certificates it issues. Since this requirement cannot be always met especially by the Node CA, the alternative approach
@@ -82,7 +86,7 @@ Legal name associated with the certificate that is to be revoked.
 
 
 reason
-Revocation reason (as specified in the java.security.cert.CRLReason). The following values are allowed.
+Revocation reason (as specified in the java.security.cert.CRLReason). The following values are allowed:
 
 
 
@@ -123,7 +127,19 @@ Because of the proprietary serialization mechanism, it is assumed that those end
 
 ## Internal protocol
 
-There is an internal communication protocol between the revocation service and the HSM signing service for producing the signed CRLs.
+There is an internal communication protocol between the Signing service and the HSM signing service for producing the signed CRLs.
                 This does not use HTTP to avoid exposing any web vulnerabilities to the signing process.
+
+
+## Lifecycle
+
+CRLs contain a field, “next update”, after which the CRL is no longer valid. This is to ensure
+                an up-to-date CRL is distributed in the network before the previous one expires. Conventionally they have a
+                lifecycle of 6 months and are manually signed every 3 months. Such a schedule gives plenty of time for
+                any signing issues to be resolved.
+
+See [Signing Services](signing-service.md) for details on building and signing CRLs, and especially the “updatePeriod”
+                configuration field which is used to determine the next update deadline. See also [CRL Endpoint Check Tool](crl-endpoint-check-tool.md)
+                for more information how to check CRLs’ update deadlines.
 
 

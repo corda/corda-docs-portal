@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Corda Enterprise notary service set-up
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Corda Enterprise notary service set-up"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "ha", "notary", "service", "setup",]
++++
 
 
 # Corda Enterprise notary service set-up

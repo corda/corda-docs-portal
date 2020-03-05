@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Network Map Service
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Network Map Service"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "network", "map",]
++++
 
 
 # Network Map Service

@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Changelog
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Changelog"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "changelog",]
++++
 
 
 # Changelog
@@ -140,6 +140,9 @@ This is only best-effort and there are no guarantees of reliability.
 
 * Package namespace ownership configurations can be now be set as described in
                         [Package namespace ownership](generating-a-node.md#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
+
+
+* Fixed the operator used by the `notEqual` predicate
 
 
 

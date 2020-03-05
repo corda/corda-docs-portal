@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: The CorDapp Template
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "The CorDapp Template"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "template",]
++++
 
 
 

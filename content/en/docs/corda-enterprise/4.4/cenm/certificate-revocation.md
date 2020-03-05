@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Certificate Revocation List (CRL)
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Certificate Revocation List (CRL)"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "certificate", "revocation",]
++++
 
 
 # Certificate Revocation List (CRL)

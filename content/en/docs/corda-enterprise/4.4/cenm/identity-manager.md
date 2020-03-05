@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Identity Manager Service
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Identity Manager Service"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "identity", "manager",]
++++
 
 
 # Identity Manager Service

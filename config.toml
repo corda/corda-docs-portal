@@ -78,6 +78,8 @@ github_repository = "https://github.com/corda/docs-site"
 #  Cue bikeshedding
 default_tab = "kotlin"
 
+ogimage = "/images/png/corda.png"
+
 algolia_appId = "R1ZKEEPZZD"
 algolia_apiKey = "956b84b7485b311cbd94473cf7e37e1c"
 aloglia_indexName = "dev_hugo"
@@ -87,27 +89,3 @@ aloglia_indexName = "dev_hugo"
 # aloglia_indexName = "dev_api"
 
 
-[[params.versions]]
-version = "corda-os 4.1"
-url = "docs/corda-os/4.1.html"
-[[params.versions]]
-version = "corda-os 4.3"
-url = "docs/corda-os/4.3.html"
-[[params.versions]]
-version = "corda-os 4.4"
-url = "docs/corda-os/4.4.html"
-[[params.versions]]
-version = "corda-ent 4.1"
-url = "docs/corda-enterprise/4.1.html"
-[[params.versions]]
-version = "corda-ent 4.3"
-url = "docs/corda-enterprise/4.3.html"
-[[params.versions]]
-version = "corda-ent 4.4"
-url = "docs/corda-enterprise/4.4.html"
-[[params.versions]]
-version = "CENM 1.1"
-url = "docs/cenm/1.1.html"
-[[params.versions]]
-version = "CENM 1.2"
-url = "docs/cenm/1.2.html"

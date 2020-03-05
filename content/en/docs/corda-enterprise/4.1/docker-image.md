@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
-title: Official Corda Docker Image
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Official Corda Docker Image"
+menu = [ "corda-enterprise-4-1",]
+categories = [ "docker", "image",]
++++
 
 
 # Official Corda Docker Image

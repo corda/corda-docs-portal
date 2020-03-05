@@ -1,9 +1,8 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Corda Network
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Corda Network"
+menu = [ "corda-enterprise-4-3",]
++++
 
 
 # Corda Network

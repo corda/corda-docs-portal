@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
-title: In a network with Doorman and Network map
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "In a network with Doorman and Network map"
+menu = [ "corda-enterprise-4-1",]
+categories = [ "installing", "notary", "service", "netman",]
++++
 
 
 # In a network with Doorman and Network map

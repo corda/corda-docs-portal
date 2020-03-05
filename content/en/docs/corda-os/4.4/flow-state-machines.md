@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: Writing flows
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Writing flows"
+menu = [ "corda-os-4-4",]
+categories = [ "flow", "state", "machines",]
++++
 
 
 

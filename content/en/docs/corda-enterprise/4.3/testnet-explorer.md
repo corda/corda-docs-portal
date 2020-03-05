@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Using the Node Explorer to test a Corda Enterprise node on Corda Testnet
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Using the Node Explorer to test a Corda Enterprise node on Corda Testnet"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "testnet", "explorer",]
++++
 
 
 # Using the Node Explorer to test a Corda Enterprise node on Corda Testnet
@@ -112,7 +112,7 @@ You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs
 * Now download the Node Explorer to your **LOCAL** machine:
 
 ```bash
-http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.3/corda-tools-explorer-4.3.jar
+https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.3-corda/corda-tools-explorer-4.3-corda.jar
 ```
 
 {{< warning >}}

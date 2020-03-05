@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Contract Whitelist Generation
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Contract Whitelist Generation"
+menu = [ "cenm-1-2",]
+categories = [ "contract", "whitelisting",]
++++
 
 
 # Contract Whitelist Generation

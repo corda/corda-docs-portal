@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: Pluggable Serializers for CorDapps
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Pluggable Serializers for CorDapps"
+menu = [ "corda-os-4-4",]
+categories = [ "cordapp", "custom", "serializers",]
++++
 
 
 

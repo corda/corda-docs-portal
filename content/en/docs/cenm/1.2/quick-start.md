@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Enterprise Network Manager Quick-Start Guide
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Enterprise Network Manager Quick-Start Guide"
+menu = [ "cenm-1-2",]
+categories = [ "quick", "start",]
++++
 
 
 # Enterprise Network Manager Quick-Start Guide

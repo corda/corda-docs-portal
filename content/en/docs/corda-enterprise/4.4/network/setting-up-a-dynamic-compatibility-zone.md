@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Setting up a dynamic compatibility zone
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Setting up a dynamic compatibility zone"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "setting", "dynamic", "compatibility", "zone",]
++++
 
 
 

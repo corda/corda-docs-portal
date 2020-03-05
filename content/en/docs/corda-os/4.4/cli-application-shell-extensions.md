@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: Shell extensions for CLI Applications
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Shell extensions for CLI Applications"
+menu = [ "corda-os-4-4",]
+categories = [ "cli", "application", "shell", "extensions",]
++++
 
 
 # Shell extensions for CLI Applications

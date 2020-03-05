@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: CRL Endpoint Check Tool
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "CRL Endpoint Check Tool"
+menu = [ "cenm-1-2",]
+categories = [ "crl", "endpoint", "check", "tool",]
++++
 
 
 # CRL Endpoint Check Tool
@@ -28,7 +28,7 @@ java -jar crlendpointchecktool.jar --keystore=<keystore-file> --password<keystor
 ```
 On success you should see a console message similar to:
 
-```kotlin
+```bash
 Listing certificates' CRLs under cordaclientca alias:
  O=PartyA, L=London, C=GB
     Contacting http://localhost:10000/certificate-revocation-list/doorman CRL endpoint...

@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Upgrading Corda Enterprise Network Manager
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Upgrading Corda Enterprise Network Manager"
+menu = [ "cenm-1-2",]
+categories = [ "upgrade", "notes",]
++++
 
 
 # Upgrading Corda Enterprise Network Manager
@@ -22,6 +22,28 @@ We also strongly recommend cross referencing with the [Changelog](changelog.md) 
 
 
 ## 1.0 to 1.1
+
+
+{{< note >}}
+Use latest patched version (1.1.1 or higher) of the services (JAR/ZIP files) instead of 1.1 version.
+
+{{< /note >}}
+
+* **Identity Manager, Network Map and Signing Service**
+
+Ensure Identity Manager and Network Map service will be configure to upgrade the database upon startup.
+                        In the configuration files of Identity Manager and Network Map set `runMigration` property to `true` e.g.:
+
+```guess
+database {
+    runMigration = true
+    ...
+ }
+```
+This step doesn’t relate to Signing Service as it doesn’t use a database.
+
+The upgrade process is just a drop-in replacement of the existing JARs with `<service>-1.1.1.jar`.
+                        Ensure to stop the services before replacing the JAR files.
 
 
 * **Dynamic loading of HSM Jars**

@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-1:
-    parent: corda-enterprise-4-1-node
-title: Simplified database schema setup for development
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Simplified database schema setup for development"
+categories = [ "node", "database", "developer",]
+
+[menu.corda-enterprise-4-1]
+parent = "corda-enterprise-4-1-node"
++++
 
 
 # Simplified database schema setup for development

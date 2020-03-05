@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Configuring the notary backend - JPA
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Configuring the notary backend - JPA"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "installing", "jpa",]
++++
 
 
 # Configuring the notary backend - JPA

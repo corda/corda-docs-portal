@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
-title: Cipher suites supported by Corda
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Cipher suites supported by Corda"
+menu = [ "corda-os-4-3",]
+categories = [ "cipher", "suites",]
++++
 
 
 # Cipher suites supported by Corda

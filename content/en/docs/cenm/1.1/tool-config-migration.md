@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-1
-title: Config migration tool
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Config migration tool"
+menu = [ "cenm-1-1",]
+categories = [ "tool", "config", "migration",]
++++
 
 
 # Config migration tool

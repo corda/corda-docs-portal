@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-1
-title: Tools & Utilities
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Tools & Utilities"
+menu = [ "cenm-1-1",]
+categories = [ "tools",]
++++
 
 
 # Tools & Utilities

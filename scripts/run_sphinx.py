@@ -488,6 +488,16 @@ class Translator:
         if "title" not in self.front_matter:
             self.front_matter["title"] = filename_only
 
+        remove = ['index', '_index', 'and', 'a', 'the', 'if', 'key', 'hello', 'world', 'toc', 'toctree', 'one', 'two', 'three', 'up', 'with', 'dir' 'docs', 'eta', 'non', 'reg', 'reqs', 'run', 'runs', 'sub', 'soft', 'tree', 'to', 'up', 'writing']
+
+        categories = filename_only.split("-")
+        for r in remove:
+            if r in categories: categories.remove(r)
+
+        if categories:
+            self.front_matter['categories'] = categories
+                
+
     ###########################################################################
     # Visitors
     ###########################################################################
@@ -1060,12 +1070,14 @@ def configure_translator(filename):
 
 
 def write_frontmatter(f, front_matter):
-    f.write('---\n'),
-    f.write(yaml.dump(front_matter))
-    f.write('---\n')
-    # f.write('+++\n')
-    # f.write(toml.dumps(front_matter))
-    # f.write('+++\n')
+    if ARGS.yaml:
+        f.write('---\n'),
+        f.write(yaml.dump(front_matter))
+        f.write('---\n')
+    else:
+        f.write('+++\n')
+        f.write(toml.dumps(front_matter))
+        f.write('+++\n')
 
 
 def convert_one_xml_file_to_cms_style_md(cms, filename):
@@ -1189,7 +1201,7 @@ def copy_to_content(cms):
             os.makedirs(os.path.dirname(dest), exist_ok=True)
 
         if dest.endswith("_index.md"):
-            LOG.error(f"Copying {src} {dest}")
+            LOG.warning(f"Copying {src} {dest}")
 
         LOG.debug(f"Copying {src} {dest}")
         shutil.copyfile(src, dest)
@@ -1233,11 +1245,12 @@ def main():
     global ARGS
     desc = "Convert rst files to md using sphinx"
     parser = argparse.ArgumentParser(description=desc)
+    parser.add_argument("--yaml", "-y", help="write front matter as yaml, default is toml", default=False, action='store_true')
     parser.add_argument("--toc", "-t", help="include table of contents in the page", default=False, action='store_true')
     parser.add_argument("--skip", "-s", help="skip rst conversion for speed if already done", default=False, action='store_true')
     parser.add_argument("--cms", "-c", help="generate (commonmark) markdown for cms", default='hugo', choices=['gatsby', 'markdown', 'hugo'])
     ARGS = parser.parse_args()
-    ARGS.skip = True
+
     _setup_logging()
 
     LOG.warning(f"You need to clone the repositories you wish to convert to {REPOS}")

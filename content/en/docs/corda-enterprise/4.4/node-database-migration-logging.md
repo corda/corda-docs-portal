@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-node
-title: Database Schema Migration Logging
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Database Schema Migration Logging"
+categories = [ "node", "database", "migration", "logging",]
+
+[menu.corda-enterprise-4-4]
+parent = "corda-enterprise-4-4-node"
++++
 
 
 # Database Schema Migration Logging

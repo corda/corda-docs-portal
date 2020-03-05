@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-os-4-1:
-    parent: corda-os-4-1-tutorial
-title: Transaction tear-offs
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Transaction tear-offs"
+categories = [ "tutorial", "tear", "offs",]
+
+[menu.corda-os-4-1]
+parent = "corda-os-4-1-tutorial"
++++
 
 
 

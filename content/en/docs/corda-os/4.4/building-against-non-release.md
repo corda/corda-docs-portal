@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: Building CorDapps against a non-release branch
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Building CorDapps against a non-release branch"
+menu = [ "corda-os-4-4",]
+categories = [ "building", "against", "release",]
++++
 
 
 # Building CorDapps against a non-release branch

@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Configuration Obfuscator
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Configuration Obfuscator"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "tools", "config", "obfuscator",]
++++
 
 
 # Configuration Obfuscator

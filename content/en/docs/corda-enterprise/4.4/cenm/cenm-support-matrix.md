@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: CENM support matrix
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "CENM support matrix"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "cenm", "support", "matrix",]
++++
 
 
 # CENM support matrix

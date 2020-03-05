@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-1
-title: Components of the Corda Enterprise Network Manager
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Components of the Corda Enterprise Network Manager"
+menu = [ "cenm-1-1",]
+categories = [ "enm", "components",]
++++
 
 
 # Components of the Corda Enterprise Network Manager

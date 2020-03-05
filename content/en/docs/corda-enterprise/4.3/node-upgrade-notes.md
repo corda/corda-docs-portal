@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-3:
-    parent: corda-enterprise-4-3-node
-title: Upgrading your node to Corda 4
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Upgrading your node to Corda 4"
+categories = [ "node", "upgrade", "notes",]
+
+[menu.corda-enterprise-4-3]
+parent = "corda-enterprise-4-3-node"
++++
 
 
 # Upgrading your node to Corda 4
@@ -305,7 +306,7 @@ If you are reusing the tool configuration directory:
 
 ## Step 4. Replace `corda.jar` with the new version
 
-Replace the `corda.jar` with the latest version of Corda.
+Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
                 Make sure it’s available on your path, and that you’ve read the [Release notes](release-notes.md). Pay particular attention to which version of Java this
                 node requires.
 

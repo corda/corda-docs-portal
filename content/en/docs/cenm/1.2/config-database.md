@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  cenm-1-2:
-    parent: cenm-1-2-config
-title: CENM Database Configuration
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "CENM Database Configuration"
+categories = [ "config", "database",]
+
+[menu.cenm-1-2]
+parent = "cenm-1-2-config"
++++
 
 
 # CENM Database Configuration
@@ -24,7 +25,8 @@ Create or upgrade the database schema (database objects like tables, indices)
 
 
 initialiseSchema
-Automatically creates the tables required by the CENM component
+*(Deprecated)* Automatically creates the tables required by the CENM component,
+                                    the property was used for H2 database only, its ignored since CENM 1.2 and its replaced by `runMigration`
 
 
 jdbcDriver
@@ -48,6 +50,6 @@ Database user password
 
 
 additionalProperties
-(Optional) Additional database properties
+*(Optional)* Additional database properties
 
 

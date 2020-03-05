@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Getting started developing CorDapps
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Getting started developing CorDapps"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "quickstart",]
++++
 
 
 # Getting started developing CorDapps

@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-1
-title: Running nodes locally
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Running nodes locally"
+menu = [ "corda-os-4-1",]
+categories = [ "running", "node",]
++++
 
 
 # Running nodes locally

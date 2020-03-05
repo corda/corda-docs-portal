@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-os-4-3:
-    parent: corda-os-4-3-api
-title: 'API: Vault Query'
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "API: Vault Query"
+categories = [ "api", "vault", "query",]
+
+[menu.corda-os-4-3]
+parent = "corda-os-4-3-api"
++++
 
 
 

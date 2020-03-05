@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
-title: Hello, World! Pt.2 - Contract constraints
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Hello, World! Pt.2 - Contract constraints"
+menu = [ "corda-os-4-4",]
+categories = [ "tut", "party", "introduction",]
++++
 
 
 # Hello, World! Pt.2 - Contract constraints

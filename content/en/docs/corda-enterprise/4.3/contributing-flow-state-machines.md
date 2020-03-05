@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Extending the state machine
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Extending the state machine"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "contributing", "flow", "state", "machines",]
++++
 
 
 

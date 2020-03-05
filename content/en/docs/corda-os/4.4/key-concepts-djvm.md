@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-os-4-4:
-    parent: corda-os-4-4-concepts
-title: Deterministic JVM
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Deterministic JVM"
+categories = [ "concepts", "djvm",]
+
+[menu.corda-os-4-4]
+parent = "corda-os-4-4-concepts"
++++
 
 
 # Deterministic JVM

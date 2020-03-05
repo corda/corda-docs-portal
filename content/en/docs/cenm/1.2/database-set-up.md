@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: CENM Databases
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "CENM Databases"
+menu = [ "cenm-1-2",]
+categories = [ "database", "set",]
++++
 
 
 # CENM Databases

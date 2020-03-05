@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
-title: Blob Inspector
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Blob Inspector"
+menu = [ "corda-enterprise-4-1",]
+categories = [ "blob", "inspector",]
++++
 
 
 # Blob Inspector

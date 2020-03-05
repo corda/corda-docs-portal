@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
-title: CorDapp Upgradeability Guarantees
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "CorDapp Upgradeability Guarantees"
+menu = [ "corda-enterprise-4-1",]
+categories = [ "cordapp", "upgradeability",]
++++
 
 
 # CorDapp Upgradeability Guarantees

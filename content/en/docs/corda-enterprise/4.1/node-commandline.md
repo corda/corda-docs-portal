@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-1:
-    parent: corda-enterprise-4-1-node
-title: Node command-line options
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Node command-line options"
+categories = [ "node", "commandline",]
+
+[menu.corda-enterprise-4-1]
+parent = "corda-enterprise-4-1-node"
++++
 
 
 # Node command-line options

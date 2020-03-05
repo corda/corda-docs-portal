@@ -1,11 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
-- versions
-section_menu: corda-enterprise-4-1
-title: Corda Enterprise 4.1
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Corda Enterprise 4.1"
+section_menu = "corda-enterprise-4-1"
+menu = [ "corda-enterprise-4-1", "versions",]
++++
 
 
 # Corda Enterprise 4.1

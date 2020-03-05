@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Notary database migration
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Notary database migration"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "notary", "db", "migration",]
++++
 
 
 # Notary database migration

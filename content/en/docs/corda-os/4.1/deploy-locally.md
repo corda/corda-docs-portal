@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-1
-title: Deploying Corda to Corda Testnet from your local environment
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Deploying Corda to Corda Testnet from your local environment"
+menu = [ "corda-os-4-1",]
+categories = [ "deploy", "locally",]
++++
 
 
 # Deploying Corda to Corda Testnet from your local environment

@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Signing Services
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Signing Services"
+menu = [ "cenm-1-2",]
+categories = [ "signing", "service",]
++++
 
 
 # Signing Services
@@ -945,9 +945,11 @@ Relevant only if type is `CRL`. This represents the millisecond duration between
 > 
 To ensure that the transition from an old CRL to a new one, this value should always be set to a time period much
                                 larger than the original planned update period. For example, if the `schedule` parameter below has been set to
-                                generate a new CRL every 2 hours, then a `updatePeriod` value would be at least day or multiple days. If the CRL
-                                signing task is being run manually then a sufficiently large enough value should be set here to allow for breakdowns
-                                or delays in the process.
+                                generate a new CRL every 2 hours, then a `updatePeriod` value would be at least day or multiple days.
+
+If the CRL signing task is being run manually then a sufficiently large enough value should be set here to allow
+                                for breakdowns or delays in the process. A value of 6 months (with signing being performed every 3 months) is
+                                suggested for manual signing scenarios.
 
 
 validDays

@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
-title: Event scheduling
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Event scheduling"
+menu = [ "corda-os-4-3",]
+categories = [ "event", "scheduling",]
++++
 
 
 

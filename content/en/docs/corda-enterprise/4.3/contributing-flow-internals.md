@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Flow framework internals
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Flow framework internals"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "contributing", "flow", "internals",]
++++
 
 
 # Flow framework internals

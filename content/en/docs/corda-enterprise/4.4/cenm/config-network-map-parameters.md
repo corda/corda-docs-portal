@@ -1,10 +1,11 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-config
-title: Network Map Configuration Parameters
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Network Map Configuration Parameters"
+categories = [ "config", "network", "map", "parameters",]
+
+[menu.corda-enterprise-4-4]
+parent = "corda-enterprise-4-4-config"
++++
 
 
 # Network Map Configuration Parameters

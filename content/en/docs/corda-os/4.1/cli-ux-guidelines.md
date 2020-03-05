@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-1
-title: CLI UX Guide
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "CLI UX Guide"
+menu = [ "corda-os-4-1",]
+categories = [ "cli", "ux", "guidelines",]
++++
 
 
 

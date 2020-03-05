@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Contract Whitelist Generation
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Contract Whitelist Generation"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "contract", "whitelisting",]
++++
 
 
 # Contract Whitelist Generation

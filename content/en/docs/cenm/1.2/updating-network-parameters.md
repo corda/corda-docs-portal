@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Updating the network parameters
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Updating the network parameters"
+menu = [ "cenm-1-2",]
+categories = [ "updating", "network", "parameters",]
++++
 
 
 # Updating the network parameters
@@ -54,9 +54,10 @@ Typical update process is as follows:
 > 
 > 
 
-* Before the `updateDeadline` time, nodes will have to run the RPC command to accept new parameters. This will not
+* Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
+                    new parameters. This will not
                     activate the new network parameters on the nodes, only inform the Network Map service that the node has agreed to the
-                    update.
+                    update. See [https://docs.corda.net/tutorial-clientrpc-api.html](https://docs.corda.net/tutorial-clientrpc-api.html) for further details.
                     The Network Map’s shell contains a command to list network participants that have or haven’t accepted the new
                     network parameters:
 

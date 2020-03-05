@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-2
-title: Components of the Corda Enterprise Network Manager
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Components of the Corda Enterprise Network Manager"
+menu = [ "cenm-1-2",]
+categories = [ "enm", "components",]
++++
 
 
 # Components of the Corda Enterprise Network Manager
@@ -115,7 +115,7 @@ The Identity Manager and Network Map(s) require their own persistence layer. The
 For details of supported versions and configuration, see [CENM Databases](database-set-up.md).
 
 
-# Public Key Infrastructure
+# Public Key Infrastructure (PKI)
 
 The certificates and keys that represent the network’s PKI will be stored within an HSM. To prevent any breach of the
             systems integrity being able to generate a signed certificate the signers should be operated from an isolated network.
@@ -123,6 +123,8 @@ The certificates and keys that represent the network’s PKI will be stored with
 
 In addition, signing a CRR or CSR, and potentially the Network Parameters, *should* require a human to interact with
             the HSM via some manual authentication mechanism.
+
+See [Certificate Hierarchy Guide](pki-guide.md) for a detailed guide to PKI.
 
 
 # The Node

@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
-title: Highly available database setup guidelines
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Highly available database setup guidelines"
+menu = [ "corda-enterprise-4-3",]
+categories = [ "db", "guidelines",]
++++
 
 
 # Highly available database setup guidelines

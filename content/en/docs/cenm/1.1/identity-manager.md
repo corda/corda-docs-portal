@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-1
-title: Identity Manager Service
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Identity Manager Service"
+menu = [ "cenm-1-1",]
+categories = [ "identity", "manager",]
++++
 
 
 # Identity Manager Service

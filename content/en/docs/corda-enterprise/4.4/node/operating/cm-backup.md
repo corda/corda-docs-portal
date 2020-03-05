@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-4
-title: Backup and restoration of a Corda node
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Backup and restoration of a Corda node"
+menu = [ "corda-enterprise-4-4",]
+categories = [ "cm", "backup",]
++++
 
 
 # Backup and restoration of a Corda node

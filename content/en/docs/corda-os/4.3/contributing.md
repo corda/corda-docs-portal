@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
-title: How to contribute
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "How to contribute"
+menu = [ "corda-os-4-3",]
+categories = [ "contributing",]
++++
 
 
 # How to contribute

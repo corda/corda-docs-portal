@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-1
-title: Configuring the ENM services to use SSL
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Configuring the ENM services to use SSL"
+menu = [ "cenm-1-1",]
+categories = [ "enm", "ssl",]
++++
 
 
 # Configuring the ENM services to use SSL

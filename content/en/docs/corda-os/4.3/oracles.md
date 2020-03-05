@@ -1,9 +1,9 @@
----
-date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
-title: Writing oracle services
----
++++
+date = "2020-01-08T09:59:25Z"
+title = "Writing oracle services"
+menu = [ "corda-os-4-3",]
+categories = [ "oracles",]
++++
 
 
 
