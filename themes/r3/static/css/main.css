@@ -10458,6 +10458,17 @@ main img {
   margin-bottom: 1rem;
 }
 
+<<<<<<< Updated upstream
+=======
+.r3-o-nav-item {
+  display: flex;
+  align-items: center;
+}
+.r3-o-nav-item a {
+  color: white;
+}
+
+>>>>>>> Stashed changes
 .r3-o-note {
   background-color: #C7E1FA;
   color: #092847;
@@ -10536,6 +10547,7 @@ main img {
   padding-right: 0.5rem !important;
   padding-left: 0.5rem !important;
 }
+<<<<<<< Updated upstream
 .r3-o-navbar__nav-item {
   display: flex;
   align-items: center;
@@ -10546,6 +10558,8 @@ main img {
 .r3-o-navbar__nav-item a svg {
   height: 16px;
 }
+=======
+>>>>>>> Stashed changes
 
 footer {
   background-color: #53585F;
