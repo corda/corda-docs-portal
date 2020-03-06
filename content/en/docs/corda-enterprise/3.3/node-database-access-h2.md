@@ -1,12 +1,17 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Database access when running H2"
-aliases = [ "/releases/3.3/node-database-access-h2.html",]
-tags = [ "node", "database", "access", "h2",]
-
-[menu.corda-enterprise-3-3]
-parent = "corda-enterprise-3-3-node"
-+++
+---
+aliases:
+- /releases/3.3/node-database-access-h2.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-3-3:
+    parent: corda-enterprise-3-3-node
+tags:
+- node
+- database
+- access
+- h2
+title: Database access when running H2
+---
 
 
 # Database access when running H2

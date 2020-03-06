@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Pluggable Serializers for CorDapps"
-aliases = [ "/releases/release-V4.4/cordapp-custom-serializers.html",]
-menu = [ "corda-os-4-4",]
-tags = [ "cordapp", "custom", "serializers",]
-+++
+---
+aliases:
+- /releases/release-V4.4/cordapp-custom-serializers.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-4
+tags:
+- cordapp
+- custom
+- serializers
+title: Pluggable Serializers for CorDapps
+---
 
 
 

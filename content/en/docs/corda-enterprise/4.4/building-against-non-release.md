@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Building CorDapps against a non-release branch"
-aliases = [ "/releases/4.4/building-against-non-release.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "building", "against", "release",]
-+++
+---
+aliases:
+- /releases/4.4/building-against-non-release.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- building
+- against
+- release
+title: Building CorDapps against a non-release branch
+---
 
 
 # Building CorDapps against a non-release branch

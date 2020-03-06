@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Upgrading Corda versions on a node"
-aliases = [ "/releases/4.2/operating/cm-upgrading-node.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "cm", "upgrading", "node",]
-+++
+---
+aliases:
+- /releases/4.2/operating/cm-upgrading-node.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- cm
+- upgrading
+- node
+title: Upgrading Corda versions on a node
+---
 
 
 # Upgrading Corda versions on a node

@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Soft Locking"
-aliases = [ "/releases/3.3/soft-locking.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "locking",]
-+++
+---
+aliases:
+- /releases/3.3/soft-locking.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- locking
+title: Soft Locking
+---
 
 
 # Soft Locking

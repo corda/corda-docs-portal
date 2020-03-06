@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Public Key Infrastructure (PKI) Tool"
-aliases = [ "/releases/4.4/pki-tool.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "pki", "tool",]
-+++
+---
+aliases:
+- /releases/4.4/pki-tool.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- pki
+- tool
+title: Public Key Infrastructure (PKI) Tool
+---
 
 
 # Public Key Infrastructure (PKI) Tool

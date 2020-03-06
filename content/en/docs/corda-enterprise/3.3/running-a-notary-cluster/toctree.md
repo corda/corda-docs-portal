@@ -1,9 +1,11 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Setting up a HA notary service"
-aliases = [ "/releases/3.3/running-a-notary-cluster/toctree.html",]
-menu = [ "corda-enterprise-3-3",]
-+++
+---
+aliases:
+- /releases/3.3/running-a-notary-cluster/toctree.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+title: Setting up a HA notary service
+---
 
 
 # Setting up a HA notary service

@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Enterprise Network Manager Quick-Start Guide"
-aliases = [ "/releases/release-1.1/quick-start.html", "/quick-start.html",]
-menu = [ "cenm-1-1",]
-tags = [ "quick", "start",]
-+++
+---
+aliases:
+- /releases/release-1.1/quick-start.html
+- /quick-start.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-1
+tags:
+- quick
+- start
+title: Enterprise Network Manager Quick-Start Guide
+---
 
 
 # Enterprise Network Manager Quick-Start Guide

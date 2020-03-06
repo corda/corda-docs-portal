@@ -1,10 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "CENM support matrix"
-aliases = [ "/releases/release-1.1/cenm-support-matrix.html", "/cenm-support-matrix.html",]
-menu = [ "cenm-1-1",]
-tags = [ "cenm", "support", "matrix",]
-+++
+---
+aliases:
+- /releases/release-1.1/cenm-support-matrix.html
+- /cenm-support-matrix.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-1
+tags:
+- cenm
+- support
+- matrix
+title: CENM support matrix
+---
 
 
 # CENM support matrix

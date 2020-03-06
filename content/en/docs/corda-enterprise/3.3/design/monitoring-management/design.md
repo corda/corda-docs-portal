@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Monitoring and Logging Design"
-aliases = [ "/releases/3.3/design/monitoring-management/design.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "design",]
-+++
+---
+aliases:
+- /releases/3.3/design/monitoring-management/design.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- design
+title: Monitoring and Logging Design
+---
 
 
 # Monitoring and Logging Design

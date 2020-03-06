@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Node database"
-aliases = [ "/releases/4.3/node-database.html", "/node-database.html",]
-tags = [ "node", "database",]
-
-[menu.corda-enterprise-4-3]
-parent = "corda-enterprise-4-3-node"
-+++
+---
+aliases:
+- /releases/4.3/node-database.html
+- /node-database.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-node
+tags:
+- node
+- database
+title: Node database
+---
 
 
 # Node database

@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "AWS Marketplace"
-aliases = [ "/releases/3.3/aws-vm.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "aws", "vm",]
-+++
+---
+aliases:
+- /releases/3.3/aws-vm.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- aws
+- vm
+title: AWS Marketplace
+---
 
 
 # AWS Marketplace

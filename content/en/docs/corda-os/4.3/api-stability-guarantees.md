@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "API stability guarantees"
-aliases = [ "/releases/release-V4.3/api-stability-guarantees.html",]
-tags = [ "api", "stability", "guarantees",]
-
-[menu.corda-os-4-3]
-parent = "corda-os-4-3-api"
-+++
+---
+aliases:
+- /releases/release-V4.3/api-stability-guarantees.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-3:
+    parent: corda-os-4-3-api
+tags:
+- api
+- stability
+- guarantees
+title: API stability guarantees
+---
 
 
 # API stability guarantees

@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Generating HSM Keys and Certificates"
-aliases = [ "/releases/release-1.0/generating-key-certificate-hsm.html",]
-menu = [ "cenm-1-0",]
-tags = [ "generating", "certificate", "hsm",]
-+++
+---
+aliases:
+- /releases/release-1.0/generating-key-certificate-hsm.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- generating
+- certificate
+- hsm
+title: Generating HSM Keys and Certificates
+---
 
 
 # Generating HSM Keys and Certificates

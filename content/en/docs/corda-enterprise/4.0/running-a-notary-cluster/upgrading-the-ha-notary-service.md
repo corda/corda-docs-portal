@@ -1,10 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Upgrading the HA notary service"
-aliases = [ "/releases/4.0/running-a-notary-cluster/upgrading-the-ha-notary-service.html",]
-menu = [ "corda-enterprise-4-0",]
-tags = [ "upgrading", "ha", "notary", "service",]
-+++
+---
+aliases:
+- /releases/4.0/running-a-notary-cluster/upgrading-the-ha-notary-service.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-0
+tags:
+- upgrading
+- ha
+- notary
+- service
+title: Upgrading the HA notary service
+---
 
 
 # Upgrading the HA notary service

@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Writing oracle services"
-aliases = [ "/releases/release-V3.4/oracles.html",]
-menu = [ "corda-os-3-4",]
-tags = [ "oracles",]
-+++
+---
+aliases:
+- /releases/release-V3.4/oracles.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-3-4
+tags:
+- oracles
+title: Writing oracle services
+---
 
 
 

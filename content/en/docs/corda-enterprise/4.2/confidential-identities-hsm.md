@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Options for confidential identities"
-aliases = [ "/releases/4.2/confidential-identities-hsm.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "confidential", "identities", "hsm",]
-+++
+---
+aliases:
+- /releases/4.2/confidential-identities-hsm.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- confidential
+- identities
+- hsm
+title: Options for confidential identities
+---
 
 
 # Options for confidential identities

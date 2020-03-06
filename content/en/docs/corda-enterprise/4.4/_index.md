@@ -1,16 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Introduction to Corda"
-aliases = [ "/releases/4.4/index.html",]
-section_menu = "corda-enterprise-4-4"
-version = "4.4"
-project = "corda-enterprise"
-
-[menu.versions]
-weight = 156
-
-[menu.corda-enterprise-4-4]
-+++
+---
+aliases:
+- /releases/4.4/index.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4: {}
+  versions:
+    weight: 156
+project: corda-enterprise
+section_menu: corda-enterprise-4-4
+title: Introduction to Corda
+version: '4.4'
+---
 
 
 # Introduction to Corda

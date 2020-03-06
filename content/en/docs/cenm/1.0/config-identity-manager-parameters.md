@@ -1,12 +1,17 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Identity Manager Configuration Parameters"
-aliases = [ "/releases/release-1.0/config-identity-manager-parameters.html",]
-tags = [ "config", "identity", "manager", "parameters",]
-
-[menu.cenm-1-0]
-parent = "cenm-1-0-config"
-+++
+---
+aliases:
+- /releases/release-1.0/config-identity-manager-parameters.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-0:
+    parent: cenm-1-0-config
+tags:
+- config
+- identity
+- manager
+- parameters
+title: Identity Manager Configuration Parameters
+---
 
 
 # Identity Manager Configuration Parameters

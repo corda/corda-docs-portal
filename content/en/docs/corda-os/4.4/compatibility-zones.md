@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "What is a compatibility zone?"
-aliases = [ "/releases/release-V4.4/compatibility-zones.html",]
-menu = [ "corda-os-4-4",]
-tags = [ "compatibility", "zones",]
-+++
+---
+aliases:
+- /releases/release-V4.4/compatibility-zones.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-4
+tags:
+- compatibility
+- zones
+title: What is a compatibility zone?
+---
 
 
 

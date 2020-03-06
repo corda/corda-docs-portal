@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Hello, World!"
-aliases = [ "/releases/release-V3.4/hello-world-introduction.html",]
-menu = [ "corda-os-3-4",]
-tags = [ "introduction",]
-+++
+---
+aliases:
+- /releases/release-V3.4/hello-world-introduction.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-3-4
+tags:
+- introduction
+title: Hello, World!
+---
 
 
 # Hello, World!

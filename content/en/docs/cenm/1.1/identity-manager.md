@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Identity Manager Service"
-aliases = [ "/releases/release-1.1/identity-manager.html", "/identity-manager.html",]
-menu = [ "cenm-1-1",]
-tags = [ "identity", "manager",]
-+++
+---
+aliases:
+- /releases/release-1.1/identity-manager.html
+- /identity-manager.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-1
+tags:
+- identity
+- manager
+title: Identity Manager Service
+---
 
 
 # Identity Manager Service

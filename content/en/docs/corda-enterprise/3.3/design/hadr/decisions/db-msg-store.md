@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Message storage"
-aliases = [ "/releases/3.3/design/hadr/decisions/db-msg-store.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "db", "msg", "store",]
-+++
+---
+aliases:
+- /releases/3.3/design/hadr/decisions/db-msg-store.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- db
+- msg
+- store
+title: 'Design Decision: Message storage'
+---
 
 
 # Design Decision: Message storage

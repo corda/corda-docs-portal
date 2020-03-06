@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Contract versioning and ensuring data integrity"
-aliases = [ "/releases/4.1/design/versioning/contract-versioning.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "contract", "versioning",]
-+++
+---
+aliases:
+- /releases/4.1/design/versioning/contract-versioning.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- contract
+- versioning
+title: Contract versioning and ensuring data integrity
+---
 
 
 # Contract versioning and ensuring data integrity

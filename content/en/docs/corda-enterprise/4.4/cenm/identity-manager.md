@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Identity Manager Service"
-aliases = [ "/releases/4.4/cenm/identity-manager.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "identity", "manager",]
-+++
+---
+aliases:
+- /releases/4.4/cenm/identity-manager.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- identity
+- manager
+title: Identity Manager Service
+---
 
 
 # Identity Manager Service

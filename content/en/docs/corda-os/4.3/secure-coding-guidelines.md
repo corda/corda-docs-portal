@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Secure coding guidelines"
-aliases = [ "/releases/release-V4.3/secure-coding-guidelines.html",]
-menu = [ "corda-os-4-3",]
-tags = [ "secure", "coding", "guidelines",]
-+++
+---
+aliases:
+- /releases/release-V4.3/secure-coding-guidelines.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-3
+tags:
+- secure
+- coding
+- guidelines
+title: Secure coding guidelines
+---
 
 
 # Secure coding guidelines

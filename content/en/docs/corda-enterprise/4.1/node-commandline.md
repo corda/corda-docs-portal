@@ -1,12 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Node command-line options"
-aliases = [ "/releases/4.1/node-commandline.html",]
-tags = [ "node", "commandline",]
-
-[menu.corda-enterprise-4-1]
-parent = "corda-enterprise-4-1-node"
-+++
+---
+aliases:
+- /releases/4.1/node-commandline.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-node
+tags:
+- node
+- commandline
+title: Node command-line options
+---
 
 
 # Node command-line options

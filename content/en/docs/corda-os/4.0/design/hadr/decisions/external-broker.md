@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Broker separation"
-aliases = [ "/releases/release-V4.0/design/hadr/decisions/external-broker.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "external", "broker",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/hadr/decisions/external-broker.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- external
+- broker
+title: 'Design Decision: Broker separation'
+---
 
 
 # Design Decision: Broker separation

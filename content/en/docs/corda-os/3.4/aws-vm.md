@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Building a Corda VM from the AWS Marketplace"
-aliases = [ "/releases/release-V3.4/aws-vm.html",]
-menu = [ "corda-os-3-4",]
-tags = [ "aws", "vm",]
-+++
+---
+aliases:
+- /releases/release-V3.4/aws-vm.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-3-4
+tags:
+- aws
+- vm
+title: Building a Corda VM from the AWS Marketplace
+---
 
 
 # Building a Corda VM from the AWS Marketplace

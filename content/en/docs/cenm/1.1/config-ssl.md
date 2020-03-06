@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "SSL Settings"
-aliases = [ "/releases/release-1.1/config-ssl.html", "/config-ssl.html",]
-tags = [ "config", "ssl",]
-
-[menu.cenm-1-1]
-parent = "cenm-1-1-config"
-+++
+---
+aliases:
+- /releases/release-1.1/config-ssl.html
+- /config-ssl.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1:
+    parent: cenm-1-1-config
+tags:
+- config
+- ssl
+title: SSL Settings
+---
 
 
 # SSL Settings

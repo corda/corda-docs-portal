@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Starting a Corda node"
-aliases = [ "/releases/4.4/node/deploy/starting-components.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "starting", "components",]
-+++
+---
+aliases:
+- /releases/4.4/node/deploy/starting-components.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- starting
+- components
+title: Starting a Corda node
+---
 
 
 # Starting a Corda node

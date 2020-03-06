@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "JSON"
-aliases = [ "/releases/release-V4.0/json.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "json",]
-+++
+---
+aliases:
+- /releases/release-V4.0/json.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- json
+title: JSON
+---
 
 
 

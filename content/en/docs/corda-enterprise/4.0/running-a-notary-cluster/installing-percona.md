@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Percona XtraDB Cluster, the underlying replicated Database"
-aliases = [ "/releases/4.0/running-a-notary-cluster/installing-percona.html",]
-menu = [ "corda-enterprise-4-0",]
-tags = [ "installing", "percona",]
-+++
+---
+aliases:
+- /releases/4.0/running-a-notary-cluster/installing-percona.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-0
+tags:
+- installing
+- percona
+title: Percona XtraDB Cluster, the underlying replicated Database
+---
 
 
 # Percona XtraDB Cluster, the underlying replicated Database

@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Notary HSM support"
-aliases = [ "/releases/4.3/running-a-notary-cluster/hsm-support.html", "/running-a-notary-cluster/hsm-support.html",]
-menu = [ "corda-enterprise-4-3",]
-tags = [ "hsm", "support",]
-+++
+---
+aliases:
+- /releases/4.3/running-a-notary-cluster/hsm-support.html
+- /running-a-notary-cluster/hsm-support.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-3
+tags:
+- hsm
+- support
+title: Notary HSM support
+---
 
 
 # Notary HSM support

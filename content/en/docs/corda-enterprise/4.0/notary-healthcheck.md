@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Notary Health Check"
-aliases = [ "/releases/4.0/notary-healthcheck.html",]
-menu = [ "corda-enterprise-4-0",]
-tags = [ "notary", "healthcheck",]
-+++
+---
+aliases:
+- /releases/4.0/notary-healthcheck.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-0
+tags:
+- notary
+- healthcheck
+title: Notary Health Check
+---
 
 
 # Notary Health Check

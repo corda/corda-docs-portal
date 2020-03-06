@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Understanding the node"
-aliases = [ "/releases/4.4/node/component-topology.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "component", "topology",]
-+++
+---
+aliases:
+- /releases/4.4/node/component-topology.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- component
+- topology
+title: Understanding the node
+---
 
 
 # Understanding the node

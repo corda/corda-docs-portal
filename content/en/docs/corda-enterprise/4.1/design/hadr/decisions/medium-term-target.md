@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Medium-term target for node HA"
-aliases = [ "/releases/4.1/design/hadr/decisions/medium-term-target.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "medium", "term", "target",]
-+++
+---
+aliases:
+- /releases/4.1/design/hadr/decisions/medium-term-target.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- medium
+- term
+- target
+title: 'Design Decision: Medium-term target for node HA'
+---
 
 
 # Design Decision: Medium-term target for node HA

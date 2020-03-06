@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Bridge configuration"
-aliases = [ "/releases/3.3/bridge-configuration-file.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "bridge", "configuration", "file",]
-+++
+---
+aliases:
+- /releases/3.3/bridge-configuration-file.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- bridge
+- configuration
+- file
+title: Bridge configuration
+---
 
 
 # Bridge configuration

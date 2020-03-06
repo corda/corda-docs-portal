@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "SGX Integration"
-aliases = [ "/releases/4.1/design/sgx-integration/design.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "design",]
-+++
+---
+aliases:
+- /releases/4.1/design/sgx-integration/design.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- design
+title: SGX Integration
+---
 
 
 # SGX Integration

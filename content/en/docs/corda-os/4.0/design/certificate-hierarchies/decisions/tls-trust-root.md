@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Certificate Hierarchy"
-aliases = [ "/releases/release-V4.0/design/certificate-hierarchies/decisions/tls-trust-root.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "tls", "trust", "root",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/certificate-hierarchies/decisions/tls-trust-root.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- tls
+- trust
+- root
+title: 'Design Decision: Certificate Hierarchy'
+---
 
 
 # Design Decision: Certificate Hierarchy

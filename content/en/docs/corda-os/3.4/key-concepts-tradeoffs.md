@@ -1,12 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Tradeoffs"
-aliases = [ "/releases/release-V3.4/key-concepts-tradeoffs.html",]
-tags = [ "concepts", "tradeoffs",]
-
-[menu.corda-os-3-4]
-parent = "corda-os-3-4-concepts"
-+++
+---
+aliases:
+- /releases/release-V3.4/key-concepts-tradeoffs.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-3-4:
+    parent: corda-os-3-4-concepts
+tags:
+- concepts
+- tradeoffs
+title: Tradeoffs
+---
 
 
 # Tradeoffs

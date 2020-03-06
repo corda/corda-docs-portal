@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "CENM Databases"
-aliases = [ "/releases/4.4/cenm/database-set-up.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "database", "set",]
-+++
+---
+aliases:
+- /releases/4.4/cenm/database-set-up.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- database
+- set
+title: CENM Databases
+---
 
 
 # CENM Databases

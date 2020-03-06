@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Writing the contract"
-aliases = [ "/releases/3.3/tut-two-party-contract.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "tut", "party", "contract",]
-+++
+---
+aliases:
+- /releases/3.3/tut-two-party-contract.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- tut
+- party
+- contract
+title: Writing the contract
+---
 
 
 

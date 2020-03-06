@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Deploying a node to a server"
-aliases = [ "/releases/4.3/deploying-a-node.html", "/deploying-a-node.html",]
-menu = [ "corda-enterprise-4-3",]
-tags = [ "deploying", "node",]
-+++
+---
+aliases:
+- /releases/4.3/deploying-a-node.html
+- /deploying-a-node.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-3
+tags:
+- deploying
+- node
+title: Deploying a node to a server
+---
 
 
 # Deploying a node to a server

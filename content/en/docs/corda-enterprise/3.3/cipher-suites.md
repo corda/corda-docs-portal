@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Supported cipher suites"
-aliases = [ "/releases/3.3/cipher-suites.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "cipher", "suites",]
-+++
+---
+aliases:
+- /releases/3.3/cipher-suites.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- cipher
+- suites
+title: Supported cipher suites
+---
 
 
 # Supported cipher suites

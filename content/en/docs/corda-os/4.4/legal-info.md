@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Legal notice"
-aliases = [ "/releases/release-V4.4/legal-info.html",]
-menu = [ "corda-os-4-4",]
-tags = [ "legal", "info",]
-+++
+---
+aliases:
+- /releases/release-V4.4/legal-info.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-4
+tags:
+- legal
+- info
+title: Legal notice
+---
 
 
 # Legal notice

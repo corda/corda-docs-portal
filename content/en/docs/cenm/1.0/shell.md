@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Embedded Shell"
-aliases = [ "/releases/release-1.0/shell.html",]
-menu = [ "cenm-1-0",]
-tags = [ "shell",]
-+++
+---
+aliases:
+- /releases/release-1.0/shell.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- shell
+title: Embedded Shell
+---
 
 
 # Embedded Shell

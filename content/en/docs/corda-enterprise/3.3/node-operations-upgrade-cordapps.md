@@ -1,12 +1,17 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Upgrading CorDapps on a node"
-aliases = [ "/releases/3.3/node-operations-upgrade-cordapps.html",]
-tags = [ "node", "operations", "upgrade", "cordapps",]
-
-[menu.corda-enterprise-3-3]
-parent = "corda-enterprise-3-3-node"
-+++
+---
+aliases:
+- /releases/3.3/node-operations-upgrade-cordapps.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-3-3:
+    parent: corda-enterprise-3-3-node
+tags:
+- node
+- operations
+- upgrade
+- cordapps
+title: Upgrading CorDapps on a node
+---
 
 
 # Upgrading CorDapps on a node

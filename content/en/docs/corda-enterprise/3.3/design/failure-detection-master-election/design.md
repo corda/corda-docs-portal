@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Failure detection and master election"
-aliases = [ "/releases/3.3/design/failure-detection-master-election/design.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "design",]
-+++
+---
+aliases:
+- /releases/3.3/design/failure-detection-master-election/design.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- design
+title: Failure detection and master election
+---
 
 
 # Failure detection and master election

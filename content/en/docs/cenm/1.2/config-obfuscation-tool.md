@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Config Obfuscation Tool"
-aliases = [ "/releases/release-1.2/config-obfuscation-tool.html",]
-tags = [ "config", "obfuscation", "tool",]
-
-[menu.cenm-1-2]
-parent = "cenm-1-2-config"
-+++
+---
+aliases:
+- /releases/release-1.2/config-obfuscation-tool.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2:
+    parent: cenm-1-2-config
+tags:
+- config
+- obfuscation
+- tool
+title: Config Obfuscation Tool
+---
 
 
 # Config Obfuscation Tool

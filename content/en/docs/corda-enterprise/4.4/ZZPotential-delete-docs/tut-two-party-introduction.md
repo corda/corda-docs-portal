@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Hello, World! Pt.2 - Contract constraints"
-aliases = [ "/releases/4.4/ZZPotential-delete-docs/tut-two-party-introduction.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "tut", "party", "introduction",]
-+++
+---
+aliases:
+- /releases/4.4/ZZPotential-delete-docs/tut-two-party-introduction.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- tut
+- party
+- introduction
+title: Hello, World! Pt.2 - Contract constraints
+---
 
 
 # Hello, World! Pt.2 - Contract constraints

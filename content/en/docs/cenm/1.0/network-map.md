@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Network Map Service"
-aliases = [ "/releases/release-1.0/network-map.html",]
-menu = [ "cenm-1-0",]
-tags = [ "network", "map",]
-+++
+---
+aliases:
+- /releases/release-1.0/network-map.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- network
+- map
+title: Network Map Service
+---
 
 
 # Network Map Service

@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "CorDapp Upgradeability Guarantees"
-aliases = [ "/releases/release-V4.3/cordapp-upgradeability.html",]
-menu = [ "corda-os-4-3",]
-tags = [ "cordapp", "upgradeability",]
-+++
+---
+aliases:
+- /releases/release-V4.3/cordapp-upgradeability.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-3
+tags:
+- cordapp
+- upgradeability
+title: CorDapp Upgradeability Guarantees
+---
 
 
 # CorDapp Upgradeability Guarantees

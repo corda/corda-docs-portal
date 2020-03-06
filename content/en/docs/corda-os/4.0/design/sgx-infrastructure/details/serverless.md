@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Serverless architectures"
-aliases = [ "/releases/release-V4.0/design/sgx-infrastructure/details/serverless.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "serverless",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/sgx-infrastructure/details/serverless.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- serverless
+title: Serverless architectures
+---
 
 
 # Serverless architectures

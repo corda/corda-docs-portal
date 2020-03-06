@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Networking and messaging"
-aliases = [ "/releases/4.4/messaging.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "messaging",]
-+++
+---
+aliases:
+- /releases/4.4/messaging.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- messaging
+title: Networking and messaging
+---
 
 
 # Networking and messaging

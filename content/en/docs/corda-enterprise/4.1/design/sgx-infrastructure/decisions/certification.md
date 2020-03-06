@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: CPU certification method"
-aliases = [ "/releases/4.1/design/sgx-infrastructure/decisions/certification.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "certification",]
-+++
+---
+aliases:
+- /releases/4.1/design/sgx-infrastructure/decisions/certification.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- certification
+title: 'Design Decision: CPU certification method'
+---
 
 [![fg005 corda b](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png "fg005 corda b")](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png)
     

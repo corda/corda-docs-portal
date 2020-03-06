@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Certificate Hierarchy Generation using the PKI Tool"
-aliases = [ "/releases/release-1.0/pki-guide.html",]
-menu = [ "cenm-1-0",]
-tags = [ "pki", "guide",]
-+++
+---
+aliases:
+- /releases/release-1.0/pki-guide.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- pki
+- guide
+title: Certificate Hierarchy Generation using the PKI Tool
+---
 
 
 # Certificate Hierarchy Generation using the PKI Tool

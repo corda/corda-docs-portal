@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Notary database migration"
-aliases = [ "/releases/4.4/notary/notary-db-migration.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "notary", "db", "migration",]
-+++
+---
+aliases:
+- /releases/4.4/notary/notary-db-migration.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- notary
+- db
+- migration
+title: Notary database migration
+---
 
 
 # Notary database migration

@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Building transactions"
-aliases = [ "/releases/3.3/tutorial-building-transactions.html",]
-tags = [ "tutorial", "building", "transactions",]
-
-[menu.corda-enterprise-3-3]
-parent = "corda-enterprise-3-3-tutorial"
-+++
+---
+aliases:
+- /releases/3.3/tutorial-building-transactions.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-3-3:
+    parent: corda-enterprise-3-3-tutorial
+tags:
+- tutorial
+- building
+- transactions
+title: Building transactions
+---
 
 
 # Building transactions

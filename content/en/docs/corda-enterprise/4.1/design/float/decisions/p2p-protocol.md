@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: P2P Messaging Protocol"
-aliases = [ "/releases/4.1/design/float/decisions/p2p-protocol.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "p2p", "protocol",]
-+++
+---
+aliases:
+- /releases/4.1/design/float/decisions/p2p-protocol.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- p2p
+- protocol
+title: 'Design Decision: P2P Messaging Protocol'
+---
 
 
 # Design Decision: P2P Messaging Protocol

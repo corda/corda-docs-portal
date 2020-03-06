@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Blob Inspector"
-aliases = [ "/releases/release-V4.4/blob-inspector.html",]
-menu = [ "corda-os-4-4",]
-tags = [ "blob", "inspector",]
-+++
+---
+aliases:
+- /releases/release-V4.4/blob-inspector.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-4
+tags:
+- blob
+- inspector
+title: Blob Inspector
+---
 
 
 # Blob Inspector

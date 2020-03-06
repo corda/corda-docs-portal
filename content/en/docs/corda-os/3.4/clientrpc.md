@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Client RPC"
-aliases = [ "/releases/release-V3.4/clientrpc.html",]
-menu = [ "corda-os-3-4",]
-tags = [ "clientrpc",]
-+++
+---
+aliases:
+- /releases/release-V3.4/clientrpc.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-3-4
+tags:
+- clientrpc
+title: Client RPC
+---
 
 
 # Client RPC

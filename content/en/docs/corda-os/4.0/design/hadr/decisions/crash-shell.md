@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Node starting & stopping"
-aliases = [ "/releases/release-V4.0/design/hadr/decisions/crash-shell.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "crash", "shell",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/hadr/decisions/crash-shell.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- crash
+- shell
+title: 'Design Decision: Node starting & stopping'
+---
 
 
 # Design Decision: Node starting & stopping

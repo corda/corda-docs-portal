@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Deploying in a testing or production environment"
-aliases = [ "/releases/4.2/deploy/env-prod-test.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "env", "prod", "test",]
-+++
+---
+aliases:
+- /releases/4.2/deploy/env-prod-test.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- env
+- prod
+- test
+title: Deploying in a testing or production environment
+---
 
 
 # Deploying in a testing or production environment

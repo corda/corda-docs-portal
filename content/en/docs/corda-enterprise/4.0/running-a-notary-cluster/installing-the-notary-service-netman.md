@@ -1,10 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "In a network with Doorman and Network map"
-aliases = [ "/releases/4.0/running-a-notary-cluster/installing-the-notary-service-netman.html",]
-menu = [ "corda-enterprise-4-0",]
-tags = [ "installing", "notary", "service", "netman",]
-+++
+---
+aliases:
+- /releases/4.0/running-a-notary-cluster/installing-the-notary-service-netman.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-0
+tags:
+- installing
+- notary
+- service
+- netman
+title: In a network with Doorman and Network map
+---
 
 
 # In a network with Doorman and Network map

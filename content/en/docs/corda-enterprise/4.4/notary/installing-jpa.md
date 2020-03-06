@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Configuring a JPA notary backend"
-aliases = [ "/releases/4.4/notary/installing-jpa.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "installing", "jpa",]
-+++
+---
+aliases:
+- /releases/4.4/notary/installing-jpa.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- installing
+- jpa
+title: Configuring a JPA notary backend
+---
 
 
 # Configuring a JPA notary backend

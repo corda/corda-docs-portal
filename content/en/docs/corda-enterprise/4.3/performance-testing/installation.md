@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Obtaining and Installing the Performance Test Suite"
-aliases = [ "/releases/4.3/performance-testing/installation.html", "/performance-testing/installation.html",]
-menu = [ "corda-enterprise-4-3",]
-tags = [ "installation",]
-+++
+---
+aliases:
+- /releases/4.3/performance-testing/installation.html
+- /performance-testing/installation.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-3
+tags:
+- installation
+title: Obtaining and Installing the Performance Test Suite
+---
 
 
 # Obtaining and Installing the Performance Test Suite

@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Firewall upgrade"
-aliases = [ "/releases/4.0/corda-firewall-upgrade.html",]
-menu = [ "corda-enterprise-4-0",]
-tags = [ "corda", "firewall", "upgrade",]
-+++
+---
+aliases:
+- /releases/4.0/corda-firewall-upgrade.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-0
+tags:
+- corda
+- firewall
+- upgrade
+title: Firewall upgrade
+---
 
 
 # Firewall upgrade

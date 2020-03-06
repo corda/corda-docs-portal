@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Enum Evolution"
-aliases = [ "/releases/3.3/serialization-enum-evolution.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "serialization", "enum", "evolution",]
-+++
+---
+aliases:
+- /releases/3.3/serialization-enum-evolution.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- serialization
+- enum
+- evolution
+title: Enum Evolution
+---
 
 
 # Enum Evolution

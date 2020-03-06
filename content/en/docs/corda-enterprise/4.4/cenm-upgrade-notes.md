@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Upgrading Corda Enterprise Network Manager"
-aliases = [ "/releases/4.4/cenm-upgrade-notes.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "cenm", "upgrade", "notes",]
-+++
+---
+aliases:
+- /releases/4.4/cenm-upgrade-notes.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- cenm
+- upgrade
+- notes
+title: Upgrading Corda Enterprise Network Manager
+---
 
 
 # Upgrading Corda Enterprise Network Manager

@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Corda and Corda Enterprise compatibility"
-aliases = [ "/releases/4.4/version-compatibility.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "version", "compatibility",]
-+++
+---
+aliases:
+- /releases/4.4/version-compatibility.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- version
+- compatibility
+title: Corda and Corda Enterprise compatibility
+---
 
 
 # Corda and Corda Enterprise compatibility

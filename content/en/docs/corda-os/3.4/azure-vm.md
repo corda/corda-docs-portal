@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Building a Corda Network on Azure Marketplace"
-aliases = [ "/releases/release-V3.4/azure-vm.html",]
-menu = [ "corda-os-3-4",]
-tags = [ "azure", "vm",]
-+++
+---
+aliases:
+- /releases/release-V3.4/azure-vm.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-3-4
+tags:
+- azure
+- vm
+title: Building a Corda Network on Azure Marketplace
+---
 
 
 # Building a Corda Network on Azure Marketplace

@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Troubleshooting Common Issues"
-aliases = [ "/releases/release-1.0/troubleshooting-common-issues.html",]
-menu = [ "cenm-1-0",]
-tags = [ "troubleshooting", "common", "issues",]
-+++
+---
+aliases:
+- /releases/release-1.0/troubleshooting-common-issues.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- troubleshooting
+- common
+- issues
+title: Troubleshooting Common Issues
+---
 
 
 # Troubleshooting Common Issues

@@ -1,10 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Certificate Revocation Request Submission Tool"
-aliases = [ "/releases/release-1.1/tool-crr-submission.html", "/tool-crr-submission.html",]
-menu = [ "cenm-1-1",]
-tags = [ "tool", "crr", "submission",]
-+++
+---
+aliases:
+- /releases/release-1.1/tool-crr-submission.html
+- /tool-crr-submission.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-1
+tags:
+- tool
+- crr
+- submission
+title: Certificate Revocation Request Submission Tool
+---
 
 
 # Certificate Revocation Request Submission Tool

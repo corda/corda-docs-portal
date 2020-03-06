@@ -1,12 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Corda Enterprise cloud images"
-aliases = [ "/releases/4.2/node-cloud.html",]
-tags = [ "node", "cloud",]
-
-[menu.corda-enterprise-4-2]
-parent = "corda-enterprise-4-2-node"
-+++
+---
+aliases:
+- /releases/4.2/node-cloud.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-2:
+    parent: corda-enterprise-4-2-node
+tags:
+- node
+- cloud
+title: Corda Enterprise cloud images
+---
 
 
 # Corda Enterprise cloud images

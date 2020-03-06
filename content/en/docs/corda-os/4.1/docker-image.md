@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Official Corda Docker Image"
-aliases = [ "/releases/release-V4.1/docker-image.html",]
-menu = [ "corda-os-4-1",]
-tags = [ "docker", "image",]
-+++
+---
+aliases:
+- /releases/release-V4.1/docker-image.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-1
+tags:
+- docker
+- image
+title: Official Corda Docker Image
+---
 
 
 # Official Corda Docker Image

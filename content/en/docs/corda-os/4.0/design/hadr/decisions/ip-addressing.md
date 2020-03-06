@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: IP addressing mechanism (near-term)"
-aliases = [ "/releases/release-V4.0/design/hadr/decisions/ip-addressing.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "ip", "addressing",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/hadr/decisions/ip-addressing.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- ip
+- addressing
+title: 'Design Decision: IP addressing mechanism (near-term)'
+---
 
 
 # Design Decision: IP addressing mechanism (near-term)

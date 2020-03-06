@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Deploying Corda in a development environment"
-aliases = [ "/releases/4.2/deploy/env-dev.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "env", "dev",]
-+++
+---
+aliases:
+- /releases/4.2/deploy/env-dev.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- env
+- dev
+title: Deploying Corda in a development environment
+---
 
 
 # Deploying Corda in a development environment

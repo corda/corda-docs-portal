@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "CorDapp samples"
-aliases = [ "/releases/release-V4.3/building-a-cordapp-samples.html",]
-menu = [ "corda-os-4-3",]
-tags = [ "building", "cordapp", "samples",]
-+++
+---
+aliases:
+- /releases/release-V4.3/building-a-cordapp-samples.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-3
+tags:
+- building
+- cordapp
+- samples
+title: CorDapp samples
+---
 
 
 # CorDapp samples

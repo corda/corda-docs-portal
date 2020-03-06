@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Updating the network parameters"
-aliases = [ "/releases/4.4/cenm/updating-network-parameters.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "updating", "network", "parameters",]
-+++
+---
+aliases:
+- /releases/4.4/cenm/updating-network-parameters.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- updating
+- network
+- parameters
+title: Updating the network parameters
+---
 
 
 # Updating the network parameters

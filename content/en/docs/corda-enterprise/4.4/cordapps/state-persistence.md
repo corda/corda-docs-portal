@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "State Persistence"
-aliases = [ "/releases/4.4/cordapps/state-persistence.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "state", "persistence",]
-+++
+---
+aliases:
+- /releases/4.4/cordapps/state-persistence.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- state
+- persistence
+title: State Persistence
+---
 
 
 

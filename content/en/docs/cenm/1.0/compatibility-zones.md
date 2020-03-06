@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Compatibility Zones"
-aliases = [ "/releases/release-1.0/compatibility-zones.html",]
-menu = [ "cenm-1-0",]
-tags = [ "compatibility", "zones",]
-+++
+---
+aliases:
+- /releases/release-1.0/compatibility-zones.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- compatibility
+- zones
+title: Compatibility Zones
+---
 
 
 # Compatibility Zones

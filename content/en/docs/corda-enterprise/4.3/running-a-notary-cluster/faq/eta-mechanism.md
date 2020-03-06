@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "ETA Mechanism Overview"
-aliases = [ "/releases/4.3/running-a-notary-cluster/faq/eta-mechanism.html", "/running-a-notary-cluster/faq/eta-mechanism.html",]
-menu = [ "corda-enterprise-4-3",]
-tags = [ "mechanism",]
-+++
+---
+aliases:
+- /releases/4.3/running-a-notary-cluster/faq/eta-mechanism.html
+- /running-a-notary-cluster/faq/eta-mechanism.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-3
+tags:
+- mechanism
+title: ETA Mechanism Overview
+---
 
 
 # ETA Mechanism Overview

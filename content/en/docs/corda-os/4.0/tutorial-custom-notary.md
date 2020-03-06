@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Writing a custom notary service (experimental)"
-aliases = [ "/releases/release-V4.0/tutorial-custom-notary.html",]
-tags = [ "tutorial", "custom", "notary",]
-
-[menu.corda-os-4-0]
-parent = "corda-os-4-0-tutorial"
-+++
+---
+aliases:
+- /releases/release-V4.0/tutorial-custom-notary.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-0:
+    parent: corda-os-4-0-tutorial
+tags:
+- tutorial
+- custom
+- notary
+title: Writing a custom notary service (experimental)
+---
 
 
 # Writing a custom notary service (experimental)

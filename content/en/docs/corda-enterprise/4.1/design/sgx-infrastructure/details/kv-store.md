@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Key-value store"
-aliases = [ "/releases/4.1/design/sgx-infrastructure/details/kv-store.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "kv", "store",]
-+++
+---
+aliases:
+- /releases/4.1/design/sgx-infrastructure/details/kv-store.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- kv
+- store
+title: Key-value store
+---
 
 
 # Key-value store

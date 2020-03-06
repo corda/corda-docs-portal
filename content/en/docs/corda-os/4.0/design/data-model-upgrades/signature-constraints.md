@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Signature constraints"
-aliases = [ "/releases/release-V4.0/design/data-model-upgrades/signature-constraints.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "signature", "constraints",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/data-model-upgrades/signature-constraints.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- signature
+- constraints
+title: Signature constraints
+---
 
 
 # Signature constraints

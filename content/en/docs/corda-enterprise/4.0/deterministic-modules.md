@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Deterministic Corda Modules"
-aliases = [ "/releases/4.0/deterministic-modules.html",]
-menu = [ "corda-enterprise-4-0",]
-tags = [ "deterministic", "modules",]
-+++
+---
+aliases:
+- /releases/4.0/deterministic-modules.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-0
+tags:
+- deterministic
+- modules
+title: Deterministic Corda Modules
+---
 
  .red {color:red} 
 # Deterministic Corda Modules

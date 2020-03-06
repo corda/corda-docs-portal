@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Deploying Corda to Corda Testnet from an AWS Cloud Platform VM"
-aliases = [ "/releases/release-V4.4/aws-vm-explore.html",]
-menu = [ "corda-os-4-4",]
-tags = [ "aws", "vm", "explore",]
-+++
+---
+aliases:
+- /releases/release-V4.4/aws-vm-explore.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-4
+tags:
+- aws
+- vm
+- explore
+title: Deploying Corda to Corda Testnet from an AWS Cloud Platform VM
+---
 
 
 # Deploying Corda to Corda Testnet from an AWS Cloud Platform VM

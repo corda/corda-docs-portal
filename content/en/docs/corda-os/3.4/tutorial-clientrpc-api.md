@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Using the client RPC API"
-aliases = [ "/releases/release-V3.4/tutorial-clientrpc-api.html",]
-tags = [ "tutorial", "clientrpc", "api",]
-
-[menu.corda-os-3-4]
-parent = "corda-os-3-4-tutorial"
-+++
+---
+aliases:
+- /releases/release-V3.4/tutorial-clientrpc-api.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-3-4:
+    parent: corda-os-3-4-tutorial
+tags:
+- tutorial
+- clientrpc
+- api
+title: Using the client RPC API
+---
 
 
 # Using the client RPC API

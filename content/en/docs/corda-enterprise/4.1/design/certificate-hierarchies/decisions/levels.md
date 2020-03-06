@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Certificate hierarchy levels"
-aliases = [ "/releases/4.1/design/certificate-hierarchies/decisions/levels.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "levels",]
-+++
+---
+aliases:
+- /releases/4.1/design/certificate-hierarchies/decisions/levels.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- levels
+title: 'Design Decision: Certificate hierarchy levels'
+---
 
 
 # Design Decision: Certificate hierarchy levels

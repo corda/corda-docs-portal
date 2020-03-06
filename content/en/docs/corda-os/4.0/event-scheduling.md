@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Event scheduling"
-aliases = [ "/releases/release-V4.0/event-scheduling.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "event", "scheduling",]
-+++
+---
+aliases:
+- /releases/release-V4.0/event-scheduling.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- event
+- scheduling
+title: Event scheduling
+---
 
 
 

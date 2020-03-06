@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Contract Whitelist Generation"
-aliases = [ "/releases/release-1.1/contract-whitelisting.html", "/contract-whitelisting.html",]
-menu = [ "cenm-1-1",]
-tags = [ "contract", "whitelisting",]
-+++
+---
+aliases:
+- /releases/release-1.1/contract-whitelisting.html
+- /contract-whitelisting.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-1
+tags:
+- contract
+- whitelisting
+title: Contract Whitelist Generation
+---
 
 
 # Contract Whitelist Generation

@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Tools & Utilities"
-aliases = [ "/releases/release-1.1/tools-index.html", "/tools-index.html",]
-menu = [ "cenm-1-1",]
-tags = [ "tools",]
-+++
+---
+aliases:
+- /releases/release-1.1/tools-index.html
+- /tools-index.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-1
+tags:
+- tools
+title: Tools & Utilities
+---
 
 
 # Tools & Utilities

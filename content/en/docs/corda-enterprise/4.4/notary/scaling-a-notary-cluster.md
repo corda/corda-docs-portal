@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Scaling A Notary Cluster"
-aliases = [ "/releases/4.4/notary/scaling-a-notary-cluster.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "scaling", "notary", "cluster",]
-+++
+---
+aliases:
+- /releases/4.4/notary/scaling-a-notary-cluster.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- scaling
+- notary
+- cluster
+title: Scaling A Notary Cluster
+---
 
 
 # Scaling A Notary Cluster

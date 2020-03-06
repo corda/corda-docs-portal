@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Cheat sheet"
-aliases = [ "/releases/4.1/cheat-sheet.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "cheat", "sheet",]
-+++
+---
+aliases:
+- /releases/4.1/cheat-sheet.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- cheat
+- sheet
+title: Cheat sheet
+---
 
 
 # Cheat sheet

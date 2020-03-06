@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Configuring Responder Flows"
-aliases = [ "/releases/release-V4.0/flow-overriding.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "flow", "overriding",]
-+++
+---
+aliases:
+- /releases/release-V4.0/flow-overriding.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- flow
+- overriding
+title: Configuring Responder Flows
+---
 
 
 

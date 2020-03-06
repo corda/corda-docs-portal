@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Components of the Corda Enterprise Network Manager"
-aliases = [ "/releases/release-1.0/enm-components.html",]
-menu = [ "cenm-1-0",]
-tags = [ "enm", "components",]
-+++
+---
+aliases:
+- /releases/release-1.0/enm-components.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- enm
+- components
+title: Components of the Corda Enterprise Network Manager
+---
 
 
 # Components of the Corda Enterprise Network Manager

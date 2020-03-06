@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design doc template"
-aliases = [ "/releases/3.3/design/template/design.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "design",]
-+++
+---
+aliases:
+- /releases/3.3/design/template/design.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- design
+title: Design doc template
+---
 
 
 # Design doc template

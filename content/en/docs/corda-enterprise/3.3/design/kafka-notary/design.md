@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "High Performance CFT Notary Service"
-aliases = [ "/releases/3.3/design/kafka-notary/design.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "design",]
-+++
+---
+aliases:
+- /releases/3.3/design/kafka-notary/design.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- design
+title: High Performance CFT Notary Service
+---
 
 
 # High Performance CFT Notary Service

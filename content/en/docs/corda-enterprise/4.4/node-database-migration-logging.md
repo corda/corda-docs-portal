@@ -1,12 +1,17 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Database Schema Migration Logging"
-aliases = [ "/releases/4.4/node-database-migration-logging.html",]
-tags = [ "node", "database", "migration", "logging",]
-
-[menu.corda-enterprise-4-4]
-parent = "corda-enterprise-4-4-node"
-+++
+---
+aliases:
+- /releases/4.4/node-database-migration-logging.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-node
+tags:
+- node
+- database
+- migration
+- logging
+title: Database Schema Migration Logging
+---
 
 
 # Database Schema Migration Logging

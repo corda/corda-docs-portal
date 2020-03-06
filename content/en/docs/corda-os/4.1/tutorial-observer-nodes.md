@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Observer nodes"
-aliases = [ "/releases/release-V4.1/tutorial-observer-nodes.html",]
-tags = [ "tutorial", "observer", "nodes",]
-
-[menu.corda-os-4-1]
-parent = "corda-os-4-1-tutorial"
-+++
+---
+aliases:
+- /releases/release-V4.1/tutorial-observer-nodes.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-tutorial
+tags:
+- tutorial
+- observer
+- nodes
+title: Observer nodes
+---
 
 
 

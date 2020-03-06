@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Using the Node Explorer to test a Corda Enterprise node on Corda Testnet"
-aliases = [ "/releases/4.3/testnet-explorer.html", "/testnet-explorer.html",]
-menu = [ "corda-enterprise-4-3",]
-tags = [ "testnet", "explorer",]
-+++
+---
+aliases:
+- /releases/4.3/testnet-explorer.html
+- /testnet-explorer.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-3
+tags:
+- testnet
+- explorer
+title: Using the Node Explorer to test a Corda Enterprise node on Corda Testnet
+---
 
 
 # Using the Node Explorer to test a Corda Enterprise node on Corda Testnet

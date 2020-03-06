@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "JMeter Samplers"
-aliases = [ "/releases/4.0/performance-testing/jmeter-samplers.html",]
-menu = [ "corda-enterprise-4-0",]
-tags = [ "jmeter", "samplers",]
-+++
+---
+aliases:
+- /releases/4.0/performance-testing/jmeter-samplers.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-0
+tags:
+- jmeter
+- samplers
+title: JMeter Samplers
+---
 
 
 # JMeter Samplers

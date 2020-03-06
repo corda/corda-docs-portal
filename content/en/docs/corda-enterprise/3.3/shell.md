@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Shell"
-aliases = [ "/releases/3.3/shell.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "shell",]
-+++
+---
+aliases:
+- /releases/3.3/shell.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- shell
+title: Shell
+---
 
 
 

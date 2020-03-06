@@ -1,12 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Deterministic JVM"
-aliases = [ "/releases/4.1/key-concepts-djvm.html",]
-tags = [ "concepts", "djvm",]
-
-[menu.corda-enterprise-4-1]
-parent = "corda-enterprise-4-1-concepts"
-+++
+---
+aliases:
+- /releases/4.1/key-concepts-djvm.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-concepts
+tags:
+- concepts
+- djvm
+title: Deterministic JVM
+---
 
 
 # Deterministic JVM

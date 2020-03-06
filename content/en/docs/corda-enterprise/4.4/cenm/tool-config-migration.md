@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Config migration tool"
-aliases = [ "/releases/4.4/cenm/tool-config-migration.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "tool", "config", "migration",]
-+++
+---
+aliases:
+- /releases/4.4/cenm/tool-config-migration.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- tool
+- config
+- migration
+title: Config migration tool
+---
 
 
 # Config migration tool

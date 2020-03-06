@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Financial model"
-aliases = [ "/releases/4.2/financial-model.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "financial", "model",]
-+++
+---
+aliases:
+- /releases/4.2/financial-model.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- financial
+- model
+title: Financial model
+---
 
 
 

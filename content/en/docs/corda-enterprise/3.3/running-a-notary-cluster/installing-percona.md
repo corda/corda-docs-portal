@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Percona, the underlying Database"
-aliases = [ "/releases/3.3/running-a-notary-cluster/installing-percona.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "installing", "percona",]
-+++
+---
+aliases:
+- /releases/3.3/running-a-notary-cluster/installing-percona.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- installing
+- percona
+title: Percona, the underlying Database
+---
 
 
 # Percona, the underlying Database

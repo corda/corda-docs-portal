@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Running nodes locally"
-aliases = [ "/releases/release-V4.0/running-a-node.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "running", "node",]
-+++
+---
+aliases:
+- /releases/release-V4.0/running-a-node.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- running
+- node
+title: Running nodes locally
+---
 
 
 # Running nodes locally

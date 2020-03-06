@@ -1,12 +1,17 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Public Key Infrastructure (PKI) Tool Configuration Parameters"
-aliases = [ "/releases/release-1.2/config-pki-tool-parameters.html",]
-tags = [ "config", "pki", "tool", "parameters",]
-
-[menu.cenm-1-2]
-parent = "cenm-1-2-config"
-+++
+---
+aliases:
+- /releases/release-1.2/config-pki-tool-parameters.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2:
+    parent: cenm-1-2-config
+tags:
+- config
+- pki
+- tool
+- parameters
+title: Public Key Infrastructure (PKI) Tool Configuration Parameters
+---
 
 
 # Public Key Infrastructure (PKI) Tool Configuration Parameters

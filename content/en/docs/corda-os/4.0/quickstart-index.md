@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Quickstart"
-aliases = [ "/releases/release-V4.0/quickstart-index.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "quickstart",]
-+++
+---
+aliases:
+- /releases/release-V4.0/quickstart-index.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- quickstart
+title: Quickstart
+---
 
 
 # Quickstart

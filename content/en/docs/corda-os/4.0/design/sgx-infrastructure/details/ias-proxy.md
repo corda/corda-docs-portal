@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "IAS proxy"
-aliases = [ "/releases/release-V4.0/design/sgx-infrastructure/details/ias-proxy.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "ias", "proxy",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/sgx-infrastructure/details/ias-proxy.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- ias
+- proxy
+title: IAS proxy
+---
 
 
 # IAS proxy

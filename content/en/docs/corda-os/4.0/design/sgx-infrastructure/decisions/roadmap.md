@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Strategic SGX roadmap"
-aliases = [ "/releases/release-V4.0/design/sgx-infrastructure/decisions/roadmap.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "roadmap",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/sgx-infrastructure/decisions/roadmap.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- roadmap
+title: 'Design Decision: Strategic SGX roadmap'
+---
 
 [![fg005 corda b](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png "fg005 corda b")](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png)
     

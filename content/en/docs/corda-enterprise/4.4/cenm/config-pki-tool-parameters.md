@@ -1,12 +1,17 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Public Key Infrastructure (PKI) Tool Configuration Parameters"
-aliases = [ "/releases/4.4/cenm/config-pki-tool-parameters.html",]
-tags = [ "config", "pki", "tool", "parameters",]
-
-[menu.corda-enterprise-4-4]
-parent = "corda-enterprise-4-4-config"
-+++
+---
+aliases:
+- /releases/4.4/cenm/config-pki-tool-parameters.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-config
+tags:
+- config
+- pki
+- tool
+- parameters
+title: Public Key Infrastructure (PKI) Tool Configuration Parameters
+---
 
 
 # Public Key Infrastructure (PKI) Tool Configuration Parameters

@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: End-to-end encryption"
-aliases = [ "/releases/release-V4.0/design/float/decisions/e2e-encryption.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "e2e", "encryption",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/float/decisions/e2e-encryption.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- e2e
+- encryption
+title: 'Design Decision: End-to-end encryption'
+---
 
 
 # Design Decision: End-to-end encryption

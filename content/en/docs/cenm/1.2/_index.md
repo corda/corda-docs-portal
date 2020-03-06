@@ -1,16 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "CENM 1.2"
-aliases = [ "/releases/release-1.2/index.html",]
-section_menu = "cenm-1-2"
-version = "1.2"
-project = "cenm"
-
-[menu.versions]
-weight = 1088
-
-[menu.cenm-1-2]
-+++
+---
+aliases:
+- /releases/release-1.2/index.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2: {}
+  versions:
+    weight: 1088
+project: cenm
+section_menu: cenm-1-2
+title: CENM 1.2
+version: '1.2'
+---
 
 
 # Welcome to the Corda Enterprise Network Manager

@@ -1,12 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Node Explorer"
-aliases = [ "/releases/release-V3.4/node-explorer.html",]
-tags = [ "node", "explorer",]
-
-[menu.corda-os-3-4]
-parent = "corda-os-3-4-node"
-+++
+---
+aliases:
+- /releases/release-V3.4/node-explorer.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-3-4:
+    parent: corda-os-3-4-node
+tags:
+- node
+- explorer
+title: Node Explorer
+---
 
 
 # Node Explorer

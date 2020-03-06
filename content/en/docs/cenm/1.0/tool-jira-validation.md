@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Jira Configuration Validation"
-aliases = [ "/releases/release-1.0/tool-jira-validation.html",]
-menu = [ "cenm-1-0",]
-tags = [ "tool", "jira", "validation",]
-+++
+---
+aliases:
+- /releases/release-1.0/tool-jira-validation.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- tool
+- jira
+- validation
+title: Jira Configuration Validation
+---
 
 
 # Jira Configuration Validation

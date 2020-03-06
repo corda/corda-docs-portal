@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Updating the flow"
-aliases = [ "/releases/release-V4.3/tut-two-party-flow.html",]
-menu = [ "corda-os-4-3",]
-tags = [ "tut", "party", "flow",]
-+++
+---
+aliases:
+- /releases/release-V4.3/tut-two-party-flow.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-3
+tags:
+- tut
+- party
+- flow
+title: Updating the flow
+---
 
 
 

@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Start Components"
-aliases = [ "/releases/4.2/operating/starting-components.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "starting", "components",]
-+++
+---
+aliases:
+- /releases/4.2/operating/starting-components.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- starting
+- components
+title: Start Components
+---
 
 
 # Start Components

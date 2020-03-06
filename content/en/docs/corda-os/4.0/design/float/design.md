@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Float Design"
-aliases = [ "/releases/release-V4.0/design/float/design.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "design",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/float/design.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- design
+title: Float Design
+---
 
 
 # Float Design

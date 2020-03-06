@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Discovery"
-aliases = [ "/releases/release-V4.0/design/sgx-infrastructure/details/discovery.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "discovery",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/sgx-infrastructure/details/discovery.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- discovery
+title: Discovery
+---
 
 
 # Discovery

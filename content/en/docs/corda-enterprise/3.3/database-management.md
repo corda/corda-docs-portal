@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Database management"
-aliases = [ "/releases/3.3/database-management.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "database", "management",]
-+++
+---
+aliases:
+- /releases/3.3/database-management.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- database
+- management
+title: Database management
+---
 
 
 

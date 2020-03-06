@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "HSM support for legal identity keys"
-aliases = [ "/releases/4.2/cryptoservice-configuration.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "cryptoservice", "configuration",]
-+++
+---
+aliases:
+- /releases/4.2/cryptoservice-configuration.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- cryptoservice
+- configuration
+title: HSM support for legal identity keys
+---
 
 
 # HSM support for legal identity keys

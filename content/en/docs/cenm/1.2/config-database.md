@@ -1,12 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "CENM Database Configuration"
-aliases = [ "/releases/release-1.2/config-database.html",]
-tags = [ "config", "database",]
-
-[menu.cenm-1-2]
-parent = "cenm-1-2-config"
-+++
+---
+aliases:
+- /releases/release-1.2/config-database.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2:
+    parent: cenm-1-2-config
+tags:
+- config
+- database
+title: CENM Database Configuration
+---
 
 
 # CENM Database Configuration

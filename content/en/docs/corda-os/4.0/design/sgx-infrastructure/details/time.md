@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Time in enclaves"
-aliases = [ "/releases/release-V4.0/design/sgx-infrastructure/details/time.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "time",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/sgx-infrastructure/details/time.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- time
+title: Time in enclaves
+---
 
 
 # Time in enclaves

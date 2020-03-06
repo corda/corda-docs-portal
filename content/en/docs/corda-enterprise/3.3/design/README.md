@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Documentation"
-aliases = [ "/releases/3.3/design/README.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "README",]
-+++
+---
+aliases:
+- /releases/3.3/design/README.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- README
+title: Design Documentation
+---
 
 [![fg005 corda b](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png "fg005 corda b")](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png)
     <a href="https://ci-master.corda.r3cev.com/viewType.html?buildTypeId=CordaEnterprise_Build&tab=buildTypeStatusDiv"><img src="https://ci.corda.r3cev.com/app/rest/builds/buildType:Corda_CordaBuild/statusIcon"/></a>

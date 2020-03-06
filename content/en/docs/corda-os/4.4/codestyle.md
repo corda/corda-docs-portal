@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Code style guide"
-aliases = [ "/releases/release-V4.4/codestyle.html",]
-menu = [ "corda-os-4-4",]
-tags = [ "codestyle",]
-+++
+---
+aliases:
+- /releases/release-V4.4/codestyle.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-4
+tags:
+- codestyle
+title: Code style guide
+---
 
 
 # Code style guide

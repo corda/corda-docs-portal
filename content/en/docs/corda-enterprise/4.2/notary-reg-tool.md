@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Notary Registration Tool"
-aliases = [ "/releases/4.2/notary-reg-tool.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "notary", "tool",]
-+++
+---
+aliases:
+- /releases/4.2/notary-reg-tool.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- notary
+- tool
+title: Notary Registration Tool
+---
 
 
 # Notary Registration Tool

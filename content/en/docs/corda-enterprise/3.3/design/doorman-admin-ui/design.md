@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design: Doorman Administration UI"
-aliases = [ "/releases/3.3/design/doorman-admin-ui/design.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "design",]
-+++
+---
+aliases:
+- /releases/3.3/design/doorman-admin-ui/design.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- design
+title: 'Design: Doorman Administration UI'
+---
 
 [![fg005 corda b](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png "fg005 corda b")](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png)
     

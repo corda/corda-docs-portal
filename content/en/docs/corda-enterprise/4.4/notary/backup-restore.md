@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Highly-available notary backup and restore"
-aliases = [ "/releases/4.4/notary/backup-restore.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "backup", "restore",]
-+++
+---
+aliases:
+- /releases/4.4/notary/backup-restore.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- backup
+- restore
+title: Highly-available notary backup and restore
+---
 
 
 # Highly-available notary backup and restore

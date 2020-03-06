@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Practical Considerations"
-aliases = [ "/releases/4.3/performance-testing/practical-considerations.html", "/performance-testing/practical-considerations.html",]
-menu = [ "corda-enterprise-4-3",]
-tags = [ "practical", "considerations",]
-+++
+---
+aliases:
+- /releases/4.3/performance-testing/practical-considerations.html
+- /performance-testing/practical-considerations.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-3
+tags:
+- practical
+- considerations
+title: Practical Considerations
+---
 
 
 # Practical Considerations

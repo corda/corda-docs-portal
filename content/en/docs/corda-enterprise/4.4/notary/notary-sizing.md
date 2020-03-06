@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Notary sizing considerations"
-aliases = [ "/releases/4.4/notary/notary-sizing.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "notary", "sizing",]
-+++
+---
+aliases:
+- /releases/4.4/notary/notary-sizing.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- notary
+- sizing
+title: Notary sizing considerations
+---
 
 
 # Notary sizing considerations

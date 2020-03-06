@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "API: Core types"
-aliases = [ "/releases/release-V3.4/api-core-types.html",]
-tags = [ "api", "core", "types",]
-
-[menu.corda-os-3-4]
-parent = "corda-os-3-4-api"
-+++
+---
+aliases:
+- /releases/release-V3.4/api-core-types.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-3-4:
+    parent: corda-os-3-4-api
+tags:
+- api
+- core
+- types
+title: 'API: Core types'
+---
 
 
 # API: Core types

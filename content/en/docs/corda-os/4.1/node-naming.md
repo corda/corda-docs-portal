@@ -1,12 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Node identity"
-aliases = [ "/releases/release-V4.1/node-naming.html",]
-tags = [ "node", "naming",]
-
-[menu.corda-os-4-1]
-parent = "corda-os-4-1-node"
-+++
+---
+aliases:
+- /releases/release-V4.1/node-naming.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-1:
+    parent: corda-os-4-1-node
+tags:
+- node
+- naming
+title: Node identity
+---
 
 
 # Node identity

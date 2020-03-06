@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Using an HSM with Corda Enterprise"
-aliases = [ "/releases/4.4/node/operating/cryptoservice-configuration.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "cryptoservice", "configuration",]
-+++
+---
+aliases:
+- /releases/4.4/node/operating/cryptoservice-configuration.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- cryptoservice
+- configuration
+title: Using an HSM with Corda Enterprise
+---
 
 
 # Using an HSM with Corda Enterprise

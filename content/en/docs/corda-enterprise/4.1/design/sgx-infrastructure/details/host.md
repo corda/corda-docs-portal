@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Enclave host"
-aliases = [ "/releases/4.1/design/sgx-infrastructure/details/host.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "host",]
-+++
+---
+aliases:
+- /releases/4.1/design/sgx-infrastructure/details/host.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- host
+title: Enclave host
+---
 
 
 # Enclave host

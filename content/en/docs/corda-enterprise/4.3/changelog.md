@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Changelog"
-aliases = [ "/releases/4.3/changelog.html", "/changelog.html",]
-menu = [ "corda-enterprise-4-3",]
-tags = [ "changelog",]
-+++
+---
+aliases:
+- /releases/4.3/changelog.html
+- /changelog.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-3
+tags:
+- changelog
+title: Changelog
+---
 
 
 # Changelog

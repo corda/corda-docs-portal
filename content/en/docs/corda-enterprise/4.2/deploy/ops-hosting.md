@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Host"
-aliases = [ "/releases/4.2/deploy/ops-hosting.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "ops", "hosting",]
-+++
+---
+aliases:
+- /releases/4.2/deploy/ops-hosting.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- ops
+- hosting
+title: Host
+---
 
 
 # Host

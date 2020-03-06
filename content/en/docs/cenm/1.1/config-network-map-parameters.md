@@ -1,12 +1,18 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Network Map Configuration Parameters"
-aliases = [ "/releases/release-1.1/config-network-map-parameters.html", "/config-network-map-parameters.html",]
-tags = [ "config", "network", "map", "parameters",]
-
-[menu.cenm-1-1]
-parent = "cenm-1-1-config"
-+++
+---
+aliases:
+- /releases/release-1.1/config-network-map-parameters.html
+- /config-network-map-parameters.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-1:
+    parent: cenm-1-1-config
+tags:
+- config
+- network
+- map
+- parameters
+title: Network Map Configuration Parameters
+---
 
 
 # Network Map Configuration Parameters

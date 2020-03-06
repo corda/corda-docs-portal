@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Setting up the Notary Service"
-aliases = [ "/releases/4.2/running-a-notary-cluster/installing-the-notary-service.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "installing", "notary", "service",]
-+++
+---
+aliases:
+- /releases/4.2/running-a-notary-cluster/installing-the-notary-service.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- installing
+- notary
+- service
+title: Setting up the Notary Service
+---
 
 
 # Setting up the Notary Service

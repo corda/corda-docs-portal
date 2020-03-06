@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Signing Services"
-aliases = [ "/releases/4.4/cenm/signing-service.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "signing", "service",]
-+++
+---
+aliases:
+- /releases/4.4/cenm/signing-service.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- signing
+- service
+title: Signing Services
+---
 
 
 # Signing Services

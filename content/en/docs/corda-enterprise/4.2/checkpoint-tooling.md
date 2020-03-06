@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Checkpoint Tooling"
-aliases = [ "/releases/4.2/checkpoint-tooling.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "checkpoint", "tooling",]
-+++
+---
+aliases:
+- /releases/4.2/checkpoint-tooling.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- checkpoint
+- tooling
+title: Checkpoint Tooling
+---
 
 
 # Checkpoint Tooling

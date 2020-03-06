@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Replication framework"
-aliases = [ "/releases/3.3/design/kafka-notary/decisions/replicated-storage.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "replicated", "storage",]
-+++
+---
+aliases:
+- /releases/3.3/design/kafka-notary/decisions/replicated-storage.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- replicated
+- storage
+title: 'Design Decision: Replication framework'
+---
 
 
 # Design Decision: Replication framework

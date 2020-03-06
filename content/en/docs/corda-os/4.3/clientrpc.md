@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Interacting with a node"
-aliases = [ "/releases/release-V4.3/clientrpc.html",]
-menu = [ "corda-os-4-3",]
-tags = [ "clientrpc",]
-+++
+---
+aliases:
+- /releases/release-V4.3/clientrpc.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-3
+tags:
+- clientrpc
+title: Interacting with a node
+---
 
 
 

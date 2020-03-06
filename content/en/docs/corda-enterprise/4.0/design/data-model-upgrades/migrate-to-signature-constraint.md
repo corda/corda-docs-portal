@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Migration from the hash constraint to the Signature constraint"
-aliases = [ "/releases/4.0/design/data-model-upgrades/migrate-to-signature-constraint.html",]
-menu = [ "corda-enterprise-4-0",]
-tags = [ "migrate", "signature", "constraint",]
-+++
+---
+aliases:
+- /releases/4.0/design/data-model-upgrades/migrate-to-signature-constraint.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-0
+tags:
+- migrate
+- signature
+- constraint
+title: Migration from the hash constraint to the Signature constraint
+---
 
 
 # Migration from the hash constraint to the Signature constraint

@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Network Parameters"
-aliases = [ "/releases/release-1.2/config-network-parameters.html",]
-tags = [ "config", "network", "parameters",]
-
-[menu.cenm-1-2]
-parent = "cenm-1-2-config"
-+++
+---
+aliases:
+- /releases/release-1.2/config-network-parameters.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2:
+    parent: cenm-1-2-config
+tags:
+- config
+- network
+- parameters
+title: Network Parameters
+---
 
 
 # Network Parameters

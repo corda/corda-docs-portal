@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-aliases = [ "/releases/3.3/design/designTemplate/DesignChecklist.html",]
-menu = [ "corda-enterprise-3-3",]
-title = "DesignChecklist"
-tags = [ "DesignChecklist",]
-+++
+---
+aliases:
+- /releases/3.3/design/designTemplate/DesignChecklist.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- DesignChecklist
+title: DesignChecklist
+---
 
 **Design review functionality checklist**
 

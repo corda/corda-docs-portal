@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Setting Up A Notary Node"
-aliases = [ "/releases/release-1.0/setting-up-notary.html",]
-menu = [ "cenm-1-0",]
-tags = [ "setting", "notary",]
-+++
+---
+aliases:
+- /releases/release-1.0/setting-up-notary.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- setting
+- notary
+title: Setting Up A Notary Node
+---
 
 
 # Setting Up A Notary Node

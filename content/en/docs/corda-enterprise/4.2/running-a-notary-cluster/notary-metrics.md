@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "HA Notary Metrics"
-aliases = [ "/releases/4.2/running-a-notary-cluster/notary-metrics.html",]
-menu = [ "corda-enterprise-4-2",]
-tags = [ "notary", "metrics",]
-+++
+---
+aliases:
+- /releases/4.2/running-a-notary-cluster/notary-metrics.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-2
+tags:
+- notary
+- metrics
+title: HA Notary Metrics
+---
 
 
 # HA Notary Metrics

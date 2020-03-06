@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Pluggable Broker prioritisation"
-aliases = [ "/releases/4.1/design/float/decisions/pluggable-broker.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "pluggable", "broker",]
-+++
+---
+aliases:
+- /releases/4.1/design/float/decisions/pluggable-broker.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- pluggable
+- broker
+title: 'Design Decision: Pluggable Broker prioritisation'
+---
 
 
 # Design Decision: Pluggable Broker prioritisation

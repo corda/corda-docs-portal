@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Workflow"
-aliases = [ "/releases/release-1.2/workflow.html",]
-menu = [ "cenm-1-2",]
-tags = [ "workflow",]
-+++
+---
+aliases:
+- /releases/release-1.2/workflow.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-2
+tags:
+- workflow
+title: Workflow
+---
 
 
 # Workflow

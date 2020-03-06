@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Interest rate swaps"
-aliases = [ "/releases/release-V3.4/contract-irs.html",]
-menu = [ "corda-os-3-4",]
-tags = [ "contract", "irs",]
-+++
+---
+aliases:
+- /releases/release-V3.4/contract-irs.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-3-4
+tags:
+- contract
+- irs
+title: Interest rate swaps
+---
 
 
 # Interest rate swaps

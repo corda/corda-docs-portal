@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Upgrading contracts"
-aliases = [ "/releases/release-V4.1/contract-upgrade.html",]
-menu = [ "corda-os-4-1",]
-tags = [ "contract", "upgrade",]
-+++
+---
+aliases:
+- /releases/release-V4.1/contract-upgrade.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-1
+tags:
+- contract
+- upgrade
+title: Upgrading contracts
+---
 
 
 

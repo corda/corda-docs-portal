@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Configuring the ENM services to use SSL"
-aliases = [ "/releases/release-1.0/enm-with-ssl.html",]
-menu = [ "cenm-1-0",]
-tags = [ "enm", "ssl",]
-+++
+---
+aliases:
+- /releases/release-1.0/enm-with-ssl.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- enm
+- ssl
+title: Configuring the ENM services to use SSL
+---
 
 
 # Configuring the ENM services to use SSL

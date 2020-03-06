@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Confidential identities"
-aliases = [ "/releases/4.4/cordapps/api-confidential-identity.html",]
-tags = [ "api", "confidential", "identity",]
-
-[menu.corda-enterprise-4-4]
-parent = "corda-enterprise-4-4-api"
-+++
+---
+aliases:
+- /releases/4.4/cordapps/api-confidential-identity.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-api
+tags:
+- api
+- confidential
+- identity
+title: Confidential identities
+---
 
 
 # Confidential identities

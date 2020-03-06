@@ -1,10 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Setting up a dynamic compatibility zone"
-aliases = [ "/releases/4.0/setting-up-a-dynamic-compatibility-zone.html",]
-menu = [ "corda-enterprise-4-0",]
-tags = [ "setting", "dynamic", "compatibility", "zone",]
-+++
+---
+aliases:
+- /releases/4.0/setting-up-a-dynamic-compatibility-zone.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-0
+tags:
+- setting
+- dynamic
+- compatibility
+- zone
+title: Setting up a dynamic compatibility zone
+---
 
 
 

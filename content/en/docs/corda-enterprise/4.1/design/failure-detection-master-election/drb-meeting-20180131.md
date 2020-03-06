@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Review Board Meeting Minutes"
-aliases = [ "/releases/4.1/design/failure-detection-master-election/drb-meeting-20180131.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "drb", "meeting", "20180131",]
-+++
+---
+aliases:
+- /releases/4.1/design/failure-detection-master-election/drb-meeting-20180131.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- drb
+- meeting
+- '20180131'
+title: Design Review Board Meeting Minutes
+---
 
 
 # Design Review Board Meeting Minutes

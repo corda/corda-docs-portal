@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Corda Threat Model"
-aliases = [ "/releases/4.1/design/threat-model/corda-threat-model.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "corda", "threat", "model",]
-+++
+---
+aliases:
+- /releases/4.1/design/threat-model/corda-threat-model.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- corda
+- threat
+- model
+title: Corda Threat Model
+---
 
 <style>.wy-table-responsive table td, .wy-table-responsive table th { white-space: normal;}</style>
 

@@ -1,10 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Notary Load Balancing"
-aliases = [ "/releases/4.3/running-a-notary-cluster/faq/notary-load-balancing.html", "/running-a-notary-cluster/faq/notary-load-balancing.html",]
-menu = [ "corda-enterprise-4-3",]
-tags = [ "notary", "load", "balancing",]
-+++
+---
+aliases:
+- /releases/4.3/running-a-notary-cluster/faq/notary-load-balancing.html
+- /running-a-notary-cluster/faq/notary-load-balancing.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-3
+tags:
+- notary
+- load
+- balancing
+title: Notary Load Balancing
+---
 
 
 # Notary Load Balancing

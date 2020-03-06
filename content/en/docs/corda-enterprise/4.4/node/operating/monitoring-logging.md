@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Node monitoring and logging"
-aliases = [ "/releases/4.4/node/operating/monitoring-logging.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "monitoring", "logging",]
-+++
+---
+aliases:
+- /releases/4.4/node/operating/monitoring-logging.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- monitoring
+- logging
+title: Node monitoring and logging
+---
 
 
 # Node monitoring and logging

@@ -1,10 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Joining a bootstrapped network"
-aliases = [ "/releases/4.4/notary/installing-the-notary-service-bootstrapper.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "installing", "notary", "service", "bootstrapper",]
-+++
+---
+aliases:
+- /releases/4.4/notary/installing-the-notary-service-bootstrapper.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- installing
+- notary
+- service
+- bootstrapper
+title: Joining a bootstrapped network
+---
 
 
 # Joining a bootstrapped network

@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Network Map"
-aliases = [ "/releases/3.3/network-map.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "network", "map",]
-+++
+---
+aliases:
+- /releases/3.3/network-map.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- network
+- map
+title: Network Map
+---
 
 
 # Network Map

@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "API: Vault Query"
-aliases = [ "/releases/release-V4.0/api-vault-query.html",]
-tags = [ "api", "vault", "query",]
-
-[menu.corda-os-4-0]
-parent = "corda-os-4-0-api"
-+++
+---
+aliases:
+- /releases/release-V4.0/api-vault-query.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-4-0:
+    parent: corda-os-4-0-api
+tags:
+- api
+- vault
+- query
+title: 'API: Vault Query'
+---
 
 
 

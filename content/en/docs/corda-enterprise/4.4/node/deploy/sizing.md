@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Sizing"
-aliases = [ "/releases/4.4/node/deploy/sizing.html",]
-menu = [ "corda-enterprise-4-4",]
-tags = [ "sizing",]
-+++
+---
+aliases:
+- /releases/4.4/node/deploy/sizing.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-4
+tags:
+- sizing
+title: Sizing
+---
 
 
 # Sizing

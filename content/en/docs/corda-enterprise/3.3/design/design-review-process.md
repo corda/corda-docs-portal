@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design review process"
-aliases = [ "/releases/3.3/design/design-review-process.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "design", "review", "process",]
-+++
+---
+aliases:
+- /releases/3.3/design/design-review-process.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- design
+- review
+- process
+title: Design review process
+---
 
 
 # Design review process

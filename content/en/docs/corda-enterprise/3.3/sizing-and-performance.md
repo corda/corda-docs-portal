@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Sizing and performance"
-aliases = [ "/releases/3.3/sizing-and-performance.html",]
-menu = [ "corda-enterprise-3-3",]
-tags = [ "sizing", "performance",]
-+++
+---
+aliases:
+- /releases/3.3/sizing-and-performance.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-3-3
+tags:
+- sizing
+- performance
+title: Sizing and performance
+---
 
 
 # Sizing and performance

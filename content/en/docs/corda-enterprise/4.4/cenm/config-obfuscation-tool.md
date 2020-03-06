@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Config Obfuscation Tool"
-aliases = [ "/releases/4.4/cenm/config-obfuscation-tool.html",]
-tags = [ "config", "obfuscation", "tool",]
-
-[menu.corda-enterprise-4-4]
-parent = "corda-enterprise-4-4-config"
-+++
+---
+aliases:
+- /releases/4.4/cenm/config-obfuscation-tool.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-config
+tags:
+- config
+- obfuscation
+- tool
+title: Config Obfuscation Tool
+---
 
 
 # Config Obfuscation Tool

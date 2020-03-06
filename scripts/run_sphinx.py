@@ -1122,14 +1122,15 @@ def configure_translator(filename):
 
 
 def write_frontmatter(f, front_matter):
-    if ARGS.yaml:
-        f.write('---\n'),
-        f.write(yaml.dump(front_matter))
-        f.write('---\n')
-    else:
+    if ARGS.toml:
         f.write('+++\n')
         f.write(toml.dumps(front_matter))
         f.write('+++\n')
+    else:
+        # YAML renders in github
+        f.write('---\n'),
+        f.write(yaml.dump(front_matter))
+        f.write('---\n')
 
 
 def convert_one_xml_file_to_cms_style_md(cms, filename):
@@ -1297,8 +1298,8 @@ def main():
     global ARGS
     desc = "Convert rst files to md using sphinx"
     parser = argparse.ArgumentParser(description=desc)
-    parser.add_argument("--yaml", "-y", help="write front matter as yaml, default is toml", default=False, action='store_true')
-    parser.add_argument("--toc", "-t", help="include table of contents in the page", default=False, action='store_true')
+    parser.add_argument("--toml", "-t", help="write front matter as toml, default is yaml as that renders in github", default=False, action='store_true')
+    parser.add_argument("--toc", help="include table of contents in the page", default=False, action='store_true')
     parser.add_argument("--skip", "-s", help="skip rst conversion for speed if already done", default=False, action='store_true')
     parser.add_argument("--cms", "-c", help="generate (commonmark) markdown for cms", default='hugo', choices=['gatsby', 'markdown', 'hugo'])
     ARGS = parser.parse_args()

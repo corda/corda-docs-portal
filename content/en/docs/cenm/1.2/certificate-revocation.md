@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Certificate Revocation List"
-aliases = [ "/releases/release-1.2/certificate-revocation.html",]
-menu = [ "cenm-1-2",]
-tags = [ "certificate", "revocation",]
-+++
+---
+aliases:
+- /releases/release-1.2/certificate-revocation.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-2
+tags:
+- certificate
+- revocation
+title: Certificate Revocation List
+---
 
 
 # Certificate Revocation List

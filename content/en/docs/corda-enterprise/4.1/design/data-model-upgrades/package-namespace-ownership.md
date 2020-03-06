@@ -1,10 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Package namespace ownership"
-aliases = [ "/releases/4.1/design/data-model-upgrades/package-namespace-ownership.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "package", "namespace", "ownership",]
-+++
+---
+aliases:
+- /releases/4.1/design/data-model-upgrades/package-namespace-ownership.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- package
+- namespace
+- ownership
+title: Package namespace ownership
+---
 
 
 # Package namespace ownership

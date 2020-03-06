@@ -1,12 +1,16 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "API: ServiceHub"
-aliases = [ "/releases/release-V3.4/api-service-hub.html",]
-tags = [ "api", "service", "hub",]
-
-[menu.corda-os-3-4]
-parent = "corda-os-3-4-api"
-+++
+---
+aliases:
+- /releases/release-V3.4/api-service-hub.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-os-3-4:
+    parent: corda-os-3-4-api
+tags:
+- api
+- service
+- hub
+title: 'API: ServiceHub'
+---
 
 
 # API: ServiceHub

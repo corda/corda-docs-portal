@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Sub Zones"
-aliases = [ "/releases/release-1.0/sub-zones.html",]
-menu = [ "cenm-1-0",]
-tags = [ "zones",]
-+++
+---
+aliases:
+- /releases/release-1.0/sub-zones.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- cenm-1-0
+tags:
+- zones
+title: Sub Zones
+---
 
 
 # Sub Zones

@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: TLS termination point"
-aliases = [ "/releases/release-V4.0/design/float/decisions/ssl-termination.html",]
-menu = [ "corda-os-4-0",]
-tags = [ "ssl", "termination",]
-+++
+---
+aliases:
+- /releases/release-V4.0/design/float/decisions/ssl-termination.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-4-0
+tags:
+- ssl
+- termination
+title: 'Design Decision: TLS termination point'
+---
 
 
 # Design Decision: TLS termination point

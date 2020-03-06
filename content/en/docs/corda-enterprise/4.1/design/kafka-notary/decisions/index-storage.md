@@ -1,10 +1,13 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Design Decision: Storage engine for committed state index"
-aliases = [ "/releases/4.1/design/kafka-notary/decisions/index-storage.html",]
-menu = [ "corda-enterprise-4-1",]
-tags = [ "storage",]
-+++
+---
+aliases:
+- /releases/4.1/design/kafka-notary/decisions/index-storage.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-enterprise-4-1
+tags:
+- storage
+title: 'Design Decision: Storage engine for committed state index'
+---
 
 
 # Design Decision: Storage engine for committed state index

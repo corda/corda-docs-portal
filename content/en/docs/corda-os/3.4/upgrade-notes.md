@@ -1,10 +1,14 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "Upgrading a CorDapp to a new platform version"
-aliases = [ "/releases/release-V3.4/upgrade-notes.html",]
-menu = [ "corda-os-3-4",]
-tags = [ "upgrade", "notes",]
-+++
+---
+aliases:
+- /releases/release-V3.4/upgrade-notes.html
+date: '2020-01-08T09:59:25Z'
+menu:
+- corda-os-3-4
+tags:
+- upgrade
+- notes
+title: Upgrading a CorDapp to a new platform version
+---
 
 
 # Upgrading a CorDapp to a new platform version

@@ -1,12 +1,15 @@
-+++
-date = "2020-01-08T09:59:25Z"
-title = "API: Testing"
-aliases = [ "/releases/3.3/api-testing.html",]
-tags = [ "api", "testing",]
-
-[menu.corda-enterprise-3-3]
-parent = "corda-enterprise-3-3-api"
-+++
+---
+aliases:
+- /releases/3.3/api-testing.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  corda-enterprise-3-3:
+    parent: corda-enterprise-3-3-api
+tags:
+- api
+- testing
+title: 'API: Testing'
+---
 
 
 
