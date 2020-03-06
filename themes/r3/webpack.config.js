@@ -1,4 +1,5 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = [
     {
@@ -11,6 +12,11 @@ module.exports = [
             filename: "js/[name].js"
         },
         devtool: "source-map",
+        plugins: [
+            new MiniCssExtractPlugin({
+              filename: 'css/main.css'
+            })
+          ],
         module: {
             rules: [
                 {
@@ -19,16 +25,20 @@ module.exports = [
                     use: ["babel-loader", "eslint-loader"]
                 },
                 {
-                    test: /\.scss$/,
+                    test: /\.(sa|sc|c)ss$/,
                     use: [
                         {
-                            loader: "file-loader",
+                            loader: MiniCssExtractPlugin.loader,
                             options: {
-                                name: "css/[name].css"
+                                hmr: process.env.NODE_ENV === 'development'
                             }
                         },
-                        "extract-loader",
-                        "css-loader?-url",
+                        {
+                            loader: "css-loader",
+                            options: {
+                                url: false
+                            }
+                        },
                         {
                             loader: "sass-loader",
                             options: {
@@ -44,7 +54,7 @@ module.exports = [
                         {
                             loader: "url-loader",
                             options: {
-                                limit: 5000
+                                limit: 8196
                             }
                         }
                     ]
