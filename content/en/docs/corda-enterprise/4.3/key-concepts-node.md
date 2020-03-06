@@ -55,7 +55,7 @@ A Corda node is a JVM run-time environment with a unique identity on the network
 
 We can visualize the node’s internal architecture as follows:
 
-![node architecture](resources/node-architecture.png "node architecture")The core elements of the architecture are:
+![node architecture](/en/images/node-architecture.png "node architecture")The core elements of the architecture are:
 
 
 * A persistence layer for storing data

@@ -59,7 +59,7 @@ Recall that a transaction is only valid if it is digitally signed by all require
 
 We can picture this situation as follows:
 
-![tx validation](resources/tx-validation.png "tx validation")The contract code has access to the full capabilities of the language,
+![tx validation](/en/images/tx-validation.png "tx validation")The contract code has access to the full capabilities of the language,
                 including:
 
 

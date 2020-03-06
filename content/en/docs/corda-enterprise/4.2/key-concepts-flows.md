@@ -45,7 +45,7 @@ Corda networks use point-to-point messaging instead of a global broadcast. This 
 
 Here is a visualisation of the process of agreeing a simple ledger update between Alice and Bob:
 
-![flow](resources/flow.gif "flow")
+![flow](/en/images/flow.gif "flow")
 ## The flow framework
 
 Rather than having to specify these steps manually, Corda automates the process using *flows*. A flow is a sequence
@@ -53,7 +53,7 @@ Rather than having to specify these steps manually, Corda automates the process 
 
 Here is the sequence of flow steps involved in the simple ledger update above:
 
-![flow sequence](resources/flow-sequence.png "flow sequence")
+![flow sequence](/en/images/flow-sequence.png "flow sequence")
 ## Running flows
 
 Once a given business process has been encapsulated in a flow and installed on the node as part of a CorDapp, the node’s

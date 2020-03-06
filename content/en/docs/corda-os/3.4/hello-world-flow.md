@@ -238,7 +238,7 @@ We’ll build our transaction proposal in two steps:
 Our transaction will have the following structure:
 
 > 
-> ![simple tutorial transaction](resources/simple-tutorial-transaction.png "simple tutorial transaction")
+> ![simple tutorial transaction](/en/images/simple-tutorial-transaction.png "simple tutorial transaction")
 * The output `IOUState` on the right represents the state we will be adding to the ledger. As you can see, there are
                                 no inputs - we are not consuming any existing ledger states in the creation of our IOU
 

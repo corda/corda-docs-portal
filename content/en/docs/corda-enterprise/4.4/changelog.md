@@ -2453,7 +2453,7 @@ General:
 ## Milestone 6
 
 
-* Added the [Corda technical white paper](_static/corda-technical-whitepaper.pdf). Note that its current version
+* Added the [Corda technical white paper](/en/pdf/corda-technical-whitepaper.pdf). Note that its current version
                         is 0.5 to reflect the fact that the Corda design is still evolving. Although we expect only relatively small tweaks
                         at this point, when Corda reaches 1.0 so will the white paper.
 

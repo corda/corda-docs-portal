@@ -174,7 +174,7 @@ The simplest development deployment of the node is without firewall and thus jus
                         Typically this should only be used for easy development, or for organisations evaluating on Open Source Corda,
                         where this is the only available option:
 
-![node embedded bridge](resources/bridge/node_embedded_bridge.png "node embedded bridge")
+![node embedded bridge](/en/images/node_embedded_bridge.png "node embedded bridge")
 ### Node + Combined Bridge/Float (no DMZ)
 
 
@@ -208,7 +208,7 @@ In this mode it is possible to host both of the processes on the same machine. T
 >                                 Then configure an all-in-one bridge to point at this node’s `messagingServerAddress`:
 > 
 > {{< /note >}}
-![simple bridge](resources/bridge/node_bridge/simple_bridge.png "simple bridge")
+![simple bridge](/en/images/simple_bridge.png "simple bridge")
 #### node.conf
 
 ```javascript
@@ -275,7 +275,7 @@ Note that whilst the bridge needs access to the official TLS private
                             dynamically with the official TLS key when activated via the tunnel and this key will never be stored in the DMZ:
 
 {{< /note >}}
-![node bridge float](resources/bridge/node_bridge_float/node_bridge_float.png "node bridge float")
+![node bridge float](/en/images/node_bridge_float.png "node bridge float")
 #### node.conf
 
 ```javascript
@@ -360,7 +360,7 @@ Some organisations require dynamic outgoing connections to operate via a SOCKS p
                         by adding extra information to the `outboundConfig` section of the bridge process. An simplified example deployment is shown here
                         to highlight the option:
 
-![socks proxy](resources/bridge/socks_proxy/socks_proxy.png "socks proxy")
+![socks proxy](/en/images/socks_proxy.png "socks proxy")
 #### node.conf
 
 ```javascript
@@ -459,7 +459,7 @@ Highlighted in the diagram is the addition of the `haConfig` section to point at
                         addresses in the `alternateArtemisAddresses` to allow node failover and in the `floatAddresses` to point at a
                         pool of DMZ float processes.
 
-![ha nodes](resources/bridge/ha_nodes/ha_nodes.png "ha nodes")
+![ha nodes](/en/images/ha_nodes.png "ha nodes")
 #### node.conf
 
 ```javascript
@@ -598,7 +598,7 @@ It is possible to allow two or more Corda nodes (HA and/or non-HA) handle outgoi
                         and external Artemis messaging broker which can be easily configured using the ha-tool. For more information, please see [HA Utilities](ha-utilities.md). While this example is the simplest deployment
                         possible with a shared bridge, any other configuration previously presented can be created.
 
-![multiple nodes no ha](resources/bridge/multiple_non_ha_nodes/multiple_nodes_no_ha.png "multiple nodes no ha")
+![multiple nodes no ha](/en/images/multiple_nodes_no_ha.png "multiple nodes no ha")
 #### bank-a-node.conf
 
 ```javascript

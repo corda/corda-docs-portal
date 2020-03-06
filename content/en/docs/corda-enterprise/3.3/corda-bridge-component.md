@@ -160,7 +160,7 @@ The simplest development deployment of the bridge is to just use the embedded Pe
                     and to have the outgoing packets use the internal bridge functionality. Typically this should only be used for easy development,
                     or for organisations evaluating on Open Source Corda, where this is the only available option:
 
-![node embedded bridge](resources/bridge/node_embedded_bridge.png "node embedded bridge")
+![node embedded bridge](/en/images/node_embedded_bridge.png "node embedded bridge")
 ### Node + Bridge (no float, no DMZ)
 
 The next simplest deployment is to turn off the built in bridge using the `externalBridge` enterprise config property
@@ -176,7 +176,7 @@ The next simplest deployment is to turn off the built in bridge using the `exter
 >                             Then configure an all-in-one bridge to point at this node:
 > 
 > {{< /note >}}
-![simple bridge](resources/bridge/simple_bridge.png "simple bridge")
+![simple bridge](/en/images/simple_bridge.png "simple bridge")
 ### DMZ ready (node + bridge + float)
 
 To familiarize oneself with the a more complete deployment including a DMZ and separated inbound and outbound paths
@@ -191,14 +191,14 @@ Note that whilst the bridge needs access to the official TLS private
                         dynamically with the official TLS key when activated via the tunnel and this key will never be stored in the DMZ:
 
 {{< /note >}}
-![bridge and float](resources/bridge/bridge_and_float.png "bridge and float")
+![bridge and float](/en/images/bridge_and_float.png "bridge and float")
 ### DMZ ready with outbound SOCKS
 
 Some organisations require dynamic outgoing connections to operate via a SOCKS proxy. The code supports this option
                     by adding extra information to the `outboundConfig` section of the bridge process. An simplified example deployment is shown here
                     to highlight the option:
 
-![bridge with socks](resources/bridge/bridge_with_socks.png "bridge with socks")
+![bridge with socks](/en/images/bridge_with_socks.png "bridge with socks")
 ### Full production HA DMZ ready mode (hot/cold node, hot/warm bridge)
 
 Finally, we show a full HA solution as recommended for production. This does require adding an external Zookeeper

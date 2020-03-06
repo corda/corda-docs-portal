@@ -64,7 +64,7 @@ Running the tool with no arguments assumes that the base-directory argument is t
 
 The tool generates the archive of the collected files in the same directory it is ran in. The names are in the format: `report-date-time.zip`
 
-![health survey photo](resources/health-survey/health-survey-photo.png "health survey photo")
+![health survey photo](/en/images/health-survey-photo.png "health survey photo")
 ## Deployment health check
 
 The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise Node. The tool supports the following deployment configurations:

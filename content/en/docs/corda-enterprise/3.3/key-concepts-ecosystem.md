@@ -54,7 +54,7 @@ To join the network, a node must contact the doorman and provide the required in
 
 We can visualize a network as follows:
 
-![network](resources/network.png "network")
+![network](/en/images/network.png "network")
 ## Network services
 
 Nodes can provide several types of services:

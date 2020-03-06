@@ -162,7 +162,7 @@ When starting Corda nodes using the ‘driver DSL’, you should see a startup m
 
 The following diagram illustrates Corda flow metrics visualized using hawtio:
 
-![hawtio jmx](resources/hawtio-jmx.png "hawtio jmx")
+![hawtio jmx](/en/images/hawtio-jmx.png "hawtio jmx")
 ## Memory usage and tuning
 
 All garbage collected programs can run faster if you give them more memory, as they need to collect less

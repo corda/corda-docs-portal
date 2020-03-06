@@ -518,7 +518,7 @@ A new graphical tool for building test Corda networks has been added. It can bui
 
 Learn more on the [Corda Network Builder](network-builder.md) page.
 
-![network builder v4](_static/images/network-builder-v4.png "network builder v4")
+![network builder v4](/en/images/network-builder-v4.png "network builder v4")
 #### JPA access in flows and services
 
 Corda 3 provides the `jdbcConnection` API on `FlowLogic` to give access to an active connection to your

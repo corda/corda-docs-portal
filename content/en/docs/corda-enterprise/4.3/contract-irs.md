@@ -44,7 +44,7 @@ Consider the diagram below; the x-axis represents time and the y-axis the size o
             it progresses (note that, the first version exists before the value date), the dots on the “y=0” represent an interest
             rate value becoming available and then the curved arrow indicates to which period the fixing applies.
 
-![contract irs](resources/contract-irs.png "contract irs")Two days (by convention, although this can be modified) before the value date (i.e. at the start of the swap) in the red
+![contract irs](/en/images/contract-irs.png "contract irs")Two days (by convention, although this can be modified) before the value date (i.e. at the start of the swap) in the red
             period, the reference rate is observed from an oracle and fixed - in this instance, at 1.1%. At the end of the accrual period,
             there is an obligation from the floating leg payer of 1.1% * notional amount * days in the accrual period / 360.
             (Also note that the result of “days in the accrual period / 360” is also known as the day count factor, although other

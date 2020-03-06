@@ -82,7 +82,7 @@ The structure of certificates above Doorman/Network map is intentionally left un
 
 We can visualise the permissioning structure as follows:
 
-![certificate structure](resources/certificate_structure.png "certificate structure")
+![certificate structure](/en/images/certificate_structure.png "certificate structure")
 ## Keypair and certificate formats
 
 You can use any standard key tools to create the required public/private keypairs and certificates. The keypairs and

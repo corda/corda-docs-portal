@@ -107,7 +107,7 @@ In our flow, the Initiator flow class will be doing the majority of the work:
 
 We can visualize the work performed by initiator as follows:
 
-![flow overview](resources/flow-overview.png "flow overview")
+![flow overview](/en/images/flow-overview.png "flow overview")
 ### Responder
 
 To respond to these actions, the responder takes the following steps:

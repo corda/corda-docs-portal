@@ -28,7 +28,7 @@ The following components of the ENM suite can all be configured to encrypt their
 How to configure this is discussed in this section, whilst the flow of information between these various components
             is shown in the following diagram
 
-![enm with ssl](resources/enm-with-ssl.png "enm with ssl")
+![enm with ssl](/en/images/enm-with-ssl.png "enm with ssl")
 ## Recommended Key and Cert hierarchy
 
 For SSL to work some PKI infrastructure must be in place. We recommend generating a self signed root key that can

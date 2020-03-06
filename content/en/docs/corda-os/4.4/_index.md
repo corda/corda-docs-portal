@@ -30,7 +30,7 @@ version: '4.4'
             audience. The technical white paper describes the architecture and protocol.
 
 <a href="_static/corda-introductory-whitepaper.pdf"><button class="button button2">Intro white paper</button></a>    
-<a href="_static/corda-technical-whitepaper.pdf"><button class="button button2">Tech white paper</button></a>The introductory paper is also available in [简体中文 (Simplified Chinese)](_static/corda-introductory-whitepaper-zhs.pdf), [繁體中文 (Traditional Chinese)](_static/corda-introductory-whitepaper-zht.pdf) and [日本語 (Japanese)](_static/corda-introductory-whitepaper-jp.pdf).
+<a href="_static/corda-technical-whitepaper.pdf"><button class="button button2">Tech white paper</button></a>The introductory paper is also available in [简体中文 (Simplified Chinese)](/en/pdf/corda-introductory-whitepaper-zhs.pdf), [繁體中文 (Traditional Chinese)](/en/pdf/corda-introductory-whitepaper-zht.pdf) and [日本語 (Japanese)](/en/pdf/corda-introductory-whitepaper-jp.pdf).
 
 **Questions or comments?** Get in touch on [Slack](https://slack.corda.net/) or ask a question on
             [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) .

@@ -100,7 +100,7 @@ There is currently no retry API. If you don’t want to install the cordapp, you
 The Corda Enterprise Node Explorer can be used to visualize all flows within the “Flow Triage” panel, where these can be filtered by flow
                     status (for example, to only display errored flows):
 
-![flowTriageView](resources/explorer/flowTriageView.png "flowTriageView")As of Corda Enterprise 4.0, this UI is informational only (read-only). Future versions of Corda will extend the basic functionality to enable
+![flowTriageView](/en/images/flowTriageView.png "flowTriageView")As of Corda Enterprise 4.0, this UI is informational only (read-only). Future versions of Corda will extend the basic functionality to enable
                     operational controls such as manual recovery and retry, and cancellation of errored flows.
 
 

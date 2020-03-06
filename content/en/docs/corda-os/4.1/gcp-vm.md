@@ -34,15 +34,15 @@ Browse to [https://console.cloud.google.com](https://console.cloud.google.com) a
 In the project drop down click on the plus icon to create a new
                 project to house your Corda resources.
 
-![consolegcp](resources/consolegcp.png "consolegcp")![console2](resources/console2.png "console2")![newprojectgcp](resources/newprojectgcp.png "newprojectgcp")Enter a project name and click Create.
+![consolegcp](/en/images/consolegcp.png "consolegcp")![console2](/en/images/console2.png "console2")![newprojectgcp](/en/images/newprojectgcp.png "newprojectgcp")Enter a project name and click Create.
 
 **STEP 2: Launch the VM**
 
 In the left hand side nav click on Compute Engine.
 
-![gcpcompute](resources/gcpcompute.png "gcpcompute")Click on Create Instance.
+![gcpcompute](/en/images/gcpcompute.png "gcpcompute")Click on Create Instance.
 
-![consolegcpcreatevm](resources/consolegcpcreatevm.png "consolegcpcreatevm")Fill in the form with the desired VM specs:
+![consolegcpcreatevm](/en/images/consolegcpcreatevm.png "consolegcpcreatevm")Fill in the form with the desired VM specs:
 
 Recommended minimum 4vCPU with 15GB memory and 40GB Persistent disk.
                 Ubuntu 16.04 LTS.
@@ -51,7 +51,7 @@ Allow full API access.
 
 Dont worry about firewall settings as you will configure those later.
 
-![gcpconsolevmsettings](resources/gcpconsolevmsettings.png "gcpconsolevmsettings")Click Create and wait a few sections for your instance to provision
+![gcpconsolevmsettings](/en/images/gcpconsolevmsettings.png "gcpconsolevmsettings")Click Create and wait a few sections for your instance to provision
                 and start running.
 
 **STEP 3: Connect to your VM and set up the environment**
@@ -59,7 +59,7 @@ Dont worry about firewall settings as you will configure those later.
 Once your instance is running click on the SSH button to launch a
                 cloud SSH terminal in a new window.
 
-![gcpconsolelaunchssh](resources/gcpconsolelaunchssh.png "gcpconsolelaunchssh")![gcpshell](resources/gcpshell.png "gcpshell")Run the following to configure the firewall to allow Corda traffic
+![gcpconsolelaunchssh](/en/images/gcpconsolelaunchssh.png "gcpconsolelaunchssh")![gcpshell](/en/images/gcpshell.png "gcpshell")Run the following to configure the firewall to allow Corda traffic
 
 ```bash
 gcloud compute firewall-rules create nodetonode --allow tcp:10002
@@ -96,7 +96,7 @@ Now your GCP environment is configured you can switch to the Testnet
 If you have not already set up your account on Testnet then please visit [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet) and sign up.
 
 {{< /note >}}
-![testnet platform](resources/testnet-platform.png "testnet platform")You can generate as many Testnet identites as you like by refreshing
+![testnet platform](/en/images/testnet-platform.png "testnet platform")You can generate as many Testnet identites as you like by refreshing
                 this page to generate a new one time link.
 
 In the terminal of your cloud instance paste the command you just copied to install and run

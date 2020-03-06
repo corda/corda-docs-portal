@@ -53,7 +53,7 @@ Corda uses a *UTXO* (unspent transaction output) model where every state on the 
 
 Here is an example of an update transaction, with two inputs and two outputs:
 
-![basic tx](resources/basic-tx.png "basic tx")A transaction can contain any number of inputs and outputs of any type:
+![basic tx](/en/images/basic-tx.png "basic tx")A transaction can contain any number of inputs and outputs of any type:
 
 
 * They can include many different state types (e.g. both cash and bonds)
@@ -94,7 +94,7 @@ These input states references are a combination of:
 
 This situation can be illustrated as follows:
 
-![tx chain](resources/tx-chain.png "tx chain")These input state references link together transactions over time, forming what is known as a *transaction chain*.
+![tx chain](/en/images/tx-chain.png "tx chain")These input state references link together transactions over time, forming what is known as a *transaction chain*.
 
 
 ## Committing transactions
@@ -102,12 +102,12 @@ This situation can be illustrated as follows:
 Initially, a transaction is just a **proposal** to update the ledger. It represents the future state of the ledger
                 that is desired by the transaction builder(s):
 
-![uncommitted tx](resources/uncommitted_tx.png "uncommitted tx")To become reality, the transaction must receive signatures from all of the *required signers* (see **Commands**, below). Each
+![uncommitted tx](/en/images/uncommitted_tx.png "uncommitted tx")To become reality, the transaction must receive signatures from all of the *required signers* (see **Commands**, below). Each
                 required signer appends their signature to the transaction to indicate that they approve the proposal:
 
-![tx with sigs](resources/tx_with_sigs.png "tx with sigs")If all of the required signatures are gathered, the transaction becomes committed:
+![tx with sigs](/en/images/tx_with_sigs.png "tx with sigs")If all of the required signatures are gathered, the transaction becomes committed:
 
-![committed tx](resources/committed_tx.png "committed tx")This means that:
+![committed tx](/en/images/committed_tx.png "committed tx")This means that:
 
 
 * The transaction’s inputs are marked as historic, and cannot be used in any future transactions
@@ -160,7 +160,7 @@ As well as input states and output states, transactions may contain:
 For example, a transaction where Alice pays off £5 of an IOU with Bob using a £5 cash payment, supported by two
                 attachments and a timestamp, may look as follows:
 
-![full tx](resources/full-tx.png "full tx")We explore the role played by the remaining transaction components below.
+![full tx](/en/images/full-tx.png "full tx")We explore the role played by the remaining transaction components below.
 
 
 ### Commands
@@ -199,7 +199,7 @@ Each command is also associated with a list of one or more *signers*. By taking 
 
 We can visualize this situation as follows:
 
-![commands](resources/commands.png "commands")
+![commands](/en/images/commands.png "commands")
 ### Attachments
 
 <iframe src="https://player.vimeo.com/video/213879328" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>

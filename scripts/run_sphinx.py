@@ -10,6 +10,7 @@ from pathlib import Path
 import json
 import toml
 import yaml
+import hashlib
 
 from sphinx.cmd.build import main as sphinx_main
 import xml.etree.ElementTree as ET
@@ -1183,6 +1184,8 @@ def run_sphinx(src_dir):
 
 def _search_and_replace(files, replacements):
     for file in files:
+        if not os.path.isfile(file):
+            continue
         LOG.debug(f"Checking {file}")
         lines = open(file, 'r').readlines()
         updated = False
@@ -1282,6 +1285,84 @@ def copy_resources_to_content():
 
     LOG.warning(f"Copied resources")
 
+    _replace_duplicate_resources()
+
+
+def _get_duplicate_resources_by_hash():
+    d = {}
+    exts = [".pdf", ".png", ".gif", ".jpg"]
+    for pathname in [x for x in Path(os.path.join(CONTENT, 'en')).rglob(f'**/*')]:
+        ext = os.path.splitext(pathname)[1]
+        if ext not in exts:
+            continue
+        hash = _hash_file(pathname)
+        paths = d.get(hash, [])
+        paths.append(pathname)
+        d[hash] = paths
+
+    return [paths for __, paths in d.items() if len(paths) > 1]
+
+
+def _replace_duplicate_resources():
+    LOG.warning("Removing duplicate resources")
+    list_of_paths = _get_duplicate_resources_by_hash()
+    # All extensions (above) that are repeated in 2 or more projects
+    for paths in list_of_paths:
+        f = [os.path.basename(path) for path in paths]
+        if len(f) != len(paths):
+            LOG.error("different filenames!")
+                
+        _replace_duplicate_resources_in_files(paths)
+
+
+def _replace_duplicate_resources_in_files(paths):
+    #  Firstly copy the first resource path to the common folder.
+    new_relative_resource_path = None
+    image_exts = [".png", ".gif", ".jpg"]
+
+    LOG.warning("Consolidating into one file")
+    LOG.warning(paths)
+    
+    for pathname in paths:
+        filename = os.path.basename(pathname)
+        is_image = bool(os.path.splitext(pathname)[1] in image_exts)
+
+        #  locate 'docs'
+        dirs = str(pathname).split("/")
+        while dirs[0] != "docs":
+            dirs.pop(0) # now we have [docs, corda-os, 4.4, ..., ..., file]
+
+        old_relative_resource_path = os.path.sep.join(dirs[3:])
+        if not new_relative_resource_path:
+            if is_image:
+                new_relative_resource_path = os.path.join("en", "images", filename)
+            else:
+                new_relative_resource_path = os.path.join("en", "pdf", filename)
+        dest = os.path.join(ROOT, "static", new_relative_resource_path)
+        shutil.copyfile(pathname, dest)
+
+        # don't fully match trailing parenthesis as we can have:
+        # [text](the/old/link/text.md "some alt text at the end")
+        replacements = [( f"({old_relative_resource_path}", f"(/{new_relative_resource_path}")]
+        this_version = os.path.join(CONTENT, "en", dirs[0], dirs[1], dirs[2])
+        files_in_this_version = [x for x in Path(this_version).rglob(f'**/*') if str(x).endswith(".md")]
+        _search_and_replace(files_in_this_version, replacements)
+        os.unlink(pathname)
+    
+
+def _hash_file(pathname):
+    BUF_SIZE = 65536
+    md5 = hashlib.md5()
+    #sha1 = hashlib.sha1()
+
+    with open(pathname, 'rb') as f:
+        while True:
+            data = f.read(BUF_SIZE)
+            if not data:
+                break
+            md5.update(data)
+    return md5.hexdigest()
+
 
 def create_missing_pages():
     if ARGS.cms not in ["hugo", "markdown"]:
@@ -1298,6 +1379,7 @@ def create_missing_pages():
         if not os.path.exists(index_md):
             LOG.warning(f"Writing empty: {index_md}")
             open(index_md, 'w').close()
+
 
 
 def main():

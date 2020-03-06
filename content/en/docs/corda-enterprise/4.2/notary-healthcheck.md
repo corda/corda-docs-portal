@@ -182,4 +182,4 @@ The flow also populates a set of JMX metrics in the namespace `net.corda.notaryh
                     view on a failing notary check. Note the metrics for *success*, *fail*, *inflight*, and *maxinflightTime* for the
                     notary service and the cluster members on the left hand side.
 
-![hawtio healthcheck](resources/hawtio-healthcheck.png "hawtio healthcheck")
+![hawtio healthcheck](/en/images/hawtio-healthcheck.png "hawtio healthcheck")

@@ -52,7 +52,7 @@ We believe one of the things that makes Corda special is its coherent design and
 
 
 * **Scope**: We try to ensure the Corda project remains coherent and focused so we ask that the feature’s scope is within the definition
-                        specified in the [Corda Technical Whitepaper](_static/corda-technical-whitepaper.pdf)
+                        specified in the [Corda Technical Whitepaper](/en/pdf/corda-technical-whitepaper.pdf)
 
 
 * **Maintainability**: If the feature will require ongoing maintenance (eg support for a particular brand of database), we may ask you to

@@ -94,7 +94,7 @@ The behaviour of the state can be further customised by implementing sub-interfa
 
 We can picture the hierarchy as follows:
 
-![state hierarchy](resources/state-hierarchy.png "state hierarchy")
+![state hierarchy](/en/images/state-hierarchy.png "state hierarchy")
 ### LinearState
 
 The `LinearState` interface is defined as follows:

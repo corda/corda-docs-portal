@@ -73,14 +73,14 @@ Our state will be the `IOUState`, representing an IOU. It will contain the IOUâ€
                     `IOUState` as follows:
 
 > 
-> ![tutorial state](resources/tutorial-state.png "tutorial state")
+> ![tutorial state](/en/images/tutorial-state.png "tutorial state")
 ### The IOUFlow
 
 Our flow will be the `IOUFlow`. This flow will completely automate the process of issuing a new IOU onto a ledger. It has the following
                     steps:
 
 > 
-> ![simple tutorial flow](resources/simple-tutorial-flow.png "simple tutorial flow")
+> ![simple tutorial flow](/en/images/simple-tutorial-flow.png "simple tutorial flow")
 ### The IOUContract
 
 For this tutorial, we will use the default `TemplateContract`. We will update it to create a fully-fledged `IOUContract` in the next

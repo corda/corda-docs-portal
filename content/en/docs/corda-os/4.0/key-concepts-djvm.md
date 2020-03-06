@@ -126,7 +126,7 @@ Output>` together with an input of type `Input`. The executor has operations for
 The sandbox has a configuration that applies to the execution of a specific runnable. This configuration, on a higher
                 level, contains a set of rules, definition providers, emitters and a whitelist.
 
-![djvm overview](resources/djvm-overview.png "djvm overview")The set of rules is what defines the constraints posed on the runtime environment. A rule can act on three different
+![djvm overview](/en/images/djvm-overview.png "djvm overview")The set of rules is what defines the constraints posed on the runtime environment. A rule can act on three different
                 levels, namely on a type-, member- or instruction-level. The set of rules get processed and validated by the
                 `RuleValidator` prior to execution.
 

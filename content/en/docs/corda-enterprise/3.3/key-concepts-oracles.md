@@ -77,7 +77,7 @@ A Merkle tree is constructed from a transaction by splitting the transaction int
 Next, the Merkle tree is built in the normal way by hashing the concatenation of nodes’ hashes below the current one
                     together. It’s visible on the example image below, where `H` denotes sha256 function, “+” - concatenation.
 
-![merkleTree](resources/merkleTree.png "merkleTree")The transaction has two input states, one output state, one attachment, one command and a time-window. For brevity
+![merkleTree](/en/images/merkleTree.png "merkleTree")The transaction has two input states, one output state, one attachment, one command and a time-window. For brevity
                     we didn’t include all leaves on the diagram (type, notary and signers are presented as one leaf labelled Rest - in
                     reality they are separate leaves). Notice that if a tree is not a full binary tree, leaves are padded to the nearest
                     power of 2 with zero hash (since finding a pre-image of sha256(x) == 0 is hard computational task) - marked light
@@ -92,7 +92,7 @@ Hiding data and providing the proof that it formed a part of a transaction is do
                     root’s hash. Then that hash is compared with the hash of a whole transaction and if they match it means that data we
                     obtained belongs to that particular transaction.
 
-![partialMerkle](resources/partialMerkle.png "partialMerkle")In the example above, the node `H(f)` is the one holding command data for signing by Oracle service. Blue leaf
+![partialMerkle](/en/images/partialMerkle.png "partialMerkle")In the example above, the node `H(f)` is the one holding command data for signing by Oracle service. Blue leaf
                     `H(g)` is also included since it’s holding time-window information. Nodes labelled `Provided` form the Partial
                     Merkle Tree, black ones are omitted. Having time-window with the command that should be in a violet node place and
                     branch we are able to calculate root of this tree and compare it with original transaction identifier - we have a

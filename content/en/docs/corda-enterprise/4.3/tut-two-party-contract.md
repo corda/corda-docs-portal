@@ -112,7 +112,7 @@ And finally, we’ll want to impose constraints on who is required to sign the t
 > 
 We can picture this transaction as follows:
 
-![simple tutorial transaction 2](resources/simple-tutorial-transaction-2.png "simple tutorial transaction 2")
+![simple tutorial transaction 2](/en/images/simple-tutorial-transaction-2.png "simple tutorial transaction 2")
 ## Defining IOUContract
 
 Let’s write a contract that enforces these constraints. We’ll do this by modifying either `TemplateContract.java` or

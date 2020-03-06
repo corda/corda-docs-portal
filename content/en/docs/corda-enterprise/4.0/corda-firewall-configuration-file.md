@@ -466,7 +466,7 @@ As an example to show all features, the following is a walk-through of the confi
 
 Conceptually deployment will be done as follows:
 
-![deployment concept](resources/ha/deployment_concept.png "deployment concept")In this example it is assumed that a large organisation is running two nodes that represent two distinct legal entities. Each node/entity has its own set of CorDapps installed
+![deployment concept](/en/images/deployment_concept.png "deployment concept")In this example it is assumed that a large organisation is running two nodes that represent two distinct legal entities. Each node/entity has its own set of CorDapps installed
                 and its own transaction storage (vault). These two nodes are running within a Green/Trusted Zone and can be interacted with via RPC calls from clients (either standalone or embedded in other applications).
                 In order to be able to communicate outside of the organisation, special provisions are made in the form of Bridge, Float and SOCKS Proxy.
 

@@ -154,11 +154,11 @@ To upgrade an existing Doorman or Network Map instance, a new DB instance must f
 
 For example for the Doorman service:
 
-![doorman migration](resources/doorman-migration.png "doorman migration")These steps should be followed for both the Doorman and Network Map services. This step is *non-destructive* - it
+![doorman migration](/en/images/doorman-migration.png "doorman migration")These steps should be followed for both the Doorman and Network Map services. This step is *non-destructive* - it
                     should leave the old DB untouched, only copying the data across to the new DBs. Once both services have been migrated
                     via the above steps they should be fully functional:
 
-![separated services](resources/separated-services.png "separated services")
+![separated services](/en/images/separated-services.png "separated services")
 ### Other Required Changes
 
 Separation of the schemas has also introduced some necessary modifications to existing processes and configuration

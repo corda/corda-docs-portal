@@ -162,7 +162,7 @@ Several Jolokia policy based security configuration files (`jolokia-access.xml`)
 
 The following diagram illustrates Corda flow metrics visualized using [hawtio](https://hawt.io) :
 
-![hawtio jmx](resources/hawtio-jmx.png "hawtio jmx")
+![hawtio jmx](/en/images/hawtio-jmx.png "hawtio jmx")
 ## Memory usage and tuning
 
 All garbage collected programs can run faster if you give them more memory, as they need to collect less

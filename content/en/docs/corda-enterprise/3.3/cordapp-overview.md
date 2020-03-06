@@ -17,7 +17,7 @@ CorDapps (Corda Distributed Applications) are distributed applications that run 
             CorDapp is to allow nodes to reach agreement on updates to the ledger. They achieve this goal by defining flows that
             Corda node owners can invoke through RPC calls:
 
-![node diagram](resources/node-diagram.png "node diagram")CorDapps are made up of the following key components:
+![node diagram](/en/images/node-diagram.png "node diagram")CorDapps are made up of the following key components:
 
 
 * States, defining the facts over which agreement is reached (see [Key Concepts - States](key-concepts-states.md))

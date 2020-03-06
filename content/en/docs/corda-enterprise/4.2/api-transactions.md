@@ -40,7 +40,7 @@ Between its creation and its final inclusion on the ledger, a transaction will g
 
 We can visualise the transitions between the three stages as follows:
 
-![transaction flow](resources/transaction-flow.png "transaction flow")
+![transaction flow](/en/images/transaction-flow.png "transaction flow")
 ## Transaction components
 
 A transaction consists of six types of components:

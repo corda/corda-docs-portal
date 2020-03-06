@@ -64,7 +64,7 @@ Another relevant aspect to remember is that because states are serialised binary
 
 Behind the scenes, the matter is more complex. As can be seen in this illustration:
 
-![tx chain](resources/tx-chain.png "tx chain")
+![tx chain](/en/images/tx-chain.png "tx chain")
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
                         to output states from previous transactions (see api-transactions).

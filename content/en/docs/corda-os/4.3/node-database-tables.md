@@ -45,7 +45,7 @@ These are tables that store the NodeInfo of other network participants.
 
 Read more here: [The network map](network-map.md)
 
-![node info tables](resources/database/node_info_tables.png "node info tables")
+![node info tables](/en/images/node_info_tables.png "node info tables")
 {{< table >}}
 
 |NODE_INFOS|Stores `NodeInfo` objects. The principal table.|
@@ -164,7 +164,7 @@ The ledger data is formed of transactions and attachments.
 
 Read more in [Using attachments](tutorial-attachments.md) and [Node services](node-services.md)
 
-![attachments tables](resources/database/attachments_tables.png "attachments tables")
+![attachments tables](/en/images/attachments_tables.png "attachments tables")
 {{< table >}}
 
 |NODE_ATTACHMENTS|Stores attachments|
@@ -383,7 +383,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 ### Fungible states
 
-![vault fungible states](resources/database/vault_fungible_states.png "vault fungible states")
+![vault fungible states](/en/images/vault_fungible_states.png "vault fungible states")
 {{< table >}}
 
 |VAULT_FUNGIBLE_STATES|Properties specific to fungible states|
@@ -409,7 +409,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 ### Linear states
 
-![vault linear states](resources/database/vault_linear_states.png "vault linear states")
+![vault linear states](/en/images/vault_linear_states.png "vault linear states")
 {{< table >}}
 
 |VAULT_LINEAR_STATES|Properties specific to linear states|

@@ -100,7 +100,7 @@ This will start a terminal window for each node, and an additional terminal wind
                 the message, “Welcome to the Corda interactive shell.”.
 
 > 
-> ![running node](resources/running_node.png "running node")
+> ![running node](/en/images/running_node.png "running node")
 ## Interacting with the nodes
 
 Now that our nodes are running, let’s order one of them to create an IOU by kicking off our `IOUFlow`. In a larger

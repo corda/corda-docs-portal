@@ -38,7 +38,7 @@ title: The network
 A Corda network is a peer-to-peer network of **nodes**. Each node runs the Corda software as well as Corda applications
                 known as **CorDapps**.
 
-![network](resources/network.png "network")All communication between nodes is point-to-point and encrypted using transport-layer security. This means that data is
+![network](/en/images/network.png "network")All communication between nodes is point-to-point and encrypted using transport-layer security. This means that data is
                 shared only on a need-to-know basis. There are **no global broadcasts**.
 
 

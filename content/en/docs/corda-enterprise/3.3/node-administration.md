@@ -204,7 +204,7 @@ When starting Corda nodes using the `DriverDSL`, you should see a startup messag
 
 The following diagram illustrates Corda flow metrics visualized using [hawtio](https://hawt.io) :
 
-![hawtio jmx](resources/hawtio-jmx.png "hawtio jmx")
+![hawtio jmx](/en/images/hawtio-jmx.png "hawtio jmx")
 ### Monitoring via Graphite
 
 Corda nodes alternatively support publishing metrics collected via the Codahale metrics library directly to a graphite

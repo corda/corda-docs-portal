@@ -995,7 +995,7 @@ The intuition here is that when these public keys are used to own or participate
                 persisted to a `PersistentParty` table. The `PersistentParty` table can be joined with the `PublicKeyHashToExternalId` table to create
                 a view which maps each state to one or more external IDs. The entity relationship diagram below helps to explain how this works.
 
-![state to external id](resources/state-to-external-id.png "state to external id")When performing a vault query, it is now possible to query for states by external ID using the `externalIds` parameter in
+![state to external id](/en/images/state-to-external-id.png "state to external id")When performing a vault query, it is now possible to query for states by external ID using the `externalIds` parameter in
                 `VaultQueryCriteria`.
 
 

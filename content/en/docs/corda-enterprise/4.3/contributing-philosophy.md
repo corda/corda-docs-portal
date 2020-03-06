@@ -21,7 +21,7 @@ Corda is an open source project with the aim of developing an enterprise-grade d
                 industries.  Corda was designed and developed to apply the concepts of blockchain and smart contract technologies to the requirements of
                 modern business transactions.  It is unique in its aim to build a platform for businesses to transact freely with any counter-party while
                 retaining strict privacy. Corda provides an implementation of this vision in a code base which others are free to build on, contribute to
-                or innovate around. The mission of Corda is further detailed in the [Corda introductory white paper](_static/corda-introductory-whitepaper.pdf).
+                or innovate around. The mission of Corda is further detailed in the [Corda introductory white paper](/en/pdf/corda-introductory-whitepaper.pdf).
 
 The project is supported and maintained by the [R3 Alliance](https://www.r3.com), or R3 for short, which consists of over two hundred firms
                 working together to build and maintain this open source enterprise-grade blockchain platform.

@@ -16,7 +16,7 @@ title: Components of the Corda Enterprise Network Manager
 
 At the highest level, the CENM suite is deployed as shown in the following diagram:
 
-![enm high level](resources/enm-high-level.png "enm high level")The three main components of the CENM suite are
+![enm high level](/en/images/enm-high-level.png "enm high level")The three main components of the CENM suite are
 
 
 * **The Identity Manager**

@@ -382,7 +382,7 @@ It usually takes around 60 seconds for the nodes to finish starting up. Each nod
 
 * Click the green arrow to start the nodes:
 
-![run config drop down](resources/run-config-drop-down.png "run config drop down")
+![run config drop down](/en/images/run-config-drop-down.png "run config drop down")
 * Select `cordapp-example.workflows-kotlin.test` for the Use classpath of module field, and then click Run
 
 

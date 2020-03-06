@@ -45,7 +45,7 @@ A *state* is an immutable object representing a fact known by one or more Corda 
 
 For example, the following state represents an IOU - an agreement that Alice owes Bob an amount X:
 
-![state](resources/state.png "state")Specifically, this state represents an IOU of £10 from Alice to Bob.
+![state](/en/images/state.png "state")Specifically, this state represents an IOU of £10 from Alice to Bob.
 
 As well as any information about the fact itself, the state also contains a reference to the *contract* that governs
                 the evolution of the state over time. We discuss contracts in [Contracts](key-concepts-contracts.md).
@@ -62,13 +62,13 @@ Instead, the lifecycle of a shared fact over time is represented by a **state se
 This sequence of state replacements gives us a full view of the evolution of the shared fact over time. We can
                 picture this situation as follows:
 
-![state sequence](resources/state-sequence.png "state sequence")
+![state sequence](/en/images/state-sequence.png "state sequence")
 ## The vault
 
 Each node on the network maintains a *vault* - a database where it tracks all the current and historic states that it
                 is aware of, and which it considers to be relevant to itself:
 
-![vault simple](resources/vault-simple.png "vault simple")We can think of the ledger from each node’s point of view as the set of all the current (i.e. non-historic) states that
+![vault simple](/en/images/vault-simple.png "vault simple")We can think of the ledger from each node’s point of view as the set of all the current (i.e. non-historic) states that
                 it is aware of.
 
 

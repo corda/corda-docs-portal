@@ -46,7 +46,7 @@ This guide will cover all the steps required to configure and deploy the nodes a
                 result from following the guide. There will be two Corda Enterprise nodes, one active and the other inactive. Each node will represent
                 the same legal identity inside the Corda network. Both will share a database and a network file system.
 
-![hot cold](resources/hot-cold.png "hot cold")
+![hot cold](/en/images/hot-cold.png "hot cold")
 ## Configuring the load balancer
 
 In a hot-cold environment, the load balancer is used to redirect incoming traffic (P2P, RPC and HTTP) towards the active

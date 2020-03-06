@@ -42,11 +42,11 @@ In Corda, there is **no single central store of data**. Instead, each node maint
 
 For example, imagine a network with five nodes, where each coloured circle represents a shared fact:
 
-![ledger venn](resources/ledger-venn.png "ledger venn")We can see that although Carl, Demi and Ed are aware of shared fact 3, **Alice and Bob are not**.
+![ledger venn](/en/images/ledger-venn.png "ledger venn")We can see that although Carl, Demi and Ed are aware of shared fact 3, **Alice and Bob are not**.
 
 Equally importantly, Corda guarantees that whenever one of these facts is shared by multiple nodes on the network, it evolves
                 in lockstep in the database of every node that is aware of it:
 
-![ledger table](resources/ledger-table.png "ledger table")For example, Alice and Bob will both see the **exact same version** of shared facts 1 and 7.
+![ledger table](/en/images/ledger-table.png "ledger table")For example, Alice and Bob will both see the **exact same version** of shared facts 1 and 7.
 
 

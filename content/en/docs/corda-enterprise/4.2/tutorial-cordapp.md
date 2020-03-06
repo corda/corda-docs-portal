@@ -377,7 +377,7 @@ It usually takes around 60 seconds for the nodes to finish starting up. To ensur
 
 * Click the green arrow to start the nodes:
 
-![run config drop down](resources/run-config-drop-down.png "run config drop down")
+![run config drop down](/en/images/run-config-drop-down.png "run config drop down")
 * To stop the nodes, press the red square button at the top right-hand side of the IDE, next to the run configurations
 
 

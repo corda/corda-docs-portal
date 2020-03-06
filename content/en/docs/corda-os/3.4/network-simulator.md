@@ -58,7 +58,7 @@ Both of these scenarios would be fed by the standard observables in the RPC fram
 
 ## Interface
 
-![network simulator](resources/network-simulator.png "network simulator")The network simulator can be run automatically, or stepped manually through each step of the interest rate swap. The
+![network simulator](/en/images/network-simulator.png "network simulator")The network simulator can be run automatically, or stepped manually through each step of the interest rate swap. The
                 options on the simulator window are:
 
 

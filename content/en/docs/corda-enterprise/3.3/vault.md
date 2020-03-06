@@ -59,7 +59,7 @@ The vault supports the management of data in both authoritative (“on-ledger”
 
 The following diagram illustrates the breakdown of the vault into sub-system components:
 
-![vault](resources/vault.png "vault")Note the following:
+![vault](/en/images/vault.png "vault")Note the following:
 
 
 * The vault “On Ledger” store tracks unconsumed state and is updated internally by the node upon recording of a transaction on the ledger
@@ -87,6 +87,6 @@ The following diagram illustrates the breakdown of the vault into sub-system com
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
 
-Section 8 of the [Technical white paper](_static/corda-technical-whitepaper.pdf) describes features of the vault yet to be implemented including private key management, state splitting and merging, asset re-issuance and node event scheduling.
+Section 8 of the [Technical white paper](/en/pdf/corda-technical-whitepaper.pdf) describes features of the vault yet to be implemented including private key management, state splitting and merging, asset re-issuance and node event scheduling.
 
 
