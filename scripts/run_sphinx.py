@@ -421,6 +421,10 @@ class Translator:
             self.pop_element()
 
     def walk(self, filename):
+        if os.path.basename(os.path.dirname(filename)) == "resources":
+            LOG.info(f"Not processing {filename} as in wrong folder")
+            return
+
         tree = ET.parse(filename)
         self.filename = filename
         self._walk([tree.getroot()])
@@ -465,16 +469,18 @@ class Translator:
         project_only = os.path.basename(os.path.dirname(os.path.dirname(dest_file)))
 
         # Are we parsing the index file under <project>/MAJOR.MINOR?
-        is_version_index = filename_only == "index" and re.findall(r"\d\.\d", dirname_only)
+        is_version_index = filename_only == "index" and bool(re.findall(r"\d\.\d", dirname_only))
 
         # Yes?  Rewrite the front matter titles to something consistent
         if is_version_index:
             if project_only == "corda-os":
                 self.front_matter["title"] = "Corda OS " + dirname_only
-            elif project_only.startswith("corda-ent") and semantic_version != "4.4":
+            elif project_only.startswith("corda-ent"):
                 self.front_matter["title"] = "Corda Enterprise " + dirname_only
             elif project_only == "cenm":
                 self.front_matter["title"] = "CENM " + dirname_only
+            else:
+                LOG.error(f"Could not rewrite section title for {project_only}")
 
         # Menu entries that this page should occur in:
         menu = self.front_matter.get("menu", {})
@@ -496,10 +502,10 @@ class Translator:
             menu_entry = { "parent": version + "-config" }
 
         # Are we a (project+version) section/index page? e.g. if 4.4/index
-        if is_version_index:
-            LOG.warning(f"Adding {self.filename} to 'versions' menu")
+        if bool(is_version_index):
+            LOG.info(f"Adding {self.filename} to 'versions' menu")
             versions_menu_entry = {}
-            LOG.warning(f"Adding parameter 'section_menu={version}' for this index page only'")
+            LOG.info(f"Adding parameter 'section_menu={version}' for this index page only'")
             self.front_matter["section_menu"] = version
             self.front_matter["version"] = semantic_version
             self.front_matter["project"] = project_name
@@ -1247,14 +1253,14 @@ def copy_to_content(cms):
             index_md = os.path.join(os.path.dirname(dest), '_index.md')
 
             if src_filename == 'index.md':
-                LOG.warning(f"Copying {src} to {dest}")
+                LOG.info(f"Copying {src} to {dest}")
                 dest = index_md  # it was 'index.rst', copying to '_index.md'
 
         if not os.path.exists(os.path.dirname(dest)):
             os.makedirs(os.path.dirname(dest), exist_ok=True)
 
         if dest.endswith("_index.md"):
-            LOG.warning(f"Copying {src} {dest}")
+            LOG.info(f"Copying {src} {dest}")
 
         LOG.debug(f"Copying {src} {dest}")
         shutil.copyfile(src, dest)
@@ -1300,16 +1306,18 @@ def main():
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument("--toml", "-t", help="write front matter as toml, default is yaml as that renders in github", default=False, action='store_true')
     parser.add_argument("--toc", help="include table of contents in the page", default=False, action='store_true')
-    parser.add_argument("--skip", "-s", help="skip rst conversion for speed if already done", default=False, action='store_true')
+    parser.add_argument("--full-conversion", "-f", help="full conversion of rst, default skip rst conversion for speed", default=False, action='store_true')
     parser.add_argument("--cms", "-c", help="generate (commonmark) markdown for cms", default='hugo', choices=['gatsby', 'markdown', 'hugo'])
+
     ARGS = parser.parse_args()
+
     _setup_logging()
 
     LOG.warning(f"You need to clone the repositories you wish to convert to {REPOS}")
     LOG.warning(f"You also need to then git checkout the branch you want.")
     LOG.warning(f"There is a script that does this - get_repos.sh")
 
-    if not ARGS.skip:
+    if ARGS.full_conversion:
         convert_rst_to_xml()
     else:
         LOG.warning("Skipping rst-to-xml")

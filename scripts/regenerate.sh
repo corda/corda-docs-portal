@@ -14,4 +14,4 @@ echo "getting repos"
 source $DIR/get_repos.sh
 
 echo "running sphinx to convert rst -> md and copy to content/"
-python3 run_sphinx.py
+python3 run_sphinx.py --full-conversion

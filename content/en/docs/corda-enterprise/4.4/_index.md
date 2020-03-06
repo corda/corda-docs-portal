@@ -8,7 +8,7 @@ menu:
     weight: 156
 project: corda-enterprise
 section_menu: corda-enterprise-4-4
-title: Introduction to Corda
+title: Corda Enterprise 4.4
 version: '4.4'
 ---
 
