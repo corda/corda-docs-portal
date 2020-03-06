@@ -1,30 +1,18 @@
     <title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
+<!-- internal templates usage start -->
+{{ template "_internal/twitter_cards.html" . }}
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/google_analytics.html" . }}
+<!-- internal templates usage end -->
 
-    <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}" />
     <meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}" />
     <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}" />
-    <!-- open graph -->
-    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
-    <meta property="og:site_name" content="{{ .Site.Title }}" />
-    <meta property="og:updated_time" content={{ .Lastmod.Format "2006-01-02T15:04:05Z0000" | safeHTML }} />
-    <meta property="og:url" content="{{ .URL }}" />
-
 {{- with .Params.description -}}
     <meta name="description" content="{{ . }}" />
     <meta itemprop="description" content="{{ . }}" />
-    <meta property="og:description" content="{{ . }}" />
-    <meta name="twitter:description" content="{{ . }}" />
 {{- end -}}
 {{- with .Params.image -}} 
     <meta itemprop="image" content="{{ . | absURL }}" />
-    <meta property="og:image" content="{{ . | absURL }}" /> 
-    <meta name="twitter:image" content="{{ . | absURL }}" />
-    <meta name="twitter:image:src" content="{{ . | absURL }}" /> 
-{{- else -}}
-    <meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}" />
-    <meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}" />
-    <meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}" />
-    <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}" /> 
 {{- end -}}
     <base href="{{ .Permalink }}">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ .Site.BaseURL }}sitemap.xml" /> 

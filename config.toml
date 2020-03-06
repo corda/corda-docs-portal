@@ -1,4 +1,4 @@
-# When built, then is used
+# When built, then this is used
 # TODO - waiting on decision
 baseURL = "http://docs.corda.net/"
 
@@ -34,6 +34,8 @@ pygmentsStyle = "emacs"
 # https://gohugo.io/variables/git/
 enableGitInfo = true
 
+# https://gohugo.io/templates/internal/#google-analytics
+# googleAnalytics = "UA-123-45"
 
 # https://gohugo.io/getting-started/configuration-markup#highlight
 [markup]

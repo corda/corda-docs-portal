@@ -1,10 +1,6 @@
     <link rel="canonical" href="{{ .Permalink }}" itemprop="url" /> 
     <link rel="shortcut icon" href="/images/favicon.ico"/>
     <meta name="url" content="{{ .Permalink }}" />
-    <meta name="twitter:url" content="{{ .Permalink }}" /> 
-    <!-- open graph -->
-    <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:locale" content="{{ .Language.Lang }}">
     <meta name="language" content="{{ .Language.LanguageName }}">
     {{- if .IsTranslated }}
     {{- range .Translations -}}
