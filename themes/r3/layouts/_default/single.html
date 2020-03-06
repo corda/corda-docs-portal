@@ -1,11 +1,3 @@
 {{ define "main" }}
-<main class="r3-o-wrapper-main col-12 col-xl-8 py-md-3 pl-md-5" role="main">
-    <div class="align-items-center">
-        {{/* <h1 class="h2">{{- .Page.Title -}}</h1> */}}
-    </div>
-    <div class="r3-content">
-        {{- .Content -}}
-    </div>
-    {{- partial "page-next-prev.html" . -}}
-</main>
+{{- .Content -}}
 {{ end }}
