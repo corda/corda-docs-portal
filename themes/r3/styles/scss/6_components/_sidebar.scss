@@ -5,37 +5,42 @@ $selected-page: "#{$class-object-prefix}selected-page";
     display: flex;
     flex-direction: column;
 
-
-    &__navbar-nav {
-        display: flex;
-        flex-direction: column;
-        padding-left: 0;
-        margin-bottom: 0;
-        list-style: none;
-    }
-
-
-
     &__nav-toggle {
         line-height: 1;
-        color: $red-500;
 
-        svg:hover g path {
-            stroke: $grey-500;
+        svg path {
+            fill: $red-500;
+        }
+
+        svg:hover {
+            path {
+                fill: $grey-500;
+                stroke: $grey-500;
+            }
         }
     }
 
 
     &__toc-toggle {
-        svg path {
+        svg line {
             fill: $red-500;
         }
-        svg:hover > path  {
-            fill: $grey-500;
+
+        svg:hover {
+            line {
+                fill: $grey-500;
+                stroke: $grey-500;
+            }
         }
     }
 
     &__nav-content {
+
+        ul {
+            direction: rtl;
+            text-align: right;
+        }
+
         @media screen and (min-width: 1199px) {
            display: block !important;
           }

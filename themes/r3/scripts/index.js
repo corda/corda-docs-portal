@@ -1,5 +1,5 @@
 import { applyAnchors } from "./anchorify";
-import { activateListeners }  from "./toc";
+import { activateListeners }  from "./nav";
 //import { applySiteMapCollapse } from "./sitemap";
 import { activateTabs } from "./activate-tabs";
 

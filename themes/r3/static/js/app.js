@@ -12691,83 +12691,24 @@ function applyAnchors() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _anchorify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./anchorify */ "./scripts/anchorify.js");
-/* harmony import */ var _sitemap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sitemap */ "./scripts/sitemap.js");
-/* harmony import */ var _toc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toc */ "./scripts/toc.js");
-/* harmony import */ var _activate_tabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./activate-tabs */ "./scripts/activate-tabs.js");
+/* harmony import */ var _nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nav */ "./scripts/nav.js");
+/* harmony import */ var _activate_tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./activate-tabs */ "./scripts/activate-tabs.js");
+
+ //import { applySiteMapCollapse } from "./sitemap";
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  Object(_anchorify__WEBPACK_IMPORTED_MODULE_0__["applyAnchors"])(); //  applySiteMapCollapse();
 
-
-document.addEventListener('DOMContentLoaded', function () {
-  Object(_anchorify__WEBPACK_IMPORTED_MODULE_0__["applyAnchors"])();
-  Object(_sitemap__WEBPACK_IMPORTED_MODULE_1__["applySiteMapCollapse"])();
-  Object(_toc__WEBPACK_IMPORTED_MODULE_2__["activateListeners"])();
-  Object(_activate_tabs__WEBPACK_IMPORTED_MODULE_3__["activateTabs"])();
+  Object(_nav__WEBPACK_IMPORTED_MODULE_1__["activateListeners"])();
+  Object(_activate_tabs__WEBPACK_IMPORTED_MODULE_2__["activateTabs"])();
 });
 
 /***/ }),
 
-/***/ "./scripts/sitemap.js":
-/*!****************************!*\
-  !*** ./scripts/sitemap.js ***!
-  \****************************/
-/*! exports provided: applySiteMapCollapse */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applySiteMapCollapse", function() { return applySiteMapCollapse; });
-/** Find page in site map and open collapsed nodes */
-function locatePageInSiteMap() {
-  var thisPage = document.URL.split("#")[0];
-  var sitemap = document.getElementById("r3-sitemap");
-  var elements = sitemap.getElementsByTagName("a");
-
-  for (var i = 0; i < elements.length; i++) {
-    if (thisPage == elements[i].href) {
-      var e = elements[i];
-
-      while (!e.classList.contains("nested")) {
-        e = e.parentNode;
-      }
-
-      e.classList.remove("nested");
-
-      while (e && e !== sitemap) {
-        if (e.classList.contains("nested")) {
-          e.classList.toggle("active");
-          e.querySelector(".caret").classList.toggle("caret-down");
-        }
-
-        e = e.parentNode;
-      }
-
-      elements[i].id = "r3-o-selected-page";
-      break;
-    }
-  }
-}
-/** Applies leaf node toggle for collapse/show for the site tree */
-
-
-function applySiteMapCollapse() {
-  locatePageInSiteMap();
-  var toggler = document.getElementsByClassName("caret");
-  var i;
-
-  for (i = 0; i < toggler.length; i++) {
-    toggler[i].addEventListener("click", function () {
-      this.parentElement.querySelector(".nested").classList.toggle("active");
-      this.classList.toggle("caret-down");
-    });
-  }
-}
-
-/***/ }),
-
-/***/ "./scripts/toc.js":
+/***/ "./scripts/nav.js":
 /*!************************!*\
-  !*** ./scripts/toc.js ***!
+  !*** ./scripts/nav.js ***!
   \************************/
 /*! exports provided: activateListeners */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -12776,16 +12717,16 @@ function applySiteMapCollapse() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "activateListeners", function() { return activateListeners; });
 function activateListeners() {
-  var tocToggle = document.querySelector(".r3-o-sidebar__toc-toggle");
-  var toc = document.querySelector(".r3-o-toc");
-  tocToggle.addEventListener('click', function () {
-    toc.classList.toggle('show-toc');
+  var navToggle = document.querySelector(".r3-o-sidebar__nav-toggle");
+  var nav = document.querySelector(".r3-o-nav");
+  navToggle.addEventListener("click", function () {
+    nav.classList.toggle("show-nav");
   }, true);
-  toc.querySelector("button").addEventListener('click', function () {
-    toc.classList.toggle('show-toc');
+  nav.querySelector("button").addEventListener("click", function () {
+    nav.classList.toggle("show-nav");
   }, true);
-  toc.addEventListener('click', function () {
-    toc.classList.remove('show-toc');
+  nav.addEventListener("click", function () {
+    nav.classList.remove("show-nav");
   });
 }
 

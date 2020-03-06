@@ -18,14 +18,11 @@ $navbar-object: "#{$class-object-prefix}navbar";
     &__nav-item  {
         display: flex;
         align-items: center;
-        a {
-            color: white;
 
-            svg {
-                height: 16px;
-            }
+        svg {
+                height: 17px;
+                stroke: #eee;
         }
     }
-
 }
 

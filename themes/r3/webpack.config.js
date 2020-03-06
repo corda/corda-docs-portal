@@ -1,5 +1,4 @@
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = [
     {
@@ -12,11 +11,6 @@ module.exports = [
             filename: "js/[name].js"
         },
         devtool: "source-map",
-        plugins: [
-            new MiniCssExtractPlugin({
-              filename: 'css/main.css'
-            })
-          ],
         module: {
             rules: [
                 {
@@ -25,27 +19,22 @@ module.exports = [
                     use: ["babel-loader", "eslint-loader"]
                 },
                 {
-                    test: /\.(sa|sc|c)ss$/,
+                    test: /\.scss$/,
                     use: [
                         {
-                            loader: MiniCssExtractPlugin.loader,
+                            loader: "file-loader",
                             options: {
-                                hmr: process.env.NODE_ENV === 'development'
+                                name: "css/[name].css"
                             }
                         },
+                        "extract-loader",
                         {
                             loader: "css-loader",
                             options: {
                                 url: false
                             }
                         },
-                        {
-                            loader: "sass-loader",
-                            options: {
-                                // Prefer `dart-sass`
-                                implementation: require("sass")
-                            }
-                        }
+                        "sass-loader"
                     ]
                 },
                 {
@@ -54,7 +43,7 @@ module.exports = [
                         {
                             loader: "url-loader",
                             options: {
-                                limit: 8196
+                                limit: 5000
                             }
                         }
                     ]

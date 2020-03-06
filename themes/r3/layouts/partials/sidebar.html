@@ -2,44 +2,27 @@
     <div id="sidebar" class="r3-o-sidebar d-flex">
         <div class="row">
             <button
+            class="btn btn-link r3-o-sidebar__nav-toggle d-xl-none pt-1 pl-0 col-1 collapsed"
+            type="button"
+            aria-expanded="false"
+            aria-label="Toggle docs navigation">
+            {{ partial "svg/nav-icon.svg" . }}
+            </button>
+            {{ partial "search.html" . }}
+            <button
                 class="btn btn-link r3-o-sidebar__toc-toggle d-xl-none pt-1 col-1"
                 type="button"
                 aria-controls="bd-docs-nav"
                 aria-expanded="false"
-                aria-label="Toggle docs navigation">
-                {{ partial "svg/nav-icon.svg" . }}
-            </button>
-            {{ partial "search.html" . }}
-            <button
-                class="btn btn-link r3-o-sidebar__nav-toggle d-xl-none pt-1 pl-0 col-1 collapsed"
-                type="button"
-                aria-expanded="false"
-                aria-label="Toggle docs navigation">
+                aria-label="Toggle Table of Contents">
                 {{ partial "svg/toc-icon.svg" . }}
             </button>
         </div>
         <nav
             class="collapse r3-o-sidebar__nav-content"
-            id="r3-docs-nav"
+            id="r3-toc-nav"
             aria-label="Main navigation">
-            <nav class="r3-o-sidebar__navbar-nav">
-                {{- partial "api.html" . -}}
-            </nav>
-            <nav>
-                <div>
-                    {{- partial "menu/versions.html" . -}}
-                </div>
-            </nav>
-            <nav>
-                <div>
-                    {{- partial "menu/pages-in-version.html" . -}}
-                </div>
-            </nav>
-            <nav>
-                <div>
-                    {{/* - partialCached "sections-tree" . - */}}
-                </div>
-            </nav>
+            {{- .Page.TableOfContents -}}
         </nav>
     </div>
 </div>

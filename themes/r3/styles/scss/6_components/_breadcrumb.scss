@@ -1,0 +1,7 @@
+$breadcrumb-object: "#{$class-object-prefix}breadcrumb";
+
+.#{$breadcrumb-object} {
+    border-radius: 0;
+    font-size: small;
+    margin-bottom: 0;
+}
