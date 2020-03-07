@@ -1,8 +1,6 @@
 $nav-object: "#{$class-object-prefix}nav";
 
 .#{$nav-object} {
-    transition: transform 0.15s;
-    transition-timing-function: ease-out;
 
     h5 {
         margin-bottom: 20px;
@@ -39,15 +37,11 @@ $nav-object: "#{$class-object-prefix}nav";
         bottom: 0;
         display: block !important;
         height: 100%;
-        left: -41%;
+        left: 0;
         overflow-y: auto;
-        position: fixed !important;
+        position: absolute !important;
         width: 40%;
         z-index: 100;
-
-        &.show-nav {
-            transform: translateX(100%);
-        }
 
         .x-button {
             display: block !important;

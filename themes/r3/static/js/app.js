@@ -12719,14 +12719,20 @@ __webpack_require__.r(__webpack_exports__);
 function activateListeners() {
   var navToggle = document.querySelector(".r3-o-sidebar__nav-toggle");
   var nav = document.querySelector(".r3-o-nav");
+  var navTransparent = document.querySelector(".r3-o-wrapper-nav");
   navToggle.addEventListener("click", function () {
     nav.classList.toggle("show-nav");
+    navTransparent.classList.add("show-nav");
   }, true);
-  nav.querySelector("button").addEventListener("click", function () {
+  nav.querySelector(".x-button").addEventListener("click", function () {
     nav.classList.toggle("show-nav");
+    navTransparent.classList.remove("show-nav");
   }, true);
-  nav.addEventListener("click", function () {
-    nav.classList.remove("show-nav");
+  navTransparent.addEventListener("click", function (e) {
+    if (e.target === navTransparent) {
+      nav.classList.toggle("show-nav");
+      navTransparent.classList.remove("show-nav");
+    }
   });
 }
 

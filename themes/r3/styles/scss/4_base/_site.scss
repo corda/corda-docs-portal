@@ -26,8 +26,19 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 
 #{$wrapper-object}-nav {
     order: 0;
+    transition: transform 0.15s;
+    transition-timing-function: ease-out;
 
     @media screen and (max-width: 1199px) {
         z-index: 200;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        right: 0;
+        bottom: 0;
+
+        &.show-nav {
+            transform: translateX(100%);
+        }
     }
 }

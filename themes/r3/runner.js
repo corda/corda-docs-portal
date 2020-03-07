@@ -2,7 +2,7 @@
 
 const { spawn } = require('child_process');
 
-const yarn = spawn('yarn', [ '--cwd', '.', 'start', '--watch'], {stdio: "inherit"});
+const yarn = spawn('yarn', [ '--cwd', '.', 'start'], {stdio: "inherit"});
 yarn.on('connected', () => {
   yarn.stdout.on('data', data => { console.log(`${data}`); });
   yarn.stderr.on('data', data => { console.error(`ERROR: ${data}`); });
