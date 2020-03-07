@@ -1,7 +1,7 @@
 $nav-object: "#{$class-object-prefix}nav";
 
 .#{$nav-object} {
-    transition: transform 0.4s;
+    transition: transform 0.15s;
     transition-timing-function: ease-out;
 
     h5 {
@@ -34,8 +34,8 @@ $nav-object: "#{$class-object-prefix}nav";
     }
 
     @media screen and (max-width: 1199px) {
-        background-color: $grey-100;
-        box-shadow: 1px 0px 4px -2px $blue-200 inset;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 48px;
         bottom: 0;
         display: block !important;
         height: 100%;

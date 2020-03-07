@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro300,400,500,600);@charset "UTF-8";
 .searchbox {
   display: inline-block;
   position: relative;
@@ -10362,6 +10362,26 @@ h3 {
   margin-bottom: 1rem;
 }
 
+/**
+* Importing font families.
+*/
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+/**
+* Typography; Sizes, line heights, margins, display
+*/
+h1, h2, h3, h4, h5, h6 {
+  color: #2f353f;
+}
+
+p {
+  color: #5a6270;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
 .r3-o-note {
   background-color: #C7E1FA;
   color: #092847;
@@ -10467,7 +10487,7 @@ footer {
 }
 
 .r3-o-nav {
-  transition: transform 0.4s;
+  transition: transform 0.15s;
   transition-timing-function: ease-out;
 }
 .r3-o-nav h5 {
@@ -10495,8 +10515,8 @@ footer {
 }
 @media screen and (max-width: 1199px) {
   .r3-o-nav {
-    background-color: #EEEEEF;
-    box-shadow: 1px 0px 4px -2px #C7E1FA inset;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 48px;
     bottom: 0;
     display: block !important;
     height: 100%;
