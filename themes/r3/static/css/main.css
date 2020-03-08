@@ -10359,8 +10359,7 @@ body {
 .r3-o-wrapper-main {
   min-height: calc(100vh - 56px - 80px);
   order: 1;
-  padding-left: 15px;
-  padding-right: 0;
+  padding: 60px 56px 40px;
 }
 .r3-o-wrapper-main main img {
   max-width: 100%;
