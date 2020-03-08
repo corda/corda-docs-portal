@@ -1,7 +1,12 @@
+.r3-o-container-fluid{
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
 $wrapper-object: ".#{$class-object-prefix}wrapper";
 
 #{$wrapper-object}-side {
-    background-color: #f7fafc;
+    background-color: #FFF;
     order: 2;
 
     @media screen and (max-width: 1199px) {
@@ -16,6 +21,8 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 #{$wrapper-object}-main {
     min-height: calc(100vh - 56px - 80px);
     order: 1;
+    padding-left: 15px;
+    padding-right: 0;
 
     main {
         img {

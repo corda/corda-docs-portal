@@ -5,8 +5,17 @@ $selected-page: "#{$class-object-prefix}selected-page";
     display: flex;
     flex-direction: column;
 
+    &__row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
     &__nav-toggle {
         line-height: 1;
+        flex: 1 0 30px;
+        max-width: 30px;
 
         svg path {
             fill: $red-500;
@@ -20,8 +29,11 @@ $selected-page: "#{$class-object-prefix}selected-page";
         }
     }
 
-
     &__toc-toggle {
+        flex: 1 0 30px;
+        max-width: 30px;
+
+
         svg line {
             fill: $red-500;
         }
@@ -32,6 +44,8 @@ $selected-page: "#{$class-object-prefix}selected-page";
                 stroke: $grey-500;
             }
         }
+
+
     }
 
     &__nav-content {
@@ -43,7 +57,18 @@ $selected-page: "#{$class-object-prefix}selected-page";
 
         @media screen and (min-width: 1199px) {
            display: block !important;
-          }
+        }
+    }
+
+    &__search {
+        display: flex;
+        flex-grow: 8;
+        flex-shrink: 0;
+        justify-content: center;
+
+        @media screen and (max-width: 384px) {
+           width: 60%;
+         }
     }
 }
 
