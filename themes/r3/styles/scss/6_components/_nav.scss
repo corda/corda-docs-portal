@@ -2,6 +2,9 @@ $nav-object: "#{$class-object-prefix}nav";
 
 .#{$nav-object} {
 
+    padding-left: 24px;
+    padding-right: 24px;
+
     h5 {
         margin-bottom: 20px;
         padding-left: 22px;
@@ -40,7 +43,7 @@ $nav-object: "#{$class-object-prefix}nav";
         left: 0;
         overflow-y: auto;
         position: absolute !important;
-        width: 40%;
+        width: 312px;
         z-index: 100;
 
         .x-button {
@@ -53,7 +56,7 @@ $nav-object: "#{$class-object-prefix}nav";
         }
 
         nav {
-            margin-top: 44px;
+            margin-top: 22px;
         }
     }
 

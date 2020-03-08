@@ -10,10 +10,11 @@
 {{/* We know know whether we're in 'corda-os-4.4' or not ('Versions') */}}
 
 
-<div class="dropdown">
-    <button class="btn btn-sm dropdown-toggle" type="button" id="versionDropDown" data-toggle="dropdown"
+<div class="r3-o-dropdown dropdown">
+    <button class="btn dropdown-toggle" type="button" id="versionDropDown" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         {{ $currentVersion }}
+        {{- partial "svg/version.svg" . -}}
     </button>
     <div class="dropdown-menu">
         {{ range .Site.Menus.versions.ByWeight }}

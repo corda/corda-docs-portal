@@ -6,25 +6,27 @@
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-@import "4_base/site";
 @import "4_base/alerts";
 @import "4_base/font";
+@import "4_base/site";
 @import "4_base/typography";
 
-@import "6_components/note";
-@import "6_components/warning";
-@import "6_components/important";
+@import "6_components/api";
 @import "6_components/attention";
-@import "6_components/topic";
-@import "6_components/sidebar";
-@import "6_components/navbar";
+@import "6_components/breadcrumb";
+@import "6_components/dropdown";
 @import "6_components/footer";
 @import "6_components/git";
-@import "6_components/api";
+@import "6_components/important";
+@import "6_components/menu-in-pages";
+@import "6_components/navbar";
 @import "6_components/nav";
+@import "6_components/note";
 @import "6_components/search";
-@import "6_components/breadcrumb";
 @import "6_components/sections-tree";
+@import "6_components/sidebar";
+@import "6_components/topic";
+@import "6_components/warning";
 
 @import "7_utilities/anchor";
 @import "7_utilities/tableofcontents";

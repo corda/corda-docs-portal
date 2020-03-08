@@ -12,15 +12,6 @@ export function activateListeners() {
         true
     );
 
-    nav.querySelector(".x-button").addEventListener(
-        "click",
-        () => {
-            nav.classList.toggle("show-nav");
-            navTransparent.classList.remove("show-nav");
-        },
-        true
-    );
-
     navTransparent.addEventListener("click", e => {
         if(e.target === navTransparent) {
             nav.classList.toggle("show-nav");

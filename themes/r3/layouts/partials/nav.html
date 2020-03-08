@@ -1,5 +1,5 @@
-<div class="r3-o-wrapper-nav d-xl-block col-xl-2">
-    <div class="r3-o-nav d-none d-xl-block col-xl-12 pt-3 pt-lg-5 px-3">
+<div class="r3-o-wrapper-nav d-xl-block col-xl-3">
+    <div class="r3-o-nav d-none d-xl-block col-xl-12">
         <nav>
             {{- partial "api.html" . -}}
         </nav>
@@ -7,17 +7,12 @@
             {{- partial "menu/versions.html" . -}}
         </nav>
         <nav>
-            <div>
-                {{- partial "menu/pages-in-version.html" . -}}
-            </div>
+            {{- partial "menu/pages-in-version.html" . -}}
         </nav>
         <nav>
             <div>
                 {{/* - partialCached "sections-tree" . - */}}
             </div>
         </nav>
-        <button class="x-button d-none">
-            {{ partial "svg/close.svg" . }}
-        </button>
     </div>
 </div>

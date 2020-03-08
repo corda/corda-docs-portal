@@ -5,5 +5,9 @@
 {{- $relPath := "" -}}
 {{- if and $version $project -}}{{ $relPath = print "/" $project "/" $version "/"}}{{ end }}
 <div class="api">
-    API: <a href="https://api.corda.net/kotlin{{ if $relPath }}{{$relPath}}{{end}}">Kotlin</a> / <a href="https://api.corda.net/java{{ if $relPath }}{{$relPath}}{{end}}">JavaDoc</a>
+    API:&nbsp;
+    <a href="https://api.corda.net/kotlin{{ if $relPath }}{{$relPath}}{{end}}">Kotlin</a>
+    /
+    <a href="https://api.corda.net/java{{ if $relPath }}{{$relPath}}{{end}}">
+        JavaDoc</a>
 </div>

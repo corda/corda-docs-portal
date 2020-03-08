@@ -12724,10 +12724,6 @@ function activateListeners() {
     nav.classList.toggle("show-nav");
     navTransparent.classList.add("show-nav");
   }, true);
-  nav.querySelector(".x-button").addEventListener("click", function () {
-    nav.classList.toggle("show-nav");
-    navTransparent.classList.remove("show-nav");
-  }, true);
   navTransparent.addEventListener("click", function (e) {
     if (e.target === navTransparent) {
       nav.classList.toggle("show-nav");

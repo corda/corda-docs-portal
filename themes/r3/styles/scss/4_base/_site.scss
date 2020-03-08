@@ -25,9 +25,12 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 }
 
 #{$wrapper-object}-nav {
+    flex-basis: 311px;
+    padding: 0 0 !important;
     order: 0;
     transition: transform 0.15s;
     transition-timing-function: ease-out;
+
 
     @media screen and (max-width: 1199px) {
         z-index: 200;
