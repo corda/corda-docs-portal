@@ -3,8 +3,7 @@ aliases:
 - /releases/4.2/key-concepts-flows.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-2:
-    parent: corda-enterprise-4-2-concepts
+- corda-enterprise-4-2
 tags:
 - concepts
 - flows
@@ -43,7 +42,7 @@ what order.
 
 Here is a visualisation of the process of agreeing a simple ledger update between Alice and Bob:
 
-![flow](resources/flow.gif "flow")
+![flow](/en/images/flow.gif "flow")
 
 
 ## The flow framework
@@ -53,7 +52,7 @@ of steps that tells a node how to achieve a specific ledger update, such as issu
 
 Here is the sequence of flow steps involved in the simple ledger update above:
 
-![flow sequence](resources/flow-sequence.png "flow sequence")
+![flow sequence](/en/images/flow-sequence.png "flow sequence")
 
 ## Running flows
 

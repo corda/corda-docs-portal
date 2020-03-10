@@ -106,7 +106,7 @@ use different serialisation schemes (Kryo vs AMQP).{{< /warning >}}
 java -jar corda-tools-explorer-4.3.jar
 ```
 
-![explorer login](resources/explorer-login.png "explorer login")
+![explorer login](/en/images/explorer-login.png "explorer login")
 
 
 
@@ -128,7 +128,7 @@ Click on `Connect` to log into the node.
 
 Once Explorer has logged in to your node over RPC click on the `Network` tab in the side navigation of the Explorer UI:
 
-![explorer network](resources/explorer-network.png "explorer network")
+![explorer network](/en/images/explorer-network.png "explorer network")
 If your Enterprise node is correctly configured and connected to the Testnet then you should be able to see the identities of
 your node, the Testnet notary and the network map listing all the counterparties currently on the network.
 
@@ -137,16 +137,16 @@ your node, the Testnet notary and the network map listing all the counterparties
 
 Now we are going to try and issue some cash to a ‘bank’. Click on the `Cash` tab.
 
-![explorer cash issue1](resources/explorer-cash-issue1.png "explorer cash issue1")
+![explorer cash issue1](/en/images/explorer-cash-issue1.png "explorer cash issue1")
 Now click on `New Transaction` and create an issuance to a known counterparty on the network by filling in the form:
 
-![explorer cash issue2](resources/explorer-cash-issue2.png "explorer cash issue2")
+![explorer cash issue2](/en/images/explorer-cash-issue2.png "explorer cash issue2")
 Click `Execute` and the transaction will start.
 
-![explorer cash issue3](resources/explorer-cash-issue3.png "explorer cash issue3")
+![explorer cash issue3](/en/images/explorer-cash-issue3.png "explorer cash issue3")
 Click on the red X to close the notification window and click on `Transactions` tab to see the transaction in progress,
 or wait for a success message to be displayed:
 
-![explorer transactions](resources/explorer-transactions.png "explorer transactions")
+![explorer transactions](/en/images/explorer-transactions.png "explorer transactions")
 Congratulations! You have now successfully installed a CorDapp and executed a transaction on the Corda Testnet.
 

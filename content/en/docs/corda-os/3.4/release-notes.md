@@ -422,7 +422,10 @@ which it should be performed.
 {{< /attention >}}
 
 Hash constraints provide for maximum decentralisation and minimum trust, at the cost of flexibility. In Corda 3.0 we add a
-new constraint, a _network parameters_ constraint, that allows the list of acceptable contract JARs to be maintained by the
+new constraint, a _network 
+{{< warning >}}parameters_{{< /warning >}}
+
+ constraint, that allows the list of acceptable contract JARs to be maintained by the
 operator of the compatibility zone rather than being hard-coded. This allows for simple upgrades at the cost of the introduction
 of an element of centralisation.Zone constraints provide a less restrictive but more centralised control mechanism. This can be useful when you want
 the ability to upgrade an app and you don’t mind the upgrade taking effect “just in time” when a transaction happens

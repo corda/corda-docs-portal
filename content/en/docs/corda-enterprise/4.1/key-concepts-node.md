@@ -3,8 +3,7 @@ aliases:
 - /releases/4.1/key-concepts-node.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-1:
-    parent: corda-enterprise-4-1-concepts
+- corda-enterprise-4-1
 tags:
 - concepts
 - node
@@ -50,7 +49,7 @@ CorDapps.
 
 We can visualize the node’s internal architecture as follows:
 
-![node architecture](resources/node-architecture.png "node architecture")
+![node architecture](/en/images/node-architecture.png "node architecture")
 The core elements of the architecture are:
 
 

@@ -35,10 +35,10 @@ Browse to [https://portal.azure.com](https://portal.azure.com) and log in with y
 
 Click on the “Resource groups” link in the side nav in the Azure Portal and then click “Add”:
 
-![azure rg](resources/azure-rg.png "azure rg")
+![azure rg](/en/images/azure-rg.png "azure rg")
 Fill in the form and click “Create”:
 
-![azure rg 2](resources/azure-rg-2.png "azure rg 2")
+![azure rg 2](/en/images/azure-rg-2.png "azure rg 2")
 
 ### STEP 2: Launch the VM
 
@@ -46,7 +46,7 @@ At the top of the left sidenav click on the button with the green cross “Creat
 
 In this example we are going to use an Ubuntu server so select the latest Ubuntu Server option:
 
-![azure select ubuntu](resources/azure-select-ubuntu.png "azure select ubuntu")
+![azure select ubuntu](/en/images/azure-select-ubuntu.png "azure select ubuntu")
 Fill in the form:
 
 
@@ -56,23 +56,23 @@ Fill in the form:
 
 Click on “OK”:
 
-![azure vm form](resources/azure-vm-form.png "azure vm form")
+![azure vm form](/en/images/azure-vm-form.png "azure vm form")
 Choose a size (“D4S_V3 Standard” is recommended if available) and click “Select”:
 
-![azure instance type](resources/azure-instance-type.png "azure instance type")
+![azure instance type](/en/images/azure-instance-type.png "azure instance type")
 Click on “Public IP address” to open the “Settings” panel
 
-![azure vm settings](resources/azure-vm-settings.png "azure vm settings")
+![azure vm settings](/en/images/azure-vm-settings.png "azure vm settings")
 Set the IP address to “Static” under “Assignment” and click “OK”:
 
 {{< note >}}
 This is so the IP address for your node does not change frequently in the global network map.
 
 {{< /note >}}
-![azure set static ip](resources/azure-set-static-ip.png "azure set static ip")
+![azure set static ip](/en/images/azure-set-static-ip.png "azure set static ip")
 Next toggle “Network Security Group” to advanced and click on “Network security group (firewall)”:
 
-![azure nsg](resources/azure-nsg.png "azure nsg")
+![azure nsg](/en/images/azure-nsg.png "azure nsg")
 Add the following inbound rules for ports 8080 (webserver), and 10002-10003 for the P2P and RPC ports used by the Corda
 node respectively:
 
@@ -88,23 +88,23 @@ The priority has to be unique number in the range 900 (highest) and 4096 (lowest
 rule has a unique priority or there will be a validation failure and error message.
 
 {{< /note >}}
-![azure nsg 2](resources/azure-nsg-2.png "azure nsg 2")
+![azure nsg 2](/en/images/azure-nsg-2.png "azure nsg 2")
 Click “OK” and “OK” again on the “Settings” panel:
 
-![azure settings ok](resources/azure-settings-ok.png "azure settings ok")
+![azure settings ok](/en/images/azure-settings-ok.png "azure settings ok")
 Click “Create” and wait a few minutes for your instance to be provisioned and start running:
 
-![azure create vm](resources/azure-create-vm.png "azure create vm")
+![azure create vm](/en/images/azure-create-vm.png "azure create vm")
 
 ### STEP 3: Connect to your VM and set up the environment
 
 Once your instance is running click on the “Connect” button and copy the ssh command:
 
-![azure ssh](resources/azure-ssh.png "azure ssh")
+![azure ssh](/en/images/azure-ssh.png "azure ssh")
 Enter the ssh command into your terminal. At the prompt, type “yes” to continue connecting and then enter the password
 you configured earlier to log into the remote VM:
 
-![azure shell](resources/azure-shell.png "azure shell")
+![azure shell](/en/images/azure-shell.png "azure shell")
 
 ### STEP 4: Download and set up your Corda node
 
@@ -122,7 +122,7 @@ You can generate as many Testnet identites as you like by refreshing this page t
 link.
 
 {{< /note >}}
-![testnet platform](resources/testnet-platform.png "testnet platform")
+![testnet platform](/en/images/testnet-platform.png "testnet platform")
 In the terminal of your cloud instance, paste the command you just copied to install and run your Corda node:
 
 ```bash
@@ -151,7 +151,7 @@ http://<PUBLIC-IP-ADDRESS>:8080/
 
 If everything is working, you should see the following:
 
-![installed cordapps](resources/installed-cordapps.png "installed cordapps")
+![installed cordapps](/en/images/installed-cordapps.png "installed cordapps")
 
 ## Testing your deployment
 

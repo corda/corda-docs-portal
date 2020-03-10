@@ -48,7 +48,7 @@ certificates.
 
 We can visualise the permissioning structure as follows:
 
-![certificate structure](resources/certificate_structure.png "certificate structure")
+![certificate structure](/en/images/certificate_structure.png "certificate structure")
 
 ## Key pair and certificate formats
 

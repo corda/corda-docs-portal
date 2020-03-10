@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V3.4/key-concepts-oracles.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-3-4:
-    parent: corda-os-3-4-concepts
+- corda-os-3-4
 tags:
 - concepts
 - oracles
@@ -77,7 +76,7 @@ either an input, an output, a command, or an attachment. The Merkle tree also co
 Next, the Merkle tree is built in the normal way by hashing the concatenation of nodes’ hashes below the current one
 together. It’s visible on the example image below, where `H` denotes sha256 function, “+” - concatenation.
 
-![merkleTree](resources/merkleTree.png "merkleTree")
+![merkleTree](/en/images/merkleTree.png "merkleTree")
 The transaction has two input states, one output state, one attachment, one command and a timestamp. For brevity
 we didn’t include all leaves on the diagram (type, notary and signers are presented as one leaf labelled Rest - in
 reality they are separate leaves). Notice that if a tree is not a full binary tree, leaves are padded to the nearest
@@ -93,7 +92,7 @@ Hiding data and providing the proof that it formed a part of a transaction is do
 root’s hash. Then that hash is compared with the hash of a whole transaction and if they match it means that data we
 obtained belongs to that particular transaction.
 
-![partialMerkle](resources/partialMerkle.png "partialMerkle")
+![partialMerkle](/en/images/partialMerkle.png "partialMerkle")
 In the example above, the node `H(f)` is the one holding command data for signing by Oracle service. Blue leaf
 `H(g)` is also included since it’s holding timestamp information. Nodes labelled `Provided` form the Partial
 Merkle Tree, black ones are omitted. Having timestamp with the command that should be in a violet node place and

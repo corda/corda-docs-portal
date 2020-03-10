@@ -3,8 +3,7 @@ aliases:
 - /releases/3.3/api-states.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-3-3:
-    parent: corda-enterprise-3-3-api
+- corda-enterprise-3-3
 tags:
 - api
 - states
@@ -84,7 +83,7 @@ the total amount held that is important, rather than the actual units held.
 
 We can picture the hierarchy as follows:
 
-![state hierarchy](resources/state-hierarchy.png "state hierarchy")
+![state hierarchy](/en/images/state-hierarchy.png "state hierarchy")
 
 ### LinearState
 

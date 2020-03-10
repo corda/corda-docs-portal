@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V3.4/api-transactions.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-3-4:
-    parent: corda-os-3-4-api
+- corda-os-3-4
 tags:
 - api
 - transactions
@@ -36,7 +35,7 @@ references to actual states - allowing the transaction to be fully inspected.
 
 We can visualise the transitions between the three stages as follows:
 
-![transaction flow](resources/transaction-flow.png "transaction flow")
+![transaction flow](/en/images/transaction-flow.png "transaction flow")
 
 ## Transaction components
 

@@ -3,8 +3,7 @@ aliases:
 - /releases/3.3/node-administration.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-3-3:
-    parent: corda-enterprise-3-3-node
+- corda-enterprise-3-3
 tags:
 - node
 - administration
@@ -188,7 +187,7 @@ When starting Corda nodes using the `DriverDSL`, you should see a startup messag
 
 The following diagram illustrates Corda flow metrics visualized using [hawtio](https://hawt.io) :
 
-![hawtio jmx](resources/hawtio-jmx.png "hawtio jmx")
+![hawtio jmx](/en/images/hawtio-jmx.png "hawtio jmx")
 
 ### Monitoring via Graphite
 

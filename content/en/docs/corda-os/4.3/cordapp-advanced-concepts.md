@@ -3,7 +3,8 @@ aliases:
 - /releases/release-V4.3/cordapp-advanced-concepts.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- corda-os-4-3
+  corda-os-4-3:
+    parent: corda-os-4-3-development
 tags:
 - cordapp
 - advanced
@@ -68,7 +69,7 @@ all objects are loaded in the same classloader and can be freely used and filter
 
 Behind the scenes, the matter is more complex. As can be seen in this illustration:
 
-![tx chain](resources/tx-chain.png "tx chain")
+![tx chain](/en/images/tx-chain.png "tx chain")
 
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
@@ -85,9 +86,18 @@ In Corda 4 we implemented the no-data loss rule, which prevents this to happen. 
 
 Let’s consider a very simple case, a transaction swapping *Apples* for *Oranges*. Each of the states that need to be swapped is the output of a previous transaction.
 Similar to the above image the *Apples* state is the output of some previous transaction, through which it came to be possessed by the party now paying it away in return for some oranges.
-The *Apples* and *Oranges* states that will be consumed in this new transaction exist as serialised `TransactionState`s.
-It is these `TransactionState`s that specify the fully qualified names of the contract code that should be run to verify their consumption as well as,
-importantly, the governing `constraint`s on which specific implementations of that class name can be used.
+The *Apples* and *Oranges* states that will be consumed in this new transaction exist as serialised 
+{{< warning >}}`{{< /warning >}}
+
+TransactionState`s.
+It is these 
+{{< warning >}}`{{< /warning >}}
+
+TransactionState`s that specify the fully qualified names of the contract code that should be run to verify their consumption as well as,
+importantly, the governing 
+{{< warning >}}`{{< /warning >}}
+
+constraint`s on which specific implementations of that class name can be used.
 The swap transaction would contain the two input states, the two output states with the new owners of the fruit and the code to be used to deserialize and
 verify the transaction as two attachment IDs - which are SHA-256 hashes of the apples and oranges CorDapps (more specifically, the contracts JAR).
 

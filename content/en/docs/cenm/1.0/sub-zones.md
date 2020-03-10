@@ -3,7 +3,8 @@ aliases:
 - /releases/release-1.0/sub-zones.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- cenm-1-0
+  cenm-1-0:
+    parent: cenm-1-0-concepts-and-overview
 tags:
 - zones
 title: Sub Zones
@@ -24,7 +25,7 @@ configured to connect to. It has no comprehension of sub zones. It simply connec
 configuration file and, once registered with both, interacts with other nodes and the apps deployed upon it via the
 RPC clients. This is summarised below:
 
-![node zone view](resources/node-zone-view.png "node zone view")
+![node zone view](/en/images/node-zone-view.png "node zone view")
 The node is unaware of other sub zones, seeing only those nodes registered with the network map service it itself has
 registered with.
 
@@ -33,7 +34,7 @@ registered with.
 
 From the perspective of the operator of that zone however, things are a lot more interesting:
 
-![simple sub zones](resources/simple-sub-zones.png "simple sub zones")
+![simple sub zones](/en/images/simple-sub-zones.png "simple sub zones")
 {{< note >}}
 Signing infrastructure is omitted for brevity
 
@@ -68,7 +69,7 @@ is transferred from the notary operator to the zone operator.
 
 This is shown in the following diagram:
 
-![simple seg zones](resources/simple-seg-zones.png "simple seg zones")
+![simple seg zones](/en/images/simple-seg-zones.png "simple seg zones")
 
 ## Sub Zones vs Private Network Maps
 

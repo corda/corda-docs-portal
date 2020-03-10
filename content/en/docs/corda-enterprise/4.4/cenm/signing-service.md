@@ -298,7 +298,10 @@ hsmLibraries = [
 ]
 ```
 
-See the `Example Configuration`_ section below for examples of these config blocks being used in a complete file.
+See the 
+{{< warning >}}`Example Configuration`_{{< /warning >}}
+
+ section below for examples of these config blocks being used in a complete file.
 
 
 ##### Azure Key Vault
@@ -380,7 +383,10 @@ production environment configuration.
 Using a local java keystore in a production system is strongly discouraged.
 
 {{< /note >}}
-More detailed descriptions of how to configure a signing key can be found in the `Configuration Parameters`_ section
+More detailed descriptions of how to configure a signing key can be found in the 
+{{< warning >}}`Configuration Parameters`_{{< /warning >}}
+
+ section
 below.
 
 

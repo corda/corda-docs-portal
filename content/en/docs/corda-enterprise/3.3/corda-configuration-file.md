@@ -151,7 +151,10 @@ This section is used to configure JDBC and Hibernate related properties:
 
 * **transactionIsolationLevel**: 
 Transaction isolation level as defined by the `TRANSACTION_` constants in
-`java.sql.Connection`, but without the “TRANSACTION_” prefix. Defaults to REPEATABLE_READ.
+`java.sql.Connection`, but without the “
+{{< warning >}}TRANSACTION_{{< /warning >}}
+
+” prefix. Defaults to REPEATABLE_READ.
 
 
 * **exportHibernateJMXStatistics**: 

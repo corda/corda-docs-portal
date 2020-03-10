@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V4.0/api-vault-query.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-0:
-    parent: corda-os-4-0-api
+- corda-os-4-0
 tags:
 - api
 - vault
@@ -950,7 +949,7 @@ states with a particular external ID. Behind the scenes, when states are persist
 persisted to a `PersistentParty` table. The `PersistentParty` table can be joined with the `PublicKeyHashToExternalId` table to create
 a view which maps each state to one or more external IDs. The entity relationship diagram below helps to explain how this works.
 
-![state to external id](resources/state-to-external-id.png "state to external id")
+![state to external id](/en/images/state-to-external-id.png "state to external id")
 When performing a vault query, it is now possible to query for states by external ID using a custom query criteria.
 
 {{< tabs name="tabs-7" >}}

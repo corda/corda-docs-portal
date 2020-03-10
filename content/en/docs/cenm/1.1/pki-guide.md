@@ -4,7 +4,8 @@ aliases:
 - /pki-guide.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- cenm-1-1
+  cenm-1-1:
+    parent: cenm-1-1-public-key-infrastructure
 tags:
 - pki
 - guide
@@ -55,7 +56,7 @@ Corda nodes operate with the following assumptions on the certificates hierarchy
 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
-![hierarchy agnostic](resources/hierarchy-agnostic.png "hierarchy agnostic")
+![hierarchy agnostic](/en/images/hierarchy-agnostic.png "hierarchy agnostic")
 At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found .. _here: [https://docs.corda.net/head/permissioning.html](https://docs.corda.net/head/permissioning.html) .
 
 
@@ -70,7 +71,7 @@ The network operator is responsible for certificate issuance and maintenance for
 at the Identity Manager and Network Map certificates. The rest of the certificate chain (i.e. every certificate below the Identity Manager certificate) falls into
 node operator responsibility.
 
-![tls hierarchy](resources/tls-hierarchy.png "tls hierarchy")
+![tls hierarchy](/en/images/tls-hierarchy.png "tls hierarchy")
 The certificate revocation list verification applies to the entire chain. This means that every certificate in the chain
 is going to be validated against the corresponding certificate revocation list during the SSL handshake.
 Consequently, this means that a node operator is expected to provide and maintain the certificate revocation list for the Node CA.
@@ -88,7 +89,7 @@ During the certificate revocation list validation process the trust store is con
 
 As an example, let us consider the following certificate hierarchy:
 
-![example hierarchy](resources/example-hierarchy.png "example hierarchy")
+![example hierarchy](/en/images/example-hierarchy.png "example hierarchy")
 The certificate hierarchy presented above is currently (as of the time of writing this document) used in the Corda Network.
 It follows practices applicable for certificate authorities providing a balance between security and simplicity of usage.
 In this scenario, a network operator wants to create a CA hierarchy where the self-signed Root CA issues a certificate for the Subordinate CA which in turn issues

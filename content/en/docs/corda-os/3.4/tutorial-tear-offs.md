@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V3.4/tutorial-tear-offs.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-3-4:
-    parent: corda-os-3-4-tutorial
+- corda-os-3-4
 tags:
 - tutorial
 - tear

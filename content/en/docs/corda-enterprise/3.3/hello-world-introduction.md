@@ -53,7 +53,7 @@ Our state will be the `IOUState`. It will store the value of the IOU, as well as
 borrower. We can visualize `IOUState` as follows:
 
 > 
-> ![tutorial state](resources/tutorial-state.png "tutorial state")
+> ![tutorial state](/en/images/tutorial-state.png "tutorial state")
 
 
 ### The IOUFlow
@@ -62,7 +62,7 @@ Our flow will be the `IOUFlow`. This flow will completely automate the process o
 is composed of the following steps:
 
 > 
-> ![simple tutorial flow](resources/simple-tutorial-flow.png "simple tutorial flow")
+> ![simple tutorial flow](/en/images/simple-tutorial-flow.png "simple tutorial flow")
 
 In traditional distributed ledger systems, where all data is broadcast to every network participant, you don’t need to
 think about data flows – you simply package up your ledger update and send it to everyone else on the network. But in

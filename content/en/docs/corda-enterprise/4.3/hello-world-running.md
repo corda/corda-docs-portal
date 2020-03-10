@@ -103,7 +103,7 @@ terminal windows in all. Give each node a moment to start - you’ll know it’s
 the message, “Welcome to the Corda interactive shell.”.
 
 > 
-> ![running node](resources/running_node.png "running node")
+> ![running node](/en/images/running_node.png "running node")
 
 
 ## Interacting with the nodes

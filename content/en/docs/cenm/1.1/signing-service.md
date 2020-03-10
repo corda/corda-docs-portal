@@ -4,7 +4,8 @@ aliases:
 - /signing-service.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- cenm-1-1
+  cenm-1-1:
+    parent: cenm-1-1-operations
 tags:
 - signing
 - service
@@ -64,7 +65,7 @@ mentioned above, the only communication requirements are outgoing connections to
 sources, and outgoing connections to the HSMs for the configured signing keys. The overall flow of communication can be
 seen in the below diagram:
 
-![signing service communication](resources/signing-service-communication.png "signing service communication")
+![signing service communication](/en/images/signing-service-communication.png "signing service communication")
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
 [Configuring the ENM services to use SSL](enm-with-ssl.md)

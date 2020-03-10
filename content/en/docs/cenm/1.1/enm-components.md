@@ -4,7 +4,8 @@ aliases:
 - /enm-components.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- cenm-1-1
+  cenm-1-1:
+    parent: cenm-1-1-concepts-and-overview
 tags:
 - enm
 - components
@@ -16,7 +17,7 @@ title: Components of the Corda Enterprise Network Manager
 
 At the highest level, the CENM suite is deployed as shown in the following diagram:
 
-![enm high level](resources/enm-high-level.png "enm high level")
+![enm high level](/en/images/enm-high-level.png "enm high level")
 The three main components of the CENM suite are
 
 

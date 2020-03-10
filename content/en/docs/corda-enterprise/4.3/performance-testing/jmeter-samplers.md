@@ -59,7 +59,10 @@ is empty, it does not run any logic of its own. Invoking this flow goes through 
 via RPC without adding any additional flow work, and can therefore be used to measure the pure overhead of invoking
 a flow in a given set-up.![empty flow sampler](performance-testing/resources/empty-flow-sampler.png "empty flow sampler")
 This sampler client requires the minimal set of properties to be required that it shares with all Corda sampler
-clients documented here:A label for reporting results on this sampler - if in doubt what to put here ``${__samplername} will fill in the
+clients documented here:A label for reporting results on this sampler - if in doubt what to put here 
+{{< warning >}}``{{< /warning >}}
+
+${__samplername} will fill in the
 sampler client class name.The host name on which the Corda node is running. The sampler client will connect to this host via RPC. This name needs
 to be resolvable from where the sampler client is running (i.e. if using remote JMeter calls, this means from the
 server, not the client machine).The RPC port of the Corda node.The RPC user name of the Corda node.The RPC password of the Corda node.`CashIssueSampler`This sampler client has the class name `com.r3.corda.jmeter.CashIssueSampler` and starts the flow

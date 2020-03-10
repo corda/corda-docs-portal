@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V4.3/key-concepts-ecosystem.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-3:
-    parent: corda-os-4-3-concepts
+- corda-os-4-3
 tags:
 - concepts
 - ecosystem
@@ -32,7 +31,7 @@ title: The network
 
 A Corda network is a peer-to-peer network of **nodes**. Each node represents a legal entity, and each runs the Corda software (an instance of Corda and one or more Corda applications, known as **CorDapps**).
 
-![network](resources/network.png "network")
+![network](/en/images/network.png "network")
 All communication between nodes is point-to-point and encrypted using transport-layer security. This means that data is
 shared only on a need-to-know basis. There are **no global broadcasts**.
 

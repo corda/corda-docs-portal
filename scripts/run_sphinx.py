@@ -17,6 +17,8 @@ import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import ParseError
 from distutils.dir_util import copy_tree
 
+from utils.parse_menus import parse_indexes, version, version_for_config
+
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 ROOT = os.path.dirname(THIS_DIR)
 REPOS = os.path.join(ROOT, "repos")
@@ -25,6 +27,10 @@ REPOS_ROOT = os.path.join(REPOS, "en/docs") # don't rely on this.
 
 LOG = logging.getLogger(__name__)
 ARGS = None
+
+# Menus that we'll read from the .rst files and add into hugo
+MENUS = {}
+MENU_FILES = {}
 
 # If we're in one of these, don't add new lines.
 NO_NEWLINE_ELEMENTS = ["bullet_list", "enumerated_list", "definition_list", "entry", "list_item"]
@@ -435,39 +441,12 @@ class Translator:
         version = (project_name + "-" + semantic_version).replace(".", "-")
         filename_only = os.path.basename(os.path.splitext(self.filename)[0])
         dest_file = str(self.filename).replace('docs/xml/xml/', '').replace(".xml", ".md")
+        html_relpath = "/" + "/".join(dirs[3:]).replace(".xml", ".html").replace('docs/xml/xml/', '')
+        md_relpath = "/".join(dirs[3:]).replace(".xml", ".md").replace('docs/xml/xml/', '')
 
-        #  Add docs.corda.net alias in case we get deployed there.
-        suffix = "/" + "/".join(dirs[3:]).replace(".xml", ".html").replace('docs/xml/xml/', '')
-        #  Oh joy.  Couldn't make it up really..
-        if project_name == "corda-os":
-            self.front_matter["aliases"] = ["/releases/release-V" + semantic_version + suffix]            
-            # don't add the open-source defaut-without-a-version links, because they're duplicated
-            # by enterprise, so just redirect there instead.
-        elif project_name.startswith("corda-ent"):
-            self.front_matter["aliases"] = ["/releases/" + semantic_version + suffix]
-            if semantic_version == "4.3": # latest old release
-                self.front_matter["aliases"].append(suffix)
-        elif project_name.startswith("cenm"): # latest old release
-            self.front_matter["aliases"] = ["/releases/release-" + semantic_version + suffix]
-            if semantic_version == "1.1":
-                self.front_matter["aliases"].append(suffix)
+        self._add_aliases_to_front_matter(project_name, semantic_version, html_relpath)
 
-        dirname_only = os.path.basename(os.path.dirname(dest_file))
-        project_only = os.path.basename(os.path.dirname(os.path.dirname(dest_file)))
-
-        # Are we parsing the index file under <project>/MAJOR.MINOR?
-        is_version_index = filename_only == "index" and bool(re.findall(r"\d\.\d", dirname_only))
-
-        # Yes?  Rewrite the front matter titles to something consistent
-        if is_version_index:
-            if project_only == "corda-os":
-                self.front_matter["title"] = "Corda OS " + dirname_only
-            elif project_only.startswith("corda-ent"):
-                self.front_matter["title"] = "Corda Enterprise " + dirname_only
-            elif project_only == "cenm":
-                self.front_matter["title"] = "CENM " + dirname_only
-            else:
-                LOG.error(f"Could not rewrite section title for {project_only}")
+        is_version_index = self._rewrite_index_title_in_front_matter(dest_file, filename_only)
 
         # Menu entries that this page should occur in:
         menu = self.front_matter.get("menu", {})
@@ -477,16 +456,21 @@ class Translator:
         # Specifically figure out what this menu should be.
         # Add each menu as a dict
         menu_entry = {}
-        if filename_only.startswith("api-"):
-            menu_entry = { "parent": version + "-api" }
-        elif filename_only.startswith("key-concepts-"):
-            menu_entry = { "parent": version + "-concepts" }
-        elif filename_only.startswith("node-"):
-            menu_entry = { "parent": version + "-node" }
-        elif filename_only.startswith("tutorial-"):
-            menu_entry = { "parent": version + "-tutorial" }
-        elif filename_only.startswith("config-"):
-            menu_entry = { "parent": version + "-config" }
+        files_for_version = MENU_FILES.get(version, {})
+        parent = files_for_version.get(md_relpath, None)
+        if parent:
+            menu_entry = {"parent": parent}
+        #
+        # if filename_only.startswith("api-"):
+        #     menu_entry = { "parent": version + "-api" }
+        # elif filename_only.startswith("key-concepts-"):
+        #     menu_entry = { "parent": version + "-concepts" }
+        # elif filename_only.startswith("node-"):
+        #     menu_entry = { "parent": version + "-node" }
+        # elif filename_only.startswith("tutorial-"):
+        #     menu_entry = { "parent": version + "-tutorial" }
+        # elif filename_only.startswith("config-"):
+        #     menu_entry = { "parent": version + "-config" }
 
         # Are we a (project+version) section/index page? e.g. if 4.4/index
         if bool(is_version_index):
@@ -505,7 +489,7 @@ class Translator:
                 versions_menu_entry["weight"] = (100 - int(float(semantic_version)*10)) + 100
             menu["versions"] = versions_menu_entry
 
-        # Add this page as a menu entry for the given 
+        # Add this page as a menu entry for the given
         # 'section menu', i.e. { "corda-os-4-3": { ... } }
         menu[version] = menu_entry
 
@@ -524,6 +508,40 @@ class Translator:
 
         self._front_matter_add_tags_and_categories(filename_only)
 
+    def _rewrite_index_title_in_front_matter(self, dest_file, filename_only):
+        dirname_only = os.path.basename(os.path.dirname(dest_file))
+        project_only = os.path.basename(os.path.dirname(os.path.dirname(dest_file)))
+        # Are we parsing the index file under <project>/MAJOR.MINOR?
+        is_version_index = filename_only == "index" and bool(re.findall(r"\d\.\d", dirname_only))
+        # Yes?  Rewrite the front matter titles to something consistent
+        if bool(is_version_index):
+            if project_only == "corda-os":
+                self.front_matter["title"] = "Corda OS " + dirname_only
+            elif project_only.startswith("corda-ent"):
+                self.front_matter["title"] = "Corda Enterprise " + dirname_only
+            elif project_only == "cenm":
+                self.front_matter["title"] = "CENM " + dirname_only
+            else:
+                LOG.error(f"Could not rewrite section title for {project_only}")
+
+        return bool(is_version_index)
+
+    def _add_aliases_to_front_matter(self, project_name, semantic_version, relpath):
+        #  Add page redirect aliases such as docs.corda.net alias in case we get deployed there.
+        #  Oh joy.  Couldn't make it up really..
+        if project_name == "corda-os":
+            self.front_matter["aliases"] = ["/releases/release-V" + semantic_version + relpath]
+            # don't add the open-source defaut-without-a-version links, because they're duplicated
+            # by enterprise, so just redirect there instead.
+        elif project_name.startswith("corda-ent"):
+            self.front_matter["aliases"] = ["/releases/" + semantic_version + relpath]
+            if semantic_version == "4.3":  # latest old release
+                self.front_matter["aliases"].append(relpath)
+        elif project_name.startswith("cenm"):  # latest old release
+            self.front_matter["aliases"] = ["/releases/release-" + semantic_version + relpath]
+            if semantic_version == "1.1":
+                self.front_matter["aliases"].append(relpath)
+
     """  Add some tags based on the filename into the front matter
     and add some reasonable categories too """
     def _front_matter_add_tags_and_categories(self, filename_only):
@@ -535,7 +553,6 @@ class Translator:
 
         if tags:
             self.front_matter['tags'] = tags
-
 
     ###########################################################################
     # Visitors
@@ -846,7 +863,7 @@ class Translator:
         self.top.body = []
         self.pop_context()
 
-    def visit_attention(self, node):       
+    def visit_attention(self, node):
         self.top.put_body(self.cms.visit_attention())
 
     def depart_attention(self, node):
@@ -1266,6 +1283,7 @@ def postprocess_xml():
         _postprocess_xml_files(d)
     LOG.warning("Post-processing all XML finished")
 
+
 def _remove_junk_that_breaks_hugo():
     root = os.path.join(REPOS, "en/docs/corda-enterprise/4.2/docs/")
     for f in ["source/resources/nodefull.md", "xml/xml/resources/nodefull.md"]:
@@ -1348,7 +1366,7 @@ def _replace_duplicate_resources():
         f = [os.path.basename(path) for path in paths]
         if len(f) != len(paths):
             LOG.error("different filenames!")
-                
+
         _replace_duplicate_resources_in_files(paths)
 
 
@@ -1359,7 +1377,7 @@ def _replace_duplicate_resources_in_files(paths):
 
     LOG.warning("Consolidating into one file")
     LOG.warning(paths)
-    
+
     for pathname in paths:
         filename = os.path.basename(pathname)
         is_image = bool(os.path.splitext(pathname)[1] in image_exts)
@@ -1385,7 +1403,7 @@ def _replace_duplicate_resources_in_files(paths):
         files_in_this_version = [x for x in Path(this_version).rglob(f'**/*') if str(x).endswith(".md")]
         _search_and_replace(files_in_this_version, replacements)
         os.unlink(pathname)
-    
+
 
 def _hash_file(pathname):
     BUF_SIZE = 65536
@@ -1420,7 +1438,8 @@ def create_missing_pages():
 
 
 def main():
-    global ARGS
+    global ARGS, MENUS, MENU_FILES
+
     desc = "Convert rst files to md using sphinx"
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument("--toml", "-t", help="write front matter as toml, default is yaml as that renders in github", default=False, action='store_true')
@@ -1450,13 +1469,18 @@ def main():
     else:
         cms = Hugo()
 
+    MENUS, MENU_FILES = parse_indexes()
+
+    menus = os.path.join(ROOT, "config/_default/menus/menus.en.toml")
+    open(menus,'w').write(toml.dumps(MENUS))
+
     convert_all_xml_to_md(cms)
 
     # filename = os.path.join(ROOT, "repos/en/docs/corda-os/4.4/docs/xml/xml/api-flows.xml")
     # convert_one_xml_file_to_cms_style_md(cms, filename)
 
     copy_to_content(cms)
-    
+
     if not ARGS.skip_resources:
          copy_resources_to_content()
 

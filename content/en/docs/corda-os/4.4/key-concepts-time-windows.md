@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V4.4/key-concepts-time-windows.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-4:
-    parent: corda-os-4-4-concepts
+- corda-os-4-4
 tags:
 - concepts
 - time
@@ -61,7 +60,7 @@ For this reason, times in transactions are specified as time *windows*, not abso
 there can never be “true time”, only an approximation of it. Time windows can be open-ended (i.e. specify only one of
 “before” and “after”) or they can be fully bounded.
 
-![time window](resources/time-window.gif "time window")
+![time window](/en/images/time-window.gif "time window")
 
 In this way, we express the idea that the *true value* of the fact “the current time” is actually unknowable. Even when
 both a before and an after time are included, the transaction could have occurred at any point within that time-window.

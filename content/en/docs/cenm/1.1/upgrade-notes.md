@@ -4,7 +4,8 @@ aliases:
 - /upgrade-notes.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- cenm-1-1
+  cenm-1-1:
+    parent: cenm-1-1-operations
 tags:
 - upgrade
 - notes
@@ -87,7 +88,10 @@ database {
 
 
 * **Config Files**CENM 1.0 Identity Manager and Network Map services are not backwards compatible with 0.x Doorman and Network Map
-config files. 0.2.2 and 0.3 / 0.4 config files can be migrated to 1.0 using the :docs:`tool-config-migration`.
+config files. 0.2.2 and 0.3 / 0.4 config files can be migrated to 1.0 using the 
+{{< warning >}}:docs:`tool-config-migration`{{< /warning >}}
+
+.
 Using the generated 1.0 configs, the services can be upgraded by: stopping the services, swapping out the JAR and
 config files and restarting the services.
 
@@ -112,12 +116,12 @@ Once this has been done the following steps should be followed to upgrade the se
 
 For example for the Doorman service:
 
-![doorman migration](resources/doorman-migration.png "doorman migration")
+![doorman migration](/en/images/doorman-migration.png "doorman migration")
 These steps should be followed for both the Doorman and Network Map services. This step is *non-destructive* - it
 should leave the old DB untouched, only copying the data across to the new DBs. Once both services have been migrated
 via the above steps they should be fully functional:
 
-![separated services](resources/separated-services.png "separated services")
+![separated services](/en/images/separated-services.png "separated services")
 
 ### Other Required Changes
 

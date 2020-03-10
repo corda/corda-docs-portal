@@ -4,8 +4,7 @@ aliases:
 - /tutorial-cordapp.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-3:
-    parent: corda-enterprise-4-3-tutorial
+- corda-enterprise-4-3
 tags:
 - tutorial
 - cordapp
@@ -318,7 +317,7 @@ It usually takes around 60 seconds for the nodes to finish starting up. Each nod
 * Follow the prompt to `import Gradle project`
 * Select the `Run Example CorDapp - Kotlin` run configuration from the drop-down menu at the top right-hand side of
 the IDE
-* Click the green arrow to start the nodes:![run config drop down](resources/run-config-drop-down.png "run config drop down")
+* Click the green arrow to start the nodes:![run config drop down](/en/images/run-config-drop-down.png "run config drop down")
 
 * Select `cordapp-example.workflows-kotlin.test` for the Use classpath of module field, and then click Run
 * To stop the nodes, press the red square button at the top right-hand side of the IDE, next to the run configurations

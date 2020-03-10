@@ -534,7 +534,7 @@ deployment and can also remotely control Microsoft Azure, to create a test netwo
 
 Learn more on the [https://docs.corda.net/network-builder.html](https://docs.corda.net/network-builder.html). page.
 
-![network builder v4](_static/images/network-builder-v4.png "network builder v4")
+![network builder v4](/en/images/network-builder-v4.png "network builder v4")
 
 #### JPA access in flows and services
 

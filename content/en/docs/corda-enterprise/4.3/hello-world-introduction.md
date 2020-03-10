@@ -62,7 +62,7 @@ Our state will be the `IOUState`, representing an IOU. It will contain the IOUâ€
 `IOUState` as follows:
 
 > 
-> ![tutorial state](resources/tutorial-state.png "tutorial state")
+> ![tutorial state](/en/images/tutorial-state.png "tutorial state")
 
 
 ### The IOUFlow
@@ -71,7 +71,7 @@ Our flow will be the `IOUFlow`. This flow will completely automate the process o
 steps:
 
 > 
-> ![simple tutorial flow](resources/simple-tutorial-flow.png "simple tutorial flow")
+> ![simple tutorial flow](/en/images/simple-tutorial-flow.png "simple tutorial flow")
 
 
 ### The IOUContract

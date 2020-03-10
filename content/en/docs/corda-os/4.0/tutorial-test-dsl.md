@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V4.0/tutorial-test-dsl.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-0:
-    parent: corda-os-4-0-tutorial
+- corda-os-4-0
 tags:
 - tutorial
 - test
@@ -122,7 +121,19 @@ public void simpleCPDoesntCompile() {
 {{< /tabs >}}
 
 We can add a transaction to the ledger using the `transaction` primitive. The transaction in turn may be defined by
-specifying ``input``s, ``output``s, ``command``s and ``attachment``s.
+specifying 
+{{< warning >}}``{{< /warning >}}
+
+input``s, 
+{{< warning >}}``{{< /warning >}}
+
+output``s, 
+{{< warning >}}``{{< /warning >}}
+
+command``s and 
+{{< warning >}}``{{< /warning >}}
+
+attachment``s.
 
 The above `input` call is a bit special; transactions don’t actually contain input states, just references
 to output states of other transactions. Under the hood the above `input` call creates a dummy transaction in the

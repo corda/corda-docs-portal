@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V3.4/api-flows.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-3-4:
-    parent: corda-os-3-4-api
+- corda-os-3-4
 tags:
 - api
 - flows
@@ -76,7 +75,7 @@ In our flow, the Initiator flow class will be doing the majority of the work:
 
 We can visualize the work performed by initiator as follows:
 
-![flow overview](resources/flow-overview.png "flow overview")
+![flow overview](/en/images/flow-overview.png "flow overview")
 
 ### Responder
 
@@ -363,12 +362,18 @@ In addition `FlowLogic` provides functions that batch receives:
 
 > 
 > 
-> * Receives from all ``FlowSession``s specified in the passed in map. The received types may differ.
+> * Receives from all 
+> {{< warning >}}``{{< /warning >}}
+> 
+> FlowSession``s specified in the passed in map. The received types may differ.
 
 
 
 * `receiveAll(receiveType: Class<R>, sessions: List<FlowSession>): List<UntrustworthyData<R>>`
-    * Receives from all ``FlowSession``s specified in the passed in list. The received types must be the same.
+    * Receives from all 
+{{< warning >}}``{{< /warning >}}
+
+FlowSession``s specified in the passed in list. The received types must be the same.
 
 
 

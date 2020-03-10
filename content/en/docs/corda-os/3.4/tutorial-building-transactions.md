@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V3.4/tutorial-building-transactions.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-3-4:
-    parent: corda-os-3-4-tutorial
+- corda-os-3-4
 tags:
 - tutorial
 - building
@@ -100,7 +99,10 @@ part of a simulated in-memory network of nodes.
 
 {{< note >}}
 Before creating the IntelliJ run configurations for these unit tests
-go to Run -> Edit |nbsp| Configurations -> Defaults -> JUnit, add
+go to Run -> Edit 
+{{< warning >}}|nbsp|{{< /warning >}}
+
+ Configurations -> Defaults -> JUnit, add
 `-javaagent:lib/quasar.jar`
 to the VM options, and set Working directory to `$PROJECT_DIR$`
 so that the `Quasar` instrumentation is correctly configured.

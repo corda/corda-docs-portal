@@ -3,8 +3,7 @@ aliases:
 - /releases/4.0/api-flows.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-0:
-    parent: corda-enterprise-4-0-api
+- corda-enterprise-4-0
 tags:
 - api
 - flows
@@ -76,7 +75,7 @@ In our flow, the Initiator flow class will be doing the majority of the work:
 
 We can visualize the work performed by initiator as follows:
 
-![flow overview](resources/flow-overview.png "flow overview")
+![flow overview](/en/images/flow-overview.png "flow overview")
 
 ### Responder
 

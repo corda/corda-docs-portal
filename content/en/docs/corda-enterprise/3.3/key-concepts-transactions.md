@@ -3,8 +3,7 @@ aliases:
 - /releases/3.3/key-concepts-transactions.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-3-3:
-    parent: corda-enterprise-3-3-concepts
+- corda-enterprise-3-3
 tags:
 - concepts
 - transactions
@@ -48,7 +47,7 @@ single link in the state sequences seen in [States](key-concepts-states.md).
 
 Here is an example of an update transaction, with two inputs and two outputs:
 
-![basic tx](resources/basic-tx.png "basic tx")
+![basic tx](/en/images/basic-tx.png "basic tx")
 A transaction can contain any number of inputs and outputs of any type:
 
 
@@ -79,7 +78,7 @@ These input states references are a combination of:
 
 This situation can be illustrated as follows:
 
-![tx chain](resources/tx-chain.png "tx chain")
+![tx chain](/en/images/tx-chain.png "tx chain")
 These input state references link together transactions over time, forming what is known as a *transaction chain*.
 
 
@@ -88,14 +87,14 @@ These input state references link together transactions over time, forming what 
 Initially, a transaction is just a **proposal** to update the ledger. It represents the future state of the ledger
 that is desired by the transaction builder(s):
 
-![uncommitted tx](resources/uncommitted_tx.png "uncommitted tx")
+![uncommitted tx](/en/images/uncommitted_tx.png "uncommitted tx")
 To become reality, the transaction must receive signatures from all of the *required signers* (see **Commands**, below). Each
 required signer appends their signature to the transaction to indicate that they approve the proposal:
 
-![tx with sigs](resources/tx_with_sigs.png "tx with sigs")
+![tx with sigs](/en/images/tx_with_sigs.png "tx with sigs")
 If all of the required signatures are gathered, the transaction becomes committed:
 
-![committed tx](resources/committed_tx.png "committed tx")
+![committed tx](/en/images/committed_tx.png "committed tx")
 This means that:
 
 
@@ -172,7 +171,7 @@ listed in the commands, we get the list of the transaction’s required signers.
 
 We can visualize this situation as follows:
 
-![commands](resources/commands.png "commands")
+![commands](/en/images/commands.png "commands")
 
 ### Attachments
 

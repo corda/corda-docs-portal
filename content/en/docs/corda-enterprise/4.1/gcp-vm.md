@@ -34,19 +34,19 @@ Google credentials.
 In the project drop down click on the plus icon to create a new
 project to house your Corda resources.
 
-![consolegcp](resources/consolegcp.png "consolegcp")
-![console2](resources/console2.png "console2")
-![newprojectgcp](resources/newprojectgcp.png "newprojectgcp")
+![consolegcp](/en/images/consolegcp.png "consolegcp")
+![console2](/en/images/console2.png "console2")
+![newprojectgcp](/en/images/newprojectgcp.png "newprojectgcp")
 Enter a project name and click Create.
 
 **STEP 2: Launch the VM**
 
 In the left hand side nav click on Compute Engine.
 
-![gcpcompute](resources/gcpcompute.png "gcpcompute")
+![gcpcompute](/en/images/gcpcompute.png "gcpcompute")
 Click on Create Instance.
 
-![consolegcpcreatevm](resources/consolegcpcreatevm.png "consolegcpcreatevm")
+![consolegcpcreatevm](/en/images/consolegcpcreatevm.png "consolegcpcreatevm")
 Fill in the form with the desired VM specs:
 
 Recommended minimum 4vCPU with 15GB memory and 40GB Persistent disk.
@@ -56,7 +56,7 @@ Allow full API access.
 
 Dont worry about firewall settings as you will configure those later.
 
-![gcpconsolevmsettings](resources/gcpconsolevmsettings.png "gcpconsolevmsettings")
+![gcpconsolevmsettings](/en/images/gcpconsolevmsettings.png "gcpconsolevmsettings")
 Click Create and wait a few sections for your instance to provision
 and start running.
 
@@ -65,8 +65,8 @@ and start running.
 Once your instance is running click on the SSH button to launch a
 cloud SSH terminal in a new window.
 
-![gcpconsolelaunchssh](resources/gcpconsolelaunchssh.png "gcpconsolelaunchssh")
-![gcpshell](resources/gcpshell.png "gcpshell")
+![gcpconsolelaunchssh](/en/images/gcpconsolelaunchssh.png "gcpconsolelaunchssh")
+![gcpshell](/en/images/gcpshell.png "gcpshell")
 Run the following to configure the firewall to allow Corda traffic
 
 ```bash
@@ -107,7 +107,7 @@ time installation script.
 If you have not already set up your account on Testnet then please visit [https://testnet.corda.network](https://testnet.corda.network) and sign up.
 
 {{< /note >}}
-![testnet platform](resources/testnet-platform.png "testnet platform")
+![testnet platform](/en/images/testnet-platform.png "testnet platform")
 You can generate as many Testnet identites as you like by refreshing
 this page to generate a new one time link.
 
@@ -133,7 +133,7 @@ tail -f /opt/corda/logs/node-<VM-NAME>.log
 
 Once the node has booted up you can navigate to the external web address of the instance on port 8080. If everything is working you should see the following:
 
-![installed cordapps](resources/installed-cordapps.png "installed cordapps")
+![installed cordapps](/en/images/installed-cordapps.png "installed cordapps")
 
 ## Testing your deployment
 

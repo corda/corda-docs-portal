@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V4.4/key-concepts-vault.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-4:
-    parent: corda-os-4-4-concepts
+- corda-os-4-4
 tags:
 - concepts
 - vault
@@ -61,7 +60,7 @@ The vault supports the management of data in both authoritative (“on-ledger”
 
 The following diagram illustrates the breakdown of the vault into sub-system components:
 
-![vault](resources/vault.png "vault")
+![vault](/en/images/vault.png "vault")
 Note the following:
 
 
@@ -75,6 +74,6 @@ Note the following:
 * A vault update API is internally used by transaction recording flows.
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
-Section 8 of the [Technical white paper](_static/corda-technical-whitepaper.pdf) describes features of the vault yet to be implemented including private key management, state splitting and merging, asset re-issuance and node event scheduling.
+Section 8 of the [Technical white paper](/en/pdf/corda-technical-whitepaper.pdf) describes features of the vault yet to be implemented including private key management, state splitting and merging, asset re-issuance and node event scheduling.
 
 

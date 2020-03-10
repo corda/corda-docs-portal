@@ -3,7 +3,8 @@ aliases:
 - /releases/release-1.2/signing-service.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- cenm-1-2
+  cenm-1-2:
+    parent: cenm-1-2-operations
 tags:
 - signing
 - service
@@ -68,7 +69,7 @@ mentioned above, the only communication requirements are outgoing connections to
 or outgoing connection to SMR service configured as data source which then connects to CENM services (Identity Manager and Network Maps), and outgoing connections to the HSMs
 for the configured signing keys. The overall flow of communication can be seen in the below diagram:
 
-![signing service communication](resources/signing-service-communication.png "signing service communication")
+![signing service communication](/en/images/signing-service-communication.png "signing service communication")
 {{< note >}}
 All inter-service communication can be configured with SSL support to ensure the connection is encrypted. See
 [Configuring the ENM services to use SSL](enm-with-ssl.md)
@@ -266,7 +267,10 @@ production environment configuration.
 Using a local java keystore in a production system is strongly discouraged.
 
 {{< /note >}}
-More detailed descriptions of how to configure a signing key can be found in the `Configuration Parameters`_ section
+More detailed descriptions of how to configure a signing key can be found in the 
+{{< warning >}}`Configuration Parameters`_{{< /warning >}}
+
+ section
 below.
 
 
@@ -721,9 +725,8 @@ Password for the given CU account.
 must be used.
 * **file**: 
 The location of the local certificate store. This will be created if it does not exist.
-If the local certificate store should be the same as the global certificate store,
-than this property needs to have the same path as the `globalCertificateStore` property has.
-Note that globalCertificateStore is not in effect for AWS HSM.
+The local certificate store should contain the entire certificate chain from the signing key back to the root,
+because currently `globalCertificateStore` property is not in effect for AWS HSM.
 
 
 * **password**: 
@@ -1947,7 +1950,7 @@ enmListener = {
 ```
 
 {{< note >}}
-CA Plugin’s configuration file must be in same directory service’s JAR file and must be named
+CA Plugin’s configuration file must be in the same directory as the service’s JAR file and must be named
 “plugin-ca.conf”
 
 {{< /note >}}
@@ -1968,7 +1971,7 @@ enmListener = {
 ```
 
 {{< note >}}
-Non CA Plugin’s configuration file must be in same directory as service’s JAR file and must be named
+Non CA Plugin’s configuration file must be in the same directory as the service’s JAR file and must be named
 “plugin-non-ca.conf”
 
 {{< /note >}}

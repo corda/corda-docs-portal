@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V3.4/tutorial-contract.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-3-4:
-    parent: corda-os-3-4-tutorial
+- corda-os-3-4
 tags:
 - tutorial
 - contract
@@ -40,7 +39,7 @@ value of the commercial paper.
 
 This lifecycle for commercial paper is illustrated in the diagram below:
 
-![contract cp](resources/contract-cp.png "contract cp")
+![contract cp](/en/images/contract-cp.png "contract cp")
 
 ## Starting the commercial paper class
 
@@ -87,7 +86,7 @@ piece of issued paper.
 
 A state is a class that stores data that is checked by the contract. A commercial paper state is structured as below:
 
-![contract cp state](resources/contract-cp-state.png "contract cp state")
+![contract cp state](/en/images/contract-cp-state.png "contract cp state")
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
 ```kotlin

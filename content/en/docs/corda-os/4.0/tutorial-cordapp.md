@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V4.0/tutorial-cordapp.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-0:
-    parent: corda-os-4-0-tutorial
+- corda-os-4-0
 tags:
 - tutorial
 - cordapp
@@ -317,7 +316,7 @@ can query the ‘status’ end-point located at `http://localhost:[port]/api/sta
 
 * Select the `Run Example CorDapp - Kotlin` run configuration from the drop-down menu at the top right-hand side of
 the IDE
-* Click the green arrow to start the nodes:![run config drop down](resources/run-config-drop-down.png "run config drop down")
+* Click the green arrow to start the nodes:![run config drop down](/en/images/run-config-drop-down.png "run config drop down")
 
 * To stop the nodes, press the red square button at the top right-hand side of the IDE, next to the run configurations
 

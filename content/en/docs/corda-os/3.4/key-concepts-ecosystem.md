@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V3.4/key-concepts-ecosystem.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-3-4:
-    parent: corda-os-3-4-concepts
+- corda-os-3-4
 tags:
 - concepts
 - ecosystem
@@ -51,7 +50,7 @@ This certificate certifies the node’s identity when communicating with other p
 
 We can visualize a network as follows:
 
-![network](resources/network.png "network")
+![network](/en/images/network.png "network")
 
 ## Network services
 

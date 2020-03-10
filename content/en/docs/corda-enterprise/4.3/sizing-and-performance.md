@@ -40,7 +40,7 @@ the time of Corda Enterprise 4 release).  This is with each node running on itâ€
 running **Microsoft SQL Server**.  Similar results were obtained against the other supported databases.
 
 
-![ce4 comparison chart](resources/performance/ce4-comparison-chart.png "ce4 comparison chart")
+![ce4 comparison chart](/en/images/ce4-comparison-chart.png "ce4 comparison chart")
 Figure 1
 
 
@@ -52,7 +52,7 @@ varies with the number of those payments combined together.  This can be useful 
 be a technique for even greater throughput.
 
 
-![states per second](resources/performance/states-per-second.png "states per second")
+![states per second](/en/images/states-per-second.png "states per second")
 Figure 2
 
 
@@ -65,7 +65,7 @@ of Figure 3 were achieved using Corda Enterprise 3.0 on **Microsoft Azure** virt
 with minimal latency between the node VM and the database server VM.
 
 
-![comparison chart](resources/performance/comparison-chart.png "comparison chart")
+![comparison chart](/en/images/comparison-chart.png "comparison chart")
 Figure 3
 
 

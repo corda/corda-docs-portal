@@ -151,7 +151,7 @@ Navigate to [https://testnet.corda.network/platform](https://testnet.corda.netwo
 Click on the `Download` button and wait for the ZIP
 file to download:
 
-![testnet download](resources/testnet-download.png "testnet download")
+![testnet download](/en/images/testnet-download.png "testnet download")
 
 Unzip the file in your Corda root directory:
 

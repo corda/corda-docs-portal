@@ -4,7 +4,8 @@ aliases:
 - /enm-with-ssl.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- cenm-1-1
+  cenm-1-1:
+    parent: cenm-1-1-configuration
 tags:
 - enm
 - ssl
@@ -24,7 +25,7 @@ The following components of the ENM suite can all be configured to encrypt their
 How to configure this is discussed in this section, whilst the flow of information between these various components
 is shown in the following diagram
 
-![enm with ssl](resources/enm-with-ssl.png "enm with ssl")
+![enm with ssl](/en/images/enm-with-ssl.png "enm with ssl")
 
 ## Recommended Key and Cert hierarchy
 

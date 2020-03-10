@@ -3,8 +3,7 @@ aliases:
 - /releases/3.3/key-concepts-consensus.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-3-3:
-    parent: corda-enterprise-3-3-concepts
+- corda-enterprise-3-3
 tags:
 - concepts
 - consensus
@@ -65,7 +64,7 @@ transferring us a treasury bond. We can only be sure that the bond transfer is v
 
 The only way to be sure of both conditions is to walk the transaction’s chain. We can visualize this process as follows:
 
-![validation consensus](resources/validation-consensus.png "validation consensus")
+![validation consensus](/en/images/validation-consensus.png "validation consensus")
 When verifying a proposed transaction, a given party may not have every transaction in the transaction chain that they
 need to verify. In this case, they can request the missing transactions from the transaction proposer(s). The
 transaction proposer(s) will always have the full transaction chain, since they would have requested it when
@@ -84,7 +83,7 @@ proposals:
 This is a problem because, although both transactions will achieve validity consensus, Bob has managed to
 “double-spend” his USD to get double the amount of GBP and EUR. We can visualize this as follows:
 
-![uniqueness consensus](resources/uniqueness-consensus.png "uniqueness consensus")
+![uniqueness consensus](/en/images/uniqueness-consensus.png "uniqueness consensus")
 To prevent this, a valid transaction proposal must also achieve uniqueness consensus. Uniqueness consensus is the
 requirement that none of the inputs to a proposed transaction have already been consumed in another transaction.
 

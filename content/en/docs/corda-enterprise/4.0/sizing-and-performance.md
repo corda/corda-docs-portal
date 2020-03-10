@@ -32,7 +32,7 @@ The numbers in the high level comparison chart below were achieved on **Microsof
 **Microsoft SQL Server** database.  Each node had their own instance of the database running on a separate VM from the node,
 with minimal latency between the node VM and the database server VM.
 
-![comparison chart](resources/performance/comparison-chart.png "comparison chart")
+![comparison chart](/en/images/comparison-chart.png "comparison chart")
 The y-axis represents the number of flows completing per second, which we call Transactions Per Second (TPS) for simplicity although the actual number of
 Corda transactions per flow completing varies depending on the type of flow.   The x-axis represents the performance with varying numbers
 of CPU cores configured for the VMs.  Each bar indicates the performance of a particular type of flow and with a particular high-level node (or nodes)

@@ -159,9 +159,15 @@ The Cordapp gradle plugin should be amended to differentiate between a “flows�
 
 In the build.gradle file of the contracts module, there should be a `version` property that needs be incremented for each release.
 
-This `version’ will be used for the regular release, and be part of the jar name.
+This 
+{{< warning >}}`{{< /warning >}}
 
-Also, when packaging the contract for release, the `version` should be added by the plugin to the manifest file, together with other properties like `target-platform-version.
+version’ will be used for the regular release, and be part of the jar name.
+
+Also, when packaging the contract for release, the `version` should be added by the plugin to the manifest file, together with other properties like 
+{{< warning >}}`{{< /warning >}}
+
+target-platform-version.
 
 When loading the contractJar in the attachment storage, the version should be saved as a column, so it is easily accessible.
 

@@ -3,8 +3,7 @@ aliases:
 - /releases/release-V3.4/key-concepts-consensus.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-3-4:
-    parent: corda-os-3-4-concepts
+- corda-os-3-4
 tags:
 - concepts
 - consensus
@@ -84,7 +83,7 @@ proposals:
 This is a problem because, although both transactions will achieve validity consensus, Bob has managed to
 “double-spend” his USD to get double the amount of GBP and EUR. We can visualize this as follows:
 
-![uniqueness consensus](resources/uniqueness-consensus.png "uniqueness consensus")
+![uniqueness consensus](/en/images/uniqueness-consensus.png "uniqueness consensus")
 To prevent this, a valid transaction proposal must also achieve uniqueness consensus. Uniqueness consensus is the
 requirement that none of the inputs to a proposed transaction have already been consumed in another transaction.
 

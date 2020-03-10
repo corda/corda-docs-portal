@@ -3,8 +3,7 @@ aliases:
 - /releases/4.1/node-administration.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-1:
-    parent: corda-enterprise-4-1-node
+- corda-enterprise-4-1
 tags:
 - node
 - administration
@@ -150,7 +149,7 @@ When starting Corda nodes using the ‘driver DSL’, you should see a startup m
 
 The following diagram illustrates Corda flow metrics visualized using hawtio:
 
-![hawtio jmx](resources/hawtio-jmx.png "hawtio jmx")
+![hawtio jmx](/en/images/hawtio-jmx.png "hawtio jmx")
 
 ## Memory usage and tuning
 

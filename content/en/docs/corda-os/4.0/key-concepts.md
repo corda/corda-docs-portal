@@ -3,7 +3,8 @@ aliases:
 - /releases/release-V4.0/key-concepts.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- corda-os-4-0
+  corda-os-4-0:
+    parent: corda-os-4-0-development
 tags:
 - concepts
 title: Key concepts
@@ -41,8 +42,8 @@ The detailed thinking and rationale behind these concepts are presented in two w
 
 > 
 > 
-> * [Corda: An Introduction](_static/corda-introductory-whitepaper.pdf)
-> * [Corda: A Distributed Ledger](_static/corda-technical-whitepaper.pdf) (A.K.A. the Technical White Paper)
+> * [Corda: An Introduction](/en/pdf/corda-introductory-whitepaper.pdf)
+> * [Corda: A Distributed Ledger](/en/pdf/corda-technical-whitepaper.pdf) (A.K.A. the Technical White Paper)
 
 
 Explanations of the key concepts are also available as [videos](https://vimeo.com/album/4555732/).

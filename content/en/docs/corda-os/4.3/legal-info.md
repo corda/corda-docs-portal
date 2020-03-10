@@ -77,8 +77,14 @@ This file is based on or incorporates material from the projects listed below (T
 * error_prone_annotations
 * forms
 * forms_rt
-* geronimojms_ 2.0_spec
-* geronimojson_ 1.0_spec
+* 
+{{< warning >}}geronimojms_{{< /warning >}}
+
+ 2.0_spec
+* 
+{{< warning >}}geronimojson_{{< /warning >}}
+
+ 1.0_spec
 * groovy-all
 * guava
 * h2
@@ -529,11 +535,17 @@ commonscollections4 4.1
 [http://commons.apache.org/jexl/](http://commons.apache.org/jexl/)
 [http://www.apache.org/licenses/LICENSE-2.0.txt](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
-geronimojson_ 1.0_spec  1.0-alpha-1
+
+{{< warning >}}geronimojson_{{< /warning >}}
+
+ 1.0_spec  1.0-alpha-1
 [https://github.com/apache/geronimo-specs](https://github.com/apache/geronimo-specs)
 [https://github.com/apache/geronimo-specs/blob/trunk/LICENSE](https://github.com/apache/geronimo-specs/blob/trunk/LICENSE)
 
-geronimojms_ 2.0_spec 1.0-alpha-2
+
+{{< warning >}}geronimojms_{{< /warning >}}
+
+ 2.0_spec 1.0-alpha-2
 [https://github.com/apache/geronimo-specs](https://github.com/apache/geronimo-specs)
 [https://github.com/apache/geronimo-specs/blob/trunk/LICENSE](https://github.com/apache/geronimo-specs/blob/trunk/LICENSE)
 
@@ -2166,15 +2178,36 @@ If the program is interactive, make it output a short notice like this when it s
 
 > 
 > Gnomovision version 69, Copyright (C) year name of author
-> Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w’. This is free software, and you are welcome to redistribute it under certain conditions; type `show c’ for details.
+> Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type 
+> {{< warning >}}`{{< /warning >}}
+> 
+> show w’. This is free software, and you are welcome to redistribute it under certain conditions; type 
+> {{< warning >}}`{{< /warning >}}
+> 
+> show c’ for details.
 
 
-The hypothetical commands `show w’ and `show c’ should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than `show w’ and `show c’; they could even be mouse-clicks or menu items–whatever suits your program.
+The hypothetical commands 
+{{< warning >}}`{{< /warning >}}
+
+show w’ and 
+{{< warning >}}`{{< /warning >}}
+
+show c’ should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than 
+{{< warning >}}`{{< /warning >}}
+
+show w’ and 
+{{< warning >}}`{{< /warning >}}
+
+show c’; they could even be mouse-clicks or menu items–whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your school, if any, to sign a “copyright disclaimer” for the program, if necessary. Here is a sample; alter the names:
 
 > 
-> Yoyodyne, Inc., hereby disclaims all copyright interest in the program `Gnomovision’ (which makes passes at compilers) written by James Hacker.
+> Yoyodyne, Inc., hereby disclaims all copyright interest in the program 
+> {{< warning >}}`{{< /warning >}}
+> 
+> Gnomovision’ (which makes passes at compilers) written by James Hacker.
 > 
 > signature of Ty Coon, 1 April 1989
 > Ty Coon, President of Vice

@@ -195,7 +195,10 @@ is complete)
 * At the top-right of the screen, to the left of the green `play` arrow, you should see a dropdown. In that
 dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow.
 * Wait until the run windows displays the message `Webserver started up in XX.X sec`
-* Confirm that the CorDapp is running correctly by visiting the front end at `[http://localhost:10009/web/example/](http://localhost:10009/web/example/)
+* Confirm that the CorDapp is running correctly by visiting the front end at 
+{{< warning >}}`{{< /warning >}}
+
+[http://localhost:10009/web/example/](http://localhost:10009/web/example/)
 
 
 

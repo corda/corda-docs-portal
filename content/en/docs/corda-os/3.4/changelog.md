@@ -163,7 +163,10 @@ For a detailed specification of the extension please see [Network permissioning]
 > object, which the node does each time it changes. `networkMapService` config has been removed.
 >     * To support local and test deployments, the node polls the `additional-node-infos` directory for these signed `NodeInfo`
 > objects which are stored in its local cache. On startup the node generates its own signed file with the filename format
-> “nodeInfo-*”. This can be copied to every node’s `additional-node-infos` directory that is part of the network.
+> “nodeInfo-
+> {{< warning >}}*{{< /warning >}}
+> 
+> ”. This can be copied to every node’s `additional-node-infos` directory that is part of the network.
 >     * Cordform (which is the `deployNodes` gradle task) does this copying automatically for the demos. The `NetworkMap`
 > parameter is no longer needed.
 >     * For test deployments we’ve introduced a bootstrapping tool (see setting-up-a-corda-network).
@@ -240,11 +243,17 @@ if every command that a signer should receive (e.g. an Oracle) is indeed visible
 * Changed the AMQP serialiser to use the oficially assigned R3 identifier rather than a placeholder.
 * The `ReceiveTransactionFlow` can now be told to record the transaction at the same time as receiving it. Using this
 feature, better support for observer/regulator nodes has been added. See [Observer nodes](tutorial-observer-nodes.md).
-* Added an overload of `TransactionWithSignatures.verifySignaturesExcept` which takes in a collection of ``PublicKey``s.
+* Added an overload of `TransactionWithSignatures.verifySignaturesExcept` which takes in a collection of 
+{{< warning >}}``{{< /warning >}}
+
+PublicKey``s.
 * `DriverDSLExposedInterface` has been renamed to `DriverDSL` and the `waitForAllNodesToFinish()` method has instead
 become a parameter on driver creation.
 * Values for the `database.transactionIsolationLevel` config now follow the `java.sql.Connection` int constants but
-without the “TRANSACTION_” prefix, i.e. “NONE”, “READ_UNCOMMITTED”, etc.
+without the “
+{{< warning >}}TRANSACTION_{{< /warning >}}
+
+” prefix, i.e. “NONE”, “READ_UNCOMMITTED”, etc.
 * Peer-to-peer communications is now via AMQP 1.0 as default.
 Although the legacy Artemis CORE bridging can still be used by setting the `useAMQPBridges` configuration property to false.
 * The Artemis topics used for peer-to-peer communication have been changed to be more consistent with future cryptographic

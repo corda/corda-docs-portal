@@ -4,8 +4,7 @@ aliases:
 - /node-database-tables.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-3:
-    parent: corda-enterprise-4-3-node
+- corda-enterprise-4-3
 tags:
 - node
 - database
@@ -46,7 +45,7 @@ By calling `rpc.clearNetworkMapCache()` all these tables will be cleared and rec
 
 Read more here: [The network map](network-map.md)
 
-![node info tables](resources/database/node_info_tables.png "node info tables")
+![node info tables](/en/images/node_info_tables.png "node info tables")
 
 {{< table >}}
 
@@ -175,7 +174,7 @@ Read more in [The ledger](key-concepts-ledger.md)
 
 Read more in [Using attachments](tutorial-attachments.md) and [Node services](node-services.md)
 
-![attachments tables](resources/database/attachments_tables.png "attachments tables")
+![attachments tables](/en/images/attachments_tables.png "attachments tables")
 
 {{< table >}}
 
@@ -422,7 +421,7 @@ The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` t
 
 ### Fungible states
 
-![vault fungible states](resources/database/vault_fungible_states.png "vault fungible states")
+![vault fungible states](/en/images/vault_fungible_states.png "vault fungible states")
 
 {{< table >}}
 
@@ -451,7 +450,7 @@ The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` t
 
 ### Linear states
 
-![vault linear states](resources/database/vault_linear_states.png "vault linear states")
+![vault linear states](/en/images/vault_linear_states.png "vault linear states")
 
 {{< table >}}
 

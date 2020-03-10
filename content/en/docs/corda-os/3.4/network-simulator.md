@@ -57,7 +57,7 @@ to single JVM simulations.
 
 ## Interface
 
-![network simulator](resources/network-simulator.png "network simulator")
+![network simulator](/en/images/network-simulator.png "network simulator")
 The network simulator can be run automatically, or stepped manually through each step of the interest rate swap. The
 options on the simulator window are:
 

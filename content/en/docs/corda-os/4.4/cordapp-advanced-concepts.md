@@ -3,7 +3,8 @@ aliases:
 - /releases/release-V4.4/cordapp-advanced-concepts.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- corda-os-4-4
+  corda-os-4-4:
+    parent: corda-os-4-4-development
 tags:
 - cordapp
 - advanced
@@ -68,7 +69,7 @@ all objects are loaded in the same classloader and can be freely used and filter
 
 Behind the scenes, the matter is more complex. As can be seen in this illustration:
 
-![tx chain](resources/tx-chain.png "tx chain")
+![tx chain](/en/images/tx-chain.png "tx chain")
 
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references

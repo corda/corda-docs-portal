@@ -3,8 +3,7 @@ aliases:
 - /releases/3.3/key-concepts-contracts.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-3-3:
-    parent: corda-enterprise-3-3-concepts
+- corda-enterprise-3-3
 tags:
 - concepts
 - contracts
@@ -51,7 +50,7 @@ valid
 
 We can picture this situation as follows:
 
-![tx validation](resources/tx-validation.png "tx validation")
+![tx validation](/en/images/tx-validation.png "tx validation")
 The contract code can be written in any JVM language, and has access to the full capabilities of the language,
 including:
 

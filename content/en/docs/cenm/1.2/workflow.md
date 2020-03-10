@@ -3,7 +3,8 @@ aliases:
 - /releases/release-1.2/workflow.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- cenm-1-2
+  cenm-1-2:
+    parent: cenm-1-2-configuration
 tags:
 - workflow
 title: Workflow

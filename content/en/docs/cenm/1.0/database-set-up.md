@@ -3,7 +3,8 @@ aliases:
 - /releases/release-1.0/database-set-up.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- cenm-1-0
+  cenm-1-0:
+    parent: cenm-1-0-operations
 tags:
 - database
 - set

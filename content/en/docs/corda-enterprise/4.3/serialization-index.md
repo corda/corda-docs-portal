@@ -4,7 +4,8 @@ aliases:
 - /serialization-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- corda-enterprise-4-3
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-development
 tags:
 - serialization
 title: Serialization

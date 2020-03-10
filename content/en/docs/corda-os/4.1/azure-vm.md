@@ -3,7 +3,8 @@ aliases:
 - /releases/release-V4.1/azure-vm.html
 date: '2020-01-08T09:59:25Z'
 menu:
-- corda-os-4-1
+  corda-os-4-1:
+    parent: corda-os-4-1-operations
 tags:
 - azure
 - vm
@@ -44,7 +45,7 @@ Define the basic parameters which will be used to pre-configure your Corda nodes
 * **Resource group**: Choose to ‘Create new’ and provide a useful name of your choice
 * **Location**: Select the geographical location physically closest to you
 
-![azure multi node step1](resources/azure_multi_node_step1.png "azure multi node step1")
+![azure multi node step1](/en/images/azure_multi_node_step1.png "azure multi node step1")
 Click ‘OK’
 
 STEP 2: Network Size and Performance
@@ -58,7 +59,7 @@ Define the number of Corda nodes in your network and the size of VM.
 * **Storage performance**: Leave as ‘Standard’
 * **Virtual machine size**: The size of the VM is automatically adjusted to suit the number of participant nodes selected. It is recommended to use the suggested values
 
-![azure multi node step2](resources/azure_multi_node_step2.png "azure multi node step2")
+![azure multi node step2](/en/images/azure_multi_node_step2.png "azure multi node step2")
 Click ‘OK’
 
 STEP 3: Corda Specific Options
@@ -69,14 +70,14 @@ Define the version of Corda you want on your nodes and the type of notary.
 * **Corda version (as seen in Maven Central)**: Select the version of Corda you want your nodes to use from the drop down list. The version numbers can be seen in [Maven Central](http://repo1.maven.org/maven2/net/corda/corda/), for example 0.11.0
 * **Notary type**: Select either ‘Non Validating’ (notary only checks whether a state has been previously used and marked as historic) or ‘Validating’ (notary performs transaction verification by seeing input and output states, attachments and other transaction information). More information on notaries can be found [here](https://vimeo.com/album/4555732/video/214138458)
 
-![azure multi node step3](resources/azure_multi_node_step3.png "azure multi node step3")
+![azure multi node step3](/en/images/azure_multi_node_step3.png "azure multi node step3")
 Click ‘OK’
 
 STEP 4: Summary
 
 A summary of your selections is shown.
 
-![azure multi node step4](resources/azure_multi_node_step4.png "azure multi node step4")
+![azure multi node step4](/en/images/azure_multi_node_step4.png "azure multi node step4")
 Click ‘OK’ for your selection to be validated. If everything is ok you will see the message ‘Validation passed’
 
 Click ‘OK’
@@ -91,7 +92,7 @@ Once deployed click ‘Resources Groups’, select the resource group you define
 
 The Network Map Service node is suffixed nm0. The Notary node is suffixed not0. Your Corda participant nodes are suffixed node0, node1, node2 etc. Note down the **Public IP address** for your Corda nodes. You will need these to connect to UI screens via your web browser:
 
-![azure ip](resources/azure_ip.png "azure ip")
+![azure ip](/en/images/azure_ip.png "azure ip")
 
 ## Using the Yo! CorDapp
 
@@ -133,7 +134,7 @@ where (public IP address) is the public IP address of one of your Corda nodes on
 
 You will now see the Yo! CordDapp web interface:
 
-![Yo web ui](resources/Yo_web_ui.png "Yo web ui")
+![Yo web ui](/en/images/Yo_web_ui.png "Yo web ui")
 
 * **Sending a Yo message via the web interface**
 
@@ -155,7 +156,7 @@ An easy way to see the Legal Names of Corda nodes on the network is to use the p
 http://(public IP address):(port)/api/yo/peers
 ```
 
-![yo peers2](resources/yo_peers2.png "yo peers2")
+![yo peers2](/en/images/yo_peers2.png "yo peers2")
 
 * **Viewing Yo messages**
 
@@ -165,7 +166,7 @@ To see Yo! messages sent to a particular node open a browser window and browse t
 http://(public IP address):(port)/api/yo/yos
 ```
 
-![azure yos](resources/azure_yos.png "azure yos")
+![azure yos](/en/images/azure_yos.png "azure yos")
 
 ## Viewing logs
 
@@ -186,8 +187,8 @@ And navigate to the following directory for system logs (syslog):
 
 You can open log files with any text editor.
 
-![azure vm 10 49](resources/azure_vm_10_49.png "azure vm 10 49")
-![azure syslog](resources/azure_syslog.png "azure syslog")
+![azure vm 10 49](/en/images/azure_vm_10_49.png "azure vm 10 49")
+![azure syslog](/en/images/azure_syslog.png "azure syslog")
 
 ## Next Steps
 

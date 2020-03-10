@@ -26,39 +26,39 @@ The Corda Testnet is currently in private beta. Interested parties can request i
 
 Access to the Corda Testnet is enabled by visiting [https://testnet.corda.network](https://testnet.corda.network).
 
-[![testnet landing](resources/testnet-landing.png "testnet landing")](https://testnet.corda.network)
+[![testnet landing](/en/images/testnet-landing.png "testnet landing")](https://testnet.corda.network)
 Click on “Join the Corda Testnet”.
 
 Select whether you want to register a company or as an individual on the Testnet.
 
 This will create an account with the Testnet on-boarding application which will enable you to provision and manage multiple Corda nodes on Testnet. You will log in to this account to view and manage you Corda Testnet identity certificates.
 
-![testnet account type](resources/testnet-account-type.png "testnet account type")
+![testnet account type](/en/images/testnet-account-type.png "testnet account type")
 Fill in the form with your details.
 
 {{< note >}}
 Testnet is currently invitation only. If your request is approved you will receive an email. Please fill in as many details as possible as it helps us prioritise requests. The approval process will take place daily by a member of the r3 operations team reviewing all invite requests and making a decision based on current rate of onboarding of new customers.
 
 {{< /note >}}
-![testnet form](resources/testnet-form.png "testnet form")
+![testnet form](/en/images/testnet-form.png "testnet form")
 Once you have been approved, navigate to [https://testnet.corda.network](https://testnet.corda.network) and click on “I have an invitation”.
 
 Sign in using either your email address and password, or “Sign in with Google”:
 
-![testnet signin](resources/testnet-signin.png "testnet signin")
+![testnet signin](/en/images/testnet-signin.png "testnet signin")
 If using Google accounts, approve the Testnet application when prompted:
 
-![testnet signin auth](resources/testnet-signin-auth.png "testnet signin auth")
+![testnet signin auth](/en/images/testnet-signin-auth.png "testnet signin auth")
 {{< note >}}
 At this point you may need to verify your email address is valid (if you are not using a Gmail address). If prompted check your email and click on the link to validate then return to the sign in page and sign in again.
 
 {{< /note >}}
 Next agree to the terms of service:
 
-![testnet terms](resources/testnet-terms.png "testnet terms")
+![testnet terms](/en/images/testnet-terms.png "testnet terms")
 You can now copy the `ONE-TIME-KEY` and paste it into the parameter form of your cloud template.
 
-![testnet platform clean](resources/testnet-platform-clean.png "testnet platform clean")
+![testnet platform clean](/en/images/testnet-platform-clean.png "testnet platform clean")
 Once your cloud instance is set up you can install and run your Testnet pre-provisioned Corda node by clicking on “Copy” and pasting the one time link into your remote cloud terminal.
 
 The installation script will download the Corda binaries as well as your PKI certificates, private keys and supporting files and will install and run Corda on your fresh cloud VM. Your node will register itself with the Corda Testnet when it first runs and be added to the global network map and be visible to counterparties after approximately 5 minutes.

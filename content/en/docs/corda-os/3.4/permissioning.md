@@ -74,7 +74,7 @@ All the certificates must be issued with the custom role extension (see below).
 
 We can visualise the permissioning structure as follows:
 
-![certificate structure](resources/certificate_structure.png "certificate structure")
+![certificate structure](/en/images/certificate_structure.png "certificate structure")
 
 ## Keypair and certificate formats
 

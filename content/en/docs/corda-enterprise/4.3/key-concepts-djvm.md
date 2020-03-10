@@ -4,8 +4,7 @@ aliases:
 - /key-concepts-djvm.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-3:
-    parent: corda-enterprise-4-3-concepts
+- corda-enterprise-4-3
 tags:
 - concepts
 - djvm
@@ -101,7 +100,7 @@ validation, namely `run()` and `validate()`. These methods both return a summary
 The sandbox has a configuration that applies to the execution of a specific runnable. This configuration, on a higher
 level, contains a set of rules, definition providers and emitters.
 
-![djvm overview](resources/djvm-overview.png "djvm overview")
+![djvm overview](/en/images/djvm-overview.png "djvm overview")
 The set of rules is what defines the constraints posed on the runtime environment. A rule can act on three different
 levels, namely on a type-, member- or instruction-level. The set of rules get processed and validated by the
 `RuleValidator` prior to execution.
