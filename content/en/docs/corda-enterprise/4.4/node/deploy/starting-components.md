@@ -17,14 +17,8 @@ The components to be started in a deployment are:
 
 
 * Float
-
-
 * Node
-
-
 * Bridge
-
-
 
 {{< note >}}
 The `corda-firewall.jar` is used by both Bridge and Float. The JAR file  assumes the input is `bridge.conf` however this may be overridden with the `--config-file` parameter so you can designate whatever config file name you wish to use.
@@ -43,6 +37,7 @@ You should see the following output:
 FloatSupervisorService: active = false
 FloatSupervisorService: active = true
 ```
+
 
 ## Starting the Corda Node
 
@@ -63,9 +58,12 @@ You should see the following output in the Bridge:
 BridgeSupervisorService: active = false
 BridgeSupervisorService: active = true
 ```
+
+
 You should see the following output in the Float log:
 
 ```shell
 Now listening for incoming connections on VM-Of-Float-Public-IP:Port
 ```
+
 

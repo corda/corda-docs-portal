@@ -26,6 +26,9 @@ REPOS_ROOT = os.path.join(REPOS, "en/docs") # don't rely on this.
 LOG = logging.getLogger(__name__)
 ARGS = None
 
+# If we're in one of these, don't add new lines.
+NO_NEWLINE_ELEMENTS = ["bullet_list", "enumerated_list", "definition_list", "entry", "list_item"]
+
 #  Loosely based on https://github.com/sixty-north/rst_to_md/
 #  Getting this working inside sphinx and *debugging* is poorly documented
 #  (aside from installing as an extension).
@@ -55,7 +58,7 @@ def _path_to_github_url(path):
         repo = "network-services"
         relpath = relpath.replace("/cenm/", "release/")
     else:
-        assert False, "No such repo"
+        assert False, f"No such repo: {relpath}"
 
     return f"https://github.com/corda/{repo}/blob/{relpath}"
 
@@ -225,13 +228,13 @@ class Hugo(Markdown):
     #     f'{{{{< img src="{url}" alt="{alt}" >}}}}\n\n'
 
     def visit_tabs(self, idx):
-        return f'\n{{{{< tabs name="tabs-{idx}" >}}}}\n'
+        return f'{{{{< tabs name="tabs-{idx}" >}}}}'
 
     def depart_tabs(self):
-        return "{{< /tabs >}}\n\n"
+        return "{{< /tabs >}}\n"
 
     def visit_tab(self, lang):
-        return f'\n{{{{% tab name="{lang}" %}}}}\n'
+        return f'{{{{% tab name="{lang}" %}}}}\n'
 
     def depart_tab(self):
         return f'{{{{% /tab %}}}}\n'
@@ -240,10 +243,10 @@ class Hugo(Markdown):
         return f"\n{{{{/* {s} */}}}}\n"
 
     def visit_note(self):
-        return "\n{{< note >}}"
+        return "{{< note >}}"
 
     def depart_note(self):
-        return "{{< /note >}}\n"
+        return "{{< /note >}}"
 
     def visit_warning(self):
         return "\n{{< warning >}}"
@@ -332,11 +335,6 @@ class TableContext(Context):
     #     self.body = markdown_table
 
 
-def _is_xml_padding(s):
-    likely_xml_padding = s and s.startswith('\n') and s.strip() == ''
-    return likely_xml_padding or not s
-
-
 class Translator:
     def __init__(self, cms):
         self._context = [Context()]
@@ -380,6 +378,12 @@ class Translator:
     def pop_element(self):
         self._elements = self._elements[:-1]
 
+    """ reset some elements to contain exactly nothing so we don't
+    render erroneous newlines """
+    def _reset_element(self, e):
+        e.text = ''
+        e.tail = ''
+
     def _walk(self, parent):
         for e in parent:
             self.push_element(e.tag)
@@ -387,35 +391,17 @@ class Translator:
             depart_func = getattr(self, f'depart_{e.tag}', visit_unsupported)
 
             self.push_context(Context())
-            visit_func(e)
-            likely_xml_padding = e.text and e.text.startswith('\n') and e.text.strip() == ''
 
-            #  <tag>TAG_BODY<other>OTHER_BODY<other>OTHER_TAIL</tag>TAG_TAIL
-            table_tags = ['entry', 'thead', 'tgroup', 'colspec', 'row', 'tbody']
-            if likely_xml_padding:
-                if e.tag not in table_tags:
-                    self.top.put_body('\n')
-                else:
-                    pass  # chomp
-            elif e.text:
+            visit_func(e)
+
+            if e.text:
                 self.top.put_body(e.text)
 
             self._walk(e)
+
             depart_func(e)
 
-            #  Half of this is XML formatting between elements
-
-            inline_tags = ['literal', 'emphasis', 'strong', 'subscript', 'superscript',
-                           'reference', 'inline' 'target']
-            #
-            # if e.tag in inline_tags and e.tail:  # and e.tail.strip() != '':
-            #     self.top.put_body(e.tail)
-
-            likely_xml_padding = e.tail and e.tail.startswith('\n    ') and e.tail.strip() == ''
-
-            if likely_xml_padding and e.tag not in inline_tags:
-                pass
-            elif e.tail:
+            if e.tail:
                 self.top.put_body(e.tail)
 
             self.pop_context()
@@ -570,19 +556,20 @@ class Translator:
 
     def visit_section(self, node):
         self.section_depth += 1
+        self._reset_element(node)
 
     def depart_section(self, node):
         self.section_depth -= 1
 
     def visit_title(self, node):
         h = self.section_depth * '#'
-        self.top.put_body(h + ' ')
+        self.top.put_body('\n' + h + ' ')
 
     def depart_title(self, node):
         if self.section_depth == 1 and 'title' not in self.front_matter:
             self.front_matter['title'] = node.text
 
-        self.top.put_body('\n\n')
+        self.top.put_body('\n')
 
     def visit_block_quote(self, node):
         class QuoteContext(Context):
@@ -609,7 +596,7 @@ class Translator:
         self.pop_context()
 
     def visit_definition(self, node):
-        pass
+        self._reset_element(node)
 
     def depart_definition(self, node):
         pass
@@ -649,8 +636,7 @@ class Translator:
         self.top.put_body(self.cms.link(link, text))
 
     def visit_definition_list_item(self, node):
-        # we don't really do anything with this?
-        pass
+        self._reset_element(node)
 
     def depart_definition_list_item(self, node):
         pass
@@ -662,10 +648,10 @@ class Translator:
         self.top.put_body(self.cms.depart_strong())
 
     def visit_bullet_list(self, node):
-        pass
+        self._reset_element(node)
 
     def depart_bullet_list(self, node):
-        pass
+        node.tail = '\n\n'
 
     def visit_topic(self, node):
         if node.attrib.get('names', '') == 'contents':
@@ -689,6 +675,7 @@ class Translator:
     def depart_emphasis(self, node):
         self.top.put_body(self.cms.depart_emphasis())
 
+    """ convert to ```java  [lines]   ``` """
     def visit_literal_block(self, node):
         lang = node.attrib.get('language', '')
         if self.in_tabs:
@@ -754,8 +741,7 @@ class Translator:
         self.in_tabs = False
 
     def visit_definition_list(self, node):
-        # We don't really seem to care about this - it will be emitted as a bullet list
-        pass
+        self._reset_element(node)
 
     def depart_definition_list(self, node):
         pass
@@ -772,13 +758,11 @@ class Translator:
         pass
 
     def visit_paragraph(self, node):
-        pass
+        node.tail = ""
 
     def depart_paragraph(self, node):
-        if self._elements[-2] == "entry":
-            return  # in a table
-
-        self.top.put_body('\n\n')
+        if not any([item in self._elements for item in NO_NEWLINE_ELEMENTS]):
+            node.tail = "\n\n"
 
     def visit_image(self, node):
         # Not using markdown, as some of the images are massive
@@ -799,10 +783,10 @@ class Translator:
         pass
 
     def visit_enumerated_list(self, node):
-        pass
+        self._reset_element(node)
 
     def depart_enumerated_list(self, node):
-        pass
+        node.tail = '\n\n'
 
     def visit_document(self, node):
         pass
@@ -830,18 +814,26 @@ class Translator:
 
     def visit_list_item(self, node):
         self.push_context(Context())
-        bullet_depth = sum([1 for e in self._elements if e == 'bullet_list']) - 1
+        bullet_depth = sum([1 for e in self._elements if e in ['bullet_list']]) - 1
         padding = '    ' * bullet_depth
-        self.top.put_body(padding + '* ')
+
+        bullet = '*'
+        # lists = [e for e in reversed(self._elements) if e == "bullet_list" or e == "enumerated_list"]
+        # if lists and lists[0] == "enumerated_list":
+        #     bullet = '1.'
+
+        self.top.put_body('\n' + padding + bullet + ' ')
+
+        self._reset_element(node)
 
     def depart_list_item(self, node):
-        if '\n' in self.top.body[1]:
-            self.top.body[1] = self.top.body[1].replace('\n', '')
-        self.top.put_body('\n')
+        # # Remove new line from 'previous' otherwise we end up with '*' and ' <words..>' on different lines in markdown
+        # if '\n' in self.top.body[1]:
+        #     self.top.body[1] = self.top.body[1].replace('\n', '')
         self.pop_context()
 
     def visit_term(self, node):
-        LOG.debug('Not implemented term')
+        self._reset_element(node)
 
     def depart_term(self, node):
         LOG.debug('Not implemented term')
@@ -854,17 +846,17 @@ class Translator:
         self.top.body = []
         self.pop_context()
 
-    def visit_attention(self, node):
+    def visit_attention(self, node):       
         self.top.put_body(self.cms.visit_attention())
 
     def depart_attention(self, node):
         self.top.put_body(self.cms.depart_attention())
 
     def visit_compact_paragraph(self, node):
-        pass
+        self.visit_paragraph
 
     def depart_compact_paragraph(self, node):
-        self.top.put_body('\n')
+        self.depart_compact_paragraph
 
     def visit_compound(self, node):
         LOG.debug('Not implemented compound')
@@ -873,28 +865,36 @@ class Translator:
         LOG.debug('Not implemented compound')
 
     def visit_field_list(self, node):
-        LOG.debug('Not implemented field_list')
+        self.visit_bullet_list(node)
+        # LOG.debug('Not implemented field_list')
 
     def depart_field_list(self, node):
-        LOG.debug('Not implemented field_list')
+        self.depart_bullet_list(node)
+        # LOG.debug('Not implemented field_list')
 
     def visit_field(self, node):
-        LOG.debug('Not implemented field')
+        self.visit_list_item(node)
+        # LOG.debug('Not implemented field')
 
     def depart_field(self, node):
+        self.depart_list_item(node)
         LOG.debug('Not implemented field')
 
     def visit_field_body(self, node):
-        LOG.debug('Not implemented field_body')
+        self.top.put_body(": ")
+        node.tail = ''
+        # LOG.debug('Not implemented field_body')
 
     def depart_field_body(self, node):
-        LOG.debug('Not implemented field_body')
+        pass
+        # LOG.debug('Not implemented field_body')
 
     def visit_field_name(self, node):
-        LOG.debug('Not implemented field_name')
+        self.top.put_body(self.cms.visit_strong())
+        node.tail = ''
 
     def depart_field_name(self, node):
-        LOG.debug('Not implemented field_name')
+        self.top.put_body(self.cms.depart_strong())
 
     def visit_important(self, node):
         self.top.put_body(self.cms.visit_important())
@@ -903,10 +903,10 @@ class Translator:
         self.top.put_body(self.cms.depart_important())
 
     def visit_problematic(self, node):
-        LOG.debug('Not implemented problematic')
+        self.top.put_body(self.cms.visit_warning())
 
     def depart_problematic(self, node):
-        LOG.debug('Not implemented problematic')
+        self.top.put_body(self.cms.depart_warning())
 
     def visit_line_block(self, node):
         LOG.debug('Not implemented line_block')
@@ -936,12 +936,13 @@ class Translator:
         assert col_width != 0, "No col width?"
 
         table_context.cols.append(col_width)
+        self._reset_element(node)
 
     def depart_colspec(self, node):
         pass
 
     def visit_tgroup(self, node):
-        pass  # might need to do something here
+        self._reset_element(node)
 
     def depart_tgroup(self, node):
         pass
@@ -950,12 +951,13 @@ class Translator:
         table_context = next((ctx for ctx in (reversed(self._context)) if isinstance(ctx, TableContext)), None)
         table_context.current_col = 0
         self.top.put_body('|')
+        self._reset_element(node)
 
     def depart_row(self, node):
         self.top.put_body('\n')
 
     def visit_thead(self, node):
-        pass
+        self._reset_element(node)
 
     def depart_thead(self, node):
         table_context = next((ctx for ctx in (reversed(self._context)) if isinstance(ctx, TableContext)), None)
@@ -967,7 +969,7 @@ class Translator:
         self.top.put_body('\n')
 
     def visit_tbody(self, node):
-        LOG.debug('Not implemented tbody')
+        self._reset_element(node)
 
     def depart_tbody(self, node):
         LOG.debug('Not implemented tbody')
@@ -975,6 +977,7 @@ class Translator:
     def visit_entry(self, node):
         table_context = next((ctx for ctx in (reversed(self._context)) if isinstance(ctx, TableContext)), None)
         table_context.current_col += 1
+        self._reset_element(node)
 
     def depart_entry(self, node):
         self.top.put_body('|')
@@ -1103,7 +1106,12 @@ def visit_unsupported(self, node):
 def configure_translator(filename):
     s = set()
 
-    tree = ET.parse(filename)
+    try:
+        tree = ET.parse(filename)
+    except Exception as e:
+        print(f"When processing: f{filename}")
+        raise(e)
+
     for e in tree.iter():
         s.add(e.tag)
 
@@ -1199,7 +1207,7 @@ def _search_and_replace(files, replacements):
                     LOG.debug(f"Replaced! {value} with {new_value}")
             count += 1
         if updated:
-            LOG.info(f"Rewritten file {file}")
+            LOG.debug(f"Rewritten file {file}")
             open(file, 'w').writelines(lines)
 
 
@@ -1210,7 +1218,7 @@ def preprocess(d):
     _search_and_replace(files, replacements)
 
 
-def postprocess(d):
+def _postprocess_xml_files(d):
     LOG.debug(f"Post-processing {d}")
     # Also matches: webkitallowfullscreen and mozallowfullscreen
     replacements = [
@@ -1221,6 +1229,27 @@ def postprocess(d):
     files = [x for x in Path(d).rglob('*.xml')]
     _search_and_replace(files, replacements)
 
+    #  Get rid of all the unnecessary leading whitespace in XML formatting except for code blocks
+    for file in files:
+        lines = open(file, 'r').readlines()
+        new_lines = []
+        save = False
+        in_literal_block = False
+        for line in lines:
+            if not in_literal_block:
+                line = line.lstrip()
+                save = True
+            if line.lstrip().startswith('<literal_block'):
+                in_literal_block = True
+            if '</literal_block>' in line:
+                in_literal_block = False
+                print(line)
+
+            new_lines.append(line)
+
+        if save:
+            open(file, 'w').writelines(new_lines)
+
 
 def convert_rst_to_xml():
     LOG.warning("Converting all rst => xml using sphinx")
@@ -1230,16 +1259,24 @@ def convert_rst_to_xml():
         preprocess(d)
         run_sphinx(d)
 
-    _postprocess_xml()
 
-
-def _postprocess_xml():
+def postprocess_xml():
+    LOG.warning("Post-processing all XML")
     for d in [x for x in Path(REPOS).rglob('xml/xml')]:
-        postprocess(d)
+        _postprocess_xml_files(d)
+    LOG.warning("Post-processing all XML finished")
+
+def _remove_junk_that_breaks_hugo():
+    root = os.path.join(REPOS, "en/docs/corda-enterprise/4.2/docs/")
+    for f in ["source/resources/nodefull.md", "xml/xml/resources/nodefull.md"]:
+        pathname = os.path.join(root, f)
+        if os.path.exists(pathname): os.unlink(pathname)
 
 
 def copy_to_content(cms):
     LOG.warning("Copying all md to content/")
+
+    _remove_junk_that_breaks_hugo()
 
     dirs = []
     files = [x for x in Path(REPOS).rglob('xml/xml/**/*.md')]
@@ -1390,6 +1427,7 @@ def main():
     parser.add_argument("--toc", help="include table of contents in the page", default=False, action='store_true')
     parser.add_argument("--full-conversion", "-f", help="full conversion of rst, default skip rst conversion for speed", default=False, action='store_true')
     parser.add_argument("--cms", "-c", help="generate (commonmark) markdown for cms", default='hugo', choices=['gatsby', 'markdown', 'hugo'])
+    parser.add_argument("--skip-resources", help="skip copying resources", default=False, action='store_true')
 
     ARGS = parser.parse_args()
 
@@ -1401,6 +1439,7 @@ def main():
 
     if ARGS.full_conversion:
         convert_rst_to_xml()
+        postprocess_xml()
     else:
         LOG.warning("Skipping rst-to-xml")
 
@@ -1413,11 +1452,14 @@ def main():
 
     convert_all_xml_to_md(cms)
 
-    # filename = "/home/barry/dev/r3/sphinx2hugo/repos/en/docs/corda-os/4.4/docs/xml/xml/api-contract-constraints.xml"
-    # convert_one_xml_file_to_cms_style_md(filename)
+    # filename = os.path.join(ROOT, "repos/en/docs/corda-os/4.4/docs/xml/xml/api-flows.xml")
+    # convert_one_xml_file_to_cms_style_md(cms, filename)
 
     copy_to_content(cms)
-    copy_resources_to_content()
+    
+    if not ARGS.skip_resources:
+         copy_resources_to_content()
+
     create_missing_pages()
 
 

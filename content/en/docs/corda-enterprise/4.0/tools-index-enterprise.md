@@ -16,10 +16,9 @@ title: Tools
 Corda Enterprise provides additional command line and GUI tools to help you manage and operate a network:
 
 
+
 * [Notary Health Check](notary-healthcheck.md)
-
 * [HA Utilities](ha-utilities.md)
-
 * [Configuration Obfuscator](tools-config-obfuscator.md)
 
 

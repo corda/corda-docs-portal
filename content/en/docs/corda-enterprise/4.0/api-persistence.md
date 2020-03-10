@@ -13,32 +13,33 @@ title: 'API: Persistence'
 
 
 
+
 # API: Persistence
 
+
 Corda offers developers the option to expose all or some parts of a contract state to an *Object Relational Mapping*
-            (ORM) tool to be persisted in a *Relational Database Management System* (RDBMS).
+(ORM) tool to be persisted in a *Relational Database Management System* (RDBMS).
 
 The purpose of this, is to assist [Vault](key-concepts-vault.md)
-            development and allow for the persistence of state data to a custom database table. Persisted states held in the
-            vault are indexed for the purposes of executing queries. This also allows for relational joins between Corda tables
-            and the organization’s existing data.
+development and allow for the persistence of state data to a custom database table. Persisted states held in the
+vault are indexed for the purposes of executing queries. This also allows for relational joins between Corda tables
+and the organization’s existing data.
 
 The Object Relational Mapping is specified using [Java Persistence API](https://en.wikipedia.org/wiki/Java_Persistence_API)
-            (JPA) annotations. This mapping is persisted to the database as a table row (a single, implicitly structured data item) by the node
-            automatically every time a state is recorded in the node’s local vault as part of a transaction.
-
+(JPA) annotations. This mapping is persisted to the database as a table row (a single, implicitly structured data item) by the node
+automatically every time a state is recorded in the node’s local vault as part of a transaction.
 
 {{< note >}}
 By default, nodes use an H2 database which is accessed using *Java Database Connectivity* JDBC. Any database
-                with a JDBC driver is a candidate and several integrations have been contributed to by the community.
-                Please see the info in “[Node database](node-database.md)” for details.
+with a JDBC driver is a candidate and several integrations have been contributed to by the community.
+Please see the info in “[Node database](node-database.md)” for details.
 
 {{< /note >}}
 
 ## Schemas
 
 Every `ContractState` may implement the `QueryableState` interface if it wishes to be inserted into a custom table in the node’s
-                database and made accessible using SQL.
+database and made accessible using SQL.
 
 ```kotlin
 /**
@@ -59,13 +60,14 @@ interface QueryableState : ContractState {
 }
 
 ```
-[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)The `QueryableState` interface requires the state to enumerate the different relational schemas it supports, for
-                instance in situations where the schema has evolved. Each relational schema is represented as a `MappedSchema`
-                object returned by the state’s `supportedSchemas` method.
+[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+The `QueryableState` interface requires the state to enumerate the different relational schemas it supports, for
+instance in situations where the schema has evolved. Each relational schema is represented as a `MappedSchema`
+object returned by the state’s `supportedSchemas` method.
 
 Nodes have an internal `SchemaService` which decides what data to persist by selecting the `MappedSchema` to use.
-                Once a `MappedSchema` is selected, the `SchemaService` will delegate to the `QueryableState` to generate a corresponding
-                representation (mapped object) via the `generateMappedObject` method, the output of which is then passed to the *ORM*.
+Once a `MappedSchema` is selected, the `SchemaService` will delegate to the `QueryableState` to generate a corresponding
+representation (mapped object) via the `generateMappedObject` method, the output of which is then passed to the *ORM*.
 
 ```kotlin
 /**
@@ -96,7 +98,8 @@ interface SchemaService {
 }
 
 ```
-[SchemaService.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)```kotlin
+[SchemaService.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
+```kotlin
 /**
  * A database schema that might be configured for this node.  As well as a name and version for identifying the schema,
  * also list the classes that may be used in the generated object graph in order to configure the ORM tool.
@@ -140,53 +143,48 @@ open class MappedSchema(schemaFamily: Class<*>,
 }
 
 ```
-[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)With this framework, the relational view of ledger states can evolve in a controlled fashion in lock-step with internal systems or other
-                integration points and is not dependant on changes to the contract code.
+[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+With this framework, the relational view of ledger states can evolve in a controlled fashion in lock-step with internal systems or other
+integration points and is not dependant on changes to the contract code.
 
 It is expected that multiple contract state implementations might provide mappings within a single schema.
-                For example an Interest Rate Swap contract and an Equity OTC Option contract might both provide a mapping to
-                a Derivative contract within the same schema. The schemas should typically not be part of the contract itself and should exist independently
-                to encourage re-use of a common set within a particular business area or Cordapp.
-
+For example an Interest Rate Swap contract and an Equity OTC Option contract might both provide a mapping to
+a Derivative contract within the same schema. The schemas should typically not be part of the contract itself and should exist independently
+to encourage re-use of a common set within a particular business area or Cordapp.
 
 {{< note >}}
 It’s advisable to avoid cross-references between different schemas as this may cause issues when evolving `MappedSchema`
-                    or migrating its data. At startup, nodes log such violations as warnings stating that there’s a cross-reference between `MappedSchema`’s.
-                    The detailed messages incorporate information about what schemas, entities and fields are involved.
+or migrating its data. At startup, nodes log such violations as warnings stating that there’s a cross-reference between `MappedSchema`’s.
+The detailed messages incorporate information about what schemas, entities and fields are involved.
 
 {{< /note >}}
 `MappedSchema` offer a family name that is disambiguated using Java package style name-spacing derived from the
-                class name of a *schema family* class that is constant across versions, allowing the `SchemaService` to select a
-                preferred version of a schema.
+class name of a *schema family* class that is constant across versions, allowing the `SchemaService` to select a
+preferred version of a schema.
 
 The `SchemaService` is also responsible for the `SchemaOptions` that can be configured for a particular
-                `MappedSchema`. These allow the configuration of database schemas or table name prefixes to avoid clashes with
-                other `MappedSchema`.
-
+`MappedSchema`. These allow the configuration of database schemas or table name prefixes to avoid clashes with
+other `MappedSchema`.
 
 {{< note >}}
 It is intended that there should be plugin support for the `SchemaService` to offer version upgrading, implementation
-                    of additional schemas, and enable active schemas as being configurable.  The present implementation does not include these features
-                    and simply results in all versions of all schemas supported by a `QueryableState` being persisted.
-                    This will change in due course. Similarly, the service does not currently support
-                    configuring `SchemaOptions` but will do so in the future.
+of additional schemas, and enable active schemas as being configurable.  The present implementation does not include these features
+and simply results in all versions of all schemas supported by a `QueryableState` being persisted.
+This will change in due course. Similarly, the service does not currently support
+configuring `SchemaOptions` but will do so in the future.
 
 {{< /note >}}
 
 ## Custom schema registration
 
 Custom contract schemas are automatically registered at startup time for CorDapps. The node bootstrap process will scan for states that implement
-                the Queryable state interface. Tables are then created as specified by the `MappedSchema` identified by each state’s `supportedSchemas` method.
+the Queryable state interface. Tables are then created as specified by the `MappedSchema` identified by each state’s `supportedSchemas` method.
 
 For testing purposes it is necessary to manually register the packages containing custom schemas as follows:
 
 
 * Tests using `MockNetwork` and `MockNode` must explicitly register packages using the *cordappPackages* parameter of `MockNetwork`
-
-
 * Tests using `MockServices` must explicitly register packages using the *cordappPackages* parameter of the `MockServices` *makeTestDatabaseAndMockServices()* helper method.
-
-
 
 {{< note >}}
 Tests using the *DriverDSL* will automatically register your custom schemas if they are in the same project structure as the driver call.
@@ -196,28 +194,25 @@ Tests using the *DriverDSL* will automatically register your custom schemas if t
 ## Object relational mapping
 
 To facilitate the ORM, the persisted representation of a `QueryableState` should be an instance of a `PersistentState` subclass,
-                constructed either by the state itself or a plugin to the `SchemaService`. This allows the ORM layer to always
-                associate a `StateRef` with a persisted representation of a `ContractState` and allows joining with the set of
-                unconsumed states in the vault.
+constructed either by the state itself or a plugin to the `SchemaService`. This allows the ORM layer to always
+associate a `StateRef` with a persisted representation of a `ContractState` and allows joining with the set of
+unconsumed states in the vault.
 
 The `PersistentState` subclass should be marked up as a JPA 2.1 *Entity* with a defined table name and having
-                properties (in Kotlin, getters/setters in Java) annotated to map to the appropriate columns and SQL types. Additional
-                entities can be included to model these properties where they are more complex, for example collections (Persisting Hierarchical Data), so
-                the mapping does not have to be *flat*. The `MappedSchema` constructor accepts a list of all JPA entity classes for that schema in
-                the `MappedTypes` parameter. It must provide this list in order to initialise the ORM layer.
+properties (in Kotlin, getters/setters in Java) annotated to map to the appropriate columns and SQL types. Additional
+entities can be included to model these properties where they are more complex, for example collections (Persisting Hierarchical Data), so
+the mapping does not have to be *flat*. The `MappedSchema` constructor accepts a list of all JPA entity classes for that schema in
+the `MappedTypes` parameter. It must provide this list in order to initialise the ORM layer.
 
 Several examples of entities and mappings are provided in the codebase, including `Cash.State` and
-                `CommercialPaper.State`. For example, here’s the first version of the cash schema.
-
+`CommercialPaper.State`. For example, here’s the first version of the cash schema.
 
 {{< tabs name="tabs-1" >}}
-
 {{< /tabs >}}
-
 
 {{< note >}}
 Ensure table and column names are compatible with the naming convention of database vendors for which the Cordapp will be deployed,
-                    e.g. for Oracle database, prior to version 12.2 the maximum length of table/column name is 30 bytes (the exact number of characters depends on the database encoding).
+e.g. for Oracle database, prior to version 12.2 the maximum length of table/column name is 30 bytes (the exact number of characters depends on the database encoding).
 
 {{< /note >}}
 
@@ -226,16 +221,13 @@ Ensure table and column names are compatible with the naming convention of datab
 You may wish to persist hierarchical relationships within states using multiple database tables
 
 You may wish to persist hierarchical relationships within state data using multiple database tables. In order to facillitate this, multiple `PersistentState`
-                subclasses may be implemented. The relationship between these classes is defined using JPA annotations. It is important to note that the `MappedSchema`
-                constructor requires a list of *all* of these subclasses.
+subclasses may be implemented. The relationship between these classes is defined using JPA annotations. It is important to note that the `MappedSchema`
+constructor requires a list of *all* of these subclasses.
 
 An example Schema implementing hierarchical relationships with JPA annotations has been implemented below. This Schema will cause `parent_data` and `child_data` tables to be
-                created.
-
+created.
 
 {{< tabs name="tabs-2" >}}
-
-
 {{% tab name="java" %}}
 ```java
 @CordaSerializable
@@ -436,21 +428,23 @@ object SchemaV1 : MappedSchema(schemaFamily = Schema::class.java, version = 1, m
     ) : PersistentState()
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 
 ## Identity mapping
 
 Schema entity attributes defined by identity types (`AbstractParty`, `Party`, `AnonymousParty`) are automatically
-                processed to ensure only the `X500Name` of the identity is persisted where an identity is well known, otherwise a null
-                value is stored in the associated column. To preserve privacy, identity keys are never persisted. Developers should use
-                the `IdentityService` to resolve keys from well know X500 identity names.
+processed to ensure only the `X500Name` of the identity is persisted where an identity is well known, otherwise a null
+value is stored in the associated column. To preserve privacy, identity keys are never persisted. Developers should use
+the `IdentityService` to resolve keys from well know X500 identity names.
+
 
 
 ## JDBC session
 
 Apps may also interact directly with the underlying Node’s database by using a standard
-                JDBC connection (session) as described by the [Java SQL Connection API](https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html)
+JDBC connection (session) as described by the [Java SQL Connection API](https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html)
 
 Use the `ServiceHub` `jdbcSession` function to obtain a JDBC connection as illustrated in the following example:
 
@@ -463,7 +457,8 @@ Use the `ServiceHub` `jdbcSession` function to obtain a JDBC connection as illus
             val rs = prepStatement.executeQuery()
 
 ```
-[HibernateConfigurationTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)JDBC sessions can be used in flows and services (see “[Writing flows](flow-state-machines.md)”).
+[HibernateConfigurationTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
+JDBC sessions can be used in flows and services (see “[Writing flows](flow-state-machines.md)”).
 
 The following example illustrates the creation of a custom Corda service using a `jdbcSession`:
 
@@ -513,7 +508,8 @@ object CustomVaultQuery {
 }
 
 ```
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)which is then referenced within a custom flow:
+[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+which is then referenced within a custom flow:
 
 ```kotlin
         @Suspendable
@@ -540,30 +536,28 @@ object CustomVaultQuery {
         }
 
 ```
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md).
+[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md).
 
 
 ## JPA Support
 
 In addition to `jdbcSession`, `ServiceHub` also exposes the Java Persistence API to flows via the `withEntityManager`
-                method. This method can be used to persist and query entities which inherit from `MappedSchema`. This is particularly
-                useful if off-ledger data must be maintained in conjunction with on-ledger state data.
+method. This method can be used to persist and query entities which inherit from `MappedSchema`. This is particularly
+useful if off-ledger data must be maintained in conjunction with on-ledger state data.
 
-> 
 > 
 > {{< note >}}
 > Your entity must be included as a mappedType as part of a `MappedSchema` for it to be added to Hibernate
->                         as a custom schema. If it’s not included as a mappedType, a corresponding table will not be created. See Samples below.
+> as a custom schema. If it’s not included as a mappedType, a corresponding table will not be created. See Samples below.
 > 
 > {{< /note >}}
-The code snippet below defines a `PersistentFoo` type inside `FooSchemaV1`. Note that `PersistentFoo` is added to
-                a list of mapped types which is passed to `MappedSchema`. This is exactly how state schemas are defined, except that
-                the entity in this case should not subclass `PersistentState` (as it is not a state object). See examples:
 
+The code snippet below defines a `PersistentFoo` type inside `FooSchemaV1`. Note that `PersistentFoo` is added to
+a list of mapped types which is passed to `MappedSchema`. This is exactly how state schemas are defined, except that
+the entity in this case should not subclass `PersistentState` (as it is not a state object). See examples:
 
 {{< tabs name="tabs-3" >}}
-
-
 {{% tab name="java" %}}
 ```java
 public class FooSchema {}
@@ -598,14 +592,12 @@ object FooSchemaV1 : MappedSchema(schemaFamily = FooSchema.javaClass, version = 
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 Instances of `PersistentFoo` can be manually persisted inside a flow as follows:
 
-
 {{< tabs name="tabs-4" >}}
-
-
 {{% tab name="java" %}}
 ```java
 PersistentFoo foo = new PersistentFoo(new UniqueIdentifier().getId().toString(), "Bar");
@@ -624,14 +616,12 @@ serviceHub.withEntityManager {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 And retrieved via a query, as follows:
 
-
 {{< tabs name="tabs-5" >}}
-
-
 {{% tab name="java" %}}
 ```java
 node.getServices().withEntityManager((EntityManager entityManager) -> {
@@ -653,26 +643,17 @@ val result: MutableList<FooSchemaV1.PersistentFoo> = services.withEntityManager 
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 Please note that suspendable flow operations such as:
 
 
 * `FlowSession.send`
-
-
 * `FlowSession.receive`
-
-
 * `FlowLogic.receiveAll`
-
-
 * `FlowLogic.sleep`
-
-
 * `FlowLogic.subFlow`
 
-
 Cannot be used within the lambda function passed to `withEntityManager`.
-
 

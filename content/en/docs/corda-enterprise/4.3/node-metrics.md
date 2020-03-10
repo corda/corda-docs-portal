@@ -16,7 +16,7 @@ title: Metrics
 # Metrics
 
 A Corda node exports a number of metrics for the purpose of monitoring the health of the node via JMX. This page documents the metrics
-            exported by Corda.
+exported by Corda.
 
 For more information about how to monitor a node, see [Node administration](node-administration.md).
 
@@ -32,13 +32,14 @@ For more information about how to monitor a node, see [Node administration](node
 
 {{< /table >}}
 
+
 ## Caches
 
 A Corda node maintains a number of caches. For each of the metrics below, the name of the cache must be supplied in the component field to
-                show metrics for that cache. There are two sorts of caches: size-based and weight-based. Size-based caches are measured in the number
-                of entries in the cache, while weight-based caches are measured in the bytes of memory occupied by the entries. Note that the set of metrics
-                available depends on the cache type. Maximum-size and sizePercent is only available for size-based caches, while maximum-weight, weight, and
-                weightPercent are only available for weight-based caches.
+show metrics for that cache. There are two sorts of caches: size-based and weight-based. Size-based caches are measured in the number
+of entries in the cache, while weight-based caches are measured in the bytes of memory occupied by the entries. Note that the set of metrics
+available depends on the cache type. Maximum-size and sizePercent is only available for size-based caches, while maximum-weight, weight, and
+weightPercent are only available for weight-based caches.
 
 
 {{< table >}}
@@ -61,6 +62,7 @@ A Corda node maintains a number of caches. For each of the metrics below, the na
 
 {{< /table >}}
 
+
 ## Flows
 
 
@@ -82,6 +84,7 @@ A Corda node maintains a number of caches. For each of the metrics below, the na
 
 {{< /table >}}
 
+
 ## Metering
 
 
@@ -96,6 +99,7 @@ A Corda node maintains a number of caches. For each of the metrics below, the na
 |net.corda:type=Metering,name=totalCounts|The total number of signing events persisted|
 
 {{< /table >}}
+
 
 ## P2P
 

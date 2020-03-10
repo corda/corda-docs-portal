@@ -14,18 +14,18 @@ title: Certificate Revocation List (CRL)
 # Certificate Revocation List (CRL)
 
 The certificate revocation list consists of certificate serial numbers of issued certificates that are no longer valid.
-            It is used by nodes when they establish a TLS connection between each other and need to ensure on certificate validity.
-            In order to add entries to the certificate revocation list there is the certificate revocation process that resembles
-            the one from the certificate signing request (CSR).
-            Note that, once added the entries cannot be removed from the certificate revocation list.
+It is used by nodes when they establish a TLS connection between each other and need to ensure on certificate validity.
+In order to add entries to the certificate revocation list there is the certificate revocation process that resembles
+the one from the certificate signing request (CSR).
+Note that, once added the entries cannot be removed from the certificate revocation list.
 
 In the similar vein as CSR, it is integrated with the JIRA tool, and the submitted requests follow exactly the same lifecycle.
-            To support the above functionality, there are two externally available REST endpoints: one for the certificate revocation request submission and
-            one for the certificate revocation list retrieval.
+To support the above functionality, there are two externally available REST endpoints: one for the certificate revocation request submission and
+one for the certificate revocation list retrieval.
 
 Since the certificate revocation list needs to be signed, the revocation process integrates with the HSM signing service.
-            The certificate revocation list signing process requires human interaction and there is a separate tool designed for that purpose.
-            Once signed the certificate revocation list replaces the current one.
+The certificate revocation list signing process requires human interaction and there is a separate tool designed for that purpose.
+Once signed the certificate revocation list replaces the current one.
 
 Note: It is assumed that the signed certificate revocation list is always available - even if it’s empty.
 
@@ -46,15 +46,16 @@ The set of REST end-points for the revocation service are as follows.
 
 {{< /table >}}
 
+
 ## Empty Certificate Revocation List
 
 The SSL-level certificate revocation check validates the entire certificate chain. It means that for each certificate in the
-                certificate path the corresponding CRL will be downloaded and the certificate will be checked against that CRL.
-                However, this introduces a requirement on each Certificate Authority (including the Node CA) to provide a CRL for the
-                certificates it issues. Since this requirement cannot be always met especially by the Node CA, the alternative approach
-                is to use a CRL signed by the trusted CA. Since each Corda node trusts the Root CA an additional empty CRL signed by the
-                Root CA is provided on one of the revocation service endpoints (see the table above) and can be used for any certificate
-                issued by the Node CA.
+certificate path the corresponding CRL will be downloaded and the certificate will be checked against that CRL.
+However, this introduces a requirement on each Certificate Authority (including the Node CA) to provide a CRL for the
+certificates it issues. Since this requirement cannot be always met especially by the Node CA, the alternative approach
+is to use a CRL signed by the trusted CA. Since each Corda node trusts the Root CA an additional empty CRL signed by the
+Root CA is provided on one of the revocation service endpoints (see the table above) and can be used for any certificate
+issued by the Node CA.
 
 
 ## Certificate Revocation Request submission
@@ -62,62 +63,58 @@ The SSL-level certificate revocation check validates the entire certificate chai
 Submission of the certificate revocation requests expects the following fields to be present in the request payload:
 
 
-
-certificateSerialNumber
+* **certificateSerialNumber**: 
 Serial number of the certificate that is to be revoked.
 
 
-csrRequestId
+* **csrRequestId**: 
 Certificate signing request identifier associated with the certificate that is to be revoked.
 
 
-legalName
+* **legalName**: 
 Legal name associated with the certificate that is to be revoked.
 
 
-reason
+* **reason**: 
 Revocation reason (as specified in the java.security.cert.CRLReason). The following values are allowed.
 
 
-
-KEY_COMPROMISE
+* **KEY_COMPROMISE**: 
 This reason indicates that it is known or suspected that the certificate subject’s private key has been compromised. It applies to end-entity certificates only.
 
 
-CA_COMPROMISE
+* **CA_COMPROMISE**: 
 This reason indicates that it is known or suspected that the certificate subject’s private key has been compromised. It applies to certificate authority (CA) certificates only.
 
 
-AFFILIATION_CHANGED
+* **AFFILIATION_CHANGED**: 
 This reason indicates that the subject’s name or other information has changed.
 
 
-SUPERSEDED
+* **SUPERSEDED**: 
 This reason indicates that the certificate has been superseded.
 
 
-CESSATION_OF_OPERATION
+* **CESSATION_OF_OPERATION**: 
 This reason indicates that the certificate is no longer needed.
 
 
-PRIVILEGE_WITHDRAWN
+* **PRIVILEGE_WITHDRAWN**: 
 This reason indicates that the privileges granted to the subject of the certificate have been withdrawn.
 
 
-reporter
+
+
+* **reporter**: 
 Issuer of this certificate revocation request.
 
 
 
-Note: At least one of the three: certificateSerialNumber, csrRequestId or legalName needs to be specified.
-Also, Corda AMQP serialization framework is used as the serialization framework.
-
-Because of the proprietary serialization mechanism, it is assumed that those endpoints are used by dedicated tools that support this kind of data encoding.
+Also, Corda AMQP serialization framework is used as the serialization framework.Because of the proprietary serialization mechanism, it is assumed that those endpoints are used by dedicated tools that support this kind of data encoding.
 
 
 ## Internal protocol
 
 There is an internal communication protocol between the revocation service and the HSM signing service for producing the signed CRLs.
-                This does not use HTTP to avoid exposing any web vulnerabilities to the signing process.
-
+This does not use HTTP to avoid exposing any web vulnerabilities to the signing process.
 

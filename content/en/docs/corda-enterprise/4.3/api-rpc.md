@@ -16,97 +16,53 @@ title: 'API: RPC operations'
 # API: RPC operations
 
 The node’s owner interacts with the node solely via remote procedure calls (RPC). The node’s owner does not have
-            access to the node’s `ServiceHub`.
+access to the node’s `ServiceHub`.
 
 The key RPC operations exposed by the node are:
 
 
-* 
-
-`CordaRPCOps.vaultQueryBy`
-
+* `CordaRPCOps.vaultQueryBy`
     * Extract states from the node’s vault based on a query criteria
 
 
-
-* 
-
-`CordaRPCOps.vaultTrackBy`
-
+* `CordaRPCOps.vaultTrackBy`
     * As above, but also returns an observable of future states matching the query
 
 
-
-* 
-
-`CordaRPCOps.networkMapFeed`
-
+* `CordaRPCOps.networkMapFeed`
     * A list of network nodes, and an observable of changes to the network map
 
 
-
-* 
-
-`CordaRPCOps.registeredFlows`
-
+* `CordaRPCOps.registeredFlows`
     * See a list of registered flows on the node
 
 
-
-* 
-
-`CordaRPCOps.startFlowDynamic`
-
+* `CordaRPCOps.startFlowDynamic`
     * Start one of the node’s registered flows
 
 
-
-* 
-
-`CordaRPCOps.startTrackedFlowDynamic`
-
+* `CordaRPCOps.startTrackedFlowDynamic`
     * As above, but also returns a progress handle for the flow
 
 
-
-* 
-
-`CordaRPCOps.nodeDiagnosticInfo`
-
+* `CordaRPCOps.nodeDiagnosticInfo`
     * Returns diagnostic information about the node, including the version and CorDapp details
 
 
-
-* 
-
-`CordaRPCOps.nodeInfo`
-
+* `CordaRPCOps.nodeInfo`
     * Returns the network map entry of the node, including its address and identity details as well as the platform version information
 
 
-
-* 
-
-`CordaRPCOps.currentNodeTime`
-
+* `CordaRPCOps.currentNodeTime`
     * Returns the current time according to the node’s clock
 
 
-
-* 
-
-`CordaRPCOps.partyFromKey/CordaRPCOps.wellKnownPartyFromX500Name`
-
+* `CordaRPCOps.partyFromKey/CordaRPCOps.wellKnownPartyFromX500Name`
     * Retrieves a party on the network based on a public key or X500 name
 
 
-
-* 
-
-`CordaRPCOps.uploadAttachment`/`CordaRPCOps.openAttachment`/`CordaRPCOps.attachmentExists`
-
+* `CordaRPCOps.uploadAttachment`/`CordaRPCOps.openAttachment`/`CordaRPCOps.attachmentExists`
     * Uploads, opens and checks for the existence of attachments
-
 
 
 

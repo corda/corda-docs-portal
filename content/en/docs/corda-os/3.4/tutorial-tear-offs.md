@@ -16,16 +16,13 @@ title: Transaction tear-offs
 # Transaction tear-offs
 
 Suppose we want to construct a transaction that includes commands containing interest rate fix data as in
-            [Writing oracle services](oracles.md). Before sending the transaction to the oracle to obtain its signature, we need to filter out every part
-            of the transaction except for the `Fix` commands.
+[Writing oracle services](oracles.md). Before sending the transaction to the oracle to obtain its signature, we need to filter out every part
+of the transaction except for the `Fix` commands.
 
 To do so, we need to create a filtering function that specifies which fields of the transaction should be included.
-            Each field will only be included if the filtering function returns *true* when the field is passed in as input.
-
+Each field will only be included if the filtering function returns *true* when the field is passed in as input.
 
 {{< tabs name="tabs-1" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 val filtering = Predicate<Any> {
@@ -38,16 +35,14 @@ val filtering = Predicate<Any> {
 ```
 {{% /tab %}}
 
+
 [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
 We can now use our filtering function to construct a `FilteredTransaction`:
 
-
 {{< tabs name="tabs-2" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
@@ -55,21 +50,19 @@ val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
 ```
 {{% /tab %}}
 
+
 [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
 In the Oracle example this step takes place in `RatesFixFlow` by overriding the `filtering` function. See
-            [Using an oracle](oracles.md#filtering-ref).
+[Using an oracle](oracles.md#filtering-ref).
 
 Both `WireTransaction` and `FilteredTransaction` inherit from `TraversableTransaction`, so access to the
-            transaction components is exactly the same. Note that unlike `WireTransaction`,
-            `FilteredTransaction` only holds data that we wanted to reveal (after filtering).
-
+transaction components is exactly the same. Note that unlike `WireTransaction`,
+`FilteredTransaction` only holds data that we wanted to reveal (after filtering).
 
 {{< tabs name="tabs-3" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 // Direct access to included commands, inputs, outputs, attachments etc.
@@ -80,6 +73,7 @@ val timeWindow: TimeWindow? = ftx.timeWindow
 
 ```
 {{% /tab %}}
+
 
 [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
@@ -122,16 +116,10 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 ```
 [NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/3.4/samples/irs-demo/cordapp/src/main/kotlin/net/corda/irs/api/NodeInterestRates.kt)
 {{< note >}}
-
-
-The way the `FilteredTransaction` is constructed ensures that after signing of the root hash it’s impossible to add or remove
-components (leaves). However, it can happen that having transaction with multiple commands one party reveals only subset of them to the Oracle.
-                            As signing is done now over the Merkle root hash, the service signs all commands of given type, even though it didn’t see
-                            all of them. In the case however where all of the commands should be visible to an Oracle, one can type `ftx.checkAllComponentsVisible(COMMANDS_GROUP)` before invoking `ftx.verify`.
-
-`checkAllComponentsVisible` is using a sophisticated underlying partial Merkle tree check to guarantee that all of
-                the components of a particular group that existed in the original `WireTransaction` are included in the received
-                `FilteredTransaction`.
+`FilteredTransaction` is constructed ensures that after signing of the root hash it’s impossible to add or removecomponents (leaves). However, it can happen that having transaction with multiple commands one party reveals only subset of them to the Oracle.
+As signing is done now over the Merkle root hash, the service signs all commands of given type, even though it didn’t see
+all of them. In the case however where all of the commands should be visible to an Oracle, one can type `ftx.checkAllComponentsVisible(COMMANDS_GROUP)` before invoking `ftx.verify`.`checkAllComponentsVisible` is using a sophisticated underlying partial Merkle tree check to guarantee that all of
+the components of a particular group that existed in the original `WireTransaction` are included in the received
+`FilteredTransaction`.
 
 {{< /note >}}
-

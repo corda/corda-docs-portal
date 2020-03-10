@@ -16,42 +16,43 @@ title: CENM Database Configuration
 # CENM Database Configuration
 
 Both the Network Map and Identity Manager Components require a persistent layer to be available. This is described in
-            their respective configs with the following configuration state.
+their respective configs with the following configuration state.
 
 
+* **database**: 
 
-database
-
-
-runMigration
+* **runMigration**: 
 Upgrade the CENM upgrade for any schema level changes
 
 
-initialiseSchema
+* **initialiseSchema**: 
 Automatically creates the tables required by the CENM component
 
 
-jdbcDriver
+* **jdbcDriver**: 
 Path to the jar file containing the specific JDBC driver
 
 
-driverClassName
+* **driverClassName**: 
 See the specific JDBC driver documentation
 
 
-url
+* **url**: 
 Location of the Database on the network
 
 
-user
+* **user**: 
 Database user
 
 
-password
+* **password**: 
 Database user password
 
 
-additionalProperties
+* **additionalProperties**: 
 (Optional) Additional database properties
+
+
+
 
 

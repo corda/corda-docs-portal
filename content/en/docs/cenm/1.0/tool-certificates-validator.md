@@ -15,25 +15,18 @@ title: Certificates Validator
 # Certificates Validator
 
 The purpose of the Certificates Validator Tool is to provide means for the certificate hierarchy verification.
-            The verification is tailored towards Corda Platform and as such some proprietary checking is done in order to ensure correctness
-            for the Corda Network deployment.
-            The tool is intended to be executed automatically. Therefore no human interaction is required. All necessary data is fed
-            to the tool from the provided configuration file. See below for more details on how to configure the tool.
+The verification is tailored towards Corda Platform and as such some proprietary checking is done in order to ensure correctness
+for the Corda Network deployment.
+The tool is intended to be executed automatically. Therefore no human interaction is required. All necessary data is fed
+to the tool from the provided configuration file. See below for more details on how to configure the tool.
 
 Performed validation:
 
 
 * The network trust store consists of at least one certificate (i.e. the root certificate).
-
-
 * There is certificate is stored under the “cordarootca” alias. Note: This is required for Corda releases: 3.2 OS and 3.3 ENT.
-
-
 * The certificate under the “cordarootca” is self-signed.
-
-
 * The are certificates with roles: DOORMAN_CA and NETWORK_MAP that share the same root certificate.
-
 
 
 ## Running the tool
@@ -42,36 +35,40 @@ Performed validation:
 java -jar utilities.jar certs-validator --config-file <CONFIG_FILE>
 ```
 
+
 ## Configuration Parameters
 
 The configuration file consists the following attributes:
 
 
-
-certificatesStore
+* **certificatesStore**: 
 Certificates store specific configuration.
 
 
-
-file
+* **file**: 
 Location of the certificates store file.
 
 
-password
+* **password**: 
 Password to the certificates store file.
 
 
-networkRootTrustStore
+
+
+* **networkRootTrustStore**: 
 Network trust store specific configuration.
 
 
-
-file
+* **file**: 
 Location of the network trust store file.
 
 
-password
+* **password**: 
 Password to the network trust store file.
+
+
+
+
 
 
 ## Example Configuration

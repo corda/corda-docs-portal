@@ -18,17 +18,9 @@ I want to:
 
 
 * [Learn](#quickstart-learn) about Corda for the first time
-
-
 * [Develop](#quickstart-develop) a CorDapp
-
-
 * [Run](#quickstart-run) and test a CorDapp on a local Corda network
-
-
 * [Add](#quickstart-add) a node to an existing test Corda network
-
-
 * [Add](#quickstart-production) a node to an existing production network
 
 
@@ -46,6 +38,8 @@ I want to:
 
 {{< /table >}}
 
+
+
 ## Develop a CorDapp
 
 
@@ -60,6 +54,8 @@ I want to:
 |[Corda API](corda-api.md)|A guide to the CorDapp API|
 
 {{< /table >}}
+
+
 
 ## Run and test a CorDapp on local Corda network
 
@@ -78,6 +74,8 @@ I want to:
 |[Node Explorer](node-explorer.md)|A GUI-based tool to view transactional data and transactional history for a node|
 
 {{< /table >}}
+
+
 
 ## Add a node to an existing test Corda network
 
@@ -98,15 +96,17 @@ I want to:
 
 {{< /table >}}
 
+
+
 ## Add a node to an existing production network
 
 
 {{< table >}}
 
 |Corda Network is a global production network of Corda nodes, operated by the independent
-                                    Corda Network Foundation. You can learn more here: [https://corda.network/participation/index.html](https://corda.network/participation/index.html)|
+Corda Network Foundation. You can learn more here: [https://corda.network/participation/index.html](https://corda.network/participation/index.html)|
 |Corda Testnet is a test network, operated for the community by R3. You can learn
-                                    more here: [https://testnet.corda.network](https://testnet.corda.network)|
+more here: [https://testnet.corda.network](https://testnet.corda.network)|
 
 {{< /table >}}
 

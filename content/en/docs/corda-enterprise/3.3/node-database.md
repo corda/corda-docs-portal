@@ -18,44 +18,29 @@ title: Node database
 ## Default in-memory database
 
 By default, nodes store their data in an H2 database. You can connect directly to a running node’s database to see its
-                stored states, transactions and attachments as follows:
+stored states, transactions and attachments as follows:
 
 
 * Enable the H2 database access in the node configuration using the following syntax:
-
-
 * Download the **last stable** [h2 platform-independent zip](http://www.h2database.com/html/download.html), unzip the zip, and
-                        navigate in a terminal window to the unzipped folder
-
-
+navigate in a terminal window to the unzipped folder
 * Change directories to the bin folder: `cd h2/bin`
-
-
 * Run the following command to open the h2 web console in a web browser tab:
-
-
     * Unix: `sh h2.sh`
-
-
     * Windows: `h2.bat`
 
 
-
 * Find the node’s JDBC connection string. Each node outputs its connection string in the terminal
-                        window as it starts up. In a terminal window where a node is running, look for the following string:
-
-`Database connection URL is              : jdbc:h2:tcp://10.18.0.150:56736/node`
-
-
+window as it starts up. In a terminal window where a node is running, look for the following string:`Database connection URL is              : jdbc:h2:tcp://10.18.0.150:56736/node`
 * Paste this string into the JDBC URL field and click `Connect`, using the default username (`sa`) and no password.
 
-
 You will be presented with a web interface that shows the contents of your node’s storage and vault, and provides an
-                interface for you to query them using SQL.
+interface for you to query them using SQL.
 
 The default behaviour is to expose the H2 database on localhost. This can be overridden in the
-                node configuration using `h2Settings.address` and specifying the address of the network interface to listen on,
-                or simply using `0.0.0.0:0` to listen on all interfaces.
+node configuration using `h2Settings.address` and specifying the address of the network interface to listen on,
+or simply using `0.0.0.0:0` to listen on all interfaces.
+
 
 
 ## Standalone database
@@ -64,35 +49,28 @@ Running a node against a standalone database requires the following setup steps:
 
 
 * A node with the embedded H2 database creates the full database schema including users, permissions and tables definitions.
-                        For a standalone database a database administrator needs to create database users/logins, an empty schema and permissions on the custom database.
-                        Tables and sequences may be created by a database administrator, however a node can create the tables/sequences at startup if the `database.runMigration` ìs set to `true`.
-
-
+For a standalone database a database administrator needs to create database users/logins, an empty schema and permissions on the custom database.
+Tables and sequences may be created by a database administrator, however a node can create the tables/sequences at startup if the `database.runMigration` ìs set to `true`.
 * Add node JDBC connection properties to the *dataSourceProperties* entry and Hibernate properties to the *database* entry - see [Node configuration](corda-configuration-file.md#database-properties-ref).
-                        Each node needs to use a separate database schema which requires a separate database user/login with a default schema set.
-                        Properties can be generated with the [deployNodes Cordform task](testing.md#testing-cordform-ref).
-
-
+Each node needs to use a separate database schema which requires a separate database user/login with a default schema set.
+Properties can be generated with the [deployNodes Cordform task](testing.md#testing-cordform-ref).
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver used by samples.
-                        It is the responsibility of the node administrator to download the appropriate JDBC drivers and configure the database settings.
-                        Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
-                        Corda distributed via published artifacts (e.g. added as Gradle dependency) will also search for the paths specified by the `jarDirs` field of the node configuration.
-                        The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. *jarDirs = [ ‘/lib/jdbc/driver’ ]*.
-
-
+It is the responsibility of the node administrator to download the appropriate JDBC drivers and configure the database settings.
+Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
+Corda distributed via published artifacts (e.g. added as Gradle dependency) will also search for the paths specified by the `jarDirs` field of the node configuration.
+The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. *jarDirs = [ ‘/lib/jdbc/driver’ ]*.
 * When a node reuses an existing database (e.g. frequent tests when developing a Cordapp), the data is not deleted by the node at startup.
-                        E.g. `Cordform` Gradle task always delete existing H2 database data file, while a remote database is not altered.
-                        Ensure that in such cases the database rows have been deleted or all tables and sequences were dropped.
-
+E.g. `Cordform` Gradle task always delete existing H2 database data file, while a remote database is not altered.
+Ensure that in such cases the database rows have been deleted or all tables and sequences were dropped.
 
 Example configuration for supported standalone databases are shown below.
-                In each configuration replace placeholders *[USER]*, *[PASSWORD]* and *[SCHEMA]*.
-
+In each configuration replace placeholders *[USER]*, *[PASSWORD]* and *[SCHEMA]*.
 
 {{< note >}}
 SQL database schema setup scripts are suitable for development purposes only.
 
 {{< /note >}}
+
 
 ### SQL Azure and SQL Server
 
@@ -108,6 +86,7 @@ CREATE USER [USER] FOR LOGIN [SCHEMA] WITH DEFAULT_SCHEMA = [SCHEMA];
 GRANT ALTER, DELETE, EXECUTE, INSERT, REFERENCES, SELECT, UPDATE, VIEW DEFINITION ON SCHEMA::[SCHEMA] TO [USER];
 GRANT CREATE TABLE, CREATE PROCEDURE, CREATE FUNCTION, CREATE VIEW TO [USER];
 ```
+
 Example node configuration for SQL Azure:
 
 ```none
@@ -123,19 +102,15 @@ database = {
     schema = [SCHEMA]
 }
 ```
+
 Note that:
 
 
 * The `database.schema` property is optional
-
-
 * The minimum transaction isolation level `database.transactionIsolationLevel` is *READ_COMMITTED*
-
-
 * Ensure that the Microsoft JDBC driver JAR is copied to the `./drivers` subdirectory or if applicable specify a path in the `jarDirs` property,
-                            the driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539),
-                            extract the archive and copy the single file `mssql-jdbc-6.2.2.jre8.jar` as the archive comes with two JAR versions
-
+the driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539),
+extract the archive and copy the single file `mssql-jdbc-6.2.2.jre8.jar` as the archive comes with two JAR versions
 
 To delete existing data from the database, run the following SQL:
 
@@ -211,6 +186,8 @@ DROP TABLE IF EXISTS [SCHEMA].private_network;
 DROP SEQUENCE [SCHEMA].hibernate_sequence;
 ```
 
+
+
 ### Oracle
 
 Corda supports Oracle 11g RC2 (with ojdbc6.jar) and Oracle 12c (ojdbc8.jar).
@@ -225,6 +202,7 @@ GRANT CREATE TABLE TO [USER];
 GRANT CREATE SEQUENCE TO [USER];
 GRANT ALL PRIVILEGES TO [USER] IDENTIFIED BY [PASSWORD];
 ```
+
 Example node configuration for Oracle:
 
 ```none
@@ -239,17 +217,13 @@ database = {
     schema = [SCHEMA]
 }
 ```
+
 Note that:
 
 
 * The `database.schema` property is optional
-
-
 * The minimum transaction isolation level `database.transactionIsolationLevel` is *READ_COMMITTED*
-
-
 * Ensure that the Oracle JDBC driver JAR is copied to the `./drivers` subdirectory or if applicable specify path in the `jarDirs` property
-
 
 To delete existing data from the database, run the following SQL:
 
@@ -325,6 +299,8 @@ DROP TABLE [USER].private_network CASCADE CONSTRAINTS;
 DROP SEQUENCE [USER].hibernate_sequence;
 ```
 
+
+
 ### PostgreSQL
 
 Corda has been tested on PostgreSQL 9.6 database, using PostgreSQL JDBC Driver 42.1.4.
@@ -341,6 +317,7 @@ GRANT ALL ON ALL sequences IN SCHEMA "[SCHEMA]" TO "[USER]";
 ALTER DEFAULT privileges IN SCHEMA "[SCHEMA]" GRANT ALL ON sequences TO "[USER]";
 ALTER ROLE "[USER]" SET search_path = "[SCHEMA]";
 ```
+
 Example node configuration for PostgreSQL:
 
 ```none
@@ -355,25 +332,19 @@ database = {
     schema = [SCHEMA]
 }
 ```
+
 Note that:
 
 
 * The `database.schema` property is optional
-
-
 * If you provide a custom `database.schema`, its value must either match the `dataSource.user` value to end up
-                            on the standard schema search path according to the
-                            [PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH), or
-                            the schema search path must be set explicitly via the `ALTER ROLE "[USER]" SET search_path = "[SCHEMA]"` statement.
-
-
+on the standard schema search path according to the
+[PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH), or
+the schema search path must be set explicitly via the `ALTER ROLE "[USER]" SET search_path = "[SCHEMA]"` statement.
 * The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity
-                            (e.g. *AliceCorp* becomes *“AliceCorp”*, without quotes PostgresSQL would treat the value as *alicecorp*),
-                            this behaviour differs from Corda Open Source where the value is not wrapped in double quotes
-
-
+(e.g. *AliceCorp* becomes *“AliceCorp”*, without quotes PostgresSQL would treat the value as *alicecorp*),
+this behaviour differs from Corda Open Source where the value is not wrapped in double quotes
 * Ensure that the PostgreSQL JDBC driver JAR is copied to the `./drivers` subdirectory or if applicable specify path in the `jarDirs` property
-
 
 To delete existing data from the database, run the following SQL:
 
@@ -387,55 +358,46 @@ GRANT ALL ON ALL sequences IN SCHEMA "[SCHEMA]" TO "[USER]";
 ALTER DEFAULT privileges IN SCHEMA "[SCHEMA]" GRANT ALL ON sequences TO "[USER]";
 ```
 
+
 ### Upgrading and migrating databases
 
 See [Database management](database-management.md) for information on our enterprise database management tool which can be used to manage the underlying
-                    database and create migration scripts.
+database and create migration scripts.
 
 
 ### Guideline for adding support for other databases
 
 The Corda distribution can be extended to support other databases without recompilation.
-                    This assumes that all SQL queries run by Corda are compatible with the database and the JDBC driver doesn’t require any custom serialization.
-                    To add support for another database to a Corda node, the following JAR files must be provisioned:
+This assumes that all SQL queries run by Corda are compatible with the database and the JDBC driver doesn’t require any custom serialization.
+To add support for another database to a Corda node, the following JAR files must be provisioned:
 
 
 * JDBC driver compatible with JDBC 4.2
-
-
 * Hibernate dialect
-
-
 * Liquibase extension for the database management ([https://www.liquibase.org](https://www.liquibase.org))
-
-
 * Implementation of database specific Cash Selection SQL query.
-                            Class with SQL query needs to extend the `net.corda.finance.contracts.asset.cash.selection.AbstractCashSelection` class:
-
-```kotlin
+Class with SQL query needs to extend the `net.corda.finance.contracts.asset.cash.selection.AbstractCashSelection` class:```kotlin
 package net.corda.finance.contracts.asset.cash.selection
 //...
 class CashSelectionCustomDatabaseImpl : AbstractCashSelection() {
       //...
 }
 ```
-The `corda-finance` module contains `AbstractCashSelection` class, so it needs to be added to your project, e.g. when using Gradle:
 
-```groovy
+The `corda-finance` module contains `AbstractCashSelection` class, so it needs to be added to your project, e.g. when using Gradle:```groovy
 compile "com.r3.corda:corda-finance:$corda_version"
 ```
-The compiled JAR needs to contain a `resources/META-INF/net.corda.finance.contracts.asset.cash.selection.AbstractCashSelection` file
-                            with a class entry to inform the Corda node about the class at startup:
 
-```none
+The compiled JAR needs to contain a `resources/META-INF/net.corda.finance.contracts.asset.cash.selection.AbstractCashSelection` file
+with a class entry to inform the Corda node about the class at startup:```none
 net.corda.finance.contracts.asset.cash.selection.CashSelectionCustomDatabaseImpl
 ```
 
-All additional JAR files need to be copy into `./drivers` subdirectory of the node.
 
+
+All additional JAR files need to be copy into `./drivers` subdirectory of the node.
 
 {{< note >}}
 This is a general guideline. In some cases, it might not be feasible to add support for your desired database without recompiling the Corda source code.
 
 {{< /note >}}
-

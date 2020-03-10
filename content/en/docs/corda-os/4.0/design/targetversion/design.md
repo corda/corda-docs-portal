@@ -22,12 +22,14 @@ This document proposes that CorDapps will have metadata associated with them spe
 
 ## Background
 
+
 > 
 > Introduce target version and min platform version as app attributes
 > 
 > This is probably as simple as a couple of keys in a MANIFEST.MF file.
->                     We should document what it means, make sure API implementations can always access the target version of the calling CorDapp (i.e. by examining the flow, doing a stack walk or using Reflection.getCallerClass()) and do a simple test of an API that acts differently depending on the target version of the app.
->                     We should also implement checking at CorDapp load time that min platform version <= current platform version.
+> We should document what it means, make sure API implementations can always access the target version of the calling CorDapp (i.e. by examining the flow, doing a stack walk or using Reflection.getCallerClass()) and do a simple test of an API that acts differently depending on the target version of the app.
+> We should also implement checking at CorDapp load time that min platform version <= current platform version.
+
 
 ([from CORDA-470](https://r3-cev.atlassian.net/browse/CORDA-470))
 
@@ -41,21 +43,15 @@ This document proposes that CorDapps will have metadata associated with them spe
 > 
 > It starts at 1 and will increment by exactly 1 for each release which changes any of the publicly exposed APIs in the entire platform. This includes public APIs on the node itself, the RPC system, messaging, serialisation, etc. API backwards compatibility will always be maintained, with the use of deprecation to migrate away from old APIs. In rare situations APIs may have to be removed, for example due to security issues. There is no relationship between the Platform Version and the release version - a change in the major, minor or patch values may or may not increase the Platform Version.
 
+
 ([from the docs](https://docs.corda.net/head/versioning.html#versioning)).
 
 
 * *Platform version (Node)* The value of the Corda platform version that a node is running and advertising to the network.
-
-
 * *Minimum platform version (Network)* The minimum platform version that the nodes must run in order to be able to join the network. Set by the network zone operator. The minimum platform version is distributed with the network parameters as `minimumPlatformVersion`.
-                            ([see docs:](https://docs.corda.net/network-map.html#network-parameters))
-
-
+([see docs:](https://docs.corda.net/network-map.html#network-parameters))
 * *Target platform version (CorDapp)* Introduced in this document. Indicates that a CorDapp was tested with this version of the Corda Platform and should be run at this API level if possible.
-
-
 * *Minimum platform version (CorDapp)* Introduced in this document. Indicates the minimum version of the Corda platform that a Corda Node has to run in order to be able to run a CorDapp.
-
 
 
 ## Goals
@@ -77,19 +73,10 @@ This is intended as a long-term solution. The first iteration of the implementat
 
 
 * The CorDapp’s minimum and target platform version must be accessible to nodes at CorDapp load time.
-
-
 * At CorDapp load time there should be a check that the node’s platform version is greater or equal to the CorDapp’s Minimum Platform version.
-
-
 * API implementations must be able to access the target version of the calling CorDapp.
-
-
 * The node’s platform version must be accessible to CorDapps.
-
-
 * The CorDapp’s target platform version must be accessible to the node when running CorDapps.
-
 
 
 ## Design
@@ -110,7 +97,7 @@ Changes that risk breaking apps must be gated on targetVersion>=X where X is the
 ## Technical Design
 
 The minimum- and target platform version will be written to the manifest of the CorDapp’s JAR, in fields called `Min-Platform-Version` and `Target-Platform-Version`.
-                The node’s CorDapp loader reads these values from the manifest when loading the CorDapp. If the CorDapp’s minimum platform version is greater than the node’s platform version, the node will not load the CorDapp and log a warning. The CorDapp loader sets the minimum and target version in `net.corda.core.cordapp.Cordapp`, which can be obtained via the `CorDappContext` from the service hub.
+The node’s CorDapp loader reads these values from the manifest when loading the CorDapp. If the CorDapp’s minimum platform version is greater than the node’s platform version, the node will not load the CorDapp and log a warning. The CorDapp loader sets the minimum and target version in `net.corda.core.cordapp.Cordapp`, which can be obtained via the `CorDappContext` from the service hub.
 
 To make APIs caller-sensitive in cases where the service hub is not available a different approach has to be used. It would possible to do a stack walk, and parse the manifest of each class on the stack to determine if it belongs to a CorDapp, and if yes, what its target version is. Alternatively, the mapping of classes to `Cordapp`s obtained by the CorDapp loader could be stored in a global singleton. This singleton would expose a lambda returning the current CorDapp’s version information (e.g. `() -> Cordapp.Info`).
 
@@ -124,6 +111,6 @@ fun contains(instant: Instant) {
     return instant >= fromTime && instant < untilTime
   }
 ```
-Version-gating API changes when the service hub is available would look similar to the above example, in that case the service hub’s CorDapp provider would be used to determine if this code is being called from a CorDapp and to obtain its target version information.
 
+Version-gating API changes when the service hub is available would look similar to the above example, in that case the service hub’s CorDapp provider would be used to determine if this code is being called from a CorDapp and to obtain its target version information.
 

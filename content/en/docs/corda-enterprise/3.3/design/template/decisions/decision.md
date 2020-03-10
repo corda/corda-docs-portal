@@ -10,7 +10,8 @@ title: 'Design Decision: '
 ---
 
 [![fg005 corda b](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png "fg005 corda b")](https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png)
-    
+
+
 # Design Decision: <Description heading>
 
 
@@ -29,20 +30,14 @@ Short outline of decision point.
 
 
 * ​
-
-
 * ​
-
 
 
 #### Disadvantages
 
 
 * ​
-
-
 * ​
-
 
 
 ### B. <Option summary>
@@ -52,24 +47,17 @@ Short outline of decision point.
 
 
 * ​
-
-
 * ​
-
 
 
 #### Disadvantages
 
 
 * ​
-
-
 * ​
-
 
 
 ## Recommendation and justification
 
 Proceed with Option <A or B or … >
-
 

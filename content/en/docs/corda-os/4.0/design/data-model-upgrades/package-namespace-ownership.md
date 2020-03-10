@@ -64,20 +64,14 @@ Although we can work on improving our support and APIs for working with sophisti
 
 
 * Provide a way to reduce the complexity of naming and working with names in Corda by allowing for a small amount of centralisation, balanced by a reduction in developer mental load.
-
-
 * Keep it optional for both zones and developers.
-
-
 * Allow most developers to work just with ordinary Java class names, without needing to consider the complexities of a decentralised namespace.
-
 
 
 ## Non-goals
 
 
 * Directly make it easier to work with “decentralised names”. This can be a project that comes later.
-
 
 
 ## Design
@@ -96,6 +90,7 @@ data class NetworkParameters(
     val packageOwnership: Map<JavaPackageName, PublicKey>
 )
 ```
+
 Where the `PublicKey` object can be any of the algorithms supported by signature constraints. The map defines a set of dotted package names like `com.foo.bar` where any class in that package or any sub-package of that package is considered to match (so `com.foo.bar.baz.boz.Bish` is a match but `com.foo.barrier` does not).
 
 When a class is loaded from an attachment or application JAR signature checking is enabled. If the package of the class matches one of the owned namespaces, the JAR must be have enough signatures to satisfy the PublicKey (there may need to be more than one if the PublicKey is composite).
@@ -104,28 +99,16 @@ Please note the following:
 
 
 * It’s OK to have unsigned JARs.
-
-
 * It’s OK to have JARs that are signed, but for which there are no claims in the network parameters.
-
-
 * It’s OK if entries in the map are removed (system becomes more open). If entries in the map are added, this could cause consensus failures if people are still using old unsigned versions of the app.
-
-
 * The map specifies keys not certificate chains, therefore, the keys do not have to chain off the identity key of a zone member. App developers do not need to be members of a zone for their app to be used there.
-
 
 From a privacy and decentralisation perspective, the zone operator *may* learn who is developing apps in their zone or (in cases where a vendor makes a single app and thus it’s obvious) which apps are being used. This is not ideal, but there are mitigations:
 
 
 * The privacy leak is optional.
-
-
 * The zone operator still doesn’t learn who is using which apps.
-
-
 * There is no obligation for Java package namespaces to correlate obviously to real world identities or products. For example you could register a trivial “front” domain and claim ownership of that, then use it for your apps. The zone operator would see only a codename.
-
 
 
 ### Claiming a namespace
@@ -140,5 +123,4 @@ The vault query API is an example of how tricky it can be to manage truly decent
 The `StateMetadata` class can be easily extended to include constraint information, to make safely programming against a decentralised namespace possible. As part of this work this extension will be made.
 
 But the new field would still need to be used - a subtle detail that would be easy to overlook. Package namespace ownership ensures that if you have an app installed locally on the client side that implements `com.megacorp.example` , then that code is likely to match closely enough with the version that was verified by the node.
-
 

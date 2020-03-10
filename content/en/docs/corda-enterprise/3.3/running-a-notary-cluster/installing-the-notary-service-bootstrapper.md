@@ -16,10 +16,10 @@ title: Using the Bootstrapper
 # Using the Bootstrapper
 
 Once the database is set up, you can prepare your configuration files of your notary
-            nodes and use the bootstrapper to create a local test Corda network, see
-            [Corda networks](../corda-test-networks.md). Remember to configure
-            `notary.serviceLegalName` in addition to `myLegalName` for all members of
-            your cluster.
+nodes and use the bootstrapper to create a local test Corda network, see
+[Corda networks](../corda-test-networks.md). Remember to configure
+`notary.serviceLegalName` in addition to `myLegalName` for all members of
+your cluster.
 
 You can find the documentation of the bootstrapper at [Network Bootstrapper](../network-bootstrapper.md).
 
@@ -33,8 +33,9 @@ The notaries will be visible and available on the network. You can list availabl
 ```sh
 run notaryIdentities
 ```
+
 The output of the above command should include the `notary.serviceLegalName`
-                you have configured, e.g. `O=HA Notary, L=London, C=GB`.
+you have configured, e.g. `O=HA Notary, L=London, C=GB`.
 
 CorDapp developers should select the notary service identity from the network map cache.
 

@@ -21,43 +21,18 @@ title: Design Review Board Meeting Minutes
 
 
 * Mark Oldfield (MO)
-
-
 * Matthew Nesbit (MN)
-
-
 * Richard Gendal Brown (RGB)
-
-
 * James Carlyle (JC)
-
-
 * Mike Hearn (MH)
-
-
 * Jose Coll (JoC)
-
-
 * Rick Parker (RP)
-
-
 * Andrey Bozhko (AB)
-
-
 * Dave Hudson (DH)
-
-
 * Nick Arini (NA)
-
-
 * Ben Abineri (BA)
-
-
 * Jonathan Sartin (JS)
-
-
 * David Lee (DL)
-
 
 
 ## Minutes
@@ -174,22 +149,11 @@ MH requested more detailed proposals going forward on:
 
 
 * To what degree logs from different components need to be integrated (consensus was no requirement at this stage)
-
-
 * Bridge control protocols.
-
-
 * Scalability of hashing network map entries to a queue names
-
-
 * Node admins’ user experience – MH argued for documenting this in advance to validate design
-
-
 * Behaviour following termination of a remote node (retry frequency, back-off etc.)?
-
-
 * Impact on standalone nodes (no float)?
-
 
 JC noted an R3 obligation with Microsoft to support AMQP-compliant Azure messaging,. MN confirmed support for pluggable brokers should cover that.
 
@@ -200,5 +164,4 @@ JoC questioned whether the Bridge Manager locked the design to Artemis? MO highl
 RGB questioned the rationale for moving the broker out of the node. MN provided clarification.
 
 **DECISION CONFIRMED**: Design to  proceed as discussed  (RGB, JC, MH agreed)
-
 

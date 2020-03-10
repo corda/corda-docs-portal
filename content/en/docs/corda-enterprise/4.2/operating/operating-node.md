@@ -37,13 +37,8 @@ The three scenarios most frequently requiring change management are:
 
 
 * [Backup and restoration of a Corda Node](./cm-backup.html)
-
-
 * [Upgrading Corda versions on a Node](./cm-upgrading-node.html)
-
-
 * [Updating a running CorDapp](./cm-updating-cordapp.html)
-
 
 
 

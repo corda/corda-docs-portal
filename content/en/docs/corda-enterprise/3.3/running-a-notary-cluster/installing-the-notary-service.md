@@ -24,16 +24,14 @@ If you’re deploying VMs in your environment you might need to adjust the host 
 ## Configuration Files
 
 Below is a template for the notary configuration. Notice the parameters
-                `rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false` of the
-                JDBC URL.  See [Node configuration](../corda-configuration-file.md) for a complete reference.
+`rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false` of the
+JDBC URL.  See [Node configuration](../corda-configuration-file.md) for a complete reference.
 
 Put the IP address or host name of the nearest Percona server first in the JDBC
-                URL. When running a Percona and a Notary replica on a single machine, list the
-                local IP first.
-
+URL. When running a Percona and a Notary replica on a single machine, list the
+local IP first.
 
 {{< tabs name="tabs-1" >}}
-
 node.conf
 
 {{% tab name="kotlin" %}}
@@ -83,10 +81,10 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 ```
 {{% /tab %}}
 
+
 [node.conf](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/running-a-notary-cluster/resources/node.conf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
-
 
 {{< note >}}
 Omit `compatibilityZoneURL` and set `devMode = true` when using the bootstrapper.
@@ -94,6 +92,7 @@ Omit `compatibilityZoneURL` and set `devMode = true` when using the bootstrapper
 {{< /note >}}
 
 ## Next Steps
+
 
 
 * [Using the Bootstrapper](installing-the-notary-service-bootstrapper.md)

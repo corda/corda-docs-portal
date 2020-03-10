@@ -12,23 +12,16 @@ title: Quickstart
 
 # Quickstart
 
+
 Welcome to the Corda Quickstart Guide. Follow the links below to help get going quickly with Corda.
 
 I want to:
 
 
 * [Learn](#quickstart-learn) about Corda for the first time
-
-
 * [Develop](#quickstart-develop) a CorDapp
-
-
 * [Run](#quickstart-run) and test a CorDapp on a local Corda network
-
-
 * [Add](#quickstart-add) a node to an existing test Corda network
-
-
 * [Add](#quickstart-production) a node to an existing production network
 
 
@@ -46,6 +39,8 @@ I want to:
 
 {{< /table >}}
 
+
+
 ## Develop a CorDapp
 
 
@@ -60,6 +55,8 @@ I want to:
 |[Corda API](corda-api.md)|A guide to the CorDapp API|
 
 {{< /table >}}
+
+
 
 ## Run and test a CorDapp on local Corda network
 
@@ -79,6 +76,8 @@ I want to:
 
 {{< /table >}}
 
+
+
 ## Add a node to an existing test Corda network
 
 
@@ -95,6 +94,8 @@ I want to:
 |[Blob Inspector](blob-inspector.md)|A troubleshooting tool allowing you to read the contents of a binary blob file|
 
 {{< /table >}}
+
+
 
 ## Add a node to an existing production network
 

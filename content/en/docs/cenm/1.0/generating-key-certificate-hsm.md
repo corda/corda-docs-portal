@@ -15,7 +15,7 @@ title: Generating HSM Keys and Certificates
 # Generating HSM Keys and Certificates
 
 This document describes the entire process for generating a key pair and the associated certificate on the Utimaco HSM
-            using the ENM tools.
+using the ENM tools.
 
 The process can be summarised in the following three steps:
 
@@ -23,15 +23,16 @@ The process can be summarised in the following three steps:
 ## 1. Generating the key pair and the certificate signing request.
 
 This step results in the key pair being generated on the HSM
-                as well as a certificate signing request file being created locally in the file system. The file consists of the public
-                part of the generated key pair as well as the subject, which are then used in next step of the process.
-                See tool-key-csr-generator for more details.
+as well as a certificate signing request file being created locally in the file system. The file consists of the public
+part of the generated key pair as well as the subject, which are then used in next step of the process.
+See tool-key-csr-generator for more details.
 
 Example command:
 
 ```guess
 java -jar utilities.jar key-csr-generator --config-file key-csr-generator.conf
 ```
+
 where the key-csr-generator.conf could be as follows:
 
 ```guess
@@ -60,17 +61,19 @@ subject = "CN=Root CA, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US"
 csrFile = "root.csr"
 ```
 
+
 ## 2. Signing the Certificate Signing Request
 
 This step takes the certificate signing request produced in the previous step and signs it with a key specified in
-                the configuration file. As a result a new certificate is produced and stored in the JKS file. The certificate has
-                the subject and public key specified in the certificate signing request.
+the configuration file. As a result a new certificate is produced and stored in the JKS file. The certificate has
+the subject and public key specified in the certificate signing request.
 
 Example command:
 
 ```guess
 java -jar utilities.jar csr-signer --config-file csr-sign.conf
 ```
+
 where the csr-sign.conf could be as follows:
 
 ```guess
@@ -111,16 +114,18 @@ certificate = {
 certificateAlias = "cna1"
 ```
 
+
 ## 3. Uploading the certificate to the HSM
 
 This step takes the JKS file produced in the previous step and uploads the certificate generated in the previous step
-                to the HSM.
+to the HSM.
 
 Example command:
 
 ```guess
 java -jar utilities.jar cert-updater --config-file cert-update.conf
 ```
+
 where the cert-update.conf could be as follows:
 
 ```guess
@@ -146,6 +151,7 @@ key = {
         keySpecifier = 1
 ```
 
+
 ## 4. Copying certificates between local JKS certificate stores
 
 This step takes the JKS file produced in the previous step and another (target) JKS file. If the target JKS file does not exist it will create a new one.
@@ -155,6 +161,7 @@ Example command:
 ```guess
 java -jar utilities.jar local-cert-copier --config-file cert-copier.conf
 ```
+
 where the cert-copier.conf could be as follows:
 
 ```guess

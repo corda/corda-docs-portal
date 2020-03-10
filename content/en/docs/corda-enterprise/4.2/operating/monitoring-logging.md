@@ -45,6 +45,7 @@ Create a file `sql.xml` in the current working directory. Add the following text
         </Loggers>
     </Configuration>
 ```
+
 Note the addition of a logger named `org.hibernate` that has set this particular logger level to `debug`.
 
 Now start the node as usual but with the additional parameter `log4j.configurationFile` set to the filename as above, for example:
@@ -62,10 +63,10 @@ Node can be configured to run SSH server.
 ## Database access
 
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-                (see [database access when running H2](../node-database-access-h2.html)).
+(see [database access when running H2](../node-database-access-h2.html)).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
-                database should be via the usual database tools mechanisms, including access control and restrictions.
+database should be via the usual database tools mechanisms, including access control and restrictions.
 
 
 ## Monitoring your node
@@ -76,95 +77,77 @@ This section covers monitoring performance and health of a node in Corda Enterpr
 ### Monitoring via Jolokia
 
 Like most Java servers, the node can be configured to export various useful metrics and management operations via the industry-standard
-                    [JMX infrastructure](https://en.wikipedia.org/wiki/Java_Management_Extensions). JMX is a standard API
-                    for registering *MBeans* … objects whose properties and methods are intended for server management. As Java
-                    serialization in the node has been restricted for security reasons, the metrics can only be exported via a Jolokia agent.
+[JMX infrastructure](https://en.wikipedia.org/wiki/Java_Management_Extensions). JMX is a standard API
+for registering *MBeans* … objects whose properties and methods are intended for server management. As Java
+serialization in the node has been restricted for security reasons, the metrics can only be exported via a Jolokia agent.
 
 [Jolokia](https://jolokia.org/) allows you to access the raw data and operations without connecting to the JMX port
-                    directly. Nodes can be configured to export the data over HTTP on the `/jolokia` HTTP endpoint, Jolokia defines the JSON and REST
-                    formats for accessing MBeans, and provides client libraries to work with that protocol as well.
+directly. Nodes can be configured to export the data over HTTP on the `/jolokia` HTTP endpoint, Jolokia defines the JSON and REST
+formats for accessing MBeans, and provides client libraries to work with that protocol as well.
 
 Here are a few ways to build dashboards and extract monitoring data for a node:
 
 
 * [Hawtio](http://hawt.io) is a web based console that connects directly to JVM’s that have been instrumented with a
-                            jolokia agent. This tool provides a nice JMX dashboard very similar to the traditional JVisualVM / JConsole MBbeans original.
-
-
+jolokia agent. This tool provides a nice JMX dashboard very similar to the traditional JVisualVM / JConsole MBbeans original.
 * [JMX2Graphite](https://github.com/logzio/jmx2graphite) is a tool that can be pointed to /monitoring/json and will
-                            scrape the statistics found there, then insert them into the Graphite monitoring tool on a regular basis. It runs
-                            in Docker and can be started with a single command.
-
-
+scrape the statistics found there, then insert them into the Graphite monitoring tool on a regular basis. It runs
+in Docker and can be started with a single command.
 * [JMXTrans](https://github.com/jmxtrans/jmxtrans) is another tool for Graphite, this time, it’s got its own agent
-                            (JVM plugin) which reads a custom config file and exports only the named data. It’s more configurable than
-                            JMX2Graphite and doesn’t require a separate process, as the JVM will write directly to Graphite.
-
-
+(JVM plugin) which reads a custom config file and exports only the named data. It’s more configurable than
+JMX2Graphite and doesn’t require a separate process, as the JVM will write directly to Graphite.
 * Cloud metrics services like New Relic also understand JMX, typically, by providing their own agent that uploads the
-                            data to their service on a regular schedule.
-
-
+data to their service on a regular schedule.
 * [Telegraf](https://github.com/influxdata/telegraf) is a tool to collect, process, aggregate, and write metrics.
-                            It can bridge any data input to any output using their plugin system, for example, Telegraf can
-                            be configured to collect data from Jolokia and write to DataDog web api.
-
+It can bridge any data input to any output using their plugin system, for example, Telegraf can
+be configured to collect data from Jolokia and write to DataDog web api.
 
 In order to ensure that a Jolokia agent is instrumented with the JVM run-time, you can choose one of these options:
 
 
 * Specify the Node configuration parameter *jmxMonitoringHttpPort*.
-
-
 * When using the launcher, add the line *-javaagent:../../drivers/jolokia-jvm-1.6.0-agent.jar=port=7777,host=localhost* to the *[JVMOptions] sections of the `launcher/app/launcher.cfg*. Make sure to place the Jolokia agent that you specify there into the *drivers* folder.
-
-
 * Start the node with *java -jar corda.jar -javaagent:drivers/jolokia-jvm-1.6.0-agent.jar=port=7777,host=localhost*.
-
 
 The following JMX statistics are exported:
 
 
 * Corda specific metrics: flow information (total started, finished, in-flight; flow duration by flow type), attachments (count)
-
-
 * Apache Artemis metrics: queue information for P2P and RPC services
-
-
 * JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system
-
 
 
 ### Notes for production use
 
 When using Jolokia monitoring in production, it is recommended to use a Jolokia agent that reads the metrics from the node
-                    and pushes them to the metrics storage, rather than exposing a port on the production machine/process to the internet.
+and pushes them to the metrics storage, rather than exposing a port on the production machine/process to the internet.
 
 Also ensure to have restrictive Jolokia access policy in place for access to production nodes. The Jolokia access is controlled
-                    via a file called `jolokia-access.xml`.
-                    Several Jolokia policy based security configuration files (`jolokia-access.xml`) are available for dev, test, and prod
-                    environments under `/config/<env>`.
+via a file called `jolokia-access.xml`.
+Several Jolokia policy based security configuration files (`jolokia-access.xml`) are available for dev, test, and prod
+environments under `/config/<env>`.
 
 
 ### Notes for development use
 
 When running in dev mode, Hibernate statistics are also available via the Jolkia interface. These are disabled otherwise
-                    due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-                    `exportHibernateJMXStatistics` flag on the [database configuration](../corda-configuration-file.md#database-properties-ref).
+due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
+`exportHibernateJMXStatistics` flag on the [database configuration](../corda-configuration-file.md#database-properties-ref).
 
 When starting Corda nodes using Cordformation runner (see [running nodes locally](../running-a-node.html)), you should see a startup message similar to the following:
-                    **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
+**Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:
-                    **Starting out-of-process Node USA Bank Corp, debug port is not enabled, jolokia monitoring port is 7005 {}**
+**Starting out-of-process Node USA Bank Corp, debug port is not enabled, jolokia monitoring port is 7005 {}**
 
 The following diagram illustrates Corda flow metrics visualized using hawtio:
 
 ![hawtio jmx](operating/resources/hawtio-jmx.png "hawtio jmx")
+
 ### Monitoring via Graphite
 
 Corda nodes alternatively support publishing metrics collected via the Codahale metrics library directly to a graphite
-                    server. This needs to be configured in the node configuration file:
+server. This needs to be configured in the node configuration file:
 
 ```kotlin
 graphiteOptions = {
@@ -173,27 +156,27 @@ graphiteOptions = {
   port = <write port on the graphite server>
 }
 ```
+
 The prefix should clearly indicate the node where the metrics are coming from, as this will be the top level discrimator
-                    in the graphite metric hierarchy.
-                    The graphite server must be running with python pickle transport enabled. Please refer to the documentation on
-                    [https://graphiteapp.org](https://graphiteapp.org) on how to install and run a graphite server.
+in the graphite metric hierarchy.
+The graphite server must be running with python pickle transport enabled. Please refer to the documentation on
+[https://graphiteapp.org](https://graphiteapp.org) on how to install and run a graphite server.
 
 
 ## Memory usage and tuning
 
 All garbage collected programs can run faster if you give them more memory, as they need to collect less
-                frequently. As a default JVM will happily consume all the memory on your system if you let it, Corda is
-                configured with a 512mb Java heap by default. When other overheads are added, this yields
-                a total memory usage of about 800mb for a node (the overheads come from things like compiled code, metadata,
-                off-heap buffers, thread stacks, etc).
+frequently. As a default JVM will happily consume all the memory on your system if you let it, Corda is
+configured with a 512mb Java heap by default. When other overheads are added, this yields
+a total memory usage of about 800mb for a node (the overheads come from things like compiled code, metadata,
+off-heap buffers, thread stacks, etc).
 
 If you want to make your node go faster and profiling suggests excessive GC overhead is the cause, or if your
-                node is running out of memory, you can give it more by running the node like this:
+node is running out of memory, you can give it more by running the node like this:
 
 `java -Dcapsule.jvm.args="-Xmx1024m" -jar corda.jar`
 
 The example command above would give a 1 gigabyte Java heap.
-
 
 {{< note >}}
 Unfortunately the JVM does not let you limit the total memory usage of Java program, just the heap size.
@@ -217,8 +200,9 @@ networkServices {
     networkMapURL = "https://cz.example.com"
 }
 ```
+
 By delegating to a password store, and using *command substitution* it is possible to ensure that sensitive passwords never appear in plain text.
-                The below examples are of loading Corda with the KEY_PASS and TRUST_PASS variables read from a program named `corporatePasswordStore`.
+The below examples are of loading Corda with the KEY_PASS and TRUST_PASS variables read from a program named `corporatePasswordStore`.
 
 
 ### Bash
@@ -227,10 +211,12 @@ By delegating to a password store, and using *command substitution* it is possib
 KEY_PASS=$(corporatePasswordStore --cordaKeyStorePassword) TRUST_PASS=$(corporatePasswordStore --cordaTrustStorePassword) java -jar corda.jar
 ```
 
+
 {{< warning >}}
 If this approach is taken, the passwords will appear in the shell history.
 
 {{< /warning >}}
+
 
 
 ### Windows PowerShell
@@ -238,16 +224,19 @@ If this approach is taken, the passwords will appear in the shell history.
 ```shell
 $env:KEY_PASS=$(corporatePasswordStore --cordaKeyStorePassword); $env:TRUST_PASS=$(corporatePasswordStore --cordaTrustStorePassword); java -jar corda.jar
 ```
+
 For launching on Windows without PowerShell, it is not possible to perform command substitution, and so the variables must be specified manually, for example:
 
 ```shell
 SET KEY_PASS=mypassword & SET TRUST_PASS=mypassword & java -jar corda.jar
 ```
 
+
 {{< warning >}}
 If this approach is taken, the passwords will appear in the windows command prompt history.
 
 {{< /warning >}}
+
 
 
 ## Obfuscating sensitive data
@@ -260,19 +249,16 @@ trustStorePassword = "<{Kwby0G9c/+jxJM+c7Vaiow==:pdy+UaakdFSmmh8WWuBOoQ==}>"
 p2pAddress = "localhost:12345"
 devMode = false
 ```
+
 The values for `keyStorePassword` and `trustStorePassword` in the above example are encrypted, using a key that is tied to the hosting machine’s primary hardware address. The implications of this is that:
 
 > 
 > 
 > * The configuration file is rendered unusable on other machines without manually decrypting obfuscated fields beforehand (since the hardware address would be different).
-> 
-> 
 > * Sensitive data is unreadable without additional processing.
-> 
-> 
 > * It becomes harder for adversaries to trawl for passwords and sensitive data on disk.
-> 
-> 
+
+
 
 {{< warning >}}
 This method does not offer full protection. We recommend using further obfuscation methods for sensitive data.

@@ -16,8 +16,8 @@ title: Installation environments
 See the following documentation for environment-specific installation guidance.
 
 
-* [Deploying Corda in a development environment](env-dev.md)
 
+* [Deploying Corda in a development environment](env-dev.md)
 * [Deploying in a testing or production environment](env-prod-test.md)
 
 

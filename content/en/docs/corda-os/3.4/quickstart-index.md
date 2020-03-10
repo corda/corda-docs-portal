@@ -13,10 +13,9 @@ title: Quickstart
 # Quickstart
 
 
+
 * [Set up your machine for CorDapp development](getting-set-up.md)
-
 * [Run the Example CorDapp](tutorial-cordapp.md)
-
 * [Download sample CorDapps](https://www.corda.net/samples/)
 
 

@@ -26,8 +26,8 @@ java -jar notary-registration.jar register \
      --network-root-truststore=<trust store> \
      --network-root-truststore-password=<password>
 ```
+
 After successful registration, a keystore file is created by the tool in *certificates/nodekeystore.jks* this keystore contains the service identity key that all notary workers of this notary cluster share.
 
 Copy the file before registering the individual identity of the notary, to be able to distribute the file to all other notary workers.
-
 

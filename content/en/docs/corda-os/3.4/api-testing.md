@@ -13,7 +13,9 @@ title: 'API: Testing'
 
 
 
+
 # API: Testing
+
 
 
 ## Flow testing
@@ -22,14 +24,11 @@ title: 'API: Testing'
 ### MockNetwork
 
 Flow testing can be fully automated using a `MockNetwork` composed of `StartedMockNode` nodes. Each
-                    `StartedMockNode` behaves like a regular Corda node, but its services are either in-memory or mocked out.
+`StartedMockNode` behaves like a regular Corda node, but its services are either in-memory or mocked out.
 
 A `MockNetwork` is created as follows:
 
-
 {{< tabs name="tabs-1" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 class FlowTests {
@@ -55,21 +54,19 @@ public class IOUFlowTests {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 The `MockNetwork` requires at a minimum a list of packages. Each package is packaged into a CorDapp JAR and installed
-                    as a CorDapp on each `StartedMockNode`.
+as a CorDapp on each `StartedMockNode`.
 
 
 #### Configuring the `MockNetwork`
 
 The `MockNetwork` is configured automatically. You can tweak its configuration using a `MockNetworkParameters`
-                        object, or by using named paramters in Kotlin:
-
+object, or by using named paramters in Kotlin:
 
 {{< tabs name="tabs-2" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 val network = MockNetwork(
@@ -142,6 +139,7 @@ MockNetwork network = MockNetwork(
                 .setServicePeerAllocationStrategy(new InMemoryMessagingNetwork.ServicePeerAllocationStrategy.Random()));
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -149,10 +147,7 @@ MockNetwork network = MockNetwork(
 
 Nodes are created on the `MockNetwork` using:
 
-
 {{< tabs name="tabs-3" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 class FlowTests {
@@ -188,40 +183,35 @@ public class IOUFlowTests {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 
 ### Running the network
 
 Regular Corda nodes automatically process received messages. When using a `MockNetwork` with
-                    `networkSendManuallyPumped` set to `false`, you must manually initiate the processing of received messages.
+`networkSendManuallyPumped` set to `false`, you must manually initiate the processing of received messages.
 
 You manually process received messages as follows:
 
 
 * `StartedMockNode.pumpReceive` to process a single message from the node’s queue
-
-
 * `MockNetwork.runNetwork` to process all the messages in every node’s queue. This may generate additional messages
-                            that must in turn be processed
-
-> 
+that must in turn be processed> 
 > 
 >     * `network.runNetwork(-1)` (the default in Kotlin) will exchange messages until there are no further messages to
->                                         process
-> 
-> 
+> process
+
+
+
 
 
 ### Running flows
 
 A `StartedMockNode` starts a flow using the `StartedNodeServices.startFlow` method. This method returns a future
-                    representing the output of running the flow.
-
+representing the output of running the flow.
 
 {{< tabs name="tabs-4" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 val signedTransactionFuture = nodeA.services.startFlow(IOUFlow(iouValue = 99, otherParty = nodeBParty))
@@ -233,14 +223,12 @@ val signedTransactionFuture = nodeA.services.startFlow(IOUFlow(iouValue = 99, ot
 CordaFuture<SignedTransaction> future = startFlow(a.getServices(), new ExampleFlow.Initiator(1, nodeBParty));
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 The network must then be manually run before retrieving the future’s value:
 
-
 {{< tabs name="tabs-5" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 val signedTransactionFuture = nodeA.services.startFlow(IOUFlow(iouValue = 99, otherParty = nodeBParty))
@@ -258,6 +246,7 @@ network.runNetwork();
 SignedTransaction signedTransaction = future.get();
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -267,12 +256,9 @@ SignedTransaction signedTransaction = future.get();
 #### Creating a node database transaction
 
 Whenever you query a node’s database (e.g. to extract information from the node’s vault), you must wrap the query in
-                        a database transaction, as follows:
-
+a database transaction, as follows:
 
 {{< tabs name="tabs-6" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 nodeA.database.transaction {
@@ -288,6 +274,7 @@ node.getDatabase().transaction(tx -> {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -295,10 +282,7 @@ node.getDatabase().transaction(tx -> {
 
 Recorded states can be retrieved from the vault of a `StartedMockNode` using:
 
-
 {{< tabs name="tabs-7" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 nodeA.database.transaction {
@@ -314,6 +298,7 @@ node.getDatabase().transaction(tx -> {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 This allows you to check whether a given state has (or has not) been stored, and whether it has the correct attributes.
@@ -323,10 +308,7 @@ This allows you to check whether a given state has (or has not) been stored, and
 
 Recorded transactions can be retrieved from the transaction storage of a `StartedMockNode` using:
 
-
 {{< tabs name="tabs-8" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 val transaction = nodeA.services.validatedTransactions.getTransaction(transaction.id)
@@ -338,10 +320,11 @@ val transaction = nodeA.services.validatedTransactions.getTransaction(transactio
 SignedTransaction transaction = nodeA.getServices().getValidatedTransactions().getTransaction(transaction.getId())
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 This allows you to check whether a given transaction has (or has not) been stored, and whether it has the correct
-                        attributes.
+attributes.
 
 This allows you to check whether a given state has (or has not) been stored, and whether it has the correct attributes.
 
@@ -350,33 +333,25 @@ This allows you to check whether a given state has (or has not) been stored, and
 
 
 * See the flow testing tutorial [here](flow-testing.md)
-
-
 * See the oracle tutorial [here](oracles.md) for information on testing `@CordaService` classes
-
-
 * Further examples are available in the Example CorDapp in
-                            [Java](https://github.com/corda/cordapp-example/blob/release-V3/java-source/src/test/java/com/example/flow/IOUFlowTests.java) and
-                            [Kotlin](https://github.com/corda/cordapp-example/blob/release-V3/kotlin-source/src/test/kotlin/com/example/flow/IOUFlowTests.kt)
-
+[Java](https://github.com/corda/cordapp-example/blob/release-V3/java-source/src/test/java/com/example/flow/IOUFlowTests.java) and
+[Kotlin](https://github.com/corda/cordapp-example/blob/release-V3/kotlin-source/src/test/kotlin/com/example/flow/IOUFlowTests.kt)
 
 
 ## Contract testing
 
 The Corda test framework includes the ability to create a test ledger by calling the `ledger` function
-                on an implementation of the `ServiceHub` interface.
+on an implementation of the `ServiceHub` interface.
 
 
 ### MockServices
 
 A mock implementation of `ServiceHub` is provided in `MockServices`. This is a minimal `ServiceHub` that
-                    suffices to test contract logic. It has the ability to insert states into the vault, query the vault, and
-                    construct and check transactions.
-
+suffices to test contract logic. It has the ability to insert states into the vault, query the vault, and
+construct and check transactions.
 
 {{< tabs name="tabs-9" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 private val ledgerServices = MockServices(
@@ -413,19 +388,17 @@ private val ledgerServices = MockServices(
 ```
 {{% /tab %}}
 
+
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
 Alternatively, there is a helper constructor which just accepts a list of `TestIdentity`. The first identity provided is
-                    the identity of the node whose `ServiceHub` is being mocked, and any subsequent identities are identities that the node
-                    knows about. Only the calling package is scanned for cordapps and a test `IdentityService` is created
-                    for you, using all the given identities.
-
+the identity of the node whose `ServiceHub` is being mocked, and any subsequent identities are identities that the node
+knows about. Only the calling package is scanned for cordapps and a test `IdentityService` is created
+for you, using all the given identities.
 
 {{< tabs name="tabs-10" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 private val simpleLedgerServices = MockServices(
@@ -452,6 +425,7 @@ private final MockServices simpleLedgerServices = new MockServices(
 ```
 {{% /tab %}}
 
+
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
@@ -460,14 +434,11 @@ private final MockServices simpleLedgerServices = new MockServices(
 ### Writing tests using a test ledger
 
 The `ServiceHub.ledger` extension function allows you to create a test ledger. Within the ledger wrapper you can create
-                    transactions using the `transaction` function. Within a transaction you can define the `input` and
-                    `output` states for the transaction, alongside any commands that are being executed, the `timeWindow` in which the
-                    transaction has been executed, and any `attachments`, as shown in this example test:
-
+transactions using the `transaction` function. Within a transaction you can define the `input` and
+`output` states for the transaction, alongside any commands that are being executed, the `timeWindow` in which the
+transaction has been executed, and any `attachments`, as shown in this example test:
 
 {{< tabs name="tabs-11" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 @Test
@@ -509,6 +480,7 @@ public void simpleCPMoveSuccess() {
 ```
 {{% /tab %}}
 
+
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
@@ -519,13 +491,10 @@ Once all the transaction components have been specified, you can run `verifies()
 #### Checking for failure states
 
 In order to test for failures, you can use the `failsWith` method, or in Kotlin the `fails with` helper method, which
-                        assert that the transaction fails with a specific error. If you just want to assert that the transaction has failed without
-                        verifying the message, there is also a `fails` method.
-
+assert that the transaction fails with a specific error. If you just want to assert that the transaction has failed without
+verifying the message, there is also a `fails` method.
 
 {{< tabs name="tabs-12" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 @Test
@@ -563,10 +532,10 @@ public void simpleCPMoveFails() {
 ```
 {{% /tab %}}
 
+
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
-
 
 {{< note >}}
 The transaction DSL forces the last line of the test to be either a `verifies` or `fails with` statement.
@@ -576,13 +545,10 @@ The transaction DSL forces the last line of the test to be either a `verifies` o
 #### Testing multiple scenarios at once
 
 Within a single transaction block, you can assert several times that the transaction constructed so far either passes or
-                        fails verification. For example, you could test that a contract fails to verify because it has no output states, and then
-                        add the relevant output state and check that the contract verifies successfully, as in the following example:
-
+fails verification. For example, you could test that a contract fails to verify because it has no output states, and then
+add the relevant output state and check that the contract verifies successfully, as in the following example:
 
 {{< tabs name="tabs-13" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 @Test
@@ -624,17 +590,15 @@ public void simpleCPMoveSuccessAndFailure() {
 ```
 {{% /tab %}}
 
+
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
 You can also use the `tweak` function to create a locally scoped transaction that you can make changes to
-                        and then return to the original, unmodified transaction. As in the following example:
-
+and then return to the original, unmodified transaction. As in the following example:
 
 {{< tabs name="tabs-14" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 @Test
@@ -678,6 +642,7 @@ public void simpleIssuanceWithTweakTopLevelTx() {
 ```
 {{% /tab %}}
 
+
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
@@ -686,15 +651,12 @@ public void simpleIssuanceWithTweakTopLevelTx() {
 #### Chaining transactions
 
 The following example shows that within a `ledger`, you can create more than one `transaction` in order to test chains
-                        of transactions. In addition to `transaction`, `unverifiedTransaction` can be used, as in the example below, to create
-                        transactions on the ledger without verifying them, for pre-populating the ledger with existing data. When chaining transactions,
-                        it is important to note that even though a `transaction` `verifies` successfully, the overall ledger may not be valid. This can
-                        be verified separately by placing a `verifies` or `fails` statement  within the `ledger` block.
-
+of transactions. In addition to `transaction`, `unverifiedTransaction` can be used, as in the example below, to create
+transactions on the ledger without verifying them, for pre-populating the ledger with existing data. When chaining transactions,
+it is important to note that even though a `transaction` `verifies` successfully, the overall ledger may not be valid. This can
+be verified separately by placing a `verifies` or `fails` statement  within the `ledger` block.
 
 {{< tabs name="tabs-15" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 @Test
@@ -789,6 +751,7 @@ public void chainCommercialPaperDoubleSpend() {
 ```
 {{% /tab %}}
 
+
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
@@ -798,11 +761,7 @@ public void chainCommercialPaperDoubleSpend() {
 
 
 * See the flow testing tutorial [here](tutorial-test-dsl.md)
-
-
 * Further examples are available in the Example CorDapp in
-                            [Java](https://github.com/corda/cordapp-example/blob/release-V3/java-source/src/test/java/com/example/flow/IOUFlowTests.java) and
-                            [Kotlin](https://github.com/corda/cordapp-example/blob/release-V3/kotlin-source/src/test/kotlin/com/example/flow/IOUFlowTests.kt)
-
-
+[Java](https://github.com/corda/cordapp-example/blob/release-V3/java-source/src/test/java/com/example/flow/IOUFlowTests.java) and
+[Kotlin](https://github.com/corda/cordapp-example/blob/release-V3/kotlin-source/src/test/kotlin/com/example/flow/IOUFlowTests.kt)
 

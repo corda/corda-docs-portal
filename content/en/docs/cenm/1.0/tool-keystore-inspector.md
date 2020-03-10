@@ -23,6 +23,7 @@ The key store inspect tool prints out all the certificate chains stored in the g
 java -jar utilities-<<version>>.jar keystore-inspector --inspectkeystore [options]``
 ```
 
+
 ## Example
 
 ```bash
@@ -32,6 +33,6 @@ keystore-inspector \
 --keystore ./keystore.jks \
 --password password
 ```
-*–help* prints a list of all the available options.
 
+*–help* prints a list of all the available options.
 

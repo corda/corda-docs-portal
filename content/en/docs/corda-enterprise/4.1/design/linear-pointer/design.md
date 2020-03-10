@@ -30,6 +30,7 @@ data class FooState(val ref: StateRef) : ContractState
 // StateAndRef.
 data class FooState(val ref: StateAndRef<BarState>) : ContractState
 ```
+
 Linking to a `StateRef` or `StateAndRef<T>` is only recommended if a specific version of a state is required in perpetuity. Clearly, adding a `StateAndRef` embeds the data directly. This type of pointer is compatible with any `ContractState` type.
 
 But what if the linked state is updated? The `StateRef` will be pointing to an older version of the data and this could be a problem for the `ContractState` which contains the pointer.
@@ -43,6 +44,7 @@ To create a link to the most up-to-date version of a state, instead of linking t
 // Link by LinearId.
 data class FooState(val ref: UniqueIdentifier) : ContractState
 ```
+
 This type of pointer only works with `LinearState`s.
 
 
@@ -61,6 +63,7 @@ interface StatePointer {
     fun resolve(services: ServiceHub): StateAndRef<ContractState>
 }
 ```
+
 The `resolve` method facilitates the resolution of the `pointer` to a `StateAndRef`.
 
 The `StaticPointer` type requires developers to provide a `StateRef` which points to a specific state.
@@ -73,6 +76,7 @@ class StaticPointer(override val pointer: StateRef) : StatePointer {
     }
 }
 ```
+
 The `LinearPointer` type contains the `linearId` of the `LinearState` being pointed to and a `resolve` method. Resolving a `LinearPointer` returns a `StateAndRef<T>` containing the latest version of the `LinearState` that the node calling `resolve` is aware of.
 
 ```kotlin
@@ -85,6 +89,7 @@ class LinearPointer(override val pointer: UniqueIdentifier) : StatePointer {
     }
 }
 ```
+
 
 ### Bi-directional link
 
@@ -115,17 +120,13 @@ Some issue to be aware of and their resolutions:
 |The creator of the pointed-to `ContractState` exits the state from the ledger. If the pointed-to state is included a reference state then notaries will reject transactions containing it.|Contract code can be used to make a state un-exitable.|
 
 {{< /table >}}
+
 All of the noted resolutions rely on additional paltform features:
 
 
 * Reference states which will be available in V4
-
-
 * Data distribution groups which are not currently available. However, there is an early prototype
-
-
 * Additional state interface
-
 
 
 ### Additional concerns and responses
@@ -167,6 +168,6 @@ AND vs.relevancy_status = 0
 AND ccs.ccy_code = ? and @t < ?
 AND (vs.lock_id = ? OR vs.lock_id is null)
 ```
-Notice that the only property required which is not accessible from the `StatePointer` is the `ccy_code`. This is not necessarily a problem though, as the `pointer` specified in the pointer can be used as a proxy for the `ccy_code` or “token type”.
 
+Notice that the only property required which is not accessible from the `StatePointer` is the `ccy_code`. This is not necessarily a problem though, as the `pointer` specified in the pointer can be used as a proxy for the `ccy_code` or “token type”.
 

@@ -33,25 +33,17 @@ More information about UAT will continue to be uploaded on this site or related 
 
 
 * One or more physical or virtual machines upon which to deploy Corda, with compatible operating system and a compatible Java version (e.g. Oracle JDK 8u131+)
-
-
 * Corda software - either Open Source or Corda Enterprise (CE requires a license from R3)
-
-
 * A static external IP addresses must be available for each machine on which Corda will be run.
-
 
 *Business*
 
 
 * Appropriate contractual terms have been agreed for access to the Services
-
-
 * Access to the appropriate environment has been agreed with your project representative with sufficient advance notice (4 weeks standard but may be longer if you have special service requirements) to ensure appropriate SLAs can be in place. Your project representative will be able to supply the booking template.
 
-
 **Note**:
-                Corda Network Pre-Production is governed by an [independent Foundation](https://corda.network/governance/index.html).
+Corda Network Pre-Production is governed by an [independent Foundation](https://corda.network/governance/index.html).
 
 
 ## Steps to join the Pre-Production environment
@@ -59,5 +51,4 @@ More information about UAT will continue to be uploaded on this site or related 
 Steps to join are outlined on the [Corda Network microsite](https://corda.network/participation/index.html) - follow any specific instructions for ‘Pre-Production’.
 
 For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network) or at [info@corda.network](mailto:info@corda.network)
-
 

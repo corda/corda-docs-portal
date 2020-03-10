@@ -16,7 +16,6 @@ title: Official Corda Docker Image
 
 ## Running a node connected to a Compatibility Zone in Docker
 
-
 {{< note >}}
 Requirements: A valid node.conf and a valid set of certificates - (signed by the CZ)
 
@@ -36,20 +35,14 @@ docker run -ti \
         -p 10201:10201 \
         corda/corda-zulu-5.0-snapshot:latest
 ```
+
 As the node runs within a container, several mount points are required:
 
 
 * CorDapps - CorDapps must be mounted at location `/opt/corda/cordapps`
-
-
 * Certificates - certificates must be mounted at location `/opt/corda/certificates`
-
-
 * Config - the node config must be mounted at location `/etc/corda/node.config`
-
-
 * Logging - all log files will be written to location `/opt/corda/logs`
-
 
 If using the H2 database:
 
@@ -57,9 +50,7 @@ If using the H2 database:
 * Persistence - the folder to hold the H2 database files must be mounted at location `/opt/corda/persistence`
 
 
-
 ## Running a node connected to a Bootstrapped Network
-
 
 {{< note >}}
 Requirements: A valid node.conf, a valid set of certificates, and an existing network-parameters file
@@ -82,8 +73,9 @@ docker run -ti \
         -p 10201:10201 \
         corda/corda-zulu-5.0-snapshot:latest
 ```
+
 There is a new mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` which is used to hold the `nodeInfo` of all the nodes within the network.
-                As the node within the container starts up, it will place it’s own nodeInfo into this directory. This will allow other nodes also using this folder to see this new node.
+As the node within the container starts up, it will place it’s own nodeInfo into this directory. This will allow other nodes also using this folder to see this new node.
 
 
 ## Generating configs and certificates
@@ -92,7 +84,6 @@ It is possible to utilize the image to automatically generate a sensible minimal
 
 
 ## Joining TestNet
-
 
 {{< note >}}
 Requirements: A valid registration for TestNet and a one-time code for joining TestNet.
@@ -107,18 +98,16 @@ docker run -ti \
         -v /home/user/docker/certificates:/opt/corda/certificates \
         corda/corda-zulu-5.0-snapshot:latest config-generator --testnet
 ```
+
 `$MY_PUBLIC_ADDRESS` will be the public address that this node will be advertised on.
-                `$ONE_TIME_DOWNLOAD_KEY` is the one-time code provided for joining TestNet.
-                `$LOCALITY` and `$COUNTRY` must be set to the values provided when joining TestNet.
+`$ONE_TIME_DOWNLOAD_KEY` is the one-time code provided for joining TestNet.
+`$LOCALITY` and `$COUNTRY` must be set to the values provided when joining TestNet.
 
 When the container has finished executing `config-generator` the following will be true
 
 
 * A skeleton, but sensible minimum node.conf is present in `/home/user/docker/config`
-
-
 * A set of certificates signed by TestNet in `/home/user/docker/certificates`
-
 
 It is now possible to start the node using the generated config and certificates
 
@@ -136,8 +125,8 @@ docker run -ti \
         corda/corda-zulu-5.0-snapshot:latest
 ```
 
-## Joining an existing Compatibility Zone
 
+## Joining an existing Compatibility Zone
 
 {{< note >}}
 Requirements: A Compatibility Zone, the Zone Trust Root and authorisation to join said Zone.
@@ -146,7 +135,7 @@ Requirements: A Compatibility Zone, the Zone Trust Root and authorisation to joi
 It is possible to use the image to automate the process of joining an existing Zone as detailed [here](joining-a-compatibility-zone.html#connecting-to-a-compatibility-zone)
 
 The first step is to obtain the Zone Trust Root, and place it within a directory. In the below example, the Trust Root is stored at `/home/user/docker/certificates/network-root-truststore.jks`.
-                It is possible to configure the name of the Trust Root file by setting the `TRUST_STORE_NAME` environment variable in the container.
+It is possible to configure the name of the Trust Root file by setting the `TRUST_STORE_NAME` environment variable in the container.
 
 ```shell
 docker run -ti --net="host" \
@@ -160,35 +149,22 @@ docker run -ti --net="host" \
         -v /home/user/docker/certificates:/opt/corda/certificates \
         corda/corda-zulu-5.0-snapshot:latest config-generator --generic
 ```
+
 Several environment variables must also be passed to the container to allow it to register:
 
 
 * `MY_LEGAL_NAME` - The X500 to use when generating the config. This must be the same as registered with the Zone.
-
-
 * `MY_PUBLIC_ADDRESS` - The public address to advertise the node on.
-
-
 * `NETWORKMAP_URL` - The address of the Zone’s network map service (this should be provided to you by the Zone).
-
-
 * `DOORMAN_URL` - The address of the Zone’s doorman service (this should be provided to you by the Zone).
-
-
 * `NETWORK_TRUST_PASSWORD` - The password to the Zone Trust Root (this should be provided to you by the Zone).
-
-
 * `MY_EMAIL_ADDRESS` - The email address to use when generating the config. This must be the same as registered with the Zone.
-
 
 There are some optional variables which allow customisation of the generated config:
 
 
 * `MY_P2P_PORT` - The port to advertise the node on (defaults to 10200). If changed, ensure the container is launched with the correct published ports.
-
-
 * `MY_RPC_PORT` - The port to open for RPC connections to the node (defaults to 10201). If changed, ensure the container is launched with the correct published ports.
-
 
 Once the container has finished performing the initial registration, the node can be started as normal
 
@@ -206,6 +182,7 @@ docker run -ti \
         corda/corda-zulu-5.0-snapshot:latest
 ```
 
+
 # Performing Database Migrations
 
 The image contains the database-migration tool. It is possible to run this in two modes within a container.
@@ -214,7 +191,7 @@ The image contains the database-migration tool. It is possible to run this in tw
 ## Generating Migration Jars
 
 In this mode, the database-migration tool will scan the provided CorDapps, and generate corresponding migration jars. These jars will be placed alongside
-                the source CorDapps. In this example, there are two CorDapps provided `corda-insurance.jar` and `corda-kyc.jar`
+the source CorDapps. In this example, there are two CorDapps provided `corda-insurance.jar` and `corda-kyc.jar`
 
 ```shell
 docker run -ti \
@@ -225,8 +202,9 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         entdocker.software.r3.com/corda-enterprise-5.0-snapshot:latest db-migrate-create-jars
 ```
+
 After the container has finished executing, there will be two new jars in `/home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps`: `migration-corda-insurance.jar` and `migration-corda-kyc.jar`.
-                These will then be loaded as normal CorDapps by the node on next launch.
+These will then be loaded as normal CorDapps by the node on next launch.
 
 
 ## Executing Migrations on the Database
@@ -242,6 +220,6 @@ docker run -ti \
         -v $(pwd)/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         entdocker.software.r3.com/corda-enterprise-5.0-snapshot:latest db-migrate-execute-migration
 ```
-If the container is launched with the `db-migrate-execute-migration` command, the migration is directly applied to the database.
 
+If the container is launched with the `db-migrate-execute-migration` command, the migration is directly applied to the database.
 

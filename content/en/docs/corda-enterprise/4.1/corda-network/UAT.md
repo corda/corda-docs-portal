@@ -31,25 +31,17 @@ More information about UAT will continue to be uploaded on this site or related 
 
 
 * One or more physical or virtual machines upon which to deploy Corda, with compatible operating system and a compatible Java version (e.g. Oracle JDK 8u131+)
-
-
 * Corda software - either Open Source or Corda Enterprise (license from R3)
-
-
 * A static external IP addresses must be available for each machine on which Corda will be run.
-
 
 *Business*
 
 
 * Appropriate contractual terms have been agreed for access to the Services
-
-
 * Access to the appropriate environment has been agreed with your project representative with sufficient advance notice (4 weeks standard but may be longer if you have special service requirements) to ensure appropriate SLAs can be in place. Your project representative will be able to supply the booking template.
 
-
 **Note**:
-                *Corda Network UAT is an R3 owned and operated environment and service designed to support parties intending to join Corda Network proper with realistic network test facilities. In contrast, Corda Network is a production network governed by an `independent Foundation <https://corda.network/governance/index.html>`_ and has no responsibility for Corda Network UAT. Corda Network UAT seeks to provide a test environment which is as close as possible to Corda Network in its make-up and operation.*
+*Corda Network UAT is an R3 owned and operated environment and service designed to support parties intending to join Corda Network proper with realistic network test facilities. In contrast, Corda Network is a production network governed by an `independent Foundation <https://corda.network/governance/index.html>`_ and has no responsibility for Corda Network UAT. Corda Network UAT seeks to provide a test environment which is as close as possible to Corda Network in its make-up and operation.*
 
 
 ## Steps to join UAT environment
@@ -58,11 +50,8 @@ More information about UAT will continue to be uploaded on this site or related 
 
 
 * Open Source, through [github](https://github.com/corda) under an Apache 2 license.
-
-
 * Corda Enterprise, available via a Corda representative.
-                        There is further guidance available on Corda docs for getting set up on Corda.
-
+There is further guidance available on Corda docs for getting set up on Corda.
 
 **Step 2.** Request the Trust Root from R3’s Identity Operator by mailing [uatdoorman@r3.com](mailto:uatdoorman@r3.com) which will be sent back as a truststore.jks file. In future, the Trust Root will be packaged in the software distribution.
 
@@ -80,25 +69,12 @@ All data fields must adhere to the following constraints:
 
 
 * Only uses Latin, common and inherited unicode scripts
-
-
 * Upper-case first letter
-
-
 * At least two letters
-
-
 * No leading or trailing whitespace
-
-
 * Does not include the following characters: , , = , $ , ” , ‘ , 
-
-
 * Is in NFKC normalization form
-
-
 * Does not contain the null character
-
 
 
 {{< table >}}
@@ -113,10 +89,11 @@ All data fields must adhere to the following constraints:
 |**Common Name (CN)**|N|64|As per above|Available for use by the node operator for their own internal purposes. Often used for home website urls in www.|
 
 {{< /table >}}
+
 The above fields must be populated accurately with respect to the legal status of the entity being registered. As part of standard onboarding checks for Corda Network, the Identity Operator may verify that these details have been accurately populated and reject requests where the population of these fields does not appear to be correct.
 
 **4.3. Specify URLs For Initial Registration**
-                The settings below must be added to the node.conf at the end of the file:
+The settings below must be added to the node.conf at the end of the file:
 
 ```guess
 networkServices {
@@ -128,10 +105,11 @@ devMode = false
 tlsCertCrlDistPoint : “http://crl.corda.network/nodetls.crl”
 tlsCertCrlIssuer : “CN=Corda TLS CRL Authority,OU=Corda Network,O=R3 HoldCo LLC,L=New York,C=US”
 ```
+
 **Step 5.** Run the initial registration.
-                Once the node.conf file is configured, the following should be typed to the command line
-                “java -jar <corda jar file> –initial-registration”. This will send a Certificate Signing Request (with the relevant
-                name and email) to the Identity Operator.
+Once the node.conf file is configured, the following should be typed to the command line
+“java -jar <corda jar file> –initial-registration”. This will send a Certificate Signing Request (with the relevant
+name and email) to the Identity Operator.
 
 Once the node.conf file is configured, the following should be typed to the command line “java -jar <corda jar file> –initial-registration –network-root-truststore-password trustpass”. This will send a CSR (with the relevant DN and email) to the Network Manager service (Identity Operator / Network Map).
 
@@ -158,18 +136,19 @@ Submitting certificate signing request to Corda certificate signing server.
 Successfully submitted request to Corda certificate signing server, request ID: 6CBB63558B4B2D9C94F8C14AB713432F60AF692EB30F2E12E628B089C517F3CF.
 Start polling server for certificate signing approval.
 ```
+
 Important: the Request ID given in the above should be noted and kept safe for future reference.
 
 **Step 6.** Sign the [UAT Terms of Use](https://fs22.formsite.com/r3cev/CordaUATAgreement2019/index.html) legal document
 
 *Sponsored Model*
-                Business Network Operators need to ensure their participants have signed the UAT Terms of Use before they can receive a participation certificate. The Terms of Use are available as a click-through agreement which will provide direct confirmation of acceptance to the Corda Network Operator. If BNOs prefer to organise acceptance themselves, then they must forward appropriate documentary evidence for each participant (either a signed hard copy with wet signature or a scan of such hard copy). You must specify the precise Distinguished Names in order to confirm that the correct entity has signed and an accurate certificate can be issued.
+Business Network Operators need to ensure their participants have signed the UAT Terms of Use before they can receive a participation certificate. The Terms of Use are available as a click-through agreement which will provide direct confirmation of acceptance to the Corda Network Operator. If BNOs prefer to organise acceptance themselves, then they must forward appropriate documentary evidence for each participant (either a signed hard copy with wet signature or a scan of such hard copy). You must specify the precise Distinguished Names in order to confirm that the correct entity has signed and an accurate certificate can be issued.
 
 *Direct Model*
-                Direct participants should email the Identity Operator indicating acceptance of the in-force Terms of Use (prior to availability of click-through agreements either attach the relevant document or refer to the document by date, name and version number).
+Direct participants should email the Identity Operator indicating acceptance of the in-force Terms of Use (prior to availability of click-through agreements either attach the relevant document or refer to the document by date, name and version number).
 
 **Step 7. Identity Checks.**
-                The Identity Operator does verification checks – upon receipt of a CSR, a number of identity-related checks will be conducted, before issuing a certificate.
+The Identity Operator does verification checks – upon receipt of a CSR, a number of identity-related checks will be conducted, before issuing a certificate.
 
 **Identity checks do not constitute formal Know Your Customer (KYC) or Enhanced Due Diligence (EDD) checks. Node operators and their users are responsible for carrying out appropriate due diligence on any participant in relation to transactions performed via Corda Network.**
 
@@ -177,20 +156,13 @@ Upon receipt of a CSR, the Identity Operator will conduct a number of identity-r
 
 
 * The DN accurately reflects a real-world legal entity, as registered with an appropriate trade register
-
-
 * The node operator (participating entity) has signed the Corda Network Terms of Use
-
-
 * The contact email address provided is valid
-
-
 * The owner of the email address and an independent and suitably qualified person in the same organisation is aware of / approves the CSR
 
-
 *Email contact*
-                The Corda Network Operator will contact the owner of the email address provided in the CSR and it is important that the owner of this email address is aware of and prepared to respond to contact from the Corda Network Operator in relation to the CSR submission, and that they are able to do so on a timely basis.
-                Issuance of the certificate cannot proceed until contact has been made and so any delay will add to the elapsed time to issue the certificate and enable the node to join the network. Communications will be sent from ‘Corda Network UAT Onboarding’ ([uatdoorman@r3.com](mailto:uatdoorman@r3.com)). The email owner should ensure that this address is whitelisted by their email provider.
+The Corda Network Operator will contact the owner of the email address provided in the CSR and it is important that the owner of this email address is aware of and prepared to respond to contact from the Corda Network Operator in relation to the CSR submission, and that they are able to do so on a timely basis.
+Issuance of the certificate cannot proceed until contact has been made and so any delay will add to the elapsed time to issue the certificate and enable the node to join the network. Communications will be sent from ‘Corda Network UAT Onboarding’ ([uatdoorman@r3.com](mailto:uatdoorman@r3.com)). The email owner should ensure that this address is whitelisted by their email provider.
 
 **Step 8.** Once identity checks have been completed, a signed node CA certificate will be released by the Operator to the node. A node in polling mode will automatically download and install the certificate in its local trust store. It will also automatically generate additional identity and TLS certificates from the node CA certificate, which are required for subsequent operation of the node.
 
@@ -203,5 +175,4 @@ Installation and configuration of your Corda applications must be undertaken by 
 Business Network Operators should co-ordinate any post-install tests that may involve a small number of low value transactions on the business network to assure themselves of the correct setup of their node. Node operators should co-ordinate with their Business Network Operator in this regard. All node-initiated activity on the network from the point of connection is the responsibility of the node operator.
 
 For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network)
-
 

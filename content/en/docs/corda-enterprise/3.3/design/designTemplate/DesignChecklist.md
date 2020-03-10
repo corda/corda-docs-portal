@@ -35,4 +35,3 @@ Does the design imply a change in deployment architecture/configuration?
 
 Does the design introduce any potentially patentable IP?
 
-

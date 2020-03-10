@@ -16,22 +16,22 @@ title: Monitoring and Logging Design
 ## Overview
 
 The successful deployment and operation of Corda (and associated CorDapps) in a production environment requires a
-                supporting monitoring and management capability to ensure that both a Corda node (and its supporting middleware
-                infrastructure) and deployed CorDapps execute in a functionally correct and consistent manner. A pro-active monitoring
-                solution will enable the immediate alerting of unexpected behaviours and associated management tooling should enable
-                swift corrective action.
+supporting monitoring and management capability to ensure that both a Corda node (and its supporting middleware
+infrastructure) and deployed CorDapps execute in a functionally correct and consistent manner. A pro-active monitoring
+solution will enable the immediate alerting of unexpected behaviours and associated management tooling should enable
+swift corrective action.
 
 This design defines the monitoring metrics and logging outputs, and associated implementation approach, required to
-                enable a proactive enterprise management and monitoring solution of Corda nodes and their associated CorDapps. This also
-                includes a set of “liveliness” checks to verify and validate correct functioning of a Corda node (and associated
-                CorDapp).
+enable a proactive enterprise management and monitoring solution of Corda nodes and their associated CorDapps. This also
+includes a set of “liveliness” checks to verify and validate correct functioning of a Corda node (and associated
+CorDapp).
 
 [![MonitoringLoggingOverview](design/monitoring-management/./MonitoringLoggingOverview.png "MonitoringLoggingOverview")](./MonitoringLoggingOverview.png)
-            In the above diagram, the left hand side dotted box represents the components within scope for this design. It is
-                anticipated that 3rd party enterprise-wide system management solutions will closely follow the architectural component
-                breakdown in the right hand side box, and thus seamlessly integrate with the proposed Corda event generation and logging
-                design. The interface between the two is de-coupled and based on textual log file parsing and adoption of industry
-                standard JMX MBean events.
+In the above diagram, the left hand side dotted box represents the components within scope for this design. It is
+anticipated that 3rd party enterprise-wide system management solutions will closely follow the architectural component
+breakdown in the right hand side box, and thus seamlessly integrate with the proposed Corda event generation and logging
+design. The interface between the two is de-coupled and based on textual log file parsing and adoption of industry
+standard JMX MBean events.
 
 
 ## Background
@@ -40,44 +40,36 @@ Corda currently exposes several forms of monitorable content:
 
 
 * Application log files using the [SLF4J](https://www.slf4j.org/) (Simple Logging Facade for Java) which provides an
-                        abstraction over various concrete logging frameworks (several of which are used within other Corda dependent 3rd party
-                        libraries). Corda itself uses the [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) framework for logging output
-                        to a set of configured loggers (to include a rolling file appender and the console). Currently the same set of rolling
-                        log files are used by both the node and CorDapp(s) deployed to the node. The log file policy specifies a 60 day
-                        rolling period (but preserving the most recent 10Gb) with a maximum of 10 log files per day.
-
-
+abstraction over various concrete logging frameworks (several of which are used within other Corda dependent 3rd party
+libraries). Corda itself uses the [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) framework for logging output
+to a set of configured loggers (to include a rolling file appender and the console). Currently the same set of rolling
+log files are used by both the node and CorDapp(s) deployed to the node. The log file policy specifies a 60 day
+rolling period (but preserving the most recent 10Gb) with a maximum of 10 log files per day.
 * Industry standard exposed JMX-based metrics, both standard JVM and custom application metrics are exposed directly
-                        using the [Dropwizard.io](http://metrics.dropwizard.io/3.2.3/) *JmxReporter* facility. In addition Corda also uses the
-                        [Jolokia](https://jolokia.org/) framework to make these accessible over an HTTP endpoint. Typically, these metrics are
-                        also collated by 3rd party tools to provide pro-active monitoring, visualisation and re-active management.
-
-A full list of currently exposed metrics can be found in the appendix A.
-
+using the [Dropwizard.io](http://metrics.dropwizard.io/3.2.3/) *JmxReporter* facility. In addition Corda also uses the
+[Jolokia](https://jolokia.org/) framework to make these accessible over an HTTP endpoint. Typically, these metrics are
+also collated by 3rd party tools to provide pro-active monitoring, visualisation and re-active management.A full list of currently exposed metrics can be found in the appendix A.
 
 The Corda flow framework also has *placeholder* support for recording additional Audit data in application flows using a
-                simple *AuditService*. Audit event types are currently loosely defined and data is stored in string form (as a
-                description and contextual map of name-value pairs) together with a timestamp and principal name. This service does not
-                currently have an implementation of the audit event data to a persistent store.
+simple *AuditService*. Audit event types are currently loosely defined and data is stored in string form (as a
+description and contextual map of name-value pairs) together with a timestamp and principal name. This service does not
+currently have an implementation of the audit event data to a persistent store.
 
 The `ProgressTracker` component is used to report the progress of a flow throughout its business lifecycle,  and is
-                typically configured to report the start of a specific business workflow step (often before and after message send and
-                receipt where other participants form part of a multi-staged business workflow).  The progress tracking framework was
-                designed to become a vital part of how exceptions, errors, and other faults are surfaced to human operators for
-                investigation and resolution. It provides a means of exporting progress as a hierarchy of steps in a way that’s both
-                human readable and machine readable.
+typically configured to report the start of a specific business workflow step (often before and after message send and
+receipt where other participants form part of a multi-staged business workflow).  The progress tracking framework was
+designed to become a vital part of how exceptions, errors, and other faults are surfaced to human operators for
+investigation and resolution. It provides a means of exporting progress as a hierarchy of steps in a way that’s both
+human readable and machine readable.
 
 In addition, in-house Corda networks at R3 use the following tools:
 
 
 * Standard [DataDog](https://docs.datadoghq.com/guides/overview/) probes are currently used to provide e-mail based
-                        alerting for running Corda nodes. [Telegraf](https://github.com/influxdata/telegraf) is used in conjunction with a
-                        [Jolokia agent](https://jolokia.org/agent.html) as a collector to parse emitted metric data and push these to DataDog.
-
-
+alerting for running Corda nodes. [Telegraf](https://github.com/influxdata/telegraf) is used in conjunction with a
+[Jolokia agent](https://jolokia.org/agent.html) as a collector to parse emitted metric data and push these to DataDog.
 * Investigation is underway to evaluate [ELK](https://logz.io/learn/complete-guide-elk-stack/) as a mechanism for parsing,
-                        indexing, storing, searching, and visualising log file data.
-
+indexing, storing, searching, and visualising log file data.
 
 
 ## Scope
@@ -87,35 +79,19 @@ In addition, in-house Corda networks at R3 use the following tools:
 
 
 * Add new metrics at the level of a Corda node, individual CorDapps, and other supporting Corda components (float, bridge manager, doorman)
-
-
 * Support liveness checking of the node, deployed flows and services
-
-
 * Review logging groups and severities in the node.
-
-
 * Separate application logging from node logging.
-
-
 * Implement the audit framework that is currently only a stubbed out API
-
-
 * Ensure that Corda can be used with third party systems for monitoring, log collection and audit
-
 
 
 ### Out of scope
 
 
 * Recommendation of a specific set of monitoring tools.
-
-
 * Monitoring of network infrastructure like the network map service.
-
-
 * Monitoring of liveness of peers.
-
 
 
 ## Requirements
@@ -124,98 +100,48 @@ Expanding on the first goal identified above, the following requirements have be
 
 
 * Node health
-
-
 * Message queues: latency, number of queues/messages, backlog, bridging establishment and connectivity (success / failure)
-
-
 * Database: connections (retries, errors), latency, query time
-
-
 * RPC metrics, latency, authentication/authorisation checking (eg. number of successful / failed attempts).
-
-
 * Signing performance (eg. signatures per sec).
-
-
 * Deployed CorDapps
-
-
 * Garbage collector and JVM statistics
 
 
-
 * CorDapp health
-
-
 * Number of flows broken down by type (including flow status and aging statistics: oldest, latest)
-
-
 * Flow durations
-
-
 * JDBC connections, latency/histograms
 
 
-
 * Logging
-
-
 * RPC logging
-
-
 * Shell logging (user/command pairs)
-
-
 * Message queue
-
-
 * Traces
-
-
 * Exception logging (including full stack traces)
-
-
 * Crash dumps (full stack traces)
-
-
 * Hardware Security Module (HSM) events.
-
-
 * per CorDapp logging
 
 
-
 * Auditing
-
-
 * Security: login authentication and authorisation
-
-
 * Business Event flow progress tracking
-
-
 * System events (particularly failures)
 
-
 Audit data should be stored in a secure, storage medium.
-                        Audit data should include sufficient contextual information to enable optimal off-line analysis.
-                        Auditing should apply to all Corda node processes (running CorDapps, notaries, oracles).
-
+Audit data should include sufficient contextual information to enable optimal off-line analysis.
+Auditing should apply to all Corda node processes (running CorDapps, notaries, oracles).
 
 It is envisaged that operational management and support teams will use the metrics and information collated from this
-                design, either directly or through an integrated enterprise-wide systems management platform, to perform the following:
+design, either directly or through an integrated enterprise-wide systems management platform, to perform the following:
 
 
 * Validate liveness and correctness of Corda nodes and deployed CorDapps, and the physical machine or VM they are hosted on.
-
-
 * Use logging to troubleshoot operational failures (in conjunction with other supporting failure information: eg. GC logs, stack traces)
-
-
 * Use reported metrics to fine-tune and tweak operational systems parameters (including dynamic setting of logging
-                        modules and severity levels to enable detailed logging).
-
+modules and severity levels to enable detailed logging).
 
 
 ## Design Decisions
@@ -224,15 +150,10 @@ The following design decisions are to be confirmed:
 
 
 * JMX for metric eventing and SLF4J for logging
-                        Both above are widely adopted mechanisms that enable pluggability and seamless interoperability with other 3rd party
-                        enterprise-wide system management solutions.
-
-
+Both above are widely adopted mechanisms that enable pluggability and seamless interoperability with other 3rd party
+enterprise-wide system management solutions.
 * Continue or discontinue usage of Jolokia? (TBC - most likely yes, subject to read-only security lock-down)
-
-
 * Separation of Corda Node and CorDapp log outputs (TBC)
-
 
 
 ## Proposed Solution
@@ -241,76 +162,51 @@ There are a number of activities and parts to the solution proposal:
 
 
 * Extend JMX metric reporting through the Corda Monitoring Service and associated jolokia conversion to REST/JSON)
-                        coverage (see implementation details) to include all Corda services (vault, key management, transaction storage,
-                        network map, attachment storage, identity, cordapp provision) & sub-sytems components (state machine)
-
-
+coverage (see implementation details) to include all Corda services (vault, key management, transaction storage,
+network map, attachment storage, identity, cordapp provision) & sub-sytems components (state machine)
 * Review and extend Corda log4j2 coverage (see implementation details) to ensure
-
-
 * consistent use of severities according to situation
-
-
 * consistent coverage across all modules and libraries
-
-
 * consistent output format with all relevant contextual information (node identity, user/execution identity, flow
-                                session identity, version information)
-
-
+session identity, version information)
 * separation of Corda Node and CorDapp log outputs (TBC)
-                                For consistent interleaving reasons, it may be desirable to continue using combined log output.
-
+For consistent interleaving reasons, it may be desirable to continue using combined log output.
 
 Publication of a *code style guide* to define when to use different severity levels.
-
-
 * Implement a CorDapp to perform sanity checking of flow framework, fundamental corda services (vault, identity), and
-                        dependent middleware infrastructure (message broker, database).
-
-
+dependent middleware infrastructure (message broker, database).
 * Revisit and enhance as necessary the [Audit service API](https://github.com/corda/corda/pull/620), and provide a
-                        persistent backed implementation, to include:
-
-
+persistent backed implementation, to include:
 * specification of Business Event Categories (eg. User authentication and authorisation, Flow-based triggering, Corda
-                                Service invocations, Oracle invocations, Flow-based send/receive calls, RPC invocations)
-
-
+Service invocations, Oracle invocations, Flow-based send/receive calls, RPC invocations)
 * auto-enabled with Progress Tracker as Business Event generator
-
-
 * RDBMS backed persistent store (independent of Corda database), with adequate security controls (authenticated access
-                                and read-only permissioning). Captured information should be consistent with standard logging, and it may be desirable
-                                to define auditable loggers within log4j2 to automatically redirect certain types of log events to the audit service.
-
+and read-only permissioning). Captured information should be consistent with standard logging, and it may be desirable
+to define auditable loggers within log4j2 to automatically redirect certain types of log events to the audit service.
 
 
 * Ensure 3rd party middleware drivers (JDBC for database, MQ for messaging) and the JVM are correctly configured to export
-                        JMX metrics. Ensure the [JVM Hotspot VM command-line parameters](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/clopts001.html)
-                        are tuned correctly to enable detailed troubleshooting upon failure. Many of these metrics are already automatically
-                        exposed to 3rd party profiling tools such as Yourkit.
-
-Apache Artemis has a comprehensive [management API](https://activemq.apache.org/artemis/docs/latest/management.html)
-                        that allows a user to modify a server configuration, create new resources (e.g. addresses and queues), inspect these
-                        resources (e.g. how many messages are currently held in a queue) and interact with it (e.g. to remove messages from a
-                        queue), and exposes key metrics using JMX (using role-based authentication using Artemis’s JAAS plug-in support to
-                        ensure Artemis cannot be controlled via JMX)..
-
+JMX metrics. Ensure the [JVM Hotspot VM command-line parameters](https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/clopts001.html)
+are tuned correctly to enable detailed troubleshooting upon failure. Many of these metrics are already automatically
+exposed to 3rd party profiling tools such as Yourkit.Apache Artemis has a comprehensive [management API](https://activemq.apache.org/artemis/docs/latest/management.html)
+that allows a user to modify a server configuration, create new resources (e.g. addresses and queues), inspect these
+resources (e.g. how many messages are currently held in a queue) and interact with it (e.g. to remove messages from a
+queue), and exposes key metrics using JMX (using role-based authentication using Artemis’s JAAS plug-in support to
+ensure Artemis cannot be controlled via JMX)..
 
 As of Corda M11, Java serialisation in the Corda node has been restricted, meaning MBeans access via the JMX port will no longer work.
 
 Usage of Jolokia requires bundling an associated *jolokia-agent-war* file on the classpath, and associated configuration
-                to export JMX monitoring statistics and data over the Jolokia REST/JSON interface. An associated *jolokia-access.xml*
-                configuration file defines role based permissioning to HTTP operations.
+to export JMX monitoring statistics and data over the Jolokia REST/JSON interface. An associated *jolokia-access.xml*
+configuration file defines role based permissioning to HTTP operations.
 
 
 ## Complementary solutions
 
 A number of 3rd party libraries and frameworks have been proposed which solve different parts of the end to end
-                solution, albeit with most focusing on the Agent Collector (eg. collect metrics from systems then output them to some
-                backend storage.), Event Storage and Search, and Visualization aspects of Systems Management and Monitoring. These
-                include:
+solution, albeit with most focusing on the Agent Collector (eg. collect metrics from systems then output them to some
+backend storage.), Event Storage and Search, and Visualization aspects of Systems Management and Monitoring. These
+include:
 
 
 {{< table >}}
@@ -329,6 +225,7 @@ A number of 3rd party libraries and frameworks have been proposed which solve di
 |[NewRelic](https://newrelic.com/)|£|Full stack instrumentation for application monitoring and real-time analytics solution.|
 
 {{< /table >}}
+
 Most of the above solutions are not within the scope of this design proposal, but should be capable of ingesting the outputs (logging and metrics) defined by this design.
 
 
@@ -341,66 +238,34 @@ In general, the requirements outlined in this design are cross-cutting concerns 
 
 
 * Public APIs impacted
-
-
     * No Public API’s are impacted.
 
 
-
 * Internal APIs impacted
-
-
     * No identified internal API’s are impacted.
 
 
-
 * Services impacted:
-
-
     * No change anticipated to following service:
-
-
-        * 
-
-*Monitoring*
-This service defines and used the *Codahale* `MetricsRegistry`, which is used by all other Corda services.
-
+        * *Monitoring*This service defines and used the *Codahale* `MetricsRegistry`, which is used by all other Corda services.
 
 
     * Changes expected to:
-
-
-        * 
-
-*AuditService*
-This service has been specified but not implemented.
-                                                        The following event types have been defined (and may need reviewing):
-
-
+        * *AuditService*This service has been specified but not implemented.
+The following event types have been defined (and may need reviewing):
             * `FlowAppAuditEvent`: used in `FlowStateMachine`, exposed on `FlowLogic` (but never called)
-
-
             * `FlowPermissionAuditEvent`: (as above)
-
-
             * `FlowStartEvent` (unused)
-
-
             * `FlowProgressAuditEvent` (unused)
-
-
             * `FlowErrorAuditEvent` (unused)
-
-
             * `SystemAuditEvent` (unused)
 
 
 
 
 
+
 * Modules impacted
-
-
     * All modules packaged and shipped as part of a Corda distribution (as published to Artifactory / Maven): *core, node, node-api, node-driver, finance, confidential-identities, test-common, test-utils, webserver, jackson, jfx, mock, rpc*
 
 
@@ -415,49 +280,24 @@ The Health checker is a CorDapp which verifies the health and liveliness of the 
 
 
 * Corda network and middleware infrastructure connectivity checking:
-
-
 * Database connectivity
-
-
 * Message broker connectivity
 
 
-
 * Network Map participants summary (count, list)
-
-
 * Notary summary (type, [number of cluster members]
 
 
-
-* Flow framework verification
-
-Implement a simple flow that performs a simple “in-node” (no external messaging to 3rd party processes) round trip, and by doing so, exercises:
-
-
+* Flow framework verificationImplement a simple flow that performs a simple “in-node” (no external messaging to 3rd party processes) round trip, and by doing so, exercises:
 * flow checkpointing (including persistence to relational data store)
-
-
 * message subsystem verification (creation of a send-to-self queue for purpose of routing)
-
-
 * custom CordaService invocation (verify and validate behaviour of an installed CordaService)
-
-
 * vault querying (verify and validate behaviour of vault query mechanism)
 
-
 [this CorDapp could perform a simple Issuance of a fictional Corda token, Spend Corda token to self, Corda token exit, plus a couple of Vault queries in between: one using the VaultQuery API and the other using a Custom Query via a registered @CordaService]
-
-
 * RPC triggering
-                                Autotriggering of above flow using RPC to exercise the following:
-
-
+Autotriggering of above flow using RPC to exercise the following:
 * messaging subsystem verification (RPC queuing)
-
-
 * authenticaton and permissions checking (against underlying configuration)
 
 
@@ -468,13 +308,8 @@ Please note that the Health checker application is not responsible for determini
 
 
 * correct functioning of Network Map Service (registration, discovery)
-
-
 * correct functioning of configured Notary
-
-
 * remote messaging sub-sytem (including bridge creation)
-
 
 
 #### Metrics augmentation within Corda Subsystems and Components
@@ -483,22 +318,11 @@ Please note that the Health checker application is not responsible for determini
 
 
 * Gauge: is an instantaneous measurement of a value.
-
-
 * Counter: is a gauge for a numeric value (specifically of type `AtomicLong`) which can be incremented or decremented.
-
-
 * Meter: measures mean throughput (eg. the rate of events over time, e.g., “requests per second”). Also measures one-, five-, and fifteen-minute exponentially-weighted moving average throughputs.
-
-
 * Histogram: measures the statistical distribution of values in a stream of data (minimum, maximum, mean, median, 75th, 90th, 95th, 98th, 99th, and 99.9th percentiles).
-
-
 * Timer: measures both the rate that a particular piece of code is called and the distribution of its duration (eg. rate of requests in requests per second).
-
-
 * Health checks: provides a means of centralizing service (database, message broker health checks).
-
 
 See Appendix B for summary of current JMX Metrics exported by the Corda codebase.
 
@@ -538,62 +362,36 @@ The following table identifies additional metrics to report for a Corda node:
 
 {{< /table >}}
 
+
 #### Logging augmentation within Corda Subsystems and Components
 
 Need to ensure that Log4J2 log messages within Corda code are correctly categorized according to defined severities (from most specific to least):
 
 
 * ERROR: an error in the application, possibly recoverable.
-
-
 * WARNING: an event that might possible lead to an error.
-
-
 * INFO: an event for informational purposes.
-
-
 * DEBUG: a general debugging event.
-
-
 * TRACE: a fine-grained debug message, typically capturing the flow through the application.
-
 
 A *logging style guide* will be published to answer questions such as what severity level should be used and why when:
 
 
 * A connection to a remote peer is unexpectedly terminated.
-
-
 * A database connection timed out but was successfully re-established.
-
-
 * A message was sent to a peer.
-
 
 It is also important that we capture the correct amount of contextual information to enable rapid identification and resolution of issues using log file output. Specifically, within Corda we should include the following information in logged messages:
 
 
 * Node identifier
-
-
 * User name
-
-
 * Flow id (runId, also referred to as `StateMachineRunId`), if logging within a flow
-
-
 * Other contextual Flow information (eg. counterparty), if logging within a flow
-
-
 * `FlowStackSnapshot` information for catastrophic flow failures.
-                                Note: this information is not currently supposed to be used in production (???).
-
-
+Note: this information is not currently supposed to be used in production (???).
 * Session id information for RPC calls
-
-
 * CorDapp name, if logging from within a CorDapp
-
 
 See Appendix C for summary of current Logging and Progress Tracker Reporting coverage within the Corda codebase.
 
@@ -603,7 +401,6 @@ See Appendix C for summary of current Logging and Progress Tracker Reporting cov
 
 * Database SQL logging is controlled via explicit configuration of the Hibernate log4j2 logger as follows:
 
-
 ```guess
 <Logger name="org.hibernate.SQL" level="debug" additivity="false">
 
@@ -612,8 +409,8 @@ See Appendix C for summary of current Logging and Progress Tracker Reporting cov
 </Logger>
 ```
 
-* Message broker (Apache Artemis) advanced logging is enabled by configuring log4j2 for each of the 6 available [loggers defined](https://activemq.apache.org/artemis/docs/latest/logging.html). In general, Artemis logging is highly chatty so default logging is actually toned down for one of the defined loggers:
 
+* Message broker (Apache Artemis) advanced logging is enabled by configuring log4j2 for each of the 6 available [loggers defined](https://activemq.apache.org/artemis/docs/latest/logging.html). In general, Artemis logging is highly chatty so default logging is actually toned down for one of the defined loggers:
 
 ```guess
 <Logger name="org.apache.activemq.artemis.core.server" level="error" additivity="false">
@@ -623,8 +420,8 @@ See Appendix C for summary of current Logging and Progress Tracker Reporting cov
 </Logger>
 ```
 
-* Corda coin selection advanced logging - including display of prepared statement parameters (which are not displayed for certain database providers when enabling Hibernate debug logging):
 
+* Corda coin selection advanced logging - including display of prepared statement parameters (which are not displayed for certain database providers when enabling Hibernate debug logging):
 
 ```guess
 <Logger name="net.corda.finance.contracts.asset.cash.selection" level="trace" additivity="false">
@@ -634,45 +431,24 @@ See Appendix C for summary of current Logging and Progress Tracker Reporting cov
 </Logger>
 ```
 
+
 #### Audit Service persistence implementation and enablement
 
 
 * Implementation of the existing `AuditService` API to write to a (pluggable) secure destination (database, message queue, other)
-
-
 * Identification of Business Events that we should audit, and instrumentation of code to ensure the AuditService is called with the correct Event Type according to Business Event.
-                                For Corda Flows it would be a good idea to use the `ProgressTracker` component as a means of sending Business audit events. Refer [here](https://docs.corda.net/head/flow-state-machines.html?highlight=progress%20tracker#progress-tracking) for a detailed description of the ProgressTracker API.
-
-
+For Corda Flows it would be a good idea to use the `ProgressTracker` component as a means of sending Business audit events. Refer [here](https://docs.corda.net/head/flow-state-machines.html?highlight=progress%20tracker#progress-tracking) for a detailed description of the ProgressTracker API.
 * Identification of System Events that should be automatically audited.
-
-
 * Specification of a database schema and associated object relational mapping implementation.
-
-
 * Setup and configuration of separate database and user account.
-
 
 
 ## Software Development Tools and Programming Standards to be adopted.
 
 
-* Design patterns
-
-[Michele] proposes the adoption of an [event-based propagation](https://r3-cev.atlassian.net/browse/ENT-1131) solution (and associated event-driven framework) based on separation of concerns (performance improvements through parallelisation, latency minimisation for mainline execution thread): mainstream flow logic, business audit event triggering, JMX metric reporting. This approach would continue to use the same libraries for JMX event triggering and file logging.
-
-
-* 3rd party libraries
-
-[Jolokia](https://jolokia.org/) is a JMX-HTTP bridge giving access to the raw data and operations without connecting to the JMX port directly. Jolokia defines the JSON and REST formats for accessing MBeans, and provides client libraries to work with that protocol as well.
-
-[Dropwizard Metrics](http://metrics.dropwizard.io/3.2.3/) (formerly Codahale) provides a toolkit of ways to measure the behavior of critical components in a production environment.
-
-
-* supporting tools
-
-[VisualVM](http://visualvm.github.io/) is a visual tool integrating commandline JDK tools and lightweight profiling capabilities.
-
+* Design patterns[Michele] proposes the adoption of an [event-based propagation](https://r3-cev.atlassian.net/browse/ENT-1131) solution (and associated event-driven framework) based on separation of concerns (performance improvements through parallelisation, latency minimisation for mainline execution thread): mainstream flow logic, business audit event triggering, JMX metric reporting. This approach would continue to use the same libraries for JMX event triggering and file logging.
+* 3rd party libraries[Jolokia](https://jolokia.org/) is a JMX-HTTP bridge giving access to the raw data and operations without connecting to the JMX port directly. Jolokia defines the JSON and REST formats for accessing MBeans, and provides client libraries to work with that protocol as well.[Dropwizard Metrics](http://metrics.dropwizard.io/3.2.3/) (formerly Codahale) provides a toolkit of ways to measure the behavior of critical components in a production environment.
+* supporting tools[VisualVM](http://visualvm.github.io/) is a visual tool integrating commandline JDK tools and lightweight profiling capabilities.
 
 
 ## Appendix A - Corda exposed JMX Metrics
@@ -699,6 +475,7 @@ The following metrics are exposed directly by a Corda Node at run-time:
 |Flow State Machine|FlowDuration|Timer|
 
 {{< /table >}}
+
 Additionally, JMX metrics are also generated within the Corda *node-driver* performance testing utilities. Specifically, the `startPublishingFixedRateInjector` defines and exposes `QueueSize` and `WorkDuration` metrics.
 
 
@@ -728,6 +505,7 @@ Corda finance flows:
 |TwoPartyTradeFlow.Buyer|none|IllegalArgumentException via `require` assertions, IllegalStateException|RECEIVING, VERIFYING, SIGNING, COLLECTING_SIGNATURES, RECORDING|
 
 {{< /table >}}
+
 Confidential identities flows:
 
 
@@ -740,6 +518,7 @@ Confidential identities flows:
 |IdentitySyncFlow.Receive|none|CertificateExpiredException, CertificateNotYetValidException, InvalidAlgorithmParameterException|RECEIVING_IDENTITIES, RECEIVING_CERTIFICATES|
 
 {{< /table >}}
+
 
 ## Appendix C - Apache Artemis JMX Event types and Queuing Metrics.
 
@@ -771,6 +550,7 @@ The following table contains a list of Notification Types and associated perceiv
 |CONSUMER_SLOW|21|High|
 
 {{< /table >}}
+
 The following table summarised the types of metrics associated with Message Queues:
 
 

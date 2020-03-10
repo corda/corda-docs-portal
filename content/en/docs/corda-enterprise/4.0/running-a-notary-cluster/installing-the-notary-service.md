@@ -17,7 +17,7 @@ title: Setting up the Notary Service
 In the previous section of this tutorial we set up a Percona cluster.
 
 On top of the Percona cluster we’re deploying three notary worker nodes `notary-{1,2,3}` and
-            a single regular Corda node `node-1` that runs the notary health-check CorDapp.
+a single regular Corda node `node-1` that runs the notary health-check CorDapp.
 
 If you’re deploying VMs in your environment you might need to adjust the host names accordingly.
 
@@ -25,20 +25,18 @@ If you’re deploying VMs in your environment you might need to adjust the host 
 ## Configuration Files
 
 Below is a template for the notary configuration. Notice the parameters
-                `rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false` of the
-                JDBC URL.  See [Node configuration](../corda-configuration-file.md) for a complete reference.
+`rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false` of the
+JDBC URL.  See [Node configuration](../corda-configuration-file.md) for a complete reference.
 
 Put the IP address or host name of the nearest Percona server first in the JDBC
-                URL. When running a Percona and a Notary replica on a single machine, list the
-                local IP first.
+URL. When running a Percona and a Notary replica on a single machine, list the
+local IP first.
 
 In addition to the connection to the shared Percona DB holding the notary state,
-                each notary worker needs to have access to its own local node DB. See the
-                *dataSourceProperties* section in the configuration file.
-
+each notary worker needs to have access to its own local node DB. See the
+*dataSourceProperties* section in the configuration file.
 
 {{< tabs name="tabs-1" >}}
-
 node.conf
 
 {{% tab name="kotlin" %}}
@@ -89,10 +87,10 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 ```
 {{% /tab %}}
 
+
 [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/running-a-notary-cluster/resources/node.conf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
-
 
 {{< note >}}
 Omit `compatibilityZoneURL` and set `devMode = true` when using the bootstrapper.
@@ -102,8 +100,8 @@ Omit `compatibilityZoneURL` and set `devMode = true` when using the bootstrapper
 ## Next Steps
 
 
-* [Using the Bootstrapper](installing-the-notary-service-bootstrapper.md)
 
+* [Using the Bootstrapper](installing-the-notary-service-bootstrapper.md)
 * [In a network with Doorman and Network map](installing-the-notary-service-netman.md)
 
 

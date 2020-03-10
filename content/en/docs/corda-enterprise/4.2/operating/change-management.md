@@ -11,10 +11,9 @@ title: change-management
 ---
 
 
+
 * [Backup and restoration of a Corda node](cm-backup.md)
-
 * [Upgrading Corda versions on a node](cm-upgrading-node.md)
-
 * [Updating a running CorDapp](cm-updating-cordapp.md)
 
 

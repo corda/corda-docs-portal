@@ -16,9 +16,8 @@ title: Database tables
 # Database tables
 
 A Corda node database contains tables corresponding to the various services that the node provides.
-            It also contains custom tables defined by the CorDapps that are installed on the node.
-            Currently all these tables share the same database schema, but in a future release they will be isolated from each other.
-
+It also contains custom tables defined by the CorDapps that are installed on the node.
+Currently all these tables share the same database schema, but in a future release they will be isolated from each other.
 
 {{< note >}}
 Unless specified otherwise the node tables are for internal use and can change between versions.
@@ -29,9 +28,10 @@ Some tables, especially the ones where the `Ledger` is maintained are append-onl
 
 {{< warning >}}
 Manually adding, removing or updating any data should only be done with great care. Corda is a distributed ledger and modifying
-                data could lead to unexpected behaviour and inconsistent views of the ledger.
+data could lead to unexpected behaviour and inconsistent views of the ledger.
 
 {{< /warning >}}
+
 
 
 ## Network map
@@ -40,12 +40,13 @@ Manually adding, removing or updating any data should only be done with great ca
 ### Node Infos
 
 These are tables that store the NodeInfo of other network participants.
-                    They are just a local cache that is kept in sync with the network map server.
-                    By calling `rpc.clearNetworkMapCache()` all these tables will be cleared and recreated from the network map server.
+They are just a local cache that is kept in sync with the network map server.
+By calling `rpc.clearNetworkMapCache()` all these tables will be cleared and recreated from the network map server.
 
 Read more here: network-map
 
 ![node info tables](node/operating/resources/database/node_info_tables.png "node info tables")
+
 {{< table >}}
 
 |NODE_INFOS|Stores `NodeInfo` objects. The principal table.|
@@ -56,6 +57,7 @@ Read more here: network-map
 |SERIAL|Version of the NodeInfo|
 
 {{< /table >}}
+
 
 {{< table >}}
 
@@ -68,6 +70,7 @@ Read more here: network-map
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |NODE_INFO_PARTY_CERT|Legal identity for a network participant|
@@ -79,6 +82,7 @@ Read more here: network-map
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |NODE_LINK_NODEINFO_PARTY|Many-to-Many link between the hosts and the legal identities|
@@ -88,12 +92,13 @@ Read more here: network-map
 
 {{< /table >}}
 
+
 ### Node identities
 
 The following four tables are used by the `IdentityService` and are created from the NodeInfos.
-                    They are append only tables used for persistent caching.
-                    They will also be cleared on `rpc.clearNetworkMapCache()`.
-                    Read more in api-identity and node-services
+They are append only tables used for persistent caching.
+They will also be cleared on `rpc.clearNetworkMapCache()`.
+Read more in api-identity and node-services
 
 
 {{< table >}}
@@ -105,6 +110,7 @@ The following four tables are used by the `IdentityService` and are created from
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |NODE_NAMED_IDENTITIES|Maps the X500 name of a participant to a public key hash.|
@@ -113,6 +119,7 @@ The following four tables are used by the `IdentityService` and are created from
 |PK_HASH|The public key hash.|
 
 {{< /table >}}
+
 
 {{< table >}}
 
@@ -123,6 +130,7 @@ The following four tables are used by the `IdentityService` and are created from
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |NODE_HASH_TO_KEY|Maps a public key hash to a public key.|
@@ -132,12 +140,13 @@ The following four tables are used by the `IdentityService` and are created from
 
 {{< /table >}}
 
+
 ### Network parameters
 
 Read more here: network-map.
-                    Each downloaded network parameters file will create an entry in this table.
-                    The historical network parameters are used when validating transactions, which makes this table logically part of the `Ledger`.
-                    It is an append only table and the size will be fairly small.
+Each downloaded network parameters file will create an entry in this table.
+The historical network parameters are used when validating transactions, which makes this table logically part of the `Ledger`.
+It is an append only table and the size will be fairly small.
 
 
 {{< table >}}
@@ -153,11 +162,12 @@ Read more here: network-map.
 
 {{< /table >}}
 
+
 ## Ledger
 
 The ledger data is formed of transactions and attachments.
-                In future versions this data will be encrypted using SGX.
-                Read more in key-concepts-ledger
+In future versions this data will be encrypted using SGX.
+Read more in key-concepts-ledger
 
 
 ### Attachments
@@ -165,6 +175,7 @@ The ledger data is formed of transactions and attachments.
 Read more in tutorial-attachments and node-services
 
 ![attachments tables](node/operating/resources/database/attachments_tables.png "attachments tables")
+
 {{< table >}}
 
 |NODE_ATTACHMENTS|Stores attachments|
@@ -178,6 +189,7 @@ Read more in tutorial-attachments and node-services
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |NODE_ATTACHMENTS_CONTRACTS|Many-to-one contracts per attachment. Empty for non-contract attachments.|
@@ -186,6 +198,7 @@ Read more in tutorial-attachments and node-services
 |CONTRACT_CLASS_NAME|The fully qualified contract class name. E.g.: `net.corda.finance.contracts.asset.Cash`|
 
 {{< /table >}}
+
 
 {{< table >}}
 
@@ -196,12 +209,13 @@ Read more in tutorial-attachments and node-services
 
 {{< /table >}}
 
+
 ### Transactions
 
 These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large.
-                    It is an append-only table, and the data will never change.
-                    Read more in node-services - `DBTransactionStorage`
-                    This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
+It is an append-only table, and the data will never change.
+Read more in node-services - `DBTransactionStorage`
+This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
 
 
 {{< table >}}
@@ -215,8 +229,12 @@ These are all the transactions that the node has created or has ever downloaded 
 |TIMESTAMP|The insert or status update time of this transaction, as measured by the local node, in UTC.|
 
 {{< /table >}}
+
 > 
 > 
+> 
+> 
+
 
 ### Contract upgrades
 
@@ -231,6 +249,7 @@ Read more in contract-upgrade
 |CONTRACT_CLASS_NAME|The contract.|
 
 {{< /table >}}
+
 This table should be empty when no states are authorised for upgrade or after authorised states have been upgraded.
 
 
@@ -248,6 +267,7 @@ Read more in event-scheduling
 |SCHEDULED_AT|Timestamp when this state will execute.|
 
 {{< /table >}}
+
 This table should be empty when no events are scheduled.
 
 
@@ -265,8 +285,9 @@ This table should be empty when no events are scheduled.
 |SCHEME_CODE_NAME|String code representing the key algorithm|
 
 {{< /table >}}
+
 The columns `PRIVATE_KEY_MATERIAL_WRAPPED` and `SCHEME_CODE_NAME` are populated, instead of the column `PRIVATE_KEY`,
-                    if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities](confidential-identities-hsm.md).
+if an HSM is configured for anonymous identities. For more details about this feature, read [Using an HSM with confidential identities](confidential-identities-hsm.md).
 
 
 {{< table >}}
@@ -277,6 +298,7 @@ The columns `PRIVATE_KEY_MATERIAL_WRAPPED` and `SCHEME_CODE_NAME` are populated,
 |PUBLIC_KEY_HASH|Public key hash|
 
 {{< /table >}}
+
 These tables should be append only.
 
 
@@ -293,10 +315,11 @@ Read more in node-services
 |CHECKPOINT_VALUE|Serialized application stack.|
 
 {{< /table >}}
+
 This table will see the most intense read-write activity. Depending on the installed flows and the traffic on the node the I/O operations on this
-                    table will be the main bottleneck of the node performance.
-                    There will be an entry for every running flow.
-                    Draining the node means waiting for this table to become emtpy. Read more in: [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md).
+table will be the main bottleneck of the node performance.
+There will be an entry for every running flow.
+Draining the node means waiting for this table to become emtpy. Read more in: [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md).
 
 
 {{< table >}}
@@ -309,8 +332,9 @@ This table will see the most intense read-write activity. Depending on the insta
 |SEQUENCE_NUMBER|Sequence number|
 
 {{< /table >}}
+
 The *NodeJanitor* is a background process that will clean up old entries from this table.
-                    The size should be fairly constant.
+The size should be fairly constant.
 
 
 ### Key value store
@@ -324,6 +348,7 @@ The *NodeJanitor* is a background process that will clean up old entries from th
 |PROPERTY_VALUE|The value|
 
 {{< /table >}}
+
 
 ## Vault tables
 
@@ -350,12 +375,13 @@ Note that the vault tables are guaranteed to remain backwards compatible and are
 |CONSTRAINT_DATA|The hash or the composite key depending on the `CONSTRAINT_TYPE`|
 
 {{< /table >}}
+
 The `VAULT_STATES` table contains an entry for every relevant state.
-                This table records the status of states and allows CorDapps to soft lock states it intends to consume.
-                Depending on the installed CorDapps this table can grow. For example when fungible states are used.
+This table records the status of states and allows CorDapps to soft lock states it intends to consume.
+Depending on the installed CorDapps this table can grow. For example when fungible states are used.
 
 In case this table grows too large, the DBA can choose to archive old consumed states.
-                The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` table by deserializing the binary representation.
+The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` table by deserializing the binary representation.
 
 
 {{< table >}}
@@ -368,6 +394,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |STATE_PARTY|Maps participants to states|
@@ -378,6 +405,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 |X500_NAME|The name of the participant or null if unknown.|
 
 {{< /table >}}
+
 
 {{< table >}}
 
@@ -390,9 +418,11 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 {{< /table >}}
 
+
 ### Fungible states
 
 ![vault fungible states](node/operating/resources/database/vault_fungible_states.png "vault fungible states")
+
 {{< table >}}
 
 |VAULT_FUNGIBLE_STATES|Properties specific to fungible states|
@@ -406,6 +436,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |VAULT_FUNGIBLE_STATES_PARTS|Many-to-one participants to a fungible state|
@@ -416,9 +447,11 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 {{< /table >}}
 
+
 ### Linear states
 
 ![vault linear states](node/operating/resources/database/vault_linear_states.png "vault linear states")
+
 {{< table >}}
 
 |VAULT_LINEAR_STATES|Properties specific to linear states|
@@ -430,6 +463,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |VAULT_LINEAR_STATES_PARTS|Many-to-one participants to a linear state|
@@ -439,6 +473,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 |PARTICIPANTS|X500 name of participant.|
 
 {{< /table >}}
+
 
 ## Hot cold setup
 
@@ -454,6 +489,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 |VERSION|The version|
 
 {{< /table >}}
+
 
 ## Metering
 
@@ -473,6 +509,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |NODE_METERING_CORDAPPS|A record of what CorDapps were involved in signing events|
@@ -484,6 +521,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |NODE_METERING_COMMANDS|A record of what commands were on a transaction that has been metered|
@@ -493,6 +531,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 |ID|A unique identifier for this row|
 
 {{< /table >}}
+
 
 {{< table >}}
 
@@ -505,6 +544,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 
 {{< /table >}}
 
+
 {{< table >}}
 
 |NODE_CORDAPP_SIGNERS|Signing keys for a particular CorDapp|
@@ -513,6 +553,7 @@ In case this table grows too large, the DBA can choose to archive old consumed s
 |SIGNING_KEY_HASH|Hash of the public key used to sign this CorDapp|
 
 {{< /table >}}
+
 
 ## Liquibase database migration
 
@@ -539,6 +580,7 @@ These are [Liquibase](https://www.liquibase.org) proprietary tables used by Cord
 |DEPLOYMENT_ID||
 
 {{< /table >}}
+
 
 {{< table >}}
 

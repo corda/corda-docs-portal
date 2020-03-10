@@ -14,12 +14,10 @@ title: Corda networks
 # Corda networks
 
 
+
 * [Corda networks](corda-test-networks.md)
-
 * [Network permissioning](permissioning.md)
-
 * [Network Map](network-map.md)
-
 * [Versioning](versioning.md)
 
 

@@ -36,7 +36,7 @@ Before creating a pull request please make sure these pass.
 ## Manual Testing
 
 Manual testing would ideally be done for every set of changes merged into master, but practically you should manually test
-                anything that would be impacted by your changes. The areas that usually need to be manually tested and when are below;
+anything that would be impacted by your changes. The areas that usually need to be manually tested and when are below;
 
 **Node startup** - changes in the `node` or `node:capsule` project in both the Kotlin or gradle or the `cordformation` gradle plugin.
 
@@ -47,8 +47,7 @@ Manual testing would ideally be done for every set of changes merged into master
 **Demobench** - changes to the `tools/demobench` project.
 
 How to manually test each of these areas differs and is currently not fully specified. For now the best thing to do is
-                ensure the program starts, that you can interact with it, and that no exceptions are generated in normal operation.
+ensure the program starts, that you can interact with it, and that no exceptions are generated in normal operation.
 
 TODO: Add instructions on manual testing
-
 

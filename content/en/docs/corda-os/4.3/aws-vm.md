@@ -22,10 +22,7 @@ This Corda network offering builds a pre-configured network of Corda nodes as Ub
 
 
 * Ensure you have a registered AWS account which can create virtual machines under your subscription(s) and you are logged on to the [AWS portal](https://console.aws.amazon.com)
-
-
 * It is recommended you generate a private-public SSH key pair (see [here](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2/))
-
 
 
 ## Deploying a Corda Network
@@ -42,6 +39,7 @@ Once the instance is running ssh into the instance using your keypair
 ```shell
 cd ~/dev
 ```
+
 There are 4 sample apps available by default
 
 ```shell
@@ -54,23 +52,27 @@ drwxrwxr-x  9 ubuntu ubuntu 4096 Nov 13 21:48 obligation-cordapp
 drwxrwxr-x 11 ubuntu ubuntu 4096 Nov 13 21:48 oracle-example
 drwxrwxr-x  8 ubuntu ubuntu 4096 Nov 13 21:48 yo-cordapp
 ```
+
 cd into the Corda sample you would like to run. For example:
 
 ```shell
 cd cordapp-example/
 ```
+
 Follow instructions for the specific sample at [https://www.corda.net/samples](https://www.corda.net/samples) to build and run the Corda sample
-                For example: with cordapp-example (IOU app) the following commands would be run:
+For example: with cordapp-example (IOU app) the following commands would be run:
 
 ```shell
 ./gradlew deployNodes
 ./kotlin-source/build/nodes/runnodes
 ```
+
 Then start the Corda test webserver
 
 ```shell
 find ~/dev/cordapp-example/kotlin-source/ -name corda-testserver.jar -execdir sh -c 'java -jar {} &' \;
 ```
+
 You can now interact with your running CorDapp. See the instructions [here](https://docs.corda.net/tutorial-cordapp.html#via-http).
 
 
@@ -83,5 +85,4 @@ Additional support is available on [Stack Overflow](https://stackoverflow.com/qu
 You can build and run any other [Corda samples](https://www.corda.net/samples) or your own custom CorDapp here.
 
 Or to join the growing Corda community and get straight into the Corda open source codebase, head over to the [Github Corda repo](https://www.github.com/corda)
-
 

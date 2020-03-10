@@ -14,8 +14,8 @@ title: Release process
 # Release process
 
 
-* [Release notes](release-notes.md)
 
+* [Release notes](release-notes.md)
 * [Changelog](changelog.md)
 
 

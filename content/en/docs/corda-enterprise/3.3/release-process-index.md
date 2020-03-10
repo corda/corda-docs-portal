@@ -14,12 +14,10 @@ title: Release process
 # Release process
 
 
+
 * [Release notes](release-notes.md)
-
 * [Code style guide](codestyle.md)
-
 * [Testing Corda](testing.md)
-
 * [API stability check](api-scanner.md)
 
 

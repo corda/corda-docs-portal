@@ -14,43 +14,45 @@ title: Network Map Service
 # Network Map Service
 
 
+
 ## Purpose
 
 The network map service acts as a directory for all participants on the network. It is responsible for recording
-                essential information of each participant such as connection address and available services. See
-                [Network Map Overview](network-map-overview.md) for an in-depth explanation.
+essential information of each participant such as connection address and available services. See
+[Network Map Overview](network-map-overview.md) for an in-depth explanation.
 
 
 ## Running The Network Map Service
 
 The network map service currently has to be initialised in two stages. First, the network parameters for the global
-                network have to be loaded into the database. Once complete, the service can be started.
+network have to be loaded into the database. Once complete, the service can be started.
 
 
 ### Setting the Network Parameters
 
 The initial network parameters file can be loaded into the network map service database using the
-                    `--set-network-parameters` flag. The complete list of flags required to set the network parameters is as follows:
+`--set-network-parameters` flag. The complete list of flags required to set the network parameters is as follows:
 
 
-
-[–set-network-parameters] or [-s]
+* **[–set-network-parameters] or [-s]**: 
 This flag specifies that you wish to set or update the network parameters, and
-                                should be followed by the new network parameters configuration file.
+should be followed by the new network parameters configuration file.
 
 
-[–network-truststore] or [-t]
+* **[–network-truststore] or [-t]**: 
 This is used to define the network trustStore, which should contain the root
-                                certificate (similar to the *network-root-truststore.jks* file for Corda nodes). This is needed to validate that the
-                                notaries that have been set in the network parameters have a valid certificate issued by the Identity Manager.
+certificate (similar to the *network-root-truststore.jks* file for Corda nodes). This is needed to validate that the
+notaries that have been set in the network parameters have a valid certificate issued by the Identity Manager.
 
 
-[–truststore-password] or [-p]
+* **[–truststore-password] or [-p]**: 
 The password for the above trustStore.
 
 
-[–root-alias] or [-a]
+* **[–root-alias] or [-a]**: 
 The alias for the root certificate within the above trustStore.
+
+
 
 An example of setting the network parameters is:
 
@@ -61,12 +63,14 @@ java -jar network-map-<VERSION>.jar --config-file <CONFIG_FILE> \
 --truststore-password <TRUSTSTORE_PASSWORD> \
 --root-alias <ROOT_ALIAS>
 ```
+
 The server will terminate once this process is complete. Upon completion the following message should be displayed:
 
 ```kotlin
 Saved initial network parameters to be signed:
 ...
 ```
+
 
 ### Starting The Network Map Service
 
@@ -75,14 +79,16 @@ The network map service can now be started via:
 ```bash
 java -jar network-map-<VERSION>.jar --config-file <CONFIG_FILE>
 ```
+
 Optional parameter:
 
 ```bash
 --working-directory=<DIR>
 ```
+
 This will set the working directory to the specified folder. The service will look for files in that folder. This means
-                    certificates, config files etc. should be under the working directory.
-                    If not specified it will default to the current working directory (the directory from which the service has been started).
+certificates, config files etc. should be under the working directory.
+If not specified it will default to the current working directory (the directory from which the service has been started).
 
 
 ## Configuration
@@ -91,38 +97,21 @@ Similar to the Identity Manager the main elements that need to be configured for
 
 
 * [Address](#address)
-
-
 * [Database](#database)
-
-
 * [Embedded shell (optional)](#embedded-shell-optional)
-
-
 * [Network Data Signing Mechanism](#network-data-signing-mechanism)
-
-
 * [Cache Timeout](#cache-timeout)
-
-
 * [Node Certificate Revocation Checking](#node-certificate-revocation-checking)
-
-
 * [ENM Internal Server](#enm-internal-server)
-
-
 * [Identity Manager & Revocation Communication](#identity-manager-revocation-communication)
-
-
 * [Restricting A Node’s Corda Version (optional)](#restricting-a-node-s-corda-version-optional)
-
 
 
 ### Address
 
 The `address` parameter must be included in the top level of the configuration and represents the host and port
-                    number that the Network Map Service will bind to upon startup. The host can either be the IP address or the hostname of
-                    the machine that Network Map service is running on. For example:
+number that the Network Map Service will bind to upon startup. The host can either be the IP address or the hostname of
+the machine that Network Map service is running on. For example:
 
 ```guess
 address = "<SERVER_IP/SERVER_HOST>:<PORT_NUMBER>"
@@ -130,44 +119,35 @@ address = "<SERVER_IP/SERVER_HOST>:<PORT_NUMBER>"
 
 {{< note >}}
 Depending on the configuration of your deployment the host may be different to the external IP/DNS name that
-                        other nodes will use to connect to the service. The service needs to be able to bind to this host and port.
-                        For example, in a cloud environment with the machine inside a “virtual network”, the host in the configuration
-                        may need to be the private IP address, whilst external nodes would use the machines external IP/DNS name to
-                        connect to Network Map.
+other nodes will use to connect to the service. The service needs to be able to bind to this host and port.
+For example, in a cloud environment with the machine inside a “virtual network”, the host in the configuration
+may need to be the private IP address, whilst external nodes would use the machines external IP/DNS name to
+connect to Network Map.
 
 {{< /note >}}
 
 ### Database
 
 The Network Map service is backed by a SQL database which it uses to store the network map along with node infos. The
-                    connection settings must be included within the `database` configuration block in the config file. The main options
-                    that should be included here are:
+connection settings must be included within the `database` configuration block in the config file. The main options
+that should be included here are:
 
 
 * `driverClassName` - the DB driver class name (e.g *com.microsoft.sqlserver.jdbc.SQLServerDriver* for Microsoft SQL Server, *org.postgresql.Driver* for postgres)
-
-
 * `jdbcDriver` - the path to the appropriate JDBC driver jar (e.g *path/to/mssql-jdbc-7.2.2.jre8.jar*)
-
-
 * `url` - the connection string for the DB
-
-
 * `user` - the username for the DB
-
-
 * `password` - the password for the DB
-
 
 
 #### Database Setup
 
 The database can either be setup prior to running the Network Map service or, alternatively, it can be automatically
-                        prepared on startup via the built-in migrations. To enable the running of database migrations on startup set the
-                        `runMigration` parameter within the `database` configuration to true.
+prepared on startup via the built-in migrations. To enable the running of database migrations on startup set the
+`runMigration` parameter within the `database` configuration to true.
 
 If the Network Map service is being run using the same DB instance as the Identity Manager service then the Network Map
-                        schema name must be specified via the `schema` parameter within the `database` configuration block:
+schema name must be specified via the `schema` parameter within the `database` configuration block:
 
 ```guess
 database {
@@ -179,15 +159,15 @@ database {
 
 {{< note >}}
 Due to the way the migrations are defined, if the Identity Manager and Network Map services are using the same
-                            DB instance then they *must* use separate DB schemas. For more information regarding the supported databases
-                            along with the schema see [CENM Databases](database-set-up.md).
+DB instance then they *must* use separate DB schemas. For more information regarding the supported databases
+along with the schema see [CENM Databases](database-set-up.md).
 
 {{< /note >}}
 
 #### Additional Properties
 
 Additional database properties can be loaded by including an optional *additionalProperties* config block. In CENM 1.0
-                        these are restricted to HikariCP configuration settings.
+these are restricted to HikariCP configuration settings.
 
 ```guess
 database {
@@ -200,10 +180,11 @@ database {
 }
 ```
 
+
 #### Example
 
 An example configuration for a Network Map service using a Microsoft SQL Service database, configured to run the
-                        migrations on startup is:
+migrations on startup is:
 
 ```guess
 database {
@@ -224,6 +205,7 @@ database {
 }
 ```
 
+
 ### Embedded shell (optional)
 
 See [Shell Configuration](../shell.md#shell-config) for more information on how to configure the shell.
@@ -232,29 +214,26 @@ See [Shell Configuration](../shell.md#shell-config) for more information on how 
 ### Network Data Signing Mechanism
 
 Before any changes to the network data (e.g. Network Map or Network Parameter updates) can be broadcast to the
-                    participants on the network, they first need to be signed. Similarly to the Identity Manager, there are currently two
-                    mechanisms for this:
+participants on the network, they first need to be signed. Similarly to the Identity Manager, there are currently two
+mechanisms for this:
 
 
 * Local Signing Service
-
-
 * External Signing Service
-
 
 
 #### Local Signing Service
 
 The local signing service is recommended for testing and toy environments. Given a local key store containing the
-                        relevant signing keys, it provides the functionality to automatically sign all approved Network Map and Parameter
-                        updates on a configured schedule. No human interaction is needed and the credentials for the key stores have to be
-                        provided upfront. The service is an integrated signer that is a cut-down version of the standalone
-                        [Signing Services](signing-service.md) and provides no HSM integration or ability to manually verify changes. It is strongly recommended
-                        against using this for production environments.
+relevant signing keys, it provides the functionality to automatically sign all approved Network Map and Parameter
+updates on a configured schedule. No human interaction is needed and the credentials for the key stores have to be
+provided upfront. The service is an integrated signer that is a cut-down version of the standalone
+[Signing Services](signing-service.md) and provides no HSM integration or ability to manually verify changes. It is strongly recommended
+against using this for production environments.
 
 In order for the local signer to function, it needs to be able to access Network Map’s certificate and keypair
-                        which should have been previously generated (see pki-guide for more information). The local signer uses local
-                        key stores which should include the necessary signing keys along with their full certificate chains.
+which should have been previously generated (see pki-guide for more information). The local signer uses local
+key stores which should include the necessary signing keys along with their full certificate chains.
 
 To enable the local signer, the top level `localSigner` configuration block should be added to the config file:
 
@@ -269,31 +248,32 @@ localSigner {
     signInterval = 15000 # signing interval in millis
 }
 ```
+
 In this example, the key store defined within the local signer should contain the Network Map’s key pair used for
-                        signing any network map or parameter changes along with the full certificate chain back to the root of the network.
+signing any network map or parameter changes along with the full certificate chain back to the root of the network.
 
 
 #### External Signing Service
 
 The production grade signing mechanism is the external [Signing Services](signing-service.md). This has all the functionality of the
-                        integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
-                        network map or parameter changes. It should be used in all production environments where maximum security and validation
-                        checks are required.
+integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
+network map or parameter changes. It should be used in all production environments where maximum security and validation
+checks are required.
 
 In order to retrieve the network map and parameter data, the signing service will communicate with the Network Map
-                        service via its [ENM internal server](#enm-internal-server). This is the only configuration option that is needed if signing is being done
-                        via the external signing service.
+service via its [ENM internal server](#enm-internal-server). This is the only configuration option that is needed if signing is being done
+via the external signing service.
 
 
 ### Cache Timeout
 
 The Network Map service configuration contains a single required top-level parameter `pollingInterval`. This
-                    determines how often the server should poll the database for newly signed network map and parameter changes. It also
-                    determines how often nodes should poll the network map service for a new network map (by including this value in the
-                    HTTP response header).
+determines how often the server should poll the database for newly signed network map and parameter changes. It also
+determines how often nodes should poll the network map service for a new network map (by including this value in the
+HTTP response header).
 
 It takes a numerical value and represents the number of milliseconds between each refresh. An example of how this should
-                    be added to the config file is:
+be added to the config file is:
 
 ```guess
 ...
@@ -301,17 +281,18 @@ pollingInterval = 600000
 ...
 ```
 
+
 ### Node Certificate Revocation Checking
 
 In cases when the certificate revocation list infrastructure (See [Certificate Revocation List (CRL)](certificate-revocation.md) for more information)
-                    is provided, the additional validation for the node’s certificates can be enabled in the Network Map service. This is
-                    achieved via the top-level `checkRevocation` flag set in the configuration file. This ensures that any node within the
-                    Network Map has a valid, trusted certificate.
+is provided, the additional validation for the node’s certificates can be enabled in the Network Map service. This is
+achieved via the top-level `checkRevocation` flag set in the configuration file. This ensures that any node within the
+Network Map has a valid, trusted certificate.
 
 Setting this flag will result in the nodes legal identities certificate paths being validated against the certificate
-                    revocation lists whenever the Network Map is updated. Any node that has a revoked certificate will be removed from the
-                    Network Map. The certificates are also checked when the node submits its information to the Network Map service to
-                    publish for the first time.
+revocation lists whenever the Network Map is updated. Any node that has a revoked certificate will be removed from the
+Network Map. The certificates are also checked when the node submits its information to the Network Map service to
+publish for the first time.
 
 An example of how this should be added to the config file is:
 
@@ -323,16 +304,16 @@ checkRevocation = true
 
 {{< note >}}
 Enabling this option requires communication with the Revocation service to be configured (See
-                        [Identity Manager & Revocation Communication](#identity-manager-revocation-communication) below)
+[Identity Manager & Revocation Communication](#identity-manager-revocation-communication) below)
 
 {{< /note >}}
 
 ### ENM Internal Server
 
 To enable communication between the Network Map service and other network management services, such as Revocation and
-                    Identity Manager servers, upon start up the Network Map service will create an internal long running listening server.
-                    The configuration block `enmListener` can be used to define the properties of this
-                    listener, such as the port it listens on as well as the retrying and logging behaviour.
+Identity Manager servers, upon start up the Network Map service will create an internal long running listening server.
+The configuration block `enmListener` can be used to define the properties of this
+listener, such as the port it listens on as well as the retrying and logging behaviour.
 
 ```guess
 ...
@@ -347,7 +328,6 @@ enmListener {
 This parameter can be omitted if desired, in which case it will default to port 5050 with `reconnect = true`.
 
 {{< /note >}}
-
 {{< note >}}
 All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL](enm-with-ssl.md).
 
@@ -358,14 +338,15 @@ All inter-service communication can be configured with SSL support. See [Configu
 
 {{< warning >}}
 Private network functionality was an internal feature that has been disabled from CENM 1.2 and above.
-                        Running a network with one or more private networks is not a supported configuration.
+Running a network with one or more private networks is not a supported configuration.
 
 {{< /warning >}}
 
+
 The Network Map service may need to speak to both the Identity Manager and Revocation services. For example, the Network
-                    Map service may need to communicate with the Revocation service for CRL related information.
-                    This is configured via the `identityManager` and `revocation` configuration options within the `networkMap`
-                    configuration block:
+Map service may need to communicate with the Revocation service for CRL related information.
+This is configured via the `identityManager` and `revocation` configuration options within the `networkMap`
+configuration block:
 
 ```guess
 ...
@@ -379,10 +360,10 @@ revocation {
 }
 ...
 ```
-The `host` should correspond to the host part of the `address` value in the Identity Manager configuration. The
-                    `port` parameter for each service should correspond with the `port` value within the `enmListener` config block in
-                    the service’s configuration. See [Network Map Configuration Parameters](config-network-map-parameters.md) for more information.
 
+The `host` should correspond to the host part of the `address` value in the Identity Manager configuration. The
+`port` parameter for each service should correspond with the `port` value within the `enmListener` config block in
+the service’s configuration. See [Network Map Configuration Parameters](config-network-map-parameters.md) for more information.
 
 {{< note >}}
 All inter-service communication can be configured with SSL support. See [Configuring the ENM services to use SSL](enm-with-ssl.md)
@@ -392,18 +373,17 @@ All inter-service communication can be configured with SSL support. See [Configu
 ### Restricting A Node’s Corda Version (optional)
 
 The optional tpo-level configuration `versionInfoValidation` can be added to the configuration to exclude nodes
-                    running an old version of Corda from successfully publishing their node info to the network map. The configuration
-                    parameter `minimumPlatformVersion` represents the minimum platform version that a node has to be running to be able to
-                    successfully publish. If this is set, then any node that attempts to publish its node info whilst running a version of
-                    Corda with a platform version less than this will be automatically rejected. This can be used to ensure that all nodes
-                    that join the network have access to certain features.
-
+running an old version of Corda from successfully publishing their node info to the network map. The configuration
+parameter `minimumPlatformVersion` represents the minimum platform version that a node has to be running to be able to
+successfully publish. If this is set, then any node that attempts to publish its node info whilst running a version of
+Corda with a platform version less than this will be automatically rejected. This can be used to ensure that all nodes
+that join the network have access to certain features.
 
 {{< note >}}
 This serves a similar purpose to the *minimumPlatformVersion* within the network parameters and also within
-                        the Identity Manager service configuration. Publishing of the node info is the second step to joining the
-                        network, after obtaining a certificate from the Identity Manager, so this option provides another gate of
-                        security and peace of mind to the network operator.
+the Identity Manager service configuration. Publishing of the node info is the second step to joining the
+network, after obtaining a certificate from the Identity Manager, so this option provides another gate of
+security and peace of mind to the network operator.
 
 {{< /note >}}
 ```guess
@@ -416,13 +396,12 @@ versionInfoValidation {
 
 {{< note >}}
 Sending of version info during registration was added to Corda OS in release version 3.3. Using this approach
-                        with a minimum version less than this will not work unless the nodes are running a modified code base.
+with a minimum version less than this will not work unless the nodes are running a modified code base.
 
 {{< /note >}}
-
 {{< note >}}
 The minimum version configuration options should, in general, be kept consistent between the Identity Manager
-                        and Network Map service
+and Network Map service
 
 {{< /note >}}
 
@@ -432,12 +411,12 @@ The minimum version configuration options should, in general, be kept consistent
 ## Network Parameters
 
 Along with the above configuration, a *network-parameters* configuration file also needs to be created. This defines the
-                basic settings for communication across the network along with references to the notaries node info files. Therefore it
-                is advisable to register the notaries with the Identity Manager service and generate their node info files prior to
-                starting the network map.
+basic settings for communication across the network along with references to the notaries node info files. Therefore it
+is advisable to register the notaries with the Identity Manager service and generate their node info files prior to
+starting the network map.
 
 The network parameters should contain reference to the notaries node info files. The notary node info files should be
-                copied over to the Network Map service.
+copied over to the Network Map service.
 
 
 ### Example Network Parameters File
@@ -479,10 +458,11 @@ packageOwnership = [
 ]
 ```
 
+
 ## Node’s host IP address
 
 The network map service provides an endpoint that can be used to determine the IP address of the querying host. This is
-                useful especially when dealing with node’s deployment in environments with IP address translation.
+useful especially when dealing with node’s deployment in environments with IP address translation.
 
 
 {{< table >}}

@@ -11,41 +11,29 @@ title: Node shell
 
 
 
+
 # Node shell
 
 The Corda shell is an embedded or standalone command line that allows an administrator to control and monitor a node. It is based on
-            the [CRaSH](http://www.crashub.org/) shell and supports many of the same features. These features include:
+the [CRaSH](http://www.crashub.org/) shell and supports many of the same features. These features include:
 
 
 * Invoking any of the node’s RPC methods
-
-
 * Viewing a dashboard of threads, heap usage, VM properties
-
-
 * Uploading and downloading attachments
-
-
 * Issuing SQL queries to the underlying database
-
-
 * Viewing JMX metrics and monitoring exports
-
-
 * UNIX style pipes for both text and objects, an `egrep` command and a command for working with columnar data
-
-
 * Shutting the node down.
-
 
 
 ## Permissions
 
 When accessing the shell (embedded, standalone, via SSH) RPC permissions are required. This is because the shell actually communicates
-                with the node using RPC calls.
+with the node using RPC calls.
 
 There are several operations that are read-only in nature and granting them should have no impact on the ledger state of the node.
-                These permissions are:
+These permissions are:
 
 ```bash
 permissions=[
@@ -65,33 +53,29 @@ permissions=[
     "InvokeRpc.registeredFlows"
 ]
 ```
+
 There are also operations that allow starting/killing the flows or even stopping the node as a whole:
 
 
 * Watching flows (`flow watch`) requires `InvokeRpc.stateMachinesFeed`.
-
-
 * Starting flows requires `InvokeRpc.startTrackedFlowDynamic`, `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a
-                        permission for the flow being started.
-
-
+permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently
-                        allows the user to kill *any* flow, so please be careful when granting it!
-
+allows the user to kill *any* flow, so please be careful when granting it!
 
 Description of RPC operations can be found in api-rpc.
 
 
 ## The shell via the local terminal
 
-
 {{< note >}}
 Local terminal shell works only in development mode!
 
 {{< /note >}}
 The shell will display in the node’s terminal window. It connects to the node as ‘shell’ user with password ‘shell’
-                (which is only available in dev mode).
-                It may be disabled by passing the `--no-local-shell` flag when running the node.
+(which is only available in dev mode).
+It may be disabled by passing the `--no-local-shell` flag when running the node.
+
 
 
 ## The shell via SSH
@@ -109,14 +93,15 @@ sshd {
 }
 ```
 
+
 ### Authentication
 
 Users log in to shell via SSH using the same credentials as for RPC.
-                    No RPC permissions are required to allow the connection and log in.
+No RPC permissions are required to allow the connection and log in.
 
 The host key is loaded from the `<node root directory>/sshkey/hostkey.pem` file. If this file does not exist, it is
-                    generated automatically. In development mode, the seed may be specified to give the same results on the same computer
-                    in order to avoid host-checking errors.
+generated automatically. In development mode, the seed may be specified to give the same results on the same computer
+in order to avoid host-checking errors.
 
 
 ### Connecting to the shell
@@ -129,25 +114,20 @@ Run the following command from the terminal:
 ```bash
 ssh -p [portNumber] [host] -l [user]
 ```
+
 Where:
 
 
 * `[portNumber]` is the port number specified in the `node.conf` file
-
-
 * `[host]` is the node’s host (e.g. `localhost` if running the node locally)
-
-
 * `[user]` is the RPC username
-
 
 The RPC password will be requested after a connection is established.
 
-
 {{< note >}}
 In development mode, restarting a node frequently may cause the host key to be regenerated. SSH usually saves
-                            trusted hosts and will refuse to connect in case of a change. This check can be disabled using the
-                            `-o StrictHostKeyChecking=no` flag. This option should never be used in production environment!
+trusted hosts and will refuse to connect in case of a change. This check can be disabled using the
+`-o StrictHostKeyChecking=no` flag. This option should never be used in production environment!
 
 {{< /note >}}
 
@@ -156,11 +136,12 @@ In development mode, restarting a node frequently may cause the host key to be r
 Windows does not provide a built-in SSH tool. An alternative such as PuTTY should be used.
 
 
+
 ## The standalone shell
 
 The standalone shell is a standalone application interacting with a Corda node via RPC calls.
-                RPC node permissions are necessary for authentication and authorisation.
-                Certain operations, such as starting flows, require access to the CorDapp jars.
+RPC node permissions are necessary for authentication and authorisation.
+Certain operations, such as starting flows, require access to the CorDapp jars.
 
 
 ### Starting the standalone shell
@@ -175,50 +156,24 @@ corda-shell [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
             [-c=<cordappDirectory>] [-f=<configFile>] [-o=<commandsDirectory>]
             [-p=<port>] [COMMAND]
 ```
+
 Where:
 
 
 * `--config-file=<configFile>`, `--f` The path to the shell configuration file, used instead of providing the rest of the command line options.
-
-
 * `--cordapp-directory=<cordappDirectory>`, `-c` The path to the directory containing CorDapp jars, CorDapps are required when starting flows.
-
-
 * `--commands-directory=<commandsDirectory>`, `-o` The path to the directory containing additional CRaSH shell commands.
-
-
 * `--host`, `-a`: The host address of the Corda node.
-
-
 * `--port`, `-p`: The RPC port of the Corda node.
-
-
 * `--user=<user>`: The RPC user name.
-
-
 * `--password=<password>` The RPC user password. If not provided it will be prompted for on startup.
-
-
 * `--truststore-password=<trustStorePassword>`: The password to unlock the TrustStore file.
-
-
 * `--truststore-file=<trustStoreFile>`: The path to the TrustStore file.
-
-
 * `--truststore-type=<trustStoreType>`: The type of the TrustStore (e.g. JKS).
-
-
 * `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
-
-
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
-
-
 * `--help`, `-h`: Show this help message and exit.
-
-
 * `--version`, `-V`: Print version information and exit.
-
 
 Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
@@ -265,29 +220,29 @@ SSH server is not supported inside the standalone shell.
 ## Shell Safe Mode
 
 This is a new mode added in the Enterprise 4.3 release to prevent the Crash shell embedded commands (e.g. ‘java’, ‘system’) from being
-                executed by a user with insufficient privilege. This is part of a general security tightening initiative.
-                When a shell is running in unsafe mode, the shell behaviour will be the same as before and will include Crash built in commands. By default
-                the internal shell will run in safe mode but will still be have the ability to execute RPC client calls as before based on
-                existing RPC permissions. No Corda functionality is affected by this change; only the ability to access to the Crash shell embedded commands.
-                When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items
-                in their RPC permission list, see tutorial-clientrpc-api for more information about the RPC Client API. These shell changes are
-                also applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future,
-                the Crash shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they
-                are technically not part of Corda functionality.
+executed by a user with insufficient privilege. This is part of a general security tightening initiative.
+When a shell is running in unsafe mode, the shell behaviour will be the same as before and will include Crash built in commands. By default
+the internal shell will run in safe mode but will still be have the ability to execute RPC client calls as before based on
+existing RPC permissions. No Corda functionality is affected by this change; only the ability to access to the Crash shell embedded commands.
+When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items
+in their RPC permission list, see tutorial-clientrpc-api for more information about the RPC Client API. These shell changes are
+also applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future,
+the Crash shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they
+are technically not part of Corda functionality.
 
 
 ## Interacting with the node via the shell
 
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing
-                `run` followed by the name of the desired RPC method. For example, you’d see a list of the registered flows on your
-                node by running:
+`run` followed by the name of the desired RPC method. For example, you’d see a list of the registered flows on your
+node by running:
 
 `run registeredFlows`
 
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 
 You can find a list of the available RPC methods
-                [here](https://docs.corda.net/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
+[here](https://docs.corda.net/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
 
 
 ### Shutting down the node
@@ -296,10 +251,7 @@ You can shut the node down via shell:
 
 
 * `run gracefulShutdown` will put node into draining mode, and shut down when there are no flows running
-
-
 * `run shutdown` will shut the node down immediately
-
 
 
 ### Output Formats
@@ -319,61 +271,44 @@ The shell also has special commands for working with flows:
 
 
 * `flow list` lists the flows available on the node
-
-
 * `flow watch` shows all the flows currently running on the node with result (or error) information
-
-
 * `flow start` starts a flow. The `flow start` command takes the name of a flow class, or
-                            *any unambiguous substring* thereof, as well as the data to be passed to the flow constructor. If there are several
-                            matches for a given substring, the possible matches will be printed out. If a flow has multiple constructors then the
-                            names and types of the arguments will be used to try and automatically determine which one to use. If the match
-                            against available constructors is unclear, the reasons each available constructor failed to match will be printed
-                            out. In the case of an ambiguous match, the first applicable constructor will be used
-
-
+*any unambiguous substring* thereof, as well as the data to be passed to the flow constructor. If there are several
+matches for a given substring, the possible matches will be printed out. If a flow has multiple constructors then the
+names and types of the arguments will be used to try and automatically determine which one to use. If the match
+against available constructors is unclear, the reasons each available constructor failed to match will be printed
+out. In the case of an ambiguous match, the first applicable constructor will be used
 * `flow kill` kills a single flow, as identified by its UUID.
-
 
 
 ### Parameter syntax
 
 Parameters are passed to RPC or flow commands using a syntax called [Yaml](http://www.yaml.org/spec/1.2/spec.html) (yet another markup language), a
-                    simple JSON-like language. The key features of Yaml are:
+simple JSON-like language. The key features of Yaml are:
 
 
 * Parameters are separated by commas
-
-
-* Each parameter is specified as a `key: value` pair
-
-> 
+* Each parameter is specified as a `key: value` pair> 
 > 
 >     * There **MUST** to be a space after the colon, otherwise you’ll get a syntax error
-> 
-> 
+
+
 
 * Strings do not need to be surrounded by quotes unless they contain commas, colons or embedded quotes
-
-
 * Class names must be fully-qualified (e.g. `java.lang.String`)
-
-
 * Nested classes are referenced using `$`. For example, the `net.corda.finance.contracts.asset.Cash.State`
-                            class is referenced as `net.corda.finance.contracts.asset.Cash$State` (note the `$`)
-
-
+class is referenced as `net.corda.finance.contracts.asset.Cash$State` (note the `$`)
 
 {{< note >}}
 If your CorDapp is written in Java, named arguments won’t work unless you compiled the node using the
-                        `-parameters` argument to javac. See generating-a-node for how to specify it via Gradle.
+`-parameters` argument to javac. See generating-a-node for how to specify it via Gradle.
 
 {{< /note >}}
 
 #### Creating an instance of a class
 
 Class instances are created using curly-bracket syntax. For example, if we have a `Campaign` class with the following
-                        constructor:
+constructor:
 
 `data class Campaign(val name: String, val target: Int)`
 
@@ -387,7 +322,7 @@ Where `newCampaign` is a parameter of type `Campaign`.
 #### Mappings from strings to types
 
 In addition to the types already supported by Jackson, several parameter types can automatically be mapped from strings.
-                        We cover the most common types here.
+We cover the most common types here.
 
 
 ##### Amount
@@ -396,10 +331,7 @@ A parameter of type `Amount<Currency>` can be written as either:
 
 
 * A dollar ($), pound (£) or euro (€) symbol followed by the amount as a decimal
-
-
 * The amount as a decimal followed by the ISO currency code (e.g. “100.12 CHF”)
-
 
 
 ##### SecureHash
@@ -415,7 +347,7 @@ A parameter of type `OpaqueBytes` can be provided as a UTF-8 string.
 ##### PublicKey and CompositeKey
 
 A parameter of type `PublicKey` can be written as a Base58 string of its encoded format: `GfHq2tTVk9z4eXgyQXzegw6wNsZfHcDhfw8oTt6fCHySFGp3g7XHPAyc2o6D`.
-                            `net.corda.core.utilities.EncodingUtils.toBase58String` will convert a `PublicKey` to this string format.
+`net.corda.core.utilities.EncodingUtils.toBase58String` will convert a `PublicKey` to this string format.
 
 
 ##### Party
@@ -424,17 +356,10 @@ A parameter of type `Party` can be written in several ways:
 
 
 * By using the full name: `"O=Monogram Bank,L=Sao Paulo,C=GB"`
-
-
 * By specifying the organisation name only: `"Monogram Bank"`
-
-
 * By specifying any other non-ambiguous part of the name: `"Sao Paulo"` (if only one network node is located in Sao
-                                    Paulo)
-
-
+Paulo)
 * By specifying the public key (see above)
-
 
 
 ##### NodeInfo
@@ -470,20 +395,12 @@ This breaks down as follows:
 
 
 * `flow start` is a shell command for starting a flow
-
-
 * `CashIssueFlow` is the flow we want to start
-
-
 * Each `name: value` pair after that is a flow constructor argument
-
 
 This command invokes the following `CashIssueFlow` constructor:
 
-
 {{< tabs name="tabs-1" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 class CashIssueFlow(val amount: Amount<Currency>,
@@ -492,6 +409,7 @@ class CashIssueFlow(val amount: Amount<Currency>,
                     val notary: Party) : AbstractCashFlow(progressTracker)
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -505,54 +423,50 @@ This breaks down as follows:
 
 
 * `run` is a shell command for making an RPC call
-
-
 * `vaultQuery` is the RPC call we want to make
-
-
 * `contractStateType: com.template.IOUState` is the fully-qualified name of the state type we are querying for
-
 
 
 ### Attachments
 
 The shell can be used to upload and download attachments from the node. To learn more, see the tutorial
-                    “tutorial-attachments”.
+“tutorial-attachments”.
 
 
 ### Getting help
 
 You can type `help` in the shell to list the available commands, and `man` to get interactive help on many
-                    commands. You can also pass the `--help` or `-h` flags to a command to get info about what switches it supports.
+commands. You can also pass the `--help` or `-h` flags to a command to get info about what switches it supports.
 
 Commands may have subcommands, in the same style as `git`. In that case, running the command by itself will
-                    list the supported subcommands.
+list the supported subcommands.
 
 
 ## Extending the shell
 
 THIS FUNCTIONALITY IS NOW ONLY AVAILABLE WHEN RUNNING THE SHELL IN UNSAFE MODE (see Safe Shell section above). This is because of possible
-                security vulnerabilities caused by the Crash shell embedded commands. When shell commands are executed via SSH, a remote user has the ability
-                to effect the node internal state (including running scripts, gc and even shutting down the node). Prior to Enterprise 4.3 this was possible
-                regardless of the user’s permissions. A user must now have ‘ALL’ as one of their RPC Permissions to be able to use the embedded commands via
-                the unsafe shell. You are advised, where possible to design out dependencies on the Crash shell embedded commands (non-Corda commands)
-                and, as a minimum, not to introduce any new dependencies on the unsafe shell environment.
+security vulnerabilities caused by the Crash shell embedded commands. When shell commands are executed via SSH, a remote user has the ability
+to effect the node internal state (including running scripts, gc and even shutting down the node). Prior to Enterprise 4.3 this was possible
+regardless of the user’s permissions. A user must now have ‘ALL’ as one of their RPC Permissions to be able to use the embedded commands via
+the unsafe shell. You are advised, where possible to design out dependencies on the Crash shell embedded commands (non-Corda commands)
+and, as a minimum, not to introduce any new dependencies on the unsafe shell environment.
 
 The shell can be extended using commands written in either Java or [Groovy](http://groovy-lang.org/) (a Java-compatible scripting language).
-                These commands have full access to the node’s internal APIs and thus can be used to achieve almost anything.
+These commands have full access to the node’s internal APIs and thus can be used to achieve almost anything.
 
 A full tutorial on how to write such commands is out of scope for this documentation. To learn more, please refer to
-                the [CRaSH](http://www.crashub.org/) documentation. New commands are placed in the `shell-commands` subdirectory in the node directory. Edits
-                to existing commands will be used automatically, but currently commands added after the node has started won’t be
-                automatically detected. Commands must have names all in lower-case with either a `.java` or `.groovy` extension.
+the [CRaSH](http://www.crashub.org/) documentation. New commands are placed in the `shell-commands` subdirectory in the node directory. Edits
+to existing commands will be used automatically, but currently commands added after the node has started won’t be
+automatically detected. Commands must have names all in lower-case with either a `.java` or `.groovy` extension.
 
 
 {{< warning >}}
 Commands written in Groovy ignore Java security checks, so have unrestricted access to node and JVM
-                    internals regardless of any sandboxing that may be in place. Don’t allow untrusted users to edit files in the
-                    shell-commands directory!
+internals regardless of any sandboxing that may be in place. Don’t allow untrusted users to edit files in the
+shell-commands directory!
 
 {{< /warning >}}
+
 
 
 ## Limitations
@@ -561,24 +475,13 @@ The shell will be enhanced over time. The currently known limitations include:
 
 
 * Flows cannot be run unless they override the progress tracker
-
-
 * If a command requires an argument of an abstract type, the command cannot be run because the concrete subclass to use cannot be specified using the YAML syntax
-
-
 * There is no command completion for flows or RPCs
-
-
 * Command history is not preserved across restarts
-
-
 * The `jdbc` command requires you to explicitly log into the database first
-
-
 * Commands placed in the `shell-commands` directory are only noticed after the node is restarted
-
-
 * The `jul` command advertises access to logs, but it doesn’t work with the logging framework we’re using
+
 
 
 

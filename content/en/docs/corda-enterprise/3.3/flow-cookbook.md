@@ -12,14 +12,12 @@ title: Flow cookbook
 
 
 
+
 # Flow cookbook
 
 This flow showcases how to use Corda’s API, in both Java and Kotlin.
 
-
 {{< tabs name="tabs-1" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 /*
@@ -1386,8 +1384,8 @@ public class FlowCookbookJava {
 ```
 {{% /tab %}}
 
+
 [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/FlowCookbook.kt) | [FlowCookbookJava.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/java/net/corda/docs/FlowCookbookJava.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
-
 

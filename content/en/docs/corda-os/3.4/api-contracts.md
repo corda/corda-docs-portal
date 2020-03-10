@@ -13,22 +13,20 @@ title: 'API: Contracts'
 
 
 
-# API: Contracts
 
+# API: Contracts
 
 {{< note >}}
 Before reading this page, you should be familiar with the key concepts of [Contracts](key-concepts-contracts.md).
 
 {{< /note >}}
 
+
 ## Contract
 
 Contracts are classes that implement the `Contract` interface. The `Contract` interface is defined as follows:
 
-
 {{< tabs name="tabs-1" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 /**
@@ -54,48 +52,37 @@ interface Contract {
 ```
 {{% /tab %}}
 
+
 [Structures.kt](https://github.com/corda/corda/blob/release/os/3.4/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
 `Contract` has a single method, `verify`, which takes a `LedgerTransaction` as input and returns
-                nothing. This function is used to check whether a transaction proposal is valid, as follows:
+nothing. This function is used to check whether a transaction proposal is valid, as follows:
 
 
 * We gather together the contracts of each of the transaction’s input and output states
-
-
 * We call each contract’s `verify` function, passing in the transaction as an input
-
-
 * The proposal is only valid if none of the `verify` calls throw an exception
-
 
 `verify` is executed in a sandbox:
 
 
 * It does not have access to the enclosing scope
-
-
 * The libraries available to it are whitelisted to disallow:
-                        * Network access
-                        * I/O such as disk or database access
-                        * Sources of randomness such as the current time or random number generators
-
+* Network access
+* I/O such as disk or database access
+* Sources of randomness such as the current time or random number generators
 
 This means that `verify` only has access to the properties defined on `LedgerTransaction` when deciding whether a
-                transaction is valid.
+transaction is valid.
 
 Here are the two simplest `verify` functions:
 
 
 * A  `verify` that **accepts** all possible transactions:
 
-
-
 {{< tabs name="tabs-2" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 override fun verify(tx: LedgerTransaction) {
@@ -112,16 +99,13 @@ public void verify(LedgerTransaction tx) {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 
 * A `verify` that **rejects** all possible transactions:
 
-
-
 {{< tabs name="tabs-3" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 override fun verify(tx: LedgerTransaction) {
@@ -138,6 +122,7 @@ public void verify(LedgerTransaction tx) {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -145,10 +130,7 @@ public void verify(LedgerTransaction tx) {
 
 The `LedgerTransaction` object passed into `verify` has the following properties:
 
-
 {{< tabs name="tabs-4" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializable
@@ -171,6 +153,7 @@ data class LedgerTransaction @JvmOverloads constructor(
 ```
 {{% /tab %}}
 
+
 [LedgerTransaction.kt](https://github.com/corda/corda/blob/release/os/3.4/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
@@ -179,56 +162,31 @@ Where:
 
 
 * `inputs` are the transaction’s inputs as `List<StateAndRef<ContractState>>`
-
-
 * `outputs` are the transaction’s outputs as `List<TransactionState<ContractState>>`
-
-
 * `commands` are the transaction’s commands and associated signers, as `List<CommandWithParties<CommandData>>`
-
-
 * `attachments` are the transaction’s attachments as `List<Attachment>`
-
-
 * `notary` is the transaction’s notary. This must match the notary of all the inputs
-
-
 * `timeWindow` defines the window during which the transaction can be notarised
-
 
 `LedgerTransaction` exposes a large number of utility methods to access the transaction’s contents:
 
 
 * `inputStates` extracts the input `ContractState` objects from the list of `StateAndRef`
-
-
 * `getInput`/`getOutput`/`getCommand`/`getAttachment` extracts a component by index
-
-
 * `getAttachment` extracts an attachment by ID
-
-
 * `inputsOfType`/`inRefsOfType`/`outputsOfType`/`outRefsOfType`/`commandsOfType` extracts components based on
-                        their generic type
-
-
+their generic type
 * `filterInputs`/`filterInRefs`/`filterOutputs`/`filterOutRefs`/`filterCommands` extracts components based on
-                        a predicate
-
-
+a predicate
 * `findInput`/`findInRef`/`findOutput`/`findOutRef`/`findCommand` extracts the single component that matches
-                        a predicate, or throws an exception if there are multiple matches
-
+a predicate, or throws an exception if there are multiple matches
 
 
 ## requireThat
 
 `verify` can be written to manually throw an exception for each constraint:
 
-
 {{< tabs name="tabs-5" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 override fun verify(tx: LedgerTransaction) {
@@ -252,14 +210,12 @@ public void verify(LedgerTransaction tx) {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 However, this is verbose. To impose a series of constraints, we can use `requireThat` instead:
 
-
 {{< tabs name="tabs-6" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 requireThat {
@@ -286,22 +242,20 @@ requireThat(require -> {
 });
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 For each <`String`, `Boolean`> pair within `requireThat`, if the boolean condition is false, an
-                `IllegalArgumentException` is thrown with the corresponding string as the exception message. In turn, this
-                exception will cause the transaction to be rejected.
+`IllegalArgumentException` is thrown with the corresponding string as the exception message. In turn, this
+exception will cause the transaction to be rejected.
 
 
 ## Commands
 
 `LedgerTransaction` contains the commands as a list of `CommandWithParties` instances. `CommandWithParties` pairs
-                a `CommandData` with a list of required signers for the transaction:
-
+a `CommandData` with a list of required signers for the transaction:
 
 {{< tabs name="tabs-7" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 /** A [Command] where the signing parties have been looked up if they have a well known/recognised institutional key. */
@@ -316,6 +270,7 @@ data class CommandWithParties<out T : CommandData>(
 ```
 {{% /tab %}}
 
+
 [Structures.kt](https://github.com/corda/corda/blob/release/os/3.4/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
@@ -324,27 +279,19 @@ Where:
 
 
 * `signers` is the list of each signer’s `PublicKey`
-
-
 * `signingParties` is the list of the signer’s identities, if known
-
-
 * `value` is the object being signed (a command, in this case)
-
 
 
 ### Branching verify with commands
 
 Generally, we will want to impose different constraints on a transaction based on its commands. For example, we will
-                    want to impose different constraints on a cash issuance transaction to on a cash transfer transaction.
+want to impose different constraints on a cash issuance transaction to on a cash transfer transaction.
 
 We can achieve this by extracting the command and using standard branching logic within `verify`. Here, we extract
-                    the single command of type `XContract.Commands` from the transaction, and branch `verify` accordingly:
-
+the single command of type `XContract.Commands` from the transaction, and branch `verify` accordingly:
 
 {{< tabs name="tabs-8" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 class XContract : Contract {
@@ -390,6 +337,6 @@ public class XContract implements Contract {
 }
 ```
 {{% /tab %}}
-{{< /tabs >}}
 
+{{< /tabs >}}
 

@@ -13,17 +13,18 @@ title: Using the client RPC API
 ---
 
 
+
 # Using the client RPC API
 
 In this tutorial we will build a simple command line utility that connects to a node, creates some cash transactions
-            and dumps the transaction graph to the standard output. We will then put some simple visualisation on top. For an
-            explanation on how RPC works in Corda see [Client RPC](clientrpc.md).
+and dumps the transaction graph to the standard output. We will then put some simple visualisation on top. For an
+explanation on how RPC works in Corda see [Client RPC](clientrpc.md).
 
 We start off by connecting to the node itself. For the purposes of the tutorial we will use the Driver to start up a notary
-            and a Alice node that can issue, move and exit cash.
+and a Alice node that can issue, move and exit cash.
 
 Here’s how we configure the node to create a user that has the permissions to start the `CashIssueFlow`,
-            `CashPaymentFlow`, and `CashExitFlow`:
+`CashPaymentFlow`, and `CashExitFlow`:
 
 ```kotlin
 enum class PrintOrVisualise {
@@ -45,8 +46,9 @@ fun main(args: Array<String>) {
         val node = startNode(providedName = ALICE_NAME, rpcUsers = listOf(user)).get()
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)Now we can connect to the node itself using a valid RPC user login and start generating transactions in a different
-            thread using `generateTransactions` (to be defined later):
+[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+Now we can connect to the node itself using a valid RPC user login and start generating transactions in a different
+thread using `generateTransactions` (to be defined later):
 
 ```kotlin
 val client = CordaRPCClient(node.rpcAddress)
@@ -57,7 +59,8 @@ thread {
 }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)`proxy` exposes the full RPC interface of the node:
+[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+`proxy` exposes the full RPC interface of the node:
 
 ```kotlin
     /**
@@ -333,23 +336,22 @@ thread {
     fun isFlowsDrainingModeEnabled(): Boolean
 
 ```
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/3.4/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)The RPC operation we need in order to dump the transaction graph is `internalVerifiedTransactionsFeed`. The type
-            signature tells us that the RPC operation will return a list of transactions and an `Observable` stream. This is a
-            general pattern, we query some data and the node will return the current snapshot and future updates done to it.
-            Observables are described in further detail in [Client RPC](clientrpc.md)
+[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/3.4/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+The RPC operation we need in order to dump the transaction graph is `internalVerifiedTransactionsFeed`. The type
+signature tells us that the RPC operation will return a list of transactions and an `Observable` stream. This is a
+general pattern, we query some data and the node will return the current snapshot and future updates done to it.
+Observables are described in further detail in [Client RPC](clientrpc.md)
 
 ```kotlin
 val (transactions: List<SignedTransaction>, futureTransactions: Observable<SignedTransaction>) = proxy.internalVerifiedTransactionsFeed()
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)The graph will be defined as follows:
+[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+The graph will be defined as follows:
 
 
 * Each transaction is a vertex, represented by printing `NODE <txhash>`
-
-
 * Each input-output relationship is an edge, represented by prining `EDGE <txhash> <txhash>`
-
 
 ```kotlin
 when (printOrVisualise) {
@@ -363,7 +365,8 @@ when (printOrVisualise) {
     }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)Now we just need to create the transactions themselves!
+[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+Now we just need to create the transactions themselves!
 
 ```kotlin
 fun generateTransactions(proxy: CordaRPCOps) {
@@ -395,18 +398,19 @@ fun generateTransactions(proxy: CordaRPCOps) {
 }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)We utilise several RPC functions here to query things like the notaries in the node cluster or our own vault. These RPC
-            functions also return `Observable` objects so that the node can send us updated values. However, we don’t need updates
-            here and so we mark these observables as `notUsed` (as a rule, you should always either subscribe to an `Observable`
-            or mark it as not used. Failing to do so will leak resources in the node).
+[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+We utilise several RPC functions here to query things like the notaries in the node cluster or our own vault. These RPC
+functions also return `Observable` objects so that the node can send us updated values. However, we don’t need updates
+here and so we mark these observables as `notUsed` (as a rule, you should always either subscribe to an `Observable`
+or mark it as not used. Failing to do so will leak resources in the node).
 
 Then in a loop we generate randomly either an Issue, a Pay or an Exit transaction.
 
 The RPC we need to initiate a cash transaction is `startFlow` which starts an arbitrary flow given sufficient
-            permissions to do so.
+permissions to do so.
 
 Finally we have everything in place: we start a couple of nodes, connect to them, and start creating transactions while
-            listening on successfully created ones, which are dumped to the console. We just need to run it!
+listening on successfully created ones, which are dumped to the console. We just need to run it!
 
 ```text
 # Build the example
@@ -414,6 +418,7 @@ Finally we have everything in place: we start a couple of nodes, connect to them
 # Start it
 ./docs/source/example-code/build/install/docs/source/example-code/bin/client-rpc-tutorial Print
 ```
+
 Now let’s try to visualise the transaction graph. We will use a graph drawing library called [graphstream](http://graphstream-project.org/).
 
 ```kotlin
@@ -438,13 +443,14 @@ Now let’s try to visualise the transaction graph. We will use a graph drawing 
 }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)If we run the client with `Visualise` we should see a simple random graph being drawn as new transactions are being created.
+[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+If we run the client with `Visualise` we should see a simple random graph being drawn as new transactions are being created.
 
 
 ## Whitelisting classes from your CorDapp with the Corda node
 
 As described in [Client RPC](clientrpc.md), you have to whitelist any additional classes you add that are needed in RPC
-                requests or responses with the Corda node.  Here’s an example of both ways you can do this for a couple of example classes.
+requests or responses with the Corda node.  Here’s an example of both ways you can do this for a couple of example classes.
 
 ```kotlin
 // Not annotated, so need to whitelist manually.
@@ -460,21 +466,21 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)See more on plugins in [Running nodes locally](running-a-node.md).
+[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+See more on plugins in [Running nodes locally](running-a-node.md).
 
 
 ## Security
 
 RPC credentials associated with a Client must match the permission set configured on the server node.
-                This refers to both authentication (username and password) and role-based authorisation (a permissioned set of RPC operations an
-                authenticated user is entitled to run).
-
+This refers to both authentication (username and password) and role-based authorisation (a permissioned set of RPC operations an
+authenticated user is entitled to run).
 
 {{< note >}}
 Permissions are represented as *String’s* to allow RPC implementations to add their own permissioning. Currently
-                    the only permission type defined is *StartFlow*, which defines a list of whitelisted flows an authenticated use may
-                    execute. An administrator user (or a developer) may also be assigned the `ALL` permission, which grants access to
-                    any flow.
+the only permission type defined is *StartFlow*, which defines a list of whitelisted flows an authenticated use may
+execute. An administrator user (or a developer) may also be assigned the `ALL` permission, which grants access to
+any flow.
 
 {{< /note >}}
 In the instructions above the server node permissions are configured programmatically in the driver code:
@@ -484,6 +490,7 @@ driver(driverDirectory = baseDirectory) {
     val user = User("user", "password", permissions = setOf(startFlow<CashFlow>()))
     val node = startNode("CN=Alice Corp,O=Alice Corp,L=London,C=GB", rpcUsers = listOf(user)).get()
 ```
+
 When starting a standalone node using a configuration file we must supply the RPC credentials as follows:
 
 ```text
@@ -491,8 +498,9 @@ rpcUsers : [
     { username=user, password=password, permissions=[ StartFlow.net.corda.finance.flows.CashFlow ] }
 ]
 ```
+
 When using the gradle Cordformation plugin to configure and deploy a node you must supply the RPC credentials in a similar
-                manner:
+manner:
 
 ```text
 rpcUsers = [
@@ -501,6 +509,7 @@ rpcUsers = [
          'permissions' : ["StartFlow.net.corda.finance.flows.CashFlow"]]
 ]
 ```
+
 You can then deploy and launch the nodes (Notary and Alice) as follows:
 
 ```text
@@ -512,10 +521,10 @@ You can then deploy and launch the nodes (Notary and Alice) as follows:
 ./docs/source/example-code/build/install/docs/source/example-code/bin/client-rpc-tutorial Print
 ./docs/source/example-code/build/install/docs/source/example-code/bin/client-rpc-tutorial Visualise
 ```
+
 With regards to the start flow RPCs, there is an extra layer of security whereby the flow to be executed has to be
-                annotated with `@StartableByRPC`. Flows without this annotation cannot execute using RPC.
+annotated with `@StartableByRPC`. Flows without this annotation cannot execute using RPC.
 
 See more on security in [Secure coding guidelines](secure-coding-guidelines.md), node configuration in [Node configuration](corda-configuration-file.md) and
-                Cordformation in [Running nodes locally](running-a-node.md).
-
+Cordformation in [Running nodes locally](running-a-node.md).
 

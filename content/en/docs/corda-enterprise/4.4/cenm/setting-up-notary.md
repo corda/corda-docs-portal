@@ -17,11 +17,11 @@ title: Setting Up A Notary Node
 ## Purpose
 
 A notary node is a well known and trusted node that provides uniqueness consensus. Because of this, creating and running a notary node is
-                slightly more involved compared with a regular node.
+slightly more involved compared with a regular node.
 
 The network map service broadcasts information (stored in the network parameters file) that every participant in the network needs to
-                agree on. One piece of information is the list of notaries. Because all notaries within this list need to be well known and trusted,
-                the process of adding a new one requires some manual intervention on the network map service side.
+agree on. One piece of information is the list of notaries. Because all notaries within this list need to be well known and trusted,
+the process of adding a new one requires some manual intervention on the network map service side.
 
 
 ## Configuration
@@ -51,28 +51,18 @@ sshd {
 p2pAddress="<NOTARY_HOST>:<NOTARY_PORT>"
 ```
 
+
 ## Initial Setup
 
 The steps to integrate the notary node into the network are:
 
 
 * Register the node with the Identity Manager
-
-
 * Generate the node info file
-
-
 * Copy the node info file to the network map service
-
-
 * Update the network parameters file on the network map service to reference the new node info file
-
-
 * Start (or restart) the network map service
-
-
 * Start the notary node as normal
-
 
 
 ### Create Notary Node And Register With The Identity Manager
@@ -85,18 +75,19 @@ java -jar corda.jar --config-file <NODE_CONF_FILE> --initial-registration --netw
 
 {{< note >}}
 The network trust store should contain the trusted root certificate of the network. This should be created
-                        during the initial setup of the network and therefore should be distribute by the network operator.
+during the initial setup of the network and therefore should be distribute by the network operator.
 
 {{< /note >}}
 
 ### Generate Node Info File
 
 The node info file contains information such as address and certificates. The file will be used by all participants on the network to enable them to
-                    connect to, and trust, the new notary node.
+connect to, and trust, the new notary node.
 
 ```bash
 java -jar corda.jar --config-file <NODE_CONF_FILE> --just-generate-node-info
 ```
+
 
 ### Setup Network Map Service
 

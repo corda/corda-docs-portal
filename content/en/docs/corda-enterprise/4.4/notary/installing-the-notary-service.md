@@ -18,30 +18,19 @@ In configuring the notary worker nodes, please note the following:
 
 
 * The X500 name of the notary service is configured in `notary.serviceLegalName`. *Only required for HA notaries*
-
-
 * Notice the parameters `rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false`
-                    of the JDBC URL
-
-
+of the JDBC URL
 * Put the IP address or host name of the nearest shared DB server first in the JDBC
-                    URL. When running a DB node and a notary worker node on a single machine, list the
-                    local IP first
-
-
+URL. When running a DB node and a notary worker node on a single machine, list the
+local IP first
 * In addition to the connection to the shared DB holding the notary state,
-                    each notary worker needs to have access to its own local node DB. See the
-                    *dataSourceProperties* section in the configuration file
-
-
+each notary worker needs to have access to its own local node DB. See the
+*dataSourceProperties* section in the configuration file
 * Omit `compatibilityZoneURL` and set `devMode = true` when using the bootstrapper
-
 
 The configuration below will result in the JPA notary implementation being used:
 
-
 {{< tabs name="tabs-1" >}}
-
 node.conf
 
 {{% tab name="kotlin" %}}
@@ -101,6 +90,7 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 ```
 {{% /tab %}}
 
+
 [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/notary/resources/node.conf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
@@ -111,13 +101,11 @@ See ../corda-configuration-file for a complete reference.
 ## MySQL notary (deprecated)
 
 The configuration below will result in the MySQL notary being used. Note the lack of
-                the `jpa` configuration tag and the presence of the `mysql` configuration tag. Only the
-                `notary` tag is included in this excerpt - the remainder of the configuration file does not
-                change.
-
+the `jpa` configuration tag and the presence of the `mysql` configuration tag. Only the
+`notary` tag is included in this excerpt - the remainder of the configuration file does not
+change.
 
 {{< tabs name="tabs-2" >}}
-
 percona.conf
 
 {{% tab name="kotlin" %}}
@@ -138,6 +126,7 @@ notary {
 ```
 {{% /tab %}}
 
+
 [percona.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/notary/resources/percona.conf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
@@ -146,8 +135,8 @@ notary {
 ## Configuration Obfuscation
 
 Corda Enterprise comes with a tool for obfuscating secret values in configuration files, which is strongly recommended for production deployments.
-                For a notary worker node, the database IP addresses, database user credentials, `keyStore` and `trustStore` password fields in
-                the configuration file should be obfuscated. Usage instructions can be found on the [Configuration Obfuscator](../tools-config-obfuscator.md) page.
+For a notary worker node, the database IP addresses, database user credentials, `keyStore` and `trustStore` password fields in
+the configuration file should be obfuscated. Usage instructions can be found on the [Configuration Obfuscator](../tools-config-obfuscator.md) page.
 
 Note that configuration obfuscation can be used with any notary.
 
@@ -183,9 +172,10 @@ dataSourceProperties = {
 }
 ```
 [config_obfuscator](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/notary/resources/config_obfuscator)
+
+
 ## Obtaining the notary service identity
 
 The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../ha-utilities.md#notary-reg-tool).
-                Once the service is registered, each worker node is registered using the `initial-registration` process. See ../joining-a-compatibility-zone.
-
+Once the service is registered, each worker node is registered using the `initial-registration` process. See ../joining-a-compatibility-zone.
 

@@ -16,8 +16,8 @@ title: Node internals
 # Node internals
 
 
-* [Node services](node-services.md)
 
+* [Node services](node-services.md)
 * [Networking and messaging](messaging.md)
 
 

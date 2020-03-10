@@ -20,14 +20,14 @@ See a prototype implementation here: [https://github.com/corda/corda/pull/2889](
 There is an increasing need for Corda to support use-cases which require reference data which is issued and updated by specific parties, but available for use, by reference, in transactions built by other parties.
 
 Why is this type of reference data required? A key benefit of blockchain systems is that everybody is sure they see the
-                same as their counterpart - and for this to work in situations where accurate processing depends on reference data
-                requires everybody to be operating on the same reference data. This, in turn, requires any given piece of reference data
-                to be uniquely identifiable and, requires that any given transaction must be certain to be operating on the most current
-                version of that reference data. In cases where the latter condition applies, only the notary can attest to this fact and
-                this, in turn, means the reference data must be in the form of an unconsumed state.
+same as their counterpart - and for this to work in situations where accurate processing depends on reference data
+requires everybody to be operating on the same reference data. This, in turn, requires any given piece of reference data
+to be uniquely identifiable and, requires that any given transaction must be certain to be operating on the most current
+version of that reference data. In cases where the latter condition applies, only the notary can attest to this fact and
+this, in turn, means the reference data must be in the form of an unconsumed state.
 
 This document outlines the approach for adding support for this type of reference data to the Corda transaction model
-                via a new approach called “reference input states”.
+via a new approach called “reference input states”.
 
 
 ## Background
@@ -36,28 +36,16 @@ Firstly, it is worth considering the types of reference data on Corda how it is 
 
 
 * **Rarely changing universal reference data.** Such as currency codes and holiday calendars. This type of data can be added to transactions as attachments and referenced within contracts, if required. This data would only change based upon the decision of an International standards body, for example, therefore it is not critical to check the data is current each time it is used.
-
-
 * **Constantly changing reference data.** Typically, this type of data must be collected and aggregated by a central party. Oracles can be used as a central source of truth for this type of constantly changing data. There are multiple examples of making transaction validity contingent on data provided by Oracles (IRS demo and SIMM demo). The Oracle asserts the data was valid at the time it was provided.
-
-
 * **Periodically changing subjective reference data.** Reference data provided by entities such as bond issuers where the data changes frequently enough to warrant users of the data check it is current.
-
 
 At present, periodically changing subjective data can only be provided via:
 
 
 * Oracles,
-
-
 * Attachments,
-
-
 * Regular contract states, or alternatively,
-
-
 * kept off-ledger entirely
-
 
 However, neither of these solutions are optimal for reasons discussed in later sections of this design document.
 
@@ -77,34 +65,21 @@ Goals
 
 * Add the capability to Corda transactions to support reference states
 
-
 Non-goals (eg. out of scope)
 
 
 * Data distribution groups are required to realise the full potential of reference data states. This design document does not discuss data distribution groups.
 
 
-
 ## Requirements
 
 
 * Reference states can be any `ContractState` created by one or more `Party`s and subsequently updated by those `Party`s. E.g. `Cash`, `CompanyData`, `InterestRateSwap`, `FxRate`. Reference states can be `OwnableState`s, but it’s more likely they will be `LinearState`s.
-
-
 * Any `Party` with a `StateRef` for a reference state should be able to add it to a transaction to be used as a reference, even if they are not a `participant` of the reference state.
-
-
 * The contract code for reference states should not be executed. However, reference data states can be referred to by the contracts of `ContractState`s in the input and output lists.
-
-
 * `ContractStates` should not be consumed when used as reference data.
-
-
 * Reference data must be current, therefore when reference data states are used in a transaction, notaries should check that they have not been consumed before.
-
-
 * To ensure determinism of the contract verification process, reference data states must be in scope for the purposes of transaction resolution. This is because whilst users of the reference data are not consuming the state, they must be sure that the series of transactions that created and evolved the state were executed validly.
-
 
 **Use-cases:**
 
@@ -112,40 +87,23 @@ The canonical use-case for reference states: *KYC*
 
 
 * KYC data can be distributed as reference data states.
-
-
 * KYC data states can only updatable by the data owner.
-
-
 * Usable by any party - transaction verification can be conditional on this KYC/reference data.
-
-
 * Notary ensures the data is current.
-
 
 Collateral reporting:
 
 
 * Imagine a bank needs to provide evidence to another party (like a regulator) that they hold certain states, such as cash and collateral, for liquidity reporting purposes
-
-
 * The regulator holds a liquidity reporting state that maintains a record of past collateral reports and automates the handling of current reports using some contract code
-
-
 * To update the liquidity reporting state, the regulator needs to include the bank’s cash/collateral states in a transaction – the contract code checks available collateral vs requirements. By doing this, the cash/collateral states would be consumed, which is not desirable
-
-
 * Instead, what if those cash/collateral states could be referenced in a transaction but not consumed? And at the same time, the notary still checks to see if the cash/collateral states are current, or not (i.e. does the bank still own them)
-
 
 Other uses:
 
 
 * Distributing reference data for financial instruments. E.g. Bond issuance details created, updated and distributed by the bond issuer rather than a third party.
-
-
 * Account level data included in cash payment transactions.
-
 
 
 ## Design Decisions
@@ -158,16 +116,9 @@ Currently, the transaction model is too cumbersome to support reference data as 
 
 
 * Contract verification is required for the `ContractState`s used as reference data. This limits the use of states, such as `Cash` as reference data (unless a special “reference” command is added which allows a “NOOP” state transaction to assert no that changes were made.)
-
-
 * As such, whenever an input state reference is added to a transaction as reference data, an output state must be added, otherwise the state will be extinguished. This results in long chains of unnecessarily duplicated data.
-
-
 * Long chains of provenance result in confidentiality breaches as down-stream users of the reference data state see all the prior uses of the reference data in the chain of provenance. This is an important point: it means that two parties, who have no business relationship and care little about each other’s transactions nevertheless find themselves intimately bound: should one of them rely on a piece of common reference data in a transaction, the other one will not only need to be informed but will need to be furnished with a copy of the transaction.
-
-
 * Reference data states will likely be used by many parties so they will be come highly contended. Parties will “race” to use the reference data. The latest copy must be continually distributed to all that require it.
-
 
 **Attachments**
 
@@ -190,37 +141,16 @@ Changes required:
 
 
 * Add a `references` property of type `List<StateRef>` and `List<StateAndRef>` (for `FullTransaction`s) to all the transaction types.
-
-
 * Add a `REFERENCE_STATES` component group.
-
-
 * Amend the notary flows to check that reference states are current (but do not consume them)
-
-
 * Add a `ReferencedStateAndRef` class that encapsulates a `StateAndRef`, this is so `TransactionBuilder.withItems` can delineate between `StateAndRef`s and state references.
-
-
 * Add a `StateAndRef.referenced` method which wraps a `StateAndRef` in a `ReferencedStateAndRef`.
-
-
 * Add helper methods to `LedgerTransaction` to get `references` by type, etc.
-
-
 * Add a check to the transaction classes that asserts all references and inputs are on the same notary.
-
-
 * Add a method to `TransactionBuilder` to add a reference state.
-
-
 * Update the transaction resolution flow to resolve references.
-
-
 * Update the transaction and ledger DSLs to support references.
-
-
 * No changes are required to be made to contract upgrade or notary change transactions.
-
 
 Implications:
 
@@ -266,20 +196,10 @@ It does the following:
 
 
 * Checks that those linear IDs are in the vault and throws if not.
-
-
 * Resolves the linear IDs to the tip StateAndRefs.
-
-
 * Creates the subflow, passing in the resolved StateAndRefs to the factory, and then invokes it.
-
-
 * If the subflow throws a NotaryException because it tried to finalise and failed, that exception is caught and examined. If the failure was due to a conflict on a referenced state, the flow suspends until that state has been updated in the vault (there is an API to do wait for transaction already, but here the flow must wait for a state update).
-
-
 * Then it re-does the initial calculation, re-creates the subflow with the new resolved tips using the factory, and re-runs it as a new subflow.
 
-
 Care must be taken to handle progress tracking correctly in case of loops.
-
 

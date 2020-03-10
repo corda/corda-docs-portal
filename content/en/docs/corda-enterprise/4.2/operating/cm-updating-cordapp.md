@@ -17,6 +17,7 @@ title: Updating a running CorDapp
 
 ## CorDapp versioning
 
+
 The Corda platform does not mandate a version number on a per-CorDapp basis. Different elements of a CorDapp are allowed to evolve separately. Sometimes, however, a change to one element will require changes to other elements. For example, changing a shared data structure may require flow changes that are not backwards-compatible.
 
 
@@ -27,6 +28,7 @@ Any flow that initiates other flows must be annotated with the `@InitiatingFlow`
 ```kotlin
 annotation class InitiatingFlow(val version: Int = 1)
 ```
+
 The `version` property, which defaults to 1, specifies the flow’s version. This integer value should be incremented whenever there is a release of a flow which has changes that are not backwards-compatible. A non-backwards compatible change is one that changes the interface of the flow.
 
 
@@ -34,35 +36,22 @@ The `version` property, which defaults to 1, specifies the flow’s version. Thi
 
 The flow interface is defined by the sequence of `send` and `receive` calls between an `InitiatingFlow` and an `InitiatedBy` flow, including the types of the data sent and received. We can picture a flow’s interface as follows:
 
-![flow interface](operating/resources/flow-interface.png "flow interface")In the diagram above, the `InitiatingFlow`:
+![flow interface](operating/resources/flow-interface.png "flow interface")
+In the diagram above, the `InitiatingFlow`:
 
 
 * Sends an `Int`
-
-
 * Receives a `String`
-
-
 * Sends a `String`
-
-
 * Receives a `CustomType`
-
 
 The `InitiatedBy` flow does the opposite:
 
 
 * Receives an `Int`
-
-
 * Sends a `String`
-
-
 * Receives a `String`
-
-
 * Sends a `CustomType`
-
 
 As long as both the `InitiatingFlow` and the `InitiatedBy` flows conform to the sequence of actions, the flows can be implemented in any way you see fit (including adding proprietary business logic that is not shared with other parties).
 
@@ -73,17 +62,11 @@ A flow can become backwards-incompatible in two main ways:
 
 
 * The sequence of `send` and `receive` calls changes:
-
-
     * A `send` or `receive` is added or removed from either the `InitiatingFlow` or `InitiatedBy` flow
-
-
     * The sequence of `send` and `receive` calls changes
 
 
-
 * The types of the `send` and `receive` calls changes
-
 
 
 ### Consequences of running flows with incompatible versions
@@ -92,23 +75,15 @@ Pairs of `InitiatingFlow` flows and `InitiatedBy` flows that have incompatible i
 
 
 * The flows hang indefinitely and never terminate, usually because a flow expects a response which is never sent from the other side
-
-
 * One of the flow ends with an exception: “Expected Type X but Received Type Y”, because the `send` or `receive` types are incorrect
-
-
 * One of the flows ends with an exception: “Counterparty flow terminated early on the other side”, because one flow sends some data to another flow, but the latter flow has already ended
-
 
 
 ### Ensuring flow backwards-compatibility
 
 The `InitiatingFlow` version number is included in the flow session handshake and exposed to both parties via the `FlowLogic.getFlowContext` method. This method takes a `Party` and returns a `FlowContext` object which describes the flow running on the other side. In particular, it has a `flowVersion` property which can be used to programmatically evolve flows across versions. For example:
 
-
 {{< tabs name="tabs-1" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 @Suspendable
@@ -144,6 +119,7 @@ override fun call() {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 This code shows a flow that in its first version expected to receive an Int, but in subsequent versions was modified to expect a String. This flow is still able to communicate with parties that are running the older CorDapp containing the older flow.
@@ -153,10 +129,7 @@ This code shows a flow that in its first version expected to receive an Int, but
 
 Here is an example of an in-lined subflow:
 
-
 {{< tabs name="tabs-2" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 @StartableByRPC
@@ -226,6 +199,7 @@ class FlowB extends FlowLogic<Void> {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 Inlined subflows are treated as being the flow that invoked them when initiating a new flow session with a counterparty. Suppose flow `A` calls inlined subflow B, which, in turn, initiates a session with a counterparty. The `FlowLogic` type used by the counterparty to determine which counter-flow to invoke is determined by `A`, and not by `B`. This means that the response logic for the inlined flow must be implemented explicitly in the `InitiatedBy` flow. This can be done either by calling a matching inlined counter-flow, or by implementing the other side explicitly in the initiated parent flow. Inlined subflows also inherit the session IDs of their parent flow.
@@ -245,23 +219,15 @@ Flows which are not an `InitiatingFlow` or `InitiatedBy` flow, or inlined subflo
 
 
 * Update the flow and test the changes. Increment the flow version number in the `InitiatingFlow` annotation
-
-
 * Ensure that all versions of the existing flow have finished running and there are no pending `SchedulableFlows` on any of the nodes on the business network. This can be done by [Draining the node](#draining-the-node)
-
-
 * Shut down the node
-
-
 * Replace the existing CorDapp JAR with the CorDapp JAR containing the new flow
-
-
 * Start the node
-
 
 If you shut down all nodes and upgrade them all at the same time, any incompatible change can be made.
 
 In situations where some nodes may still be using previous versions of a flow and thus new versions of your flow may talk to old versions, the updated flows need to be backwards-compatible. This will be the case for almost any real deployment in which you cannot easily coordinate the roll-out of new code across the network.
+
 
 
 ### Draining the node
@@ -275,19 +241,18 @@ For this reason, in currently released versions of Corda you must *drain the nod
 A node can be drained or undrained via RPC using the `setFlowsDrainingModeEnabled` method, and via the shell using the standard `run` command to invoke the RPC. See [node shell](../shell.html) to learn more.
 
 
+
 ## Contract and state versioning
 
 There are two types of contract/state upgrade:
 
 
 * *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints.
-
-
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it
-                        using the contract upgrade flows
-
+using the contract upgrade flows
 
 The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../api-contract-constraints.md#implicit-vs-explicit-upgrades).
+
 
 
 ### Performing explicit contract and state upgrades
@@ -297,28 +262,28 @@ In an explicit upgrade, contracts and states can be changed in arbitrary ways, i
 
 {{< warning >}}
 In Corda 4 we’ve introduced the Signature Constraint (see [API: contract constraints](api-contract-constraints.html)). States created or migrated to
-                        the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
-                        Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
+the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
+Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
 {{< /warning >}}
+
 
 
 #### 1. Preserve the existing state and contract definitions
 
 Currently, all nodes must **permanently** keep **all** old state and contract definitions on their node’s classpath if the explicit upgrade
-                        process was used on them.
-
+process was used on them.
 
 {{< note >}}
 This requirement will go away in a future version of Corda. In Corda 4, the contract-code-as-attachment feature was implemented
-                            only for “normal” transactions. `Contract Upgrade` and `Notary Change` transactions will still be executed within the node classpath.
+only for “normal” transactions. `Contract Upgrade` and `Notary Change` transactions will still be executed within the node classpath.
 
 {{< /note >}}
 
 #### 2. Write the new state and contract definitions
 
 Update the contract and state definitions. There are no restrictions on how states are updated. However,
-                        upgraded contracts must implement the `UpgradedContract` interface. This interface is defined as:
+upgraded contracts must implement the `UpgradedContract` interface. This interface is defined as:
 
 ```kotlin
 interface UpgradedContract<in OldState : ContractState, out NewState : ContractState> : Contract {
@@ -326,35 +291,37 @@ interface UpgradedContract<in OldState : ContractState, out NewState : ContractS
     fun upgrade(state: OldState): NewState
 }
 ```
+
 The `upgrade` method describes how the old state type is upgraded to the new state type.
 
 By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [API: contract constraints](../api-contract-constraints.html)).
 
-
 {{< note >}}
 The requirement for a `legacyContractConstraint` arises from the fact that when a transaction chain is verified and a `Contract Upgrade` is
-                            encountered on the back chain, the verifier wants to know that a legitimate state was transformed into the new contract. The `legacyContractConstraint` is
-                            the mechanism by which this is enforced. Using it, the new contract is able to narrow down what constraint the states it is upgrading should have.
-                            If a malicious party would create a fake `com.megacorp.MegaToken` state, he would not be able to use the usual `MegaToken` code as his
-                            fake token will not validate because the constraints will not match. The `com.megacorp.SuperMegaToken` would know that it is a fake state and thus refuse to upgrade it.
-                            It is safe to omit the `legacyContractConstraint` for the zone whitelist constraint, because the chain of trust is ensured by the Zone operator
-                            who would have whitelisted both contracts and checked them.
+encountered on the back chain, the verifier wants to know that a legitimate state was transformed into the new contract. The `legacyContractConstraint` is
+the mechanism by which this is enforced. Using it, the new contract is able to narrow down what constraint the states it is upgrading should have.
+If a malicious party would create a fake `com.megacorp.MegaToken` state, he would not be able to use the usual `MegaToken` code as his
+fake token will not validate because the constraints will not match. The `com.megacorp.SuperMegaToken` would know that it is a fake state and thus refuse to upgrade it.
+It is safe to omit the `legacyContractConstraint` for the zone whitelist constraint, because the chain of trust is ensured by the Zone operator
+who would have whitelisted both contracts and checked them.
 
 {{< /note >}}
 If the hash constraint is used, the new contract should implement `UpgradedContractWithLegacyConstraint`
-                        instead, and specify the constraint explicitly:
+instead, and specify the constraint explicitly:
 
 ```kotlin
 interface UpgradedContractWithLegacyConstraint<in OldState : ContractState, out NewState : ContractState> : UpgradedContract<OldState, NewState> {
     val legacyContractConstraint: AttachmentConstraint
 }
 ```
+
 For example, in case of hash constraints the hash of the legacy JAR file should be provided:
 
 ```kotlin
 override val legacyContractConstraint: AttachmentConstraint
     get() = HashAttachmentConstraint(SecureHash.parse("E02BD2B9B010BBCE49C0D7C35BECEF2C79BEB2EE80D902B54CC9231418A4FA0C"))
 ```
+
 
 #### 3. Create the new CorDapp JAR
 
@@ -364,20 +331,20 @@ Produce a new CorDapp JAR file. This JAR file should only contain the new contra
 #### 4. Distribute the new CorDapp JAR
 
 Place the new CorDapp JAR file in the `cordapps` folder of all the relevant nodes. You can do this while the nodes are still
-                        running.
+running.
 
 
 #### 5. Stop the nodes
 
 Have each node operator stop their node. If you are also changing flow definitions, you should perform a
-                        [node drain](#draining-the-node) first to avoid the definition of states or contracts changing whilst a flow is
-                        in progress.
+[node drain](#draining-the-node) first to avoid the definition of states or contracts changing whilst a flow is
+in progress.
 
 
 #### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
 
 If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
-                        re-run the network bootstrapper to whitelist the new contracts. See [network bootstrapper](../network-bootstrapper.html).
+re-run the network bootstrapper to whitelist the new contracts. See [network bootstrapper](../network-bootstrapper.html).
 
 
 #### 7. Restart the nodes
@@ -388,17 +355,17 @@ Have each node operator restart their node.
 #### 8. Authorise the upgrade
 
 Now that new states and contracts are on the classpath for all the relevant nodes, the nodes must all run the
-                        `ContractUpgradeFlow.Authorise` flow. This flow takes a `StateAndRef` of the state to update as well as a reference
-                        to the new contract, which must implement the `UpgradedContract` interface.
+`ContractUpgradeFlow.Authorise` flow. This flow takes a `StateAndRef` of the state to update as well as a reference
+to the new contract, which must implement the `UpgradedContract` interface.
 
 At any point, a node administrator may de-authorise a contract upgrade by running the
-                        `ContractUpgradeFlow.Deauthorise` flow.
+`ContractUpgradeFlow.Deauthorise` flow.
 
 
 #### 9. Perform the upgrade
 
 Once all nodes have performed the authorisation process, a **single** node must initiate the upgrade via the
-                        `ContractUpgradeFlow.Initiate` flow for each state object. This flow has the following signature:
+`ContractUpgradeFlow.Initiate` flow for each state object. This flow has the following signature:
 
 ```kotlin
 class Initiate<OldState : ContractState, out NewState : ContractState>(
@@ -406,11 +373,12 @@ class Initiate<OldState : ContractState, out NewState : ContractState>(
     newContractClass: Class<out UpgradedContract<OldState, NewState>>
 ) : AbstractStateReplacementFlow.Instigator<OldState, NewState, Class<out UpgradedContract<OldState, NewState>>>(originalState, newContractClass)
 ```
+
 This flow sub-classes `AbstractStateReplacementFlow`, which can be used to upgrade state objects that do not need a
-                        contract upgrade.
+contract upgrade.
 
 One the flow ends successfully, all the participants of the old state object should have the upgraded state object
-                        which references the new contract code.
+which references the new contract code.
 
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
@@ -425,59 +393,38 @@ Follow the guide in [API: contract constraints](../api-contract-constraints.html
 
 
 * Despite its name, the `ContractUpgradeFlow` handles the update of both state object definitions and contract logic
-
-
 * The state can completely change as part of an upgrade! For example, it is possible to transmute a `Cat` state into
-                                a `Dog` state, provided that all participants in the `Cat` state agree to the change
-
-
+a `Dog` state, provided that all participants in the `Cat` state agree to the change
 * If a node has not yet run the contract upgrade authorisation flow, they will not be able to upgrade the contract
-                                and/or state objects
-
-
+and/or state objects
 * State schema changes are handled separately
-
 
 
 #### Logistics
 
 
 * All nodes need to run the contract upgrade authorisation flow to upgrade the contract and/or state objects
-
-
 * Only node administrators are able to run the contract upgrade authorisation and deauthorisation flows
-
-
 * Upgrade authorisations can subsequently be deauthorised
-
-
 * Only one node should run the contract upgrade initiation flow. If multiple nodes run it for the same `StateRef`, a
-                                double-spend will occur for all but the first completed upgrade
-
-
+double-spend will occur for all but the first completed upgrade
 * Upgrades do not have to happen immediately. For a period, the two parties can use the old states and contracts
-                                side-by-side
-
-
+side-by-side
 * The supplied upgrade flows upgrade one state object at a time
-
 
 
 ## State schema versioning
 
 By default, all state objects are serialised to the database as a string of bytes and referenced by their `StateRef`.
-                However, it is also possible to define custom schemas for serialising particular properties or combinations of
-                properties, so that they can be queried from a source other than the Corda Vault. This is done by implementing the
-                `QueryableState` interface and creating a custom object relational mapper for the state. See [API: persistence](../api-persistence.html)
-                for details.
+However, it is also possible to define custom schemas for serialising particular properties or combinations of
+properties, so that they can be queried from a source other than the Corda Vault. This is done by implementing the
+`QueryableState` interface and creating a custom object relational mapper for the state. See [API: persistence](../api-persistence.html)
+for details.
 
 For backwards compatible changes such as adding columns, the procedure for upgrading a state schema is to extend the
-                existing object relational mapper. For example, we can update:
-
+existing object relational mapper. For example, we can update:
 
 {{< tabs name="tabs-3" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 object ObligationSchemaV1 : MappedSchema(Obligation::class.java, 1, listOf(ObligationEntity::class.java)) {
@@ -542,14 +489,12 @@ public class ObligationEntity extends PersistentState {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 To:
 
-
 {{< tabs name="tabs-4" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 object ObligationSchemaV1 : MappedSchema(Obligation::class.java, 1, listOf(ObligationEntity::class.java)) {
@@ -621,19 +566,17 @@ public class ObligationEntity extends PersistentState {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 Thus adding a new column with a default value.
 
 To make a non-backwards compatible change, the `ContractUpgradeFlow` or `AbstractStateReplacementFlow` must be
-                used, as changes to the state are required. To make a backwards-incompatible change such as deleting a column (e.g.
-                because a property was removed from a state object), the procedure is to define another object relational mapper, then
-                add it to the `supportedSchemas` property of your `QueryableState`, like so:
-
+used, as changes to the state are required. To make a backwards-incompatible change such as deleting a column (e.g.
+because a property was removed from a state object), the procedure is to define another object relational mapper, then
+add it to the `supportedSchemas` property of your `QueryableState`, like so:
 
 {{< tabs name="tabs-5" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 override fun supportedSchemas(): Iterable<MappedSchema> = listOf(ExampleSchemaV1, ExampleSchemaV2)
@@ -647,14 +590,12 @@ override fun supportedSchemas(): Iterable<MappedSchema> = listOf(ExampleSchemaV1
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 Then, in `generateMappedObject`, add support for the new schema:
 
-
 {{< tabs name="tabs-6" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 override fun generateMappedObject(schema: MappedSchema): PersistentState {
@@ -680,10 +621,11 @@ override fun generateMappedObject(schema: MappedSchema): PersistentState {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 With this approach, whenever the state object is stored in the vault, a representation of it will be stored in two
-                separate database tables where possible - one for each supported schema.
+separate database tables where possible - one for each supported schema.
 
 
 ## Serialisation
@@ -692,9 +634,9 @@ With this approach, whenever the state object is stored in the vault, a represen
 ### The Corda serialisation format
 
 Currently, the serialisation format for everything except flow checkpoints (which uses a Kryo-based format) is based
-                    on AMQP 1.0, a self-describing and controllable serialisation format. AMQP is desirable because it allows us to have
-                    a schema describing what has been serialized alongside the data itself. This assists with versioning and deserialising
-                    long-ago archived data, among other things.
+on AMQP 1.0, a self-describing and controllable serialisation format. AMQP is desirable because it allows us to have
+a schema describing what has been serialized alongside the data itself. This assists with versioning and deserialising
+long-ago archived data, among other things.
 
 
 ### Writing classes that meet the serialisation format requirements
@@ -703,36 +645,20 @@ Although not strictly related to versioning, AMQP serialisation dictates that we
 
 
 * Your class must have a constructor that takes all the properties that you wish to record in the serialized form. This
-                            is required in order for the serialization framework to reconstruct an instance of your class
-
-
+is required in order for the serialization framework to reconstruct an instance of your class
 * If more than one constructor is provided, the serialization framework needs to know which one to use. The
-                            `@ConstructorForDeserialization` annotation can be used to indicate the chosen constructor. For a Kotlin class
-                            without the `@ConstructorForDeserialization` annotation, the primary constructor is selected
-
-
+`@ConstructorForDeserialization` annotation can be used to indicate the chosen constructor. For a Kotlin class
+without the `@ConstructorForDeserialization` annotation, the primary constructor is selected
 * The class must be compiled with parameter names in the .class file. This is the default in Kotlin but must be turned
-                            on in Java (using the `-parameters` command line option to `javac`)
-
-
+on in Java (using the `-parameters` command line option to `javac`)
 * Your class must provide a Java Bean getter for each of the properties in the constructor, with a matching name. For
-                            example, if a class has the constructor parameter `foo`, there must be a getter called `getFoo()`. If `foo` is
-                            a boolean, the getter may optionally be called `isFoo()`. This is why the class must be compiled with parameter
-                            names turned on
-
-
+example, if a class has the constructor parameter `foo`, there must be a getter called `getFoo()`. If `foo` is
+a boolean, the getter may optionally be called `isFoo()`. This is why the class must be compiled with parameter
+names turned on
 * The class must be annotated with `@CordaSerializable`
-
-
 * The declared types of constructor arguments/getters must be supported, and where generics are used the generic
-                            parameter must be a supported type, an open wildcard (*), or a bounded wildcard which is currently widened to an open
-                            wildcard
-
-
+parameter must be a supported type, an open wildcard (*), or a bounded wildcard which is currently widened to an open
+wildcard
 * Any superclass must adhere to the same rules, but can be abstract
-
-
 * Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
-
-
 

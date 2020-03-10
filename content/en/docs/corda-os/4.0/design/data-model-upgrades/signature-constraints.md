@@ -22,10 +22,7 @@ Contract constraints are a part of how Corda ensures the correct code is execute
 
 
 * Explicit
-
-
 * Implicit
-
 
 An *explicit* upgrade is when a special kind of transaction is used, the *contract upgrade transaction*, which has the power to suspend normal contract execution and validity checking. The new contract being upgraded-to must be willing to accept the old state and can replace it with a new one. Because this can cause arbitrary edits to the ledger, every participant in a state must sign the contract upgrade transaction for it to be considered valid.
 
@@ -37,13 +34,8 @@ Our current set of constraints is quite small. We support:
 
 
 * `AlwaysAcceptContractConstraint` - any attachment can be used, effectively this disables ledger security.
-
-
 * `HashAttachmentContractConstraint` - only an attachment of the specified hash can be used. This is the same as Bitcoin or Ethereum and means once the state is created, the code is locked in permanently.
-
-
 * `WhitelistedByZoneContractConstraint` - the network parameters contains a map of state class name to allowable hashes for the attachments.
-
 
 The last constraint allows upgrades ‘from the future’ to be applied, without disabling ledger security. However it is awkward to use, because any new version of any app requires a new set of network parameters to be signed by the zone operator and accepted by all participants, which in turn requires a node restart.
 
@@ -56,32 +48,18 @@ We would like a new kind of constraint that is more convenient and decentralised
 
 
 * Improve usability by eliminating the need to change the network parameters.
-
-
 * Improve decentralisation by allowing apps to be developed and upgraded without the zone operator knowing or being able to influence it.
-
-
 * Eventually, phase out zone whitelisting constraints.
-
 
 
 ## Non-goals
 
 
 * Preventing downgrade attacks. Downgrade attack prevention will be tackled in a different design effort.
-
-
 * Phase out of hash constraints. If malicious app creators are in the users threat model then hash constraints are the way to go.
-
-
 * Handling the case where third parties re-sign app jars.
-
-
 * Package namespace ownership (a separate effort).
-
-
 * Allowing the zone operator to override older constraints, to provide a non-explicit upgrade path.
-
 
 
 ## Design details
@@ -96,37 +74,19 @@ Using JDK style JAR code signing has several advantages over rolling our own:
 
 
 * Although a signing key is required, this can be set up once. It can be protected by a password, or Windows/Mac built in keychain security, a token that supports PIN /biometrics or an HSM. All these options are supported out of the box by the Java security architecture.
-
-
 * JARs can be signed multiple times by different entities. The nature of this process means the signatures can be combined easily - there is no ordering requirement or complex collaboration tools needed. By implication this means that a signature constraint can use a composite key.
-
-
 * APIs for verifying JAR signatures are included in the platform already.
-
-
 * File hashes can be checked file-at-a-time, so random access is made easier e.g. from inside an SGX enclave.
-
-
 * Although Gradle can make reproducible JARs quite easily, JAR signatures do not include irrelevant metadata like file ordering or timestamps, so they are robust to being unpacked and repacked.
-
-
 * The signature can be timestamped using an RFC compliant timestamping server. Our notaries do not currently implement this protocol, but they could.
-
-
 * JAR signatures are in-lined to the JAR itself and do not ride alongside it. This is a good fit for our current attachments capabilities.
-
 
 There are also some disadvantages:
 
 
 * JAR signatures do *not* have to cover every file in the JAR. It is possible to add files to the JAR later that are unsigned, and for the verification process to still pass, as verification is done on a per-file basis. This is unintuitive and requires special care.
-
-
 * The JAR verification APIs do not validate that the certificate chain in the JAR is meaningful. Therefore you must validate the certificate chain yourself in every case where a JAR is being verified.
-
-
 * JAR signing does not cover the MANIFEST.MF file or files that start with SIG- (case INsensitive). Storing sensitive data in the manifest could be a problem as a result.
-
 
 
 ### Data structures
@@ -138,6 +98,7 @@ data class SignatureAttachmentConstraint(
     val key: PublicKey
 ) : AttachmentConstraint
 ```
+
 Therefore if a state advertises this constraint, along with a class name of `com.foo.Bar` then the definition of Bar must reside in an attachment with signatures sufficient to meet the given public key. Note that the `key` may be a `CompositeKey` which is fulfilled by multiple signers. Multiple signers of a JAR is useful for decentralised administration of an app that wishes to have a threat model in which one of the app developers may go bad, but not a majority of them. For example there could be a 2-of-3 threshold of {app developer, auditor, R3} in which R3 is legally bound to only sign an upgrade if the auditor is unavailable e.g. has gone bankrupt. However, we anticipate that most constraints will be one-of-one for now.
 
 We will add a `signers` field to the `ContractAttachment` class that will be filled out at load time if the JAR is signed. The signers will be computed by checking the certificate chain for every file in the JAR, and any unsigned files will cause an exception to be thrown.
@@ -174,10 +135,7 @@ There are a couple of ways this could be addressed:
 
 
 * Teach the node how to create a new JAR by combining two separately signed versions of the same JAR into a third.
-
-
 * Alter the no-overlap rule so when two files in two different attachments are identical they are not considered to overlap.
-
 
 
 ### Upgrading from other constraints
@@ -202,19 +160,10 @@ However, signing a full JAR as a raw byte stream has other downsides:
 
 
 * Would require a custom tool to create the detached signatures. Then it’d require new RPCs and more tools to upload and download the signatures separately from the JARs, and yet more tools to check the signatures. By bundling the signature inside the JAR, we preserve the single-artifact property of the current system, which is quite nice.
-
-
 * Would require more fields to be added to the WireTransaction format, although we’ll probably have to bite this bullet as part of adding attachment metadata eventually anyway.
-
-
 * The signature ends up covering irrelevant metadata like file modification timestamps, file ordering, compression levels and so on. However, we need to move the ecosystem to producing reproducible JARs anyway for other reasons.
-
-
 * JAR signature metadata is already exposed via the Java API, so attachments that are not covered by a constraint e.g. an attachment with holiday calendar text files in it, can also be signed, and contract code could check those signatures in the usual documented way. With out-of-line signatures there’d need to be custom APIs to do this.
-
-
 * Inline JAR signatures have the property that they can be checked on a per file basis. This is potentially useful later for SGX enclaves, if they wish to do random access to JAR files too large to reasonably fit inside the rather restricted enclave memory environment.
-
 
 
 ### Package name constraints
@@ -227,13 +176,8 @@ There are some further issues to think through here:
 
 
 * Is this a fourth type of constraint (package name constraint) that we should support along with the other three? Or is it actually just a better design and should subsume this work?
-
-
 * Should it always be the package name of the contract class, or should it specify a package glob specifically? If so what happens if the package name of the contract class and the package name of the constraint don’t match - is it OK if the latter is a subset of the former?
-
-
 * Indirecting through package names increases centralisation somewhat, because now the zone operator has to agree to you taking ownership of a part of the namespace. This is also a privacy leak, it may expose what apps are being used on the network. *However* what it really exposes is application *developers* and not actual apps, and the zone op doesn’t get to veto specific apps once they approved an app developer. More problematically unless an additional indirection is added to the network parameters, every change to the package ownership list requires a “hard fork” acceptance of new parameters.
-
 
 
 ### Using X.500 names in the constraint instead of PublicKey
@@ -243,5 +187,4 @@ We advertise a `PublicKey` (which may be a `CompositeKey`) in the constraint and
 We could introduce such an indirection. This would disconnect the constraint from a particular public key. However then each zone an app is deployed to requires a new JAR signature by the creator, using a certificate issued by the zone operator. Because JARs can be signed by multiple certificates, this is OK, a JAR can be resigned N times if it’s to be used in N zones. But it means that effectively zone operators get a power of veto over application developers, increasing centralisation and it increases required logistical efforts.
 
 In practice, as revoking on-ledger keys is not possible at the moment in Corda, changing a code signing key would require an explicit upgrade or the app to have a command that allows the constraint to be changed.
-
 

@@ -12,10 +12,11 @@ title: Configuring Responder Flows
 
 
 
+
 # Configuring Responder Flows
 
 A flow can be a fairly complex thing that interacts with many backend systems, and so it is likely that different users
-            of a specific CordApp will require differences in how flows interact with their specific infrastructure.
+of a specific CordApp will require differences in how flows interact with their specific infrastructure.
 
 Corda supports this functionality by providing two mechanisms to modify the behaviour of apps in your node.
 
@@ -23,12 +24,9 @@ Corda supports this functionality by providing two mechanisms to modify the beha
 ## Subclassing a Flow
 
 If you have a workflow which is mostly common, but also requires slight alterations in specific situations, most developers would be familiar
-                with refactoring into *Base* and *Sub* classes. A simple example is shown below.
-
+with refactoring into *Base* and *Sub* classes. A simple example is shown below.
 
 {{< tabs name="tabs-1" >}}
-
-
 {{% tab name="kotlin" %}}
 ```kotlin
 @InitiatedBy(Initiator::class)
@@ -98,12 +96,12 @@ public class SubResponder extends BaseResponder {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 Corda would detect that both `BaseResponder` and `SubResponder` are configured for responding to `Initiator`.
-                Corda will then calculate the hops to `FlowLogic` and select the implementation which is furthest distance, ie: the most subclassed implementation.
-                In the above example, `SubResponder` would be selected as the default responder for `Initiator`
-
+Corda will then calculate the hops to `FlowLogic` and select the implementation which is furthest distance, ie: the most subclassed implementation.
+In the above example, `SubResponder` would be selected as the default responder for `Initiator`
 
 {{< note >}}
 The flows do not need to be within the same CordApp, or package, therefore to customise a shared app you obtained from a third party, you’d write your own CorDapp that subclasses the first.”
@@ -113,15 +111,12 @@ The flows do not need to be within the same CordApp, or package, therefore to cu
 ## Overriding a flow via node configuration
 
 Whilst the subclassing approach is likely to be useful for most applications, there is another mechanism to override this behaviour.
-                This would be useful if for example, a specific CordApp user requires such a different responder that subclassing an existing flow
-                would not be a good solution. In this case, it’s possible to specify a hardcoded flow via the node configuration.
+This would be useful if for example, a specific CordApp user requires such a different responder that subclassing an existing flow
+would not be a good solution. In this case, it’s possible to specify a hardcoded flow via the node configuration.
 
 The configuration section is named `flowOverrides` and it accepts an array of `overrides`
 
-
 {{< tabs name="tabs-2" >}}
-
-
 {{% tab name="json" %}}
 ```json
 flowOverrides {
@@ -134,15 +129,13 @@ flowOverrides {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 The cordform plugin also provides a `flowOverride` method within the `deployNodes` block which can be used to override a flow. In the below example, we will override
-                the `SubResponder` with `BaseResponder`
-
+the `SubResponder` with `BaseResponder`
 
 {{< tabs name="tabs-3" >}}
-
-
 {{% tab name="groovy" %}}
 ```groovy
 node {
@@ -158,6 +151,7 @@ node {
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 This will generate the corresponding `flowOverrides` section and place it in the configuration for that node.
@@ -166,8 +160,8 @@ This will generate the corresponding `flowOverrides` section and place it in the
 ## Modifying the behaviour of @InitiatingFlow(s)
 
 It is likely that initiating flows will also require changes to reflect the different systems that are likely to be encountered.
-                At the moment, corda provides the ability to subclass an Initiator, and ensures that the correct responder will be invoked.
-                In the below example, we will change the behaviour of an Initiator from filtering Notaries out from comms, to only communicating with Notaries
+At the moment, corda provides the ability to subclass an Initiator, and ensures that the correct responder will be invoked.
+In the below example, we will change the behaviour of an Initiator from filtering Notaries out from comms, to only communicating with Notaries
 
 > 
 > ```kotlin
@@ -203,12 +197,15 @@ It is likely that initiating flows will also require changes to reflect the diff
 >             "Notary: ${it.name.organisation} is using a " + initiateFlow(it).receive<String>().unwrap { it }
 >         }.joinToString("\n") { it }
 >     }
-```
+> ```
+> 
+
 
 {{< warning >}}
 The subclass must not have the @InitiatingFlow annotation.
 
 {{< /warning >}}
+
 
 Corda will use the first annotation detected in the class hierarchy to determine which responder should be invoked. So for a Responder similar to
 
@@ -220,7 +217,9 @@ Corda will use the first annotation detected in the class hierarchy to determine
 >         return "Robert'); DROP TABLE STATES;"
 >     }
 > }
-```
+> ```
+> 
+
 it would be possible to invoke either `BaseInitiator` or `NotaryOnlyInitiator` and `BobbyResponder` would be used to reply.
 
 

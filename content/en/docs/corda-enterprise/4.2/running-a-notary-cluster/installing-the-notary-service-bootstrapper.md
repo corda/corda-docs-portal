@@ -18,14 +18,14 @@ title: Using the Bootstrapper
 You can skip this section when you’re setting up or joining a cluster with CENM.
 
 Once the database is set up, you can prepare your configuration files of your notary
-            nodes and use the bootstrapper to create a Corda network, see
-            [Network Bootstrapper](../network-bootstrapper.md). Remember to configure
-            `notary.serviceLegalName` in addition to `myLegalName` for all members of
-            your cluster.
+nodes and use the bootstrapper to create a Corda network, see
+[Network Bootstrapper](../network-bootstrapper.md). Remember to configure
+`notary.serviceLegalName` in addition to `myLegalName` for all members of
+your cluster.
 
 Note that the bootstrapper will set up the shared notary service key for
-            transaction signing, in addition to the individual keys of the notary workers
-            used for P2P messaging.
+transaction signing, in addition to the individual keys of the notary workers
+used for P2P messaging.
 
 You can find the documentation of the bootstrapper at ../setting-up-a-corda-network.
 
@@ -39,8 +39,9 @@ The notaries will be visible and available on the network. You can list availabl
 ```sh
 run notaryIdentities
 ```
+
 The output of the above command should include the `notary.serviceLegalName`
-                you have configured, e.g. `O=HA Notary, L=London, C=GB`.
+you have configured, e.g. `O=HA Notary, L=London, C=GB`.
 
 CorDapp developers should select the notary service identity from the network map cache.
 

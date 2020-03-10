@@ -14,35 +14,27 @@ title: Creating nodes locally
 # Creating nodes locally
 
 
+
 ## Handcrafting a node
 
 A node can be created manually by creating a folder that contains the following items:
 
 
-* The Corda Enterprise JAR
-
-> 
+* The Corda Enterprise JAR> 
 > 
 >     * The binary `corda-VERSION_NUMBER.jar` provided to your organisation.
-> 
-> 
+
+
 
 * A node configuration file entitled `node.conf`, configured as per [Node configuration](corda-configuration-file.md)
-
-
 * A folder entitled `cordapps` containing any CorDapp JARs you want the node to load
-
-
-* **Optional:** A webserver JAR entitled `corda-webserver-VERSION_NUMBER.jar` that will connect to the node via RPC
-
-> 
+* **Optional:** A webserver JAR entitled `corda-webserver-VERSION_NUMBER.jar` that will connect to the node via RPC> 
 > 
 >     * The (deprecated) default webserver is available to you for testing and should not be used in a production environment.
-> 
-> 
 >     * A Spring Boot alternative can be found here: [https://github.com/corda/spring-webserver](https://github.com/corda/spring-webserver)
-> 
-> 
+
+
+
 
 The remaining files and folders described in [Node structure](node-structure.md) will be generated at runtime.
 
@@ -50,8 +42,8 @@ The remaining files and folders described in [Node structure](node-structure.md)
 ## The Cordform task
 
 Corda provides a gradle plugin called `Cordform` that allows you to automatically generate and configure a set of
-                nodes for testing and demos. Here is an example `Cordform` task called `deployNodes` that creates three nodes, defined
-                in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V3/build.gradle#L100):
+nodes for testing and demos. Here is an example `Cordform` task called `deployNodes` that creates three nodes, defined
+in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V3/build.gradle#L100):
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -104,43 +96,29 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     }
 }
 ```
+
 Ensure Corda Enterprise binaries are available on your machine as described in [Getting Set Up](getting-set-up.md#id6).
 
 Running this task will create three nodes in the `build/nodes` folder:
 
 
 * A `Notary` node that:
-
-
     * Offers a validating notary service
-
-
     * Will not have a webserver (since `webPort` is not defined)
-
-
     * Is running the `corda-finance` CorDapp
 
 
-
 * `PartyA` and `PartyB` nodes that:
-
-
     * Are not offering any services
-
-
     * Will have a webserver (since `webPort` is defined)
-
-
     * Are running the `corda-finance` CorDapp
-
-
     * Have an RPC user, `user1`, that can be used to log into the node via RPC
 
 
 
 Additionally, all three nodes will include any CorDapps defined in the project’s source folders, even though these
-                CorDapps are not listed in each node’s `cordapps` entry. This means that running the `deployNodes` task from the
-                template CorDapp, for example, would automatically build and add the template CorDapp to each node.
+CorDapps are not listed in each node’s `cordapps` entry. This means that running the `deployNodes` task from the
+template CorDapp, for example, would automatically build and add the template CorDapp to each node.
 
 You can extend `deployNodes` to generate additional nodes.
 
@@ -150,10 +128,11 @@ When adding nodes, make sure that there are no port clashes!
 
 {{< /warning >}}
 
+
 To extend node configuration beyond the properties defined in the `deployNodes` task use the `configFile` property with the path (relative or absolute) set to an additional configuration file.
-                This file should follow the standard [Node configuration](corda-configuration-file.md) format, as per node.conf. The properties from this file will be appended to the generated node configuration. Note, if you add a property already created by the ‘deployNodes’ task, both properties will be present in the file.
-                The path to the file can also be added while running the Gradle task via the `-PconfigFile` command line option. However, the same file will be applied to all nodes.
-                Following the previous example `PartyB` node will have additional configuration options added from a file `none-b.conf`:
+This file should follow the standard [Node configuration](corda-configuration-file.md) format, as per node.conf. The properties from this file will be appended to the generated node configuration. Note, if you add a property already created by the ‘deployNodes’ task, both properties will be present in the file.
+The path to the file can also be added while running the Gradle task via the `-PconfigFile` command line option. However, the same file will be applied to all nodes.
+Following the previous example `PartyB` node will have additional configuration options added from a file `none-b.conf`:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -167,11 +146,12 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     }
 }
 ```
+
 Additional properties can be also specified directly by the `extraConfig` property which defines a map of keys and values. The example config above uses `extraConfig` to set value of the `jvmArgs` property.
-                See the extended example of [adding database configuration](testing.md#testing-cordform-ref).
+See the extended example of [adding database configuration](testing.md#testing-cordform-ref).
 
 Cordform parameter *drivers* of the *node* entry lists paths of the files to be copied to the *./drivers* subdirectory of the node.
-                To copy the same file to all nodes *ext.drivers* can be defined in the top level and reused for each node via *drivers=ext.drivers`*.
+To copy the same file to all nodes *ext.drivers* can be defined in the top level and reused for each node via *drivers=ext.drivers`*.
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -185,11 +165,12 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
+
 ### Specifying a custom webserver
 
 By default, any node listing a web port will use the default development webserver, which is not production-ready. You
-                    can use your own webserver JAR instead by using the `webserverJar` argument in a `Cordform` `node` configuration
-                    block:
+can use your own webserver JAR instead by using the `webserverJar` argument in a `Cordform` `node` configuration
+block:
 
 ```groovy
 node {
@@ -198,46 +179,40 @@ node {
     webserverJar "lib/my_webserver.jar"
 }
 ```
+
 The webserver JAR will be copied into the node’s `build` folder with the name `corda-webserver.jar`.
 
 
 {{< warning >}}
 This is an experimental feature. There is currently no support for reading the webserver’s port from the
-                        node’s `node.conf` file.
+node’s `node.conf` file.
 
 {{< /warning >}}
+
 
 
 ## The Dockerform task
 
 The `Dockerform` is a sister task of `Cordform` that provides an extra file allowing you to easily spin up
-                nodes using `docker-compose`. It supports the following configuration options for each node:
+nodes using `docker-compose`. It supports the following configuration options for each node:
 
 
 * `name`
-
-
 * `notary`
-
-
 * `cordapps`
-
-
 * `rpcUsers`
-
-
 * `useTestClock`
 
-
 There is no need to specify the nodes’ ports, as every node has a separate container, so no ports conflict will occur.
-                Every node will expose port `10003` for RPC connections.
+Every node will expose port `10003` for RPC connections.
 
 The nodes’ webservers will not be started. Instead, you should interact with each node via its shell over SSH
-                (see the [node configuration options](corda-configuration-file.md)). You have to enable the shell by adding the
-                following line to each node’s `node.conf` file:
+(see the [node configuration options](corda-configuration-file.md)). You have to enable the shell by adding the
+following line to each node’s `node.conf` file:
 
 > 
 > `sshd { port = 2222 }`
+
 
 Where `2222` is the port you want to open to SSH into the shell.
 
@@ -290,26 +265,23 @@ task deployNodes(type: net.corda.plugins.Dockerform, dependsOn: ['jar']) {
 }
 ```
 
+
 ## Running the Cordform/Dockerform tasks
 
 To create the nodes defined in our `deployNodes` task, run the following command in a terminal window from the root
-                of the project where the `deployNodes` task is defined:
+of the project where the `deployNodes` task is defined:
 
 
 * Linux/macOS: `./gradlew deployNodes`
-
-
 * Windows: `gradlew.bat deployNodes`
 
-
 This will create the nodes in the `build/nodes` folder. There will be a node folder generated for each node defined
-                in the `deployNodes` task, plus a `runnodes` shell script (or batch file on Windows) to run all the nodes at once
-                for testing and development purposes. If you make any changes to your CorDapp source or `deployNodes` task, you will
-                need to re-run the task to see the changes take effect.
+in the `deployNodes` task, plus a `runnodes` shell script (or batch file on Windows) to run all the nodes at once
+for testing and development purposes. If you make any changes to your CorDapp source or `deployNodes` task, you will
+need to re-run the task to see the changes take effect.
 
 If the task is a `Dockerform` task, running the task will also create an additional `Dockerfile` in each node
-                directory, and a `docker-compose.yml` file in the `build/nodes` directory.
+directory, and a `docker-compose.yml` file in the `build/nodes` directory.
 
 You can now run the nodes by following the instructions in [Running a node](running-a-node.md).
-
 

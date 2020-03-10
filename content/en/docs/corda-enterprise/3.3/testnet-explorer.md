@@ -22,14 +22,12 @@ This guide assumes you have deployed a Corda Enterprise node to either Azure or 
 
 
 * Azure Resource Manager Templates (ARM Templates) on the [Azure Marketplace](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryFeaturedMenuItemBlade/selectedMenuItemId/Blockchain_MP/resetMenuId/)
-
-
 * [AWS Quick Start Template](https://aws.amazon.com/quickstart/)
 
 
-It also assumes your node is provisioned and connected to the Corda Testnet although the instructions below should work
-                for any Corda Enterprise node connected to any Corda network.
 
+It also assumes your node is provisioned and connected to the Corda Testnet although the instructions below should work
+for any Corda Enterprise node connected to any Corda network.
 
 {{< note >}}
 If you need to set up a Corda Enterprise node using the Cloud templates, see: [Using Azure Resource Manager Templates to deploy a Corda Enterprise node](azure-template-guide.md).
@@ -39,96 +37,73 @@ If you need to set up a Corda Enterprise node using the Cloud templates, see: [U
 ## Get the testing tools
 
 To run the tests and make sure your node is connecting correctly to the network you will need to download and install a
-                couple of resources.
+couple of resources.
 
 
 * Log into your Cloud VM via SSH.
-
-
-* Stop the Corda node(s) running on your cloud instance.
-
-```bash
+* Stop the Corda node(s) running on your cloud instance.```bash
 sudo systemctl stop corda
 ```
 
+
 {{< warning >}}
-If this is an HA node, make sure to stop both the hot and cold nodes before proceeding. Any database migration should be performed whilst both nodes are offline.
-
-{{< /warning >}}
+If this is an HA node, make sure to stop both the hot and cold nodes before proceeding. Any database migration should be performed whilst both nodes are offline.{{< /warning >}}
 
 
-* Download the Resources:
 
-Download the finance CorDapp and database manager to your VM instance:
-
-```bash
+* Download the Resources:Download the finance CorDapp and database manager to your VM instance:```bash
 wget https://ci-artifactory.corda.r3cev.com/artifactory/downloads/cordapps/finance/ent/corda-finance-3.3.jar \
      https://ci-artifactory.corda.r3cev.com/artifactory/downloads/cordapps/finance/ent/corda-finance-3.3-sources.jar \
      https://ci-artifactory.corda.r3cev.com/artifactory/downloads/tools/database-manager/ent/corda-tools-database-manager-3.3.jar
 ```
-Copy the downloads from `/home/<USER>/` to `/opt/corda/cordapps/`.
 
-This is required to run some flows to check your connections, and to issue/transfer cash to counterparties.
-
-```bash
+Copy the downloads from `/home/<USER>/` to `/opt/corda/cordapps/`.This is required to run some flows to check your connections, and to issue/transfer cash to counterparties.```bash
 sudo cp /home/<USER>/corda-finance-*.jar /opt/corda/cordapps/
 ```
 
-* Create a symbolic link to the shared database driver folder
 
-```bash
+* Create a symbolic link to the shared database driver folder```bash
 sudo ln -s /opt/corda/drivers /opt/corda/plugins
 ```
 
-* Execute the database migration. This is required so that the node database has the right schema for finance transactions defined in the installed CorDapp.
 
-```bash
+* Execute the database migration. This is required so that the node database has the right schema for finance transactions defined in the installed CorDapp.```bash
 cd /opt/corda
 sudo java -jar /home/<USER>/corda-tools-database-manager-3.3.jar --base-directory /opt/corda --execute-migration
 ```
 
-* Add the following line to the bottom of your `node.conf`:
 
-```bash
+* Add the following line to the bottom of your `node.conf`:```bash
 custom : { issuableCurrencies : [ USD ] }
 ```
 
 {{< note >}}
-Make sure that the config file is in the correct format, e.g., by ensuring that there’s a comma at the end of the line prior to the added config.
+Make sure that the config file is in the correct format, e.g., by ensuring that there’s a comma at the end of the line prior to the added config.{{< /note >}}
 
-{{< /note >}}
-
-* Restart the Corda node:
-
-```bash
+* Restart the Corda node:```bash
 sudo systemctl start corda
 ```
-Your node is now running the Finance Cordapp.
 
+Your node is now running the Finance Cordapp.{{< note >}}
+You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs/node-<VM-NAME>.log`. This file will list installed apps at startup. Search for `Loaded CorDapps` in the logs.{{< /note >}}
 
-{{< note >}}
-You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs/node-<VM-NAME>.log`. This file will list installed apps at startup. Search for `Loaded CorDapps` in the logs.
-
-{{< /note >}}
-
-* Now download the Node Explorer to your **LOCAL** machine:
-
-```bash
+* Now download the Node Explorer to your **LOCAL** machine:```bash
 wget https://ci-artifactory.corda.r3cev.com/artifactory/downloads/tools/node-explorer/ent/corda-tools-explorer-3.3.jar
 ```
 
+
 {{< warning >}}
-The Enterprise Node Explorer is incompatible with open source versions of Corda and vice versa as they currently use different serialisation schemes (Kryo vs AMQP).
-
-{{< /warning >}}
+The Enterprise Node Explorer is incompatible with open source versions of Corda and vice versa as they currently use different serialisation schemes (Kryo vs AMQP).{{< /warning >}}
 
 
-* Run the Node Explorer tool on your **LOCAL** machine.
 
-```bash
+* Run the Node Explorer tool on your **LOCAL** machine.```bash
 java -jar corda-tools-explorer-3.3.jar
 ```
-![explorer login](/en/images/explorer-login.png "explorer login")
+
+![explorer login](resources/explorer-login.png "explorer login")
+
+
 
 ## Connect to the node
 
@@ -136,13 +111,8 @@ To connect to the node you will need:
 
 
 * The IP address of your node (the public IP of your cloud instance). You can find this in the instance page of your cloud console.
-
-
 * The port number of the RPC interface to the node, specified in `/opt/corda/node.conf` in the `rpcSettings` section, (by default this is 10003 on Testnet).
-
-
 * The username and password of the RPC interface of the node, also in the `node.conf` in the `rpcUsers` section, (by default the username is `cordazoneservice` on Testnet).
-
 
 Click on `Connect` to log into the node.
 
@@ -151,19 +121,23 @@ Click on `Connect` to log into the node.
 
 Once Explorer has logged in to your node over RPC click on the `Network` tab in the side navigation of the Explorer UI:
 
-![explorer network](/en/images/explorer-network.png "explorer network")If your Enterprise node is correctly configured and connected to the Testnet then you should be able to see the identities of your node, the Testnet notary and the network map listing all the counterparties currently on the network.
+![explorer network](resources/explorer-network.png "explorer network")
+If your Enterprise node is correctly configured and connected to the Testnet then you should be able to see the identities of your node, the Testnet notary and the network map listing all the counterparties currently on the network.
 
 
 ## Test issuance transaction
 
 Now we are going to try and issue some cash to a ‘bank’. Click on the `Cash` tab.
 
-![explorer cash issue1](/en/images/explorer-cash-issue1.png "explorer cash issue1")Now click on `New Transaction` and create an issuance to a known counterparty on the network by filling in the form:
+![explorer cash issue1](resources/explorer-cash-issue1.png "explorer cash issue1")
+Now click on `New Transaction` and create an issuance to a known counterparty on the network by filling in the form:
 
-![explorer cash issue2](/en/images/explorer-cash-issue2.png "explorer cash issue2")Click `Execute` and the transaction will start.
+![explorer cash issue2](resources/explorer-cash-issue2.png "explorer cash issue2")
+Click `Execute` and the transaction will start.
 
-![explorer cash issue3](/en/images/explorer-cash-issue3.png "explorer cash issue3")Click on the red X to close the notification window and click on `Transactions` tab to see the transaction in progress, or wait for a success message to be displayed:
+![explorer cash issue3](resources/explorer-cash-issue3.png "explorer cash issue3")
+Click on the red X to close the notification window and click on `Transactions` tab to see the transaction in progress, or wait for a success message to be displayed:
 
-![explorer transactions](/en/images/explorer-transactions.png "explorer transactions")Congratulations! You have now successfully installed a CorDapp and executed a transaction on the Corda Testnet.
-
+![explorer transactions](resources/explorer-transactions.png "explorer transactions")
+Congratulations! You have now successfully installed a CorDapp and executed a transaction on the Corda Testnet.
 

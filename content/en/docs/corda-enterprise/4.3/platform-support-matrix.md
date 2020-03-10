@@ -23,8 +23,7 @@ Production use of Corda Enterprise 4.3 is only supported on Linux OS, see detail
 ## JDK support
 
 Corda Enterprise 4.3 has been tested and verified to work with **Oracle JDK 8 JVM 8u171+** and **Azul Zulu Enterprise 8**, downloadable from
-                [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
-
+[Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 {{< note >}}
 On previous versions of Corda only the **Oracle JDK 8 JVM 8u171+** is supported.
@@ -35,10 +34,11 @@ Other distributions of the [OpenJDK](https://openjdk.java.net/) are not official
 
 {{< warning >}}
 In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html)
-                    which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
-                    for your deployment needs.
+which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
+for your deployment needs.
 
 {{< /warning >}}
+
 
 
 ## Operating systems supported in production
@@ -49,15 +49,16 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 |Platform|CPU Architecture|Versions|
 |-------------------------------|------------------|-----------|
 |Red Hat Enterprise Linux|x86-64|7.x,
-                                    6.x|
+6.x|
 |Suse Linux Enterprise Server|x86-64|12.x,
-                                    11.x|
+11.x|
 |Ubuntu Linux|x86-64|16.04,
-                                    18.04|
+18.04|
 |Oracle Linux|x86-64|7.x,
-                                    6.x|
+6.x|
 
 {{< /table >}}
+
 
 ## Operating systems supported in development
 
@@ -67,14 +68,15 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 |Platform|CPU Architecture|Versions|
 |-------------------------------|------------------|-----------|
 |Microsoft Windows|x86-64|10,
-                                    8.x|
+8.x|
 |Microsoft Windows Server|x86-64|2016,
-                                    2012 R2,
-                                    2012|
+2012 R2,
+2012|
 |Apple macOS|x86-64|10.9 and
-                                    above|
+above|
 
 {{< /table >}}
+
 
 ## Node databases
 
@@ -84,15 +86,16 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|------------------------|
 |Microsoft|x86-64|Azure SQL,
-                                    SQL Server 2017|Microsoft JDBC
-                                    Driver 6.4|
+SQL Server 2017|Microsoft JDBC
+Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |PostgreSQL|x86-64|9.6, 10.10
-                                    11.5|PostgreSQL JDBC
-                                    Driver 42.1.4 / 42.2.8|
+11.5|PostgreSQL JDBC
+Driver 42.1.4 / 42.2.8|
 
 {{< /table >}}
+
 
 ## MySQL notary databases
 
@@ -102,10 +105,11 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|--------------------|
 |Percona Server for MySQL
-                                    *(deprecated)*|x86-64|5.7|MySQL JDBC
-                                    Driver 8.0.16|
+*(deprecated)*|x86-64|5.7|MySQL JDBC
+Driver 8.0.16|
 
 {{< /table >}}
+
 
 ## JPA notary databases
 
@@ -115,10 +119,12 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|--------------------|
 |CockroachDB|x86-64|19.1.2|PostgreSQL JDBC
-                                    Driver 42.1.4|
+Driver 42.1.4|
 |Oracle RAC|x86-64|12cR2|Oracle JDBC 8|
 
 {{< /table >}}
+
+
 
 ## Hardware Security Modules (HSM)
 
@@ -129,95 +135,58 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 |-------------------------------|----------------------------|----------------------------|----------------------------|--------------------------|
 |Utimaco SecurityServer Se Gen2|
 * Firmware version 4.21.1
-
-
 * Driver version 4.21.1
-
 
 |
 * Firmware version 4.21.1
-
-
 * Driver version 4.21.1
-
 
 |Not supported|Not supported|
 |Gemalto Luna|
 * Firmware version 7.0.3
-
-
 * Driver version 7.3
-
 
 |
 * Firmware version 7.0.3
-
-
 * Driver version 7.3
-
 
 |Not supported|Not supported|
 |FutureX Vectera Plus|
 * Firmware version 6.1.5.8
-
-
 * PKCS#11 version 3.1
-
-
 * FXJCA version 1.17
-
 
 |
 * Firmware version 6.1.5.8
-
-
 * PKCS#11 version 3.1
-
-
 * FXJCA version 1.17
-
 
 |Not supported|Not supported|
 |Azure Key Vault|
 * Driver version 1.1.1
 
-
 |
 * Driver version 1.1.1
-
 
 |Not supported|
 * Driver version 1.1.1
 
-
 |
 |Securosys PrimusX|
 * Firmware version 2.7.4
-
-
 * Driver version 1.8.2
-
 
 |
 * Firmware version 2.7.4
-
-
 * Driver version 1.8.2
-
 
 |
 * Firmware version 2.7.4
-
-
 * Driver version 1.8.2
-
 
 |
 * Firmware version 2.7.4
-
-
 * Driver version 1.8.2
-
 
 |
 

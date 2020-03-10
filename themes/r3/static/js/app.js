@@ -12711,26 +12711,9 @@ document.addEventListener("DOMContentLoaded", function () {
   !*** ./scripts/nav.js ***!
   \************************/
 /*! exports provided: activateListeners */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "activateListeners", function() { return activateListeners; });
-function activateListeners() {
-  var navToggle = document.querySelector(".r3-o-sidebar__nav-toggle");
-  var nav = document.querySelector(".r3-o-nav");
-  var navTransparent = document.querySelector(".r3-o-wrapper-nav");
-  navToggle.addEventListener("click", function () {
-    nav.classList.toggle("show-nav");
-    navTransparent.classList.add("show-nav");
-  }, true);
-  navTransparent.addEventListener("click", function (e) {
-    if (e.target === navTransparent) {
-      nav.classList.toggle("show-nav");
-      navTransparent.classList.remove("show-nav");
-    }
-  });
-}
+throw new Error("Module build failed (from ./node_modules/eslint-loader/dist/cjs.js):\nError: ENOENT: no such file or directory, open '/home/barry/dev/r3/forks/docs-site/themes/r3/scripts/nav.js'");
 
 /***/ }),
 

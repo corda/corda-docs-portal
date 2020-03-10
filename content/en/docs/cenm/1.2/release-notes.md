@@ -22,20 +22,20 @@ title: Release notes
 **Support for External PKI**
 
 To satisfy clients who wish to use external PKI for CENM certificates, the Signing Service has
-                    been separated into Signing Material Retriever Service (SMR) and the CENM Signing Service.
+been separated into Signing Material Retriever Service (SMR) and the CENM Signing Service.
 
 SMR extracts signable material from the Identity Manager and Network Map services, and
-                    then delegates to a plugin. Customers can implement their own plugins to integrate with
-                    external signing infrastructure and return signed material back to SMR to pass to the
-                    relevant CENM service.
+then delegates to a plugin. Customers can implement their own plugins to integrate with
+external signing infrastructure and return signed material back to SMR to pass to the
+relevant CENM service.
 
 See [Signing Services](signing-service.md) for more details. Also see [EJBCA Sample Plugin](ejbca-plugin.md) for a sample open source CA implementation.
 
 **CRL Endpoint Check tool**
 
 As a diagnostic aid in case of problems with TLS connections, CENM 1.2 introduces a CRL Endpoint Check tool.
-                    This stand alone tool checks CRL endpoint health of all certificates in a provided keystore, as a simpler
-                    alternative to manually extracting CRL endpoints individually from the certificate and then verifying them.
+This stand alone tool checks CRL endpoint health of all certificates in a provided keystore, as a simpler
+alternative to manually extracting CRL endpoints individually from the certificate and then verifying them.
 
 See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for usage and further details.
 
@@ -45,89 +45,58 @@ See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for usage and further 
 **Automating Node Registration**
 
 Customers’ nodes can now provide a header “X-CENM-Submission-Token” when submitting certificate signing requests (CSR).
-                    The contents of this header is passed through to the approval plugin, to enable automated approval workflows.
+The contents of this header is passed through to the approval plugin, to enable automated approval workflows.
 
 **Bundled Service**
 
 While deploying services individually makes sense for production deployments at scale, for smaller deployments or
-                    testing purposes we introduce possibility of running multiple services in parallel from one Jar file. We call it
-                    Bundled Service. End user needs to specify which services to run and corresponding configuration files.
-                    There is possibility of service deduction from configuration file which makes this feature backwards compatible
-                    with CENM 1.1.
+testing purposes we introduce possibility of running multiple services in parallel from one Jar file. We call it
+Bundled Service. End user needs to specify which services to run and corresponding configuration files.
+There is possibility of service deduction from configuration file which makes this feature backwards compatible
+with CENM 1.1.
 
 **Notary Whitelist**
 
 For high availability (HA) notaries only, the network map will now fetch the node info automatically from the
-                    identity manager, rather than requiring that the files are copied in manually. Support for non-HA notaries
-                    is not anticipated, instead customers are encouraged to deploy all notaries in a high availability configuration.
+identity manager, rather than requiring that the files are copied in manually. Support for non-HA notaries
+is not anticipated, instead customers are encouraged to deploy all notaries in a high availability configuration.
 
 
 ### Other Improvements
 
 
 * Default log file paths now include the name of the service (i.e. “network-map”) that generates them,
-                            so if multiple services run from the same folder, their dump log filenames do not collide.
-
-
+so if multiple services run from the same folder, their dump log filenames do not collide.
 * Shell interface (Signer and Identity Manager services) no longer provide Java scripting permissions.
-
-
 * Remove private network maps - this functionality was never completed, and the changes should not be user visible. This
-                            does not yet remove them from the database schema, which will be in a future release. Related quarantined and staging
-                            node info tables are not used as of CENM 1.1.
-
-
+does not yet remove them from the database schema, which will be in a future release. Related quarantined and staging
+node info tables are not used as of CENM 1.1.
 * Improve logging of database errors, so that the underlying cause is reported rather than only that a failure occurred.
-
-
 * Dump logs are now written into service specific folders, so that if multiple services run from the same directory,
-                            the logs files do not conflict.
-
-
+the logs files do not conflict.
 * Correct service healthcheck command when executed from the CRaSH shell.
-
-
 * Add new command to Network Map shell to view list of nodes that have accepted (or haven’t) a given parameters update
-                            (“view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>”),
-                            which can help to monitor the procedure of [Updating the network parameters](updating-network-parameters.md).
-
-
+(“view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>”),
+which can help to monitor the procedure of [Updating the network parameters](updating-network-parameters.md).
 * Add working directory argument for CENM services, which is a path prefix for config and certificate files.
-
-
 * Add `run networkParametersRegistration`, `run flagDay` and `run cancelUpdate` commands to the Network Map
-                            service shell, to enable running flag days without restarting the service. See [Updating the network parameters](updating-network-parameters.md) for
-                            full details.
-
-
+service shell, to enable running flag days without restarting the service. See [Updating the network parameters](updating-network-parameters.md) for
+full details.
 * Add `view publicNetworkNodeInfos` command to Network Map service shell, to see all public network participants’ node
-                            infos, including its’ platform version.
-
-
+infos, including its’ platform version.
 * Bug fix: Certificate name rules are now enforced during issuance in accordance with Corda network rules,
-                            previously it was possible to register nodes with names which the node cannot use.
-
-
+previously it was possible to register nodes with names which the node cannot use.
 * Registration Web Service (CSR and CRL) was returning incorrect HTTP Error Code 500 instead of 400
-                            for requests with invalid client version or platform version.
-
-
+for requests with invalid client version or platform version.
 * Improved logs created by Registration Web Service - request validation exceptions (e.g. invalid character in a subject name,
-                            invalid platform version) are now logged with WARN level instead of ERROR level.
-
-
-* 
-
-Bug fix: The configuration option ‘database.initialiseSchema’, which was used for H2 database only, is now deprecated,
-use ‘database.runMigration’ instead.
-
+invalid platform version) are now logged with WARN level instead of ERROR level.
+* use ‘database.runMigration’ instead.
 
 
 ### Security Improvements
 
 
 * Shell interface (Signer and Identity Manager services) no longer allow access to commands which allow scripting
-
 
 of Java.
 
@@ -136,18 +105,17 @@ of Java.
 
 
 * Identity Manager’s WorkflowPlugin keeps trying to create new request in an external system,
-                            until the request is REJECTED or APPROVED. This means the external system needs to internally record which requests
-                            are currently being processed and reject surplus creation attempts. The Identity Manager service records this in logs
-                            as warning: “There is already a ticket: ‘<TICKET ID>’ corresponding to *Request ID* = <VALUE>, not creating a new one.”
-
+until the request is REJECTED or APPROVED. This means the external system needs to internally record which requests
+are currently being processed and reject surplus creation attempts. The Identity Manager service records this in logs
+as warning: “There is already a ticket: ‘<TICKET ID>’ corresponding to *Request ID* = <VALUE>, not creating a new one.”
 
 
 ## Release 1.1
 
 The R3 Network Services team is excited to announce the release of CENM 1.1,
-                introducing support for a number of additional HSMs as well as adding support for Oracle DB.
-                For deployments of pre-1.0 CENM a migration tool has been added to rewrite legacy
-                configurations to be compatible with 1.1.
+introducing support for a number of additional HSMs as well as adding support for Oracle DB.
+For deployments of pre-1.0 CENM a migration tool has been added to rewrite legacy
+configurations to be compatible with 1.1.
 
 
 ### Major New Features
@@ -155,79 +123,63 @@ The R3 Network Services team is excited to announce the release of CENM 1.1,
 **Oracle Database Support**
 
 Support has been added for Oracle DB versions 12cR2 and 11gR2 as a backend data store.
-                    For full setup instructions see [CENM Databases](database-set-up.md).
+For full setup instructions see [CENM Databases](database-set-up.md).
 
 **Configuration Migration Tool**
 
 To simplify the upgrade process from early versions of CENM a configuration migration tool has been
-                    added. This is intended to upgrade v0.2.2 / v0.3+ configurations to v1.1, including both restructuring
-                    changes to the configuration file and updating the value of fields (such as database driver class).
-                    See [Config migration tool](tool-config-migration.md) for details on this tool.
+added. This is intended to upgrade v0.2.2 / v0.3+ configurations to v1.1, including both restructuring
+changes to the configuration file and updating the value of fields (such as database driver class).
+See [Config migration tool](tool-config-migration.md) for details on this tool.
 
 **Hardware Security Module Support**
 
 Support for HSMs has been significantly extended, and as part of this work the HSM Jar files are
-                    now dynamically loaded and should be provided by the user. Support has been added for Azure Key Vault,
-                    as well as for Gemalto and Securosys HSMs in both the PKI Tool and Signing Service.
+now dynamically loaded and should be provided by the user. Support has been added for Azure Key Vault,
+as well as for Gemalto and Securosys HSMs in both the PKI Tool and Signing Service.
 
 
 ### Other Improvements
 
 
 * CENM now supports encryption of passwords in configuration files, using encryption keys derived from
-                            hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
-                            marked fields. For more details on usage see [Config Obfuscation Tool](config-obfuscation-tool.md).
-
-
+hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
+marked fields. For more details on usage see [Config Obfuscation Tool](config-obfuscation-tool.md).
 * Fixed an internal error which occurred when using H2 versions below 1.4.198 due to use of unsupported
-                            lock types.
-
-
+lock types.
 * Added `run purgeAllStagedNodeInfos` and `run purgeStagedNodeInfo nodeInfoHash: <node_info_hash>` commands
-                            to the Network Map interactive shell, allowing for the moving of nodes out of the staging table and into the
-                            main node info table of the Network Map. This provides a solution to the scenario whereby a node gets stuck
-                            in the staging table (see *Troubleshooting Common Issues* section).
-
-
+to the Network Map interactive shell, allowing for the moving of nodes out of the staging table and into the
+main node info table of the Network Map. This provides a solution to the scenario whereby a node gets stuck
+in the staging table (see *Troubleshooting Common Issues* section).
 * Simplified configuration by removing configuration options for private network maps. This feature is being
-                            removed in preference of using subzones, and therefore these configuration options merely add complexity.
-
+removed in preference of using subzones, and therefore these configuration options merely add complexity.
 
 
 ### Known Issues
 
 
 * The PKI tool fails if the password for a key store and key are different. This only applies to local key
-                            stores. Please ensure key passwords match the key store password to avoid this issue.
-
-
+stores. Please ensure key passwords match the key store password to avoid this issue.
 * Logging in case of Gemalto HSM call failures is limited, which complicates diagnosis. This is to be improved in a future version.
-
-
 * Config migration tool displays configuration output version as 1.0, actual target
-                            is 1.1.
-
-
+is 1.1.
 * Config migration tool does not generate a `shell` configuration section, and therefore the generated configurations may not be usable as-is.
-                            This is intentional in order as the operator needs to make decisions on this configuration, for example password.
-
-
+This is intentional in order as the operator needs to make decisions on this configuration, for example password.
 * PKI tool reports “Error whilst attempt to read config lines.” if it cannot find a configuration file, rather than a more specific error message.
-
 
 
 ## Release 1.0
 
 R3 and The Network Services team are proud to deliver the inaugural release of the Corda Enterprise
-                Network Manager version 1.0. The CENM can be used to operate a bespoke Corda network when the requirement
-                for an entity to be in complete control of the consensus rules, identity, and deployment topology exists.
+Network Manager version 1.0. The CENM can be used to operate a bespoke Corda network when the requirement
+for an entity to be in complete control of the consensus rules, identity, and deployment topology exists.
 
 This is the same software used to operate the global Corda Network on behalf of the Corda
-                Network Foundation since its launch in 2018 and the R3 TestNet before it.
+Network Foundation since its launch in 2018 and the R3 TestNet before it.
 
 Please note, whilst this is the first public release of the Corda Enterprise Network Manager, these
-                release notes and any associated documentation should be read from the perspective of those coming
-                fresh to the product but also those who are upgrading from pre-release versions.
+release notes and any associated documentation should be read from the perspective of those coming
+fresh to the product but also those who are upgrading from pre-release versions.
 
 
 ### Major New Features
@@ -235,20 +187,20 @@ Please note, whilst this is the first public release of the Corda Enterprise Net
 **The Signing Service**
 
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
-                    Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
-                    network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-                    support for multiple Network Map services. See [Signing Services](signing-service.md) to learn more about this service.
+Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
+network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
+support for multiple Network Map services. See [Signing Services](signing-service.md) to learn more about this service.
 
 **Brand new PKI tooling**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
-                    certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
+certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
+customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
 
 **Full End to End SSL communication**
 
 All CENM components now communicate over SSL with one another, this completes the removal of the “database as message
-                    queue” of older versions. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more information.
+queue” of older versions. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more information.
 
 **Security And Performance Fixes**
 
@@ -262,41 +214,38 @@ As well as SQLServer, the CENM suite now supports postgresql as a backend data s
 **Protocol Separation**
 
 In pre release versions of CENM the user information REST endpoints shared a namespace with the core
-                    Corda Network Map protocol. This was done to better draw distinction between the protocol itself as
-                    required by Corda nodes, and the more free-form functionality offered to users. This will allow for future
-                    versioned changes to the protocol without changing that which the Corda nodes depend upon.
+Corda Network Map protocol. This was done to better draw distinction between the protocol itself as
+required by Corda nodes, and the more free-form functionality offered to users. This will allow for future
+versioned changes to the protocol without changing that which the Corda nodes depend upon.
 
 
 ### Major New Features
 
 
 * `/network-map`
-
-
 * `/network-map-user`
 
-
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
-                    Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
-                    network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-                    support for multiple Network Map services. See [Signing Services](signing-service.md) to learn more about this service.
+Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
+network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
+support for multiple Network Map services. See [Signing Services](signing-service.md) to learn more about this service.
 
 **Epoch Control**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
-                    certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-                    customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
+certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
+customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](pki-tool.md) to learn about all the features of the PKI Tool.
 
 **Shell**
 
 Migrated the private network management utility tool into the Network Map interactive shell. The new command within the
-                    shell is an interactive command, allowing a user to run the same management tools without having to worry about passing
-                    in a configuration file or remembering the correct start up flag.
+shell is an interactive command, allowing a user to run the same management tools without having to worry about passing
+in a configuration file or remembering the correct start up flag.
 
 **Config Debugability**
 
 Added multi-phase parsing of config files. Parsing and validation errors are now batched before being presented to
-                    the user, eliminating the frustration from having to address errors one by one.
+the user, eliminating the frustration from having to address errors one by one.
 
 **Security And Performance Fixes**
 
@@ -306,66 +255,54 @@ Added multi-phase parsing of config files. Parsing and validation errors are now
 **Postgresql Support**
 
 Due to the database schema separation outlined below, the 0.3 release now supports segregated sub zones. That is,
-                    sub-zones of nodes that operate in what appear to the nodes to be isolated networks, with their own notary(ies) and
-                    network parameters. Critically, however, their certificate governance remains under the jurisdiction of a global
-                    Doorman. This way, temporary benefits such as higher privacy, differential network parameters upgrade schedules or use
-                    of temporary private notaries can be delivered. Note that the ability to merge one sub-zone into another is not
-                    currently supported. See the [Sub Zones](sub-zones.md) documentation for more information.
+sub-zones of nodes that operate in what appear to the nodes to be isolated networks, with their own notary(ies) and
+network parameters. Critically, however, their certificate governance remains under the jurisdiction of a global
+Doorman. This way, temporary benefits such as higher privacy, differential network parameters upgrade schedules or use
+of temporary private notaries can be delivered. Note that the ability to merge one sub-zone into another is not
+currently supported. See the [Sub Zones](sub-zones.md) documentation for more information.
 
 **Protocol Separation**
 
 In pre release versions of CENM the user information REST endpoints shared a namespace with the core
-                    Corda Network Map protocol. This was done to better draw distinction between the protocol itself as
-                    required by Corda nodes, and the more free-form functionality offered to users. This will allow for future
-                    versioned changes to the protocol without changing that which the Corda nodes depend upon.
+Corda Network Map protocol. This was done to better draw distinction between the protocol itself as
+required by Corda nodes, and the more free-form functionality offered to users. This will allow for future
+versioned changes to the protocol without changing that which the Corda nodes depend upon.
 
 The two top-level endpoints are now
 
 
 * `/network-map`
-
-
 * `/network-map-user`
-
 
 see [Network Map Overview](network-map-overview.md) for more information.
 
 Another change that is introduced in the newest release is the ability to interact with the Doorman and Network Map
-                    services via a shell. The commands available currently mainly allow an operator to inspect the state of the service,
-                    for example by viewing the current set of nodes within the public network, or viewing the list of Certificate Signing
-                    Requests that are awaiting approval. See the [Embedded Shell](shell.md) documentation for more information.
+services via a shell. The commands available currently mainly allow an operator to inspect the state of the service,
+for example by viewing the current set of nodes within the public network, or viewing the list of Certificate Signing
+Requests that are awaiting approval. See the [Embedded Shell](shell.md) documentation for more information.
 
 Added support for overriding the default “increment previous value by 1” behaviour for epoch values during network
-                    parameter updates/initialisation. This allows a user to specify the epoch within the parameter config file and it
-                    facilitates arbitrary jumps in epoch values. This is necessary for the day-to-day management of multiple sub-zones as
-                    well as the merging of one sub-zone into another.
+parameter updates/initialisation. This allows a user to specify the epoch within the parameter config file and it
+facilitates arbitrary jumps in epoch values. This is necessary for the day-to-day management of multiple sub-zones as
+well as the merging of one sub-zone into another.
 
 **Shell**
 
 Migrated the private network management utility tool into the Network Map interactive shell. The new command within the
-                    shell is an interactive command, allowing a user to run the same management tools without having to worry about passing
-                    in a configuration file or remembering the correct start up flag.
+shell is an interactive command, allowing a user to run the same management tools without having to worry about passing
+in a configuration file or remembering the correct start up flag.
 
 **Config Debugability**
 
 Added multi-phase parsing of config files. Parsing and validation errors are now batched before being presented to
-                    the user, eliminating the frustration from having to address errors one by one.
+the user, eliminating the frustration from having to address errors one by one.
 
 The service-based architecture requires tooling around service state monitoring. Currently (i.e. with the 0.3 release),
-                    there is no dedicated utility that would address that issue. As for now, the network operator needs to rely only on service logs and manual service endpoint pinging in order to
-                    assess in what state the service is.
+there is no dedicated utility that would address that issue. As for now, the network operator needs to rely only on service logs and manual service endpoint pinging in order to
+assess in what state the service is.
 
-
-
-Following endpoints can be examined in order to ensure that the service is in operation:
 
 * Identity Manager: [http:/](http:/)/<<IDENTITY_MANAGER_ADDRESS>>/status
-
-
 * Network Map: [http:/](http:/)/<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname
-
-
 * Revocation Service (currently part of the Identity Manager): [http:/](http:/)/<<REVOCATION_SERVICE_ADDRESS>>/status
-
-
 

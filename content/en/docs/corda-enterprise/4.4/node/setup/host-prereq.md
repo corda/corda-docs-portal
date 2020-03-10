@@ -28,6 +28,7 @@ title: Host prerequisites and database requirements
 
 {{< /table >}}
 
+
 ## Operating Systems Supported in Development
 
 
@@ -37,11 +38,12 @@ title: Host prerequisites and database requirements
 |---------------------------------------|-----------------------|--------------|
 |Microsoft Windows|x86-64|10, 8.x|
 |Microsoft Windows Server|x86-64|2016, 2012
-                                    R2, 2012|
+R2, 2012|
 |Apple macOS|x86-64|10.9 and
-                                    above|
+above|
 
 {{< /table >}}
+
 
 ## Corda Vault
 
@@ -49,17 +51,18 @@ title: Host prerequisites and database requirements
 {{< table >}}
 
 |Vendor|CPU
-                                    Architecture|Versions|JDBC Driver|
+Architecture|Versions|JDBC Driver|
 |---------------------------|-----------------|-----------------|------------------|
 |Microsoft|x86-64|Azure SQL, SQL
-                                    Server 2017|Microsoft JDBC
-                                    Driver 6.2|
+Server 2017|Microsoft JDBC
+Driver 6.2|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
 |PostgreSQL|x86-64|9.6|PostgreSQL JDBC
-                                    Driver 42.1.4|
+Driver 42.1.4|
 
 {{< /table >}}
+
 
 ## Sizing
 
@@ -75,7 +78,6 @@ Prerequisite and sizing information for the Corda Node, Bridge and Float compone
 
 ### VM Sizing Guidelines
 
-
 {{< note >}}
 R3 recommend a max Java heap memory size of 4 GB be allocated to a Corda Node running in a production environment.
 
@@ -84,37 +86,22 @@ Minimum specification for a testing environment with components on separate VMs:
 
 
 * Corda Node 2 CPU Core, 4 GB Memory
-
-
 * Corda Bridge 2 CPU Core, 2 GB Memory
-
-
 * Corda Float 2 CPU Core, 2 GB Memory
-
 
 Recommended production specification for components on separate VMs:
 
 
 * Corda Node 4 CPU Core, 8 GB Memory
-
-
 * Corda Bridge 2 CPU Core, 2 GB Memory
-
-
 * Corda Float 2 CPU Core, 2 GB Memory
-
 
 Recommended production specification for multiple nodes
 
 
 * Corda Node(s) 8 CPU Core, 16 GB Memory, assuming two nodes, scale linearly for more
-
-
 * Corda Bridge(s) 4 CPU Core, 4 GB Memory
-
-
 * Corda Float(s) 2 CPU Core, 4 GB Memory
-
 
 
 ### Additional Details
@@ -125,91 +112,35 @@ During deployment the following system (not user) tables will be created in the 
 
 
 * DATABASECHANGELOG
-
-
 * DATABASECHANGELOGLOCK
-
-
 * NODE_ATTACHMENTS
-
-
 * NODE_ATTACHMENTS_CONTRACTS
-
-
 * NODE_ATTACHMENTS_SIGNERS
-
-
 * NODE_CHECKPOINTS
-
-
 * NODE_CONTRACT_UPGRADES
-
-
 * NODE_IDENTITIES
-
-
 * NODE_INFOS
-
-
 * NODE_INFO_HOSTS
-
-
 * NODE_INFO_PARTY_CERT
-
-
 * NODE_LINK_NODEINFO_PARTY
-
-
 * NODE_MESSAGE_IDS
-
-
 * NODE_NAMED_IDENTITIES
-
-
 * NODE_NETWORK_PARAMETERS
-
-
 * NODE_OUR_KEY_PAIRS
-
-
 * NODE_PROPERTIES
-
-
 * NODE_SCHEDULED_STATES
-
-
 * NODE_TRANSACTIONS
-
-
 * PK_HASH_TO_EXT_ID_MAP
-
-
 * STATE_PARTY
-
-
 * VAULT_FUNGIBLE_STATES
-
-
 * VAULT_FUNGIBLE_STATES_PARTS
-
-
 * VAULT_LINEAR_STATES
-
-
 * VAULT_LINEAR_STATES_PARTS
-
-
 * VAULT_STATES
-
-
 * VAULT_TRANSACTION_NOTES
-
-
 * V_PKEY_HASH_EX_ID_MAP
-
 
 Detailed information on the Corda Vault can be found [here](../operating/node-database.html).
 
 JDBC Connectivity to the Corda Vault is handled in the Corda Enterprise `node.conf` file in `/opt/corda`. Here are examples for each supported RDBMS.
-
 

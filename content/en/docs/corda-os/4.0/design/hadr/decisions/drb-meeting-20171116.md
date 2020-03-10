@@ -21,43 +21,18 @@ title: Design Review Board Meeting Minutes
 
 
 * Mark Oldfield (MO)
-
-
 * Matthew Nesbit (MN)
-
-
 * Richard Gendal Brown (RGB)
-
-
 * James Carlyle (JC)
-
-
 * Mike Hearn (MH)
-
-
 * Jose Coll (JoC)
-
-
 * Rick Parker (RP)
-
-
 * Andrey Bozhko (AB)
-
-
 * Dave Hudson (DH)
-
-
 * Nick Arini (NA)
-
-
 * Ben Abineri (BA)
-
-
 * Jonathan Sartin (JS)
-
-
 * David Lee (DL)
-
 
 
 ## Minutes
@@ -162,5 +137,4 @@ The topic was discussed.
 MN provided outline explanation.
 
 **DECISION AGREED**: Restarts should be handled by polite shutdown, followed by a hard clear. (RGB, JC, MH agreed)
-
 

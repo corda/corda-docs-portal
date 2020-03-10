@@ -15,10 +15,9 @@ title: Node internals
 # Node internals
 
 
+
 * [Node services](node-services.md)
-
 * [Vault](vault.md)
-
 * [Networking and messaging](messaging.md)
 
 

@@ -13,14 +13,16 @@ title: Pluggable Serializers for CorDapps
 
 
 
+
 # Pluggable Serializers for CorDapps
 
+
 To be serializable by Corda Java classes must be compiled with the -parameters switch to enable matching of its properties
-            to constructor parameters. This is important because Corda’s internal AMQP serialization scheme will only construct
-            objects using their constructors. However, when recompilation isn’t possible, or classes are built in such a way that
-            they cannot be easily modified for simple serialization, CorDapps can provide custom proxy serializers that Corda
-            can use to move from types it cannot serialize to an interim representation that it can with the transformation to and
-            from this proxy object being handled by the supplied serializer.
+to constructor parameters. This is important because Corda’s internal AMQP serialization scheme will only construct
+objects using their constructors. However, when recompilation isn’t possible, or classes are built in such a way that
+they cannot be easily modified for simple serialization, CorDapps can provide custom proxy serializers that Corda
+can use to move from types it cannot serialize to an interim representation that it can with the transformation to and
+from this proxy object being handled by the supplied serializer.
 
 
 ## Serializer Location
@@ -35,17 +37,11 @@ Serializers must
 > 
 > 
 > * Inherit from `net.corda.core.serialization.SerializationCustomSerializer`
-> 
-> 
 > * Provide a proxy class to transform the object to and from
-> 
-> 
 > * Implement the `toProxy` and `fromProxy` methods
-> 
-> 
 > * Be either included into the CorDapp Jar or made available in the system class path of the running process
-> 
-> 
+
+
 Serializers inheriting from `SerializationCustomSerializer` have to implement two methods and two types.
 
 
@@ -72,22 +68,19 @@ public final class Example {
     public int getB() { return b; }
 }
 ```
-Without a custom serializer we cannot serialize this class as there is no public constructor that facilitates the
-                initialisation of all of its properties.
 
+Without a custom serializer we cannot serialize this class as there is no public constructor that facilitates the
+initialisation of all of its properties.
 
 {{< note >}}
 This is clearly a contrived example, simply making the constructor public would alleviate the issues.
-                    However, for the purposes of this example we are assuming that for external reasons this cannot be done.
+However, for the purposes of this example we are assuming that for external reasons this cannot be done.
 
 {{< /note >}}
 To be serializable by Corda this would require a custom serializer to be written that can transform the unserializable
-                class into a form we can serialize. Continuing the above example, this could be written as follows:
-
+class into a form we can serialize. Continuing the above example, this could be written as follows:
 
 {{< tabs name="tabs-1" >}}
-
-
 {{% tab name="java" %}}
 ```java
 /**
@@ -199,30 +192,28 @@ class ExampleSerializer : SerializationCustomSerializer<Example, ExampleSerializ
 }
 ```
 {{% /tab %}}
+
 {{< /tabs >}}
 
 In the above examples
 
 
 * `ExampleSerializer` is the actual serializer that will be loaded by the framework to serialize instances of the `Example` type.
-
-
 * `ExampleSerializer.Proxy`, in the Kotlin example, and `ExampleProxy` in the Java example, is the intermediate representation used by the framework to represent instances of `Example` within the wire format.
-
 
 
 ## The Proxy Object
 
 The proxy object should be thought of as an intermediate representation that the serialization framework
-                can reason about. One is being written for a class because, for some reason, that class cannot be
-                introspected successfully but that framework. It is therefore important to note that the proxy class must
-                only contain elements that the framework can reason about.
+can reason about. One is being written for a class because, for some reason, that class cannot be
+introspected successfully but that framework. It is therefore important to note that the proxy class must
+only contain elements that the framework can reason about.
 
 The proxy class itself is distinct from the proxy serializer. The serializer must refer to the unserializable
-                type in the `toProxy` and `fromProxy` methods.
+type in the `toProxy` and `fromProxy` methods.
 
 For example, the first thought a developer may have when implementing a proxy class is to simply *wrap* an
-                instance of the object being proxied. This is shown below
+instance of the object being proxied. This is shown below
 
 ```kotlin
 class ExampleSerializer : SerializationCustomSerializer<Example, ExampleSerializer.Proxy> {
@@ -238,24 +229,25 @@ class ExampleSerializer : SerializationCustomSerializer<Example, ExampleSerializ
     }
 }
 ```
+
 However, this will not work because what we’ve created is a recursive loop whereby synthesising a serializer
-                for the `Example` type requires synthesising one for `ExampleSerializer.Proxy`. However, that requires
-                one for `Example` and so on and so forth until we get a `StackOverflowException`.
+for the `Example` type requires synthesising one for `ExampleSerializer.Proxy`. However, that requires
+one for `Example` and so on and so forth until we get a `StackOverflowException`.
 
 The solution, as shown initially, is to create the intermediate form (the Proxy object) purely in terms
-                the serialization framework can reason about.
+the serialization framework can reason about.
 
 
 {{< important >}}
 When composing a proxy object for a class be aware that everything within that structure will be written
-                    into the serialized byte stream.
+into the serialized byte stream.
 
 
 {{< /important >}}
 
+
 ## Whitelisting
 
 By writing a custom serializer for a class it has the effect of adding that class to the whitelist, meaning such
-                classes don’t need explicitly adding to the CorDapp’s whitelist.
-
+classes don’t need explicitly adding to the CorDapp’s whitelist.
 

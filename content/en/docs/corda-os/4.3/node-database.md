@@ -15,6 +15,7 @@ title: Node database
 # Node database
 
 
+
 ## Configuring the node database
 
 
@@ -23,13 +24,13 @@ title: Node database
 By default, nodes store their data in an H2 database. See [Database access when running H2](node-database-access-h2.md).
 
 Nodes can also be configured to use PostgreSQL and SQL Server. However, these are experimental community contributions.
-                    The Corda continuous integration pipeline does not run unit tests or integration tests of these databases.
+The Corda continuous integration pipeline does not run unit tests or integration tests of these databases.
 
 
 ### PostgreSQL
 
 Nodes can also be configured to use PostgreSQL 9.6, using PostgreSQL JDBC Driver 42.1.4. Here is an example node
-                    configuration for PostgreSQL:
+configuration for PostgreSQL:
 
 ```groovy
 dataSourceProperties = {
@@ -42,32 +43,29 @@ database = {
     transactionIsolationLevel = READ_COMMITTED
 }
 ```
+
 Note that:
 
 
 * Database schema name can be set in JDBC URL string e.g. *currentSchema=my_schema*
-
-
 * Database schema name must either match the `dataSource.user` value to end up
-                            on the standard schema search path according to the
-                            [PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH), or
-                            the schema search path must be set explicitly for the user.
-
-
+on the standard schema search path according to the
+[PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH), or
+the schema search path must be set explicitly for the user.
 * If your PostgresSQL database is hosting multiple schema instances (using the JDBC URL currentSchema=my_schema)
-                            for different Corda nodes, you will need to create a *hibernate_sequence* sequence object manually for each subsequent schema added after the first instance.
-                            Corda doesn’t provision Hibernate with a schema namespace setting and a sequence object may be not created.
-                            Run the DDL statement and replace *my_schema* with your schema namespace:
-
-```groovy
+for different Corda nodes, you will need to create a *hibernate_sequence* sequence object manually for each subsequent schema added after the first instance.
+Corda doesn’t provision Hibernate with a schema namespace setting and a sequence object may be not created.
+Run the DDL statement and replace *my_schema* with your schema namespace:```groovy
 CREATE SEQUENCE my_schema.hibernate_sequence INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 8 CACHE 1 NO CYCLE;
 ```
+
+
 
 
 ### SQLServer
 
 Nodes also have untested support for Microsoft SQL Server 2017, using Microsoft JDBC Driver 6.4 for SQL Server. Here is
-                    an example node configuration for SQLServer:
+an example node configuration for SQLServer:
 
 ```groovy
 dataSourceProperties = {
@@ -81,12 +79,12 @@ database = {
 }
 jarDirs = ["[FULL_PATH]/sqljdbc_6.4/enu/"]
 ```
+
 Note that:
 
 
 * Ensure the directory referenced by jarDirs contains only one JDBC driver JAR file; by default, the
-                            `sqljdbc_6.4/enu/` contains multiple JDBC JAR files for different Java versions.
-
+`sqljdbc_6.4/enu/` contains multiple JDBC JAR files for different Java versions.
 
 
 ## Node database tables
@@ -130,13 +128,14 @@ By default, the node database has the following tables:
 |V_PKEY_HASH_EX_ID_MAP|ID, PUBLIC_KEY_HASH, TRANSACTION_ID, OUTPUT_INDEX, EXTERNAL_ID|
 
 {{< /table >}}
+
 For more details see: [Database tables](node-database-tables.md).
 
 
 ## Database connection pool
 
 Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating the connection pool.
-                To configure the connection pool any custom properties can be set in the *dataSourceProperties* section.
+To configure the connection pool any custom properties can be set in the *dataSourceProperties* section.
 
 For example:
 

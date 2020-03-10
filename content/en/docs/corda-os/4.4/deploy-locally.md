@@ -13,9 +13,10 @@ title: Deploying Corda to Corda Testnet from your local environment
 
 # Deploying Corda to Corda Testnet from your local environment
 
+
 This document explains how to set up your local network to enable a
-            Corda node to connect to the Corda Testnet. This assumes you are
-            downloading a node ZIP from: [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet).
+Corda node to connect to the Corda Testnet. This assumes you are
+downloading a node ZIP from: [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet).
 
 
 ## Pre-requisites
@@ -24,55 +25,51 @@ This document explains how to set up your local network to enable a
 * Register for an account on [https://marketplace.r3.com/](https://marketplace.r3.com/).
 
 
-
 ## Set up your local network
 
 For a Corda node to be able to connect to the Corda Testnet and be
-                reachable by counterparties on that network it needs to be reachable
-                on the open internet. Corda is a server which requires an externally
-                visible IP address and several ports in order to operate correctly.
+reachable by counterparties on that network it needs to be reachable
+on the open internet. Corda is a server which requires an externally
+visible IP address and several ports in order to operate correctly.
 
 We recommend running your Coda node on cloud infrastructure. If you
-                wish to run Corda on your local machine then you will need to
-                configure your network to enable the Corda node to be reachable from
-                the internet.
-
+wish to run Corda on your local machine then you will need to
+configure your network to enable the Corda node to be reachable from
+the internet.
 
 {{< note >}}
 You will need access to your network router/gateway to the internet. If you do not have direct access then contact your administrator.
 
 {{< /note >}}
 The following steps will describe how to use port forwarding on your
-                router to make sure packets intended for Corda are routed to the right
-                place on your local network.
+router to make sure packets intended for Corda are routed to the right
+place on your local network.
 
 
 ### Set up static IP address local host machine
 
 The next steps will configure your router to forward
-                    packets to the Corda node, but for this it is required to set the host
-                    machine to have a static IP address. If this isn’t done, and the
-                    network is using DHCP dynamic address allocation then the next time
-                    the host machine is rebooted it may be on a different IP and the port
-                    forwarding will no longer work.
+packets to the Corda node, but for this it is required to set the host
+machine to have a static IP address. If this isn’t done, and the
+network is using DHCP dynamic address allocation then the next time
+the host machine is rebooted it may be on a different IP and the port
+forwarding will no longer work.
 
 Please consult your operating system documentation for instructions on
-                    setting a static IP on the host machine.
+setting a static IP on the host machine.
 
 
 ### Set up port forwarding on your router
 
 Port forwarding is a method of making a computer on your network
-                    accessible to computers on the Internet, even though it is behind a router.
-
+accessible to computers on the Internet, even though it is behind a router.
 
 {{< note >}}
 All routers are slightly different and you will need to consult the documentation for your specific make and model.
 
 {{< /note >}}
 Log in to the admin page of your router (often `192.168.0.1`) in your
-                    browser bar.
-
+browser bar.
 
 {{< note >}}
 Router administration IP and log in credentials are usually on the bottom or side of your router.
@@ -90,23 +87,23 @@ Add rules for the following ports which Corda uses:
 
 {{< note >}}
 These ports are the defaults for Testnet which are specified
-                        in the node.conf. If these conflict with existing services
-                        on your host machine they can be changed in the
-                        `/opt/corda/node.conf` file.
+in the node.conf. If these conflict with existing services
+on your host machine they can be changed in the
+`/opt/corda/node.conf` file.
 
 {{< /note >}}
 For each rule you will also typically have to specify the rule name,
-                    the static IP address of the host machine we configured earlier (the
-                    same in each case) and the protocol (which is TCP in all cases here).
+the static IP address of the host machine we configured earlier (the
+same in each case) and the protocol (which is TCP in all cases here).
 
 Please consult your router documentation for specific details on
-                    enabling  port forwarding.
+enabling  port forwarding.
 
 
 ### Open firewall ports
 
 If you are operating a firewall on your host machine or local network
-                    you will also need to open the above ports for incoming traffic.
+you will also need to open the above ports for incoming traffic.
 
 Please consult your firewall documentation for details.
 
@@ -114,36 +111,37 @@ Please consult your firewall documentation for details.
 ### Optional: Configure a static external IP address
 
 Corda expects nodes to have stable addresses over long periods of
-                    time. ISPs typically assign dynamic IP addresses to a router and so if
-                    your router is rebooted it may not obtain the same external IP and
-                    therefore your Corda node will change its address on the Testnet.
+time. ISPs typically assign dynamic IP addresses to a router and so if
+your router is rebooted it may not obtain the same external IP and
+therefore your Corda node will change its address on the Testnet.
 
 You can request a static IP address from your ISP however this may
-                    incur a cost.
+incur a cost.
 
 If the IP address does change then this doesn’t cause issues but it
-                    will result in an update to the network map which then needs to be
-                    propagated to all peers in the network. There may be some delay in the
-                    ability to transact while this happens.
+will result in an update to the network map which then needs to be
+propagated to all peers in the network. There may be some delay in the
+ability to transact while this happens.
 
 
 {{< warning >}}
 Corda nodes are expected to be online all the time and
-                        will send a heartbeat to the network map server to
-                        indicate they are operational. If they go offline for a
-                        period of time (~24 hours in the case of Testnet) then
-                        the node will be removed from the network map. Any nodes
-                        which have queued messages for your node will drop these messages,
-                        they won’t be delivered and unexpected behaviour may
-                        occur.
+will send a heartbeat to the network map server to
+indicate they are operational. If they go offline for a
+period of time (~24 hours in the case of Testnet) then
+the node will be removed from the network map. Any nodes
+which have queued messages for your node will drop these messages,
+they won’t be delivered and unexpected behaviour may
+occur.
 
 {{< /warning >}}
+
 
 
 ### Test if the ports are open
 
 You can use a port checking tool to make sure the ports are open
-                    properly.
+properly.
 
 
 ### Download and install your node
@@ -151,9 +149,11 @@ You can use a port checking tool to make sure the ports are open
 Navigate to [https://marketplace.r3.com/network/testnet/install-node](https://marketplace.r3.com/network/testnet/install-node).
 
 Click on the `Download Corda Node` button and wait for the ZIP
-                    file to download:
+file to download:
 
-![testnet download](/en/images/testnet-download.png "testnet download")Unzip the file in your Corda root directory:
+![testnet download](resources/testnet-download.png "testnet download")
+
+Unzip the file in your Corda root directory:
 
 ```bash
 mkdir corda
@@ -162,11 +162,13 @@ cp <PATH_TO_DOWNLOAD>/node.zip .
 unzip node.zip
 cd node
 ```
+
 Run the `run-corda.sh` script to start your Corda node.
 
 ```bash
 ./run-corda.sh
 ```
+
 Congratulations! You now have a running Corda node on Testnet.
 
 
@@ -176,8 +178,8 @@ It is possible to copy the `node.zip` file from your local machine to any other 
 {{< /warning >}}
 
 
+
 ## Testing your deployment
 
 To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up the Finance CorDapp and issue cash to a counterparty.
-
 

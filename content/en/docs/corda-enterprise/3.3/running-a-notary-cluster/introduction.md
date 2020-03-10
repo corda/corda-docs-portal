@@ -16,91 +16,80 @@ title: Highly Available Notary Service Setup
 ## About the HA Notary Installation
 
 In this chapter you’ll learn how to set up, configure and start a highly
-                available (HA) Corda Enterprise notary service from scratch.
-                The bootstrapper allows you to set up a cluster of nodes from
-                a set of configuration files.
+available (HA) Corda Enterprise notary service from scratch.
+The bootstrapper allows you to set up a cluster of nodes from
+a set of configuration files.
 
 The HA notary relies on a Percona/XtraDB (Percona) cluster. How to set up Percona
-                is described below.
+is described below.
 
 This guide assumes you’re running a Debian-based Linux OS.
 
 Double curly braces `{{ }}` are used to represent placeholder values
-                throughout this guide.
+throughout this guide.
 
 
 ## Overview
 
-![ha notary overview2](running-a-notary-cluster/resources/ha-notary-overview2.png "ha notary overview2")The figure above displays Corda client nodes in green on the top, then the Corda
-                notary worker nodes in red in the middle and on the bottom are the Percona nodes in blue.
+![ha notary overview2](running-a-notary-cluster/resources/ha-notary-overview2.png "ha notary overview2")
+The figure above displays Corda client nodes in green on the top, then the Corda
+notary worker nodes in red in the middle and on the bottom are the Percona nodes in blue.
 
 Client nodes that request a notarisation by the service name of the notary,
-                will connect to the available worker nodes in a round-robin fashion.
+will connect to the available worker nodes in a round-robin fashion.
 
 The task of a worker node is to verify the notarisation request, the transaction timestamp (if present),
-                and resolve and verify the transaction chain (if the notary service is validating). It then commits the
-                transaction’s input states to the Percona database.
+and resolve and verify the transaction chain (if the notary service is validating). It then commits the
+transaction’s input states to the Percona database.
 
 Since our notary cluster consists of several Percona nodes and several
-                worker nodes, we achieve high availability (HA). Individual nodes of the
-                Percona and notary clusters can fail, while clients are still able to
-                notarise transactions. The notary cluster remains available. A three-node
-                Percona cluster as shown in the figure above can tolerate one crash fault.
-
+worker nodes, we achieve high availability (HA). Individual nodes of the
+Percona and notary clusters can fail, while clients are still able to
+notarise transactions. The notary cluster remains available. A three-node
+Percona cluster as shown in the figure above can tolerate one crash fault.
 
 {{< note >}}
 In production you should consider running five nodes or more, to be able to
-                    tolerate more than one simultaneous crash fault. One single Corda notary
-                    worker is enough to serve traffic in principle, although its capacity might
-                    not be sufficient, depending on your throughput and latency requirements.
+tolerate more than one simultaneous crash fault. One single Corda notary
+worker is enough to serve traffic in principle, although its capacity might
+not be sufficient, depending on your throughput and latency requirements.
 
 {{< /note >}}
 
 ### Colocating Percona and the Notary Service
 
-![percona colocated](running-a-notary-cluster/resources/percona-colocated.png "percona colocated")You can run a Percona Server and a Corda notary worker on the same machine.
+![percona colocated](running-a-notary-cluster/resources/percona-colocated.png "percona colocated")
+You can run a Percona Server and a Corda notary worker on the same machine.
 
 
 ### Summary
 
 
 * Client nodes communicate with the notary cluster via P2P messaging, the messaging layer handles selecting an appropriate notary worker node by the service legal name.
-
-
 * Client nodes connect to the notary cluster members round-robin.
-
-
 * The notary worker nodes communicate with the underlying Percona cluster via JDBC.
-
-
 * The Percona nodes communicate with each other via group communication (GComm).
-
-
 * The Percona replicas should only be reachable from each other and from the worker nodes.
-
-
 * The worker P2P ports should be reachable from the internet (or at least from the rest of the Corda network you’re building or joining).
-
-
 * We recommend running the worker nodes and the Percona service in a joined private subnet, opening up the P2P ports of the workers for external traffic.
-
 
 
 ### Legal Names and Identities
 
 Every notary worker node has two legal names. Its own legal name, specified by
-                    `myLegalName`, e.g `O=Worker 1, C=GB, L=London` and the service legal name
-                    specified in configuration by `notary.serviceLegalName`, e.g. `O=HA Notary,
+`myLegalName`, e.g `O=Worker 1, C=GB, L=London` and the service legal name
+specified in configuration by `notary.serviceLegalName`, e.g. `O=HA Notary,
 C=GB, L=London`. Only the service legal name is included in the network
-                    parameters. CorDapp developers should select the notary service identity from the network map cache.
+parameters. CorDapp developers should select the notary service identity from the network map cache.
 
 ```kotlin
 serviceHub.networkMapCache.getNotary(CordaX500Name("HA Notary", "London", "GB"))
 ```
+
 Every notary worker’s keystore contains the private key of the worker and the
-                    private key of the notary service (with aliases `identity-private-key` and
-                    `distributed-notary-private key` in the keystore). We’re going to create and
-                    populate the node’s keystores later in this tutorial.
+private key of the notary service (with aliases `identity-private-key` and
+`distributed-notary-private key` in the keystore). We’re going to create and
+populate the node’s keystores later in this tutorial.
 
 
 ## Expected Data Volume
@@ -112,22 +101,11 @@ For non-validating notaries the notary stores roughly one kilobyte per transacti
 
 
 * Java runtime
-
-
 * Corda Enterprise JAR
-
-
 * Bootstrapper JAR
-
-
 * Root access to a Linux machine or VM to install Percona
-
-
 * The private IP addresses of your DB hosts (where we’re going to install Percona)
-
-
 * The public IP addresses of your notary hosts (in order to advertise these IPs for P2P traffic)
-
 
 Your Corda distribution should contain all the JARs listed above.
 
@@ -138,7 +116,7 @@ Your Corda distribution should contain all the JARs listed above.
 ### Credentials
 
 Make sure you have the following credentials available, create them if necessary and always
-                    keep them safe.
+keep them safe.
 
 
 {{< table >}}
@@ -153,6 +131,7 @@ Make sure you have the following credentials available, create them if necessary
 |The network root truststore|(not required when using the bootstrapper)|
 
 {{< /table >}}
+
 
 ### Networking
 
@@ -170,8 +149,9 @@ Make sure you have the following credentials available, create them if necessary
 |4568|IST (Incremental State Transfer)|
 
 {{< /table >}}
+
 Follow the [Percona documentation](https://www.percona.com/doc/percona-xtradb-cluster/5.7/security/encrypt-traffic.html)
-                        if you need to encrypt the traffic between your Corda nodes and Percona and between Percona nodes.
+if you need to encrypt the traffic between your Corda nodes and Percona and between Percona nodes.
 
 
 #### Corda Node
@@ -185,23 +165,23 @@ Follow the [Percona documentation](https://www.percona.com/doc/percona-xtradb-cl
 |RPC Port|10003|RPC traffic (internal only)|
 
 {{< /table >}}
+
 Later in the tutorial we’re covering the notary service configuration in details, in [Setting up the Notary Service](installing-the-notary-service.md).
 
 
 ### Keys and Certificates
 
 Keys are stored the same way as for regular Corda nodes in the `certificates`
-                    directory. If you’re interested in the details you can find out
-                    more in the [Network permissioning](../permissioning.md) document.
+directory. If you’re interested in the details you can find out
+more in the [Network permissioning](../permissioning.md) document.
 
 
 ## Next Steps
 
 
+
 * [Percona, the underlying Database](installing-percona.md)
-
 * [Setting up the Notary Service](installing-the-notary-service.md)
-
 * [Percona Monitoring, Backup and Restore (Advanced)](operating-percona.md)
 
 

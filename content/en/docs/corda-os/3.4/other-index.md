@@ -13,10 +13,9 @@ title: Other
 # Other
 
 
+
 * [Corda repo layout](corda-repo-layout.md)
-
 * [Building the documentation](building-the-docs.md)
-
 * [JSON](json.md)
 
 

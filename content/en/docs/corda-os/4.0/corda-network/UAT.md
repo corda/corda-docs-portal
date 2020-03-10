@@ -20,4 +20,3 @@ UAT is therefore more aligned to the testing of the operational characteristics 
 
 More information about UAT will continue to be uploaded on this site or related sub-sites.
 
-
