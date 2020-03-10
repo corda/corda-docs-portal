@@ -56,7 +56,7 @@ $selected-page: "#{$class-object-prefix}selected-page";
         }
 
         @media screen and (min-width: 1199px) {
-           display: block !important;
+           display: none;
         }
     }
 

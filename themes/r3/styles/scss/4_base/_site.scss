@@ -7,7 +7,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 
 #{$wrapper-object}-side {
     background-color: #FFF;
-    order: 2;
+    order: 0;
 
     @media screen and (max-width: 1199px) {
         position: -webkit-sticky; /* Safari */
@@ -20,8 +20,8 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 
 #{$wrapper-object}-main {
     min-height: calc(100vh - 56px - 80px);
-    order: 1;
-    padding: 60px 56px 40px;
+    order: 2;
+    padding: 0px 0px 40px 56px;
 
     main {
         img {
@@ -33,7 +33,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 #{$wrapper-object}-nav {
     flex-basis: 311px;
     padding: 0 0 !important;
-    order: 0;
+    order: 1;
     transition: transform 0.15s;
     transition-timing-function: ease-out;
 
