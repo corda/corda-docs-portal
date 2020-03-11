@@ -45,7 +45,7 @@ The `publish` target is covered in the CI section below.
 
 #### Windows
 
-Install hugo locally and ensure it's on your path (see tbe Native section below).  
+Install hugo locally and ensure it's on your path (see tbe Native section below).
 
 In principle `docker` should work in a WSL session but I haven't tested it yet.  Same instructions as above.
 
@@ -114,3 +114,25 @@ Run the `regenerate.sh` script:
 * Runs `get_repos.sh` to clone all repositories and branches
     * Edit this file to change what is cloned and checked out.
 * Runs `run_sphinx.py` to convert each repo/branch from `rst` to `md` and copies the files to `content`
+
+##  Docker build configuration
+
+It is possible to override the `baseURL` of the project at build time.
+
+One was to do this is to use the configuration files, e.g.
+
+```shell script
+make HUGO_ARGS="--config config.toml,config.dev.toml" prod-docker-serve
+```
+
+which makes the `nginx` image and starts it on port 8888
+
+The alternative is to run:
+
+```shell script
+make DOCKER_BUILD_ARGS="-e HUGO_BASEURL=\"http://localhost:8888\"" prod-docker-serve
+```
+
+If you need to change many parameters in Hugo's configuration, then prefer
+to use the configuration file override.
+

@@ -1,0 +1,19 @@
+####################################################################################
+####################################################################################
+# DEV DOCS SITE CONFIG
+#
+# Run with args:
+#
+#  e.g. make HUGO_ARGS="--config config.toml,config.dev.toml" prod-docker-serve
+#
+# or make DOCKER_BUILD_ARGS="-e HUGO_BASEURL=\"http://localhost:8888\"" prod-docker-serve
+#
+####################################################################################
+####################################################################################
+
+#  Will override existing setting if present
+
+#baseURL = "https://docs-staging.corda.net/"
+baseURL = "http://localhost:8888/"
+
+title = "DEV DEV DEV"

@@ -1,7 +1,7 @@
 #  Prefer long args to short args for readability
 ROOT_DIR          := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 DOCKER             = docker
-DOCKER_RUN         = $(DOCKER) run --rm --volume $(ROOT_DIR):/src
+DOCKER_RUN         = $(DOCKER) run --rm --volume $(ROOT_DIR):/src $(DOCKER_BUILD_ARGS)
 HUGO_VERSION       = 0.65.3
 
 HUGO_DOCKER_IMAGE  = corda-docs-hugo
@@ -29,10 +29,10 @@ convert: ## Run rst->xml->md script
 # local only tasks
 
 local-serve: ## Build and serve hugo locally from memory or just use 'hugo' directly
-	hugo serve -D -F --disableFastRender
+	hugo $(HUGO_ARGS) serve -D -F --disableFastRender
 
 local-build: ## Build the site (once only into public/) or just use 'hugo' directly
-	hugo --minify
+	hugo $(HUGO_ARGS) --minify
 
 #######################################################################################################################
 # Docker tasks - run hugo in docker
@@ -41,16 +41,16 @@ hugo-docker-image: ## Build hugo docker image
 	$(DOCKER) build . --tag $(HUGO_DOCKER_IMAGE) --build-arg HUGO_VERSION=$(HUGO_VERSION)
 
 hugo-build: hugo-docker-image ## Run hugo build in docker (once only, into public/)
-	$(DOCKER_RUN) $(HUGO_DOCKER_IMAGE) hugo
+	$(DOCKER_RUN)  $(HUGO_DOCKER_IMAGE)  hugo $(HUGO_ARGS) --minify
 
 hugo-serve: hugo-docker-image ## Serve site from docker
-	$(DOCKER_RUN) -it -p 1313:1313 $(HUGO_DOCKER_IMAGE) hugo server --buildFuture --buildDrafts --disableFastRender --bind 0.0.0.0
+	$(DOCKER_RUN) -it -p 1313:1313  $(HUGO_DOCKER_IMAGE)  hugo $(HUGO_ARGS) server --buildFuture --buildDrafts --disableFastRender --bind 0.0.0.0
 
 #######################################################################################################################
 # Docker tasks - build the prod nginx image
 
 prod-hugo-build: hugo-docker-image ## Prod build, minimal size
-	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) hugo --minify
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE)  hugo $(HUGO_ARGS) --minify
 
 prod-docker-image: prod-hugo-build ## Create the prod docker image
 	$(DOCKER) build . --tag $(PROD_IMAGE):$(PROD_IMAGE_TAG) -f prod/Dockerfile
