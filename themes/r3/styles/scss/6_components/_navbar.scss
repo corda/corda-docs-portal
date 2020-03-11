@@ -5,7 +5,6 @@ $navbar-object: "#{$class-object-prefix}navbar";
     background-position: 60% 0%;
     background-attachment: fixed;
 
-
     ul {
         flex-direction: row;
 
@@ -20,8 +19,16 @@ $navbar-object: "#{$class-object-prefix}navbar";
         align-items: center;
 
         svg {
-                height: 17px;
-                stroke: #eee;
+            height: 17px;
+            stroke: #eee;
+
+            .st0, .st1 {
+                fill: #eee;
+            }
+        }
+
+        &:first-child svg {
+            height: 20px;
         }
     }
 }

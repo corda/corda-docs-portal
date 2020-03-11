@@ -11,7 +11,6 @@ $breadcrumb-object: "#{$class-object-prefix}breadcrumb";
             color: $red-500;
             font-weight: 200;
             text-transform: uppercase;
-
         }
 
        & + .breadcrumb-item:before {

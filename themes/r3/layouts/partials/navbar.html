@@ -10,6 +10,7 @@
         <span class="">{{- .Site.Title -}}</span>
     </a>
     <ul class="navbar-nav ml-sm-2 ml-md-auto">
+        {{ partial "nav/stackoverflow.html" . }}
         {{ partial "nav/github.html" . }}
         {{ partial "nav/twitter.html" . }}
         {{ partial "nav/slack.html" . }}

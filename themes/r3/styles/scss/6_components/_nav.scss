@@ -10,25 +10,6 @@ $nav-object: "#{$class-object-prefix}nav";
         padding-left: 22px;
     }
 
-    .x-button {
-        background-color: transparent;
-        border: none;
-        height: 50px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 50px;
-
-        svg {
-            path {
-                stroke: $red-500;
-            }
-            &:hover path {
-                stroke: $grey-500;
-            }
-        }
-    }
-
     nav {
         font-size: 14px;
         margin-top: 22px;
@@ -49,15 +30,6 @@ $nav-object: "#{$class-object-prefix}nav";
         position: absolute !important;
         width: 312px;
         z-index: 100;
-
-        .x-button {
-            display: block !important;
-            position: absolute !important;
-            top: 14px;
-            right: 16px;
-            width: 50px;
-            height: 50px;
-        }
 
         nav {
             margin-top: 22px;
