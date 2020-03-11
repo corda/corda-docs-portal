@@ -81,6 +81,7 @@ github_repository = "https://github.com/corda/docs-site"
 twitter = "inside_r3"
 slack = "r3dlg"
 github = "corda"
+stackoverflow = "corda"
 
 #  Cue bikeshedding
 default_tab = "kotlin"
