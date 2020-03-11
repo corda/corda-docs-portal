@@ -35,7 +35,7 @@ pygmentsStyle = "emacs"
 enableGitInfo = true
 
 # https://gohugo.io/templates/internal/#google-analytics
-googleAnalytics = "UA-123-45"
+# googleAnalytics = "UA-123-45"
 
 # https://gohugo.io/getting-started/configuration-markup#highlight
 [markup]
