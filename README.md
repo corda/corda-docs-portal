@@ -119,7 +119,7 @@ Run the `regenerate.sh` script:
 
 It is possible to override the `baseURL` of the project at build time.
 
-One was to do this is to use the configuration files, e.g.
+One way to do this is to use the configuration files, e.g.
 
 ```shell script
 make HUGO_ARGS="--config config.toml,config.dev.toml" prod-docker-serve
@@ -135,4 +135,3 @@ make DOCKER_BUILD_ARGS="-e HUGO_BASEURL=\"http://localhost:8888\"" prod-docker-s
 
 If you need to change many parameters in Hugo's configuration, then prefer
 to use the configuration file override.
-
