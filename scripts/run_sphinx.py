@@ -7,7 +7,6 @@ import sys
 import re
 import argparse
 from pathlib import Path
-import json
 import toml
 import yaml
 import hashlib
@@ -18,6 +17,7 @@ from xml.etree.ElementTree import ParseError
 from distutils.dir_util import copy_tree
 
 from utils.parse_menus import parse_indexes, version, version_for_config
+from utils.parse_literal_includes import parse_literal_includes, md_relpath, github_shortcode_for
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 ROOT = os.path.dirname(THIS_DIR)
@@ -31,6 +31,7 @@ ARGS = None
 # Menus that we'll read from the .rst files and add into hugo
 MENUS = {}
 MENU_FILES = {}
+INCLUDES = {}
 
 # If we're in one of these, don't add new lines.
 NO_NEWLINE_ELEMENTS = ["bullet_list", "enumerated_list", "definition_list", "entry", "list_item"]
@@ -39,6 +40,7 @@ NO_NEWLINE_ELEMENTS = ["bullet_list", "enumerated_list", "definition_list", "ent
 #  Getting this working inside sphinx and *debugging* is poorly documented
 #  (aside from installing as an extension).
 #  Easy to convert rst -> xml -> (hugo) markdown
+
 
 def _setup_logging():
     # LOG.setLevel(logging.WARN)
@@ -49,9 +51,9 @@ def _setup_logging():
     LOG.addHandler(ch)
 
 
-
-""" Path-to-source is based on where we checked code in the get_repos.sh script """
 def _path_to_github_url(path):
+    """ Path-to-source is based on where we checked code in the get_repos.sh script """
+
     relpath = str(path.replace(REPOS_ROOT, ""))
     repo = None
     if relpath.startswith("/corda-os/"):
@@ -69,10 +71,11 @@ def _path_to_github_url(path):
     return f"https://github.com/corda/{repo}/blob/{relpath}"
 
 
-"""  All opening html elements *seem* to require a clear blank line between it and the content
-so all opening divs are suffixed with \n\n
-"""
 class Markdown:
+    """  All opening html elements *seem* to require a clear blank line between it and the content
+    so all opening divs are suffixed with \n\n
+    """
+
     def __init__(self):
         self.name = 'md'
 
@@ -193,8 +196,10 @@ class Markdown:
     def tab_header(self, label, idx):
         return f"<!-- tab header {label} {idx} -->"
 
-"""  Override raw Markdown with Hugo shortcodes  """
+
 class Gatsby(Markdown):
+    """  Override raw Markdown with Hugo shortcodes  """
+
     def __init__(self, *args, **kwargs):
         super(Gatsby, self).__init__(**kwargs)
         self.name = 'gatsby'
@@ -224,8 +229,9 @@ class Gatsby(Markdown):
         return f'<Tab label="{label}" />'
 
 
-"""  Override raw Markdown with Hugo shortcodes  """
 class Hugo(Markdown):
+    """  Override raw Markdown with Hugo shortcodes  """
+
     def __init__(self, *args, **kwargs):
         super(Hugo, self).__init__(**kwargs)
         self.name = 'hugo'
@@ -345,10 +351,14 @@ class Translator:
     def __init__(self, cms):
         self._context = [Context()]
         self.cms = cms
+        self.filename = None # populated by walk()
 
         # For determining h1/h2/h3 etc.
         self.section_depth = 0
         self.tabs_counter = 0
+
+        # To look up the values from the original rst since XML doesn't preserve the info.
+        self.literal_include_count = 0
 
         # We shouldn't have nested containers so this should be enough for tabbed code panes.
         self.in_tabs = False
@@ -356,8 +366,7 @@ class Translator:
         self._elements = [None]
         self._ordered_list = [0]
 
-        self.front_matter = {}
-        self.front_matter["date"] = "2020-01-08T09:59:25Z"
+        self.front_matter = {"date": "2020-01-08T09:59:25Z"}
 
     """Returns the final document"""
 
@@ -708,6 +717,14 @@ class Translator:
         if node.attrib.get('source', None):
             src = node.attrib['source']
 
+            key = version_for_config(self.filename)
+            lookup = INCLUDES[key] # now have a dict of relpath-md to [ literalinclude, ... ]
+            relpath = md_relpath(self.filename)
+            literal_includes = lookup.get(relpath, None)
+
+            if literal_includes:
+                self.top.put_body(github_shortcode_for(self.literal_include_count, literal_includes))
+
             if self.in_tabs:
                 #  append each one in the footer so it appears beneath the 'tabs' collection, rather
                 #  than under the tab
@@ -715,6 +732,8 @@ class Translator:
             else:
                 # not in a collection, put it straight under the 'tab' (which) doesn't exist
                 self.top.put_body(self.cms.link(_path_to_github_url(src), os.path.basename(src)))
+
+            self.literal_include_count += 1
 
     def visit_inline(self, node):
         pass
@@ -1438,7 +1457,7 @@ def create_missing_pages():
 
 
 def main():
-    global ARGS, MENUS, MENU_FILES
+    global ARGS, MENUS, MENU_FILES, INCLUDES
 
     desc = "Convert rst files to md using sphinx"
     parser = argparse.ArgumentParser(description=desc)
@@ -1470,6 +1489,7 @@ def main():
         cms = Hugo()
 
     MENUS, MENU_FILES = parse_indexes()
+    INCLUDES = parse_literal_includes()
 
     menus = os.path.join(ROOT, "config/_default/menus/menus.en.toml")
     open(menus,'w').write(toml.dumps(MENUS))

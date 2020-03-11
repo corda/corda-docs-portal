@@ -97,7 +97,7 @@ override fun call(): SignedTransaction {
 
 ```
 {{% /tab %}}
-
+{{/* github src='finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt' url='https://github.com/corda/corda/blob/release/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt#L55-L60' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt' start='DOCSTART 2' end='DOCEND 2' */}}
 
 [TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
 
@@ -150,7 +150,7 @@ val twiceSignedTx = partSignedTx + sellerSignature
 
 ```
 {{% /tab %}}
-
+{{/* github src='finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' url='https://github.com/corda/corda/blob/release/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt#L176-L186' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' start='DOCSTART 6' end='DOCEND 6' */}}
 
 [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
@@ -188,7 +188,7 @@ subFlow(IdentitySyncFlow.Receive(otherSideSession))
 
 ```
 {{% /tab %}}
-
+{{/* github src='finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' url='https://github.com/corda/corda/blob/release/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt#L91-L93' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' start='DOCSTART 07' end='DOCEND 07' */}}
 
 [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 

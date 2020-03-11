@@ -97,7 +97,7 @@ val complexCondition =
 
 ```
 {{% /tab %}}
-
+{{/* github src='node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt#L480-L497' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt' start='DOCSTART AttachmentQueryExample1' end='DOCEND AttachmentQueryExample1' */}}
 
 [NodeAttachmentServiceTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt) | ![github](/images/svg/github.svg "github")
 
@@ -181,7 +181,7 @@ fun recipient(rpc: CordaRPCOps, webPort: Int) {
 
 ```
 {{% /tab %}}
-
+{{/* github src='samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt#L88-L125' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt' start='DOCSTART 1' end='DOCEND 1' */}}
 
 [AttachmentDemo.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
 
@@ -219,7 +219,7 @@ private fun sender(rpc: CordaRPCOps, inputStream: InputStream, hash: SecureHash.
 
 ```
 {{% /tab %}}
-
+{{/* github src='samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt#L61-L83' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt' start='DOCSTART 2' end='DOCEND 2' */}}
 
 [AttachmentDemo.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
 

@@ -151,7 +151,7 @@ private fun gatherOurInputs(serviceHub: ServiceHub,
 }
 
 ```
-[FxTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt#L40-L66' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt' start='DOCSTART 1' end='DOCEND 1' */}}[FxTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt)
 This is a foreign exchange transaction, so we expect another set of input states of another currency from a
 counterparty. However, the Corda privacy model means we are not aware of the other node’s states. Our flow must
 therefore ask the other node to carry out a similar query and return the additional inputs to the transaction (see the
@@ -189,7 +189,7 @@ val criteria = VaultQueryCriteria(stateRefs = listOf(ref))
 val latestRecord = serviceHub.vaultService.queryBy<TradeApprovalContract.State>(criteria).states.single()
 
 ```
-[WorkflowTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt#L141-L142' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt' start='DOCSTART 1' end='DOCEND 1' */}}[WorkflowTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt)
 
 ## Generating Commands
 
@@ -261,7 +261,7 @@ val outputs = if (residual > 0L) {
 return Pair(inputs, outputs)
 
 ```
-[FxTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt#L74-L92' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt' start='DOCSTART 2' end='DOCEND 2' */}}[FxTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt)
 
 ## Building the SignedTransaction
 
@@ -301,7 +301,7 @@ tx.setTimeWindow(serviceHub.clock.instant(), 60.seconds)
 val selfSignedTx = serviceHub.signInitialTransaction(tx)
 
 ```
-[WorkflowTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt#L159-L182' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt' start='DOCSTART 2' end='DOCEND 2' */}}[WorkflowTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt)
 ```kotlin
 private fun buildTradeProposal(ourInputStates: List<StateAndRef<Cash.State>>,
                                ourOutputState: List<Cash.State>,
@@ -330,7 +330,7 @@ private fun buildTradeProposal(ourInputStates: List<StateAndRef<Cash.State>>,
 }
 
 ```
-[FxTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt#L179-L203' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt' start='DOCSTART 3' end='DOCEND 3' */}}[FxTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/FxTransactionBuildTutorial.kt)
 
 ## Completing the SignedTransaction
 
@@ -383,7 +383,7 @@ val completeTx = sourceSession.receive<SignedTransaction>().unwrap {
 }
 
 ```
-[WorkflowTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt#L217-L238' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt' start='DOCSTART 3' end='DOCEND 3' */}}[WorkflowTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt)
 After verification the remote flow will return its signature to the
 originator. The originator should apply that signature to the starting
 `SignedTransaction` and recheck the signatures match.
@@ -400,7 +400,7 @@ code for this is standardised in the `FinalityFlow`:
 subFlow(FinalityFlow(allPartySignedTx, setOf(newState.source)))
 
 ```
-[WorkflowTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt#L199-L200' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt' start='DOCSTART 4' end='DOCEND 4' */}}[WorkflowTransactionBuildTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/WorkflowTransactionBuildTutorial.kt)
 
 ## Partially Visible Transactions
 

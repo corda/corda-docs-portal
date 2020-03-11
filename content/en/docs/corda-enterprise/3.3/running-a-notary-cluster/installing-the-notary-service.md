@@ -80,7 +80,7 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/running-a-notary-cluster/resources/node.conf' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/running-a-notary-cluster/resources/node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/running-a-notary-cluster/resources/node.conf' start='' end='' */}}
 
 [node.conf](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/running-a-notary-cluster/resources/node.conf) | ![github](/images/svg/github.svg "github")
 

@@ -33,7 +33,7 @@ interface NamedByHash {
 
 ```
 {{% /tab %}}
-
+{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/corda/blob/release-V3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L20-L23' raw='https://raw.githubusercontent.com/corda/corda/release-V3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 1' end='DOCEND 1' */}}
 
 [Structures.kt](https://github.com/corda/corda/blob/release/os/3.4/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 

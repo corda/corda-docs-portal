@@ -105,7 +105,7 @@ data class State(
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt#L125-L135' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' start='DOCSTART 1' end='DOCEND 1' */}}
 {{% tab name="java" %}}
 ```java
 public class State implements OwnableState {
@@ -186,7 +186,7 @@ public class State implements OwnableState {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java#L15-L89' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java' start='DOCSTART 1' end='DOCEND 1' */}}
 
 [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [State.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java) | ![github](/images/svg/github.svg "github")
 
@@ -243,7 +243,7 @@ interface Commands : CommandData {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt#L82-L86' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' start='DOCSTART 2' end='DOCEND 2' */}}
 {{% tab name="java" %}}
 ```java
 public static class Commands implements CommandData {
@@ -271,7 +271,7 @@ public static class Commands implements CommandData {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java#L82-L103' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java' start='DOCSTART 2' end='DOCEND 2' */}}
 
 [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
 
@@ -307,7 +307,7 @@ override fun verify(tx: LedgerTransaction) {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt#L25-L31' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' start='DOCSTART 3' end='DOCEND 3' */}}
 {{% tab name="java" %}}
 ```java
 @Override
@@ -317,7 +317,7 @@ public void verify(@NotNull LedgerTransaction tx) {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java#L23-L26' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java' start='DOCSTART 3' end='DOCEND 3' */}}
 
 [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
 
@@ -494,7 +494,7 @@ for ((inputs, outputs, _) in groups) {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt#L35-L77' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' start='DOCSTART 4' end='DOCEND 4' */}}
 {{% tab name="java" %}}
 ```java
 TimeWindow timeWindow = tx.getTimeWindow();
@@ -548,7 +548,7 @@ for (InOutGroup<State, State> group : groups) {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java#L30-L77' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java' start='DOCSTART 4' end='DOCEND 4' */}}
 
 [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
 
@@ -677,7 +677,7 @@ fun generateIssue(issuance: PartyAndReference, faceValue: Amount<Issued<Currency
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt#L90-L95' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' start='DOCSTART 5' end='DOCEND 5' */}}
 
 [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
 
@@ -712,14 +712,14 @@ companion object {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt#L19-L21' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' start='DOCSTART 8' end='DOCEND 8' */}}
 {{% tab name="java" %}}
 ```java
 public static final String IOU_CONTRACT_ID = "com.example.contract.IOUContract";
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java#L19-L19' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java' start='DOCSTART 1' end='DOCEND 1' */}}
 
 [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
 
@@ -759,7 +759,7 @@ fun generateMove(tx: TransactionBuilder, paper: StateAndRef<State>, newOwner: Ab
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt#L99-L104' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' start='DOCSTART 6' end='DOCEND 6' */}}
 
 [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
 
@@ -799,7 +799,7 @@ fun generateRedeem(tx: TransactionBuilder, paper: StateAndRef<State>, services: 
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt#L108-L120' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt' start='DOCSTART 7' end='DOCEND 7' */}}
 
 [TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
 

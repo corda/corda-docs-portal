@@ -64,7 +64,7 @@ Just define a new flow that wraps the SendTransactionFlow/ReceiveTransactionFlow
 
 ```
 {{% /tab %}}
-
+{{/* github src='samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt' url='https://github.com/corda/enterprise/blob/release/4.1/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt#L64-L97' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt' start='DOCSTART 1' end='DOCEND 1' */}}
 
 [AutoOfferFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt) | ![github](/images/svg/github.svg "github")
 

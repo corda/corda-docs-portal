@@ -113,7 +113,7 @@ class IOUFlow(val iouValue: Int,
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlow.kt' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlow.kt#L14-L52' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlow.kt' start='DOCSTART 01' end='DOCEND 01' */}}
 {{% tab name="java" %}}
 ```java
 // Add these imports:
@@ -177,7 +177,7 @@ public class IOUFlow extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java#L9-L66' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java' start='DOCSTART 01' end='DOCEND 01' */}}
 
 [IOUFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java) | ![github](/images/svg/github.svg "github")
 
@@ -313,7 +313,7 @@ class IOUFlowResponder(private val otherPartySession: FlowSession) : FlowLogic<U
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlowResponder.kt' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlowResponder.kt#L12-L19' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlowResponder.kt' start='DOCSTART 01' end='DOCEND 01' */}}
 {{% tab name="java" %}}
 ```java
 // Replace Responder's definition with:
@@ -336,7 +336,7 @@ public class IOUFlowResponder extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlowResponder.java' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlowResponder.java#L8-L24' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlowResponder.java' start='DOCSTART 01' end='DOCEND 01' */}}
 
 [IOUFlowResponder.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlowResponder.java) | ![github](/images/svg/github.svg "github")
 

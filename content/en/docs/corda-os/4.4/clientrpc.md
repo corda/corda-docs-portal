@@ -77,7 +77,7 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt' url='https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt#L6-L30' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt' start='START 1' end='END 1' */}}
 {{% tab name="java" %}}
 ```java
 import net.corda.client.rpc.CordaRPCClient;
@@ -110,7 +110,7 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java' url='https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java#L4-L30' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java' start='START 1' end='END 1' */}}
 
 [ClientRpcExample.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java) | ![github](/images/svg/github.svg "github")
 

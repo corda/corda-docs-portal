@@ -55,7 +55,7 @@ query soft locks associated with states as required by their CorDapp application
     fun softLockRelease(lockId: UUID, stateRefs: NonEmptySet<StateRef>? = null)
 
 ```
-[VaultService.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/node/services/VaultService.kt' url='https://github.com/corda/enterprise/blob/release-4.0/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt#L327-L348' raw='https://raw.githubusercontent.com/corda/enterprise/release-4.0/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt' start='DOCSTART SoftLockAPI' end='DOCEND SoftLockAPI' */}}[VaultService.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 
 ## Query
 
@@ -75,7 +75,7 @@ Custom filterable criteria can be specified using the `SoftLockingCondition` att
     }
 
 ```
-[QueryCriteria.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt' url='https://github.com/corda/enterprise/blob/release-4.0/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt#L65-L74' raw='https://raw.githubusercontent.com/corda/enterprise/release-4.0/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt' start='DOCSTART VaultQuerySoftLockingCriteria' end='DOCEND VaultQuerySoftLockingCriteria' */}}[QueryCriteria.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 
 ## Explicit Usage
 

@@ -157,7 +157,7 @@ wsrep_sst_auth={{ sst_user }}:{{ sst_pass }}
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/running-a-notary-cluster/resources/wsrep.cnf' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/running-a-notary-cluster/resources/wsrep.cnf' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/running-a-notary-cluster/resources/wsrep.cnf' start='' end='' */}}
 
 [wsrep.cnf](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/running-a-notary-cluster/resources/wsrep.cnf) | ![github](/images/svg/github.svg "github")
 

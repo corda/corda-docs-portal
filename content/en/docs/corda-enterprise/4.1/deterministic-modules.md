@@ -103,7 +103,7 @@ annotations to elements of `core` and `serialization` as described [here](#deter
 > }
 > 
 > ```
-> [build.gradle](https://github.com/corda/enterprise/blob/release/ent/4.1/core-deterministic/build.gradle)
+> {{/* github src='core-deterministic/build.gradle' url='https://github.com/corda/enterprise/blob/release/4.1/core-deterministic/build.gradle#L152-L168' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/core-deterministic/build.gradle' start='DOCSTART 01' end='DOCEND 01' */}}[build.gradle](https://github.com/corda/enterprise/blob/release/ent/4.1/core-deterministic/build.gradle)
 > 
 > This step will fail if ProGuard spots any Java API references that still cannot be satisfied by the deterministic
 > `rt.jar`, and hence it will break the build.
@@ -244,7 +244,7 @@ Classes that *must* be included in the deterministic JAR should be annotated as 
 annotation class KeepForDJVM
 
 ```
-[KeepForDJVM.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/KeepForDJVM.kt' url='https://github.com/corda/enterprise/blob/release/4.1/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt#L14-L17' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt' start='DOCSTART 01' end='DOCEND 01' */}}[KeepForDJVM.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt)
 
 To preserve any Kotlin functions, properties or type aliases that have been declared outside of a `class`,
 you should annotate the source file’s `package` declaration instead:```kotlin
@@ -273,7 +273,7 @@ Elements that *must* be deleted from classes in the deterministic JAR should be 
 annotation class DeleteForDJVM
 
 ```
-[DeleteForDJVM.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt' url='https://github.com/corda/enterprise/blob/release/4.1/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt#L10-L23' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt' start='DOCSTART 01' end='DOCEND 01' */}}[DeleteForDJVM.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt)
 
 You must also ensure that a deterministic class’s primary constructor does not reference any classes that are
 not available in the deterministic `rt.jar`. The biggest risk here would be that `JarFilter` would delete the
@@ -324,7 +324,7 @@ annotation:```kotlin
 annotation class StubOutForDJVM
 
 ```
-[StubOutForDJVM.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt' url='https://github.com/corda/enterprise/blob/release/4.1/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt#L13-L21' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt' start='DOCSTART 01' end='DOCEND 01' */}}[StubOutForDJVM.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt)
 
 This annotation instructs `JarFilter` to replace the function’s body with either an empty body (for functions
 that return `void` or `Unit`) or one that throws `UnsupportedOperationException`. For example:```kotlin

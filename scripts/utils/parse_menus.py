@@ -1,21 +1,10 @@
 #!/usr/bin/env python3
 
+import argparse
 import logging
 import os
-import shutil
-import sys
 import re
-import argparse
 from pathlib import Path
-import json
-import toml
-import yaml
-import hashlib
-
-from sphinx.cmd.build import main as sphinx_main
-import xml.etree.ElementTree as ET
-from xml.etree.ElementTree import ParseError
-from distutils.dir_util import copy_tree
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 ROOT = os.path.dirname(os.path.dirname(THIS_DIR))
@@ -31,15 +20,19 @@ class Directive:
     def __init__(self):
         self.args = {}
         self.name = None
+        self.value = None
         self.inner = []
 
     def parse(self, line):
         # The opening directive
         if line.strip().startswith(".."):
-            self.name = line.replace("..", "").replace("::", "").strip()
+            parts = line.split("::")
+            self.name = parts[0].replace("..", "").strip()
+            if len(parts) > 1:
+                self.value = parts[1].strip()
             return
 
-        # A paremeter
+        # A parameter
         if line.strip().startswith(":"):
             matches = re.match(r":(.*):\s+(.*)", line.strip())
             if matches:
@@ -79,13 +72,20 @@ def parse_indexes():
     return all_menus, all_files
 
 
+def repo_and_version(filename):
+    dirs = str(filename).split("/")
+    while dirs[0] != "docs":
+        dirs.pop(0)
+
+    return dirs[1], dirs[2]
+
+
 def version(filename):
     dirs = str(filename).split("/")
     #  locate 'docs'
     while dirs[0] != "docs":
         dirs.pop(0)
 
-    # TOML/YAML doesn't like '.' in the string, and this string will be used in TOML/YAML
     return dirs[1] + os.sep + dirs[2]
 
 
@@ -100,7 +100,6 @@ def parse_index(file):
     """
     directives = parse_rst(file)
     ver = version_for_config(file)
-    print(ver, version(file))
     menus = []
     files = {}
 
@@ -166,7 +165,7 @@ def parse_rst(index_file):
 
     directive = None
     for line in lines:
-        if line.startswith(".."):
+        if line.lstrip().startswith(".."):
             if directive:
                 directives.append(directive)  # append previous one to list
             directive = Directive()  # create new

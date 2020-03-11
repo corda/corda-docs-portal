@@ -35,7 +35,7 @@ pygmentsStyle = "emacs"
 enableGitInfo = true
 
 # https://gohugo.io/templates/internal/#google-analytics
-# googleAnalytics = "UA-123-45"
+googleAnalytics = "UA-123-45"
 
 # https://gohugo.io/getting-started/configuration-markup#highlight
 [markup]
@@ -62,17 +62,17 @@ description  = "Documentation for Corda, by R3"
 languageName = "English"
 # Weight used for sorting.
 weight = 10
-
-[languages.fr]
-contentDir = "content/fr"
-languageName = "Français"
-weight = 20
-language_alternatives = ["en"]
-
-[languages.de]
-languageName = "Deutsche"
-weight = 30
-language_alternatives = ["en"]
+#
+#[languages.fr]
+#contentDir = "content/fr"
+#languageName = "Français"
+#weight = 20
+#language_alternatives = ["en"]
+#
+#[languages.de]
+#languageName = "Deutsche"
+#weight = 30
+#language_alternatives = ["en"]
 
 
 [params]

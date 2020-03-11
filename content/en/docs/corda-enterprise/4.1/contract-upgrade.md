@@ -66,7 +66,7 @@ class Authorise(
 ) : FlowLogic<Void?>() {
 
 ```
-[ContractUpgradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt' url='https://github.com/corda/enterprise/blob/release/4.1/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt#L30-L34' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt' start='DOCSTART 1' end='DOCEND 1' */}}[ContractUpgradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
 ```kotlin
 @StartableByRPC
 class Deauthorise(val stateRef: StateRef) : FlowLogic<Void?>() {
@@ -74,7 +74,7 @@ class Deauthorise(val stateRef: StateRef) : FlowLogic<Void?>() {
     override fun call(): Void? {
 
 ```
-[ContractUpgradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt' url='https://github.com/corda/enterprise/blob/release/4.1/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt#L52-L55' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt' start='DOCSTART 2' end='DOCEND 2' */}}[ContractUpgradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
 
 ## Proposing an upgrade
 
@@ -125,7 +125,7 @@ class DummyContractV2 : UpgradedContractWithLegacyConstraint<DummyContract.State
 }
 
 ```
-[DummyContractV2.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/testing/test-utils/src/main/kotlin/net/corda/testing/contracts/DummyContractV2.kt)
+{{/* github src='kotlin/net/corda/testing/contracts/DummyContractV2.kt' url='https://github.com/corda/enterprise/blob/release/4.1/kotlin/net/corda/testing/contracts/DummyContractV2.kt' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/kotlin/net/corda/testing/contracts/DummyContractV2.kt' start='DOCSTART 1' end='DOCEND 1' */}}[DummyContractV2.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/testing/test-utils/src/main/kotlin/net/corda/testing/contracts/DummyContractV2.kt)
 
 * Bank A instructs its node to accept the contract upgrade to `DummyContractV2` for the contract state.
 

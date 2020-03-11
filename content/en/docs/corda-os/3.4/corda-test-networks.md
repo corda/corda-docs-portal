@@ -69,7 +69,7 @@ rpcUsers : [
 devMode : true
 
 ```
-[example-node.conf](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/resources/example-node.conf)
+{{/* github src='docs/source/example-code/src/main/resources/example-node.conf' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/resources/example-node.conf' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/resources/example-node.conf' start='' end='' */}}[example-node.conf](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/resources/example-node.conf)
 The most important fields regarding network configuration are:
 
 

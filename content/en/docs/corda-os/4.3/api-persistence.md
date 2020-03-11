@@ -60,7 +60,7 @@ interface QueryableState : ContractState {
 }
 
 ```
-[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt' url='https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt#L16-L31' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt' start='DOCSTART QueryableState' end='DOCEND QueryableState' */}}[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
 The `QueryableState` interface requires the state to enumerate the different relational schemas it supports, for
 instance in situations where the schema has evolved. Each relational schema is represented as a `MappedSchema`
 object returned by the state’s `supportedSchemas` method.
@@ -98,7 +98,7 @@ interface SchemaService {
 }
 
 ```
-[SchemaService.kt](https://github.com/corda/corda/blob/release/os/4.3/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
+{{/* github src='node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt' url='https://github.com/corda/corda/blob/release/os/4.3/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt#L8-L33' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt' start='DOCSTART SchemaService' end='DOCEND SchemaService' */}}[SchemaService.kt](https://github.com/corda/corda/blob/release/os/4.3/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
 ```kotlin
 /**
  * A database schema that might be configured for this node.  As well as a name and version for identifying the schema,
@@ -143,7 +143,7 @@ open class MappedSchema(schemaFamily: Class<*>,
 }
 
 ```
-[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt' url='https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt#L35-L75' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt' start='DOCSTART MappedSchema' end='DOCEND MappedSchema' */}}[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
 With this framework, the relational view of ledger states can evolve in a controlled fashion in lock-step with internal systems or other
 integration points and is not dependant on changes to the contract code.
 
@@ -260,7 +260,7 @@ object CashSchemaV1 : MappedSchema(schemaFamily = CashSchema.javaClass, version 
 
 ```
 {{% /tab %}}
-
+{{/* github src='finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt' url='https://github.com/corda/corda/blob/release/os/4.3/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt' start='' end='' */}}
 
 [CashSchemaV1.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt) | ![github](/images/svg/github.svg "github")
 
@@ -515,7 +515,7 @@ Use the `ServiceHub` `jdbcSession` function to obtain a JDBC connection as illus
             val rs = prepStatement.executeQuery()
 
 ```
-[HibernateConfigurationTest.kt](https://github.com/corda/corda/blob/release/os/4.3/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
+{{/* github src='node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt' url='https://github.com/corda/corda/blob/release/os/4.3/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt#L946-L951' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt' start='DOCSTART JdbcSession' end='DOCEND JdbcSession' */}}[HibernateConfigurationTest.kt](https://github.com/corda/corda/blob/release/os/4.3/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
 JDBC sessions can be used in flows and services (see “[Writing flows](flow-state-machines.md)”).
 
 The following example illustrates the creation of a custom Corda service using a `jdbcSession`:
@@ -566,7 +566,7 @@ object CustomVaultQuery {
 }
 
 ```
-[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt' url='https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt#L22-L64' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt' start='DOCSTART CustomVaultQuery' end='DOCEND CustomVaultQuery' */}}[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 which is then referenced within a custom flow:
 
 ```kotlin
@@ -594,7 +594,7 @@ which is then referenced within a custom flow:
         }
 
 ```
-[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt' url='https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt#L105-L126' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt' start='DOCSTART TopupIssuer' end='DOCEND TopupIssuer' */}}[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md).
 
 

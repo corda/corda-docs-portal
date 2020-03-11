@@ -81,7 +81,7 @@ revocationConfig : {
 }
 useProxyForCrls = true
 ```
-[firewalldefault_latest.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/bridge/src/main/resources/firewalldefault_latest.conf)
+{{/* github src='bridge/src/main/resources/firewalldefault_latest.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.2/bridge/src/main/resources/firewalldefault_latest.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/bridge/src/main/resources/firewalldefault_latest.conf' start='' end='' */}}[firewalldefault_latest.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/bridge/src/main/resources/firewalldefault_latest.conf)
 
 ## Firewall operating modes
 

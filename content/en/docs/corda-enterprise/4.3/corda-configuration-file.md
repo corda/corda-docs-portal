@@ -433,7 +433,7 @@ useTestClock = false
 verifierType = InMemory
 
 ```
-[reference.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/node/src/main/resources/reference.conf)
+{{/* github src='node/src/main/resources/reference.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.3/node/src/main/resources/reference.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/node/src/main/resources/reference.conf' start='' end='' */}}[reference.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/node/src/main/resources/reference.conf)
 
 ## Configuration examples
 
@@ -463,7 +463,7 @@ rpcUsers = [
 devMode = true
 
 ```
-[example-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/resources/example-node.conf)
+{{/* github src='docs/source/example-code/src/main/resources/example-node.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/resources/example-node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/resources/example-node.conf' start='' end='' */}}[example-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/resources/example-node.conf)
 ```none
 myLegalName = "O=Notary Service,OU=corda,L=London,C=GB"
 keyStorePassword = "cordacadevpass"
@@ -522,7 +522,7 @@ networkServices {
 }
 
 ```
-[example-node-with-networkservices.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
+{{/* github src='docs/source/example-code/src/main/resources/example-node-with-networkservices.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf' start='' end='' */}}[example-node-with-networkservices.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
 
 
 ## Generating a public key hash

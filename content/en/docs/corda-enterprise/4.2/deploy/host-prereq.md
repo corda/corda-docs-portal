@@ -268,4 +268,4 @@ Oracle RDBMS
 },
 
 ```
-[node.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/node.md)
+{{/* github src='docs/source/resources/node.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/node.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/node.md' start='' end='' */}}[node.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/node.md)

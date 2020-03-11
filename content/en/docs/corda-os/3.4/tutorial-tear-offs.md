@@ -33,7 +33,7 @@ val filtering = Predicate<Any> {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt#L20-L25' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' start='DOCSTART 1' end='DOCEND 1' */}}
 
 [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
@@ -48,7 +48,7 @@ val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt#L29-L29' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' start='DOCSTART 2' end='DOCEND 2' */}}
 
 [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
@@ -72,7 +72,7 @@ val timeWindow: TimeWindow? = ftx.timeWindow
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt#L33-L37' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' start='DOCSTART 3' end='DOCEND 3' */}}
 
 [TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
@@ -113,7 +113,7 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 }
 
 ```
-[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/3.4/samples/irs-demo/cordapp/src/main/kotlin/net/corda/irs/api/NodeInterestRates.kt)
+{{/* github src='samples/irs-demo/cordapp/src/main/kotlin/net/corda/irs/api/NodeInterestRates.kt' url='https://github.com/corda/corda/blob/release-V3/samples/irs-demo/cordapp/src/main/kotlin/net/corda/irs/api/NodeInterestRates.kt#L126-L155' raw='https://raw.githubusercontent.com/corda/corda/release-V3/samples/irs-demo/cordapp/src/main/kotlin/net/corda/irs/api/NodeInterestRates.kt' start='DOCSTART 1' end='DOCEND 1' */}}[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/3.4/samples/irs-demo/cordapp/src/main/kotlin/net/corda/irs/api/NodeInterestRates.kt)
 {{< note >}}
 `FilteredTransaction` is constructed ensures that after signing of the root hash it’s impossible to add or removecomponents (leaves). However, it can happen that having transaction with multiple commands one party reveals only subset of them to the Oracle.
 As signing is done now over the Merkle root hash, the service signs all commands of given type, even though it didn’t see

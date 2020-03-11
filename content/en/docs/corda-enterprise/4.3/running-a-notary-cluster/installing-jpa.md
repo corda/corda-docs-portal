@@ -90,7 +90,7 @@ notary {
 }
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/running-a-notary-cluster/resources/dbm.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/dbm.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/running-a-notary-cluster/resources/dbm.conf' start='' end='' */}}
 
 [dbm.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/running-a-notary-cluster/resources/dbm.conf) | ![github](/images/svg/github.svg "github")
 

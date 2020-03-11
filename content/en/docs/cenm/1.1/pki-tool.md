@@ -218,7 +218,7 @@ certificates = {
     "::CORDA_NETWORK_MAP"
 }
 ```
-[pki-tool-template-basic.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-basic.conf)
+{{/* github src='pki-tool/src/test/resources/configs/pki-tool-template-basic.conf' url='https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-basic.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-basic.conf' start='' end='' */}}[pki-tool-template-basic.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-basic.conf)
 {{< note >}}
 This is the same configuration that is used as the default when no configuration file is passed to the PKI Tool. It
 represents the minimal configuration required to create a Corda network certificate hierarchy. It is mainly intended
@@ -293,7 +293,7 @@ certificates = {
     "::CORDA_NETWORK_MAP"
 }
 ```
-[pki-tool-template-custom.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-custom.conf)
+{{/* github src='pki-tool/src/test/resources/configs/pki-tool-template-custom.conf' url='https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-custom.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-custom.conf' start='' end='' */}}[pki-tool-template-custom.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-template-custom.conf)
 
 ##### Free-form Certificates
 
@@ -630,7 +630,7 @@ certificates = {
     }
 }
 ```
-[pki-tool-local-full.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local-full.conf)
+{{/* github src='pki-tool/src/test/resources/configs/pki-tool-local-full.conf' url='https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local-full.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local-full.conf' start='' end='' */}}[pki-tool-local-full.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local-full.conf)
 
 #### Local Configuration
 
@@ -725,7 +725,7 @@ certificates = {
     }
 }
 ```
-[pki-tool-local.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local.conf)
+{{/* github src='pki-tool/src/test/resources/configs/pki-tool-local.conf' url='https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local.conf' start='' end='' */}}[pki-tool-local.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-local.conf)
 
 #### Utimaco HSM Configuration
 
@@ -803,7 +803,7 @@ certificates = {
     }
 }
 ```
-[pki-tool-utimaco-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-utimaco-hsm.conf)
+{{/* github src='pki-tool/src/test/resources/configs/pki-tool-utimaco-hsm.conf' url='https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-utimaco-hsm.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/pki-tool/src/test/resources/configs/pki-tool-utimaco-hsm.conf' start='' end='' */}}[pki-tool-utimaco-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-utimaco-hsm.conf)
 
 #### Gemalto HSM Configuration
 
@@ -879,7 +879,7 @@ certificates = {
     }
 }
 ```
-[pki-tool-gemalto-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-gemalto-hsm.conf)
+{{/* github src='pki-tool/src/test/resources/configs/pki-tool-gemalto-hsm.conf' url='https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-gemalto-hsm.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/pki-tool/src/test/resources/configs/pki-tool-gemalto-hsm.conf' start='' end='' */}}[pki-tool-gemalto-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-gemalto-hsm.conf)
 
 #### Securosys HSM Configuration
 
@@ -956,7 +956,7 @@ certificates = {
     }
 }
 ```
-[pki-tool-securosys-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-securosys-hsm.conf)
+{{/* github src='pki-tool/src/test/resources/configs/pki-tool-securosys-hsm.conf' url='https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-securosys-hsm.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/pki-tool/src/test/resources/configs/pki-tool-securosys-hsm.conf' start='' end='' */}}[pki-tool-securosys-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-securosys-hsm.conf)
 
 #### Azure Key Vault HSM Configuration
 
@@ -1037,4 +1037,4 @@ certificates = {
     }
 }
 ```
-[pki-tool-azure-key-vault-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-azure-key-vault-hsm.conf)
+{{/* github src='pki-tool/src/test/resources/configs/pki-tool-azure-key-vault-hsm.conf' url='https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-azure-key-vault-hsm.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/pki-tool/src/test/resources/configs/pki-tool-azure-key-vault-hsm.conf' start='' end='' */}}[pki-tool-azure-key-vault-hsm.conf](https://github.com/corda/network-services/blob/release/1.1/pki-tool/src/test/resources/configs/pki-tool-azure-key-vault-hsm.conf)

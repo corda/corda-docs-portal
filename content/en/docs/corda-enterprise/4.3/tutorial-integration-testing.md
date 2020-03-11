@@ -52,7 +52,7 @@ driver(DriverParameters(startNodesInProcess = true, cordappsForAllNodes = FINANC
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt#L42-L56' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' start='START 1' end='END 1' */}}
 {{% tab name="java" %}}
 ```java
 driver(new DriverParameters()
@@ -80,7 +80,7 @@ driver(new DriverParameters()
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java#L47-L68' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' start='START 1' end='END 1' */}}
 
 [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
 
@@ -114,7 +114,7 @@ val bobProxy: CordaRPCOps = bobClient.start("bobUser", "testPassword2").proxy
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt#L60-L64' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' start='START 2' end='END 2' */}}
 {{% tab name="java" %}}
 ```java
 CordaRPCClient aliceClient = new CordaRPCClient(alice.getRpcAddress());
@@ -125,7 +125,7 @@ CordaRPCOps bobProxy = bobClient.start("bobUser", "testPassword2").getProxy();
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java#L72-L76' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' start='START 2' end='END 2' */}}
 
 [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
 
@@ -142,7 +142,7 @@ val aliceVaultUpdates: Observable<Vault.Update<Cash.State>> = aliceProxy.vaultTr
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt#L68-L69' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' start='START 3' end='END 3' */}}
 {{% tab name="java" %}}
 ```java
 Observable<Vault.Update<Cash.State>> bobVaultUpdates = bobProxy.vaultTrack(Cash.State.class).getUpdates();
@@ -150,7 +150,7 @@ Observable<Vault.Update<Cash.State>> aliceVaultUpdates = aliceProxy.vaultTrack(C
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java#L80-L81' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' start='START 3' end='END 3' */}}
 
 [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
 
@@ -182,7 +182,7 @@ bobVaultUpdates.expectEvents {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt#L73-L88' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' start='START 4' end='END 4' */}}
 {{% tab name="java" %}}
 ```java
 OpaqueBytes issueRef = OpaqueBytes.of((byte)0);
@@ -209,7 +209,7 @@ expectEvents(bobVaultUpdates, true, () ->
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java#L85-L105' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' start='START 4' end='END 4' */}}
 
 [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
 
@@ -238,7 +238,7 @@ aliceVaultUpdates.expectEvents {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt#L92-L100' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt' start='START 5' end='END 5' */}}
 {{% tab name="java" %}}
 ```java
 bobProxy.startFlowDynamic(
@@ -258,7 +258,7 @@ expectEvents(aliceVaultUpdates, true, () ->
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java#L109-L122' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java' start='START 5' end='END 5' */}}
 
 [KotlinIntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
 

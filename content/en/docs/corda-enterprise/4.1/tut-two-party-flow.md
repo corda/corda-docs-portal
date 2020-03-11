@@ -46,7 +46,7 @@ import net.corda.core.utilities.ProgressTracker
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt#L6-L15' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt' start='DOCSTART 01' end='DOCEND 01' */}}
 {{% tab name="java" %}}
 ```java
 import co.paralleluniverse.fibers.Suspendable;
@@ -63,7 +63,7 @@ import java.util.List;
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java#L4-L14' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' start='DOCSTART 01' end='DOCEND 01' */}}
 
 [IOUFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
 
@@ -103,7 +103,7 @@ subFlow(FinalityFlow(fullySignedTx, otherPartySession))
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt#L30-L55' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt' start='DOCSTART 02' end='DOCEND 02' */}}
 {{% tab name="java" %}}
 ```java
 // We retrieve the notary identity from the network map.
@@ -139,7 +139,7 @@ return null;
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java#L45-L74' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' start='DOCSTART 02' end='DOCEND 02' */}}
 
 [IOUFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
 
@@ -204,7 +204,7 @@ override fun call() {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlowResponder.kt' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlowResponder.kt#L18-L32' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlowResponder.kt' start='DOCSTART 1' end='DOCEND 1' */}}
 {{% tab name="java" %}}
 ```java
 @Suspendable
@@ -236,7 +236,7 @@ public Void call() throws FlowException {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java' url='https://github.com/corda/enterprise/blob/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java#L22-L47' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java' start='DOCSTART 1' end='DOCEND 1' */}}
 
 [IOUFlowResponder.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUFlowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java) | ![github](/images/svg/github.svg "github")
 

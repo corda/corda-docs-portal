@@ -49,7 +49,7 @@ remoteSystemdServiceName = "corda"
 rpcUser = {username = corda, password = not_blockchain, permissions = ["ALL"]}
 
 ```
-[loadtest-reference.conf](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/resources/loadtest-reference.conf)
+{{/* github src='tools/loadtest/src/main/resources/loadtest-reference.conf' url='https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/resources/loadtest-reference.conf' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/tools/loadtest/src/main/resources/loadtest-reference.conf' start='' end='' */}}[loadtest-reference.conf](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/resources/loadtest-reference.conf)
 
 ## Running the load tests
 
@@ -96,7 +96,7 @@ There are a couple of top-level knobs to tweak test behaviour:
     )
 
 ```
-[LoadTest.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt)
+{{/* github src='tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt' url='https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt#L49-L67' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt' start='DOCS START 2' end='DOCS END 2' */}}[LoadTest.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt)
 The one thing of note is `disruptionPatterns`, which may be used to specify ways of disrupting the normal running of the load tests.
 
 ```kotlin
@@ -112,7 +112,7 @@ data class DisruptionSpec(
 )
 
 ```
-[Disruption.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt)
+{{/* github src='tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt' url='https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt#L16-L25' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt' start='DOCS START 1' end='DOCS END 1' */}}[Disruption.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt)
 Disruptions run concurrently in loops on randomly chosen nodes filtered by `nodeFilter` at somewhat random intervals.
 
 As an example take `strainCpu` which overutilises the processor:
@@ -124,7 +124,7 @@ fun strainCpu(parallelism: Int, durationSeconds: Int) = Disruption("Put strain o
 }
 
 ```
-[Disruption.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt)
+{{/* github src='tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt' url='https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt#L70-L73' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt' start='DOCS START 2' end='DOCS END 2' */}}[Disruption.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Disruption.kt)
 We can use this by specifying a `DisruptionSpec` in the load test’s `RunParameters`:
 
 ```kotlin
@@ -135,7 +135,7 @@ We can use this by specifying a `DisruptionSpec` in the load test’s `RunParame
       )
 
 ```
-[Main.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Main.kt)
+{{/* github src='tools/loadtest/src/main/kotlin/net/corda/loadtest/Main.kt' url='https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Main.kt#L96-L100' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Main.kt' start='DOCS START 1' end='DOCS END 1' */}}[Main.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/Main.kt)
 This means every 5-10 seconds at least one randomly chosen nodes’ cores will be spinning 100% for 10 seconds.
 
 
@@ -154,7 +154,7 @@ data class LoadTest<T, S>(
 ) {
 
 ```
-[LoadTest.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt)
+{{/* github src='tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt' url='https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt#L38-L45' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt' start='DOCS START 1' end='DOCS END 1' */}}[LoadTest.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt)
 `LoadTest` is parameterised over `T`, the unit of work, and `S`, the state type that aims to track remote node states. As an example let’s look at the Self Issue test. This test simply creates Cash Issues from nodes to themselves, and then checks the vault to see if the numbers add up:
 
 ```kotlin
@@ -174,7 +174,7 @@ data class SelfIssueState(
 val selfIssueTest = LoadTest<SelfIssueCommand, SelfIssueState>(
 
 ```
-[SelfIssueTest.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/tests/SelfIssueTest.kt)
+{{/* github src='tools/loadtest/src/main/kotlin/net/corda/loadtest/tests/SelfIssueTest.kt' url='https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/tests/SelfIssueTest.kt#L22-L35' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/tests/SelfIssueTest.kt' start='DOCS START 1' end='DOCS END 1' */}}[SelfIssueTest.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/tests/SelfIssueTest.kt)
 The unit of work `SelfIssueCommand` simply holds an Issue and a handle to a node where the issue should be submitted. The `generate` method should provide a generator for these.
 
 The state `SelfIssueState` then holds a map from node identities to a Long that describes the sum quantity of the generated issues (we fixed the currency to be USD).
@@ -191,7 +191,7 @@ The `gatherRemoteState` function should check the actual remote nodes’ states 
         val gatherRemoteState: Nodes.(S?) -> S,
 
 ```
-[LoadTest.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt)
+{{/* github src='tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt' url='https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt#L205-L203' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt' start='val execute' end='val isConsistent' */}}[LoadTest.kt](https://github.com/corda/corda/blob/release/os/4.3/tools/loadtest/src/main/kotlin/net/corda/loadtest/LoadTest.kt)
 `gatherRemoteState` gets as input handles to all the nodes, and the current predicted state, or null if this is the initial gathering.
 
 The reason it gets the previous state boils down to allowing non-deterministic predictions about the nodes’ remote states. Say some piece of work triggers an asynchronous notification of a node. We need to account both for the case when the node hasn’t received the notification and for the case when it has. In these cases `S` should somehow represent a collection of possible states, and `gatherRemoteState` should “collapse” the collection based on the observations it makes. Of course we don’t need this for the simple case of the Self Issue test.

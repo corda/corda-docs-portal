@@ -73,7 +73,7 @@ p2pConfirmationWindowSize = 1048576
 crlCheckSoftFail = true
 silencedIPs = []
 ```
-[bridgedefault.conf](https://github.com/corda/enterprise/blob/release/ent/3.3/bridge/src/main/resources/bridgedefault.conf)
+{{/* github src='bridge/src/main/resources/bridgedefault.conf' url='https://github.com/corda/enterprise/blob/release/release-V3/bridge/src/main/resources/bridgedefault.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/bridge/src/main/resources/bridgedefault.conf' start='' end='' */}}[bridgedefault.conf](https://github.com/corda/enterprise/blob/release/ent/3.3/bridge/src/main/resources/bridgedefault.conf)
 
 ## Bridge operating modes
 

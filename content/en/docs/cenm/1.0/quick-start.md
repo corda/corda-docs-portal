@@ -88,7 +88,7 @@ certificates = {
     }
 }
 ```
-[certificate-hierarchy-generator-local-minimal.conf](https://github.com/corda/network-services/blob/release/1.0/utilities/src/test/resources/certificate-hierarchy-generator-local-minimal.conf)
+{{/* github src='utilities/src/test/resources/certificate-hierarchy-generator-local-minimal.conf' url='https://github.com/corda/network-services/blob/release/1.0/utilities/src/test/resources/certificate-hierarchy-generator-local-minimal.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.0/utilities/src/test/resources/certificate-hierarchy-generator-local-minimal.conf' start='' end='' */}}[certificate-hierarchy-generator-local-minimal.conf](https://github.com/corda/network-services/blob/release/1.0/utilities/src/test/resources/certificate-hierarchy-generator-local-minimal.conf)
 
 #### Running The Tool
 
@@ -165,7 +165,7 @@ shell {
 }
 
 ```
-[doorman-simple.conf](https://github.com/corda/network-services/blob/release/1.0/network-management/src/test/resources/v0.3-configs/doorman-simple.conf)
+{{/* github src='network-management/src/test/resources/v0.3-configs/doorman-simple.conf' url='https://github.com/corda/network-services/blob/release/1.0/network-management/src/test/resources/v0.3-configs/doorman-simple.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.0/network-management/src/test/resources/v0.3-configs/doorman-simple.conf' start='' end='' */}}[doorman-simple.conf](https://github.com/corda/network-services/blob/release/1.0/network-management/src/test/resources/v0.3-configs/doorman-simple.conf)
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
 `dataSourceProperties` section. See the “Database properties” section of doorman for more information,
@@ -321,7 +321,7 @@ shell {
 }
 
 ```
-[network-map-simple.conf](https://github.com/corda/network-services/blob/release/1.0/network-management/src/test/resources/v0.3-configs/network-map-simple.conf)
+{{/* github src='network-management/src/test/resources/v0.3-configs/network-map-simple.conf' url='https://github.com/corda/network-services/blob/release/1.0/network-management/src/test/resources/v0.3-configs/network-map-simple.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.0/network-management/src/test/resources/v0.3-configs/network-map-simple.conf' start='' end='' */}}[network-map-simple.conf](https://github.com/corda/network-services/blob/release/1.0/network-management/src/test/resources/v0.3-configs/network-map-simple.conf)
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
 `dataSourceProperties` section. See the “Database properties” section of [Network Map Service](network-map.md) for more information,

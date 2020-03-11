@@ -416,7 +416,7 @@ class GetStringConfigFlow(private val configKey: String) : FlowLogic<String>() {
 }
 
 ```
-[GetStringConfigFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/samples/cordapp-configuration/workflows/src/main/kotlin/net/corda/configsample/GetStringConfigFlow.kt)
+{{/* github src='samples/cordapp-configuration/workflows/src/main/kotlin/net/corda/configsample/GetStringConfigFlow.kt' url='https://github.com/corda/corda/blob/release/4.0/samples/cordapp-configuration/workflows/src/main/kotlin/net/corda/configsample/GetStringConfigFlow.kt#L15-L26' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/samples/cordapp-configuration/workflows/src/main/kotlin/net/corda/configsample/GetStringConfigFlow.kt' start='DOCSTART 1' end='DOCEND 1' */}}[GetStringConfigFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/samples/cordapp-configuration/workflows/src/main/kotlin/net/corda/configsample/GetStringConfigFlow.kt)
 
 ### Using CorDapp configuration with the deployNodes task
 

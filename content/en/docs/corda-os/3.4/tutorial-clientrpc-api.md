@@ -45,7 +45,7 @@ fun main(args: Array<String>) {
         val node = startNode(providedName = ALICE_NAME, rpcUsers = listOf(user)).get()
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt#L38-L54' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' start='START 1' end='END 1' */}}[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 Now we can connect to the node itself using a valid RPC user login and start generating transactions in a different
 thread using `generateTransactions` (to be defined later):
 
@@ -58,7 +58,7 @@ thread {
 }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt#L58-L63' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' start='START 2' end='END 2' */}}[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 `proxy` exposes the full RPC interface of the node:
 
 ```kotlin
@@ -335,7 +335,7 @@ thread {
     fun isFlowsDrainingModeEnabled(): Boolean
 
 ```
-[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/3.4/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+{{/* github src='core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt' url='https://github.com/corda/corda/blob/release-V3/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt#L522-L57' raw='https://raw.githubusercontent.com/corda/corda/release-V3/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt' start='interface CordaRPCOps' end='}' */}}[CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/3.4/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 The RPC operation we need in order to dump the transaction graph is `internalVerifiedTransactionsFeed`. The type
 signature tells us that the RPC operation will return a list of transactions and an `Observable` stream. This is a
 general pattern, we query some data and the node will return the current snapshot and future updates done to it.
@@ -345,7 +345,7 @@ Observables are described in further detail in [Client RPC](clientrpc.md)
 val (transactions: List<SignedTransaction>, futureTransactions: Observable<SignedTransaction>) = proxy.internalVerifiedTransactionsFeed()
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt#L67-L67' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' start='START 3' end='END 3' */}}[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 The graph will be defined as follows:
 
 
@@ -364,7 +364,7 @@ when (printOrVisualise) {
     }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt#L71-L79' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' start='START 4' end='END 4' */}}[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 Now we just need to create the transactions themselves!
 
 ```kotlin
@@ -397,7 +397,7 @@ fun generateTransactions(proxy: CordaRPCOps) {
 }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt#L106-L132' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' start='START 6' end='END 6' */}}[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 We utilise several RPC functions here to query things like the notaries in the node cluster or our own vault. These RPC
 functions also return `Observable` objects so that the node can send us updated values. However, we don’t need updates
 here and so we mark these observables as `notUsed` (as a rule, you should always either subscribe to an `Observable`
@@ -442,7 +442,7 @@ Now let’s try to visualise the transaction graph. We will use a graph drawing 
 }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt#L82-L100' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' start='START 5' end='END 5' */}}[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 If we run the client with `Visualise` we should see a simple random graph being drawn as new transactions are being created.
 
 
@@ -465,7 +465,7 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 }
 
 ```
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' url='https://github.com/corda/corda/blob/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt#L136-L146' raw='https://raw.githubusercontent.com/corda/corda/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' start='START 7' end='END 7' */}}[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/3.4/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 See more on plugins in [Running nodes locally](running-a-node.md).
 
 

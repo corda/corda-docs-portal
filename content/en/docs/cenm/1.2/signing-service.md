@@ -725,8 +725,9 @@ Password for the given CU account.
 must be used.
 * **file**: 
 The location of the local certificate store. This will be created if it does not exist.
-The local certificate store should contain the entire certificate chain from the signing key back to the root,
-because currently `globalCertificateStore` property is not in effect for AWS HSM.
+If the local certificate store should be the same as the global certificate store,
+than this property needs to have the same path as the `globalCertificateStore` property has.
+Note that globalCertificateStore is not in effect for AWS HSM.
 
 
 * **password**: 
@@ -1046,7 +1047,7 @@ signers = {
 }
 
 ```
-[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf)
+{{/* github src='services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf' url='https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf' start='' end='' */}}[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf)
 
 ### Signing Keys From HSM
 
@@ -1275,7 +1276,7 @@ signers = {
 }
 
 ```
-[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)
+{{/* github src='services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf' url='https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf' start='' end='' */}}[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)
 
 ### Singing Keys Form Local Key Store with SMR Service as data source
 
@@ -1383,7 +1384,7 @@ signers = {
 }
 
 ```
-[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf)
+{{/* github src='services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf' url='https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf' start='' end='' */}}[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf)
 
 ## Signable Material Retriever
 
@@ -1584,7 +1585,7 @@ materialManagementTasks = {
 }
 
 ```
-[smr-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/smr/smr-test-valid.conf)
+{{/* github src='services/src/test/resources/v1.2-configs/smr/smr-test-valid.conf' url='https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/smr/smr-test-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/services/src/test/resources/v1.2-configs/smr/smr-test-valid.conf' start='' end='' */}}[smr-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/smr/smr-test-valid.conf)
 
 ### Developing Signing Plugins
 
@@ -1605,7 +1606,7 @@ public interface StartablePlugin {
 }
 
 ```
-[StartablePlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/StartablePlugin.java)
+{{/* github src='smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/StartablePlugin.java' url='https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/StartablePlugin.java#L4' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/StartablePlugin.java' start='DOCSTART 1' end='' */}}[StartablePlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/StartablePlugin.java)
 Each signable material submission plugin method must return its’ status:
 
 ```java
@@ -1617,7 +1618,7 @@ Each signable material submission plugin method must return its’ status:
  */
 public enum SigningStatus {PENDING, COMPLETED}
 ```
-[SigningStatus.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/SigningStatus.java)
+{{/* github src='smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/SigningStatus.java' url='https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/SigningStatus.java#L4' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/SigningStatus.java' start='DOCSTART 1' end='' */}}[SigningStatus.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/SigningStatus.java)
 
 #### CA Signing Plugin
 
@@ -1652,7 +1653,7 @@ public interface CASigningPlugin extends StartablePlugin {
 }
 
 ```
-[CASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/ca/src/main/java/com/r3/enm/smrpluginapi/ca/CASigningPlugin.java)
+{{/* github src='smr-plugin-api/ca/src/main/java/com/r3/enm/smrpluginapi/ca/CASigningPlugin.java' url='https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/ca/src/main/java/com/r3/enm/smrpluginapi/ca/CASigningPlugin.java#L12' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/smr-plugin-api/ca/src/main/java/com/r3/enm/smrpluginapi/ca/CASigningPlugin.java' start='DOCSTART 1' end='' */}}[CASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/ca/src/main/java/com/r3/enm/smrpluginapi/ca/CASigningPlugin.java)
 CSR submission method output:
 
 ```java
@@ -1823,7 +1824,7 @@ public interface NonCASigningPlugin extends StartablePlugin {
 }
 
 ```
-[NonCASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/nonca/src/main/java/com/r3/enm/smrpluginapi/nonca/NonCASigningPlugin.java)
+{{/* github src='smr-plugin-api/nonca/src/main/java/com/r3/enm/smrpluginapi/nonca/NonCASigningPlugin.java' url='https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/nonca/src/main/java/com/r3/enm/smrpluginapi/nonca/NonCASigningPlugin.java#L8' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/smr-plugin-api/nonca/src/main/java/com/r3/enm/smrpluginapi/nonca/NonCASigningPlugin.java' start='DOCSTART 1' end='' */}}[NonCASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/nonca/src/main/java/com/r3/enm/smrpluginapi/nonca/NonCASigningPlugin.java)
 Network Map submission method output:
 
 ```java
@@ -1950,7 +1951,7 @@ enmListener = {
 ```
 
 {{< note >}}
-CA Plugin’s configuration file must be in the same directory as the service’s JAR file and must be named
+CA Plugin’s configuration file must be in same directory service’s JAR file and must be named
 “plugin-ca.conf”
 
 {{< /note >}}
@@ -1971,7 +1972,7 @@ enmListener = {
 ```
 
 {{< note >}}
-Non CA Plugin’s configuration file must be in the same directory as the service’s JAR file and must be named
+Non CA Plugin’s configuration file must be in same directory as service’s JAR file and must be named
 “plugin-non-ca.conf”
 
 {{< /note >}}

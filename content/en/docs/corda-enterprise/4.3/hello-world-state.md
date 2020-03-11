@@ -91,7 +91,7 @@ class IOUState(val value: Int,
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUState.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUState.kt#L8-L16' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUState.kt' start='DOCSTART 01' end='DOCEND 01' */}}
 {{% tab name="java" %}}
 ```java
 // Add this import:
@@ -129,7 +129,7 @@ public class IOUState implements ContractState {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java#L9-L40' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java' start='DOCSTART 01' end='DOCEND 01' */}}
 
 [IOUState.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUState.kt) | [IOUState.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java) | ![github](/images/svg/github.svg "github")
 

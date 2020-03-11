@@ -138,7 +138,7 @@ class IOUContract : Contract {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/contract.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/contract.kt#L18-L47' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/contract.kt' start='DOCSTART 01' end='DOCEND 01' */}}
 {{% tab name="java" %}}
 ```java
 // Add these imports:
@@ -189,7 +189,7 @@ public class IOUContract implements Contract {
 
 ```
 {{% /tab %}}
-
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java#L18-L62' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java' start='DOCSTART 01' end='DOCEND 01' */}}
 
 [contract.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/contract.kt) | [IOUContract.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java) | ![github](/images/svg/github.svg "github")
 

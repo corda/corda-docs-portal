@@ -542,7 +542,7 @@ object CustomVaultQuery {
 }
 
 ```
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt#L22-L64' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt' start='DOCSTART CustomVaultQuery' end='DOCEND CustomVaultQuery' */}}[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 which is then referenced within a custom flow:
 
 ```kotlin
@@ -570,7 +570,7 @@ which is then referenced within a custom flow:
         }
 
 ```
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt#L105-L126' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt' start='DOCSTART TopupIssuer' end='DOCEND TopupIssuer' */}}[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 For examples on testing `@CordaService` implementations, see the oracle example here.
 
 

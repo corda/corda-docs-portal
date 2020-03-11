@@ -170,7 +170,7 @@ access to reads from localhost:
 >      -->
 > </restrict>
 > ```
-> [jolokia-access.xml](https://github.com/corda/enterprise/blob/release/ent/3.3/config/prod/jolokia-access.xml)
+> {{/* github src='config/prod/jolokia-access.xml' url='https://github.com/corda/enterprise/blob/release/release-V3/config/prod/jolokia-access.xml' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/config/prod/jolokia-access.xml' start='' end='' */}}[jolokia-access.xml](https://github.com/corda/enterprise/blob/release/ent/3.3/config/prod/jolokia-access.xml)
 
 
 #### Notes for development/test use
