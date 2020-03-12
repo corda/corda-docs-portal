@@ -13,6 +13,7 @@ $selected-page: "#{$class-object-prefix}selected-page";
     }
 
     &__nav-toggle {
+        box-sizing: content-box;
         line-height: 1;
         flex: 1 0 30px;
         max-width: 30px;
@@ -30,6 +31,7 @@ $selected-page: "#{$class-object-prefix}selected-page";
     }
 
     &__toc-toggle {
+        box-sizing: content-box;
         flex: 1 0 30px;
         max-width: 30px;
 
