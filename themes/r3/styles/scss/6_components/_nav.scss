@@ -2,6 +2,7 @@ $nav-object: "#{$class-object-prefix}nav";
 
 .#{$nav-object} {
 
+    padding-top: 32px;
     padding-left: 16px;
     padding-right: 16px;
 
@@ -37,6 +38,9 @@ $nav-object: "#{$class-object-prefix}nav";
     }
 
     @media screen and (min-width: 1200px) {
+
+        padding-top: 0;
+
         h5 {
             text-align: center;
             padding-left: 0;

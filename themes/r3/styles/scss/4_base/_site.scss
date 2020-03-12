@@ -22,7 +22,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 #{$wrapper-object}-main {
     min-height: calc(100vh - 56px - 80px);
     order: 2;
-    padding: 0px 0px 40px 56px;
+    padding: 0px 0px 40px 0px;
 
     main {
         padding-left: 0;
@@ -34,7 +34,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 
 #{$wrapper-object}-nav {
     flex-basis: 311px;
-    padding: 0 0 !important;
+    padding: 0 56px 0 0!important;
     order: 1;
     transition: transform 0.15s;
     transition-timing-function: ease-out;
