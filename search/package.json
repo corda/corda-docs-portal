@@ -1,6 +1,0 @@
-{
-    "devDependencies": {
-        "lunr": "^2.3.6",
-        "parser-front-matter": "^1.6.4"
-    }
-}
