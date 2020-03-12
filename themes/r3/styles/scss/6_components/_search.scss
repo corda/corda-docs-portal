@@ -9,11 +9,13 @@ $search-object: "#{$class-object-prefix}search";
 
   span {
       width: 90%;
+
     }
 
     @media screen and (min-width: 1200px) {
         border-bottom: 1px solid rgba(0,0,0,.05);
-        margin-top: -7px;
+        margin-top: -3px;
+        justify-content: start;
         padding: 0 0 8px;
     }
 }

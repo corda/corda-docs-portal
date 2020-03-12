@@ -44,8 +44,6 @@ $selected-page: "#{$class-object-prefix}selected-page";
                 stroke: $grey-500;
             }
         }
-
-
     }
 
     &__nav-content {
@@ -68,7 +66,12 @@ $selected-page: "#{$class-object-prefix}selected-page";
 
         @media screen and (max-width: 384px) {
            width: 60%;
-         }
+        }
+
+        @media screen and (min-width: 1200px) {
+            justify-content: start;
+            max-width: 700px;
+        }
     }
 }
 

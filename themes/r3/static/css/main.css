@@ -10344,6 +10344,7 @@ body {
 .r3-o-wrapper-side {
   background-color: #FFF;
   order: 0;
+  margin-bottom: 56px;
 }
 @media screen and (max-width: 1199px) {
   .r3-o-wrapper-side {
@@ -10360,6 +10361,9 @@ body {
   min-height: calc(100vh - 56px - 80px);
   order: 2;
   padding: 0px 0px 40px 56px;
+}
+.r3-o-wrapper-main main {
+  padding-left: 0;
 }
 .r3-o-wrapper-main main img {
   max-width: 100%;
@@ -10596,7 +10600,8 @@ footer p {
 @media screen and (min-width: 1200px) {
   .r3-o-search {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    margin-top: -7px;
+    margin-top: -3px;
+    justify-content: start;
     padding: 0 0 8px;
   }
 }
@@ -10703,6 +10708,12 @@ footer p {
 @media screen and (max-width: 384px) {
   .r3-o-sidebar__search {
     width: 60%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .r3-o-sidebar__search {
+    justify-content: start;
+    max-width: 700px;
   }
 }
 

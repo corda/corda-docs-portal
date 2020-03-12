@@ -8,6 +8,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 #{$wrapper-object}-side {
     background-color: #FFF;
     order: 0;
+    margin-bottom: 56px;
 
     @media screen and (max-width: 1199px) {
         position: -webkit-sticky; /* Safari */
@@ -24,6 +25,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
     padding: 0px 0px 40px 56px;
 
     main {
+        padding-left: 0;
         img {
             @include img-fluid;
         }
