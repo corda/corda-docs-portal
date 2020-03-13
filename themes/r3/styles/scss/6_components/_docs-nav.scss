@@ -58,7 +58,9 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
             font-size: 14px;
             font-weight: bold;
             letter-spacing: 2px;
+            line-height: 1.4;
             margin-bottom: 8px;
+            max-width: 175px;
             text-transform: uppercase;
         }
 

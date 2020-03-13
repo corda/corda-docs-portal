@@ -10536,7 +10536,9 @@ ul, li {
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 2px;
+  line-height: 1.4;
   margin-bottom: 8px;
+  max-width: 175px;
   text-transform: uppercase;
 }
 .r3-o-docs-nav li input[type=checkbox] {
@@ -10850,7 +10852,7 @@ footer p {
 .r3-o-toc h4 {
   font-size: 18px;
   font-weight: 600;
-  padding-left: 30px;
+  padding-left: 40px;
   text-transform: uppercase;
 }
 .r3-o-toc #TableOfContents > ul {
