@@ -2,8 +2,7 @@
 aliases:
 - /releases/4.2/cordapp-constraint-migration.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-2
+menu: []
 tags:
 - cordapp
 - constraint
@@ -49,7 +48,7 @@ They do not require additional coding and do not incur a complex choreographed o
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (eg. same state definition, commands and verification code) and
 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-Contract CorDapp please read [Contract and state versioning](operating/cm-updating-cordapp.md#contract-upgrading-ref) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
+Contract CorDapp please read [Contract and state versioning](upgrading-cordapps.md#contract-upgrading-ref) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
 
 {{< /warning >}}
 

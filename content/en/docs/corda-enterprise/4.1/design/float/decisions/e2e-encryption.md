@@ -2,8 +2,7 @@
 aliases:
 - /releases/4.1/design/float/decisions/e2e-encryption.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
+menu: []
 tags:
 - e2e
 - encryption

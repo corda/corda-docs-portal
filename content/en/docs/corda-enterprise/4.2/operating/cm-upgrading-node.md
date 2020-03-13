@@ -2,8 +2,7 @@
 aliases:
 - /releases/4.2/operating/cm-upgrading-node.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-2
+menu: []
 tags:
 - cm
 - upgrading

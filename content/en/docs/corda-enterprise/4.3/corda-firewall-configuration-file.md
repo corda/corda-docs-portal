@@ -3,8 +3,7 @@ aliases:
 - /releases/4.3/corda-firewall-configuration-file.html
 - /corda-firewall-configuration-file.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
+menu: []
 tags:
 - corda
 - firewall

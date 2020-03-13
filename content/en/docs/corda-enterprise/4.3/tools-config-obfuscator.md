@@ -3,8 +3,7 @@ aliases:
 - /releases/4.3/tools-config-obfuscator.html
 - /tools-config-obfuscator.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
+menu: []
 tags:
 - tools
 - config

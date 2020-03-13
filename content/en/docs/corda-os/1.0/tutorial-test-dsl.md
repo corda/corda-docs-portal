@@ -1,0 +1,753 @@
+---
+aliases:
+- /releases/release-V1.0/tutorial-test-dsl.html
+date: '2020-01-08T09:59:25Z'
+menu: []
+tags:
+- tutorial
+- test
+- dsl
+title: Writing a contract test
+---
+
+
+
+
+# Writing a contract test
+
+This tutorial will take you through the steps required to write a contract test using Kotlin and Java.
+
+The testing DSL allows one to define a piece of the ledger with transactions referring to each other, and ways of
+verifying their correctness.
+
+
+## Testing single transactions
+
+We start with the empty ledger:
+
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+class CommercialPaperTest{
+    @Test
+    fun emptyLedger() {
+        ledger {
+        }
+    }
+    ...
+}
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+import static net.corda.core.testing.JavaTestHelpers.*;
+import static net.corda.core.contracts.JavaTestHelpers.*;
+
+@Test
+public void emptyLedger() {
+    ledger(l -> {
+        return Unit.INSTANCE; // We need to return this explicitly
+    });
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
+The DSL keyword `ledger` takes a closure that can build up several transactions and may verify their overall
+correctness. A ledger is effectively a fresh world with no pre-existing transactions or services within it.
+
+We will start with defining helper function that returns a `CommercialPaper` state:
+
+{{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+fun getPaper(): ICommercialPaperState = CommercialPaper.State(
+        issuance = MEGA_CORP.ref(123),
+        owner = MEGA_CORP,
+        faceValue = 1000.DOLLARS `issued by` MEGA_CORP.ref(123),
+        maturityDate = TEST_TX_TIME + 7.days
+)
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt#L15-L20' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+{{% tab name="java" %}}
+```java
+private ICommercialPaperState getPaper() {
+    return new JavaCommercialPaper.State(
+            getMEGA_CORP().ref(defaultRef),
+            getMEGA_CORP(),
+            issuedBy(DOLLARS(1000), getMEGA_CORP().ref(defaultRef)),
+            getTEST_TX_TIME().plus(7, ChronoUnit.DAYS)
+    );
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L26-L33' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 1' end='DOCEND 1' */}}
+
+[TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+It’s a `CommercialPaper` issued by `MEGA_CORP` with face value of $1000 and maturity date in 7 days.
+
+Let’s add a `CommercialPaper` transaction:
+
+{{< tabs name="tabs-3" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@Test
+fun simpleCPDoesntCompile() {
+    val inState = getPaper()
+    ledger {
+        transaction {
+            input(CommercialPaper.CP_PROGRAM_ID) { inState }
+        }
+    }
+}
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+@Test
+public void simpleCPDoesntCompile() {
+    ICommercialPaperState inState = getPaper();
+    ledger(l -> {
+        l.transaction(tx -> {
+            tx.input(inState);
+        });
+        return Unit.INSTANCE;
+    });
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
+We can add a transaction to the ledger using the `transaction` primitive. The transaction in turn may be defined by
+specifying `input`-s, `output`-s, `command`-s and `attachment`-s.
+
+The above `input` call is a bit special; transactions don’t actually contain input states, just references
+to output states of other transactions. Under the hood the above `input` call creates a dummy transaction in the
+ledger (that won’t be verified) which outputs the specified state, and references that from this transaction.
+
+The above code however doesn’t compile:
+
+{{< tabs name="tabs-4" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+Error:(29, 17) Kotlin: Type mismatch: inferred type is Unit but EnforceVerifyOrFail was expected
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+Error:(35, 27) java: incompatible types: bad return type in lambda expression missing return value
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
+This is deliberate: The DSL forces us to specify either `this.verifies()` or `this `fails with` "some text"` on the
+last line of `transaction`:
+
+{{< tabs name="tabs-5" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@Test
+fun simpleCP() {
+    val inState = getPaper()
+    ledger {
+        transaction {
+            attachments(CP_PROGRAM_ID)
+            input(CP_PROGRAM_ID) { inState }
+            this.verifies()
+        }
+    }
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt#L24-L34' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 2' end='DOCEND 2' */}}
+{{% tab name="java" %}}
+```java
+@Test
+public void simpleCP() {
+    ICommercialPaperState inState = getPaper();
+    ledger(l -> {
+        l.transaction(tx -> {
+            tx.attachments(JCP_PROGRAM_ID);
+            tx.input(JCP_PROGRAM_ID, inState);
+            return tx.verifies();
+        });
+        return Unit.INSTANCE;
+    });
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L37-L48' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 2' end='DOCEND 2' */}}
+
+[TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+Let’s take a look at a transaction that fails.
+
+{{< tabs name="tabs-6" >}}
+{{< /tabs >}}
+
+
+* **language**: 
+java
+:start-after: DOCSTART 3
+:end-before: DOCEND 3
+:dedent: 4
+
+
+
+When run, that code produces the following error:
+
+{{< tabs name="tabs-7" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+net.corda.core.contracts.TransactionVerificationException$ContractRejection: java.lang.IllegalArgumentException: Failed requirement: the state is propagated
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+net.corda.core.contracts.TransactionVerificationException$ContractRejection: java.lang.IllegalStateException: the state is propagated
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
+The transaction verification failed, because we wanted to move paper but didn’t specify an output - but the state should be propagated.
+However we can specify that this is an intended behaviour by changing `this.verifies()` to `this `fails with` "the state is propagated"`:
+
+{{< tabs name="tabs-8" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@Test
+fun simpleCPMoveFails() {
+    val inState = getPaper()
+    ledger {
+        transaction {
+            input(CP_PROGRAM_ID) { inState }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Move() }
+            attachments(CP_PROGRAM_ID)
+            this `fails with` "the state is propagated"
+        }
+    }
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt#L38-L49' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 3' end='DOCEND 3' */}}
+{{% tab name="java" %}}
+```java
+@Test
+public void simpleCPMoveFails() {
+    ICommercialPaperState inState = getPaper();
+    ledger(l -> {
+        l.transaction(tx -> {
+            tx.input(JCP_PROGRAM_ID, inState);
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Move());
+            tx.attachments(JCP_PROGRAM_ID);
+            return tx.failsWith("the state is propagated");
+        });
+        return Unit.INSTANCE;
+    });
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L52-L64' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 3' end='DOCEND 3' */}}
+
+[TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+We can continue to build the transaction until it `verifies`:
+
+{{< tabs name="tabs-9" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@Test
+fun simpleCPMoveSuccess() {
+    val inState = getPaper()
+    ledger {
+        transaction {
+            input(CP_PROGRAM_ID) { inState }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Move() }
+            attachments(CP_PROGRAM_ID)
+            this `fails with` "the state is propagated"
+            output(CP_PROGRAM_ID, "alice's paper") { inState.withOwner(ALICE) }
+            this.verifies()
+        }
+    }
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt#L53-L64' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 4' end='DOCEND 4' */}}
+{{% tab name="java" %}}
+```java
+@Test
+public void simpleCPMoveSuccess() {
+    ICommercialPaperState inState = getPaper();
+    ledger(l -> {
+        l.transaction(tx -> {
+            tx.input(JCP_PROGRAM_ID, inState);
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Move());
+            tx.attachments(JCP_PROGRAM_ID);
+            tx.failsWith("the state is propagated");
+            tx.output(JCP_PROGRAM_ID, "alice's paper", inState.withOwner(getALICE()));
+            return tx.verifies();
+        });
+        return Unit.INSTANCE;
+    });
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L68-L80' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 4' end='DOCEND 4' */}}
+
+[TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+`output` specifies that we want the input state to be transferred to `ALICE` and `command` adds the
+`Move` command itself, signed by the current owner of the input state, `MEGA_CORP_PUBKEY`.
+
+We constructed a complete signed commercial paper transaction and verified it. Note how we left in the `fails with`
+line - this is fine, the failure will be tested on the partially constructed transaction.
+
+What should we do if we wanted to test what happens when the wrong party signs the transaction? If we simply add a
+`command` it will permanently ruin the transaction… Enter `tweak`:
+
+{{< tabs name="tabs-10" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@Test
+fun `simple issuance with tweak`() {
+    ledger {
+        transaction {
+            output(CP_PROGRAM_ID, "paper") { getPaper() } // Some CP is issued onto the ledger by MegaCorp.
+            attachments(CP_PROGRAM_ID)
+            tweak {
+                // The wrong pubkey.
+                command(BIG_CORP_PUBKEY) { CommercialPaper.Commands.Issue() }
+                timeWindow(TEST_TX_TIME)
+                this `fails with` "output states are issued by a command signer"
+            }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Issue() }
+            timeWindow(TEST_TX_TIME)
+            this.verifies()
+        }
+    }
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt#L68-L81' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 5' end='DOCEND 5' */}}
+{{% tab name="java" %}}
+```java
+@Test
+public void simpleIssuanceWithTweak() {
+    ledger(l -> {
+        l.transaction(tx -> {
+            tx.output(JCP_PROGRAM_ID, "paper", getPaper()); // Some CP is issued onto the ledger by MegaCorp.
+            tx.attachments(JCP_PROGRAM_ID);
+            tx.tweak(tw -> {
+                tw.command(getBIG_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Issue());
+                tw.timeWindow(getTEST_TX_TIME());
+                return tw.failsWith("output states are issued by a command signer");
+            });
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Issue());
+            tx.timeWindow(getTEST_TX_TIME());
+            return tx.verifies();
+        });
+        return Unit.INSTANCE;
+    });
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L84-L98' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 5' end='DOCEND 5' */}}
+
+[TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+`tweak` creates a local copy of the transaction. This makes possible to locally “ruin” the transaction while not
+modifying the original one, allowing testing of different error conditions.
+
+We now have a neat little test that tests a single transaction. This is already useful, and in fact testing of a single
+transaction in this way is very common. There is even a shorthand top-level `transaction` primitive that creates a
+ledger with a single transaction:
+
+{{< tabs name="tabs-11" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@Test
+fun `simple issuance with tweak and top level transaction`() {
+    transaction {
+        output(CP_PROGRAM_ID, "paper") { getPaper() } // Some CP is issued onto the ledger by MegaCorp.
+        attachments(CP_PROGRAM_ID)
+        tweak {
+            // The wrong pubkey.
+            command(BIG_CORP_PUBKEY) { CommercialPaper.Commands.Issue() }
+            timeWindow(TEST_TX_TIME)
+            this `fails with` "output states are issued by a command signer"
+        }
+        command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Issue() }
+        timeWindow(TEST_TX_TIME)
+        this.verifies()
+    }
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt#L85-L102' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 6' end='DOCEND 6' */}}
+{{% tab name="java" %}}
+```java
+@Test
+public void simpleIssuanceWithTweakTopLevelTx() {
+    transaction(tx -> {
+        tx.output(JCP_PROGRAM_ID, "paper", getPaper()); // Some CP is issued onto the ledger by MegaCorp.
+        tx.attachments(JCP_PROGRAM_ID);
+        tx.tweak(tw -> {
+            tw.command(getBIG_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Issue());
+            tw.timeWindow(getTEST_TX_TIME());
+            return tw.failsWith("output states are issued by a command signer");
+        });
+        tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Issue());
+        tx.timeWindow(getTEST_TX_TIME());
+        return tx.verifies();
+    });
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L102-L119' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 6' end='DOCEND 6' */}}
+
+[TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+
+## Chaining transactions
+
+Now that we know how to define a single transaction, let’s look at how to define a chain of them:
+
+{{< tabs name="tabs-12" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@Test
+fun `chain commercial paper`() {
+    val issuer = MEGA_CORP.ref(123)
+
+    ledger {
+        unverifiedTransaction {
+            attachments(CASH_PROGRAM_ID)
+            output(CASH_PROGRAM_ID, "alice's $900", 900.DOLLARS.CASH `issued by` issuer `owned by` ALICE)
+        }
+
+        // Some CP is issued onto the ledger by MegaCorp.
+        transaction("Issuance") {
+            output(CP_PROGRAM_ID, "paper") { getPaper() }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Issue() }
+            attachments(CP_PROGRAM_ID)
+            timeWindow(TEST_TX_TIME)
+            this.verifies()
+        }
+
+
+        transaction("Trade") {
+            input("paper")
+            input("alice's $900")
+            output(CASH_PROGRAM_ID, "borrowed $900") { 900.DOLLARS.CASH `issued by` issuer `owned by` MEGA_CORP }
+            output(CP_PROGRAM_ID, "alice's paper") { "paper".output<ICommercialPaperState>().withOwner(ALICE) }
+            command(ALICE_PUBKEY) { Cash.Commands.Move() }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Move() }
+            this.verifies()
+        }
+    }
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt#L106-L121' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 7' end='DOCEND 7' */}}
+{{% tab name="java" %}}
+```java
+@Test
+public void chainCommercialPaper() {
+    PartyAndReference issuer = getMEGA_CORP().ref(defaultRef);
+    ledger(l -> {
+        l.unverifiedTransaction(tx -> {
+            tx.output(CASH_PROGRAM_ID, "alice's $900",
+                    new Cash.State(issuedBy(DOLLARS(900), issuer), getALICE()));
+            tx.attachments(CASH_PROGRAM_ID);
+            return Unit.INSTANCE;
+        });
+
+        // Some CP is issued onto the ledger by MegaCorp.
+        l.transaction("Issuance", tx -> {
+            tx.output(JCP_PROGRAM_ID, "paper", getPaper());
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Issue());
+            tx.attachments(JCP_PROGRAM_ID);
+            tx.timeWindow(getTEST_TX_TIME());
+            return tx.verifies();
+        });
+
+        l.transaction("Trade", tx -> {
+            tx.input("paper");
+            tx.input("alice's $900");
+            tx.output(CASH_PROGRAM_ID, "borrowed $900", new Cash.State(issuedBy(DOLLARS(900), issuer), getMEGA_CORP()));
+            JavaCommercialPaper.State inputPaper = l.retrieveOutput(JavaCommercialPaper.State.class, "paper");
+            tx.output(JCP_PROGRAM_ID, "alice's paper", inputPaper.withOwner(getALICE()));
+            tx.command(getALICE_PUBKEY(), new Cash.Commands.Move());
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Move());
+            return tx.verifies();
+        });
+        return Unit.INSTANCE;
+    });
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L123-L137' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 7' end='DOCEND 7' */}}
+
+[TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+In this example we declare that `ALICE` has $900 but we don’t care where from. For this we can use
+`unverifiedTransaction`. Note how we don’t need to specify `this.verifies()`.
+
+Notice that we labelled output with `"alice's $900"`, also in transaction named `"Issuance"`
+we labelled a commercial paper with `"paper"`. Now we can subsequently refer to them in other transactions, e.g.
+by `input("alice's $900")` or `"paper".output<ICommercialPaperState>()`.
+
+The last transaction named `"Trade"` exemplifies simple fact of selling the `CommercialPaper` to Alice for her $900,
+$100 less than the face value at 10% interest after only 7 days.
+
+We can also test whole ledger calling `this.verifies()` and `this.fails()` on the ledger level.
+To do so let’s create a simple example that uses the same input twice:
+
+{{< tabs name="tabs-13" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@Test
+fun `chain commercial paper double spend`() {
+    val issuer = MEGA_CORP.ref(123)
+    ledger {
+        unverifiedTransaction {
+            attachments(CASH_PROGRAM_ID)
+            output(CASH_PROGRAM_ID, "alice's $900", 900.DOLLARS.CASH `issued by` issuer `owned by` ALICE)
+        }
+
+        // Some CP is issued onto the ledger by MegaCorp.
+        transaction("Issuance") {
+            output(CP_PROGRAM_ID, "paper") { getPaper() }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Issue() }
+            attachments(CP_PROGRAM_ID)
+            timeWindow(TEST_TX_TIME)
+            this.verifies()
+        }
+
+        transaction("Trade") {
+            input("paper")
+            input("alice's $900")
+            output(CASH_PROGRAM_ID, "borrowed $900") { 900.DOLLARS.CASH `issued by` issuer `owned by` MEGA_CORP }
+            output(CP_PROGRAM_ID, "alice's paper") { "paper".output<ICommercialPaperState>().withOwner(ALICE) }
+            command(ALICE_PUBKEY) { Cash.Commands.Move() }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Move() }
+            this.verifies()
+        }
+
+        transaction {
+            input("paper")
+            // We moved a paper to another pubkey.
+            output(CP_PROGRAM_ID, "bob's paper") { "paper".output<ICommercialPaperState>().withOwner(BOB) }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Move() }
+            this.verifies()
+        }
+
+        this.fails()
+    }
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt#L125-L155' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 8' end='DOCEND 8' */}}
+{{% tab name="java" %}}
+```java
+@Test
+public void chainCommercialPaperDoubleSpend() {
+    PartyAndReference issuer = getMEGA_CORP().ref(defaultRef);
+    ledger(l -> {
+        l.unverifiedTransaction(tx -> {
+            tx.output(CASH_PROGRAM_ID, "alice's $900",
+                    new Cash.State(issuedBy(DOLLARS(900), issuer), getALICE()));
+            tx.attachments(CASH_PROGRAM_ID);
+            return Unit.INSTANCE;
+        });
+
+        // Some CP is issued onto the ledger by MegaCorp.
+        l.transaction("Issuance", tx -> {
+            tx.output(CASH_PROGRAM_ID, "paper", getPaper());
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Issue());
+            tx.attachments(JCP_PROGRAM_ID);
+            tx.timeWindow(getTEST_TX_TIME());
+            return tx.verifies();
+        });
+
+        l.transaction("Trade", tx -> {
+            tx.input("paper");
+            tx.input("alice's $900");
+            tx.output(CASH_PROGRAM_ID, "borrowed $900", new Cash.State(issuedBy(DOLLARS(900), issuer), getMEGA_CORP()));
+            JavaCommercialPaper.State inputPaper = l.retrieveOutput(JavaCommercialPaper.State.class, "paper");
+            tx.output(JCP_PROGRAM_ID, "alice's paper", inputPaper.withOwner(getALICE()));
+            tx.command(getALICE_PUBKEY(), new Cash.Commands.Move());
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Move());
+            return tx.verifies();
+        });
+
+        l.transaction(tx -> {
+            tx.input("paper");
+            JavaCommercialPaper.State inputPaper = l.retrieveOutput(JavaCommercialPaper.State.class, "paper");
+            // We moved a paper to other pubkey.
+            tx.output(JCP_PROGRAM_ID, "bob's paper", inputPaper.withOwner(getBOB()));
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Move());
+            return tx.verifies();
+        });
+        l.fails();
+        return Unit.INSTANCE;
+    });
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L141-L173' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 8' end='DOCEND 8' */}}
+
+[TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+
+The transactions `verifies()` individually, however the state was spent twice! That’s why we need the global ledger
+verification (`this.fails()` at the end). As in previous examples we can use `tweak` to create a local copy of the whole ledger:
+
+{{< tabs name="tabs-14" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@Test
+fun `chain commercial tweak`() {
+    val issuer = MEGA_CORP.ref(123)
+    ledger {
+        unverifiedTransaction {
+            attachments(CASH_PROGRAM_ID)
+            output(CASH_PROGRAM_ID, "alice's $900", 900.DOLLARS.CASH `issued by` issuer `owned by` ALICE)
+        }
+
+        // Some CP is issued onto the ledger by MegaCorp.
+        transaction("Issuance") {
+            output(CP_PROGRAM_ID, "paper") { getPaper() }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Issue() }
+            attachments(CP_PROGRAM_ID)
+            timeWindow(TEST_TX_TIME)
+            this.verifies()
+        }
+
+        transaction("Trade") {
+            input("paper")
+            input("alice's $900")
+            output(CASH_PROGRAM_ID, "borrowed $900") { 900.DOLLARS.CASH `issued by` issuer `owned by` MEGA_CORP }
+            output(CP_PROGRAM_ID, "alice's paper") { "paper".output<ICommercialPaperState>().withOwner(ALICE) }
+            command(ALICE_PUBKEY) { Cash.Commands.Move() }
+            command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Move() }
+            this.verifies()
+        }
+
+        tweak {
+            transaction {
+                input("paper")
+                // We moved a paper to another pubkey.
+                output(CP_PROGRAM_ID, "bob's paper") { "paper".output<ICommercialPaperState>().withOwner(BOB) }
+                command(MEGA_CORP_PUBKEY) { CommercialPaper.Commands.Move() }
+                this.verifies()
+            }
+            this.fails()
+        }
+
+        this.verifies()
+    }
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt#L159-L197' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 9' end='DOCEND 9' */}}
+{{% tab name="java" %}}
+```java
+@Test
+public void chainCommercialPaperTweak() {
+    PartyAndReference issuer = getMEGA_CORP().ref(defaultRef);
+    ledger(l -> {
+        l.unverifiedTransaction(tx -> {
+            tx.output(CASH_PROGRAM_ID, "alice's $900",
+                    new Cash.State(issuedBy(DOLLARS(900), issuer), getALICE()));
+            tx.attachments(CASH_PROGRAM_ID);
+            return Unit.INSTANCE;
+        });
+
+        // Some CP is issued onto the ledger by MegaCorp.
+        l.transaction("Issuance", tx -> {
+            tx.output(CASH_PROGRAM_ID, "paper", getPaper());
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Issue());
+            tx.attachments(JCP_PROGRAM_ID);
+            tx.timeWindow(getTEST_TX_TIME());
+            return tx.verifies();
+        });
+
+        l.transaction("Trade", tx -> {
+            tx.input("paper");
+            tx.input("alice's $900");
+            tx.output(CASH_PROGRAM_ID, "borrowed $900", new Cash.State(issuedBy(DOLLARS(900), issuer), getMEGA_CORP()));
+            JavaCommercialPaper.State inputPaper = l.retrieveOutput(JavaCommercialPaper.State.class, "paper");
+            tx.output(JCP_PROGRAM_ID, "alice's paper", inputPaper.withOwner(getALICE()));
+            tx.command(getALICE_PUBKEY(), new Cash.Commands.Move());
+            tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Move());
+            return tx.verifies();
+        });
+
+        l.tweak(lw -> {
+            lw.transaction(tx -> {
+                tx.input("paper");
+                JavaCommercialPaper.State inputPaper = l.retrieveOutput(JavaCommercialPaper.State.class, "paper");
+                // We moved a paper to another pubkey.
+                tx.output(JCP_PROGRAM_ID, "bob's paper", inputPaper.withOwner(getBOB()));
+                tx.command(getMEGA_CORP_PUBKEY(), new JavaCommercialPaper.Commands.Move());
+                return tx.verifies();
+            });
+            lw.fails();
+            return Unit.INSTANCE;
+        });
+        l.verifies();
+        return Unit.INSTANCE;
+    });
+}
+
+```
+{{% /tab %}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L177-L219' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 9' end='DOCEND 9' */}}
+
+[TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
+
+{{< /tabs >}}
+

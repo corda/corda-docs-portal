@@ -3,8 +3,7 @@ aliases:
 - /releases/4.3/performance-testing/installation.html
 - /performance-testing/installation.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
+menu: []
 tags:
 - installation
 title: Obtaining and Installing the Performance Test Suite

@@ -20,15 +20,18 @@ title: Release notes
 
 ### Major Features
 
-**Support for External PKI**
+**Support for Docker and Kubernetes**
+We are expanding our support for Docker to Corda Enterprise Network Manager.
 
-To satisfy clients who wish to use external PKI for CENM certificates, the Signing Service has
-been separated into Signing Material Retriever Service (SMR) and the CENM Signing Service.
+Furthermore, we are introducing a first reference deployment with Helm and Kubernetes. Out of the box - you will be able to deploy in minutes an ephemeral representative test network to complement your development cycle.
 
-SMR extracts signable material from the Identity Manager and Network Map services, and
-then delegates to a plugin. Customers can implement their own plugins to integrate with
-external signing infrastructure and return signed material back to SMR to pass to the
-relevant CENM service.
+See docker (document to be created) for more details. <REPLACE WITH DOC>
+
+**Support for third party CAs**
+
+To satisfy clients who wish to use third party software or service providers to handle the supported lifecycle of certificates and network services signing events in a Corda network, the Signing Service has been separated into Signable Material Retriever Service (SMR) and CENM Signing Service in order to offer a pluggable interface.
+
+The new service (SMR) extracts signable material from the Identity Manager and Network Map services, and then delegates signing to a plugin. Customers can implement their own plugins to integrate with external signing infrastructure and return signed material back to SMR to pass to the relevant CENM service.
 
 See [Signing Services](signing-service.md) for more details. Also see [EJBCA Sample Plugin](ejbca-plugin.md) for a sample open source CA implementation.
 
@@ -43,29 +46,29 @@ See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for usage and further 
 
 ### Minor Features
 
-**Automating Node Registration**
+**Assisted Node Registration**
 
-Customers’ nodes can now provide a header “X-CENM-Submission-Token” when submitting certificate signing requests (CSR).
-The contents of this header is passed through to the approval plugin, to enable automated approval workflows.
+We introduced a new field in both Corda and Network Manager that can be used to enable a variety of onboarding workflows that might start prior to and continue after the Certificate Signing Request of the Node. In doing so, a Network Operator can embed the node registration process as part of a larger onboarding workflow or simply speed up/automate the process of reviewing a CSR and issuing a certificate. This feature requires nodes on Corda or Corda Enterprise 4.4 or above.
+
+See identity.manager for more information on how to make use of this feature.
 
 **Bundled Service**
 
-While deploying services individually makes sense for production deployments at scale, for smaller deployments or
-testing purposes we introduce possibility of running multiple services in parallel from one Jar file. We call it
-Bundled Service. End user needs to specify which services to run and corresponding configuration files.
-There is possibility of service deduction from configuration file which makes this feature backwards compatible
+While deploying services individually makes sense for production deployments at scale, for smaller deployments or testing purposes we introduce possibility of running multiple services in parallel from one Jar file. We call it Bundled Service. Users need to specify which services to run and the corresponding configuration files.
+It is possible to have service deduction from the configuration file which makes this feature backwards compatible
 with CENM 1.1.
 
 **Notary Whitelist**
 
 For high availability (HA) notaries only, the network map will now fetch the node info automatically from the
 identity manager, rather than requiring that the files are copied in manually. Support for non-HA notaries
-is not anticipated, instead customers are encouraged to deploy all notaries in a high availability configuration.
+is not anticipated, customers are encouraged to deploy all notaries in a high availability configuration.
 
 
 ### Other Improvements
 
 
+* We have expanded our HSM supported list to include AWS Cloud HSM
 * Default log file paths now include the name of the service (i.e. “network-map”) that generates them,
 so if multiple services run from the same folder, their dump log filenames do not collide.
 * Shell interface (Signer and Identity Manager services) no longer provide Java scripting permissions.

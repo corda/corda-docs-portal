@@ -2,8 +2,7 @@
 aliases:
 - /releases/4.1/design/sgx-infrastructure/details/ias-proxy.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
+menu: []
 tags:
 - ias
 - proxy

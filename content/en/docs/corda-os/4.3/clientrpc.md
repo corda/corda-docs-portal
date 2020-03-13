@@ -2,8 +2,7 @@
 aliases:
 - /releases/release-V4.3/clientrpc.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-3
+menu: []
 tags:
 - clientrpc
 title: Interacting with a node

@@ -2,8 +2,7 @@
 aliases:
 - /releases/release-V3.4/key-concepts-consensus.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-3-4
+menu: []
 tags:
 - concepts
 - consensus
@@ -64,7 +63,7 @@ transferring us a treasury bond. We can only be sure that the bond transfer is v
 
 The only way to be sure of both conditions is to walk the transaction’s chain. We can visualize this process as follows:
 
-![validation consensus](resources/validation-consensus.png "validation consensus")
+![validation consensus](/en/images/validation-consensus.png "validation consensus")
 When verifying a proposed transaction, a given party may not have every transaction in the transaction chain that they
 need to verify. In this case, they can request the missing transactions from the transaction proposer(s). The
 transaction proposer(s) will always have the full transaction chain, since they would have requested it when

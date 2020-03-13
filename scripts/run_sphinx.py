@@ -469,6 +469,8 @@ class Translator:
         parent = files_for_version.get(md_relpath, None)
         if parent:
             menu_entry = {"parent": parent}
+        else:
+            menu_entry = None
         #
         # if filename_only.startswith("api-"):
         #     menu_entry = { "parent": version + "-api" }
@@ -500,7 +502,8 @@ class Translator:
 
         # Add this page as a menu entry for the given
         # 'section menu', i.e. { "corda-os-4-3": { ... } }
-        menu[version] = menu_entry
+        if menu_entry is not None:
+            menu[version] = menu_entry
 
         # If all the menu values are empty dictionaries, we can safely use a list
         # of menus we belong to instead.  This more human-friendly.
@@ -1130,6 +1133,17 @@ class Translator:
     def depart_tip(self, node):
         self.top.put_body(self.cms.depart_tip())
 
+    def visit_b(self, node):
+        self.top.put_body(self.cms.visit_strong())
+
+    def depart_b(self, node):
+        self.top.put_body(self.cms.depart_strong())
+
+    def visit_center(self, node):
+        LOG.debug('Not implemented center')
+
+    def depart_center(self, node):
+        LOG.debug('Not implemented center')
 
 ############################################################################
 #  END OF CLASS

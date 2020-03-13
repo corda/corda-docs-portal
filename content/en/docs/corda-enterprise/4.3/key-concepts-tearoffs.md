@@ -3,8 +3,7 @@ aliases:
 - /releases/4.3/key-concepts-tearoffs.html
 - /key-concepts-tearoffs.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
+menu: []
 tags:
 - concepts
 - tearoffs

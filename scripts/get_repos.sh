@@ -66,6 +66,12 @@ clone_or_pull $R_OS/4.4 $R_OS/4.3 release/os/4.3 git@github.com:corda/corda.git
 clone_or_pull $R_OS/4.4 $R_OS/4.1 release/os/4.1 git@github.com:corda/corda.git
 clone_or_pull $R_OS/4.4 $R_OS/4.0 release/4.0 git@github.com:corda/corda.git
 clone_or_pull $R_OS/4.4 $R_OS/3.4 release-V3 git@github.com:corda/corda.git
+clone_or_pull $R_OS/4.4 $R_OS/3.3 release-V3.3 git@github.com:corda/corda.git
+clone_or_pull $R_OS/4.4 $R_OS/3.2 release-V3.X git@github.com:corda/corda.git
+clone_or_pull $R_OS/4.4 $R_OS/3.1 release-V3.1 git@github.com:corda/corda.git
+clone_or_pull $R_OS/4.4 $R_OS/3.0 release-V3.0 git@github.com:corda/corda.git
+clone_or_pull $R_OS/4.4 $R_OS/2.0 release-V2.0 git@github.com:corda/corda.git
+clone_or_pull $R_OS/4.4 $R_OS/1.0 release-V1.0 git@github.com:corda/corda.git
 
 #clone_or_pull git@github.com:corda/enterprise.git $R_ENT/4.4 release/ent/4.4
 clone_or_pull git@github.com:corda/enterprise.git $R_ENT/4.4 EdP/docs-2.0

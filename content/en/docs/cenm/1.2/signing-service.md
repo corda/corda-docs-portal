@@ -725,9 +725,8 @@ Password for the given CU account.
 must be used.
 * **file**: 
 The location of the local certificate store. This will be created if it does not exist.
-If the local certificate store should be the same as the global certificate store,
-than this property needs to have the same path as the `globalCertificateStore` property has.
-Note that globalCertificateStore is not in effect for AWS HSM.
+The local certificate store should contain the entire certificate chain from the signing key back to the root,
+because currently `globalCertificateStore` property is not in effect for AWS HSM.
 
 
 * **password**: 
@@ -1951,7 +1950,7 @@ enmListener = {
 ```
 
 {{< note >}}
-CA Plugin’s configuration file must be in same directory service’s JAR file and must be named
+CA Plugin’s configuration file must be in the same directory as the service’s JAR file and must be named
 “plugin-ca.conf”
 
 {{< /note >}}
@@ -1972,7 +1971,7 @@ enmListener = {
 ```
 
 {{< note >}}
-Non CA Plugin’s configuration file must be in same directory as service’s JAR file and must be named
+Non CA Plugin’s configuration file must be in the same directory as the service’s JAR file and must be named
 “plugin-non-ca.conf”
 
 {{< /note >}}

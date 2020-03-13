@@ -3,7 +3,6 @@ aliases:
 - /releases/4.1/index.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-1: {}
   versions:
     weight: 159
 project: corda-enterprise

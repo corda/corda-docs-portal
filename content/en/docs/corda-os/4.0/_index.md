@@ -3,7 +3,6 @@ aliases:
 - /releases/release-V4.0/index.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-0: {}
   versions:
     weight: 560
 project: corda-os

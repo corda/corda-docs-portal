@@ -2,8 +2,7 @@
 aliases:
 - /releases/release-V4.4/building-a-cordapp-samples.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-os-4-4
+menu: []
 tags:
 - building
 - cordapp

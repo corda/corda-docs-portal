@@ -3,8 +3,7 @@ aliases:
 - /releases/4.3/writing-a-cordapp.html
 - /writing-a-cordapp.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
+menu: []
 tags:
 - cordapp
 title: Structuring a CorDapp

@@ -3,8 +3,7 @@ aliases:
 - /releases/release-1.1/contract-whitelisting.html
 - /contract-whitelisting.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- cenm-1-1
+menu: []
 tags:
 - contract
 - whitelisting

@@ -2,8 +2,7 @@
 aliases:
 - /releases/4.1/design/failure-detection-master-election/design.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-1
+menu: []
 tags:
 - design
 title: Failure detection and master election

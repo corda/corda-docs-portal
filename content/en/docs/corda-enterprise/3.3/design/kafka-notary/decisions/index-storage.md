@@ -2,8 +2,7 @@
 aliases:
 - /releases/3.3/design/kafka-notary/decisions/index-storage.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-3-3
+menu: []
 tags:
 - storage
 title: 'Design Decision: Storage engine for committed state index'

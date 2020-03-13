@@ -3,8 +3,7 @@ aliases:
 - /releases/4.3/performance-testing/r3-performance-runs.html
 - /performance-testing/r3-performance-runs.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-3
+menu: []
 tags:
 - r3
 - performance

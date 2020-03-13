@@ -2,8 +2,7 @@
 aliases:
 - /releases/4.2/deploy/env-prod-test.html
 date: '2020-01-08T09:59:25Z'
-menu:
-- corda-enterprise-4-2
+menu: []
 tags:
 - env
 - prod
@@ -125,6 +124,82 @@ nodeInfo-XXXXXXXXX
 
 This is a sample `node.conf` which details a configuration connecting to the Corda UAT Network.
 
+```javascript
+{
+    "baseDirectory" : ".",
+    "emailAddress" : "xxxxx@email.com",
+    "jarDirs" : [
+        "plugins",
+        "cordapps"
+    ],
+    "keyStorePassword" : "MYPASSWORD",
+    "myLegalName" : " MYLEGALNAME",
+    "p2pAddress" : "banka.com:10005", // Host and port exposed by Internet facing firewall/load balancer in front of float servers in DMZ.
+    "messagingServerAddress" : "0.0.0.0:11005", // Specifying endpoints of local Artemis instances
+    "messagingServerExternal" : false, // Specifying that it is not an external instance
+    "devMode" : false, // Turn off things like key autogeneration and require proper doorman registration.
+    "detectPublicIp" : false, // Do not perform any public IP lookup on the host.
+
+
+    "networkServices" : {
+    "doormanURL" : "https://doorman.uat.corda.network/",
+    "networkMapURL" : "https://netmap.uat.corda.network/"
+},
+
+//Azure SQL
+//Microsoft SQL Server 2017
+
+    "dataSourceProperties" : {
+        "dataSource" : {
+            "url" : "jdbc:sqlserver://SERVER:1433;database=DATABASENAME;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
+            "user" : "user",
+            "password" : "password"
+        },
+        "dataSourceClassName" : "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
+    },
+// postGres 9.6 RDBMS
+    "dataSourceProperties" : {
+        "dataSource" : {
+           "url" : "jdbc:postgresql://SERVER:5432/DATABASENAME",
+            "user" : "user",
+            "password" : "password"
+        },
+        "dataSourceClassName" : "org.postgresql.ds.PGSimpleDataSource"
+    },
+// Oracle 11gR2/12cR2 RDBMS
+    "dataSourceProperties" : {
+        "dataSourceClassName" : "oracle.jdbc.pool.OracleDataSource",
+        "dataSource" : {
+   "url" : "jdbc:oracle:thin:@SERVERNAME:1521/DATABASENAME",
+   "user" :  "user",
+   "password" : "password"
+        },
+        },
+    "database" : {
+        "runMigration" : "true",
+        "schema" : "dbo",
+        "transactionIsolationLevel" : "READ_COMMITTED"
+    },
+    "rpcSettings" : {
+        "address" : "0.0.0.0:10003",
+        "adminAddress" : "0.0.0.0:10004"
+    },
+"rpcUsers" : [
+	    {
+        "password" : "test1",
+	"user" : "user1",
+        "permissions" : [ "ALL" ]
+    }
+    ],
+    "trustStorePassword" : "PASSWORD",
+    "sshd" : {
+    "port" : "2222"
+
+},
+}
+
+```
+{{/* github src='docs/source/resources/nodefull.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/nodefull.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/nodefull.md' start='' end='' */}}[nodefull.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/nodefull.md)
 
 ### Implementing the Corda Firewall PKI
 
@@ -224,7 +299,7 @@ haConfig {
 networkParametersPath = network-parameters // The network-parameters file is expected to be copied from the node registration phase and here is expected in the workspace folder.
 
 ```
-{{/* github src='docs/source/resources/nodefull.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/nodefull.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/nodefull.md' start='' end='' */}}[bridge.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge.md)
+{{/* github src='docs/source/resources/bridge.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/bridge.md' start='' end='' */}}[bridge.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge.md)
 
 ### Float Installation
 
@@ -258,7 +333,7 @@ floatOuterConfig {
 networkParametersPath = network-parameters // The network-parameters file is expected to be copied from the node registration phase and here is expected in the workspace folder.
 
 ```
-{{/* github src='docs/source/resources/bridge.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/bridge.md' start='' end='' */}}[float.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/float.md)
+{{/* github src='docs/source/resources/float.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/float.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/float.md' start='' end='' */}}[float.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/float.md)
 A full list of the parameters that can be utilized in these configuration files can be found here : [https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html](https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html)
 
 
@@ -370,7 +445,7 @@ Mar 13 18:44:10 corda-firewall-proxies systemd[1]: Started LSB: Squid HTTP Proxy
 Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) process 14263
 
 ```
-{{/* github src='docs/source/resources/float.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/float.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/float.md' start='' end='' */}}[squidstatus.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/squidstatus.md)
+{{/* github src='docs/source/resources/squidconfig.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/squidconfig.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/squidconfig.md' start='' end='' */}}[squidstatus.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/squidstatus.md)
 
 * At this point you can ssh to the VM where the Corda Node is installed and run the following command:
 
@@ -386,7 +461,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 > 1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.141 -
 > 
 > ```
-> {{/* github src='docs/source/resources/squidconfig.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/squidconfig.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/squidconfig.md' start='' end='' */}}[access.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/access.md)
+> {{/* github src='docs/source/resources/squidstatus.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/squidstatus.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/squidstatus.md' start='' end='' */}}[access.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/access.md)
 
 
 ## Using Socks Proxy with Corda Bridge

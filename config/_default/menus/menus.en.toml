@@ -1,277 +1,67 @@
-[[corda-os-4-4]]
-identifier = "corda-os-4-4-main"
-name = "Main"
+[[cenm-1-0]]
+identifier = "cenm-1-0-concepts-and-overview"
+name = "Concepts and Overview"
 weight = 10
 
-[[corda-os-4-4]]
-identifier = "corda-os-4-4-development"
-name = "Development"
+[[cenm-1-0]]
+identifier = "cenm-1-0-enm-releases"
+name = "ENM Releases"
 weight = 20
 
-[[corda-os-4-4]]
-identifier = "corda-os-4-4-corda-api"
-name = "Corda API"
+[[cenm-1-0]]
+identifier = "cenm-1-0-operations"
+name = "Operations"
 weight = 30
 
-[[corda-os-4-4]]
-identifier = "corda-os-4-4-operations"
-name = "Operations"
+[[cenm-1-0]]
+identifier = "cenm-1-0-configuration"
+name = "Configuration"
 weight = 40
 
-[[corda-os-4-4]]
-identifier = "corda-os-4-4-corda-network"
-name = "Corda Network"
+[[cenm-1-0]]
+identifier = "cenm-1-0-tools-and-utilities"
+name = "Tools & Utilities"
 weight = 50
 
-[[corda-os-4-4]]
-identifier = "corda-os-4-4-participate"
-name = "Participate"
+[[cenm-1-0]]
+identifier = "cenm-1-0-private-networks"
+name = "Private Networks"
 weight = 60
 
-[[corda-os-3-4]]
-identifier = "corda-os-3-4-main"
-name = "Main"
-weight = 10
-
-[[corda-os-4-1]]
-identifier = "corda-os-4-1-main"
-name = "Main"
-weight = 10
-
-[[corda-os-4-1]]
-identifier = "corda-os-4-1-development"
-name = "Development"
-weight = 20
-
-[[corda-os-4-1]]
-identifier = "corda-os-4-1-operations"
-name = "Operations"
-weight = 30
-
-[[corda-os-4-1]]
-identifier = "corda-os-4-1-corda-network"
-name = "Corda Network"
-weight = 40
-
-[[corda-os-4-1]]
-identifier = "corda-os-4-1-participate"
-name = "Participate"
-weight = 50
-
-[[corda-os-4-0]]
-identifier = "corda-os-4-0-main"
-name = "Main"
-weight = 10
-
-[[corda-os-4-0]]
-identifier = "corda-os-4-0-development"
-name = "Development"
-weight = 20
-
-[[corda-os-4-0]]
-identifier = "corda-os-4-0-operations"
-name = "Operations"
-weight = 30
-
-[[corda-os-4-0]]
-identifier = "corda-os-4-0-corda-network"
-name = "Corda Network"
-weight = 40
-
-[[corda-os-4-0]]
-identifier = "corda-os-4-0-participate"
-name = "Participate"
-weight = 50
-
-[[corda-os-4-0]]
-identifier = "corda-os-4-0-design-docs"
-name = "Design docs"
-weight = 60
-
-[[corda-os-4-3]]
-identifier = "corda-os-4-3-main"
-name = "Main"
-weight = 10
-
-[[corda-os-4-3]]
-identifier = "corda-os-4-3-development"
-name = "Development"
-weight = 20
-
-[[corda-os-4-3]]
-identifier = "corda-os-4-3-corda-api"
-name = "Corda API"
-weight = 30
-
-[[corda-os-4-3]]
-identifier = "corda-os-4-3-operations"
-name = "Operations"
-weight = 40
-
-[[corda-os-4-3]]
-identifier = "corda-os-4-3-corda-network"
-name = "Corda Network"
-weight = 50
-
-[[corda-os-4-3]]
-identifier = "corda-os-4-3-participate"
-name = "Participate"
-weight = 60
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-upgrading-and-tools"
-name = "Upgrading and Tools"
-weight = 10
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-cordapps"
-name = "CorDapps"
-weight = 20
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-corda-nodes"
-name = "Corda Nodes"
-weight = 30
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-corda-networks"
-name = "Corda Networks"
-weight = 40
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-miscellaneous"
-name = "Miscellaneous"
-weight = 50
-
-[[corda-enterprise-4-2]]
-identifier = "corda-enterprise-4-2-main"
-name = "Main"
-weight = 10
-
-[[corda-enterprise-4-2]]
-identifier = "corda-enterprise-4-2-corda-enterprise"
-name = "Corda Enterprise"
-weight = 20
-
-[[corda-enterprise-4-2]]
-identifier = "corda-enterprise-4-2-development"
-name = "Development"
-weight = 30
-
-[[corda-enterprise-4-2]]
-identifier = "corda-enterprise-4-2-operations"
-name = "Operations"
-weight = 40
-
-[[corda-enterprise-4-2]]
-identifier = "corda-enterprise-4-2-corda-network"
-name = "Corda Network"
-weight = 50
-
-[[corda-enterprise-4-2]]
-identifier = "corda-enterprise-4-2-miscellaneous"
-name = "Miscellaneous"
-weight = 60
-
-[[corda-enterprise-4-1]]
-identifier = "corda-enterprise-4-1-main"
-name = "Main"
-weight = 10
-
-[[corda-enterprise-4-1]]
-identifier = "corda-enterprise-4-1-development"
-name = "Development"
-weight = 20
-
-[[corda-enterprise-4-1]]
-identifier = "corda-enterprise-4-1-operations"
-name = "Operations"
-weight = 30
-
-[[corda-enterprise-4-1]]
-identifier = "corda-enterprise-4-1-corda-network"
-name = "Corda Network"
-weight = 40
-
-[[corda-enterprise-4-1]]
-identifier = "corda-enterprise-4-1-participate"
-name = "Participate"
-weight = 50
-
-[[corda-enterprise-4-0]]
-identifier = "corda-enterprise-4-0-main"
-name = "Main"
-weight = 10
-
-[[corda-enterprise-4-0]]
-identifier = "corda-enterprise-4-0-corda-enterprise"
-name = "Corda Enterprise"
-weight = 20
-
-[[corda-enterprise-4-0]]
-identifier = "corda-enterprise-4-0-development"
-name = "Development"
-weight = 30
-
-[[corda-enterprise-4-0]]
-identifier = "corda-enterprise-4-0-operations"
-name = "Operations"
-weight = 40
-
-[[corda-enterprise-4-0]]
-identifier = "corda-enterprise-4-0-corda-network"
-name = "Corda Network"
-weight = 50
-
-[[corda-enterprise-3-3]]
-identifier = "corda-enterprise-3-3-corda-enterprise"
-name = "Corda Enterprise"
-weight = 10
-
-[[corda-enterprise-3-3]]
-identifier = "corda-enterprise-3-3-development"
-name = "Development"
-weight = 20
-
-[[corda-enterprise-3-3]]
-identifier = "corda-enterprise-3-3-operations"
-name = "Operations"
-weight = 30
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-main"
-name = "Main"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-corda-enterprise"
-name = "Corda Enterprise"
-weight = 20
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-development"
-name = "Development"
-weight = 30
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-corda-api"
-name = "Corda API"
-weight = 40
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-operations"
-name = "Operations"
-weight = 50
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-corda-network"
-name = "Corda Network"
-weight = 60
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-miscellaneous"
-name = "Miscellaneous"
+[[cenm-1-0]]
+identifier = "cenm-1-0-public-key-infrastructure"
+name = "Public Key Infrastructure"
 weight = 70
+
+[[cenm-1-1]]
+identifier = "cenm-1-1-concepts-and-overview"
+name = "Concepts and Overview"
+weight = 10
+
+[[cenm-1-1]]
+identifier = "cenm-1-1-cenm-releases"
+name = "CENM Releases"
+weight = 20
+
+[[cenm-1-1]]
+identifier = "cenm-1-1-operations"
+name = "Operations"
+weight = 30
+
+[[cenm-1-1]]
+identifier = "cenm-1-1-configuration"
+name = "Configuration"
+weight = 40
+
+[[cenm-1-1]]
+identifier = "cenm-1-1-tools-and-utilities"
+name = "Tools & Utilities"
+weight = 50
+
+[[cenm-1-1]]
+identifier = "cenm-1-1-public-key-infrastructure"
+name = "Public Key Infrastructure"
+weight = 60
 
 [[cenm-1-2]]
 identifier = "cenm-1-2-concepts-and-overview"
@@ -308,68 +98,308 @@ identifier = "cenm-1-2-signing-plugin-samples"
 name = "Signing Plugin Samples"
 weight = 70
 
-[[cenm-1-1]]
-identifier = "cenm-1-1-concepts-and-overview"
-name = "Concepts and Overview"
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-upgrading-and-tools"
+name = "Upgrading and Tools"
 weight = 10
 
-[[cenm-1-1]]
-identifier = "cenm-1-1-cenm-releases"
-name = "CENM Releases"
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-cordapps"
+name = "CorDapps"
 weight = 20
 
-[[cenm-1-1]]
-identifier = "cenm-1-1-operations"
-name = "Operations"
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-corda-nodes"
+name = "Corda Nodes"
 weight = 30
 
-[[cenm-1-1]]
-identifier = "cenm-1-1-configuration"
-name = "Configuration"
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-corda-networks"
+name = "Corda Networks"
 weight = 40
 
-[[cenm-1-1]]
-identifier = "cenm-1-1-tools-and-utilities"
-name = "Tools & Utilities"
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-miscellaneous"
+name = "Miscellaneous"
 weight = 50
 
-[[cenm-1-1]]
-identifier = "cenm-1-1-public-key-infrastructure"
-name = "Public Key Infrastructure"
-weight = 60
-
-[[cenm-1-0]]
-identifier = "cenm-1-0-concepts-and-overview"
-name = "Concepts and Overview"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-main"
+name = "Main"
 weight = 10
 
-[[cenm-1-0]]
-identifier = "cenm-1-0-enm-releases"
-name = "ENM Releases"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-corda-enterprise"
+name = "Corda Enterprise"
 weight = 20
 
-[[cenm-1-0]]
-identifier = "cenm-1-0-operations"
-name = "Operations"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-development"
+name = "Development"
 weight = 30
 
-[[cenm-1-0]]
-identifier = "cenm-1-0-configuration"
-name = "Configuration"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-corda-api"
+name = "Corda API"
 weight = 40
 
-[[cenm-1-0]]
-identifier = "cenm-1-0-tools-and-utilities"
-name = "Tools & Utilities"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-operations"
+name = "Operations"
 weight = 50
 
-[[cenm-1-0]]
-identifier = "cenm-1-0-private-networks"
-name = "Private Networks"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-corda-network"
+name = "Corda Network"
 weight = 60
 
-[[cenm-1-0]]
-identifier = "cenm-1-0-public-key-infrastructure"
-name = "Public Key Infrastructure"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-miscellaneous"
+name = "Miscellaneous"
 weight = 70
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-main"
+name = "Main"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-development"
+name = "Development"
+weight = 20
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-operations"
+name = "Operations"
+weight = 30
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-corda-network"
+name = "Corda Network"
+weight = 40
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-participate"
+name = "Participate"
+weight = 50
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-corda-enterprise"
+name = "Corda Enterprise"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-development"
+name = "Development"
+weight = 20
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-operations"
+name = "Operations"
+weight = 30
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-main"
+name = "Main"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-corda-enterprise"
+name = "Corda Enterprise"
+weight = 20
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-development"
+name = "Development"
+weight = 30
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-operations"
+name = "Operations"
+weight = 40
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-corda-network"
+name = "Corda Network"
+weight = 50
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-miscellaneous"
+name = "Miscellaneous"
+weight = 60
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-main"
+name = "Main"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-corda-enterprise"
+name = "Corda Enterprise"
+weight = 20
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-development"
+name = "Development"
+weight = 30
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-operations"
+name = "Operations"
+weight = 40
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-corda-network"
+name = "Corda Network"
+weight = 50
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-main"
+name = "Main"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-main"
+name = "Main"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-main"
+name = "Main"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-development"
+name = "Development"
+weight = 20
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-corda-api"
+name = "Corda API"
+weight = 30
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-operations"
+name = "Operations"
+weight = 40
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-corda-network"
+name = "Corda Network"
+weight = 50
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-participate"
+name = "Participate"
+weight = 60
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-main"
+name = "Main"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-development"
+name = "Development"
+weight = 20
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-corda-api"
+name = "Corda API"
+weight = 30
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-operations"
+name = "Operations"
+weight = 40
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-corda-network"
+name = "Corda Network"
+weight = 50
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-participate"
+name = "Participate"
+weight = 60
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-main"
+name = "Main"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-main"
+name = "Main"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-development"
+name = "Development"
+weight = 20
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-operations"
+name = "Operations"
+weight = 30
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-corda-network"
+name = "Corda Network"
+weight = 40
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-participate"
+name = "Participate"
+weight = 50
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-main"
+name = "Main"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-main"
+name = "Main"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-main"
+name = "Main"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-main"
+name = "Main"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-development"
+name = "Development"
+weight = 20
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-operations"
+name = "Operations"
+weight = 30
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-corda-network"
+name = "Corda Network"
+weight = 40
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-participate"
+name = "Participate"
+weight = 50
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-design-docs"
+name = "Design docs"
+weight = 60
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-main"
+name = "Main"
+weight = 10
 

@@ -3,7 +3,6 @@ aliases:
 - /releases/release-1.2/index.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  cenm-1-2: {}
   versions:
     weight: 1088
 project: cenm
