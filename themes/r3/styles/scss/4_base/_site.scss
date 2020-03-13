@@ -1,6 +1,7 @@
 .r3-o-container-fluid{
     padding-left: 48px;
     padding-right: 48px;
+    max-width: 1440px;
 }
 
 $wrapper-object: ".#{$class-object-prefix}wrapper";
@@ -16,6 +17,13 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
         top: 0;
         order: 0;
         z-index: 100;
+    }
+
+    @media screen and (min-width: 1200px) {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding-bottom: 5px;
     }
 }
 
@@ -34,7 +42,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 
 #{$wrapper-object}-nav {
     flex-basis: 311px;
-    padding: 0 56px 0 0!important;
+    padding: 15px 56px 0 0!important;
     order: 1;
     transition: transform 0.15s;
     transition-timing-function: ease-out;

@@ -2,34 +2,58 @@
 {{/* that the page belongs to should a 'section_menu' parameter */}}
 {{/* Generally, only the _index.md page of a section needs a 'section_menu' param */}}
 {{/* and the 'section_menu' matches its menu entry in menus.LANG.toml */}}
+
 {{ $sectionMenuForThisPage := or .Parent.Page.Params.section_menu .Page.Params.section_menu}}
+
 {{/* don't render this component if we don't have a 'section_menu' as we can't */}}
 {{/* correctly identify the menu we should be using for this page*/}}
+
 {{ if $sectionMenuForThisPage }}
+
 {{/* store the current page scope as '.' changes meaning in loops */}}
 {{ $currentPage := . }}
+
 {{/* the menu for the section_menu this page is tagged with*/}}
 {{ $menuEntries := index .Site.Menus $sectionMenuForThisPage}}
-<div class="r3-o-docs-nav">
-    {{ range $index, $element := $menuEntries.ByWeight }}
-    {{ if $element.HasChildren }}
-    <button class="nav-item{{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active{{ end }}" >
-            {{ $element.Pre }}
-            {{ $element.Name }}
-    </button>
-    <ul class="sub-menu{{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
-        {{ range .Children }}
-            <li class="nav-item{{ if $currentPage.IsMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
-                <a href="{{ .URL }}">{{ .Name }}</a>
+    <ul class="r3-o-docs-nav">
+        {{ range $index, $element := $menuEntries.ByWeight }}
+            {{ if $element.HasChildren }}
+            <li
+                class="nav-item {{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active {{ end }}">
+                <input
+                    type="checkbox"
+                    {{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }}
+
+                    {{ else }}
+                        checked
+                    {{ end }}
+                    >
+                <i></i>
+                <h4>
+                    {{ $element.Pre }}
+                    {{ $element.Name }}
+                </h4>
+                <ul class="sub-menu {{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
+                    {{ range .Children }}
+                        <li class="nav-item {{ if $currentPage.IsMenuCurrent $sectionMenuForThisPage . }} active {{ end }}">
+                            <a href="{{ .URL }}">{{ .Name }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
             </li>
+
+
+            {{ else }}
+                <li
+                    class="nav-item {{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active {{ end }}">
+                    <h4>
+                        <a href="{{ $element.URL }}">
+                            {{ $element.Pre }}
+                            {{ $element.Name }}
+                        </a>
+                    </h4>
+                </li>
+            {{ end }}
         {{ end }}
     </ul>
-    {{ else }}
-    <button onclick="window.location.href = '{{ $element.URL }}'">
-            {{ $element.Pre }}
-            {{ $element.Name }}
-    </button>
-    {{end}}
-    {{ end }}
-</div>
 {{ end }}

@@ -13,39 +13,6 @@
     margin-left: 0.5rem;
 }
 
-/* Style the caret/arrow */
-
-.caret {
-    cursor: pointer;
-    user-select: none;
-    transition-property: transform;
-    transition-duration: 0.2s;
-    /* Prevent text selection */
-}
-
-/* Create the caret/arrow with a unicode, and style it */
-
-.caret::before {
-    content: url("/images/svg/corda-bullet-c-14.svg");
-    color: black;
-    display: inline-block;
-    margin-right: 6px;
-    transition-property: transform;
-    transition-duration: 0.2s;
-    transform: rotate(0deg);
-}
-
-/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-
-.caret-down::before {
-
-    transition-property: transform;
-    transition-duration: 0.2s;
-    transform: rotate(90deg);
-}
-
-/* Hide the nested list */
-
 .nested {
     display: none;
 }

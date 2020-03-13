@@ -1,7 +1,13 @@
 $nav-object: "#{$class-object-prefix}nav";
 
 .#{$nav-object} {
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    overflow-y: auto;
 
+    z-index: 100;
     padding-top: 32px;
     padding-left: 16px;
     padding-right: 16px;
@@ -39,7 +45,7 @@ $nav-object: "#{$class-object-prefix}nav";
 
     @media screen and (min-width: 1200px) {
 
-        padding-top: 0;
+        padding-top: 10px;
 
         h5 {
             text-align: center;

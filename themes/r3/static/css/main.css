@@ -10339,6 +10339,7 @@ body {
 .r3-o-container-fluid {
   padding-left: 48px;
   padding-right: 48px;
+  max-width: 1440px;
 }
 
 .r3-o-wrapper-side {
@@ -10354,6 +10355,14 @@ body {
     top: 0;
     order: 0;
     z-index: 100;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .r3-o-wrapper-side {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding-bottom: 5px;
   }
 }
 
@@ -10372,7 +10381,7 @@ body {
 
 .r3-o-wrapper-nav {
   flex-basis: 311px;
-  padding: 0 56px 0 0 !important;
+  padding: 15px 56px 0 0 !important;
   order: 1;
   transition: transform 0.15s;
   transition-timing-function: ease-out;
@@ -10437,7 +10446,8 @@ ul, li {
   background-color: #FFF;
   border-radius: 0;
   font-size: 14px;
-  margin: 10px 32px 44px;
+  margin: 10px 32px 44px 0;
+  max-width: 1440px;
 }
 .r3-o-breadcrumb .breadcrumb-item a {
   color: #EC1D24;
@@ -10499,47 +10509,116 @@ footer p {
   border-left: 0.5rem solid #EC1D24;
 }
 
-.r3-o-docs-nav li a {
-  color: #25282B;
+.r3-o-docs-nav {
+  list-style: none;
+  perspective: 900;
+  padding: 0;
+  margin: 0;
 }
-.r3-o-docs-nav > li,
-.r3-o-docs-nav ul + .nav-item {
+.r3-o-docs-nav .transition, .r3-o-docs-nav li .sub-menu, .r3-o-docs-nav li i:before {
+  transition: all 0.4s ease-in-out;
+}
+.r3-o-docs-nav .flipIn, .r3-o-docs-nav li {
+  animation: flipdown 1.4s ease both;
+}
+.r3-o-docs-nav .no-select {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.r3-o-docs-nav li {
+  animation-delay: 0.5s;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10px;
+}
+.r3-o-docs-nav li:last-of-type {
+  padding-bottom: 20px;
+}
+.r3-o-docs-nav li i {
+  position: absolute;
+  transform: translate(-22px, 0);
+  right: 0;
+}
+.r3-o-docs-nav li i:before {
+  content: url("/images/svg/corda-bullet-c-14.svg");
+  position: absolute;
+  transform-origin: 50% 50% 0;
+  transform: translate(0, 0) rotate(90deg);
+}
+.r3-o-docs-nav li h4 {
   color: #25282B;
+  cursor: pointer;
+  font-size: 14px;
   font-weight: bold;
   letter-spacing: 2px;
-  margin: 0;
+  margin-bottom: 8px;
   text-transform: uppercase;
 }
-.r3-o-docs-nav > li a,
-.r3-o-docs-nav ul + .nav-item a {
-  color: #ec1d24;
-}
-.r3-o-docs-nav button {
-  background-color: transparent;
-  border: none;
-  text-transform: uppercase;
-}
-.r3-o-docs-nav button:after {
-  content: url("/images/svg/corda-bullet-c-14.svg");
-  color: black;
-  margin-left: auto;
-  transition-property: transform;
-  transition-duration: 0.2s;
-  transform: rotate(0deg);
-}
-.r3-o-docs-nav ul {
+.r3-o-docs-nav li input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
   opacity: 0;
-  transform-origin: top center;
-  transition-property: all;
-  transform: rotateX(-90deg);
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
 }
-.r3-o-docs-nav button.active + ul {
-  transform: rotateX(0);
+.r3-o-docs-nav li input[type=checkbox]:checked ~ ul {
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translate(0, 0);
+}
+.r3-o-docs-nav li input[type=checkbox]:checked ~ i:before {
+  transform: translate(0, 0) rotate(0deg);
+}
+.r3-o-docs-nav li input[type=checkbox]:hover ~ h4 {
+  color: #F26166;
+}
+.r3-o-docs-nav li .sub-menu {
+  list-style: none;
+  margin: 0;
   opacity: 1;
+  overflow: hidden;
+  perspective: 900;
+  padding: 0;
+  position: relative;
+  transform: translate(0, 0);
+  z-index: 2;
+}
+.r3-o-docs-nav li .sub-menu li a {
+  font-weight: 200;
+  text-transform: uppercase;
 }
 
+@keyframes flipdown {
+  0% {
+    opacity: 0;
+    transform-origin: top center;
+    transform: rotateX(-90deg);
+  }
+  5% {
+    opacity: 1;
+  }
+  80% {
+    transform: rotateX(8deg);
+  }
+  83% {
+    transform: rotateX(6deg);
+  }
+  92% {
+    transform: rotateX(-3deg);
+  }
+  100% {
+    transform-origin: top center;
+    transform: rotateX(0deg);
+  }
+}
 .r3-o-navbar {
   background-image: url("/images/png/corda-banner.png");
   background-position: 60% 0%;
@@ -10568,6 +10647,12 @@ footer p {
 }
 
 .r3-o-nav {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
   padding-top: 32px;
   padding-left: 16px;
   padding-right: 16px;
@@ -10602,7 +10687,7 @@ footer p {
 }
 @media screen and (min-width: 1200px) {
   .r3-o-nav {
-    padding-top: 0;
+    padding-top: 10px;
   }
   .r3-o-nav h5 {
     text-align: center;
@@ -10629,9 +10714,9 @@ footer p {
 @media screen and (min-width: 1200px) {
   .r3-o-search {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    margin-top: -3px;
+    margin-top: 10px;
     justify-content: start;
-    padding: 0 0 8px;
+    padding: 0 0 5px;
   }
 }
 
@@ -10649,34 +10734,6 @@ footer p {
   margin-left: 0.5rem;
 }
 
-/* Style the caret/arrow */
-.caret {
-  cursor: pointer;
-  user-select: none;
-  transition-property: transform;
-  transition-duration: 0.2s;
-  /* Prevent text selection */
-}
-
-/* Create the caret/arrow with a unicode, and style it */
-.caret::before {
-  content: url("/images/svg/corda-bullet-c-14.svg");
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
-  transition-property: transform;
-  transition-duration: 0.2s;
-  transform: rotate(0deg);
-}
-
-/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-.caret-down::before {
-  transition-property: transform;
-  transition-duration: 0.2s;
-  transform: rotate(90deg);
-}
-
-/* Hide the nested list */
 .nested {
   display: none;
 }
@@ -10745,6 +10802,8 @@ footer p {
   .r3-o-sidebar__search {
     justify-content: start;
     max-width: 700px;
+    position: sticky;
+    top: 0;
   }
 }
 
