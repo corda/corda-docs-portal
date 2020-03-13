@@ -2,7 +2,9 @@
 aliases:
 - /releases/4.1/tutorial-integration-testing.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-tutorials
 tags:
 - tutorial
 - integration

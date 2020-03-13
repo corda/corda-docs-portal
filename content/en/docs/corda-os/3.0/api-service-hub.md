@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V3.0/api-service-hub.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-3-0:
+    parent: corda-os-3-0-corda-api
 tags:
 - api
 - service

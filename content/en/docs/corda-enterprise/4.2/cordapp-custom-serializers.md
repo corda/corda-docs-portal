@@ -2,7 +2,9 @@
 aliases:
 - /releases/4.2/cordapp-custom-serializers.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    parent: corda-enterprise-4-2-serialization
 tags:
 - cordapp
 - custom

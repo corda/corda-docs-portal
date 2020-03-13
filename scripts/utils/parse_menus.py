@@ -6,6 +6,8 @@ import os
 import re
 from pathlib import Path
 
+import toml
+
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 ROOT = os.path.dirname(os.path.dirname(THIS_DIR))
 REPOS = os.path.join(ROOT, "repos")
@@ -37,6 +39,11 @@ class Directive:
             matches = re.match(r":(.*):\s+(.*)", line.strip())
             if matches:
                 self.args[matches.group(1)] = matches.group(2)
+            else:
+                matches = re.match(r":(.*):", line.strip())
+                if matches:
+                    self.args[matches.group(1)] = "true"
+
             return
 
         # Content
@@ -55,7 +62,11 @@ def _setup_logging():
 def parse_indexes():
     """ Returns a 2-tuple of { version : menus } and { version: files{file: submenu} }
     """
-    index_files = [x for x in Path(REPOS).rglob('docs/source/**/index.rst')]
+    LOG.info("Globbing rst files")
+    index_files = [x for x in Path(REPOS).rglob('docs/source/**/*.rst')]
+    LOG.info("Globbing rst files finished")
+
+    LOG.info("Building menus")
 
     all_menus = {}
     all_files = {}
@@ -63,11 +74,25 @@ def parse_indexes():
     for index_file in index_files:
         menus, files = parse_index(index_file)
 
-        for k, v in menus.items():
-            all_menus[k] = v
+        # Update entries that go into menus.en.toml
+        for top_most_menu_identifier, new_menu_entries in menus.items():
+            menu_entries = all_menus.get(top_most_menu_identifier, [])
+            for new_menu_entry in new_menu_entries:
+                if new_menu_entry["identifier"] not in [m["identifier"] for m in menu_entries]:
+                    menu_entries.append(new_menu_entry)
 
-        for k, v in files.items():
-            all_files[k] = v
+            all_menus[top_most_menu_identifier] = menu_entries
+
+        # Update look up for files to see what menu they belong under, if any
+        for top_most_menu_identifier, new_menu_entries in files.items():
+            menu_by_file = all_files.get(top_most_menu_identifier, {})
+            for file, menu in new_menu_entries.items():
+                menu_by_file[file] = menu
+            all_files[top_most_menu_identifier] = menu_by_file
+
+    LOG.info("Building menus finished")
+
+    print(toml.dumps(all_menus))
 
     return all_menus, all_files
 
@@ -95,7 +120,7 @@ def version_for_config(filename):
 
 
 def parse_index(file):
-    """ Returns a 2-tuple of { version : menus } and { version: files{file: submenu} }
+    """ Returns a 2-tuple of { version : menus } and { version: files } where files = {file: submenu} }
     Files have '.md' suffix
     """
     directives = parse_rst(file)
@@ -111,9 +136,7 @@ def parse_index(file):
         if directive.args.get("if_tag", "htmlmode") != "htmlmode":
             continue
 
-        caption = directive.args.get("caption", "Main")
-        if not caption:
-            continue
+        caption = _get_menu_title(directive, file)
 
         # Create the submenu entries (for hugo)
         identifier = ver + "-" + caption.lower().replace(" ", "-").replace("&", "and")
@@ -130,34 +153,41 @@ def parse_index(file):
                 file_in_menu = line.strip()
 
             if file_in_menu:
-                full_path = os.path.join(os.path.dirname(file), file_in_menu)
+                full_path = str(os.path.join(os.path.dirname(file), file_in_menu))
+                if not full_path.endswith(".rst"):
+                    full_path += ".rst"
                 if not os.path.exists(full_path):
                     LOG.error(f"Missing file in menu, ignoring: {full_path}")
                     continue
                 if file_in_menu.endswith(".rst"):
                     file_in_menu = file_in_menu.replace(".rst", ".md")
+                else:
+                    file_in_menu += ".md" # rst is relax about suffixes when being referenced.
                 x = files.get(ver, {})
                 x[file_in_menu] = identifier
                 files[ver] = x
 
-    # # remove up empty menus
-    # for entry in menus:
-    #     present = False
-    #     for __, v in files.get(ver, {}).items():
-    #         if entry["identifier"] == v:
-    #             present = True
-    #             break
-
-    #     if not present:
-    #         LOG.error("need to remove " + str(entry))
-    print(files)
     return {ver: menus}, files
 
 
-"""  Really rough parsing - just want 'toctree'  """
+def _get_menu_title(directive, file):
+    """ Return the title of the menu from the directive, or use the filename or even
+    the parent folder """
+    caption = directive.args.get("caption", None)
+    if not caption:
+        #  Take the file name and attempt to create a caption.
+        filename = os.path.splitext(os.path.basename(file))[0]
+        if filename == "toc-tree":
+            # Use parent folder name instead
+            filename = os.path.basename(os.path.dirname(file))
+        if filename.endswith("-index"):
+            filename = filename.replace("-index", "")
+        caption = " ".join(filename.split("-")).title()
+    return caption
 
 
 def parse_rst(index_file):
+    """  Really rough parsing - just want 'toctree'  """
     LOG.info(f"Parsing {index_file}")
     directives = []
 

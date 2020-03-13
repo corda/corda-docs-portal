@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V3.2/codestyle.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-3-2:
+    parent: corda-os-3-2-release-process
 tags:
 - codestyle
 title: Code style guide

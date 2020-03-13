@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V2.0/tut-two-party-contract.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-2-0:
+    parent: corda-os-2-0-tut-two-party-introduction
 tags:
 - tut
 - party

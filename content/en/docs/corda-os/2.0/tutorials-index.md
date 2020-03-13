@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-2-0:
-    parent: corda-os-2-0-main
+    parent: corda-os-2-0-index
 tags:
 - tutorials
 title: Tutorials

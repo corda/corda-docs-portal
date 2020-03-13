@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V4.3/changelog.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-3:
+    parent: corda-os-4-3-participate
 tags:
 - changelog
 title: Changelog

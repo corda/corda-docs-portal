@@ -199,7 +199,7 @@ This is a sample `node.conf` which details a configuration connecting to the Cor
 }
 
 ```
-{{/* github src='docs/source/resources/nodefull.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/nodefull.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/nodefull.conf' start='' end='' */}}[nodefull.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/nodefull.conf)
+[nodefull.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/nodefull.conf)
 
 ### Implementing the Corda Firewall PKI
 
@@ -299,7 +299,7 @@ haConfig {
 networkParametersPath = network-parameters // The network-parameters file is expected to be copied from the node registration phase and here is expected in the workspace folder.
 
 ```
-{{/* github src='docs/source/resources/bridge.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge.conf' start='' end='' */}}[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge.conf)
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge.conf)
 
 ### Float Installation
 
@@ -333,7 +333,7 @@ floatOuterConfig {
 networkParametersPath = network-parameters // The network-parameters file is expected to be copied from the node registration phase and here is expected in the workspace folder.
 
 ```
-{{/* github src='docs/source/resources/float.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/float.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/float.conf' start='' end='' */}}[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/float.conf)
+[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/float.conf)
 A full list of the parameters that can be utilized in these configuration files can be found here : [https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html](https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html)
 
 
@@ -420,7 +420,7 @@ The following is an example of how to set up a Squid Proxy Server and start the 
 > refresh_pattern .               0       20%     4320
 > debug_options ALL,3
 > ```
-> {{/* github src='docs/source/resources/squidconfig.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidconfig.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/squidconfig.conf' start='' end='' */}}[squidconfig.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidconfig.conf)
+> [squidconfig.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidconfig.conf)
 
 
 * Once Squid is successfully installed run:
@@ -459,7 +459,7 @@ Mar 13 18:44:10 corda-firewall-proxies systemd[1]: Started LSB: Squid HTTP Proxy
 Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) process 14263
 
 ```
-{{/* github src='docs/source/resources/squidstatus.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidstatus.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/squidstatus.conf' start='' end='' */}}[squidstatus.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidstatus.conf)
+[squidstatus.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidstatus.conf)
 
 * At this point you can ssh to the VM where the Corda Node is installed and run the following command:
 
@@ -475,7 +475,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 > 1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.141 -
 > 
 > ```
-> {{/* github src='docs/source/resources/access.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/access.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/access.conf' start='' end='' */}}[access.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/access.conf)
+> [access.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/access.conf)
 
 
 ## Using Socks Proxy with Corda Bridge
@@ -499,4 +499,4 @@ The additional benefit of utilizing a SOCKS server is that it facilitates organi
 }
 
 ```
-{{/* github src='docs/source/resources/socks.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/socks.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/socks.conf' start='' end='' */}}[socks.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/socks.conf)
+[socks.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/socks.conf)

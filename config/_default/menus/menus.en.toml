@@ -1,4 +1,9 @@
 [[cenm-1-0]]
+identifier = "cenm-1-0-tools"
+name = "Tools"
+weight = 10
+
+[[cenm-1-0]]
 identifier = "cenm-1-0-concepts-and-overview"
 name = "Concepts and Overview"
 weight = 10
@@ -34,6 +39,11 @@ name = "Public Key Infrastructure"
 weight = 70
 
 [[cenm-1-1]]
+identifier = "cenm-1-1-tools"
+name = "Tools"
+weight = 10
+
+[[cenm-1-1]]
 identifier = "cenm-1-1-concepts-and-overview"
 name = "Concepts and Overview"
 weight = 10
@@ -62,6 +72,11 @@ weight = 50
 identifier = "cenm-1-1-public-key-infrastructure"
 name = "Public Key Infrastructure"
 weight = 60
+
+[[cenm-1-2]]
+identifier = "cenm-1-2-tools"
+name = "Tools"
+weight = 10
 
 [[cenm-1-2]]
 identifier = "cenm-1-2-concepts-and-overview"
@@ -99,33 +114,163 @@ name = "Signing Plugin Samples"
 weight = 70
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-upgrading-and-tools"
-name = "Upgrading and Tools"
+identifier = "corda-enterprise-4-4-tools"
+name = "Tools"
 weight = 10
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-cordapps"
-name = "CorDapps"
-weight = 20
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-corda-nodes"
-name = "Corda Nodes"
-weight = 30
 
 [[corda-enterprise-4-4]]
 identifier = "corda-enterprise-4-4-corda-networks"
 name = "Corda Networks"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-key-concepts-vault"
+name = "Key Concepts Vault"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-index"
+name = "Index"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-corda-enterprise"
+name = "Corda Enterprise"
+weight = 20
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-development"
+name = "Development"
+weight = 30
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-corda-api"
+name = "Corda API"
 weight = 40
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-operations"
+name = "Operations"
+weight = 50
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-corda-network"
+name = "Corda Network"
+weight = 60
 
 [[corda-enterprise-4-4]]
 identifier = "corda-enterprise-4-4-miscellaneous"
 name = "Miscellaneous"
-weight = 50
+weight = 70
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-tools-index-enterprise"
+name = "Tools Index Enterprise"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-corda-firewall"
+name = "Corda Firewall"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-versioning-and-upgrades"
+name = "Versioning And Upgrades"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-node-internals"
+name = "Node Internals"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-performance-testing"
+name = "Performance Testing"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-toctree"
+name = "Toctree"
+weight = 10
 
 [[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-main"
-name = "Main"
+identifier = "corda-enterprise-4-3-tools"
+name = "Tools"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-key-concepts-vault"
+name = "Key Concepts Vault"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-index"
+name = "Index"
 weight = 10
 
 [[corda-enterprise-4-3]]
@@ -158,9 +303,109 @@ identifier = "corda-enterprise-4-3-miscellaneous"
 name = "Miscellaneous"
 weight = 70
 
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-tools-index-enterprise"
+name = "Tools Index Enterprise"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-corda-firewall"
+name = "Corda Firewall"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-versioning-and-upgrades"
+name = "Versioning And Upgrades"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-node-internals"
+name = "Node Internals"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-performance-testing"
+name = "Performance Testing"
+weight = 10
+
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-toctree"
+name = "Toctree"
+weight = 10
+
 [[corda-enterprise-4-1]]
-identifier = "corda-enterprise-4-1-main"
-name = "Main"
+identifier = "corda-enterprise-4-1-tools"
+name = "Tools"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-key-concepts-vault"
+name = "Key Concepts Vault"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-index"
+name = "Index"
 weight = 10
 
 [[corda-enterprise-4-1]]
@@ -183,6 +428,81 @@ identifier = "corda-enterprise-4-1-participate"
 name = "Participate"
 weight = 50
 
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-contributing"
+name = "Contributing"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-node-internals"
+name = "Node Internals"
+weight = 10
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-design-docs"
+name = "Design Docs"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-tools"
+name = "Tools"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-tutorials"
+name = "Tutorials"
+weight = 10
+
 [[corda-enterprise-3-3]]
 identifier = "corda-enterprise-3-3-corda-enterprise"
 name = "Corda Enterprise"
@@ -198,9 +518,99 @@ identifier = "corda-enterprise-3-3-operations"
 name = "Operations"
 weight = 30
 
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-corda-firewall"
+name = "Corda Firewall"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-other-docs"
+name = "Other docs"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-release-process"
+name = "Release Process"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-node-internals"
+name = "Node Internals"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-installing-the-notary-service"
+name = "Installing The Notary Service"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-toctree"
+name = "Toctree"
+weight = 10
+
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-introduction"
+name = "Introduction"
+weight = 10
+
 [[corda-enterprise-4-2]]
-identifier = "corda-enterprise-4-2-main"
-name = "Main"
+identifier = "corda-enterprise-4-2-tools"
+name = "Tools"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-key-concepts-vault"
+name = "Key Concepts Vault"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-index"
+name = "Index"
 weight = 10
 
 [[corda-enterprise-4-2]]
@@ -228,9 +638,139 @@ identifier = "corda-enterprise-4-2-miscellaneous"
 name = "Miscellaneous"
 weight = 60
 
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-tools-index-enterprise"
+name = "Tools Index Enterprise"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-corda-firewall"
+name = "Corda Firewall"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-node-internals"
+name = "Node Internals"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-deploying-node"
+name = "Deploying Node"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-node-config"
+name = "Node Config"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-ops-environment"
+name = "Ops Environment"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-performance-testing"
+name = "Performance Testing"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-cm-backup"
+name = "Cm Backup"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-operating-node"
+name = "Operating Node"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-change-management"
+name = "Change Management"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-installing-the-notary-service"
+name = "Installing The Notary Service"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-toctree"
+name = "Toctree"
+weight = 10
+
+[[corda-enterprise-4-2]]
+identifier = "corda-enterprise-4-2-introduction"
+name = "Introduction"
+weight = 10
+
 [[corda-enterprise-4-0]]
-identifier = "corda-enterprise-4-0-main"
-name = "Main"
+identifier = "corda-enterprise-4-0-tools"
+name = "Tools"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-key-concepts-vault"
+name = "Key Concepts Vault"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-index"
+name = "Index"
 weight = 10
 
 [[corda-enterprise-4-0]]
@@ -253,19 +793,254 @@ identifier = "corda-enterprise-4-0-corda-network"
 name = "Corda Network"
 weight = 50
 
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-tools-index-enterprise"
+name = "Tools Index Enterprise"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-corda-firewall"
+name = "Corda Firewall"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-node-internals"
+name = "Node Internals"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-performance-testing"
+name = "Performance Testing"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-design-docs"
+name = "Design Docs"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-installing-the-notary-service"
+name = "Installing The Notary Service"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-toctree"
+name = "Toctree"
+weight = 10
+
+[[corda-enterprise-4-0]]
+identifier = "corda-enterprise-4-0-introduction"
+name = "Introduction"
+weight = 10
+
 [[corda-os-3-2]]
-identifier = "corda-os-3-2-main"
-name = "Main"
+identifier = "corda-os-3-2-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-other"
+name = "Other"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-index"
+name = "Index"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-release-process"
+name = "Release Process"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-3-2]]
+identifier = "corda-os-3-2-node-internals"
+name = "Node Internals"
 weight = 10
 
 [[corda-os-1-0]]
-identifier = "corda-os-1-0-main"
-name = "Main"
+identifier = "corda-os-1-0-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-other"
+name = "Other"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-index"
+name = "Index"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-api"
+name = "Api"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-release-process"
+name = "Release Process"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-tut-two-party"
+name = "Tut Two Party"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-hello-world"
+name = "Hello World"
+weight = 10
+
+[[corda-os-1-0]]
+identifier = "corda-os-1-0-node-internals"
+name = "Node Internals"
 weight = 10
 
 [[corda-os-4-4]]
-identifier = "corda-os-4-4-main"
-name = "Main"
+identifier = "corda-os-4-4-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-key-concepts-vault"
+name = "Key Concepts Vault"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-index"
+name = "Index"
 weight = 10
 
 [[corda-os-4-4]]
@@ -293,9 +1068,89 @@ identifier = "corda-os-4-4-participate"
 name = "Participate"
 weight = 60
 
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-contributing"
+name = "Contributing"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-versioning-and-upgrades"
+name = "Versioning And Upgrades"
+weight = 10
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-node-internals"
+name = "Node Internals"
+weight = 10
+
 [[corda-os-4-3]]
-identifier = "corda-os-4-3-main"
-name = "Main"
+identifier = "corda-os-4-3-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-key-concepts-vault"
+name = "Key Concepts Vault"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-index"
+name = "Index"
 weight = 10
 
 [[corda-os-4-3]]
@@ -323,14 +1178,164 @@ identifier = "corda-os-4-3-participate"
 name = "Participate"
 weight = 60
 
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-contributing"
+name = "Contributing"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-versioning-and-upgrades"
+name = "Versioning And Upgrades"
+weight = 10
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-node-internals"
+name = "Node Internals"
+weight = 10
+
 [[corda-os-3-1]]
-identifier = "corda-os-3-1-main"
-name = "Main"
+identifier = "corda-os-3-1-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-other"
+name = "Other"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-index"
+name = "Index"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-release-process"
+name = "Release Process"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-3-1]]
+identifier = "corda-os-3-1-node-internals"
+name = "Node Internals"
 weight = 10
 
 [[corda-os-4-1]]
-identifier = "corda-os-4-1-main"
-name = "Main"
+identifier = "corda-os-4-1-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-key-concepts-vault"
+name = "Key Concepts Vault"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-index"
+name = "Index"
 weight = 10
 
 [[corda-os-4-1]]
@@ -353,24 +1358,319 @@ identifier = "corda-os-4-1-participate"
 name = "Participate"
 weight = 50
 
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-contributing"
+name = "Contributing"
+weight = 10
+
+[[corda-os-4-1]]
+identifier = "corda-os-4-1-node-internals"
+name = "Node Internals"
+weight = 10
+
 [[corda-os-3-4]]
-identifier = "corda-os-3-4-main"
-name = "Main"
+identifier = "corda-os-3-4-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-other"
+name = "Other"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-index"
+name = "Index"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-release-process"
+name = "Release Process"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-contributing"
+name = "Contributing"
+weight = 10
+
+[[corda-os-3-4]]
+identifier = "corda-os-3-4-node-internals"
+name = "Node Internals"
 weight = 10
 
 [[corda-os-3-3]]
-identifier = "corda-os-3-3-main"
-name = "Main"
+identifier = "corda-os-3-3-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-other"
+name = "Other"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-index"
+name = "Index"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-release-process"
+name = "Release Process"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-contributing"
+name = "Contributing"
+weight = 10
+
+[[corda-os-3-3]]
+identifier = "corda-os-3-3-node-internals"
+name = "Node Internals"
 weight = 10
 
 [[corda-os-2-0]]
-identifier = "corda-os-2-0-main"
-name = "Main"
+identifier = "corda-os-2-0-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-other"
+name = "Other"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-index"
+name = "Index"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-api"
+name = "Api"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-release-process"
+name = "Release Process"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-2-0]]
+identifier = "corda-os-2-0-node-internals"
+name = "Node Internals"
 weight = 10
 
 [[corda-os-4-0]]
-identifier = "corda-os-4-0-main"
-name = "Main"
+identifier = "corda-os-4-0-docker"
+name = "Docker"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-index"
+name = "Index"
 weight = 10
 
 [[corda-os-4-0]]
@@ -398,8 +1698,118 @@ identifier = "corda-os-4-0-design-docs"
 name = "Design docs"
 weight = 60
 
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-contributing"
+name = "Contributing"
+weight = 10
+
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-node-internals"
+name = "Node Internals"
+weight = 10
+
 [[corda-os-3-0]]
-identifier = "corda-os-3-0-main"
-name = "Main"
+identifier = "corda-os-3-0-tools"
+name = "Tools"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-other"
+name = "Other"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-corda-api"
+name = "Corda Api"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-index"
+name = "Index"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-release-process"
+name = "Release Process"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-os-3-0]]
+identifier = "corda-os-3-0-node-internals"
+name = "Node Internals"
 weight = 10
 

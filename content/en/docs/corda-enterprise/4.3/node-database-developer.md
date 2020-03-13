@@ -3,7 +3,9 @@ aliases:
 - /releases/4.3/node-database-developer.html
 - /node-database-developer.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-corda-nodes
 tags:
 - node
 - database

@@ -3,7 +3,9 @@ aliases:
 - /releases/4.3/corda-firewall-component.html
 - /corda-firewall-component.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-3:
+    parent: corda-enterprise-4-3-corda-firewall
 tags:
 - corda
 - firewall

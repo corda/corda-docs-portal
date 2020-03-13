@@ -2,9 +2,7 @@
 aliases:
 - /releases/release-V4.3/corda-network/UAT.html
 date: '2020-01-08T09:59:25Z'
-menu:
-  corda-os-4-3:
-    parent: corda-os-4-3-corda-network
+menu: []
 tags:
 - UAT
 title: 'Corda Network: Pre-Production Environment'

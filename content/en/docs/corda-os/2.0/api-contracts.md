@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V2.0/api-contracts.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-2-0:
+    parent: corda-os-2-0-api
 tags:
 - api
 - contracts

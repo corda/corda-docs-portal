@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
-    parent: corda-os-3-2-main
+    parent: corda-os-3-2-index
 tags:
 - glossary
 title: Glossary

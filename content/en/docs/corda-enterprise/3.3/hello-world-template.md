@@ -2,7 +2,9 @@
 aliases:
 - /releases/3.3/hello-world-template.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-3-3:
+    parent: corda-enterprise-3-3-hello-world-introduction
 tags:
 - template
 title: The CorDapp Template

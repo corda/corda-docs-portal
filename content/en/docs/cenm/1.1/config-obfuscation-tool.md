@@ -3,7 +3,9 @@ aliases:
 - /releases/release-1.1/config-obfuscation-tool.html
 - /config-obfuscation-tool.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  cenm-1-1:
+    parent: cenm-1-1-tools
 tags:
 - config
 - obfuscation

@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V3.0/cheat-sheet.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-3-0:
+    parent: corda-os-3-0-building-a-cordapp
 tags:
 - cheat
 - sheet

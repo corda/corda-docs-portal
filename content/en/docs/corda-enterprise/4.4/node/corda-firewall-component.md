@@ -188,7 +188,7 @@ rpcSettings = {
 }
 
 ```
-{{/* github src='docs/source/resources/bridge/node_bridge/node.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge/node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/node_bridge/node.conf' start='' end='' */}}[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge/node.conf)
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge/node.conf)
 
 #### bridge.conf
 
@@ -203,7 +203,7 @@ inboundConfig {
 networkParametersPath = network-parameters
 
 ```
-{{/* github src='docs/source/resources/bridge/node_bridge/bridge.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge/bridge.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/node_bridge/bridge.conf' start='' end='' */}}[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge/bridge.conf)
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge/bridge.conf)
 
 ### DMZ ready (node + bridge + float)
 
@@ -252,7 +252,7 @@ enterpriseConfiguration = {
 }
 
 ```
-{{/* github src='docs/source/resources/bridge/node_bridge_float/node.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/node.conf' start='' end='' */}}[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/node.conf)
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/node.conf)
 
 #### bridge.conf
 
@@ -273,7 +273,7 @@ bridgeInnerConfig {
 }
 networkParametersPath = network-parameters
 ```
-{{/* github src='docs/source/resources/bridge/node_bridge_float/bridge.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/bridge.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/bridge.conf' start='' end='' */}}[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/bridge.conf)
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/bridge.conf)
 
 #### float.conf
 
@@ -293,7 +293,7 @@ floatOuterConfig {
     }
 }
 ```
-{{/* github src='docs/source/resources/bridge/node_bridge_float/float.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/float.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/float.conf' start='' end='' */}}[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/float.conf)
+[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/node_bridge_float/float.conf)
 
 ### DMZ ready with outbound SOCKS
 
@@ -334,7 +334,7 @@ enterpriseConfiguration = {
 }
 
 ```
-{{/* github src='docs/source/resources/bridge/socks_proxy/node.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/socks_proxy/node.conf' start='' end='' */}}[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/node.conf)
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/node.conf)
 
 #### bridge.conf
 
@@ -362,7 +362,7 @@ bridgeInnerConfig {
 networkParametersPath = network-parameters
 
 ```
-{{/* github src='docs/source/resources/bridge/socks_proxy/bridge.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/bridge.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/socks_proxy/bridge.conf' start='' end='' */}}[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/bridge.conf)
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/bridge.conf)
 
 #### float.conf
 
@@ -382,7 +382,7 @@ floatOuterConfig {
     }
 }
 ```
-{{/* github src='docs/source/resources/bridge/socks_proxy/float.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/float.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/socks_proxy/float.conf' start='' end='' */}}[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/float.conf)
+[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/socks_proxy/float.conf)
 
 ### Full production HA DMZ ready mode (hot/cold node, hot/warm bridge)
 
@@ -441,7 +441,7 @@ enterpriseConfiguration = {
 }
 
 ```
-{{/* github src='docs/source/resources/bridge/ha_nodes/node.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/ha_nodes/node.conf' start='' end='' */}}[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/node.conf)
+[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/node.conf)
 
 #### bridge.conf
 
@@ -466,7 +466,7 @@ haConfig {
 networkParametersPath = network-parameters
 
 ```
-{{/* github src='docs/source/resources/bridge/ha_nodes/bridge.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/bridge.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/ha_nodes/bridge.conf' start='' end='' */}}[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/bridge.conf)
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/bridge.conf)
 
 #### float.conf
 
@@ -486,7 +486,7 @@ floatOuterConfig {
     }
 }
 ```
-{{/* github src='docs/source/resources/bridge/ha_nodes/float.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/float.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/ha_nodes/float.conf' start='' end='' */}}[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/float.conf)
+[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/ha_nodes/float.conf)
 
 #### Notes on physical deployment of services
 
@@ -562,7 +562,7 @@ rpcSettings = {
 }
 
 ```
-{{/* github src='docs/source/resources/bridge/multiple_non_ha_nodes/bank-a-node.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-a-node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-a-node.conf' start='' end='' */}}[bank-a-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-a-node.conf)
+[bank-a-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-a-node.conf)
 
 #### bank-b-node.conf
 
@@ -594,7 +594,7 @@ rpcSettings = {
 }
 
 ```
-{{/* github src='docs/source/resources/bridge/multiple_non_ha_nodes/bank-b-node.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-b-node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-b-node.conf' start='' end='' */}}[bank-b-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-b-node.conf)
+[bank-b-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bank-b-node.conf)
 
 #### bridge.conf
 
@@ -623,7 +623,7 @@ keyStorePassword = bridgeKeyStorePassword
 trustStorePassword = nodeTrustpass
 trustStoreFile = nodesCertificates/truststore.jks
 ```
-{{/* github src='docs/source/resources/bridge/multiple_non_ha_nodes/bridge.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bridge.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bridge.conf' start='' end='' */}}[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bridge.conf)
+[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/bridge/multiple_non_ha_nodes/bridge.conf)
 
 ### Adding new nodes to existing shared Bridge
 

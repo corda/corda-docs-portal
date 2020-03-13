@@ -29,7 +29,6 @@ LOG = logging.getLogger(__name__)
 ARGS = None
 
 # Menus that we'll read from the .rst files and add into hugo
-MENUS = {}
 MENU_FILES = {}
 INCLUDES = {}
 
@@ -1408,9 +1407,6 @@ def _replace_duplicate_resources_in_files(paths):
     new_relative_resource_path = None
     image_exts = [".png", ".gif", ".jpg"]
 
-    LOG.warning("Consolidating into one file")
-    LOG.warning(paths)
-
     for pathname in paths:
         filename = os.path.basename(pathname)
         is_image = bool(os.path.splitext(pathname)[1] in image_exts)
@@ -1426,6 +1422,8 @@ def _replace_duplicate_resources_in_files(paths):
                 new_relative_resource_path = os.path.join("en", "images", filename)
             else:
                 new_relative_resource_path = os.path.join("en", "pdf", filename)
+            LOG.warning(f"Consolidating into one file {new_relative_resource_path}")
+
         dest = os.path.join(ROOT, "static", new_relative_resource_path)
         shutil.copyfile(pathname, dest)
 
@@ -1471,7 +1469,7 @@ def create_missing_pages():
 
 
 def main():
-    global ARGS, MENUS, MENU_FILES, INCLUDES
+    global ARGS, MENU_FILES, INCLUDES
 
     desc = "Convert rst files to md using sphinx"
     parser = argparse.ArgumentParser(description=desc)
@@ -1502,11 +1500,11 @@ def main():
     else:
         cms = Hugo()
 
-    MENUS, MENU_FILES = parse_indexes()
+    menus_to_be_written_to_config, MENU_FILES = parse_indexes()
     INCLUDES = parse_literal_includes()
 
     menus = os.path.join(ROOT, "config/_default/menus/menus.en.toml")
-    open(menus,'w').write(toml.dumps(MENUS))
+    open(menus, 'w').write(toml.dumps(menus_to_be_written_to_config))
 
     convert_all_xml_to_md(cms)
 

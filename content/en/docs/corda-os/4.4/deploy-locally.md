@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V4.4/deploy-locally.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-4:
+    parent: corda-os-4-4-deploy-to-testnet
 tags:
 - deploy
 - locally

@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V3.1/hello-world-flow.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-3-1:
+    parent: corda-os-3-1-hello-world-introduction
 tags:
 - flow
 title: Writing the flow

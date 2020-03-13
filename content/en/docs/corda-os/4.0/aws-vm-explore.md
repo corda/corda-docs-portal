@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V4.0/aws-vm-explore.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-0:
+    parent: corda-os-4-0-deploy-to-testnet
 tags:
 - aws
 - vm

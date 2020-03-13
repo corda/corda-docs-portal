@@ -2,7 +2,9 @@
 aliases:
 - /releases/4.1/serialization.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-serialization
 tags:
 - serialization
 title: Object serialization

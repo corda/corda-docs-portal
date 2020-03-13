@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V4.0/network-bootstrapper.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-0:
+    parent: corda-os-4-0-tools
 tags:
 - network
 - bootstrapper

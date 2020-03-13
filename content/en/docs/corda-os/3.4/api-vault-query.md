@@ -2,7 +2,9 @@
 aliases:
 - /releases/release-V3.4/api-vault-query.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-3-4:
+    parent: corda-os-3-4-corda-api
 tags:
 - api
 - vault
