@@ -10514,6 +10514,31 @@ footer p {
 .r3-o-docs-nav ul + .nav-item a {
   color: #ec1d24;
 }
+.r3-o-docs-nav button {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+}
+.r3-o-docs-nav button:after {
+  content: url("/images/svg/corda-bullet-c-14.svg");
+  color: black;
+  margin-left: auto;
+  transition-property: transform;
+  transition-duration: 0.2s;
+  transform: rotate(0deg);
+}
+.r3-o-docs-nav ul {
+  opacity: 0;
+  transform-origin: top center;
+  transition-property: all;
+  transform: rotateX(-90deg);
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+.r3-o-docs-nav button.active + ul {
+  transform: rotateX(0);
+  opacity: 1;
+}
 
 .r3-o-navbar {
   background-image: url("/images/png/corda-banner.png");

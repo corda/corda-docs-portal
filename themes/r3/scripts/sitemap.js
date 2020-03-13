@@ -40,3 +40,26 @@ export function applySiteMapCollapse() {
         });
     }
 }
+
+export class accordionNav {
+    constructor() {
+        this.docsNav = document.querySelector(".r3-o-docs-nav");
+        this.addRootListener(this.docsNav);
+    }
+
+    addRootListener(node) {
+        node.addEventListener("click", this.toggleNav);
+    }
+
+    toggleNav(e) {
+        const { target } = e;
+        const { localName } = e.target;
+        switch (localName) {
+            case "button":
+                target.classList.toggle("active");
+                break;
+            default:
+                break;
+        }
+    }
+}

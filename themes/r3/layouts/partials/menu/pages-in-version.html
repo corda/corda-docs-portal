@@ -10,16 +10,14 @@
 {{ $currentPage := . }}
 {{/* the menu for the section_menu this page is tagged with*/}}
 {{ $menuEntries := index .Site.Menus $sectionMenuForThisPage}}
-<ul class="r3-o-docs-nav">
-    {{ range $menuEntries.ByWeight }}
-    {{ if .HasChildren }}
-    <li class="nav-item{{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
-        <a href="#">
-            {{ .Pre }}
-            <span>{{ .Name }}</span>
-        </a>
-    </li>
-    <ul class="sub-menu">
+<div class="r3-o-docs-nav">
+    {{ range $index, $element := $menuEntries.ByWeight }}
+    {{ if $element.HasChildren }}
+    <button class="nav-item{{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active{{ end }}" >
+            {{ $element.Pre }}
+            {{ $element.Name }}
+    </button>
+    <ul class="sub-menu{{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
         {{ range .Children }}
             <li class="nav-item{{ if $currentPage.IsMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
                 <a href="{{ .URL }}">{{ .Name }}</a>
@@ -27,13 +25,11 @@
         {{ end }}
     </ul>
     {{ else }}
-    <li>
-        <a href="{{ .URL }}">
-            {{ .Pre }}
-            <span>{{ .Name }}</span>
-        </a>
-    </li>
+    <button onclick="window.location.href = '{{ $element.URL }}'">
+            {{ $element.Pre }}
+            {{ $element.Name }}
+    </button>
     {{end}}
     {{ end }}
-</ul>
+</div>
 {{ end }}

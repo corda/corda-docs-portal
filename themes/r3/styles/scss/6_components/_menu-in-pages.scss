@@ -18,4 +18,33 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
         }
     }
 
+    button {
+        background-color: transparent;
+        border: none;
+        text-transform: uppercase;
+
+        &:after {
+            content: url("/images/svg/corda-bullet-c-14.svg");
+            color: black;
+            margin-left: auto;
+            transition-property: transform;
+            transition-duration: 0.2s;
+            transform: rotate(0deg);
+        }
+    }
+
+    ul {
+        opacity: 0;
+        transform-origin: top center;
+        transition-property: all;
+        transform: rotateX(-90deg);
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in-out;
+    }
+
+    button.active + ul {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+
 }

@@ -13,11 +13,12 @@ export function activateListeners() {
             true
         );
     }
-
-    navTransparent.addEventListener("click", e => {
-        if(e.target === navTransparent) {
-            nav.classList.toggle("show-nav");
-            navTransparent.classList.remove("show-nav");
-        }
-    });
+    if (navTransparent) {
+        navTransparent.addEventListener("click", e => {
+            if (e.target === navTransparent) {
+                nav.classList.toggle("show-nav");
+                navTransparent.classList.remove("show-nav");
+            }
+        });
+    }
 }
