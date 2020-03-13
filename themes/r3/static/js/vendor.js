@@ -28420,6 +28420,31 @@ module.exports = JSON.parse("{\"algolia_appId\":\"R1ZKEEPZZD\",\"algolia_apiKey\
 
 /***/ }),
 
+/***/ "./scripts/vendor/bootstrap-init.js":
+/*!******************************************!*\
+  !*** ./scripts/vendor/bootstrap-init.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+(function bootstrapListenerCollapseNav() {
+  jquery__WEBPACK_IMPORTED_MODULE_1___default()('.r3-o-sidebar__nav-content #TableOfContents>ul>li>a').on('click', function () {
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()('#r3-toc-nav').collapse('hide');
+    document.querySelector("#reverseAni").beginElement();
+  });
+})();
+
+/***/ }),
+
 /***/ "./scripts/vendor/index.js":
 /*!*********************************!*\
   !*** ./scripts/vendor/index.js ***!
@@ -28429,8 +28454,7 @@ module.exports = JSON.parse("{\"algolia_appId\":\"R1ZKEEPZZD\",\"algolia_apiKey\
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _bootstrap_init__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap-init */ "./scripts/vendor/bootstrap-init.js");
 /* harmony import */ var docsearch_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! docsearch.js */ "./node_modules/docsearch.js/dist/npm/index.js");
 /* harmony import */ var docsearch_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(docsearch_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _params_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../params.json */ "./params.json");

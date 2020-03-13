@@ -9,20 +9,26 @@
             {{ partial "svg/nav-icon.svg" . }}
             </button>
             {{ partial "search.html" . }}
-            <button
-                class="btn btn-link r3-o-sidebar__toc-toggle d-xl-none pt-1 col-1"
-                type="button"
-                aria-controls="bd-docs-nav"
-                aria-expanded="false"
-                aria-label="Toggle Table of Contents">
-                {{ partial "svg/toc-icon.svg" . }}
-            </button>
+
+            {{ $element := .Page.TableOfContents }}
+            {{ if eq $element `<nav id="TableOfContents"></nav>`}}
+                <i></i>
+            {{ else }}
+                <button
+                    class="btn btn-link r3-o-sidebar__toc-toggle d-xl-none pt-1 col-1"
+                    type="button"
+                    aria-controls="bd-docs-nav"
+                    aria-expanded="false"
+                    aria-label="Toggle Table of Contents">
+                    {{ partial "svg/toc-icon.svg" . }}
+                </button>
+            {{ end }}
         </div>
         <nav
             class="collapse r3-o-sidebar__nav-content"
             id="r3-toc-nav"
             aria-label="Main navigation">
-            {{- .Page.TableOfContents -}}
+            {{- partial "toc.html" . -}}
         </nav>
     </div>
 </div>

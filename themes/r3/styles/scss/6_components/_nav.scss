@@ -1,6 +1,7 @@
 $nav-object: "#{$class-object-prefix}nav";
 
 .#{$nav-object} {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     bottom: 0;

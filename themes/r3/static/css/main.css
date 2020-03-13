@@ -10359,6 +10359,7 @@ body {
 }
 @media screen and (min-width: 1200px) {
   .r3-o-wrapper-side {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -10372,11 +10373,29 @@ body {
   padding: 0px 0px 40px 0px;
 }
 .r3-o-wrapper-main main {
-  padding-left: 0;
+  flex-grow: 1;
+  padding: 0 15px;
+  width: 0;
 }
 .r3-o-wrapper-main main img {
   max-width: 100%;
   height: auto;
+}
+.r3-o-wrapper-main aside {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-left: 40px;
+  margin-top: -36px;
+  max-height: calc(100vh - 64px);
+  padding: 40px 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 64px;
+  width: 240px;
 }
 
 .r3-o-wrapper-nav {
@@ -10413,7 +10432,15 @@ h1 {
 }
 
 h2 {
+  font-size: 32px;
+}
+
+h3 {
   font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
 }
 
 p {
@@ -10459,54 +10486,6 @@ ul, li {
   padding-right: 0.5rem;
   color: #6c757d;
   content: ">";
-}
-
-.r3-o-dropdown button {
-  color: #ec1d24;
-  background-color: #EEF1F3;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 4px 12px;
-  text-align: initial;
-  width: 100%;
-}
-.r3-o-dropdown button:hover {
-  color: #ec1d24;
-  background-color: #FDE8E9;
-}
-.r3-o-dropdown button svg {
-  fill: #ec1d24;
-  float: right;
-  margin-top: 2px;
-  height: 16px;
-}
-.r3-o-dropdown button:after {
-  display: none;
-  margin-left: 0;
-  vertical-align: 0.255em;
-  content: "";
-  border: none;
-}
-
-footer {
-  background-color: #53585F;
-  color: rgba(255, 255, 255, 0.9);
-}
-footer p {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-#git {
-  text-align: center;
-}
-#git .git-edit {
-  text-align: right;
-}
-
-.r3-o-important {
-  background-color: #FAC7C8;
-  color: #47090B;
-  border-left: 0.5rem solid #EC1D24;
 }
 
 .r3-o-docs-nav {
@@ -10619,34 +10598,56 @@ footer p {
     transform: rotateX(0deg);
   }
 }
-.r3-o-navbar {
-  background-image: url("/images/png/corda-banner.png");
-  background-position: 60% 0%;
-  background-attachment: fixed;
+.r3-o-dropdown button {
+  color: #ec1d24;
+  background-color: #EEF1F3;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 12px;
+  text-align: initial;
+  width: 100%;
 }
-.r3-o-navbar ul {
-  flex-direction: row;
+.r3-o-dropdown button:hover {
+  color: #ec1d24;
+  background-color: #FDE8E9;
 }
-.r3-o-navbar ul li a {
-  padding-right: 0.5rem !important;
-  padding-left: 0.5rem !important;
+.r3-o-dropdown button svg {
+  fill: #ec1d24;
+  float: right;
+  margin-top: 2px;
+  height: 16px;
 }
-.r3-o-navbar__nav-item {
-  display: flex;
-  align-items: center;
+.r3-o-dropdown button:after {
+  display: none;
+  margin-left: 0;
+  vertical-align: 0.255em;
+  content: "";
+  border: none;
 }
-.r3-o-navbar__nav-item svg {
-  height: 17px;
-  stroke: #eee;
+
+footer {
+  background-color: #53585F;
+  color: rgba(255, 255, 255, 0.9);
 }
-.r3-o-navbar__nav-item svg .st0, .r3-o-navbar__nav-item svg .st1 {
-  fill: #eee;
+footer p {
+  color: rgba(255, 255, 255, 0.9);
 }
-.r3-o-navbar__nav-item:first-child svg {
-  height: 20px;
+
+#git {
+  text-align: center;
+}
+#git .git-edit {
+  text-align: right;
+}
+
+.r3-o-important {
+  background-color: #FAC7C8;
+  color: #47090B;
+  border-left: 0.5rem solid #EC1D24;
 }
 
 .r3-o-nav {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   bottom: 0;
@@ -10693,6 +10694,33 @@ footer p {
     text-align: center;
     padding-left: 0;
   }
+}
+
+.r3-o-navbar {
+  background-image: url("/images/png/corda-banner.png");
+  background-position: 60% 0%;
+  background-attachment: fixed;
+}
+.r3-o-navbar ul {
+  flex-direction: row;
+}
+.r3-o-navbar ul li a {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+}
+.r3-o-navbar__nav-item {
+  display: flex;
+  align-items: center;
+}
+.r3-o-navbar__nav-item svg {
+  height: 17px;
+  stroke: #eee;
+}
+.r3-o-navbar__nav-item svg .st0, .r3-o-navbar__nav-item svg .st1 {
+  fill: #eee;
+}
+.r3-o-navbar__nav-item:first-child svg {
+  height: 20px;
 }
 
 .r3-o-note {
@@ -10770,6 +10798,7 @@ footer p {
   box-sizing: content-box;
   flex: 1 0 30px;
   max-width: 30px;
+  padding-right: 0;
 }
 .r3-o-sidebar__toc-toggle svg line {
   fill: #EC1D24;
@@ -10778,11 +10807,12 @@ footer p {
   fill: #53585F;
   stroke: #53585F;
 }
-.r3-o-sidebar__nav-content ul {
-  direction: rtl;
+.r3-o-sidebar__nav-content {
+  margin-left: auto;
   text-align: right;
+  max-height: 70vh;
 }
-@media screen and (min-width: 1199px) {
+@media screen and (min-width: 1200px) {
   .r3-o-sidebar__nav-content {
     display: none;
   }
@@ -10802,6 +10832,7 @@ footer p {
   .r3-o-sidebar__search {
     justify-content: start;
     max-width: 700px;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
   }
@@ -10813,6 +10844,38 @@ footer p {
   padding-left: 1rem;
 }
 
+.r3-o-toc {
+  overflow-y: auto;
+}
+.r3-o-toc h4 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 30px;
+  text-transform: uppercase;
+}
+.r3-o-toc #TableOfContents > ul {
+  font-size: 16px;
+  list-style-type: none;
+  margin: 0;
+}
+.r3-o-toc #TableOfContents > ul > li {
+  padding-bottom: 10px;
+}
+.r3-o-toc #TableOfContents > ul > li > a {
+  color: #25282B;
+}
+.r3-o-toc #TableOfContents > ul > li > a:hover {
+  color: #F26166;
+  text-decoration-line: none;
+}
+.r3-o-toc #TableOfContents > ul > li > ul {
+  display: none;
+  font-size: 14px;
+  list-style: none;
+  margin: 0;
+  perspective: 900;
+  padding: 0;
+}
 .r3-o-topic {
   background-color: #D4D5D7;
   color: #191A1D;

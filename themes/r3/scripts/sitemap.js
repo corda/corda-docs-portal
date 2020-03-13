@@ -41,25 +41,19 @@ export function applySiteMapCollapse() {
     }
 }
 
-export class accordionNav {
-    constructor() {
-        this.docsNav = document.querySelector(".r3-o-docs-nav");
-        this.addRootListener(this.docsNav);
+// The function actually applying the offset
+function offsetAnchor() {
+    if (location.hash.length !== 0) {
+      window.scrollTo(window.scrollX, window.scrollY - 50);
     }
+}
 
-    addRootListener(node) {
-        node.addEventListener("click", this.toggleNav);
-    }
-
-    toggleNav(e) {
-        const { target } = e;
-        const { localName } = e.target;
-        switch (localName) {
-            case "button":
-                target.classList.toggle("active");
-                break;
-            default:
-                break;
+export function scrollOffset() {
+    document.addEventListener('click', e => {
+        if(e.target.hash) {
+            window.setTimeout(function() {
+                offsetAnchor();
+              }, 0);
         }
-    }
+    });
 }

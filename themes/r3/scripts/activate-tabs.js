@@ -11,6 +11,5 @@ export function activateTabs() {
         var e = elements[i];
         var s = "#" + e.id;
         $(function () { $(s).tabs(); });
-        console.log(s);
     }
 }

@@ -12,15 +12,24 @@
                 {{- partial "nav.html" . -}}
                 <div class="r3-o-wrapper-main col-12 col-xl-9">
                     {{- partial "sidebar.html" . -}}
-                    <div id="content" class="d-flex col-12 ">
-                        <main role="main" class="col-12 col-xl-8">
-                            <article class="r3-content">
-                                {{- block "main" . -}}{{- end -}}
-                            </article>
-                        </main>
-                        <aside id="toc" class="d-none d-xl-block col-xl-4">
-                            {{- .Page.TableOfContents -}}
-                        </aside>
+                    <div id="content" class="d-flex flex">
+                        {{ $element := .Page.TableOfContents }}
+                        {{ if eq $element `<nav id="TableOfContents"></nav>`}}
+                            <main role="main">
+                                <article class="r3-content">
+                                    {{- block "main" . -}}{{- end -}}
+                                </article>
+                            </main>
+                        {{ else }}
+                            <main role="main">
+                                <article class="r3-content">
+                                    {{- block "main" . -}}{{- end -}}
+                                </article>
+                            </main>
+                            <aside class="d-none d-xl-flex">
+                                {{- partial "toc.html" . }}
+                            </aside>
+                        {{ end }}
                     </div>
                 </div>
             </div>

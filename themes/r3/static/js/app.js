@@ -45906,7 +45906,6 @@ function activateTabs() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(s).tabs();
     });
-    console.log(s);
   }
 }
 
@@ -45983,7 +45982,7 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener("DOMContentLoaded", function () {
   Object(_anchorify__WEBPACK_IMPORTED_MODULE_0__["applyAnchors"])();
-  new _sitemap__WEBPACK_IMPORTED_MODULE_2__["accordionNav"]();
+  Object(_sitemap__WEBPACK_IMPORTED_MODULE_2__["scrollOffset"])();
   Object(_nav__WEBPACK_IMPORTED_MODULE_1__["activateListeners"])();
   Object(_activate_tabs__WEBPACK_IMPORTED_MODULE_3__["activateTabs"])();
   Object(_search_shortcut__WEBPACK_IMPORTED_MODULE_4__["searchShortcut"])();
@@ -46005,6 +46004,8 @@ function activateListeners() {
   var navToggle = document.querySelector(".r3-o-sidebar__nav-toggle");
   var nav = document.querySelector(".r3-o-nav");
   var navTransparent = document.querySelector(".r3-o-wrapper-nav");
+  var tocToggle = document.querySelector(".r3-o-sidebar__toc-toggle");
+  var tocDrop = document.querySelector(".r3-o-sidebar__nav-content");
 
   if (navToggle) {
     navToggle.addEventListener("click", function () {
@@ -46018,6 +46019,16 @@ function activateListeners() {
       if (e.target === navTransparent) {
         nav.classList.toggle("show-nav");
         navTransparent.classList.remove("show-nav");
+      }
+    });
+  }
+
+  if (tocDrop) {
+    tocDrop.addEventListener("click", function (e) {
+      if (e.target.hash) {
+        setTimeout(function () {
+          return tocToggle.click();
+        }, 500);
       }
     });
   }
@@ -46060,19 +46071,13 @@ function searchShortcut() {
 /*!****************************!*\
   !*** ./scripts/sitemap.js ***!
   \****************************/
-/*! exports provided: applySiteMapCollapse, accordionNav */
+/*! exports provided: applySiteMapCollapse, scrollOffset */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applySiteMapCollapse", function() { return applySiteMapCollapse; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "accordionNav", function() { return accordionNav; });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scrollOffset", function() { return scrollOffset; });
 /** Find page in site map and open collapsed nodes */
 function locatePageInSiteMap() {
   var thisPage = document.URL.split("#")[0];
@@ -46117,41 +46122,23 @@ function applySiteMapCollapse() {
       this.classList.toggle("caret-down");
     });
   }
-}
-var accordionNav =
-/*#__PURE__*/
-function () {
-  function accordionNav() {
-    _classCallCheck(this, accordionNav);
+} // The function actually applying the offset
 
-    this.docsNav = document.querySelector(".r3-o-docs-nav");
-    this.addRootListener(this.docsNav);
+function offsetAnchor() {
+  if (location.hash.length !== 0) {
+    window.scrollTo(window.scrollX, window.scrollY - 50);
   }
+}
 
-  _createClass(accordionNav, [{
-    key: "addRootListener",
-    value: function addRootListener(node) {
-      node.addEventListener("click", this.toggleNav);
+function scrollOffset() {
+  document.addEventListener('click', function (e) {
+    if (e.target.hash) {
+      window.setTimeout(function () {
+        offsetAnchor();
+      }, 0);
     }
-  }, {
-    key: "toggleNav",
-    value: function toggleNav(e) {
-      var target = e.target;
-      var localName = e.target.localName;
-
-      switch (localName) {
-        case "button":
-          target.classList.toggle("active");
-          break;
-
-        default:
-          break;
-      }
-    }
-  }]);
-
-  return accordionNav;
-}();
+  });
+}
 
 /***/ }),
 

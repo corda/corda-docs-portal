@@ -1,0 +1,8 @@
+<div id="toc" class="r3-o-toc">
+    {{ $element := .Page.TableOfContents }}
+    {{ if eq $element `<nav id="TableOfContents"></nav>`}}
+        <strong>Empty</strong>
+    {{ end }}
+    <h4>{{- .Page.Title -}}</h4>
+    {{- .Page.TableOfContents -}}
+</div>

@@ -20,6 +20,7 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
     }
 
     @media screen and (min-width: 1200px) {
+        position: -webkit-sticky;
         position: sticky;
         top: 0;
         z-index: 100;
@@ -33,10 +34,30 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
     padding: 0px 0px 40px 0px;
 
     main {
-        padding-left: 0;
+        flex-grow: 1;
+        padding: 0 15px;
+        width: 0;
+
         img {
             @include img-fluid;
         }
+    }
+
+    aside {
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        margin-left: 40px;
+        margin-top: -36px;
+        max-height: calc(100vh - 64px);
+        padding: 40px 0;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 64px;
+        width: 240px;
     }
 }
 

@@ -1,5 +1,4 @@
-import "bootstrap";
-
+import "./bootstrap-init";
 import docsearch from "docsearch.js";
 import docsearchParams from "../../params.json";
 
