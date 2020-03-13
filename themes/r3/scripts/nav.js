@@ -3,14 +3,16 @@ export function activateListeners() {
     let nav = document.querySelector(".r3-o-nav");
     let navTransparent = document.querySelector(".r3-o-wrapper-nav");
 
-    navToggle.addEventListener(
-        "click",
-        () => {
-            nav.classList.toggle("show-nav");
-            navTransparent.classList.add("show-nav");
-        },
-        true
-    );
+    if (navToggle) {
+        navToggle.addEventListener(
+            "click",
+            () => {
+                nav.classList.toggle("show-nav");
+                navTransparent.classList.add("show-nav");
+            },
+            true
+        );
+    }
 
     navTransparent.addEventListener("click", e => {
         if(e.target === navTransparent) {
