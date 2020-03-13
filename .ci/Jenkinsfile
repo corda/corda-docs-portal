@@ -1,16 +1,30 @@
 #!groovy
+def DOCKER_REPOSITORY = "docsite.software.r3.com"
 
 def MAKE_PARAMS = [
+    "PROD_IMAGE=${DOCKER_REPOSITORY}/corda-docs-nginx",
+    "PROD_IMAGE_TAG=${env.BRANCH_NAME.replaceAll('/', '-')}-${env.BUILD_ID}",
 ]
 
-def MAKE_TARGETS = [
+def MAKE_BUILD_TARGETS = [
+    'prod-docker-image',
+]
+
+def MAKE_PUBLISH_TARGETS = [
     'publish',
 ]
 
+
 pipeline {
     agent { label "docker" }
+
+    parameters {
+        booleanParam defaultValue: false, description: 'Check it to force publishing Docsite Docker image regardless of the branch it is built for', name: 'FORCE_PUBLISH'
+    }
+
     environment {
       MAKE_HOME = tool name: 'make', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
+      JQ_HOME = tool name: 'jq', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
     }
 
     options {
@@ -24,9 +38,24 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 sh """
-                    make ${MAKE_PARAMS.join(' ')} ${MAKE_TARGETS.join(' ')}
+                    make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
                 """
 		        sh 'docker images'
+            }
+        }
+        stage('Publish Docker image to Registry') {
+            when {
+                anyOf {
+                    branch 'master'
+                    expression { params.FORCE_PUBLISH }
+                }
+            }
+            steps {
+                withDockerRegistry(credentialsId: 'docsite-publisher', url: "https://${DOCKER_REPOSITORY}") {
+                    sh """
+                        make ${MAKE_PARAMS.join(' ')} ${MAKE_PUBLISH_TARGETS.join(' ')}
+                    """
+                }
             }
         }
     }
