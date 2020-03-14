@@ -102,9 +102,17 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
             transform: translate( 0, 0 );
             z-index: 2;
 
-            li a {
-                font-weight: 200;
-                text-transform: uppercase;
+            li {
+                padding-bottom: 25px;
+
+                a {
+                    font-weight: 200;
+                    text-transform: uppercase;
+                }
+
+                &:first-child {
+                    padding-top: 10px;
+                }
             }
         }
     }

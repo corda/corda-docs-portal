@@ -1,17 +1,20 @@
 $nav-object: "#{$class-object-prefix}nav";
 
 .#{$nav-object} {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+    background-color: white;
     bottom: 0;
-    height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 48px;
+    display: block !important;
+    left: 0;
+    height: 100%;
     overflow-y: auto;
-
-    z-index: 100;
-    padding-top: 32px;
     padding-left: 16px;
     padding-right: 16px;
+    padding-top: 32px;
+    position: absolute !important;
+    top: 0;
+    width: 312px;
+    z-index: 100;
 
     h5 {
         margin-bottom: 20px;
@@ -27,26 +30,12 @@ $nav-object: "#{$class-object-prefix}nav";
         }
     }
 
-    @media screen and (max-width: 1199px) {
-        background-color: white;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 48px;
-        bottom: 0;
-        display: block !important;
-        height: 100%;
-        left: 0;
-        overflow-y: auto;
-        position: absolute !important;
-        width: 312px;
-        z-index: 100;
-
-        nav {
-            margin-top: 22px;
-        }
-    }
-
     @media screen and (min-width: 1200px) {
-
+        box-shadow: unset;
+        height: 100vh;
         padding-top: 10px;
+        position: -webkit-sticky !important;
+        position: sticky !important;
 
         h5 {
             text-align: center;

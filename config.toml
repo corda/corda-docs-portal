@@ -1,6 +1,6 @@
 # When built, then this is used
 # TODO - waiting on decision
-baseURL = "http://docs.corda.net/"
+baseURL = ""
 
 # Nice stuff...
 title = "Corda Documentation"

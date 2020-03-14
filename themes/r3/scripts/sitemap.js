@@ -50,7 +50,7 @@ function offsetAnchor() {
 
 export function scrollOffset() {
     document.addEventListener('click', e => {
-        if(e.target.hash || e.target.firstChild.hash) {
+        if(e.target.hash || (e.target.firstChild && e.target.firstChild.hash) ) {
             if (e.target.firstChild.hash) {
                 window.location.hash = e.target.firstChild.hash;
             }
