@@ -4,8 +4,11 @@ $toc-object: ".#{$class-object-prefix}toc";
     overflow-y: auto;
 
     h4 {
+        color: $grey-800;
         font-size: 18px;
         font-weight: 600;
+        letter-spacing: 2px;
+        line-height: 1.4;
         margin: 10px 0;
         padding-left: 40px;
         text-transform: uppercase;
@@ -21,7 +24,9 @@ $toc-object: ".#{$class-object-prefix}toc";
 
             & > li {
                 border-bottom: 1px solid $grey-200;
+                color: $grey-800;
                 cursor: pointer;
+                letter-spacing: 2px;
                 padding: 10px 5px;
                 text-transform: uppercase;
 
@@ -76,6 +81,7 @@ $toc-object: ".#{$class-object-prefix}toc";
                 & > li {
                     border: none;
                     padding: 0 0 10px;
+                    letter-spacing: normal;
                     text-transform: initial;
 
                     &:first-child {

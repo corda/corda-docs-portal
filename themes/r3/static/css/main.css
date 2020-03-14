@@ -10837,8 +10837,11 @@ footer p {
   overflow-y: auto;
 }
 .r3-o-toc h4 {
+  color: #25282B;
   font-size: 18px;
   font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 1.4;
   margin: 10px 0;
   padding-left: 40px;
   text-transform: uppercase;
@@ -10852,7 +10855,9 @@ footer p {
 }
 .r3-o-toc #TableOfContents > ul > li {
   border-bottom: 1px solid #D4D5D7;
+  color: #25282B;
   cursor: pointer;
+  letter-spacing: 2px;
   padding: 10px 5px;
   text-transform: uppercase;
 }
@@ -10891,6 +10896,7 @@ footer p {
   .r3-o-toc #TableOfContents > ul > li {
     border: none;
     padding: 0 0 10px;
+    letter-spacing: normal;
     text-transform: initial;
   }
   .r3-o-toc #TableOfContents > ul > li:first-child {
