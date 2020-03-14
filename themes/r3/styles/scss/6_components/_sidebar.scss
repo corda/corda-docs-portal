@@ -50,9 +50,9 @@ $selected-page: "#{$class-object-prefix}selected-page";
     }
 
     &__nav-content {
-        margin-left: auto;
         text-align: right;
         max-height: 70vh;
+        overflow-y: auto;
 
         @media screen and (min-width: 1200px) {
            display: none;

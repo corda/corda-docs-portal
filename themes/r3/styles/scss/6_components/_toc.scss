@@ -1,22 +1,29 @@
 $toc-object: ".#{$class-object-prefix}toc";
 
 #{$toc-object} {
+    overflow-y: auto;
+
     h4 {
         font-size: 18px;
         font-weight: 600;
+        margin: 10px 0;
         padding-left: 40px;
         text-transform: uppercase;
     }
 
-    overflow-y: auto;
     #TableOfContents {
         & > ul {
             font-size: 16px;
             list-style-type: none;
             margin: 0;
+            overflow-y: auto;
+            padding-left: 40px;
 
             & > li {
-                padding-bottom: 10px;
+                border-bottom: 1px solid $grey-200;
+                cursor: pointer;
+                padding: 10px 5px;
+                text-transform: uppercase;
 
                 & > a {
                     color: $grey-800;
@@ -27,7 +34,6 @@ $toc-object: ".#{$class-object-prefix}toc";
                     }
                 }
 
-
                 & > ul {
                     display: none;
                     font-size: 14px;
@@ -37,10 +43,47 @@ $toc-object: ".#{$class-object-prefix}toc";
                     padding: 0;
 
                     & > li {
+                        & > a {}
+                    }
+                }
 
-                        & > a {
+                &:first-child {
+                    border-top: 1px solid $grey-200;
+                }
 
-                        }
+                &:hover {
+                    background-color: $grey-100;
+
+                    & > a {
+                        color: $red-400;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+
+        h4 {
+            margin-bottom: 20px;
+            padding-left: 0;
+        }
+
+        #TableOfContents {
+            & > ul {
+                padding-left: 0;
+
+                & > li {
+                    border: none;
+                    padding: 0 0 10px;
+                    text-transform: initial;
+
+                    &:first-child {
+                        border-top: none;
+                    }
+
+                    &:hover {
+                        background-color: inherit;
                     }
                 }
             }

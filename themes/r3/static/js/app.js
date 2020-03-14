@@ -46126,13 +46126,17 @@ function applySiteMapCollapse() {
 
 function offsetAnchor() {
   if (location.hash.length !== 0) {
-    window.scrollTo(window.scrollX, window.scrollY - 50);
+    window.scrollTo(window.scrollX, window.scrollY - 60);
   }
 }
 
 function scrollOffset() {
   document.addEventListener('click', function (e) {
-    if (e.target.hash) {
+    if (e.target.hash || e.target.firstChild.hash) {
+      if (e.target.firstChild.hash) {
+        window.location.hash = e.target.firstChild.hash;
+      }
+
       window.setTimeout(function () {
         offsetAnchor();
       }, 0);

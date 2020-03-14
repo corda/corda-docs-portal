@@ -28441,6 +28441,10 @@ __webpack_require__.r(__webpack_exports__);
     jquery__WEBPACK_IMPORTED_MODULE_1___default()('#r3-toc-nav').collapse('hide');
     document.querySelector("#reverseAni").beginElement();
   });
+  jquery__WEBPACK_IMPORTED_MODULE_1___default()('.r3-o-sidebar__nav-content #TableOfContents>ul>li').on('click', function () {
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()('#r3-toc-nav').collapse('hide');
+    document.querySelector("#reverseAni").beginElement();
+  });
 })();
 
 /***/ }),
