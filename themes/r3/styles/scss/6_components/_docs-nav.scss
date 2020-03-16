@@ -40,15 +40,25 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
 
         i {
             position: absolute;
-            transform: translate( -22px , 0 );
+            transform: translate( -6px , 0 );
+            margin-top: 16px;
             right: 0;
 
-            &:before {
-                content: url("/images/svg/corda-bullet-c-14.svg");
+            &:before , &:after {
+                content: "";
                 @extend .transition;
                 position: absolute;
-                transform-origin: 50% 50% 0;
-                transform: translate( 0, 0 ) rotate( 90deg );
+                background-color: $red-500;
+                width: 3px;
+                height: 9px;
+            }
+
+            &:before {
+                transform: translate( -2px , 0 ) rotate( 45deg );
+            }
+
+            &:after {
+                transform: translate( 2px , 0 ) rotate( -45deg );
             }
         }
 
@@ -60,7 +70,7 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
             letter-spacing: 2px;
             line-height: 1.4;
             margin-bottom: 8px;
-            max-width: 175px;
+            max-width: 155px;
             text-transform: uppercase;
         }
 
@@ -80,8 +90,14 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
                     transform: translate( 0, 0 );
                 }
 
-                & ~ i:before {
-                    transform: translate( 0, 0 ) rotate( 0deg );
+                &~i {
+                    &:before{
+                        transform: translate( 2px , 0 ) rotate( 45deg )
+                    }
+
+                    &:after{
+                        transform: translate( -2px , 0 ) rotate( -45deg )
+                    }
                 }
             }
 
