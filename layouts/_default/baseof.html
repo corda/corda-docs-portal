@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html{{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
+    {{ partial "head.html" . }}
+    <body>
+        <noscript>You need to enable javascript for this site</noscript>
+        {{- partial "header.html" . -}}
+        <div class="r3-o-landing d-flex container-fluid r3-o-container-fluid">
+            <div class="row position-relative justify-content-center">
+                <div class="r3-o-landing__image-wrapper col-8 col-md-6 col-lg-6 align-self-end">
+                    <img src="images/png/corda-docs.png" alt="corda-docs" />
+                </div>
+                <div class="r3-o-landing__content-wrapper col-8 col-md-6 col-lg-6 pl-5">
+                    <h5>OPEN-SOURCE BLOCKCHAIN PLATFORM FOR BUSINESS</h5>
+                    <p>
+                        Join thousands of developers building applications on Corda. Corda enables businesses to transact directly and in strict privacy using smart contracts, reducing transaction and record-keeping costs and streamlining business operations.
+                    </p>
+                    <a class="corda" href="/docs/corda-os/4.3.html">GET STARTED</a>
+                    <a class="github" href="https://github.com/corda">GO TO GITHUB</a>
+                </div>
+            </div>
+        </div>
+        {{- partial "footer.html" . -}}
+        {{- partial "scripts.html" . -}}
+    </body>
+</html>

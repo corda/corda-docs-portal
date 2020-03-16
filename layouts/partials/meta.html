@@ -1,0 +1,22 @@
+    <title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
+<!-- internal templates usage start -->
+{{ template "_internal/twitter_cards.html" . }}
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/google_analytics.html" . }}
+<!-- internal templates usage end -->
+
+    <meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}" />
+    <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}" />
+{{- with .Params.description -}}
+    <meta name="description" content="{{ . }}" />
+    <meta itemprop="description" content="{{ . }}" />
+{{- end -}}
+{{- with .Params.image -}} 
+    <meta itemprop="image" content="{{ . | absURL }}" />
+{{- end -}}
+    <base href="{{ .Permalink }}">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ .Site.BaseURL }}sitemap.xml" /> 
+{{- with .OutputFormats.Get "RSS" -}}
+    <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+{{- end -}}
