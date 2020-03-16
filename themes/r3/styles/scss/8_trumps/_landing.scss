@@ -77,11 +77,15 @@ $landing-object: ".#{$class-object-prefix}landing";
 
         &__content-wrapper {
             text-align: left;
+
+            @media (min-width: 992px) {
+
+            }
         }
 
 
         &__image-wrapper {
-            margin-bottom: initial;
+            margin-bottom: 10px;
             padding-right: 3em !important;
 
             img {
