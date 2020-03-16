@@ -41,10 +41,10 @@ control so it is easy to go back and check settings for previous results.
 
 ### Tweaking the memory
 
-The first tweak should be to give the node more memory - the instructions  how to deploy a node recommend at
+The first tweak should be to give the node more memory - the instructions  [how to deploy a node](../deploying-a-node.md) recommend at
 least 2GB of memory. Performance tests at R3 typically use 8GB of memory for one node. This depends on the available memory and
 how many nodes (and other processes) are run on the same machine. There are various ways to set the heap memory of the node documented at
-[Setting JVM arguments](../node/deploy/running-a-node.md#setting-jvm-args). The recommended approach for performance optimisation work is to use the JVM argument section in the node
+[Setting JVM arguments](../running-a-node.md#setting-jvm-args). The recommended approach for performance optimisation work is to use the JVM argument section in the node
 config file as this captures the memory setting along with any other settings.
 
 Be careful with the total amount of memory allocated to processes - if the total memory allocated to all processes on one machine exceeds
@@ -65,7 +65,7 @@ the optimal number, it is necessary to tweak that number via the configuration, 
 numbers have changed. In order to keep the tests reproducible, it might be a good idea to wipe the database between tests so index sizes
 and query times do not skew the test results for later runs (see [Resetting a Node](practical-considerations.md#resetting-a-node)).
 
-Flow and RPC threads can be set explicitly using the [tuning section](../node/setup/corda-configuration-file.md#enterprise-config-tuning) of the enterprise configuration. Add the following section to your
+Flow and RPC threads can be set explicitly using the [tuning section](../corda-configuration-file.md#enterprise-config-tuning) of the enterprise configuration. Add the following section to your
 node configuration file:
 
 ```kotlin

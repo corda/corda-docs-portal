@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
-    parent: corda-os-4-0-operations
+    parent: corda-os-4-0-docker
 tags:
 - docker
 - image

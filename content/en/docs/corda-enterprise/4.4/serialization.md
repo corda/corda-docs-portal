@@ -66,7 +66,7 @@ interface extended by an interface implemented by the class or its super classes
 There is also a built-in Corda whitelist (see the `DefaultWhitelist` class) that whitelists common JDK classes for
 convenience. This whitelist is not user-editable.
 
-The annotation is the preferred method for whitelisting. An example is shown in tutorial-clientrpc-api.
+The annotation is the preferred method for whitelisting. An example is shown in [Using the client RPC API](tutorial-clientrpc-api.md).
 It’s reproduced here as an example of both ways you can do this for a couple of example classes.
 
 ```kotlin

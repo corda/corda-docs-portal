@@ -12,54 +12,154 @@ version: '4.4'
 ---
 
 
-# Introduction to Corda
+# Corda Enterprise 4.4
 
-A Corda Network is a peer-to-peer network of [Nodes](../nodedocs.html), each representing a party on the network.
-These Nodes run Corda applications ([CorDapps](../cordapps.html)), and transact between Nodes using public or
-confidential identities.
+Welcome to the documentation website for Corda Enterprise 4.4, based on the Corda 4.0 open source release.
 
-When one or more Nodes are involved in a transaction, the transaction must be notarised. [Notaries](../notarydocs.html) are a specialized type
-of Node that provides uniqueness consensus by attesting that, for a given transaction, it has not already signed other
-transactions that consumes any of the proposed transaction’s input states.
-
-For all Corda release notes, see the [Release Notes](release-notes-index.md) index page.
+Corda Enterprise 4.4 builds on the performance, scalability, high-availability, enhanced DMZ security, and multiple database vendor support
+introduced in Corda Enterprise 3.0 with the following important new additions:
 
 
-## Corda Offerings
+* **Multiple nodes behind a single firewall**:
+multi-tenancy of Corda Firewall (float and bridge) components enables multiple Corda nodes to multiplex all remote peer-to-peer message traffic
+through a single Corda Firewall.
+* **Hardware Security Module (HSM) support**:
+for Node CA and Legal Identity signing keys in hardware security modules provides increased security.
+This release includes full integration with Azure Key Vault, Gemalto Luna, Utimaco and nShield HSM devices.
+* **High Availability improvements**:
+this release builds on the Hot-Cold High Availability configuration available in Corda Enterprise 3.x with improved deployment
+configurations to simplify operational management and reduce overall VM footprint.
+* **Operational Deployment improvements**:
+introduces improvements that optimize larger scale deployments, reduce the cost of infrastructure, and minimize the operational complexity
+of multi-node hosting.
+* **Performance Test Suite for benchmarking**:
+a toolkit to allow customers to test and validate Corda for their infrastructure performance and determine whether or not improvements are needed
+before going live.
 
-There are several commercial Corda offerings available for different solutions requirements. Corda is an open-source platform,
-with several enterprise offerings.
-
-
-### Corda Enterprise
-
-Corda Enterprise is a commercial edition of the Corda platform, specifically optimized to meet the privacy, security and
-throughput demands of modern day business. Corda Enterprise is interoperable and compatible with Corda open source and
-is designed for organizations with exacting requirements around quality of service and the network infrastructure in
-which they operate.
-
-Corda Enterprise contains all the core Corda functionality, but also includes the [Corda Firewall](../firewalldocs.html),
-support for [high-availability Node and Notary](../hadocs.html) deployments, and compatibility with hardware security modules ([HSMs](../hsmdoc.html)).
-
-
-### Corda Enterprise Network Manager
-
-[Corda Enterprise Network Manager](../cenmdocs.html) empowers Corda Network operators, giving greater control over all
-aspects of deployment, operation, and consensus rules.
-
-Corda Enterprise Network Manager encompasses three main services:
+Corda Enterprise 4.4 also includes the new features of Corda 4, notably:
 
 
-* The Identity Manager Service. This service enables Nodes to join the network, and handles Node certificate revocation
-* The Network Map Service. This service provides a global view of the Network. The public identity of each Node in the Network is registered with the Network Map Service.
-* The Signing Service. This service signs approved requests to join the network (CSRs) or revoke a certificate (CRRs), and is also responsible for updating the Network Map Service.
+* **Reference input states**:
+these allow smart contracts to read data from the ledger without simultaneously updating it.
+* **State pointers**:
+these work together with the reference states feature to make it easy for data to point to the latest version of any other piece of data
+on the ledger by `StateRef` or linear ID.
+* **Signature constraints**:
+facilitate upgrading CorDapps in a secure manner using standard public key signing mechanisms and controls.
+* **Security upgrades** to include:
+    * Sealed JARs are a security upgrade that ensures JARs cannot define classes in each other’s packages, thus ensuring Java’s package-private
+visibility feature works.
+    * `@BelongsToContract` annotation: allows annotating states with which contract governs them.
+    * Two-sided `FinalityFlow` and `SwapIdentitiesFlow` to prevent nodes accepting any finalised transaction, outside of the context of a containing flow.
+    * Package namespace ownership: allows app developers to register their keys and Java package namespaces
+with the zone operator. Any JAR that defines classes in these namespaces will have to be signed by those keys.
+
+
+* **Versioning**:
+applications can now specify a **target version** in their JAR manifest that declares which version of the platform the app was tested against.
+They can also specify a **minimum platform version** which specifies the minimum version a node must be running on
+to allow the app to start using new features and APIs of that version.
+
+You can learn more about all new features in the [Enterprise](release-notes-enterprise.md) and [Open Source](release-notes.md) release notes.
+
+{{< note >}}
+You can read this site offline by [downloading the PDF](_static/corda-developer-site.pdf).
+
+{{< /note >}}
+
+Corda Enterprise is binary compatible with apps developed for the open source node. This docsite is intended for
+administrators and advanced users who wish to learn how to install and configure an enterprise deployment. For
+application development please continue to refer to [the main project documentation website](https://docs.corda.net/).
+
+{{< note >}}
+Corda Enterprise provides platform API version 4, which matches the API available in open source Corda 4.x releases.
+
+{{< /note >}}
+
+
+
+* [Release notes](release-notes-enterprise.md)
+    * [Corda Enterprise 4.4](release-notes-enterprise.md#release)
+        * [Key new features and components](release-notes-enterprise.md#key-new-features-and-components)
+            * [Corda Open Core](release-notes-enterprise.md#corda-open-core)
+            * [Further Hardware Security Module (HSM) support](release-notes-enterprise.md#further-hardware-security-module-hsm-support)
+            * [Performance improvements](release-notes-enterprise.md#performance-improvements)
+            * [HA Notary registration process improvements](release-notes-enterprise.md#ha-notary-registration-process-improvements)
+            * [Corda Health Survey improvements](release-notes-enterprise.md#corda-health-survey-improvements)
+            * [Configuration Obfuscator improvements](release-notes-enterprise.md#configuration-obfuscator-improvements)
+
+
+        * [Known issues](release-notes-enterprise.md#known-issues)
+        * [Upgrade notes](release-notes-enterprise.md#upgrade-notes)
 
 
 
 
+* [Upgrading CorDapps to Corda Enterprise 4.4](app-upgrade-notes-enterprise.md)
+    * [Upgrading from Open Source](app-upgrade-notes-enterprise.md#upgrading-from-open-source)
+        * [Running on Corda Enterprise 4.4](app-upgrade-notes-enterprise.md#running-on-release)
+        * [Re-compiling for Corda Enterprise 4.4](app-upgrade-notes-enterprise.md#re-compiling-for-release)
+
+
+    * [Upgrading from Enterprise 4.3 or earlier](app-upgrade-notes-enterprise.md#upgrading-from-enterprise-4-3-or-earlier)
+    * [Upgrading from Enterprise 3.x](app-upgrade-notes-enterprise.md#upgrading-from-enterprise-3-x)
+        * [Example](app-upgrade-notes-enterprise.md#example)
 
 
 
+
+* [Upgrading your node to Corda 4](node-upgrade-notes.md)
+    * [Step 1. Drain the node](node-upgrade-notes.md#step-1-drain-the-node)
+    * [Step 2. Make a backup of your node directories and database](node-upgrade-notes.md#step-2-make-a-backup-of-your-node-directories-and-database)
+    * [Step 3. Update database](node-upgrade-notes.md#step-3-update-database)
+        * [3.1. Configure the Database Management Tool](node-upgrade-notes.md#configure-the-database-management-tool)
+            * [Azure SQL](node-upgrade-notes.md#azure-sql)
+            * [SQL Server](node-upgrade-notes.md#sql-server)
+            * [Oracle](node-upgrade-notes.md#oracle)
+            * [PostgreSQL](node-upgrade-notes.md#postgresql)
+
+
+        * [3.2. Extract DDL script using Database Management Tool](node-upgrade-notes.md#extract-ddl-script-using-database-management-tool)
+        * [3.3. Apply DDL scripts on a database](node-upgrade-notes.md#apply-ddl-scripts-on-a-database)
+        * [3.4. Apply data updates on a database](node-upgrade-notes.md#apply-data-updates-on-a-database)
+
+
+    * [Step 4. Replace `corda.jar` with the new version](node-upgrade-notes.md#step-4-replace-corda-jar-with-the-new-version)
+    * [Step 5. Start up the node](node-upgrade-notes.md#step-5-start-up-the-node)
+    * [Step 6. Undrain the node](node-upgrade-notes.md#step-6-undrain-the-node)
+
+
+* [Corda and Corda Enterprise compatibility](version-compatibility.md)
+* [Platform support matrix](platform-support-matrix.md)
+    * [JDK support](platform-support-matrix.md#jdk-support)
+    * [Operating systems supported in production](platform-support-matrix.md#operating-systems-supported-in-production)
+    * [Operating systems supported in development](platform-support-matrix.md#operating-systems-supported-in-development)
+    * [Node databases](platform-support-matrix.md#node-databases)
+    * [MySQL notary databases](platform-support-matrix.md#mysql-notary-databases)
+    * [JPA notary databases](platform-support-matrix.md#jpa-notary-databases)
+    * [Hardware Security Modules (HSM)](platform-support-matrix.md#hardware-security-modules-hsm)
+
+
+* [Cheat sheet](cheat-sheet.md)
+
+
+
+
+Corda API
+
+* [API: Contracts](api-contracts.md)
+* [API: Contract Constraints](api-contract-constraints.md)
+* [API: Core types](api-core-types.md)
+* [API: Flows](api-flows.md)
+* [API: Identity](api-identity.md)
+* [API: Persistence](api-persistence.md)
+* [API: RPC operations](api-rpc.md)
+* [API: Service Classes](api-service-classes.md)
+* [API: ServiceHub](api-service-hub.md)
+* [API: States](api-states.md)
+* [API: Testing](api-testing.md)
+* [API: Transactions](api-transactions.md)
+* [API: Vault Query](api-vault-query.md)
 
 
 

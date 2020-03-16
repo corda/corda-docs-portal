@@ -47,6 +47,14 @@ Usage:
 > * `--bridge-crl-url` <url>:        Alternative CRL URL to be used by the bridge for CRL validation test
 
 
+RPC Access:
+
+> 
+> 
+> * `--rpc-user` <arg>:              Set the user name for RPC commands
+> * `--rpc-password` <arg>:          Set the password for RPC user
+
+
 Connectivity tests:
 
 > 
@@ -68,7 +76,10 @@ Running the tool with no arguments assumes that the base-directory argument is t
 
 ## Access to node using RPC
 
-Health Survey tool uses the first user name and password recorded in the *users* section of the node.conf *security* block:
+The RPC communication test, ping test and notary checks all require permission to run RPC commands on the node.
+
+By default, the Health Survey tool uses the first user with ‘ALL’ permission recorded in the *users*
+section of the *security* block or of the *rpcUsers* array in the node configuration file:
 
 ```kotlin
 security {
@@ -77,7 +88,7 @@ security {
             type = INMEMORY
             users = [
                 {
-                    password = password
+                    password = <{ ... }>
                     permissions = [
                         ALL
                     ]
@@ -89,10 +100,35 @@ security {
 }
 ```
 
-If the first listed user does not have sufficient authority to run node information commands then some
-of the tests will fail.
+If no account has ‘ALL’ access then a specific user name can be used by setting the –rpc-user command line option.
+This account must have the following permissions:
 
-Health Survey tool also cannot retrieve passwords hashed using Shiro or recorded in a database.
+For RPC Validation Test:
+
+> 
+> 
+> * InvokeRpc.nodeInfo
+
+
+Ping node check:
+
+> 
+> 
+> * InvokeRpc.nodeInfoFromParty
+> * InvokeRpc.wellKnownPartyFromX500Name
+
+
+For notary checks:
+
+> 
+> 
+> * InvokeRpc.networkMapSnapshot
+> * InvokeRpc.notaryIdentities
+> * InvokeRpc.nodeInfoFromParty
+> * InvokeRpc.wellKnownPartyFromX500Name
+
+
+If passwords have been hashed using Shiro then the RPC user’s password must be provided using the –rpc-password command line option.
 
 
 ## Output
@@ -166,6 +202,13 @@ The toggle-bridge command can be used in HA environments to temporarily shut dow
 to become the master.
 
 This command can be used to verify that the firewall settings for both bridges have been configured correctly.
+
+
+## Running CRL checks via the Bridge
+
+If a node running behind the Corda Firewall has been configured to [delegate CRL checks to the Bridge](https://docs.corda.r3.com/release-notes-enterprise.html#corda-firewall-improvements), the Health Survey is able to test the functionality and verify that the connectivity path to the CRL endpoint is clear.
+
+This check runs only if the `revocationConfig` property in the Float configuration file is set to `EXTERNAL_SOURCE`. By default, the check tries to reach the Corda Network node TLS CRL endpoint. Users are allowed to verify alternative endpoints by using the `--bridge-crl-url` command-line argument.
 
 
 ## Disabling the Corda Health Survey in production

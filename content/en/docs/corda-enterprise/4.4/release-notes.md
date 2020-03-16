@@ -6,14 +6,108 @@ menu: []
 tags:
 - release
 - notes
-title: Corda release notes
+title: Release notes
 ---
 
 
-# Corda release notes
+# Release notes
 
 
-Welcome to the Corda 4.3 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.3 comes with those same guarantees. States and apps valid in Corda 3.0 are transparently usable in Corda 4.3.
+Welcome to the Corda 4.4 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.4 comes with those same guarantees. States and apps valid in Corda 3.0 are usable in Corda 4.4.
+
+
+
+## Corda 4.4
+
+Corda 4.4 lays the foundation of a new open-core approach for the Corda codebase. This involved a refactoring of the main functional components of Corda. Please consult cordapp-overview.rst to get an overview of the practical impact on CorDapp development.
+
+Furthermore, Corda 4.4 introduces improvements to the flow framework API, a new diagnostic `ServiceHub` call and includes a number of security enhancements.
+
+
+### Changes for developers in Corda 4.4
+
+
+#### Flows API improvements
+
+Corda 4.4 introduces a new `FlowLogic.await` API that allows a CorDapp developer to suspend their flow when executing user-defined long-running operations (e.g. call-outs to external services). This prevents these long-running operations from blocking the flow thread, allowing other flows to progress in the interim. Previously, these operations had to be executed synchronously, blocking the flow thread.
+
+The CorDapp developer can decide whether to run these asynchronous flow operations in a dedicated thread pool, or to handle the threading themselves directly.
+
+Note that as before, the flow framework suspends automatically for certain operations (e.g. when waiting to receive a message from a counterparty). These suspensions do not have to be triggered explicitly.
+
+The node operator can configure the number of threads in the threadpool to dedicate to external operations.
+
+Corda 4.4 also introduces a new `HospitalizeFlowException` exception type that, when thrown, causes a flow to halt execution and send itself to the flow hospital for observation. The flow will automatically be retried on the next node start.
+
+This exception gives user code a way to retry a flow from its last checkpoint if a known intermittent failure occurred.
+
+
+#### New utility APIs
+
+Corda 4.4 introduces a new call (`ServiceHub.DiagnosticsService`) available to CorDapp developers that allows them to access:
+
+
+* The edition of Corda being run (e.g. Open Source, Enterprise)
+* The version of Corda being run including the patch number (eg. 3.2.20190215)
+
+Corda 4.4 also provides a callback (`AppServiceHub.register`) to allow Corda services to register custom actions to be performed once the node is fully started-up. This pattern prevents issues caused by the service trying to immediately access a part of the node that hadn’t yet been initialised .
+
+
+#### Security enhancements
+
+
+* The SSH server in the [Node shell](shell.md) has been updated to remove outdated weak ciphers and algorithms.
+* The ability to SSH into the standalone shell has been removed
+* A new read-only RPC user role template has been documented in [Node shell](shell.md)
+
+
+### Platform version change
+
+Given the addition of new APIs, the platform version of Corda 4.4 has been bumped up from 5 to 6. This is to prevent CorDapps that use it being deployed onto nodes unable to host them. Note that the minimum platform version has not been changed - this means that older Corda nodes can still interoperate with Corda 4.4 nodes. Since the APIs added do not affect the wire protocol or have other zone-level implications, applications can take advantage of these new platform version 6 features even if the Corda 4.4 node is running on a network whose minimum platform version is 4.
+
+For more information on platform version, please see [Versioning](versioning.md). For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
+
+
+### Issues Fixed
+
+
+* A failure response from Doorman during initial registration causes a class cast exception [[CORDA-2744](https://r3-cev.atlassian.net/browse/CORDA-2744)]
+* Add an exception for Unrecoverable RPC errors [[CORDA-3192](https://r3-cev.atlassian.net/browse/CORDA-3192)]
+* Fix the misleading Flow has been waiting message [[CORDA-3197](https://r3-cev.atlassian.net/browse/CORDA-3197)]
+* Update Quasar agent so that we can exclude entire ClassLoaders from being instrumented [[CORDA-3228](https://r3-cev.atlassian.net/browse/CORDA-3228)]
+* Don’t fail on liquibase errors when using H2 [[CORDA-3302](https://r3-cev.atlassian.net/browse/CORDA-3302)]
+* Exceptions thrown in raw vault observers can cause critical issues [[CORDA-3329](https://r3-cev.atlassian.net/browse/CORDA-3329)]
+* Migration from Corda 3.x to 4.x for PostgreSQL require a manual workaround [[CORDA-3348](https://r3-cev.atlassian.net/browse/CORDA-3348)]
+* Prepare DJVM library for 1.0 release [[CORDA-3377](https://r3-cev.atlassian.net/browse/CORDA-3377)]
+* Improve node configuration override documentation [[CORDA-3386](https://r3-cev.atlassian.net/browse/CORDA-3386)]
+* Allow EvolutionSerializer to handle primitive types becoming nullable [[CORDA-3390](https://r3-cev.atlassian.net/browse/CORDA-3390)]
+* Fix caching of local AMQPSerializer [[CORDA-3392](https://r3-cev.atlassian.net/browse/CORDA-3392)]
+* Fixed NPE in BlobInspector [[CORDA-3396](https://r3-cev.atlassian.net/browse/CORDA-3396)]
+* Update DemoBench so that using the DJVM is configurable [[CORDA-3406](https://r3-cev.atlassian.net/browse/CORDA-3406)]
+* Scanning for Custom Serializers in the context of transaction verification is broken [[CORDA-3464](https://r3-cev.atlassian.net/browse/CORDA-3464)]
+* Allow EvolutionSerializer to handle boxed types becoming primitive [[CORDA-3469](https://r3-cev.atlassian.net/browse/CORDA-3469)]
+* Create interface to perform transactional operations from custom CordaServices [[CORDA-3471](https://r3-cev.atlassian.net/browse/CORDA-3471)]
+* Fix typo in node database table documentation [[CORDA-3476](https://r3-cev.atlassian.net/browse/CORDA-3476)]
+* Fix node database page [[CORDA-3477](https://r3-cev.atlassian.net/browse/CORDA-3477)]
+* Add timestamp column to NODE_TRANSACTIONS table [[CORDA-3479](https://r3-cev.atlassian.net/browse/CORDA-3479)]
+* Support adding new mandatory field and removal of optional [[CORDA-3489](https://r3-cev.atlassian.net/browse/CORDA-3489)]
+* Fix link to network builder [[CORDA-3495](https://r3-cev.atlassian.net/browse/CORDA-3495)]
+* Provide option for user to specify custom serializers without classpath scanning [[CORDA-3501](https://r3-cev.atlassian.net/browse/CORDA-3501)]
+* The CordaRPCClientConfiguration is not respected when GracefulReconnect is used [[CORDA-3507](https://r3-cev.atlassian.net/browse/CORDA-3507)]
+* Fix for Could not start flow as connection failed error on starting flow via ShellCli if user is not authorized to use this flow [[CORDA-3513](https://r3-cev.atlassian.net/browse/CORDA-3513)]
+* Support whitelists and custom serializers inside the DJVM [[CORDA-3523](https://r3-cev.atlassian.net/browse/CORDA-3523)]
+* Load DJVM serialization types more precisely to avoid runtime warnings [[CORDA-3536](https://r3-cev.atlassian.net/browse/CORDA-3536)]
+* Use the config values for reconnecting retry interval and max reconnect attempts [[CORDA-3542](https://r3-cev.atlassian.net/browse/CORDA-3542)]
+* SSH memory leak and security [[CORDA-3520](https://r3-cev.atlassian.net/browse/CORDA-3520)]
+* Remove support for outdated ciphers and algorithms from SSH [[CORDA-3550](https://r3-cev.atlassian.net/browse/CORDA-3550)]
+* Deserialization using the DJVM creates too many SerializerFactory objects [[CORDA-3552](https://r3-cev.atlassian.net/browse/CORDA-3552)]
+* Allow initial registration errors to propagate up so the node exits with a failure code [[CORDA-3558](https://r3-cev.atlassian.net/browse/CORDA-3558)]
+* Remove reference to man run [[CORDA-3559](https://r3-cev.atlassian.net/browse/CORDA-3559)]
+* Always add TestCordapps to the classpath when building _driverSerializationEnv [[CORDA-3566](https://r3-cev.atlassian.net/browse/CORDA-3566)]
+* Use the connectionMaxRetryInterval configuration when reconnection the RPC client [[CORDA-3576](https://r3-cev.atlassian.net/browse/CORDA-3576)]
+* Update docs for X500 name and SSH hostkey [[CORDA-3585](https://r3-cev.atlassian.net/browse/CORDA-3585)]
+* hashLookup command help misspelling [[CORDA-3587](https://r3-cev.atlassian.net/browse/CORDA-3587)]
+* Exit the InteractiveShell on shutdown command [[CORDA-3593](https://r3-cev.atlassian.net/browse/CORDA-3593)]
 
 
 
@@ -64,7 +158,7 @@ The improved library provides the following enhancements:
 * Reconnects any observables that have been created
 * Retries all operations on failure, except for flow start operations that die before receiving a valid *FlowHandle*, in which case a *CouldNotStartFlowException* is thrown
 
-We’re confident in the improvements made to RPC client connectivity but would remind you that applications should be developed with contingencies in the event of an RPC connection failure. See clientrpc for details.
+We’re confident in the improvements made to RPC client connectivity but would remind you that applications should be developed with contingencies in the event of an RPC connection failure. See [Interacting with a node](clientrpc.md) for details.
 
 
 #### Additional flexibility in recording transactions
@@ -79,7 +173,7 @@ In Corda 4.3, nodes can choose to record a transaction with three different leve
 Previously, there was a limitation in that if a node initially records a transaction with a specific level of visibility, they cannot later record it with a different level of visibility.
 
 In Corda 4.3, an enhancement has been made to observer node functionality to allow observers to re-record transactions that have already been recorded at a lower visibility.
-See tutorial-observer-nodes for details of how to work with observer nodes
+See [Observer nodes](tutorial-observer-nodes.md) for details of how to work with observer nodes
 
 
 ### Changes for operators in Corda 4.3
@@ -105,7 +199,7 @@ There have been several security upgrades, including changes to the Corda webser
 
 Given the addition of a new API to support the Accounts feature, the platform version of Corda 4.3 has been bumped up from 4 to 5. This is to prevent CorDapps that use it being deployed onto nodes unable to host them. Note that the minimum platform version has not been changed - this means that older Corda nodes can still interoperate with Corda 4.3 nodes. Since the APIs added do not affect the wire protocol or have other zone-level implications, applications can take advantage of these new platform version 5 features even if the Corda 4.3 node is running on a network whose minimum platform version is 4.
 
-For more information on platform version, please see versioning. For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
+For more information on platform version, please see [Versioning](versioning.md). For more details on upgrading a CorDapp to use platform version 5, please see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
 
 
 ### Deprecations
@@ -459,7 +553,7 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 Welcome to the Corda 4 release notes. Please read these carefully to understand what’s new in this
 release and how the changes can help you. Just as prior releases have brought with them commitments
 to wire and API stability, Corda 4 comes with those same guarantees. States and apps valid in
-Corda 3 are transparently usable in Corda 4.
+Corda 3 are usable in Corda 4.
 
 For app developers, we strongly recommend reading “[Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md)”. This covers the upgrade
 procedure, along with how you can adjust your app to opt-in to new features making your app more secure and
@@ -518,7 +612,7 @@ Learn more about this new feature by reading the [Upgrading CorDapps to newer Pl
 
 #### State pointers
 
-[State Pointers](cordapps/api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
+[State Pointers](api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
 on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
 any information on the global ledger). State pointers work together with the reference states feature
 to make it easy for data to point to the latest version of any other piece of data, with the right
@@ -567,7 +661,7 @@ by default.
 is named in each state object. This manual step is easy to miss, which would make the app less secure
 in a network where you trade with potentially malicious counterparties. The platform now handles this
 for you by allowing you to annotate states with which contract governs them. If states are inner
-classes of a contract class, this association is automatic. See api-contract-constraints for more information.
+classes of a contract class, this association is automatic. See [API: Contract Constraints](api-contract-constraints.md) for more information.
 
 **Two-sided FinalityFlow and SwapIdentitiesFlow.** The previous `FinalityFlow` API was insecure because
 nodes would accept any finalised transaction, outside of the context of a containing flow. This would
@@ -620,7 +714,7 @@ you can work with objects from apps you aren’t aware of.
 
 **SSL**. The Corda RPC infrastructure can now be configured to utilise SSL for additional security. The
 operator of a node wishing to enable this must of course generate and distribute a certificate in
-order for client applications to successfully connect. This is documented here tutorial-clientrpc-api
+order for client applications to successfully connect. This is documented here [Using the client RPC API](tutorial-clientrpc-api.md)
 
 
 #### Preview of the deterministic DJVM
@@ -630,7 +724,7 @@ Because transaction types are defined using JVM byte code, this means that the e
 code must be fully deterministic. Out of the box a standard JVM is not fully deterministic, thus we must
 make some modifications in order to satisfy our requirements.
 
-This version of Corda introduces a standalone key-concepts-djvm. It isn’t yet integrated with
+This version of Corda introduces a standalone [Deterministic JVM](key-concepts-djvm.md). It isn’t yet integrated with
 the rest of the platform. It will eventually become a part of the node and enforce deterministic and
 secure execution of smart contract code, which is mobile and may propagate around the network without
 human intervention.
@@ -640,7 +734,7 @@ trying it out and get used to developing deterministic code under the set of con
 envision will be placed on contract code in the future. There are some instructions on
 how to get started with the DJVM command-line tool, which allows you to run code in a deterministic
 sandbox and inspect the byte code transformations that the DJVM applies to your code. Read more in
-“key-concepts-djvm”.
+“[Deterministic JVM](key-concepts-djvm.md)”.
 
 
 #### Configurable flow responders
@@ -650,7 +744,7 @@ flow logic that individual users can customise at pre-agreed points (protected m
 that causes transaction details to be converted to a PDF and sent to a particular printer. This would be an inappropriate feature to put
 into shared business logic, but it makes perfect sense to put into a user-specific app they developed themselves.
 
-If your flows could benefit from being extended in this way, read “flow-overriding” to learn more.
+If your flows could benefit from being extended in this way, read “[Configuring Responder Flows](flow-overriding.md)” to learn more.
 
 
 #### Target/minimum versions
@@ -697,7 +791,7 @@ Changes to the parameters of a compatibility zone require all nodes to opt in be
 Some changes are trivial and very unlikely to trigger any disagreement. We have added auto-acceptance
 for a subset of network parameters, negating the need for a node operator to manually run an accept
 command on every parameter update. This behaviour can be turned off via the node configuration.
-See network-map.
+See [The network map](network-map.md).
 
 
 #### Automatic error codes

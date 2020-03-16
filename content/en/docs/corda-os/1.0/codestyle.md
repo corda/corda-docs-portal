@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-1-0:
-    parent: corda-os-1-0-release-process
+    parent: corda-os-1-0-other
 tags:
 - codestyle
 title: Code style guide

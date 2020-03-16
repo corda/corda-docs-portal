@@ -46,7 +46,7 @@ cd /opt/corda/current
 
 Review and adjust the content of the configuration files to your needs.
 The main configuration file is the `node.conf` file and database specific configuration is stored in the `dbconfig.conf` file.
-All Corda configuration parameters are described in corda-configuration-file.
+All Corda configuration parameters are described in [Node configuration](corda-configuration-file.md).
 Remember to adjust the `p2paddress` to match a FQDN or the public IP address of the VM.
 The public IP address can be obtained from the shell using the following command:
 
@@ -58,7 +58,7 @@ Note that only the p2p port (10002) is opened by default in a Network Security G
 To enable RPC communication from a remote machine the firewall has to be adjusted.
 
 For proudction usage, copy the required database drivers (e.g. Azure DB) into the `drivers` directory.
-More information on database configuration can be found at node-database
+More information on database configuration can be found at [Node database](node-database.md)
 
 Copy the selected CorDapps into the cordapps directory and their configuration to the `cordapps/config` subdirectory.
 
@@ -112,7 +112,7 @@ cd /opt/corda/current
 
 Review and adjust the content of the configuration files to your needs.
 The main configuration file is the `node.conf` file and database specific configuration is stored in the `dbconfig.conf` file.
-All Corda configuration parameters are described in corda-configuration-file.
+All Corda configuration parameters are described in [Node configuration](corda-configuration-file.md).
 Remember to adjust the `p2paddress` to match a FQDN or the public IP address of the VM.
 The public IP address can be obtained from the shell using the following command:
 
@@ -124,7 +124,7 @@ Note that only the p2p port (10002) is opened by default in a Security Group att
 To enable RPC communication from a remote machine the firewall has to be adjusted.
 
 For proudction usage, copy the required database drivers into the `drivers` directory.
-More information on database configuration can be found at node-database
+More information on database configuration can be found at [Node database](node-database.md)
 
 Copy the selected CorDapps into the cordapps directory and their configuration to the `cordapps/config` subdirectory.
 

@@ -16,7 +16,7 @@ title: Upgrading CorDapps to newer Platform Versions
 # Upgrading CorDapps to newer Platform Versions
 
 These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
-non-experimental APIs that have been committed to. A list can be found in the api-stability-guarantees page.
+non-experimental APIs that have been committed to. A list can be found in the [API stability guarantees](api-stability-guarantees.md) page.
 
 This means that you can upgrade your node across versions *without recompiling or adjusting your CorDapps*. You just have to upgrade
 your node and restart.
@@ -219,7 +219,7 @@ Watch out for the UK spelling of the word licence (with a c).
 
 Name, vendor and licence can be set to any string you like, they don’t have to be Corda identities.
 
-Target versioning is a new concept introduced in Corda 4. Learn more by reading versioning.
+Target versioning is a new concept introduced in Corda 4. Learn more by reading [Versioning](versioning.md).
 Setting a target version of 4 opts in to changes that might not be 100% backwards compatible, such as
 API semantics changes or disabling workarounds for bugs that may be in your apps, so by doing this you
 are promising that you have thoroughly tested your app on the new version. Using a high target version is
@@ -290,7 +290,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](cordapps/cordapp-build-systems.md#cordapp-configuration-files-ref) for more information.
+See [CorDapp configuration files](cordapp-build-systems.md#cordapp-configuration-files-ref) for more information.
 
 
 
@@ -590,7 +590,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 ### Step 6. Security: Upgrade your use of SwapIdentitiesFlow
 
-The [Confidential identities](cordapps/api-confidential-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [Confidential identities](api-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
@@ -737,13 +737,13 @@ to be governed by a contract that is either:
 * The outer class of the state class, if the state is an inner class of a contract. This is a common design pattern.
 * Annotated with `@BelongsToContract` which specifies the contract class explicitly.
 
-Learn more by reading [Contract/State Agreement](cordapps/api-contract-constraints.md#contract-state-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
+Learn more by reading [Contract/State Agreement](api-contract-constraints.md#contract-state-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
 
 
 ### Step 9. Learn about signature constraints and JAR signing
 
-[Signature Constraints](cordapps/api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
+[Signature Constraints](api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
 deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
 the act of upgrading your app to use the version 4 Gradle plugins will result in your app being automatically signed, and new states
 automatically using new signature constraints selected automatically based on these signing keys.
@@ -755,14 +755,14 @@ You will be able to use this feature if the compatibility zone you plan to deplo
 
 {{< /important >}}
 
-to check the correctness of the transaction. Please take this into account for your own schedule planning.You can read more about signature constraints and what they do in api-contract-constraints. The `TransactionBuilder` class will
+to check the correctness of the transaction. Please take this into account for your own schedule planning.You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
 automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
-[Signing the CorDapp JAR](cordapps/cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
+[Signing the CorDapp JAR](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
 with developer certificates is deployed to a production node, the node will refuse to start. Therefore to deploy apps built for Corda 4
 to production you will need to generate signing keys and integrate them with the build process.
 
 {{< note >}}
-Please read the cordapp-constraint-migration guide to understand how to upgrade CorDapps to use Corda 4 signature constraints and consume
+Please read the [CorDapp constraints migration](cordapp-constraint-migration.md) guide to understand how to upgrade CorDapps to use Corda 4 signature constraints and consume
 existing states on ledger issued with older constraint types (e.g. Corda 3.x states issued with **hash** or **CZ whitelisted** constraints).
 
 {{< /note >}}
@@ -793,7 +793,7 @@ and request ownership of your root package namespaces (e.g. `com.megacorp.*`), w
 The zone operator can then add your signing key to the network parameters, and prevent attackers defining types in your own package namespaces.
 Whilst this feature is optional and not strictly required, it may be helpful to block attacks at the boundaries of a Corda based application
 where type names may be taken “as read”. You can learn more about this feature and the motivation for it by reading
-“[Package namespace ownership](node/deploy/env-dev.md#package-namespace-ownership)”.
+“[Package namespace ownership](network-bootstrapper.md#package-namespace-ownership)”.
 
 
 ### Step 11. Consider adding extension points to your flows
@@ -803,15 +803,15 @@ flow logic that individual users can customise at pre-agreed points (protected m
 that causes transaction details to be converted to a PDF and sent to a particular printer. This would be an inappropriate feature to put
 into shared business logic, but it makes perfect sense to put into a user-specific app they developed themselves.
 
-If your flows could benefit from being extended in this way, read “flow-overriding” to learn more.
+If your flows could benefit from being extended in this way, read “[Configuring Responder Flows](flow-overriding.md)” to learn more.
 
 
 ### Step 12. Possibly update vault state queries
 
 In Corda 4 queries made on a node’s vault can filter by the relevancy of those states to the node. As this functionality does not exist in
 Corda 3, apps will continue to receive all states in any vault queries. However, it may make sense to migrate queries expecting just those states relevant
-to the node in question to query for only relevant states. See api-vault-query for more details on how to do this. Not doing this
-may result in queries returning more states than expected if the node is using observer functionality (see “tutorial-observer-nodes”).
+to the node in question to query for only relevant states. See [API: Vault Query](api-vault-query.md) for more details on how to do this. Not doing this
+may result in queries returning more states than expected if the node is using observer functionality (see “[Observer nodes](tutorial-observer-nodes.md)”).
 
 
 ### Step 13. Explore other new features that may be useful
@@ -820,10 +820,10 @@ Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
 * The [new withEntityManager API](api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
-* [Reference States](cordapps/api-states.md#reference-states), that let you use an input state without consuming it.
-* [State Pointers](cordapps/api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
+* [Reference States](api-states.md#reference-states), that let you use an input state without consuming it.
+* [State Pointers](api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 
-Please also read the CorDapp Upgradeability Guarantees associated with CorDapp upgrading.
+Please also read the [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) associated with CorDapp upgrading.
 
 
 ### Step 14. Possibly update your checked in quasar.jar
@@ -838,5 +838,5 @@ You have some choices here:
 * Upgrade your `quasar.jar` to `0.7.12_r3`
 * Delete your `lib` directory and switch to using the Gradle test runner
 
-Instructions for both options can be found in [Running tests in Intellij](ZZPotential-delete-docs/tutorial-cordapp.md#tutorial-cordapp-running-tests-intellij).
+Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.md#tutorial-cordapp-running-tests-intellij).
 

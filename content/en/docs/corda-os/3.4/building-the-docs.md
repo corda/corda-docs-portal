@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-4:
-    parent: corda-os-3-4-contributing
+    parent: corda-os-3-4-other
 tags:
 - building
 - docs

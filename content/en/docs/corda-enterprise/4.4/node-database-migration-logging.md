@@ -36,7 +36,7 @@ The log sequence:
 [<COUNT>
 <LIST>
 <PROGRESS>]
-<END>
+<SUCCESSFUL> | <ERROR>
 ```
 
 where:
@@ -46,7 +46,8 @@ where:
 * COUNT := the number of change sets to be applied to the database
 * LIST := the list od all change sets to be run, each change set on a separate line
 * PROGRESS := log lines before and after running each change set
-* END := a line denoting end of the database initialisation with status information (success or failure), depending where the failure occurs
+* SUCCESSFUL := a line denoting end of the database initialisation with status success.
+* ERROR := a log line denoting that the migration has failed, depending where the failure occurs
 COUNT, LIST or PROGRESS may be not present
 
 The log line format:
@@ -65,7 +66,7 @@ where:
 * STATUS := the status for the entire database schema initialisation process and a specific change sets:
 |        “start” - start of the whole database migration process,
 |        “to be run” - the list of change sets before migration run,
-|        “started” - the start of the current change set,
+|        “start” - the start of the current change set,
 |        “successful” - the successful completion of a change set,
 |        “error” - an error for the whole process or an error while running a specific change set
 * CODE := a predefined error code (see [Error codes](#node-database-migration-logging-error-codes))
@@ -79,9 +80,9 @@ An example database initialisation log:
 > DatabaseInitialisation(id="FrSzFgm2";changeset_count="2")
 > DatabaseInitialisation(id="FrSzFgm2";changeset="migration/common.changelog-init.xml::1511451595465-1.1::R3.Corda";source="node";status="to be run")
 > DatabaseInitialisation(id="FrSzFgm2";changeset="migration/vault-schema.changelog-init.xml::1511451595465-22::R3.Corda";source="node";status="to be run")
-> DatabaseInitialisation(id="FrSzFgm2";changeset="migration/common.changelog-init.xml::1511451595465-1.1::R3.Corda";source="node";status="started")
+> DatabaseInitialisation(id="FrSzFgm2";changeset="migration/common.changelog-init.xml::1511451595465-1.1::R3.Corda";source="node";status="start")
 > DatabaseInitialisation(id="FrSzFgm2";changeset="migration/common.changelog-init.xml::1511451595465-1.1::R3.Corda";source="node";status="successful")
-> DatabaseInitialisation(id="FrSzFgm2";changeset="migration/vault-schema.changelog-init.xml::1511451595465-22::R3.Corda";source="node";status="started")
+> DatabaseInitialisation(id="FrSzFgm2";changeset="migration/vault-schema.changelog-init.xml::1511451595465-22::R3.Corda";source="node";status="start")
 > DatabaseInitialisation(id="FrSzFgm2";changeset="migration/vault-schema.changelog-init.xml::1511451595465-22::R3.Corda";source="node";status="successful")
 > DatabaseInitialisation(id="FrSzFgm2";status="successful")
 > ```
@@ -92,7 +93,7 @@ An example unsuccessful database initialisation log:
 > 
 > ```none
 > ...
-> DatabaseInitialisation(id="FrSzFgm2";changeset="migration/common.changelog-init.xml::1511451595465-1.1::R3.Corda";source="node";status="started")
+> DatabaseInitialisation(id="FrSzFgm2";changeset="migration/common.changelog-init.xml::1511451595465-1.1::R3.Corda";source="node";status="start")
 > DatabaseInitialisation(id="FrSzFgm2";changeset="migration/common.changelog-init.xml::1511451595465-1.1::R3.Corda";source="node";status="error";error_code="9";message="Migration failed for change set migration/node-services.changelog-init.xml::1511451595465-39::R3.Corda:      Reason: liquibase.exception.DatabaseException: Table "NODE_MESSAGE_RETRY" not found; SQL statement: ALTER TABLE PUBLIC.node_message_retry ADD CONSTRAINT node_message_retry_pkey PRIMARY KEY (message_id) [42102-197] [Failed SQL: ALTER TABLE PUBLIC.node_message_retry ADD CONSTRAINT node_message_retry_pkey PRIMARY KEY (message_id)]")
 > DatabaseInitialisation(id="FrSzFgm2";status="error";error_code="9";message="Migration failed for change set migration/node-services.changelog-init.xml::1511451595465-39::R3.Corda:      Reason: liquibase.exception.DatabaseException: Table "NODE_MESSAGE_RETRY" not found; SQL statement: ALTER TABLE PUBLIC.node_message_retry ADD CONSTRAINT node_message_retry_pkey PRIMARY KEY (message_id) [42102-197] [Failed SQL: ALTER TABLE PUBLIC.node_message_retry ADD CONSTRAINT node_message_retry_pkey PRIMARY KEY (message_id)]")
 > ```
