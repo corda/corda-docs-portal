@@ -1,12 +1,12 @@
-# When built, then this is used
-# TODO - waiting on decision
+# When built, then this is used, but we inject it 
+# at build time using Hugo env-vars.
 baseURL = ""
 
 # Nice stuff...
 title = "Corda Documentation"
 
 # Of course...
-theme = "r3"
+theme = "hugo-r3-theme"
 
 # i18n
 defaultContentLanguage = "en"
