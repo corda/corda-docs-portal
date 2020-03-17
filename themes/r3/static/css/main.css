@@ -10487,7 +10487,7 @@ ul, li {
 .r3-o-docs-nav .transition, .r3-o-docs-nav li .sub-menu, .r3-o-docs-nav li i:before, .r3-o-docs-nav li i:after {
   transition: all 0.4s ease-in-out;
 }
-.r3-o-docs-nav .flipIn, .r3-o-docs-nav li {
+.r3-o-docs-nav .flipIn {
   animation: flipdown 1.4s ease both;
 }
 .r3-o-docs-nav .no-select {
@@ -10512,7 +10512,7 @@ ul, li {
 .r3-o-docs-nav li i {
   position: absolute;
   transform: translate(-6px, 0);
-  margin-top: 16px;
+  margin-top: 6px;
   right: 0;
 }
 .r3-o-docs-nav li i:before, .r3-o-docs-nav li i:after {

@@ -49,3 +49,13 @@ Prod:
 
 * `make docker-image`
 * `make docker-build`
+
+
+## TODO Snag List
+
+- [ ] We could use some padding in the source code snippet blocks.
+- [ ] Maybe the animation for opening a sidebar section doesn't need to trigger when just navigating between parts of a section that's already open?
+- [ ] There's some sort of invisible frame for the sidebar, so you can scroll to the bottom of the content and not realise you haven't scrolled to the bottom of the sidebar. You have to scroll over the sidebar itself to see that but there's no visual hint that this is required, e.g. no scrollbar. Can we make the sidebar be a part of the same frame as the content so there's only one scrollpane?
+- [ ] "TUT TWO PARTY INTRODUCTION" looks like it's in the wrong place? Does the new sidebar support multiple levels of nesting? The sidebar organisation now lacks the grouping the current site has.
+- [ ] Search doesn't work for me. Typing a query and pressing enter does nothing.
+- [ ] API links are broken.
