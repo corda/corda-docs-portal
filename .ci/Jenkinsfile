@@ -32,6 +32,7 @@ pipeline {
         timeout(time: 3, unit: 'HOURS')
         disableConcurrentBuilds() // this makes killAllExistingBuildsForJob always do nothing
         buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '7'))
+        ansiColor('xterm')
     }
 
     stages {
@@ -58,6 +59,20 @@ pipeline {
                 }
             }
         }
+        stage('Deploy Docker image to staging') {
+            when {
+                anyOf {
+                    branch 'master'
+                    expression { params.FORCE_PUBLISH }
+                }
+            }
+            steps {
+                sshagent(['docsite-staging']) {
+                    sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@docs-staging.corda.net update-docsite"
+                }
+            }
+        }
+
     }
 
     post {
