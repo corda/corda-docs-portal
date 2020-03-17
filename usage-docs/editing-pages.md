@@ -64,7 +64,23 @@ this is a warning
 
 Since we provide code snippets for both Java and Kotlin we provide some shortcodes for working with tabbed code.
 
-In the outer scope, always provide a unique tab id (which is used as a page anchor)
+In the outer scope, always provide a unique tab id (which is used as a page anchor).
+
+Simply surround your back-ticked code blocks with:
+
+```
+{{< tabs name="tabs-1234" >}}
+{{% tab name="kotlin" %}}
+'''kotlin
+//your code here
+'''
+{{% /tab %}}
+{{% tab name="java" %}}
+'''java
+//your other code here
+'''{{% /tab %}}
+{{< /tabs >}}
+```
 
 ### Third Party Shortcodes
 

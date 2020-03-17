@@ -39,6 +39,7 @@ hugo serve
 * [New documentation versions](new-versions.md)
 * [How do the side menus work?](hugo-menus.md)
 * [How does internationlization work?](i18n.md)
+* [How do I update the theme?](theme.md)
 
 ### ...Modifying the Theme
 
