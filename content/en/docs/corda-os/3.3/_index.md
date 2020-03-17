@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: 567
+    weight: 270
 project: corda-os
 section_menu: corda-os-3-3
 title: Corda OS 3.3

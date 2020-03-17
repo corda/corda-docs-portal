@@ -491,12 +491,13 @@ class Translator:
             self.front_matter["version"] = semantic_version
             self.front_matter["project"] = project_name
             # Ordering in the versions menu
+            v = float(semantic_version.replace(".", ""))
             if project_name == "cenm":
-                versions_menu_entry["weight"] = (100 - int(float(semantic_version)*10)) + 1000
+                versions_menu_entry["weight"] = (100 - int(v*10)) + 1000
             elif project_name == "corda-os":
-                versions_menu_entry["weight"] = (100 - int(float(semantic_version)*10)) + 500
+                versions_menu_entry["weight"] = (100 - int(v*10)) + 500
             if project_name == "corda-enterprise":
-                versions_menu_entry["weight"] = (100 - int(float(semantic_version)*10)) + 100
+                versions_menu_entry["weight"] = (100 - int(v*10)) + 100
             menu["versions"] = versions_menu_entry
 
         # Add this page as a menu entry for the given

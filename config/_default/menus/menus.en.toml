@@ -1523,136 +1523,6 @@ identifier = "corda-enterprise-4-1-design-docs"
 name = "Design Docs"
 weight = 10
 
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-corda-networks"
-name = "Corda Networks"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-serialization"
-name = "Serialization"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-deploy-to-testnet"
-name = "Deploy To Testnet"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-node-internals"
-name = "Node Internals"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-quickstart"
-name = "Quickstart"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-key-concepts-vault"
-name = "Key Concepts Vault"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-index"
-name = "Index"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-corda-enterprise"
-name = "Corda Enterprise"
-weight = 20
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-development"
-name = "Development"
-weight = 30
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-corda-api"
-name = "Corda API"
-weight = 40
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-operations"
-name = "Operations"
-weight = 50
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-corda-network"
-name = "Corda Network"
-weight = 60
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-miscellaneous"
-name = "Miscellaneous"
-weight = 70
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-corda-nodes"
-name = "Corda Nodes"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-corda-firewall"
-name = "Corda Firewall"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-versioning-and-upgrades"
-name = "Versioning And Upgrades"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-tools"
-name = "Tools"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-tutorials"
-name = "Tutorials"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-tut-two-party-introduction"
-name = "Tut Two Party Introduction"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-key-concepts"
-name = "Key Concepts"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-hello-world-introduction"
-name = "Hello World Introduction"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-component-library"
-name = "Component Library"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-building-a-cordapp"
-name = "Building A Cordapp"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-tools-index-enterprise"
-name = "Tools Index Enterprise"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-performance-testing"
-name = "Performance Testing"
-weight = 10
-
-[[corda-enterprise-4-3]]
-identifier = "corda-enterprise-4-3-toctree"
-name = "Toctree"
-weight = 10
-
 [[corda-enterprise-4-2]]
 identifier = "corda-enterprise-4-2-corda-networks"
 name = "Corda Networks"
@@ -1811,5 +1681,135 @@ weight = 10
 [[corda-enterprise-4-2]]
 identifier = "corda-enterprise-4-2-installing-the-notary-service"
 name = "Installing The Notary Service"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-corda-networks"
+name = "Corda Networks"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-serialization"
+name = "Serialization"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-node-internals"
+name = "Node Internals"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-key-concepts-vault"
+name = "Key Concepts Vault"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-index"
+name = "Index"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-corda-enterprise"
+name = "Corda Enterprise"
+weight = 20
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-development"
+name = "Development"
+weight = 30
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-corda-api"
+name = "Corda API"
+weight = 40
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-operations"
+name = "Operations"
+weight = 50
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-corda-network"
+name = "Corda Network"
+weight = 60
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-miscellaneous"
+name = "Miscellaneous"
+weight = 70
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-corda-nodes"
+name = "Corda Nodes"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-corda-firewall"
+name = "Corda Firewall"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-versioning-and-upgrades"
+name = "Versioning And Upgrades"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-tools"
+name = "Tools"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-tutorials"
+name = "Tutorials"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-tut-two-party-introduction"
+name = "Tut Two Party Introduction"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-key-concepts"
+name = "Key Concepts"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-hello-world-introduction"
+name = "Hello World Introduction"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-component-library"
+name = "Component Library"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-building-a-cordapp"
+name = "Building A Cordapp"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-tools-index-enterprise"
+name = "Tools Index Enterprise"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-performance-testing"
+name = "Performance Testing"
+weight = 10
+
+[[corda-enterprise-4-3-1]]
+identifier = "corda-enterprise-4-3-1-toctree"
+name = "Toctree"
 weight = 10
 

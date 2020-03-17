@@ -75,7 +75,7 @@ clone_or_pull $R_OS/4.4 $R_OS/1.0 release-V1.0 git@github.com:corda/corda.git
 
 clone_or_pull git@github.com:corda/enterprise.git $R_ENT/4.4 release/ent/4.4
 #clone_or_pull git@github.com:corda/enterprise.git $R_ENT/4.4 EdP/docs-2.0
-clone_or_pull $R_ENT/4.4 $R_ENT/4.3 release/ent/4.3 git@github.com:corda/enterprise.git
+clone_or_pull $R_ENT/4.4 $R_ENT/4.3.1 release/ent/4.3 git@github.com:corda/enterprise.git
 clone_or_pull $R_ENT/4.4 $R_ENT/4.2 release/ent/4.2 git@github.com:corda/enterprise.git
 clone_or_pull $R_ENT/4.4 $R_ENT/4.1 release/4.1 git@github.com:corda/enterprise.git
 clone_or_pull $R_ENT/4.4 $R_ENT/4.0 release-V4.0 git@github.com:corda/enterprise.git

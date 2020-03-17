@@ -5,7 +5,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: 1089
+    weight: 990
 project: cenm
 section_menu: cenm-1-1
 title: CENM 1.1

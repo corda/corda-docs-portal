@@ -1,17 +1,14 @@
 # Hugo based Corda docs
 
-* Ensure you install the 'extended' version of hugo:
-    * https://gohugo.io/troubleshooting/faq/#i-get-this-feature-is-not-available-in-your-current-hugo-version
+There are detailed instructions in the  [usage docs](usage-docs/readme.md).
 
-* Searching for help:  ensure you include the word `gohugo` in the search.
+Please read them!
 
-* Shortcodes allow to write richer markdown pages (e.g. tabbed code).
+## Quick Start
 
-New page:
-
-```
-hugo new posts/my_new_post.md
-```
+* Download [hugo](https://github.com/gohugoio/hugo/releases)
+* clone this repo
+* edit the markdown in `content`
 
 ## Installing and running hugo
 
