@@ -1,0 +1,25 @@
+<header>
+    <nav class="r3-o-navbar navbar navbar-expand-md navbar-dark flex-column flex-md-row">
+        <a class="navbar-brand mr-0 mr-md-2" href="{{- .Site.Home.Permalink -}}">
+            <img
+                src="/images/png/corda.png"
+                width="30"
+                height="30"
+                class="d-inline-block align-top"
+                alt="corda"
+                aria-label="Corda">
+            <span class="">{{- .Site.Title -}}</span>
+        </a>
+        <ul class="navbar-nav ml-sm-2 ml-md-auto">
+            {{ partial "nav/stackoverflow.html" . }}
+            {{ partial "nav/github.html" . }}
+            {{ partial "nav/twitter.html" . }}
+            {{ partial "nav/slack.html" . }}
+            <li class="nav-item r3-o-navbar__nav-item">
+                <a class="nav-link" href="http://www.r3.com">
+                    {{- partial "svg/r3.svg" . }}
+                    <span class="sr-only">R3</span></a>
+            </li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,15 @@
+.r3-o-col-8 {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .r3-o-col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}

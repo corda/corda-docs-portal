@@ -1,0 +1,8 @@
+.r3-o-landing__container {
+    display: flex !important;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+    padding: 10px 48px;
+    width: 100%;
+}

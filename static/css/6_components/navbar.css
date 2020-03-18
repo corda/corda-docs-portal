@@ -1,0 +1,104 @@
+.r3-o-navbar {
+    align-items: center;
+    background-image: url("/images/png/corda-banner.png");
+    background-position: 60% 0%;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column !important;
+    flex-wrap: wrap;
+    font-family: 'Source Sans Pro', sans-serif;
+    justify-content: space-between;
+    line-height: 30px;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.r3-o-navbar a {
+    background-color: transparent;
+    color: #FFF;
+    margin-right: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.r3-o-navbar img {
+    display: inline-block !important;
+    vertical-align: top !important;
+    border-style: none;
+}
+
+.r3-o-navbar ul {
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    line-height: 24px;
+    list-style: none;
+    margin-block-start: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.r3-o-navbar ul li a {
+    padding: 0 8px;
+}
+
+.r3-o-navbar ul li:last-child a {
+    padding: 8px;
+}
+
+
+.r3-o-navbar__nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.r3-o-navbar__nav-item svg {
+    vertical-align: middle;
+    height: 17px;
+    stroke: #eee;
+}
+
+.r3-o-navbar__nav-item svg .st0, .r3-o-navbar__nav-item svg .st1 {
+    fill: #eee;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.r3-o-navbar__nav-item:first-child svg {
+    height: 20px;
+}
+
+@media screen and (min-width: 576px) {
+    .r3-o-navbar ul {
+        margin-left: 8px;
+
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .r3-o-navbar {
+        flex-direction: row !important;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+    }
+
+
+    .r3-o-navbar ul {
+        margin-left: auto !important;
+    }
+}
+

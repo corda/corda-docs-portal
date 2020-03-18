@@ -4,12 +4,12 @@
     <body>
         <noscript>You need to enable javascript for this site</noscript>
         {{- partial "header.html" . -}}
-        <div class="r3-o-landing d-flex container-fluid r3-o-container-fluid">
-            <div class="row position-relative justify-content-center">
-                <div class="r3-o-landing__image-wrapper col-8 col-md-6 align-self-end">
+        <div class="r3-o-landing r3-o-landing__container">
+            <div class="r3-o-row">
+                <div class="r3-o-landing__image-wrapper r3-o-col-8 r3-o-col-md-6">
                     <img src="images/png/corda-docs.png" alt="corda-docs" />
                 </div>
-                <div class="r3-o-landing__content-wrapper col-8 col-md-6 pl-5">
+                <div class="r3-o-landing__content-wrapper r3-o-col-8 r3-o-col-md-6">
                     <h5>OPEN-SOURCE BLOCKCHAIN PLATFORM FOR BUSINESS</h5>
                     <p>
                         Join thousands of developers building applications on Corda. Corda enables businesses to transact directly and in strict privacy using smart contracts, reducing transaction and record-keeping costs and streamlining business operations.
@@ -19,7 +19,13 @@
                 </div>
             </div>
         </div>
-        {{- partial "footer.html" . -}}
-        {{- partial "scripts.html" . -}}
+        <footer>
+            <div>
+                <p>
+                  &copy; R3 Ltd
+                  {{ dateFormat "2006" now }}
+                </p>
+            </div>
+        </footer>
     </body>
 </html>

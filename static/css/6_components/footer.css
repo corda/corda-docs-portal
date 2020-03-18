@@ -1,0 +1,26 @@
+footer {
+    color: #25282B;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+  }
+
+footer div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding: 8px 0;
+}
+
+footer p {
+    align-self: center !important;
+    flex: 0 0 33%;
+    max-width: 33%;
+    text-align: center;
+    padding-left: 25px;
+}
+
