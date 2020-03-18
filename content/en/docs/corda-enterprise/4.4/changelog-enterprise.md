@@ -22,7 +22,7 @@ release, see upgrade-notes.
 
 
 * Changes in HA notary setup: the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
-See [notary installation page](running-a-notary-cluster/installing-the-notary-service.md#mysql-driver) for more information.
+See [notary installation page](notary/installing-the-notary-service.md#mysql-driver) for more information.
 * For Azure SQL and SQL Server databases the node now requires a minimum version of 6.4.0.jre8 for the JDBC drivers.
 
 
@@ -46,7 +46,7 @@ old style configs and produce a meaningful warning.
 
 
 * The experimental BFT-Smart notary implementation has been deprecated.
-* The experimental Raft notary implementation has been deprecated in favour of the MySQL-based HA notary implementation (see [Corda Enterprise notary services](running-a-notary-cluster/toctree.md)).
+* The experimental Raft notary implementation has been deprecated in favour of the MySQL-based HA notary implementation (see running-a-notary-cluster/toctree).
 * There have been schema changes for the single-node notary: the `id` column of the `notary_request_log` table has been changed from `INT` to `VARCHAR(76)`. The new `id` format is `<UUID>:<Hex counter>`. No upgrade steps are required.
 * Introduced a hierarchy of `DatabaseMigrationException`’s, allowing `NodeStartup` to gracefully inform users of problems
 related to database migrations before exiting with a non-zero code.
@@ -99,7 +99,7 @@ referenced in a transaction were deployed on the node.
 * Parsing of `NodeConfiguration` will now fail if unknown configuration keys are found.
 * The web server now has its own `web-server.conf` file, separate from `node.conf`.
 * Introduced a placeholder for custom properties within `node.conf`; the property key is “custom”.
-* Property keys with double quotes (e.g. *“key”*) in `node.conf` are no longer allowed, for rationale refer to [Node configuration](corda-configuration-file.md).
+* Property keys with double quotes (e.g. *“key”*) in `node.conf` are no longer allowed, for rationale refer to corda-configuration-file.
 * java.math.BigInteger serialization support added.
 * java.security.cert.CRLReason added to the default Whitelist.
 * java.security.cert.X509CRL serialization support added.
@@ -131,15 +131,15 @@ a collection. See: DummyDealStateSchemaV1.PersistentDummyDealState
 the table name for the *participants* collection.
 For an example on how the mapping can be done, see: DummyDealStateSchemaV1.PersistentDummyDealState
 * JDBC drivers for SQL server and PostgresSQL are no longer bundled as part of Corda releases. If you are running a node
-on such databases you need to provide the associated driver as described in [Node database](node-database.md).
+on such databases you need to provide the associated driver as described in node-database.
 * X.509 certificates now have an extension that specifies the Corda role the certificate is used for, and the role
 hierarchy is now enforced in the validation code. See `net.corda.core.internal.CertRole` for the current implementation
 until final documentation is prepared. Certificates at `NODE_CA`, `WELL_KNOWN_SERVICE_IDENTITY` and above must
 only ever be issued by network services and therefore issuance constraints are not relevant to end users.
 The `TLS` and `WELL_KNOWN_LEGAL_IDENTITY` roles must be issued by the `NODE_CA` certificate issued by the
 Doorman, and `CONFIDENTIAL_IDENTITY` certificates must be issued from a `WELL_KNOWN_LEGAL_IDENTITY` certificate.
-For a detailed specification of the extension please see [Network certificates](permissioning.md).
-* The network map service concept has been re-designed. More information can be found in [The network map](network-map.md).> 
+For a detailed specification of the extension please see permissioning.
+* The network map service concept has been re-designed. More information can be found in network-map.> 
 > 
 >     * The previous design was never intended to be final but was rather a quick implementation in the earliest days of the
 > Corda project to unblock higher priority items. It suffered from numerous disadvantages including lack of scalability,
@@ -158,7 +158,7 @@ For a detailed specification of the extension please see [Network certificates](
 >     * For test deployments we’ve introduced a bootstrapping tool (see [Network Bootstrapper](network-bootstrapper.md)).
 >     * `extraAdvertisedServiceIds`, `notaryNodeAddress`, `notaryClusterAddresses` and `bftSMaRt` configs have been
 > removed. The configuration of notaries has been simplified into a single `notary` config object. See
-> [Node configuration](corda-configuration-file.md) for more details.
+> corda-configuration-file for more details.
 >     * Introducing the concept of network parameters which are a set of constants which all nodes on a network must agree on
 > to correctly interoperate. These can be retrieved from `ServiceHub.networkParameters`.
 >     * One of these parameters, `maxTransactionSize`, limits the size of a transaction, including its attachments, so that
@@ -241,7 +241,7 @@ partial Merkle tree structure.
 if every command that a signer should receive (e.g. an Oracle) is indeed visible.
 * Changed the AMQP serializer to use the officially assigned R3 identifier rather than a placeholder.
 * The `ReceiveTransactionFlow` can now be told to record the transaction at the same time as receiving it. Using this
-feature, better support for observer/regulator nodes has been added. See [Observer nodes](tutorial-observer-nodes.md).
+feature, better support for observer/regulator nodes has been added. See tutorial-observer-nodes.
 * Added an overload of `TransactionWithSignatures.verifySignaturesExcept` which takes in a collection of `PublicKey` s.
 * `DriverDSLExposedInterface` has been renamed to `DriverDSL` and the `waitForAllNodesToFinish()` method has instead
 become a parameter on driver creation.

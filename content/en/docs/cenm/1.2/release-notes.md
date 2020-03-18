@@ -94,7 +94,8 @@ previously it was possible to register nodes with names which the node cannot us
 for requests with invalid client version or platform version.
 * Improved logs created by Registration Web Service - request validation exceptions (e.g. invalid character in a subject name,
 invalid platform version) are now logged with WARN level instead of ERROR level.
-* use ‘database.runMigration’ instead.
+* Bug fix: The configuration option ‘database.initialiseSchema’, which was used for H2 database only, is now deprecated,
+use ‘database.runMigration’ instead.
 
 
 ### Security Improvements

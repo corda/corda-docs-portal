@@ -2,9 +2,7 @@
 aliases:
 - /releases/4.4/cordapp-advanced-concepts.html
 date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-development
+menu: []
 tags:
 - cordapp
 - advanced
@@ -38,7 +36,7 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in: [API: Contract Constraints](api-contract-constraints.md)), and the actual code lives in a JAR file that is referenced by the transaction.
+(read more in: api-contract-constraints), and the actual code lives in a JAR file that is referenced by the transaction.
 
 
 ### The basic threat model and security requirement.
@@ -73,7 +71,7 @@ Behind the scenes, the matter is more complex. As can be seen in this illustrati
 
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
-to output states from previous transactions (see [API: Transactions](api-transactions.md)).
+to output states from previous transactions (see api-transactions).
 When building the `LedgerTransaction`, the `inputs` and `references` are resolved to Java objects created by deserialising blobs of data
 fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#attachments-classloader)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
@@ -116,7 +114,7 @@ Given that the input states are already agreed to be valid facts, the attached c
 {{< note >}}
 The output states created by this transaction must also specify constraints and, to prevent a malicious transaction creator specifying
 constraints that enable their malicious code to take control of a state in a future transaction, these constraints must be consistent
-with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](api-contract-constraints.md#constraints-propagation) .
+with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](cordapps/api-contract-constraints.md#constraints-propagation) .
 
 {{< /note >}}
 The rule for contract code attachment validity checking is that for each state there must be one and only one attachment that contains the fully qualified contract class name.
@@ -294,7 +292,7 @@ But if another CorDapp developer, `OrangeCo` bundles the `Fruit` library, they m
 This will create a `com.fruitcompany.Banana` signed by the `OrangeCo`, so there could be two types of Banana states on the network,
 but “owned” by two different parties. This means that while they might have started using the same code, nothing stops these `Banana` contracts from diverging.
 Parties on the network receiving a `com.fruitcompany.Banana` will need to explicitly check the constraint to understand what they received.
-In Corda 4, to help avoid this type of confusion, we introduced the concept of Package Namespace Ownership (see “[Package namespace ownership](network-bootstrapper.md#package-namespace-ownership)”).
+In Corda 4, to help avoid this type of confusion, we introduced the concept of Package Namespace Ownership (see “[Package namespace ownership](node/deploy/env-dev.md#package-namespace-ownership)”).
 Briefly, it allows companies to claim namespaces and anyone who encounters a class in that package that is not signed by the registered key knows is invalid.
 
 This new feature can be used to solve the above scenario. If `FruitCo` claims package ownership of `com.fruitcompany`, it will prevent anyone

@@ -491,7 +491,12 @@ class Translator:
             self.front_matter["version"] = semantic_version
             self.front_matter["project"] = project_name
             # Ordering in the versions menu
-            v = float(semantic_version.replace(".", ""))
+            ver_matches = re.match(r"(\d)\.(\d)", semantic_version)
+            
+            major = int(ver_matches.group(1))
+            minor = int(ver_matches.group(2))
+            v = major * 10 + minor
+
             if project_name == "cenm":
                 versions_menu_entry["weight"] = (100 - int(v*10)) + 1000
             elif project_name == "corda-os":

@@ -2,9 +2,7 @@
 aliases:
 - /releases/4.4/event-scheduling.html
 date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-tutorials
+menu: []
 tags:
 - event
 - scheduling

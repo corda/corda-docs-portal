@@ -1159,18 +1159,8 @@ name = "Installing The Notary Service"
 weight = 10
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-corda-networks"
-name = "Corda Networks"
-weight = 10
-
-[[corda-enterprise-4-4]]
 identifier = "corda-enterprise-4-4-serialization"
 name = "Serialization"
-weight = 10
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-deploy-to-testnet"
-name = "Deploy To Testnet"
 weight = 10
 
 [[corda-enterprise-4-4]]
@@ -1179,64 +1169,29 @@ name = "Node Internals"
 weight = 10
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-quickstart"
-name = "Quickstart"
+identifier = "corda-enterprise-4-4-upgrading-and-tools"
+name = "Upgrading and Tools"
 weight = 10
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-key-concepts-vault"
-name = "Key Concepts Vault"
-weight = 10
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-index"
-name = "Index"
-weight = 10
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-corda-enterprise"
-name = "Corda Enterprise"
+identifier = "corda-enterprise-4-4-cordapps"
+name = "CorDapps"
 weight = 20
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-development"
-name = "Development"
-weight = 30
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-corda-api"
-name = "Corda API"
-weight = 40
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-operations"
-name = "Operations"
-weight = 50
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-corda-network"
-name = "Corda Network"
-weight = 60
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-miscellaneous"
-name = "Miscellaneous"
-weight = 70
 
 [[corda-enterprise-4-4]]
 identifier = "corda-enterprise-4-4-corda-nodes"
 name = "Corda Nodes"
-weight = 10
+weight = 30
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-corda-firewall"
-name = "Corda Firewall"
-weight = 10
+identifier = "corda-enterprise-4-4-corda-networks"
+name = "Corda Networks"
+weight = 40
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-versioning-and-upgrades"
-name = "Versioning And Upgrades"
-weight = 10
+identifier = "corda-enterprise-4-4-miscellaneous"
+name = "Miscellaneous"
+weight = 50
 
 [[corda-enterprise-4-4]]
 identifier = "corda-enterprise-4-4-tools"
@@ -1244,23 +1199,13 @@ name = "Tools"
 weight = 10
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-tutorials"
-name = "Tutorials"
+identifier = "corda-enterprise-4-4-upgrading"
+name = "Upgrading"
 weight = 10
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-tut-two-party-introduction"
-name = "Tut Two Party Introduction"
-weight = 10
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-key-concepts"
-name = "Key Concepts"
-weight = 10
-
-[[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-hello-world-introduction"
-name = "Hello World Introduction"
+identifier = "corda-enterprise-4-4-release-notes"
+name = "Release Notes"
 weight = 10
 
 [[corda-enterprise-4-4]]
@@ -1269,13 +1214,48 @@ name = "Component Library"
 weight = 10
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-building-a-cordapp"
-name = "Building A Cordapp"
+identifier = "corda-enterprise-4-4-corda-firewall-component"
+name = "Corda Firewall Component"
 weight = 10
 
 [[corda-enterprise-4-4]]
-identifier = "corda-enterprise-4-4-tools-index-enterprise"
-name = "Tools Index Enterprise"
+identifier = "corda-enterprise-4-4-node-naming"
+name = "Node Naming"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-clientrpc"
+name = "Clientrpc"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-cm-backup"
+name = "Cm Backup"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-operating-node"
+name = "Operating Node"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-cryptoservice-configuration"
+name = "Cryptoservice Configuration"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-node-database"
+name = "Node Database"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-env-dev"
+name = "Env Dev"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-deploying-node"
+name = "Deploying Node"
 weight = 10
 
 [[corda-enterprise-4-4]]
@@ -1284,8 +1264,78 @@ name = "Performance Testing"
 weight = 10
 
 [[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-configuration"
+name = "Configuration"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-quick-start"
+name = "Quick Start"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-concepts-and-overview"
+name = "Concepts and Overview"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-deploy-to-testnet"
+name = "Deploy To Testnet"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-notary-operate"
+name = "Notary Operate"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-running-a-notary"
+name = "Running A Notary"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-installing-jpa"
+name = "Installing Jpa"
+weight = 10
+
+[[corda-enterprise-4-4]]
 identifier = "corda-enterprise-4-4-toctree"
 name = "Toctree"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-api-contracts"
+name = "Api Contracts"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-quickstart"
+name = "Quickstart"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-debugging-a-cordapp"
+name = "Debugging A Cordapp"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-api-flows"
+name = "Api Flows"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-api-identity"
+name = "Api Identity"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-versioning-and-upgrades"
+name = "Versioning And Upgrades"
+weight = 10
+
+[[corda-enterprise-4-4]]
+identifier = "corda-enterprise-4-4-api-states"
+name = "Api States"
 weight = 10
 
 [[corda-enterprise-4-0]]

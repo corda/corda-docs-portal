@@ -25,7 +25,22 @@ We also strongly recommend cross referencing with the [Changelog](changelog.md) 
 ## 1.1 to 1.2
 
 > 
-> No upgrade is required.
+> The release includes changes to database schemas (see [Changelog](changelog.md)); new columns are created automatically
+> upon each service startup. Ensure the Identity Manager and Network Map are configured to perform this migration
+> by setting `runMigration` property to `true`.
+> 
+> The upgrade process is otherwise just a drop-in replacement of the existing JARs with `<service>-1.2.jar`.
+> Ensure you stop the services before replacing the JAR files.
+> Network Map and Signer services may not shut down properly when using shell command `shutdown`, ensure that there are no
+> orphan processes running after shout down. This may specifically impact the services using H2 database,
+> as an orphan process locks a H2 database file.
+
+
+
+## 1.0 to 1.2
+
+> 
+> See the upgrade note for 1.1 to 1.2.
 
 
 

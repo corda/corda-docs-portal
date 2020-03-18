@@ -151,5 +151,5 @@ never normally need to specify this. Possible values [BINARY, HEX, BASE64]. Defa
 
 ### Sub-commands
 
-`install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
+`install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See cli-application-shell-extensions for more info.
 

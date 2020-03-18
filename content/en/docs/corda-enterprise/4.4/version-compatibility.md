@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-index
+    parent: corda-enterprise-4-4-upgrading-and-tools
 tags:
 - version
 - compatibility
@@ -28,7 +28,7 @@ Future versions of Corda Enterprise will be backward compatible with Corda Enter
 
 
 Corda Enterprise 4.0 can be used in mixed-version/mixed-distribution networks seamlessly transacting with nodes running on a minimum platform version of 4.
-See [Versioning](versioning.md) for further information.
+See versioning for further information.
 
 > 
 > 
@@ -40,7 +40,7 @@ See [Versioning](versioning.md) for further information.
 > * Corda Enterprise 4.0 nodes can run, without recompilation, CorDapps developed on and packaged for Corda 4.x.
 > However, owing to advanced features in Corda Enterprise, such as database migration scripting support, we anticipate application developers
 > will build their CorDapp kernels (contracts, states) against Corda but supply separate Workflow Jars (that depend on the same kernel)
-> that are optimised for the two distributions. See [Separation of CorDapp contracts, flows and services](cordapp-build-systems.md#cordapp-separation-ref) for further information.
+> that are optimised for the two distributions. See [Separation of CorDapp contracts, flows and services](cordapps/cordapp-build-systems.md#cordapp-separation-ref) for further information.
 
 
 {{< note >}}
@@ -75,6 +75,6 @@ Enterprise 4.0 nodes|Yes|Yes|Yes|
 {{< note >}}
 Compatibility guarantees apply to the latest minor release version of either distribution, including any subsequent patches.
 At the time of writing these are Enterprise release version 3.3 and Open Source release version 3.4.
-See [Versioning](versioning.md) for further information.
+See versioning for further information.
 
 {{< /note >}}

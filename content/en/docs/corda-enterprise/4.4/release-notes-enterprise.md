@@ -4,16 +4,16 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-index
+    parent: corda-enterprise-4-4-release-notes
 tags:
 - release
 - notes
 - enterprise
-title: Release notes
+title: Corda Enterprise Release notes
 ---
 
 
-# Release notes
+# Corda Enterprise Release notes
 
 
 ## Corda Enterprise 4.4
@@ -44,7 +44,7 @@ Corda Enterprise 4.4 is operationally compatible with Corda (open source) 4.x an
 
 > 
 > This release adds support for storing the node’s CA and legal identity key in a [nCipher nShield Connect](https://www.ncipher.com/products/general-purpose-hsms/nshield-connect) HSM.
-> Please refer to the associated section of the [HSM support for legal identity keys](cryptoservice-configuration.md) page for more details.
+> Please refer to the associated section of the cryptoservice-configuration page for more details.
 > 
 > We also have extended the set of HSMs available for the storage of a highly-available notary’s shared service key. The notary’s shared service key can now be stored in the following HSM types:
 > 

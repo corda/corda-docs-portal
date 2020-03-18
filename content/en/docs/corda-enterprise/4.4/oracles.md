@@ -2,9 +2,7 @@
 aliases:
 - /releases/4.4/oracles.html
 date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-tutorials
+menu: []
 tags:
 - oracles
 title: Writing oracle services
@@ -135,7 +133,7 @@ Because the transaction is sent to the oracle for signing, ordinarily the oracle
 of that transaction including the inputs, output contract states and all the commands, not just the one (in this case)
 relevant command.  This is an obvious privacy leak for the other participants.  We currently solve this using a
 `FilteredTransaction`, which implements a Merkle Tree.  These reveal only the necessary parts of the transaction to the
-oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See [Oracles](key-concepts-oracles.md)
+oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See key-concepts-oracles
 for more details.
 
 
@@ -221,7 +219,7 @@ transaction and return it
 {{< note >}}
 Before reading any further, we advise that you understand the concept of flows and how to write them and use
 them. See [Writing flows](flow-state-machines.md).  Likewise some understanding of Cordapps, plugins and services will be helpful.
-See [Running nodes locally](running-a-node.md).
+See running-a-node.
 
 {{< /note >}}
 The first step is to create the oracle as a service by annotating its class with `@CordaService`.  Let’s see how that’s
@@ -323,7 +321,7 @@ class FixSignFlow(val tx: TransactionBuilder, val oracle: Party,
 ```
 {{/* github src='samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.4/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt#L80-L89' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt' start='DOCSTART 3' end='DOCEND 3' */}}[RatesFixFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
 You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
-You can find a further explanation of this in [Oracles](key-concepts-oracles.md). Below you will see how to build such a
+You can find a further explanation of this in key-concepts-oracles. Below you will see how to build such a
 transaction with hidden fields.
 
 
@@ -396,7 +394,7 @@ checkpointed.
 
 ## Testing
 
-The `MockNetwork` allows the creation of `MockNode` instances, which are simplified nodes which can be used for testing (see [API: Testing](api-testing.md)).
+The `MockNetwork` allows the creation of `MockNode` instances, which are simplified nodes which can be used for testing (see api-testing).
 When creating the `MockNetwork` you supply a list of `TestCordapp` objects which point to CorDapps on
 the classpath. These CorDapps will be installed on each node on the network. Make sure the packages you provide reference to the CorDapp
 containing your oracle service.

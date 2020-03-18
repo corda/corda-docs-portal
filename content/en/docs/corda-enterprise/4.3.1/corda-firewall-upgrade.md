@@ -47,8 +47,7 @@ For this type of deployment, version 3.x would have the following configuration:
 
 |node.conf 3.x|node.conf 4.x|
 |------------------------------------------------|------------------------------------------------|
-|  
-```javascript
+|```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver:11005"
@@ -62,9 +61,9 @@ enterpriseConfiguration = {
 }
 keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
-```  
-|
-```javascript
+```
+
+|```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver:11005"
