@@ -10,12 +10,10 @@
                     <img src="images/png/corda-docs.png" alt="corda-docs" />
                 </div>
                 <div class="r3-o-landing__content-wrapper r3-o-col-8 r3-o-col-md-6">
-                    <h5>OPEN-SOURCE BLOCKCHAIN PLATFORM FOR BUSINESS</h5>
-                    <p>
-                        Join thousands of developers building applications on Corda. Corda enables businesses to transact directly and in strict privacy using smart contracts, reducing transaction and record-keeping costs and streamlining business operations.
-                    </p>
-                    <a class="corda" href="/docs/corda-os/4.3.html">GET STARTED</a>
-                    <a class="github" href="https://github.com/corda">GO TO GITHUB</a>
+                    <h5>{{ .Page.Params.header }}</h5>
+                    <p>{{ .Page.Params.tagline }}</p>
+                    <a class="corda" href="{{ relref . .Page.Params.target }}">GET STARTED</a>
+                    <a class="github" href="https://github.com/corda">GO TO GITHUB</a>         
                 </div>
             </div>
         </div>

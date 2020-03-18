@@ -1,12 +1,11 @@
 ---
 title: "Home"
 date: 2020-01-08T09:59:25Z
+target: /docs/corda-os/4.3/_index.md
+header: OPEN-SOURCE BLOCKCHAIN PLATFORM FOR BUSINESS
+tagline: Join thousands of developers building applications on Corda. Corda enables businesses to transact directly and in strict privacy using smart contracts, reducing transaction and record-keeping costs and streamlining business operations.
 ---
 
-![Corda](https://www.r3.com/wp-content/uploads/2019/11/crda-logo-big.svg)
+# If you see this then the page template is broken
 
-### Open source blockchain platform for business.
-
-##### [Get Started](/docs/corda-os/4.3.html)
-
-
+Go and edit `/layouts/index.html`
