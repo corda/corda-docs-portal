@@ -1,6 +1,6 @@
 .r3-o-landing {
     font-family: 'Poppins', sans-serif;
-    min-height: calc(100vh - 91px - 72px);
+    min-height: calc(100vh - 91px - 46px);
     position: relative;
 }
 
@@ -80,7 +80,7 @@
     .r3-o-landing {
         align-items: center;
         height: 100%;
-        min-height: calc(100vh - 56px - 72px);
+        min-height: calc(100vh - 56px - 46px);
         justify-content: center;
     }
 

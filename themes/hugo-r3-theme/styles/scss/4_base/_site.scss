@@ -21,9 +21,9 @@ $wrapper-object: ".#{$class-object-prefix}wrapper";
 }
 
 #{$wrapper-object}-main {
-    min-height: calc(100vh - 56px - 80px);
+    min-height: calc(100vh - 56px - 70px);
     order: 2;
-    padding: 0px 0px 40px 0px;
+    padding: 0;
 
     main {
         flex-grow: 1;

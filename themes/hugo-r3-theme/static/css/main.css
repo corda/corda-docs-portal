@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600);@import url(https://fonts.google.com/selection?selection.family=Poppins:100,200,200i,300,300i,400,400i,500,700);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600);@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600);@charset "UTF-8";
 .searchbox {
   display: inline-block;
   position: relative;
@@ -10358,9 +10358,9 @@ body {
 }
 
 .r3-o-wrapper-main {
-  min-height: calc(100vh - 56px - 80px);
+  min-height: calc(100vh - 56px - 70px);
   order: 2;
-  padding: 0px 0px 40px 0px;
+  padding: 0;
 }
 .r3-o-wrapper-main main {
   flex-grow: 1;
@@ -10635,11 +10635,28 @@ ul, li {
 }
 
 footer {
-  background-color: #53585F;
-  color: rgba(255, 255, 255, 0.9);
+  color: #25282B;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
 }
-footer p {
-  color: rgba(255, 255, 255, 0.9);
+footer div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: -15px;
+  margin-left: -15px;
+  padding: 8px 0;
+}
+footer div p {
+  align-self: center !important;
+  flex: 0 0 33%;
+  margin-bottom: 0;
+  max-width: 33%;
+  text-align: center;
+  padding-left: 25px;
 }
 
 #git {

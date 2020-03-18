@@ -1,8 +1,26 @@
 footer {
-  background-color: #53585F;
-  color: rgba(255, 255, 255, 0.9);
+    color: #25282B;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
 
-  p {
-      color: rgba(255, 255, 255, 0.9);
-  }
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: -15px;
+        margin-left: -15px;
+        padding: 8px 0;
+
+        p {
+            align-self: center !important;
+            flex: 0 0 33%;
+            margin-bottom: 0;
+            max-width: 33%;
+            text-align: center;
+            padding-left: 25px;
+        }
+    }
 }
