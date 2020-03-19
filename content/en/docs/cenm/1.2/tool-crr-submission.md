@@ -39,6 +39,6 @@ that should be followed by the url to the certificate revocation request submiss
 Example:
 
 ```bash
-java -jar crr-submission-tool-<VERSION>.jar --submission-url http://<<CORDA_DOMAIN>>/certificate-revocation-request
+java -jar crrsubmissiontool.jar --submission-url http://<<CORDA_DOMAIN>>/certificate-revocation-request
 ```
 

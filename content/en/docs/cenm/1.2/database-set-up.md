@@ -292,8 +292,8 @@ Connect to the database as administrator and run the following DDL scripts:
 > GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.private_network_global TO my_user;
 > GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.migration TO my_user;
 > GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.REVINFO TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.workflow_certificate_signing_request TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.workflow_certificate_revocation_request TO my_user;
+> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.workflow_csr TO my_user;
+> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.workflow_crr TO my_user;
 > ```
 > 
 
@@ -353,7 +353,7 @@ The following updates are required to the filesystem of a CENM service instance:
 > * The CENM distribution does not include any JDBC drivers with the exception of the H2 driver.
 > It is the responsibility of the CENM service administrator or a developer to install the appropriate JDBC driver.
 > * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
-> To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:```groovy
+> To configure a connection pool, the following custom properties can be set in the `database` section, e.g.:```groovy
 > database = {
 >    ...
 >    additionalProperties = {
@@ -523,7 +523,7 @@ Example CENM service configuration for PostgreSQL:
 
 > 
 > ```none
-> dataSourceProperties = {
+> database = {
 >     jdbcDriver = path/to/postgresql-xx.x.x.jar
 >     driverClassName = "org.postgresql.Driver"
 >     url = "jdbc:postgresql://<host>:<port>/<database>"
