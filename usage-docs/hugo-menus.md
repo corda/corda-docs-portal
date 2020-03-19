@@ -21,11 +21,15 @@ Each folder is a section because it contains an `_index.md`.
 ### Basics
 
 * A page can appear in one or more menus.
-* Menus can be nested.
-* Menu nesting is achieved by declaring its `parent`. (n.b.   don't be surprised if you find this confusing).
-* As we have different menus and submenus for each software version we need to declare each menu (and submenu) with a unique identifier.
+* Menu entry items can be nested.
+* Menu entry nesting is achieved by declaring its `parent`. (n.b. see the very end for a simple example).
+* As we have different menus and 'menu-entries' for each software version we need to declare each menu (and menu entry) with a unique identifier.
     * We do this by using a consistent menu identifier prefix convention, e.g. `corda-os-4-4`, `cenm-1-1` and so on.
 * By declaring a `weight` we determine the order that menus appear on the page.
+
+Sub-menus are merely lists of menu entries that are attached to other menu-entries (by declaring a `parent` relationship).
+
+If `identifier` is not declared hugo attempts to create an implicit unique id for you page.  You only need to declare an `identifier` when you want to build nested menus.
 
 ### Where Are The Menu Definitions?
 
@@ -64,30 +68,36 @@ Suppose we want to add:
 /content/en/docs/corda-os/4.4/api-flows.md
 ```
 
-to the Corda OS 4.4 menu, and specifically to the "API" submenu.
+to the Corda OS 4.4 menu, and specifically to the "API" menu *entry*.
 
-We need the unique identifier for the Corda OS 4.4 menu.  By convention this is just `corda-os-4-4`.  
+We need the unique identifier for the Corda OS 4.4 menu.
+
+By convention this is just `corda-os-4-4`.  
 
 We also need the unique identifier for the Corda OS 4.4 API sub menu.  You can find this in `/config/_default/menus/menus.en.toml`
 
-If it is not present, or you want to create a new submenu, create that in `menus.en.toml`, for example:
+If it is not present, or you want to create a new menu *entry*, create that in `menus.en.toml`, for example:
 
 ```
 [[corda-os-4-4]]
-identifier = "corda-os-4-4-corda-api"
+identifier = "a-unique-sub-menu-ENTRY-id"
 name = "Corda API"
 weight = 30
 ```
 
-Again, note that the `weight` will determine where it appears in the menu order.
+or you can add the name and identifier to the front-matter of one page.  This will be demonstrated in the final section.
 
-Finally, in the front-matter of `api-flows.md`, add the menu information:
+This says that `a-unique-sub-menu-ENTRY-id` is a menu _entry_ in `corda-os-4-4`.
+
+Declaring a menu-entry in `menus.en.toml` means that it is may be a text-only menu entry (with no URL).
+
+Finally, in the front-matter of `api-flows.md`, state this page is a child of `a-unique-sub-menu-ENTRY-id`
 
 ```
 ---
 menu:
   corda-os-4-4:
-    parent: corda-os-4-4-corda-api
+    parent: a-unique-sub-menu-ENTRY-id
 title: 'API: Flows'
 ---
 ```
@@ -156,3 +166,98 @@ menu:
 title: 'API: Flows'
 ---
 ```
+
+## A Nested Sub Menu Example
+
+Suppose we have a unique menu id `MY-UNIQUE-MENU-ID` declared in `menus.en.toml` (we could use `corda-os-4-4` for example).
+
+Then declare a first level menu *entry*:
+
+```
+---
+date: '2020-01-08T09:59:25Z'
+menu:
+  MY-UNIQUE-MENU-ID:
+    identifier: FIRST-LEVEL
+    name: "I'm the first level"
+    weight: -99999
+title: 'First level'
+---
+
+# First
+```
+
+Then a second level entry would be:
+
+```
+---
+date: '2020-01-08T09:59:25Z'
+menu:
+  MY-UNIQUE-MENU-ID:
+    identifier: SECOND-LEVEL
+    name: "I'm the second level"
+    parent: FIRST-LEVEL
+title: 'Second level'
+---
+
+# Second
+```
+
+And then a third level:
+
+```
+---
+date: '2020-01-08T09:59:25Z'
+menu:
+  MY-UNIQUE-MENU-ID:
+    identifier: THIRD-LEVEL
+    name: "I'm the third level"
+    parent: SECOND-LEVEL
+title: 'Third level'
+---
+
+# Third
+```
+
+and finally:
+
+```
+---
+date: '2020-01-08T09:59:25Z'
+menu:
+  MY-UNIQUE-MENU-ID:
+    parent: THIRD-LEVEL
+title: '4th level'
+---
+
+# Fourth
+```
+
+Which would render as:
+
+* [I'm the first level entry](#)
+  * [I'm the second level](#)
+    * [I'm the third level](#)
+      * [4th level](#)
+
+Note that `name` in the menu entry is used in preference to the page `title` when rendering.
+
+
+### What's the difference between this and `menus.en.toml`?
+
+If we build a nested menu in the way we describe above, every line that is rendered is clickable, i.e. the information comes from a page, and from its front-matter and therefore has a URL.
+
+If we declare the second level, in `menus.en.toml` instead of a page:
+
+```
+[[MY-UNIQUE-MENU-ID]]
+identifier = "SECOND-LEVEL"
+name = "You can't click me"
+```
+
+The menu would render as:
+* [I'm the first level entry](#)
+  * You can't click me
+    * [I'm the third level](#)
+      * [4th level](#)
+      

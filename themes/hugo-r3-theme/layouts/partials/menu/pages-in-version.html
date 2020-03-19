@@ -3,57 +3,52 @@
 {{/* Generally, only the _index.md page of a section needs a 'section_menu' param */}}
 {{/* and the 'section_menu' matches its menu entry in menus.LANG.toml */}}
 
-{{ $sectionMenuForThisPage := or .Parent.Page.Params.section_menu .Page.Params.section_menu}}
 
-{{/* don't render this component if we don't have a 'section_menu' as we can't */}}
-{{/* correctly identify the menu we should be using for this page*/}}
+{{/* We don't render this component if we don't have a 'section_menu' as we can't */}}
+{{/* correctly identify the menu we should be using for this page - see bottom */}}
 
-{{ if $sectionMenuForThisPage }}
+{{/* Define a template that we use recursively - https://discourse.gohugo.io/t/how-to-create-multilevel-dropdown-menu-in-hugo/18373/5 */}}
 
-{{/* store the current page scope as '.' changes meaning in loops */}}
-{{ $currentPage := . }}
+{{ define "menu-item" }}
+  {{ $page := .page }}
+  {{ $sectionMenuForThisPage := or $page.Parent.Page.Params.section_menu $page.Params.section_menu}}
 
-{{/* the menu for the section_menu this page is tagged with*/}}
-{{ $menuEntries := index .Site.Menus $sectionMenuForThisPage}}
-    <ul class="r3-o-docs-nav">
-        {{ range $index, $element := $menuEntries.ByWeight }}
-            {{ if $element.HasChildren }}
-            <li
-                class="nav-item {{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active {{ end }}">
-                <input
-                    type="checkbox"
-                    {{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }}
+  {{ with .entry }}
+    {{ if .HasChildren }}
+      <li class="{{ if $page.HasMenuCurrent $sectionMenuForThisPage . }}active{{ end }}">
+        <input
+        type="checkbox"
+        {{ if $page.HasMenuCurrent $sectionMenuForThisPage . }}
 
-                    {{ else }}
-                        checked
-                    {{ end }}
-                    >
-                <i></i>
-                <h4>
-                    {{ $element.Pre }}
-                    {{ $element.Name }}
-                </h4>
-                <ul class="sub-menu {{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
-                    {{ range .Children }}
-                        <li class="nav-item {{ if $currentPage.IsMenuCurrent $sectionMenuForThisPage . }} active {{ end }}">
-                            <a href="{{ .URL }}">{{ .Name }}</a>
-                        </li>
-                    {{ end }}
-                </ul>
-            </li>
-
-
-            {{ else }}
-                <li
-                    class="nav-item {{ if $currentPage.HasMenuCurrent $sectionMenuForThisPage . }} active {{ end }}">
-                    <h4>
-                        <a href="{{ $element.URL }}">
-                            {{ $element.Pre }}
-                            {{ $element.Name }}
-                        </a>
-                    </h4>
-                </li>
-            {{ end }}
+        {{ else }}
+            checked
         {{ end }}
-    </ul>
+        >
+        <i></i>
+        <a href="{{ .URL }}"><h4>{{ .Pre }} {{ .Name }}</h4></a>
+        <ul class="sub-menu {{ if $page.HasMenuCurrent $sectionMenuForThisPage . }} active{{ end }}">
+          {{ range .Children.ByWeight }}
+            {{ template "menu-item" (dict "entry" . "page" $page) }}
+          {{ end }}
+        </ul>
+      </li>
+    {{ else }}
+      <li class="{{ if $page.IsMenuCurrent $sectionMenuForThisPage . }}active{{ end }}">
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Now use the template */}}
+
+{{ $sectionMenuForThisPage := or .Parent.Page.Params.section_menu .Page.Params.section_menu}}
+{{ if $sectionMenuForThisPage }}
+{{ $menuEntries := index .Site.Menus $sectionMenuForThisPage}}
+<ul class="r3-o-docs-nav">
+  {{ $page := . }}
+  {{ range $index, $element := $menuEntries.ByWeight }}
+      {{ template "menu-item" (dict "entry" $element "page" $page) }}
+  {{ end }}
+</ul>
 {{ end }}
