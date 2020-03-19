@@ -8,13 +8,14 @@ Please read them!
 
 * Download [hugo](https://github.com/gohugoio/hugo/releases)
 * clone this repo
+* run `hugo serve`
 * edit the markdown in `content`
 
 ## Installing and running hugo
 
 ### Docker
 
-If you are on linux or MacOS:
+If you are on Linux or MacOS you can also build using Docker images (WSL2 not supported yet):
 
 ```
 $ make help
@@ -42,12 +43,7 @@ The `publish` target is covered in the CI section below.
 
 #### Windows
 
-Install hugo locally and ensure it's on your path (see tbe Native section below).
-
-In principle `docker` should work in a WSL session but I haven't tested it yet.  Same instructions as above.
-
-Files in WSL are trivially editable if you open Explorer and navigate to `\\wsl$\ubunutu` (IIRC) or use Visual Studio Code as your primary editor.
-
+Install hugo locally and ensure it is on your path (see tbe Native section below).
 
 ### Native
 
@@ -65,22 +61,20 @@ hugo serve
 
 to run and serve the site on http://localhost:1313
 
-
-### CI/Jenkins
+## CI/Jenkins
 
 The `publish` target does everything and is intended to be run in the CI system (Jenkins), but can be run locally.  It:
 
 * builds a Docker image with `hugo`
 * runs the `hugo` docker image to produce the site in `/public`
 * builds a Docker image of `nginx` containing the content of `/public`
-* attempts to `docker push` to whatever Docker regisitry *you are currenty logged in to
+* attempts to `docker push` to whatever Docker registry *you are currently logged in to.
 
 In principle, `docker push` should fail on your desktop at the final stage.
 
-As a developer your probably just want to run:
+As a developer your just want to run:
 
 ```
-make prod-docker-image
 make prod-docker-serve
 ```
 
@@ -88,13 +82,13 @@ to run and test the `nginx` image on your desktop.
 
 ##  Gotchas
 
-* Index pages should be `_index.md` otherwise subpages don't get rendered.
+* Index pages should be `_index.md` otherwise sub-pages don't get rendered.
     * https://discourse.gohugo.io/t/not-generating-any-pages-other-than-index/10565
 
 
 ## Regenerating the pages
 
-This section will be removed.
+This section will be removed.  It describes how to convert `rst` to `md` for R3.
 
 Note:  you should install python 3, and ensure you have created a virtual env and activated it.
 

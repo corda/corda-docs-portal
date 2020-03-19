@@ -31,7 +31,8 @@ hugo serve
 
 ### ...Authoring Content
 
-* [Editing pages](editing-pages.md)
+* [Creating and Editing pages](editing-pages.md)
+* [Testing your changes](testing-page-changes.md)
 * [Pushing your changes](pushing-page-changes.md)
 
 ### ...Authoring New Versions and Modifying the Site

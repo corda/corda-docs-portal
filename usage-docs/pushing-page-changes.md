@@ -1,15 +1,17 @@
 # Pushing Page Changes
 
-## If you have forked the public repository
+## If you have forked the repository or created a branch
 
 * Push your changes to your repository
 * Issue a pull request
 
 ## If you are working on a private copy of the repository
 
-Github does not allow private forks.  However you can achieve this with a little bit of work.
+* The repository is current private, so forking is fine and you can ignore this section for the time being. *
 
-You'll want to do this is you are working on a new software version that has not yet been released to the public.
+Github does not allow private forks of public repositories.  
+
+If we make the repository public, then we want a private "fork"  if we are working on a new software version that has not yet been released to the public.
 
 ### Create a private fork
 

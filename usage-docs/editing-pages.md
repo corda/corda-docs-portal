@@ -23,6 +23,41 @@ Hugo supports internationalization (i18n), the content for each language is stor
 
 Therefore documentation for a particular language will be found in `/content/<lang>`, for example `/content/fr`.
 
+## Creating a page
+
+There are two ways to create a page:
+
+* copy another page 
+* use Hugo (preferred):
+
+From the root of the repository:
+
+```
+hugo new docs/corda-os/4.4/my-new-page.md
+```
+
+This will produce a new file in `/content/en/docs/corda-os/4.4/my-new-page.md`
+
+```
+---
+title: "My New Page"
+date: 2020-03-19T10:06:32Z
+menu:
+  MAIN-MENU-FOR-VERSION-IN-MENUS.EN.TOML:
+    parent: SUBMENU-FOR-THIS-PAGE-OR-REMOVE-menu-COMPLETELY
+tags:
+- this
+- that
+- the other
+---
+
+This is a new docs page
+```
+
+The `menu` keys are described in [menu usage](hugo-menus.md).  If the page does not need to appear in the left-hand menu, you can delete the `menu` section.
+
+The minimum requirement for a page is simply the `title` and the `date`.
+
 ## Everything is Markdown
 
 We are using a renderer that follows the [CommonMark Spec](https://spec.commonmark.org/0.29/)

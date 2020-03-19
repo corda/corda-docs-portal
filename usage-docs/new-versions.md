@@ -9,3 +9,5 @@ The process largely the same for both.
 
 * You will want to add new [menus](hugo-menus.md).
 * You may want to copy existing content
+
+Further details will be added here later post 4.4 release.
