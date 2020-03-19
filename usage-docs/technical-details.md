@@ -16,4 +16,4 @@ The build process should be 100% reproducible on your desktop.
 
 ## Nginx
 
-The site is deployed as an Nginx Docker image.
+The site is deployed as a vanilla Nginx Docker image, with the `404` page enabled.

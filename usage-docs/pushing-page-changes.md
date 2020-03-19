@@ -5,9 +5,13 @@
 * Push your changes to your repository
 * Issue a pull request
 
-## If you are working on a private copy of the repository
+You can stop reading here...
 
-* The repository is current private, so forking is fine and you can ignore this section for the time being. *
+## If you are working on a private copy of the public repository
+
+_The repository is currently private, so you fork without issue and you can ignore this section for the time being._
+
+### Stop here!
 
 Github does not allow private forks of public repositories.  
 
