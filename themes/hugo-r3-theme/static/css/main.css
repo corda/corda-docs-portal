@@ -10323,17 +10323,50 @@ h3 {
     border-color: #dee2e6;
   }
 }
-.r3-o-alert-img {
-  float: left;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-}
-
 /**
 * Importing font families.
 */
 body {
   font-family: "Source Sans Pro", sans-serif;
+}
+
+/**
+* Typography; Sizes, line heights, margins, display
+*/
+h1, h2, h3, h4, h5, h6 {
+  color: #2f353f;
+  margin-top: 44px;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+p {
+  color: #53585F;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+ul, li {
+  color: #2f353f;
+}
+
+a {
+  color: #004082;
 }
 
 .r3-o-container-fluid {
@@ -10344,7 +10377,7 @@ body {
 
 .r3-o-wrapper-side {
   background-color: #FFF;
-  margin-bottom: 56px;
+  margin-bottom: 10px;
   order: 0;
   position: -webkit-sticky;
   position: sticky;
@@ -10409,38 +10442,10 @@ body {
   }
 }
 
-/**
-* Typography; Sizes, line heights, margins, display
-*/
-h1, h2, h3, h4, h5, h6 {
-  color: #2f353f;
-  margin-bottom: 22px;
-}
-
-h1 {
-  font-size: 36px;
-}
-
-h2 {
-  font-size: 32px;
-}
-
-h3 {
-  font-size: 28px;
-}
-
-h4 {
-  font-size: 24px;
-}
-
-p {
-  color: #53585F;
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-ul, li {
-  color: #2f353f;
+.r3-o-alert-img {
+  float: left;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .api {
@@ -10535,6 +10540,7 @@ ul, li {
   font-weight: bold;
   letter-spacing: 2px;
   line-height: 1.4;
+  margin-top: 0;
   margin-bottom: 8px;
   max-width: 155px;
   text-transform: uppercase;
@@ -10577,7 +10583,7 @@ ul, li {
   padding-bottom: 25px;
 }
 .r3-o-docs-nav li .sub-menu li a {
-  font-weight: 200;
+  font-weight: 400;
   text-transform: uppercase;
 }
 .r3-o-docs-nav li .sub-menu li:first-child {
@@ -10653,6 +10659,7 @@ footer div {
 footer div p {
   align-self: center !important;
   flex: 0 0 33%;
+  font-size: 16px;
   margin-bottom: 0;
   max-width: 33%;
   text-align: center;
@@ -10679,7 +10686,8 @@ footer div p {
   display: block !important;
   left: 0;
   height: 100%;
-  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 32px;

@@ -1,7 +1,5 @@
 $docs-nav-object: "#{$class-object-prefix}docs-nav";
 
-
-
 .#{$docs-nav-object} {
     list-style: none;
     perspective: 900;
@@ -69,6 +67,7 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
             font-weight: bold;
             letter-spacing: 2px;
             line-height: 1.4;
+            margin-top: 0;
             margin-bottom: 8px;
             max-width: 155px;
             text-transform: uppercase;
@@ -122,7 +121,7 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
                 padding-bottom: 25px;
 
                 a {
-                    font-weight: 200;
+                    font-weight: 400;
                     text-transform: uppercase;
                 }
 
