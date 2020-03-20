@@ -15,6 +15,12 @@ $dropdown-object: "#{$class-object-prefix}dropdown";
             background-color: $red-100;
         }
 
+        img {
+            float: right;
+            margin-top: 2px;
+            height: 16px;
+        }
+
         svg {
             fill: $primary-01;
             float: right;

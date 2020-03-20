@@ -14,7 +14,7 @@
     <button class="btn dropdown-toggle" type="button" id="versionDropDown" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         {{ $currentVersion }}
-        {{- partial "svg/version.svg" . -}}
+        <img src="/images/png/version.png" alt="version" />
     </button>
     <div class="dropdown-menu">
         {{ range .Site.Menus.versions.ByWeight }}

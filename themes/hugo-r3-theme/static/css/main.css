@@ -10626,6 +10626,11 @@ a {
   color: #ec1d24;
   background-color: #FDE8E9;
 }
+.r3-o-dropdown button img {
+  float: right;
+  margin-top: 2px;
+  height: 16px;
+}
 .r3-o-dropdown button svg {
   fill: #ec1d24;
   float: right;
