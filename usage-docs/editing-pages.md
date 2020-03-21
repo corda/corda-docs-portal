@@ -9,9 +9,9 @@ If you are editing existing documentation already present in https://github.com/
 * [Push to your fork](https://guides.github.com/activities/forking/#making-changes).
 * [Make a pull request](https://guides.github.com/activities/forking/#making-a-pull-request).
 
-For Apple and Linux users, after installing hugo, run:
+For Apple and Linux users, after installing hugo and VSCode, run:
 
-```
+```makefile
 make local-serve-and-edit   # or hugo-serve-and-edit
 ```
 
@@ -21,12 +21,14 @@ and there will be an extra icon in the title bar of the site:
 
 which should open the current page in VSCode (only).
 
-For Windows users (TODO):
+For Windows users in Powershell (assuming there are no spaces in your `pwd`):
 
-```batch
-HUGO_PARAMS_SITEROOT=%%CD%%
+```powershell
+$env:HUGO_PARAMS_SITEROOT=(Get-Location).Path.Replace("\","/")
 hugo --config config.toml,config.dev.toml serve
 ```
+
+or just execute `.\serve_and_edit.ps1`.
 
 ## Where are pages?
 
@@ -46,18 +48,18 @@ Therefore documentation for a particular language will be found in `/content/<la
 
 There are two ways to create a page:
 
-* copy another page 
+* copy another page
 * use Hugo (preferred):
 
 From the root of the repository:
 
-```
+```shell
 hugo new docs/corda-os/4.4/my-new-page.md
 ```
 
 This will produce a new file in `/content/en/docs/corda-os/4.4/my-new-page.md`
 
-```
+```markdown
 ---
 title: "My New Page"
 date: 2020-03-19T10:06:32Z
@@ -87,14 +89,14 @@ We recommend that you use [Visual Studio Code](https://code.visualstudio.com/) o
 
 In common with most static site generators, content pages begin with a [front-matter](https://gohugo.io/content-management/front-matter) section.
 
-```
+```markdown
 ---
 title: "Welcome"
 date: 2020-01-08T09:59:25Z
 ---
 ```
 
-This can be written in TOML (`+++`), YAML (`---`), or JSON `{ ... }`.  
+This can be written in TOML (`+++`), YAML (`---`), or JSON `{ ... }`.
 
 We have chosen to primarily use YAML for the front matter format as GitHub knows how to render this.
 
@@ -108,7 +110,7 @@ Note:  if you run `hugo serve` and edit code with shortcodes, occasionally `hugo
 
 We provide `note`, `warning`, `attention`, and `tip` to highlight blocks of code, for example
 
-```
+```markdown
 {{% warning %}}
 this is a warning
 {{% /warning %}}
@@ -122,7 +124,7 @@ In the outer scope, always provide a unique tab id (which is used as a page anch
 
 Simply surround your back-ticked code blocks with:
 
-```
+```markdown
 {{< tabs name="tabs-1234" >}}
 {{% tab name="kotlin" %}}
 '''kotlin
@@ -142,7 +144,7 @@ Simply surround your back-ticked code blocks with:
 
 To enable [MathJax](https://www.mathjax.org/) in a page, simply add:
 
-```
+```markdown
 {{% mathjax %}}
 ```
 
@@ -152,7 +154,7 @@ somewhere in the page, once.  And that's it.
 
 To add a [Mermaid chart](https://mermaid-js.github.io/mermaid/#/), simply wrap the chart in the following shortcode:
 
-```
+```markdown
 {{% mermaid %}}
 graph TD;
     A-->B;
