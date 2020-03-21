@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
     identifier: corda-enterprise-4-3-1-cordapp-custom-serializers
-    parent: corda-enterprise-4-3-1-serialization
+    parent: corda-enterprise-4-3-1-serialization-index
     weight: 1020
 tags:
 - cordapp

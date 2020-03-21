@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
     identifier: corda-os-4-1-serialization-enum-evolution
-    parent: corda-os-4-1-serialization
+    parent: corda-os-4-1-serialization-index
     weight: 1040
 tags:
 - serialization

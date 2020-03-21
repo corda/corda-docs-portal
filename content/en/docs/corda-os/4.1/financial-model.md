@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
     identifier: corda-os-4-1-financial-model
-    parent: corda-os-4-1-component-library
+    parent: corda-os-4-1-component-library-index
     weight: 1020
 tags:
 - financial

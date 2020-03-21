@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-1-0:
     identifier: corda-os-1-0-tut-two-party-contract
-    parent: corda-os-1-0-tut-two-party
+    parent: corda-os-1-0-tut-two-party-index
     weight: 1020
 tags:
 - tut

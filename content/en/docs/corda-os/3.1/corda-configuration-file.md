@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-1:
     identifier: corda-os-3-1-corda-configuration-file
-    parent: corda-os-3-1-corda-nodes
+    parent: corda-os-3-1-corda-nodes-index
     weight: 1040
 tags:
 - corda

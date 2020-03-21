@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-3-3:
     identifier: corda-enterprise-3-3-tutorial-custom-notary
-    parent: corda-enterprise-3-3-tutorials
+    parent: corda-enterprise-3-3-tutorials-index
     weight: 1130
 tags:
 - tutorial

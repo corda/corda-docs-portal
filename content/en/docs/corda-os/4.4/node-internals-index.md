@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
-    identifier: corda-os-4-4-node-internals
+    identifier: corda-os-4-4-node-internals-index
     parent: corda-os-4-4-development
     weight: 120
 tags:

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
     identifier: corda-enterprise-4-2-flow-state-machines
-    parent: corda-enterprise-4-2-tutorials
+    parent: corda-enterprise-4-2-tutorials-index
     weight: 1100
 tags:
 - flow

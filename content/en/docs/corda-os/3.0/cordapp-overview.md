@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-0:
     identifier: corda-os-3-0-cordapp-overview
-    parent: corda-os-3-0-building-a-cordapp
+    parent: corda-os-3-0-building-a-cordapp-index
     weight: 1010
 tags:
 - cordapp

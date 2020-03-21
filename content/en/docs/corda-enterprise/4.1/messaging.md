@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-messaging
-    parent: corda-enterprise-4-1-node-internals
+    parent: corda-enterprise-4-1-node-internals-index
     weight: 1020
 tags:
 - messaging

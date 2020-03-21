@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
     identifier: corda-os-4-1-flow-cookbook
-    parent: corda-os-4-1-building-a-cordapp
+    parent: corda-os-4-1-building-a-cordapp-index
     weight: 1140
 tags:
 - flow

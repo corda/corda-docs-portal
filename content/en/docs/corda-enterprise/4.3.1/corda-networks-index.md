@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
-    identifier: corda-enterprise-4-3-1-corda-networks
+    identifier: corda-enterprise-4-3-1-corda-networks-index
     parent: corda-enterprise-4-3-1-operations
     weight: 460
 tags:

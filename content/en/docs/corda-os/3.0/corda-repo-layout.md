@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-0:
     identifier: corda-os-3-0-corda-repo-layout
-    parent: corda-os-3-0-other
+    parent: corda-os-3-0-other-index
     weight: 1010
 tags:
 - corda

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-3:
     identifier: corda-os-3-3-permissioning
-    parent: corda-os-3-3-corda-networks
+    parent: corda-os-3-3-corda-networks-index
     weight: 1020
 tags:
 - permissioning

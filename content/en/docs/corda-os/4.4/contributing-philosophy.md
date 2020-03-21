@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
     identifier: corda-os-4-4-contributing-philosophy
-    parent: corda-os-4-4-contributing
+    parent: corda-os-4-4-contributing-index
     weight: 1010
 tags:
 - contributing

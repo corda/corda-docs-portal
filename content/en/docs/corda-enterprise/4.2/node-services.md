@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
     identifier: corda-enterprise-4-2-node-services
-    parent: corda-enterprise-4-2-node-internals
+    parent: corda-enterprise-4-2-node-internals-index
     weight: 1010
 tags:
 - node

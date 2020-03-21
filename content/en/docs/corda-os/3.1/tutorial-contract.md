@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-1:
     identifier: corda-os-3-1-tutorial-contract
-    parent: corda-os-3-1-tutorials
+    parent: corda-os-3-1-tutorials-index
     weight: 1040
 tags:
 - tutorial

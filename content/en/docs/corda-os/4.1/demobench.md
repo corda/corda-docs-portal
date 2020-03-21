@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
     identifier: corda-os-4-1-demobench
-    parent: corda-os-4-1-tools
+    parent: corda-os-4-1-tools-index
     weight: 1030
 tags:
 - demobench

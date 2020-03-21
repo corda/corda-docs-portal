@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-0:
-    identifier: cenm-1-0-tools
+    identifier: cenm-1-0-tools-index
     parent: cenm-1-0-tools-and-utilities
     weight: 270
 tags:

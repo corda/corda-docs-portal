@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
     identifier: corda-os-4-1-tutorial-tear-offs
-    parent: corda-os-4-1-tutorials
+    parent: corda-os-4-1-tutorials-index
     weight: 1140
 tags:
 - tutorial

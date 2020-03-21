@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
     identifier: corda-os-4-0-contributing-flow-state-machines
-    parent: corda-os-4-0-contributing
+    parent: corda-os-4-0-contributing-index
     weight: 1090
 tags:
 - contributing

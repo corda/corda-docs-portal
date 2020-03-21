@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
     identifier: corda-os-4-4-setting-up-a-dynamic-compatibility-zone
-    parent: corda-os-4-4-corda-networks
+    parent: corda-os-4-4-corda-networks-index
     weight: 1090
 tags:
 - setting

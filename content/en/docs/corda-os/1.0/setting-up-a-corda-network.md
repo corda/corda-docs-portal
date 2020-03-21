@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-1-0:
     identifier: corda-os-1-0-setting-up-a-corda-network
-    parent: corda-os-1-0-corda-networks
+    parent: corda-os-1-0-corda-networks-index
     weight: 1010
 tags:
 - setting

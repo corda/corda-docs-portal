@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-node-commandline
-    parent: corda-enterprise-4-1-corda-nodes
+    parent: corda-enterprise-4-1-corda-nodes-index
     weight: 1040
 tags:
 - node

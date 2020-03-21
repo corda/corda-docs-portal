@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
     identifier: corda-os-4-1-azure-vm-explore
-    parent: corda-os-4-1-deploy-to-testnet
+    parent: corda-os-4-1-deploy-to-testnet-index
     weight: 1010
 tags:
 - azure

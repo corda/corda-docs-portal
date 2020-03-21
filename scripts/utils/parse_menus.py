@@ -215,10 +215,7 @@ def _get_page_identifier(version_prefix, file):
     if filename == "toc-tree":
         # Use parent folder name instead
         filename = os.path.basename(os.path.dirname(file))
-    if filename.endswith("-index"):
-        filename = filename.replace("-index", "")
-    ident = " ".join(filename.split("-")).title()
-    return version_prefix + "-" + ident.lower().replace(" ", "-").replace("&", "and")
+    return version_prefix + "-" + filename.lower().replace(" ", "-").replace("&", "and")
 
 
 def parse_file_for_doctree(menus, file):

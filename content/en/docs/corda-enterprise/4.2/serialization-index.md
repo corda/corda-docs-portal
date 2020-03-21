@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
-    identifier: corda-enterprise-4-2-serialization
+    identifier: corda-enterprise-4-2-serialization-index
     parent: corda-enterprise-4-2-development
     weight: 260
 tags:

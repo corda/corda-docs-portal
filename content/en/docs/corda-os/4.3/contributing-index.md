@@ -2,7 +2,11 @@
 aliases:
 - /releases/release-V4.3/contributing-index.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-3:
+    identifier: corda-os-4-3-contributing-index
+    parent: corda-os-4-3-participate
+    weight: 420
 tags:
 - contributing
 title: Contributing

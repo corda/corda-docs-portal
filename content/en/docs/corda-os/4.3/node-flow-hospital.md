@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-3:
     identifier: corda-os-4-3-node-flow-hospital
-    parent: corda-os-4-3-corda-nodes
+    parent: corda-os-4-3-corda-nodes-index
     weight: 1150
 tags:
 - node

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
     identifier: corda-os-4-4-deploy-locally
-    parent: corda-os-4-4-deploy-to-testnet
+    parent: corda-os-4-4-deploy-to-testnet-index
     weight: 1040
 tags:
 - deploy

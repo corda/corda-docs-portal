@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
     identifier: corda-os-3-2-flow-library
-    parent: corda-os-3-2-component-library
+    parent: corda-os-3-2-component-library-index
     weight: 1010
 tags:
 - flow

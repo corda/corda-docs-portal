@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-1:
     identifier: corda-os-3-1-network-simulator
-    parent: corda-os-3-1-tools
+    parent: corda-os-3-1-tools-index
     weight: 1010
 tags:
 - network

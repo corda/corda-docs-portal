@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-1-0:
     identifier: corda-os-1-0-building-against-master
-    parent: corda-os-1-0-quickstart
+    parent: corda-os-1-0-quickstart-index
     weight: 1040
 tags:
 - building

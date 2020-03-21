@@ -2,7 +2,11 @@
 aliases:
 - /releases/release-V4.4/serialization.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-4:
+    identifier: corda-os-4-4-serialization
+    parent: corda-os-4-4-serialization-index
+    weight: 1010
 tags:
 - serialization
 title: Object serialization

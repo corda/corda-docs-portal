@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-cordapp-constraint-migration
-    parent: corda-enterprise-4-1-building-a-cordapp
+    parent: corda-enterprise-4-1-building-a-cordapp-index
     weight: 1110
 tags:
 - cordapp

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
     identifier: corda-os-4-0-contract-irs
-    parent: corda-os-4-0-component-library
+    parent: corda-os-4-0-component-library-index
     weight: 1030
 tags:
 - contract

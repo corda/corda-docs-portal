@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
     identifier: corda-os-4-0-node-services
-    parent: corda-os-4-0-node-internals
+    parent: corda-os-4-0-node-internals-index
     weight: 1010
 tags:
 - node

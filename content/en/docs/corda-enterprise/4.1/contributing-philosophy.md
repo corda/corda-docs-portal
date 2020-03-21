@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-contributing-philosophy
-    parent: corda-enterprise-4-1-contributing
+    parent: corda-enterprise-4-1-contributing-index
     weight: 1010
 tags:
 - contributing

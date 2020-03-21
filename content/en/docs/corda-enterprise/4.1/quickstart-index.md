@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
-    identifier: corda-enterprise-4-1-quickstart
+    identifier: corda-enterprise-4-1-quickstart-index
     parent: corda-enterprise-4-1-development
     weight: 80
 tags:

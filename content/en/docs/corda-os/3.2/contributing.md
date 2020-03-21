@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
     identifier: corda-os-3-2-contributing
-    parent: corda-os-3-2-release-process
+    parent: corda-os-3-2-release-process-index
     weight: 1030
 tags:
 - contributing

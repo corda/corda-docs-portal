@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
     identifier: corda-os-4-4-quickstart-deploy
-    parent: corda-os-4-4-quickstart
+    parent: corda-os-4-4-quickstart-index
     weight: 1010
 tags:
 - quickstart

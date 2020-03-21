@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
     identifier: cenm-1-2-pki-tool
-    parent: cenm-1-2-tools
+    parent: cenm-1-2-tools-index
     weight: 1010
 tags:
 - pki

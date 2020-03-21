@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
     identifier: corda-os-4-0-joining-a-compatibility-zone
-    parent: corda-os-4-0-corda-networks
+    parent: corda-os-4-0-corda-networks-index
     weight: 1050
 tags:
 - joining

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-4:
     identifier: corda-os-3-4-node-administration
-    parent: corda-os-3-4-corda-nodes
+    parent: corda-os-3-4-corda-nodes-index
     weight: 1080
 tags:
 - node

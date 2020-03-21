@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
     identifier: corda-os-3-2-tutorial-clientrpc-api
-    parent: corda-os-3-2-tutorials
+    parent: corda-os-3-2-tutorials-index
     weight: 1080
 tags:
 - tutorial

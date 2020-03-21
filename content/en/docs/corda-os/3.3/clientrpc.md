@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-3:
     identifier: corda-os-3-3-clientrpc
-    parent: corda-os-3-3-corda-nodes
+    parent: corda-os-3-3-corda-nodes-index
     weight: 1050
 tags:
 - clientrpc

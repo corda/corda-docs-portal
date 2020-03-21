@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-oracles
-    parent: corda-enterprise-4-1-tutorials
+    parent: corda-enterprise-4-1-tutorials-index
     weight: 1120
 tags:
 - oracles

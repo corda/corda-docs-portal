@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-1-0:
     identifier: corda-os-1-0-node-explorer
-    parent: corda-os-1-0-tools
+    parent: corda-os-1-0-tools-index
     weight: 1030
 tags:
 - node

@@ -115,7 +115,7 @@ weight = 210
 
 [[corda-enterprise-3-3]]
 identifier = "corda-enterprise-3-3-other-docs"
-parent = "corda-enterprise-3-3-quickstart"
+parent = "corda-enterprise-3-3-quickstart-index"
 name = "Other docs"
 weight = 1000
 
@@ -216,7 +216,7 @@ weight = 430
 
 [[corda-enterprise-4-4]]
 identifier = "corda-enterprise-4-4-concepts-and-overview"
-parent = "corda-enterprise-4-4-cenm"
+parent = "corda-enterprise-4-4-cenm-index"
 name = "Concepts and Overview"
 weight = 1000
 

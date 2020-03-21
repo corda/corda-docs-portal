@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-0:
     identifier: corda-enterprise-4-0-node-operations-upgrading-os-to-ent
-    parent: corda-enterprise-4-0-corda-nodes
+    parent: corda-enterprise-4-0-corda-nodes-index
     weight: 1080
 tags:
 - node

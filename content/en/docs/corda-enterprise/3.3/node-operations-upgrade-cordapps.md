@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-3-3:
     identifier: corda-enterprise-3-3-node-operations-upgrade-cordapps
-    parent: corda-enterprise-3-3-corda-nodes
+    parent: corda-enterprise-3-3-corda-nodes-index
     weight: 1120
 tags:
 - node

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
     identifier: corda-os-3-2-vault
-    parent: corda-os-3-2-node-internals
+    parent: corda-os-3-2-node-internals-index
     weight: 1020
 tags:
 - vault

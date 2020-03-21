@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
     identifier: corda-enterprise-4-3-1-node-explorer
-    parent: corda-enterprise-4-3-1-tools
+    parent: corda-enterprise-4-3-1-tools-index
     weight: 1030
 tags:
 - node

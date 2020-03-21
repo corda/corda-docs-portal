@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-3:
     identifier: corda-os-4-3-wire-format
-    parent: corda-os-4-3-serialization
+    parent: corda-os-4-3-serialization-index
     weight: 1070
 tags:
 - wire

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
     identifier: corda-enterprise-4-2-financial-model
-    parent: corda-enterprise-4-2-component-library
+    parent: corda-enterprise-4-2-component-library-index
     weight: 1020
 tags:
 - financial

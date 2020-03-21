@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
     identifier: corda-os-4-4-cordapp-custom-serializers
-    parent: corda-os-4-4-serialization
+    parent: corda-os-4-4-serialization-index
     weight: 1020
 tags:
 - cordapp

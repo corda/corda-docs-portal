@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
     identifier: corda-os-4-4-flow-overriding
-    parent: corda-os-4-4-building-a-cordapp
+    parent: corda-os-4-4-building-a-cordapp-index
     weight: 1090
 tags:
 - flow

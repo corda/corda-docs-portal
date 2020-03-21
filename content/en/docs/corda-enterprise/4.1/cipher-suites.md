@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-cipher-suites
-    parent: corda-enterprise-4-1-corda-networks
+    parent: corda-enterprise-4-1-corda-networks-index
     weight: 1040
 tags:
 - cipher

@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.1/contributing-index.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-1:
+    identifier: corda-enterprise-4-1-contributing-index
+    parent: corda-enterprise-4-1-participate
+    weight: 280
 tags:
 - contributing
 title: Contributing

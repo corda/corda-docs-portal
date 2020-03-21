@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
     identifier: corda-os-4-0-cli-ux-guidelines
-    parent: corda-os-4-0-contributing
+    parent: corda-os-4-0-contributing-index
     weight: 1080
 tags:
 - cli

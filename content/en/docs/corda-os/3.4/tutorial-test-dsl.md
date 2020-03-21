@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-4:
     identifier: corda-os-3-4-tutorial-test-dsl
-    parent: corda-os-3-4-tutorials
+    parent: corda-os-3-4-tutorials-index
     weight: 1050
 tags:
 - tutorial

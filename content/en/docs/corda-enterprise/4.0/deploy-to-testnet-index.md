@@ -4,8 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-0:
-    identifier: corda-enterprise-4-0-deploy-to-testnet
-    parent: corda-enterprise-4-0-corda-networks
+    identifier: corda-enterprise-4-0-deploy-to-testnet-index
+    parent: corda-enterprise-4-0-corda-networks-index
     weight: 1110
 tags:
 - deploy

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-3-3:
     identifier: corda-enterprise-3-3-azure-template-guide
-    parent: corda-enterprise-3-3-corda-networks
+    parent: corda-enterprise-3-3-corda-networks-index
     weight: 1070
 tags:
 - azure

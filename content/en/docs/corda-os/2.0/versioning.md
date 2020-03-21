@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-2-0:
     identifier: corda-os-2-0-versioning
-    parent: corda-os-2-0-corda-networks
+    parent: corda-os-2-0-corda-networks-index
     weight: 1030
 tags:
 - versioning

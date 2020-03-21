@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
     identifier: corda-os-4-1-aws-vm-explore
-    parent: corda-os-4-1-deploy-to-testnet
+    parent: corda-os-4-1-deploy-to-testnet-index
     weight: 1020
 tags:
 - aws
