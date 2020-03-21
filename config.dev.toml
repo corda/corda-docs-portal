@@ -14,6 +14,14 @@
 #  Will override existing setting if present
 
 #baseURL = "https://docs-staging.corda.net/"
-baseURL = "http://localhost:8888/"
 
-title = "DEV DEV DEV"
+title = "Using CONFIG.DEV.TOML"
+
+
+[params]
+# specifically set this in dev only to add an icon to launch the file in vscode
+# not sure how to trigger for other editors (yet), but I know vscode:// is cross
+# platform if installed
+# do not delete....
+siteroot = "Override on cmd line using HUGO_PARAMS_SITEROOT=$(pwd) hugo serve"
+vscode = true

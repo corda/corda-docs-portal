@@ -34,6 +34,9 @@ local-serve: ## Build and serve hugo locally from memory or just use 'hugo' dire
 local-build: ## Build the site (once only into public/) or just use 'hugo' directly
 	hugo $(HUGO_ARGS) --minify
 
+local-serve-and-edit:  ## Build and serve hugo with a click-to-edit link using the config.dev.toml file
+	HUGO_PARAMS_SITEROOT=$(ROOT_DIR) hugo --config config.toml,config.dev.toml serve -D -F --disableFastRender
+
 #######################################################################################################################
 # Docker tasks - run hugo in docker
 
@@ -45,6 +48,9 @@ hugo-build: hugo-docker-image ## Run hugo build in docker (once only, into publi
 
 hugo-serve: hugo-docker-image ## Serve site from docker
 	$(DOCKER_RUN) -it -p 1313:1313  $(HUGO_DOCKER_IMAGE)  hugo $(HUGO_ARGS) server --buildFuture --buildDrafts --disableFastRender --bind 0.0.0.0
+
+hugo-serve-and-edit: hugo-docker-image ## Serve site from docker with a click-to-edit link
+	$(DOCKER_RUN) -e HUGO_PARAMS_SITEROOT=$(ROOT_DIR) -it -p 1313:1313  $(HUGO_DOCKER_IMAGE)  hugo $(HUGO_ARGS)  --config config.toml,config.dev.toml server --buildFuture --buildDrafts --disableFastRender --bind 0.0.0.0
 
 #######################################################################################################################
 # Docker tasks - build the prod nginx image

@@ -1,0 +1,13 @@
+{{- if .Site.Params.vscode -}}
+<li class="nav-item r3-o-navbar__nav-item">
+    {{ if and .Site.Params.siteroot .File }}
+    <a href="vscode://file/{{.Site.Params.SiteRoot}}/content/{{.Site.Language.Lang}}/{{.File.Path}}" name="vscode" alt="vscode" aria-label="vscode">
+        {{- partial "svg/edit.svg" . -}}
+    </a>
+    {{ else }}
+    <a href="#" name="vscode" alt="vscode" aria-label="vscode">
+        See readme
+    </a>
+    {{ end }}
+</li>
+{{- end -}}

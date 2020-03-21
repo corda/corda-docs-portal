@@ -9,6 +9,25 @@ If you are editing existing documentation already present in https://github.com/
 * [Push to your fork](https://guides.github.com/activities/forking/#making-changes).
 * [Make a pull request](https://guides.github.com/activities/forking/#making-a-pull-request).
 
+For Apple and Linux users, after installing hugo, run:
+
+```
+make local-serve-and-edit   # or hugo-serve-and-edit
+```
+
+and there will be an extra icon in the title bar of the site:
+
+![edit icon](images/page-edit.png)
+
+which should open the current page in VSCode (only).
+
+For Windows users (TODO):
+
+```batch
+HUGO_PARAMS_SITEROOT=%%CD%%
+hugo --config config.toml,config.dev.toml serve
+```
+
 ## Where are pages?
 
 All Hugo site content is stored under the `/content` folder.
