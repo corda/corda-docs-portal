@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-1:
+    identifier: corda-os-3-1-release-notes
     parent: corda-os-3-1-release-process
+    weight: 1010
 tags:
 - release
 - notes

@@ -4,7 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-1-0:
-    parent: corda-os-1-0-index
+    identifier: corda-os-1-0-building-a-cordapp
+    weight: 40
 tags:
 - building
 - cordapp

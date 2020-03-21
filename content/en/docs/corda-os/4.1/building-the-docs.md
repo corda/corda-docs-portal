@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
+    identifier: corda-os-4-1-building-the-docs
     parent: corda-os-4-1-contributing
+    weight: 1060
 tags:
 - building
 - docs

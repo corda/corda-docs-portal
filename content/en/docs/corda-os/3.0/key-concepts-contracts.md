@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-0:
+    identifier: corda-os-3-0-key-concepts-contracts
     parent: corda-os-3-0-key-concepts
+    weight: 1050
 tags:
 - concepts
 - contracts

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
+    identifier: corda-os-4-1-node-naming
     parent: corda-os-4-1-corda-nodes
+    weight: 1020
 tags:
 - node
 - naming

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
+    identifier: corda-os-4-4-aws-vm
     parent: corda-os-4-4-operations
+    weight: 370
 tags:
 - aws
 - vm

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
+    identifier: corda-enterprise-4-3-1-api-persistence
     parent: corda-enterprise-4-3-1-corda-api
+    weight: 350
 tags:
 - api
 - persistence

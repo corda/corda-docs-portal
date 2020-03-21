@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-4:
+    identifier: corda-os-3-4-tutorial-custom-notary
     parent: corda-os-3-4-tutorials
+    weight: 1140
 tags:
 - tutorial
 - custom

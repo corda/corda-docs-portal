@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
+    identifier: corda-enterprise-4-3-1-quickstart
     parent: corda-enterprise-4-3-1-development
+    weight: 180
 tags:
 - quickstart
 title: Getting started developing CorDapps

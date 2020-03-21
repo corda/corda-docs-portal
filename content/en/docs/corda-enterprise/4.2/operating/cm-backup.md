@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.2/operating/cm-backup.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-cm-backup
+    parent: corda-enterprise-4-2-change-management
+    weight: 1010
 tags:
 - cm
 - backup

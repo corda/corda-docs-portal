@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
+    identifier: corda-os-4-4-hello-world-introduction
     parent: corda-os-4-4-tutorials
+    weight: 1010
 tags:
 - introduction
 title: Hello, World!

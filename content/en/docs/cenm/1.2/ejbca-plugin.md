@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
+    identifier: cenm-1-2-ejbca-plugin
     parent: cenm-1-2-signing-plugin-samples
+    weight: 340
 tags:
 - ejbca
 - plugin

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
+    identifier: corda-os-3-2-aws-vm
     parent: corda-os-3-2-tools
+    weight: 1080
 tags:
 - aws
 - vm

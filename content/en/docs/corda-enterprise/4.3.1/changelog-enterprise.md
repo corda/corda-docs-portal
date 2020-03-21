@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
+    identifier: corda-enterprise-4-3-1-changelog-enterprise
     parent: corda-enterprise-4-3-1-miscellaneous
+    weight: 540
 tags:
 - changelog
 - enterprise

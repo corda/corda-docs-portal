@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-0:
+    identifier: corda-enterprise-4-0-cipher-suites
     parent: corda-enterprise-4-0-corda-networks
+    weight: 1080
 tags:
 - cipher
 - suites

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
+    identifier: corda-enterprise-4-3-1-generating-a-node
     parent: corda-enterprise-4-3-1-corda-nodes
+    weight: 1160
 tags:
 - generating
 - node

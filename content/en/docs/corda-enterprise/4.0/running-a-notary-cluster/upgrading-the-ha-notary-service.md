@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.0/running-a-notary-cluster/upgrading-the-ha-notary-service.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-0:
+    identifier: corda-enterprise-4-0-upgrading-the-ha-notary-service
+    parent: corda-enterprise-4-0-toctree
+    weight: 1070
 tags:
 - upgrading
 - ha

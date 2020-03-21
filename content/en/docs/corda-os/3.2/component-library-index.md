@@ -4,7 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
-    parent: corda-os-3-2-index
+    identifier: corda-os-3-2-component-library
+    weight: 100
 tags:
 - component
 - library

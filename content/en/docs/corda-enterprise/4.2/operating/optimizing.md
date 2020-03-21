@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.2/operating/optimizing.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-optimizing
+    parent: corda-enterprise-4-2-operating-node
+    weight: 1030
 tags:
 - optimizing
 title: Optimizing node performance

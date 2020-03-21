@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.2/operating/monitoring-logging.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-monitoring-logging
+    parent: corda-enterprise-4-2-operating-node
+    weight: 1020
 tags:
 - monitoring
 - logging

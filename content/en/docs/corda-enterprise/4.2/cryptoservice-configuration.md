@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-cryptoservice-configuration
     parent: corda-enterprise-4-2-corda-enterprise
+    weight: 120
 tags:
 - cryptoservice
 - configuration

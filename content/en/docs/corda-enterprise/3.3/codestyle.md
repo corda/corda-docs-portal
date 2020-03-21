@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-3-3:
+    identifier: corda-enterprise-3-3-codestyle
     parent: corda-enterprise-3-3-release-process
+    weight: 1020
 tags:
 - codestyle
 title: Code style guide

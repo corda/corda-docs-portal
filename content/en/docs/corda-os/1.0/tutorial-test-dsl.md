@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-1-0:
+    identifier: corda-os-1-0-tutorial-test-dsl
     parent: corda-os-1-0-tutorials
+    weight: 1040
 tags:
 - tutorial
 - test
@@ -269,7 +271,7 @@ public void simpleCPMoveFails() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java#L52-L64' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='DOCSTART 3' end='DOCEND 3' */}}
+{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java' start='' end='' */}}
 
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 

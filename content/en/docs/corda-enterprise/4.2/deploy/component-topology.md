@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.2/deploy/component-topology.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-component-topology
+    parent: corda-enterprise-4-2-deploying-node
+    weight: 1010
 tags:
 - component
 - topology

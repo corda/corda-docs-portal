@@ -4,7 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-3:
-    parent: corda-os-4-3-index
+    identifier: corda-os-4-3-cheat-sheet
+    weight: 50
 tags:
 - cheat
 - sheet

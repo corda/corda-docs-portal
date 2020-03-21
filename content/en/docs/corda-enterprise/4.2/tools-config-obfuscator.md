@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-tools-config-obfuscator
     parent: corda-enterprise-4-2-tools-index-enterprise
+    weight: 1030
 tags:
 - tools
 - config

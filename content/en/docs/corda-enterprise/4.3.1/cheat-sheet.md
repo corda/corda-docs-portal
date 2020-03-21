@@ -4,7 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
-    parent: corda-enterprise-4-3-1-index
+    identifier: corda-enterprise-4-3-1-cheat-sheet
+    weight: 70
 tags:
 - cheat
 - sheet

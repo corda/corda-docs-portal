@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-3:
+    identifier: corda-os-4-3-cordapp-constraint-migration
     parent: corda-os-4-3-versioning-and-upgrades
+    weight: 1040
 tags:
 - cordapp
 - constraint

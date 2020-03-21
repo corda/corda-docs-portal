@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-0:
+    identifier: corda-enterprise-4-0-node-flow-hospital
     parent: corda-enterprise-4-0-corda-nodes
+    weight: 1140
 tags:
 - node
 - flow

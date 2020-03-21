@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
+    identifier: corda-os-3-2-demobench
     parent: corda-os-3-2-tools
+    weight: 1050
 tags:
 - demobench
 title: DemoBench

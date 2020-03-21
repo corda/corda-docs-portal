@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-2-0:
+    identifier: corda-os-2-0-setting-up-a-corda-network
     parent: corda-os-2-0-corda-networks
+    weight: 1010
 tags:
 - setting
 - corda

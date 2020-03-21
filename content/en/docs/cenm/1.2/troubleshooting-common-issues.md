@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
+    identifier: cenm-1-2-troubleshooting-common-issues
     parent: cenm-1-2-operations
+    weight: 190
 tags:
 - troubleshooting
 - common

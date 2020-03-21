@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-3:
+    identifier: corda-os-3-3-blob-inspector
     parent: corda-os-3-3-tools
+    weight: 1030
 tags:
 - blob
 - inspector

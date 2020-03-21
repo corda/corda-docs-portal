@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
+    identifier: corda-os-4-0-permissioning
     parent: corda-os-4-0-corda-networks
+    weight: 1020
 tags:
 - permissioning
 title: Network certificates

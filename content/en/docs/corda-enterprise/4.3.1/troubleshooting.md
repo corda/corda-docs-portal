@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
+    identifier: corda-enterprise-4-3-1-troubleshooting
     parent: corda-enterprise-4-3-1-development
+    weight: 280
 tags:
 - troubleshooting
 title: Troubleshooting

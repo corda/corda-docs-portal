@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-1-0:
+    identifier: corda-os-1-0-versioning
     parent: corda-os-1-0-corda-networks
+    weight: 1030
 tags:
 - versioning
 title: Versioning

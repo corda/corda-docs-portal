@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-0:
+    identifier: corda-os-3-0-upgrade-notes
     parent: corda-os-3-0-building-a-cordapp
+    weight: 1030
 tags:
 - upgrade
 - notes

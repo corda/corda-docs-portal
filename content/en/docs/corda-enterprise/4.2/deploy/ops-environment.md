@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.2/deploy/ops-environment.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-ops-environment
+    parent: corda-enterprise-4-2-node-config
+    weight: 1010
 tags:
 - ops
 - environment

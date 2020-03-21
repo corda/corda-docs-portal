@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.3.1/running-a-notary-cluster/notary-metrics.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-3-1:
+    identifier: corda-enterprise-4-3-1-notary-metrics
+    parent: corda-enterprise-4-3-1-toctree
+    weight: 1110
 tags:
 - notary
 - metrics

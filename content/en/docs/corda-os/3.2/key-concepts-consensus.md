@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
+    identifier: corda-os-3-2-key-concepts-consensus
     parent: corda-os-3-2-key-concepts
+    weight: 1080
 tags:
 - concepts
 - consensus

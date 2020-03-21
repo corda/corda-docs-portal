@@ -4,7 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-0:
-    parent: corda-os-3-0-index
+    identifier: corda-os-3-0-other
+    weight: 140
 tags:
 - other
 title: Other

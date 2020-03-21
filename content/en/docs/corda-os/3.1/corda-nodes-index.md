@@ -4,7 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-1:
-    parent: corda-os-3-1-index
+    identifier: corda-os-3-1-corda-nodes
+    weight: 50
 tags:
 - corda
 - nodes

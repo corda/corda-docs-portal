@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-0:
+    identifier: cenm-1-0-database-set-up
     parent: cenm-1-0-operations
+    weight: 180
 tags:
 - database
 - set

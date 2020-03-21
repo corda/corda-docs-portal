@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.2/deploy/env-prod-test.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-env-prod-test
+    parent: corda-enterprise-4-2-ops-environment
+    weight: 1020
 tags:
 - env
 - prod

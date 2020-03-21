@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
+    identifier: corda-os-4-0-network-builder
     parent: corda-os-4-0-tools
+    weight: 1010
 tags:
 - network
 - builder

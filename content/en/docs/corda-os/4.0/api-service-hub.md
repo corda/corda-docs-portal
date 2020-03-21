@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
+    identifier: corda-os-4-0-api-service-hub
     parent: corda-os-4-0-corda-api
+    weight: 1090
 tags:
 - api
 - service

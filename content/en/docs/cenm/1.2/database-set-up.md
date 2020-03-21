@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
+    identifier: cenm-1-2-database-set-up
     parent: cenm-1-2-operations
+    weight: 180
 tags:
 - database
 - set
@@ -58,8 +60,14 @@ any potential errors stemming from the former.
 
 ## Database Schema Setup
 
-This document provides instructions describing how to create database schemas (user permissions, the CENM service tables, and other database objects),
-and how to configure CENM services to connect to a database with *restricted permissions* for production use.
+This document provides instructions describing how to create database schemas (user permissions, the CENM service
+tables, and other database objects), and how to configure CENM services to connect to a database with *restricted
+permissions* for production use.
+
+Note that in contrast to Corda nodes, CENM schema creation/migration is done by the CENM services rather
+than a separate tool. The expectation is that the services are configured to connect as a privileged
+user when doing this creation/migration, and a more restricted user for production use. This is covered
+in more depth further down.
 
 Setting up a CENM service (Identity Manager / Network Map) to connect to a database requires:
 

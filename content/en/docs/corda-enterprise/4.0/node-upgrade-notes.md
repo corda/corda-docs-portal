@@ -4,7 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-0:
-    parent: corda-enterprise-4-0-index
+    identifier: corda-enterprise-4-0-node-upgrade-notes
+    weight: 40
 tags:
 - node
 - upgrade

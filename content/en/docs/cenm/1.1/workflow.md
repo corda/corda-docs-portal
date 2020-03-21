@@ -5,7 +5,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-1:
+    identifier: cenm-1-1-workflow
     parent: cenm-1-1-configuration
+    weight: 260
 tags:
 - workflow
 title: Workflow

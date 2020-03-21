@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
+    identifier: corda-os-4-1-node-explorer
     parent: corda-os-4-1-tools
+    weight: 1040
 tags:
 - node
 - explorer

@@ -5,7 +5,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-1:
+    identifier: cenm-1-1-cenm-support-matrix
     parent: cenm-1-1-operations
+    weight: 200
 tags:
 - cenm
 - support

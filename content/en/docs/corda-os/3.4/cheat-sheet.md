@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-4:
+    identifier: corda-os-3-4-cheat-sheet
     parent: corda-os-3-4-building-a-cordapp
+    weight: 1120
 tags:
 - cheat
 - sheet

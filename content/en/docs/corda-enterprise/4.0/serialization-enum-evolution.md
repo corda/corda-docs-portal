@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-0:
+    identifier: corda-enterprise-4-0-serialization-enum-evolution
     parent: corda-enterprise-4-0-serialization
+    weight: 1040
 tags:
 - serialization
 - enum

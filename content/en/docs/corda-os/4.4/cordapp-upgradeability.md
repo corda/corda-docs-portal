@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
+    identifier: corda-os-4-4-cordapp-upgradeability
     parent: corda-os-4-4-versioning-and-upgrades
+    weight: 1050
 tags:
 - cordapp
 - upgradeability

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
+    identifier: corda-enterprise-4-1-key-concepts
     parent: corda-enterprise-4-1-development
+    weight: 90
 tags:
 - concepts
 title: Key concepts

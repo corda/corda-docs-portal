@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.2/operating/cm-upgrading-node.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-cm-upgrading-node
+    parent: corda-enterprise-4-2-change-management
+    weight: 1020
 tags:
 - cm
 - upgrading

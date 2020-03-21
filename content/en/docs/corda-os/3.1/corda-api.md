@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-1:
+    identifier: corda-os-3-1-corda-api
     parent: corda-os-3-1-building-a-cordapp
+    weight: 1070
 tags:
 - corda
 - api

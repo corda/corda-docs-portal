@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.2/running-a-notary-cluster/operating-percona.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-operating-percona
+    parent: corda-enterprise-4-2-introduction
+    weight: 1030
 tags:
 - operating
 - percona

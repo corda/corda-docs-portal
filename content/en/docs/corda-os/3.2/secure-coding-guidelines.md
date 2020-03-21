@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-2:
+    identifier: corda-os-3-2-secure-coding-guidelines
     parent: corda-os-3-2-building-a-cordapp
+    weight: 1100
 tags:
 - secure
 - coding

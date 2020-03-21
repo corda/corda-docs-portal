@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
+    identifier: corda-enterprise-4-1-corda-testnet-intro
     parent: corda-enterprise-4-1-corda-networks
+    weight: 1060
 tags:
 - corda
 - testnet

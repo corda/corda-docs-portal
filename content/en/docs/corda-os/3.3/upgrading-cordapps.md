@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-3:
+    identifier: corda-os-3-3-upgrading-cordapps
     parent: corda-os-3-3-building-a-cordapp
+    weight: 1050
 tags:
 - upgrading
 - cordapps

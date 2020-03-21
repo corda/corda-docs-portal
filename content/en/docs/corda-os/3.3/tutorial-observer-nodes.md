@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-3:
+    identifier: corda-os-3-3-tutorial-observer-nodes
     parent: corda-os-3-3-tutorials
+    weight: 1180
 tags:
 - tutorial
 - observer

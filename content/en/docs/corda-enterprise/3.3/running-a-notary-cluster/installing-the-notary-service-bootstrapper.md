@@ -2,7 +2,11 @@
 aliases:
 - /releases/3.3/running-a-notary-cluster/installing-the-notary-service-bootstrapper.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-3-3:
+    identifier: corda-enterprise-3-3-installing-the-notary-service-bootstrapper
+    parent: corda-enterprise-3-3-installing-the-notary-service
+    weight: 1010
 tags:
 - installing
 - notary

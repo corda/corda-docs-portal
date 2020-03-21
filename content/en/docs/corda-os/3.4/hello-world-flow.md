@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-4:
+    identifier: corda-os-3-4-hello-world-flow
     parent: corda-os-3-4-hello-world-introduction
+    weight: 1030
 tags:
 - flow
 title: Writing the flow

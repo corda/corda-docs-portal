@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
+    identifier: corda-os-4-4-deterministic-modules
     parent: corda-os-4-4-participate
+    weight: 430
 tags:
 - deterministic
 - modules

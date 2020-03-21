@@ -2,7 +2,11 @@
 aliases:
 - /releases/3.3/running-a-notary-cluster/introduction.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-3-3:
+    identifier: corda-enterprise-3-3-introduction
+    parent: corda-enterprise-3-3-toctree
+    weight: 1010
 tags:
 - introduction
 title: Highly Available Notary Service Setup

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-3:
+    identifier: corda-os-4-3-tutorial-test-dsl
     parent: corda-os-4-3-tutorials
+    weight: 1050
 tags:
 - tutorial
 - test

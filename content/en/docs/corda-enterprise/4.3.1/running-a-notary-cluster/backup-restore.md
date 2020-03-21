@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.3.1/running-a-notary-cluster/backup-restore.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-3-1:
+    identifier: corda-enterprise-4-3-1-backup-restore
+    parent: corda-enterprise-4-3-1-toctree
+    weight: 1090
 tags:
 - backup
 - restore

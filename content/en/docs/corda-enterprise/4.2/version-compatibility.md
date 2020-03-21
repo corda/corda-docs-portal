@@ -4,7 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
-    parent: corda-enterprise-4-2-index
+    identifier: corda-enterprise-4-2-version-compatibility
+    weight: 60
 tags:
 - version
 - compatibility

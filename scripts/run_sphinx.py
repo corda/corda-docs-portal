@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import ParseError
 from distutils.dir_util import copy_tree
 
-from utils.parse_menus import parse_indexes, version, version_for_config
+from utils.parse_menus import parse_rst_files_for_menus, version, version_for_config
 from utils.parse_literal_includes import parse_literal_includes, md_relpath, github_shortcode_for
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -465,50 +465,19 @@ class Translator:
         # Add each menu as a dict
         menu_entry = {}
         files_for_version = MENU_FILES.get(version, {})
-        parent = files_for_version.get(md_relpath, None)
-        if parent:
-            menu_entry = {"parent": parent}
-        else:
-            menu_entry = None
-        #
-        # if filename_only.startswith("api-"):
-        #     menu_entry = { "parent": version + "-api" }
-        # elif filename_only.startswith("key-concepts-"):
-        #     menu_entry = { "parent": version + "-concepts" }
-        # elif filename_only.startswith("node-"):
-        #     menu_entry = { "parent": version + "-node" }
-        # elif filename_only.startswith("tutorial-"):
-        #     menu_entry = { "parent": version + "-tutorial" }
-        # elif filename_only.startswith("config-"):
-        #     menu_entry = { "parent": version + "-config" }
-
-        # Are we a (project+version) section/index page? e.g. if 4.4/index
-        if bool(is_version_index):
-            LOG.info(f"Adding {self.filename} to 'versions' menu")
-            versions_menu_entry = {}
-            LOG.info(f"Adding parameter 'section_menu={version}' for this index page only'")
-            self.front_matter["section_menu"] = version
-            self.front_matter["version"] = semantic_version
-            self.front_matter["project"] = project_name
-            # Ordering in the versions menu
-            ver_matches = re.match(r"(\d)\.(\d)", semantic_version)
-            
-            major = int(ver_matches.group(1))
-            minor = int(ver_matches.group(2))
-            v = major * 10 + minor
-
-            if project_name == "cenm":
-                versions_menu_entry["weight"] = (100 - int(v*10)) + 1000
-            elif project_name == "corda-os":
-                versions_menu_entry["weight"] = (100 - int(v*10)) + 500
-            if project_name == "corda-enterprise":
-                versions_menu_entry["weight"] = (100 - int(v*10)) + 100
-            menu["versions"] = versions_menu_entry
+        menu_entry_for_file = files_for_version.get(md_relpath, None)
+        if menu_entry_for_file:
+            menu_entry = menu_entry_for_file.get('menu', {}).get(version, None)
+            if menu_entry is not None:
+                menu[version] = menu_entry
 
         # Add this page as a menu entry for the given
         # 'section menu', i.e. { "corda-os-4-3": { ... } }
-        if menu_entry is not None:
-            menu[version] = menu_entry
+
+        # Are we a (project+version) section/index page? e.g. if 4.4/index
+        if bool(is_version_index):
+            versions_menu_entry = self.add_to_versions_menu(project_name, semantic_version, version)
+            menu["versions"] = versions_menu_entry
 
         # If all the menu values are empty dictionaries, we can safely use a list
         # of menus we belong to instead.  This more human-friendly.
@@ -524,6 +493,26 @@ class Translator:
             self.front_matter["title"] = filename_only
 
         self._front_matter_add_tags_and_categories(filename_only)
+
+    def add_to_versions_menu(self, project_name, semantic_version, version):
+        LOG.info(f"Adding {self.filename} to 'versions' menu")
+        versions_menu_entry = {}
+        LOG.info(f"Adding parameter 'section_menu={version}' for this index page only'")
+        self.front_matter["section_menu"] = version
+        self.front_matter["version"] = semantic_version
+        self.front_matter["project"] = project_name
+        # Ordering in the versions menu
+        ver_matches = re.match(r"(\d)\.(\d)", semantic_version)
+        major = int(ver_matches.group(1))
+        minor = int(ver_matches.group(2))
+        v = major * 10 + minor
+        if project_name == "cenm":
+            versions_menu_entry["weight"] = (100 - int(v * 10)) + 1000
+        elif project_name == "corda-os":
+            versions_menu_entry["weight"] = (100 - int(v * 10)) + 500
+        if project_name == "corda-enterprise":
+            versions_menu_entry["weight"] = (100 - int(v * 10)) + 100
+        return versions_menu_entry
 
     def _rewrite_index_title_in_front_matter(self, dest_file, filename_only):
         dirname_only = os.path.basename(os.path.dirname(dest_file))
@@ -1506,7 +1495,7 @@ def main():
     else:
         cms = Hugo()
 
-    menus_to_be_written_to_config, MENU_FILES = parse_indexes()
+    menus_to_be_written_to_config, MENU_FILES = parse_rst_files_for_menus()
     INCLUDES = parse_literal_includes()
 
     menus = os.path.join(ROOT, "config/_default/menus/menus.en.toml")
@@ -1520,7 +1509,7 @@ def main():
     copy_to_content(cms)
 
     if not ARGS.skip_resources:
-         copy_resources_to_content()
+        copy_resources_to_content()
 
     create_missing_pages()
 

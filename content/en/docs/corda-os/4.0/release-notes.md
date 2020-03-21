@@ -4,7 +4,8 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-0:
-    parent: corda-os-4-0-index
+    identifier: corda-os-4-0-release-notes
+    weight: 20
 tags:
 - release
 - notes

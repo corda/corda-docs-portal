@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-2-0:
+    identifier: corda-os-2-0-node-database
     parent: corda-os-2-0-corda-nodes
+    weight: 1060
 tags:
 - node
 - database

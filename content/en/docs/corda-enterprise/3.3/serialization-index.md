@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-3-3:
+    identifier: corda-enterprise-3-3-serialization
     parent: corda-enterprise-3-3-building-a-cordapp
+    weight: 1080
 tags:
 - serialization
 title: Serialization

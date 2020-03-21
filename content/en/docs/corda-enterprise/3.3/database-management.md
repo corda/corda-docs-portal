@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-3-3:
+    identifier: corda-enterprise-3-3-database-management
     parent: corda-enterprise-3-3-corda-enterprise
+    weight: 60
 tags:
 - database
 - management

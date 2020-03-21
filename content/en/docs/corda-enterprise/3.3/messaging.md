@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-3-3:
+    identifier: corda-enterprise-3-3-messaging
     parent: corda-enterprise-3-3-node-internals
+    weight: 1030
 tags:
 - messaging
 title: Networking and messaging

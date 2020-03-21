@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-setting-up-a-dynamic-compatibility-zone
     parent: corda-enterprise-4-2-corda-networks
+    weight: 1120
 tags:
 - setting
 - dynamic

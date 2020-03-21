@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-cordapp-upgradeability
     parent: corda-enterprise-4-2-building-a-cordapp
+    weight: 1120
 tags:
 - cordapp
 - upgradeability

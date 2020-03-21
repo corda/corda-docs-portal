@@ -5,7 +5,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-1:
+    identifier: cenm-1-1-config-obfuscation-tool
     parent: cenm-1-1-tools
+    weight: 1050
 tags:
 - config
 - obfuscation

@@ -2,7 +2,11 @@
 aliases:
 - /releases/4.2/operating/cm-updating-cordapp.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-cm-updating-cordapp
+    parent: corda-enterprise-4-2-change-management
+    weight: 1030
 tags:
 - cm
 - updating

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-4:
+    identifier: corda-os-3-4-codestyle
     parent: corda-os-3-4-contributing
+    weight: 1030
 tags:
 - codestyle
 title: Code style guide

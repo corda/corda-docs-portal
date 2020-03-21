@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-3-3:
+    identifier: corda-enterprise-3-3-key-concepts-notaries
     parent: corda-enterprise-3-3-key-concepts
+    weight: 1090
 tags:
 - concepts
 - notaries

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-3-3:
+    identifier: corda-enterprise-3-3-api-scanner
     parent: corda-enterprise-3-3-release-process
+    weight: 1040
 tags:
 - api
 - scanner

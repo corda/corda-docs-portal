@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-0:
+    identifier: corda-os-3-0-network-simulator
     parent: corda-os-3-0-tools
+    weight: 1010
 tags:
 - network
 - simulator

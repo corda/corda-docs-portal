@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-3-4:
+    identifier: corda-os-3-4-api-rpc
     parent: corda-os-3-4-corda-api
+    weight: 1100
 tags:
 - api
 - rpc

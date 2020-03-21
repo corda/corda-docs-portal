@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-debugging-a-cordapp
     parent: corda-enterprise-4-2-building-a-cordapp
+    weight: 1080
 tags:
 - debugging
 - cordapp

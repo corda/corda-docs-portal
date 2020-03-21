@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
+    identifier: corda-enterprise-4-2-contract-irs
     parent: corda-enterprise-4-2-component-library
+    weight: 1030
 tags:
 - contract
 - irs

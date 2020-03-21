@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-0:
+    identifier: cenm-1-0-shell
     parent: cenm-1-0-tools-and-utilities
+    weight: 280
 tags:
 - shell
 title: Embedded Shell

@@ -4,7 +4,9 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-1:
+    identifier: corda-os-4-1-docker-image
     parent: corda-os-4-1-operations
+    weight: 210
 tags:
 - docker
 - image
