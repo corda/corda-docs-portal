@@ -58,6 +58,7 @@ CENM Releases
 Operations
 
 * [Enterprise Network Manager Quick-Start Guide](quick-start.md)
+* [Deployment with Kubernetes](deployment-kubernetes.md)
 * [Identity Manager Service](identity-manager.md)
 * [Network Map Service](network-map.md)
 * [Signing Services](signing-service.md)
@@ -100,6 +101,3 @@ Public Key Infrastructure
 Signing Plugin Samples
 
 * [EJBCA Sample Plugin](ejbca-plugin.md)
-
-
-

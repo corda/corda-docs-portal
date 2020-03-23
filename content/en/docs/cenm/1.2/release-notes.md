@@ -19,15 +19,15 @@ title: Release notes
 
 ## Release 1.2
 
-
 ### Major Features
 
 **Support for Docker and Kubernetes**
 We are expanding our support for Docker to Corda Enterprise Network Manager.
 
-Furthermore, we are introducing a first reference deployment with Helm and Kubernetes. Out of the box - you will be able to deploy in minutes an ephemeral representative test network to complement your development cycle.
+Furthermore, we are introducing a first reference deployment with Helm and Kubernetes.
+Out of the box - you will be able to deploy in minutes an ephemeral representative test network to complement your development cycle.
 
-See docker (document to be created) for more details. <REPLACE WITH DOC>
+See [Kubernetes deployment documentation](deployment-kubernetes.md) for more details.
 
 **Support for third party CAs**
 
@@ -312,4 +312,3 @@ assess in what state the service is.
 * Identity Manager: [http:/](http:/)/<<IDENTITY_MANAGER_ADDRESS>>/status
 * Network Map: [http:/](http:/)/<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname
 * Revocation Service (currently part of the Identity Manager): [http:/](http:/)/<<REVOCATION_SERVICE_ADDRESS>>/status
-
