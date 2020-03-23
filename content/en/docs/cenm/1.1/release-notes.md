@@ -17,6 +17,16 @@ title: Release notes
 
 # Release notes
 
+Release 1.1.2
+-------------
+
+* Bug fix: Identity Manager upgrade from CENM 0.4 causes JIRA Workflow Plugin to stop the existing tickets in status 'New' or
+'In Progress' from being progressed.
+
+Release 1.1.1
+-------------
+
+* Bug fix: Identity Manager upgrade from CENM 0.4 causes JIRA Workflow Plugin to lose all pending tickets.
 
 ## Release 1.1
 
@@ -213,4 +223,3 @@ assess in what state the service is.
 * Identity Manager: [http:/](http:/)/<<IDENTITY_MANAGER_ADDRESS>>/status
 * Network Map: [http:/](http:/)/<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname
 * Revocation Service (currently part of the Identity Manager): [http:/](http:/)/<<REVOCATION_SERVICE_ADDRESS>>/status
-
