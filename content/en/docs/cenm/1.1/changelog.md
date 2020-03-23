@@ -19,6 +19,10 @@ title: Changelog
 Here’s a summary of what’s changed in each Enterprise Network Manager release. For guidance on how to upgrade code from
 the previous release, see [Upgrading Corda Enterprise Network Manager](upgrade-notes.md).
 
+## CENM 1.1.2
+
+* Bug fix: The issue where Signer requires multiple authentication is now fixed for both Utimaco card reader configuration
+  and all other HSMs.
 
 ## CENM 1.1
 

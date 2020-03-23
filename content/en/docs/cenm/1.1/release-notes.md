@@ -17,14 +17,12 @@ title: Release notes
 
 # Release notes
 
-Release 1.1.2
--------------
+## Release 1.1.2
 
 * Bug fix: Identity Manager upgrade from CENM 0.4 causes JIRA Workflow Plugin to stop the existing tickets in status 'New' or
 'In Progress' from being progressed.
 
-Release 1.1.1
--------------
+## Release 1.1.1
 
 * Bug fix: Identity Manager upgrade from CENM 0.4 causes JIRA Workflow Plugin to lose all pending tickets.
 
