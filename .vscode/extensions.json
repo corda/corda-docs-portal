@@ -5,6 +5,7 @@
         "msjsdiag.debugger-for-chrome",
         "firefox-devtools.vscode-firefox-debug",
         "redhat.vscode-yaml",
-        "bungcip.better-toml"        
+        "bungcip.better-toml",
+        "davidanson.vscode-markdownlint"
     ]
 }
