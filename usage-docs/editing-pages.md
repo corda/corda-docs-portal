@@ -85,6 +85,8 @@ We are using a renderer that follows the [CommonMark Spec](https://spec.commonma
 
 We recommend that you use [Visual Studio Code](https://code.visualstudio.com/) or an editor of your choice that can edit (and preview) Markdown
 
+We also recommend installing [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) VSC extension which includes a library of rules to encourage standards and consistency for Markdown files.
+
 ## Front matter
 
 In common with most static site generators, content pages begin with a [front-matter](https://gohugo.io/content-management/front-matter) section.
