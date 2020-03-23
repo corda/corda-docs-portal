@@ -14,5 +14,5 @@ title: Frequently asked questions
 
 # Frequently asked questions
 
-A list of frequently asked questions can be found here: [https://discourse.corda.net/c/faq](https://discourse.corda.net/c/faq).
+A list of frequently asked questions can be found here: [Stack Overflow](https://stackoverflow.com/questions/tagged/corda)
 

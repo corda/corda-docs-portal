@@ -47,8 +47,8 @@ others to provide support. However, if you do use other tools, we’d be interes
 ## Set-up instructions
 
 The instructions below will allow you to set up a Corda development environment and run a basic CorDapp. If you have
-any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](http://slack.corda.net/),
-[Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or the [forums](https://discourse.corda.net/).
+any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](http://slack.corda.net/), or
+[Stack Overflow](https://stackoverflow.com/questions/tagged/corda)
 
 The set-up instructions are available for the following platforms:
 
@@ -214,7 +214,7 @@ is complete)
 * At the top-right of the screen, to the left of the green `play` arrow, you should see a dropdown. In that
 dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow.
 * Wait until the run windows displays the message `Webserver started up in XX.X sec`
-* Test the CorDapp is running correctly by visiting the front end at 
+* Test the CorDapp is running correctly by visiting the front end at
 {{< warning >}}`{{< /warning >}}
 
 [http://localhost:10009/web/example/](http://localhost:10009/web/example/)
@@ -224,21 +224,21 @@ dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow
 
 The Corda platform source code is available here:
 
-> 
+>
 > [https://github.com/corda/corda.git](https://github.com/corda/corda.git)
 
 
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
 
-> 
+>
 > [https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
-> 
+>
 > [https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
 
 
 And a list of simple sample CorDapps for you to explore basic concepts is available here:
 
-> 
+>
 > [https://www.corda.net/samples/](https://www.corda.net/samples/)
 
 

@@ -19,10 +19,7 @@ Corda uses industry-standard tools:
 
 
 * **Oracle JDK 8 JVM** - minimum supported version **8u171**
-* **IntelliJ IDEA** - supported versions **2017.x** and **2018.x** (with Kotlin plugin version 
-{{< warning >}}|kotlin_version|{{< /warning >}}
-
-)
+* **IntelliJ IDEA** - supported versions **2017.x** and **2018.x** (with Kotlin plugin version 1.2.51)
 * **Git**
 
 We also use Gradle and Kotlin, but you do not need to install them. A standalone Gradle wrapper is provided, and it
@@ -50,8 +47,8 @@ others to provide support. However, if you do use other tools, we’d be interes
 ## Set-up instructions
 
 The instructions below will allow you to set up a Corda development environment and run a basic CorDapp. If you have
-any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](http://slack.corda.net/),
-[Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or the [forums](https://discourse.corda.net/).
+any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](http://slack.corda.net/) or
+[Stack Overflow](https://stackoverflow.com/questions/tagged/corda)
 
 The set-up instructions are available for the following platforms:
 
@@ -96,7 +93,7 @@ If you are using a Mac machine, please follow the [Mac](#mac-label) instructions
 
 * Visit [https://www.jetbrains.com/idea/download/download-thanks.html?code=IIC](https://www.jetbrains.com/idea/download/download-thanks.html?code=IIC)
 * Download and run the executable to install IntelliJ Community Edition (use the default settings)
-* Ensure the Kotlin plugin in Intellij is updated to version 
+* Ensure the Kotlin plugin in Intellij is updated to version
 {{< warning >}}|kotlin_version|{{< /warning >}}
 
 
@@ -167,7 +164,7 @@ If you are using a Windows machine, please follow the [Windows](#windows-label) 
 
 * Visit [https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC](https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC)
 * Download and run the executable to install IntelliJ Community Edition (use the default settings)
-* Ensure the Kotlin plugin in Intellij is updated to version 
+* Ensure the Kotlin plugin in Intellij is updated to version
 {{< warning >}}|kotlin_version|{{< /warning >}}
 
 
@@ -207,21 +204,21 @@ If you are using a Windows machine, please follow the [Windows](#windows-label) 
 
 The Corda platform source code is available here:
 
-> 
+>
 > [https://github.com/corda/corda.git](https://github.com/corda/corda.git)
 
 
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
 
-> 
+>
 > [https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
-> 
+>
 > [https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
 
 
 And a list of simple sample CorDapps for you to explore basic concepts is available here:
 
-> 
+>
 > [https://www.corda.net/samples/](https://www.corda.net/samples/)
 
 
@@ -239,6 +236,5 @@ By then, you’ll be ready to start writing your own CorDapps. Learn how to do t
 [Hello, World tutorial](hello-world-introduction.md). You may want to refer to the API docs, the
 [flow cookbook](flow-cookbook.md) and the [samples](https://www.corda.net/samples/) along the way.
 
-If you encounter any issues, please see the [Troubleshooting](troubleshooting.md) page, or get in touch with us on the
-[forums](https://discourse.corda.net/) or via [slack](http://slack.corda.net/).
+If you encounter any issues, please see the [Troubleshooting](troubleshooting.md) page, or get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [slack](http://slack.corda.net/).
 

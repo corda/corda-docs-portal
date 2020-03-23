@@ -28,7 +28,7 @@ Want to see Corda running? Download our demonstration application [DemoBench](ht
 
 If you want to start coding on Corda, then familiarise yourself with the [key concepts](key-concepts.md), then read our [Hello, World! tutorial](hello-world-index.md). For the background behind Corda, read the non-technical [introductory white paper](/en/pdf/corda-introductory-whitepaper.pdf) or for more detail, the [technical white paper](/en/pdf/corda-technical-whitepaper.pdf).
 
-If you have questions or comments, then get in touch with us either on [Slack](https://slack.corda.net/), [Discourse](https://discourse.corda.net/), or write a question on [stackoverflow](https://stackoverflow.com/questions/tagged/corda) .
+If you have questions or comments, then get in touch with us either on [Slack](https://slack.corda.net/) or write a question on [stackoverflow](https://stackoverflow.com/questions/tagged/corda).
 
 We look forward to seeing what you can do with Corda!
 

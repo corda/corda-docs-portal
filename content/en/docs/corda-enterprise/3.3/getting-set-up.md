@@ -54,8 +54,8 @@ others to provide support. However, if you do use other tools, we’d be interes
 ## Set-up instructions
 
 The instructions below will allow you to set up a Corda development environment and run a basic CorDapp. If you have
-any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](http://slack.corda.net/),
-[Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or the [forums](https://discourse.corda.net/).
+any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](http://slack.corda.net/) or 
+[Stack Overflow](https://stackoverflow.com/questions/tagged/corda).
 
 The set-up instructions are available for the following platforms:
 
@@ -87,7 +87,7 @@ If you are using a Mac machine, please follow the [Mac](#mac-label) instructions
 * Open a new command prompt and run `java -version` to test that Java is installed correctly
 
 
-### Git
+### Git VCS
 
 
 * Visit [https://git-scm.com/download/win](https://git-scm.com/download/win)
@@ -160,7 +160,6 @@ be done by firstly unpacking the `corda-3.3-developer-pack.tar.gz` compressed ta
 
 {{< warning >}}
 If you click `Import Project` instead of `Open`, the project’s run configurations will be erased!
-
 {{< /warning >}}
 
 
@@ -176,10 +175,7 @@ is complete)
 * At the top-right of the screen, to the left of the green `play` arrow, you should see a dropdown. In that
 dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow.
 * Wait until the run windows displays the message `Webserver started up in XX.X sec`
-* Confirm that the CorDapp is running correctly by visiting the front end at 
-{{< warning >}}`{{< /warning >}}
-
-[http://localhost:10009/web/example/](http://localhost:10009/web/example/)
+* Confirm that the CorDapp is running correctly by visiting the front end at [http://localhost:10009/web/example/](http://localhost:10009/web/example/)
 
 
 
@@ -250,23 +246,23 @@ Upon receiving the binaries, the quickest way to get started developing your Cor
 {{< /note >}}
 be done by firstly unpacking the `corda-3.3-developer-pack.tar.gz` compressed tarball:
 
-> 
-> > 
+>
+> >
 > > `tar -xvzf corda-3.3-developer-pack.tar.gz`
-> 
-> 
+>
+>
 > Then, copy the unpacked `respository` folder to your local Maven repository:
-> 
-> > 
+>
+> >
 > > `rsync -av repository ~/.m2/`
-> 
-> 
+>
+>
 > The extracted folder can now be deleted:
-> 
-> > 
+>
+> >
 > > `rm -rf repository`
-> 
-> 
+>
+>
 
 
 ### Run from the terminal
@@ -311,15 +307,15 @@ dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow
 
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
 
-> 
+>
 > [https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
-> 
+>
 > [https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
 
 
 And a list of simple sample CorDapps for you to explore basic concepts is available here:
 
-> 
+>
 > [https://www.corda.net/samples/](https://www.corda.net/samples/)
 
 
