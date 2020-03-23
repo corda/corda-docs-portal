@@ -16,6 +16,9 @@ title: Release notes
 
 # Release notes
 
+## Release 1.2.1
+
+* Bug fix: Identity Manager 1.2 could not be deployed against Oracle 11g database due to incompatible column type.
 
 ## Release 1.2
 

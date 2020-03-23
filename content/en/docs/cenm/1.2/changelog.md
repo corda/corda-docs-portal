@@ -18,6 +18,9 @@ title: Changelog
 Here’s a summary of what’s changed in each Enterprise Network Manager release. For guidance on how to upgrade code from
 the previous release, see [Upgrading Corda Enterprise Network Manager](upgrade-notes.md).
 
+## CENM 1.2.1
+
+* Identity Manager database schema for Oracle databases - change type of columns submission_token to CLOB to fix 1.2 regression with Oracle 11g.
 
 ## CENM 1.2
 
