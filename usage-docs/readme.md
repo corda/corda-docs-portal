@@ -47,6 +47,7 @@ hugo serve
 * Start with the [Hugo documentation](https://gohugo.io/documentation/).
 * Clone the [Hugo R3 theme](https://github.com/corda/hugo-r3-theme)
 * [Site design](site-design.md)
+* [Searching](searching.md)
 
 ### ...Changing the Build Pipeline
 

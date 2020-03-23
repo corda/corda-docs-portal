@@ -20,3 +20,16 @@
     <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
     <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
 {{- end -}}
+<!-- Algolia docs search -->
+    <meta name="docsearch:language" content="{{- .Site.Language.Lang -}}" />
+{{- if .IsPage }}
+    <meta name="docsearch:version" content="{{- .Page.Parent.Params.version -}}" />
+    <meta name="docsearch:project" content="{{- .Page.Parent.Params.project -}}" />
+{{- else }}
+{{- with .Params.version }}
+<meta name="docsearch:version" content="{{- . -}}" />
+{{- end}}
+{{- with .Params.project }}
+    <meta name="docsearch:project" content="{{- . -}}" />
+{{- end}}
+{{- end }}
