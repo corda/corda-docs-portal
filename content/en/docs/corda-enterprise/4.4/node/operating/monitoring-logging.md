@@ -2,11 +2,14 @@
 aliases:
 - /releases/4.4/node/operating/monitoring-logging.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating
 tags:
 - monitoring
 - logging
 title: Node monitoring and logging
+weight: 5
 ---
 
 
@@ -251,8 +254,8 @@ devMode = false
 
 The values for `keyStorePassword` and `trustStorePassword` in the above example are encrypted, using a key that is tied to the hosting machine’s primary hardware address. The implications of this is that:
 
-> 
-> 
+>
+>
 > * The configuration file is rendered unusable on other machines without manually decrypting obfuscated fields beforehand (since the hardware address would be different).
 > * Sensitive data is unreadable without additional processing.
 > * It becomes harder for adversaries to trawl for passwords and sensitive data on disk.

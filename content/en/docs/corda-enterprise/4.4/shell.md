@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-clientrpc
+    parent: corda-ent-4-4-tool-index
 tags:
 - shell
 title: Embedded Shell

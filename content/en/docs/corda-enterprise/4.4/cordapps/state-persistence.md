@@ -2,15 +2,17 @@
 aliases:
 - /releases/4.4/cordapps/state-persistence.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-cordapps-states-persistence
+    name: "State persistence"
+    parent: corda-enterprise-4-4-cordapps-states
 tags:
 - state
 - persistence
 title: State Persistence
+weight: 1
 ---
-
-
-
 
 # State Persistence
 
@@ -579,11 +581,11 @@ In addition to `jdbcSession`, `ServiceHub` also exposes the Java Persistence API
 method. This method can be used to persist and query entities which inherit from `MappedSchema`. This is particularly
 useful if off-ledger data must be maintained in conjunction with on-ledger state data.
 
-> 
+>
 > {{< note >}}
 > Your entity must be included as a mappedType as part of a `MappedSchema` for it to be added to Hibernate
 > as a custom schema. If it’s not included as a mappedType, a corresponding table will not be created. See Samples below.
-> 
+>
 > {{< /note >}}
 
 The code snippet below defines a `PersistentFoo` type inside `FooSchemaV1`. Note that `PersistentFoo` is added to

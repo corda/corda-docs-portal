@@ -2,13 +2,16 @@
 aliases:
 - /releases/4.4/node/operating/node-operations-cordapp-deployment.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating
 tags:
 - node
 - operations
 - cordapp
 - deployment
-title: Deploying CorDapps on a node
+title: Installing CorDapps on a node
+weight: 9
 ---
 
 
@@ -24,7 +27,6 @@ or for development/test environment described in node-development-cordapp-deploy
 which contains a simplified databased upgrade process.
 * Copy CorDapp JARs into `cordapps` directory of the node.
 * Restart the node
-
 
 
 ## Database update
@@ -45,20 +47,20 @@ Because of that, most of the steps are similar to those described in [Database s
 Refer to the CorDapp documentation or consult a CorDapp provider if the CorDapp requires custom backing tables.
 You can verify a CorDapp JAR manually to check the presence of script files inside *migration* director, e.g. for Linux:
 
-> 
+>
 > ```bash
 > jar -tf <cordapp.jar> | grep -E 'migration.*\.(xml|yml|sql)'
 > ```
-> 
+>
 
 If the CorDapps don’t contain any migration scripts, then they don’t require custom tables and you may skip this step.
 
-> 
+>
 > {{< note >}}
 > It is possible that a CorDapp is shipped without a database migration script when it should contain one.
 > If a CorDapp has been tested on a node running against a non-default database (H2),
 > this would have already been detected in your test environment.
-> 
+>
 > {{< /note >}}
 
 
@@ -85,7 +87,7 @@ The `node.conf` templates for each database vendor are shown below:
 
 Database Management Tool settings in configuration file `node.conf` for Azure SQL:
 
-> 
+>
 > ```groovy
 > dataSourceProperties = {
 >     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
@@ -98,7 +100,7 @@ Database Management Tool settings in configuration file `node.conf` for Azure SQ
 >     schema = my_schema
 > }
 > ```
-> 
+>
 
 Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 The `database.schema` is the database schema name assigned to both administrative and restrictive users.
@@ -112,7 +114,7 @@ Extract the archive, and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into t
 
 Database Management Tool settings in configuration file `node.conf` for SQL Server:
 
-> 
+>
 > ```groovy
 > dataSourceProperties = {
 >     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
@@ -125,7 +127,7 @@ Database Management Tool settings in configuration file `node.conf` for SQL Serv
 >     schema = my_schema
 > }
 > ```
-> 
+>
 
 Replace placeholders *<host>* and *<port>* with appropriate values. The default SQL Server port is 1433.
 
@@ -138,7 +140,7 @@ Extract the archive, and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into t
 
 Database Management Tool settings in the configuration file `node.conf` for Oracle:
 
-> 
+>
 > ```groovy
 > dataSourceProperties = {
 >     dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
@@ -151,7 +153,7 @@ Database Management Tool settings in the configuration file `node.conf` for Orac
 >     schema = my_admin_user
 > }
 > ```
-> 
+>
 
 Replace the placeholder values *<host>*, *<port>* and *<sid>* with appropriate values.
 For a basic Oracle installation, the default *<sid>* value is *xe*.
@@ -165,7 +167,7 @@ Copy Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c 
 
 Database Management Tool settings in configuration file `node.conf` for PostgreSQL:
 
-> 
+>
 > ```groovy
 > dataSourceProperties = {
 >     dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
@@ -178,7 +180,7 @@ Database Management Tool settings in configuration file `node.conf` for PostgreS
 >     schema = my_schema
 > }
 > ```
-> 
+>
 
 Replace placeholders *<host>*, *<port>* and *<database>* with appropriate values.
 The `database.schema` is the database schema name assigned to the user.
@@ -191,11 +193,11 @@ Copy PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` direc
 
 To run the tool, use the following command:
 
-> 
+>
 > ```shell
 > java -jar tools-database-manager-|release|.jar create-migration-sql-for-cordapp -b path_to_configuration_directory
 > ```
-> 
+>
 
 The option `-b` points to the base directory with a `node.conf` file and *drivers* and *cordapps* subdirectories.
 
@@ -242,11 +244,11 @@ This step is required for the Oracle database only.
 Connect to the database as administrator
 and grand *SELECT*, *INSERT*, *UPDATE*, *DELETE* permissions to *my_user* for all CorDapps custom tables:
 
-> 
+>
 > ```sql
 > GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.<cordapp_table> TO my_user;
 > ```
-> 
+>
 
 Change *<cordapp_table>*  to a cordap table name.
 

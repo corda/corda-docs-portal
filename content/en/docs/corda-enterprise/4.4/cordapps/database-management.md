@@ -2,15 +2,15 @@
 aliases:
 - /releases/4.4/cordapps/database-management.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-states
 tags:
 - database
 - management
 title: Database management scripts
+weight: 3
 ---
-
-
-
 
 # Database management scripts
 

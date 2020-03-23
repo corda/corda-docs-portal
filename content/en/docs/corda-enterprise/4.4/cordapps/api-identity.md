@@ -4,11 +4,14 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-cordapps-identity
+    name: "Identities in a CorDapp"
     parent: corda-enterprise-4-4-cordapps
 tags:
 - api
 - identity
 title: CorDapp Identities
+weight: 9
 ---
 
 

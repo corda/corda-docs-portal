@@ -2,12 +2,15 @@
 aliases:
 - /releases/4.4/node/operating/cm-updating-cordapp.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating-cm
 tags:
 - cm
 - updating
 - cordapp
 title: Updating a running CorDapp
+weight: 2
 ---
 
 

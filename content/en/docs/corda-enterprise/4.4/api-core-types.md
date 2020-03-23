@@ -2,19 +2,18 @@
 aliases:
 - /releases/4.4/api-core-types.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes
 tags:
 - api
 - core
 - types
-title: 'API: Core types'
+title: 'Core types in the Corda API'
+weight: 15
 ---
 
-
-
-
 # API: Core types
-
 
 Corda provides several more core classes as part of its API.
 
@@ -51,8 +50,8 @@ then specifies the minimum total weight of all children required. Our previous e
 ![composite key 2](/en/images/composite-key-2.png "composite key 2")
 Signature verification is performed in two stages:
 
-> 
-> 
+>
+>
 > * Given a list of signatures, each signature is verified against the expected content.
 > * The public keys corresponding to the signatures are matched against the leaves of the composite key tree in question,
 > and the total combined weight of all children is calculated for every intermediary node. If all thresholds are satisfied,

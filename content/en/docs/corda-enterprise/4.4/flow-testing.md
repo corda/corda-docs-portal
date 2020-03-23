@@ -2,15 +2,15 @@
 aliases:
 - /releases/4.4/flow-testing.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-flows
 tags:
 - flow
 - testing
 title: Writing flow tests
+weight: 7
 ---
-
-
-
 
 # Writing flow tests
 

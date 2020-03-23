@@ -2,14 +2,16 @@
 aliases:
 - /releases/4.4/node/operating/cm-upgrading-node.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating-cm
 tags:
 - cm
 - upgrading
 - node
 title: Upgrading Corda versions on a node
+weight: 1
 ---
-
 
 # Upgrading Corda versions on a node
 
@@ -102,7 +104,7 @@ Create a `node.conf` with the properties for your database.
 
 The required `node.conf` settings for the Database Management Tool using Azure SQL:
 
-> 
+>
 > ```groovy
 > dataSourceProperties = {
 >     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
@@ -116,7 +118,7 @@ The required `node.conf` settings for the Database Management Tool using Azure S
 > }
 > myLegalName = <node_legal_name>
 > ```
-> 
+>
 
 Replace placeholders *<server>*, *<login>*, *<password>*, and *<database>* with appropriate values.
 *<database>* should be a user database and *<schema>* a schema namespace.
@@ -271,27 +273,27 @@ however the Database Migration Tool needs to be run from within the same machine
 
 If you are reusing the tool configuration directory:
 
-> 
-> 
+>
+>
 > * ensure `myLegalName` setting in `node.conf` is set with a node name for which the data update will be run
 > (e.g. while upgrading database schema used by a node *O=PartyA,L=London,C=GB*, assign the same value to `myLegalName`).
 > {{< warning >}}
 > Any `node.conf` misconfiguration may cause data row migration to be wrongly applied. This may happen silently (without any error).
 > The value of `myLegalName` must exactly match the node name that is used in the given database schema.{{< /warning >}}
-> 
-> 
-> 
+>
+>
+>
 > * create `cordapps` subdirectory and copy the CorDapps used by the Corda node
 > * change the database user to one with *restricted permissions*. This ensures no database alteration is performed by this step.To run the remaining data migration, run:```shell
 > java -jar tools-database-manager-4.0-RC03.jar execute-migration -b .
 > ```
-> 
-> 
-> 
-> > 
+>
+>
+>
+> >
 > > The option `-b` points to the base directory (with a `node.conf` file, and *drivers* and *cordapps* subdirectories).
-> 
-> 
+>
+>
 
 
 ## Step 4. Replace `corda.jar` with the new version

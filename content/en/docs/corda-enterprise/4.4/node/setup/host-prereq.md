@@ -2,11 +2,14 @@
 aliases:
 - /releases/4.4/node/setup/host-prereq.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-configuring
 tags:
 - host
 - prereq
 title: Host prerequisites and database requirements
+weight: 2
 ---
 
 

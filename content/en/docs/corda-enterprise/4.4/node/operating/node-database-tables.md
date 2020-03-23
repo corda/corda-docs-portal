@@ -2,14 +2,16 @@
 aliases:
 - /releases/4.4/node/operating/node-database-tables.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating-db
 tags:
 - node
 - database
 - tables
 title: Database tables
+weight: 3
 ---
-
 
 # Database tables
 
@@ -228,10 +230,10 @@ This is the key ledger table used as a source of truth. In the future the conten
 
 {{< /table >}}
 
-> 
-> 
-> 
-> 
+>
+>
+>
+>
 
 
 ### Contract upgrades

@@ -2,11 +2,14 @@
 aliases:
 - /releases/4.4/network/compatibility-zones.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-networks
 tags:
 - compatibility
 - zones
 title: What is a compatibility zone?
+weight: 2
 ---
 
 

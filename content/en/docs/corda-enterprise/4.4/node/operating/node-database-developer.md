@@ -2,12 +2,15 @@
 aliases:
 - /releases/4.4/node/operating/node-database-developer.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating-db
 tags:
 - node
 - database
 - developer
 title: Simplified database schema setup for development
+weight: 1
 ---
 
 
@@ -22,8 +25,8 @@ Please refer to [Database schema setup](node-database-admin.md) if you are setti
 The instructions cover all commercial 3rd party database vendors supported by Corda Enteprise
 (Azure SQL, SQL Server, Oracle and PostgreSQL), and the default embedded H2 database:
 
-> 
-> 
+>
+>
 > * [Database setup for a new installation](#node-database-developer-database-schema-setup-ref)
 > * [Database update](#node-database-developer-database-schema-setup-ref)
 > * [Database setup when deploying a new CorDapp](#node-database-developer-database-schema-setup-when-deploying-a-new-cordapp-ref)
@@ -188,8 +191,8 @@ prevents querying the different default schema search path
 
 The following updates are required to a nodes filesystem configuration:
 
-> 
-> 
+>
+>
 > * The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
 > and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
 > For development convenience the properties are specified in the [deployNodes Cordform task](../../testing.md#testing-cordform-ref) task.```none
@@ -206,7 +209,7 @@ The following updates are required to a nodes filesystem configuration:
 >    runMigration = true
 > }
 > ```
-> 
+>
 > See [Node configuration](../setup/corda-configuration-file.md#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
 > * Set `runMigration` to `true` to allow a Corda node to create database tables upon startup.
 > * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
@@ -223,8 +226,8 @@ The following updates are required to a nodes filesystem configuration:
 >    connectionTimeout = 50000
 > }
 > ```
-> 
-> 
+>
+>
 
 
 Configuration templates for each database vendor are shown below:
@@ -249,7 +252,7 @@ No database setup is needed. Optionally remote H2 access/port can be configured.
 
 Node configuration for Azure SQL:
 
-> 
+>
 > ```groovy
 > dataSourceProperties = {
 >     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
@@ -263,7 +266,7 @@ Node configuration for Azure SQL:
 >     runMigration = true
 > }
 > ```
-> 
+>
 
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated
@@ -281,7 +284,7 @@ extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* as the 
 
 Node configuration for SQL Server:
 
-> 
+>
 > ```groovy
 > dataSourceProperties = {
 >     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
@@ -295,7 +298,7 @@ Node configuration for SQL Server:
 >     runMigration = true
 > }
 > ```
-> 
+>
 
 Replace the placeholders *<host>*, *<port>* with appropriate values, the default SQL Server port is 1433.
 By default the connection to the database is not SSL, for securing JDBC connection refer to
@@ -319,7 +322,7 @@ which is invalid for SQL Server.  This may lead to the node failing to start wit
 
 Node configuration for Oracle:
 
-> 
+>
 > ```groovy
 > dataSourceProperties = {
 >     dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
@@ -333,7 +336,7 @@ Node configuration for Oracle:
 >     runMigration = true
 > }
 > ```
-> 
+>
 
 Replace the placeholders *<host>*, *<port>* and *<sid>* with appropriate values, for a basic Oracle installation the default *<sid>* value is *xe*.
 If the user was created with *administrative* permissions the schema name `database.schema` will be the same as the user name (*my_user*).
@@ -349,7 +352,7 @@ Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 
 
 Node configuration for PostgreSQL:
 
-> 
+>
 > ```none
 > dataSourceProperties = {
 >     dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
@@ -363,7 +366,7 @@ Node configuration for PostgreSQL:
 >     runMigration = true
 > }
 > ```
-> 
+>
 
 Replace the placeholders *<host>*, *<port>* and *<database>* with appropriate values.
 The `database.schema` is the database schema name assigned to the user.
@@ -405,14 +408,14 @@ ensure that:
 
 
 * the node can connect to the  database with **administrative permissions** or runs with the default embedded H2 database.
-* the node configuration `node.conf` file contains the *runMigration* option set to *true*:> 
+* the node configuration `node.conf` file contains the *runMigration* option set to *true*:>
 > ```groovy
 > database = {
 >     runMigration = true
 >     # other properties
 > }
 > ```
-> 
+>
 
 
 
@@ -422,17 +425,17 @@ You can optionally check if a CorDapp which is expected to store data in custom 
 To check the presence of script files inside *migration* directory,
 verify the content of the CorDapp JAR file with Java `jar` command, e.g. for Linux:
 
-> 
-> > 
+>
+> >
 > > ```bash
 > > jar -tf <cordapp.jar> | grep -E 'migration.*\.(xml|yml|sql)'
 > > ```
-> > 
-> 
+> >
+>
 > {{< note >}}
 > It is possible that a CorDapp is shipped without a database migration script when it should contain one.
 > Liquibase database migration scripts for CorDapps are not used when a node runs with the default embeeded H2 database.
-> 
+>
 > {{< /note >}}
 
 
@@ -455,7 +458,7 @@ When developing/testing CorDapps you may need cleanup the database between test 
 
 To remove node tables run the following SQL script against a user database:
 
-> 
+>
 > ```sql
 > DROP TABLE my_schema.DATABASECHANGELOG;
 > DROP TABLE my_schema.DATABASECHANGELOGLOCK;
@@ -490,11 +493,11 @@ To remove node tables run the following SQL script against a user database:
 > DROP VIEW my_schema.V_PKEY_HASH_EX_ID_MAP;
 > DROP SEQUENCE my_schema.HIBERNATE_SEQUENCE;
 > ```
-> 
+>
 
 Additional tables for a Notary node:
 
-> 
+>
 > ```sql
 > DROP TABLE IF EXISTS my_schema.NODE_NOTARY_REQUEST_LOG;
 > DROP TABLE IF EXISTS my_schema.NODE_NOTARY_COMMITTED_STATES;
@@ -504,36 +507,36 @@ Additional tables for a Notary node:
 > DROP TABLE IF EXISTS my_schema.NODE_RAFT_COMMITTED_STATES;
 > DROP TABLE IF EXISTS my_schema.NODE_RAFT_COMMITTED_TXS;
 > ```
-> 
+>
 
 Also delete CorDapp specific tables.
 
 If you need to remove the schema and users, run the following script as a database administrator on a user database:
 
-> 
+>
 > ```sql
 > DROP SCHEMA my_schema;
 > DROP USER my_user;
 > DROP USER IF EXISTS my_admin_user;
 > ```
-> 
+>
 
 To remove users’ logins, run the following script as a database administrator on the master database
 (skip the second statement if you haven’t created a *my_admin_login* login):
 
-> 
+>
 > ```sql
 > DROP LOGIN my_login;
 > DROP LOGIN my_admin_login;
 > ```
-> 
+>
 
 
 ### Oracle
 
 To remove node tables run the following SQL script:
 
-> 
+>
 > ```sql
 > DROP TABLE my_user.DATABASECHANGELOG CASCADE CONSTRAINTS;
 > DROP TABLE my_user.DATABASECHANGELOGLOCK CASCADE CONSTRAINTS;
@@ -568,11 +571,11 @@ To remove node tables run the following SQL script:
 > DROP VIEW my_user.V_PKEY_HASH_EX_ID_MAP;
 > DROP SEQUENCE my_user.HIBERNATE_SEQUENCE;
 > ```
-> 
+>
 
 Additional tables for a Notary node:
 
-> 
+>
 > ```sql
 > DROP TABLE my_user.NODE_NOTARY_REQUEST_LOG CASCADE CONSTRAINTS;
 > DROP TABLE my_user.NODE_NOTARY_COMMITTED_STATES CASCADE CONSTRAINTS;
@@ -582,7 +585,7 @@ Additional tables for a Notary node:
 > DROP TABLE my_user.NODE_RAFT_COMMITTED_STATES CASCADE CONSTRAINTS;
 > DROP TABLE my_user.NODE_RAFT_COMMITTED_TXS CASCADE CONSTRAINTS;
 > ```
-> 
+>
 
 Also delete CorDapps specific tables.
 
@@ -591,10 +594,10 @@ Also delete CorDapps specific tables.
 
 To remove node and CorDapp specific tables run the following SQL script:
 
-> 
+>
 > ```sql
 > DROP SCHEMA IF EXISTS "my_schema" CASCADE;
 > DROP OWNED BY "my_user";
 > ```
-> 
+>
 

@@ -2,10 +2,13 @@
 aliases:
 - /releases/4.4/node/operating/shell.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating-interacting
 tags:
 - shell
 title: Node shell
+weight: 1
 ---
 
 
@@ -289,8 +292,8 @@ simple JSON-like language. The key features of Yaml are:
 
 
 * Parameters are separated by commas
-* Each parameter is specified as a `key: value` pair> 
-> 
+* Each parameter is specified as a `key: value` pair>
+>
 >     * There **MUST** to be a space after the colon, otherwise you’ll get a syntax error
 
 

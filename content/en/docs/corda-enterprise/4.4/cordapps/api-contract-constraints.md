@@ -2,7 +2,9 @@
 aliases:
 - /releases/4.4/cordapps/api-contract-constraints.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-contracts
 tags:
 - api
 - contract
@@ -111,39 +113,39 @@ received from a peer are affected.
 
 Below are two examples of possible scenarios around blacklisting signing keys:
 
-> 
-> 
-> * The statements below are true for both examples:> 
-> > 
+>
+>
+> * The statements below are true for both examples:>
+> >
 > >     * `Alice` has `Contracts CorDapp` installed
 > >     * `Bob` has an upgraded version of `Contracts CorDapp` (known as `Contracts CorDapp V2`) installed
 > >     * Both `Alice` and `Bob` have the `Workflows CorDapp` allowing them to transact with each other
 > >     * `Contracts CorDapp` is signed by both `Alice` and `Bob`
 > >     * `Contracts CorDapp V2` is signed by both `Alice` and `Bob`
-> 
-> 
-> 
-> * Example 1:> 
-> > 
+>
+>
+>
+> * Example 1:>
+> >
 > >     * `Alice` has not blacklisted any attachment signing keys
 > >     * `Bob` transacts with `Alice`
 > >     * `Alice` receives `Contracts CorDapp V2` and stores it
 > >     * When verifying the attachments loaded into the contract verification code, `Contracts CorDapp V2` is accepted and used
 > >     * The contract verification code in `Contracts CorDapp V2` is run
-> 
-> 
-> 
-> * Example 2:> 
-> > 
+>
+>
+>
+> * Example 2:>
+> >
 > >     * `Alice` blacklists `Bob`’s attachment signing key
 > >     * `Bob` transacts with `Alice`
 > >     * `Alice` receives `Contracts CorDapp V2` and stores it
 > >     * When verifying the attachments loaded in the contract verification code, `Contracts CorDapp V2` is declined because it is signed
 > > by `Bob`’s blacklisted key
 > >     * The contract verification code in `Contracts CorDapp V2` is not run and the transaction fails
-> 
-> 
-> 
+>
+>
+>
 
 
 Information on blacklisting attachment signing keys can be found in the

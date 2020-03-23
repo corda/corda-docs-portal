@@ -2,15 +2,17 @@
 aliases:
 - /releases/4.4/node/operating/node-operations-upgrade-cordapps.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating
 tags:
 - node
 - operations
 - upgrade
 - cordapps
-title: Upgrading CorDapps on a node
+title: Upgrading deployed CorDapps
+weight: 10
 ---
-
 
 # Upgrading CorDapps on a node
 

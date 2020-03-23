@@ -4,12 +4,13 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-serialization
+    parent: corda-enterprise-4-4-node-serialization
 tags:
 - cordapp
 - custom
 - serializers
 title: Pluggable Serializers for CorDapps
+weight: 10
 ---
 
 
@@ -35,8 +36,8 @@ Custom serializer classes should follow the rules for including classes found in
 
 Serializers must
 
-> 
-> 
+>
+>
 > * Inherit from `net.corda.core.serialization.SerializationCustomSerializer`
 > * Provide a proxy class to transform the object to and from
 > * Implement the `toProxy` and `fromProxy` methods

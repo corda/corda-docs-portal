@@ -4,10 +4,11 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-serialization
+    parent: corda-enterprise-4-4-node-serialization
 tags:
 - serialization
 title: Object serialization
+weight: 1
 ---
 
 
@@ -27,8 +28,8 @@ Corda pervasively uses a custom form of type safe binary serialisation. This sta
 weakly or untyped string-based serialisation schemes like JSON or XML. The primary drivers for this were:
 
 
-* A desire to have a schema describing what has been serialized alongside the actual data:> 
-> 
+* A desire to have a schema describing what has been serialized alongside the actual data:>
+>
 > * To assist with versioning, both in terms of being able to interpret data archived long ago (e.g. trades from
 > a decade ago, long after the code has changed) and between differing code versions.
 > * To make it easier to write generic code e.g. user interfaces that can navigate the serialized form of data.
@@ -107,8 +108,8 @@ uses if you intend to parse Corda messages from non-JVM platforms.
 
 Corda serialisation is currently used for:
 
-> 
-> 
+>
+>
 > * Peer-to-peer networking.
 > * Persisted messages, like signed transactions and states.
 
@@ -269,14 +270,14 @@ You own types must adhere to the following rules to be supported:
 
 #### General Rules
 
-> 
-> 
+>
+>
 > * The class must be compiled with parameter names included in the `.class` file.  This is the default in Kotlin
 > but must be turned on in Java using the `-parameters` command line option to `javac`{{< note >}}
 > In circumstances where classes cannot be recompiled, such as when using a third-party library, a
 > proxy serializer can be used to avoid this problem. Details on creating such an object can be found on the
 > [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md) page.{{< /note >}}
-> 
+>
 > * The class must be annotated with `@CordaSerializable`
 > * The declared types of constructor arguments, getters, and setters must be supported, and where generics are used, the
 > generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard which is currently
@@ -295,8 +296,8 @@ instantiate the object with the serialized values.
 It is recommended that serializable objects in Corda adhere to the following rules, as they allow immutable state
 objects to be deserialised:
 
-> 
-> 
+>
+>
 > * A Java Bean getter for each of the properties in the constructor, with a name of the form `getX`.  For example, for a constructor
 > parameter `foo`, there must be a getter called `getFoo()`.  If `foo` is a boolean, the getter may
 > optionally be called `isFoo()` (this is why the class must be compiled with parameter names turned on)
@@ -611,8 +612,8 @@ compatibility. The rules and mechanisms for doing this are discussed in [Enum Ev
 
 The following rules apply to supported `Throwable` implementations.
 
-> 
-> 
+>
+>
 > * If you wish for your exception to be serializable and transported type safely it should inherit from either
 > `CordaException` or `CordaRuntimeException`
 > * If not, the `Throwable` will deserialize to a `CordaRuntimeException` with the details of the original
@@ -668,8 +669,8 @@ should be targeted at its getter method, e.g. `@get:SerializableCalculatedProper
 
 Possible future enhancements include:
 
-> 
-> 
+>
+>
 > * Java singleton support.  We will add support for identifying classes which are singletons and identifying the
 > static method responsible for returning the singleton instance
 > * Instance internalizing support.  We will add support for identifying classes that should be resolved against an instances map to avoid

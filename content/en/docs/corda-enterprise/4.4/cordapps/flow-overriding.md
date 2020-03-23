@@ -2,11 +2,14 @@
 aliases:
 - /releases/4.4/cordapps/flow-overriding.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-flows
 tags:
 - flow
 - overriding
 title: Configuring Responder Flows
+weight: 4
 ---
 
 
@@ -167,7 +170,7 @@ It is likely that initiating flows will also require changes to reflect the diff
 At the moment, corda provides the ability to subclass an Initiator, and ensures that the correct responder will be invoked.
 In the below example, we will change the behaviour of an Initiator from filtering Notaries out from comms, to only communicating with Notaries
 
-> 
+>
 > ```kotlin
 > @InitiatingFlow
 > @StartableByRPC
@@ -186,12 +189,12 @@ In the below example, we will change the behaviour of an Initiator from filterin
 >         }
 >         return "${getFLowName()} received the following \n" + responses.joinToString("\n") { it }
 >     }
-> 
+>
 >     open fun getFLowName(): String {
 >         return "Normal Computer"
 >     }
 > }
-> 
+>
 > @StartableByRPC
 > @StartableByService
 > class NotaryOnlyInitiator : BaseInitiator() {
@@ -202,7 +205,7 @@ In the below example, we will change the behaviour of an Initiator from filterin
 >         }.joinToString("\n") { it }
 >     }
 > ```
-> 
+>
 
 
 {{< warning >}}
@@ -213,7 +216,7 @@ The subclass must not have the @InitiatingFlow annotation.
 
 Corda will use the first annotation detected in the class hierarchy to determine which responder should be invoked. So for a Responder similar to
 
-> 
+>
 > ```kotlin
 > @InitiatedBy(BaseInitiator::class)
 > class BobbyResponder(othersideSession: FlowSession) : BaseResponder(othersideSession) {
@@ -222,7 +225,7 @@ Corda will use the first annotation detected in the class hierarchy to determine
 >     }
 > }
 > ```
-> 
+>
 
 it would be possible to invoke either `BaseInitiator` or `NotaryOnlyInitiator` and `BobbyResponder` would be used to reply.
 

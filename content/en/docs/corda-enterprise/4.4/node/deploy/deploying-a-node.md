@@ -2,11 +2,14 @@
 aliases:
 - /releases/4.4/node/deploy/deploying-a-node.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-deploying
 tags:
 - deploying
 - node
 title: Deploying a node to a server
+weight: 2
 ---
 
 
@@ -40,13 +43,13 @@ handling, and ensures the Corda service is run at boot.
 
 **Prerequisites**:
 
-> 
-> 
+>
+>
 > * A supported Java distribution. The supported versions are listed in getting-set-up
 
 
 
-* As root/sys admin user - add a system user which will be used to run Corda:> 
+* As root/sys admin user - add a system user which will be used to run Corda:>
 > `sudo adduser --system --no-create-home --group corda`
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
@@ -102,12 +105,12 @@ If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
 {{< /note >}}
 
 * **SystemD**: Create a `corda.service` file based on the example below and save it in the `/etc/systemd/system/`
-directory> 
+directory>
 > ```shell
 > [Unit]
 > Description=Corda Node - Bank of Breakfast Tea
 > Requires=network.target
-> 
+>
 > [Service]
 > Type=simple
 > User=corda
@@ -115,49 +118,49 @@ directory>
 > ExecStart=/usr/bin/java -jar /opt/corda/corda.jar
 > Restart=on-failure
 > Environment="CAPSULE_CACHE_DIR=./capsule"
-> 
+>
 > [Install]
 > WantedBy=multi-user.target
 > ```
-> 
+>
 
 
 
 
-* **Upstart**: Create a `corda.conf` file based on the example below and save it in the `/etc/init/` directory> 
+* **Upstart**: Create a `corda.conf` file based on the example below and save it in the `/etc/init/` directory>
 > ```shell
 > description "Corda Node - Bank of Breakfast Tea"
-> 
+>
 > start on runlevel [2345]
 > stop on runlevel [!2345]
-> 
+>
 > respawn
 > setuid corda
 > chdir /opt/corda
 > exec java -jar /opt/corda/corda.jar
 > ```
-> 
+>
 
 
-* Make the following changes to `corda.service` or `corda.conf`:> 
-> 
+* Make the following changes to `corda.service` or `corda.conf`:>
+>
 > * Make sure the service description is informative - particularly if you plan to run multiple nodes.
 > * Change the username to the user account you want to use to run Corda. **We recommend that this user account is
 > not root**
-> * **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:> 
-> > 
+> * **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:>
+> >
 > >     * `sudo chown root:root /etc/systemd/system/corda.service`
 > >     * `sudo chmod 644 /etc/systemd/system/corda.service`
-> 
-> 
-> 
-> * **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:> 
-> > 
+>
+>
+>
+> * **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:>
+> >
 > >     * `sudo chown root:root /etc/init/corda.conf`
 > >     * `sudo chmod 644 /etc/init/corda.conf`
-> 
-> 
-> 
+>
+>
+>
 
 
 
@@ -209,8 +212,8 @@ For more information refer to database-management
 * **SystemD**: You can now start a node and its webserver and set the services to start on boot by running the
 following `systemctl` commands:
 
-> 
-> 
+>
+>
 > * `sudo systemctl daemon-reload`
 > * `sudo systemctl enable --now corda`
 > * `sudo systemctl enable --now corda-webserver`
@@ -219,8 +222,8 @@ following `systemctl` commands:
 
 * **Upstart**: You can now start a node and its webserver by running the following commands:
 
-> 
-> 
+>
+>
 > * `sudo start corda`
 > * `sudo start corda-webserver`
 
@@ -238,8 +241,8 @@ at boot, and means the Corda service stays running with no users connected to th
 
 **Prerequisites**:
 
-> 
-> 
+>
+>
 > * A supported Java distribution. The supported versions are listed in getting-set-up
 
 
@@ -306,8 +309,8 @@ sc start cordanode1
 ```
 
 
-* Modify the batch file:> 
-> 
+* Modify the batch file:>
+>
 > * If you are installing multiple nodes, use a different service name (`cordanode1`), and modify
 > *AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly
 > * Set an informative description
@@ -330,7 +333,7 @@ For more information refer to database-management
 
 You can verify Corda is running by connecting to your RPC port from another host, e.g.:
 
-> 
+>
 > `telnet your-hostname.example.com 10002`
 
 

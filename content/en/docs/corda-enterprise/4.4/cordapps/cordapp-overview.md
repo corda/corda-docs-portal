@@ -9,6 +9,7 @@ tags:
 - cordapp
 - overview
 title: What is a CorDapp?
+weight: -1
 ---
 
 
@@ -26,8 +27,8 @@ CorDapps take the form of a set of JAR files containing class definitions writte
 
 These class definitions will commonly include the following elements:
 
-> 
-> 
+>
+>
 > * Flows
 > * States
 > * Contracts
@@ -37,8 +38,8 @@ These class definitions will commonly include the following elements:
 
 But may also include:
 
-> 
-> 
+>
+>
 > * APIs and static web content
 > * Utility classes
 

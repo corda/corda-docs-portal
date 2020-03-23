@@ -9,6 +9,7 @@ tags:
 - cordapp
 - compatibility
 title: CorDapp compatibility between Corda and Corda Enterprise
+weight: 4
 ---
 
 

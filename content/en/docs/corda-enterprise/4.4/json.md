@@ -4,10 +4,11 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-serialization
+    parent: corda-enterprise-4-4-node-serialization
 tags:
 - json
 title: JSON
+weight: 9
 ---
 
 

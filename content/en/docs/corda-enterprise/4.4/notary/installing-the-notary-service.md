@@ -2,14 +2,16 @@
 aliases:
 - /releases/4.4/notary/installing-the-notary-service.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-notary-config
 tags:
 - installing
 - notary
 - service
 title: Configuring the notary worker nodes
+weight: 2
 ---
-
 
 # Configuring the notary worker nodes
 

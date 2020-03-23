@@ -2,12 +2,15 @@
 aliases:
 - /releases/4.4/cordapps/api-service-classes.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-flows
 tags:
 - api
 - service
 - classes
 title: Using services in a flow
+weight: 1
 ---
 
 
@@ -27,8 +30,8 @@ grouped together. These functions can then be called from other services or flow
 
 To define a Service class:
 
-> 
-> 
+>
+>
 > * Add the `CordaService` annotation
 > * Add a constructor with a single parameter of `AppServiceHub`
 > * Extend `SingletonSerializeAsToken`
@@ -146,8 +149,8 @@ needed or set after the flow’s `call` function has been triggered.
 Starting flows via a service can lead to deadlock within the node’s flow worker queue, which will prevent new flows from
 starting. To avoid this, the rules bellow should be followed:
 
-> 
-> 
+>
+>
 > * When called from a running flow, the service must invoke the new flow from another thread. The existing flow cannot await the
 > execution of the new flow.
 > * When `ServiceHub.trackBy` is placed inside the service, flows started inside the observable must be placed onto another thread.

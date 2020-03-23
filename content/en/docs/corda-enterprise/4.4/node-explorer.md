@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-tools
+    parent: corda-ent-4-4-tool-index
 tags:
 - node
 - explorer
@@ -47,8 +47,8 @@ All other CorDapps present on the node must be copied to a `cordapps` directory 
 Node Explorer is included with the [DemoBench](demobench.md) application, which allows
 you to create local Corda networks on your desktop. For example:
 
-> 
-> 
+>
+>
 > * Notary
 > * Bank of Breakfast Tea    (*Issuer node* for GBP)
 > * Bank of Big Apples       (*Issuer node* for USD)

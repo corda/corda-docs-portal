@@ -4,11 +4,14 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-cordapps-contracts
+    name: "Writing CorDapp contracts"
     parent: corda-enterprise-4-4-cordapps
 tags:
 - api
 - contracts
 title: Writing CorDapp Contracts
+weight: 6
 ---
 
 

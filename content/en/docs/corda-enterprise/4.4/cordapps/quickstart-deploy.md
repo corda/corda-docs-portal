@@ -2,11 +2,16 @@
 aliases:
 - /releases/4.4/cordapps/quickstart-deploy.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+    corda-enterprise-4-4:
+        identifier: "corda-enterprise-4-4-cordapps-quickstart-running"
+        name: "Running the example CorDapp"
+        parent: corda-enterprise-4-4-cordapps-quickstart
 tags:
 - quickstart
 - deploy
 title: Running the example CorDapp
+weight: 1
 ---
 
 
@@ -27,21 +32,21 @@ The first step is to deploy the CorDapp to nodes running locally.
 * Navigate to the root directory of the example CorDapp.
 * To deploy the nodes on Windows run the following command: `gradlew clean deployNodes`
 
-> 
+>
 > To deploy the nodes on Mac or Linux run the following command: `./gradlew clean deployNodes`
 
 
 
 * To best understand the deployment process, there are several perspectives it is helpful to see. On Windows run the following command: `workflows-kotlin\build\nodes\runnodes`
 
-> 
+>
 > On Mac/Linux run the following command: `workflows-kotlin/build/nodes/runnodes`
-> 
+>
 > This command opens four terminal windows: the notary, and a node each for PartyA, PartyB, and PartyC. A notary is a validation service that prevents double-spending, enforces timestamping, and may also validate transactions. For more information on notaries, see the [notary documentation](./key-concepts-notaries.html).
-> 
+>
 > {{< note >}}
 > Maintain window focus on the node windows, if the nodes fail to load, close them using `ctrl + d`. The `runnodes` script opens each node directory and runs `java -jar corda.jar`.
-> 
+>
 > {{< /note >}}
 
 
@@ -55,7 +60,7 @@ The first step is to deploy the CorDapp to nodes running locally.
 * To execute the `ExampleFlow.kt` flow, run the following command: `flow start ExampleFlow iouValue: 1, otherParty: PartyB`A flow is the mechanism by which a transaction takes place using Corda. This flow creates an instance of the IOU state, which requires an `iouValue` property. Flows are contained in CorDapps, and define the mechanisms by which parties transact. For more information on flows, see the [flow documentation](key-concepts-flows.html).
 * To check whether PartyB has received the transaction, open the terminal window showing PartyB’s perspective, and run the following command: `run vaultQuery contractStateType: com.example.state.IOUState`
 
-> 
+>
 > This command displays all of the IOU states in the node’s vault. States are immutable objects that represent shared facts between the parties. States serve as the inputs and outputs of transactions.
 
 

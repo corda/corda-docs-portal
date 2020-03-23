@@ -4,19 +4,19 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-cordapps-debugging
+    name: "Debugging and testing CorDapps"
     parent: corda-enterprise-4-4-cordapps
 tags:
 - debugging
 - cordapp
 title: Debugging a CorDapp
+weight: 11
 ---
-
 
 # Debugging a CorDapp
 
-
 There are several ways to debug your CorDapp.
-
 
 ## Using a `MockNetwork`
 
@@ -24,8 +24,8 @@ You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/
 `MockNetwork` to debug your CorDapp:
 
 
-* Define your flow tests as per [API: Testing](api-testing.md)> 
-> 
+* Define your flow tests as per [API: Testing](api-testing.md)>
+>
 >     * In your `MockNetwork`, ensure that `threadPerNode` is set to `false`
 
 
@@ -43,16 +43,16 @@ running via the node driver to debug your CorDapp.
 ### With the nodes in-process
 
 
-* Define a network using the node driver as per tutorial-integration-testing> 
-> 
+* Define a network using the node driver as per tutorial-integration-testing>
+>
 > * In your `DriverParameters`, ensure that `startNodesInProcess` is set to `true`
 
 
 
 * Run the driver using the debugger
 * Set your breakpoints
-* Interact with your nodes. When execution hits a breakpoint, execution will pause> 
-> 
+* Interact with your nodes. When execution hits a breakpoint, execution will pause>
+>
 > * The nodes’ webservers always run in a separate process, and cannot be attached to by the debugger
 
 
@@ -62,8 +62,8 @@ running via the node driver to debug your CorDapp.
 ### With remote debugging
 
 
-* Define a network using the node driver as per tutorial-integration-testing> 
-> 
+* Define a network using the node driver as per tutorial-integration-testing>
+>
 > * In your `DriverParameters`, ensure that `startNodesInProcess` is set to `false` and `isDebug` is set to
 > `true`
 
@@ -78,8 +78,8 @@ For example:
 ```
 
 
-* Attach the debugger to the node of interest on its debug port:> 
-> 
+* Attach the debugger to the node of interest on its debug port:>
+>
 > * In IntelliJ IDEA, create a new run/debug configuration of type `Remote`
 > * Set the run/debug configuration’s `Port` to the debug port
 > * Start the run/debug configuration in debug mode
@@ -87,8 +87,8 @@ For example:
 
 
 * Set your breakpoints
-* Interact with your node. When execution hits a breakpoint, execution will pause> 
-> 
+* Interact with your node. When execution hits a breakpoint, execution will pause>
+>
 > * The nodes’ webservers always run in a separate process, and cannot be attached to by the debugger
 
 

@@ -8,6 +8,7 @@ menu:
 tags:
 - cordapp
 title: CorDapp structure and format
+weight: 5
 ---
 
 
@@ -140,8 +141,8 @@ The `src` directory is structured as follows:
 Within `main`, we have the following directories:
 
 
-* `java`, which contains the source-code for our CorDapp:> 
-> 
+* `java`, which contains the source-code for our CorDapp:>
+>
 >     * `TemplateFlow.java`, which contains a template `FlowLogic` subclass
 >     * `TemplateState.java`, which contains a template `ContractState` implementation
 >     * `TemplateContract.java`, which contains a template `Contract` implementation
@@ -152,8 +153,8 @@ Within `main`, we have the following directories:
 
 
 
-* `resources/META-INF/services`, which contains various registries:> 
-> 
+* `resources/META-INF/services`, which contains various registries:>
+>
 >     * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialisation whitelists
 >     * `net.corda.webserver.services.WebServerPluginRegistry`, which registers the CorDapp’s web plugins
 

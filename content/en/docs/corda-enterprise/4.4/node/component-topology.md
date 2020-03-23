@@ -9,6 +9,7 @@ tags:
 - component
 - topology
 title: Understanding the node
+weight: 1
 ---
 
 

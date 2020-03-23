@@ -2,12 +2,15 @@
 aliases:
 - /releases/4.4/cordapps/api-vault-query.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-flows
 tags:
 - api
 - vault
 - query
 title: Writing vault queries
+weight: 3
 ---
 
 
@@ -71,7 +74,7 @@ There are four implementations of this interface which can be chained together t
 * `VaultQueryCriteria` provides filterable criteria on attributes within the Vault states table: status (UNCONSUMED,
 CONSUMED), state reference(s), contract state type(s), notaries, soft locked states, timestamps (RECORDED, CONSUMED),
 state constraints (see [Constraint Types](api-contract-constraints.md#implicit-constraint-types)), relevancy (ALL, RELEVANT, NON_RELEVANT),
-participants (exact or any match).> 
+participants (exact or any match).>
 > {{< note >}}
 > Sensible defaults are defined for frequently used attributes (status = UNCONSUMED, always include soft
 > locked states).{{< /note >}}
@@ -80,7 +83,7 @@ participants (exact or any match).>
 * `FungibleAssetQueryCriteria` provides filterable criteria on attributes defined in the Corda Core
 `FungibleAsset` contract state interface, used to represent assets that are fungible, countable and issued by a
 specific party (eg. `Cash.State` and `CommodityContract.State` in the Corda finance module). Filterable
-attributes include: participants (exact or any match), owner(s), quantity, issuer party(s) and issuer reference(s).> 
+attributes include: participants (exact or any match), owner(s), quantity, issuer party(s) and issuer reference(s).>
 > {{< note >}}
 > All contract states that extend the `FungibleAsset` now automatically persist that interfaces common
 > state attributes to the **vault_fungible_states** table.{{< /note >}}
@@ -89,7 +92,7 @@ attributes include: participants (exact or any match), owner(s), quantity, issue
 * `LinearStateQueryCriteria` provides filterable criteria on attributes defined in the Corda Core `LinearState`
 and `DealState` contract state interfaces, used to represent entities that continuously supersede themselves, all
 of which share the same `linearId` (e.g. trade entity states such as the `IRSState` defined in the SIMM
-valuation demo). Filterable attributes include: participants (exact or any match), linearId(s), uuid(s), and externalId(s).> 
+valuation demo). Filterable attributes include: participants (exact or any match), linearId(s), uuid(s), and externalId(s).>
 > {{< note >}}
 > All contract states that extend `LinearState` or `DealState` now automatically persist those
 > interfaces common state attributes to the **vault_linear_states** table.{{< /note >}}
@@ -103,7 +106,7 @@ documentation and associated examples. Custom criteria expressions are expressed
 types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (sum, avg,
 max, min, count) with optional grouping and sorting. Furthermore, a rich DSL is provided to enable simple
 construction of custom criteria using any combination of `ColumnPredicate`. See the `Builder` object in
-`QueryCriteriaUtils` for a complete specification of the DSL.> 
+`QueryCriteriaUtils` for a complete specification of the DSL.>
 > {{< note >}}
 > Custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to
 > Persistence for mechanisms of registering custom schemas for different testing
@@ -420,16 +423,16 @@ Spring Data for advanced pagination and ordering constructs.
 
 The Corda Tutorials provide examples satisfying these additional Use Cases:
 
-> 
-> > 
-> > 
+>
+> >
+> >
 > > * Example CorDapp service using Vault API Custom Query to access attributes of IOU State
 > > * Example CorDapp service query extension executing Named Queries via [JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql)
 > > * [Advanced pagination](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html) queries using Spring Data [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)
-> 
-> 
-> 
-> 
+>
+>
+>
+>
 
 
 ## Mapping owning keys to external IDs

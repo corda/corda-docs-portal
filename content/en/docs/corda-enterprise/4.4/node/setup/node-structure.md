@@ -2,11 +2,14 @@
 aliases:
 - /releases/4.4/node/setup/node-structure.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-configuring
 tags:
 - node
 - structure
 title: Node folder structure
+weight: 1
 ---
 
 

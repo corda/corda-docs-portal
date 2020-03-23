@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-tools
+    parent: corda-ent-4-4-tool-index
 tags:
 - health
 - survey
@@ -32,8 +32,8 @@ it and the firewall (if deployed externally) for information on configuration, s
 
 Usage:
 
-> 
-> 
+>
+>
 > * `-h`, `--help`:                        Display help
 > * `-c`, `--node-configuration` <file>:   Path to the Corda node configuration file, optional
 > * `-d`, `--base-directory` <dir>:        Path to the Corda node base directory
@@ -49,16 +49,16 @@ Usage:
 
 RPC Access:
 
-> 
-> 
+>
+>
 > * `--rpc-user` <arg>:              Set the user name for RPC commands
 > * `--rpc-password` <arg>:          Set the password for RPC user
 
 
 Connectivity tests:
 
-> 
-> 
+>
+>
 > * `-p`, `--ping` <legal-name>:           Ping remote node’s P2P port using nodes’s legal name
 > * `-n`, `--notary`:                      Ping all notaries listed on node’s network map
 > * `--ping-notary` <legal-name>:    Ping named notary using notary’s legal name
@@ -66,8 +66,8 @@ Connectivity tests:
 
 High Availability test:
 
-> 
-> 
+>
+>
 > * `--toggle-bridge`:              Switch which bridge is active
 
 
@@ -105,23 +105,23 @@ This account must have the following permissions:
 
 For RPC Validation Test:
 
-> 
-> 
+>
+>
 > * InvokeRpc.nodeInfo
 
 
 Ping node check:
 
-> 
-> 
+>
+>
 > * InvokeRpc.nodeInfoFromParty
 > * InvokeRpc.wellKnownPartyFromX500Name
 
 
 For notary checks:
 
-> 
-> 
+>
+>
 > * InvokeRpc.networkMapSnapshot
 > * InvokeRpc.notaryIdentities
 > * InvokeRpc.nodeInfoFromParty
@@ -141,8 +141,8 @@ The tool generates the archive of the collected files in the same directory it i
 
 The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise Node. The tool supports the following deployment configurations:
 
-> 
-> 
+>
+>
 > * Node with internal Artemis broker
 > * Node with external Artemis broker
 > * Node with combined Bridge/Float

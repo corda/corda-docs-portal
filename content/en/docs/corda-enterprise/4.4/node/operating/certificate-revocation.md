@@ -2,13 +2,15 @@
 aliases:
 - /releases/4.4/node/operating/certificate-revocation.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating
 tags:
 - certificate
 - revocation
 title: Certificate revocation list
+weight: 4
 ---
-
 
 # Certificate revocation list
 
@@ -36,53 +38,53 @@ The set of REST end-points for the revocation service are as follows.
 Submission of the certificate revocation requests expects the following fields to be present in the request payload:
 
 
-* **certificateSerialNumber**: 
+* **certificateSerialNumber**:
 Serial number of the certificate that is to be revoked.
 
 
-* **csrRequestId**: 
+* **csrRequestId**:
 Certificate signing request identifier associated with the certificate that is to be revoked.
 
 
-* **legalName**: 
+* **legalName**:
 Legal name associated with the certificate that is to be revoked.
 
 
-* **reason**: 
+* **reason**:
 Revocation reason (as specified in the java.security.cert.CRLReason). The following values are allowed.
 
 
-* **UNSPECIFIED**: 
+* **UNSPECIFIED**:
 This reason indicates that it is unspecified as to why the certificate has been revoked.
 
 
-* **KEY_COMPROMISE**: 
+* **KEY_COMPROMISE**:
 This reason indicates that it is known or suspected that the certificate subject’s private key has been compromised. It applies to end-entity certificates only.
 
 
-* **CA_COMPROMISE**: 
+* **CA_COMPROMISE**:
 This reason indicates that it is known or suspected that the certificate subject’s private key has been compromised. It applies to certificate authority (CA) certificates only.
 
 
-* **AFFILIATION_CHANGED**: 
+* **AFFILIATION_CHANGED**:
 This reason indicates that the subject’s name or other information has changed.
 
 
-* **SUPERSEDED**: 
+* **SUPERSEDED**:
 This reason indicates that the certificate has been superseded.
 
 
-* **CESSATION_OF_OPERATION**: 
+* **CESSATION_OF_OPERATION**:
 This reason indicates that the certificate is no longer needed.
 
 
-* **PRIVILEGE_WITHDRAWN**: 
+* **PRIVILEGE_WITHDRAWN**:
 This reason indicates that the privileges granted to the subject of the certificate have been withdrawn.
 
 
 
 
-* **reporter**: 
+* **reporter**:
 Issuer of this certificate revocation request.
 
 

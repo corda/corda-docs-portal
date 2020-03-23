@@ -2,12 +2,15 @@
 aliases:
 - /releases/4.4/node/operating/confidential-identities-hsm.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating-hsm
 tags:
 - confidential
 - identities
 - hsm
 title: Using an HSM with confidential identities
+weight: 1
 ---
 
 

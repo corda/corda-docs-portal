@@ -4,15 +4,15 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-cordapps-states
+    name: "Writing CorDapp states"
     parent: corda-enterprise-4-4-cordapps
 tags:
 - api
 - states
 title: Writing CorDapp States
+weight: 7
 ---
-
-
-
 
 # Writing CorDapp States
 
@@ -251,8 +251,8 @@ data class State(
 Whenever a node records a new transaction, it also decides whether it should store each of the transaction’s output
 states in its vault. The default vault implementation makes the decision based on the following rules:
 
-> 
-> 
+>
+>
 > * If the state is an `OwnableState`, the vault will store the state if the node is the state’s `owner`
 > * Otherwise, the vault will store the state if it is one of the `participants`
 

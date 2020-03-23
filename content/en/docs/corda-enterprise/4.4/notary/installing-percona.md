@@ -2,13 +2,15 @@
 aliases:
 - /releases/4.4/notary/installing-percona.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-notary-config
 tags:
 - installing
 - percona
-title: Configuring the MySQL notary backend
+title: Configuring the deprecated MySQL notary backend
+weight: 1
 ---
-
 
 # Configuring the MySQL notary backend
 

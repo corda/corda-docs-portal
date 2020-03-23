@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-tools
+    parent: corda-ent-4-4-tool-index
 tags:
 - tools
 - config
@@ -67,14 +67,14 @@ or the provided file name.
 * `-h`, `--help` is a flag used to show this help message and exit.
 * `-V`, `--version` is a flag used to print version information and exit.
 
-> 
-> The following options provide backwards compatibility, but should not be used in cases where backwards compatibility is not required.> 
-> > 
+>
+> The following options provide backwards compatibility, but should not be used in cases where backwards compatibility is not required.>
+> >
 > > * `HARDWARE_ADDRESS` is the primary hardware address of the machine onwhich the configuration file resides. By default, the MAC address of the
 > > running machine will be used. Supplying `DEFAULT` will explicitly
 > > use the default value.
-> 
-> 
+>
+>
 
 Note that, by default, the tool only prints out the transformed configuration to the terminal for
 verification. To persist the changes, we need to use the `-w` flag, which ensures that the obfuscated

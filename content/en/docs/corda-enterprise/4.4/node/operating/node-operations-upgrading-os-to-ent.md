@@ -2,14 +2,17 @@
 aliases:
 - /releases/4.4/node/operating/node-operations-upgrading-os-to-ent.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating
 tags:
 - node
 - operations
 - upgrading
 - os
 - ent
-title: Upgrading a Corda (open source) Node to Corda Enterprise
+title: Upgrading a Corda OS node to Corda Enterprise
+weight: 8
 ---
 
 

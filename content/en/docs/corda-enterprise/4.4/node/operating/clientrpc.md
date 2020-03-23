@@ -2,14 +2,16 @@
 aliases:
 - /releases/4.4/node/operating/clientrpc.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-corda-nodes-operating-interacting
+    name: "Interacting with a node"
+    parent: corda-enterprise-4-4-corda-nodes-operating
 tags:
 - clientrpc
 title: Interacting with a node
+weight: 3
 ---
-
-
-
 
 # Interacting with a node
 
@@ -170,8 +172,8 @@ Setting `rpcUsers` provides a simple way of granting RPC permissions to a fixed 
 obvious shortcomings. To support use cases aiming for higher security and flexibility, Corda offers additional security
 features such as:
 
-> 
-> 
+>
+>
 > * Fetching users credentials and permissions from an external data source (e.g.: a remote RDBMS), with optional in-memory
 > caching. In particular, this allows credentials and permissions to be updated externally without requiring nodes to be
 > restarted.
@@ -241,32 +243,32 @@ an exception at node startup.
 The `dataSource` structure defines the data provider supplying credentials and permissions for users. There exist two
 supported types of such data source, identified by the `dataSource.type` field:
 
-> 
-> 
-> * **INMEMORY**: 
+>
+>
+> * **INMEMORY**:
 > A static list of user credentials and permissions specified by the `users` field.
-> 
-> 
-> * **DB**: 
+>
+>
+> * **DB**:
 > An external RDBMS accessed via the JDBC connection described by `connection`. Note that, unlike the `INMEMORY`
 > case, in a user database permissions are assigned to *roles* rather than individual users. The current implementation
 > expects the database to store data according to the following schema:
-> 
-> > 
-> > 
+>
+> >
+> >
 > > * Table `users` containing columns `username` and `password`. The `username` column *must have unique values*.
 > > * Table `user_roles` containing columns `username` and `role_name` associating a user to a set of *roles*.
 > > * Table `roles_permissions` containing columns `role_name` and `permission` associating a role to a set of
 > > permission strings.
-> 
-> 
+>
+>
 > {{< note >}}
 > There is no prescription on the SQL type of each column (although our tests were conducted on `username` and
 > `role_name` declared of SQL type `VARCHAR` and `password` of `TEXT` type). It is also possible to have extra columns
 > in each table alongside the expected ones.
-> 
+>
 > {{< /note >}}
-> 
+>
 
 
 

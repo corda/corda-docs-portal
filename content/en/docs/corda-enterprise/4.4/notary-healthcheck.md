@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-tools
+    parent: corda-ent-4-4-tool-index
 tags:
 - notary
 - healthcheck
@@ -62,19 +62,19 @@ java -jar notaryhealthcheck-client-<version>.jar -c <command> [<options]
 The command must be one of:
 
 
-* **startAll**: 
+* **startAll**:
 Starts monitoring all notary nodes and services listed in the network parameters (including all cluster members for clustered notaries)
 
 
-* **start**: 
+* **start**:
 Starts monitoring a specified notary node. Requires use of the `--target` option
 
 
-* **stopAll**: 
+* **stopAll**:
 Stops all running checks
 
 
-* **stop**: 
+* **stop**:
 Stops monitoring a specified notary node. Requires use of the `--target` option
 
 
@@ -82,35 +82,35 @@ Stops monitoring a specified notary node. Requires use of the `--target` option
 Options are:
 
 
-* **-u, –user**: 
+* **-u, –user**:
 RPC user to use for the node. This can also be stored in a config file. It must be defined either in config or on the command line.
 
 
-* **-P, –password**: 
+* **-P, –password**:
 RPC password. This can also be stored in a config file. It must be defined either in config or on the command line.
 
 
-* **-h, –host**: 
+* **-h, –host**:
 hostname or IP address of the node.
 
 
-* **-p, –port**: 
+* **-p, –port**:
 RPC port of the node
 
 
-* **-w, –wait-period**: 
+* **-w, –wait-period**:
 Time in seconds to wait between to checks. This can also be stored in a config file. Defaults to 120, i.e. 2 minutes
 
 
-* **-o, –wait-for-outstanding-flows**: 
+* **-o, –wait-for-outstanding-flows**:
 This is the time we wait before rechecking a notary for which we have a check flow in-flight, i.e. it is not responding timely or at all. This can also be stored in a config file. Defaults to 300, i.e. 5 minutes
 
 
-* **-t, –target**: 
+* **-t, –target**:
 A string representation of the X500 name of the notary node that we want to monitor. Can only be used with `start` or `stop`
 
 
-* **-n, –notary**: 
+* **-n, –notary**:
 A string representation of the X500 name of the notary service the target is part of for clustered notaries. This can only be used with `start` or `stop`. It will default to the value of `--target`, so does not need to be specified for single node notaries.
 
 

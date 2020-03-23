@@ -2,12 +2,15 @@
 aliases:
 - /releases/4.4/network/azure-template-guide.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-networks-testnet
 tags:
 - azure
 - template
 - guide
 title: Using Azure Resource Manager Templates to deploy a Corda Enterprise node
+weight: 2
 ---
 
 

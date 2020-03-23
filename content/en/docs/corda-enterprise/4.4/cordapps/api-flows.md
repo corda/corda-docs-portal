@@ -4,11 +4,14 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-cordapps-flows
+    name: "Writing CorDapp flows"
     parent: corda-enterprise-4-4-cordapps
 tags:
 - api
 - flows
 title: Writing CorDapp Flows
+weight: 8
 ---
 
 
@@ -845,8 +848,8 @@ SecureHash idOfTxWeSigned = subFlow(new SignTxFlow(counterpartySession, SignTran
 
 Types of things to check include:
 
-> 
-> 
+>
+>
 > * Ensuring that the transaction received is the expected type, i.e. has the expected type of inputs and outputs
 > * Checking that the properties of the outputs are expected, this is in the absence of integrating reference
 > data sources to facilitate this
@@ -1173,8 +1176,8 @@ Flow worker threads belong to the thread pool that executes flows.
 {{< /note >}}
 Examples of where this functionality is useful include:
 
-> 
-> 
+>
+>
 > * Triggering a long running process on an external system
 > * Retrieving information from a external service that might go down
 
@@ -1182,8 +1185,8 @@ Examples of where this functionality is useful include:
 `FlowLogic` provides two `await` functions that allow custom operations to be defined and executed outside of the context of a flow.
 Below are the interfaces that must be implemented and passed into `await`, along with brief descriptions of what they do:
 
-> 
-> 
+>
+>
 > * `FlowExternalOperation` - An operation that returns a result which should be run using a thread from one of the node’s
 > thread pools.
 > * `FlowExternalAsyncOperation` - An operation that returns a future which should be run on a thread provided to its implementation.
@@ -1349,8 +1352,8 @@ public class Data {
 
 In summary, the following steps are taken in the code above:
 
-> 
-> 
+>
+>
 > * `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example).
 > * `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the
 > external system. The external system, in this example, will handle deduplication and return the previous result if it was already
@@ -1559,8 +1562,8 @@ public class Data {
 
 In summary, the following steps are taken in the code above:
 
-> 
-> 
+>
+>
 > * `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example).
 > * `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the
 > external system. The external system, in this example, will handle deduplication and return the previous result if it was already
@@ -1601,8 +1604,8 @@ restart.
 {{< /note >}}
 Below are examples of how deduplication could be handled:
 
-> 
-> 
+>
+>
 > * The external system records successful computations and returns previous results if requested again.
 > * The external system is idempotent, meaning the computation can be made multiple times without altering any state (similar to the point above).
 > * An extra external service maintains a record of deduplication IDs.
@@ -1751,8 +1754,8 @@ public class ExternalService extends SingletonSerializeAsToken {
 
 In the code above:
 
-> 
-> 
+>
+>
 > * A `ListenableFuture` is created and receives a thread from the `ListeningExecutorService`. This future does all the processing.
 > * A `CompletableFuture` is created, so that it can be returned to and executed by a `FlowExternalAsyncOperation`.
 > * A `FutureCallback` is registered to the `ListenableFuture`, which will complete the `CompletableFuture` (either successfully or

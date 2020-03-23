@@ -8,9 +8,9 @@ menu:
 tags:
 - corda
 - networks
-title: Corda Networks
+title: Understanding Corda Networks
+weight: 1
 ---
-
 
 # Corda Networks
 
@@ -91,8 +91,8 @@ unaware of one another
 
 Each Network Map requires
 
-> 
-> 
+>
+>
 > * A configuration file
 > * A starting set of network parameters
 > * One or more notaries for inclusion in the whitelist

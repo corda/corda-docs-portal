@@ -2,9 +2,7 @@
 aliases:
 - /releases/4.4/financial-model.html
 date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-component-library
+menu: []
 tags:
 - financial
 - model
@@ -77,7 +75,7 @@ and aggregation of flows. The `apply` method can be used to process a list of at
 
 In additional to the common state types, a number of interfaces extend `ContractState` to model financial state such as:
 
-> 
+>
 > `LinearState`A state which has a unique identifier beyond its StateRef and carries it through state transitions.
 > Such a state cannot be duplicated, merged or split in a transaction: only continued or deleted. A linear state is
 > useful when modelling an indivisible/non-fungible thing like a specific deal, or an asset that can’t be

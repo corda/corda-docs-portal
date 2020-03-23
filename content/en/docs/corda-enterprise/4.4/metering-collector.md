@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-tools
+    parent: corda-ent-4-4-tool-index
 tags:
 - metering
 - collector
@@ -43,8 +43,8 @@ and who made them.
 The Metering Collection Tool provides a mechanism for collecting metering data from both normal nodes and notaries running Corda Enterprise.
 The tool provides three flows:
 
-> 
-> 
+>
+>
 > * `MeteringCollectionFlow` is used to collect metering data from normal nodes. It takes in a time window over which to collect data, and
 > optionally a set of CorDapps to filter the data by. It outputs both the total count of metering events that match filter in the time
 > window, and a breakdown of these events by the commands involved and the signing entities.
@@ -67,8 +67,8 @@ The `NotaryCollectionFlow` does not allow the collection of metering data for no
 
 As a flow, the `MeteringCollectionFlow` can be invoked in three main ways:
 
-> 
-> 
+>
+>
 > * Via RPC, using `startFlow`
 > * As a subflow of some wrapping flow
 > * Via the shell
@@ -76,8 +76,8 @@ As a flow, the `MeteringCollectionFlow` can be invoked in three main ways:
 
 In order to run `MeteringCollectionFlow`, three things must be specified:
 
-> 
-> 
+>
+>
 > * A time window over which to run
 > * A filter to select which CorDapps to collect data for
 > * A paging specification to describe how the flow should access the database
@@ -177,8 +177,8 @@ fun collectData(rpc: CordaRPCOps): CollectedMeteringData {
 `MeteringCollectionFlow` outputs a data class that contains a structured representation of the metering data. The outputted data contains
 the following:
 
-> 
-> 
+>
+>
 > * The total number of signing events that match the query provided
 > * The current version of the output metering data
 > * An object describing the query that produced this set of data. This includes the time window over which the data was collected, the

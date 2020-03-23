@@ -2,20 +2,19 @@
 aliases:
 - /releases/4.4/notary/hsm-support.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-notaries
 tags:
 - hsm
 - support
-title: Notary HSM support
+title: HSM support for Notaries
+weight: 3
 ---
 
-
-
-# Notary HSM support
-
+# HSM support for notaries
 
 ## Overview
-
 
 ![hsm support](notary/resources/hsm-support.png "hsm support")
 Two notary workers and their relevant cryptographic keys used for P2P messaging and transaction signing. The red rectangles represent the
@@ -34,8 +33,8 @@ is not possible then see the below section on [Using Multiple HSMs](#using-multi
 
 Each Notary workers needs access to three private key entries, corresponding to following entities:
 
-> 
-> 
+>
+>
 > * The distributed Notary identity, responsible for notarising transactions.
 > * The node certificate authority, responsible for issuing the legal identity and TLS certificates.
 > * The node legal identity, which represents the unique identity of the notary worker.

@@ -4,12 +4,13 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-serialization
+    parent: corda-enterprise-4-4-node-serialization
 tags:
 - serialization
 - enum
 - evolution
 title: Enum Evolution
+weight: 3
 ---
 
 
@@ -103,8 +104,8 @@ within vaults.
 
 Thus, on deserialization, there will be two options to chose from in terms of transformation rules
 
-> 
-> 
+>
+>
 > * Determined from the local class and the annotations applied to it (the local copy)
 > * Parsed from the AMQP header (the remote copy)
 
@@ -189,8 +190,8 @@ enum class Example {
 
 ### Rules
 
-> 
-> 
+>
+>
 > * A constant cannot be renamed to match an existing constant, this is enforced through language constraints
 > * A constant cannot be renamed to a value that matches any previous name of any other constant
 
@@ -340,8 +341,8 @@ depending on how the deserializing node understands the class.
 
 ### Rules
 
-> 
-> 
+>
+>
 > * New constants must be added to the end of the existing list of constants
 > * Defaults can only be set to “older” constants, i.e. those to the left of the new constant in the list
 > * Constants must never be removed once added
@@ -420,8 +421,8 @@ enum class OngoingExample { A, B, CAT, D, E, F }
 
 The following evolutions are not currently supports
 
-> 
-> 
+>
+>
 > * Removing constants
 > * Reordering constants
 

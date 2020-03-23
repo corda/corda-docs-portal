@@ -4,16 +4,16 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
+    identifier: "corda-enterprise-4-4-upgrading-menu"
+    name: "Updating a CorDapp or Node"
     parent: corda-enterprise-4-4-upgrading-and-tools
 tags:
 - upgrading
-title: Updating to a new version
+title: Updating a CorDapp or Node
+weight: 1
 ---
 
-
 # Updating to a new version
-
-
 
 * [Upgrading CorDapps to Corda Enterprise 4.4](app-upgrade-notes-enterprise.md)
 * [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md)

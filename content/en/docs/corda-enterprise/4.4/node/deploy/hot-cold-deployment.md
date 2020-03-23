@@ -2,12 +2,15 @@
 aliases:
 - /releases/4.4/node/deploy/hot-cold-deployment.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-deploying
 tags:
 - hot
 - cold
 - deployment
 title: Hot-cold high-availability deployment for Corda Enterprise
+weight: 3
 ---
 
 
@@ -27,8 +30,8 @@ between the primary and the back-up in case of failure.
 {{< /note >}}
 In order to achieve this set-up, in addition to the physical nodes, a few other resources are required:
 
-> 
-> 
+>
+>
 > * 3rd party database which should be running in some sort of replication mode to avoid any data loss
 > * a network drive mounted on all nodes (used to store P2P messaging broker files)
 > * an internet facing load balancer to monitor the health of the primary and secondary instances and to automatically
@@ -67,8 +70,8 @@ The next step is to create health probes and load balancing rules for every port
 
 When creating the health probes, there are several properties that have to be set:
 
-> 
-> 
+>
+>
 > * name - used to identify the probe when associating it with a rule (e.g. p2p, rpc, web).
 > * protocol - determines what kind of packets are used to assess the health of the VMs behind the balancer. Use
 > TCP for the P2P and RPC probes, HTTP for the web traffic probes.
@@ -93,8 +96,8 @@ A possible configuration for a hot-cold environment would be:
 
 The following properties have to be set when creating a load balancing rule:
 
-> 
-> 
+>
+>
 > * name - simple identifier.
 > * ip version - depending on how the resources have been created and configured, it can be IPv4 or IPv6.
 > * frontend ip address - the address used by peers and clients to communicate with the Corda instances.
@@ -132,23 +135,23 @@ to create the rules and checks as separate resources.
 
 When creating an AWS classic load balancer, the following configuration properties need to be set:
 
-> 
-> 
+>
+>
 > * Load Balancer name - simple identifier.
 > * Create LB inside - set it to the network containing the EC2 VMs hosting the Corda instances
 > * Create an internal load balancer - not chosen as it has to be external (internet facing)
 > * Enable advanced VPC configuration - depends on what option is chosen for **Create LB inside**
-> * 
+> *
 >     * Load Balancer Protocol - protocol for incoming traffic
 >     * Load Balancer Port - used by peers and clients to communicate with the Corda instances
 >     * Instance Protocol - protocol for redirected traffic. Set to the same value as the previous protocol.
 >     * Instance Port - target port for traffic redirection. Set to the same value as the previous port.
-> 
-> 
+>
+>
 > * Security groups - used to control visibility and access of the load balancer in the network and outside.
 > * Health check - mechanism used to determine to which EC2 instance the traffic will be directed. Only one health check
-> per balancer.> 
-> > 
+> per balancer.>
+> >
 > >     * Ping Protocol - determines what kind of packets are used to assess the health of the EC2s behind the balancer. Use
 > > TCP for the P2P and RPC probes, HTTP for the web traffic probes.
 > >     * Ping Port - the port being checked.
@@ -157,9 +160,9 @@ When creating an AWS classic load balancer, the following configuration properti
 > >     * Interval - the amount of time in seconds between check attempts.
 > >     * Unhealthy threshold - number of failed checks that signal an EC2 instance is unusable
 > >     * Healthy threshold - number of consecutive checks before an EC2 instance is considered usable
-> 
-> 
-> 
+>
+>
+>
 
 
 After creating a load balancer for each traffic type, the configuration should look like this:
@@ -192,8 +195,8 @@ In order to create one, please follow the guide found [here](https://docs.micros
 
 The following are the properties that can be set during creation:
 
-> 
-> 
+>
+>
 > * Deployment model - set to **Resource manager**.
 > * Account kind - set to **General purpose** as Artemis can’t work with **Blobs**.
 > * Performance - drive access speeds. The **Standard (HDD)** offers speeds around 14-16 MB/s. **Premium (SSD)** is
@@ -215,21 +218,21 @@ of this file share. The newly created file share needs to be mounted and linked 
 base directory of both primary and back-up VMs. To facilitate operations, a persistent mount point can be created using
 **/etc/fstab**:
 
-> 
-> 
+>
+>
 > * required: **storage account name**, **storage account key** (choose one of the 2 found in Your_storage → Settings → Access keys) and the **file share name**
 > * persist the mount point by using the following command, replacing the placeholders in angle brackets with the
 > appropriate values:
-> 
+>
 > {{< tabs name="tabs-1" >}}
 > {{% tab name="bash" %}}
 > ```bash
 > sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0700,file_mode=0700,serverino" >> /etc/fstab'
 > ```
 > {{% /tab %}}
-> 
+>
 > {{< /tabs >}}
-> 
+>
 
 In the above command, **mymountpoint** represents the location on the VM’s file system where the mount point will be created.
 
@@ -282,8 +285,8 @@ For instructions on how to do so, please see [Deploying a node to a server](depl
 The following files and directories need to be copied from the primary instance to the back-up instance as well as any
 cordapps and jars that exist:
 
-> 
-> 
+>
+>
 > * ./certificates/
 > * ./additional-node-infos/
 > * network-parameters
@@ -312,21 +315,21 @@ enterpriseConfiguration = {
 ```
 
 
-* **on**: 
+* **on**:
 Whether hot cold high availability is turned on, default is `false`.
 
 
-* **machineName**: 
+* **machineName**:
 Unique name for node. It is combined with the node’s base directory to create an identifier which is
 used in the mutual exclusion process (signal which corda instance is active and using the database). Default value is the
 machines host name.
 
 
-* **updateInterval**: 
+* **updateInterval**:
 Period(milliseconds) over which the running node updates the mutual exclusion lease. Node will exit if database connection is lost.
 
 
-* **waitInterval**: 
+* **waitInterval**:
 Amount of time(milliseconds) to wait since last mutual exclusion lease update before being able to become
 the active node. This has to be greater than updateInterval.
 

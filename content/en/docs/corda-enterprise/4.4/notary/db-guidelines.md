@@ -2,11 +2,14 @@
 aliases:
 - /releases/4.4/notary/db-guidelines.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-notaries
 tags:
 - db
 - guidelines
 title: Highly available database setup guidelines
+weight: 2
 ---
 
 

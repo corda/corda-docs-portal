@@ -9,17 +9,18 @@ tags:
 - deterministic
 - modules
 title: Deterministic Corda Modules
+weight: 3
 ---
 
- .red {color:red} 
+ .red {color:red}
 
 # Deterministic Corda Modules
 
 A Corda contract’s verify function should always produce the same results for the same input data. To that end,
 Corda provides the following modules:
 
-> 
-> 
+>
+>
 > * `core-deterministic`
 > * `serialization-deterministic`
 > * `jdk8u-deterministic`
@@ -46,16 +47,16 @@ modules respectively using both [ProGuard](https://www.guardsquare.com/en/progua
 plugin. Corda developers configure these tools by applying Corda’s `@KeepForDJVM` and `@DeleteForDJVM`
 annotations to elements of `core` and `serialization` as described [here](#deterministic-annotations).The build generates each of Corda’s deterministic JARs in six steps:
 
-> 
-> 
+>
+>
 > * Some *very few* classes in the original JAR must be replaced completely. This is typically because the original
 > class uses something like `ThreadLocal`, which is not available in the deterministic Java APIs, and yet the
 > class is still required by the deterministic JAR. We must keep such classes to a minimum!
 > * The patched JAR is analysed by ProGuard for the first time using the following rule:```groovy
 > keep '@interface net.corda.core.KeepForDJVM { *; }'
 > ```
-> 
-> 
+>
+>
 > ProGuard works by calculating how much code is reachable from given “entry points”, and in our case these entry
 > points are the `@KeepForDJVM` classes. The unreachable classes are then discarded by ProGuard’s `shrink`
 > option.
@@ -70,8 +71,8 @@ annotations to elements of `core` and `serialization` as described [here](#deter
 >     ...
 > }
 > ```
-> 
-> 
+>
+>
 > While CorDapps will definitely need to handle `UniqueIdentifier` objects, all of the secondary constructors
 > generate a new random `UUID` and so are non-deterministic. Hence the next “determinising” step is to pass the
 > classes to the `JarFilter` tool, which strips out all of the elements which have been annotated as
@@ -108,9 +109,9 @@ $ gradlew jdk8u-deterministic:copyJdk
 
 Now select `File/Project Structure/Platform Settings/SDKs` and add a new JDK SDK with the
 `jdk8u-deterministic/jdk` directory as its home. Rename this SDK to something like “1.8 (Deterministic)”.This *should* be sufficient for IntelliJ. However, if IntelliJ realises that this SDK does not contain a
-full JDK then you will need to configure the new SDK by hand:> 
-> 
-> * Create a JDK Home directory with the following contents:> 
+full JDK then you will need to configure the new SDK by hand:>
+>
+> * Create a JDK Home directory with the following contents:>
 > > `jre/lib/rt.jar`
 > where `rt.jar` here is this renamed artifact:```xml
 > <dependency>
@@ -119,9 +120,9 @@ full JDK then you will need to configure the new SDK by hand:>
 >     <classifier>api</classifier>
 > </dependency>
 > ```
-> 
-> 
-> 
+>
+>
+>
 > * While IntelliJ is *not* running, locate the `config/options/jdk.table.xml` file in IntelliJ’s configuration
 > directory. Add an empty `<jdk>` section to this file:```xml
 > <jdk version="2">
@@ -133,9 +134,9 @@ full JDK then you will need to configure the new SDK by hand:>
 >     </roots>
 > </jdk>
 > ```
-> 
-> 
-> 
+>
+>
+>
 > * Open IntelliJ and select `File/Project Structure/Platform Settings/SDKs`. The “1.8 (Deterministic)” SDK
 > should now be present. Select it and then click on the `Classpath` tab. Press the “Add” / “Plus” button to
 > add `rt.jar` to the SDK’s classpath. Then select the `Annotations` tab and include the same JAR(s) as
@@ -159,8 +160,8 @@ buildscript {
 
 * Go to `File/Settings/Build, Execution, Deployment/Build Tools/Gradle`, and configure Gradle’s JVM to be the
 project’s JVM.
-* Go to `File/Settings/Build, Execution, Deployment/Build Tools/Gradle/Runner`, and select these options:> 
-> 
+* Go to `File/Settings/Build, Execution, Deployment/Build Tools/Gradle/Runner`, and select these options:>
+>
 > * Delegate IDE build/run action to Gradle
 > * Run tests using the Gradle Test Runner
 
@@ -171,8 +172,8 @@ project’s JVM.
 
 These steps will enable IntelliJ’s presentation compiler to use the deterministic `rt.jar` with the following modules:
 
-> 
-> 
+>
+>
 > * `core-deterministic`
 > * `serialization-deterministic`
 > * `core-deterministic:testing:common`

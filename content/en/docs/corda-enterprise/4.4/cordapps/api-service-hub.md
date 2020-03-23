@@ -2,12 +2,15 @@
 aliases:
 - /releases/4.4/cordapps/api-service-hub.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-flows
 tags:
 - api
 - service
 - hub
 title: Accessing node services
+weight: 2
 ---
 
 

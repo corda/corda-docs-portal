@@ -2,13 +2,16 @@
 aliases:
 - /releases/4.4/notary/upgrading-the-ha-notary-service.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-notary-operate
 tags:
 - upgrading
 - ha
 - notary
 - service
 title: Upgrading the notary to a new version of Corda Enterprise
+weight: 9
 ---
 
 
@@ -34,29 +37,29 @@ Upgrade steps:
 
 #### CockroachDB
 
-> 
+>
 > ```sql
 > ALTER TABLE notary_request_log ADD COLUMN worker_node_x500_name VARCHAR(255);
 > ```
-> 
+>
 
 
 #### Oracle RAC
 
-> 
+>
 > ```sql
 > ALTER TABLE notary_request_log ADD worker_node_x500_name VARCHAR(255);
 > ```
-> 
+>
 
 
 ### Percona XtraDB
 
-> 
+>
 > ```sql
 > ALTER TABLE notary_request_log ADD COLUMN worker_node_x500_name TEXT;
 > ```
-> 
+>
 
 
 ## Version 4.2
@@ -79,14 +82,14 @@ Upgrade steps:
 
 * Backup your Percona XtraDB Cluster.
 * Test you can restore from backup.
-* Log in to any Percona XtraDB Cluster database server and create the `notary_committed_transactions` table. It will be replicated to all other database servers.> 
+* Log in to any Percona XtraDB Cluster database server and create the `notary_committed_transactions` table. It will be replicated to all other database servers.>
 > ```sql
 > CREATE TABLE IF NOT EXISTS notary_committed_transactions (
 >     transaction_id BINARY(32) NOT NULL,
 >     CONSTRAINT tid PRIMARY KEY (transaction_id)
 > );
 > ```
-> 
+>
 
 
 * In the unlikely event that the database gets corrupted, take all the notary worker nodes down and restore the database.

@@ -2,12 +2,17 @@
 aliases:
 - /releases/4.4/network/corda-testnet-intro.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-corda-networks-testnet
+    name: "The Corda Testnet"
+    parent: corda-enterprise-4-4-corda-networks
 tags:
 - corda
 - testnet
 - intro
 title: Joining Corda Testnet
+weight: 6
 ---
 
 

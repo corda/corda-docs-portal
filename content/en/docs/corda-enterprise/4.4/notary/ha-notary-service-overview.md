@@ -2,13 +2,18 @@
 aliases:
 - /releases/4.4/notary/ha-notary-service-overview.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-corda-nodes-notaries
+    name: "Notary options in Corda Enterprise"
+    parent: corda-enterprise-4-4-corda-nodes
 tags:
 - ha
 - notary
 - service
 - overview
 title: Corda Enterprise notary service overview
+weight: 8
 ---
 
 
@@ -36,8 +41,8 @@ For a list of databases supported by the MySQL and JPA notaries, please refer to
 
 The JPA and MySQL Corda notary services achieve high-availability (HA) by being are made up of two components:
 
-> 
-> 
+>
+>
 > * The *notary workers*: A set of Corda nodes configured in HA notary mode. Each node has a separate legal identity, but shares a single
 > notary identity. These nodes are configured to work together in high-availability mode
 > * The *notary state database*: A single logical database, itself configured to be highly-available, that all the notary workers connect

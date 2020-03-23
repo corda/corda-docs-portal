@@ -2,28 +2,21 @@
 aliases:
 - /releases/4.4/cordapps/api-transactions.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-flows
 tags:
 - api
 - transactions
 title: Understanding transactions
+weight: 6
 ---
 
-
-
-
 # Understanding transactions
-
-{{< note >}}
-Before reading this page, you should be familiar with the key concepts of key-concepts-transactions.
-
-{{< /note >}}
-
 
 ## Transaction lifecycle
 
 Between its creation and its final inclusion on the ledger, a transaction will generally occupy one of three states:
-
 
 * `TransactionBuilder`. A transaction’s initial state. This is the only state during which the transaction is
 mutable, so we must add all the required components before moving on.

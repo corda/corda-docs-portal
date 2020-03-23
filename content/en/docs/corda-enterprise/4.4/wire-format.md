@@ -4,11 +4,12 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-serialization
+    parent: corda-enterprise-4-4-node-serialization
 tags:
 - wire
 - format
 title: Wire format
+weight: 4
 ---
 
 
@@ -233,7 +234,7 @@ The list type will be defined as a restricted type, like so:
 * Label: NULL
 * Provides: []
 * Source: “list”
-* 
+*
 * Symbol: net.corda:2A8U5kaXW/lD5ns+l0xPFg==
 * Numeric: NULL
 

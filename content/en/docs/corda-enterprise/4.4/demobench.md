@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-tools
+    parent: corda-ent-4-4-tool-index
 tags:
 - demobench
 title: DemoBench
@@ -45,7 +45,7 @@ bankb/
 ```
 
 
-> 
+>
 > When DemoBench reloads this profile it will close any nodes that it is currently running and then launch these new nodes instead. All nodes will be created with a brand new database. Note that the `node.conf` files within each profile are JSON/HOCON format, and so can be extracted and edited as required.
 
 
@@ -64,8 +64,8 @@ DemoBench writes a log file to the following location:
 
 Gradle defines tasks that build DemoBench installers using JavaPackager. There are three scripts in the [tools/demobench](https://github.com/corda/corda/tree/master/tools/demobench) directory of the [Corda repository](https://github.com/corda/corda) to execute these tasks:
 
-> 
-> 
+>
+>
 > * `package-demobench-exe.bat` (Windows)
 > * `package-demobench-dmg.sh` (MacOS)
 > * `package-demobench-rpm.sh` (Fedora/Linux)
@@ -73,8 +73,8 @@ Gradle defines tasks that build DemoBench installers using JavaPackager. There a
 
 Each script can only be run on its target platform, and each expects the platform’s installation tools already to be available.
 
-> 
-> 
+>
+>
 > * Windows: [Inno Setup 5+](http://www.jrsoftware.org/isinfo.php)
 > * MacOS: The packaging tools should be available automatically. The DMG contents will also be signed if the packager finds a valid `Developer ID Application` certificate with a private key on the keyring. (By default, DemoBench’s `build.gradle` expects the signing key’s user name to be “R3CEV”.) You can create such a certificate by generating a Certificate Signing Request and then asking your local “Apple team agent” to upload it to the Apple Developer portal. (See [here](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingCertificates/MaintainingCertificates.html).)
 
@@ -87,8 +87,8 @@ Each script can only be run on its target platform, and each expects the platfor
 
 {{< /note >}}
 
-> 
-> 
+>
+>
 > * Fedora/Linux: `rpm-build` packages.
 
 

@@ -4,12 +4,13 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-serialization
+    parent: corda-enterprise-4-4-node-serialization
 tags:
 - serialization
 - default
 - evolution
 title: Default Class Evolution
+weight: 2
 ---
 
 
@@ -22,8 +23,8 @@ Whilst more complex evolutionary modifications to classes require annotating, Co
 framework supports several minor modifications to classes without any external modification save
 the actual code changes. These are:
 
-> 
-> 
+>
+>
 > * Adding nullable properties
 > * Adding non nullable properties if, and only if, an annotated constructor is provided
 > * Removing properties

@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-miscellaneous
+    parent: corda-enterprise-4-4-release-notes
 tags:
 - changelog
 - enterprise
@@ -139,8 +139,8 @@ only ever be issued by network services and therefore issuance constraints are n
 The `TLS` and `WELL_KNOWN_LEGAL_IDENTITY` roles must be issued by the `NODE_CA` certificate issued by the
 Doorman, and `CONFIDENTIAL_IDENTITY` certificates must be issued from a `WELL_KNOWN_LEGAL_IDENTITY` certificate.
 For a detailed specification of the extension please see permissioning.
-* The network map service concept has been re-designed. More information can be found in network-map.> 
-> 
+* The network map service concept has been re-designed. More information can be found in network-map.>
+>
 >     * The previous design was never intended to be final but was rather a quick implementation in the earliest days of the
 > Corda project to unblock higher priority items. It suffered from numerous disadvantages including lack of scalability,
 > as one node was expected to hold open and manage connections to every node on the network; not reliable; hard to defend
@@ -174,8 +174,8 @@ For a detailed specification of the extension please see permissioning.
 where they all share a common identity. `NetworkMapCache.getNodeByLegalName` has been tightened to throw if more than
 one node with the legal name is found.
 
-> 
-> 
+>
+>
 >     * The common name in the node’s X.500 legal name is no longer reserved and can be used as part of the node’s name.
 >     * Moved `NodeInfoSchema` to internal package as the node info’s database schema is not part of the public API. This
 > was needed to allow changes to the schema.
@@ -185,8 +185,8 @@ one node with the legal name is found.
 * Support for external user credentials data source and password encryption [CORDA-827].
 * Integrate database migration tool: [http://www.liquibase.org/](http://www.liquibase.org/) :
 
-> 
-> 
+>
+>
 > * The migration files are split per `MappedSchemas`. (added new property: migrationResource used to point to the resource file containing the db changes corresponding to the JPA entities)
 > * config flag `database.initialiseSchema` was renamed to: `database.runMigration`  (if true then the migration is run during startup just before hibernate is initialised.)
 > * config flag: `database.serverNameTablePrefix` was removed as we no longer use table prefixes

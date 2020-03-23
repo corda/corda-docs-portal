@@ -4,12 +4,14 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-upgrading
+    identifier: "corda-enterprise-4-4-cordapp-upgrade"
+    name: "Upgrading a CorDapp to a newer platform version"
+    parent: corda-enterprise-4-4-upgrading-menu
 tags:
 - app
 - upgrade
 - notes
-title: Upgrading CorDapps to newer Platform Versions
+title: Upgrading a CorDapp to a newer platform version
 ---
 
 
@@ -112,11 +114,11 @@ This stops type inference from occurring and forces the variable to be of type `
 
 Platform Version 5 requires Gradle 5.4 to build. If you use the Gradle wrapper, you can upgrade by running:
 
-> 
+>
 > ```shell
 > ./gradlew wrapper --gradle-version 5.4.1
 > ```
-> 
+>
 
 Otherwise, upgrade your installed copy in the usual manner for your operating system.
 

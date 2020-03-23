@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-tools
+    parent: corda-ent-4-4-tool-index
 tags:
 - checkpoint
 - tooling
@@ -172,8 +172,8 @@ It is primarily targeted at users developing and testing code that may exhibit f
 
 For a given flow *checkpoint*, the agent outputs:
 
-> 
-> 
+>
+>
 > * Information about the checkpoint such as its `id` (also called a `flow id`) that can be used to correlate with that flows lifecycle details in the main Corda logs.
 > * A nested hierarchical view of its reachable objects (indented and tagged with depth and size) and their associated sizes, including the state
 > of any flows held within the checkpoint.

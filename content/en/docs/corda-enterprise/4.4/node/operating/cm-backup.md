@@ -2,11 +2,16 @@
 aliases:
 - /releases/4.4/node/operating/cm-backup.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-corda-nodes-operating-cm
+    name: "Change management for nodes"
+    parent: corda-enterprise-4-4-corda-nodes-operating
 tags:
 - cm
 - backup
 title: Backup and restoration of a Corda node
+weight: 7
 ---
 
 

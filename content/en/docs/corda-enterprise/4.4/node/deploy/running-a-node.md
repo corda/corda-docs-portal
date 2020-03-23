@@ -2,11 +2,14 @@
 aliases:
 - /releases/4.4/node/deploy/running-a-node.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-deploying
 tags:
 - running
 - node
 title: Running nodes locally
+weight: 5
 ---
 
 
@@ -61,14 +64,14 @@ They are listed here in order of increasing priority, i.e. if the same flag is s
 anything set earlier.
 
 
-* **Default arguments in capsule**: 
+* **Default arguments in capsule**:
 The capsuled Corda node has default flags set to `-Xmx512m -XX:+UseG1GC` - this gives the node (a relatively
 low) 512 MB of heap space and turns on the G1 garbage collector, ensuring low pause times for garbage collection.
 
 When `devMode` is explicitly set to `false` the default node memory size will be enlarged to 4G: `-Xmx4G -XX:+UseG1GC`.
 
 
-* **Node configuration**: 
+* **Node configuration**:
 The node configuration file can specify custom default JVM arguments by adding a section like:
 
 ```none
@@ -81,7 +84,7 @@ Note that this will completely replace any defaults set by capsule above, not ju
 to set e.g. the memory, you also need to set the garbage collector, or it will revert to whatever default your JVM is using.
 
 
-* **Capsule specific system property**: 
+* **Capsule specific system property**:
 You can use a special system property that Capsule understands to set JVM arguments only for the Corda
 process, not the launcher that actually starts it:
 
@@ -95,12 +98,12 @@ This is particularly useful for either setting large memory allowances that you 
 can only be set on one process at a time, e.g. a debug port.
 
 
-* **Command line flag**: 
+* **Command line flag**:
 You can set JVM args on the command line that apply to the launcher process and the node process as in the example
 above. This will override any value for the same flag set any other way, but will leave any other JVM arguments alone.
 
 
-* **OutOfMemoryError handling**: 
+* **OutOfMemoryError handling**:
 In addition to the JVM arguments listed above, the capsuled Corda node has two flags that cause the node to stop
 on out-of-memory error and generate the corresponding diagnostic files:
 
