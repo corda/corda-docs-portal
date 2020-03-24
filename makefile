@@ -8,8 +8,6 @@ HUGO_DOCKER_IMAGE  = corda-docs-hugo
 PROD_IMAGE         = corda-docs-nginx
 PROD_IMAGE_TAG     = latest
 
-ALGOLIA_CONFIG    := $(shell jq -r tostring $(ROOT_DIR)/.ci/algolia.search.json)
-
 .PHONY: all local-build local-build-preview help serve hugo-build prod-hugo-build prod-docker-image
 
 # First target is executed if no args are passed
