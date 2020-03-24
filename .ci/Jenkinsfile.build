@@ -3,7 +3,7 @@ def DOCKER_REPOSITORY = "docsite.software.r3.com"
 
 def MAKE_PARAMS = [
     "PROD_IMAGE=${DOCKER_REPOSITORY}/corda-docs-nginx",
-    "PROD_IMAGE_TAG=${env.BRANCH_NAME.replaceAll('/', '-')}-${env.BUILD_ID}",
+    'PROD_IMAGE_TAG="${IMAGE_TAG}"', // ugly hack - do not change the quotes!
 ]
 
 def MAKE_BUILD_TARGETS = [
@@ -14,17 +14,11 @@ def MAKE_PUBLISH_TARGETS = [
     'publish',
 ]
 
-
 pipeline {
-    agent { label "docker" }
+    agent { label "basic" }
 
     parameters {
         booleanParam defaultValue: false, description: 'Check it to force publishing Docsite Docker image regardless of the branch it is built for', name: 'FORCE_PUBLISH'
-    }
-
-    environment {
-      MAKE_HOME = tool name: 'make', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
-      JQ_HOME = tool name: 'jq', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
     }
 
     options {
@@ -37,6 +31,9 @@ pipeline {
 
     stages {
         stage('Build Docker image') {
+            environment {
+                IMAGE_TAG="${env.GIT_COMMIT[0..5]}"
+            }
             steps {
                 sh """
                     make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
@@ -72,7 +69,6 @@ pipeline {
                 }
             }
         }
-
     }
 
     post {
