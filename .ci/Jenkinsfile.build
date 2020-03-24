@@ -21,6 +21,10 @@ pipeline {
         booleanParam defaultValue: false, description: 'Check it to force publishing Docsite Docker image regardless of the branch it is built for', name: 'FORCE_PUBLISH'
     }
 
+    environment {
+        IMAGE_TAG="${env.GIT_COMMIT[0..5]}"
+    }
+
     options {
         timestamps()
         timeout(time: 3, unit: 'HOURS')
@@ -31,9 +35,6 @@ pipeline {
 
     stages {
         stage('Build Docker image') {
-            environment {
-                IMAGE_TAG="${env.GIT_COMMIT[0..5]}"
-            }
             steps {
                 sh """
                     make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
