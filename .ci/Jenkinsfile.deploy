@@ -1,0 +1,34 @@
+#!groovy
+
+pipeline {
+    agent { label "basic" }
+
+    parameters {
+        booleanParam defaultValue: false, description: 'Check it to force publishing API docs Docker image regardless of the branch it is built for', name: 'FORCE_PUBLISH'
+        string defaultValue: '10.10.0.4', description: 'Address of production instance of docsite', name: 'DOCSITE_SERVER', trim: false
+    }
+
+    options {
+        timestamps()
+        timeout(time: 3, unit: 'HOURS')
+        disableConcurrentBuilds() // this makes killAllExistingBuildsForJob always do nothing
+        buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '7'))
+        ansiColor('xterm')
+    }
+
+    stages {
+        stage('Deploy Docker image to production') {
+            when {
+                anyOf {
+                    branch 'master'
+                    expression { params.FORCE_PUBLISH }
+                }
+            }
+            steps {
+                sshagent(['apisite-production']) {
+                    sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@${params.DOCSITE_SERVER} update-apisite"
+                }
+            }
+        }
+    }
+}
