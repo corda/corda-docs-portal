@@ -325,7 +325,9 @@ shell {
 }
 
 ```
-{{/* github src='services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf' url='https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf' start='' end='' */}}[identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)
+
+[identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)
+
 
 ### Network Map Service
 
@@ -389,7 +391,9 @@ shell {
 }
 
 ```
-{{/* github src='services/src/test/resources/v1.1-configs/network-map/network-map-prod-valid.conf' url='https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-prod-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-prod-valid.conf' start='' end='' */}}[network-map-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-prod-valid.conf)
+
+[network-map-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-prod-valid.conf)
+
 
 ### Signing Service
 
@@ -620,4 +624,6 @@ signers = {
 }
 
 ```
-{{/* github src='services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf' url='https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf' start='' end='' */}}[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)
+
+[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)
+

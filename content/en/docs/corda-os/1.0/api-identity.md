@@ -93,7 +93,9 @@ You can see an example of it being used in `TwoPartyDealFlow.kt`:
 
 ```
 {{% /tab %}}
-{{/* github src='finance/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt' url='https://github.com/corda/corda/blob/1.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt#L54-L59' raw='https://raw.githubusercontent.com/corda/corda/1.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt' start='DOCSTART 2' end='DOCEND 2' */}}
+
+
+
 
 [TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/1.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
 
@@ -141,7 +143,9 @@ entities (counterparties) to require to know which well known identities those c
 
 ```
 {{% /tab %}}
-{{/* github src='finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' url='https://github.com/corda/corda/blob/1.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt#L173-L183' raw='https://raw.githubusercontent.com/corda/corda/1.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' start='DOCSTART 6' end='DOCEND 6' */}}
+
+
+
 
 [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/1.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 

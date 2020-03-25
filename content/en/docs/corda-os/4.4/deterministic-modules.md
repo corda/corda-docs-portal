@@ -246,7 +246,9 @@ Classes that *must* be included in the deterministic JAR should be annotated as 
 annotation class KeepForDJVM
 
 ```
-{{/* github src='core/src/main/kotlin/net/corda/core/KeepForDJVM.kt' url='https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt#L14-L17' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt' start='DOCSTART 01' end='DOCEND 01' */}}[KeepForDJVM.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt)
+
+[KeepForDJVM.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt)
+
 
 To preserve any Kotlin functions, properties or type aliases that have been declared outside of a `class`,
 you should annotate the source file’s `package` declaration instead:```kotlin
@@ -275,7 +277,9 @@ Elements that *must* be deleted from classes in the deterministic JAR should be 
 annotation class DeleteForDJVM
 
 ```
-{{/* github src='core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt' url='https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt#L10-L23' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt' start='DOCSTART 01' end='DOCEND 01' */}}[DeleteForDJVM.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt)
+
+[DeleteForDJVM.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt)
+
 
 You must also ensure that a deterministic class’s primary constructor does not reference any classes that are
 not available in the deterministic `rt.jar`. The biggest risk here would be that `JarFilter` would delete the
@@ -326,7 +330,9 @@ annotation:```kotlin
 annotation class StubOutForDJVM
 
 ```
-{{/* github src='core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt' url='https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt#L13-L21' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt' start='DOCSTART 01' end='DOCEND 01' */}}[StubOutForDJVM.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt)
+
+[StubOutForDJVM.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt)
+
 
 This annotation instructs `JarFilter` to replace the function’s body with either an empty body (for functions
 that return `void` or `Unit`) or one that throws `UnsupportedOperationException`. For example:```kotlin

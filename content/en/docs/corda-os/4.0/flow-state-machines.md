@@ -174,7 +174,9 @@ object TwoPartyTradeFlow {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt' url='https://github.com/corda/corda/blob/release/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt#L21-L65' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [TutorialFlowStateMachines.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt) | ![github](/images/svg/github.svg "github")
 
@@ -562,7 +564,9 @@ private static final ProgressTracker.Step RECORDING = new ProgressTracker.Step(
 
 ```
 {{% /tab %}}
-{{/* github src='finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' url='https://github.com/corda/corda/blob/release/4.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' start='DOCSTART 4' end='DOCEND 4' */}}
+
+
+
 
 [TutorialFlowStateMachines.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java) | ![github](/images/svg/github.svg "github")
 
@@ -591,7 +595,9 @@ private static final ProgressTracker.Step VERIFYING_AND_SIGNING = new ProgressTr
 
 ```
 {{% /tab %}}
-{{/* github src='finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' url='https://github.com/corda/corda/blob/release/4.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [TutorialFlowStateMachines.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java) | ![github](/images/svg/github.svg "github")
 

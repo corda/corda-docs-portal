@@ -54,7 +54,9 @@ interface Contract {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L246-L265' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 5' end='DOCEND 5' */}}
+
+
+
 
 [Structures.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
@@ -162,7 +164,9 @@ The `LedgerTransaction` object passed into `verify` has the following properties
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt' url='https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt#L61-L83' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [LedgerTransaction.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt) | ![github](/images/svg/github.svg "github")
 
@@ -281,7 +285,9 @@ data class CommandWithParties<out T : CommandData>(
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L233-L242' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 6' end='DOCEND 6' */}}
+
+
+
 
 [Structures.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 

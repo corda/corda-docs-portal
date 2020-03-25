@@ -89,7 +89,9 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt#L6-L30' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt' start='START 1' end='END 1' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 import net.corda.client.rpc.CordaRPCClient;
@@ -122,7 +124,9 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java#L4-L30' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java' start='START 1' end='END 1' */}}
+
+
+
 
 [ClientRpcExample.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java) | ![github](/images/svg/github.svg "github")
 
@@ -542,7 +546,9 @@ such situations:
     }
 
 ```
-{{/* github src='samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt#L97-L126' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt' start='DOCSTART rpcClientConnectionWithRetry' end='DOCEND rpcClientConnectionWithRetry' */}}[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
+
+[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
+
 
 {{< warning >}}
 The list of `NetworkHostAndPort` passed to this function should represent one or more addresses reflecting the number of
@@ -583,7 +589,9 @@ on the `Observable` returned by `CordaRPCOps`.
     }
 
 ```
-{{/* github src='samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt#L71-L93' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt' start='DOCSTART rpcClientConnectionRecovery' end='DOCEND rpcClientConnectionRecovery' */}}[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
+
+[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
+
 In this code snippet it is possible to see that the function `performRpcReconnect` creates an RPC connection and implements
 the error handler upon subscription to an `Observable`. The call to this `onError` handler will be triggered upon failover, at which
 point the client will terminate its existing subscription, close its RPC connection and recursively call `performRpcReconnect`,

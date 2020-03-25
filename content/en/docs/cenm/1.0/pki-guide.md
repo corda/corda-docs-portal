@@ -207,7 +207,9 @@ certificates = {
     }
 }
 ```
-{{/* github src='pki-tool/src/test/resources/certificate-hierarchy-generator-local.conf' url='https://github.com/corda/network-services/blob/release/1.0/pki-tool/src/test/resources/certificate-hierarchy-generator-local.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.0/pki-tool/src/test/resources/certificate-hierarchy-generator-local.conf' start='' end='' */}}[certificate-hierarchy-generator-local.conf](https://github.com/corda/network-services/blob/release/1.0/pki-tool/src/test/resources/certificate-hierarchy-generator-local.conf)
+
+[certificate-hierarchy-generator-local.conf](https://github.com/corda/network-services/blob/release/1.0/pki-tool/src/test/resources/certificate-hierarchy-generator-local.conf)
+
 To simplify things even more, the PKI Tool assumes default values as much as possible so the user
 is only required to provide only essential information to the tool. At the same time, the tool allows for overriding those
 defaults and have the configuration adjusted to the specific needs of different scenarios.

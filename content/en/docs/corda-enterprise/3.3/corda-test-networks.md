@@ -72,7 +72,9 @@ rpcUsers : [
 devMode : true
 
 ```
-{{/* github src='docs/source/example-code/src/main/resources/example-node.conf' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/resources/example-node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/resources/example-node.conf' start='' end='' */}}[example-node.conf](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/resources/example-node.conf)
+
+[example-node.conf](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/resources/example-node.conf)
+
 
 * **language**: 
 cfg

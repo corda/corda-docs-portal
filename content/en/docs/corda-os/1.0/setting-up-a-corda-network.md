@@ -80,7 +80,9 @@ devMode : true
 //certificateSigningService : "https://testnet.certificate.corda.net"
 
 ```
-{{/* github src='docs/source/example-code/src/main/resources/example-node.conf' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/resources/example-node.conf' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/resources/example-node.conf' start='' end='' */}}[example-node.conf](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/resources/example-node.conf)
+
+[example-node.conf](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/resources/example-node.conf)
+
 The most important fields regarding network configuration are:
 
 

@@ -161,7 +161,9 @@ data class WorkflowPluginRequest(val requestId: String,
                                  val rejectionData: RejectionData? = null)
 
 ```
-{{/* github src='api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/WorkflowPlugin.kt' url='https://github.com/corda/network-services/blob/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/WorkflowPlugin.kt' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/WorkflowPlugin.kt' start='' end='' */}}[WorkflowPlugin.kt](https://github.com/corda/network-services/blob/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/WorkflowPlugin.kt)
+
+[WorkflowPlugin.kt](https://github.com/corda/network-services/blob/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/WorkflowPlugin.kt)
+
 
 ## Example
 
@@ -272,7 +274,9 @@ class FileBaseCSRPlugin(
 }
 
 ```
-{{/* github src='api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/example/FileBaseCSRPlugin.kt' url='https://github.com/corda/network-services/blob/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/example/FileBaseCSRPlugin.kt' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/example/FileBaseCSRPlugin.kt' start='' end='' */}}[FileBaseCSRPlugin.kt](https://github.com/corda/network-services/blob/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/example/FileBaseCSRPlugin.kt)
+
+[FileBaseCSRPlugin.kt](https://github.com/corda/network-services/blob/release/1.1/api/src/main/kotlin/com/r3/corda/networkmanage/api/workflow/example/FileBaseCSRPlugin.kt)
+
 
 ## Certificate Signing Request Rejection Reasons
 

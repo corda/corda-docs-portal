@@ -106,7 +106,9 @@ class IOUFlow(val iouValue: Int,
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/flow.kt' url='https://github.com/corda/corda/blob/2.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/flow.kt#L4-L43' raw='https://raw.githubusercontent.com/corda/corda/2.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/flow.kt' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 import co.paralleluniverse.fibers.Suspendable;
@@ -172,7 +174,9 @@ public class IOUFlow extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java' url='https://github.com/corda/corda/blob/2.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java#L4-L63' raw='https://raw.githubusercontent.com/corda/corda/2.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 
 [flow.kt](https://github.com/corda/corda/blob/release/os/2.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/flow.kt) | [IOUFlow.java](https://github.com/corda/corda/blob/release/os/2.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java) | ![github](/images/svg/github.svg "github")
 

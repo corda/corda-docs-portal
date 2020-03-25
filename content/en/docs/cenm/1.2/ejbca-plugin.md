@@ -354,7 +354,9 @@ public class EJBCASigningPlugin implements CASigningPlugin, ENMLoggable {
 }
 
 ```
-{{/* github src='smr-plugins/ejbca-plugin/src/main/java/com/r3/enm/smrplugins/ejbcaplugin/EJBCASigningPlugin.java' url='https://github.com/corda/network-services/blob/release/1.2/smr-plugins/ejbca-plugin/src/main/java/com/r3/enm/smrplugins/ejbcaplugin/EJBCASigningPlugin.java' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/smr-plugins/ejbca-plugin/src/main/java/com/r3/enm/smrplugins/ejbcaplugin/EJBCASigningPlugin.java' start='' end='' */}}[EJBCASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugins/ejbca-plugin/src/main/java/com/r3/enm/smrplugins/ejbcaplugin/EJBCASigningPlugin.java)
+
+[EJBCASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugins/ejbca-plugin/src/main/java/com/r3/enm/smrplugins/ejbcaplugin/EJBCASigningPlugin.java)
+
 
 ## Running EJBCA plugin
 

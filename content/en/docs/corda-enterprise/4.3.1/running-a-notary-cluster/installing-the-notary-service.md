@@ -92,7 +92,9 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/running-a-notary-cluster/resources/node.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/node.conf' start='' end='' */}}
+
+
+
 
 [node.conf](https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/node.conf) | ![github](/images/svg/github.svg "github")
 
@@ -128,7 +130,9 @@ notary {
 }
 ```
 {{% /tab %}}
-{{/* github src='docs/source/running-a-notary-cluster/resources/percona.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/percona.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/percona.conf' start='' end='' */}}
+
+
+
 
 [percona.conf](https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/percona.conf) | ![github](/images/svg/github.svg "github")
 
@@ -174,7 +178,9 @@ dataSourceProperties = {
     dataSource.password = "<encrypt{your-data-source-password}>"
 }
 ```
-{{/* github src='docs/source/running-a-notary-cluster/resources/config_obfuscator' url='https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/config_obfuscator' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/config_obfuscator' start='' end='' */}}[config_obfuscator](https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/config_obfuscator)
+
+[config_obfuscator](https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/running-a-notary-cluster/resources/config_obfuscator)
+
 
 
 ## Obtaining the notary service identity

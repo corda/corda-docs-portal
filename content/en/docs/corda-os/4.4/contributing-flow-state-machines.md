@@ -55,7 +55,9 @@ flow with a full node.
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt' url='https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt#L18-L28' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt' start='DOCSTART summingWorks' end='DOCEND summingWorks' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
     @Test
@@ -78,7 +80,9 @@ flow with a full node.
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java' url='https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java#L23-L39' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java' start='DOCSTART summingWorks' end='DOCEND summingWorks' */}}
+
+
+
 
 [TutorialFlowAsyncOperationTest.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt) | [TutorialFlowAsyncOperationTest.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java) | ![github](/images/svg/github.svg "github")
 
@@ -102,7 +106,9 @@ class SummingOperationThrowing(val a: Int, val b: Int) : FlowExternalAsyncOperat
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt' url='https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt#L16-L20' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt' start='DOCSTART SummingOperationThrowing' end='DOCEND SummingOperationThrowing' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 public final class SummingOperationThrowing implements FlowAsyncOperation<Integer> {
@@ -131,7 +137,9 @@ public final class SummingOperationThrowing implements FlowAsyncOperation<Intege
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java' url='https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java#L8-L30' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java' start='DOCSTART SummingOperationThrowing' end='DOCEND SummingOperationThrowing' */}}
+
+
+
 
 [TutorialFlowAsyncOperation.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt) | [SummingOperationThrowing.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java) | ![github](/images/svg/github.svg "github")
 

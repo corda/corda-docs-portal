@@ -54,7 +54,9 @@ interface ContractState {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/ContractState.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt#L17-L37' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [ContractState.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt) | ![github](/images/svg/github.svg "github")
 
@@ -111,7 +113,9 @@ interface LinearState : ContractState {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L126-L138' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 2' end='DOCEND 2' */}}
+
+
+
 
 [Structures.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
@@ -167,7 +171,9 @@ interface OwnableState : ContractState {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L78-L93' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 3' end='DOCEND 3' */}}
+
+
+
 
 [Structures.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
@@ -249,7 +255,9 @@ and methods. For example, here is the relatively complex definition for a state 
 
 ```
 {{% /tab %}}
-{{/* github src='finance/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/finance/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt#L62-L104' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/finance/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [Cash.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/finance/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt) | ![github](/images/svg/github.svg "github")
 
@@ -326,7 +334,9 @@ data class TransactionState<out T : ContractState> @JvmOverloads constructor(
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt#L17-L61' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [TransactionState.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt) | ![github](/images/svg/github.svg "github")
 

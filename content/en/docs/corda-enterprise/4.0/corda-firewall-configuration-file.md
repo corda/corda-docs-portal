@@ -81,7 +81,9 @@ auditServiceConfiguration : {
 }
 silencedIPs = []
 ```
-{{/* github src='bridge/src/main/resources/firewalldefault.conf' url='https://github.com/corda/enterprise/blob/release-4.0/bridge/src/main/resources/firewalldefault.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release-4.0/bridge/src/main/resources/firewalldefault.conf' start='' end='' */}}[firewalldefault.conf](https://github.com/corda/enterprise/blob/release/ent/4.0/bridge/src/main/resources/firewalldefault.conf)
+
+[firewalldefault.conf](https://github.com/corda/enterprise/blob/release/ent/4.0/bridge/src/main/resources/firewalldefault.conf)
+
 
 ## Firewall operating modes
 

@@ -244,7 +244,9 @@ data class ParametersUpdateInfo(
 )
 
 ```
-{{/* github src='core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3.1/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt#L80-L95' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3.1/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt' start='DOCSTART 1' end='DOCEND 1' */}}[CordaRPCOps.kt](https://github.com/corda/enterprise/blob/release/ent/4.3.1/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+
+[CordaRPCOps.kt](https://github.com/corda/enterprise/blob/release/ent/4.3.1/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
+
 
 ### Auto Acceptance
 
@@ -286,7 +288,9 @@ data class NetworkParameters(
 ) {
 
 ```
-{{/* github src='core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3.1/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt#L18-L49' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3.1/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt' start='DOCSTART 1' end='DOCEND 1' */}}[NetworkParameters.kt](https://github.com/corda/enterprise/blob/release/ent/4.3.1/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt)
+
+[NetworkParameters.kt](https://github.com/corda/enterprise/blob/release/ent/4.3.1/core/src/main/kotlin/net/corda/core/node/NetworkParameters.kt)
+
 This behaviour can be turned off by setting the optional node configuration property `networkParameterAcceptanceSettings.autoAcceptEnabled`
 to `false`. For example:
 

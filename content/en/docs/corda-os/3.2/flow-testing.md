@@ -55,7 +55,9 @@ class ResolveTransactionsFlowTest {
     }
 
 ```
-{{/* github src='core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt' url='https://github.com/corda/corda/blob/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt#L30-L55' raw='https://raw.githubusercontent.com/corda/corda/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt' start='DOCSTART 3' end='DOCEND 3' */}}[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt)
+
+[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt)
+
 We create a mock network in our `@Before` setup method and create a couple of nodes. We also record the identity
 of the notary in our test network, which will come in handy later. We also tidy up when we’re done.
 
@@ -77,7 +79,9 @@ fun `resolve from two hashes`() {
 }
 
 ```
-{{/* github src='core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt' url='https://github.com/corda/corda/blob/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt#L59-L71' raw='https://raw.githubusercontent.com/corda/corda/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt' start='DOCSTART 1' end='DOCEND 1' */}}[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt)
+
+[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt)
+
 We’ll take a look at the `makeTransactions` function in a moment. For now, it’s enough to know that it returns two
 `SignedTransaction` objects, the second of which spends the first. Both transactions are known by MegaCorpNode but
 not MiniCorpNode.
@@ -118,7 +122,9 @@ private fun makeTransactions(signFirstTX: Boolean = true, withAttachment: Secure
 }
 
 ```
-{{/* github src='core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt' url='https://github.com/corda/corda/blob/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt#L169-L192' raw='https://raw.githubusercontent.com/corda/corda/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt' start='DOCSTART 2' end='DOCEND 2' */}}[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt)
+
+[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/3.2/core/src/test/kotlin/net/corda/core/internal/ResolveTransactionsFlowTest.kt)
+
 We’re using the `DummyContract`, a simple test smart contract which stores a single number in its states, along
 with ownership and issuer information. You can issue such states, exit them and re-assign ownership (move them).
 It doesn’t do anything else. This code simply creates a transaction that issues a dummy state (the issuer is

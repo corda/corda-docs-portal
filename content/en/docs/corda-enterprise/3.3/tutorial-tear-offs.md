@@ -38,7 +38,9 @@ val filtering = Predicate<Any> {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt#L30-L35' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [TutorialTearOffs.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
@@ -53,7 +55,9 @@ val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt#L39-L39' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' start='DOCSTART 2' end='DOCEND 2' */}}
+
+
+
 
 [TutorialTearOffs.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
@@ -77,7 +81,9 @@ val timeWindow: TimeWindow? = ftx.timeWindow
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' url='https://github.com/corda/enterprise/blob/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt#L43-L47' raw='https://raw.githubusercontent.com/corda/enterprise/release/release-V3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt' start='DOCSTART 3' end='DOCEND 3' */}}
+
+
+
 
 [TutorialTearOffs.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 

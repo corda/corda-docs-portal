@@ -38,7 +38,9 @@ webAddress : "localhost:10003"
 verifierType: "OutOfProcess"
 
 ```
-{{/* github src='docs/source/example-code/src/main/resources/example-out-of-process-verifier-node.conf' url='https://github.com/corda/corda/blob/3.1/docs/source/example-code/src/main/resources/example-out-of-process-verifier-node.conf' raw='https://raw.githubusercontent.com/corda/corda/3.1/docs/source/example-code/src/main/resources/example-out-of-process-verifier-node.conf' start='' end='' */}}[example-out-of-process-verifier-node.conf](https://github.com/corda/corda/blob/release/os/3.1/docs/source/example-code/src/main/resources/example-out-of-process-verifier-node.conf)
+
+[example-out-of-process-verifier-node.conf](https://github.com/corda/corda/blob/release/os/3.1/docs/source/example-code/src/main/resources/example-out-of-process-verifier-node.conf)
+
 You can build a verifier jar using `./gradlew verifier:standaloneJar`.
 
 And run it with `java -jar verifier/build/libs/corda-verifier.jar <PATH_TO_VERIFIER_BASE_DIR>`.
@@ -51,4 +53,6 @@ nodeHostAndPort: "my-corda-node:10002"
 keyStorePassword : "cordacadevpass"
 trustStorePassword : "trustpass"
 ```
-{{/* github src='docs/source/example-code/src/main/resources/example-verifier.conf' url='https://github.com/corda/corda/blob/3.1/docs/source/example-code/src/main/resources/example-verifier.conf' raw='https://raw.githubusercontent.com/corda/corda/3.1/docs/source/example-code/src/main/resources/example-verifier.conf' start='' end='' */}}[example-verifier.conf](https://github.com/corda/corda/blob/release/os/3.1/docs/source/example-code/src/main/resources/example-verifier.conf)
+
+[example-verifier.conf](https://github.com/corda/corda/blob/release/os/3.1/docs/source/example-code/src/main/resources/example-verifier.conf)
+

@@ -54,7 +54,9 @@ import javax.ws.rs.core.Response
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt' url='https://github.com/corda/corda/blob/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt#L4-L18' raw='https://raw.githubusercontent.com/corda/corda/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 import co.paralleluniverse.fibers.Suspendable;
@@ -72,7 +74,9 @@ import java.util.List;
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' url='https://github.com/corda/corda/blob/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java#L4-L15' raw='https://raw.githubusercontent.com/corda/corda/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 
 [flow.kt](https://github.com/corda/corda/blob/release/os/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt) | [IOUFlow.java](https://github.com/corda/corda/blob/release/os/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
 
@@ -112,7 +116,9 @@ subFlow(FinalityFlow(fullySignedTx))
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt' url='https://github.com/corda/corda/blob/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt#L36-L60' raw='https://raw.githubusercontent.com/corda/corda/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt' start='DOCSTART 02' end='DOCEND 02' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 // We create a transaction builder.
@@ -148,7 +154,9 @@ return null;
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' url='https://github.com/corda/corda/blob/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java#L49-L78' raw='https://raw.githubusercontent.com/corda/corda/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' start='DOCSTART 02' end='DOCEND 02' */}}
+
+
+
 
 [flow.kt](https://github.com/corda/corda/blob/release/os/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt) | [IOUFlow.java](https://github.com/corda/corda/blob/release/os/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
 
@@ -222,7 +230,9 @@ class IOUFlowResponder(val otherPartySession: FlowSession) : FlowLogic<Unit>() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flowResponder.kt' url='https://github.com/corda/corda/blob/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flowResponder.kt#L12-L32' raw='https://raw.githubusercontent.com/corda/corda/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flowResponder.kt' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 // Add these imports:
@@ -271,7 +281,9 @@ public class IOUFlowResponder extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java' url='https://github.com/corda/corda/blob/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java#L4-L46' raw='https://raw.githubusercontent.com/corda/corda/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 
 [flowResponder.kt](https://github.com/corda/corda/blob/release/os/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/corda/blob/release/os/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java) | ![github](/images/svg/github.svg "github")
 

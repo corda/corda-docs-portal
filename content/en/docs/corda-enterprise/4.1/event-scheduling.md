@@ -93,7 +93,9 @@ override fun nextScheduledActivity(thisStateRef: StateRef, flowLogicRefFactory: 
 
 ```
 {{% /tab %}}
-{{/* github src='samples/irs-demo/cordapp/contracts-irs/src/main/kotlin/net/corda/irs/contract/IRS.kt' url='https://github.com/corda/enterprise/blob/release/4.1/samples/irs-demo/cordapp/contracts-irs/src/main/kotlin/net/corda/irs/contract/IRS.kt#L612-L618' raw='https://raw.githubusercontent.com/corda/enterprise/release/4.1/samples/irs-demo/cordapp/contracts-irs/src/main/kotlin/net/corda/irs/contract/IRS.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [IRS.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/irs-demo/cordapp/contracts-irs/src/main/kotlin/net/corda/irs/contract/IRS.kt) | ![github](/images/svg/github.svg "github")
 

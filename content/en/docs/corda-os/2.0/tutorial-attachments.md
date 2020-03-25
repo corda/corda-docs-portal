@@ -129,7 +129,9 @@ fun recipient(rpc: CordaRPCOps) {
 
 ```
 {{% /tab %}}
-{{/* github src='samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt' url='https://github.com/corda/corda/blob/2.0/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt#L137-L175' raw='https://raw.githubusercontent.com/corda/corda/2.0/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/2.0/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
 
@@ -174,7 +176,9 @@ private fun sender(rpc: CordaRPCOps, inputStream: InputStream, hash: SecureHash.
 
 ```
 {{% /tab %}}
-{{/* github src='samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt' url='https://github.com/corda/corda/blob/2.0/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt#L78-L107' raw='https://raw.githubusercontent.com/corda/corda/2.0/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt' start='DOCSTART 2' end='DOCEND 2' */}}
+
+
+
 
 [AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/2.0/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
 

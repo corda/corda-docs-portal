@@ -39,7 +39,9 @@ class MyCustomValidatingNotaryService(override val services: ServiceHub, overrid
 }
 
 ```
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt#L17-L26' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt' start='START 1' end='END 1' */}}[CustomNotaryTutorial.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt)
+
+[CustomNotaryTutorial.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt)
+
 The next step is to write a notary service flow. You are free to copy and modify the existing built-in flows such
 as `ValidatingNotaryFlow`, `NonValidatingNotaryFlow`, or implement your own from scratch (following the
 `NotaryFlow.Service` template). Below is an example of a custom flow for a *validating* notary service:
@@ -84,7 +86,9 @@ class MyValidatingNotaryFlow(otherSide: FlowSession, service: MyCustomValidating
 }
 
 ```
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt' url='https://github.com/corda/corda/blob/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt#L30-L66' raw='https://raw.githubusercontent.com/corda/corda/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt' start='START 2' end='END 2' */}}[CustomNotaryTutorial.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt)
+
+[CustomNotaryTutorial.kt](https://github.com/corda/corda/blob/release/os/1.0/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomNotaryTutorial.kt)
+
 To ensure the custom notary is installed and advertised by the node, specify it in the configuration file:
 
 ```kotlin

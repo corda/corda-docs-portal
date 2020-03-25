@@ -84,7 +84,7 @@ github = "corda"
 stackoverflow = "corda"
 
 #  Cue bikeshedding
-default_tab = "kotlin"
+default_tab = "java"
 
 ogimage = "/images/png/corda.png"
 

@@ -92,7 +92,9 @@ class IOUState(val value: Int,
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/state.kt' url='https://github.com/corda/corda/blob/2.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/state.kt#L4-L11' raw='https://raw.githubusercontent.com/corda/corda/2.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/state.kt' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 import com.google.common.collect.ImmutableList;
@@ -133,7 +135,9 @@ public class IOUState implements ContractState {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java' url='https://github.com/corda/corda/blob/2.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java#L4-L38' raw='https://raw.githubusercontent.com/corda/corda/2.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 
 [state.kt](https://github.com/corda/corda/blob/release/os/2.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/state.kt) | [IOUState.java](https://github.com/corda/corda/blob/release/os/2.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java) | ![github](/images/svg/github.svg "github")
 

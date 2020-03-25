@@ -173,7 +173,9 @@ The current supported commands that can be run from the shell are:
 
 
 ```
-{{/* github src='services/src/main/kotlin/com/r3/enm/services/networkmap/shell/NetworkMapShellCommands.kt' url='https://github.com/corda/network-services/blob/release/1.1/services/src/main/kotlin/com/r3/enm/services/networkmap/shell/NetworkMapShellCommands.kt#L16-L65' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/services/src/main/kotlin/com/r3/enm/services/networkmap/shell/NetworkMapShellCommands.kt' start='DOCSTART 01' end='DOCEND 01' */}}[NetworkMapShellCommands.kt](https://github.com/corda/network-services/blob/release/1.1/services/src/main/kotlin/com/r3/enm/services/networkmap/shell/NetworkMapShellCommands.kt)
+
+[NetworkMapShellCommands.kt](https://github.com/corda/network-services/blob/release/1.1/services/src/main/kotlin/com/r3/enm/services/networkmap/shell/NetworkMapShellCommands.kt)
+
 
 ### Identity Manager Service
 
@@ -191,7 +193,9 @@ The current supported commands that can be run from the shell are:
     fun awaitingApprovalCSRs(): List<CordaX500Name>
 
 ```
-{{/* github src='services/src/main/kotlin/com/r3/enm/services/identitymanager/shell/DoormanShellCommands.kt' url='https://github.com/corda/network-services/blob/release/1.1/services/src/main/kotlin/com/r3/enm/services/identitymanager/shell/DoormanShellCommands.kt#L12-L20' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/services/src/main/kotlin/com/r3/enm/services/identitymanager/shell/DoormanShellCommands.kt' start='DOCSTART 01' end='DOCEND 01' */}}[DoormanShellCommands.kt](https://github.com/corda/network-services/blob/release/1.1/services/src/main/kotlin/com/r3/enm/services/identitymanager/shell/DoormanShellCommands.kt)
+
+[DoormanShellCommands.kt](https://github.com/corda/network-services/blob/release/1.1/services/src/main/kotlin/com/r3/enm/services/identitymanager/shell/DoormanShellCommands.kt)
+
 
 ### Signing Service
 
@@ -214,5 +218,7 @@ The current supported commands that can be run from the shell are:
     fun clientHealthCheck()
 
 ```
-{{/* github src='network-management/src/main/kotlin/com/r3/corda/networkmanage/doorman/shell/SignerShellCommands.kt' url='https://github.com/corda/network-services/blob/release/1.1/network-management/src/main/kotlin/com/r3/corda/networkmanage/doorman/shell/SignerShellCommands.kt#L12-L25' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/network-management/src/main/kotlin/com/r3/corda/networkmanage/doorman/shell/SignerShellCommands.kt' start='DOCSTART 01' end='DOCEND 01' */}}[SignerShellCommands.kt](https://github.com/corda/network-services/blob/release/1.1/network-management/src/main/kotlin/com/r3/corda/networkmanage/doorman/shell/SignerShellCommands.kt)
+
+[SignerShellCommands.kt](https://github.com/corda/network-services/blob/release/1.1/network-management/src/main/kotlin/com/r3/corda/networkmanage/doorman/shell/SignerShellCommands.kt)
+
 

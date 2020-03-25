@@ -53,7 +53,9 @@ interface Contract {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/corda/blob/3.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L224-L242' raw='https://raw.githubusercontent.com/corda/corda/3.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 5' end='DOCEND 5' */}}
+
+
+
 
 [Structures.kt](https://github.com/corda/corda/blob/release/os/3.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
@@ -154,7 +156,9 @@ data class LedgerTransaction @JvmOverloads constructor(
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt' url='https://github.com/corda/corda/blob/3.0/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt#L29-L44' raw='https://raw.githubusercontent.com/corda/corda/3.0/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [LedgerTransaction.kt](https://github.com/corda/corda/blob/release/os/3.0/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt) | ![github](/images/svg/github.svg "github")
 
@@ -271,7 +275,9 @@ data class CommandWithParties<out T : CommandData>(
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/corda/blob/3.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L213-L220' raw='https://raw.githubusercontent.com/corda/corda/3.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 6' end='DOCEND 6' */}}
+
+
+
 
 [Structures.kt](https://github.com/corda/corda/blob/release/os/3.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 

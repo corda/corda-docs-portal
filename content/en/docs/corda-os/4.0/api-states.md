@@ -57,7 +57,9 @@ interface ContractState {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/ContractState.kt' url='https://github.com/corda/corda/blob/release/4.0/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt#L8-L29' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [ContractState.kt](https://github.com/corda/corda/blob/release/os/4.0/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt) | ![github](/images/svg/github.svg "github")
 
@@ -115,7 +117,9 @@ interface LinearState : ContractState {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/corda/blob/release/4.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L122-L135' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 2' end='DOCEND 2' */}}
+
+
+
 
 [Structures.kt](https://github.com/corda/corda/blob/release/os/4.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
@@ -173,7 +177,9 @@ interface OwnableState : ContractState {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/corda/blob/release/4.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L71-L88' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 3' end='DOCEND 3' */}}
+
+
+
 
 [Structures.kt](https://github.com/corda/corda/blob/release/os/4.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
@@ -217,7 +223,9 @@ interface FungibleState<T : Any> : ContractState {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt' url='https://github.com/corda/corda/blob/release/4.0/core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt#L28-L35' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [FungibleState.kt](https://github.com/corda/corda/blob/release/os/4.0/core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt) | ![github](/images/svg/github.svg "github")
 
@@ -358,7 +366,9 @@ data class TransactionState<out T : ContractState> @JvmOverloads constructor(
 
 ```
 {{% /tab %}}
-{{/* github src='finance/workflows/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt' url='https://github.com/corda/corda/blob/release/4.0/finance/workflows/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt' raw='https://raw.githubusercontent.com/corda/corda/release/4.0/finance/workflows/src/main/kotlin/net/corda/finance/contracts/asset/Cash.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [TransactionState.kt](https://github.com/corda/corda/blob/release/os/4.0/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt) | ![github](/images/svg/github.svg "github")
 

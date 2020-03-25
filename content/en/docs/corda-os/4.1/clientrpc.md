@@ -80,7 +80,9 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt' url='https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt#L6-L30' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt' start='START 1' end='END 1' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 import net.corda.client.rpc.CordaRPCClient;
@@ -113,7 +115,9 @@ class ClientRpcExample {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java' url='https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java#L4-L30' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java' start='START 1' end='END 1' */}}
+
+
+
 
 [ClientRpcExample.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java) | ![github](/images/svg/github.svg "github")
 
@@ -524,7 +528,9 @@ How to initialize the *ReconnectingCordaRPCOps*:
             val bankAReconnectingRpc = ReconnectingCordaRPCOps(bankAAddress, demoUser.username, demoUser.password)
 
 ```
-{{/* github src='node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt' url='https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt#L104-L104' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt' start='DOCSTART rpcReconnectingRPC' end='DOCEND rpcReconnectingRPC' */}}[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
+
+[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
+
 How to track the vault :
 
 ```kotlin
@@ -538,7 +544,9 @@ How to track the vault :
             }
 
 ```
-{{/* github src='node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt' url='https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt#L110-L117' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt' start='DOCSTART rpcReconnectingRPCVaultTracking' end='DOCEND rpcReconnectingRPCVaultTracking' */}}[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
+
+[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
+
 How to start a flow with a logical retry function that checks for the side effects of the flow:
 
 ```kotlin
@@ -583,7 +591,9 @@ How to start a flow with a logical retry function that checks for the side effec
                 )
 
 ```
-{{/* github src='node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt' url='https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt#L182-L220' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt' start='DOCSTART rpcReconnectingRPCFlowStarting' end='DOCEND rpcReconnectingRPCFlowStarting' */}}[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
+
+[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
+
 Note that, as shown by the test, during reconnecting some events might be lost.
 
 ```kotlin
@@ -593,7 +603,9 @@ Note that, as shown by the test, during reconnecting some events might be lost.
             assertTrue(vaultEvents!!.size + nrFailures * 2 >= nrOfFlowsToRun, "Not all vault events were received")
 
 ```
-{{/* github src='node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt' url='https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt#L244-L247' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt' start='DOCSTART missingVaultEvents' end='DOCEND missingVaultEvents' */}}[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
+
+[RpcReconnectTests.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt)
+
 
 ## Wire security
 

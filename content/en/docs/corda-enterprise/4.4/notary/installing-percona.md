@@ -194,7 +194,9 @@ wsrep_sst_auth={{ sst_user }}:{{ sst_pass }}
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/notary/resources/wsrep.cnf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/notary/resources/wsrep.cnf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/notary/resources/wsrep.cnf' start='' end='' */}}
+
+
+
 
 [wsrep.cnf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/notary/resources/wsrep.cnf) | ![github](/images/svg/github.svg "github")
 

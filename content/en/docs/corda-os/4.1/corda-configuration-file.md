@@ -197,7 +197,9 @@ useTestClock = false
 verifierType = InMemory
 
 ```
-{{/* github src='node/src/main/resources/reference.conf' url='https://github.com/corda/corda/blob/release/os/4.1/node/src/main/resources/reference.conf' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/node/src/main/resources/reference.conf' start='' end='' */}}[reference.conf](https://github.com/corda/corda/blob/release/os/4.1/node/src/main/resources/reference.conf)
+
+[reference.conf](https://github.com/corda/corda/blob/release/os/4.1/node/src/main/resources/reference.conf)
+
 
 ## Configuration examples
 
@@ -230,7 +232,9 @@ rpcUsers = [
 devMode = true
 
 ```
-{{/* github src='docs/source/example-code/src/main/resources/example-node.conf' url='https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node.conf' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/docs/source/example-code/src/main/resources/example-node.conf' start='' end='' */}}[example-node.conf](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node.conf)
+
+[example-node.conf](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node.conf)
+
 
 ### Simple notary configuration file
 
@@ -288,4 +292,6 @@ networkServices {
 }
 
 ```
-{{/* github src='docs/source/example-code/src/main/resources/example-node-with-networkservices.conf' url='https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf' start='' end='' */}}[example-node-with-networkservices.conf](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
+
+[example-node-with-networkservices.conf](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
+

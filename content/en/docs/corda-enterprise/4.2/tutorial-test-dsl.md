@@ -74,14 +74,18 @@ We will start with defining helper function that returns a `CommercialPaper` sta
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L70-L75' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 private static final TestIdentity bigCorp = new TestIdentity(new CordaX500Name("BigCorp", "New York", "GB"));
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L69-L76' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
@@ -168,7 +172,9 @@ fun simpleCP() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L79-L90' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 2' end='DOCEND 2' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 // This example test will fail with this exception.
@@ -187,7 +193,9 @@ public void simpleCP() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L80-L92' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 2' end='DOCEND 2' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
@@ -214,7 +222,9 @@ fun simpleCPMove() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L94-L106' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 3' end='DOCEND 3' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 // This example test will fail with this exception.
@@ -234,7 +244,9 @@ public void simpleCPMove() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L96-L109' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 3' end='DOCEND 3' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
@@ -278,7 +290,9 @@ fun simpleCPMoveFails() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L110-L121' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 4' end='DOCEND 4' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 @Test
@@ -297,7 +311,9 @@ public void simpleCPMoveFails() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L113-L125' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 4' end='DOCEND 4' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
@@ -325,7 +341,9 @@ fun simpleCPMoveFailureAndSuccess() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L125-L138' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 5' end='DOCEND 5' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 @Test
@@ -346,7 +364,9 @@ public void simpleCPMoveSuccessAndFailure() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L129-L143' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 5' end='DOCEND 5' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
@@ -385,7 +405,9 @@ fun `simple issuance with tweak`() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L159-L176' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 6' end='DOCEND 6' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 @Test
@@ -409,7 +431,9 @@ public void simpleIssuanceWithTweak() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L165-L182' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 6' end='DOCEND 6' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
@@ -444,7 +468,9 @@ fun `simple issuance with tweak and top level transaction`() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L180-L195' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 7' end='DOCEND 7' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 @Test
@@ -465,7 +491,9 @@ public void simpleIssuanceWithTweakTopLevelTx() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L186-L200' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 7' end='DOCEND 7' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
@@ -512,7 +540,9 @@ fun `chain commercial paper`() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L199-L228' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 8' end='DOCEND 8' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 @Test
@@ -551,7 +581,9 @@ public void chainCommercialPaper() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L204-L236' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 8' end='DOCEND 8' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
@@ -615,7 +647,9 @@ fun `chain commercial paper double spend`() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L232-L270' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 9' end='DOCEND 9' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 @Test
@@ -664,7 +698,9 @@ public void chainCommercialPaperDoubleSpend() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L240-L282' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 9' end='DOCEND 9' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
@@ -721,7 +757,9 @@ fun `chain commercial tweak`() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt#L274-L315' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt' start='DOCSTART 10' end='DOCEND 10' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 @Test
@@ -774,7 +812,9 @@ public void chainCommercialPaperTweak() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java#L286-L332' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java' start='DOCSTART 10' end='DOCEND 10' */}}
+
+
+
 
 [TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 

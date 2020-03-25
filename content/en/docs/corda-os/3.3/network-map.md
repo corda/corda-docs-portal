@@ -212,7 +212,9 @@ data class ParametersUpdateInfo(
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt' url='https://github.com/corda/corda/blob/3.3/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt#L78-L92' raw='https://raw.githubusercontent.com/corda/corda/3.3/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt' start='DOCSTART 1' end='DOCEND 1' */}}
+
+
+
 
 [CordaRPCOps.kt](https://github.com/corda/corda/blob/release/os/3.3/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt) | ![github](/images/svg/github.svg "github")
 

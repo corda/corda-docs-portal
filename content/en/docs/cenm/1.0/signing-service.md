@@ -671,7 +671,9 @@ signers = {
 }
 
 ```
-{{/* github src='services/src/test/resources/v1.0-configs/signer/signer-test-valid.conf' url='https://github.com/corda/network-services/blob/release/1.0/services/src/test/resources/v1.0-configs/signer/signer-test-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.0/services/src/test/resources/v1.0-configs/signer/signer-test-valid.conf' start='' end='' */}}[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.0/services/src/test/resources/v1.0-configs/signer/signer-test-valid.conf)
+
+[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.0/services/src/test/resources/v1.0-configs/signer/signer-test-valid.conf)
+
 
 ### Signing Keys From HSM
 
@@ -841,4 +843,6 @@ signers = {
 }
 
 ```
-{{/* github src='services/src/test/resources/v1.0-configs/signer/signer-prod-valid.conf' url='https://github.com/corda/network-services/blob/release/1.0/services/src/test/resources/v1.0-configs/signer/signer-prod-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.0/services/src/test/resources/v1.0-configs/signer/signer-prod-valid.conf' start='' end='' */}}[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.0/services/src/test/resources/v1.0-configs/signer/signer-prod-valid.conf)
+
+[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.0/services/src/test/resources/v1.0-configs/signer/signer-prod-valid.conf)
+

@@ -687,7 +687,9 @@ shell {
 }
 
 ```
-{{/* github src='services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf' url='https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf' start='' end='' */}}[identity-manager-test-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf)
+
+[identity-manager-test-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf)
+
 
 #### Production Configuration
 
@@ -772,4 +774,6 @@ shell {
 }
 
 ```
-{{/* github src='services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf' url='https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf' start='' end='' */}}[identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)
+
+[identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)
+

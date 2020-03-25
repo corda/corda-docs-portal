@@ -460,7 +460,9 @@ shell {
 }
 
 ```
-{{/* github src='services/src/test/resources/v1.1-configs/network-map/network-map-test-valid.conf' url='https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-test-valid.conf' raw='https://raw.githubusercontent.com/corda/network-services/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-test-valid.conf' start='' end='' */}}[network-map-test-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-test-valid.conf)
+
+[network-map-test-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-test-valid.conf)
+
 
 ## Network Parameters
 

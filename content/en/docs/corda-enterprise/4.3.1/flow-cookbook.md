@@ -688,7 +688,9 @@ class ResponderFlow(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt' start='' end='' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 package net.corda.docs.java;
@@ -1383,7 +1385,9 @@ public class FlowCookbook {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java' url='https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3.1/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java' start='' end='' */}}
+
+
+
 
 [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.3.1/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java) | ![github](/images/svg/github.svg "github")
 

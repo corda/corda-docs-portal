@@ -141,7 +141,9 @@ class IOUContract : Contract {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/contract.kt' url='https://github.com/corda/corda/blob/2.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/contract.kt#L4-L33' raw='https://raw.githubusercontent.com/corda/corda/2.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/contract.kt' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 {{% tab name="java" %}}
 ```java
 import com.google.common.collect.ImmutableList;
@@ -191,7 +193,9 @@ public class IOUContract implements Contract {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java' url='https://github.com/corda/corda/blob/2.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java#L4-L47' raw='https://raw.githubusercontent.com/corda/corda/2.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java' start='DOCSTART 01' end='DOCEND 01' */}}
+
+
+
 
 [contract.kt](https://github.com/corda/corda/blob/release/os/2.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/contract.kt) | [IOUContract.java](https://github.com/corda/corda/blob/release/os/2.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java) | ![github](/images/svg/github.svg "github")
 
