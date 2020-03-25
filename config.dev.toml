@@ -15,7 +15,7 @@
 
 #baseURL = "https://docs-staging.corda.net/"
 
-title = "Using CONFIG.DEV.TOML"
+# title = "Using CONFIG.DEV.TOML"
 
 
 [params]
@@ -24,4 +24,6 @@ title = "Using CONFIG.DEV.TOML"
 # platform if installed
 # do not delete....
 siteroot = "Override on cmd line using HUGO_PARAMS_SITEROOT=$(pwd) hugo serve"
-vscode = true
+
+# vscode is the ONLY SUPPORTED editor at the moment
+editor = "vscode"

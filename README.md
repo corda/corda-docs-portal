@@ -4,62 +4,60 @@ There are detailed instructions in the  [usage docs](usage-docs/readme.md).
 
 Please read them!
 
+You will need:
+
+* [hugo](https://github.com/gohugoio/hugo/releases)  (a single binary on all platforms)
+    * Use the latest version, otherwise at least v0.65
+* a text editor: we strongly recommend [Visual Studio Code](https://code.visualstudio.com/).
+
 ## Quick Start
 
 * Download [hugo](https://github.com/gohugoio/hugo/releases)
 * clone this repo
-* run `hugo serve`
+* `cd` into the root of the repo and run `hugo serve`
 * edit the markdown in `content`
 
-## Installing and running hugo
+### Edit The Current Web Page
+
+If you have installed VSCode, you can run `hugo` in a mode that allows you to open markdown content from the browser.
+
+On Mac or Linux, start `hugo` using:
+
+```makefile
+make local-serve-and-edit
+```
+
+In Powershell (Windows ...and Linux!):
+
+```powershell
+serve_and_edit.ps1
+```
+
+and you will see:
+
+![edit markdown](usage-docs/images/page-edit.png)
+
+## Installing and Running Hugo
 
 ### Docker
 
-If you are on Linux or MacOS you can also build using Docker images (WSL2 not supported yet):
-
-```
-$ make help
-
-local-serve          Build and serve hugo locally from memory or just use 'hugo' directly
-local-build          Build the site (once only into public/) or just use 'hugo' directly
-hugo-docker-image    Build hugo docker image
-hugo-build           Run hugo build in docker (once only, into public/)
-hugo-serve           Serve site from docker
-prod-hugo-build      Prod build, minimal size
-prod-docker-image    Create the prod docker image
-prod-docker-serve    Run the nginx container locally on port 8888
-publish              Build site, and publish docker image to registry - MAIN TARGET
-```
-
-Run `make local-build` to create a Hugo image, and then
-
-```
-make local-serve
-```
-
-to self-host the site with live reload.
-
-The `publish` target is covered in the CI section below.
+If you are on Linux or MacOS you can also build using Docker images (WSL2 not supported yet), type `make help` to see the options
 
 #### Windows
 
-Install hugo locally and ensure it is on your path (see tbe Native section below).
+Install `hugo` locally and ensure it is on your path (see tbe Native section below).
 
-### Native
+It is also available via `choco`.
+
+#### Mac and Linux
+
+Hugo is available via `brew`, and most Linux package installers (`apt`, `pacman`, and so on).
+
+### Binary Download
 
 Go to here https://github.com/gohugoio/hugo/releases
 
 Install one of the `extended` versions.
-
-Ensure you are at the root of this repository.
-
-Run:
-
-```
-hugo serve
-```
-
-to run and serve the site on http://localhost:1313
 
 ## CI/Jenkins
 
@@ -80,31 +78,6 @@ make prod-docker-serve
 
 to run and test the `nginx` image on your desktop.
 
-##  Gotchas
-
-* Index pages should be `_index.md` otherwise sub-pages don't get rendered.
-    * https://discourse.gohugo.io/t/not-generating-any-pages-other-than-index/10565
-
-
-## Regenerating the pages
-
-This section will be removed.  It describes how to convert `rst` to `md` for R3.
-
-Note:  you should install python 3, and ensure you have created a virtual env and activated it.
-
-```
-python3 -m venv venv
-source venv/bin/activate
-pip install -r scripts/requirements.txt
-```
-
-Run the `regenerate.sh` script:
-
-* Deletes all content except `_index.md`
-* Deletes all repositories in the (temp) `repos` folder
-* Runs `get_repos.sh` to clone all repositories and branches
-    * Edit this file to change what is cloned and checked out.
-* Runs `run_sphinx.py` to convert each repo/branch from `rst` to `md` and copies the files to `content`
 
 ##  Docker build configuration
 

@@ -21,14 +21,11 @@ and there will be an extra icon in the title bar of the site:
 
 which should open the current page in VSCode (only).
 
-For Windows users in Powershell (assuming there are no spaces in your `pwd`):
+In Windows Powershell (assuming there are no spaces in your `pwd`):
 
 ```powershell
-$env:HUGO_PARAMS_SITEROOT=(Get-Location).Path.Replace("\","/")
-hugo --config config.toml,config.dev.toml serve
+.\serve_and_edit.ps1
 ```
-
-or just execute `.\serve_and_edit.ps1`.
 
 ## Where are pages?
 
@@ -64,7 +61,7 @@ This will produce a new file in `/content/en/docs/corda-os/4.4/my-new-page.md`
 title: "My New Page"
 date: 2020-03-19T10:06:32Z
 menu:
-  MAIN-MENU-FOR-VERSION-IN-MENUS.EN.TOML:
+  MAIN-MENU-FOR-VERSION:
     parent: SUBMENU-FOR-THIS-PAGE-OR-REMOVE-menu-COMPLETELY
 tags:
 - this
@@ -78,6 +75,8 @@ This is a new docs page
 The `menu` keys are described in [menu usage](hugo-menus.md).  If the page does not need to appear in the left-hand menu, you can delete the `menu` section.
 
 The minimum requirement for a page is simply the `title` and the `date`.
+
+The `MAIN-MENU-FOR-VERSION` has to be unique, and is by convention, the project folder name, e.g. `corda-os`, and the version, e.g. `4.4` contatenated and then all `.` are replaced with `-` to give `corda-os-4-4`.
 
 ## Everything is Markdown
 
@@ -164,3 +163,9 @@ graph TD;
     B-->D;
     C-->D;
 {{% /mermaid %}}
+
+##  Tips and Gotchas
+
+* Index pages should be `_index.md` otherwise sub-pages don't get rendered.
+    * https://discourse.gohugo.io/t/not-generating-any-pages-other-than-index/10565
+* When searching, prefer `gohugo` as your search term.

@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 menu:
-  MAIN-MENU-FOR-VERSION-IN-MENUS.EN.TOML:
+  MAIN-MENU-FOR-VERSION:
     parent: SUBMENU-FOR-THIS-PAGE-OR-REMOVE-menu-COMPLETELY
 tags:
 - this
