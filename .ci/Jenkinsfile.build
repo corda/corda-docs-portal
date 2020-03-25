@@ -2,8 +2,8 @@
 def DOCKER_REPOSITORY = "docsite.software.r3.com"
 
 def MAKE_PARAMS = [
-    "PROD_IMAGE=${DOCKER_REPOSITORY}/corda-docs-nginx",
-    'PROD_IMAGE_TAG="${IMAGE_TAG}"', // ugly hack - do not change the quotes!
+    'PROD_IMAGE="${IMAGE}"',         // do not change the quotes! Variable is for Linux Shell!!
+    'PROD_IMAGE_TAG="${IMAGE_TAG}"', // do not change the quotes! Variable is for Linux Shell!!
 ]
 
 def MAKE_BUILD_TARGETS = [
@@ -23,11 +23,12 @@ pipeline {
 
     environment {
         IMAGE_TAG="${env.GIT_COMMIT[0..5]}"
+        IMAGE="${DOCKER_REPOSITORY}/corda-docs-nginx"
     }
 
     options {
         timestamps()
-        timeout(time: 3, unit: 'HOURS')
+        timeout(time: 30, unit: 'MINUTES')
         disableConcurrentBuilds() // this makes killAllExistingBuildsForJob always do nothing
         buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '7'))
         ansiColor('xterm')
@@ -50,11 +51,35 @@ pipeline {
                 }
             }
             steps {
-                withDockerRegistry(credentialsId: 'docsite-publisher', url: "https://${DOCKER_REPOSITORY}") {
-                    sh """
-                        make ${MAKE_PARAMS.join(' ')} ${MAKE_PUBLISH_TARGETS.join(' ')}
-                    """
+                script {
+                    docker.image("${env.IMAGE}:${env.IMAGE_TAG}").tag('latest')
                 }
+
+                echo "Creating Artifactory server"
+                rtServer (
+                    id: 'R3-Artifactory',
+                    url: 'https://software.r3.com/artifactory',
+                    credentialsId: 'docsite-publisher'
+                )
+                echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry"
+                rtDockerPush (
+                    serverId: 'R3-Artifactory',
+                    image: "${env.IMAGE}:${env.IMAGE_TAG}",
+                    targetRepo: 'docsite-local',
+                    buildName: 'Docsite Docker image'
+                )
+                echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry as 'latest'"
+                rtDockerPush (
+                    serverId: 'R3-Artifactory',
+                    image: "${env.IMAGE}:latest",
+                    targetRepo: 'docsite-local',
+                    buildName: 'Docsite Docker image'
+                )
+                echo 'Publishing build info to Artifactory server'
+                rtPublishBuildInfo (
+                    serverId: 'R3-Artifactory',
+                    buildName: 'Docsite Docker image'
+                )
             }
         }
         stage('Deploy Docker image to staging') {
