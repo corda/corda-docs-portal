@@ -57,10 +57,15 @@ $landing-object: ".#{$class-object-prefix}landing";
                 }
             }
 
+            .corda-light {
+                box-sizing: border-box;
+                background-color: #fff;
+                border: 2px solid $red-500;
+            }
+
             &.github {
-                margin-top: 10px;
                 background-color: $grey-500;
-                margin-bottom: 10px;
+                margin-bottom: 5px;
 
                 &:hover {
                     background-color: $grey-400;
