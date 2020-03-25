@@ -16,6 +16,10 @@ pipeline {
         ansiColor('xterm')
     }
 
+    triggers {
+        upstream threshold: hudson.model.Result.UNSTABLE, upstreamProjects: '/Docs-Builders/Build/docs-site/master'
+    }
+
     stages {
         stage('Deploy Docker image to production') {
             when {
