@@ -78,7 +78,7 @@ weight = 10
 [params]
 github_repository = "https://github.com/corda/docs-site"
 
-twitter = "inside_r3"
+twitter = "cordablockchain"
 slack = "http://slack.corda.net/"
 github = "corda"
 stackoverflow = "corda"
