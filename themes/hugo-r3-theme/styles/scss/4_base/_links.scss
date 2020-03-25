@@ -1,3 +1,7 @@
 a {
-    color: #0052a2;
+    color: $primary-01;
+
+    &:hover {
+        color: $red-500;
+    }
 }

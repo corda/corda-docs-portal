@@ -2,7 +2,7 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
 
 .#{$docs-nav-object} {
     list-style: none;
-    perspective: 900;
+    display: none;
     padding: 0;
     margin: 0;
 
@@ -30,17 +30,27 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
         position: relative;
         padding: 0;
         margin: 0;
-        padding-bottom: 10px;
+        padding-bottom: 7px;
+        padding-top: 7px;
 
-        &:last-of-type{
-            padding-bottom: 20px;
+        &.selected {
+            background-color: $grey-100;
+            border-left: solid 3px $red-500;
+        }
+
+        &.sub-menu .active {
+            border-left: none;
+        }
+
+        &:hover > a h4 {
+            color: $red-500;
         }
 
         i {
             position: absolute;
             transform: translate( -6px , 0 );
             margin-top: 6px;
-            right: 0;
+            left: 15px;
 
             &:before , &:after {
                 content: "";
@@ -64,14 +74,19 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
             color: $grey-800;
             cursor: pointer;
             font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 2px;
+            font-weight: 400;
             line-height: 1.4;
             margin-top: 0;
-            margin-bottom: 8px;
+            margin-left: 25px;
+            margin-bottom: 0;
             max-width: 155px;
-            text-transform: uppercase;
         }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+
 
         input[type=checkbox] {
             position: absolute;
@@ -99,11 +114,9 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
                     }
                 }
             }
-
-            &:hover ~ h4 {
-                color: $red-400;
-            }
         }
+
+
 
         .sub-menu {
             @extend .transition;
@@ -118,16 +131,7 @@ $docs-nav-object: "#{$class-object-prefix}docs-nav";
             z-index: 2;
 
             li {
-                padding-bottom: 25px;
-
-                a {
-                    font-weight: 400;
-                    text-transform: uppercase;
-                }
-
-                &:first-child {
-                    padding-top: 10px;
-                }
+                margin-left: 22px;
             }
         }
     }
