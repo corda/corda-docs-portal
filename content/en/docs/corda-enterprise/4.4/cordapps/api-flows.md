@@ -71,7 +71,7 @@ In our flow, the Initiator flow class will be doing the majority of the work, th
 
 We can visualize the work performed by initiator as follows:
 
-![flow overview](cordapps/../resources/flow-overview.png "flow overview")
+![flow overview](../resources/flow-overview.png "flow overview")
 
 ## Responder
 

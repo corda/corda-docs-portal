@@ -27,7 +27,7 @@ references to actual states - allowing the transaction to be fully inspected.
 
 We can visualise the transitions between the three stages as follows:
 
-![transaction flow](cordapps/resources/transaction-flow.png "transaction flow")
+![transaction flow](../resources/transaction-flow.png "transaction flow")
 
 ## Transaction components
 

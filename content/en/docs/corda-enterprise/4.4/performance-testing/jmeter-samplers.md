@@ -55,9 +55,9 @@ returned.
 `com.r3.corda.enterprise.perftestcordapp.flows.EmptyFlow`. As the name suggests, the `call()` method of this flow
 is empty, it does not run any logic of its own. Invoking this flow goes through the whole overhead of invoking a flow
 via RPC without adding any additional flow work, and can therefore be used to measure the pure overhead of invoking
-a flow in a given set-up.![empty flow sampler](performance-testing/resources/empty-flow-sampler.png "empty flow sampler")
+a flow in a given set-up.![empty flow sampler](../resources/empty-flow-sampler.png "empty flow sampler")
 This sampler client requires the minimal set of properties to be required that it shares with all Corda sampler
-clients documented here:A label for reporting results on this sampler - if in doubt what to put here 
+clients documented here:A label for reporting results on this sampler - if in doubt what to put here
 {{< warning >}}``{{< /warning >}}
 
 ${__samplername} will fill in the
@@ -65,7 +65,7 @@ sampler client class name.The host name on which the Corda node is running. The 
 to be resolvable from where the sampler client is running (i.e. if using remote JMeter calls, this means from the
 server, not the client machine).The RPC port of the Corda node.The RPC user name of the Corda node.The RPC password of the Corda node.`CashIssueSampler`This sampler client has the class name `com.r3.corda.jmeter.CashIssueSampler` and starts the flow
 `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueFlow`. This flow will self-issue 1.1 billions
-of cash tokens on the node it is running on and store it in the vault.![cash issue sampler](performance-testing/resources/cash-issue-sampler.png "cash issue sampler")
+of cash tokens on the node it is running on and store it in the vault.![cash issue sampler](../resources/cash-issue-sampler.png "cash issue sampler")
 In addition to the common properties described above under `EmptyFlowSampler`, this sampler client also requires:The X500 name of the notary that will be acceptable to transfer cash tokens issued via this sampler. Issuing tokens
 does not need to be notarised, and therefore invoking this sampler does not create traffic to the notary. However,
 the notary is stored as part of the cash state and must be valid to do anything else with the cash state, therefore
@@ -73,14 +73,14 @@ this sampler will check the notary indentity against the network parameters of t
 the flow `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueAndPaymentFlow` or
 `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueAndpaymentNoSelection`, depending on its parameters.
 Either way it issues 2 million dollars in tokens and then transfers the sum to a configurable other node, thus
-invoking the full vault access, peer-to-peer communication and notarisation cycle.![cash issue and pay sampler](performance-testing/resources/cash-issue-and-pay-sampler.png "cash issue and pay sampler")
+invoking the full vault access, peer-to-peer communication and notarisation cycle.![cash issue and pay sampler](../resources/cash-issue-and-pay-sampler.png "cash issue and pay sampler")
 In addition to the parameters required for the `CashIssueSampler`, this also requires:The X500 name of the recipient node of the payment.Whether to use coin selection to select the tokens for paying or use the cash reference returned by the issuance
 call. The value of this flag switches between the two different flows mentioned above. Coin selection adds a set
 of additional problems to the processing, so it is of interest to measure its impact.Switches the creation of anonymised per-transactions keys on and off.`CashPaySampler`A sampler that issues cash once per run in its `setupTest` method, and then generates a transaction to pay 1 dollar “numberOfStatesPerTx” times
 to a specified party per sample, thus invoking the notary and the payee via P2P.
 This allows us to test performance with different numbers of states per transaction, and to eliminate issuance from
 each sample (unlike CashIssueAndPaySampler).
-The classname of this sampler client is `com.r3.corda.jmeter.CashPaySampler`.![cash pay sampler](performance-testing/resources/cash-pay-sampler.png "cash pay sampler")
+The classname of this sampler client is `com.r3.corda.jmeter.CashPaySampler`.![cash pay sampler](../resources/cash-pay-sampler.png "cash pay sampler")
 In addition to the base requirements as in the `CashIssueSampler`, this sampler client requires the following
 parameters:The Corda X500 name of the party receiving the paymentsThe number of $1 payments that are batched up and transferred to the recipient in one transaction, thus allowing
 to observe the impact of transaction size on peer to peer throughput and notarisation.Switches the creation of anonymised per-transactions keys on and off.

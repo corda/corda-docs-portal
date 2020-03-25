@@ -35,12 +35,12 @@ There are alternative approaches to how these components are deployed. For the p
 When deploying Corda Enterprise in a testing environment the Node, Bridge, and Float components should be deployed in a non-HA configuration as shown in the following diagram.
 
 
-![nonha](node/deploy/../../resources/nonha.png "nonha")
+![nonha](../../resources/nonha.png "nonha")
 
 When deploying Corda Enterprise in a production environment, the Node, Bridge, and Float components should be deployed in a high-availability configuration.
 
 
-![ha](node/deploy/../../resources/ha.png "ha")
+![ha](../../resources/ha.png "ha")
 
 
 ### Deployment details
@@ -208,7 +208,7 @@ This is a sample `node.conf` which details a configuration connecting to the Cor
 
 In a bank environment there will typically be several layers of security protecting the firms data.
 
-![cordarch](node/deploy/../../resources/cordarch.png "cordarch")
+![cordarch](../../resources/cordarch.png "cordarch")
 *Network Authentication*
 
 
@@ -222,7 +222,7 @@ In a bank environment there will typically be several layers of security protect
 * Corda PKI Authentication issued by Corda Network can link the Node and Bridge i.e. the red keys indicated below truststore and sslkeystore
 * Local PKI Authentication issued by separate CA will link the Bridge and Float i.e the purple keys indicated below trust and Bridge.
 
-![firewallpki](node/deploy/../../resources/firewallpki.png "firewallpki")
+![firewallpki](../../resources/firewallpki.png "firewallpki")
 The key thing is to look at this from the perspective of a bank implementing these Corda and Local PKI keys.
 
 
@@ -373,7 +373,7 @@ Administrative logins with the Corda Node happen via ssh whose port is configure
 
 The following image may be helpful in ensuring alignment between the Node, Bridge and Float configuration files.
 
-![CordaFirewallConfigAlign](node/deploy/../../resources/CordaFirewallConfigAlign.png "CordaFirewallConfigAlign")
+![CordaFirewallConfigAlign](../../resources/CordaFirewallConfigAlign.png "CordaFirewallConfigAlign")
 {{< note >}}
 **p2pAddress** reflects the **publicly accessible address**, which may or may not be the Float inboundConfig.listeningAddress. If there is an internet firewall configured in front of the Float then ask the Network Administrator for the public address that routes to the Float’s **listeningAddress**, and use that public address for your **p2pAddress**.
 

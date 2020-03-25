@@ -24,9 +24,9 @@ The testplan is a hierarchy of configuration elements. The only elements used in
 *Variables*, *Thread Groups*, *Samplers* and *Listeners*. Rather than creating a new testplan from scratch,
 it might a good idea to take a copy of one of the provided example test plans and modify that.
 
-![jmeter testplan](performance-testing/resources/jmeter-testplan.png "jmeter testplan")
+![jmeter testplan](../resources/jmeter-testplan.png "jmeter testplan")
 A variables element defines key/value pairs that can be used in all following following elements instead of string
-literals. They can be referenced by using a `$` sign and curly braces, e.g. `${varName}`.![variables](performance-testing/resources/variables.png "variables")
+literals. They can be referenced by using a `$` sign and curly braces, e.g. `${varName}`.![variables](../resources/variables.png "variables")
 A thread group collects a set of actions that form one step in the test plan. All elements within a thread group
 will be run in order. As the name suggest, a thread group can spin up threads to run serveral instances of its
 content in parallel. Note that everything inside the group will be run in every thread (including any initialisation

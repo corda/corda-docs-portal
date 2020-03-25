@@ -310,19 +310,24 @@ name = "Participate"
 weight = 410
 
 [[corda-os-4-4]]
+identifier = "corda-os-4-4-development"
+name = "Development"
+weight = 20
+
+[[corda-os-4-4]]
 identifier = "corda-os-4-4-corda-api"
 name = "Corda API"
-weight = 180
+weight = 30
+
+[[corda-os-4-4]]
+identifier = "corda-os-4-4-operations"
+name = "Operations"
+weight = 40
 
 [[corda-os-4-4]]
 identifier = "corda-os-4-4-corda-network"
 name = "Corda Network"
 weight = 60
-
-[[corda-os-4-4]]
-identifier = "corda-os-4-4-operations"
-name = "Operations"
-weight = 320
 
 [[corda-os-4-4]]
 identifier = "corda-os-4-4-participate"

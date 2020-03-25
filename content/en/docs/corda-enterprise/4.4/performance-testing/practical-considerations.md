@@ -90,11 +90,11 @@ To collect the ouput of a JMeter performance run, we need to add listeners to th
 
 
 
-* **View Results in Table**: 
+* **View Results in Table**:
 This listener just lists all the runs that have been completed, one run per row, stating the thread name, sampler
 label, the sample time in milliseconds, the result status and the latency in milliseconds, among other (usually less useful) fields.
 
-![jmeter results table](performance-testing/resources/jmeter-results-table.png "jmeter results table")
+![jmeter results table](../resources/jmeter-results-table.png "jmeter results table")
 This view is particularly useful when trying out any changes (new flow, new sampler, new installation) to see if it is working at all.
 The potential outcomes are
 
@@ -118,12 +118,12 @@ running of a flow (getting the RPC client, creating the flow instance, setting a
 submitting the flow to the node via RPC until the result is returned to the client.
 
 
-* **Aggregate Graph**: 
+* **Aggregate Graph**:
 This listener aggregates all the runs for each thread group and the whole test plan and presents some basic statistics.
 It also allows plotting these statistics in basic charts and to save the results as a csv file. This is what we use for looking at the
 performance results on a day to day basis.
 
-![jmeter results aggregate](performance-testing/resources/jmeter-results-aggregate.png "jmeter results aggregate")
+![jmeter results aggregate](../resources/jmeter-results-aggregate.png "jmeter results aggregate")
 This listener has one line for each sampler being run as part of the test plan, and a total line summing up/averaging the results
 for the whole test plan.
 

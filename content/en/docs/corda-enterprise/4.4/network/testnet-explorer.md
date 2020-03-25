@@ -45,69 +45,76 @@ couple of resources.
 * Log into your Cloud VM via SSH.
 * Stop the Corda node(s) running on your cloud instance.```bash
 sudo systemctl stop corda
-```
-
 
 {{< warning >}}
-If this is an HA node, make sure to stop both the hot and cold nodes before proceeding. Any database migration should be performed whilst both nodes are offline.{{< /warning >}}
+If this is an HA node, make sure to stop both the hot and cold nodes before proceeding. Any database migration should be performed whilst both nodes are offline.
+{{< /warning >}}
 
-
-
-* Download the Resources:Download the finance CorDapp and database manager to your VM instance:```bash
-
-```
-
-
-* corda-finance-contracts-4.4.jar
-* corda-finance-workflows-4.4.jar
-* corda-tools-database-manager-4.4.jar
+* Download the Resources:Download the finance CorDapp and database manager to your VM instance:
+    * corda-finance-contracts-4.4.jar
+    * corda-finance-workflows-4.4.jar
+    * corda-tools-database-manager-4.4.jar
 
 This is required to run some flows to check your connections, and to issue/transfer cash to counterparties. Copy it to
-the Corda installation location:```bash
+the Corda installation location:
+
+```bash
 sudo cp /home/<USER>/corda-finance-*-4.4.jar /opt/corda/cordapps/
 ```
 
+* Create a symbolic link to the shared database driver folder
 
-* Create a symbolic link to the shared database driver folder```bash
+```bash
 sudo ln -s /opt/corda/drivers /opt/corda/plugins
 ```
 
 
-* Execute the database migration. This is required so that the node database has the right schema for finance transactions defined in the installed CorDapp.```bash
+* Execute the database migration. This is required so that the node database has the right schema for finance transactions defined in the installed CorDapp.
+
+```bash
 cd /opt/corda
 sudo java -jar /home/<USER>/corda-tools-database-manager-4.4.jar --base-directory /opt/corda --execute-migration
 ```
 
 
-* Run the following to create a config file for the finance CorDapp:```bash
+* Run the following to create a config file for the finance CorDapp:
+
+```bash
 echo "issuableCurrencies = [ USD ]" > /opt/corda/cordapps/config/corda-finance-4.4.conf
 ```
 
 
-* Restart the Corda node:```bash
+* Restart the Corda node:
+
+```bash
 sudo systemctl start corda
 ```
 
-Your node is now running the Finance Cordapp.{{< note >}}
-You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs/node-<VM-NAME>.log`. This
-file will list installed apps at startup. Search for `Loaded CorDapps` in the logs.{{< /note >}}
+Your node is now running the Finance Cordapp.
 
-* Now download the Node Explorer to your **LOCAL** machine:```bash
+{{< note >}}
+You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs/node-<VM-NAME>.log`. This
+file will list installed apps at startup. Search for `Loaded CorDapps` in the logs.
+{{< /note >}}
+
+* Now download the Node Explorer to your **LOCAL** machine:
+
+```bash
 https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.4/corda-tools-explorer-4.4.jar
 ```
 
-
 {{< warning >}}
 The Enterprise Node Explorer is incompatible with open source versions of Corda and vice versa as they currently
-use different serialisation schemes (Kryo vs AMQP).{{< /warning >}}
+use different serialisation schemes (Kryo vs AMQP).
+{{< /warning >}}
 
+* Run the Node Explorer tool on your **LOCAL** machine.
 
-
-* Run the Node Explorer tool on your **LOCAL** machine.```bash
+```bash
 java -jar corda-tools-explorer-4.4.jar
 ```
 
-![explorer login](network/resources/explorer-login.png "explorer login")
+![explorer login](../resources/explorer-login.png "explorer login")
 
 
 
@@ -129,7 +136,7 @@ Click on `Connect` to log into the node.
 
 Once Explorer has logged in to your node over RPC click on the `Network` tab in the side navigation of the Explorer UI:
 
-![explorer network](network/resources/explorer-network.png "explorer network")
+![explorer network](../resources/explorer-network.png "explorer network")
 If your Enterprise node is correctly configured and connected to the Testnet then you should be able to see the identities of
 your node, the Testnet notary and the network map listing all the counterparties currently on the network.
 
@@ -138,16 +145,16 @@ your node, the Testnet notary and the network map listing all the counterparties
 
 Now we are going to try and issue some cash to a ‘bank’. Click on the `Cash` tab.
 
-![explorer cash issue1](network/resources/explorer-cash-issue1.png "explorer cash issue1")
+![explorer cash issue1](../resources/explorer-cash-issue1.png "explorer cash issue1")
 Now click on `New Transaction` and create an issuance to a known counterparty on the network by filling in the form:
 
-![explorer cash issue2](network/resources/explorer-cash-issue2.png "explorer cash issue2")
+![explorer cash issue2](../resources/explorer-cash-issue2.png "explorer cash issue2")
 Click `Execute` and the transaction will start.
 
-![explorer cash issue3](network/resources/explorer-cash-issue3.png "explorer cash issue3")
+![explorer cash issue3](../resources/explorer-cash-issue3.png "explorer cash issue3")
 Click on the red X to close the notification window and click on `Transactions` tab to see the transaction in progress,
 or wait for a success message to be displayed:
 
-![explorer transactions](network/resources/explorer-transactions.png "explorer transactions")
+![explorer transactions](../resources/explorer-transactions.png "explorer transactions")
 Congratulations! You have now successfully installed a CorDapp and executed a transaction on the Corda Testnet.
 

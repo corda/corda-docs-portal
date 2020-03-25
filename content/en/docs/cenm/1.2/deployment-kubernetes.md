@@ -1,3 +1,17 @@
+---
+aliases:
+- /releases/release-1.2/deployment-kubernetes.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2:
+    parent: cenm-1-2-operations
+tags:
+- config
+- kubernetes
+title: CENM Deployment with Docker, Kubernetes, and Helm charts
+weight: 20
+---
+
 # CENM Deployment with Docker, Kubernetes and Helm charts
 
 - [CENM Deployment with Docker, Kubernetes and Helm charts](#cenm-deployment-with-docker-kubernetes-and-helm-charts)
@@ -31,7 +45,8 @@
 
 > CENM docker images are based on `azul/zulu-openjdk:8u242`
 
-Each CENM service has dedicated docker image. They are designed to be minimal and optimized to run on Kubernetes cluster. They are **not** designed to run as standalone docker containers. They are stored in acrcenm.azurecr.io container repository:
+Each CENM service has dedicated docker image. They are designed to be minimal and optimized to run on Kubernetes cluster.
+They are **not** designed to run as standalone docker containers. They are stored in acrcenm.azurecr.io container repository:
 
 | CENM service     | Docker image URL                   | Tag |
 | ---------------- | ---------------------------------- | --- |
@@ -401,5 +416,5 @@ DATA/trust-stores/network-root-truststore.jks
 
 Visit CENM official documentation for more information about network parameters:
 
-- https://docs.cenm.r3.com/updating-network-parameters.html
-- https://docs.cenm.r3.com/config-network-parameters.html
+- [Updating Network Parameters](./updating-network-parameters.html)
+- [Network Parameters List](./config-network-parameters.html)

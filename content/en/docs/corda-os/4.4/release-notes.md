@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
     identifier: corda-os-4-4-release-notes
-    weight: 20
+    weight: 1
 tags:
 - release
 - notes
@@ -72,8 +72,8 @@ The “out-of-process” nodes spawned through Driver DSL (see [Integration test
 * Directories (only regular files are allowed)
 * Jars with Maven classifiers `tests` or `test`
 * Jars with any Cordapp attributes in their manifests (any of those listed in [Building and installing a CorDapp](cordapp-build-systems.md) or `Target-Platform-Version` and `Min-Platform-Version` if both are present)
-* Jars with the `Corda-Testing` attribute in their manifests. The manifest of the following artifacts has been updated to include the `Corda-Testing` attribute:> 
-> 
+* Jars with the `Corda-Testing` attribute in their manifests. The manifest of the following artifacts has been updated to include the `Corda-Testing` attribute:>
+>
 >     * `corda-node-driver`
 >     * `corda-test-utils`
 >     * `corda-test-common`

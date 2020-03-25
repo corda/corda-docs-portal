@@ -28,25 +28,25 @@ You will need a Microsoft Azure account which can create new resource groups and
 
 Go to [https://azuremarketplace.microsoft.com/en-us/](https://azuremarketplace.microsoft.com/en-us/) and search for `corda enterprise` and select the `Corda Enterprise Single Node` option:
 
-![azure template search](network/resources/azure-template-search.png "azure template search")
+![azure template search](../resources/azure-template-search.png "azure template search")
 Click on `GET IT NOW`:
 
-![azure template marketplace](network/resources/azure-template-marketplace.png "azure template marketplace")
+![azure template marketplace](../resources/azure-template-marketplace.png "azure template marketplace")
 Click on `Continue` to agree  to the terms:
 
-![azure template agree](network/resources/azure-template-agree.png "azure template agree")
+![azure template agree](../resources/azure-template-agree.png "azure template agree")
 This will take you to the Azure Cloud Portal. Log in to the Portal if you are not already. It should redirect to the Corda Enterprise template automatically:
 
-![azure template portal](network/resources/azure-template-portal.png "azure template portal")
+![azure template portal](../resources/azure-template-portal.png "azure template portal")
 Click on `Create` to enter the parameters for the deployment.
 
-![azure template basics](network/resources/azure-template-basics.png "azure template basics")
+![azure template basics](../resources/azure-template-basics.png "azure template basics")
 Enter the VM base name, an SSH public key or password to connect to the resources over SSH, an Azure region to host the deployment and create a new resource group to house the deployment. Click `OK`.
 
-![azure template vm](network/resources/azure-template-vm.png "azure template vm")
+![azure template vm](../resources/azure-template-vm.png "azure template vm")
 Next select the virtual machine specification. The default here is suitable for Corda Enterprise so its fine to click `OK`. Feel free to select a different specification of machine and storage if you have special requirements.
 
-![azure template settings](network/resources/azure-template-settings.png "azure template settings")
+![azure template settings](../resources/azure-template-settings.png "azure template settings")
 Next configure the Corda node settings. Currently the only version available with the template is the current release of Corda Enterprise. We may add more version options in the future.
 
 Enter the city and country that you wish to be associated with your Corda node.
@@ -63,10 +63,10 @@ Finally you can select your database sizing in the `Corda Data Tier Performance`
 
 Click `OK`.
 
-![azure template summary](network/resources/azure-template-summary.png "azure template summary")
+![azure template summary](../resources/azure-template-summary.png "azure template summary")
 Wait for the validation checks to pass and check the settings. Click `OK`.
 
-![azure template create](network/resources/azure-template-create.png "azure template create")
+![azure template create](../resources/azure-template-create.png "azure template create")
 Check the Terms of Use and if everything is OK click `Create`. Azure will now run the template and start to provision the node to your chosen region. This could take some time.
 
 You will be redirected to your `Dashbord` where the deployment will appear if the deployment completes without errors.

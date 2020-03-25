@@ -71,8 +71,8 @@ The “out-of-process” nodes spawned through Driver DSL (see tutorial-integrat
 * Directories (only regular files are allowed)
 * Jars with Maven classifiers `tests` or `test`
 * Jars with any Cordapp attributes in their manifests (any of those listed in cordapp-build-systems or `Target-Platform-Version` and `Min-Platform-Version` if both are present)
-* Jars with the `Corda-Testing` attribute in their manifests. The manifest of the following artifacts has been updated to include the `Corda-Testing` attribute:> 
-> 
+* Jars with the `Corda-Testing` attribute in their manifests. The manifest of the following artifacts has been updated to include the `Corda-Testing` attribute:>
+>
 >     * `corda-node-driver`
 >     * `corda-test-utils`
 >     * `corda-test-common`
@@ -656,7 +656,7 @@ deployment and can also remotely control Microsoft Azure, to create a test netwo
 
 Learn more on the [https://docs.corda.net/network-builder.html](https://docs.corda.net/network-builder.html). page.
 
-![network builder v4](/en/images/network-builder-v4.png "network builder v4")
+![network builder v4](./resources/network-builder-v4.png "network builder v4")
 
 #### JPA access in flows and services
 

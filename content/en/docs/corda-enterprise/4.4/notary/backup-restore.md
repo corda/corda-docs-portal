@@ -31,7 +31,7 @@ Additionally, it is critical to have a backup of the Notary Service identity pri
 
 The following diagram highlights in blue which storage components should be backed up.
 
-![storage components](notary/resources/storage-components.png "storage components")
+![storage components](../resources/storage-components.png "storage components")
 Note that for regular nodes it is very important to back up the Messaging Broker (Artemis) folder and the local Database, but for HA notary nodes that are purely used for notarisation purposes that is not needed.
 
 To summarise:

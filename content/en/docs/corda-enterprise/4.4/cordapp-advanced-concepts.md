@@ -67,7 +67,7 @@ all objects are loaded in the same classloader and can be freely used and filter
 
 Behind the scenes, the matter is more complex. As can be seen in this illustration:
 
-![tx chain](/en/images/tx-chain.png "tx chain")
+![tx chain](./resources/tx-chain.png "tx chain")
 
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
@@ -178,8 +178,8 @@ The question to consider as a developer of a CorDapp is: where and how should my
 
 There are 2 options to achieve this (given the hypothetical `Apples` for `Oranges` transaction):
 
-> 
-> 
+>
+>
 > * Bundle the `Fruit` library with the CorDapp. This means creating a Fat-JAR containing all the required code.
 > * Add the dependency as another attachment to the transaction manually.
 
@@ -261,8 +261,8 @@ but Valencia Oranges. This requirement translates into the fact that the library
 Let’s assume the `Apples` CorDapp bundles the `Oranges` CorDapp as a fat-jar.
 If someone attempts to build a swap transaction they would find it impossible:
 
-> 
-> 
+>
+>
 > * If the two attachments are added to the transaction, then the `com.orangecompany.Orange` class would be found in both, and that would breat the rule that states
 > “There can be only one and precisely one attachment that is identified as the contract code that controls each state”.
 > * In case only the `Apples` CorDapp is attached then the constraint of the `Oranges` states would not pass, as the JAR would not be signed by the actual `OrangeCo`.

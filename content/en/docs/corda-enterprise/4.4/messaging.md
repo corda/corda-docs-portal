@@ -23,8 +23,7 @@ unit tests and visualisation tools.
 
 {{< note >}}
 A future version of Corda will allow the MQ broker to be split out of the main node and run as a
-separate server. We may also support non-Artemis implementations via JMS, allowing the broker to be swapped
-out for alternative implementations.
+separate server.
 
 {{< /note >}}
 There are multiple ways of interacting with the network. When writing an application you typically won’t use the

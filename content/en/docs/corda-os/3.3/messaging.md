@@ -24,8 +24,7 @@ unit tests and visualisation tools.
 
 {{< note >}}
 A future version of Corda will allow the MQ broker to be split out of the main node and run as a
-separate server. We may also support non-Artemis implementations via JMS, allowing the broker to be swapped
-out for alternative implementations.
+separate server.
 
 {{< /note >}}
 There are multiple ways of interacting with the network. When writing an application you typically won’t use the
@@ -63,24 +62,24 @@ The node makes use of various queues for its operation. The more important ones 
 for maintenance and other minor purposes.
 
 
-* **`p2p.inbound.$identity`**: 
+* **`p2p.inbound.$identity`**:
 The node listens for messages sent from other peer nodes on this queue. Only clients who are authenticated to be
 nodes on the same network are given permission to send. Messages which are routed internally are also sent to this
 queue (e.g. two flows on the same node communicating with each other).
 
 
-* **`internal.peers.$identity`**: 
+* **`internal.peers.$identity`**:
 These are a set of private queues only available to the node which it uses to route messages destined to other peers.
 The queue name ends in the base 58 encoding of the peer’s identity key. There is at most one queue per peer. The broker
 
-> 
+>
 > creates a bridge from this queue to the peer’s `p2p.inbound.$identity` queue, using the network map service to lookup the
 
 
 peer’s network address.
 
 
-* **`internal.services.$identity`**: 
+* **`internal.services.$identity`**:
 These are private queues the node may use to route messages to services. The queue name ends in the base 58 encoding
 of the service’s owning identity key. There is at most one queue per service identity (but note that any one service
 may have several identities). The broker creates bridges to all nodes in the network advertising the service in
@@ -89,11 +88,11 @@ corresponding bridge is used to forward the message to an advertising peer’s p
 session continues on as normal.
 
 
-* **`rpc.requests`**: 
+* **`rpc.requests`**:
 RPC clients send their requests here, and it’s only open for sending by clients authenticated as RPC users.
 
 
-* **`clients.$user.rpc.$random`**: 
+* **`clients.$user.rpc.$random`**:
 RPC clients are given permission to create a temporary queue incorporating their username (`$user`) and sole
 permission to receive messages from it. RPC requests are required to include a random number (`$random`) from
 which the node is able to construct the queue the user is listening on and send the response to that. This mechanism
