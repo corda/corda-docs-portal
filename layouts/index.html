@@ -12,9 +12,9 @@
                 <div class="r3-o-landing__content-wrapper r3-o-col-8 r3-o-col-md-6">
                     <h5>{{ .Page.Params.header }}</h5>
                     <p>{{ .Page.Params.tagline }}</p>
-                    <a class="corda" href="{{ relref . .Page.Params.target }}">CORDA OPEN SOURCE</a>
-                    <a class="github" href="docs/corda-enterprise/4.3.1.html">CORDA ENTERPRISE</a>
-                    <a class="github" href="docs/cenm/1.2.html">CORDA NETWORK MANAGER</a>
+                    <a class="corda" href="{{ relref . .Page.Params.target_corda_os }}">CORDA OPEN SOURCE</a>
+                    <a class="github" href="{{ relref . .Page.Params.target_corda_enterprise }}">CORDA ENTERPRISE</a>
+                    <a class="github" href="{{ relref . .Page.Params.target_cenm }}">CORDA NETWORK MANAGER</a>
                     <div class="tool-tip">
                         <a class="corda-light">
                             <span>DEVELOPER TUTORIALS</span>
