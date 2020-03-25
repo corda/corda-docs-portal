@@ -10323,6 +10323,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+pre {
+  padding: 16px 32px;
+}
+
 /**
 * Importing font families.
 */
