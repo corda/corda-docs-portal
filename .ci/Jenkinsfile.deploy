@@ -34,5 +34,25 @@ pipeline {
                 }
             }
         }
+        stage('Update search index') {
+            environment {
+                ALGOLIA_CRED=credentials('algolia-credentials')
+            }
+            when {
+                anyOf {
+                    branch 'master'
+                    expression { params.FORCE_PUBLISH }
+                }
+            }
+            steps {
+                // for now just give docsite a bit of time to start properly
+                sh "sleep 30; make crawl ALGOLIA_APPLICATION_ID='${ALGOLIA_CRED_USR}' ALGOLIA_API_ADMIN_KEY='${ALGOLIA_CRED_PSW}'"
+            }
+        }
+    }
+    post {
+        cleanup {
+            deleteDir() /* clean up our workspace */
+        }
     }
 }
