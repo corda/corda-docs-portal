@@ -67,16 +67,7 @@
     background-color: var(--red-400);
 }
 
-.r3-o-landing__content-wrapper .corda-light {
-    box-sizing: border-box;
-    border: 2px solid var(--red-500);
-    color: var(--red-500);
-    margin-bottom: 5px;
-    padding: 9px 0;
-}
-
 .r3-o-landing__content-wrapper .corda-light:hover {
-   color: var(--red-500);
    cursor: pointer;
 }
 
@@ -102,10 +93,6 @@
 
 .tool-tip a span:last-child {
     display: none;
-}
-
-.tool-tip:hover a {
-    border: 2px solid var(--grey-400);
 }
 
 .tool-tip:hover a span:first-child {
