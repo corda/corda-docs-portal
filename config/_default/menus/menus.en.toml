@@ -19,11 +19,6 @@ name = "Operations"
 weight = 110
 
 [[cenm-1-0]]
-identifier = "cenm-1-0-private-networks"
-name = "Private Networks"
-weight = 290
-
-[[cenm-1-0]]
 identifier = "cenm-1-0-public-key-infrastructure"
 name = "Public Key Infrastructure"
 weight = 310
@@ -124,10 +119,10 @@ identifier = "corda-enterprise-4-0-corda-enterprise"
 name = "Corda Enterprise"
 weight = 90
 
-[[corda-enterprise-4-0]]
-identifier = "corda-enterprise-4-0-corda-network"
-name = "Corda Network"
-weight = 350
+[[corda-enterprise-3-3]]
+identifier = "corda-enterprise-3-3-release-process-index"
+name = "Release Process"
+weight = 1010
 
 [[corda-enterprise-4-0]]
 identifier = "corda-enterprise-4-0-development"
@@ -195,11 +190,6 @@ name = "Corda Enterprise"
 weight = 80
 
 [[corda-enterprise-4-3-1]]
-identifier = "corda-enterprise-4-3-1-corda-network"
-name = "Corda Network"
-weight = 510
-
-[[corda-enterprise-4-3-1]]
 identifier = "corda-enterprise-4-3-1-development"
 name = "Development"
 weight = 170
@@ -240,16 +230,6 @@ name = "Corda Networks"
 weight = 40
 
 [[corda-os-4-0]]
-identifier = "corda-os-4-0-corda-network"
-name = "Corda Network"
-weight = 230
-
-[[corda-os-4-0]]
-identifier = "corda-os-4-0-design-docs"
-name = "Design docs"
-weight = 280
-
-[[corda-os-4-0]]
 identifier = "corda-os-4-0-development"
 name = "Development"
 weight = 40
@@ -264,10 +244,10 @@ identifier = "corda-os-4-0-participate"
 name = "Participate"
 weight = 240
 
-[[corda-os-4-1]]
-identifier = "corda-os-4-1-corda-network"
-name = "Corda Network"
-weight = 260
+[[corda-os-4-0]]
+identifier = "corda-os-4-0-docker"
+name = "Docker"
+weight = 250
 
 [[corda-os-4-1]]
 identifier = "corda-os-4-1-development"
@@ -288,11 +268,6 @@ weight = 270
 identifier = "corda-os-4-3-corda-api"
 name = "Corda API"
 weight = 180
-
-[[corda-os-4-3]]
-identifier = "corda-os-4-3-corda-network"
-name = "Corda Network"
-weight = 400
 
 [[corda-os-4-3]]
 identifier = "corda-os-4-3-development"
@@ -323,11 +298,6 @@ weight = 30
 identifier = "corda-os-4-4-operations"
 name = "Operations"
 weight = 40
-
-[[corda-os-4-4]]
-identifier = "corda-os-4-4-corda-network"
-name = "Corda Network"
-weight = 60
 
 [[corda-os-4-4]]
 identifier = "corda-os-4-4-participate"
