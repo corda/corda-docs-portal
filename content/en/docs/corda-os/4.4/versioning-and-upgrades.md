@@ -1,5 +1,6 @@
 ---
 aliases:
+- /versioning-and-upgrades.html
 - /releases/release-V4.4/versioning-and-upgrades.html
 date: '2020-01-08T09:59:25Z'
 menu:

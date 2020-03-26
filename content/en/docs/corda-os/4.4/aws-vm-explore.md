@@ -1,5 +1,6 @@
 ---
 aliases:
+- /aws-vm-explore.html
 - /releases/release-V4.4/aws-vm-explore.html
 date: '2020-01-08T09:59:25Z'
 menu:

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /corda-configuration-file.html
 - /releases/release-V4.4/corda-configuration-file.html
 date: '2020-01-08T09:59:25Z'
 menu:

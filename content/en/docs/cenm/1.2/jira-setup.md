@@ -1,5 +1,6 @@
 ---
 aliases:
+- /jira-setup.html
 - /releases/release-1.2/jira-setup.html
 date: '2020-01-08T09:59:25Z'
 menu: []

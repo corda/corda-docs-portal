@@ -1,5 +1,6 @@
 ---
 aliases:
+- /identity-manager.html
 - /releases/release-1.2/identity-manager.html
 date: '2020-01-08T09:59:25Z'
 menu:

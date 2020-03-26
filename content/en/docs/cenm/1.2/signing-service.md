@@ -1,5 +1,6 @@
 ---
 aliases:
+- /signing-service.html
 - /releases/release-1.2/signing-service.html
 date: '2020-01-08T09:59:25Z'
 menu:

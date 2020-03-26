@@ -1,8 +1,12 @@
 ---
 aliases:
+- /corda-network/index.html
 - /releases/release-V4.4/corda-network/index.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-4:
+    identifier: corda-os-4-4-corda-network
+    weight: 5
 title: Corda Network
 ---
 

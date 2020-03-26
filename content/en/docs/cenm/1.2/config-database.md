@@ -1,5 +1,6 @@
 ---
 aliases:
+- /config-database.html
 - /releases/release-1.2/config-database.html
 date: '2020-01-08T09:59:25Z'
 menu: []

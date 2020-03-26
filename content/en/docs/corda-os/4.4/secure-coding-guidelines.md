@@ -1,5 +1,6 @@
 ---
 aliases:
+- /secure-coding-guidelines.html
 - /releases/release-V4.4/secure-coding-guidelines.html
 date: '2020-01-08T09:59:25Z'
 menu:

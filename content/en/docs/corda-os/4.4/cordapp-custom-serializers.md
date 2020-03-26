@@ -1,5 +1,6 @@
 ---
 aliases:
+- /cordapp-custom-serializers.html
 - /releases/release-V4.4/cordapp-custom-serializers.html
 date: '2020-01-08T09:59:25Z'
 menu:

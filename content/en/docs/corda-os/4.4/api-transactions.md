@@ -1,5 +1,6 @@
 ---
 aliases:
+- /api-transactions.html
 - /releases/release-V4.4/api-transactions.html
 date: '2020-01-08T09:59:25Z'
 menu:

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /tool-crr-submission.html
 - /releases/release-1.2/tool-crr-submission.html
 date: '2020-01-08T09:59:25Z'
 menu:

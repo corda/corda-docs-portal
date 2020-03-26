@@ -1,5 +1,6 @@
 ---
 aliases:
+- /building-a-cordapp-index.html
 - /releases/release-V4.4/building-a-cordapp-index.html
 date: '2020-01-08T09:59:25Z'
 menu:

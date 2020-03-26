@@ -1,5 +1,6 @@
 ---
 aliases:
+- /contributing-flow-internals.html
 - /releases/release-V4.4/contributing-flow-internals.html
 date: '2020-01-08T09:59:25Z'
 menu:

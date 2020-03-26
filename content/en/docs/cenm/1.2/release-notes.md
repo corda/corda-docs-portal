@@ -1,5 +1,6 @@
 ---
 aliases:
+- /release-notes.html
 - /releases/release-1.2/release-notes.html
 date: '2020-01-08T09:59:25Z'
 menu:

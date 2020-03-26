@@ -1,5 +1,6 @@
 ---
 aliases:
+- /api-persistence.html
 - /releases/release-V4.4/api-persistence.html
 date: '2020-01-08T09:59:25Z'
 menu:

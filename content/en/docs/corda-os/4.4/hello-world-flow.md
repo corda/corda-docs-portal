@@ -1,5 +1,6 @@
 ---
 aliases:
+- /hello-world-flow.html
 - /releases/release-V4.4/hello-world-flow.html
 date: '2020-01-08T09:59:25Z'
 menu:

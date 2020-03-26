@@ -1,5 +1,6 @@
 ---
 aliases:
+- /cordapp-advanced-concepts.html
 - /releases/release-V4.4/cordapp-advanced-concepts.html
 date: '2020-01-08T09:59:25Z'
 menu:

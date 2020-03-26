@@ -1,5 +1,6 @@
 ---
 aliases:
+- /node-database-access-h2.html
 - /releases/release-V4.4/node-database-access-h2.html
 date: '2020-01-08T09:59:25Z'
 menu:
