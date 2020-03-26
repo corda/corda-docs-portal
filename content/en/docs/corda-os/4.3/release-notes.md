@@ -680,7 +680,7 @@ We’ve raised the minimum JDK to 8u171, needed to get fixes for certain ZIP com
 
 We’ve upgraded to Kotlin 1.2.71 so your apps can now benefit from the new features in this language release.
 
-We’ve upgraded to Gradle 4.10.1.
+We’ve upgraded to Gradle 5.4.1.
 
 
 ### Changes for administrators in Corda 4

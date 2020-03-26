@@ -30,7 +30,7 @@ Corda uses industry-standard tools:
 
 Please note that OpenJDK builds usually exclude JavaFX, which our GUI tools require.
 * **IntelliJ IDEA** - supported versions **2017.x**, **2018.x** and **2019.x** (with Kotlin plugin version 1.2.71)
-* **Gradle** - we use 4.10 and the `gradlew` script in the project / samples directories will download it for you.
+* **Gradle** - we use 5.4.1 and the `gradlew` script in the project / samples directories will download it for you.
 
 Please note:
 

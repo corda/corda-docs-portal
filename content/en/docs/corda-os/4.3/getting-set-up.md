@@ -16,7 +16,7 @@ title: Getting set up for CorDapp development
 
 # Getting set up for CorDapp development
 
-There are four pieces of required software for CorDapp development: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle 4.10.
+There are four pieces of required software for CorDapp development: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle 5.4.1.
 
 
 * Install the Java 8 JDK, version 8u171. We have tested using the following Java builds:
@@ -42,10 +42,10 @@ There are four pieces of required software for CorDapp development: the Java 8 J
 
 
 * Install [git](https://git-scm.com/).
-* Install [Gradle version 4.10](https://gradle.org/install/). If you are using a supported Corda sample, the included `gradlew` script should install Gradle automatically.
+* Install [Gradle version 5.4.1](https://gradle.org/install/). If you are using a supported Corda sample, the included `gradlew` script should install Gradle automatically.
 
 > 
-> Please note: Corda requires Gradle version 4.10, and does not support any other version of Gradle.
+> Please note: Corda requires Gradle version 5.4.1, and does not support any other version of Gradle.
 
 
 
