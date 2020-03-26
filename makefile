@@ -6,6 +6,7 @@ HUGO_VERSION       = 0.65.3
 
 HUGO_DOCKER_IMAGE  = corda-docs-hugo
 PROD_IMAGE         = corda-docs-nginx
+ALGOLIA_IMAGE      = corda-docs-algolia
 PROD_IMAGE_TAG     = latest
 
 .PHONY: all local-build local-build-preview help serve hugo-build prod-hugo-build prod-docker-image
@@ -80,5 +81,9 @@ clean: ## Remove (temp) repos
 # Other tasks
 #######################################################################################################################
 
-crawl: ## Start a crawl of docs.corda.net and upload to algolia
-	.ci/crawl.sh $(ALGOLIA_APPLICATION_ID) $(ALGOLIA_API_ADMIN_KEY)
+build-algolia-image:
+	$(DOCKER) build $(ROOT_DIR)/.ci/algolia --tag $(ALGOLIA_IMAGE) -f .ci/algolia/Dockerfile
+
+crawl: build-algolia-image ## Start a crawl of docs.corda.net and upload to algolia, then set the searchable facets
+	.ci/algolia/crawl.sh $(ALGOLIA_APPLICATION_ID) $(ALGOLIA_API_ADMIN_KEY)
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(ALGOLIA_IMAGE) .ci/algolia/configure_index_by_rest.py .ci/algolia/facets.json $(ALGOLIA_APPLICATION_ID) $(ALGOLIA_API_ADMIN_KEY)
