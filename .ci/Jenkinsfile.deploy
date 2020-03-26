@@ -29,7 +29,7 @@ pipeline {
                 }
             }
             steps {
-                sshagent(['apisite-production']) {
+                sshagent(['docsite-production']) {
                     sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@${params.DOCSITE_SERVER} update-apisite"
                 }
             }
