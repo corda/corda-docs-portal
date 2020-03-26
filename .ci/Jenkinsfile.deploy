@@ -5,6 +5,7 @@ pipeline {
 
     parameters {
         booleanParam defaultValue: false, description: 'Check it to force publishing API docs Docker image regardless of the branch it is built for', name: 'FORCE_PUBLISH'
+        booleanParam defaultValue: false, description: 'Perform crawling of Docsite for Algolia', name: 'DO_ALGOLIA'
         string defaultValue: '10.10.0.4', description: 'Address of production instance of docsite', name: 'DOCSITE_SERVER', trim: false
     }
 
@@ -39,9 +40,12 @@ pipeline {
                 ALGOLIA_CRED=credentials('algolia-credentials')
             }
             when {
-                anyOf {
-                    branch 'master'
-                    expression { params.FORCE_PUBLISH }
+                allOf {
+                    anyOf {
+                        branch 'master'
+                        expression { params.FORCE_PUBLISH }
+                    }
+                    expression { params.DO_ALGOLIA }
                 }
             }
             steps {
