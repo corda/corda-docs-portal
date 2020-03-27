@@ -93,6 +93,94 @@ identifier = "cenm-1-2-tools-and-utilities"
 name = "Tools & Utilities"
 weight = 270
 
+[[corda-enterprise-3-0]]
+identifier = "corda-enterprise-3-0-corda-enterprise"
+name = "Corda Enterprise"
+weight = 10
+
+[[corda-enterprise-3-0]]
+identifier = "corda-enterprise-3-0-design-docs"
+name = "Design docs"
+weight = 240
+
+[[corda-enterprise-3-0]]
+identifier = "corda-enterprise-3-0-development"
+name = "Development"
+weight = 50
+
+[[corda-enterprise-3-0]]
+identifier = "corda-enterprise-3-0-operations"
+name = "Operations"
+weight = 160
+
+[[corda-enterprise-3-0]]
+identifier = "corda-enterprise-3-0-other-docs"
+parent = "corda-enterprise-3-0-quickstart-index"
+name = "Other docs"
+weight = 1000
+
+[[corda-enterprise-3-0]]
+identifier = "corda-enterprise-3-0-other-documentation"
+name = "Other documentation"
+weight = 220
+
+[[corda-enterprise-3-0]]
+identifier = "corda-enterprise-3-0-release-process-index"
+name = "Release Process"
+weight = 1010
+
+[[corda-enterprise-3-1]]
+identifier = "corda-enterprise-3-1-corda-enterprise"
+name = "Corda Enterprise"
+weight = 10
+
+[[corda-enterprise-3-1]]
+identifier = "corda-enterprise-3-1-development"
+name = "Development"
+weight = 100
+
+[[corda-enterprise-3-1]]
+identifier = "corda-enterprise-3-1-operations"
+name = "Operations"
+weight = 210
+
+[[corda-enterprise-3-1]]
+identifier = "corda-enterprise-3-1-other-docs"
+parent = "corda-enterprise-3-1-quickstart-index"
+name = "Other docs"
+weight = 1000
+
+[[corda-enterprise-3-1]]
+identifier = "corda-enterprise-3-1-release-process-index"
+name = "Release Process"
+weight = 1010
+
+[[corda-enterprise-3-2]]
+identifier = "corda-enterprise-3-2-corda-enterprise"
+name = "Corda Enterprise"
+weight = 10
+
+[[corda-enterprise-3-2]]
+identifier = "corda-enterprise-3-2-development"
+name = "Development"
+weight = 100
+
+[[corda-enterprise-3-2]]
+identifier = "corda-enterprise-3-2-operations"
+name = "Operations"
+weight = 210
+
+[[corda-enterprise-3-2]]
+identifier = "corda-enterprise-3-2-other-docs"
+parent = "corda-enterprise-3-2-quickstart-index"
+name = "Other docs"
+weight = 1000
+
+[[corda-enterprise-3-2]]
+identifier = "corda-enterprise-3-2-release-process-index"
+name = "Release Process"
+weight = 1010
+
 [[corda-enterprise-3-3]]
 identifier = "corda-enterprise-3-3-corda-enterprise"
 name = "Corda Enterprise"

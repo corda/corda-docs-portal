@@ -81,6 +81,10 @@ clone_or_pull $R_ENT/4.4 $R_ENT/4.1 release/4.1 git@github.com:corda/enterprise.
 clone_or_pull $R_ENT/4.4 $R_ENT/4.0 release-V4.0 git@github.com:corda/enterprise.git
 clone_or_pull $R_ENT/4.4 $R_ENT/3.3 release/release-V3 git@github.com:corda/enterprise.git
 
+clone_or_pull $R_ENT/4.4 $R_ENT/3.2 release-V3.2 git@github.com:corda/enterprise.git
+clone_or_pull $R_ENT/4.4 $R_ENT/3.1 release-V3.1 git@github.com:corda/enterprise.git
+clone_or_pull $R_ENT/4.4 $R_ENT/3.0 release-V3.0 git@github.com:corda/enterprise.git
+
 clone_or_pull git@github.com:corda/network-services.git $R_CENM/1.2 release/1.2
 clone_or_pull $R_CENM/1.2 $R_CENM/1.1 release/1.1 git@github.com:corda/network-services.git
 clone_or_pull $R_CENM/1.2 $R_CENM/1.0 release/1.0 git@github.com:corda/network-services.git
