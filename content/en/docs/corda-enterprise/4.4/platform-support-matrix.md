@@ -49,14 +49,10 @@ for your deployment needs.
 
 |Platform|CPU Architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|7.x,
-6.x|
-|Suse Linux Enterprise Server|x86-64|12.x,
-11.x|
-|Ubuntu Linux|x86-64|16.04,
-18.04|
-|Oracle Linux|x86-64|7.x,
-6.x|
+|Red Hat Enterprise Linux|x86-64|7.x,6.x|
+|Suse Linux Enterprise Server|x86-64|12.x,11.x|
+|Ubuntu Linux|x86-64|16.04,18.04|
+|Oracle Linux|x86-64|7.x,6.x|
 
 {{< /table >}}
 
@@ -68,13 +64,9 @@ for your deployment needs.
 
 |Platform|CPU Architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Microsoft Windows|x86-64|10,
-8.x|
-|Microsoft Windows Server|x86-64|2016,
-2012 R2,
-2012|
-|Apple macOS|x86-64|10.9 and
-above|
+|Microsoft Windows|x86-64|10,8.x|
+|Microsoft Windows Server|x86-64|2016, 2012 R2,2012|
+|Apple macOS|x86-64|10.9 andabove|
 
 {{< /table >}}
 
@@ -86,14 +78,10 @@ above|
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL,
-SQL Server 2017|Microsoft JDBC
-Driver 6.4|
+|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6, 10.10
-11.5|PostgreSQL JDBC
-Driver 42.1.4 / 42.2.8|
+|PostgreSQL|x86-64|9.6, 10.10 11.5|PostgreSQL JDBC Driver 42.1.4 / 42.2.8|
 
 {{< /table >}}
 
@@ -105,9 +93,7 @@ Driver 42.1.4 / 42.2.8|
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|--------------------|
-|Percona Server for MySQL
-*(deprecated)*|x86-64|5.7|MySQL JDBC
-Driver 8.0.16|
+|Percona Server for MySQL *(deprecated)*|x86-64|5.7|MySQL JDBC Driver 8.0.16|
 
 {{< /table >}}
 
@@ -119,8 +105,7 @@ Driver 8.0.16|
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|19.1.2|PostgreSQL JDBC
-Driver 42.1.4|
+|CockroachDB|x86-64|19.1.2|PostgreSQL JDBCDriver 42.1.4|
 |Oracle RAC|x86-64|12cR2|Oracle JDBC 8|
 
 {{< /table >}}
@@ -134,71 +119,20 @@ Driver 42.1.4|
 
 |Device|Legal Identity & CA keys|TLS keys|Confidential Identity keys|Notary service keys|
 |-------------------------------|----------------------------|----------------------------|----------------------------|--------------------------|
-|Utimaco SecurityServer Se Gen2|
-* Firmware version 4.21.1
-* Driver version 4.21.1
+| Utimaco SecurityServer Se Gen2| * Firmware version 4.21.1  | * Firmware version 4.21.1  | Not supported              | Not supported            |
+|                               | * Driver version 4.21.1    | * Driver version 4.21.1    |                            |                          |
+| Gemalto Luna                  | * Firmware version 7.0.3   | * Firmware version 7.0.3   | Not supported              | Not supported            |
+|                               | * Driver version 7.3       | * Driver version 7.3       |                            |                          |
+| FutureX Vectera Plus          | * Firmware version 6.1.5.8 | * Firmware version 6.1.5.8 | Not supported              | Not supported            |
+|                               | * PKCS#11 version 3.1      | * PKCS#11 version 3.1      |                            |                          |
+|                               | * FXJCA version 1.17       | * FXJCA version 1.17       |                            |                          |
+| Azure Key Vault               | * Driver version 1.2.1     | * Driver version 1.2.1     | Not supported              | * Driver version 1.2.1   |
+| Securosys PrimusX             | * Firmware version 2.7.4   | * Firmware version 2.7.4   | * Firmware version 2.7.4   | * Firmware version 2.7.4 |
+|                               | * Driver version 1.8.2     | * Driver version 1.8.2     | * Driver version 1.8.2     | * Driver version 1.8.2   |
+| nCipher nShield Connect       | * Firmware version 12.50.11| * Firmware version 12.50.11| Not supported              | Not supported            |
+|                               | * Driver version 12.60.2   | * Driver version 12.60.2   |                            |                          |
 
-|
-* Firmware version 4.21.1
-* Driver version 4.21.1
 
-|Not supported|Not supported|
-|Gemalto Luna|
-* Firmware version 7.0.3
-* Driver version 7.3
-
-|
-* Firmware version 7.0.3
-* Driver version 7.3
-
-|Not supported|Not supported|
-|FutureX Vectera Plus|
-* Firmware version 6.1.5.8
-* PKCS#11 version 3.1
-* FXJCA version 1.17
-
-|
-* Firmware version 6.1.5.8
-* PKCS#11 version 3.1
-* FXJCA version 1.17
-
-|Not supported|Not supported|
-|Azure Key Vault|
-* Driver version 1.2.1
-
-|
-* Driver version 1.2.1
-
-|Not supported|
-* Driver version 1.2.1
-
-|
-|Securosys PrimusX|
-* Firmware version 2.7.4
-* Driver version 1.8.2
-
-|
-* Firmware version 2.7.4
-* Driver version 1.8.2
-
-|
-* Firmware version 2.7.4
-* Driver version 1.8.2
-
-|
-* Firmware version 2.7.4
-* Driver version 1.8.2
-
-|
-|nCipher nShield Connect|
-* Firmware version 12.50.11
-* Driver version 12.60.2
-
-|
-* Firmware version 12.50.11
-* Driver version 12.60.2
-
-|Not supported|Not supported|
 
 {{< /table >}}
 
