@@ -18,59 +18,16 @@ version: '4.4'
 
 <embed>
 <iframe src="https://player.vimeo.com/video/205410473" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
-
-
 </embed>
 
 
 **Want to start coding on Corda?** Familiarise yourself with the [key concepts](key-concepts.md), then read
 our [Hello, World! tutorial](hello-world-introduction.md).
 
-**Want background reading material?** The introductory white paper describes Corda’s mission and philosophy. It’s suitable for a business
-audience. The technical white paper describes the architecture and protocol.
-
-<a href="_static/corda-introductory-whitepaper.pdf"><button class="button button2">Intro white paper</button></a>    
-<a href="_static/corda-technical-whitepaper.pdf"><button class="button button2">Tech white paper</button></a>
-The introductory paper is also available in [简体中文 (Simplified Chinese)](/en/pdf/corda-introductory-whitepaper-zhs.pdf), [繁體中文 (Traditional Chinese)](/en/pdf/corda-introductory-whitepaper-zht.pdf) and [日本語 (Japanese)](/en/pdf/corda-introductory-whitepaper-jp.pdf).
+**Want background reading material?** The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business
+audience. The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.
 
 **Questions or comments?** Get in touch on [Slack](https://slack.corda.net/) or ask a question on
-[Stack Overflow](https://stackoverflow.com/questions/tagged/corda) .
+[Stack Overflow](https://stackoverflow.com/questions/tagged/corda).
 
 We look forward to seeing what you can do with Corda!
-
-{{< note >}}
-You can read this site offline. Either [download the PDF](_static/corda-developer-site.pdf) or download the Corda source code, run `gradle buildDocs` and you will have
-a copy of this site in the `docs/build/html` directory.
-
-{{< /note >}}
-
-
-
-
-
-
-
-
-
-
-Corda API
-
-* [API: Contracts](api-contracts.md)
-* [API: Contract Constraints](api-contract-constraints.md)
-* [API: Core types](api-core-types.md)
-* [API: Flows](api-flows.md)
-* [API: Identity](api-identity.md)
-* [API: Persistence](api-persistence.md)
-* [API: RPC operations](api-rpc.md)
-* [API: Service Classes](api-service-classes.md)
-* [API: ServiceHub](api-service-hub.md)
-* [API: States](api-states.md)
-* [API: Testing](api-testing.md)
-* [API: Transactions](api-transactions.md)
-* [API: Vault Query](api-vault-query.md)
-
-
-
-
-
-

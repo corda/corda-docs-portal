@@ -16,7 +16,6 @@ tags:
 title: 'API: RPC operations'
 ---
 
-
 # API: RPC operations
 
 The node’s owner interacts with the node solely via remote procedure calls (RPC). The node’s owner does not have

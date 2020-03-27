@@ -18,8 +18,8 @@ Welcome to the documentation website for Corda Enterprise 3.3, based on the Cord
 
 
 * High performance, thanks to multi-threaded flow execution and extensive tuning.
-* Support for more database backends:> 
-> 
+* Support for more database backends:>
+>
 >     * SQL Server 2017
 >     * Azure SQL
 >     * Oracle 11g RC2
@@ -34,11 +34,6 @@ Welcome to the documentation website for Corda Enterprise 3.3, based on the Cord
 
 You can learn more in the [Release notes](release-notes.md).
 
-{{< note >}}
-You can read this site offline by [downloading the PDF](_static/corda-developer-site.pdf).
-
-{{< /note >}}
-
 Corda Enterprise is binary compatible with apps developed for the open source node. This docsite is intended for
 administrators and advanced users who wish to learn how to install and configure an enterprise deployment. For
 application development please continue to refer to [the main project documentation website](https://docs.corda.net/).
@@ -47,6 +42,5 @@ application development please continue to refer to [the main project documentat
 Corda Enterprise provides platform API version 3, which matches the API available in open source Corda 3.x releases.
 Although the shipped JARs may contain new classes and methods that do not appear in API level 3, these should be considered
 preliminary and not for use by application developers at this time.
-
 {{< /note >}}
 
