@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-identity.html
 - /HEAD/api-identity.html
 - /api-identity.html
 - /releases/release-V4.4/api-identity.html

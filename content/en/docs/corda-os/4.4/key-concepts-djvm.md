@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-djvm.html
 - /HEAD/key-concepts-djvm.html
 - /key-concepts-djvm.html
 - /releases/release-V4.4/key-concepts-djvm.html

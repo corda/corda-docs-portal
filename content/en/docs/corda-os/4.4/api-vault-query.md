@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-vault-query.html
 - /HEAD/api-vault-query.html
 - /api-vault-query.html
 - /releases/release-V4.4/api-vault-query.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/serialization-default-evolution.html
 - /HEAD/serialization-default-evolution.html
 - /serialization-default-evolution.html
 - /releases/release-V4.4/serialization-default-evolution.html

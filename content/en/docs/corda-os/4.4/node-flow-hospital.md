@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-flow-hospital.html
 - /HEAD/node-flow-hospital.html
 - /node-flow-hospital.html
 - /releases/release-V4.4/node-flow-hospital.html

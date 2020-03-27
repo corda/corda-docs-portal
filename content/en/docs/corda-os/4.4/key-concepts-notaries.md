@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-notaries.html
 - /HEAD/key-concepts-notaries.html
 - /key-concepts-notaries.html
 - /releases/release-V4.4/key-concepts-notaries.html

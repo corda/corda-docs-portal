@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/component-library-index.html
 - /HEAD/component-library-index.html
 - /component-library-index.html
 - /releases/release-V4.4/component-library-index.html

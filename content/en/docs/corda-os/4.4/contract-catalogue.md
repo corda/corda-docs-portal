@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/contract-catalogue.html
 - /HEAD/contract-catalogue.html
 - /contract-catalogue.html
 - /releases/release-V4.4/contract-catalogue.html

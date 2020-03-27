@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tutorial-cordapp.html
 - /HEAD/tutorial-cordapp.html
 - /tutorial-cordapp.html
 - /releases/release-V4.4/tutorial-cordapp.html

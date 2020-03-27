@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/cipher-suites.html
 - /HEAD/cipher-suites.html
 - /cipher-suites.html
 - /releases/release-V4.4/cipher-suites.html

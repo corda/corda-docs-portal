@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-vault.html
 - /HEAD/key-concepts-vault.html
 - /key-concepts-vault.html
 - /releases/release-V4.4/key-concepts-vault.html

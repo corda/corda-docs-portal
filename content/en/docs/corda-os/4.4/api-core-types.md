@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-core-types.html
 - /HEAD/api-core-types.html
 - /api-core-types.html
 - /releases/release-V4.4/api-core-types.html

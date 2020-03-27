@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/hello-world-flow.html
 - /HEAD/hello-world-flow.html
 - /hello-world-flow.html
 - /releases/release-V4.4/hello-world-flow.html

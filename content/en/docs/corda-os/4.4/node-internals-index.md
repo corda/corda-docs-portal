@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-internals-index.html
 - /HEAD/node-internals-index.html
 - /node-internals-index.html
 - /releases/release-V4.4/node-internals-index.html

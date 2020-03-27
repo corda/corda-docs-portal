@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/deterministic-modules.html
 - /HEAD/deterministic-modules.html
 - /deterministic-modules.html
 - /releases/release-V4.4/deterministic-modules.html

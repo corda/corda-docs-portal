@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/running-a-node.html
 - /HEAD/running-a-node.html
 - /running-a-node.html
 - /releases/release-V4.4/running-a-node.html

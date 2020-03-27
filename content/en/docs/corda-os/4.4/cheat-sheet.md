@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/cheat-sheet.html
 - /HEAD/cheat-sheet.html
 - /cheat-sheet.html
 - /releases/release-V4.4/cheat-sheet.html

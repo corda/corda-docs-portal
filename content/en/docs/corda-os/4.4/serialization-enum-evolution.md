@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/serialization-enum-evolution.html
 - /HEAD/serialization-enum-evolution.html
 - /serialization-enum-evolution.html
 - /releases/release-V4.4/serialization-enum-evolution.html

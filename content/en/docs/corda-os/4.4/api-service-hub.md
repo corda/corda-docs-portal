@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-service-hub.html
 - /HEAD/api-service-hub.html
 - /api-service-hub.html
 - /releases/release-V4.4/api-service-hub.html

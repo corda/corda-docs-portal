@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/hello-world-state.html
 - /HEAD/hello-world-state.html
 - /hello-world-state.html
 - /releases/release-V4.4/hello-world-state.html

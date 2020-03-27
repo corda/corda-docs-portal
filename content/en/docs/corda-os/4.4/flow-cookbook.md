@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/flow-cookbook.html
 - /HEAD/flow-cookbook.html
 - /flow-cookbook.html
 - /releases/release-V4.4/flow-cookbook.html

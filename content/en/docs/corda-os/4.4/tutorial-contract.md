@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tutorial-contract.html
 - /HEAD/tutorial-contract.html
 - /tutorial-contract.html
 - /releases/release-V4.4/tutorial-contract.html

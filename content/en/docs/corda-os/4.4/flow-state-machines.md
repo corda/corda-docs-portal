@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/flow-state-machines.html
 - /HEAD/flow-state-machines.html
 - /flow-state-machines.html
 - /releases/release-V4.4/flow-state-machines.html

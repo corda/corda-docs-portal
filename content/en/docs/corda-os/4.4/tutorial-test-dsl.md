@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tutorial-test-dsl.html
 - /HEAD/tutorial-test-dsl.html
 - /tutorial-test-dsl.html
 - /releases/release-V4.4/tutorial-test-dsl.html

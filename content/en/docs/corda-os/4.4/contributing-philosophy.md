@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/contributing-philosophy.html
 - /HEAD/contributing-philosophy.html
 - /contributing-philosophy.html
 - /releases/release-V4.4/contributing-philosophy.html

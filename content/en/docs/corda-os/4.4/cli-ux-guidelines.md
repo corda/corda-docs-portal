@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/cli-ux-guidelines.html
 - /HEAD/cli-ux-guidelines.html
 - /cli-ux-guidelines.html
 - /releases/release-V4.4/cli-ux-guidelines.html

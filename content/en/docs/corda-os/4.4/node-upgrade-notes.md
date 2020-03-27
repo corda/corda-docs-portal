@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-upgrade-notes.html
 - /HEAD/node-upgrade-notes.html
 - /node-upgrade-notes.html
 - /releases/release-V4.4/node-upgrade-notes.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/troubleshooting.html
 - /HEAD/troubleshooting.html
 - /troubleshooting.html
 - /releases/release-V4.4/troubleshooting.html

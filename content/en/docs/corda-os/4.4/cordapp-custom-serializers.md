@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/cordapp-custom-serializers.html
 - /HEAD/cordapp-custom-serializers.html
 - /cordapp-custom-serializers.html
 - /releases/release-V4.4/cordapp-custom-serializers.html

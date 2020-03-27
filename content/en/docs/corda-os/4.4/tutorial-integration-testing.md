@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tutorial-integration-testing.html
 - /HEAD/tutorial-integration-testing.html
 - /tutorial-integration-testing.html
 - /releases/release-V4.4/tutorial-integration-testing.html

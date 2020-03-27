@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-time-windows.html
 - /HEAD/key-concepts-time-windows.html
 - /key-concepts-time-windows.html
 - /releases/release-V4.4/key-concepts-time-windows.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/upgrading-cordapps.html
 - /HEAD/upgrading-cordapps.html
 - /upgrading-cordapps.html
 - /releases/release-V4.4/upgrading-cordapps.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-oracles.html
 - /HEAD/key-concepts-oracles.html
 - /key-concepts-oracles.html
 - /releases/release-V4.4/key-concepts-oracles.html

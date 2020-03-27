@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-scanner.html
 - /HEAD/api-scanner.html
 - /api-scanner.html
 - /releases/release-V4.4/api-scanner.html

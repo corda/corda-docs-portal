@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-flows.html
 - /HEAD/api-flows.html
 - /api-flows.html
 - /releases/release-V4.4/api-flows.html

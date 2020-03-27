@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/secure-coding-guidelines.html
 - /HEAD/secure-coding-guidelines.html
 - /secure-coding-guidelines.html
 - /releases/release-V4.4/secure-coding-guidelines.html

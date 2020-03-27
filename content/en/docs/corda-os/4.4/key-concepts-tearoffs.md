@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-tearoffs.html
 - /HEAD/key-concepts-tearoffs.html
 - /key-concepts-tearoffs.html
 - /releases/release-V4.4/key-concepts-tearoffs.html

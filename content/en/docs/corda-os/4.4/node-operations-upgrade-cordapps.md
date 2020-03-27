@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-operations-upgrade-cordapps.html
 - /HEAD/node-operations-upgrade-cordapps.html
 - /node-operations-upgrade-cordapps.html
 - /releases/release-V4.4/node-operations-upgrade-cordapps.html

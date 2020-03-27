@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/deploying-a-node.html
 - /HEAD/deploying-a-node.html
 - /deploying-a-node.html
 - /releases/release-V4.4/deploying-a-node.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-commandline.html
 - /HEAD/node-commandline.html
 - /node-commandline.html
 - /releases/release-V4.4/node-commandline.html

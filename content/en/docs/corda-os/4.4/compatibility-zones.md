@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/compatibility-zones.html
 - /HEAD/compatibility-zones.html
 - /compatibility-zones.html
 - /releases/release-V4.4/compatibility-zones.html

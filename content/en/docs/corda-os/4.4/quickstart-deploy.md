@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/quickstart-deploy.html
 - /HEAD/quickstart-deploy.html
 - /quickstart-deploy.html
 - /releases/release-V4.4/quickstart-deploy.html

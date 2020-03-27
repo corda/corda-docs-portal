@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/quickstart-index.html
 - /HEAD/quickstart-index.html
 - /quickstart-index.html
 - /releases/release-V4.4/quickstart-index.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/building-corda.html
 - /HEAD/building-corda.html
 - /building-corda.html
 - /releases/release-V4.4/building-corda.html

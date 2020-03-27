@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/building-against-non-release.html
 - /HEAD/building-against-non-release.html
 - /building-against-non-release.html
 - /releases/release-V4.4/building-against-non-release.html

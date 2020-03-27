@@ -36,7 +36,7 @@ def add_alias_to_file(file):
 
         if in_yaml and line.strip() == "aliases:":
             html = str(os.path.basename(file)).replace(".md", ".html")
-            lines.append(f"- /HEAD/{html}\n")
+            lines.append(f"- /head/{html}\n")
 
     open(file, 'w').writelines(lines)
     LOG.info(f"Processing {file} finished")
@@ -49,7 +49,7 @@ def add_aliases():
 
     for file in files:
         # blunt weapon...
-        if "corda-os/4.4" in str(file): # or "cenm/1.2" in str(file):
+        if "corda-os/4.4" in str(file):
             filename = os.path.basename(file)
             if filename not in ["_index.md", "index.md"]:
                 add_alias_to_file(file)

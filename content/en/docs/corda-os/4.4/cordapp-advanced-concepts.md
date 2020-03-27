@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/cordapp-advanced-concepts.html
 - /HEAD/cordapp-advanced-concepts.html
 - /cordapp-advanced-concepts.html
 - /releases/release-V4.4/cordapp-advanced-concepts.html

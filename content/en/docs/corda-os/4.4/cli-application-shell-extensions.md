@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/cli-application-shell-extensions.html
 - /HEAD/cli-application-shell-extensions.html
 - /cli-application-shell-extensions.html
 - /releases/release-V4.4/cli-application-shell-extensions.html

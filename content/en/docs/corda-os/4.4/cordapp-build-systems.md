@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/cordapp-build-systems.html
 - /HEAD/cordapp-build-systems.html
 - /cordapp-build-systems.html
 - /releases/release-V4.4/cordapp-build-systems.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/deploy-to-testnet-index.html
 - /HEAD/deploy-to-testnet-index.html
 - /deploy-to-testnet-index.html
 - /releases/release-V4.4/deploy-to-testnet-index.html

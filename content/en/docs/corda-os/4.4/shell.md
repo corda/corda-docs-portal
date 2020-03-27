@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/shell.html
 - /HEAD/shell.html
 - /shell.html
 - /releases/release-V4.4/shell.html

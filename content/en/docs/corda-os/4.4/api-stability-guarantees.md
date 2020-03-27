@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-stability-guarantees.html
 - /HEAD/api-stability-guarantees.html
 - /api-stability-guarantees.html
 - /releases/release-V4.4/api-stability-guarantees.html

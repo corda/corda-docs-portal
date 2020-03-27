@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/cordapp-overview.html
 - /HEAD/cordapp-overview.html
 - /cordapp-overview.html
 - /releases/release-V4.4/cordapp-overview.html

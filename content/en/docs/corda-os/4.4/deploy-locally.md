@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/deploy-locally.html
 - /HEAD/deploy-locally.html
 - /deploy-locally.html
 - /releases/release-V4.4/deploy-locally.html

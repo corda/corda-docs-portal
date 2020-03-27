@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/running-a-notary.html
 - /HEAD/running-a-notary.html
 - /running-a-notary.html
 - /releases/release-V4.4/running-a-notary.html

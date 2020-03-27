@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/debugging-a-cordapp.html
 - /HEAD/debugging-a-cordapp.html
 - /debugging-a-cordapp.html
 - /releases/release-V4.4/debugging-a-cordapp.html

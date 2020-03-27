@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/wire-format.html
 - /HEAD/wire-format.html
 - /wire-format.html
 - /releases/release-V4.4/wire-format.html

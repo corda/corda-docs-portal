@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/contributing-flow-internals.html
 - /HEAD/contributing-flow-internals.html
 - /contributing-flow-internals.html
 - /releases/release-V4.4/contributing-flow-internals.html

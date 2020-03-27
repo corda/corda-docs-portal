@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/contributing.html
 - /HEAD/contributing.html
 - /contributing.html
 - /releases/release-V4.4/contributing.html

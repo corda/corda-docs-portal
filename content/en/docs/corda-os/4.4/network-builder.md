@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/network-builder.html
 - /HEAD/network-builder.html
 - /network-builder.html
 - /releases/release-V4.4/network-builder.html

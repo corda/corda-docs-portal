@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-states.html
 - /HEAD/api-states.html
 - /api-states.html
 - /releases/release-V4.4/api-states.html

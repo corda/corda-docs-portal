@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/serialization.html
 - /HEAD/serialization.html
 - /serialization.html
 - /releases/release-V4.4/serialization.html

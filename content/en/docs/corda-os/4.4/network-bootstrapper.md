@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/network-bootstrapper.html
 - /HEAD/network-bootstrapper.html
 - /network-bootstrapper.html
 - /releases/release-V4.4/network-bootstrapper.html

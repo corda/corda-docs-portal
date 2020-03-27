@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.html
 - /releases/release-V4.4/release-notes.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-explorer.html
 - /HEAD/node-explorer.html
 - /node-explorer.html
 - /releases/release-V4.4/node-explorer.html

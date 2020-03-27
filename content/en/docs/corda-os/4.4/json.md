@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/json.html
 - /HEAD/json.html
 - /json.html
 - /releases/release-V4.4/json.html

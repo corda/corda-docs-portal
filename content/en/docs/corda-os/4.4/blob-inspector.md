@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/blob-inspector.html
 - /HEAD/blob-inspector.html
 - /blob-inspector.html
 - /releases/release-V4.4/blob-inspector.html

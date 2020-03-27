@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/generating-a-node.html
 - /HEAD/generating-a-node.html
 - /generating-a-node.html
 - /releases/release-V4.4/generating-a-node.html

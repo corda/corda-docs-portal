@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/azure-vm-explore.html
 - /HEAD/azure-vm-explore.html
 - /azure-vm-explore.html
 - /releases/release-V4.4/azure-vm-explore.html

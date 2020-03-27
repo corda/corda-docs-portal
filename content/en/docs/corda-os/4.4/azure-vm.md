@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/azure-vm.html
 - /HEAD/azure-vm.html
 - /azure-vm.html
 - /releases/release-V4.4/azure-vm.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/clientrpc.html
 - /HEAD/clientrpc.html
 - /clientrpc.html
 - /releases/release-V4.4/clientrpc.html

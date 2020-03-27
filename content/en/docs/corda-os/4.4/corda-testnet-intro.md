@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/corda-testnet-intro.html
 - /HEAD/corda-testnet-intro.html
 - /corda-testnet-intro.html
 - /releases/release-V4.4/corda-testnet-intro.html

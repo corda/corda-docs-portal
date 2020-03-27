@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-database-tables.html
 - /HEAD/node-database-tables.html
 - /node-database-tables.html
 - /releases/release-V4.4/node-database-tables.html

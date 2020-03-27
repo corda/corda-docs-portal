@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/joining-a-compatibility-zone.html
 - /HEAD/joining-a-compatibility-zone.html
 - /joining-a-compatibility-zone.html
 - /releases/release-V4.4/joining-a-compatibility-zone.html

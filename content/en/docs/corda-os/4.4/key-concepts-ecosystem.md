@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-ecosystem.html
 - /HEAD/key-concepts-ecosystem.html
 - /key-concepts-ecosystem.html
 - /releases/release-V4.4/key-concepts-ecosystem.html

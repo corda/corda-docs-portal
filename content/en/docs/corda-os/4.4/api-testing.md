@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-testing.html
 - /HEAD/api-testing.html
 - /api-testing.html
 - /releases/release-V4.4/api-testing.html

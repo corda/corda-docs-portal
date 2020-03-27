@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tools-index.html
 - /HEAD/tools-index.html
 - /tools-index.html
 - /releases/release-V4.4/tools-index.html

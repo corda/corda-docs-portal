@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/quickstart-build.html
 - /HEAD/quickstart-build.html
 - /quickstart-build.html
 - /releases/release-V4.4/quickstart-build.html

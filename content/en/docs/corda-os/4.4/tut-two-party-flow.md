@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tut-two-party-flow.html
 - /HEAD/tut-two-party-flow.html
 - /tut-two-party-flow.html
 - /releases/release-V4.4/tut-two-party-flow.html

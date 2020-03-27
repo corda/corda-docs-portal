@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-states.html
 - /HEAD/key-concepts-states.html
 - /key-concepts-states.html
 - /releases/release-V4.4/key-concepts-states.html

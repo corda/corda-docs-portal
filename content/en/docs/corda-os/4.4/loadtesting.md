@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/loadtesting.html
 - /HEAD/loadtesting.html
 - /loadtesting.html
 - /releases/release-V4.4/loadtesting.html

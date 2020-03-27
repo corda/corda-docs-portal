@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/flow-overriding.html
 - /HEAD/flow-overriding.html
 - /flow-overriding.html
 - /releases/release-V4.4/flow-overriding.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-naming.html
 - /HEAD/node-naming.html
 - /node-naming.html
 - /releases/release-V4.4/node-naming.html

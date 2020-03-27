@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/soft-locking.html
 - /HEAD/soft-locking.html
 - /soft-locking.html
 - /releases/release-V4.4/soft-locking.html

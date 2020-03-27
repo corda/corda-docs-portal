@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tutorial-tear-offs.html
 - /HEAD/tutorial-tear-offs.html
 - /tutorial-tear-offs.html
 - /releases/release-V4.4/tutorial-tear-offs.html

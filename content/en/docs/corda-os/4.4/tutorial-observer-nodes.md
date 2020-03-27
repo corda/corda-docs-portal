@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tutorial-observer-nodes.html
 - /HEAD/tutorial-observer-nodes.html
 - /tutorial-observer-nodes.html
 - /releases/release-V4.4/tutorial-observer-nodes.html

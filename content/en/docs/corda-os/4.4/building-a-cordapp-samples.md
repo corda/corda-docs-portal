@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/building-a-cordapp-samples.html
 - /HEAD/building-a-cordapp-samples.html
 - /building-a-cordapp-samples.html
 - /releases/release-V4.4/building-a-cordapp-samples.html

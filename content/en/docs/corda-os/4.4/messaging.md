@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/messaging.html
 - /HEAD/messaging.html
 - /messaging.html
 - /releases/release-V4.4/messaging.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/checkpoint-tooling.html
 - /HEAD/checkpoint-tooling.html
 - /checkpoint-tooling.html
 - /releases/release-V4.4/checkpoint-tooling.html

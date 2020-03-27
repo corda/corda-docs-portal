@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/event-scheduling.html
 - /HEAD/event-scheduling.html
 - /event-scheduling.html
 - /releases/release-V4.4/event-scheduling.html

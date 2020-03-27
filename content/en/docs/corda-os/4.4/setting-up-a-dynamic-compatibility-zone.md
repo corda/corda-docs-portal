@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/setting-up-a-dynamic-compatibility-zone.html
 - /HEAD/setting-up-a-dynamic-compatibility-zone.html
 - /setting-up-a-dynamic-compatibility-zone.html
 - /releases/release-V4.4/setting-up-a-dynamic-compatibility-zone.html

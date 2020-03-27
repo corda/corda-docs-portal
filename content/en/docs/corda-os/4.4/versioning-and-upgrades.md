@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/versioning-and-upgrades.html
 - /HEAD/versioning-and-upgrades.html
 - /versioning-and-upgrades.html
 - /releases/release-V4.4/versioning-and-upgrades.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tutorial-custom-notary.html
 - /HEAD/tutorial-custom-notary.html
 - /tutorial-custom-notary.html
 - /releases/release-V4.4/tutorial-custom-notary.html

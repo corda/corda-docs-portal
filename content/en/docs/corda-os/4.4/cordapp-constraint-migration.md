@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/cordapp-constraint-migration.html
 - /HEAD/cordapp-constraint-migration.html
 - /cordapp-constraint-migration.html
 - /releases/release-V4.4/cordapp-constraint-migration.html

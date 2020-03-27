@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/hello-world-introduction.html
 - /HEAD/hello-world-introduction.html
 - /hello-world-introduction.html
 - /releases/release-V4.4/hello-world-introduction.html

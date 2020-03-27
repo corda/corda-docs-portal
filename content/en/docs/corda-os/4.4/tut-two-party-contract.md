@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tut-two-party-contract.html
 - /HEAD/tut-two-party-contract.html
 - /tut-two-party-contract.html
 - /releases/release-V4.4/tut-two-party-contract.html

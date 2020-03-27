@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/codestyle.html
 - /HEAD/codestyle.html
 - /codestyle.html
 - /releases/release-V4.4/codestyle.html

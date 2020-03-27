@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/aws-vm-explore.html
 - /HEAD/aws-vm-explore.html
 - /aws-vm-explore.html
 - /releases/release-V4.4/aws-vm-explore.html

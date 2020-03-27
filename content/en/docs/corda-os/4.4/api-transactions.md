@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-transactions.html
 - /HEAD/api-transactions.html
 - /api-transactions.html
 - /releases/release-V4.4/api-transactions.html

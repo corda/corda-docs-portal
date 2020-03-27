@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/getting-set-up.html
 - /HEAD/getting-set-up.html
 - /getting-set-up.html
 - /releases/release-V4.4/getting-set-up.html

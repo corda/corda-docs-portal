@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tutorial-building-transactions.html
 - /HEAD/tutorial-building-transactions.html
 - /tutorial-building-transactions.html
 - /releases/release-V4.4/tutorial-building-transactions.html

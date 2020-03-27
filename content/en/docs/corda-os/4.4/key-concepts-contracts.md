@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-contracts.html
 - /HEAD/key-concepts-contracts.html
 - /key-concepts-contracts.html
 - /releases/release-V4.4/key-concepts-contracts.html

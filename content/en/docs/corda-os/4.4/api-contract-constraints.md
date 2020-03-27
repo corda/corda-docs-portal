@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-contract-constraints.html
 - /HEAD/api-contract-constraints.html
 - /api-contract-constraints.html
 - /releases/release-V4.4/api-contract-constraints.html

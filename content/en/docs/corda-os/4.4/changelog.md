@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/changelog.html
 - /HEAD/changelog.html
 - /changelog.html
 - /releases/release-V4.4/changelog.html

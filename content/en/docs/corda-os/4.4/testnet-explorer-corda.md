@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/testnet-explorer-corda.html
 - /HEAD/testnet-explorer-corda.html
 - /testnet-explorer-corda.html
 - /releases/release-V4.4/testnet-explorer-corda.html

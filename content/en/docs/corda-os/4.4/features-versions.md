@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/features-versions.html
 - /HEAD/features-versions.html
 - /features-versions.html
 - /releases/release-V4.4/features-versions.html

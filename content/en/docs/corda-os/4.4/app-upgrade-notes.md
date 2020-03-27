@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/app-upgrade-notes.html
 - /HEAD/app-upgrade-notes.html
 - /app-upgrade-notes.html
 - /releases/release-V4.4/app-upgrade-notes.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/building-the-docs.html
 - /HEAD/building-the-docs.html
 - /building-the-docs.html
 - /releases/release-V4.4/building-the-docs.html

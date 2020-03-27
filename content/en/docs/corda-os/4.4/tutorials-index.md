@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/tutorials-index.html
 - /HEAD/tutorials-index.html
 - /tutorials-index.html
 - /releases/release-V4.4/tutorials-index.html

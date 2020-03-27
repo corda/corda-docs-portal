@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-rpc.html
 - /HEAD/api-rpc.html
 - /api-rpc.html
 - /releases/release-V4.4/api-rpc.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/contract-irs.html
 - /HEAD/contract-irs.html
 - /contract-irs.html
 - /releases/release-V4.4/contract-irs.html

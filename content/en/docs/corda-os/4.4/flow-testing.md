@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/flow-testing.html
 - /HEAD/flow-testing.html
 - /flow-testing.html
 - /releases/release-V4.4/flow-testing.html

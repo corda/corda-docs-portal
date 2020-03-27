@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/network-map.html
 - /HEAD/network-map.html
 - /network-map.html
 - /releases/release-V4.4/network-map.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-service-classes.html
 - /HEAD/api-service-classes.html
 - /api-service-classes.html
 - /releases/release-V4.4/api-service-classes.html

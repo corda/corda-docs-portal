@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-node.html
 - /HEAD/key-concepts-node.html
 - /key-concepts-node.html
 - /releases/release-V4.4/key-concepts-node.html

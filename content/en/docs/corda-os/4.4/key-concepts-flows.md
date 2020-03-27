@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-flows.html
 - /HEAD/key-concepts-flows.html
 - /key-concepts-flows.html
 - /releases/release-V4.4/key-concepts-flows.html

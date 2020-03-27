@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/corda-network/index.html
 - /HEAD/corda-network/index.html
 - /corda-network/index.html
 - /releases/release-V4.4/corda-network/index.html

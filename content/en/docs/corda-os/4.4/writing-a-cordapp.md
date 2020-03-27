@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/writing-a-cordapp.html
 - /HEAD/writing-a-cordapp.html
 - /writing-a-cordapp.html
 - /releases/release-V4.4/writing-a-cordapp.html

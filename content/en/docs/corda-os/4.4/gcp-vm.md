@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/gcp-vm.html
 - /HEAD/gcp-vm.html
 - /gcp-vm.html
 - /releases/release-V4.4/gcp-vm.html

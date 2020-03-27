@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/hello-world-running.html
 - /HEAD/hello-world-running.html
 - /hello-world-running.html
 - /releases/release-V4.4/hello-world-running.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/permissioning.html
 - /HEAD/permissioning.html
 - /permissioning.html
 - /releases/release-V4.4/permissioning.html

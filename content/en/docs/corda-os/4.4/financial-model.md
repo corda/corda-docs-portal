@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/financial-model.html
 - /HEAD/financial-model.html
 - /financial-model.html
 - /releases/release-V4.4/financial-model.html

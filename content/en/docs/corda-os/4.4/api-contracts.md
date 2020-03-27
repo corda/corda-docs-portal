@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-contracts.html
 - /HEAD/api-contracts.html
 - /api-contracts.html
 - /releases/release-V4.4/api-contracts.html

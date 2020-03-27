@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/api-persistence.html
 - /HEAD/api-persistence.html
 - /api-persistence.html
 - /releases/release-V4.4/api-persistence.html

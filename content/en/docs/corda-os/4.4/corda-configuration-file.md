@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/corda-configuration-file.html
 - /HEAD/corda-configuration-file.html
 - /corda-configuration-file.html
 - /releases/release-V4.4/corda-configuration-file.html

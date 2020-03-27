@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/oracles.html
 - /HEAD/oracles.html
 - /oracles.html
 - /releases/release-V4.4/oracles.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/docker-image.html
 - /HEAD/docker-image.html
 - /docker-image.html
 - /releases/release-V4.4/docker-image.html

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/corda-network/UAT.html
 - /HEAD/corda-network/UAT.html
 - /corda-network/UAT.html
 - /releases/release-V4.4/corda-network/UAT.html

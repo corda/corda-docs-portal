@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/demobench.html
 - /HEAD/demobench.html
 - /demobench.html
 - /releases/release-V4.4/demobench.html

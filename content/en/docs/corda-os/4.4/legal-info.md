@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/legal-info.html
 - /HEAD/legal-info.html
 - /legal-info.html
 - /releases/release-V4.4/legal-info.html

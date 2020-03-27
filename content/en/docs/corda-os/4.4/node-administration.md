@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-administration.html
 - /HEAD/node-administration.html
 - /node-administration.html
 - /releases/release-V4.4/node-administration.html

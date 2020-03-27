@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/key-concepts-ledger.html
 - /HEAD/key-concepts-ledger.html
 - /key-concepts-ledger.html
 - /releases/release-V4.4/key-concepts-ledger.html

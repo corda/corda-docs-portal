@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/node-structure.html
 - /HEAD/node-structure.html
 - /node-structure.html
 - /releases/release-V4.4/node-structure.html

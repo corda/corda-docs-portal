@@ -1,5 +1,6 @@
 ---
 aliases:
+- /head/contract-upgrade.html
 - /HEAD/contract-upgrade.html
 - /contract-upgrade.html
 - /releases/release-V4.4/contract-upgrade.html
