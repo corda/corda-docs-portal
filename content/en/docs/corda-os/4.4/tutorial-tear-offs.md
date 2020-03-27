@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/tutorial-tear-offs.html
 - /tutorial-tear-offs.html
 - /releases/release-V4.4/tutorial-tear-offs.html
 date: '2020-01-08T09:59:25Z'

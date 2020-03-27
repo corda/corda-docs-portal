@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/api-identity.html
 - /api-identity.html
 - /releases/release-V4.4/api-identity.html
 date: '2020-01-08T09:59:25Z'

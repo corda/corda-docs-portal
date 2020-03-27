@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/tut-two-party-introduction.html
 - /tut-two-party-introduction.html
 - /releases/release-V4.4/tut-two-party-introduction.html
 date: '2020-01-08T09:59:25Z'

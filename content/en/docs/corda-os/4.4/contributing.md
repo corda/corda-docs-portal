@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/contributing.html
 - /contributing.html
 - /releases/release-V4.4/contributing.html
 date: '2020-01-08T09:59:25Z'

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/node-upgrade-notes.html
 - /node-upgrade-notes.html
 - /releases/release-V4.4/node-upgrade-notes.html
 date: '2020-01-08T09:59:25Z'

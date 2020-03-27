@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/compatibility-zones.html
 - /compatibility-zones.html
 - /releases/release-V4.4/compatibility-zones.html
 date: '2020-01-08T09:59:25Z'

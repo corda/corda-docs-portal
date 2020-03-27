@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/corda-network/UAT.html
 - /corda-network/UAT.html
 - /releases/release-V4.4/corda-network/UAT.html
 date: '2020-01-08T09:59:25Z'

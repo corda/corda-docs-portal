@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/api-vault-query.html
 - /api-vault-query.html
 - /releases/release-V4.4/api-vault-query.html
 date: '2020-01-08T09:59:25Z'

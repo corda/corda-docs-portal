@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/quickstart-build.html
 - /quickstart-build.html
 - /releases/release-V4.4/quickstart-build.html
 date: '2020-01-08T09:59:25Z'

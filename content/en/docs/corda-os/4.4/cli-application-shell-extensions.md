@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/cli-application-shell-extensions.html
 - /cli-application-shell-extensions.html
 - /releases/release-V4.4/cli-application-shell-extensions.html
 date: '2020-01-08T09:59:25Z'

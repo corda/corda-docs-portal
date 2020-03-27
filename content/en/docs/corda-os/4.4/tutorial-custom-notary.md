@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/tutorial-custom-notary.html
 - /tutorial-custom-notary.html
 - /releases/release-V4.4/tutorial-custom-notary.html
 date: '2020-01-08T09:59:25Z'

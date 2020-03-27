@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/api-states.html
 - /api-states.html
 - /releases/release-V4.4/api-states.html
 date: '2020-01-08T09:59:25Z'

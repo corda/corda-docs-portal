@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/node-internals-index.html
 - /node-internals-index.html
 - /releases/release-V4.4/node-internals-index.html
 date: '2020-01-08T09:59:25Z'

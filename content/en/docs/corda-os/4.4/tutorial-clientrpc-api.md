@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/tutorial-clientrpc-api.html
 - /tutorial-clientrpc-api.html
 - /releases/release-V4.4/tutorial-clientrpc-api.html
 date: '2020-01-08T09:59:25Z'

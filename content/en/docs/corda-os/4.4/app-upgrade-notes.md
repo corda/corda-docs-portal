@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/app-upgrade-notes.html
 - /app-upgrade-notes.html
 - /releases/release-V4.4/app-upgrade-notes.html
 date: '2020-01-08T09:59:25Z'

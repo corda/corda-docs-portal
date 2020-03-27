@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/node-database-tables.html
 - /node-database-tables.html
 - /releases/release-V4.4/node-database-tables.html
 date: '2020-01-08T09:59:25Z'

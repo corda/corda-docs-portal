@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/running-a-notary.html
 - /running-a-notary.html
 - /releases/release-V4.4/running-a-notary.html
 date: '2020-01-08T09:59:25Z'

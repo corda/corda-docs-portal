@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/docker-image.html
 - /docker-image.html
 - /releases/release-V4.4/docker-image.html
 date: '2020-01-08T09:59:25Z'

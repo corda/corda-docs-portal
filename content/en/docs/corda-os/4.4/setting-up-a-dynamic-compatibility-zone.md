@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/setting-up-a-dynamic-compatibility-zone.html
 - /setting-up-a-dynamic-compatibility-zone.html
 - /releases/release-V4.4/setting-up-a-dynamic-compatibility-zone.html
 date: '2020-01-08T09:59:25Z'

@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/cordapp-constraint-migration.html
 - /cordapp-constraint-migration.html
 - /releases/release-V4.4/cordapp-constraint-migration.html
 date: '2020-01-08T09:59:25Z'

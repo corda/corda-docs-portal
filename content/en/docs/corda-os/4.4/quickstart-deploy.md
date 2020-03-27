@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/quickstart-deploy.html
 - /quickstart-deploy.html
 - /releases/release-V4.4/quickstart-deploy.html
 date: '2020-01-08T09:59:25Z'

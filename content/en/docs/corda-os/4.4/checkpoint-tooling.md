@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/checkpoint-tooling.html
 - /checkpoint-tooling.html
 - /releases/release-V4.4/checkpoint-tooling.html
 date: '2020-01-08T09:59:25Z'

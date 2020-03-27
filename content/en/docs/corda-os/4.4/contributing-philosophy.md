@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/contributing-philosophy.html
 - /contributing-philosophy.html
 - /releases/release-V4.4/contributing-philosophy.html
 date: '2020-01-08T09:59:25Z'

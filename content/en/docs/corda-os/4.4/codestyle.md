@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/codestyle.html
 - /codestyle.html
 - /releases/release-V4.4/codestyle.html
 date: '2020-01-08T09:59:25Z'

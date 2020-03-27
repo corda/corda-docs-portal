@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/key-concepts-oracles.html
 - /key-concepts-oracles.html
 - /releases/release-V4.4/key-concepts-oracles.html
 date: '2020-01-08T09:59:25Z'

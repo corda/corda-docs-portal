@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/generating-a-node.html
 - /generating-a-node.html
 - /releases/release-V4.4/generating-a-node.html
 date: '2020-01-08T09:59:25Z'

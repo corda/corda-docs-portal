@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/network-bootstrapper.html
 - /network-bootstrapper.html
 - /releases/release-V4.4/network-bootstrapper.html
 date: '2020-01-08T09:59:25Z'

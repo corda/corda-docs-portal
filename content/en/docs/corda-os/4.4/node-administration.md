@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/node-administration.html
 - /node-administration.html
 - /releases/release-V4.4/node-administration.html
 date: '2020-01-08T09:59:25Z'

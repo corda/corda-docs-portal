@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/key-concepts-transactions.html
 - /key-concepts-transactions.html
 - /releases/release-V4.4/key-concepts-transactions.html
 date: '2020-01-08T09:59:25Z'

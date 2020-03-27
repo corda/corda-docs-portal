@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/corda-nodes-index.html
 - /corda-nodes-index.html
 - /releases/release-V4.4/corda-nodes-index.html
 date: '2020-01-08T09:59:25Z'

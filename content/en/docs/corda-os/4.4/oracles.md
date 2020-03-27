@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/oracles.html
 - /oracles.html
 - /releases/release-V4.4/oracles.html
 date: '2020-01-08T09:59:25Z'

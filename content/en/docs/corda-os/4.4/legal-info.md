@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/legal-info.html
 - /legal-info.html
 - /releases/release-V4.4/legal-info.html
 date: '2020-01-08T09:59:25Z'

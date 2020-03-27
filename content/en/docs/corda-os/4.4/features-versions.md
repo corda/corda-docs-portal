@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/features-versions.html
 - /features-versions.html
 - /releases/release-V4.4/features-versions.html
 date: '2020-01-08T09:59:25Z'

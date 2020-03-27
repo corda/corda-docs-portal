@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/hello-world-running.html
 - /hello-world-running.html
 - /releases/release-V4.4/hello-world-running.html
 date: '2020-01-08T09:59:25Z'

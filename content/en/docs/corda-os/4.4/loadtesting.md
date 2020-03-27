@@ -1,5 +1,6 @@
 ---
 aliases:
+- /HEAD/loadtesting.html
 - /loadtesting.html
 - /releases/release-V4.4/loadtesting.html
 date: '2020-01-08T09:59:25Z'
