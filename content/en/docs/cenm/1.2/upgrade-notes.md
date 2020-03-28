@@ -14,7 +14,6 @@ tags:
 title: Upgrading Corda Enterprise Network Manager
 ---
 
-
 # Upgrading Corda Enterprise Network Manager
 
 These notes provide instructions for upgrading your network management (Doorman, Network Map or Revocation) service or
@@ -23,6 +22,7 @@ in question. If not specified, you may assume the versions you are currently usi
 
 We also strongly recommend cross referencing with the [Changelog](changelog.md) to confirm changes.
 
+<!--- 
 ## 1.2 to 1.2.1
 
  **Identity Manager**
@@ -39,6 +39,7 @@ We also strongly recommend cross referencing with the [Changelog](changelog.md) 
 ## 1.1 to 1.2.1
 
  See the upgrade note for 1.1 to 1.2.
+-->
 
 ## 1.1 to 1.2
 
@@ -244,4 +245,3 @@ The new JAR can then be run with the new configuration file with no extra steps 
 * **Auto Enrolment in Private Networks**To support automatic enrolment of nodes within a Private Network a new column has been added to the `private-networks` table
 to facilitate indication as to whether that private network should allow for automatic registration. This task will handled
 automatically via liquibase if “run_migration” is set when starting the 0.2.1 `doorman.jar`.
-
