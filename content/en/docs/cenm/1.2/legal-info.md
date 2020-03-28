@@ -7,7 +7,7 @@ menu:
   cenm-1-2:
     identifier: cenm-1-2-legal-info
     parent: cenm-1-2-cenm-releases
-    weight: 100
+    weight: 120
 tags:
 - legal
 - info
