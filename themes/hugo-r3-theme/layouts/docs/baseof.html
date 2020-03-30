@@ -18,12 +18,14 @@
                             <main role="main">
                                 <article class="r3-content">
                                     {{- block "main" . -}}{{- end -}}
+                                    {{ partial "menu/prev-current-next.html" . }}
                                 </article>
                             </main>
                         {{ else }}
                             <main role="main">
                                 <article class="r3-content">
                                     {{- block "main" . -}}{{- end -}}
+                                    {{ partial "menu/prev-current-next.html" . }}
                                 </article>
                             </main>
                             <aside class="d-none d-xl-flex">
