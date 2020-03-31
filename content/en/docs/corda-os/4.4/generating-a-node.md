@@ -356,7 +356,7 @@ To add a configuration file to a CorDapp, deployed on a **Cordformation** node, 
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar', nodeTask]) {
     node {
         cordapp "group:name:version" {
-            config = "configKey = configValue"
+            config "configKey = configValue"
         }
     }
 }
@@ -380,7 +380,7 @@ the `projectCordapp` object instead of the `cordapp` object
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar', nodeTask]) {
     node {
         projectCordapp {
-            config = "configKey = configValue"
+            config "configKey = configValue"
         }
     }
 }
