@@ -49,6 +49,8 @@ weight: 20
 Each CENM service has dedicated docker image. They are designed to be minimal and optimized to run on Kubernetes cluster.
 They are **not** designed to run as standalone docker containers. They are stored in acrcenm.azurecr.io container repository:
 
+{{< table >}}
+
 | CENM service     | Docker Hub                         | Tag                   |
 | ---------------- | ---------------------------------- | --------------------- |
 | Identity Manager | corda/enterprise-identitymanager   | 1.2-zulu-openjdk8u242 |
@@ -56,6 +58,8 @@ They are **not** designed to run as standalone docker containers. They are store
 | PKI Tool         | corda/enterprise-pkitool           | 1.2-zulu-openjdk8u242 |
 | Signer           | corda/enterprise-signer            | 1.2-zulu-openjdk8u242 |
 | Notary           | corda/notary                       | 1.2-zulu-openjdk8u242 |
+
+{{< /table >}}
 
 All helm charts by default use CENM docker images with tag `1.2-zulu-openjdk8u242`.
 
