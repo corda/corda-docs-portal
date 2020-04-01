@@ -10,10 +10,6 @@ def MAKE_BUILD_TARGETS = [
     'prod-docker-image',
 ]
 
-def MAKE_PUBLISH_TARGETS = [
-    'publish',
-]
-
 pipeline {
     agent { label "basic" }
 
@@ -37,6 +33,7 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
+                githubNotify context: 'Docsite build', description: 'Docsite build has been started',  status: 'PENDING'
                 sh """
                     make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
                 """
