@@ -10,7 +10,7 @@ tags:
 title: config-shell
 ---
 
-# Shell Configuration
+# Shell Configuration Parameters
 
 {{% table %}}
 
