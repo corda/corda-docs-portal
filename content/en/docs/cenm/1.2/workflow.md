@@ -106,14 +106,13 @@ workflows {
 
 ## Creating a workflow plugin
 
-The workflow plugin must extend `WorkflowPlugin` for certificate signing request or certificate revocation request respectively, issuance and revocation workflows
-can be configured with specific plugin classes as per the configuration shown above. The plugin will need to be made available to the ENM process by including the plugin jar in the classpath.
-This can be done by specifying the jar path via the `pluginJar` configuration option.
+The workflow plugin must extend `WorkflowPlugin` for certificate signing request
+or certificate revocation request respectively, issuance and revocation workflows
+can be configured with specific plugin classes as per the configuration shown
+above. The plugin will need to be made available to the ENM process by including
+the plugin jar in the classpath. This can be done by specifying the JAR path via
+the `pluginJar` configuration option.
 
-{{< note >}}
-For release 1.0 only a simple issuance and optional revocation workflow pair are supported.
-
-{{< /note >}}
 ```kotlin
 /*
  * R3 Proprietary and Confidential
@@ -186,8 +185,83 @@ data class WorkflowPluginRequest(val requestId: String,
                                  val legalName: CordaX500Name? = null)
 
 ```
+{{/* github src='workflow/src/main/kotlin/com/r3/enm/workflow/api/WorkflowPlugin.kt' url='https://github.com/corda/network-services/blob/release/1.2/workflow/src/main/kotlin/com/r3/enm/workflow/api/WorkflowPlugin.kt' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/workflow/src/main/kotlin/com/r3/enm/workflow/api/WorkflowPlugin.kt' start='' end='' */}}
 
-[WorkflowPlugin.kt](https://github.com/corda/network-services/blob/release/1.2/workflow/src/main/kotlin/com/r3/enm/workflow/api/WorkflowPlugin.kt)
+There are two `Request` implementations which plugins can support, `CertificateSigningRequest`
+and `CertificateRevocationRequest`:
+
+```kotlin
+/*
+ * R3 Proprietary and Confidential
+ *
+ * Copyright (c) 2018 R3 Limited.  All rights reserved.
+ *
+ * The intellectual and technical concepts contained herein are proprietary to R3 and its suppliers and are protected by trade secret law.
+ *
+ * Distribution of this file or any portion thereof via any medium without the express permission of R3 is strictly prohibited.
+ */
+
+package com.r3.enm.model
+
+import net.corda.core.crypto.SecureHash
+import net.corda.core.identity.CordaX500Name
+import net.corda.core.serialization.CordaSerializable
+import org.bouncycastle.pkcs.PKCS10CertificationRequest
+import java.security.cert.CertPath
+
+@CordaSerializable
+data class CertificateSigningRequest(override val requestId: String,
+                                     override val legalName: CordaX500Name,
+                                     val publicKeyHash: SecureHash,
+                                     val pkcS10CertificationRequest: PKCS10CertificationRequest,
+                                     val signedBy: String?,
+                                     val certData: CertificateData?,
+                                     val submissionToken: String?) : Request
+
+@CordaSerializable
+data class CertificateData(val certStatus: CertificateStatus, val certPath: CertPath)
+
+@CordaSerializable
+enum class CertificateStatus {
+    VALID, SUSPENDED, REVOKED
+}
+```
+{{/* github src='services-api/src/main/kotlin/com/r3/enm/model/CertificateSigningRequest.kt' url='https://github.com/corda/network-services/release/1.2/services-api/src/main/kotlin/com/r3/enm/model/CertificateSigningRequest.kt' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/services-api/src/main/kotlin/com/r3/enm/model/CertificateSigningRequest.kt' start='' end='' */}}
+
+```kotlin
+/*
+ * R3 Proprietary and Confidential
+ *
+ * Copyright (c) 2018 R3 Limited.  All rights reserved.
+ *
+ * The intellectual and technical concepts contained herein are proprietary to R3 and its suppliers and are protected by trade secret law.
+ *
+ * Distribution of this file or any portion thereof via any medium without the express permission of R3 is strictly prohibited.
+ */
+
+package com.r3.enm.model
+
+import net.corda.core.identity.CordaX500Name
+import net.corda.core.serialization.CordaSerializable
+import java.math.BigInteger
+import java.security.cert.CRLReason
+import java.security.cert.X509Certificate
+import java.time.Instant
+
+/**
+ * This data class is intended to be used internally by certificate revocation request service.
+ */
+@CordaSerializable
+data class CertificateRevocationRequest(override val requestId: String,
+                                        val certificateSigningRequestId: String,
+                                        val certificate: X509Certificate,
+                                        val certificateSerialNumber: BigInteger,
+                                        val modifiedAt: Instant,
+                                        override val legalName: CordaX500Name,
+                                        val reason: CRLReason,
+                                        val reporter: String) : Request
+```
+{{/* github src='services-api/src/main/kotlin/com/r3/enm/model/CertificateRevocationRequest.kt' url='https://github.com/corda/network-services/release/1.2/services-api/src/main/kotlin/com/r3/enm/model/CertificateRevocationRequest.kt' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/services-api/src/main/kotlin/com/r3/enm/model/CertificateRevocationRequest.kt' start='' end='' */}}
 
 {{< note >}}
 Currently, any implementation of the `WorkflowPlugin` interface **must** provide a constructor which takes
@@ -456,4 +530,3 @@ HTTP Response header:
 Response Body:
 
 Rejection reason code: 8. Description: On a Sanctions Watchlist. Additional remark: No additional remark.”
-
