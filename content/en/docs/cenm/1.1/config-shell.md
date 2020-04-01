@@ -7,7 +7,7 @@ menu: []
 tags:
 - config
 - shell
-title: config-shell
+title: Shell Configuration Parameters
 ---
 
 # Shell Configuration Parameters
