@@ -1,6 +1,5 @@
 ---
 aliases:
-- /pki-guide.html
 - /releases/release-1.2/pki-guide.html
 date: '2020-01-08T09:59:25Z'
 menu:

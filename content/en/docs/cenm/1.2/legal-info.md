@@ -1,6 +1,5 @@
 ---
 aliases:
-- /legal-info.html
 - /releases/release-1.2/legal-info.html
 date: '2020-01-08T09:59:25Z'
 menu:

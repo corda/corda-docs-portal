@@ -1,6 +1,5 @@
 ---
 aliases:
-- /config-obfuscation-tool.html
 - /releases/release-1.2/config-obfuscation-tool.html
 date: '2020-01-08T09:59:25Z'
 menu:

@@ -1,6 +1,5 @@
 ---
 aliases:
-- /tool-config-migration.html
 - /releases/release-1.2/tool-config-migration.html
 date: '2020-01-08T09:59:25Z'
 menu: []

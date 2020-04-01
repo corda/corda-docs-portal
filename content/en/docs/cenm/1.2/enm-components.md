@@ -1,6 +1,5 @@
 ---
 aliases:
-- /enm-components.html
 - /releases/release-1.2/enm-components.html
 date: '2020-01-08T09:59:25Z'
 menu:
