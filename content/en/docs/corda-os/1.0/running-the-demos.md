@@ -229,8 +229,8 @@ running currently on the node.
 
 Launch the Explorer application to visualize the issuance and transfer of cash for each node:
 
-> 
-> `./gradlew tools:explorer:run` (on Unix) or `gradlew tools:explorer:run` (on Windows)
+
+`./gradlew tools:explorer:run` (on Unix) or `gradlew tools:explorer:run` (on Windows)
 
 
 Using the following login details:
@@ -257,8 +257,8 @@ by one party to another when they agree a trade on certain types of transaction.
 The SIMM was introduced to standardise the calculation of how much margin counterparties charge each other on their
 bilateral transactions. Before SIMM, each counterparty computed margins according to its own model and it was made it very
 
-> 
-> difficult to agree the exact margin with the counterparty that faces the same trade on the other side.
+
+difficult to agree the exact margin with the counterparty that faces the same trade on the other side.
 
 
 To enact this, in September 2016, the ISDA committee - with full backing from various governing bodies -

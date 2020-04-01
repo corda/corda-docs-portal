@@ -59,13 +59,13 @@ correctly configured for the Network Map service and that `privateNetworkAutoEnr
 
 The private network manager provides the following functionality:
 
-> 
-> 
-> * **Create A New Private Network** - Creates a persists a new private network, automatically generating a unique UUID.
-> * **List Existing Private Networks** - Lists all currently persisted private networks.
-> * **Add a Node to a Private Network** - Move a node from the public network (if previously published its node info)into the provided private network. Note that in order for this command to
-> succeed, the node must have registered with the Identity Manager.
-> * **Move a Node back to the Public Network** - Move a node from a private network back into the public network.
+
+
+* **Create A New Private Network** - Creates a persists a new private network, automatically generating a unique UUID.
+* **List Existing Private Networks** - Lists all currently persisted private networks.
+* **Add a Node to a Private Network** - Move a node from the public network (if previously published its node info)into the provided private network. Note that in order for this command to
+succeed, the node must have registered with the Identity Manager.
+* **Move a Node back to the Public Network** - Move a node from a private network back into the public network.
 
 
 

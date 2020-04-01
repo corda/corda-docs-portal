@@ -47,8 +47,8 @@ keys and TLS certificates
 
 
 * The **legal identity CAs**> 
-> 
->     * Node’s well-known legal identity, apart from signing transactions, can also issue certificates for confidential legal identities
+
+    * Node’s well-known legal identity, apart from signing transactions, can also issue certificates for confidential legal identities
 
 
 
@@ -82,17 +82,17 @@ public/private keypairs and certificates. The keypairs and certificates should o
 
 
 * The certificates must follow the [X.509 standard](https://tools.ietf.org/html/rfc5280)> 
-> 
->     * We recommend X.509 v3 for forward compatibility
+
+    * We recommend X.509 v3 for forward compatibility
 
 
 
 * The TLS certificates must follow the [TLS v1.2 standard](https://tools.ietf.org/html/rfc5246)
 * The root network CA, doorman CA and node CA keys, as well as the node TLS
 keys, must follow one of the following schemes:> 
-> 
->     * ECDSA using the NIST P-256 curve (secp256r1)
->     * RSA with 3072-bit key size
+
+    * ECDSA using the NIST P-256 curve (secp256r1)
+    * RSA with 3072-bit key size
 
 
 

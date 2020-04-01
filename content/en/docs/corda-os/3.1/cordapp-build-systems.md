@@ -84,7 +84,7 @@ dependency from being included twice (once in the CorDapp JAR and once in the Co
 
 To build against Corda, you must add the following to your `build.gradle` file:
 
-> 
+
 
 The Cordapp plugin should be applied to any project that will be building a cordapp, and the cordformation plugin should be applied to projects that wish to create small testing networks locally.
 

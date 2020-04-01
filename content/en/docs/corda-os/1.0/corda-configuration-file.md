@@ -186,17 +186,17 @@ bootstrapped. Required only when running a distributed notary service.
 If *null*, or missing the node is declaring itself as the NetworkMapService host. Otherwise this is
 a config object with the details of the network map service:
 
-> 
-> 
-> * **address**: 
-> Host and port string of the ArtemisMQ broker hosting the network map node
-> 
-> 
-> * **legalName**: 
-> Legal name of the node. This is required as part of the TLS host verification process. The node will
-> reject the connection to the network map service if it provides a TLS common name which doesn’t match with this value.
-> 
-> 
+
+
+* **address**: 
+Host and port string of the ArtemisMQ broker hosting the network map node
+
+
+* **legalName**: 
+Legal name of the node. This is required as part of the TLS host verification process. The node will
+reject the connection to the network map service if it provides a TLS common name which doesn’t match with this value.
+
+
 
 
 
@@ -216,20 +216,20 @@ then unencrypted HTTP traffic to the node’s **webAddress** port is not support
 A list of users who are authorised to access the RPC system. Each user in the list is a config object with the
 following fields:
 
-> 
-> 
-> * **username**: 
-> Username consisting only of word characters (a-z, A-Z, 0-9 and _)
-> 
-> 
-> * **password**: 
-> The password
-> 
-> 
-> * **permissions**: 
-> A list of permission strings which RPC methods can use to control access
-> 
-> 
+
+
+* **username**: 
+Username consisting only of word characters (a-z, A-Z, 0-9 and _)
+
+
+* **password**: 
+The password
+
+
+* **permissions**: 
+A list of permission strings which RPC methods can use to control access
+
+
 
 
 If this field is absent or an empty list then RPC is effectively locked down. Alternatively, if it contains the string

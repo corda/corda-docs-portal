@@ -36,28 +36,38 @@ couple of resources.
 
 
 * Log into your Cloud VM via SSH.
-* Stop the Corda node(s) running on your cloud instance.```bash
+* Stop the Corda node(s) running on your cloud instance.
+
+```bash
 ps aux | grep corda.jar | awk '{ print $2 }' | xargs sudo kill
 ```
 
 
-* Download the finance CorDappIn the terminal on your cloud instance run:```bash
+* Download the finance CorDappIn the terminal on your cloud instance run:
+
+```bash
 wget https://software.r3.com/artifactory/corda-releases/net/corda/corda-finance-contracts/4.1/corda-finance-contracts-4.1.jar
 wget https://software.r3.com/artifactory/corda-releases/net/corda/corda-finance-workflows/4.1/corda-finance-workflows-4.1.jar
 ```
 
 This is required to run some flows to check your connections, and to issue/transfer cash to counterparties. Copy it to
-the Corda installation location:```bash
+the Corda installation location:
+
+```bash
 sudo cp /home/<USER>/corda-finance-4.1-corda.jar /opt/corda/cordapps/
 ```
 
 
-* Run the following to create a config file for the finance CorDapp:```bash
+* Run the following to create a config file for the finance CorDapp:
+
+```bash
 echo "issuableCurrencies = [ USD ]" > /opt/corda/cordapps/config/corda-finance-4.1-corda.conf
 ```
 
 
-* Restart the Corda node:```bash
+* Restart the Corda node:
+
+```bash
 cd /opt/corda
 sudo ./run-corda.sh
 ```
@@ -68,7 +78,9 @@ file will list installed apps at startup. Search for `Loaded CorDapps` in the lo
 
 * Now download the Node Explorer to your **LOCAL** machine:{{< note >}}
 Node Explorer is a JavaFX GUI which connects to the node over the RPC interface and allows you to send transactions.{{< /note >}}
-Download the Node Explorer from here:```bash
+Download the Node Explorer from here:
+
+```bash
 https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.1-corda/corda-tools-explorer-4.1-corda.jar
 ```
 
@@ -79,7 +91,9 @@ use different serialisation schemes (Kryo vs AMQP).{{< /warning >}}
 
 
 
-* Run the Node Explorer tool on your **LOCAL** machine.```bash
+* Run the Node Explorer tool on your **LOCAL** machine.
+
+```bash
 java -jar corda-tools-explorer-4.1-corda.jar
 ```
 

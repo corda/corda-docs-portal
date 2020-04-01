@@ -25,11 +25,11 @@ The Config Obfuscation Tool allows users to obfuscate sensitive information in c
 data is protected at rest. The tool is an altered version of the config obfuscator used by Corda. There are two steps
 a user shall take in order to make use of this tool:
 
-> 
-> 
-> * An obfuscated config file should be produced using the config obfuscation tool.
-> * The obfuscated config file should be passed as a command line argument when starting one of the services where the
-> obfuscation flag *needs* to be set.
+
+
+* An obfuscated config file should be produced using the config obfuscation tool.
+* The obfuscated config file should be passed as a command line argument when starting one of the services where the
+obfuscation flag *needs* to be set.
 
 
 The following subsections will explain in detail how each of these two steps should be performed.
@@ -188,7 +188,9 @@ Each time an obfuscated config is passed as a command line argument to one of th
 seed **needs** to be supplied if it was explicitly set for obfuscation.
 
 {{< /note >}}
-service in a cloud), the following example command shows how a custom MAC address can be specified:```bash
+service in a cloud), the following example command shows how a custom MAC address can be specified:
+
+```bash
 java -jar identitymanager.jar --config-file <im-config-obfuscated.conf> -o --hardware-address 44:1C:8F:36:C2:A8
 ```
 

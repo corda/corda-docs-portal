@@ -31,16 +31,16 @@ A Corda node connects to a database using a single database user, and stores dat
 A database schema can not be shared between two different nodes (except for hot-cold-deployment).
 Depending on how the schema objects are created, a Corda node can connect to the database with a different set of database permissions:
 
->
->
-> * **restricted permissions**This grants the database user access to DML execution only (to manipulate data itself e.g. select/delete rows),
-> and a database administrator needs to create database schema objects before running the Corda node.
-> This permission set is recommended for a Corda node in a production environment (including hot-cold-deployment).
-> * **administrative permissions**This grants the database user full access to a Corda node, such that it can execute both DDL statements
-> (to define data structures/schema content e.g. tables) and DML queries (to manipulate data itself e.g. select/delete rows).
-> This permission set is more permissive and should be used with caution in production environments.
-> A Corda node with full control of the database schema can create or upgrade schema objects automatically upon node startup.
-> This eases the operational maintenance for development and testing.
+
+
+* **restricted permissions**This grants the database user access to DML execution only (to manipulate data itself e.g. select/delete rows),
+and a database administrator needs to create database schema objects before running the Corda node.
+This permission set is recommended for a Corda node in a production environment (including hot-cold-deployment).
+* **administrative permissions**This grants the database user full access to a Corda node, such that it can execute both DDL statements
+(to define data structures/schema content e.g. tables) and DML queries (to manipulate data itself e.g. select/delete rows).
+This permission set is more permissive and should be used with caution in production environments.
+A Corda node with full control of the database schema can create or upgrade schema objects automatically upon node startup.
+This eases the operational maintenance for development and testing.
 
 
 Database setup for production systems (with **restricted permissions**) is described in [Database schema setup](node-database-admin.md),
@@ -206,25 +206,25 @@ It is good practice for node operators to back up the database before upgrading 
 
 Symptom: Problems acquiring the lock, with output like this:
 
+
+Waiting for changelog lock….
+Waiting for changelog lock….
+Waiting for changelog lock….
+Waiting for changelog lock….
+Waiting for changelog lock….
+Waiting for changelog lock….
+Waiting for changelog lock….
+Liquibase Update Failed: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
+SEVERE 2013-03-20 16:59:liquibase: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
+liquibase.exception.LockException: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
+
 >
-> Waiting for changelog lock….
-> Waiting for changelog lock….
-> Waiting for changelog lock….
-> Waiting for changelog lock….
-> Waiting for changelog lock….
-> Waiting for changelog lock….
-> Waiting for changelog lock….
-> Liquibase Update Failed: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
-> SEVERE 2013-03-20 16:59:liquibase: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
-> liquibase.exception.LockException: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
->
-> >
-> > at liquibase.lockservice.LockService.waitForLock(LockService.java:81)
-> > at liquibase.Liquibase.tag(Liquibase.java:507)
-> > at liquibase.integration.commandline.Main.doMigration(Main.java:643)
-> > at liquibase.integration.commandline.Main.main(Main.java:116)
->
->
+at liquibase.lockservice.LockService.waitForLock(LockService.java:81)
+at liquibase.Liquibase.tag(Liquibase.java:507)
+at liquibase.integration.commandline.Main.doMigration(Main.java:643)
+at liquibase.integration.commandline.Main.main(Main.java:116)
+
+
 
 Advice: See [this StackOverflow question](https://stackoverflow.com/questions/15528795/liquibase-lock-reasons).
 You can run `java -jar tools-database-manager-4.0.jar --base-directory /path/to/node --release-lock` to force Liquibase to give up the lock.

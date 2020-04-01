@@ -43,7 +43,7 @@ weight: 20
 
 ### Docker images and JDK supported
 
-> CENM docker images are based on `azul/zulu-openjdk:8u242`
+CENM docker images are based on `azul/zulu-openjdk:8u242`
 
 Each CENM service has dedicated docker image. They are designed to be minimal and optimized to run on Kubernetes cluster.
 They are **not** designed to run as standalone docker containers. They are stored in Docker Hub:
@@ -62,7 +62,7 @@ They are **not** designed to run as standalone docker containers. They are store
 
 All helm charts by default use CENM docker images with tag `1.2-zulu-openjdk8u242`.
 
-> Mixing different CENM components releases (major.minor) is not supported.
+Mixing different CENM components releases (major.minor) is not supported.
 
 ### Helm charts
 
@@ -113,17 +113,17 @@ There are three ways of bootstrapping a new CENM environment:
 
 In case of initial bootstrap process it is recommended to use the first method.
 
-> The first two bootstrapping methods uses default values stored in values.yaml file in each helm chart. To fully customize new environment use third method.
+The first two bootstrapping methods uses default values stored in values.yaml file in each helm chart. To fully customize new environment use third method.
 
 Note: Identity Manager and Notary require their public IPs to be known in advance as this is required while running PKI Tool (part of Signer helm chart) and Notary registration.
 
 Be aware that it might take a few minutes to allocate new IP address. In case of subsequent bootstrapping it is possible to reuse existing external IP addresses. NetworkMap and Signer have their public IP addresses allocated while bootstrapping and they don't need to be known in ahead of time.
 
-Public IP addresses are allocated using Kubernetes ```Service``` defined with ```type: LoadBalancer```
+Public IP addresses are allocated using Kubernetes `Service` defined with `type: LoadBalancer`
 
 ### Memory requirements
 
-The following table represents memory requirements for each CENM component based on default value of ```cordaJarMx``` from ```values.yaml``` in each chart:
+The following table represents memory requirements for each CENM component based on default value of `cordaJarMx` from `values.yaml` in each chart:
 
 | Component         | cordaJarMx (GB) | max memory for service JVM (-Xmx) (GB) | K8s requests (GB) | K8s limits (GB) |
 | ----------------- | --------------- | -------------------------------------- | ----------------- | --------------- |
@@ -132,7 +132,7 @@ The following table represents memory requirements for each CENM component based
 | Network Map       |  1              | cordaJarMx                             | cordaJarMx        | cordaJarMx + 2  |
 | Notary            |  3              | cordaJarMx                             | cordaJarMx        | cordaJarMx + 2  |
 
-> Note: Kubernetes cluster should have at least 6 GB of free memory available to all CENM services.
+Note: Kubernetes cluster should have at least 6 GB of free memory available to all CENM services.
 
 ## Deploying your network
 
@@ -142,7 +142,7 @@ Before proceeding you will need the following:
 
 1. all required dependencies installed
 2. an AKS cluster up and running and access to it from your local machine
-3. a storage class (```cenm```) and new namespace (```cenm```) with the correct RBAC permissions.
+3. a storage class (`cenm`) and new namespace (`cenm`) with the correct RBAC permissions.
 4. obtain the helm charts and deployment scripts
 
 #### (1) Install dependencies
@@ -194,7 +194,7 @@ cd network-services/deployment/k8s/helm
 ./bootstrap.cenm
 ```
 
-> Note: obtaining IP addresses might take up to 10 minutes
+Note: obtaining IP addresses might take up to 10 minutes
 
 The script exits after all bootstrapping processes on Kubernetes cluster have been started. The process will continue to run on the cluster after the script has exited. You can monitor the completion of the deployment with:
 
@@ -295,7 +295,7 @@ For more details about joining CENM network see: [Joining an existing compatibil
 
 ### Display logs
 
-Each CENM service has dedicated sidecar to displays live logs from ```log/``` folder.
+Each CENM service has dedicated sidecar to displays live logs from `log/` folder.
 
 To display logs use the following command:
 
@@ -311,7 +311,7 @@ kubectl logs -c logs -f <pod-name>
 
 ### Display configuration files used for each CENM service
 
-Each service stores configuration file in ```etc/``` folder in a pod. I.e.: to display what is in the Identity Manager ```etc/``` folder run these commands:
+Each service stores configuration file in `etc/` folder in a pod. I.e.: to display what is in the Identity Manager `etc/` folder run these commands:
 
 ```bash
 kubectl exec -it <pod name> -- ls -al etc/
@@ -336,9 +336,9 @@ database {
 Default setting used in CENM services configuration values can be altered by:
 
 1. changing values in values.yaml
-1. preparing another yaml file with new values and passing it with ```-f``` flag (i.e.: ```helm install -f myvalues.yaml idman```)
-1. individual parameters passed with ```--set``` (such as ```helm install --set foo=bar idman```)
-1. any combination of the above (i.e.: ```helm install -f myvalues.yaml --set foo=bar idman```)
+1. preparing another yaml file with new values and passing it with `-f` flag (i.e.: `helm install -f myvalues.yaml idman`)
+1. individual parameters passed with `--set` (such as `helm install --set foo=bar idman`)
+1. any combination of the above (i.e.: `helm install -f myvalues.yaml --set foo=bar idman`)
 
 For more information refer to the official helm documentation: https://helm.sh/docs/chart_template_guide/values_files/
 
@@ -401,7 +401,7 @@ Once the set date/time has passed run the following in the Network Map ssh conso
 run flagDay
 ```
 
-> Note: For the changes to be advertised to the nodes the new network map has to be signed by signer and it is scheduled according to its configuration.
+Note: For the changes to be advertised to the nodes the new network map has to be signed by signer and it is scheduled according to its configuration.
 
 ### Canceling network parameters update
 
@@ -411,7 +411,7 @@ To cancel flag day:
 run cancelUpdate
 ```
 
-> Note: The following files are part of the default deployment:
+Note: The following files are part of the default deployment:
 
 ```bash
 etc/network-parameters-update-example.conf

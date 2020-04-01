@@ -253,45 +253,47 @@ From there it’s suspended waiting to be retried on node restart.
 This gives the node operator the opportunity to recover from those errors, which in the case of constraint violations means
 adding the right cordapp jar to the `cordapps` folder.
 
-> 
-> ```java
-> TransactionBuilder transaction() {
->     TransactionBuilder transaction = new TransactionBuilder(notary());
->     // Signature Constraint used if app is signed
->     transaction.addOutputState(state);
->     // Explicitly using a Signature Constraint
->     transaction.addOutputState(state, CONTRACT_ID, new SignatureAttachmentConstraint(getOurIdentity().getOwningKey()));
->     // Explicitly using a Hash Constraint
->     transaction.addOutputState(state, CONTRACT_ID, new HashAttachmentConstraint(getServiceHub().getCordappProvider().getContractAttachmentID(CONTRACT_ID)));
->     // Explicitly using a Whitelisted by Zone Constraint
->     transaction.addOutputState(state, CONTRACT_ID, WhitelistedByZoneAttachmentConstraint.INSTANCE);
->     // Explicitly using an Always Accept Constraint
->     transaction.addOutputState(state, CONTRACT_ID, AlwaysAcceptAttachmentConstraint.INSTANCE);
-> 
->     // other transaction stuff
->     return transaction;
-> }
-> ```
-> 
-> ```kotlin
-> private fun transaction(): TransactionBuilder {
->     val transaction = TransactionBuilder(notary())
->     // Signature Constraint used if app is signed
->     transaction.addOutputState(state)
->     // Explicitly using a Signature Constraint
->     transaction.addOutputState(state, constraint = SignatureAttachmentConstraint(ourIdentity.owningKey))
->     // Explicitly using a Hash Constraint
->     transaction.addOutputState(state, constraint = HashAttachmentConstraint(serviceHub.cordappProvider.getContractAttachmentID(CONTRACT_ID)!!))
->     // Explicitly using a Whitelisted by Zone Constraint
->     transaction.addOutputState(state, constraint = WhitelistedByZoneAttachmentConstraint)
->     // Explicitly using an Always Accept Constraint
->     transaction.addOutputState(state, constraint = AlwaysAcceptAttachmentConstraint)
-> 
->     // other transaction stuff
->     return transaction
-> }
-> ```
-> 
+
+```java
+TransactionBuilder transaction() {
+    TransactionBuilder transaction = new TransactionBuilder(notary());
+    // Signature Constraint used if app is signed
+    transaction.addOutputState(state);
+    // Explicitly using a Signature Constraint
+    transaction.addOutputState(state, CONTRACT_ID, new SignatureAttachmentConstraint(getOurIdentity().getOwningKey()));
+    // Explicitly using a Hash Constraint
+    transaction.addOutputState(state, CONTRACT_ID, new HashAttachmentConstraint(getServiceHub().getCordappProvider().getContractAttachmentID(CONTRACT_ID)));
+    // Explicitly using a Whitelisted by Zone Constraint
+    transaction.addOutputState(state, CONTRACT_ID, WhitelistedByZoneAttachmentConstraint.INSTANCE);
+    // Explicitly using an Always Accept Constraint
+    transaction.addOutputState(state, CONTRACT_ID, AlwaysAcceptAttachmentConstraint.INSTANCE);
+
+    // other transaction stuff
+    return transaction;
+}
+```
+
+
+```kotlin
+private fun transaction(): TransactionBuilder {
+    val transaction = TransactionBuilder(notary())
+    // Signature Constraint used if app is signed
+    transaction.addOutputState(state)
+    // Explicitly using a Signature Constraint
+    transaction.addOutputState(state, constraint = SignatureAttachmentConstraint(ourIdentity.owningKey))
+    // Explicitly using a Hash Constraint
+    transaction.addOutputState(state, constraint = HashAttachmentConstraint(serviceHub.cordappProvider.getContractAttachmentID(CONTRACT_ID)!!))
+    // Explicitly using a Whitelisted by Zone Constraint
+    transaction.addOutputState(state, constraint = WhitelistedByZoneAttachmentConstraint)
+    // Explicitly using an Always Accept Constraint
+    transaction.addOutputState(state, constraint = AlwaysAcceptAttachmentConstraint)
+
+    // other transaction stuff
+    return transaction
+}
+```
+
+
 
 
 ## CorDapps as attachments

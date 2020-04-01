@@ -203,19 +203,19 @@ By default the JAR file is signed by Corda development certificate.
 The signing process can be disabled or configured to use an external keystore.
 The `signing` entry may contain the following parameters:
 
->
->
-> * `enabled` the control flag to enable signing process, by default is set to `true`, set to `false` to disable signing
-> * `options` any relevant parameters of [SignJar ANT task](https://ant.apache.org/manual/Tasks/signjar.html),
-> by default the JAR file is signed with Corda development key, the external keystore can be specified,
-> the minimal list of required options is shown below, for other options referer to [SignJar task](https://ant.apache.org/manual/Tasks/signjar.html):
->     * `keystore` the path to the keystore file, by default *cordadevcakeys.jks* keystore is shipped with the plugin
->     * `alias` the alias to sign under, the default value is *cordaintermediateca*
->     * `storepass` the keystore password, the default value is *cordacadevpass*
->     * `keypass` the private key password if it’s different than the password for the keystore, the default value is *cordacadevkeypass*
->     * `storetype` the keystore type, the default value is *JKS*
->
->
+
+
+* `enabled` the control flag to enable signing process, by default is set to `true`, set to `false` to disable signing
+* `options` any relevant parameters of [SignJar ANT task](https://ant.apache.org/manual/Tasks/signjar.html),
+by default the JAR file is signed with Corda development key, the external keystore can be specified,
+the minimal list of required options is shown below, for other options referer to [SignJar task](https://ant.apache.org/manual/Tasks/signjar.html):
+    * `keystore` the path to the keystore file, by default *cordadevcakeys.jks* keystore is shipped with the plugin
+    * `alias` the alias to sign under, the default value is *cordaintermediateca*
+    * `storepass` the keystore password, the default value is *cordacadevpass*
+    * `keypass` the private key password if it’s different than the password for the keystore, the default value is *cordacadevkeypass*
+    * `storetype` the keystore type, the default value is *JKS*
+
+
 
 
 The parameters can be also set by system properties passed to Gradle build process.
@@ -524,20 +524,20 @@ As of Corda 4, CorDapps can explicitly differentiate their type by specifying th
 
 `Cordapp-Contract-Name` (optional) if specified, the following Contract related attributes are also used:
 
->
->
-> * `Cordapp-Contract-Version` (mandatory), must be a whole number starting from 1.
-> * `Cordapp-Contract-Vendor` (optional), defaults to UNKNOWN if not specified.
-> * `Cordapp-Contract-Licence` (optional), defaults to UNKNOWN if not specified.
+
+
+* `Cordapp-Contract-Version` (mandatory), must be a whole number starting from 1.
+* `Cordapp-Contract-Vendor` (optional), defaults to UNKNOWN if not specified.
+* `Cordapp-Contract-Licence` (optional), defaults to UNKNOWN if not specified.
 
 
 `Cordapp-Workflow-Name` (optional) if specified, the following Workflow related attributes are also used:
 
->
->
-> * `Cordapp-Workflow-Version` (mandatory), must be a whole number starting from 1.
-> * `Cordapp-Workflow-Vendor` (optional), defaults to UNKNOWN if not specified.
-> * `Cordapp-Workflow-Licence` (optional), defaults to UNKNOWN if not specified.
+
+
+* `Cordapp-Workflow-Version` (mandatory), must be a whole number starting from 1.
+* `Cordapp-Workflow-Vendor` (optional), defaults to UNKNOWN if not specified.
+* `Cordapp-Workflow-Licence` (optional), defaults to UNKNOWN if not specified.
 
 
 As with the general CorDapp attributes (minimum and target platform version), these can be specified using the Gradle *cordapp* plugin as follows:

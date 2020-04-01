@@ -57,19 +57,25 @@ the H2 schema to reflect these changes (and perform any data copying as required
 If using an Enterprise grade **commercial** database you have two options:
 
 
-* Use the Corda [Database management tool](database-management.md#migration-tool) to generate and execute SQL upgrade scripts.Generate the scripts by running the following command:```kotlin
-> java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --dry-run
+* Use the Corda [Database management tool](database-management.md#migration-tool) to generate and execute SQL upgrade scripts.Generate the scripts by running the following command:
+
+```kotlin
+java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --dry-run
 ```
 
-The generated scripts should then be applied by your database administrator using their tooling of choice or by executing the following command:```kotlin
-> java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --execute-migration
+The generated scripts should then be applied by your database administrator using their tooling of choice or by executing the following command:
+
+```kotlin
+java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --execute-migration
 ```
 
 Restart the node with the upgraded `corda.jar`.{{< note >}}
 This is the recommended best practice in strictly controlled UAT, staging and production environments.{{< /note >}}
 
 * Configure the node to automatically execute all database SQL scripts upon startup.
-This requires setting the following flag in the node’s associated `node.conf` configuration file:```none
+This requires setting the following flag in the node’s associated `node.conf` configuration file:
+
+```none
 database.runMigration = true
 ```
 

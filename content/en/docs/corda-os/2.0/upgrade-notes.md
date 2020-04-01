@@ -80,11 +80,11 @@ Use the automatic imports feature of IntelliJ to intelligently resolve the new i
 
 * Missing imports for contract types.CommercialPaper and Cash are now contained within the *finance* module, as are associated helpers functions.
 For example:> 
-> `import net.corda.contracts.ICommercialPaperState` becomes `import net.corda.finance.contracts.ICommercialPaperState``import net.corda.contracts.asset.sumCashBy` becomes `import net.corda.finance.utils.sumCashBy``import net.corda.core.contracts.DOLLARS` becomes `import net.corda.finance.DOLLARS``import net.corda.core.contracts.issued by` becomes `import net.corda.finance.issued by``import net.corda.contracts.asset.Cash` becomes `import net.corda.finance.contracts.asset.Cash`
+`import net.corda.contracts.ICommercialPaperState` becomes `import net.corda.finance.contracts.ICommercialPaperState``import net.corda.contracts.asset.sumCashBy` becomes `import net.corda.finance.utils.sumCashBy``import net.corda.core.contracts.DOLLARS` becomes `import net.corda.finance.DOLLARS``import net.corda.core.contracts.issued by` becomes `import net.corda.finance.issued by``import net.corda.contracts.asset.Cash` becomes `import net.corda.finance.contracts.asset.Cash`
 
 * Missing imports for utility functions.Many common types and helper methods have been consolidated into *net.corda.core.utilities* package.
 For example:> 
-> `import net.corda.core.crypto.commonName` becomes `import net.corda.core.utilities.commonName``import net.corda.core.crypto.toBase58String` becomes `import net.corda.core.utilities.toBase58String``import net.corda.core.getOrThrow` becomes `import net.corda.core.utilities.getOrThrow`
+`import net.corda.core.crypto.commonName` becomes `import net.corda.core.utilities.commonName``import net.corda.core.crypto.toBase58String` becomes `import net.corda.core.utilities.toBase58String``import net.corda.core.getOrThrow` becomes `import net.corda.core.utilities.getOrThrow`
 
 * Missing flow imports.In general all reusable library flows are contained within the **core** API *net.corda.core.flows* package.
 Financial domain library flows are contained within the **finance** module *net.corda.finance.flows* package.
@@ -127,7 +127,7 @@ See `FlowSession` for step by step instructions on porting existing flows to use
 Previously there were two vault APIs. Now there is a single unified API with the same functions: `VaultService`.
 * `serviceHub.myInfo.legalIdentity` no longer exists; use the `ourIdentity` property of the flow instead.`FlowLogic.ourIdentity` has been introduced as a shortcut for retrieving our identity in a flow
 * `getAnyNotary` is gone - use `serviceHub.networkMapCache.notaryIdentities[0]` instead> 
-> Note: ongoing work to support multiple notary identities is still in progress.
+Note: ongoing work to support multiple notary identities is still in progress.
 
 * `ServiceHub.networkMapUpdates` is replaced by `ServiceHub.networkMapFeed`
 * `ServiceHub.partyFromX500Name` is replaced by `ServiceHub.wellKnownPartyFromX500Name`
@@ -239,7 +239,7 @@ Use new builder CordaX500Name.build(X500Name(target)) or, preferably, explicitly
 * MockNetwork Testing.Mock nodes in node tests are now of type `StartedNode<MockNode>`, rather than `MockNode`
 MockNetwork now returns a BasketOf(<StartedNode<MockNode>>)
 Must call internals on StartedNode to get MockNode:> 
-> a = nodes.partyNodes[0].internals
+a = nodes.partyNodes[0].internals
 b = nodes.partyNodes[1].internals
 
 * Host and Port change.`parseNetworkHostAndPort()` to parse a URL on startup.eg. `val hostAndPort = args[0].parseNetworkHostAndPort()`

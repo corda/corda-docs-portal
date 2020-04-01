@@ -150,21 +150,21 @@ Within `main`, we have the following directories:
 
 
 * `java`, which contains the source-code for our CorDapp:> 
-> 
->     * `TemplateFlow.java`, which contains a template `FlowLogic` subclass
->     * `TemplateState.java`, which contains a template `ContractState` implementation
->     * `TemplateContract.java`, which contains a template `Contract` implementation
->     * `TemplateSerializationWhitelist.java`, which contains a template `SerializationWhitelist` implementation
->     * `TemplateApi.java`, which contains a template API for the deprecated Corda webserver
->     * `TemplateWebPlugin.java`, which registers the API and front-end for the deprecated Corda webserver
->     * `TemplateClient.java`, which contains a template RPC client for interacting with our CorDapp
+
+    * `TemplateFlow.java`, which contains a template `FlowLogic` subclass
+    * `TemplateState.java`, which contains a template `ContractState` implementation
+    * `TemplateContract.java`, which contains a template `Contract` implementation
+    * `TemplateSerializationWhitelist.java`, which contains a template `SerializationWhitelist` implementation
+    * `TemplateApi.java`, which contains a template API for the deprecated Corda webserver
+    * `TemplateWebPlugin.java`, which registers the API and front-end for the deprecated Corda webserver
+    * `TemplateClient.java`, which contains a template RPC client for interacting with our CorDapp
 
 
 
 * `resources/META-INF/services`, which contains various registries:> 
-> 
->     * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialisation whitelists
->     * `net.corda.webserver.services.WebServerPluginRegistry`, which registers the CorDapp’s web plugins
+
+    * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialisation whitelists
+    * `net.corda.webserver.services.WebServerPluginRegistry`, which registers the CorDapp’s web plugins
 
 
 

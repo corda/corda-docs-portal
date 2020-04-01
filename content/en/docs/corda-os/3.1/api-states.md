@@ -269,10 +269,10 @@ and methods. For example, here is the relatively complex definition for a state 
 Whenever a node records a new transaction, it also decides whether it should store each of the transaction’s output
 states in its vault. The default vault implementation makes the decision based on the following rules:
 
-> 
-> 
-> * If the state is an `OwnableState`, the vault will store the state if the node is the state’s `owner`
-> * Otherwise, the vault will store the state if it is one of the `participants`
+
+
+* If the state is an `OwnableState`, the vault will store the state if the node is the state’s `owner`
+* Otherwise, the vault will store the state if it is one of the `participants`
 
 
 States that are not considered relevant are not stored in the node’s vault. However, the node will still store the

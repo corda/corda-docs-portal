@@ -22,11 +22,11 @@ Whilst more complex evolutionary modifications to classes require annotating, Co
 framework supports several minor modifications to classes without any external modification save
 the actual code changes. These are:
 
-> 
-> 
-> * Adding nullable properties
-> * Removing properties
-> * Reordering constructor parameters
+
+
+* Adding nullable properties
+* Removing properties
+* Reordering constructor parameters
 
 
 

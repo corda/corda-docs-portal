@@ -21,11 +21,11 @@ title: Deterministic Corda Modules
 A Corda contract’s verify function should always produce the same results for the same input data. To that end,
 Corda provides the following modules:
 
->
->
-> * `core-deterministic`
-> * `serialization-deterministic`
-> * `jdk8u-deterministic`
+
+
+* `core-deterministic`
+* `serialization-deterministic`
+* `jdk8u-deterministic`
 
 
 These are reduced version of Corda’s `core` and `serialization` modules and the OpenJDK 8 `rt.jar`, where the

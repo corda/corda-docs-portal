@@ -42,11 +42,11 @@ Make sure that both projects (CSR and CRR) have the following workflow configure
 
 Additionally, the following 3 custom fields need to be created and configured in JIRA.
 
-> 
-> 
-> * Request ID
-> * Reject Reason
-> * Reject Reason Description
+
+
+* Request ID
+* Reject Reason
+* Reject Reason Description
 
 
 {{< note >}}

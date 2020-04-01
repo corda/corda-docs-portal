@@ -371,12 +371,12 @@ In order to create a communication session between your initiator flow and the r
 In addition `FlowLogic` provides functions that batch receives:
 * `receiveAllMap(sessions: Map<FlowSession, Class<out Any>>): Map<FlowSession, UntrustworthyData<Any>>`
 
-> 
-> 
-> * Receives from all 
-> {{< warning >}}``{{< /warning >}}
-> 
-> FlowSession``s specified in the passed in map. The received types may differ.
+
+
+* Receives from all 
+{{< warning >}}``{{< /warning >}}
+
+FlowSession``s specified in the passed in map. The received types may differ.
 
 
 
@@ -1337,24 +1337,25 @@ Even `FlowLogic.sleep` is not to be used to create long running flows, since the
 Currently the `finance` package uses `FlowLogic.sleep` to make several attempts at coin selection, where necessary,
 when many states are soft locked and we wish to wait for those, or other new states in their place, to become unlocked.
 
-> 
-> ```kotlin
-> for (retryCount in 1..MAX_RETRIES) {
->     if (!attemptSpend(services, amount, lockId, notary, onlyFromIssuerParties, withIssuerRefs, stateAndRefs)) {
->         log.warn("Coin selection failed on attempt $retryCount")
->         // TODO: revisit the back off strategy for contended spending.
->         if (retryCount != MAX_RETRIES) {
->             stateAndRefs.clear()
->             val durationMillis = (minOf(RETRY_SLEEP.shl(retryCount), RETRY_CAP / 2) * (1.0 + Math.random())).toInt()
->             FlowLogic.sleep(durationMillis.millis)
->         } else {
->             log.warn("Insufficient spendable states identified for $amount")
->         }
->     } else {
->         break
->     }
-> }
-> 
-> ```
-> {{/* github src='finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt' url='https://github.com/corda/corda/blob/3.3/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt#L108-L122' raw='https://raw.githubusercontent.com/corda/corda/3.3/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt' start='DOCSTART CASHSELECT 1' end='DOCEND CASHSELECT 1' */}}[AbstractCashSelection.kt](https://github.com/corda/corda/blob/release/os/3.3/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt)
+
+```kotlin
+for (retryCount in 1..MAX_RETRIES) {
+    if (!attemptSpend(services, amount, lockId, notary, onlyFromIssuerParties, withIssuerRefs, stateAndRefs)) {
+        log.warn("Coin selection failed on attempt $retryCount")
+        // TODO: revisit the back off strategy for contended spending.
+        if (retryCount != MAX_RETRIES) {
+            stateAndRefs.clear()
+            val durationMillis = (minOf(RETRY_SLEEP.shl(retryCount), RETRY_CAP / 2) * (1.0 + Math.random())).toInt()
+            FlowLogic.sleep(durationMillis.millis)
+        } else {
+            log.warn("Insufficient spendable states identified for $amount")
+        }
+    } else {
+        break
+    }
+}
+
+```
+
+{{/* github src='finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt' url='https://github.com/corda/corda/blob/3.3/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt#L108-L122' raw='https://raw.githubusercontent.com/corda/corda/3.3/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt' start='DOCSTART CASHSELECT 1' end='DOCEND CASHSELECT 1' */}}[AbstractCashSelection.kt](https://github.com/corda/corda/blob/release/os/3.3/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt)
 

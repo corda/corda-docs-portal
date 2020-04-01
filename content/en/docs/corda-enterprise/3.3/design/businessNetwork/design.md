@@ -211,7 +211,7 @@ CorDapp cannot be used to transact with non-members. Namely:
 
 
 * (Subsystem) Components descriptions and interactions)> 
-> Consider and list existing impacted components and services within Corda:
+Consider and list existing impacted components and services within Corda:
 
     * Doorman
     * Network Map

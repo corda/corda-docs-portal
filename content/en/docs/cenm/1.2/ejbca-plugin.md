@@ -52,45 +52,45 @@ Corda’s certificates contain a custom extension named Certificate Role. We mus
 generation. This is done by accessing *System Configuration* tab followed by *Custom Certificate Extensions* tab. Here
 we add new custom extension with following properties:
 
-> 
-> 
-> * **OID** -> *1.3.6.1.4.1.50530.1.1*
-> * **Label** -> *X509_EXTENSION_CORDA_ROLE*
-> * **Critical** -> *No*
-> * **Required** -> *Yes*
-> * **Encoding** -> *DERINTEGER*
-> * **Dynamic** -> *True*
-> * **Value** -> *4*
+
+
+* **OID** -> *1.3.6.1.4.1.50530.1.1*
+* **Label** -> *X509_EXTENSION_CORDA_ROLE*
+* **Critical** -> *No*
+* **Required** -> *Yes*
+* **Encoding** -> *DERINTEGER*
+* **Dynamic** -> *True*
+* **Value** -> *4*
 
 
 Now we must set up new certificate profile in order to support Corda compatible certificate issuance. This is done by
 accessing *Certificate Profiles* tab and adding new profile. After that edit profile to have following properties set up:
 
-> 
-> 
-> * **Type** -> *Sub CA*
-> * **Allow Extension Override** -> *True*
-> * **Allow certificate serial number override** -> *True*
-> * **Allow Key Usage Override** -> *True*
-> * **Key Usage** -> *Use..*, *Critical*, *Digital Signature*, *Non-repudiation*, *Key encipherement*, *Key certificate sign*, *CRL sign*
-> * **CRL Distribution Points** -> *Use..*
-> * **Use CA defined CRL Distribution Point** -> *Use..*
-> * **Used Custom Certificate Extensions** -> certificate role you’ve specified before
-> * **Available CAs** -> Corda’s CA
+
+
+* **Type** -> *Sub CA*
+* **Allow Extension Override** -> *True*
+* **Allow certificate serial number override** -> *True*
+* **Allow Key Usage Override** -> *True*
+* **Key Usage** -> *Use..*, *Critical*, *Digital Signature*, *Non-repudiation*, *Key encipherement*, *Key certificate sign*, *CRL sign*
+* **CRL Distribution Points** -> *Use..*
+* **Use CA defined CRL Distribution Point** -> *Use..*
+* **Used Custom Certificate Extensions** -> certificate role you’ve specified before
+* **Available CAs** -> Corda’s CA
 
 
 At the end we must set up new end entity profile. This is done by accessing *End Entity Profiles* and adding new profile.
 After that edit profile to have following properties set up:
 
-> 
-> 
-> * **Subject DN Attributes** -> Add *OU*, *O*, *L*, *C*, *ST*, *DC*
-> * **Default Certificate Profile** -> The one you’ve set up
-> * **Available Certificate Profiles** -> The one you’ve set up
-> * **Default CA** -> The one you’ve set up
-> * **Available CAs** -> The one you’ve set up
-> * **Custom certificate serial number** -> *Use*
-> * **Custom certificate extension data** -> *Use*
+
+
+* **Subject DN Attributes** -> Add *OU*, *O*, *L*, *C*, *ST*, *DC*
+* **Default Certificate Profile** -> The one you’ve set up
+* **Available Certificate Profiles** -> The one you’ve set up
+* **Default CA** -> The one you’ve set up
+* **Available CAs** -> The one you’ve set up
+* **Custom certificate serial number** -> *Use*
+* **Custom certificate extension data** -> *Use*
 
 
 

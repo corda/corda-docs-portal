@@ -41,10 +41,10 @@ owner may choose to install the Bond Trading CorDapp, with the following compone
 * A `BondState`, used to represent bonds as shared facts on the ledger
 * A `BondContract`, used to govern which ledger updates involving `BondState` states are valid
 * Three flows:> 
-> 
->     * An `IssueBondFlow`, allowing new `BondState` states to be issued onto the ledger
->     * A `TradeBondFlow`, allowing existing `BondState` states to be bought and sold on the ledger
->     * An `ExitBondFlow`, allowing existing `BondState` states to be exited from the ledger
+
+    * An `IssueBondFlow`, allowing new `BondState` states to be issued onto the ledger
+    * A `TradeBondFlow`, allowing existing `BondState` states to be bought and sold on the ledger
+    * An `ExitBondFlow`, allowing existing `BondState` states to be exited from the ledger
 
 
 

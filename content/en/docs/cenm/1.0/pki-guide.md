@@ -46,13 +46,13 @@ The tool generates the keys in the desired key store(s) and outputs a set of cer
 
 Corda nodes operate with the following assumptions on the certificates hierarchy:
 
-> 
-> 
-> * There are two certificates each corresponding to Identity Manager and Network Map.
-> * They need to have the common root certificate, which is present in the node’s trust store.
-> The length of the certificate chain can be arbitrary. As such, there can be any number of certificates between the Identity Manager and Network Map certificates as long
-> as they root to the same certificate.
-> * They need to have a custom extension defining the role of the certificate in the context of Corda. See .. _here: [https://docs.corda.net/head/permissioning.html#certificate-role-extension](https://docs.corda.net/head/permissioning.html#certificate-role-extension) for more details.
+
+
+* There are two certificates each corresponding to Identity Manager and Network Map.
+* They need to have the common root certificate, which is present in the node’s trust store.
+The length of the certificate chain can be arbitrary. As such, there can be any number of certificates between the Identity Manager and Network Map certificates as long
+as they root to the same certificate.
+* They need to have a custom extension defining the role of the certificate in the context of Corda. See .. _here: [https://docs.corda.net/head/permissioning.html#certificate-role-extension](https://docs.corda.net/head/permissioning.html#certificate-role-extension) for more details.
 
 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
@@ -116,14 +116,14 @@ static (i.e. file based) certificate revocation list signing is required.
 
 With all of those in mind we can see the certificate revocation list of the TLS chain validation process as follows:
 
-> 
-> 
-> * The Root CA certificate is self-signed and trusted (i.e. present in the node’s trust store). As such it does not require any certificate revocation list validation.
-> * The Subordinate CA certificate is validated by checking the certificate revocation list signed by the Root CA. In the diagram from previous section, it is given as a static file called `root.crl`.
-> * The Identity Manager CA certificate is validated by checking the certificate revocation list signed by the Subordinate CA. In the diagram from previous section, it is given as a static file called `subordinate.crl`.
-> * The Node CA certificate is validated by checking the certificate revocation list signed by the Identity Manager CA. This list is dynamically maintained and stored in the database.
-> * The TLS certificate is validated by checking the certificate revocation list signed by the TLS CRL signer. In the diagram from previous section, it is given as a static file called `tls.crl`.
-> Alternatively, the node operator may choose to use its own certificate revocation list infrastructure. However, this setup is out of the scope of the example scenario.
+
+
+* The Root CA certificate is self-signed and trusted (i.e. present in the node’s trust store). As such it does not require any certificate revocation list validation.
+* The Subordinate CA certificate is validated by checking the certificate revocation list signed by the Root CA. In the diagram from previous section, it is given as a static file called `root.crl`.
+* The Identity Manager CA certificate is validated by checking the certificate revocation list signed by the Subordinate CA. In the diagram from previous section, it is given as a static file called `subordinate.crl`.
+* The Node CA certificate is validated by checking the certificate revocation list signed by the Identity Manager CA. This list is dynamically maintained and stored in the database.
+* The TLS certificate is validated by checking the certificate revocation list signed by the TLS CRL signer. In the diagram from previous section, it is given as a static file called `tls.crl`.
+Alternatively, the node operator may choose to use its own certificate revocation list infrastructure. However, this setup is out of the scope of the example scenario.
 
 
 To generate all the artifacts of this scenario, a user needs to pass the correct configuration file to the PKI Tool.

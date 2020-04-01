@@ -158,24 +158,24 @@ There are four implementations of this interface which can be chained together t
 
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the Vault states table: status (UNCONSUMED, CONSUMED), state reference(s), contract state type(s), notaries, soft locked states, timestamps (RECORDED, CONSUMED).> 
-> {{< note >}}
-> Sensible defaults are defined for frequently used attributes (status = UNCONSUMED, always include soft locked states).{{< /note >}}
+{{< note >}}
+Sensible defaults are defined for frequently used attributes (status = UNCONSUMED, always include soft locked states).{{< /note >}}
 
 
 * `FungibleAssetQueryCriteria` provides filterable criteria on attributes defined in the Corda Core `FungibleAsset` contract state interface, used to represent assets that are fungible, countable and issued by a specific party (eg. `Cash.State` and `CommodityContract.State` in the Corda finance module). Filterable attributes include: participants(s), owner(s), quantity, issuer party(s) and issuer reference(s).> 
-> {{< note >}}
-> All contract states that extend the `FungibleAsset` now automatically persist that interfaces common state attributes to the **vault_fungible_states** table.{{< /note >}}
+{{< note >}}
+All contract states that extend the `FungibleAsset` now automatically persist that interfaces common state attributes to the **vault_fungible_states** table.{{< /note >}}
 
 
 * `LinearStateQueryCriteria` provides filterable criteria on attributes defined in the Corda Core `LinearState` and `DealState` contract state interfaces, used to represent entities that continuously supercede themselves, all of which share the same *linearId* (eg. trade entity states such as the `IRSState` defined in the SIMM valuation demo). Filterable attributes include: participant(s), linearId(s), uuid(s), and externalId(s).> 
-> {{< note >}}
-> All contract states that extend `LinearState` or `DealState` now automatically persist those interfaces common state attributes to the **vault_linear_states** table.{{< /note >}}
+{{< note >}}
+All contract states that extend `LinearState` or `DealState` now automatically persist those interfaces common state attributes to the **vault_linear_states** table.{{< /note >}}
 
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined by a custom contract state that implements its own schema as described in the [Persistence](api-persistence.md) documentation and associated examples. Custom criteria expressions are expressed using one of several type-safe `CriteriaExpression`: BinaryLogical, Not, ColumnPredicateExpression, AggregateFunctionExpression. The `ColumnPredicateExpression` allows for specification arbitrary criteria using the previously enumerated operator types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (sum, avg, max, min, count) with optional grouping and sorting. Furthermore, a rich DSL is provided to enable simple construction of custom criteria using any combination of `ColumnPredicate`. See the `Builder` object in `QueryCriteriaUtils` for a complete specification of the DSL.> 
-> {{< note >}}
-> custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to{{< /note >}}
-> [Persistence](api-persistence.md) for mechanisms of registering custom schemas for different testing purposes.
+{{< note >}}
+custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to{{< /note >}}
+[Persistence](api-persistence.md) for mechanisms of registering custom schemas for different testing purposes.
 
 
 All `QueryCriteria` implementations are composable using `and` and `or` operators.
@@ -758,14 +758,14 @@ For advanced use cases that require sophisticated pagination, sorting, grouping,
 
 The Corda Tutorials provide examples satisfying these additional Use Cases:
 
-> 
-> > 
-> > 
-> > * Template / Tutorial CorDapp service using Vault API Custom Query to access attributes of IOU State
-> > * Template / Tutorial CorDapp service query extension executing Named Queries via [JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql)
-> > * [Advanced pagination](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html) queries using Spring Data [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)
-> 
-> 
-> 
-> 
+
+
+
+* Template / Tutorial CorDapp service using Vault API Custom Query to access attributes of IOU State
+* Template / Tutorial CorDapp service query extension executing Named Queries via [JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql)
+* [Advanced pagination](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html) queries using Spring Data [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)
+
+
+
+
 

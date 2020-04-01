@@ -111,7 +111,9 @@ of the CRL checking with the certificates generated in previous versions of Cord
 Upgrading to Corda Enterprise 3.3 from previous versions of Corda Enterprise 3.x versions (including patch releases) requires minimal change.
 
 
-* Update versions in your build files, for Gradle, as an example:```kotlin
+* Update versions in your build files, for Gradle, as an example:
+
+```kotlin
 shell
 
 ext.corda_release_version = '3.3'

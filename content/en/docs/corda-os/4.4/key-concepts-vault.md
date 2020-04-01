@@ -30,11 +30,11 @@ that can be easily queried and worked with.
 
 The vault keeps track of both unconsumed and consumed states:
 
-> 
-> 
-> * **Unconsumed** (or unspent) states represent fungible states available for spending (including spend-to-self transactions)
-> and linear states available for evolution (eg. in response to a lifecycle event on a deal) or transfer to another party.
-> * **Consumed** (or spent) states represent ledger immutable state for the purpose of transaction reporting, audit and archival, including the ability to perform joins with app-private data (like customer notes).
+
+
+* **Unconsumed** (or unspent) states represent fungible states available for spending (including spend-to-self transactions)
+and linear states available for evolution (eg. in response to a lifecycle event on a deal) or transfer to another party.
+* **Consumed** (or spent) states represent ledger immutable state for the purpose of transaction reporting, audit and archival, including the ability to perform joins with app-private data (like customer notes).
 
 
 By fungible we refer to assets of measurable quantity (eg. a cash currency, units of stock) which can be combined

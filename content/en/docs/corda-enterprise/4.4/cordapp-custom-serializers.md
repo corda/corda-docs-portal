@@ -36,12 +36,12 @@ Custom serializer classes should follow the rules for including classes found in
 
 Serializers must
 
->
->
-> * Inherit from `net.corda.core.serialization.SerializationCustomSerializer`
-> * Provide a proxy class to transform the object to and from
-> * Implement the `toProxy` and `fromProxy` methods
-> * Be either included into the CorDapp Jar or made available in the system class path of the running process
+
+
+* Inherit from `net.corda.core.serialization.SerializationCustomSerializer`
+* Provide a proxy class to transform the object to and from
+* Implement the `toProxy` and `fromProxy` methods
+* Be either included into the CorDapp Jar or made available in the system class path of the running process
 
 
 Serializers inheriting from `SerializationCustomSerializer` have to implement two methods and two types.

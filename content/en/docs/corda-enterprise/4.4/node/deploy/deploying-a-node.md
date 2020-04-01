@@ -43,14 +43,14 @@ handling, and ensures the Corda service is run at boot.
 
 **Prerequisites**:
 
->
->
-> * A supported Java distribution. The supported versions are listed in getting-set-up
+
+
+* A supported Java distribution. The supported versions are listed in getting-set-up
 
 
 
-* As root/sys admin user - add a system user which will be used to run Corda:>
-> `sudo adduser --system --no-create-home --group corda`
+* As root/sys admin user - add a system user which will be used to run Corda:
+`sudo adduser --system --no-create-home --group corda`
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
 * Place the Enterprise Corda JAR `corda-4.4.jar` in `/opt/corda`
@@ -106,61 +106,63 @@ If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
 
 * **SystemD**: Create a `corda.service` file based on the example below and save it in the `/etc/systemd/system/`
 directory>
-> ```shell
-> [Unit]
-> Description=Corda Node - Bank of Breakfast Tea
-> Requires=network.target
->
-> [Service]
-> Type=simple
-> User=corda
-> WorkingDirectory=/opt/corda
-> ExecStart=/usr/bin/java -jar /opt/corda/corda.jar
-> Restart=on-failure
-> Environment="CAPSULE_CACHE_DIR=./capsule"
->
-> [Install]
-> WantedBy=multi-user.target
-> ```
->
+```shell
+[Unit]
+Description=Corda Node - Bank of Breakfast Tea
+Requires=network.target
+
+[Service]
+Type=simple
+User=corda
+WorkingDirectory=/opt/corda
+ExecStart=/usr/bin/java -jar /opt/corda/corda.jar
+Restart=on-failure
+Environment="CAPSULE_CACHE_DIR=./capsule"
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
 
 
 
 
 * **Upstart**: Create a `corda.conf` file based on the example below and save it in the `/etc/init/` directory>
-> ```shell
-> description "Corda Node - Bank of Breakfast Tea"
->
-> start on runlevel [2345]
-> stop on runlevel [!2345]
->
-> respawn
-> setuid corda
-> chdir /opt/corda
-> exec java -jar /opt/corda/corda.jar
-> ```
->
+```shell
+description "Corda Node - Bank of Breakfast Tea"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+setuid corda
+chdir /opt/corda
+exec java -jar /opt/corda/corda.jar
+```
 
 
-* Make the following changes to `corda.service` or `corda.conf`:>
+
+
+* Make the following changes to `corda.service` or `corda.conf`:
+
+* Make sure the service description is informative - particularly if you plan to run multiple nodes.
+* Change the username to the user account you want to use to run Corda. **We recommend that this user account is
+not root**
+* **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:
 >
-> * Make sure the service description is informative - particularly if you plan to run multiple nodes.
-> * Change the username to the user account you want to use to run Corda. **We recommend that this user account is
-> not root**
-> * **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:>
-> >
-> >     * `sudo chown root:root /etc/systemd/system/corda.service`
-> >     * `sudo chmod 644 /etc/systemd/system/corda.service`
+    * `sudo chown root:root /etc/systemd/system/corda.service`
+    * `sudo chmod 644 /etc/systemd/system/corda.service`
+
+
+
+* **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:
 >
->
->
-> * **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:>
-> >
-> >     * `sudo chown root:root /etc/init/corda.conf`
-> >     * `sudo chmod 644 /etc/init/corda.conf`
->
->
->
+    * `sudo chown root:root /etc/init/corda.conf`
+    * `sudo chmod 644 /etc/init/corda.conf`
+
+
+
 
 
 
@@ -172,7 +174,9 @@ Running the webserver is optional.
 {{< /note >}}
 
 * **SystemD**: Create a `corda-webserver.service` file based on the example below and save it in the `/etc/systemd/system/`
-directory```shell
+directory
+
+```shell
 [Unit]
 Description=Webserver for Corda Node - Bank of Breakfast Tea
 Requires=network.target
@@ -192,7 +196,9 @@ WantedBy=multi-user.target
 
 
 * **Upstart**: Create a `corda-webserver.conf` file based on the example below and save it in the `/etc/init/`
-directory```shell
+directory
+
+```shell
 description "Webserver for Corda Node - Bank of Breakfast Tea"
 
 start on runlevel [2345]
@@ -212,20 +218,20 @@ For more information refer to database-management
 * **SystemD**: You can now start a node and its webserver and set the services to start on boot by running the
 following `systemctl` commands:
 
->
->
-> * `sudo systemctl daemon-reload`
-> * `sudo systemctl enable --now corda`
-> * `sudo systemctl enable --now corda-webserver`
+
+
+* `sudo systemctl daemon-reload`
+* `sudo systemctl enable --now corda`
+* `sudo systemctl enable --now corda-webserver`
 
 
 
 * **Upstart**: You can now start a node and its webserver by running the following commands:
 
->
->
-> * `sudo start corda`
-> * `sudo start corda-webserver`
+
+
+* `sudo start corda`
+* `sudo start corda-webserver`
 
 
 The Upstart configuration files created above tell Upstart to start the Corda services on boot so there is no need to explicitly enable them.
@@ -241,9 +247,9 @@ at boot, and means the Corda service stays running with no users connected to th
 
 **Prerequisites**:
 
->
->
-> * A supported Java distribution. The supported versions are listed in getting-set-up
+
+
+* A supported Java distribution. The supported versions are listed in getting-set-up
 
 
 
@@ -296,7 +302,9 @@ only visible to the permissioning service.
 * Copy the required Java keystores to the node. See permissioning
 * Download the [NSSM service manager](https://nssm.cc/)
 * Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`
-* Save the following as `C:\Corda\nssm.bat`:```batch
+* Save the following as `C:\Corda\nssm.bat`:
+
+```batch
 nssm install cordanode1 java.exe
 nssm set cordanode1 AppParameters "-jar corda.jar"
 nssm set cordanode1 AppDirectory C:\Corda
@@ -309,11 +317,11 @@ sc start cordanode1
 ```
 
 
-* Modify the batch file:>
->
-> * If you are installing multiple nodes, use a different service name (`cordanode1`), and modify
-> *AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly
-> * Set an informative description
+* Modify the batch file:
+
+* If you are installing multiple nodes, use a different service name (`cordanode1`), and modify
+*AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly
+* Set an informative description
 
 
 
@@ -333,8 +341,8 @@ For more information refer to database-management
 
 You can verify Corda is running by connecting to your RPC port from another host, e.g.:
 
->
-> `telnet your-hostname.example.com 10002`
+
+`telnet your-hostname.example.com 10002`
 
 
 If you receive the message “Escape character is ^]”, Corda is running and accessible. Press Ctrl-] and Ctrl-D to exit

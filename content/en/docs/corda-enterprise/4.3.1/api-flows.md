@@ -913,13 +913,13 @@ SecureHash idOfTxWeSigned = subFlow(new SignTxFlow(counterpartySession, SignTran
 
 Types of things to check include:
 
-> 
-> 
-> * Ensuring that the transaction received is the expected type, i.e. has the expected type of inputs and outputs
-> * Checking that the properties of the outputs are expected, this is in the absence of integrating reference
-> data sources to facilitate this
-> * Checking that the transaction is not incorrectly spending (perhaps maliciously) asset states, as potentially
-> the transaction creator has access to some of signer’s state references
+
+
+* Ensuring that the transaction received is the expected type, i.e. has the expected type of inputs and outputs
+* Checking that the properties of the outputs are expected, this is in the absence of integrating reference
+data sources to facilitate this
+* Checking that the transaction is not incorrectly spending (perhaps maliciously) asset states, as potentially
+the transaction creator has access to some of signer’s state references
 
 
 
@@ -1275,24 +1275,25 @@ complicated).
 For example, the `finance` package currently uses `FlowLogic.sleep` to make several attempts at coin selection when
 many states are soft locked, to wait for states to become unlocked:
 
-> 
-> ```kotlin
-> for (retryCount in 1..maxRetries) {
->     if (!attemptSpend(services, amount, lockId, notary, onlyFromIssuerParties, withIssuerRefs, stateAndRefs)) {
->         log.warn("Coin selection failed on attempt $retryCount")
->         // TODO: revisit the back off strategy for contended spending.
->         if (retryCount != maxRetries) {
->             stateAndRefs.clear()
->             val durationMillis = (minOf(retrySleep.shl(retryCount), retryCap / 2) * (1.0 + Math.random())).toInt()
->             FlowLogic.sleep(durationMillis.millis)
->         } else {
->             log.warn("Insufficient spendable states identified for $amount")
->         }
->     } else {
->         break
->     }
-> }
-> 
-> ```
-> {{/* github src='finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3.1/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt#L101-L115' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3.1/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' start='DOCSTART CASHSELECT 1' end='DOCEND CASHSELECT 1' */}}[AbstractCashSelection.kt](https://github.com/corda/enterprise/blob/release/ent/4.3.1/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt)
+
+```kotlin
+for (retryCount in 1..maxRetries) {
+    if (!attemptSpend(services, amount, lockId, notary, onlyFromIssuerParties, withIssuerRefs, stateAndRefs)) {
+        log.warn("Coin selection failed on attempt $retryCount")
+        // TODO: revisit the back off strategy for contended spending.
+        if (retryCount != maxRetries) {
+            stateAndRefs.clear()
+            val durationMillis = (minOf(retrySleep.shl(retryCount), retryCap / 2) * (1.0 + Math.random())).toInt()
+            FlowLogic.sleep(durationMillis.millis)
+        } else {
+            log.warn("Insufficient spendable states identified for $amount")
+        }
+    } else {
+        break
+    }
+}
+
+```
+
+{{/* github src='finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' url='https://github.com/corda/enterprise/blob/release/ent/4.3.1/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt#L101-L115' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3.1/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' start='DOCSTART CASHSELECT 1' end='DOCEND CASHSELECT 1' */}}[AbstractCashSelection.kt](https://github.com/corda/enterprise/blob/release/ent/4.3.1/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt)
 

@@ -131,18 +131,24 @@ prefixed with `CORDA` cannot be mapped to a valid property. Shadowing occurs whe
 of the same type with the same key are defined. For example having `corda.p2Aaddress=host:port` and `corda_p2Aaddress=host1:port1`
 will raise an exception on startup. This is to prevent hard to spot mistakes.
 * If an item in a list is overridden via an environment variable/system property, the whole list will be overridden. E.g., with a `node.conf`
-containing:```groovy
+containing:
+
+```groovy
 jarDirs=["./dir1", "./dir2", "./dir3"]
 ```
 
-When Corda is started via:```shell
+When Corda is started via:
+
+```shell
 java -Dcorda.jarDirs_0=./newdir1
 ```
 
 The resulting value of `jarDirs` will be `["./newdir1"]`.
 * You can’t override a populated list with an empty list. For example, when `devMode=false`, `cordappSignerKeyFingerprintBlacklist` is
 pre-populated with Corda development keys. It isn’t possible to set this to an empty list via the commandline. You can however override
-the list with an all zero hash which will remove the keys:```shell
+the list with an all zero hash which will remove the keys:
+
+```shell
 java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="0000000000000000000000000000000000000000000000000000000000000000"
 ```
 
@@ -164,7 +170,7 @@ List of SHA-256 hashes of public keys. Attachments signed by any of these public
 This property is similar to [cordappSignerKeyFingerprintBlacklist](#corda-configuration-file-signer-blacklist) but only restricts CorDapps that were
 included as attachments in a transaction and received over the network from a peer.See [Signing CorDapps for use with Signature Constraints](api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints) for more information about signing CorDapps and what
 makes an attachment trusted (a trust root).This property requires retrieving the hashes of public keys that need to be blacklisted. More information on this process can be found in [Generating a public key hash](#generating-a-public-key-hash).> 
-> *Default:* not defined
+*Default:* not defined
 The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates](permissioning.md) for more information.) and also is used by the node to obtain network map information.
 Cannot be set at the same time as the [networkServices](#corda-configuration-file-networkservices) option.**Important:  old configuration value, please use networkServices***Default:* not defined
 List of the public keys fingerprints (SHA-256 of public key hash) not allowed as Cordapp JARs signers.
@@ -188,7 +194,9 @@ The property is used only when a node runs against a database other than H2, and
 property ‘hibernate.default_schema’. This is optional.Optional property for testing/development against an unsupported database. The value is passed to Hibernate `hibernate.dialect` option.
 All supported databases don’t require this option, as Hibernate sets the correct dialect value out of box.This section is used to configure the JDBC connection and database driver used for the node’s persistence.
 Node database contains example configurations for other database providers.
-To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. `dataSource.customProperty = value`).JDBC Data Source class name.JDBC database URL.Database user.Database password.*Default:*```none
+To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. `dataSource.customProperty = value`).JDBC Data Source class name.JDBC database URL.Database user.Database password.*Default:*
+
+```none
 dataSourceClassName = org.h2.jdbcx.JdbcDataSource
 dataSource.url = "jdbc:h2:file:"${baseDirectory}"/persistence;DB_CLOSE_ON_EXIT=FALSE;WRITE_DELAY=0;LOCK_TIMEOUT=10000"
 dataSource.user = sa
@@ -206,43 +214,43 @@ The node will exit if `devMode` is false and the keystore does not exist.
 Also, if `devMode` is true, Hibernate will try to automatically create the schema required by Corda or update an existing schema in the SQL database; if `devMode` is false, Hibernate will simply validate the existing schema, failing on node start if the schema is either not present or not compatible.
 If no value is specified in the node configuration file, the node will attempt to detect if it’s running on a developer machine and set `devMode=true` in that case.
 This value can be overridden from the command line using the `--dev-mode` option.This flag affects the default value for Java heap size. See [Memory usage and tuning](node-administration.md#memory-usage-and-tuning) for further details.*Default:* Corda will try to establish based on OS environmentAllows modification of certain `devMode` features**Important: This is an unsupported configuration.**Allows a node configured to operate in development mode to connect to a compatibility zone.*Default:* not definedThe email address responsible for node administration, used by the Compatibility Zone administrator.*Default:* [company@example.com](mailto:company@example.com)Allows fine-grained controls of various features only available in the enterprise version of Corda.
-> 
-> Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).Enables the logic. Values can be either true or false.*Default:* falseInterval in milliseconds used by the node to update the lock on the database.*Default:* not definedInterval in milliseconds used by the node to try and acquire the lock on the database.*Default:* not definedEnables the health check feature required by the [Health Survey Tool](health-survey.md#health-survey-ref).*Default:* trueEnables P2P communication to pass through the Corda Firewall.*Default:* falseThe alias of the identity key. Allowed are up to 100 lower case alphanumeric characters and the hyphen (-).*Default:* identity-private-keyThe alias of the CA key. Allowed are up to 100 lower case alphanumeric characters and the hyphen (-).*Default:* cordaclientcaThe alias of the distributed notary signing key alias (used if this node is a notary). Allowed are up to 100 lower case alphanumeric
-> characters and the hyphen (-).*Default:* distributed-notary-private-keymessagingServerSslConfiguration
-> 
-> > 
-> > The path to the KeyStore file to use in Artemis connections.*Default:* not definedThe password for the TLS KeyStore.*Default:* not definedThe path to the TrustStore file to use in Artemis connections.*Default:* not definedThe password for TLS TrustStore.*Default:* not defined
-> Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 initial connect attempts, 5 reconnect attempts in case of failure, starting retry interval of 5 seconds with an exponential back-off multiplier of 1.5 for up to 3 minutes retry interval),
-> FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).*Default:* DEFAULTList of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.*Default:* empty listThis is an optional crypto service configuration which will be used for HSM TLS signing when interacting with the Artemis message server.
-> This option only makes sense when running a standalone Artemis messaging server to connect to the Bridge.
-> If this option is missing, the local file system will be used to store private keys inside `JKS` key stores.> 
-> > The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. Please see: [Crypto service configuration](cryptoservice-configuration.md).Absolute path to HSM provider specific configuration which will contain everything necessary to establish connection with HSM.
-> *Default* Not present so local file system is used.
 
-> 
-> Performance tuning parameters for Corda EnterpriseThe number of threads available to handle flows in parallel. This is the number of flows
-> that can run in parallel doing something and/or holding resources like database connections.
-> A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
-> When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
-> Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
-> up to handle the event. This can have serious performance implications if the flow thread pool is too small,
-> as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
-> Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in
-> parallel, allowing more than one flow to be active and/or use resources at the same time.The default value is 2 times the number of cores available (the minimum is 30 if there are less than 15 cores) which was found to be
-> working efficiently in performance testing.
-> The ideal value for this parameter depends on a number of factors.
-> The main ones are the hardware the node is running on, the performance profile of the
-> flows, and the database instance backing the node as datastore. Every thread will open a database connection,
-> so for n threads, the database system must have at least n+1 connections available. Also, the database
-> must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
-> using e.g. H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
-> architecture. For these reasons, the default size for the flow framework thread pool is the minimum between two times the available number of processors and 30. Overriding this value in the configuration allows to specify any number.The number of threads handling RPC calls - this defines how many RPC requests can be handled
-> in parallel without queueing. The default value is set to the number of available processor cores.
-> Incoming RPC calls are queued until a thread from this
-> pool is available to handle the connection, prepare any required data and start the requested flow. As this
-> might be a non-trivial amount of work, the size of this pool can be configured in Corda Enterprise.
-> On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow
-> threads being idle while the payload is being deserialized and the flow invocation run.If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this number slightly.
+Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).Enables the logic. Values can be either true or false.*Default:* falseInterval in milliseconds used by the node to update the lock on the database.*Default:* not definedInterval in milliseconds used by the node to try and acquire the lock on the database.*Default:* not definedEnables the health check feature required by the [Health Survey Tool](health-survey.md#health-survey-ref).*Default:* trueEnables P2P communication to pass through the Corda Firewall.*Default:* falseThe alias of the identity key. Allowed are up to 100 lower case alphanumeric characters and the hyphen (-).*Default:* identity-private-keyThe alias of the CA key. Allowed are up to 100 lower case alphanumeric characters and the hyphen (-).*Default:* cordaclientcaThe alias of the distributed notary signing key alias (used if this node is a notary). Allowed are up to 100 lower case alphanumeric
+characters and the hyphen (-).*Default:* distributed-notary-private-keymessagingServerSslConfiguration
+
+
+The path to the KeyStore file to use in Artemis connections.*Default:* not definedThe password for the TLS KeyStore.*Default:* not definedThe path to the TrustStore file to use in Artemis connections.*Default:* not definedThe password for TLS TrustStore.*Default:* not defined
+Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 initial connect attempts, 5 reconnect attempts in case of failure, starting retry interval of 5 seconds with an exponential back-off multiplier of 1.5 for up to 3 minutes retry interval),
+FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).*Default:* DEFAULTList of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.*Default:* empty listThis is an optional crypto service configuration which will be used for HSM TLS signing when interacting with the Artemis message server.
+This option only makes sense when running a standalone Artemis messaging server to connect to the Bridge.
+If this option is missing, the local file system will be used to store private keys inside `JKS` key stores.> 
+The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. Please see: [Crypto service configuration](cryptoservice-configuration.md).Absolute path to HSM provider specific configuration which will contain everything necessary to establish connection with HSM.
+*Default* Not present so local file system is used.
+
+
+Performance tuning parameters for Corda EnterpriseThe number of threads available to handle flows in parallel. This is the number of flows
+that can run in parallel doing something and/or holding resources like database connections.
+A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
+When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
+Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
+up to handle the event. This can have serious performance implications if the flow thread pool is too small,
+as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
+Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in
+parallel, allowing more than one flow to be active and/or use resources at the same time.The default value is 2 times the number of cores available (the minimum is 30 if there are less than 15 cores) which was found to be
+working efficiently in performance testing.
+The ideal value for this parameter depends on a number of factors.
+The main ones are the hardware the node is running on, the performance profile of the
+flows, and the database instance backing the node as datastore. Every thread will open a database connection,
+so for n threads, the database system must have at least n+1 connections available. Also, the database
+must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
+using e.g. H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
+architecture. For these reasons, the default size for the flow framework thread pool is the minimum between two times the available number of processors and 30. Overriding this value in the configuration allows to specify any number.The number of threads handling RPC calls - this defines how many RPC requests can be handled
+in parallel without queueing. The default value is set to the number of available processor cores.
+Incoming RPC calls are queued until a thread from this
+pool is available to handle the connection, prepare any required data and start the requested flow. As this
+might be a non-trivial amount of work, the size of this pool can be configured in Corda Enterprise.
+On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow
+threads being idle while the payload is being deserialized and the flow invocation run.If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this number slightly.
 Valid values for this property are between 4 (that is the number used for the single threaded state machine in
 open source) and the number of flow threads.
 An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
@@ -279,14 +287,19 @@ For more details please read [Node identity](node-naming.md#node-naming) chapter
 Optional configuration object which if present configures the node to run as a notary. If running as part of a HA notary cluster, please
 specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below. For a single-node notary only the `validating` property is required.Boolean to determine whether the notary is a validating or non-validating one.*Default:* falseIf the node is part of a distributed cluster, specify the legal name of the cluster.
 At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.*Default:* not definedIf using the MySQL notary (deprecated), specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](running-a-notary-cluster/installing-the-notary-service.md).> 
-> The number of times to retry connection to the MySQL database. This should be based on the number of database servers in the replicated
-> setup.*Default:* 2, for a 3 server cluster.This section is used to configure the JDBC connection to the database cluster. For example:JDBC operation mode where every update to the database is immediately made permanent. For HA notary it has to be disabled, i.e. set to `"false"`.*Default:* not definedThe JDBC connection string. Has to contain a comma-separated list of IPs for all database servers. For example, if we have a 3-node Percona cluster with addresses 10.18.1.1, 10.18.1.2 and 10.18.1.3,
-> and the database name is `corda`:```kotlin
-> "[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
-> ```
-> 
-> *Default:* not definedDatabase user.*Default:* not definedDatabase password.*Default:* not defined
-Example configuration:```kotlin
+The number of times to retry connection to the MySQL database. This should be based on the number of database servers in the replicated
+setup.*Default:* 2, for a 3 server cluster.This section is used to configure the JDBC connection to the database cluster. For example:JDBC operation mode where every update to the database is immediately made permanent. For HA notary it has to be disabled, i.e. set to `"false"`.*Default:* not definedThe JDBC connection string. Has to contain a comma-separated list of IPs for all database servers. For example, if we have a 3-node Percona cluster with addresses 10.18.1.1, 10.18.1.2 and 10.18.1.3,
+and the database name is `corda`:
+
+```kotlin
+"[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
+```
+
+
+*Default:* not definedDatabase user.*Default:* not definedDatabase password.*Default:* not defined
+Example configuration:
+
+```kotlin
 mysql {
   connectionRetries=2
   dataSource {
@@ -299,26 +312,31 @@ mysql {
 ```
 
 *(Deprecated)* If part of a distributed Raft cluster, specify this configuration object with the following settings:> 
-> The host and port to which to bind the embedded Raft server. Note that the Raft cluster uses a
-> separate transport layer for communication that does not integrate with ArtemisMQ messaging services.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
-> be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
-> new cluster will be bootstrapped.*Default:* not defined
+The host and port to which to bind the embedded Raft server. Note that the Raft cluster uses a
+separate transport layer for communication that does not integrate with ArtemisMQ messaging services.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
+be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
+new cluster will be bootstrapped.*Default:* not defined
 *(Deprecated)* If part of a distributed BFT-SMaRt cluster, specify this configuration object with the following settings:> 
-> The zero-based index of the current replica. All replicas must specify a unique replica id.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
-> be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
-> new cluster will be bootstrapped.*Default:* not defined
+The zero-based index of the current replica. All replicas must specify a unique replica id.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
+be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
+new cluster will be bootstrapped.*Default:* not defined
 If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](running-a-notary-cluster/installing-the-notary-service.md).> 
-> The number of times to retry connection to the database. This should be based on the number of database servers in the replicated
-> setup.Boolean which indicates whether to update the database schema at startup (or create the schema when notary starts for the first time).
-> This property is used only when a notary runs against an H2 database. For information on schema setup for non H2 databases, please
-> see [Configuring the notary backend - JPA](running-a-notary-cluster/installing-jpa.md).*Default:* trueSets whether to validate the database schema before allowing the notary to start. Will prevent the notary from starting if validation fails with log messages indicating the reason(s)
-> for the failure. The validation will ensure that the database tables match that of the entities configured in the notary. This will not check whether any migrations have been run.*Default:* falseSets the schema to be used by HibernateOptionally sets the Hibernate dialect to use when communicating with the database.This section is used to configure the JDBC connection to the database cluster. For example:JDBC operation mode where every update to the database is immediately made permanent. For HA notary it has to be disabled, i.e. set to `"false"`.*Default:* not definedThe JDBC connection string. Has to contain a comma-separated list of IPs for all database servers. For example, if we have a 3-node CockroachDB cluster with addresses 10.18.1.1, 10.18.1.2 and 10.18.1.3,
-> and the notary worker is connecting to CockroachDB via SSL using certificates created for the user `corda`:```kotlin
-> "[jdbc:postgresql://10.18.1.1,10.18.1.2,10.18.1.3/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8](jdbc:postgresql://10.18.1.1,10.18.1.2,10.18.1.3/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8)"
-> ```
-> 
-> *Default:* not definedDatabase user.*Default:* not definedDatabase password.*Default:* not defined
-Example configuration:```kotlin
+The number of times to retry connection to the database. This should be based on the number of database servers in the replicated
+setup.Boolean which indicates whether to update the database schema at startup (or create the schema when notary starts for the first time).
+This property is used only when a notary runs against an H2 database. For information on schema setup for non H2 databases, please
+see [Configuring the notary backend - JPA](running-a-notary-cluster/installing-jpa.md).*Default:* trueSets whether to validate the database schema before allowing the notary to start. Will prevent the notary from starting if validation fails with log messages indicating the reason(s)
+for the failure. The validation will ensure that the database tables match that of the entities configured in the notary. This will not check whether any migrations have been run.*Default:* falseSets the schema to be used by HibernateOptionally sets the Hibernate dialect to use when communicating with the database.This section is used to configure the JDBC connection to the database cluster. For example:JDBC operation mode where every update to the database is immediately made permanent. For HA notary it has to be disabled, i.e. set to `"false"`.*Default:* not definedThe JDBC connection string. Has to contain a comma-separated list of IPs for all database servers. For example, if we have a 3-node CockroachDB cluster with addresses 10.18.1.1, 10.18.1.2 and 10.18.1.3,
+and the notary worker is connecting to CockroachDB via SSL using certificates created for the user `corda`:
+
+```kotlin
+"[jdbc:postgresql://10.18.1.1,10.18.1.2,10.18.1.3/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8](jdbc:postgresql://10.18.1.1,10.18.1.2,10.18.1.3/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8)"
+```
+
+
+*Default:* not definedDatabase user.*Default:* not definedDatabase password.*Default:* not defined
+Example configuration:
+
+```kotlin
 jpa {
   connectionRetries=2
   dataSource {
@@ -348,7 +366,7 @@ If the provided host is unreachable, the node will try to auto-discover its publ
 advertised to the network map service instead of the provided `p2pAddress`.Hostname of the relay machineA port on the relay machine that accepts incoming TCP connections. Traffic will be forwarded from this port to the local port specified in `p2pAddress`.Username for establishing an SSH connection with the relay.Path to the private key file for SSH authentication. The private key must not have a passphrase.Path to the public key file for SSH authentication.Port to be used for SSH connection, default `22`.The address of the RPC system on which RPC requests can be made to the node.
 If not provided then the node will run without RPC.**Important: Deprecated. Use rpcSettings instead.***Default:* not defined
 Options for the RPC server exposed by the Node.**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the “generate-rpc-ssl-settings” command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**> 
-> host and port for the RPC server binding.*Default:* not definedhost and port for the RPC admin binding (this is the endpoint that the node process will connect to).*Default:* not definedboolean, indicates whether the node will connect to a standalone broker for RPC.*Default:* falseboolean, indicates whether or not the node should require clients to use SSL for RPC connections.*Default:* false(mandatory if `useSsl=true`) SSL settings for the RPC server.Absolute path to the key store containing the RPC SSL certificate.*Default:* not definedPassword for the key store.*Default:* not defined
+host and port for the RPC server binding.*Default:* not definedhost and port for the RPC admin binding (this is the endpoint that the node process will connect to).*Default:* not definedboolean, indicates whether the node will connect to a standalone broker for RPC.*Default:* falseboolean, indicates whether or not the node should require clients to use SSL for RPC connections.*Default:* false(mandatory if `useSsl=true`) SSL settings for the RPC server.Absolute path to the key store containing the RPC SSL certificate.*Default:* not definedPassword for the key store.*Default:* not defined
 
 A list of users who are authorised to access the RPC system.
 Each user in the list is a configuration object with the following fields:Username consisting only of word characters (a-z, A-Z, 0-9 and _)*Default:* not definedThe password*Default:* not definedA list of permissions for starting flows via RPC.
@@ -540,16 +558,19 @@ configuration properties.
 
 Below are the steps to generate a hash for a CorDapp signed with a RSA certificate. A similar process should work for other certificate types.
 
-> 
-> 
-> * Extract the contents of the signed CorDapp jar.
-> * Run the following command (replacing the < > variables):```none
-> openssl pkcs7 -in <extract_signed_jar_directory>/META-INF/<signature_to_hash>.RSA -print_certs -inform DER -outform DER \
-> | openssl x509 -pubkey -noout \
-> | openssl rsa -pubin -outform der | openssl dgst -sha256
-> ```
-> 
-> 
-> * Copy the public key hash that is generated and place it into the required location (e.g. in `node.conf`).
+
+
+* Extract the contents of the signed CorDapp jar.
+* Run the following command (replacing the < > variables):
+
+```none
+openssl pkcs7 -in <extract_signed_jar_directory>/META-INF/<signature_to_hash>.RSA -print_certs -inform DER -outform DER \
+| openssl x509 -pubkey -noout \
+| openssl rsa -pubin -outform der | openssl dgst -sha256
+```
+
+
+
+* Copy the public key hash that is generated and place it into the required location (e.g. in `node.conf`).
 
 

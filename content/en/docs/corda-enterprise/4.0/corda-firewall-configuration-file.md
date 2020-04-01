@@ -217,47 +217,47 @@ If true (recommended setting) allows certificate checks to pass if the CRL(certi
 
 
 
-> 
-> 
-> * **proxyConfig**: 
-> This section is optionally present if outgoing peer connections should go via a SOCKS4, SOCKS5, or HTTP CONNECT tunnelling proxy:
-> 
-> 
-> * **version**: 
-> Either SOCKS4, SOCKS5, or HTTP to define the protocol version used in connecting to the SOCKS proxy.
-> 
-> 
-> * **proxyAddress**: 
-> Host and port of the proxy.
-> 
-> 
-> * **userName**: 
-> Optionally a user name that will be presented to the proxy after connect.
-> 
-> 
-> * **password**: 
-> Optionally, a password to present to the SOCKS5 or HTTP Proxy. It is not valid for SOCKS4 proxies and it should always be combined with [userName].
-> 
-> 
-> * **proxyTimeoutMS**: 
-> optionally, specify a timeout in msec if the proxy is unusually slow to initate connections. The default value used is 10000 msec.
-> 
-> 
-> 
-> 
+
+
+* **proxyConfig**: 
+This section is optionally present if outgoing peer connections should go via a SOCKS4, SOCKS5, or HTTP CONNECT tunnelling proxy:
+
+
+* **version**: 
+Either SOCKS4, SOCKS5, or HTTP to define the protocol version used in connecting to the SOCKS proxy.
+
+
+* **proxyAddress**: 
+Host and port of the proxy.
+
+
+* **userName**: 
+Optionally a user name that will be presented to the proxy after connect.
+
+
+* **password**: 
+Optionally, a password to present to the SOCKS5 or HTTP Proxy. It is not valid for SOCKS4 proxies and it should always be combined with [userName].
+
+
+* **proxyTimeoutMS**: 
+optionally, specify a timeout in msec if the proxy is unusually slow to initate connections. The default value used is 10000 msec.
+
+
+
+
 
 
 
 * **inboundConfig**: 
 This section is used to configure the properties of the listening port. It is required for `SenderReceiver` and `FloatOuter` modes and must be absent for `BridgeInner` mode:
 
-> 
-> 
-> * **listeningAddress**: 
-> The host and port to bind to as `TLS 1.2/AMQP 1.0` listener. This may be a specific network interface on multi-homed machines.
-> It may also differ from the externally exposed public `p2pAddress` of the port if the firewalls, or load balancers transparently reroute the traffic.
-> 
-> 
+
+
+* **listeningAddress**: 
+The host and port to bind to as `TLS 1.2/AMQP 1.0` listener. This may be a specific network interface on multi-homed machines.
+It may also differ from the externally exposed public `p2pAddress` of the port if the firewalls, or load balancers transparently reroute the traffic.
+
+
 
 
 

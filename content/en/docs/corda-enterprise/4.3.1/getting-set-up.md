@@ -268,23 +268,23 @@ Upon receiving the binaries, the quickest way to get started developing your Cor
 {{< /note >}}
 be done by firstly unpacking the `corda-3.1-developer-pack.tar.gz` compressed tarball:
 
-> 
-> > 
-> > `tar -xvzf corda-3.1-developer-pack.tar.gz`
-> 
-> 
-> Then, copy the unpacked `respository` folder to your local Maven repository:
-> 
-> > 
-> > `rsync -av repository ~/.m2/`
-> 
-> 
-> The extracted folder can now be deleted:
-> 
-> > 
-> > `rm -rf repository`
-> 
-> 
+
+
+`tar -xvzf corda-3.1-developer-pack.tar.gz`
+
+
+Then, copy the unpacked `respository` folder to your local Maven repository:
+
+
+`rsync -av repository ~/.m2/`
+
+
+The extracted folder can now be deleted:
+
+
+`rm -rf repository`
+
+
 
 
 ### Run from the terminal
@@ -329,16 +329,16 @@ dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow
 
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
 
-> 
-> [https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
-> 
-> [https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
+
+[https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
+
+[https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
 
 
 And a list of simple sample CorDapps for you to explore basic concepts is available here:
 
-> 
-> [https://www.corda.net/samples/](https://www.corda.net/samples/)
+
+[https://www.corda.net/samples/](https://www.corda.net/samples/)
 
 
 You can clone these repos to your local machine by running the command `git clone [repo URL]`.
@@ -366,30 +366,33 @@ You will be redirected to an Oracle login page. Login or create an account to do
 * Create a directory to place the JDK e.g. `sudo mkdir -p /usr/lib/jvm`
 * Move the extracted archive in that folder with `sudo mv ./jdk1.8.0_202 /usr/lib/jvm/`
 * Add the most common java binaries to the list of alternatives to allow easy swap between Java versions in the future> 
-> ```shell
-> sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_202/bin/java" 1
-> sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_202/bin/javac" 1
-> sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.8.0_202/bin/javaws" 1
-> ```
-> 
+```shell
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_202/bin/java" 1
+sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_202/bin/javac" 1
+sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.8.0_202/bin/javaws" 1
+```
+
+
 
 
 * Update permissions> 
-> ```shell
-> sudo chmod a+x /usr/bin/java
-> sudo chmod a+x /usr/bin/javac
-> sudo chmod a+x /usr/bin/javaws
-> sudo chown -R root:root /usr/lib/jvm/jdk1.8.0_202
-> ```
-> 
+```shell
+sudo chmod a+x /usr/bin/java
+sudo chmod a+x /usr/bin/javac
+sudo chmod a+x /usr/bin/javaws
+sudo chown -R root:root /usr/lib/jvm/jdk1.8.0_202
+```
+
+
 
 
 * Set JAVA_HOME and JRE_HOME to your `~/.bash_profile` and/or `~/.bashrc`> 
-> ```shell
-> export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_202
-> export JRE_HOME=/usr/lib/jvm/jdk1.8.0_202/jre
-> ```
-> 
+```shell
+export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_202
+export JRE_HOME=/usr/lib/jvm/jdk1.8.0_202/jre
+```
+
+
 
 
 * Verify that the JDK was installed correctly by running `java -version`

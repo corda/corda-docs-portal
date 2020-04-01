@@ -41,11 +41,11 @@ possible to upgrade an existing schema to a newer version using the tool.
 
 If using the Corda Database Management Tool to perform initial schema setup, take note of the following:
 
->
->
-> * Always specify the command as the first parameter. This would be either `dry-run` or `execute-migration`
-> * Specify the mode as being JPA_NOTARY by using the command-line parameter `--mode=JPA_NOTARY`
-> * Ensure that the configuration file used is correct, as detailed in the section below.
+
+
+* Always specify the command as the first parameter. This would be either `dry-run` or `execute-migration`
+* Specify the mode as being JPA_NOTARY by using the command-line parameter `--mode=JPA_NOTARY`
+* Ensure that the configuration file used is correct, as detailed in the section below.
 
 
 Use the `dry-run` command to generate SQL scripts which could be inspected prior to being run. Alternatively, use the
@@ -64,12 +64,12 @@ the lifetime of the notary.
 The configuration file used as an input to the Database Management Tool should closely resemble that of the notary itself.
 Only some minor changes may be needed. Take note of the following:
 
->
->
-> * The `dataSourceClassName` property must be provided.
-> * The `dataSource.url` property must be provided and should be identical to that used by the notary itself.
-> * The username and password needed for access to the database must be stored as `dataSource.user` and `dataSource.password` respectively.
-> * Any unused configuration parameters will be ignored.
+
+
+* The `dataSourceClassName` property must be provided.
+* The `dataSource.url` property must be provided and should be identical to that used by the notary itself.
+* The username and password needed for access to the database must be stored as `dataSource.user` and `dataSource.password` respectively.
+* Any unused configuration parameters will be ignored.
 
 
 Below is an example configuration file for the Database Management Tool:
@@ -185,8 +185,8 @@ certificates and is unable to authenticate via passwords.
 Open a terminal window on one of the machines on which CockroachDB is installed. Connect to the SQL interface of the database with the
 following command. Note the command is an example and assumes that Cockroach has been installed to `/opt/roach`. Make sure to specify
 
->
-> the correct path for your certificates.
+
+the correct path for your certificates.
 
 
 ```bash

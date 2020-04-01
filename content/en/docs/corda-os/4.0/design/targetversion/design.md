@@ -22,12 +22,12 @@ This document proposes that CorDapps will have metadata associated with them spe
 ## Background
 
 
-> 
-> Introduce target version and min platform version as app attributes
-> 
-> This is probably as simple as a couple of keys in a MANIFEST.MF file.
-> We should document what it means, make sure API implementations can always access the target version of the calling CorDapp (i.e. by examining the flow, doing a stack walk or using Reflection.getCallerClass()) and do a simple test of an API that acts differently depending on the target version of the app.
-> We should also implement checking at CorDapp load time that min platform version <= current platform version.
+
+Introduce target version and min platform version as app attributes
+
+This is probably as simple as a couple of keys in a MANIFEST.MF file.
+We should document what it means, make sure API implementations can always access the target version of the calling CorDapp (i.e. by examining the flow, doing a stack walk or using Reflection.getCallerClass()) and do a simple test of an API that acts differently depending on the target version of the app.
+We should also implement checking at CorDapp load time that min platform version <= current platform version.
 
 
 ([from CORDA-470](https://r3-cev.atlassian.net/browse/CORDA-470))
@@ -39,8 +39,8 @@ This document proposes that CorDapps will have metadata associated with them spe
 * *Platform version (Corda)* An integer representing the API version of the Corda platform
 
 
-> 
-> It starts at 1 and will increment by exactly 1 for each release which changes any of the publicly exposed APIs in the entire platform. This includes public APIs on the node itself, the RPC system, messaging, serialisation, etc. API backwards compatibility will always be maintained, with the use of deprecation to migrate away from old APIs. In rare situations APIs may have to be removed, for example due to security issues. There is no relationship between the Platform Version and the release version - a change in the major, minor or patch values may or may not increase the Platform Version.
+
+It starts at 1 and will increment by exactly 1 for each release which changes any of the publicly exposed APIs in the entire platform. This includes public APIs on the node itself, the RPC system, messaging, serialisation, etc. API backwards compatibility will always be maintained, with the use of deprecation to migrate away from old APIs. In rare situations APIs may have to be removed, for example due to security issues. There is no relationship between the Platform Version and the release version - a change in the major, minor or patch values may or may not increase the Platform Version.
 
 
 ([from the docs](https://docs.corda.net/head/versioning.html#versioning)).

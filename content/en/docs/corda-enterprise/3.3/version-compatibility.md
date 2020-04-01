@@ -20,21 +20,21 @@ Corda Enterprise 3.1 provides a baseline for wire stability and compatibility wi
 
 Future versions of Corda Enterprise will be backward compatible with Corda Enterprise 3.1:
 
-> 
-> 
-> * Corda Enterprise 3.1 nodes can be upgraded to future version of Corda Enterprise. The upgrade will preserve transaction, configuration and other data.
-> * Corda Enterprise 3.1 nodes will be able to transact with nodes running future versions of Corda Enterprise, providing the CorDapp is compatible with and between platform versions.
-> * Future versions of Corda Enterprise will be able to run CorDapps developed for, and packaged on Corda Enterprise 3.1.
+
+
+* Corda Enterprise 3.1 nodes can be upgraded to future version of Corda Enterprise. The upgrade will preserve transaction, configuration and other data.
+* Corda Enterprise 3.1 nodes will be able to transact with nodes running future versions of Corda Enterprise, providing the CorDapp is compatible with and between platform versions.
+* Future versions of Corda Enterprise will be able to run CorDapps developed for, and packaged on Corda Enterprise 3.1.
 
 
 Corda Enterprise 3.1 and Corda Enterprise 3.3 can be used in mixed-version/mixed-distribution networks seamlessly transacting with nodes running Corda 3.x and future versions.
 
-> 
-> 
-> * Corda Enterprise 3.1 and Corda Enterprise 3.3 nodes can transact with nodes running Corda 3.0 and future versions, providing the CorDapp is compatible with and between platform versions and distributions.
-> * CorDapps originally written for Corda 3.x are API compatible with Corda Enterprise 3.1 and future versions.
-> Developers can switch their IDE to Corda Enterprise 3.1 or Corda Enterprise 3.3 without any code changes in their CorDapp.
-> * Corda Enterprise 3.1 and Corda Enterprise 3.3 nodes can run, without recompilation, CorDapps developed on and packaged for Corda 3.x.
+
+
+* Corda Enterprise 3.1 and Corda Enterprise 3.3 nodes can transact with nodes running Corda 3.0 and future versions, providing the CorDapp is compatible with and between platform versions and distributions.
+* CorDapps originally written for Corda 3.x are API compatible with Corda Enterprise 3.1 and future versions.
+Developers can switch their IDE to Corda Enterprise 3.1 or Corda Enterprise 3.3 without any code changes in their CorDapp.
+* Corda Enterprise 3.1 and Corda Enterprise 3.3 nodes can run, without recompilation, CorDapps developed on and packaged for Corda 3.x.
 
 
 {{< note >}}

@@ -32,14 +32,15 @@ required only when the H2 database is exposed on non-localhost address (which is
 
 This username and password can be changed in node configuration:
 
-> 
-> ```groovy
->  dataSourceProperties = {
->     dataSource.user = [USER]
->     dataSource.password = [PASSWORD]
-> }
-> ```
-> 
+
+```groovy
+ dataSourceProperties = {
+    dataSource.user = [USER]
+    dataSource.password = [PASSWORD]
+}
+```
+
+
 
 Note that changing the user/password for the existing node in `node.conf` will not update them in the H2 database.
 You need to log into the database first to create a new user or change a user’s password.
@@ -92,8 +93,8 @@ be accessible on localhost.
 
 The JDBC URL is printed during node startup to the log and will typically look like this:
 
-> 
-> `jdbc:h2:tcp://localhost:31339/node`
+
+`jdbc:h2:tcp://localhost:31339/node`
 
 
 Any database browsing tool that supports JDBC can be used.
@@ -125,7 +126,7 @@ before doing so, as access to the database file requires exclusive access. If th
 will return the following error:
 `Database may be already in use: null. Possible solutions: close all other connection(s); use the server mode [90020-196]`.
 
-> 
-> `jdbc:h2:~/path/to/file/persistence`
+
+`jdbc:h2:~/path/to/file/persistence`
 
 

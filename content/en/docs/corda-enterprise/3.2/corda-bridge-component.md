@@ -143,15 +143,15 @@ or for organisations evaluating on Open Source Corda, where this is the only ava
 The next simplest deployment is to turn off the built in bridge using the `externalBridge` enterprise config property
 and to run a single combined bridge/float process. This might be suitable for a test environment, to conserve VM’s.
 
-> 
-> {{< note >}}
-> Note that to run the bridge and the node on the same machine there could be a port conflict with a naive setup,
-> but by using the `messagingServerAddress` property to specify the bind address and port plus setting
-> `messagingServerExternal = false`
-> the embedded Artemis P2P broker can be set to listen on a different port rather than the advertised `p2paddress` port.
-> Then configure an all-in-one bridge to point at this node:
-> 
-> {{< /note >}}
+
+{{< note >}}
+Note that to run the bridge and the node on the same machine there could be a port conflict with a naive setup,
+but by using the `messagingServerAddress` property to specify the bind address and port plus setting
+`messagingServerExternal = false`
+the embedded Artemis P2P broker can be set to listen on a different port rather than the advertised `p2paddress` port.
+Then configure an all-in-one bridge to point at this node:
+
+{{< /note >}}
 
 ![simple bridge](/en/images/simple_bridge.png "simple bridge")
 

@@ -232,10 +232,10 @@ This is the key ledger table used as a source of truth. In the future the conten
 
 {{< /table >}}
 
-> 
-> 
-> 
-> 
+
+
+
+
 
 
 ### Contract upgrades

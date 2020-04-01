@@ -27,25 +27,28 @@ Typical update process is as follows:
 
 * Start network map with initial network parameters.
 * To advertise an update:> 
-> 
-> * Stop the Network Map service.
-> * Run it with `--set-network-parameters` flag, along with the network truststore related flags. See the ‘Setting
-> the Network Parameters’ section within the [Network Map Service](network-map.md) doc for more information. The network parameters
-> file must have `parametersUpdate` config block:```guess
-> parametersUpdate {
->     description = "Important update"
->     updateDeadline = "2017-08-31T05:10:36.297Z" # ISO-8601 time, substitute it with update deadline
-> }
-> ```
-> 
-> Where *description* is a short description of the update that will be communicated to the nodes and `updateDeadline` is
-> the time (in ISO-8601 format) by which all nodes in the network must decide that they have accepted the new parameters.{{< note >}}
-> Currently only backwards compatible changes to the network parameters can be made, i.e. notaries can’t be
-> removed (eg. they will be always added to the existing list), max transaction size can only increase, etc.{{< /note >}}
-> Upon success the process will exit. Not that as the Network Map service is up and running again, nothing will be
-> sent to the nodes yet.
-> * Start the Network Map service as normal without any flags. When the nodes on the network next poll the service for
-> the latest Network Map they will be notified of the proposed parameter update.
+
+* Stop the Network Map service.
+* Run it with `--set-network-parameters` flag, along with the network truststore related flags. See the ‘Setting
+the Network Parameters’ section within the [Network Map Service](network-map.md) doc for more information. The network parameters
+file must have `parametersUpdate` config block:
+
+```guess
+parametersUpdate {
+    description = "Important update"
+    updateDeadline = "2017-08-31T05:10:36.297Z" # ISO-8601 time, substitute it with update deadline
+}
+```
+
+
+Where *description* is a short description of the update that will be communicated to the nodes and `updateDeadline` is
+the time (in ISO-8601 format) by which all nodes in the network must decide that they have accepted the new parameters.{{< note >}}
+Currently only backwards compatible changes to the network parameters can be made, i.e. notaries can’t be
+removed (eg. they will be always added to the existing list), max transaction size can only increase, etc.{{< /note >}}
+Upon success the process will exit. Not that as the Network Map service is up and running again, nothing will be
+sent to the nodes yet.
+* Start the Network Map service as normal without any flags. When the nodes on the network next poll the service for
+the latest Network Map they will be notified of the proposed parameter update.
 
 
 

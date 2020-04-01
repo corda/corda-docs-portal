@@ -32,9 +32,9 @@ The Corda maintainers, developers and extended community make active use of the 
 
 
 * The [Corda Slack team](http://slack.corda.net/) for general community discussion, and in particular:> 
-> 
->     * The `#contributing` channel for discussions around contributing
->     * The `#design` channel for discussions around the platform’s design
+
+    * The `#contributing` channel for discussions around contributing
+    * The `#design` channel for discussions around the platform’s design
 
 
 
@@ -62,10 +62,10 @@ Current community maintainers:
 
 
 * [Joel Dudley](https://github.com/joeldudleyr3) - Contact me:> 
-> 
->     * On the [Corda Slack team](http://slack.corda.net/), either in the `#community` channel or by direct message using the handle
-> `@joel`
->     * By email: joel.dudley at r3.com
+
+    * On the [Corda Slack team](http://slack.corda.net/), either in the `#community` channel or by direct message using the handle
+`@joel`
+    * By email: joel.dudley at r3.com
 
 
 

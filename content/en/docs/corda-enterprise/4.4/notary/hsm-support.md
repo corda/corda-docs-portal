@@ -33,11 +33,11 @@ is not possible then see the below section on [Using Multiple HSMs](#using-multi
 
 Each Notary workers needs access to three private key entries, corresponding to following entities:
 
->
->
-> * The distributed Notary identity, responsible for notarising transactions.
-> * The node certificate authority, responsible for issuing the legal identity and TLS certificates.
-> * The node legal identity, which represents the unique identity of the notary worker.
+
+
+* The distributed Notary identity, responsible for notarising transactions.
+* The node certificate authority, responsible for issuing the legal identity and TLS certificates.
+* The node legal identity, which represents the unique identity of the notary worker.
 
 
 See the *enterpriseConfiguration* section of the corda-configuration-file doc for more information on how to configure each alias.

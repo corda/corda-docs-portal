@@ -156,8 +156,8 @@ these hash constrained states when upgrading to signed CorDapps using signature 
 
 The following java system property may be set to relax the hash constraint checking behaviour:
 
-> 
-> -Dnet.corda.node.disableHashConstraints=”true”
+
+-Dnet.corda.node.disableHashConstraints=”true”
 
 
 This mode should only be used upon “out of band” agreement by all participants in a network.
@@ -280,26 +280,28 @@ or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp
 
 Example of creation of two Cordapps with Finance App Flows and Finance App Contracts in Kotlin:
 
-> 
-> ```kotlin
-> Driver.driver(DriverParameters(cordappsForAllNodes = listOf(TestCordapp.findCordapp("net.corda.finance.schemas"),
->         TestCordapp.findCordapp("net.corda.finance.flows"))) {
->     // Your test code goes here
-> })
-> ```
-> 
+
+```kotlin
+Driver.driver(DriverParameters(cordappsForAllNodes = listOf(TestCordapp.findCordapp("net.corda.finance.schemas"),
+        TestCordapp.findCordapp("net.corda.finance.flows"))) {
+    // Your test code goes here
+})
+```
+
+
 
 The same example in Java:
 
-> 
-> ```java
-> Driver.driver(new DriverParameters()
->         .withCordappsForAllNodes(Arrays.asList(TestCordapp.findCordapp("net.corda.finance.schemas"),
->         TestCordapp.findCordapp("net.corda.finance.flows"))), dsl -> {
->     // Your test code goes here
-> });
-> ```
-> 
+
+```java
+Driver.driver(new DriverParameters()
+        .withCordappsForAllNodes(Arrays.asList(TestCordapp.findCordapp("net.corda.finance.schemas"),
+        TestCordapp.findCordapp("net.corda.finance.flows"))), dsl -> {
+    // Your test code goes here
+});
+```
+
+
 
 
 ### Staring a node missing CorDapp(s)

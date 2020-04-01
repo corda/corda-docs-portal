@@ -87,13 +87,13 @@ figure shown here refers to the notary in isolation, thus real world performance
 
 The below table shows the performance of a notary cluster configured using the below minimum specifications:
 
-> 
-> 
-> * 3 * Microsoft Azure D8s v3 virtual machines
-> * 8 virtual CPUs, 32GB of memory, and a Premium SSD with a Max IOPS rating of 12800
-> * Ubuntu 18.04 LTS
-> * CockroachDB installed on each of the virtual machines
-> * One JPA notary worker running on each of the virtual machines
+
+
+* 3 * Microsoft Azure D8s v3 virtual machines
+* 8 virtual CPUs, 32GB of memory, and a Premium SSD with a Max IOPS rating of 12800
+* Ubuntu 18.04 LTS
+* CockroachDB installed on each of the virtual machines
+* One JPA notary worker running on each of the virtual machines
 
 
 Note that the performance below is representative only.
@@ -116,13 +116,13 @@ Note that the performance below is representative only.
 
 The below table shows the performance of a notary configured using the below high specifications:
 
-> 
-> 
-> * 5 * physical machines
-> * Intel 2x Xeon E5-2687Wv4, 24 cores hyperthreaded, 256GB DDR4 ECC 2133 MHz, 2x 400GB NVME
-> * Ubuntu 18.04 LTS
-> * CockroachDB installed on each of the machines
-> * One JPA notary worker running on each of the machines
+
+
+* 5 * physical machines
+* Intel 2x Xeon E5-2687Wv4, 24 cores hyperthreaded, 256GB DDR4 ECC 2133 MHz, 2x 400GB NVME
+* Ubuntu 18.04 LTS
+* CockroachDB installed on each of the machines
+* One JPA notary worker running on each of the machines
 
 
 Note that the performance below is representative only.

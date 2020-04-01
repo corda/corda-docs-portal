@@ -113,18 +113,18 @@ This means that:
 
 Each required signers should only sign the transaction if the following two conditions hold:
 
-> 
-> 
-> * **Transaction validity**: For both the proposed transaction, and every transaction in the chain of transactions
-> that created the current proposed transaction’s inputs:> 
-> > 
-> >     * The transaction is digitally signed by all the required parties
-> >     * The transaction is *contractually valid* (see [Contracts](key-concepts-contracts.md))
-> 
-> 
-> 
-> * **Transaction uniqueness**: There exists no other committed transaction that has consumed any of the inputs to
-> our proposed transaction (see [Consensus](key-concepts-consensus.md))
+
+
+* **Transaction validity**: For both the proposed transaction, and every transaction in the chain of transactions
+that created the current proposed transaction’s inputs:> 
+
+    * The transaction is digitally signed by all the required parties
+    * The transaction is *contractually valid* (see [Contracts](key-concepts-contracts.md))
+
+
+
+* **Transaction uniqueness**: There exists no other committed transaction that has consumed any of the inputs to
+our proposed transaction (see [Consensus](key-concepts-consensus.md))
 
 
 If the transaction gathers all the required signatures but these conditions do not hold, the transaction’s outputs

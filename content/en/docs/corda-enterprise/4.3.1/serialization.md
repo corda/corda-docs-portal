@@ -30,11 +30,11 @@ weakly or untyped string-based serialisation schemes like JSON or XML. The prima
 
 
 * A desire to have a schema describing what has been serialized alongside the actual data:> 
-> 
-> * To assist with versioning, both in terms of being able to interpret data archived long ago (e.g. trades from
-> a decade ago, long after the code has changed) and between differing code versions.
-> * To make it easier to write generic code e.g. user interfaces that can navigate the serialized form of data.
-> * To support cross platform (non-JVM) interaction, where the format of a class file is not so easily interpreted.
+
+* To assist with versioning, both in terms of being able to interpret data archived long ago (e.g. trades from
+a decade ago, long after the code has changed) and between differing code versions.
+* To make it easier to write generic code e.g. user interfaces that can navigate the serialized form of data.
+* To support cross platform (non-JVM) interaction, where the format of a class file is not so easily interpreted.
 
 
 
@@ -111,10 +111,10 @@ uses if you intend to parse Corda messages from non-JVM platforms.
 
 Corda serialisation is currently used for:
 
-> 
-> 
-> * Peer-to-peer networking.
-> * Persisted messages, like signed transactions and states.
+
+
+* Peer-to-peer networking.
+* Persisted messages, like signed transactions and states.
 
 
 For the checkpointing of flows Corda uses a private scheme that is subject to change. It is currently based on the Kryo
@@ -273,20 +273,20 @@ You own types must adhere to the following rules to be supported:
 
 #### General Rules
 
-> 
-> 
-> * The class must be compiled with parameter names included in the `.class` file.  This is the default in Kotlin
-> but must be turned on in Java using the `-parameters` command line option to `javac`{{< note >}}
-> In circumstances where classes cannot be recompiled, such as when using a third-party library, a
-> proxy serializer can be used to avoid this problem. Details on creating such an object can be found on the
-> [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md) page.{{< /note >}}
-> 
-> * The class must be annotated with `@CordaSerializable`
-> * The declared types of constructor arguments, getters, and setters must be supported, and where generics are used, the
-> generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard which is currently
-> widened to an open wildcard
-> * Any superclass must adhere to the same rules, but can be abstract
-> * Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
+
+
+* The class must be compiled with parameter names included in the `.class` file.  This is the default in Kotlin
+but must be turned on in Java using the `-parameters` command line option to `javac`{{< note >}}
+In circumstances where classes cannot be recompiled, such as when using a third-party library, a
+proxy serializer can be used to avoid this problem. Details on creating such an object can be found on the
+[Pluggable Serializers for CorDapps](cordapp-custom-serializers.md) page.{{< /note >}}
+
+* The class must be annotated with `@CordaSerializable`
+* The declared types of constructor arguments, getters, and setters must be supported, and where generics are used, the
+generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard which is currently
+widened to an open wildcard
+* Any superclass must adhere to the same rules, but can be abstract
+* Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
 
 
 
@@ -299,16 +299,16 @@ instantiate the object with the serialized values.
 It is recommended that serializable objects in Corda adhere to the following rules, as they allow immutable state
 objects to be deserialised:
 
-> 
-> 
-> * A Java Bean getter for each of the properties in the constructor, with a name of the form `getX`.  For example, for a constructor
-> parameter `foo`, there must be a getter called `getFoo()`.  If `foo` is a boolean, the getter may
-> optionally be called `isFoo()` (this is why the class must be compiled with parameter names turned on)
-> * A constructor which takes all of the properties that you wish to record in the serialized form.  This is required in
-> order for the serialization framework to reconstruct an instance of your class
-> * If more than one constructor is provided, the serialization framework needs to know which one to use.  The `@ConstructorForDeserialization`
-> annotation can be used to indicate which one.  For a Kotlin class, without the `@ConstructorForDeserialization` annotation, the
-> *primary constructor* will be selected
+
+
+* A Java Bean getter for each of the properties in the constructor, with a name of the form `getX`.  For example, for a constructor
+parameter `foo`, there must be a getter called `getFoo()`.  If `foo` is a boolean, the getter may
+optionally be called `isFoo()` (this is why the class must be compiled with parameter names turned on)
+* A constructor which takes all of the properties that you wish to record in the serialized form.  This is required in
+order for the serialization framework to reconstruct an instance of your class
+* If more than one constructor is provided, the serialization framework needs to know which one to use.  The `@ConstructorForDeserialization`
+annotation can be used to indicate which one.  For a Kotlin class, without the `@ConstructorForDeserialization` annotation, the
+*primary constructor* will be selected
 
 
 In Kotlin, this maps cleanly to a data class where there getters are synthesized automatically. For example, suppose we
@@ -615,12 +615,12 @@ compatibility. The rules and mechanisms for doing this are discussed in [Enum Ev
 
 The following rules apply to supported `Throwable` implementations.
 
-> 
-> 
-> * If you wish for your exception to be serializable and transported type safely it should inherit from either
-> `CordaException` or `CordaRuntimeException`
-> * If not, the `Throwable` will deserialize to a `CordaRuntimeException` with the details of the original
-> `Throwable` contained within it, including the class name of the original `Throwable`
+
+
+* If you wish for your exception to be serializable and transported type safely it should inherit from either
+`CordaException` or `CordaRuntimeException`
+* If not, the `Throwable` will deserialize to a `CordaRuntimeException` with the details of the original
+`Throwable` contained within it, including the class name of the original `Throwable`
 
 
 
@@ -672,12 +672,12 @@ should be targeted at its getter method, e.g. `@get:SerializableCalculatedProper
 
 Possible future enhancements include:
 
-> 
-> 
-> * Java singleton support.  We will add support for identifying classes which are singletons and identifying the
-> static method responsible for returning the singleton instance
-> * Instance internalizing support.  We will add support for identifying classes that should be resolved against an instances map to avoid
-> creating many duplicate instances that are equal (similar to `String.intern()`)
+
+
+* Java singleton support.  We will add support for identifying classes which are singletons and identifying the
+static method responsible for returning the singleton instance
+* Instance internalizing support.  We will add support for identifying classes that should be resolved against an instances map to avoid
+creating many duplicate instances that are equal (similar to `String.intern()`)
 
 
 

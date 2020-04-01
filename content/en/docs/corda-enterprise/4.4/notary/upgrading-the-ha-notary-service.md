@@ -37,29 +37,32 @@ Upgrade steps:
 
 #### CockroachDB
 
->
-> ```sql
-> ALTER TABLE notary_request_log ADD COLUMN worker_node_x500_name VARCHAR(255);
-> ```
->
+
+```sql
+ALTER TABLE notary_request_log ADD COLUMN worker_node_x500_name VARCHAR(255);
+```
+
+
 
 
 #### Oracle RAC
 
->
-> ```sql
-> ALTER TABLE notary_request_log ADD worker_node_x500_name VARCHAR(255);
-> ```
->
+
+```sql
+ALTER TABLE notary_request_log ADD worker_node_x500_name VARCHAR(255);
+```
+
+
 
 
 ### Percona XtraDB
 
->
-> ```sql
-> ALTER TABLE notary_request_log ADD COLUMN worker_node_x500_name TEXT;
-> ```
->
+
+```sql
+ALTER TABLE notary_request_log ADD COLUMN worker_node_x500_name TEXT;
+```
+
+
 
 
 ## Version 4.2
@@ -83,13 +86,14 @@ Upgrade steps:
 * Backup your Percona XtraDB Cluster.
 * Test you can restore from backup.
 * Log in to any Percona XtraDB Cluster database server and create the `notary_committed_transactions` table. It will be replicated to all other database servers.>
-> ```sql
-> CREATE TABLE IF NOT EXISTS notary_committed_transactions (
->     transaction_id BINARY(32) NOT NULL,
->     CONSTRAINT tid PRIMARY KEY (transaction_id)
-> );
-> ```
->
+```sql
+CREATE TABLE IF NOT EXISTS notary_committed_transactions (
+    transaction_id BINARY(32) NOT NULL,
+    CONSTRAINT tid PRIMARY KEY (transaction_id)
+);
+```
+
+
 
 
 * In the unlikely event that the database gets corrupted, take all the notary worker nodes down and restore the database.

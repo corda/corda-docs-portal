@@ -79,8 +79,8 @@ Stops monitoring a specified notary node. Requires use of the `--target` option
 Options are:
 :-u, –user: RPC user to use for the node. This can also be stored in a config file. It must be defined
 
-> 
-> either in config or on the command line.
+
+either in config or on the command line.
 
 
 

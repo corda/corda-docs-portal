@@ -45,16 +45,16 @@ and who made them.
 The Metering Collection Tool provides a mechanism for collecting metering data from both normal nodes and notaries running Corda Enterprise.
 The tool provides three flows:
 
-> 
-> 
-> * `MeteringCollectionFlow` is used to collect metering data from normal nodes. It takes in a time window over which to collect data, and
-> optionally a set of CorDapps to filter the data by. It outputs both the total count of metering events that match filter in the time
-> window, and a breakdown of these events by the commands involved and the signing entities.
-> * `NotaryCollectionFlow` is used to collect metering data from notaries. It takes in a time window over which to collect the data. It
-> outputs a total count of notarisation requests over that interval, along with a breakdown of requests against the parties that made them.
-> * `RetrieveCordappDataFlow` is a utility flow to extract CorDapp hashes and signing keys for a given CorDapp name, in the correct format
-> for use in the `MeteringCollectionFlow` filter. The flow provides information about the versions and vendors of the returned CorDapps so
-> that the correct CorDapp data can be selected.
+
+
+* `MeteringCollectionFlow` is used to collect metering data from normal nodes. It takes in a time window over which to collect data, and
+optionally a set of CorDapps to filter the data by. It outputs both the total count of metering events that match filter in the time
+window, and a breakdown of these events by the commands involved and the signing entities.
+* `NotaryCollectionFlow` is used to collect metering data from notaries. It takes in a time window over which to collect the data. It
+outputs a total count of notarisation requests over that interval, along with a breakdown of requests against the parties that made them.
+* `RetrieveCordappDataFlow` is a utility flow to extract CorDapp hashes and signing keys for a given CorDapp name, in the correct format
+for use in the `MeteringCollectionFlow` filter. The flow provides information about the versions and vendors of the returned CorDapps so
+that the correct CorDapp data can be selected.
 
 
 
@@ -69,20 +69,20 @@ The `NotaryCollectionFlow` does not allow the collection of metering data for no
 
 As a flow, the `MeteringCollectionFlow` can be invoked in three main ways:
 
-> 
-> 
-> * Via RPC, using `startFlow`
-> * As a subflow of some wrapping flow
-> * Via the shell
+
+
+* Via RPC, using `startFlow`
+* As a subflow of some wrapping flow
+* Via the shell
 
 
 In order to run `MeteringCollectionFlow`, three things must be specified:
 
-> 
-> 
-> * A time window over which to run
-> * A filter to select which CorDapps to collect data for
-> * A paging specification to describe how the flow should access the database
+
+
+* A time window over which to run
+* A filter to select which CorDapps to collect data for
+* A paging specification to describe how the flow should access the database
 
 
 To specify the time window, `MeteringCollectionFlow` takes either a start and end date (both of type `Instant`), or a start date and a duration.
@@ -179,14 +179,14 @@ fun collectData(rpc: CordaRPCOps): CollectedMeteringData {
 `MeteringCollectionFlow` outputs a data class that contains a structured representation of the metering data. The outputted data contains
 the following:
 
-> 
-> 
-> * The total number of signing events that match the query provided
-> * The current version of the output metering data
-> * An object describing the query that produced this set of data. This includes the time window over which the data was collected, the
-> filter applied to the data, and the paging criteria used.
-> * A list of entries giving a breakdown of the metering data. Each entry contains a signing entity, a set of commands, a transaction type,
-> and a count of events in this page that match this specification.
+
+
+* The total number of signing events that match the query provided
+* The current version of the output metering data
+* An object describing the query that produced this set of data. This includes the time window over which the data was collected, the
+filter applied to the data, and the paging criteria used.
+* A list of entries giving a breakdown of the metering data. Each entry contains a signing entity, a set of commands, a transaction type,
+and a count of events in this page that match this specification.
 
 
 The output object can also be serialized into JSON form, by calling `serialize`.

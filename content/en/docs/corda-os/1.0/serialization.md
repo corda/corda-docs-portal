@@ -94,23 +94,23 @@ AMQP serialization is not currently live and will be turned on in a future relea
 The long term goal is to migrate the current serialization format for everything except checkpoints away from the current
 `Kryo`-based format to a more sustainable, self-describing and controllable format based on AMQP 1.0.  The primary drivers for that move are:
 
-> 
-> 
-> * A desire to have a schema describing what has been serialized along-side the actual data:
-> #.  To assist with versioning, both in terms of being able to interpret long ago archived data (e.g. trades from> 
-> > a decade ago, long after the code has changed) and between differing code versions.
-> 
-> * To make it easier to write user interfaces that can navigate the serialized form of data.
-> * To support cross platform (non-JVM) interaction, where the format of a class file is not so easily interpreted.
-> 
-> 
-> * A desire to use a documented and static wire format that is platform independent, and is not subject to change with
-> 3rd party library upgrades etc.
-> * A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time
-> and do not need to be defined in the schema *upfront*, which is key to many Corda concepts, such as contract states.
-> * Increased security from deserialized objects being constructed through supported constructors rather than having
-> data poked directy into their fields without an opportunity to validate consistency or intercept attempts to manipulate
-> supposed invariants.
+
+
+* A desire to have a schema describing what has been serialized along-side the actual data:
+#.  To assist with versioning, both in terms of being able to interpret long ago archived data (e.g. trades from> 
+a decade ago, long after the code has changed) and between differing code versions.
+
+* To make it easier to write user interfaces that can navigate the serialized form of data.
+* To support cross platform (non-JVM) interaction, where the format of a class file is not so easily interpreted.
+
+
+* A desire to use a documented and static wire format that is platform independent, and is not subject to change with
+3rd party library upgrades etc.
+* A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time
+and do not need to be defined in the schema *upfront*, which is key to many Corda concepts, such as contract states.
+* Increased security from deserialized objects being constructed through supported constructors rather than having
+data poked directy into their fields without an opportunity to validate consistency or intercept attempts to manipulate
+supposed invariants.
 
 
 Documentation on that format, and how JVM classes are translated to AMQP, will be linked here when it is available.
@@ -258,32 +258,32 @@ Here are the rules to adhere to for support of your own types:
 
 ### Classes
 
-> 
-> 
-> * A constructor which takes all of the properties that you wish to record in the serialized form.  This is required in
-> order for the serialization framework to reconstruct an instance of your class.
-> * If more than one constructor is provided, the serialization framework needs to know which one to use.  The `@ConstructorForDeserialization`
-> annotation can be used to indicate which one.  For a Kotlin class, without the `@ConstructorForDeserialization` annotation, the
-> *primary constructor* will be selected.
-> * The class must be compiled with parameter names included in the `.class` file.  This is the default in Kotlin
-> but must be turned on in Java (`-parameters` command line option to `javac`).
-> * A Java Bean getter for each of the properties in the constructor, with the names matching up.  For example, for a constructor
-> parameter `foo`, there must be a getter called `getFoo()`.  If the type of `foo` is boolean, the getter may
-> optionally be called `isFoo()`.  This is why the class must be compiled with parameter names turned on.
-> * The class is annotated with `@CordaSerializable`.
-> * The declared types of constructor arguments / getters must be supported, and where generics are used the
-> generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard which is currently
-> widened to an open wildcard.
-> * Any superclass must adhere to the same rules, but can be abstract.
-> * Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly.
+
+
+* A constructor which takes all of the properties that you wish to record in the serialized form.  This is required in
+order for the serialization framework to reconstruct an instance of your class.
+* If more than one constructor is provided, the serialization framework needs to know which one to use.  The `@ConstructorForDeserialization`
+annotation can be used to indicate which one.  For a Kotlin class, without the `@ConstructorForDeserialization` annotation, the
+*primary constructor* will be selected.
+* The class must be compiled with parameter names included in the `.class` file.  This is the default in Kotlin
+but must be turned on in Java (`-parameters` command line option to `javac`).
+* A Java Bean getter for each of the properties in the constructor, with the names matching up.  For example, for a constructor
+parameter `foo`, there must be a getter called `getFoo()`.  If the type of `foo` is boolean, the getter may
+optionally be called `isFoo()`.  This is why the class must be compiled with parameter names turned on.
+* The class is annotated with `@CordaSerializable`.
+* The declared types of constructor arguments / getters must be supported, and where generics are used the
+generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard which is currently
+widened to an open wildcard.
+* Any superclass must adhere to the same rules, but can be abstract.
+* Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly.
 
 
 
 ### Enums
 
-> 
-> 
-> * All enums are supported, provided they are annotated with `@CordaSerializable`.
+
+
+* All enums are supported, provided they are annotated with `@CordaSerializable`.
 
 
 
@@ -305,21 +305,21 @@ those it is better to choose another representation: perhaps just a string.
 
 The following rules apply to supported `Throwable` implementations.
 
-> 
-> 
-> * If you wish for your exception to be serializable and transported type safely it should inherit from either
-> `CordaException` or `CordaRuntimeException`.
-> * If not, the `Throwable` will deserialize to a `CordaRuntimeException` with the details of the original
-> `Throwable` contained within it, including the class name of the original `Throwable`.
+
+
+* If you wish for your exception to be serializable and transported type safely it should inherit from either
+`CordaException` or `CordaRuntimeException`.
+* If not, the `Throwable` will deserialize to a `CordaRuntimeException` with the details of the original
+`Throwable` contained within it, including the class name of the original `Throwable`.
 
 
 
 ### Kotlin Objects
 
-> 
-> 
-> * Kotlin `object` s are singletons and treated differently.  They are recorded into the stream with no properties
-> and deserialize back to the singleton instance.
+
+
+* Kotlin `object` s are singletons and treated differently.  They are recorded into the stream with no properties
+and deserialize back to the singleton instance.
 
 
 Currently, the same is not true of Java singletons, and they will deserialize to new instances of the class.
@@ -336,16 +336,16 @@ environment.  A more detailed discussion of the carpenter will be provided in a 
 
 ### Future Enhancements
 
-> 
-> 
-> * Java singleton support.  We will add support for identifying classes which are singletons and identifying the
-> static method responsible for returning the singleton instance.
-> * Instance internalizing support.  We will add support for identifying classes that should be resolved against an instances map to avoid
-> creating many duplicate instances that are equal.  Similar to `String.intern()`.
-> * Enum evolution support.  We *may* introduce an annotation that can be applied to an enum element to indicate that
-> if an unrecognised enum entry is deserialized from a newer version of the code, it should be converted to that
-> element in the older version of the code.  This is dependent on identifying a suitable use case, since it does
-> mutate the data when transported to another node, which could be considered hazardous.
+
+
+* Java singleton support.  We will add support for identifying classes which are singletons and identifying the
+static method responsible for returning the singleton instance.
+* Instance internalizing support.  We will add support for identifying classes that should be resolved against an instances map to avoid
+creating many duplicate instances that are equal.  Similar to `String.intern()`.
+* Enum evolution support.  We *may* introduce an annotation that can be applied to an enum element to indicate that
+if an unrecognised enum entry is deserialized from a newer version of the code, it should be converted to that
+element in the older version of the code.  This is dependent on identifying a suitable use case, since it does
+mutate the data when transported to another node, which could be considered hazardous.
 
 
 

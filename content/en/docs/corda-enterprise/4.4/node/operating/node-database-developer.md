@@ -25,13 +25,13 @@ Please refer to [Database schema setup](node-database-admin.md) if you are setti
 The instructions cover all commercial 3rd party database vendors supported by Corda Enteprise
 (Azure SQL, SQL Server, Oracle and PostgreSQL), and the default embedded H2 database:
 
->
->
-> * [Database setup for a new installation](#node-database-developer-database-schema-setup-ref)
-> * [Database update](#node-database-developer-database-schema-setup-ref)
-> * [Database setup when deploying a new CorDapp](#node-database-developer-database-schema-setup-when-deploying-a-new-cordapp-ref)
-> * [Database update when upgrading a new CorDapp](#node-database-developer-database-schema-update-when-upgrading-a-new-cordapp-ref)
-> * [Database cleanup](#node-database-developer-database-schema-cleanup-ref).
+
+
+* [Database setup for a new installation](#node-database-developer-database-schema-setup-ref)
+* [Database update](#node-database-developer-database-schema-setup-ref)
+* [Database setup when deploying a new CorDapp](#node-database-developer-database-schema-setup-when-deploying-a-new-cordapp-ref)
+* [Database update when upgrading a new CorDapp](#node-database-developer-database-schema-update-when-upgrading-a-new-cordapp-ref)
+* [Database cleanup](#node-database-developer-database-schema-cleanup-ref).
 
 
 
@@ -191,43 +191,49 @@ prevents querying the different default schema search path
 
 The following updates are required to a nodes filesystem configuration:
 
->
->
-> * The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
-> and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
-> For development convenience the properties are specified in the [deployNodes Cordform task](../../testing.md#testing-cordform-ref) task.```none
-> dataSourceProperties = {
->    ...
->    dataSourceClassName = <JDBC Data Source class name>
->    dataSource.url = <JDBC database URL>
->    dataSource.user = <Database user>
->    dataSource.password = <Database password>
-> }
-> database = {
->    transactionIsolationLevel = <Transaction isolation level>
->    schema = <Database schema name>
->    runMigration = true
-> }
-> ```
->
-> See [Node configuration](../setup/corda-configuration-file.md#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
-> * Set `runMigration` to `true` to allow a Corda node to create database tables upon startup.
-> * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
-> It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
-> Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
-> Corda distributed via published artifacts (e.g. added as Gradle dependency) will also search for the paths specified by the `jarDirs`
-> field of the node configuration.
-> The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
-> * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
-> To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:```groovy
-> dataSourceProperties = {
->    ...
->    maximumPoolSize = 10
->    connectionTimeout = 50000
-> }
-> ```
->
->
+
+
+* The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
+and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
+For development convenience the properties are specified in the [deployNodes Cordform task](../../testing.md#testing-cordform-ref) task.
+
+```none
+dataSourceProperties = {
+   ...
+   dataSourceClassName = <JDBC Data Source class name>
+   dataSource.url = <JDBC database URL>
+   dataSource.user = <Database user>
+   dataSource.password = <Database password>
+}
+database = {
+   transactionIsolationLevel = <Transaction isolation level>
+   schema = <Database schema name>
+   runMigration = true
+}
+```
+
+
+See [Node configuration](../setup/corda-configuration-file.md#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+* Set `runMigration` to `true` to allow a Corda node to create database tables upon startup.
+* The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
+It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
+Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
+Corda distributed via published artifacts (e.g. added as Gradle dependency) will also search for the paths specified by the `jarDirs`
+field of the node configuration.
+The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
+* Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
+To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:
+
+```groovy
+dataSourceProperties = {
+   ...
+   maximumPoolSize = 10
+   connectionTimeout = 50000
+}
+```
+
+
+
 
 
 Configuration templates for each database vendor are shown below:
@@ -252,21 +258,22 @@ No database setup is needed. Optionally remote H2 access/port can be configured.
 
 Node configuration for Azure SQL:
 
->
-> ```groovy
-> dataSourceProperties = {
->     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
->     dataSource.url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
->     dataSource.user = my_login
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
->     runMigration = true
-> }
-> ```
->
+
+```groovy
+dataSourceProperties = {
+    dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
+    dataSource.url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
+    dataSource.user = my_login
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+    runMigration = true
+}
+```
+
+
 
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated
@@ -284,21 +291,22 @@ extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* as the 
 
 Node configuration for SQL Server:
 
->
-> ```groovy
-> dataSourceProperties = {
->     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
->     dataSource.url = "jdbc:sqlserver://<host>:<port>;databaseName=my_database"
->     dataSource.user = my_login
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
->     runMigration = true
-> }
-> ```
->
+
+```groovy
+dataSourceProperties = {
+    dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
+    dataSource.url = "jdbc:sqlserver://<host>:<port>;databaseName=my_database"
+    dataSource.user = my_login
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+    runMigration = true
+}
+```
+
+
 
 Replace the placeholders *<host>*, *<port>* with appropriate values, the default SQL Server port is 1433.
 By default the connection to the database is not SSL, for securing JDBC connection refer to
@@ -322,21 +330,22 @@ which is invalid for SQL Server.  This may lead to the node failing to start wit
 
 Node configuration for Oracle:
 
->
-> ```groovy
-> dataSourceProperties = {
->     dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
->     dataSource.url = "jdbc:oracle:thin:@<host>:<port>:<sid>"
->     dataSource.user = my_user
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_user
->     runMigration = true
-> }
-> ```
->
+
+```groovy
+dataSourceProperties = {
+    dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
+    dataSource.url = "jdbc:oracle:thin:@<host>:<port>:<sid>"
+    dataSource.user = my_user
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_user
+    runMigration = true
+}
+```
+
+
 
 Replace the placeholders *<host>*, *<port>* and *<sid>* with appropriate values, for a basic Oracle installation the default *<sid>* value is *xe*.
 If the user was created with *administrative* permissions the schema name `database.schema` will be the same as the user name (*my_user*).
@@ -352,21 +361,22 @@ Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 
 
 Node configuration for PostgreSQL:
 
->
-> ```none
-> dataSourceProperties = {
->     dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
->     dataSource.url = "jdbc:postgresql://<host>:<port>/<database>"
->     dataSource.user = my_user
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
->     runMigration = true
-> }
-> ```
->
+
+```none
+dataSourceProperties = {
+    dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
+    dataSource.url = "jdbc:postgresql://<host>:<port>/<database>"
+    dataSource.user = my_user
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+    runMigration = true
+}
+```
+
+
 
 Replace the placeholders *<host>*, *<port>* and *<database>* with appropriate values.
 The `database.schema` is the database schema name assigned to the user.
@@ -408,14 +418,15 @@ ensure that:
 
 
 * the node can connect to the  database with **administrative permissions** or runs with the default embedded H2 database.
-* the node configuration `node.conf` file contains the *runMigration* option set to *true*:>
-> ```groovy
-> database = {
->     runMigration = true
->     # other properties
-> }
-> ```
->
+* the node configuration `node.conf` file contains the *runMigration* option set to *true*:
+```groovy
+database = {
+    runMigration = true
+    # other properties
+}
+```
+
+
 
 
 
@@ -425,18 +436,18 @@ You can optionally check if a CorDapp which is expected to store data in custom 
 To check the presence of script files inside *migration* directory,
 verify the content of the CorDapp JAR file with Java `jar` command, e.g. for Linux:
 
+
 >
-> >
-> > ```bash
-> > jar -tf <cordapp.jar> | grep -E 'migration.*\.(xml|yml|sql)'
-> > ```
-> >
+```bash
+jar -tf <cordapp.jar> | grep -E 'migration.*\.(xml|yml|sql)'
+```
 >
-> {{< note >}}
-> It is possible that a CorDapp is shipped without a database migration script when it should contain one.
-> Liquibase database migration scripts for CorDapps are not used when a node runs with the default embeeded H2 database.
->
-> {{< /note >}}
+
+{{< note >}}
+It is possible that a CorDapp is shipped without a database migration script when it should contain one.
+Liquibase database migration scripts for CorDapps are not used when a node runs with the default embeeded H2 database.
+
+{{< /note >}}
 
 
 
@@ -458,134 +469,140 @@ When developing/testing CorDapps you may need cleanup the database between test 
 
 To remove node tables run the following SQL script against a user database:
 
->
-> ```sql
-> DROP TABLE my_schema.DATABASECHANGELOG;
-> DROP TABLE my_schema.DATABASECHANGELOGLOCK;
-> DROP TABLE my_schema.NODE_ATTACHMENTS_SIGNERS;
-> DROP TABLE my_schema.NODE_ATTACHMENTS_CONTRACTS;
-> DROP TABLE my_schema.NODE_ATTACHMENTS;
-> DROP TABLE my_schema.NODE_CHECKPOINTS;
-> DROP TABLE my_schema.NODE_TRANSACTIONS;
-> DROP TABLE my_schema.NODE_MESSAGE_IDS;
-> DROP TABLE my_schema.VAULT_STATES;
-> DROP TABLE my_schema.NODE_OUR_KEY_PAIRS;
-> DROP TABLE my_schema.NODE_SCHEDULED_STATES;
-> DROP TABLE my_schema.VAULT_FUNGIBLE_STATES_PARTS;
-> DROP TABLE my_schema.VAULT_LINEAR_STATES_PARTS;
-> DROP TABLE my_schema.VAULT_FUNGIBLE_STATES;
-> DROP TABLE my_schema.VAULT_LINEAR_STATES;
-> DROP TABLE my_schema.VAULT_TRANSACTION_NOTES;
-> DROP TABLE my_schema.NODE_LINK_NODEINFO_PARTY;
-> DROP TABLE my_schema.NODE_INFO_PARTY_CERT;
-> DROP TABLE my_schema.NODE_INFO_HOSTS;
-> DROP TABLE my_schema.NODE_INFOS;
-> DROP TABLE my_schema.CP_STATES;
-> DROP TABLE my_schema.NODE_CONTRACT_UPGRADES;
-> DROP TABLE my_schema.NODE_IDENTITIES;
-> DROP TABLE my_schema.NODE_NAMED_IDENTITIES;
-> DROP TABLE my_schema.NODE_NETWORK_PARAMETERS;
-> DROP TABLE my_schema.NODE_PROPERTIES;
-> DROP TABLE my_schema.CONTRACT_CASH_STATES;
-> DROP TABLE my_schema.NODE_MUTUAL_EXCLUSION;
-> DROP TABLE my_schema.PK_HASH_TO_EXT_ID_MAP;
-> DROP TABLE my_schema.STATE_PARTY;
-> DROP VIEW my_schema.V_PKEY_HASH_EX_ID_MAP;
-> DROP SEQUENCE my_schema.HIBERNATE_SEQUENCE;
-> ```
->
+
+```sql
+DROP TABLE my_schema.DATABASECHANGELOG;
+DROP TABLE my_schema.DATABASECHANGELOGLOCK;
+DROP TABLE my_schema.NODE_ATTACHMENTS_SIGNERS;
+DROP TABLE my_schema.NODE_ATTACHMENTS_CONTRACTS;
+DROP TABLE my_schema.NODE_ATTACHMENTS;
+DROP TABLE my_schema.NODE_CHECKPOINTS;
+DROP TABLE my_schema.NODE_TRANSACTIONS;
+DROP TABLE my_schema.NODE_MESSAGE_IDS;
+DROP TABLE my_schema.VAULT_STATES;
+DROP TABLE my_schema.NODE_OUR_KEY_PAIRS;
+DROP TABLE my_schema.NODE_SCHEDULED_STATES;
+DROP TABLE my_schema.VAULT_FUNGIBLE_STATES_PARTS;
+DROP TABLE my_schema.VAULT_LINEAR_STATES_PARTS;
+DROP TABLE my_schema.VAULT_FUNGIBLE_STATES;
+DROP TABLE my_schema.VAULT_LINEAR_STATES;
+DROP TABLE my_schema.VAULT_TRANSACTION_NOTES;
+DROP TABLE my_schema.NODE_LINK_NODEINFO_PARTY;
+DROP TABLE my_schema.NODE_INFO_PARTY_CERT;
+DROP TABLE my_schema.NODE_INFO_HOSTS;
+DROP TABLE my_schema.NODE_INFOS;
+DROP TABLE my_schema.CP_STATES;
+DROP TABLE my_schema.NODE_CONTRACT_UPGRADES;
+DROP TABLE my_schema.NODE_IDENTITIES;
+DROP TABLE my_schema.NODE_NAMED_IDENTITIES;
+DROP TABLE my_schema.NODE_NETWORK_PARAMETERS;
+DROP TABLE my_schema.NODE_PROPERTIES;
+DROP TABLE my_schema.CONTRACT_CASH_STATES;
+DROP TABLE my_schema.NODE_MUTUAL_EXCLUSION;
+DROP TABLE my_schema.PK_HASH_TO_EXT_ID_MAP;
+DROP TABLE my_schema.STATE_PARTY;
+DROP VIEW my_schema.V_PKEY_HASH_EX_ID_MAP;
+DROP SEQUENCE my_schema.HIBERNATE_SEQUENCE;
+```
+
+
 
 Additional tables for a Notary node:
 
->
-> ```sql
-> DROP TABLE IF EXISTS my_schema.NODE_NOTARY_REQUEST_LOG;
-> DROP TABLE IF EXISTS my_schema.NODE_NOTARY_COMMITTED_STATES;
-> DROP TABLE IF EXISTS my_schema.NODE_NOTARY_COMMITTED_TXS;
-> DROP TABLE IF EXISTS my_schema.NODE_BFT_COMMITTED_STATES;
-> DROP TABLE IF EXISTS my_schema.NODE_BFT_COMMITTED_TXS;
-> DROP TABLE IF EXISTS my_schema.NODE_RAFT_COMMITTED_STATES;
-> DROP TABLE IF EXISTS my_schema.NODE_RAFT_COMMITTED_TXS;
-> ```
->
+
+```sql
+DROP TABLE IF EXISTS my_schema.NODE_NOTARY_REQUEST_LOG;
+DROP TABLE IF EXISTS my_schema.NODE_NOTARY_COMMITTED_STATES;
+DROP TABLE IF EXISTS my_schema.NODE_NOTARY_COMMITTED_TXS;
+DROP TABLE IF EXISTS my_schema.NODE_BFT_COMMITTED_STATES;
+DROP TABLE IF EXISTS my_schema.NODE_BFT_COMMITTED_TXS;
+DROP TABLE IF EXISTS my_schema.NODE_RAFT_COMMITTED_STATES;
+DROP TABLE IF EXISTS my_schema.NODE_RAFT_COMMITTED_TXS;
+```
+
+
 
 Also delete CorDapp specific tables.
 
 If you need to remove the schema and users, run the following script as a database administrator on a user database:
 
->
-> ```sql
-> DROP SCHEMA my_schema;
-> DROP USER my_user;
-> DROP USER IF EXISTS my_admin_user;
-> ```
->
+
+```sql
+DROP SCHEMA my_schema;
+DROP USER my_user;
+DROP USER IF EXISTS my_admin_user;
+```
+
+
 
 To remove users’ logins, run the following script as a database administrator on the master database
 (skip the second statement if you haven’t created a *my_admin_login* login):
 
->
-> ```sql
-> DROP LOGIN my_login;
-> DROP LOGIN my_admin_login;
-> ```
->
+
+```sql
+DROP LOGIN my_login;
+DROP LOGIN my_admin_login;
+```
+
+
 
 
 ### Oracle
 
 To remove node tables run the following SQL script:
 
->
-> ```sql
-> DROP TABLE my_user.DATABASECHANGELOG CASCADE CONSTRAINTS;
-> DROP TABLE my_user.DATABASECHANGELOGLOCK CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_ATTACHMENTS_SIGNERS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_ATTACHMENTS_CONTRACTS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_ATTACHMENTS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_CHECKPOINTS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_TRANSACTIONS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_MESSAGE_IDS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.VAULT_STATES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_OUR_KEY_PAIRS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_SCHEDULED_STATES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.VAULT_FUNGIBLE_STATES_PARTS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.VAULT_LINEAR_STATES_PARTS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.VAULT_FUNGIBLE_STATES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.VAULT_LINEAR_STATES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.VAULT_TRANSACTION_NOTES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_LINK_NODEINFO_PARTY CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_INFO_PARTY_CERT CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_INFO_HOSTS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_INFOS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.CP_STATES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_CONTRACT_UPGRADES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_IDENTITIES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_NAMED_IDENTITIES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_NETWORK_PARAMETERS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_PROPERTIES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.CONTRACT_CASH_STATES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_MUTUAL_EXCLUSION CASCADE CONSTRAINTS;
-> DROP TABLE my_user.PK_HASH_TO_EXT_ID_MAP;
-> DROP TABLE my_user.STATE_PARTY;
-> DROP VIEW my_user.V_PKEY_HASH_EX_ID_MAP;
-> DROP SEQUENCE my_user.HIBERNATE_SEQUENCE;
-> ```
->
+
+```sql
+DROP TABLE my_user.DATABASECHANGELOG CASCADE CONSTRAINTS;
+DROP TABLE my_user.DATABASECHANGELOGLOCK CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_ATTACHMENTS_SIGNERS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_ATTACHMENTS_CONTRACTS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_ATTACHMENTS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_CHECKPOINTS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_TRANSACTIONS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_MESSAGE_IDS CASCADE CONSTRAINTS;
+DROP TABLE my_user.VAULT_STATES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_OUR_KEY_PAIRS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_SCHEDULED_STATES CASCADE CONSTRAINTS;
+DROP TABLE my_user.VAULT_FUNGIBLE_STATES_PARTS CASCADE CONSTRAINTS;
+DROP TABLE my_user.VAULT_LINEAR_STATES_PARTS CASCADE CONSTRAINTS;
+DROP TABLE my_user.VAULT_FUNGIBLE_STATES CASCADE CONSTRAINTS;
+DROP TABLE my_user.VAULT_LINEAR_STATES CASCADE CONSTRAINTS;
+DROP TABLE my_user.VAULT_TRANSACTION_NOTES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_LINK_NODEINFO_PARTY CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_INFO_PARTY_CERT CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_INFO_HOSTS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_INFOS CASCADE CONSTRAINTS;
+DROP TABLE my_user.CP_STATES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_CONTRACT_UPGRADES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_IDENTITIES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_NAMED_IDENTITIES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_NETWORK_PARAMETERS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_PROPERTIES CASCADE CONSTRAINTS;
+DROP TABLE my_user.CONTRACT_CASH_STATES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_MUTUAL_EXCLUSION CASCADE CONSTRAINTS;
+DROP TABLE my_user.PK_HASH_TO_EXT_ID_MAP;
+DROP TABLE my_user.STATE_PARTY;
+DROP VIEW my_user.V_PKEY_HASH_EX_ID_MAP;
+DROP SEQUENCE my_user.HIBERNATE_SEQUENCE;
+```
+
+
 
 Additional tables for a Notary node:
 
->
-> ```sql
-> DROP TABLE my_user.NODE_NOTARY_REQUEST_LOG CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_NOTARY_COMMITTED_STATES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_NOTARY_COMMITTED_TXS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_BFT_COMMITTED_STATES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_BFT_COMMITTED_TXS CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_RAFT_COMMITTED_STATES CASCADE CONSTRAINTS;
-> DROP TABLE my_user.NODE_RAFT_COMMITTED_TXS CASCADE CONSTRAINTS;
-> ```
->
+
+```sql
+DROP TABLE my_user.NODE_NOTARY_REQUEST_LOG CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_NOTARY_COMMITTED_STATES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_NOTARY_COMMITTED_TXS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_BFT_COMMITTED_STATES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_BFT_COMMITTED_TXS CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_RAFT_COMMITTED_STATES CASCADE CONSTRAINTS;
+DROP TABLE my_user.NODE_RAFT_COMMITTED_TXS CASCADE CONSTRAINTS;
+```
+
+
 
 Also delete CorDapps specific tables.
 
@@ -594,10 +611,11 @@ Also delete CorDapps specific tables.
 
 To remove node and CorDapp specific tables run the following SQL script:
 
->
-> ```sql
-> DROP SCHEMA IF EXISTS "my_schema" CASCADE;
-> DROP OWNED BY "my_user";
-> ```
->
+
+```sql
+DROP SCHEMA IF EXISTS "my_schema" CASCADE;
+DROP OWNED BY "my_user";
+```
+
+
 

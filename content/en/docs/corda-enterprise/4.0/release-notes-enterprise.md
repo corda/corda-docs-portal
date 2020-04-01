@@ -54,22 +54,22 @@ the operational complexity of multi-node hosting:
     * Management of multiple clusters of HA nodes with a single interface. Enterprise 4 achieves this with Zookeeper.
     * Shareable Artemis messaging servers across nodes allows for less infrastructure components in a multi-node configuration.
 
-> 
-> Additionally, we have added support for the RedHat distribution of Artemis called [Red Hat AMQ](https://access.redhat.com/documentation/en-us/red_hat_amq/7.2/).
+
+Additionally, we have added support for the RedHat distribution of Artemis called [Red Hat AMQ](https://access.redhat.com/documentation/en-us/red_hat_amq/7.2/).
 
 * **Performance Test Suite for benchmarking**The Performance Test suite enables customers to run their own benchmarks for comparative testing across different configurations and identifying hardware and resource sizing requirements.
 Using this test framework, customers can test and validate their infrastructure performance and determine whether or not improvements are needed
 before going live.See [Performance Test Suite](performance-testing/installation.md) and [Corda Enterprise Performance Testing](performance-testing/toc-tree.md) for further details.
 * **Node health survey tool**This is a simple tool that collects and packages up material that R3 Support will need to be able to help a customer with a support request, including things like:> 
-> 
->     * a censored version of the config (i.e., without passwords, etc.),
->     * logs from the last 3 days (if the user is happy to include these),
->     * version numbers of Corda, the Java virtual machine and the operating system,
->     * networking information with DNS lookups to various endpoints (database, network map, doorman, external hosts),
->     * a copy of the network parameters file,
->     * a list of installed CorDapps (including their file sizes and checksums),
->     * a list of the files in the drivers directory,
->     * a copy of the node information file for the node and a list of the ones in the additional-node-infos directory.
+
+    * a censored version of the config (i.e., without passwords, etc.),
+    * logs from the last 3 days (if the user is happy to include these),
+    * version numbers of Corda, the Java virtual machine and the operating system,
+    * networking information with DNS lookups to various endpoints (database, network map, doorman, external hosts),
+    * a copy of the network parameters file,
+    * a list of installed CorDapps (including their file sizes and checksums),
+    * a list of the files in the drivers directory,
+    * a copy of the node information file for the node and a list of the ones in the additional-node-infos directory.
 
 
 In future versions of Corda, we will expand on this tool’s capabilities for it to be a complete deployment verification tool, also usable with more complex, high availability deployments.

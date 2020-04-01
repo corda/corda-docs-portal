@@ -24,7 +24,7 @@ The tool is distributed as part of Corda Enterprise 4.0 in the form of runnable 
 To run simply pass in the file or URL as the first parameter:
 
 ```kotlin
-> java -jar corda-tools-ha-utilities-4.0.jar <sub-command> <command line options>
+java -jar corda-tools-ha-utilities-4.0.jar <sub-command> <command line options>
 ```
 
 

@@ -149,20 +149,20 @@ You should merge the changes back into Corda as follows:
 * Create a pull request from your fork to the equivalent branch of the Corda repo
 * In the PR comments box:
 
-> 
-> 
-> * Complete the pull-request checklist:
->     * [ ] Have you run the unit, integration and smoke tests as described here? [https://docs.corda.net/head/testing.html](https://docs.corda.net/head/testing.html)
->     * [ ] If you added/changed public APIs, did you write/update the JavaDocs?
->     * [ ] If the changes are of interest to application developers, have you added them to the changelog, and potentially
-> release notes?
->     * [ ] If you are contributing for the first time, please read the agreement in CONTRIBUTING.md now and add to this
-> Pull Request that you agree to it.
-> 
-> 
-> * Add a clear description of the purpose of the PR
-> * Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in
-> accordance with the Developer Certificate of Origin ([https://developercertificate.org/](https://developercertificate.org/)).”
+
+
+* Complete the pull-request checklist:
+    * [ ] Have you run the unit, integration and smoke tests as described here? [https://docs.corda.net/head/testing.html](https://docs.corda.net/head/testing.html)
+    * [ ] If you added/changed public APIs, did you write/update the JavaDocs?
+    * [ ] If the changes are of interest to application developers, have you added them to the changelog, and potentially
+release notes?
+    * [ ] If you are contributing for the first time, please read the agreement in CONTRIBUTING.md now and add to this
+Pull Request that you agree to it.
+
+
+* Add a clear description of the purpose of the PR
+* Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in
+accordance with the Developer Certificate of Origin ([https://developercertificate.org/](https://developercertificate.org/)).”
 
 
 
@@ -170,20 +170,20 @@ You should merge the changes back into Corda as follows:
 the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly
 * The reviewer will either:
 
-> 
-> 
-> * Accept and merge your PR
-> * Leave comments requesting changes via the GitHub PR interface
->     * You should make the changes by pushing directly to your existing PR branch. The PR will be updated automatically
-> 
-> 
+
+
+* Accept and merge your PR
+* Leave comments requesting changes via the GitHub PR interface
+    * You should make the changes by pushing directly to your existing PR branch. The PR will be updated automatically
+
+
 
 
 
 * (Optional) Open an additional PR to add yourself to the
 [contributors list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md)> 
-> 
-> * The format is generally `firstname surname (company)`, but the company can be omitted if desired
+
+* The format is generally `firstname surname (company)`, but the company can be omitted if desired
 
 
 

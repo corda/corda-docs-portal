@@ -130,19 +130,19 @@ This will ensure that the number of checkpoints will strictly diminish with time
 *participants* collection need to be moved to the actual class. This allows to properly specify the unique table name per a collection.
 See: DummyDealStateSchemaV1.PersistentDummyDealState
 * Database schema changes - an H2 database instance of Corda 1.0 and 2.0 cannot be reused for Corda 3.0, listed changes for Vault and Finance module:> 
-> 
->     * `NODE_TRANSACTIONS`:column `"TRANSACTION”` renamed to `TRANSACTION_VALUE`, serialization format of BLOB stored in the column has changed to AMQP
->     * `VAULT_STATES`:column `CONTRACT_STATE` removed
->     * `VAULT_FUNGIBLE_STATES`:column `ISSUER_REFERENCE` renamed to `ISSUER_REF` and the field size increased
->     * `"VAULTSCHEMAV1$VAULTFUNGIBLESTATES_PARTICIPANTS"`:table renamed to `VAULT_FUNGIBLE_STATES_PARTS`,
-> column `"VAULTSCHEMAV1$VAULTFUNGIBLESTATES_OUTPUT_INDEX"` renamed to `OUTPUT_INDEX`,
-> column `"VAULTSCHEMAV1$VAULTFUNGIBLESTATES_TRANSACTION_ID"` renamed to `TRANSACTION_ID`
->     * `VAULT_LINEAR_STATES`:type of column `"UUID"` changed from `VARBINARY` to `VARCHAR(255)` - select varbinary column as `CAST("UUID" AS UUID)` to get UUID in varchar format
->     * `"VAULTSCHEMAV1$VAULTLINEARSTATES_PARTICIPANTS"`:table renamed to `VAULT_LINEAR_STATES_PARTS`,
-> column `"VAULTSCHEMAV1$VAULTLINEARSTATES_OUTPUT_INDEX"` renamed to `OUTPUT_INDEX`,
-> column `"VAULTSCHEMAV1$VAULTLINEARSTATES_TRANSACTION_ID"` renamed to `TRANSACTION_ID`
->     * `contract_cash_states`:columns storing Base58 representation of the serialised public key (e.g. `issuer_key`) were changed to store Base58 representation of SHA-256 of public key prefixed with *DL*
->     * `contract_cp_states`:table renamed to `cp_states`, column changes as for `contract_cash_states`
+
+    * `NODE_TRANSACTIONS`:column `"TRANSACTION”` renamed to `TRANSACTION_VALUE`, serialization format of BLOB stored in the column has changed to AMQP
+    * `VAULT_STATES`:column `CONTRACT_STATE` removed
+    * `VAULT_FUNGIBLE_STATES`:column `ISSUER_REFERENCE` renamed to `ISSUER_REF` and the field size increased
+    * `"VAULTSCHEMAV1$VAULTFUNGIBLESTATES_PARTICIPANTS"`:table renamed to `VAULT_FUNGIBLE_STATES_PARTS`,
+column `"VAULTSCHEMAV1$VAULTFUNGIBLESTATES_OUTPUT_INDEX"` renamed to `OUTPUT_INDEX`,
+column `"VAULTSCHEMAV1$VAULTFUNGIBLESTATES_TRANSACTION_ID"` renamed to `TRANSACTION_ID`
+    * `VAULT_LINEAR_STATES`:type of column `"UUID"` changed from `VARBINARY` to `VARCHAR(255)` - select varbinary column as `CAST("UUID" AS UUID)` to get UUID in varchar format
+    * `"VAULTSCHEMAV1$VAULTLINEARSTATES_PARTICIPANTS"`:table renamed to `VAULT_LINEAR_STATES_PARTS`,
+column `"VAULTSCHEMAV1$VAULTLINEARSTATES_OUTPUT_INDEX"` renamed to `OUTPUT_INDEX`,
+column `"VAULTSCHEMAV1$VAULTLINEARSTATES_TRANSACTION_ID"` renamed to `TRANSACTION_ID`
+    * `contract_cash_states`:columns storing Base58 representation of the serialised public key (e.g. `issuer_key`) were changed to store Base58 representation of SHA-256 of public key prefixed with *DL*
+    * `contract_cp_states`:table renamed to `cp_states`, column changes as for `contract_cash_states`
 
 
 
@@ -154,36 +154,36 @@ The `TLS`, `WELL_KNOWN_LEGAL_IDENTITY` roles must be issued by the `NODE_CA` cer
 Doorman, and `CONFIDENTIAL_IDENTITY` certificates must be issued from a `WELL_KNOWN_LEGAL_IDENTITY` certificate.
 For a detailed specification of the extension please see [Network permissioning](permissioning.md).
 * The network map service concept has been re-designed. More information can be found in [Network Map](network-map.md).> 
-> 
->     * The previous design was never intended to be final but was rather a quick implementation in the earliest days of the
-> Corda project to unblock higher priority items. It suffers from numerous disadvantages including lack of scalability,
-> as one node is expected to hold open and manage connections to every node on the network; not reliable; hard to defend
-> against DoS attacks; etc.
->     * There is no longer a special network map node for distributing the network map to the other nodes. Instead the network
-> map is now a collection of signed `NodeInfo` files distributed via HTTP.
->     * The `certificateSigningService` config has been replaced by `compatibilityZoneURL` which is the base URL for the
-> doorman registration and for downloading the network map. There is also an end-point for the node to publish its node-info
-> object, which the node does each time it changes. `networkMapService` config has been removed.
->     * To support local and test deployments, the node polls the `additional-node-infos` directory for these signed `NodeInfo`
-> objects which are stored in its local cache. On startup the node generates its own signed file with the filename format
-> “nodeInfo-
-> {{< warning >}}*{{< /warning >}}
-> 
-> ”. This can be copied to every node’s `additional-node-infos` directory that is part of the network.
->     * Cordform (which is the `deployNodes` gradle task) does this copying automatically for the demos. The `NetworkMap`
-> parameter is no longer needed.
->     * For test deployments we’ve introduced a bootstrapping tool (see setting-up-a-corda-network).
->     * `extraAdvertisedServiceIds`, `notaryNodeAddress`, `notaryClusterAddresses` and `bftSMaRt` configs have been
-> removed. The configuration of notaries has been simplified into a single `notary` config object. See
-> [Node configuration](corda-configuration-file.md) for more details.
->     * Introducing the concept of network parameters which are a set of constants which all nodes on a network must agree on
-> to correctly interop. These can be retrieved from `ServiceHub.networkParameters`.
->     * One of these parameters, `maxTransactionSize`, limits the size of a transaction, including its attachments, so that
-> all nodes have sufficient memory to validate transactions.
->     * The set of valid notaries has been moved to the network parameters. Notaries are no longer identified by the CN in
-> their X500 name.
->     * Single node notaries no longer have a second separate notary identity. Their main identity *is* their notary identity.
-> Use `NetworkMapCache.notaryIdentities` to get the list of available notaries.
+
+    * The previous design was never intended to be final but was rather a quick implementation in the earliest days of the
+Corda project to unblock higher priority items. It suffers from numerous disadvantages including lack of scalability,
+as one node is expected to hold open and manage connections to every node on the network; not reliable; hard to defend
+against DoS attacks; etc.
+    * There is no longer a special network map node for distributing the network map to the other nodes. Instead the network
+map is now a collection of signed `NodeInfo` files distributed via HTTP.
+    * The `certificateSigningService` config has been replaced by `compatibilityZoneURL` which is the base URL for the
+doorman registration and for downloading the network map. There is also an end-point for the node to publish its node-info
+object, which the node does each time it changes. `networkMapService` config has been removed.
+    * To support local and test deployments, the node polls the `additional-node-infos` directory for these signed `NodeInfo`
+objects which are stored in its local cache. On startup the node generates its own signed file with the filename format
+“nodeInfo-
+{{< warning >}}*{{< /warning >}}
+
+”. This can be copied to every node’s `additional-node-infos` directory that is part of the network.
+    * Cordform (which is the `deployNodes` gradle task) does this copying automatically for the demos. The `NetworkMap`
+parameter is no longer needed.
+    * For test deployments we’ve introduced a bootstrapping tool (see setting-up-a-corda-network).
+    * `extraAdvertisedServiceIds`, `notaryNodeAddress`, `notaryClusterAddresses` and `bftSMaRt` configs have been
+removed. The configuration of notaries has been simplified into a single `notary` config object. See
+[Node configuration](corda-configuration-file.md) for more details.
+    * Introducing the concept of network parameters which are a set of constants which all nodes on a network must agree on
+to correctly interop. These can be retrieved from `ServiceHub.networkParameters`.
+    * One of these parameters, `maxTransactionSize`, limits the size of a transaction, including its attachments, so that
+all nodes have sufficient memory to validate transactions.
+    * The set of valid notaries has been moved to the network parameters. Notaries are no longer identified by the CN in
+their X500 name.
+    * Single node notaries no longer have a second separate notary identity. Their main identity *is* their notary identity.
+Use `NetworkMapCache.notaryIdentities` to get the list of available notaries.
 
 
 
@@ -191,11 +191,11 @@ For a detailed specification of the extension please see [Network permissioning]
 where they all share a common identity. `NetworkMapCache.getNodeByLegalName` has been tightened to throw if more than
 one node with the legal name is found.
 
-> 
-> 
->     * The common name in the node’s X500 legal name is no longer reserved and can be used as part of the node’s name.
->     * Moved `NodeInfoSchema` to internal package as the node info’s database schema is not part of the public API. This
-> was needed to allow changes to the schema.
+
+
+    * The common name in the node’s X500 legal name is no longer reserved and can be used as part of the node’s name.
+    * Moved `NodeInfoSchema` to internal package as the node info’s database schema is not part of the public API. This
+was needed to allow changes to the schema.
 
 
 

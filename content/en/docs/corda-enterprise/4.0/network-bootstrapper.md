@@ -428,47 +428,52 @@ You can point to any existing bootstrapped corda network (this will have the eff
 {{< /note >}}
 
 * Create a new public key to use for signing the Java package namespace we wish to register:> 
-> ```shell
-> $JAVA_HOME/bin/keytool -genkeypair -keystore _teststore -storepass MyStorePassword -keyalg RSA -alias MyKeyAlias -keypass MyKeyPassword -dname "O=Alice Corp, L=Madrid, C=ES"
-> ```
-> 
-> This will generate a key store file called `_teststore` in the current directory.
+```shell
+$JAVA_HOME/bin/keytool -genkeypair -keystore _teststore -storepass MyStorePassword -keyalg RSA -alias MyKeyAlias -keypass MyKeyPassword -dname "O=Alice Corp, L=Madrid, C=ES"
+```
+
+
+This will generate a key store file called `_teststore` in the current directory.
 
 * Create a `network-parameters.conf` file in the same directory, with the following information:> 
-> ```kotlin
-> packageOwnership=[
->     {
->         packageName="com.example"
->         keystore="_teststore"
->         keystorePassword="MyStorePassword"
->         keystoreAlias="MyKeyAlias"
->     }
-> ]
-> ```
-> 
+```kotlin
+packageOwnership=[
+    {
+        packageName="com.example"
+        keystore="_teststore"
+        keystorePassword="MyStorePassword"
+        keystoreAlias="MyKeyAlias"
+    }
+]
+```
+
+
 
 
 * Register the package namespace to be claimed by the public key generated above:> 
-> ```shell
-> # Register the Java package namespace using the Network Bootstrapper
-> java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
-> ```
-> 
+```shell
+# Register the Java package namespace using the Network Bootstrapper
+java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
+```
+
+
 
 
 * To unregister the package namespace, edit the `network-parameters.conf` file to remove the package:> 
-> ```kotlin
-> packageOwnership=[]
-> ```
-> 
+```kotlin
+packageOwnership=[]
+```
+
+
 
 
 * Unregister the package namespace:> 
-> ```shell
-> # Unregister the Java package namespace using the Network Bootstrapper
-> java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
-> ```
-> 
+```shell
+# Unregister the Java package namespace using the Network Bootstrapper
+java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
+```
+
+
 
 
 

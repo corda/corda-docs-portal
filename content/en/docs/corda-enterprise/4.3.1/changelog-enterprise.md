@@ -142,33 +142,33 @@ The `TLS` and `WELL_KNOWN_LEGAL_IDENTITY` roles must be issued by the `NODE_CA` 
 Doorman, and `CONFIDENTIAL_IDENTITY` certificates must be issued from a `WELL_KNOWN_LEGAL_IDENTITY` certificate.
 For a detailed specification of the extension please see [Network certificates](permissioning.md).
 * The network map service concept has been re-designed. More information can be found in [The network map](network-map.md).> 
-> 
->     * The previous design was never intended to be final but was rather a quick implementation in the earliest days of the
-> Corda project to unblock higher priority items. It suffered from numerous disadvantages including lack of scalability,
-> as one node was expected to hold open and manage connections to every node on the network; not reliable; hard to defend
-> against DoS attacks; etc.
->     * There is no longer a special network map node for distributing the network map to the other nodes. Instead the network
-> map is now a collection of signed `NodeInfo` files distributed via HTTP.
->     * The `certificateSigningService` config has been replaced by `compatibilityZoneURL` which is the base URL for the
-> doorman registration and for downloading the network map. There is also an end-point for the node to publish its node-info
-> object, which the node does each time it changes. `networkMapService` config has been removed.
->     * To support local and test deployments, the node polls the `additional-node-infos` directory for these signed `NodeInfo`
-> objects which are stored in its local cache. On startup the node generates its own signed file with the filename format
-> “nodeInfo-*”. This can be copied to every node’s `additional-node-infos` directory that is part of the network.
->     * Cordform (which is the `deployNodes` gradle task) does this copying automatically for the demos. The `NetworkMap`
-> parameter is no longer needed.
->     * For test deployments we’ve introduced a bootstrapping tool (see [Network Bootstrapper](network-bootstrapper.md)).
->     * `extraAdvertisedServiceIds`, `notaryNodeAddress`, `notaryClusterAddresses` and `bftSMaRt` configs have been
-> removed. The configuration of notaries has been simplified into a single `notary` config object. See
-> [Node configuration](corda-configuration-file.md) for more details.
->     * Introducing the concept of network parameters which are a set of constants which all nodes on a network must agree on
-> to correctly interoperate. These can be retrieved from `ServiceHub.networkParameters`.
->     * One of these parameters, `maxTransactionSize`, limits the size of a transaction, including its attachments, so that
-> all nodes have sufficient memory to validate transactions.
->     * The set of valid notaries has been moved to the network parameters. Notaries are no longer identified by the CN in
-> their X.500 name.
->     * Single node notaries no longer have a second separate notary identity. Their main identity *is* their notary identity.
-> Use `NetworkMapCache.notaryIdentities` to get the list of available notaries.
+
+    * The previous design was never intended to be final but was rather a quick implementation in the earliest days of the
+Corda project to unblock higher priority items. It suffered from numerous disadvantages including lack of scalability,
+as one node was expected to hold open and manage connections to every node on the network; not reliable; hard to defend
+against DoS attacks; etc.
+    * There is no longer a special network map node for distributing the network map to the other nodes. Instead the network
+map is now a collection of signed `NodeInfo` files distributed via HTTP.
+    * The `certificateSigningService` config has been replaced by `compatibilityZoneURL` which is the base URL for the
+doorman registration and for downloading the network map. There is also an end-point for the node to publish its node-info
+object, which the node does each time it changes. `networkMapService` config has been removed.
+    * To support local and test deployments, the node polls the `additional-node-infos` directory for these signed `NodeInfo`
+objects which are stored in its local cache. On startup the node generates its own signed file with the filename format
+“nodeInfo-*”. This can be copied to every node’s `additional-node-infos` directory that is part of the network.
+    * Cordform (which is the `deployNodes` gradle task) does this copying automatically for the demos. The `NetworkMap`
+parameter is no longer needed.
+    * For test deployments we’ve introduced a bootstrapping tool (see [Network Bootstrapper](network-bootstrapper.md)).
+    * `extraAdvertisedServiceIds`, `notaryNodeAddress`, `notaryClusterAddresses` and `bftSMaRt` configs have been
+removed. The configuration of notaries has been simplified into a single `notary` config object. See
+[Node configuration](corda-configuration-file.md) for more details.
+    * Introducing the concept of network parameters which are a set of constants which all nodes on a network must agree on
+to correctly interoperate. These can be retrieved from `ServiceHub.networkParameters`.
+    * One of these parameters, `maxTransactionSize`, limits the size of a transaction, including its attachments, so that
+all nodes have sufficient memory to validate transactions.
+    * The set of valid notaries has been moved to the network parameters. Notaries are no longer identified by the CN in
+their X.500 name.
+    * Single node notaries no longer have a second separate notary identity. Their main identity *is* their notary identity.
+Use `NetworkMapCache.notaryIdentities` to get the list of available notaries.
 
 
 
@@ -176,24 +176,24 @@ For a detailed specification of the extension please see [Network certificates](
 where they all share a common identity. `NetworkMapCache.getNodeByLegalName` has been tightened to throw if more than
 one node with the legal name is found.
 
-> 
-> 
->     * The common name in the node’s X.500 legal name is no longer reserved and can be used as part of the node’s name.
->     * Moved `NodeInfoSchema` to internal package as the node info’s database schema is not part of the public API. This
-> was needed to allow changes to the schema.
+
+
+    * The common name in the node’s X.500 legal name is no longer reserved and can be used as part of the node’s name.
+    * Moved `NodeInfoSchema` to internal package as the node info’s database schema is not part of the public API. This
+was needed to allow changes to the schema.
 
 
 
 * Support for external user credentials data source and password encryption [CORDA-827].
 * Integrate database migration tool: [http://www.liquibase.org/](http://www.liquibase.org/) :
 
-> 
-> 
-> * The migration files are split per `MappedSchemas`. (added new property: migrationResource used to point to the resource file containing the db changes corresponding to the JPA entities)
-> * config flag `database.initialiseSchema` was renamed to: `database.runMigration`  (if true then the migration is run during startup just before hibernate is initialised.)
-> * config flag: `database.serverNameTablePrefix` was removed as we no longer use table prefixes
-> * New command line argument:`—just-generate-db-migration outputSqlFile`: this will generate the delta from the last release, and will output the resulting sql into the outputSqlFile. It will not write to the db. It will not start the node!
-> * New command line argument: `--just-run-db-migration`: this will only run the db migration. It will not start the node!
+
+
+* The migration files are split per `MappedSchemas`. (added new property: migrationResource used to point to the resource file containing the db changes corresponding to the JPA entities)
+* config flag `database.initialiseSchema` was renamed to: `database.runMigration`  (if true then the migration is run during startup just before hibernate is initialised.)
+* config flag: `database.serverNameTablePrefix` was removed as we no longer use table prefixes
+* New command line argument:`—just-generate-db-migration outputSqlFile`: this will generate the delta from the last release, and will output the resulting sql into the outputSqlFile. It will not write to the db. It will not start the node!
+* New command line argument: `--just-run-db-migration`: this will only run the db migration. It will not start the node!
 
 
 

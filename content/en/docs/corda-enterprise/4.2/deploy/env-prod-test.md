@@ -406,28 +406,30 @@ The following is an example of how to set up a Squid Proxy Server and start the 
 * Prerequisite is a VM 2 CPU Core & 2 GB RAM running Ubuntu 18.x.
 * ssh into the VM where you want to install the Proxy Server and run the following:
 
-> 
-> ```shell
-> sudo apt update
-> sudo apt -y install squid
-> ```
-> 
+
+```shell
+sudo apt update
+sudo apt -y install squid
+```
+
+
 
 
 * Edit `/etc/squid/squid.conf` and add the following entries:
 
-> 
+
 
 
 * Once Squid is successfully installed run:
 
-> 
-> ```shell
-> sudo systemctl start squid
-> sudo systemctl enable squid
-> sudo systemctl status squid
-> ```
-> 
+
+```shell
+sudo systemctl start squid
+sudo systemctl enable squid
+sudo systemctl status squid
+```
+
+
 
 
 * If Squid starts successfully you will see an output similar to this:
@@ -461,19 +463,20 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 
 * At this point you can ssh to the VM where the Corda Node is installed and run the following command:
 
-> 
-> `java -Dhttps.proxyHost=your-firewall-proxy -Dhttps.proxyPort=8080 -jar corda.jar`
+
+`java -Dhttps.proxyHost=your-firewall-proxy -Dhttps.proxyPort=8080 -jar corda.jar`
 
 
 
 * If the Corda Node starts up successfully you can then check `/var/log/squid/access.log` and you should see output as follows:
 
-> 
-> ```javascript
-> 1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.141 -
-> 
-> ```
-> {{/* github src='docs/source/resources/squidstatus.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/squidstatus.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/squidstatus.md' start='' end='' */}}[access.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/access.md)
+
+```javascript
+1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.141 -
+
+```
+
+{{/* github src='docs/source/resources/squidstatus.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/squidstatus.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/squidstatus.md' start='' end='' */}}[access.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/access.md)
 
 
 ## Using Socks Proxy with Corda Bridge

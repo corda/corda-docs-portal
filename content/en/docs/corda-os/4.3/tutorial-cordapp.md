@@ -233,7 +233,9 @@ throughout the documentation.
     * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
 
-* Each node in the `nodes` folder will have the following structure:```none
+* Each node in the `nodes` folder will have the following structure:
+
+```none
 . nodeName
 ├── additional-node-infos  //
 ├── certificates

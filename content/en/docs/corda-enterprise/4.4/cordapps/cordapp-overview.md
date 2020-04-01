@@ -27,21 +27,21 @@ CorDapps take the form of a set of JAR files containing class definitions writte
 
 These class definitions will commonly include the following elements:
 
->
->
-> * Flows
-> * States
-> * Contracts
-> * Services
-> * Serialization whitelists
+
+
+* Flows
+* States
+* Contracts
+* Services
+* Serialization whitelists
 
 
 But may also include:
 
->
->
-> * APIs and static web content
-> * Utility classes
+
+
+* APIs and static web content
+* Utility classes
 
 
 Flows are routines for nodes to run. They can perform a variety of tasks, but usually involve ledger updates. Flows

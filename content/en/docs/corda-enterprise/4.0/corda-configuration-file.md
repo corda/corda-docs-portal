@@ -53,7 +53,9 @@ To alter this behaviour, the `on-unknown-config-keys` command-line argument can 
 
 For example: `${NODE_TRUST_STORE_PASSWORD}` would be replaced by the contents of environment variable `NODE_TRUST_STORE_PASSWORD` (see: [Logging](node-administration.md#hiding-sensitive-data) section).JVM options or environmental variables prefixed with `corda.` can override `node.conf` fields.
 Provided system properties can also set values for absent fields in `node.conf`.
-This is an example of adding/overriding the keyStore password :```shell
+This is an example of adding/overriding the keyStore password :
+
+```shell
 java -Dcorda.rpcSettings.ssl.keyStorePassword=mypassword -jar node.jar
 ```
 
@@ -86,7 +88,9 @@ check [Database management](database-management.md). If migration is not run, on
 property ‘hibernate.default_schema’. This is optional.Optional property for testing/development against an unsupported database. The value is passed to Hibernate `hibernate.dialect` option.
 All supported databases don’t require this option, as Hibernate sets the correct dialect value out of box.This section is used to configure the JDBC connection and database driver used for the node’s persistence.
 Node database contains example configurations for other database providers.
-To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. *dataSource.customProperty = value*).JDBC Data Source class name.JDBC database URL.Database user.Database password.*Default:*```kotlin
+To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. *dataSource.customProperty = value*).JDBC Data Source class name.JDBC database URL.Database user.Database password.*Default:*
+
+```kotlin
 dataSourceClassName = org.h2.jdbcx.JdbcDataSource
 dataSource.url = "[jdbc:h2:file](jdbc:h2:file.md):"${baseDirectory}"/persistence;DB_CLOSE_ON_EXIT=FALSE;WRITE_DELAY=0;LOCK_TIMEOUT=10000"
 dataSource.user = sa
@@ -103,38 +107,38 @@ The node will exit if `devMode` is false and the keystore does not exist.
 Also, if `devMode` is true, Hibernate will try to automatically create the schema required by Corda or update an existing schema in the SQL database; if `devMode` is false, Hibernate will simply validate the existing schema, failing on node start if the schema is either not present or not compatible.
 If no value is specified in the node configuration file, the node will attempt to detect if it’s running on a developer machine and set `devMode=true` in that case.
 This value can be overridden from the command line using the `--dev-mode` option.*Default:* Corda will try to establish based on OS environmentAllows modification of certain `devMode` features**Important: This is an unsupported configuration.**Allows a node configured to operate in development mode to connect to a compatibility zone.*Default:* not definedThe email address responsible for node administration, used by the Compatibility Zone administrator.*Default:* [company@example.com](mailto:company@example.com)Allows fine-grained controls of various features only available in the enterprise version of Corda.
-> 
-> Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).Enables the logic. Values can be either true or false.*Default:* falseInterval in milliseconds used by the node to update the lock on the database.*Default:* not definedInterval in milliseconds used by the node to try and acquire the lock on the database.*Default:* not definedEnables P2P communication to pass through the Corda Firewall.*Default:* falsemessagingServerSslConfiguration
-> 
-> > 
-> > The path to the KeyStore file to use in Artemis connections.*Default:* not definedThe password for the TLS KeyStore.*Default:* not definedThe path to the TrustStore file to use in Artemis connections.*Default:* not definedThe password for TLS TrustStore.*Default:* not defined
-> Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 initial connect attempts, 5 reconnect attempts in case of failure, starting retry interval of 5 seconds with an exponential back-off multiplier of 1.5 for up to 3 minutes retry interval),
-> FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).*Default:* DEFAULTList of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.*Default:* empty list
 
-> 
-> Performance tuning parameters for Corda EnterpriseThe number of threads available to handle flows in parallel. This is the number of flows
-> that can run in parallel doing something and/or holding resources like database connections.
-> A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
-> When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
-> Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
-> up to handle the event. This can have serious performance implications if the flow thread pool is too small,
-> as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
-> Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in
-> parallel, allowing more than one flow to be active and/or use resources at the same time.The default value is 2 times the number of cores available which was found to be working efficiently in
-> performance testing.
-> The ideal value for this parameter depends on a number of factors.
-> The main ones are the hardware the node is running on, the performance profile of the
-> flows, and the database instance backing the node as datastore. Every thread will open a database connection,
-> so for n threads, the database system must have at least n+1 connections available. Also, the database
-> must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
-> using e.g. H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
-> architecture. For these reasons, the default size for the flow framework thread pool is the minimum between two times the available number of processors and 30. Overriding this value in the configuration allows to specify any number.The number of threads handling RPC calls - this defines how many RPC requests can be handled
-> in parallel without queueing. The default value is set to the number of available processor cores.
-> Incoming RPC calls are queued until a thread from this
-> pool is available to handle the connection, prepare any required data and start the requested flow. As this
-> might be a non-trivial amount of work, the size of this pool can be configured in Corda Enterprise.
-> On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow
-> threads being idle while the payload is being deserialized and the flow invocation run.If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this number slightly.
+Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).Enables the logic. Values can be either true or false.*Default:* falseInterval in milliseconds used by the node to update the lock on the database.*Default:* not definedInterval in milliseconds used by the node to try and acquire the lock on the database.*Default:* not definedEnables P2P communication to pass through the Corda Firewall.*Default:* falsemessagingServerSslConfiguration
+
+
+The path to the KeyStore file to use in Artemis connections.*Default:* not definedThe password for the TLS KeyStore.*Default:* not definedThe path to the TrustStore file to use in Artemis connections.*Default:* not definedThe password for TLS TrustStore.*Default:* not defined
+Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 initial connect attempts, 5 reconnect attempts in case of failure, starting retry interval of 5 seconds with an exponential back-off multiplier of 1.5 for up to 3 minutes retry interval),
+FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).*Default:* DEFAULTList of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.*Default:* empty list
+
+
+Performance tuning parameters for Corda EnterpriseThe number of threads available to handle flows in parallel. This is the number of flows
+that can run in parallel doing something and/or holding resources like database connections.
+A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
+When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
+Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
+up to handle the event. This can have serious performance implications if the flow thread pool is too small,
+as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
+Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in
+parallel, allowing more than one flow to be active and/or use resources at the same time.The default value is 2 times the number of cores available which was found to be working efficiently in
+performance testing.
+The ideal value for this parameter depends on a number of factors.
+The main ones are the hardware the node is running on, the performance profile of the
+flows, and the database instance backing the node as datastore. Every thread will open a database connection,
+so for n threads, the database system must have at least n+1 connections available. Also, the database
+must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
+using e.g. H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
+architecture. For these reasons, the default size for the flow framework thread pool is the minimum between two times the available number of processors and 30. Overriding this value in the configuration allows to specify any number.The number of threads handling RPC calls - this defines how many RPC requests can be handled
+in parallel without queueing. The default value is set to the number of available processor cores.
+Incoming RPC calls are queued until a thread from this
+pool is available to handle the connection, prepare any required data and start the requested flow. As this
+might be a non-trivial amount of work, the size of this pool can be configured in Corda Enterprise.
+On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow
+threads being idle while the payload is being deserialized and the flow invocation run.If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this number slightly.
 Valid values for this property are between 4 (that is the number used for the single threaded state machine in
 open source) and the number of flow threads.
 An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
@@ -167,14 +171,19 @@ At runtime, Corda checks whether this name matches the name in the node’s cert
 For more details please read [Node identity](node-naming.md#node-naming) chapter.*Default:* not definedOptional configuration object which if present configures the node to run as a notary. If running as part of a HA notary cluster, please
 specify the `serviceLegalName` and `mysql` configuration as described below. For a single-node notary only the `validating` property is required.Boolean to determine whether the notary is a validating or non-validating one.*Default:* falseIf the node is part of a distributed cluster, specify the legal name of the cluster.
 At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.*Default:* not definedIf part of a HA cluster, specify this configuration section with the settings below. For more details refer to [Setting up the Notary Service](running-a-notary-cluster/installing-the-notary-service.md).> 
-> The number of times to retry connection to the MySQL database. This should be based on the number of database servers in the replicated
-> setup.*Default:* 2, for a 3 server cluster.This section is used to configure the JDBC connection to the database cluster. For example:JDBC operation mode where every update to the database is immediately made permanent. For HA notary it has to be disabled, i.e. set to `"false"`.*Default:* not definedThe JDBC connection string. Has to contain a comma-separated list of IPs for all database servers. For example, if we have a 3-node cluster with addresses 10.18.1.1, 10.18.1.2 and 10.18.1.3,
-> and the database name is `corda`:```kotlin
-> "[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
-> ```
-> 
-> *Default:* not definedDatabase user.*Default:* not definedDatabase password.*Default:* not defined
-Example configuration:```kotlin
+The number of times to retry connection to the MySQL database. This should be based on the number of database servers in the replicated
+setup.*Default:* 2, for a 3 server cluster.This section is used to configure the JDBC connection to the database cluster. For example:JDBC operation mode where every update to the database is immediately made permanent. For HA notary it has to be disabled, i.e. set to `"false"`.*Default:* not definedThe JDBC connection string. Has to contain a comma-separated list of IPs for all database servers. For example, if we have a 3-node cluster with addresses 10.18.1.1, 10.18.1.2 and 10.18.1.3,
+and the database name is `corda`:
+
+```kotlin
+"[jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false](jdbc:mysql://10.18.1.1,10.18.1.2,10.18.1.3/corda?rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false.md)"
+```
+
+
+*Default:* not definedDatabase user.*Default:* not definedDatabase password.*Default:* not defined
+Example configuration:
+
+```kotlin
 mysql {
   connectionRetries=2
   dataSource {
@@ -187,14 +196,14 @@ mysql {
 ```
 
 *(Deprecated)* If part of a distributed Raft cluster, specify this configuration object with the following settings:> 
-> The host and port to which to bind the embedded Raft server. Note that the Raft cluster uses a
-> separate transport layer for communication that does not integrate with ArtemisMQ messaging services.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
-> be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
-> new cluster will be bootstrapped.*Default:* not defined
+The host and port to which to bind the embedded Raft server. Note that the Raft cluster uses a
+separate transport layer for communication that does not integrate with ArtemisMQ messaging services.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
+be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
+new cluster will be bootstrapped.*Default:* not defined
 *(Deprecated)* If part of a distributed BFT-SMaRt cluster, specify this configuration object with the following settings:> 
-> The zero-based index of the current replica. All replicas must specify a unique replica id.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
-> be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
-> new cluster will be bootstrapped.*Default:* not defined
+The zero-based index of the current replica. All replicas must specify a unique replica id.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
+be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
+new cluster will be bootstrapped.*Default:* not defined
 Optional settings for managing the network parameter auto-acceptance behaviour.
 If not provided then the defined defaults below are used.This flag toggles auto accepting of network parameter changes.
 If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator.
@@ -209,7 +218,7 @@ As a result the value listed here must be **externally accessible when running n
 If the provided host is unreachable, the node will try to auto-discover its public one.*Default:* not definedIf provided, the node will attempt to tunnel inbound connections via an external relay. The relay’s address will be
 advertised to the network map service instead of the provided `p2pAddress`.Hostname of the relay machineA port on the relay machine that accepts incoming TCP connections. Traffic will be forwarded from this port to the local port specified in `p2pAddress`.Username for establishing an SSH connection with the relay.Path to the private key file for SSH authentication. The private key must not have a passphrase.Path to the public key file for SSH authentication.Port to be used for SSH connection, default `22`.The address of the RPC system on which RPC requests can be made to the node.
 If not provided then the node will run without RPC.**Important: Deprecated. Use rpcSettings instead.***Default:* not definedOptions for the RPC server exposed by the Node.**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the “generate-rpc-ssl-settings” command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**> 
-> host and port for the RPC server binding.*Default:* not definedhost and port for the RPC admin binding (this is the endpoint that the node process will connect to).*Default:* not definedboolean, indicates whether the node will connect to a standalone broker for RPC.*Default:* falseboolean, indicates whether or not the node should require clients to use SSL for RPC connections.*Default:* false(mandatory if `useSsl=true`) SSL settings for the RPC server.Absolute path to the key store containing the RPC SSL certificate.*Default:* not definedPassword for the key store.*Default:* not defined
+host and port for the RPC server binding.*Default:* not definedhost and port for the RPC admin binding (this is the endpoint that the node process will connect to).*Default:* not definedboolean, indicates whether the node will connect to a standalone broker for RPC.*Default:* falseboolean, indicates whether or not the node should require clients to use SSL for RPC connections.*Default:* false(mandatory if `useSsl=true`) SSL settings for the RPC server.Absolute path to the key store containing the RPC SSL certificate.*Default:* not definedPassword for the key store.*Default:* not defined
 A list of users who are authorised to access the RPC system.
 Each user in the list is a configuration object with the following fields:Username consisting only of word characters (a-z, A-Z, 0-9 and _)*Default:* not definedThe password*Default:* not definedA list of permissions for starting flows via RPC.
 To give the user the permission to start the flow `foo.bar.FlowClass`, add the string `StartFlow.foo.bar.FlowClass` to the list.

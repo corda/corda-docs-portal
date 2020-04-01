@@ -105,10 +105,10 @@ within vaults.
 
 Thus, on deserialization, there will be two options to chose from in terms of transformation rules
 
-> 
-> 
-> * Determined from the local class and the annotations applied to it (the local copy)
-> * Parsed from the AMQP header (the remote copy)
+
+
+* Determined from the local class and the annotations applied to it (the local copy)
+* Parsed from the AMQP header (the remote copy)
 
 
 Which set is used will simply be the largest.
@@ -191,10 +191,10 @@ enum class Example {
 
 ### Rules
 
-> 
-> 
-> * A constant cannot be renamed to match an existing constant, this is enforced through language constraints
-> * A constant cannot be renamed to a value that matches any previous name of any other constant
+
+
+* A constant cannot be renamed to match an existing constant, this is enforced through language constraints
+* A constant cannot be renamed to a value that matches any previous name of any other constant
 
 
 If either of these covenants are inadvertently broken, a `NotSerializableException` will be thrown on detection
@@ -342,13 +342,13 @@ depending on how the deserializing node understands the class.
 
 ### Rules
 
-> 
-> 
-> * New constants must be added to the end of the existing list of constants
-> * Defaults can only be set to “older” constants, i.e. those to the left of the new constant in the list
-> * Constants must never be removed once added
-> * New constants can be renamed at a later date using the appropriate annotation
-> * When renamed, if a defaulting annotation refers to the old name, it should be left as is
+
+
+* New constants must be added to the end of the existing list of constants
+* Defaults can only be set to “older” constants, i.e. those to the left of the new constant in the list
+* Constants must never be removed once added
+* New constants can be renamed at a later date using the appropriate annotation
+* When renamed, if a defaulting annotation refers to the old name, it should be left as is
 
 
 
@@ -422,9 +422,9 @@ enum class OngoingExample { A, B, CAT, D, E, F }
 
 The following evolutions are not currently supports
 
-> 
-> 
-> * Removing constants
-> * Reordering constants
+
+
+* Removing constants
+* Reordering constants
 
 

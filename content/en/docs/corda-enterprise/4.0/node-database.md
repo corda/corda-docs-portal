@@ -42,75 +42,78 @@ Database vendor specific instructions are listed below in their own respective [
 
 ### 1) Creating database user with schema permissions
 
-> 
-> A database administrator must create a database user and schema namespace with either of the following types of permissions:
-> 
-> 
-> * **administrative permissions**This grants the database user full access to a Corda node, such that it can execute both DDL statements
-> (to define data structures/schema content e.g. tables) and DML queries (to manipulate data itself e.g. select/delete rows).
-> This permission set is more permissive and should be used with caution in production environments.
-> * **restricted permissions**This grants the database user access to DML execution only (to manipulate data itself e.g. select/delete rows),
-> This permission set is more restrictive and is recommended for Corda node [Hot-cold high availability deployment](hot-cold-deployment.md) and production environments.
-> 
-> Variants of Data Definition Language (DDL) scripts for both types of permissioned user are provided for each [supported database vendor](#db-setup-vendors-ref).
-> 
-> Depending on permissions being assigned in this step, the subsequent schema creation and upgrade in [step 2](#db-setup-step-2-ref)
-> may be performed by the database administrator or automatically by a Corda node upon startup.
-> 
-> {{< note >}}
-> The step refers to a schema as a namespace with a set of permissions, the next step refers to a schema as set of data structures (e.g. tables, indexes).
-> 
-> {{< /note >}}
-> The example permissions scripts do not use group roles nor specify physical database settings e.g. max disk space quota for a user.
-> 
-> The scripts and node configuration snippets contain example values *my_login* for login, *my_user*/*my_admin_user* for user, *my_password* for password,
-> and *my_schema* for schema name. These values are for illustration purpose only. Please substitute with actual values configured for your environment(s).
-> 
-> 
-> {{< warning >}}
-> Each Corda node needs to use a separate database user and schema where multiple nodes are hosted on the same database instance.
-> 
-> {{< /warning >}}
-> 
-> 
+
+A database administrator must create a database user and schema namespace with either of the following types of permissions:
+
+
+* **administrative permissions**This grants the database user full access to a Corda node, such that it can execute both DDL statements
+(to define data structures/schema content e.g. tables) and DML queries (to manipulate data itself e.g. select/delete rows).
+This permission set is more permissive and should be used with caution in production environments.
+* **restricted permissions**This grants the database user access to DML execution only (to manipulate data itself e.g. select/delete rows),
+This permission set is more restrictive and is recommended for Corda node [Hot-cold high availability deployment](hot-cold-deployment.md) and production environments.
+
+Variants of Data Definition Language (DDL) scripts for both types of permissioned user are provided for each [supported database vendor](#db-setup-vendors-ref).
+
+Depending on permissions being assigned in this step, the subsequent schema creation and upgrade in [step 2](#db-setup-step-2-ref)
+may be performed by the database administrator or automatically by a Corda node upon startup.
+
+{{< note >}}
+The step refers to a schema as a namespace with a set of permissions, the next step refers to a schema as set of data structures (e.g. tables, indexes).
+
+{{< /note >}}
+The example permissions scripts do not use group roles nor specify physical database settings e.g. max disk space quota for a user.
+
+The scripts and node configuration snippets contain example values *my_login* for login, *my_user*/*my_admin_user* for user, *my_password* for password,
+and *my_schema* for schema name. These values are for illustration purpose only. Please substitute with actual values configured for your environment(s).
+
+
+{{< warning >}}
+Each Corda node needs to use a separate database user and schema where multiple nodes are hosted on the same database instance.
+
+{{< /warning >}}
+
+
 
 
 
 ### 2) Database schema creation
 
-> 
-> The database schema creation process is described in details in [Database schema setup](node-operations-database-schema-setup.md) page.
-> If you choose the first option as described below, you don’t need to perform actions
-> described on [Database schema setup](node-operations-database-schema-setup.md) except configuring the node,
-> as a Corda node will create database schema content by itself.
-> 
-> Data structures (e.g. tables, indexes) can be created and updated by an administrator using the Corda [Database management tool](database-management.md#database-management-tool-ref) or auto-created
-> upon node startup. This will depend on the type of database user permissions setup in the previous step:
-> 
-> 
-> * When a Corda node connects to a database with **administrative permissions**, it will create all tables and other data structures upon startup using embedded scripts
-> defined using [Liquibase](database-management.md#liquibase-ref), the database schema management tool adopted by Corda Enterprise.
-> Additionally, the node will also execute any scripts to create/upgrade tables bundled with CorDapps (where these define and use custom persisted contract states).
-> To allow the node to auto create/upgrade schema add `runMigration` option in `node.conf`:```groovy
-> database {
->     runMigration = true
->     # ...
-> }
-> ```
-> 
-> 
-> * When a Corda node connects to a database with **restricted permissions**, all data structures (tables, indexes) must already be created.
-> The database administrator should use the Corda [Database management tool](database-management.md#database-management-tool-ref) to connect to the database and create the data structures.
-> This tool can also be used to create DDL scripts without executing them against the database (dry-run mode), giving an administrator the opportunity to preview before applying manually.
-> The same activity needs to be performed before installing a new Corda release, or a new or upgraded corDapp.Refer to [Database schema setup](node-operations-database-schema-setup.md) page how to perform database schema creation or update.
-> 
-> {{< note >}}
-> For developing and testing the node using the Gradle plugin `Cordform` `deployNodes` task you need to create the database user/schema manually ([the first Step](#db-setup-step-1-ref))
-> before running the task (deploying nodes).
-> Also note that during re-deployment existing data in the database is retained. Remember to cleanup the database if this is required as part of the testing cycle.
-> The above restrictions do not apply to the default H2 database as the relevant database data file is re-created during each `deployNodes` run.
-> 
-> {{< /note >}}
+
+The database schema creation process is described in details in [Database schema setup](node-operations-database-schema-setup.md) page.
+If you choose the first option as described below, you don’t need to perform actions
+described on [Database schema setup](node-operations-database-schema-setup.md) except configuring the node,
+as a Corda node will create database schema content by itself.
+
+Data structures (e.g. tables, indexes) can be created and updated by an administrator using the Corda [Database management tool](database-management.md#database-management-tool-ref) or auto-created
+upon node startup. This will depend on the type of database user permissions setup in the previous step:
+
+
+* When a Corda node connects to a database with **administrative permissions**, it will create all tables and other data structures upon startup using embedded scripts
+defined using [Liquibase](database-management.md#liquibase-ref), the database schema management tool adopted by Corda Enterprise.
+Additionally, the node will also execute any scripts to create/upgrade tables bundled with CorDapps (where these define and use custom persisted contract states).
+To allow the node to auto create/upgrade schema add `runMigration` option in `node.conf`:
+
+```groovy
+database {
+    runMigration = true
+    # ...
+}
+```
+
+
+
+* When a Corda node connects to a database with **restricted permissions**, all data structures (tables, indexes) must already be created.
+The database administrator should use the Corda [Database management tool](database-management.md#database-management-tool-ref) to connect to the database and create the data structures.
+This tool can also be used to create DDL scripts without executing them against the database (dry-run mode), giving an administrator the opportunity to preview before applying manually.
+The same activity needs to be performed before installing a new Corda release, or a new or upgraded corDapp.Refer to [Database schema setup](node-operations-database-schema-setup.md) page how to perform database schema creation or update.
+
+{{< note >}}
+For developing and testing the node using the Gradle plugin `Cordform` `deployNodes` task you need to create the database user/schema manually ([the first Step](#db-setup-step-1-ref))
+before running the task (deploying nodes).
+Also note that during re-deployment existing data in the database is retained. Remember to cleanup the database if this is required as part of the testing cycle.
+The above restrictions do not apply to the default H2 database as the relevant database data file is re-created during each `deployNodes` run.
+
+{{< /note >}}
 
 
 
@@ -118,46 +121,52 @@ Database vendor specific instructions are listed below in their own respective [
 
 The following updates are required to a nodes filesystem configuration:
 
-> 
-> 
-> * The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
-> and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
-> For development convenience the properties are specified in the [deployNodes Cordform task](testing.md#testing-cordform-ref) task.```none
-> dataSourceProperties = {
->    ...
->    dataSourceClassName = <JDBC Data Source class name>
->    dataSource.url = <JDBC database URL>
->    dataSource.user = <Database user>
->    dataSource.password = <Database password>
-> }
-> database = {
->    transactionIsolationLevel = <Transaction isolation level>
->    schema = <Database schema name>
-> }
-> ```
-> 
-> See [Node configuration](corda-configuration-file.md#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
-> * Depending on the database user permission created in [the first Step](#db-setup-step-1-ref):
->     * set `database { runMigration = true }` if a Corda node has administrative permissions and database schema creation/upgrade should be executed by the node at startup.
->     * set `database { runMigration = false }` or remove the `runMigration` property if a Corda node has restricted permissions to the database or it expected to create the schema before the node startup (e.g. [Hot-cold high availability deployment](hot-cold-deployment.md)).
-> 
-> 
-> * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
-> It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
-> Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
-> Corda distributed via published artifacts (e.g. added as Gradle dependency) will also search for the paths specified by the `jarDirs`
-> field of the node configuration.
-> The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
-> * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
-> To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:```groovy
-> dataSourceProperties = {
->    ...
->    maximumPoolSize = 10
->    connectionTimeout = 50000
-> }
-> ```
-> 
-> 
+
+
+* The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
+and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
+For development convenience the properties are specified in the [deployNodes Cordform task](testing.md#testing-cordform-ref) task.
+
+```none
+dataSourceProperties = {
+   ...
+   dataSourceClassName = <JDBC Data Source class name>
+   dataSource.url = <JDBC database URL>
+   dataSource.user = <Database user>
+   dataSource.password = <Database password>
+}
+database = {
+   transactionIsolationLevel = <Transaction isolation level>
+   schema = <Database schema name>
+}
+```
+
+
+See [Node configuration](corda-configuration-file.md#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+* Depending on the database user permission created in [the first Step](#db-setup-step-1-ref):
+    * set `database { runMigration = true }` if a Corda node has administrative permissions and database schema creation/upgrade should be executed by the node at startup.
+    * set `database { runMigration = false }` or remove the `runMigration` property if a Corda node has restricted permissions to the database or it expected to create the schema before the node startup (e.g. [Hot-cold high availability deployment](hot-cold-deployment.md)).
+
+
+* The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
+It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
+Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
+Corda distributed via published artifacts (e.g. added as Gradle dependency) will also search for the paths specified by the `jarDirs`
+field of the node configuration.
+The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
+* Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
+To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:
+
+```groovy
+dataSourceProperties = {
+   ...
+   maximumPoolSize = 10
+   connectionTimeout = 50000
+}
+```
+
+
+
 
 
 
@@ -192,14 +201,18 @@ Please read [Common Configuration Steps](#common-configuration-steps-ref) before
 
 * Database schema setup with administrative permissionsConnect to the master database as an administrator
 (e.g. *jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=master;[…]*).
-Run the following script to create a user and a login:```sql
+Run the following script to create a user and a login:
+
+```sql
 CREATE LOGIN my_login WITH PASSWORD = 'my_password';
 CREATE USER my_user FOR LOGIN my_login;
 ```
 
 The password must contain characters from three of the following four sets: Uppercase letters, Lowercase letters, Digits, and Symbols.
 For example *C0rdaAP4ssword* is a correct password. Wrap password by single quotes.Connect to a user database as the administrator (replace *master* with a user database in the connection string).
-Run the following script to create a schema and user’s permissions:```sql
+Run the following script to create a schema and user’s permissions:
+
+```sql
 CREATE SCHEMA my_schema;
 
 CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
@@ -216,7 +229,9 @@ may not add a schema namespace prefix to each DDL statement and
 the default database administrator would default to a different schema namespace.
 In order to avoid this issue the, first user with administrative permission has a correct schema set as default.Connect to the master database as an administrator
 (e.g. *jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=master;[…]*).
-Run the following script to create both users and their logins:```sql
+Run the following script to create both users and their logins:
+
+```sql
 CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password';
 CREATE USER my_admin_user FOR LOGIN my_admin_login;
 
@@ -227,7 +242,9 @@ CREATE USER my_user FOR LOGIN my_login;
 Passwords must contain characters from three of the following four sets: Uppercase letters, Lowercase letters, Digits, and Symbols.
 For example *C0rdaAP4ssword* is a correct password. Wrap password by single quotes.
 Use different passwords for *my_admin_user* and *my_user*.Connect to a user database as the administrator (replace *master* with a user database in the connection string).
-Run the following script to create a schema and users’ permissions:```sql
+Run the following script to create a schema and users’ permissions:
+
+```sql
 CREATE SCHEMA my_schema;
 
 CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
@@ -351,7 +368,9 @@ The database collation should be *case insensitive*, refer to
 
 
 * Database schema setup with administrative permissionsConnect to the master database as an administrator (e.g. *jdbc:sqlserver://<host>:<port>;databaseName=master*).
-Run the following script to create a database, a user and a login:```sql
+Run the following script to create a database, a user and a login:
+
+```sql
 CREATE DATABASE my_database;
 
 CREATE LOGIN my_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
@@ -361,7 +380,9 @@ CREATE USER my_user FOR LOGIN my_login;
 The password must contain characters from three of the following four sets: Uppercase letters, Lowercase letters, Digits, and Symbols.
 For example *C0rdaAP4ssword* is a correct password. Wrap password by single quotes.You can create schemas of all Corda nodes in the same database,
 in such case create database only once (*CREATE DATABASE my_database;*) and use it in DDL statements for each node.Connect to a user database as the administrator (replace *master* with *my_database* in the connection string).
-Run the following script to create a schema and user’s permissions:```sql
+Run the following script to create a schema and user’s permissions:
+
+```sql
 CREATE SCHEMA my_schema;
 
 CREATE USER my_user FOR LOGIN my_login WITH DEFAULT_SCHEMA = my_schema;
@@ -377,7 +398,9 @@ You cannot create schema objects with the default database administrator as Cord
 may not add a schema namespace prefix to each DDL statement and
 the default database administrator would default to a different schema namespace.
 In order to avoid this issue the, first user with administrative permission has a correct schema set as default.Connect to a master database as an administrator (e.g. *jdbc:sqlserver://<host>:<port>;databaseName=master*).
-Run the following script to create a database, a user and a login:```sql
+Run the following script to create a database, a user and a login:
+
+```sql
 CREATE DATABASE my_database;
 
 CREATE LOGIN my_admin_login WITH PASSWORD = 'my_password', DEFAULT_DATABASE = my_database;
@@ -391,7 +414,9 @@ Passwords must contain characters from three of the following four sets: Upperca
 For example *C0rdaAP4ssword* is a correct password. Wrap password by single quotes.
 Use different passwords for *my_admin_user* and *my_user*.You can create schemas for each Corda node within the same database (*my_database*),
 in such case use the same my_database name and run the first DDL statement CREATE DATABASE my_database; only once.Connect to a user database as the administrator (replace *master* with *my_database* in the connection string).
-Run the following script to create a schema and users’ permissions:```sql
+Run the following script to create a schema and users’ permissions:
+
+```sql
 CREATE SCHEMA my_schema;
 
 CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
@@ -463,7 +488,9 @@ The script uses the default tablespace *users* with *unlimited* database space q
 Revise these settings depending on your nodes sizing requirements.
 
 
-* To set up a database schema with administrative permissions, run the following SQL:```sql
+* To set up a database schema with administrative permissions, run the following SQL:
+
+```sql
 CREATE USER my_user IDENTIFIED BY my_password DEFAULT TABLESPACE users QUOTA unlimited ON users;
 GRANT CREATE SESSION TO my_user;
 GRANT CREATE TABLE TO my_user;
@@ -474,67 +501,68 @@ GRANT CREATE SEQUENCE TO my_user;
 
 * To set up a database schema with normal operation permissions:
 
-> 
-> The design of Oracle is that a schema is essentially a user account. So the user has full control over that schema.
-> In order to restrict the permissions to the database, two users need to be created,
-> one with administrative permissions (*my_admin_user* in the SQL script) and the other with read only permissions (*my_user* in the SQL script).
-> A database administrator can create schema objects (tables/sequences) via a user with administrative permissions.
-> Corda node accesses the schema created by the administrator via a user with readonly permissions allowing to select/insert/delete data.
-> Permissions *SELECT*, *INSERT*, *UPDATE*, *DELETE* need to be granted for each table or sequence, as presented in the DDL script.
-> 
-> Run this script after the database schema content has been created in [step 2](#db-setup-step-2-ref):
-> 
-> ```sql
-> CREATE USER my_admin_user IDENTIFIED BY my_password DEFAULT TABLESPACE users QUOTA unlimited ON users;
-> GRANT CREATE SESSION TO my_admin_user;
-> GRANT CREATE TABLE TO my_admin_user;
-> GRANT CREATE VIEW TO my_admin_user;
-> GRANT CREATE SEQUENCE TO my_admin_user;
-> 
-> CREATE USER my_user identified by my_password;
-> GRANT CREATE SESSION TO my_user;
-> GRANT SELECT ON my_admin_user.DATABASECHANGELOG TO my_user;
-> GRANT SELECT ON my_admin_user.DATABASECHANGELOGLOCK TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_SIGNERS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_CONTRACTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CHECKPOINTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CONTRACT_UPGRADES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_IDENTITIES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFOS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_HOSTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_PARTY_CERT TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_LINK_NODEINFO_PARTY TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MESSAGE_IDS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NAMED_IDENTITIES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NETWORK_PARAMETERS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_OUR_KEY_PAIRS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_PROPERTIES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_SCHEDULED_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_TRANSACTIONS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES_PARTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_LINEAR_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_LINEAR_STATES_PARTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_TRANSACTION_NOTES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MUTUAL_EXCLUSION TO my_user;
-> GRANT SELECT SEQUENCE ON my_admin_user.HIBERNATE_SEQUENCE TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.CONTRACT_CASH_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.CP_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.PK_HASH_TO_EXT_ID_MAP TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.STATE_PARTY TO my_user;
-> GRANT SELECT ON my_admin_user.V_PKEY_HASH_EX_ID_MAP TO my_user;
-> -- additional tables for Notary node - (some of them are optional and may be not present)
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_REQUEST_LOG TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_COMMITTED_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_COMMITTED_TXS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_BFT_COMMITTED_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RAFT_COMMITTED_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_BFT_COMMITTED_TXS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RAFT_COMMITTED_TXS TO my_user;
-> ```
-> 
+
+The design of Oracle is that a schema is essentially a user account. So the user has full control over that schema.
+In order to restrict the permissions to the database, two users need to be created,
+one with administrative permissions (*my_admin_user* in the SQL script) and the other with read only permissions (*my_user* in the SQL script).
+A database administrator can create schema objects (tables/sequences) via a user with administrative permissions.
+Corda node accesses the schema created by the administrator via a user with readonly permissions allowing to select/insert/delete data.
+Permissions *SELECT*, *INSERT*, *UPDATE*, *DELETE* need to be granted for each table or sequence, as presented in the DDL script.
+
+Run this script after the database schema content has been created in [step 2](#db-setup-step-2-ref):
+
+```sql
+CREATE USER my_admin_user IDENTIFIED BY my_password DEFAULT TABLESPACE users QUOTA unlimited ON users;
+GRANT CREATE SESSION TO my_admin_user;
+GRANT CREATE TABLE TO my_admin_user;
+GRANT CREATE VIEW TO my_admin_user;
+GRANT CREATE SEQUENCE TO my_admin_user;
+
+CREATE USER my_user identified by my_password;
+GRANT CREATE SESSION TO my_user;
+GRANT SELECT ON my_admin_user.DATABASECHANGELOG TO my_user;
+GRANT SELECT ON my_admin_user.DATABASECHANGELOGLOCK TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_SIGNERS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_CONTRACTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CHECKPOINTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CONTRACT_UPGRADES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_IDENTITIES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFOS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_HOSTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_PARTY_CERT TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_LINK_NODEINFO_PARTY TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MESSAGE_IDS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NAMED_IDENTITIES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NETWORK_PARAMETERS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_OUR_KEY_PAIRS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_PROPERTIES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_SCHEDULED_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_TRANSACTIONS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES_PARTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_LINEAR_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_LINEAR_STATES_PARTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_TRANSACTION_NOTES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MUTUAL_EXCLUSION TO my_user;
+GRANT SELECT SEQUENCE ON my_admin_user.HIBERNATE_SEQUENCE TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.CONTRACT_CASH_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.CP_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.PK_HASH_TO_EXT_ID_MAP TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.STATE_PARTY TO my_user;
+GRANT SELECT ON my_admin_user.V_PKEY_HASH_EX_ID_MAP TO my_user;
+-- additional tables for Notary node - (some of them are optional and may be not present)
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_REQUEST_LOG TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_COMMITTED_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_COMMITTED_TXS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_BFT_COMMITTED_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RAFT_COMMITTED_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_BFT_COMMITTED_TXS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RAFT_COMMITTED_TXS TO my_user;
+```
+
+
 
 
 #### Node configuration
@@ -561,17 +589,18 @@ Set `database.schema` value to *my_admin_user*.
 Corda node doesn’t guarantee to prefix each SQL query with a schema namespace.
 The additional configuration entry `dataSourceProperties` allows to set the current schema to the admin user (*my_user*) upon connection to the database:
 
-> 
-> ```groovy
-> dataSourceProperties {
->     //...
->     connectionInitSql="alter session set current_schema=my_admin_user"
-> }
-> database = {
->     schema = my_admin_user
-> }
-> ```
-> 
+
+```groovy
+dataSourceProperties {
+    //...
+    connectionInitSql="alter session set current_schema=my_admin_user"
+}
+database = {
+    schema = my_admin_user
+}
+```
+
+
 
 Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 `runMigration` value must be set to *true* when the database user has *administrative* permissions and set to *false* when using *restricted* permissions.
@@ -706,7 +735,9 @@ Please read the [Prerequisites paragraph](#common-configuration-steps-ref) secti
 #### Permissions for database user and schema namespace
 
 
-* To set up a database schema with administration permissions:```sql
+* To set up a database schema with administration permissions:
+
+```sql
 CREATE USER "my_user" WITH LOGIN PASSWORD 'my_password';
 CREATE SCHEMA "my_schema";
 GRANT USAGE, CREATE ON SCHEMA "my_schema" TO "my_user";
@@ -721,18 +752,19 @@ ALTER ROLE "my_user" SET search_path = "my_schema";
 * To set up a database schema with normal operation permissions:
 The setup differs with admin access by lack of schema permission of CREATE.
 
-> 
-> ```sql
-> CREATE USER "my_user" WITH LOGIN PASSWORD 'my_password';
-> CREATE SCHEMA "my_schema";
-> GRANT USAGE ON SCHEMA "my_schema" TO "my_user";
-> GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON ALL tables IN SCHEMA "my_schema" TO "my_user";
-> ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON tables TO "my_user";
-> GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
-> ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
-> ALTER ROLE "my_user" SET search_path = "my_schema";
-> ```
-> 
+
+```sql
+CREATE USER "my_user" WITH LOGIN PASSWORD 'my_password';
+CREATE SCHEMA "my_schema";
+GRANT USAGE ON SCHEMA "my_schema" TO "my_user";
+GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON ALL tables IN SCHEMA "my_schema" TO "my_user";
+ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON tables TO "my_user";
+GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
+ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences TO "my_user";
+ALTER ROLE "my_user" SET search_path = "my_schema";
+```
+
+
 
 If you provide a custom schema name different than user name, then the last statement setting search_path
 prevents quering the different default schema search path ([default schema search path](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH)).

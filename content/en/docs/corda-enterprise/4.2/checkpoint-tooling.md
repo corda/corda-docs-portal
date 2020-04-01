@@ -206,7 +206,9 @@ An additional file will appear in the nodes logs directory:
 
 
 * Unzip the `<NODE_BASE>\logs\checkpoints_dump-<date>.zip` file, and you should see a file with a matching flow id as above:
-**CashIssueAndPaymentFlow-90613d6f-be78-41bd-98e1-33a756c28808.json**Its contents will contain the following diagnostics information:```json
+**CashIssueAndPaymentFlow-90613d6f-be78-41bd-98e1-33a756c28808.json**Its contents will contain the following diagnostics information:
+
+```json
 {
   "flowId" : "90613d6f-be78-41bd-98e1-33a756c28808",
   "topLevelFlowClass" : "net.corda.finance.flows.CashIssueAndPaymentFlow",

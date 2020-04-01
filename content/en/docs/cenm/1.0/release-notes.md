@@ -29,10 +29,10 @@ versioned changes to the protocol without changing that which the Corda nodes de
 
 The two top-level endpoints are now
 
-> 
-> 
-> * `/network-map`
-> * `/network-map-user`
+
+
+* `/network-map`
+* `/network-map-user`
 
 
 see [Network Map Overview](network-map-overview.md) for more information.

@@ -33,10 +33,10 @@ DB schema will result in errors.
 The Enterprise Network Manager supports the following databases “out of the box”, that is without providing an external
 JDBC driver jar
 
-> 
-> 
-> * Microsoft SQL Server (deployed locally or through Azure)
-> * H2 (an in-memory database meant primarily for testing)
+
+
+* Microsoft SQL Server (deployed locally or through Azure)
+* H2 (an in-memory database meant primarily for testing)
 
 
 Support for additional databases can be added by providing a suitable JDBC driver JAR file and indicating it’s location

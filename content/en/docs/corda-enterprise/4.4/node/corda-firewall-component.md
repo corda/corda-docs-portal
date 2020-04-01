@@ -159,15 +159,15 @@ to that broker.
 
 In this mode it is possible to host both of the processes on the same machine. This might be suitable for a test environment, to conserve VMs.
 
->
-> {{< note >}}
-> Note that to run the firewall and the node on the same machine there could be a port conflict with a naive `node.conf` setup,
-> but by using the `messagingServerAddress` property to specify the bind address and port plus setting
-> `messagingServerExternal = false` (Artemis Broker still within Corda Node)
-> the embedded Artemis P2P broker can be set to listen on a different port rather than the advertised `p2paddress` port.
-> Then configure an all-in-one bridge to point at this node’s `messagingServerAddress`:
->
-> {{< /note >}}
+
+{{< note >}}
+Note that to run the firewall and the node on the same machine there could be a port conflict with a naive `node.conf` setup,
+but by using the `messagingServerAddress` property to specify the bind address and port plus setting
+`messagingServerExternal = false` (Artemis Broker still within Corda Node)
+the embedded Artemis P2P broker can be set to listen on a different port rather than the advertised `p2paddress` port.
+Then configure an all-in-one bridge to point at this node’s `messagingServerAddress`:
+
+{{< /note >}}
 
 ![simple bridge](../resources/bridge/node_bridge/simple_bridge.png "simple bridge")
 
@@ -667,15 +667,15 @@ the *SSL key copier* is tailored to import multiple node’s SSL keys into the b
 
 A simple procedure for adding a new node might look like the following:
 
->
->
-> * Backup and shutdown all Corda components - Nodes, Bridges, Artemis broker and Float.
-> * Register your new entities with the network operator. See joining-a-compatibility-zone.
-> * Locate the SSL keystore file in node’s certificate folder. e.g. `<node base directory>/certificates/sslkeystore.jks`
-> * Copy the SSL keystores generated from the registration process to Bridge if they are on a different host.
-> * Using the HA Utilities, copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore.
-> `ha-utilities import-ssl-key --node-keystores <<Node keystore path>> --node-keystore-passwords=<<Node keystore password>> --bridge-keystore=<<Bridge keystore path>> --bridge-keystore-password=<<Bridge keystore password>>`
-> * Start the Bridge and other nodes.
+
+
+* Backup and shutdown all Corda components - Nodes, Bridges, Artemis broker and Float.
+* Register your new entities with the network operator. See joining-a-compatibility-zone.
+* Locate the SSL keystore file in node’s certificate folder. e.g. `<node base directory>/certificates/sslkeystore.jks`
+* Copy the SSL keystores generated from the registration process to Bridge if they are on a different host.
+* Using the HA Utilities, copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore.
+`ha-utilities import-ssl-key --node-keystores <<Node keystore path>> --node-keystore-passwords=<<Node keystore password>> --bridge-keystore=<<Bridge keystore path>> --bridge-keystore-password=<<Bridge keystore password>>`
+* Start the Bridge and other nodes.
 
 
 
@@ -727,11 +727,11 @@ this approach does not protect against network partitioning problems, therefore 
 
 There are several private keys necessary for Corda Firewall to function:
 
->
->
-> * Private key to enable TLS signing when external party connects into Float using P2P protocol. Also this key is used when Bridge performs an outgoing communication to external party;
-> * Private key to enable TLS signing when Bridge connecting into Artemis.
-> * A pair of distinct private keys to enable TLS signing when two way communication is performed between Bridge and Float, also known as tunnel communication;
+
+
+* Private key to enable TLS signing when external party connects into Float using P2P protocol. Also this key is used when Bridge performs an outgoing communication to external party;
+* Private key to enable TLS signing when Bridge connecting into Artemis.
+* A pair of distinct private keys to enable TLS signing when two way communication is performed between Bridge and Float, also known as tunnel communication;
 
 
 Historically, those private keys were stored in keystore files on local disk. Depending on the firm’s IT security policy, applications may be required to store private keys in HSM.

@@ -88,16 +88,16 @@ structured to allow for log processing by 3rd party tools. MDC is also enabled f
 
 
 
-> 
-> Example detailed log lines
+
+Example detailed log lines
 
 
-> 
-> [TRACE] 2019-07-18T15:39:29,741Z Flow(action=start;logic=net.corda.finance.internal.CashConfigDataFlow@2000e5f3;flowId=5eae65e6-a2c9-4eb8-a984-2b7f6877d2ee) {actor_id=user1, actor_owning_identity=O=PartyA, L=London, C=GB, actor_store_id=NODE_CONFIG, invocation_id=9ea253f7-72f9-40cc-a85e-727d0f3bbb42, invocation_timestamp=2019-07-18T15:39:29.718Z, origin=user1, session_id=881e4323-4353-43c3-b2e7-2146ffc32095, session_timestamp=2019-07-18T15:39:28.663Z}
-> [TRACE] 2019-07-18T15:39:29,828Z Flow(action=add_and_start;flowId=5eae65e6-a2c9-4eb8-a984-2b7f6877d2ee;flowState=Unstarted(flowStart=Explicit, frozenFlowLogic=4596BC25EB7986B7C0AB31F70A1DCC6628955983D5EB489B6C73AE6B6A849970);session={};subFlowStack=[Inlined(flowClass=class net.corda.finance.internal.CashConfigDataFlow, subFlowVersion=CorDappFlow(platformVersion=5, corDappName=corda-finance-workflows-5.0-SNAPSHOT, corDappHash=AD8EC11D5FF082D000245CEFB8F236EF231AAA5CC2E023DBED72B72A750B60D2), isEnabledTimedFlow=false)];errorState=Clean;numberOfSuspends=0) {actor_id=user1, actor_owning_identity=O=PartyA, L=London, C=GB, actor_store_id=NODE_CONFIG, invocation_id=9ea253f7-72f9-40cc-a85e-727d0f3bbb42, invocation_timestamp=2019-07-18T15:39:29.718Z, origin=user1, session_id=881e4323-4353-43c3-b2e7-2146ffc32095, session_timestamp=2019-07-18T15:39:28.663Z}
-> [TRACE] 2019-07-18T15:39:29,966Z Flow(action=remove;flowId=5eae65e6-a2c9-4eb8-a984-2b7f6877d2ee;reason=OrderlyFinish(flowReturnValue=CashConfiguration(issuableCurrencies=[], supportedCurrencies=[USD, GBP, CHF, EUR]))) {actor_id=user1, actor_owning_identity=O=PartyA, L=London, C=GB, actor_store_id=NODE_CONFIG, fiber-id=10000001, flow-id=5eae65e6-a2c9-4eb8-a984-2b7f6877d2ee, invocation_id=9ea253f7-72f9-40cc-a85e-727d0f3bbb42, invocation_timestamp=2019-07-18T15:39:29.718Z, origin=user1, session_id=881e4323-4353-43c3-b2e7-2146ffc32095, session_timestamp=2019-07-18T15:39:28.663Z, thread-id=219}
-> [TRACE] 2019-07-18T15:39:49,606Z Message(action=receive;size=2232;id=N-D-1338028259437713213–5426630988224494415-0-0;platformVersion=5;from=O=Notary, L=New York, C=US) {}
-> [TRACE] 2019-07-18T15:39:49,729Z Party(action=save;party=Anonymous(DL55FjJhasWWssQAFimPrwCMpzn5BHXX4CFS7yDuBPs3c1)) {actor_id=user1, actor_owning_identity=O=PartyA, L=London, C=GB, actor_store_id=NODE_CONFIG, fiber-id=10000002, flow-id=9fa62b8d-7229-478a-9a6c-0e0b8e9e3afb, invocation_id=7240b531-512a-4042-b5a9-45aa3ca5e62b, invocation_timestamp=2019-07-18T15:39:46.084Z, origin=user1, session_id=881e4323-4353-43c3-b2e7-2146ffc32095, session_timestamp=2019-07-18T15:39:28.663Z, thread-id=279, tx_id=C4EF4FD371B5E5839901A28DADF7BECFB745BFE274EA1EE5C8DBEEDC3BA5BA23}
+
+[TRACE] 2019-07-18T15:39:29,741Z Flow(action=start;logic=net.corda.finance.internal.CashConfigDataFlow@2000e5f3;flowId=5eae65e6-a2c9-4eb8-a984-2b7f6877d2ee) {actor_id=user1, actor_owning_identity=O=PartyA, L=London, C=GB, actor_store_id=NODE_CONFIG, invocation_id=9ea253f7-72f9-40cc-a85e-727d0f3bbb42, invocation_timestamp=2019-07-18T15:39:29.718Z, origin=user1, session_id=881e4323-4353-43c3-b2e7-2146ffc32095, session_timestamp=2019-07-18T15:39:28.663Z}
+[TRACE] 2019-07-18T15:39:29,828Z Flow(action=add_and_start;flowId=5eae65e6-a2c9-4eb8-a984-2b7f6877d2ee;flowState=Unstarted(flowStart=Explicit, frozenFlowLogic=4596BC25EB7986B7C0AB31F70A1DCC6628955983D5EB489B6C73AE6B6A849970);session={};subFlowStack=[Inlined(flowClass=class net.corda.finance.internal.CashConfigDataFlow, subFlowVersion=CorDappFlow(platformVersion=5, corDappName=corda-finance-workflows-5.0-SNAPSHOT, corDappHash=AD8EC11D5FF082D000245CEFB8F236EF231AAA5CC2E023DBED72B72A750B60D2), isEnabledTimedFlow=false)];errorState=Clean;numberOfSuspends=0) {actor_id=user1, actor_owning_identity=O=PartyA, L=London, C=GB, actor_store_id=NODE_CONFIG, invocation_id=9ea253f7-72f9-40cc-a85e-727d0f3bbb42, invocation_timestamp=2019-07-18T15:39:29.718Z, origin=user1, session_id=881e4323-4353-43c3-b2e7-2146ffc32095, session_timestamp=2019-07-18T15:39:28.663Z}
+[TRACE] 2019-07-18T15:39:29,966Z Flow(action=remove;flowId=5eae65e6-a2c9-4eb8-a984-2b7f6877d2ee;reason=OrderlyFinish(flowReturnValue=CashConfiguration(issuableCurrencies=[], supportedCurrencies=[USD, GBP, CHF, EUR]))) {actor_id=user1, actor_owning_identity=O=PartyA, L=London, C=GB, actor_store_id=NODE_CONFIG, fiber-id=10000001, flow-id=5eae65e6-a2c9-4eb8-a984-2b7f6877d2ee, invocation_id=9ea253f7-72f9-40cc-a85e-727d0f3bbb42, invocation_timestamp=2019-07-18T15:39:29.718Z, origin=user1, session_id=881e4323-4353-43c3-b2e7-2146ffc32095, session_timestamp=2019-07-18T15:39:28.663Z, thread-id=219}
+[TRACE] 2019-07-18T15:39:49,606Z Message(action=receive;size=2232;id=N-D-1338028259437713213–5426630988224494415-0-0;platformVersion=5;from=O=Notary, L=New York, C=US) {}
+[TRACE] 2019-07-18T15:39:49,729Z Party(action=save;party=Anonymous(DL55FjJhasWWssQAFimPrwCMpzn5BHXX4CFS7yDuBPs3c1)) {actor_id=user1, actor_owning_identity=O=PartyA, L=London, C=GB, actor_store_id=NODE_CONFIG, fiber-id=10000002, flow-id=9fa62b8d-7229-478a-9a6c-0e0b8e9e3afb, invocation_id=7240b531-512a-4042-b5a9-45aa3ca5e62b, invocation_timestamp=2019-07-18T15:39:46.084Z, origin=user1, session_id=881e4323-4353-43c3-b2e7-2146ffc32095, session_timestamp=2019-07-18T15:39:28.663Z, thread-id=279, tx_id=C4EF4FD371B5E5839901A28DADF7BECFB745BFE274EA1EE5C8DBEEDC3BA5BA23}
 
 
 The node is using log4j2 asynchronous logging by default (configured via log4j2 properties file in its resources)
@@ -346,11 +346,11 @@ devMode = false
 
 The values for `keyStorePassword` and `trustStorePassword` in the above example are encrypted, using a key that is tied to the hosting machine’s primary hardware address. The implications of this is that:
 
-> 
-> 
-> * The configuration file is rendered unusable on other machines without manually decrypting obfuscated fields beforehand (since the hardware address would be different).
-> * Sensitive data is unreadable without additional processing.
-> * It becomes harder for adversaries to trawl for passwords and sensitive data on disk.
+
+
+* The configuration file is rendered unusable on other machines without manually decrypting obfuscated fields beforehand (since the hardware address would be different).
+* Sensitive data is unreadable without additional processing.
+* It becomes harder for adversaries to trawl for passwords and sensitive data on disk.
 
 
 

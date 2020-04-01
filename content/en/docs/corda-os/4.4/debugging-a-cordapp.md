@@ -30,8 +30,8 @@ You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/
 
 
 * Define your flow tests as per [API: Testing](api-testing.md)> 
-> 
->     * In your `MockNetwork`, ensure that `threadPerNode` is set to `false`
+
+    * In your `MockNetwork`, ensure that `threadPerNode` is set to `false`
 
 
 
@@ -49,16 +49,16 @@ running via the node driver to debug your CorDapp.
 
 
 * Define a network using the node driver as per [Integration testing](tutorial-integration-testing.md)> 
-> 
-> * In your `DriverParameters`, ensure that `startNodesInProcess` is set to `true`
+
+* In your `DriverParameters`, ensure that `startNodesInProcess` is set to `true`
 
 
 
 * Run the driver using the debugger
 * Set your breakpoints
 * Interact with your nodes. When execution hits a breakpoint, execution will pause> 
-> 
-> * The nodes’ webservers always run in a separate process, and cannot be attached to by the debugger
+
+* The nodes’ webservers always run in a separate process, and cannot be attached to by the debugger
 
 
 
@@ -68,9 +68,9 @@ running via the node driver to debug your CorDapp.
 
 
 * Define a network using the node driver as per [Integration testing](tutorial-integration-testing.md)> 
-> 
-> * In your `DriverParameters`, ensure that `startNodesInProcess` is set to `false` and `isDebug` is set to
-> `true`
+
+* In your `DriverParameters`, ensure that `startNodesInProcess` is set to `false` and `isDebug` is set to
+`true`
 
 
 
@@ -84,17 +84,17 @@ For example:
 
 
 * Attach the debugger to the node of interest on its debug port:> 
-> 
-> * In IntelliJ IDEA, create a new run/debug configuration of type `Remote`
-> * Set the run/debug configuration’s `Port` to the debug port
-> * Start the run/debug configuration in debug mode
+
+* In IntelliJ IDEA, create a new run/debug configuration of type `Remote`
+* Set the run/debug configuration’s `Port` to the debug port
+* Start the run/debug configuration in debug mode
 
 
 
 * Set your breakpoints
 * Interact with your node. When execution hits a breakpoint, execution will pause> 
-> 
-> * The nodes’ webservers always run in a separate process, and cannot be attached to by the debugger
+
+* The nodes’ webservers always run in a separate process, and cannot be attached to by the debugger
 
 
 

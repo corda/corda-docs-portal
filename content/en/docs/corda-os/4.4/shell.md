@@ -297,8 +297,8 @@ simple JSON-like language. The key features of Yaml are:
 
 * Parameters are separated by commas
 * Each parameter is specified as a `key: value` pair> 
-> 
->     * There **MUST** to be a space after the colon, otherwise you’ll get a syntax error
+
+    * There **MUST** to be a space after the colon, otherwise you’ll get a syntax error
 
 
 

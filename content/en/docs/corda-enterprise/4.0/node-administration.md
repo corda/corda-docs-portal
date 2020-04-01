@@ -272,11 +272,11 @@ devMode = false
 
 The values for `keyStorePassword` and `trustStorePassword` in the above example are encrypted, using a key that is tied to the hosting machine’s primary hardware address. The implications of this is that:
 
-> 
-> 
-> * The configuration file is rendered unusable on other machines without manually decrypting obfuscated fields beforehand (since the hardware address would be different).
-> * Sensitive data is unreadable without additional processing.
-> * It becomes harder for adversaries to trawl for passwords and sensitive data on disk.
+
+
+* The configuration file is rendered unusable on other machines without manually decrypting obfuscated fields beforehand (since the hardware address would be different).
+* Sensitive data is unreadable without additional processing.
+* It becomes harder for adversaries to trawl for passwords and sensitive data on disk.
 
 
 

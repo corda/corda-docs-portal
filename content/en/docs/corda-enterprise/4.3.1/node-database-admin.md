@@ -365,21 +365,22 @@ The `node.conf` templates for each database vendor are shown below:
 
 The required `node.conf` settings for the Database Management Tool using Azure SQL:
 
-> 
-> ```groovy
-> myLegalName=<node's Distinguished Name>
-> dataSourceProperties = {
->     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
->     dataSource.url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
->     dataSource.user = my_login
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
-> }
-> ```
-> 
+
+```groovy
+myLegalName=<node's Distinguished Name>
+dataSourceProperties = {
+    dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
+    dataSource.url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
+    dataSource.user = my_login
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+}
+```
+
+
 
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 The `database.schema` is the database schema name assigned to both administrative and restrictive users.
@@ -393,20 +394,21 @@ extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into th
 
 The required `node.conf` settings for the Database Management Tool using SQL Server:
 
-> 
-> ```groovy
-> dataSourceProperties = {
->     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
->     dataSource.url = "jdbc:sqlserver://<host>:<port>;databaseName=my_database"
->     dataSource.user = my_login
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
-> }
-> ```
-> 
+
+```groovy
+dataSourceProperties = {
+    dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
+    dataSource.url = "jdbc:sqlserver://<host>:<port>;databaseName=my_database"
+    dataSource.user = my_login
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+}
+```
+
+
 
 Replace placeholders *<host>*, *<port>* with appropriate values, the default SQL Server port is 1433.
 
@@ -419,20 +421,21 @@ extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into th
 
 The required `node.conf` settings for the Database Management Tool using Oracle:
 
-> 
-> ```groovy
-> dataSourceProperties = {
->     dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
->     dataSource.url = "jdbc:oracle:thin:@<host>:<port>:<sid>"
->     dataSource.user = my_user
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_admin_user
-> }
-> ```
-> 
+
+```groovy
+dataSourceProperties = {
+    dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
+    dataSource.url = "jdbc:oracle:thin:@<host>:<port>:<sid>"
+    dataSource.user = my_user
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_admin_user
+}
+```
+
+
 
 Replace the placeholders *<host>*, *<port>* and *<sid>* with appropriate values.
 For a basic Oracle installation, the default *<sid>* value is *xe*.
@@ -445,20 +448,21 @@ Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 
 
 The required `node.conf` settings for the Database Management Tool using PostgreSQL:
 
-> 
-> ```groovy
-> dataSourceProperties = {
->     dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
->     dataSource.url = "jdbc:postgresql://<host>:<port>/<database>"
->     dataSource.user = my_user
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
-> }
-> ```
-> 
+
+```groovy
+dataSourceProperties = {
+    dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
+    dataSource.url = "jdbc:postgresql://<host>:<port>/<database>"
+    dataSource.user = my_user
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+}
+```
+
+
 
 Replace the placeholders *<host>*, *<port>* and *<database>* with appropriate values.
 The `database.schema` is the database schema name assigned to the user.
@@ -471,11 +475,12 @@ Copy PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` direc
 
 To run the tool use the following command:
 
-> 
-> ```shell
-> java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory
-> ```
-> 
+
+```shell
+java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory
+```
+
+
 
 The option `-b` points to the base directory with a `node.conf` file and *drivers* and *cordapps* subdirectories.
 
@@ -504,11 +509,12 @@ You may connect to the database as any user with administrative permissions to t
 as long as you set the default schema for the sessions pointing to the schema where tables need to be created
 e.g. for PostgreSQL run the following statement before executing the DDL script:
 
-> 
-> ```none
-> SET SCHEMA 'my_schema';
-> ```
-> 
+
+```none
+SET SCHEMA 'my_schema';
+```
+
+
 
 The reason is that not all SQL statements in the generated DDL script contain the schema prefix.
 
@@ -525,11 +531,12 @@ An accidental re-run of the scripts will fail (as the tables are already there) 
 
 For Oracle databases the script may contain the command for *SQL Plus*, if you are using another tool comment out the first SQL statement:
 
-> 
-> ```sql
-> SET DEFINE OFF;
-> ```
-> 
+
+```sql
+SET DEFINE OFF;
+```
+
+
 
 
 
@@ -544,77 +551,81 @@ This step is required for Oracle databases only.
 Connect to the database as administrator (any user which can create other users, *my_admin_user* has no such privileges)
 and run the following DDL script:
 
-> 
-> ```sql
-> CREATE USER my_user identified by my_password;
-> GRANT CREATE SESSION TO my_user;
-> GRANT SELECT ON v_$parameter TO my_user;
-> ```
-> 
+
+```sql
+CREATE USER my_user identified by my_password;
+GRANT CREATE SESSION TO my_user;
+GRANT SELECT ON v_$parameter TO my_user;
+```
+
+
 
 Connect to the database as  *my_admin_user* and run the following DDL script,
 the first SQL statement may fail depending on your Oracle database installation type:
 
-> 
-> ```sql
-> GRANT SELECT ON my_admin_user.DATABASECHANGELOG TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.DATABASECHANGELOGLOCK TO my_user;
-> GRANT SELECT ON my_admin_user.HIBERNATE_SEQUENCE TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_CONTRACTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_SIGNERS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CHECKPOINTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CONTRACT_UPGRADES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_HASH_TO_KEY TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_IDENTITIES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_IDENTITIES_NO_CERT TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFOS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_HOSTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_PARTY_CERT TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_LINK_NODEINFO_PARTY TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MESSAGE_IDS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MUTUAL_EXCLUSION TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NAMED_IDENTITIES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NETWORK_PARAMETERS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_OUR_KEY_PAIRS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_PROPERTIES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_SCHEDULED_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_TRANSACTIONS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.PK_HASH_TO_EXT_ID_MAP TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.STATE_PARTY TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES_PARTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_LINEAR_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_LINEAR_STATES_PARTS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_TRANSACTION_NOTES TO my_user;
-> GRANT SELECT ON my_admin_user.V_PKEY_HASH_EX_ID_MAP TO my_user;
-> ```
-> 
+
+```sql
+GRANT SELECT ON my_admin_user.DATABASECHANGELOG TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.DATABASECHANGELOGLOCK TO my_user;
+GRANT SELECT ON my_admin_user.HIBERNATE_SEQUENCE TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_CONTRACTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_SIGNERS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CHECKPOINTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CONTRACT_UPGRADES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_HASH_TO_KEY TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_IDENTITIES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_IDENTITIES_NO_CERT TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFOS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_HOSTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_PARTY_CERT TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_LINK_NODEINFO_PARTY TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MESSAGE_IDS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MUTUAL_EXCLUSION TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NAMED_IDENTITIES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NETWORK_PARAMETERS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_OUR_KEY_PAIRS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_PROPERTIES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_SCHEDULED_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_TRANSACTIONS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.PK_HASH_TO_EXT_ID_MAP TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.STATE_PARTY TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES_PARTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_LINEAR_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_LINEAR_STATES_PARTS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_TRANSACTION_NOTES TO my_user;
+GRANT SELECT ON my_admin_user.V_PKEY_HASH_EX_ID_MAP TO my_user;
+```
+
+
 
 Additional table permissions are required for a notary node, some of them are optional:
 
-> 
-> ```sql
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_REQUEST_LOG TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_COMMITTED_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_COMMITTED_TXS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_BFT_COMMITTED_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RAFT_COMMITTED_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_BFT_COMMITTED_TXS TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RAFT_COMMITTED_TXS TO my_user;
-> ```
-> 
+
+```sql
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_REQUEST_LOG TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_COMMITTED_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NOTARY_COMMITTED_TXS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_BFT_COMMITTED_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RAFT_COMMITTED_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_BFT_COMMITTED_TXS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RAFT_COMMITTED_TXS TO my_user;
+```
+
+
 
 Grant *SELECT*, *INSERT*, *UPDATE*, *DELETE* permissions to *my_user* for all custom CorDapp tables,
 e.g. Corda Finance CorDapp requires permissions for two tables:
 
-> 
-> ```sql
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.CONTRACT_CASH_STATES TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.CP_STATES TO my_user;
-> ```
-> 
+
+```sql
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.CONTRACT_CASH_STATES TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.CP_STATES TO my_user;
+```
+
+
 
 
 
@@ -622,45 +633,51 @@ e.g. Corda Finance CorDapp requires permissions for two tables:
 
 The following updates are required to the filesystem of a node:
 
-> 
-> 
-> * The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
-> and other database properties in the `database` entry (passed to a node JPA persistence provider or schema creation/upgrade flag).```none
-> dataSourceProperties = {
->    ...
->    dataSourceClassName = <JDBC Data Source class name>
->    dataSource.url = <JDBC database URL>
->    dataSource.user = <Database user>
->    dataSource.password = <Database password>
-> }
-> database = {
->    transactionIsolationLevel = <Transaction isolation level>
->    schema = <Database schema name>
->    runMigration = false
-> }
-> ```
-> 
-> {{< note >}}
-> *Node configuration <database_properties_ref>* contains a complete list of database specific properties.{{< /note >}}
-> 
-> * The restricted node database user has no permissions to alter a database schema, so `runMigration` is set to `false`.
-> * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
-> It is the responsibility of the node administrator or a developer to install the appropriate JDBC driver.
-> Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
-> Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](corda-configuration-file.md#corda-configuration-file-jar-dirs-ref).
-> The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
-> * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
-> To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:```groovy
-> dataSourceProperties = {
->    ...
->    maximumPoolSize = 10
->    connectionTimeout = 50000
-> }
-> ```
-> 
-> {{< note >}}
-> `maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See [Sizing and performance](sizing-and-performance.md) for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
-> 
+
+
+* The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
+and other database properties in the `database` entry (passed to a node JPA persistence provider or schema creation/upgrade flag).
+
+```none
+dataSourceProperties = {
+   ...
+   dataSourceClassName = <JDBC Data Source class name>
+   dataSource.url = <JDBC database URL>
+   dataSource.user = <Database user>
+   dataSource.password = <Database password>
+}
+database = {
+   transactionIsolationLevel = <Transaction isolation level>
+   schema = <Database schema name>
+   runMigration = false
+}
+```
+
+
+{{< note >}}
+*Node configuration <database_properties_ref>* contains a complete list of database specific properties.{{< /note >}}
+
+* The restricted node database user has no permissions to alter a database schema, so `runMigration` is set to `false`.
+* The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
+It is the responsibility of the node administrator or a developer to install the appropriate JDBC driver.
+Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
+Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](corda-configuration-file.md#corda-configuration-file-jar-dirs-ref).
+The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
+* Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
+To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:
+
+```groovy
+dataSourceProperties = {
+   ...
+   maximumPoolSize = 10
+   connectionTimeout = 50000
+}
+```
+
+
+{{< note >}}
+`maximumPoolSize` cannot be less than `enterpriseConfiguration.tuning.flowThreadPoolSize + enterpriseConfiguration.tuning.rpcThreadPoolSize + 2`. See [Sizing and performance](sizing-and-performance.md) for more details. Their defaults depend on the machine they are being run, but if the `maximumPoolSize` a error will appear showing what is the minimum required.{{< /note >}}
+
 
 
 Configuration templates for each database vendor are shown below:
@@ -677,21 +694,22 @@ Configuration templates for each database vendor are shown below:
 
 Example node configuration file for Azure SQL:
 
-> 
-> ```groovy
-> dataSourceProperties = {
->     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
->     dataSource.url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
->     dataSource.user = my_login
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
->     runMigration = false
-> }
-> ```
-> 
+
+```groovy
+dataSourceProperties = {
+    dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
+    dataSource.url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
+    dataSource.user = my_login
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+    runMigration = false
+}
+```
+
+
 
 Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness
@@ -708,21 +726,22 @@ extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* (the ar
 
 Example node configuration file for  SQL Server:
 
-> 
-> ```groovy
-> dataSourceProperties = {
->     dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
->     dataSource.url = "jdbc:sqlserver://<host>:<port>;databaseName=my_database"
->     dataSource.user = my_login
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
->     runMigration = false
-> }
-> ```
-> 
+
+```groovy
+dataSourceProperties = {
+    dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
+    dataSource.url = "jdbc:sqlserver://<host>:<port>;databaseName=my_database"
+    dataSource.user = my_login
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+    runMigration = false
+}
+```
+
+
 
 Replace placeholders *<host>* and *<port>* with appropriate values (the default SQL Server port is 1433).
 By default the connection to the database is not SSL. To secure the JDBC connection, refer to
@@ -745,22 +764,23 @@ which are invalid for SQL Server. This may lead to a Corda node failing to start
 
 Example node configuration file for Oracle:
 
-> 
-> ```groovy
-> dataSourceProperties = {
->     dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
->     dataSource.url = "jdbc:oracle:thin:@<host>:<port>:<sid>"
->     dataSource.user = my_user
->     dataSource.password = "my_password"
->     connectionInitSql="alter session set current_schema=my_admin_user"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_admin_user
->     runMigration = false
-> }
-> ```
-> 
+
+```groovy
+dataSourceProperties = {
+    dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
+    dataSource.url = "jdbc:oracle:thin:@<host>:<port>:<sid>"
+    dataSource.user = my_user
+    dataSource.password = "my_password"
+    connectionInitSql="alter session set current_schema=my_admin_user"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_admin_user
+    runMigration = false
+}
+```
+
+
 
 Replace the placeholders *<host>*, *<port>* and *<sid>* with appropriate values. (For a basic Oracle installation, the default *<sid>* value is *xe*.)
 If the user was created with *administrative* permissions, the schema name `database.schema` equal to the user name (*my_user*).
@@ -781,73 +801,78 @@ A Corda node can also connect to an Oracle database using credentials stored in 
 Assuming you have an Oracle Wallet set up in `/home/<user>/wallet`, create an entry for the database in your `tnsnames.ora`, with the
 relevant `<host-address>`, `<host-port>`, and `<service-name>`. For example:
 
-> 
-> ```none
-> my_database =
->   (DEscriptTION =
->     (ADDRESS = (PROTOCOL = TCP)(host = <host-address>)(port = <host-port>))
->     (CONNECT_DATA =
->       (SERVER = DEDICATED)
->       (SERVICE_NAME = <service-name>)
->     )
->   )
-> ```
-> 
+
+```none
+my_database =
+  (DEscriptTION =
+    (ADDRESS = (PROTOCOL = TCP)(host = <host-address>)(port = <host-port>))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = <service-name>)
+    )
+  )
+```
+
+
 
 Create a `sqlnet.ora` in the same directory with the configuration for the wallet. For example:
 
-> 
-> ```none
-> WALLET_LOCATION =
->    (SOURCE =
->      (METHOD = FILE)
->      (METHOD_DATA =
->        (DIRECTORY = /home/<user>/wallet)
->      )
->    )
-> 
-> SQLNET.WALLET_OVERRIDE = TRUE
-> SSL_CLIENT_AUTHENTICATION = FALSE
-> SSL_VERSION = 0
-> ```
-> 
+
+```none
+WALLET_LOCATION =
+   (SOURCE =
+     (METHOD = FILE)
+     (METHOD_DATA =
+       (DIRECTORY = /home/<user>/wallet)
+     )
+   )
+
+SQLNET.WALLET_OVERRIDE = TRUE
+SSL_CLIENT_AUTHENTICATION = FALSE
+SSL_VERSION = 0
+```
+
+
 
 Then, add the database credentials to your wallet using the following command (see [here](https://docs.oracle.com/middleware/1212/wls/JDBCA/oraclewallet.htm) for more information on setting up Oracle Wallet):
 
-> 
-> ```bash
-> mkstore -wrl /home/<user>/wallet -createCredential my_database <db-username> <db-password>
-> ```
-> 
+
+```bash
+mkstore -wrl /home/<user>/wallet -createCredential my_database <db-username> <db-password>
+```
+
+
 
 You will be prompted for the wallet password in order to update the wallet.
 
 Then modify the connection string in your `node.conf` to reference your TNS name, and set the username and password to `null` (they are
 required fields).
 
-> 
-> ```none
-> dataSourceProperties = {
->     dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
->     dataSource.url = "jdbc:oracle:thin:/@my_database"
->     dataSource.user = null
->     dataSource.password = null
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
->     runMigration = true
-> }
-> ```
-> 
+
+```none
+dataSourceProperties = {
+    dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
+    dataSource.url = "jdbc:oracle:thin:/@my_database"
+    dataSource.user = null
+    dataSource.password = null
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+    runMigration = true
+}
+```
+
+
 
 Finally, start up the node with the following system properties set to the location of your wallet and the location of your `tnsnames.ora`:
 
-> 
-> ```bash
-> java -Doracle.net.wallet_location=/home/<user>/wallet -Doracle.net.tns_admin=<absolute-path-to-tnsnames> -jar corda.jar
-> ```
-> 
+
+```bash
+java -Doracle.net.wallet_location=/home/<user>/wallet -Doracle.net.tns_admin=<absolute-path-to-tnsnames> -jar corda.jar
+```
+
+
 
 
 
@@ -855,21 +880,22 @@ Finally, start up the node with the following system properties set to the locat
 
 Example node configuration file for PostgreSQL:
 
-> 
-> ```none
-> dataSourceProperties = {
->     dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
->     dataSource.url = "jdbc:postgresql://<host>:<port>/<database>"
->     dataSource.user = my_user
->     dataSource.password = "my_password"
-> }
-> database = {
->     transactionIsolationLevel = READ_COMMITTED
->     schema = my_schema
->     runMigration = false
-> }
-> ```
-> 
+
+```none
+dataSourceProperties = {
+    dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
+    dataSource.url = "jdbc:postgresql://<host>:<port>/<database>"
+    dataSource.user = my_user
+    dataSource.password = "my_password"
+}
+database = {
+    transactionIsolationLevel = READ_COMMITTED
+    schema = my_schema
+    runMigration = false
+}
+```
+
+
 
 Replace the placeholders *<host>*, *<port>*, and *<database>* with appropriate values.
 The `database.schema` is the database schema name assigned to the user.

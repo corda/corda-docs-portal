@@ -106,7 +106,9 @@ places:
 * The number of hosts to create tunnels for and their client side RMI server ports are read from the `jmeter.properties`
 file that is used to run this instance of JMeter. For using the SSH tunnel, localhost addresses are listed here as the
 actual remoting is done via SSH. By default, the five remote addresses shown below are listed in the properties file
-included in the JAR. This configuration is only relevant on the client side:```kotlin
+included in the JAR. This configuration is only relevant on the client side:
+
+```kotlin
 #---------------------------------------------------------------------------
 # Remote hosts and RMI configuration
 #---------------------------------------------------------------------------
@@ -120,7 +122,9 @@ remote_hosts=127.0.0.1:20100,127.0.0.1:20101,127.0.0.1:20102,127.0.0.1:20103,127
 takes a list of space separated, fully qualified host names. They must be actual hostnames (not just IP addresses), and
 for the look-up to work, must match between the *hostname* entry on the server and the DNS name - i.e. the result of
 calling *hostname* on the server should be the same as the first part of the hostname used on the command line up to
-the first dot:```kotlin
+the first dot:
+
+```kotlin
 java -jar jmeter-corda.jar -Xssh node1.mydomain.com node2.mydomain.com
 ```
 
@@ -133,7 +137,9 @@ and defaults to `1099`. It is crucial that the same value is used on the server 
 information can be send to different tunnels for different servers from the client. Therefore, the property
 `server.rmi.localport` in the `jmeter.properties` file is only used as a fallback - it would only work for a single
 JMeter server instance being used at a time. Instead, the mappings of port to host name come from an additinal config
-file `server-rmi.config` that lists a mapping of unqualified hostname to port:```kotlin
+file `server-rmi.config` that lists a mapping of unqualified hostname to port:
+
+```kotlin
 # lines starting in # are comments and ignored
 node1:10101
 node2:10102

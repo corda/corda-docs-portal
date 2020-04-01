@@ -177,11 +177,11 @@ It is primarily targeted at users developing and testing code that may exhibit f
 
 For a given flow *checkpoint*, the agent outputs:
 
-> 
-> 
-> * Information about the checkpoint such as its `id` (also called a `flow id`) that can be used to correlate with that flows lifecycle details in the main Corda logs.
-> * A nested hierarchical view of its reachable objects (indented and tagged with depth and size) and their associated sizes, including the state
-> of any flows held within the checkpoint.
+
+
+* Information about the checkpoint such as its `id` (also called a `flow id`) that can be used to correlate with that flows lifecycle details in the main Corda logs.
+* A nested hierarchical view of its reachable objects (indented and tagged with depth and size) and their associated sizes, including the state
+of any flows held within the checkpoint.
 
 
 Diagnostics information is written to standard log files (eg. log4j2 configured logger).
@@ -416,7 +416,9 @@ And two additional files will appear in the nodes logs directory:
 
 
 * Unzip the `<NODE_BASE>\logs\checkpoints_dump-<date>.zip` file, and you should see a file with a matching flow id as above:
-**CashIssueAndPaymentFlow-90613d6f-be78-41bd-98e1-33a756c28808.json**Its contents will contain the following diagnostics information:```json
+**CashIssueAndPaymentFlow-90613d6f-be78-41bd-98e1-33a756c28808.json**Its contents will contain the following diagnostics information:
+
+```json
 {
   "flowId" : "90613d6f-be78-41bd-98e1-33a756c28808",
   "topLevelFlowClass" : "net.corda.finance.flows.CashIssueAndPaymentFlow",

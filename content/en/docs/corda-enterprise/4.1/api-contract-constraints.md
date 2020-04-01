@@ -341,26 +341,28 @@ or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp
 
 Example of creation of two Cordapps with Finance App Flows and Finance App Contracts in Kotlin:
 
-> 
-> ```kotlin
-> Driver.driver(DriverParameters(cordappsForAllNodes = listOf(TestCordapp.findCordapp("net.corda.finance.schemas"),
->         TestCordapp.findCordapp("net.corda.finance.flows"))) {
->     // Your test code goes here
-> })
-> ```
-> 
+
+```kotlin
+Driver.driver(DriverParameters(cordappsForAllNodes = listOf(TestCordapp.findCordapp("net.corda.finance.schemas"),
+        TestCordapp.findCordapp("net.corda.finance.flows"))) {
+    // Your test code goes here
+})
+```
+
+
 
 The same example in Java:
 
-> 
-> ```java
-> Driver.driver(new DriverParameters()
->         .withCordappsForAllNodes(Arrays.asList(TestCordapp.findCordapp("net.corda.finance.schemas"),
->         TestCordapp.findCordapp("net.corda.finance.flows"))), dsl -> {
->     // Your test code goes here
-> });
-> ```
-> 
+
+```java
+Driver.driver(new DriverParameters()
+        .withCordappsForAllNodes(Arrays.asList(TestCordapp.findCordapp("net.corda.finance.schemas"),
+        TestCordapp.findCordapp("net.corda.finance.flows"))), dsl -> {
+    // Your test code goes here
+});
+```
+
+
 
 When running the Corda node ensure all CordDapp JARs are placed in `cordapps` directory of each node.
 By default Gradle Cordform task `deployNodes` copies all JARs if CorDapps to deploy are specified.

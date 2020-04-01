@@ -26,7 +26,7 @@ The tool is distributed in the form of runnable JAR file: “corda-tools-explore
 ## Running the UI
 
 ```kotlin
-> java -jar corda-tools-explorer-3.3.jar
+java -jar corda-tools-explorer-3.3.jar
 ```
 
 

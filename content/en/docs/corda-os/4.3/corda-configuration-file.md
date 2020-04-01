@@ -63,7 +63,9 @@ To alter this behaviour, the `on-unknown-config-keys` command-line argument can 
 
 For example: `${NODE_TRUST_STORE_PASSWORD}` would be replaced by the contents of environment variable `NODE_TRUST_STORE_PASSWORD` (see: [Logging](node-administration.md#hiding-sensitive-data) section).JVM options or environmental variables prefixed with `corda.` can override `node.conf` fields.
 Provided system properties can also set values for absent fields in `node.conf`.
-This is an example of adding/overriding the keyStore password :```shell
+This is an example of adding/overriding the keyStore password :
+
+```shell
 java -Dcorda.rpcSettings.ssl.keyStorePassword=mypassword -jar node.jar
 ```
 
@@ -86,7 +88,7 @@ List of SHA-256 hashes of public keys. Attachments signed by any of these public
 This property is similar to [cordappSignerKeyFingerprintBlacklist](#corda-configuration-file-signer-blacklist) but only restricts CorDapps that were
 included as attachments in a transaction and received over the network from a peer.See [Signing CorDapps for use with Signature Constraints](api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints) for more information about signing CorDapps and what
 makes an attachment trusted (a trust root).This property requires retrieving the hashes of public keys that need to be blacklisted. More information on this process can be found in [Generating a public key hash](#generating-a-public-key-hash).> 
-> *Default:* not defined
+*Default:* not defined
 The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates](permissioning.md) for more information.) and also is used by the node to obtain network map information.
 Cannot be set at the same time as the [networkServices](#corda-configuration-file-networkservices) option.**Important:  old configuration value, please use networkServices***Default:* not defined
 List of the public keys fingerprints (SHA-256 of public key hash) not allowed as Cordapp JARs signers.
@@ -102,7 +104,9 @@ If set to `false` on startup, the node will validate if it’s running against a
 `UPDATE` performs an update of CorDapp schemas, while `VALID` only verifies their integrity and `NONE` performs no check.
 When `initialiseSchema` is set to `false`, then `initialiseAppSchema` may be set as `VALID` or `NONE` only.*Default:* CorDapp schema creation is controlled with `initialiseSchema`.This section is used to configure the JDBC connection and database driver used for the node’s persistence.
 Node database contains example configurations for other database providers.
-To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. `dataSource.customProperty = value`).JDBC Data Source class name.JDBC database URL.Database user.Database password.*Default:*```none
+To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. `dataSource.customProperty = value`).JDBC Data Source class name.JDBC database URL.Database user.Database password.*Default:*
+
+```none
 dataSourceClassName = org.h2.jdbcx.JdbcDataSource
 dataSource.url = "jdbc:h2:file:"${baseDirectory}"/persistence;DB_CLOSE_ON_EXIT=FALSE;WRITE_DELAY=0;LOCK_TIMEOUT=10000"
 dataSource.user = sa
@@ -149,14 +153,14 @@ For more details please read [Node identity](node-naming.md#node-naming) chapter
 Optional configuration object which if present configures the node to run as a notary. If part of a Raft or BFT-SMaRt
 cluster then specify `raft` or `bftSMaRt` respectively as described below. If a single node notary then omit both.Boolean to determine whether the notary is a validating or non-validating one.*Default:* falseIf the node is part of a distributed cluster, specify the legal name of the cluster.
 At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.*Default:* not defined*(Experimental)* If part of a distributed Raft cluster, specify this configuration object with the following settings:> 
-> The host and port to which to bind the embedded Raft server. Note that the Raft cluster uses a
-> separate transport layer for communication that does not integrate with ArtemisMQ messaging services.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
-> be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
-> new cluster will be bootstrapped.*Default:* not defined
+The host and port to which to bind the embedded Raft server. Note that the Raft cluster uses a
+separate transport layer for communication that does not integrate with ArtemisMQ messaging services.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
+be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
+new cluster will be bootstrapped.*Default:* not defined
 *(Experimental)* If part of a distributed BFT-SMaRt cluster, specify this configuration object with the following settings:> 
-> The zero-based index of the current replica. All replicas must specify a unique replica id.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
-> be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
-> new cluster will be bootstrapped.*Default:* not defined
+The zero-based index of the current replica. All replicas must specify a unique replica id.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
+be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
+new cluster will be bootstrapped.*Default:* not defined
 Optional settings for managing the network parameter auto-acceptance behaviour.
 If not provided then the defined defaults below are used.This flag toggles auto accepting of network parameter changes.
 If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator.
@@ -171,7 +175,7 @@ As a result the value listed here must be **externally accessible when running n
 If the provided host is unreachable, the node will try to auto-discover its public one.*Default:* not definedThe address of the RPC system on which RPC requests can be made to the node.
 If not provided then the node will run without RPC.**Important: Deprecated. Use rpcSettings instead.***Default:* not defined
 Options for the RPC server exposed by the Node.**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the “generate-rpc-ssl-settings” command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**> 
-> host and port for the RPC server binding.*Default:* not definedhost and port for the RPC admin binding (this is the endpoint that the node process will connect to).*Default:* not definedboolean, indicates whether the node will connect to a standalone broker for RPC.*Default:* falseboolean, indicates whether or not the node should require clients to use SSL for RPC connections.*Default:* false(mandatory if `useSsl=true`) SSL settings for the RPC server.Absolute path to the key store containing the RPC SSL certificate.*Default:* not definedPassword for the key store.*Default:* not defined
+host and port for the RPC server binding.*Default:* not definedhost and port for the RPC admin binding (this is the endpoint that the node process will connect to).*Default:* not definedboolean, indicates whether the node will connect to a standalone broker for RPC.*Default:* falseboolean, indicates whether or not the node should require clients to use SSL for RPC connections.*Default:* false(mandatory if `useSsl=true`) SSL settings for the RPC server.Absolute path to the key store containing the RPC SSL certificate.*Default:* not definedPassword for the key store.*Default:* not defined
 
 A list of users who are authorised to access the RPC system.
 Each user in the list is a configuration object with the following fields:Username consisting only of word characters (a-z, A-Z, 0-9 and _)*Default:* not definedThe password*Default:* not definedA list of permissions for starting flows via RPC.
@@ -333,16 +337,19 @@ configuration properties.
 
 Below are the steps to generate a hash for a CorDapp signed with a RSA certificate. A similar process should work for other certificate types.
 
-> 
-> 
-> * Extract the contents of the signed CorDapp jar.
-> * Run the following command (replacing the < > variables):```none
-> openssl pkcs7 -in <extract_signed_jar_directory>/META-INF/<signature_to_hash>.RSA -print_certs -inform DER -outform DER \
-> | openssl x509 -pubkey -noout \
-> | openssl rsa -pubin -outform der | openssl dgst -sha256
-> ```
-> 
-> 
-> * Copy the public key hash that is generated and place it into the required location (e.g. in `node.conf`).
+
+
+* Extract the contents of the signed CorDapp jar.
+* Run the following command (replacing the < > variables):
+
+```none
+openssl pkcs7 -in <extract_signed_jar_directory>/META-INF/<signature_to_hash>.RSA -print_certs -inform DER -outform DER \
+| openssl x509 -pubkey -noout \
+| openssl rsa -pubin -outform der | openssl dgst -sha256
+```
+
+
+
+* Copy the public key hash that is generated and place it into the required location (e.g. in `node.conf`).
 
 

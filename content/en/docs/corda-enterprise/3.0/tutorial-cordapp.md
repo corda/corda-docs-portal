@@ -210,7 +210,9 @@ functionally identical, we will refer to the Kotlin version throughout the docum
 * After the build finishes, you will see the generated nodes in the `kotlin-source/build/nodes` folder
     * There will be a folder for each generated node, plus a `runnodes` shell script (or batch file on Windows) to run
 all the nodes simultaneously
-    * Each node in the `nodes` folder has the following structure:```none
+    * Each node in the `nodes` folder has the following structure:
+
+```none
 . nodeName
 ├── additional-node-infos  // NodeInfos for the other nodes on the bootstrapped network.
 ├── certificates           // The node's certificate (Signed by the Doorman).
@@ -269,29 +271,29 @@ ______               __
 
 ______
 
-> 
-> ____/     /_/   __,_/__,_/     ____________________________________________________________________________
-> 
-> 💡  Administrator users can be granted access to do everything by granting them the ALL permission
-> 
-> 
-> * All rights reserved.                                                                                                             *
-> * This software is proprietary to and embodies the confidential technology of R3 LLC (“R3”).                                       *
-> * Possession, use, duplication or dissemination of the software is authorized only pursuant to a valid written license from R3.    *
-> * IF YOU DO NOT HAVE A VALID WRITTEN LICENSE WITH R3, DO NOT USE THIS SOFTWARE.                                                    *
-> 
-> Logs can be found in                    : /Users/username/Desktop/cordapp-example/kotlin-source/build/nodes/Notary/logs
-> ⚠️   ATTENTION: This node is running in developer mode! 👩‍💻   This is not safe for production deployment.
-> Advertised P2P messaging addresses      : localhost:10006
-> RPC connection address                  : localhost:10004
-> RPC admin connection address            : localhost:10038
-> Loaded 3 CorDapp(s)                     : com.r3.corda.corda-finance version 3.0-RC08 by R3, com.example.cordapp-example version 0.1 by Unknown, corda-core version 3.0-RC08 by Corda Enterprise Edition
-> Node for “Notary” started up and registered in 50.92 sec
-> 
-> Welcome to the Corda interactive shell.
-> Useful commands include ‘help’ to see what is available, and ‘bye’ to shut down the node.
-> 
-> Fri Jun 29 11:14:13 BST 2018>>>
+
+____/     /_/   __,_/__,_/     ____________________________________________________________________________
+
+💡  Administrator users can be granted access to do everything by granting them the ALL permission
+
+
+* All rights reserved.                                                                                                             *
+* This software is proprietary to and embodies the confidential technology of R3 LLC (“R3”).                                       *
+* Possession, use, duplication or dissemination of the software is authorized only pursuant to a valid written license from R3.    *
+* IF YOU DO NOT HAVE A VALID WRITTEN LICENSE WITH R3, DO NOT USE THIS SOFTWARE.                                                    *
+
+Logs can be found in                    : /Users/username/Desktop/cordapp-example/kotlin-source/build/nodes/Notary/logs
+⚠️   ATTENTION: This node is running in developer mode! 👩‍💻   This is not safe for production deployment.
+Advertised P2P messaging addresses      : localhost:10006
+RPC connection address                  : localhost:10004
+RPC admin connection address            : localhost:10038
+Loaded 3 CorDapp(s)                     : com.r3.corda.corda-finance version 3.0-RC08 by R3, com.example.cordapp-example version 0.1 by Unknown, corda-core version 3.0-RC08 by Corda Enterprise Edition
+Node for “Notary” started up and registered in 50.92 sec
+
+Welcome to the Corda interactive shell.
+Useful commands include ‘help’ to see what is available, and ‘bye’ to shut down the node.
+
+Fri Jun 29 11:14:13 BST 2018>>>
 
 
 For every node except the notary, the script also creates a webserver terminal tab/window:

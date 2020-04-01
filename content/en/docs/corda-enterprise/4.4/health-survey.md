@@ -26,49 +26,49 @@ it and the firewall (if deployed externally) for information on configuration, s
 ## Running
 
 ```kotlin
-> java -jar corda-tools-health-survey-4.4.jar --base-directory DIRECTORY [--node-configuration DIRECTORY]
+java -jar corda-tools-health-survey-4.4.jar --base-directory DIRECTORY [--node-configuration DIRECTORY]
 ```
 
 
 Usage:
 
->
->
-> * `-h`, `--help`:                        Display help
-> * `-c`, `--node-configuration` <file>:   Path to the Corda node configuration file, optional
-> * `-d`, `--base-directory` <dir>:        Path to the Corda node base directory
-> * `-l`, `--local`:                       Verify local node configuration only without checking bridge/firewall, by default verifies all
-> * `-e`, `--exclude-logs`:                Exclude node’s log files from ZIP report, by default logs are included in ZIP report
-> * `-t`, `--text-format`:                 Create report as a single .txt file without node’s log files, default is ZIP format
-> * `-i`, `--timeout` <arg>:               Override default timeout for sending health request messages
-> * `-v`, `--config-validate`:             Validate configuration files
-> * `-b`, `--bridge-configuration` <file>: Path to bridge configuration when used in conjunction with *config-validate*
-> * `-f`, `--float-configuration` <file>:  Path to float configuration when used in conjunction with *config-validate*
-> * `--bridge-crl-url` <url>:        Alternative CRL URL to be used by the bridge for CRL validation test
+
+
+* `-h`, `--help`:                        Display help
+* `-c`, `--node-configuration` <file>:   Path to the Corda node configuration file, optional
+* `-d`, `--base-directory` <dir>:        Path to the Corda node base directory
+* `-l`, `--local`:                       Verify local node configuration only without checking bridge/firewall, by default verifies all
+* `-e`, `--exclude-logs`:                Exclude node’s log files from ZIP report, by default logs are included in ZIP report
+* `-t`, `--text-format`:                 Create report as a single .txt file without node’s log files, default is ZIP format
+* `-i`, `--timeout` <arg>:               Override default timeout for sending health request messages
+* `-v`, `--config-validate`:             Validate configuration files
+* `-b`, `--bridge-configuration` <file>: Path to bridge configuration when used in conjunction with *config-validate*
+* `-f`, `--float-configuration` <file>:  Path to float configuration when used in conjunction with *config-validate*
+* `--bridge-crl-url` <url>:        Alternative CRL URL to be used by the bridge for CRL validation test
 
 
 RPC Access:
 
->
->
-> * `--rpc-user` <arg>:              Set the user name for RPC commands
-> * `--rpc-password` <arg>:          Set the password for RPC user
+
+
+* `--rpc-user` <arg>:              Set the user name for RPC commands
+* `--rpc-password` <arg>:          Set the password for RPC user
 
 
 Connectivity tests:
 
->
->
-> * `-p`, `--ping` <legal-name>:           Ping remote node’s P2P port using nodes’s legal name
-> * `-n`, `--notary`:                      Ping all notaries listed on node’s network map
-> * `--ping-notary` <legal-name>:    Ping named notary using notary’s legal name
+
+
+* `-p`, `--ping` <legal-name>:           Ping remote node’s P2P port using nodes’s legal name
+* `-n`, `--notary`:                      Ping all notaries listed on node’s network map
+* `--ping-notary` <legal-name>:    Ping named notary using notary’s legal name
 
 
 High Availability test:
 
->
->
-> * `--toggle-bridge`:              Switch which bridge is active
+
+
+* `--toggle-bridge`:              Switch which bridge is active
 
 
 Running the tool with no arguments assumes that the base-directory argument is the current working directory.
@@ -105,27 +105,27 @@ This account must have the following permissions:
 
 For RPC Validation Test:
 
->
->
-> * InvokeRpc.nodeInfo
+
+
+* InvokeRpc.nodeInfo
 
 
 Ping node check:
 
->
->
-> * InvokeRpc.nodeInfoFromParty
-> * InvokeRpc.wellKnownPartyFromX500Name
+
+
+* InvokeRpc.nodeInfoFromParty
+* InvokeRpc.wellKnownPartyFromX500Name
 
 
 For notary checks:
 
->
->
-> * InvokeRpc.networkMapSnapshot
-> * InvokeRpc.notaryIdentities
-> * InvokeRpc.nodeInfoFromParty
-> * InvokeRpc.wellKnownPartyFromX500Name
+
+
+* InvokeRpc.networkMapSnapshot
+* InvokeRpc.notaryIdentities
+* InvokeRpc.nodeInfoFromParty
+* InvokeRpc.wellKnownPartyFromX500Name
 
 
 If passwords have been hashed using Shiro then the RPC user’s password must be provided using the –rpc-password command line option.
@@ -141,14 +141,14 @@ The tool generates the archive of the collected files in the same directory it i
 
 The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise Node. The tool supports the following deployment configurations:
 
->
->
-> * Node with internal Artemis broker
-> * Node with external Artemis broker
-> * Node with combined Bridge/Float
-> * Node with separate Bridge/Float
-> * Node with configured HTTP/SOCKS Proxy
-> * Bridge with configured HTTP/SOCKS Proxy
+
+
+* Node with internal Artemis broker
+* Node with external Artemis broker
+* Node with combined Bridge/Float
+* Node with separate Bridge/Float
+* Node with configured HTTP/SOCKS Proxy
+* Bridge with configured HTTP/SOCKS Proxy
 
 
 {{< note >}}

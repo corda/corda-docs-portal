@@ -36,12 +36,12 @@ between the primary and the back-up in case of failure.
 {{< /note >}}
 In order to achieve this set-up, in addition to the physical nodes, a few other resources are required:
 
-> 
-> 
-> * 3rd party database which should be running in some sort of replication mode to avoid any data loss
-> * a network drive mounted on all nodes (used to store P2P messaging broker files)
-> * an internet facing load balancer to monitor the health of the primary and secondary instances and to automatically
-> route traffic from the public IP address to the *hot* instance
+
+
+* 3rd party database which should be running in some sort of replication mode to avoid any data loss
+* a network drive mounted on all nodes (used to store P2P messaging broker files)
+* an internet facing load balancer to monitor the health of the primary and secondary instances and to automatically
+route traffic from the public IP address to the *hot* instance
 
 
 This guide will cover all the steps required to configure and deploy the nodes as well as configuring the above mentioned
@@ -76,16 +76,16 @@ The next step is to create health probes and load balancing rules for every port
 
 When creating the health probes, there are several properties that have to be set:
 
-> 
-> 
-> * name - used to identify the probe when associating it with a rule (e.g. p2p, rpc, web).
-> * protocol - determines what kind of packets are used to assess the health of the VMs behind the balancer. Use
-> TCP for the P2P and RPC probes, HTTP for the web traffic probes.
-> * port - the port being checked.
-> * path - in case of the HTTP protocol, it has to be set to “/”. Leave empty for the TCP probes.
-> * interval - the amount of time in seconds between probe attempts.
-> * unhealthy threshold - the number of failed probes before a VM is considered unhealthy. No suggested values. Default
-> seems reasonable.
+
+
+* name - used to identify the probe when associating it with a rule (e.g. p2p, rpc, web).
+* protocol - determines what kind of packets are used to assess the health of the VMs behind the balancer. Use
+TCP for the P2P and RPC probes, HTTP for the web traffic probes.
+* port - the port being checked.
+* path - in case of the HTTP protocol, it has to be set to “/”. Leave empty for the TCP probes.
+* interval - the amount of time in seconds between probe attempts.
+* unhealthy threshold - the number of failed probes before a VM is considered unhealthy. No suggested values. Default
+seems reasonable.
 
 
 A possible configuration for a hot-cold environment would be:
@@ -102,18 +102,18 @@ A possible configuration for a hot-cold environment would be:
 
 The following properties have to be set when creating a load balancing rule:
 
-> 
-> 
-> * name - simple identifier.
-> * ip version - depending on how the resources have been created and configured, it can be IPv4 or IPv6.
-> * frontend ip address - the address used by peers and clients to communicate with the Corda instances.
-> * protocol - needs to be set to TCP for every rule.
-> * port - used by peers and clients to communicate with the Corda instances.
-> * backend port - target port for traffic redirection. Set to the same value as the previous port.
-> * backend pool - an Azure specific resource that represents the address pool of the VMs hosting the Corda instances.
-> * health probe - the probe name used to determine the target VM for incoming traffic.
-> * session persistence - mode in which requests are handled. Set to **None** to specify that successive
-> request from the same client can be received by any VM for the duration of the session.
+
+
+* name - simple identifier.
+* ip version - depending on how the resources have been created and configured, it can be IPv4 or IPv6.
+* frontend ip address - the address used by peers and clients to communicate with the Corda instances.
+* protocol - needs to be set to TCP for every rule.
+* port - used by peers and clients to communicate with the Corda instances.
+* backend port - target port for traffic redirection. Set to the same value as the previous port.
+* backend pool - an Azure specific resource that represents the address pool of the VMs hosting the Corda instances.
+* health probe - the probe name used to determine the target VM for incoming traffic.
+* session persistence - mode in which requests are handled. Set to **None** to specify that successive
+request from the same client can be received by any VM for the duration of the session.
 
 
 Using the health probe example, a possible load balancer configuration would be:
@@ -141,34 +141,34 @@ to create the rules and checks as separate resources.
 
 When creating an AWS classic load balancer, the following configuration properties need to be set:
 
-> 
-> 
-> * Load Balancer name - simple identifier.
-> * Create LB inside - set it to the network containing the EC2 VMs hosting the Corda instances
-> * Create an internal load balancer - not chosen as it has to be external (internet facing)
-> * Enable advanced VPC configuration - depends on what option is chosen for **Create LB inside**
-> * 
->     * Load Balancer Protocol - protocol for incoming traffic
->     * Load Balancer Port - used by peers and clients to communicate with the Corda instances
->     * Instance Protocol - protocol for redirected traffic. Set to the same value as the previous protocol.
->     * Instance Port - target port for traffic redirection. Set to the same value as the previous port.
-> 
-> 
-> * Security groups - used to control visibility and access of the load balancer in the network and outside.
-> * Health check - mechanism used to determine to which EC2 instance the traffic will be directed. Only one health check
-> per balancer.> 
-> > 
-> >     * Ping Protocol - determines what kind of packets are used to assess the health of the EC2s behind the balancer. Use
-> > TCP for the P2P and RPC probes, HTTP for the web traffic probes.
-> >     * Ping Port - the port being checked.
-> >     * Ping Path - in case of the HTTP protocol, it has to be set to “/”. Leave empty for the TCP checks.
-> >     * Timeout - the amount of time in seconds before a check waits for a response.
-> >     * Interval - the amount of time in seconds between check attempts.
-> >     * Unhealthy threshold - number of failed checks that signal an EC2 instance is unusable
-> >     * Healthy threshold - number of consecutive checks before an EC2 instance is considered usable
-> 
-> 
-> 
+
+
+* Load Balancer name - simple identifier.
+* Create LB inside - set it to the network containing the EC2 VMs hosting the Corda instances
+* Create an internal load balancer - not chosen as it has to be external (internet facing)
+* Enable advanced VPC configuration - depends on what option is chosen for **Create LB inside**
+* 
+    * Load Balancer Protocol - protocol for incoming traffic
+    * Load Balancer Port - used by peers and clients to communicate with the Corda instances
+    * Instance Protocol - protocol for redirected traffic. Set to the same value as the previous protocol.
+    * Instance Port - target port for traffic redirection. Set to the same value as the previous port.
+
+
+* Security groups - used to control visibility and access of the load balancer in the network and outside.
+* Health check - mechanism used to determine to which EC2 instance the traffic will be directed. Only one health check
+per balancer.> 
+
+    * Ping Protocol - determines what kind of packets are used to assess the health of the EC2s behind the balancer. Use
+TCP for the P2P and RPC probes, HTTP for the web traffic probes.
+    * Ping Port - the port being checked.
+    * Ping Path - in case of the HTTP protocol, it has to be set to “/”. Leave empty for the TCP checks.
+    * Timeout - the amount of time in seconds before a check waits for a response.
+    * Interval - the amount of time in seconds between check attempts.
+    * Unhealthy threshold - number of failed checks that signal an EC2 instance is unusable
+    * Healthy threshold - number of consecutive checks before an EC2 instance is considered usable
+
+
+
 
 
 After creating a load balancer for each traffic type, the configuration should look like this:
@@ -201,15 +201,15 @@ In order to create one, please follow the guide found [here](https://docs.micros
 
 The following are the properties that can be set during creation:
 
-> 
-> 
-> * Deployment model - set to **Resource manager**.
-> * Account kind - set to **General purpose** as Artemis can’t work with **Blobs**.
-> * Performance - drive access speeds. The **Standard (HDD)** offers speeds around 14-16 MB/s. **Premium (SSD)** is
-> superior (no performance values found). Both options are sufficient for the purpose of this storage account.
-> * Replication type - can be any of **LRS**, **ZRS** or **GRS**.
-> * Secure transfer - disabled or enabled. See note below.
-> * Location - chosen based on requirements. Some of the above options are not available for all location.
+
+
+* Deployment model - set to **Resource manager**.
+* Account kind - set to **General purpose** as Artemis can’t work with **Blobs**.
+* Performance - drive access speeds. The **Standard (HDD)** offers speeds around 14-16 MB/s. **Premium (SSD)** is
+superior (no performance values found). Both options are sufficient for the purpose of this storage account.
+* Replication type - can be any of **LRS**, **ZRS** or **GRS**.
+* Secure transfer - disabled or enabled. See note below.
+* Location - chosen based on requirements. Some of the above options are not available for all location.
 
 
 {{< note >}}
@@ -224,11 +224,11 @@ of this file share. The newly created file share needs to be mounted and linked 
 base directory of both primary and back-up VMs. To facilitate operations, a persistent mount point can be created using
 **/etc/fstab**:
 
-> 
-> 
-> * required: **storage account name**, **storage account key** (choose one of the 2 found in Your_storage → Settings → Access keys) and the **file share name**
-> * persist the mount point by using the following command, replacing the placeholders in angle brackets with the
-> appropriate values:
+
+
+* required: **storage account name**, **storage account key** (choose one of the 2 found in Your_storage → Settings → Access keys) and the **file share name**
+* persist the mount point by using the following command, replacing the placeholders in angle brackets with the
+appropriate values:
 
 
 In the above command, **mymountpoint** represents the location on the VM’s file system where the mount point will be created.
@@ -273,11 +273,11 @@ For instructions on how to do so, please see [Deploying a node](deploying-a-node
 The following files and directories need to be copied from the primary instance to the back-up instance as well as any
 cordapps and jars that exist:
 
-> 
-> 
-> * ./certificates/
-> * ./additional-node-infos/
-> * network-parameters
+
+
+* ./certificates/
+* ./additional-node-infos/
+* network-parameters
 
 
 

@@ -31,7 +31,7 @@ The tool is distributed in the form of runnable JAR file: “corda-tools-explore
 ## Running the UI
 
 ```kotlin
-> java -jar corda-tools-explorer-4.4.jar
+java -jar corda-tools-explorer-4.4.jar
 ```
 
 
@@ -47,13 +47,13 @@ All other CorDapps present on the node must be copied to a `cordapps` directory 
 Node Explorer is included with the [DemoBench](demobench.md) application, which allows
 you to create local Corda networks on your desktop. For example:
 
->
->
-> * Notary
-> * Bank of Breakfast Tea    (*Issuer node* for GBP)
-> * Bank of Big Apples       (*Issuer node* for USD)
-> * Alice                    (*Participant node*, for user Alice)
-> * Bob                      (*Participant node*, for user Bob)
+
+
+* Notary
+* Bank of Breakfast Tea    (*Issuer node* for GBP)
+* Bank of Big Apples       (*Issuer node* for USD)
+* Alice                    (*Participant node*, for user Alice)
+* Bob                      (*Participant node*, for user Bob)
 
 
 DemoBench will deploy all nodes with Corda’s Finance CorDapp automatically, and

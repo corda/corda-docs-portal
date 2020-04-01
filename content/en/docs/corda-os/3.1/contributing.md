@@ -66,13 +66,13 @@ instructions [here](building-against-master.md).
 
 * Create a pull request from your fork to the master branch of the Corda repo
 * Complete the pull-request checklist in the comments box:> 
-> 
-> * State that you have run the tests
-> * State that you have included JavaDocs for any new public APIs
-> * State that you have included the change in the [changelog](changelog.md) and
-> [release notes](release-notes.md) where applicable
-> * State that you are in agreement with the terms of
-> [CONTRIBUTING.md](https://github.com/corda/corda/blob/master/CONTRIBUTING.md)
+
+* State that you have run the tests
+* State that you have included JavaDocs for any new public APIs
+* State that you have included the change in the [changelog](changelog.md) and
+[release notes](release-notes.md) where applicable
+* State that you are in agreement with the terms of
+[CONTRIBUTING.md](https://github.com/corda/corda/blob/master/CONTRIBUTING.md)
 
 
 

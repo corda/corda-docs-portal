@@ -238,21 +238,21 @@ notaries: if a notary cluster member dies while processing a notarisation reques
 restarted. On restart the request is resent to a different notary cluster member in a round-robin fashion. Note that the flow will
 keep retrying forever.
 
-> 
-> 
-> * **timeout**: 
-> The initial flow timeout period, e.g. *30 seconds*.
-> 
-> 
-> * **maxRestartCount**: 
-> The number of retries the back-off time keeps growing for. For subsequent retries, the timeout value will remain
-> constant.
-> 
-> 
-> * **backoffBase**: 
-> The base of the exponential backoff, *t_{wait} = timeout * backoffBase^{retryCount}*.
-> 
-> 
+
+
+* **timeout**: 
+The initial flow timeout period, e.g. *30 seconds*.
+
+
+* **maxRestartCount**: 
+The number of retries the back-off time keeps growing for. For subsequent retries, the timeout value will remain
+constant.
+
+
+* **backoffBase**: 
+The base of the exponential backoff, *t_{wait} = timeout * backoffBase^{retryCount}*.
+
+
 
 
 
@@ -483,33 +483,33 @@ The port to start SSH server on e.g. `sshd { port = 2222 }`.
 If provided, the node will attempt to tunnel inbound connections via an external relay. The relay’s address will be
 advertised to the network map service instead of the provided `p2pAddress`.
 
-> 
-> 
-> * **relayHost**: 
-> Hostname of the relay machine
-> 
-> 
-> * **remoteInboundPort**: 
-> A port on the relay machine that accepts incoming TCP connections. Traffic will be forwarded
-> from this port to the local port specified in `p2pAddress`.
-> 
-> 
-> * **username**: 
-> Username for establishing a SSH connection with the relay.
-> 
-> 
-> * **privateKeyFile**: 
-> Path to the private key file for SSH authentication. The private key must not have a passphrase.
-> 
-> 
-> * **publicKeyFile**: 
-> Path to the public key file for SSH authentication.
-> 
-> 
-> * **sshPort**: 
-> Port to be used for SSH connection, default `22`.
-> 
-> 
+
+
+* **relayHost**: 
+Hostname of the relay machine
+
+
+* **remoteInboundPort**: 
+A port on the relay machine that accepts incoming TCP connections. Traffic will be forwarded
+from this port to the local port specified in `p2pAddress`.
+
+
+* **username**: 
+Username for establishing a SSH connection with the relay.
+
+
+* **privateKeyFile**: 
+Path to the private key file for SSH authentication. The private key must not have a passphrase.
+
+
+* **publicKeyFile**: 
+Path to the public key file for SSH authentication.
+
+
+* **sshPort**: 
+Port to be used for SSH connection, default `22`.
+
+
 
 
 
@@ -747,19 +747,21 @@ R3 provides an endpoint serving an empty certificate revocation list for the TLS
 This is intended for deployments that do not provide a CRL infrastructure but still require a strict CRL mode checking.
 In such a case use the following URL in *tlsCertCrlDistPoint* option configuration:
 
-> 
-> ```kotlin
-> "https://crl.cordaconnect.org/cordatls.crl"
-> ```
-> 
+
+```kotlin
+"https://crl.cordaconnect.org/cordatls.crl"
+```
+
+
 
 Together with the above configuration *tlsCertCrlIssuer* option needs to be set to the following value:
 
-> 
-> ```kotlin
-> "C=US, L=New York, O=R3 HoldCo LLC, OU=Corda, CN=Corda Root CA"
-> ```
-> 
+
+```kotlin
+"C=US, L=New York, O=R3 HoldCo LLC, OU=Corda, CN=Corda Root CA"
+```
+
+
 
 This set-up ensures that the TLS-level certificates are embedded with the CRL distribution point referencing the CRL issued by R3.
 In cases where a proprietary CRL infrastructure is provided those values need to be changed accordingly.

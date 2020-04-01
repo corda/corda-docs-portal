@@ -405,42 +405,45 @@ The following is an example of how to set up a Squid Proxy Server and start the 
 * Prerequisite is a VM 2 CPU Core & 2 GB RAM running Ubuntu 18.x.
 * ssh into the VM where you want to install the Proxy Server and run the following:
 
->
-> ```shell
-> sudo apt update
-> sudo apt -y install squid
-> ```
->
+
+```shell
+sudo apt update
+sudo apt -y install squid
+```
+
+
 
 
 * Edit `/etc/squid/squid.conf` and add the following entries:
 
->
-> ```javascript
-> acl SSL_ports port 443
-> acl Safe_ports port 8080
-> acl CONNECT method CONNECT
-> http_access allow all
-> http_port 8080
-> refresh_pattern ^ftp:           1440    20%     10080
-> refresh_pattern ^gopher:        1440    0%      1440
-> refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
-> refresh_pattern (Release|Packages(.gz)*)$      0       20%     2880
-> refresh_pattern .               0       20%     4320
-> debug_options ALL,3
-> ```
-> {{/* github src='docs/source/resources/squidconfig.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidconfig.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/squidconfig.conf' start='' end='' */}}[squidconfig.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidconfig.conf)
+
+```javascript
+acl SSL_ports port 443
+acl Safe_ports port 8080
+acl CONNECT method CONNECT
+http_access allow all
+http_port 8080
+refresh_pattern ^ftp:           1440    20%     10080
+refresh_pattern ^gopher:        1440    0%      1440
+refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
+refresh_pattern (Release|Packages(.gz)*)$      0       20%     2880
+refresh_pattern .               0       20%     4320
+debug_options ALL,3
+```
+
+{{/* github src='docs/source/resources/squidconfig.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidconfig.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/squidconfig.conf' start='' end='' */}}[squidconfig.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/squidconfig.conf)
 
 
 * Once Squid is successfully installed run:
 
->
-> ```shell
-> sudo systemctl start squid
-> sudo systemctl enable squid
-> sudo systemctl status squid
-> ```
->
+
+```shell
+sudo systemctl start squid
+sudo systemctl enable squid
+sudo systemctl status squid
+```
+
+
 
 
 * If Squid starts successfully you will see an output similar to this:
@@ -474,19 +477,20 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 
 * At this point you can ssh to the VM where the Corda Node is installed and run the following command:
 
->
-> `java -Dhttps.proxyHost=your-firewall-proxy -Dhttps.proxyPort=8080 -jar corda.jar`
+
+`java -Dhttps.proxyHost=your-firewall-proxy -Dhttps.proxyPort=8080 -jar corda.jar`
 
 
 
 * If the Corda Node starts up successfully you can then check `/var/log/squid/access.log` and you should see output as follows:
 
->
-> ```javascript
-> 1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.141 -
->
-> ```
-> {{/* github src='docs/source/resources/access.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/access.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/access.conf' start='' end='' */}}[access.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/access.conf)
+
+```javascript
+1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.141 -
+
+```
+
+{{/* github src='docs/source/resources/access.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/access.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.4/docs/source/resources/access.conf' start='' end='' */}}[access.conf](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/resources/access.conf)
 
 
 ## Using Socks Proxy with Corda Bridge

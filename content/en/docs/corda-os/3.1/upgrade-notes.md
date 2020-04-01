@@ -120,20 +120,21 @@ in the superclass, but that makes it impossible to properly configure the table 
     * Add JPA mappings
 
 For example:> 
-> ```kotlin
-> @Entity
-> @Table(name = "cash_states_v2",
->         indexes = arrayOf(Index(name = "ccy_code_idx2", columnList = "ccy_code")))
-> class PersistentCashState(
-> 
->         @ElementCollection
->         @Column(name = "participants")
->         @CollectionTable(name="cash_states_v2_participants", joinColumns = arrayOf(
->                 JoinColumn(name = "output_index", referencedColumnName = "output_index"),
->                 JoinColumn(name = "transaction_id", referencedColumnName = "transaction_id")))
->         override var participants: MutableSet<AbstractParty>? = null,
-> ```
-> 
+```kotlin
+@Entity
+@Table(name = "cash_states_v2",
+        indexes = arrayOf(Index(name = "ccy_code_idx2", columnList = "ccy_code")))
+class PersistentCashState(
+
+        @ElementCollection
+        @Column(name = "participants")
+        @CollectionTable(name="cash_states_v2_participants", joinColumns = arrayOf(
+                JoinColumn(name = "output_index", referencedColumnName = "output_index"),
+                JoinColumn(name = "transaction_id", referencedColumnName = "transaction_id")))
+        override var participants: MutableSet<AbstractParty>? = null,
+```
+
+
 
 
 
@@ -144,21 +145,21 @@ Whilst the enablement of AMQP is a transparent change, as noted in the [Object s
 the way classes, and states in particular, should be written to work with this new library may require some
 alteration to your current implementation.
 
-> 
-> 
-> * With AMQP enabled Java classes must be compiled with the -parameter flag.
->     * If they aren’t, then the error message will complain about `arg<N>` being an unknown parameter.
->     * If recompilation is not viable, a custom serializer can be written as per [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md)
->     * It is important to bear in mind that with AMQP there must be an implicit mapping between constructor
-> parameters and properties you wish included in the serialized form of a class.
->         * See [Object serialization](serialization.md) for more information
-> 
-> 
-> 
-> 
-> * Error messages of the form`Constructor parameter - "<some parameter of a constructor>" - doesn't refer to a property of "class <some.class.being.serialized>"`indicate that a class, in the above example `some.class.being.serialized`, has a parameter on its primary constructor that
-> doesn’t correlate to a property of the class. This is a problem because the Corda AMQP serialization library uses a class’s
-> constructor (default, primary, or annotated) as the means by which instances of the serialized form are reconstituted.See the section “Mismatched Class Properties / Constructor Parameters” in the [Object serialization](serialization.md) documentation
+
+
+* With AMQP enabled Java classes must be compiled with the -parameter flag.
+    * If they aren’t, then the error message will complain about `arg<N>` being an unknown parameter.
+    * If recompilation is not viable, a custom serializer can be written as per [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md)
+    * It is important to bear in mind that with AMQP there must be an implicit mapping between constructor
+parameters and properties you wish included in the serialized form of a class.
+        * See [Object serialization](serialization.md) for more information
+
+
+
+
+* Error messages of the form`Constructor parameter - "<some parameter of a constructor>" - doesn't refer to a property of "class <some.class.being.serialized>"`indicate that a class, in the above example `some.class.being.serialized`, has a parameter on its primary constructor that
+doesn’t correlate to a property of the class. This is a problem because the Corda AMQP serialization library uses a class’s
+constructor (default, primary, or annotated) as the means by which instances of the serialized form are reconstituted.See the section “Mismatched Class Properties / Constructor Parameters” in the [Object serialization](serialization.md) documentation
 
 
 
@@ -173,26 +174,28 @@ cannot be directly reused with Corda 3.0 due to minor improvements and additions
 Nodes that do not require SSL to be enabled for RPC clients now need an additional port to be specified as part of their configuration.
 To do this, add a block as follows to the nodes configuraiton:
 
-> 
-> ```script
-> rpcSettings {
->     adminAddress "localhost:10007"
-> }
-> ```
-> 
+
+```script
+rpcSettings {
+    adminAddress "localhost:10007"
+}
+```
+
+
 
 to *node.conf* files.
 
 Also, the property *rpcPort* is now deprecated, so it would be preferable to substitute properties specified that way e.g., *rpcPort=10006* with a block as follows:
 
-> 
-> ```script
-> rpcSettings {
->     address "localhost:10006"
->     adminAddress "localhost:10007"
-> }
-> ```
-> 
+
+```script
+rpcSettings {
+    address "localhost:10006"
+    adminAddress "localhost:10007"
+}
+```
+
+
 
 Equivalent changes should be performed on classes extending *CordformDefinition*.
 
@@ -246,11 +249,12 @@ to `node.transaction({() -> ... })`
 
 * You need to update the `corda_release_version` identifier in your project gradle file. The
 corda_gradle_plugins_version should remain at 1.0.0:> 
-> ```shell
-> ext.corda_release_version = '2.0.0'
-> ext.corda_gradle_plugins_version = '1.0.0'
-> ```
-> 
+```shell
+ext.corda_release_version = '2.0.0'
+ext.corda_gradle_plugins_version = '1.0.0'
+```
+
+
 
 
 
@@ -263,13 +267,14 @@ corda_gradle_plugins_version should remain at 1.0.0:>
 
 * MockNetwork has moved. To continue using `MockNetwork` for testing, you must add the following dependency to your
 `build.gradle` file:> 
-> ```shell
-> testCompile "net.corda:corda-node-driver:$corda_release_version"
-> ```
-> 
-> {{< note >}}
-> You may only need `testCompile "net.corda:corda-test-utils:$corda_release_version"` if not using the Driver
-> DSL{{< /note >}}
+```shell
+testCompile "net.corda:corda-node-driver:$corda_release_version"
+```
+
+
+{{< note >}}
+You may only need `testCompile "net.corda:corda-test-utils:$corda_release_version"` if not using the Driver
+DSL{{< /note >}}
 
 
 

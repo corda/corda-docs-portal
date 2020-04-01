@@ -20,9 +20,9 @@ This password is going to be used whenever a password is required unless it is s
 
 
 * **keyStores**: 
-> 
-> Specification of the key stores used by the PKI Tool. It is a map between the key store aliases and their
-> actual configurations.
+
+Specification of the key stores used by the PKI Tool. It is a map between the key store aliases and their
+actual configurations.
 
 
 
@@ -157,17 +157,17 @@ Role of the certificate. Allowed value is either `DOORMAN_CA` or `NETWORK_MAP` o
 * **keyUsages**: 
 Possible usages of the keys associated with the certificate (Optional). This is an array of values from the following set:
 
-> 
-> 
-> * `DIGITAL_SIGNATURE`,
-> * `NON_REPUDIATION`,
-> * `KEY_ENCIPHERMENT`,
-> * `DATA_ENCIPHERMENT`,
-> * `KEY_AGREEMENT`,
-> * `KEY_CERT_SIGN`,
-> * `CRL_SIGN`,
-> * `ENCIPHER_ONLY`,
-> * `DECIPHER_ONLY`
+
+
+* `DIGITAL_SIGNATURE`,
+* `NON_REPUDIATION`,
+* `KEY_ENCIPHERMENT`,
+* `DATA_ENCIPHERMENT`,
+* `KEY_AGREEMENT`,
+* `KEY_CERT_SIGN`,
+* `CRL_SIGN`,
+* `ENCIPHER_ONLY`,
+* `DECIPHER_ONLY`
 
 
 Default value: [`DIGITAL_SIGNATURE`, `KEY_CERT_SIGN`, `CRL_SIGN`].
@@ -177,28 +177,28 @@ Default value: [`DIGITAL_SIGNATURE`, `KEY_CERT_SIGN`, `CRL_SIGN`].
 Possible extended usages of the keys associated with the certificate (Optional).
 This is an array of values from the following set:
 
-> 
-> 
-> * `ANY_EXTENDED_KEY_USAGE`,
-> * `SERVER_AUTH`,
-> * `CLIENT_AUTH`,
-> * `CODE_SIGNING`,
-> * `EMAIL_PROTECTION`,
-> * `IPSEC_END_SYSTEM`,
-> * `IPSEC_TUNNEL`,
-> * `IPSEC_USER`,
-> * `IPSEC_TIME_STAMPING`,
-> * `OCSP_SIGNING`,
-> * `DVCS`,
-> * `SBGP_CERT_A_A_SERVER_AUTH`,
-> * `SCVP_RESPONDER`,
-> * `EAP_OVER_PPP`,
-> * `EAP_OVER_LAN`,
-> * `SCVP_SERVER`,
-> * `SCVP_CLIENT`,
-> * `IPSEC_IKE`,
-> * `CAPWAP_AC`,
-> * `CAPWAP_WTP`
+
+
+* `ANY_EXTENDED_KEY_USAGE`,
+* `SERVER_AUTH`,
+* `CLIENT_AUTH`,
+* `CODE_SIGNING`,
+* `EMAIL_PROTECTION`,
+* `IPSEC_END_SYSTEM`,
+* `IPSEC_TUNNEL`,
+* `IPSEC_USER`,
+* `IPSEC_TIME_STAMPING`,
+* `OCSP_SIGNING`,
+* `DVCS`,
+* `SBGP_CERT_A_A_SERVER_AUTH`,
+* `SCVP_RESPONDER`,
+* `EAP_OVER_PPP`,
+* `EAP_OVER_LAN`,
+* `SCVP_SERVER`,
+* `SCVP_CLIENT`,
+* `IPSEC_IKE`,
+* `CAPWAP_AC`,
+* `CAPWAP_WTP`
 
 
 Default value: [`SERVER_AUTH`, `CLIENT_AUTH`].
@@ -266,13 +266,13 @@ Certificate revocation time.
 * **reason**: 
 Reason for the certificate revocation. The allowed value is one of the following:
 
-> 
-> `KEY_COMPROMISE`,
-> `CA_COMPROMISE`,
-> `AFFILIATION_CHANGED`,
-> `SUPERSEDED`,
-> `CESSATION_OF_OPERATION`,
-> `PRIVILEGE_WITHDRAWN`
+
+`KEY_COMPROMISE`,
+`CA_COMPROMISE`,
+`AFFILIATION_CHANGED`,
+`SUPERSEDED`,
+`CESSATION_OF_OPERATION`,
+`PRIVILEGE_WITHDRAWN`
 
 
 
@@ -392,11 +392,11 @@ HSM username. This user needs to be allowed to generate keys/certificates and st
 * **mode**: 
 One of the 3 possible authentication modes:
 
-> 
-> 
-> * `PASSWORD` - User’s password as set-up in the HSM.
-> * `CARD_READER` - Smart card reader authentication.
-> * `KEY_FILE` - Key file based authentication.
+
+
+* `PASSWORD` - User’s password as set-up in the HSM.
+* `CARD_READER` - Smart card reader authentication.
+* `KEY_FILE` - Key file based authentication.
 
 
 

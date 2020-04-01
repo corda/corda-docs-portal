@@ -47,14 +47,15 @@ A Corda node can create and update the database schema upon startup.
 A Corda node requires *administrative* permissions to execute this strategy.
 To allow the node to auto create/upgrade schema add `runMigration` option in `node.conf`:
 
-> 
-> ```groovy
-> database {
->     runMigration = true
->     # ...
-> }
-> ```
-> 
+
+```groovy
+database {
+    runMigration = true
+    # ...
+}
+```
+
+
 
 Each time a Corda node is upgraded to a new release, it updates the schema upon startup automatically.
 For new or upgraded CorDapps, the node needs to be restarted to apply any schema changes related to a Cordapps custom tables.
@@ -65,12 +66,12 @@ For new or upgraded CorDapps, the node needs to be restarted to apply any schema
 
 [Corda Database Management Tool](database-management.md#database-management-tool-ref) can connect directly to a database to create/update the schema.
 
-> 
-> {{< note >}}
-> Database Management Tool creates/upgrades a single database schema only.
-> The setup process needs to be repeated for each node with respective database credentials and node config.
-> 
-> {{< /note >}}
+
+{{< note >}}
+Database Management Tool creates/upgrades a single database schema only.
+The setup process needs to be repeated for each node with respective database credentials and node config.
+
+{{< /note >}}
 
 
 The easiest way to you use the tool is to provide access to a Corda node base directory, so it can reuse
@@ -79,34 +80,35 @@ You can also supply your own configuration file e.g. when the tool is run from w
 and there’s no access to a Corda node installation directory.
 The file needs to have the following configuration entries, any surplus options are ignored:
 
-> 
-> ```none
-> myLegalName = <Node legal name>
-> dataSourceProperties = {
->     dataSourceClassName = <JDBC Data Source class name>
->     dataSource.url = <JDBC database URL>
->     dataSource.user = <Database user>
->     dataSource.password = <Database password>
-> }
-> database = {
->     transactionIsolationLevel = <Transaction isolation level>
->     schema = <Database schema name>
-> }
-> ```
-> 
+
+```none
+myLegalName = <Node legal name>
+dataSourceProperties = {
+    dataSourceClassName = <JDBC Data Source class name>
+    dataSource.url = <JDBC database URL>
+    dataSource.user = <Database user>
+    dataSource.password = <Database password>
+}
+database = {
+    transactionIsolationLevel = <Transaction isolation level>
+    schema = <Database schema name>
+}
+```
+
+
 
 Refer to [Node Configuration](node-database.md#db-setup-vendors-ref) for your database specific options.
 
-> 
-> 
-> {{< warning >}}
-> Applying schema changes for some Corda releases (e.g. Corda 4.0) requires data rows migration.
-> For such migration `myLegalName` must exactly match the node name which is using the given database schema.
-> Any misconfiguration may cause data rows migration to be wrongly applied without any error.
-> 
-> {{< /warning >}}
-> 
-> 
+
+
+{{< warning >}}
+Applying schema changes for some Corda releases (e.g. Corda 4.0) requires data rows migration.
+For such migration `myLegalName` must exactly match the node name which is using the given database schema.
+Any misconfiguration may cause data rows migration to be wrongly applied without any error.
+
+{{< /warning >}}
+
+
 
 The JDBC driver needs to be added to the *drivers* subdirectory.
 If you are providing separate directory for the tool ensure to
@@ -116,11 +118,12 @@ A given Corda release may require to put any used CorDapps *cordapps* subdirecto
 
 Ensure the Corda node using the schema to be upgraded is shut down before running the tool.
 
-> 
-> ```shell
-> java -jar tools-database-manager-RELEASE-VERSION.jar execute-migration -b .
-> ```
-> 
+
+```shell
+java -jar tools-database-manager-RELEASE-VERSION.jar execute-migration -b .
+```
+
+
 
 The option `-b` denotes the directory containing the *node.conf* file
 and both subdirectories *drivers* and *cordapps*.
@@ -137,13 +140,13 @@ This is the most controlled way to create a database schema and allows to audit 
 ([Data Definition Language](https://en.wikipedia.org/wiki/Data_definition_language) scripts)
 before executing it on a database.
 
-> 
-> {{< note >}}
-> Database tool can create/upgrade a single database schema only.
-> The setup process needs to be repeated for each node with respective
-> database credentials and node config.
-> 
-> {{< /note >}}
+
+{{< note >}}
+Database tool can create/upgrade a single database schema only.
+The setup process needs to be repeated for each node with respective
+database credentials and node config.
+
+{{< /note >}}
 
 
 ### 1. Essential preparation before the first installation
@@ -162,93 +165,96 @@ Replace schema namespace *my_schema* with the schema used by a Corda node.
 
 Script for Azure SQL and SQL Server:
 
-> 
-> ```sql
-> CREATE TABLE my_schema.DATABASECHANGELOG (
-> ID nvarchar(255) NOT NULL,
-> AUTHOR nvarchar(255) NOT NULL,
-> FILENAME nvarchar(255) NOT NULL,
-> DATEEXECUTED datetime2(3) NOT NULL,
-> ORDEREXECUTED int NOT NULL,
-> EXECTYPE nvarchar(10) NOT NULL,
-> MD5SUM nvarchar(35) NULL,
-> DESCRIPTION nvarchar(255) NULL,
-> COMMENTS nvarchar(255) NULL,
-> TAG nvarchar(255) NULL,
-> LIQUIBASE nvarchar(20) NULL,
-> CONTEXTS nvarchar(255) NULL,
-> LABELS nvarchar(255) NULL,
-> DEPLOYMENT_ID nvarchar(10) NULL
-> );
-> CREATE TABLE my_schema.DATABASECHANGELOGLOCK (
-> ID int NOT NULL,
-> LOCKED bit NOT NULL,
-> LOCKGRANTED datetime2(3) NULL,
-> LOCKEDBY nvarchar(255) NULL,
-> CONSTRAINT PK_DATABASECHANGELOGLOCK PRIMARY KEY (ID)
-> );
-> ```
-> 
+
+```sql
+CREATE TABLE my_schema.DATABASECHANGELOG (
+ID nvarchar(255) NOT NULL,
+AUTHOR nvarchar(255) NOT NULL,
+FILENAME nvarchar(255) NOT NULL,
+DATEEXECUTED datetime2(3) NOT NULL,
+ORDEREXECUTED int NOT NULL,
+EXECTYPE nvarchar(10) NOT NULL,
+MD5SUM nvarchar(35) NULL,
+DESCRIPTION nvarchar(255) NULL,
+COMMENTS nvarchar(255) NULL,
+TAG nvarchar(255) NULL,
+LIQUIBASE nvarchar(20) NULL,
+CONTEXTS nvarchar(255) NULL,
+LABELS nvarchar(255) NULL,
+DEPLOYMENT_ID nvarchar(10) NULL
+);
+CREATE TABLE my_schema.DATABASECHANGELOGLOCK (
+ID int NOT NULL,
+LOCKED bit NOT NULL,
+LOCKGRANTED datetime2(3) NULL,
+LOCKEDBY nvarchar(255) NULL,
+CONSTRAINT PK_DATABASECHANGELOGLOCK PRIMARY KEY (ID)
+);
+```
+
+
 
 Script for Oracle, change the *users* tablespace if necessary:
 
-> 
-> ```sql
-> CREATE TABLE my_user."DATABASECHANGELOG" (
-> "ID" VARCHAR2(255) NOT NULL ENABLE,
->     "AUTHOR" VARCHAR2(255) NOT NULL ENABLE,
->     "FILENAME" VARCHAR2(255) NOT NULL ENABLE,
->     "DATEEXECUTED" TIMESTAMP (6) NOT NULL ENABLE,
->     "ORDEREXECUTED" NUMBER(*,0) NOT NULL ENABLE,
->     "EXECTYPE" VARCHAR2(10) NOT NULL ENABLE,
->     "MD5SUM" VARCHAR2(35),
->     "DESCRIPTION" VARCHAR2(255),
->     "COMMENTS" VARCHAR2(255),
->     "TAG" VARCHAR2(255),
->     "LIQUIBASE" VARCHAR2(20),
->     "CONTEXTS" VARCHAR2(255),
->     "LABELS" VARCHAR2(255),
->     "DEPLOYMENT_ID" VARCHAR2(10)
-> ) TABLESPACE users;
-> CREATE TABLE my_user."DATABASECHANGELOGLOCK" (
-> "ID" NUMBER(*,0) NOT NULL ENABLE,
->     "LOCKED" NUMBER(1,0) NOT NULL ENABLE,
->     "LOCKGRANTED" TIMESTAMP (6),
->     "LOCKEDBY" VARCHAR2(255),
->     CONSTRAINT "PK_DATABASECHANGELOGLOCK" PRIMARY KEY ("ID")
-> ) TABLESPACE users;
-> ```
-> 
+
+```sql
+CREATE TABLE my_user."DATABASECHANGELOG" (
+"ID" VARCHAR2(255) NOT NULL ENABLE,
+    "AUTHOR" VARCHAR2(255) NOT NULL ENABLE,
+    "FILENAME" VARCHAR2(255) NOT NULL ENABLE,
+    "DATEEXECUTED" TIMESTAMP (6) NOT NULL ENABLE,
+    "ORDEREXECUTED" NUMBER(*,0) NOT NULL ENABLE,
+    "EXECTYPE" VARCHAR2(10) NOT NULL ENABLE,
+    "MD5SUM" VARCHAR2(35),
+    "DESCRIPTION" VARCHAR2(255),
+    "COMMENTS" VARCHAR2(255),
+    "TAG" VARCHAR2(255),
+    "LIQUIBASE" VARCHAR2(20),
+    "CONTEXTS" VARCHAR2(255),
+    "LABELS" VARCHAR2(255),
+    "DEPLOYMENT_ID" VARCHAR2(10)
+) TABLESPACE users;
+CREATE TABLE my_user."DATABASECHANGELOGLOCK" (
+"ID" NUMBER(*,0) NOT NULL ENABLE,
+    "LOCKED" NUMBER(1,0) NOT NULL ENABLE,
+    "LOCKGRANTED" TIMESTAMP (6),
+    "LOCKEDBY" VARCHAR2(255),
+    CONSTRAINT "PK_DATABASECHANGELOGLOCK" PRIMARY KEY ("ID")
+) TABLESPACE users;
+```
+
+
 
 Script for PostgreSQL:
 
-> 
-> ```sql
-> CREATE TABLE "my_schema".databasechangelog (
-> id varchar(255) NOT NULL,
->     author varchar(255) NOT NULL,
->     filename varchar(255) NOT NULL,
->     dateexecuted timestamp NOT NULL,
->     orderexecuted int4 NOT NULL,
->     exectype varchar(10) NOT NULL,
->     md5sum varchar(35) NULL,
->     description varchar(255) NULL,
->     comments varchar(255) NULL,
->     tag varchar(255) NULL,
->     liquibase varchar(20) NULL,
->     contexts varchar(255) NULL,
->     labels varchar(255) NULL,
->     deployment_id varchar(10) NULL
-> );
-> CREATE TABLE "my_schema".databasechangeloglock (
->     id int4 NOT NULL,
->     locked bool NOT NULL,
->     lockgranted timestamp NULL,
->     lockedby varchar(255) NULL,
->     CONSTRAINT pk_databasechangeloglock PRIMARY KEY (id)
-> );
-> ```
-> 
+
+```sql
+CREATE TABLE "my_schema".databasechangelog (
+id varchar(255) NOT NULL,
+    author varchar(255) NOT NULL,
+    filename varchar(255) NOT NULL,
+    dateexecuted timestamp NOT NULL,
+    orderexecuted int4 NOT NULL,
+    exectype varchar(10) NOT NULL,
+    md5sum varchar(35) NULL,
+    description varchar(255) NULL,
+    comments varchar(255) NULL,
+    tag varchar(255) NULL,
+    liquibase varchar(20) NULL,
+    contexts varchar(255) NULL,
+    labels varchar(255) NULL,
+    deployment_id varchar(10) NULL
+);
+CREATE TABLE "my_schema".databasechangeloglock (
+    id int4 NOT NULL,
+    locked bool NOT NULL,
+    lockgranted timestamp NULL,
+    lockedby varchar(255) NULL,
+    CONSTRAINT pk_databasechangeloglock PRIMARY KEY (id)
+);
+```
+
+
 
 
 ### 2. Extract DDL script using Database Management Tool
@@ -272,11 +278,12 @@ It is recommended you do not use floating point types as fields on Persistent St
 
 After configuring the tool run:
 
-> 
-> ```shell
-> java -jar tools-database-manager-RELEASE-VERSION.jar dry-run -b .
-> ```
-> 
+
+```shell
+java -jar tools-database-manager-RELEASE-VERSION.jar dry-run -b .
+```
+
+
 
 The option `-b` points to the directory contains the `node.conf` file
 and both subdirectories *drivers* and *cordapps*.
@@ -332,17 +339,17 @@ This option is required for running this step.
 Ensure that the correct value is set for correct database connection settings
 (e.g. while upgrading database for the node *O=PartyA,L=London,C=GB*, assign the same value to *myLegalName*).
 
-> 
-> 
-> {{< warning >}}
-> Any `node.conf` misconfiguration may cause data rows migration to be wrongly applied without any error.
-> Ensure `myLegalName` must exactly match the node name which is using the given database schema,
-> especially if you use own supplied `node.conf` file.
-> The safest way is to use the configuration file of a node.
-> 
-> {{< /warning >}}
-> 
-> 
+
+
+{{< warning >}}
+Any `node.conf` misconfiguration may cause data rows migration to be wrongly applied without any error.
+Ensure `myLegalName` must exactly match the node name which is using the given database schema,
+especially if you use own supplied `node.conf` file.
+The safest way is to use the configuration file of a node.
+
+{{< /warning >}}
+
+
 
 The tool should have access to the same Cordapps which are used by the node.
 If you are not reusing an existing node directory,
@@ -351,11 +358,12 @@ copy all Cordapps from a node to the *cordapss* subdirectory of the tool base di
 Ensure the Corda node using the schema to be upgraded is shut down before running the script.
 To run the remaining data migration execute command:
 
-> 
-> ```shell
-> java -jar tools-database-manager-4.0-RC03.jar execute-migration -b .
-> ```
-> 
+
+```shell
+java -jar tools-database-manager-4.0-RC03.jar execute-migration -b .
+```
+
+
 
 
 #### Allow a node to apply the remaining data upgrade
@@ -367,14 +375,15 @@ All is needed for this configure a Corda node in the same ways as for
 [Corda node creates or updates database schema upon startup](#db-setup-auto-upgrade-ref)
 - add `runMigration = true` option in `node.conf` file:
 
-> 
-> ```none
-> database {
->     runMigration = true
->     # ...
-> }
-> ```
-> 
+
+```none
+database {
+    runMigration = true
+    # ...
+}
+```
+
+
 
 Upon the node startup the node will perform the remaining data upgrades.
 

@@ -44,7 +44,9 @@ couple of resources.
 
 
 * Log into your Cloud VM via SSH.
-* Stop the Corda node(s) running on your cloud instance.```bash
+* Stop the Corda node(s) running on your cloud instance.
+
+```bash
 sudo systemctl stop corda
 ```
 
@@ -54,43 +56,57 @@ If this is an HA node, make sure to stop both the hot and cold nodes before proc
 
 
 
-* Download the Resources:Download the finance CorDapp and database manager to your VM instance:```bash
+* Download the Resources:Download the finance CorDapp and database manager to your VM instance:
+
+```bash
 wget https://ci-artifactory.corda.r3cev.com/artifactory/downloads/cordapps/finance/ent/corda-finance-3.3.jar \
      https://ci-artifactory.corda.r3cev.com/artifactory/downloads/cordapps/finance/ent/corda-finance-3.3-sources.jar \
      https://ci-artifactory.corda.r3cev.com/artifactory/downloads/tools/database-manager/ent/corda-tools-database-manager-3.3.jar
 ```
 
-Copy the downloads from `/home/<USER>/` to `/opt/corda/cordapps/`.This is required to run some flows to check your connections, and to issue/transfer cash to counterparties.```bash
+Copy the downloads from `/home/<USER>/` to `/opt/corda/cordapps/`.This is required to run some flows to check your connections, and to issue/transfer cash to counterparties.
+
+```bash
 sudo cp /home/<USER>/corda-finance-*.jar /opt/corda/cordapps/
 ```
 
 
-* Create a symbolic link to the shared database driver folder```bash
+* Create a symbolic link to the shared database driver folder
+
+```bash
 sudo ln -s /opt/corda/drivers /opt/corda/plugins
 ```
 
 
-* Execute the database migration. This is required so that the node database has the right schema for finance transactions defined in the installed CorDapp.```bash
+* Execute the database migration. This is required so that the node database has the right schema for finance transactions defined in the installed CorDapp.
+
+```bash
 cd /opt/corda
 sudo java -jar /home/<USER>/corda-tools-database-manager-3.3.jar --base-directory /opt/corda --execute-migration
 ```
 
 
-* Add the following line to the bottom of your `node.conf`:```bash
+* Add the following line to the bottom of your `node.conf`:
+
+```bash
 custom : { issuableCurrencies : [ USD ] }
 ```
 
 {{< note >}}
 Make sure that the config file is in the correct format, e.g., by ensuring that there’s a comma at the end of the line prior to the added config.{{< /note >}}
 
-* Restart the Corda node:```bash
+* Restart the Corda node:
+
+```bash
 sudo systemctl start corda
 ```
 
 Your node is now running the Finance Cordapp.{{< note >}}
 You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs/node-<VM-NAME>.log`. This file will list installed apps at startup. Search for `Loaded CorDapps` in the logs.{{< /note >}}
 
-* Now download the Node Explorer to your **LOCAL** machine:```bash
+* Now download the Node Explorer to your **LOCAL** machine:
+
+```bash
 wget https://ci-artifactory.corda.r3cev.com/artifactory/downloads/tools/node-explorer/ent/corda-tools-explorer-3.3.jar
 ```
 
@@ -100,7 +116,9 @@ The Enterprise Node Explorer is incompatible with open source versions of Corda 
 
 
 
-* Run the Node Explorer tool on your **LOCAL** machine.```bash
+* Run the Node Explorer tool on your **LOCAL** machine.
+
+```bash
 java -jar corda-tools-explorer-3.3.jar
 ```
 

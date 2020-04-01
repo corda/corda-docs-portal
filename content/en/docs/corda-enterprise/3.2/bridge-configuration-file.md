@@ -219,13 +219,13 @@ Optionally, a password to present to the SOCKS5 Proxy. It is not valid for SOCKS
 * **inboundConfig**: 
 This section is used to configure the properties of the listening port. It is required for `SenderReceiver` and `FloatOuter` modes and must be absent for `BridgeInner` mode:
 
-> 
-> 
-> * **listeningAddress**: 
-> The host and port to bind to as `TLS 1.2/AMQP 1.0` listener. This may be a specific network interface on multi-homed machines.
-> It may also differ from the externally exposed public `p2pAddress` of the port if the firewalls, or load balancers transparently reroute the traffic.
-> 
-> 
+
+
+* **listeningAddress**: 
+The host and port to bind to as `TLS 1.2/AMQP 1.0` listener. This may be a specific network interface on multi-homed machines.
+It may also differ from the externally exposed public `p2pAddress` of the port if the firewalls, or load balancers transparently reroute the traffic.
+
+
 
 
 

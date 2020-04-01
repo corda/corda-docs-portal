@@ -30,11 +30,11 @@ grouped together. These functions can then be called from other services or flow
 
 To define a Service class:
 
->
->
-> * Add the `CordaService` annotation
-> * Add a constructor with a single parameter of `AppServiceHub`
-> * Extend `SingletonSerializeAsToken`
+
+
+* Add the `CordaService` annotation
+* Add a constructor with a single parameter of `AppServiceHub`
+* Extend `SingletonSerializeAsToken`
 
 
 Below is an empty implementation of a Service class:
@@ -149,12 +149,12 @@ needed or set after the flow’s `call` function has been triggered.
 Starting flows via a service can lead to deadlock within the node’s flow worker queue, which will prevent new flows from
 starting. To avoid this, the rules bellow should be followed:
 
->
->
-> * When called from a running flow, the service must invoke the new flow from another thread. The existing flow cannot await the
-> execution of the new flow.
-> * When `ServiceHub.trackBy` is placed inside the service, flows started inside the observable must be placed onto another thread.
-> * Flows started by other means, do not require any special treatment.
+
+
+* When called from a running flow, the service must invoke the new flow from another thread. The existing flow cannot await the
+execution of the new flow.
+* When `ServiceHub.trackBy` is placed inside the service, flows started inside the observable must be placed onto another thread.
+* Flows started by other means, do not require any special treatment.
 
 
 {{< note >}}

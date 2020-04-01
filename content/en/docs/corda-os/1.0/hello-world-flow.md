@@ -25,13 +25,13 @@ allow the node to handle new business processes. Our flow will allow a node to i
 
 Our flow needs to take the following steps for a borrower to issue a new IOU onto the ledger:
 
-> 
-> 
-> * Create a valid transaction proposal for the creation of a new IOU
-> * Verify the transaction
-> * Sign the transaction ourselves
-> * Record the transaction in our vault
-> * Send the transaction to the IOU’s lender so that they can record it too
+
+
+* Create a valid transaction proposal for the creation of a new IOU
+* Verify the transaction
+* Sign the transaction ourselves
+* Record the transaction in our vault
+* Send the transaction to the IOU’s lender so that they can record it too
 
 
 
@@ -232,8 +232,8 @@ which we can add inputs, outputs, commands, and any other items the transaction 
 Now that we have our `TransactionBuilder`, we need to add the desired items. Remember that we’re trying to build
 the following transaction:
 
-> 
-> ![simple tutorial transaction](resources/simple-tutorial-transaction.png "simple tutorial transaction")
+
+![simple tutorial transaction](resources/simple-tutorial-transaction.png "simple tutorial transaction")
 
 So we’ll need the following:
 

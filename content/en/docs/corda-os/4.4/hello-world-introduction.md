@@ -66,8 +66,8 @@ Our IOU CorDapp is no exception. It will define the following components:
 Our state will be the `IOUState`, representing an IOU. It will contain the IOUâ€™s value, its lender and its borrower. We can visualize
 `IOUState` as follows:
 
-> 
-> ![tutorial state](/en/images/tutorial-state.png "tutorial state")
+
+![tutorial state](/en/images/tutorial-state.png "tutorial state")
 
 
 ### The IOUFlow
@@ -75,8 +75,8 @@ Our state will be the `IOUState`, representing an IOU. It will contain the IOUâ€
 Our flow will be the `IOUFlow`. This flow will completely automate the process of issuing a new IOU onto a ledger. It has the following
 steps:
 
-> 
-> ![simple tutorial flow](/en/images/simple-tutorial-flow.png "simple tutorial flow")
+
+![simple tutorial flow](/en/images/simple-tutorial-flow.png "simple tutorial flow")
 
 
 ### The IOUContract

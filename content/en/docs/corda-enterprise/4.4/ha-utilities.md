@@ -22,7 +22,7 @@ The tool is distributed as part of Corda Enterprise 4.4 in the form of runnable 
 To run simply pass in the file or URL as the first parameter:
 
 ```kotlin
-> java -jar corda-tools-ha-utilities-4.4.jar <sub-command> <command line options>
+java -jar corda-tools-ha-utilities-4.4.jar <sub-command> <command line options>
 ```
 
 
@@ -148,7 +148,7 @@ Before running the tool you need to copy the configuration files from Corda node
 Given the configuration above, the tool can be run with the following command:
 
 ```kotlin
-> java -jar corda-tools-ha-utilities-4.4.jar node-registration --base-directory=./output --config-files=./entity_A/node.conf --config-files=./entity_B/node.conf --bridge-config-file=./bridge/firewall.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass --tls-cert-validity 825
+java -jar corda-tools-ha-utilities-4.4.jar node-registration --base-directory=./output --config-files=./entity_A/node.conf --config-files=./entity_B/node.conf --bridge-config-file=./bridge/firewall.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass --tls-cert-validity 825
 ```
 
 After successful execution this will produce output/ folder containing the following files:
@@ -212,7 +212,7 @@ Pre-requisites for TLS certificate renewal are:
 Given the configuration above, TLS certificates can be renewed with the following command:
 
 ```kotlin
-> java -jar corda-tools-ha-utilities-4.4.jar node-registration --base-directory=./output --config-files=./entity_A/node.conf --config-files=./entity_B/node.conf --bridge-config-file=./bridge/firewall.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass --tls-cert-validity 825 --renew-tls-cert
+java -jar corda-tools-ha-utilities-4.4.jar node-registration --base-directory=./output --config-files=./entity_A/node.conf --config-files=./entity_B/node.conf --bridge-config-file=./bridge/firewall.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass --tls-cert-validity 825 --renew-tls-cert
 ```
 
 This will update certificates in `sslkeystore.jks` and `bridge.jks` at the output location.

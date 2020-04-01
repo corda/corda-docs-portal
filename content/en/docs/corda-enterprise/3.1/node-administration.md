@@ -140,44 +140,45 @@ Also ensure to have restrictive Jolokia access policy in place for access to pro
 via a file called `jolokia-access.xml`. For a production node, the following should be a good starting point, limiting
 access to reads from localhost:
 
-> 
-> ```xml
-> <?xml version="1.0" encoding="utf-8"?>
-> <!--
->   ~ R3 Proprietary and Confidential
->   ~
->   ~ Copyright (c) 2018 R3 Limited.  All rights reserved.
->   ~
->   ~ The intellectual and technical concepts contained herein are proprietary to R3 and its suppliers and are protected by trade secret law.
->   ~
->   ~ Distribution of this file or any portion thereof via any medium without the express permission of R3 is strictly prohibited.
->   -->
-> 
-> <!-- Jolokia agent and MBean access policy based security -->
-> <!-- TODO: review these settings before production deployment -->
-> <restrict>
->     <!-- IP based restrictions -->
->     <remote>
->         <!-- IP address, a host name, or a netmask given in CIDR format (e.g. "10.0.0.0/16" for all clients coming from the 10.0 network). -->
->         <host>127.0.0.1</host>
->         <host>localhost</host>
->     </remote>
->     <!-- commands for which access is granted: read, write, exec, list, search, version -->
->     <commands>
->         <command>version</command>
->         <command>read</command>
->     </commands>
->     <!-- MBean access and deny restrictions -->
->     <!-- HTTP method restrictions: get, post -->
->     <http>
->         <method>get</method>
->     </http>
->     <!-- Cross-Origin Resource Sharing (CORS) restrictions
->          (by default, allow cross origin access from any host)
->      -->
-> </restrict>
-> ```
-> {{/* github src='config/prod/jolokia-access.xml' url='https://github.com/corda/enterprise/blob/3.1/config/prod/jolokia-access.xml' raw='https://raw.githubusercontent.com/corda/enterprise/3.1/config/prod/jolokia-access.xml' start='' end='' */}}[jolokia-access.xml](https://github.com/corda/enterprise/blob/release/ent/3.1/config/prod/jolokia-access.xml)
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ R3 Proprietary and Confidential
+  ~
+  ~ Copyright (c) 2018 R3 Limited.  All rights reserved.
+  ~
+  ~ The intellectual and technical concepts contained herein are proprietary to R3 and its suppliers and are protected by trade secret law.
+  ~
+  ~ Distribution of this file or any portion thereof via any medium without the express permission of R3 is strictly prohibited.
+  -->
+
+<!-- Jolokia agent and MBean access policy based security -->
+<!-- TODO: review these settings before production deployment -->
+<restrict>
+    <!-- IP based restrictions -->
+    <remote>
+        <!-- IP address, a host name, or a netmask given in CIDR format (e.g. "10.0.0.0/16" for all clients coming from the 10.0 network). -->
+        <host>127.0.0.1</host>
+        <host>localhost</host>
+    </remote>
+    <!-- commands for which access is granted: read, write, exec, list, search, version -->
+    <commands>
+        <command>version</command>
+        <command>read</command>
+    </commands>
+    <!-- MBean access and deny restrictions -->
+    <!-- HTTP method restrictions: get, post -->
+    <http>
+        <method>get</method>
+    </http>
+    <!-- Cross-Origin Resource Sharing (CORS) restrictions
+         (by default, allow cross origin access from any host)
+     -->
+</restrict>
+```
+
+{{/* github src='config/prod/jolokia-access.xml' url='https://github.com/corda/enterprise/blob/3.1/config/prod/jolokia-access.xml' raw='https://raw.githubusercontent.com/corda/enterprise/3.1/config/prod/jolokia-access.xml' start='' end='' */}}[jolokia-access.xml](https://github.com/corda/enterprise/blob/release/ent/3.1/config/prod/jolokia-access.xml)
 
 
 #### Notes for development/test use

@@ -53,15 +53,15 @@ will only evolve to include new features.
 As of Corda 1.0, the following modules export public APIs for which we guarantee to maintain backwards compatibility,
 unless an incompatible change is required for security reasons:
 
-> 
-> 
-> * **core**:
-> Contains the bulk of the APIs to be used for building CorDapps: contracts, transactions, flows, identity, node services,
-> cryptographic libraries, and general utility functions.
-> * **client-rpc**:
-> An RPC client interface to Corda, for use by both UI facing clients and integration with external systems.
-> * **client-jackson**:
-> Utilities and serialisers for working with JSON representations of basic types.
+
+
+* **core**:
+Contains the bulk of the APIs to be used for building CorDapps: contracts, transactions, flows, identity, node services,
+cryptographic libraries, and general utility functions.
+* **client-rpc**:
+An RPC client interface to Corda, for use by both UI facing clients and integration with external systems.
+* **client-jackson**:
+Utilities and serialisers for working with JSON representations of basic types.
 
 
 Our extensive testing frameworks will continue to evolve alongside future Corda APIs. As part of our commitment to ease of use and modularity
@@ -323,16 +323,16 @@ The new “DemoBench” makes it easy to configure and launch local Corda nodes.
 bundled with its own JRE and packaged as either EXE (Windows), DMG (MacOS) or RPM (Linux-based). It has the following
 features:
 
-> 
-> 
-> * New nodes can be added at the click of a button. Clicking “Add node” creates a new tab that lets you edit the most
-> important configuration properties of the node before launch, such as its legal name and which CorDapps will be loaded.
-> * Each tab contains a terminal emulator, attached to the pseudoterminal of the node. This lets you see console output.
-> * You can launch an Corda Explorer instance for each node at the click of a button. Credentials are handed to the Corda
-> Explorer so it starts out logged in already.
-> * Some basic statistics are shown about each node, informed via the RPC connection.
-> * Another button launches a database viewer in the system browser.
-> * The configurations of all running nodes can be saved into a single `.profile` file that can be reloaded later.
+
+
+* New nodes can be added at the click of a button. Clicking “Add node” creates a new tab that lets you edit the most
+important configuration properties of the node before launch, such as its legal name and which CorDapps will be loaded.
+* Each tab contains a terminal emulator, attached to the pseudoterminal of the node. This lets you see console output.
+* You can launch an Corda Explorer instance for each node at the click of a button. Credentials are handed to the Corda
+Explorer so it starts out logged in already.
+* Some basic statistics are shown about each node, informed via the RPC connection.
+* Another button launches a database viewer in the system browser.
+* The configurations of all running nodes can be saved into a single `.profile` file that can be reloaded later.
 
 
 Soft Locking is a new feature implemented in the vault to prevent a node constructing transactions that attempt to use the

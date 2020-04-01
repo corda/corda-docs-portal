@@ -59,10 +59,10 @@ You can read about function declarations in Kotlin [here](https://kotlinlang.org
 We can see that `Contract` expresses its constraints through a `verify` function that takes a transaction as input,
 and:
 
-> 
-> 
-> * Throws an `IllegalArgumentException` if it rejects the transaction proposal
-> * Returns silently if it accepts the transaction proposal
+
+
+* Throws an `IllegalArgumentException` if it rejects the transaction proposal
+* Returns silently if it accepts the transaction proposal
 
 
 
@@ -87,8 +87,8 @@ shortly)
 
 We can picture this transaction as follows:
 
-> 
-> ![simple tutorial transaction](resources/simple-tutorial-transaction.png "simple tutorial transaction")
+
+![simple tutorial transaction](resources/simple-tutorial-transaction.png "simple tutorial transaction")
 
 
 ## Defining IOUContract

@@ -86,12 +86,12 @@ defined in the node configuration file (see `reference.conf`).
 Integration test run a predefined set of SQL setup scripts selected for a specific database provider by `test.db.script.dir`.
 Integration tests run the script for all nodes involved in the test and replace *${schema}* with the appropriate value, derived from a node name. SQL templates files are executed at different stage of the integration test:
 
-> 
-> 
-> * `db-global-setup.sql`- before a test class (@BeforeClass), should create database users, schema and permissions
-> * `db-setup.sql` - before a test (@Before), should clean up/drop tables
-> * `db-cleanup.sql` - after a test (@After), may clean up/drop tables
-> * `db-global-cleanup.sql` - after a test class (@AfterClass), may drop user and schema
+
+
+* `db-global-setup.sql`- before a test class (@BeforeClass), should create database users, schema and permissions
+* `db-setup.sql` - before a test (@Before), should clean up/drop tables
+* `db-cleanup.sql` - after a test (@After), may clean up/drop tables
+* `db-global-cleanup.sql` - after a test class (@AfterClass), may drop user and schema
 
 
 Not all stages need to be present e.g., when `db-setup.sql` deletes all tables before a test then `db-cleanup.sql` after the test is not needed.

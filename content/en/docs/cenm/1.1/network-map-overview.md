@@ -89,24 +89,24 @@ messages separated into parallel and nested flows, which isn’t necessary for n
 
 The node info consists the following data:
 
-> 
-> 
-> * **addresses**: 
-> List of network addresses (including port numbers) under which the node is accessible.
-> 
-> 
-> * **legalIdentitiesAndCerts**: 
-> List of legal identities (with their certificates) registered at the node.
-> 
-> 
-> * **platformVersion**: 
-> Platform version of the node.
-> 
-> 
-> * **serial**: 
-> Serial number of this node info file.
-> 
-> 
+
+
+* **addresses**: 
+List of network addresses (including port numbers) under which the node is accessible.
+
+
+* **legalIdentitiesAndCerts**: 
+List of legal identities (with their certificates) registered at the node.
+
+
+* **platformVersion**: 
+Platform version of the node.
+
+
+* **serial**: 
+Serial number of this node info file.
+
+
 
 
 

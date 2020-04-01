@@ -24,9 +24,9 @@ title: Nodes
 
 * *A node is JVM run-time with a unique network identity running the Corda software*
 * *The node has two interfaces with the outside world:*> 
-> 
->     * *A network layer, for interacting with other nodes*
->     * *RPC, for interacting with the node’s owner*
+
+    * *A network layer, for interacting with other nodes*
+    * *RPC, for interacting with the node’s owner*
 
 
 

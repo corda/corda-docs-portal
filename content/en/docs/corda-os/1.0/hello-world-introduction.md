@@ -46,18 +46,18 @@ Our IOU CorDapp is no exception. It will have the following elements:
 
 The states will be IOUStates, with each instance representing a single IOU. We can visualize an IOUState as follows:
 
-> 
-> ![tutorial state](/en/images/tutorial-state.png "tutorial state")
+
+![tutorial state](/en/images/tutorial-state.png "tutorial state")
 
 
 ### Contract
 
 Our contract will be the IOUContract, imposing rules on the evolution of IOUs over time:
 
-> 
-> 
-> * Only the creation of new IOUs will be allowed
-> * Transferring existing IOUs or paying off an IOU with cash will not be allowed
+
+
+* Only the creation of new IOUs will be allowed
+* Transferring existing IOUs or paying off an IOU with cash will not be allowed
 
 
 However, we can easily extend our CorDapp to handle additional use-cases later on.
@@ -68,8 +68,8 @@ However, we can easily extend our CorDapp to handle additional use-cases later o
 Our flow will be the IOUFlow. It will allow a node to orchestrate the creation of a new IOU on the ledger, via the
 following steps:
 
-> 
-> ![simple tutorial flow](resources/simple-tutorial-flow.png "simple tutorial flow")
+
+![simple tutorial flow](resources/simple-tutorial-flow.png "simple tutorial flow")
 
 In traditional distributed ledger systems, where all data is broadcast to every network participant, you don’t even
 think about this step – you simply package up your ledger update and send it out into the world. But in Corda, where

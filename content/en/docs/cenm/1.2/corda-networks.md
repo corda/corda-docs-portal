@@ -93,11 +93,11 @@ unaware of one another
 
 Each Network Map requires
 
-> 
-> 
-> * A configuration file
-> * A starting set of network parameters
-> * One or more notaries for inclusion in the whitelist
-> * A signing service configured to sign the network map and network parameters
+
+
+* A configuration file
+* A starting set of network parameters
+* One or more notaries for inclusion in the whitelist
+* A signing service configured to sign the network map and network parameters
 
 

@@ -44,89 +44,89 @@ Since the CorDapp models a car dealership network, a state must be created to re
 * Right-click on **TemplateState.kt** in the project navigation on the left. Select **Refactor** > **Copy**.
 * Rename the file to `CarState` and click **OK**.
 * Double-click the new state file to open it. Add the following imports to the top of the state file:> 
-> {{< tabs name="tabs-1" >}}
-> {{% tab name="kotlin" %}}
-> ```kotlin
-> package com.template.states
-> 
-> import com.template.contracts.CarContract
-> import com.template.contracts.TemplateContract
-> import net.corda.core.contracts.BelongsToContract
-> import net.corda.core.contracts.ContractState
-> import net.corda.core.contracts.UniqueIdentifier
-> import net.corda.core.identity.AbstractParty
-> import net.corda.core.identity.Party
-> ```
-> {{% /tab %}}
-> 
-> {{< /tabs >}}
-> 
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+package com.template.states
+
+import com.template.contracts.CarContract
+import com.template.contracts.TemplateContract
+import net.corda.core.contracts.BelongsToContract
+import net.corda.core.contracts.ContractState
+import net.corda.core.contracts.UniqueIdentifier
+import net.corda.core.identity.AbstractParty
+import net.corda.core.identity.Party
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 
 
-> 
-> It’s important to specify what classes are required in each state, contract, and flow. This process must be repeated with each file as it is created.
+
+
+It’s important to specify what classes are required in each state, contract, and flow. This process must be repeated with each file as it is created.
 
 
 
 * Update `@BelongsToContract(TemplateContract:class)` to specify `CarContract::class`.
 * Add the following fields to the state:
 
-> 
-> 
-> * `owningBank` of type `Party`
-> * `holdingDealer` of type `Party`
-> * `manufacturer` of type `Party`
-> * `vin` of type `String`
-> * `licensePlateNumber` of type `String`
-> * `make` of type `String`
-> * `model` of type `String`
-> * `dealershipLocation` of type `String`
-> * `linearId` of type `UniqueIdentifier`
-> 
-> Don’t worry if you’re not sure exactly how these should appear, you can check your code shortly.
+
+
+* `owningBank` of type `Party`
+* `holdingDealer` of type `Party`
+* `manufacturer` of type `Party`
+* `vin` of type `String`
+* `licensePlateNumber` of type `String`
+* `make` of type `String`
+* `model` of type `String`
+* `dealershipLocation` of type `String`
+* `linearId` of type `UniqueIdentifier`
+
+Don’t worry if you’re not sure exactly how these should appear, you can check your code shortly.
 
 
 
 * Remove the `data` and `participants` parameters.
 * Add a body to the `CarState` class that overrides participants to contain a list of `owningBank`, `holdingDealer`, and `manufacturer`.
 * The `CarState` file should now appear as follows:> 
-> {{< tabs name="tabs-2" >}}
-> {{% tab name="kotlin" %}}
-> ```kotlin
-> package com.template.states
-> 
-> import com.template.contracts.CarContract
-> import com.template.contracts.TemplateContract
-> import net.corda.core.contracts.BelongsToContract
-> import net.corda.core.contracts.ContractState
-> import net.corda.core.contracts.UniqueIdentifier
-> import net.corda.core.identity.AbstractParty
-> import net.corda.core.identity.Party
-> 
-> // *********
-> // * State *
-> // *********
-> 
-> @BelongsToContract(CarContract::class)
-> data class CarState(
->         val owningBank: Party,
->         val holdingDealer: Party,
->         val manufacturer: Party,
->         val vin: String,
->         val licensePlateNumber: String,
->         val make: String,
->         val model: String,
->         val dealershipLocation: String,
->         val linearId: UniqueIdentifier
-> ) : ContractState {
->     override val participants: List<AbstractParty> = listOf(owningBank, holdingDealer, manufacturer)
-> }
-> ```
-> {{% /tab %}}
-> 
-> {{< /tabs >}}
-> 
+{{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+package com.template.states
+
+import com.template.contracts.CarContract
+import com.template.contracts.TemplateContract
+import net.corda.core.contracts.BelongsToContract
+import net.corda.core.contracts.ContractState
+import net.corda.core.contracts.UniqueIdentifier
+import net.corda.core.identity.AbstractParty
+import net.corda.core.identity.Party
+
+// *********
+// * State *
+// *********
+
+@BelongsToContract(CarContract::class)
+data class CarState(
+        val owningBank: Party,
+        val holdingDealer: Party,
+        val manufacturer: Party,
+        val vin: String,
+        val licensePlateNumber: String,
+        val make: String,
+        val model: String,
+        val dealershipLocation: String,
+        val linearId: UniqueIdentifier
+) : ContractState {
+    override val participants: List<AbstractParty> = listOf(owningBank, holdingDealer, manufacturer)
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 
 * Save the `CarState.kt` file.
@@ -144,30 +144,30 @@ After creating a state, you must create a contract. Contracts define the rules t
 * Rename the file to `CarContract` and click **OK**.
 * Double-click the new contract file to open it.
 * Add the following imports to the top of the file:> 
-> {{< tabs name="tabs-3" >}}
-> {{% tab name="kotlin" %}}
-> ```kotlin
-> package com.template.contracts
-> 
-> import com.template.states.CarState
-> import net.corda.core.contracts.CommandData
-> import net.corda.core.contracts.Contract
-> import net.corda.core.contracts.requireSingleCommand
-> import net.corda.core.contracts.requireThat
-> import net.corda.core.transactions.LedgerTransaction
-> ```
-> {{% /tab %}}
-> 
-> {{< /tabs >}}
-> 
+{{< tabs name="tabs-3" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+package com.template.contracts
+
+import com.template.states.CarState
+import net.corda.core.contracts.CommandData
+import net.corda.core.contracts.Contract
+import net.corda.core.contracts.requireSingleCommand
+import net.corda.core.contracts.requireThat
+import net.corda.core.transactions.LedgerTransaction
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 
 * Update the class name to: `CarContract`
 * Replace `const val ID = "com.template.contracts.TemplateContract"` with `val ID = CarContract::class.qualifiedName!!`. This ID field is used to identify contracts when building a transaction. This ID declaration ensures that the contract name is created dynamically and can simplify code refactoring.
 * Update the `Action` command to an `Issue` command. This represents an issuance of an instance of the `CarState` state.
 
-> 
-> Commands are the operations that can be performed on a state. A contract will often define command logic for several operations that can be performed on the state in question, for example, issuing a state, changing ownership, and marking the state retired.
+
+Commands are the operations that can be performed on a state. A contract will often define command logic for several operations that can be performed on the state in question, for example, issuing a state, changing ownership, and marking the state retired.
 
 
 
@@ -188,11 +188,11 @@ when(command) {
 
 * Inside the `requireThat` block add additional lines defining the following requirements:
 
-> 
-> 
-> * There should be one output state.
-> * The output state must be of the type `CarState`.
-> * The `licensePlateNumber` must be seven characters long.
+
+
+* There should be one output state.
+* The output state must be of the type `CarState`.
+* The `licensePlateNumber` must be seven characters long.
 
 
 
@@ -248,27 +248,27 @@ class CarContract : Contract {
 * Right-click on **Flows.kt** in the project navigation on the left. Select **Refactor > Copy**.
 * Rename the file to `CarFlow` and click **OK**.
 * Add the following imports to the top of the file:> 
-> {{< tabs name="tabs-6" >}}
-> {{% tab name="kotlin" %}}
-> ```kotlin
-> package com.template.flows
-> 
-> import co.paralleluniverse.fibers.Suspendable
-> import com.template.contracts.CarContract
-> import com.template.states.CarState
-> import net.corda.core.contracts.Command
-> import net.corda.core.contracts.UniqueIdentifier
-> import net.corda.core.contracts.requireThat
-> import net.corda.core.flows.*
-> import net.corda.core.identity.Party
-> import net.corda.core.node.ServiceHub
-> import net.corda.core.transactions.SignedTransaction
-> import net.corda.core.transactions.TransactionBuilder
-> ```
-> {{% /tab %}}
-> 
-> {{< /tabs >}}
-> 
+{{< tabs name="tabs-6" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+package com.template.flows
+
+import co.paralleluniverse.fibers.Suspendable
+import com.template.contracts.CarContract
+import com.template.states.CarState
+import net.corda.core.contracts.Command
+import net.corda.core.contracts.UniqueIdentifier
+import net.corda.core.contracts.requireThat
+import net.corda.core.flows.*
+import net.corda.core.identity.Party
+import net.corda.core.node.ServiceHub
+import net.corda.core.transactions.SignedTransaction
+import net.corda.core.transactions.TransactionBuilder
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 
 * Double-click the new flow file to open it.
@@ -278,26 +278,26 @@ class CarContract : Contract {
 * Now that the flow structure is in place, we can begin writing the code to create a transaction to issue a car state. Add parameters to the `CarIssueInitiator` class for all the fields of the `CarState` definition, except for `linearId`.
 * Inside the `call()` function of the initiator, create a variable for the notary node: `val notary = serviceHub.networkMapCache.notaryIdentities.first()`
 
-> 
-> {{< note >}}
-> The **networkMapCache** contains information about the nodes and notaries inside the network.
-> 
-> {{< /note >}}
+
+{{< note >}}
+The **networkMapCache** contains information about the nodes and notaries inside the network.
+
+{{< /note >}}
 
 
 * Create a variable for an `Issue` command.
 
-> 
-> The first parameter of the command must be the command type, in this case `Issue`. As discussed above, the command tells other nodes what the purpose of the transaction is.
-> 
-> The second parameter of the command must be a list of keys from the relevant parties, in this case `owningBank`, `holdingDealer`, and `manufacturer`. As well as informing parties what the purpose of  the transaction is, the command also specifies which signatures must be present on the associated transaction in order for it to be valid.
+
+The first parameter of the command must be the command type, in this case `Issue`. As discussed above, the command tells other nodes what the purpose of the transaction is.
+
+The second parameter of the command must be a list of keys from the relevant parties, in this case `owningBank`, `holdingDealer`, and `manufacturer`. As well as informing parties what the purpose of  the transaction is, the command also specifies which signatures must be present on the associated transaction in order for it to be valid.
 
 
 
 * Create a `CarState` object using the parameters of `CarIssueInitiator`.
 
-> 
-> The last parameter for `CarState` must be a new `UniqueIdentifier()` object.
+
+The last parameter for `CarState` must be a new `UniqueIdentifier()` object.
 
 
 
@@ -423,13 +423,13 @@ return subFlow(FinalityFlow(stx, sessions))
 
 
 
-> 
-> The first line creates a `List<FlowSession>` object by calling `initiateFlow()` for each party other than the initiating party. The second line collects signatures from the relevant parties and returns a signed transaction. The third line calls `FinalityFlow()`, finalizes the transaction using the notary or notary pool.
-> 
-> {{< note >}}
-> Sessions are used for sending and receiving objects between nodes. `ourIdentity` is removed from the list of participants to open sessions to because a session does not need to be opened to the initiating party.
-> 
-> {{< /note >}}
+
+The first line creates a `List<FlowSession>` object by calling `initiateFlow()` for each party other than the initiating party. The second line collects signatures from the relevant parties and returns a signed transaction. The third line calls `FinalityFlow()`, finalizes the transaction using the notary or notary pool.
+
+{{< note >}}
+Sessions are used for sending and receiving objects between nodes. `ourIdentity` is removed from the list of participants to open sessions to because a session does not need to be opened to the initiating party.
+
+{{< /note >}}
 
 
 * Lastly, the body of the responder flow must be completed. The following code checks the transaction contents, signs it, and sends it back to the initiator:{{< tabs name="tabs-11" >}}
@@ -453,11 +453,11 @@ override fun call(): SignedTransaction {
 
 
 
-> 
-> {{< note >}}
-> The `checkTransaction` function should be used *only* to model business logic. A contract’s `verify` function should be used to define what is and is not possible within a transaction.
-> 
-> {{< /note >}}
+
+{{< note >}}
+The `checkTransaction` function should be used *only* to model business logic. A contract’s `verify` function should be used to define what is and is not possible within a transaction.
+
+{{< /note >}}
 
 
 * The completed `CarFlow.kt` should look like this:{{< tabs name="tabs-12" >}}
@@ -549,55 +549,55 @@ The Gradle build files must be updated to change the node configuration.
 
 * Navigate to the `build.gradle` file in the root `cordapp-template-kotlin` directory.
 * In the `deployNodes` task, update the nodes to read as follows:> 
-> {{< tabs name="tabs-13" >}}
-> {{% tab name="kotlin" %}}
-> ```kotlin
-> node {
->     name "O=Notary,L=London,C=GB"
->     notary = [validating : false]
->     p2pPort 10002
->     rpcSettings {
->         address("localhost:10003")
->         adminAddress("localhost:10043")
->     }
-> }
-> node {
->     name "O=Dealership,L=London,C=GB"
->     p2pPort 10005
->     rpcSettings {
->         address("localhost:10006")
->         adminAddress("localhost:10046")
->     }
->     rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
-> }
-> node {
->     name "O=Manufacturer,L=New York,C=US"
->     p2pPort 10008
->     rpcSettings {
->         address("localhost:10009")
->         adminAddress("localhost:10049")
->     }
->     rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
-> }
-> node {
->     name "O=BankofAmerica,L=New York,C=US"
->     p2pPort 10010
->     rpcSettings {
->         address("localhost:10007")
->         adminAddress("localhost:10047")
->     }
->     rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
-> }
-> ```
-> {{% /tab %}}
-> 
-> {{< /tabs >}}
-> 
+{{< tabs name="tabs-13" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+node {
+    name "O=Notary,L=London,C=GB"
+    notary = [validating : false]
+    p2pPort 10002
+    rpcSettings {
+        address("localhost:10003")
+        adminAddress("localhost:10043")
+    }
+}
+node {
+    name "O=Dealership,L=London,C=GB"
+    p2pPort 10005
+    rpcSettings {
+        address("localhost:10006")
+        adminAddress("localhost:10046")
+    }
+    rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
+}
+node {
+    name "O=Manufacturer,L=New York,C=US"
+    p2pPort 10008
+    rpcSettings {
+        address("localhost:10009")
+        adminAddress("localhost:10049")
+    }
+    rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
+}
+node {
+    name "O=BankofAmerica,L=New York,C=US"
+    p2pPort 10010
+    rpcSettings {
+        address("localhost:10007")
+        adminAddress("localhost:10047")
+    }
+    rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 
 
-> 
-> The `nodeDefaults` defines what CorDapps are installed on the nodes by default. To install additional CorDapps on the nodes, update the `nodeDefaults` definition, or add the CorDapps to each node definition individually.
+
+
+The `nodeDefaults` defines what CorDapps are installed on the nodes by default. To install additional CorDapps on the nodes, update the `nodeDefaults` definition, or add the CorDapps to each node definition individually.
 
 
 
@@ -612,40 +612,40 @@ Now that the CorDapp code has been completed and the build file updated, the Cor
 * Open a terminal and navigate to the root directory of the project.
 * To deploy the nodes on Windows run the following command: `gradlew clean deployNodes`
 
-> 
-> To deploy the nodes on Mac or Linux run the following command: `./gradlew clean deployNodes`
+
+To deploy the nodes on Mac or Linux run the following command: `./gradlew clean deployNodes`
 
 
 
 * To start the nodes on Windows run the following command: `build\nodes\runnodes`
 
-> 
-> To start the nodes on Mac/Linux run the following command: `build/nodes/runnodes`
-> 
-> {{< note >}}
-> Maintain window focus on the node windows, if the nodes fail to load, close them using `ctrl + d`. The `runnodes` script opens each node directory and runs `java -jar corda.jar`.
-> 
-> {{< /note >}}
+
+To start the nodes on Mac/Linux run the following command: `build/nodes/runnodes`
+
+{{< note >}}
+Maintain window focus on the node windows, if the nodes fail to load, close them using `ctrl + d`. The `runnodes` script opens each node directory and runs `java -jar corda.jar`.
+
+{{< /note >}}
 
 
 * To run flows in your CorDapp, enter the following flow command from any non-notary terminal window:> 
-> {{< tabs name="tabs-14" >}}
-> {{% tab name="kotlin" %}}
-> ```kotlin
-> ``flow start CarIssueInitiator owningBank: BankofAmerica, holdingDealer: Dealership, manufacturer: Manufacturer, vin: "abc", licensePlateNumber: "abc1234", make: "Honda", model: "Civic", dealershipLocation: "NYC"``
-> ```
-> {{% /tab %}}
-> 
-> {{< /tabs >}}
-> 
+{{< tabs name="tabs-14" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+``flow start CarIssueInitiator owningBank: BankofAmerica, holdingDealer: Dealership, manufacturer: Manufacturer, vin: "abc", licensePlateNumber: "abc1234", make: "Honda", model: "Civic", dealershipLocation: "NYC"``
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 
 * To check that the state was correctly issued, query the node using the following command:
 
-> 
-> `run vaultQuery contractStateType: com.template.states.CarState`
-> 
-> The vault is the node’s repository of all information from the ledger that involves that node, stored in a relational model. After running the query, the terminal should display the state created by the flow command. This command can be run from the terminal window of any non-notary node, as all parties are participants in this transaction.
+
+`run vaultQuery contractStateType: com.template.states.CarState`
+
+The vault is the node’s repository of all information from the ledger that involves that node, stored in a relational model. After running the query, the terminal should display the state created by the flow command. This command can be run from the terminal window of any non-notary node, as all parties are participants in this transaction.
 
 
 

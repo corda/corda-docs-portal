@@ -286,24 +286,25 @@ Connect to the database as administrator and run the following DDL scripts:
 
 ##### Identity Manager
 
-> 
-> ```sql
-> CREATE USER my_user identified by my_password;
-> GRANT CREATE SESSION TO my_user;
-> GRANT SELECT ON my_admin_user.DATABASECHANGELOG to my_user;
-> GRANT SELECT ON my_admin_user.DATABASECHANGELOGLOCK to my_user;
-> GRANT SELECT ON my_admin_user.HIBERNATE_SEQUENCE TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_revocation_list TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_revocation_request TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_data TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_signing_request TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.private_network_global TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.migration TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.REVINFO TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.workflow_csr TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.workflow_crr TO my_user;
-> ```
-> 
+
+```sql
+CREATE USER my_user identified by my_password;
+GRANT CREATE SESSION TO my_user;
+GRANT SELECT ON my_admin_user.DATABASECHANGELOG to my_user;
+GRANT SELECT ON my_admin_user.DATABASECHANGELOGLOCK to my_user;
+GRANT SELECT ON my_admin_user.HIBERNATE_SEQUENCE TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_revocation_list TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_revocation_request TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_data TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_signing_request TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.private_network_global TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.migration TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.REVINFO TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.workflow_csr TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.workflow_crr TO my_user;
+```
+
+
 
 
 ##### Network Map
@@ -311,25 +312,26 @@ Connect to the database as administrator and run the following DDL scripts:
 Run the script after running the Liquibase migrations, by setting the initial network parameters
 using a configuration file with administrative database user credentials.
 
-> 
-> ```sql
-> CREATE USER my_user identified by my_password;
-> GRANT CREATE SESSION TO my_user;
-> GRANT SELECT ON my_admin_user.DATABASECHANGELOG TO my_user;
-> GRANT SELECT ON my_admin_user.DATABASECHANGELOGLOCK TO my_user;
-> GRANT SELECT ON my_admin_user.HIBERNATE_SEQUENCE TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_chain TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.network_map TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.network_parameters TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.network_parameters_update TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.node_info TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.private_network TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.migration TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.node_info_staging TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.node_info_quarantine TO my_user;
-> GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.REVINFO TO my_user;
-> ```
-> 
+
+```sql
+CREATE USER my_user identified by my_password;
+GRANT CREATE SESSION TO my_user;
+GRANT SELECT ON my_admin_user.DATABASECHANGELOG TO my_user;
+GRANT SELECT ON my_admin_user.DATABASECHANGELOGLOCK TO my_user;
+GRANT SELECT ON my_admin_user.HIBERNATE_SEQUENCE TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.certificate_chain TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.network_map TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.network_parameters TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.network_parameters_update TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.node_info TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.private_network TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.migration TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.node_info_staging TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.node_info_quarantine TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.REVINFO TO my_user;
+```
+
+
 
 
 
@@ -337,41 +339,47 @@ using a configuration file with administrative database user credentials.
 
 The following updates are required to the filesystem of a CENM service instance:
 
-> 
-> 
-> * The CENM service config file `identitymanager.conf` or `networkmap.conf` needs to contain JDBC connection properties
-> in the `database` entry along with other database properties (passed to a CENM service JPA persistence provider or schema creation/upgrade flag).```groovy
-> database = {
->    ...
->    jdbcDriver = path/to/jdbcDriver.jar
->    driverClassName = <JDBC driver class name>
->    url = <JDBC database URL>
->    user = <Database user>
->    password = <Database password
->    transactionIsolationLevel = <Transaction isolation level>
->    schema = <Database schema name>
->    runMigration = false
-> }
-> ```
-> 
-> {{< note >}}
-> The [CENM Database Configuration](config-database.md) doc page contains a complete list of database specific properties.{{< /note >}}
-> 
-> * The restricted CENM service instance database user has no permissions to alter a database schema, so `runMigration` is set to `false`.
-> * The CENM distribution does not include any JDBC drivers with the exception of the H2 driver.
-> It is the responsibility of the CENM service administrator or a developer to install the appropriate JDBC driver.
-> * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
-> To configure a connection pool, the following custom properties can be set in the `database` section, e.g.:```groovy
-> database = {
->    ...
->    additionalProperties = {
->        maximumPoolSize = 10
->        connectionTimeout = 50000
->    }
-> }
-> ```
-> 
-> 
+
+
+* The CENM service config file `identitymanager.conf` or `networkmap.conf` needs to contain JDBC connection properties
+in the `database` entry along with other database properties (passed to a CENM service JPA persistence provider or schema creation/upgrade flag).
+
+```groovy
+database = {
+   ...
+   jdbcDriver = path/to/jdbcDriver.jar
+   driverClassName = <JDBC driver class name>
+   url = <JDBC database URL>
+   user = <Database user>
+   password = <Database password
+   transactionIsolationLevel = <Transaction isolation level>
+   schema = <Database schema name>
+   runMigration = false
+}
+```
+
+
+{{< note >}}
+The [CENM Database Configuration](config-database.md) doc page contains a complete list of database specific properties.{{< /note >}}
+
+* The restricted CENM service instance database user has no permissions to alter a database schema, so `runMigration` is set to `false`.
+* The CENM distribution does not include any JDBC drivers with the exception of the H2 driver.
+It is the responsibility of the CENM service administrator or a developer to install the appropriate JDBC driver.
+* Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
+To configure a connection pool, the following custom properties can be set in the `database` section, e.g.:
+
+```groovy
+database = {
+   ...
+   additionalProperties = {
+       maximumPoolSize = 10
+       connectionTimeout = 50000
+   }
+}
+```
+
+
+
 
 
 Configuration templates for each database vendor are shown below:
@@ -388,35 +396,37 @@ Configuration templates for each database vendor are shown below:
 
 Example CENM services configuration file for Azure SQL - initial deployment with administrative permissions:
 
-> 
-> ```groovy
-> database = {
->     jdbcDriver = path/to/mssql-jdbc-x.x.x.jre8.jar
->     driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
->     url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
->     user = my_admin_login
->     password = "my_admin_password"
->     schema = my_schema
->     runMigration = true
-> }
-> ```
-> 
+
+```groovy
+database = {
+    jdbcDriver = path/to/mssql-jdbc-x.x.x.jre8.jar
+    driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
+    user = my_admin_login
+    password = "my_admin_password"
+    schema = my_schema
+    runMigration = true
+}
+```
+
+
 
 Example CENM service configuration file for Azure SQL *restrictive permissions* - CENM service instance database user with restrictive permissions:
 
-> 
-> ```groovy
-> database = {
->     jdbcDriver = path/to/mssql-jdbc-x.x.x.jre8.jar
->     driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
->     url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
->     user = my_login
->     password = "my_password"
->     schema = my_schema
->     runMigration = false
-> }
-> ```
-> 
+
+```groovy
+database = {
+    jdbcDriver = path/to/mssql-jdbc-x.x.x.jre8.jar
+    driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
+    user = my_login
+    password = "my_password"
+    schema = my_schema
+    runMigration = false
+}
+```
+
+
 
 Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
 The `database.schema` is the database schema name assigned to the user.
@@ -431,35 +441,37 @@ extract the archive and copy the single file *mssql-jdbc-6.2.2.jre8.jar* (the ar
 
 Example CENM services configuration file for SQL Server - initial deployment with administrative permissions:
 
-> 
-> ```groovy
-> database = {
->     jdbcDriver = path/to/mssql-jdbc-x.x.x.jre8.jar
->     driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
->     url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
->     user = my_admin_login
->     password = "my_admin_password"
->     schema = my_schema
->     runMigration = true
-> }
-> ```
-> 
+
+```groovy
+database = {
+    jdbcDriver = path/to/mssql-jdbc-x.x.x.jre8.jar
+    driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url = "jdbc:sqlserver://<database_server>.database.windows.net:1433;databaseName=<my_database>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30"
+    user = my_admin_login
+    password = "my_admin_password"
+    schema = my_schema
+    runMigration = true
+}
+```
+
+
 
 Example CENM service configuration file for SQL Server - CENM service instance database user with restricted permissions:
 
-> 
-> ```groovy
-> database = {
->     jdbcDriver = path/to/mssql-jdbc-x.x.x.jre8.jar
->     driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
->     url = "jdbc:sqlserver://<host>:<port>;databaseName=my_database"
->     user = my_login
->     password = "my_password"
->     schema = my_schema
->     runMigration = false
-> }
-> ```
-> 
+
+```groovy
+database = {
+    jdbcDriver = path/to/mssql-jdbc-x.x.x.jre8.jar
+    driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url = "jdbc:sqlserver://<host>:<port>;databaseName=my_database"
+    user = my_login
+    password = "my_password"
+    schema = my_schema
+    runMigration = false
+}
+```
+
+
 
 Replace placeholders *<host>* and *<port>* with appropriate values (the default SQL Server port is 1433).
 By default the connection to the database is not SSL. To secure the JDBC connection, refer to
@@ -529,18 +541,19 @@ Database schema name can be set in JDBC URL string e.g. currentSchema=my_schema.
 
 Example CENM service configuration for PostgreSQL:
 
-> 
-> ```none
-> database = {
->     jdbcDriver = path/to/postgresql-xx.x.x.jar
->     driverClassName = "org.postgresql.Driver"
->     url = "jdbc:postgresql://<host>:<port>/<database>"
->     user = my_user
->     password = "my_password"
->     schema = my_schema
-> }
-> ```
-> 
+
+```none
+database = {
+    jdbcDriver = path/to/postgresql-xx.x.x.jar
+    driverClassName = "org.postgresql.Driver"
+    url = "jdbc:postgresql://<host>:<port>/<database>"
+    user = my_user
+    password = "my_password"
+    schema = my_schema
+}
+```
+
+
 
 Replace the placeholders *<host>*, *<port>*, and *<database>* with appropriate values.
 The `database.schema` is the database schema name assigned to the user.
@@ -700,9 +713,10 @@ DROP SEQUENCE <NM_ADMIN_USER>.hibernate_sequence;
 
 To remove service tables run the following SQL script:
 
-> 
-> ```sql
-> DROP SCHEMA IF EXISTS "my_schema" CASCADE;
-> ```
-> 
+
+```sql
+DROP SCHEMA IF EXISTS "my_schema" CASCADE;
+```
+
+
 

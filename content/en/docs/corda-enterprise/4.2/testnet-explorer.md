@@ -44,7 +44,9 @@ couple of resources.
 
 
 * Log into your Cloud VM via SSH.
-* Stop the Corda node(s) running on your cloud instance.```bash
+* Stop the Corda node(s) running on your cloud instance.
+
+```bash
 sudo systemctl stop corda
 ```
 
@@ -60,28 +62,38 @@ If this is an HA node, make sure to stop both the hot and cold nodes before proc
 * corda-tools-database-manager-4.2.jar
 
 This is required to run some flows to check your connections, and to issue/transfer cash to counterparties. Copy it to
-the Corda installation location:```bash
+the Corda installation location:
+
+```bash
 sudo cp /home/<USER>/corda-finance-*-4.2.jar /opt/corda/cordapps/
 ```
 
 
-* Create a symbolic link to the shared database driver folder```bash
+* Create a symbolic link to the shared database driver folder
+
+```bash
 sudo ln -s /opt/corda/drivers /opt/corda/plugins
 ```
 
 
-* Execute the database migration. This is required so that the node database has the right schema for finance transactions defined in the installed CorDapp.```bash
+* Execute the database migration. This is required so that the node database has the right schema for finance transactions defined in the installed CorDapp.
+
+```bash
 cd /opt/corda
 sudo java -jar /home/<USER>/corda-tools-database-manager-4.2.jar --base-directory /opt/corda --execute-migration
 ```
 
 
-* Run the following to create a config file for the finance CorDapp:```bash
+* Run the following to create a config file for the finance CorDapp:
+
+```bash
 echo "issuableCurrencies = [ USD ]" > /opt/corda/cordapps/config/corda-finance-4.2.conf
 ```
 
 
-* Restart the Corda node:```bash
+* Restart the Corda node:
+
+```bash
 sudo systemctl start corda
 ```
 
@@ -89,7 +101,9 @@ Your node is now running the Finance Cordapp.{{< note >}}
 You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs/node-<VM-NAME>.log`. This
 file will list installed apps at startup. Search for `Loaded CorDapps` in the logs.{{< /note >}}
 
-* Now download the Node Explorer to your **LOCAL** machine:```bash
+* Now download the Node Explorer to your **LOCAL** machine:
+
+```bash
 http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.2/corda-tools-explorer-4.2.jar
 ```
 
@@ -100,7 +114,9 @@ use different serialisation schemes (Kryo vs AMQP).{{< /warning >}}
 
 
 
-* Run the Node Explorer tool on your **LOCAL** machine.```bash
+* Run the Node Explorer tool on your **LOCAL** machine.
+
+```bash
 java -jar corda-tools-explorer-4.2.jar
 ```
 

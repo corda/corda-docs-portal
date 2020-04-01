@@ -53,17 +53,24 @@ Adding a Liquibase migration script to a CorDapp should be done by a CorDapp dev
 * Generate CorDapp changesets against an empty database.Any custom tables required by CorDapps will have been created manually or by Hibernate upon node startup.
 Because of this, the database doesn’t contain an entry in the *DATABASECHANGELOG* table (usually created by the Liquibase runner).
 This step aims to add the required log as if these tables were created by Liquibase.First, you need to run Corda Database Management Tool to obtain DDL statements created by Liquibase.
-You should run the tool against an empty database, not the database you are reusing.To run the tool use the following command:```shell
+You should run the tool against an empty database, not the database you are reusing.To run the tool use the following command:
+
+```shell
 java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory
 ```
 
 The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories).The generated script (*migration/*.sql*) will be present in the base directory.
+
 This script contains all of the statements to create the data structures (e.g. tables/indexes) for CorDapps,
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
+
 For a description of the options, refer to the [Corda Database Management Tool](node-database.md#database-management-tool-ref) manual.
+
 * Run selected insert statements to update Liquibase database change logIn the generated script, find all inserts into *DATABASECHANGELOG* table related to your CorDapp,
 you can search for *– Changeset migration/<file-name>* lines, where <file-name> references the Liquibase Script file name from the CorDapp.
-The SQL insert related to a changeset will follow the *– Changeset migration/<file-name>* comment, e.g.:```sql
+The SQL insert related to a changeset will follow the *– Changeset migration/<file-name>* comment, e.g.:
+
+```sql
 -- Changeset migration/yo-schema-v1.changelog-master.sql::initial_schema_for_YoSchemaV1::R3.Corda.Generated
 INSERT INTO PUBLIC.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('initial_schema_for_YoSchemaV1', 'R3.Corda.Generated', 'migration/yo-schema-v1.changelog-master.sql', NOW(), 74, '7:2d4e1d5d7165a8edc848208d0707eb24', 'sql', '', 'EXECUTED', NULL, NULL, '3.5.3', '2862877878');
 ```

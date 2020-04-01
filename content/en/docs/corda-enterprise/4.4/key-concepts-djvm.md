@@ -30,18 +30,18 @@ without inflicting any side-effects that might later affect the computation.
 
 For a program running on the JVM, non-determinism could be introduced by a range of sources, for instance:
 
-> 
-> 
-> * **External input**, *e.g.*, the file system, network, system properties and clocks.
-> * **Random number generators**.
-> * **Halting criteria**, *e.g.*, different decisions about when to terminate long running programs.
-> * **Hash-codes**, or more specifically `Object.hashCode()`, which is typically implemented either by returning a
-> pointer address or by assigning the object a random number. This could, for instance, surface as different iteration
-> orders over hash maps and hash sets, or be used as non-pure input into arbitrary expressions.
-> * Differences in hardware **floating point arithmetic**.
-> * **Multi-threading** and consequent differences in scheduling strategies, affinity, *etc.*
-> * Differences in **API implementations** between nodes.
-> * **Garbage collector callbacks**.
+
+
+* **External input**, *e.g.*, the file system, network, system properties and clocks.
+* **Random number generators**.
+* **Halting criteria**, *e.g.*, different decisions about when to terminate long running programs.
+* **Hash-codes**, or more specifically `Object.hashCode()`, which is typically implemented either by returning a
+pointer address or by assigning the object a random number. This could, for instance, surface as different iteration
+orders over hash maps and hash sets, or be used as non-pure input into arbitrary expressions.
+* Differences in hardware **floating point arithmetic**.
+* **Multi-threading** and consequent differences in scheduling strategies, affinity, *etc.*
+* Differences in **API implementations** between nodes.
+* **Garbage collector callbacks**.
 
 
 To ensure that the contract verification function is fully pure even in the face of infinite loops we want to use a
@@ -63,23 +63,23 @@ A `ClassSource` object referencing such an implementation can be passed into the
 Output>` together with an input of type `Input`. The executor has operations for both execution and static
 validation, namely `run()` and `validate()`. These methods both return a summary object.
 
-> 
-> 
-> * 
->     * Whether or not the runnable was successfully executed.
->     * If successful, the return value of `Function.apply()`.
->     * If failed, the exception that was raised.
->     * And in both cases, a summary of all accrued costs during execution.
-> 
-> 
-> * 
->     * A type hierarchy of classes and interfaces loaded and touched by the sandbox’s class loader during analysis, each
-> of which contain information about the respective transformations applied as well as meta-data about the types
-> themselves and all references made from said classes.
->     * A list of messages generated during the analysis. These can be of different severity, and only messages of
-> severity `ERROR` will prevent execution.
-> 
-> 
+
+
+* 
+    * Whether or not the runnable was successfully executed.
+    * If successful, the return value of `Function.apply()`.
+    * If failed, the exception that was raised.
+    * And in both cases, a summary of all accrued costs during execution.
+
+
+* 
+    * A type hierarchy of classes and interfaces loaded and touched by the sandbox’s class loader during analysis, each
+of which contain information about the respective transformations applied as well as meta-data about the types
+themselves and all references made from said classes.
+    * A list of messages generated during the analysis. These can be of different severity, and only messages of
+severity `ERROR` will prevent execution.
+
+
 
 
 The sandbox has a configuration that applies to the execution of a specific runnable. This configuration, on a higher
@@ -164,9 +164,9 @@ Forbids finalizers as these can be called at unpredictable times during executio
 controlled by the garbage collector. As stated in the standard Java documentation:
 
 
-> 
-> Called by the garbage collector on an object when garbage collection determines that there are no more references
-> to the object.
+
+Called by the garbage collector on an object when garbage collection determines that there are no more references
+to the object.
 
 
 
@@ -260,13 +260,13 @@ and returns the value from the `hashCode()` method implementation. It also has a
 
 The loaded classes are further rewritten in two ways:
 
-> 
-> 
-> * All allocations of new objects of type `java.lang.Object` get mapped into using the sandboxed object.
-> * Calls to the constructor of `java.lang.Object` get mapped to the constructor of `sandbox.java.lang.Object`
-> instead, passing in a constant value for now. In the future, we can easily have this passed-in hash-code be a pseudo
-> random number seeded with, for instance, the hash of the transaction or some other dynamic value, provided of course
-> that it is deterministically derived.
+
+
+* All allocations of new objects of type `java.lang.Object` get mapped into using the sandboxed object.
+* Calls to the constructor of `java.lang.Object` get mapped to the constructor of `sandbox.java.lang.Object`
+instead, passing in a constant value for now. In the future, we can easily have this passed-in hash-code be a pseudo
+random number seeded with, for instance, the hash of the transaction or some other dynamic value, provided of course
+that it is deterministically derived.
 
 
 
@@ -392,21 +392,21 @@ Runtime Cost Summary:
 
 The output should be pretty self-explanatory, but just to summarise:
 
-> 
-> 
-> * It prints out the return value from the `Function<Object, Object>.apply()` method implemented in
-> `net.corda.sandbox.Hello`.
-> * It also prints out the aggregated costs for allocations, invocations, jumps and throws.
+
+
+* It prints out the return value from the `Function<Object, Object>.apply()` method implemented in
+`net.corda.sandbox.Hello`.
+* It also prints out the aggregated costs for allocations, invocations, jumps and throws.
 
 
 Other commands to be aware of are:
 
-> 
-> 
-> * `djvm check` which allows you to perform some up-front static analysis without running the code. However, be aware
-> that the DJVM also transforms some non-deterministic operations into `RuleViolationError` exceptions. A successful
-> `check` therefore does *not* guarantee that the code will behave correctly at runtime.
-> * `djvm inspect` which allows you to inspect what byte code modifications will be applied to a class.
-> * `djvm show` which displays the transformed byte code of a class, *i.e.*, the end result and not the difference.
+
+
+* `djvm check` which allows you to perform some up-front static analysis without running the code. However, be aware
+that the DJVM also transforms some non-deterministic operations into `RuleViolationError` exceptions. A successful
+`check` therefore does *not* guarantee that the code will behave correctly at runtime.
+* `djvm inspect` which allows you to inspect what byte code modifications will be applied to a class.
+* `djvm show` which displays the transformed byte code of a class, *i.e.*, the end result and not the difference.
 
 

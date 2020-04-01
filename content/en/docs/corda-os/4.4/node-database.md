@@ -60,7 +60,9 @@ the schema search path must be set explicitly for the user.
 * If your PostgresSQL database is hosting multiple schema instances (using the JDBC URL currentSchema=my_schema)
 for different Corda nodes, you will need to create a *hibernate_sequence* sequence object manually for each subsequent schema added after the first instance.
 Corda doesn’t provision Hibernate with a schema namespace setting and a sequence object may be not created.
-Run the DDL statement and replace *my_schema* with your schema namespace:```groovy
+Run the DDL statement and replace *my_schema* with your schema namespace:
+
+```groovy
 CREATE SEQUENCE my_schema.hibernate_sequence INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 8 CACHE 1 NO CYCLE;
 ```
 

@@ -14,8 +14,8 @@ title: Terminology recap
 **measurement**: The hash of an enclave image, uniquely pinning the code and related configuration
 **report**: A datastructure produced by an enclave including the measurement and other non-static properties of the
 
-> 
-> running enclave instance (like the security version number of the hardware)
+
+running enclave instance (like the security version number of the hardware)
 
 
 **quote**: A signed report of an enclave produced by Intel’s quoting enclave.

@@ -35,8 +35,8 @@ configuration file assigned to the `log4j.configurationFile` system property.
 The node exposes its internal database over a socket which can be browsed using any tool that can use JDBC drivers.
 The JDBC URL is printed during node startup to the log and will typically look like this:
 
-> 
-> `jdbc:h2:tcp://192.168.0.31:31339/node`
+
+`jdbc:h2:tcp://192.168.0.31:31339/node`
 
 
 The username and password can be altered in the [Node configuration](corda-configuration-file.md) but default to username “sa” and a blank

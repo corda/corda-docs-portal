@@ -43,7 +43,9 @@ couple of resources.
 
 
 * Log into your Cloud VM via SSH.
-* Stop the Corda node(s) running on your cloud instance.```bash
+* Stop the Corda node(s) running on your cloud instance.
+
+```bash
 sudo systemctl stop corda
 
 {{< warning >}}

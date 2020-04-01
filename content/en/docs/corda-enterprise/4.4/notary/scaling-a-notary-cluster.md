@@ -29,8 +29,8 @@ information.
 Scaling the worker cluster can have several benefits:
 * Possibly performance increase - If the bottleneck in the system is the speed at which the workers can process and relay the messages to
 
->
-> the DB cluster, then adding a worker node can increase performance.
+
+the DB cluster, then adding a worker node can increase performance.
 
 
 
@@ -39,8 +39,8 @@ Scaling the worker cluster can have several benefits:
 A large cluster can also have some drawbacks, mainly:
 * Increasing bottleneck - If the underlying DB cluster is the bottleneck in the system then adding another worker node will not improve
 
->
-> performance, and could even hinder it via increasing the requests to the DB.
+
+performance, and could even hinder it via increasing the requests to the DB.
 
 
 

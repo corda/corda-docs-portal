@@ -217,34 +217,34 @@ The path to the TrustStore file to use in outgoing `TLS 1.2/AMQP 1.0` connection
 
 
 
->
->
-> * **proxyConfig**:
-> This section is optionally present if outgoing peer connections should go via a SOCKS4, SOCKS5, or HTTP CONNECT tunnelling proxy:
->
->
-> * **version**:
-> Either SOCKS4, SOCKS5, or HTTP to define the protocol version used in connecting to the SOCKS proxy.
->
->
-> * **proxyAddress**:
-> Host and port of the proxy.
->
->
-> * **userName**:
-> Optionally a user name that will be presented to the proxy after connect.
->
->
-> * **password**:
-> Optionally, a password to present to the SOCKS5 or HTTP Proxy. It is not valid for SOCKS4 proxies and it should always be combined with [userName].
->
->
-> * **proxyTimeoutMS**:
-> optionally, specify a timeout in msec if the proxy is unusually slow to initate connections. The default value used is 10000 msec.
->
->
->
->
+
+
+* **proxyConfig**:
+This section is optionally present if outgoing peer connections should go via a SOCKS4, SOCKS5, or HTTP CONNECT tunnelling proxy:
+
+
+* **version**:
+Either SOCKS4, SOCKS5, or HTTP to define the protocol version used in connecting to the SOCKS proxy.
+
+
+* **proxyAddress**:
+Host and port of the proxy.
+
+
+* **userName**:
+Optionally a user name that will be presented to the proxy after connect.
+
+
+* **password**:
+Optionally, a password to present to the SOCKS5 or HTTP Proxy. It is not valid for SOCKS4 proxies and it should always be combined with [userName].
+
+
+* **proxyTimeoutMS**:
+optionally, specify a timeout in msec if the proxy is unusually slow to initate connections. The default value used is 10000 msec.
+
+
+
+
 
 
 
@@ -377,8 +377,8 @@ sets of `bridges` (e.g. in test environments).
 The default value is `bridge/ha` and would not normally need to be changed if the cluster is not shared.
 .. note:: This is a zookeeper specific configuration that is not appropriate when using the `Bully Algorithm`.  It should
 
->
-> therefore not be set when using the algorithm over artemis.
+
+therefore not be set when using the algorithm over artemis.
 
 
 

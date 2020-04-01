@@ -49,7 +49,7 @@ Create a directory containing a node config file, ending in “_node.conf”, fo
 following command:
 
 ```kotlin
-> java -jar corda-tools-network-bootstrapper-3.0.jar --dir <nodes-root-dir>
+java -jar corda-tools-network-bootstrapper-3.0.jar --dir <nodes-root-dir>
 ```
 
 

@@ -49,31 +49,31 @@ The name must also obey the following constraints:
 * The `state`, `organisational-unit` and `common name` attributes are optional
 * The maximum number of characters in the whole x500 name string is 128 characters
 * The fields of the name have character lengths **less** than the following maximum values:> 
-> 
->     * Common name: 64
->     * Organisation: 128
->     * Organisation unit: 64
->     * Locality: 64
->     * State: 64
+
+    * Common name: 64
+    * Organisation: 128
+    * Organisation unit: 64
+    * Locality: 64
+    * State: 64
 
 
 
 * The `country` attribute is a valid *ISO 3166-1<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>* two letter code in upper-case
 * The `organisation` field of the name obeys the following constraints:> 
-> 
->     * Has at least two letters
+
+    * Has at least two letters
 
 
 
 * All data fields adhere to the following constraints:> 
-> 
->     * Upper-case first letter
->     * Does not include the following characters: `,`, `=`, `$`, `"`, `'`, `\`
->     * Is in NFKC normalization form
->     * Does not contain the null character
->     * Only the latin, common and inherited unicode scripts are supported
->     * No double-spacing
->     * No leading or trailing whitespace
+
+    * Upper-case first letter
+    * Does not include the following characters: `,`, `=`, `$`, `"`, `'`, `\`
+    * Is in NFKC normalization form
+    * Does not contain the null character
+    * Only the latin, common and inherited unicode scripts are supported
+    * No double-spacing
+    * No leading or trailing whitespace
 
 
 

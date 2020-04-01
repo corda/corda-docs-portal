@@ -137,11 +137,11 @@ HSM username. This user needs the appropriate permissions for key generation and
 * **mode**: 
 Currently, 3 authentication modes are supported:
 
-> 
-> 
-> * `PASSWORD` - User’s password as set-up in the HSM.
-> * `CARD_READER` - Smart card reader authentication.
-> * `KEY_FILE` - Key file based authentication.
+
+
+* `PASSWORD` - User’s password as set-up in the HSM.
+* `CARD_READER` - Smart card reader authentication.
+* `KEY_FILE` - Key file based authentication.
 
 
 
@@ -354,17 +354,17 @@ it will result in the certificate being generated without a role extension.
 Possible usages of the keys associated with the certificate (Optional). This is an array of values from the
 following set:
 
-> 
-> 
-> * `DIGITAL_SIGNATURE`
-> * `NON_REPUDIATION`
-> * `KEY_ENCIPHERMENT`
-> * `DATA_ENCIPHERMENT`
-> * `KEY_AGREEMENT`
-> * `KEY_CERT_SIGN`
-> * `CRL_SIGN`
-> * `ENCIPHER_ONLY`
-> * `DECIPHER_ONLY`
+
+
+* `DIGITAL_SIGNATURE`
+* `NON_REPUDIATION`
+* `KEY_ENCIPHERMENT`
+* `DATA_ENCIPHERMENT`
+* `KEY_AGREEMENT`
+* `KEY_CERT_SIGN`
+* `CRL_SIGN`
+* `ENCIPHER_ONLY`
+* `DECIPHER_ONLY`
 
 
 Default value: [`DIGITAL_SIGNATURE`, `KEY_CERT_SIGN`, `CRL_SIGN`].
@@ -374,28 +374,28 @@ Default value: [`DIGITAL_SIGNATURE`, `KEY_CERT_SIGN`, `CRL_SIGN`].
 Possible extended usages of the keys associated with the certificate (Optional). This is an array of values from the
 following set:
 
-> 
-> 
-> * `ANY_EXTENDED_KEY_USAGE`
-> * `SERVER_AUTH`
-> * `CLIENT_AUTH`
-> * `CODE_SIGNING`
-> * `EMAIL_PROTECTION`
-> * `IPSEC_END_SYSTEM`
-> * `IPSEC_TUNNEL`
-> * `IPSEC_USER`
-> * `IPSEC_TIME_STAMPING`
-> * `OCSP_SIGNING`
-> * `DVCS`
-> * `SBGP_CERT_A_A_SERVER_AUTH`
-> * `SCVP_RESPONDER`
-> * `EAP_OVER_PPP`
-> * `EAP_OVER_LAN`
-> * `SCVP_SERVER`
-> * `SCVP_CLIENT`
-> * `IPSEC_IKE`
-> * `CAPWAP_AC`
-> * `CAPWAP_WTP`
+
+
+* `ANY_EXTENDED_KEY_USAGE`
+* `SERVER_AUTH`
+* `CLIENT_AUTH`
+* `CODE_SIGNING`
+* `EMAIL_PROTECTION`
+* `IPSEC_END_SYSTEM`
+* `IPSEC_TUNNEL`
+* `IPSEC_USER`
+* `IPSEC_TIME_STAMPING`
+* `OCSP_SIGNING`
+* `DVCS`
+* `SBGP_CERT_A_A_SERVER_AUTH`
+* `SCVP_RESPONDER`
+* `EAP_OVER_PPP`
+* `EAP_OVER_LAN`
+* `SCVP_SERVER`
+* `SCVP_CLIENT`
+* `IPSEC_IKE`
+* `CAPWAP_AC`
+* `CAPWAP_WTP`
 
 
 Default value: [`SERVER_AUTH`, `CLIENT_AUTH`].
@@ -467,14 +467,14 @@ Certificate revocation time.
 * **reason**: 
 Reason for the certificate revocation. The allowed value is one of the following:
 
-> 
-> 
-> * `KEY_COMPROMISE`
-> * `CA_COMPROMISE`
-> * `AFFILIATION_CHANGED`
-> * `SUPERSEDED`
-> * `CESSATION_OF_OPERATION`
-> * `PRIVILEGE_WITHDRAWN`
+
+
+* `KEY_COMPROMISE`
+* `CA_COMPROMISE`
+* `AFFILIATION_CHANGED`
+* `SUPERSEDED`
+* `CESSATION_OF_OPERATION`
+* `PRIVILEGE_WITHDRAWN`
 
 
 
@@ -528,13 +528,13 @@ used.
 * **algorithm**: 
 Corda signature scheme name. Default value: `ECDSA_SECP256R1_SHA256`. Allowed values are:
 
-> 
-> 
-> * `RSA_SHA256`
-> * `ECDSA_SECP256K1_SHA256`
-> * `ECDSA_SECP256R1_SHA256`
-> * `EDDSA_ED25519_SHA512`
-> * `SPHINCS256_SHA256`
+
+
+* `RSA_SHA256`
+* `ECDSA_SECP256K1_SHA256`
+* `ECDSA_SECP256R1_SHA256`
+* `EDDSA_ED25519_SHA512`
+* `SPHINCS256_SHA256`
 
 
 

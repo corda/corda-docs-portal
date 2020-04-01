@@ -28,23 +28,23 @@ it and the firewall (if deployed externally) for information on configuration, s
 ## Running
 
 ```kotlin
-> java -jar corda-tools-health-survey-4.3.jar --base-directory DIRECTORY [--node-configuration DIRECTORY]
+java -jar corda-tools-health-survey-4.3.jar --base-directory DIRECTORY [--node-configuration DIRECTORY]
 ```
 
 
 Usage:
 
-> 
-> 
-> * `-c`, `--node-configuration` <arg>:   Path to the Corda node configuration file, optional
-> * `-d`, `--base-directory` <arg>:       Path to the Corda node base directory
-> * `-l`, `--local`:                      Verify local node configuration only without checking bridge/firewall, by default verifies all
-> * `-e`, `--exclude-logs`:               Exclude node’s log files from ZIP report, by default logs are included in ZIP report
-> * `-t`, `--text-format`:                Create report as a single .txt file without node’s log files, default is ZIP format
-> * `-i`, `--timeout`:                    Override default timeout for sending health request messages
-> * `-v`, `--config-validate`:            Validate configuration files
-> * `-b`, `--bridge-configuration`        Path to bridge configuration when used in conjunction with *config-validate*
-> * `-f`, `--float-configuration`         Path to float configuration when used in conjunction with *config-validate*
+
+
+* `-c`, `--node-configuration` <arg>:   Path to the Corda node configuration file, optional
+* `-d`, `--base-directory` <arg>:       Path to the Corda node base directory
+* `-l`, `--local`:                      Verify local node configuration only without checking bridge/firewall, by default verifies all
+* `-e`, `--exclude-logs`:               Exclude node’s log files from ZIP report, by default logs are included in ZIP report
+* `-t`, `--text-format`:                Create report as a single .txt file without node’s log files, default is ZIP format
+* `-i`, `--timeout`:                    Override default timeout for sending health request messages
+* `-v`, `--config-validate`:            Validate configuration files
+* `-b`, `--bridge-configuration`        Path to bridge configuration when used in conjunction with *config-validate*
+* `-f`, `--float-configuration`         Path to float configuration when used in conjunction with *config-validate*
 
 
 Running the tool with no arguments assumes that the base-directory argument is the current working directory.
@@ -60,11 +60,11 @@ The tool generates the archive of the collected files in the same directory it i
 
 The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise Node. The tool supports the following deployment configurations:
 
-> 
-> 
-> * Node with internal Artemis broker
-> * Node with internal Artemis broker, external Bridge
-> * Node with internal Artemis broker, Bridge, Float (full Corda Enterprise Firewall architecture)
+
+
+* Node with internal Artemis broker
+* Node with internal Artemis broker, external Bridge
+* Node with internal Artemis broker, Bridge, Float (full Corda Enterprise Firewall architecture)
 
 
 {{< note >}}

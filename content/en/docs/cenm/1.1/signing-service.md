@@ -730,10 +730,10 @@ hosted on.
 Relevant only if type is `CRL`. This represents the millisecond duration between CRL updates and is baked into the
 generated CRL via the `nextUpdate` X509 field. For users of this CRL, this defines two key pieces of information:
 
-> 
-> 
-> * When the next CRL should be available, which is used by some libraries for cache invalidation.
-> * When then current CRL should be considered expired and therefore obsolete.
+
+
+* When the next CRL should be available, which is used by some libraries for cache invalidation.
+* When then current CRL should be considered expired and therefore obsolete.
 
 
 To ensure that the transition from an old CRL to a new one, this value should always be set to a time period much

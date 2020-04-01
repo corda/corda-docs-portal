@@ -34,19 +34,19 @@ can add functionality useful to themselves and the wider community.
 
 As such we’d like to extend special thanks to
 
-> 
-> 
-> * Ben Wyeth for providing a mechanism for registering a callback on app shutdownBen’s contribution can be found on GitHub
-> [here](https://github.com/corda/corda/commit/d17670c747d16b7f6e06e19bbbd25eb06e45cb93)
-> * Tomas Tauber for adding support for running Corda atop PostgresSQL in place of the in-memory H2 serviceTomas’s contribution can be found on GitHub
-> [here](https://github.com/corda/corda/commit/342090db62ae40cef2be30b2ec4aa451b099d0b7)
-> {{< warning >}}
-> This is an experimental feature that has not been tested as part of our standard release testing.{{< /warning >}}
-> 
-> 
-> 
-> * Rose Molina Atienza for correcting our careless spelling slipRose’s change can be found on GitHub
-> [here](https://github.com/corda/corda/commit/128d5cad0af7fc5595cac3287650663c9c9ac0a3)
+
+
+* Ben Wyeth for providing a mechanism for registering a callback on app shutdownBen’s contribution can be found on GitHub
+[here](https://github.com/corda/corda/commit/d17670c747d16b7f6e06e19bbbd25eb06e45cb93)
+* Tomas Tauber for adding support for running Corda atop PostgresSQL in place of the in-memory H2 serviceTomas’s contribution can be found on GitHub
+[here](https://github.com/corda/corda/commit/342090db62ae40cef2be30b2ec4aa451b099d0b7)
+{{< warning >}}
+This is an experimental feature that has not been tested as part of our standard release testing.{{< /warning >}}
+
+
+
+* Rose Molina Atienza for correcting our careless spelling slipRose’s change can be found on GitHub
+[here](https://github.com/corda/corda/commit/128d5cad0af7fc5595cac3287650663c9c9ac0a3)
 
 
 
@@ -74,14 +74,14 @@ Whilst this is an important step for Corda, in no way is this the end of the ser
 features and tools planned for future releases, but feel it is more important to deliver the guarantees discussed above
 as early as possible to allow the community to develop with greater confidence.
 
-> 
-> 
-> {{< important >}}
-> Whilst Corda has stabilised its wire protocol and infrastructure for peer to peer communication and persistent storage
-> of states, the RPC framework will, for this release, not be covered by this guarantee. The moving of the client and
-> server contexts away from Kryo to our stable AMQP implementation is planned for the next release of Corda
-> {{< /important >}}
-> 
+
+
+{{< important >}}
+Whilst Corda has stabilised its wire protocol and infrastructure for peer to peer communication and persistent storage
+of states, the RPC framework will, for this release, not be covered by this guarantee. The moving of the client and
+server contexts away from Kryo to our stable AMQP implementation is planned for the next release of Corda
+{{< /important >}}
+
 
 
     * **Artemis and Bridges**Corda has now achieved the long stated goal of using the AMQP 1.0 open protocol standard as its communication protocol
@@ -134,9 +134,9 @@ In prior versions of Corda, states included the hash of their defining applicati
 In this release, transactions have the JAR containing the contract and states attached to them, so the code will be copied
 over the network to the recipient if that peer lacks a copy of the app.Prior to running the verification code of a contract the JAR within which the verification code of the contract resides
 is tested for compliance to the contract constraints:> 
-> 
->     * For the `HashConstraint`: the hash of the deployed CorDapp jar must be the same as the hash found in the Transaction.
->     * For the `ZoneConstraint`: the Transaction must come with a whitelisted attachment for each Contract State.
+
+    * For the `HashConstraint`: the hash of the deployed CorDapp jar must be the same as the hash found in the Transaction.
+    * For the `ZoneConstraint`: the Transaction must come with a whitelisted attachment for each Contract State.
 
 
 If this step fails the normal transaction verification failure path is followed.Corda 3.0 lays the groundwork for future releases, when contract verification will be done against the attached contract JARs
@@ -170,11 +170,11 @@ without alteration.Please see the [Upgrading a CorDapp to a new platform version
 could be shutdown without any in-flight transactions pending to allow for a clean system for upgrade purposes. As such, a flows
 draining mode has been added. When activated, this places the node into a state of quiescence that guarantees no new work will
 be started and all outstanding work completed prior to shutdown.A clean shutdown can thus be achieved by:> 
-> 
-> * Subscribing to state machine updates
-> * Trigger flows draining mode by `rpc.setFlowsDrainingModeEnabled(true)`
-> * Wait until the subscription setup as phase 1 lets you know that no more checkpoints are around
-> * Shut the node down however you want
+
+* Subscribing to state machine updates
+* Trigger flows draining mode by `rpc.setFlowsDrainingModeEnabled(true)`
+* Wait until the subscription setup as phase 1 lets you know that no more checkpoints are around
+* Shut the node down however you want
 
 
 {{< note >}}
@@ -208,51 +208,51 @@ is mappable directly to and from the unserializable class.A number of examples a
 
 ### Security Auditing
 
-> 
-> This version of Corda is the first to have had select components subjected to the newly established security review process
-> by R3’s internal security team. Security review will be an on-going process that seeks to provide assurance that the
-> security model of Corda has been implemented to the highest standard, and is in line with industry best practice.
-> 
-> As part of this security review process, an independent external security audit of the HTTP based components of the code
-> was undertaken and its recommendations were acted upon. The security assurance process will develop in parallel to the
-> Corda platform and will combine code review, automated security testing and secure development practices to ensure Corda
-> fulfils its security guarantees.
+
+This version of Corda is the first to have had select components subjected to the newly established security review process
+by R3’s internal security team. Security review will be an on-going process that seeks to provide assurance that the
+security model of Corda has been implemented to the highest standard, and is in line with industry best practice.
+
+As part of this security review process, an independent external security audit of the HTTP based components of the code
+was undertaken and its recommendations were acted upon. The security assurance process will develop in parallel to the
+Corda platform and will combine code review, automated security testing and secure development practices to ensure Corda
+fulfils its security guarantees.
 
 
 
 ### Security fixes
 
-> 
-> 
-> * Due to a potential privacy leak, there has been a breaking change in the error object returned by the
-> notary service when trying to consume the same state twice: *NotaryError.Conflict* no longer contains the identity
-> of the party that initiated the first spend of the state, and specifies the hash of the consuming transaction id for
-> a state instead of the id itself.Without this change, knowing the reference of a particular state, an attacker could construct an invalid
-> double-spend transaction, and obtain the information on the transaction and the party that consumed it. It could
-> repeat this process with the newly obtained transaction id by guessing its output indexes to obtain the forward
-> transaction graph with associated identities. When anonymous identities are used, this could also reveal the identity
-> of the owner of an asset.
+
+
+* Due to a potential privacy leak, there has been a breaking change in the error object returned by the
+notary service when trying to consume the same state twice: *NotaryError.Conflict* no longer contains the identity
+of the party that initiated the first spend of the state, and specifies the hash of the consuming transaction id for
+a state instead of the id itself.Without this change, knowing the reference of a particular state, an attacker could construct an invalid
+double-spend transaction, and obtain the information on the transaction and the party that consumed it. It could
+repeat this process with the newly obtained transaction id by guessing its output indexes to obtain the forward
+transaction graph with associated identities. When anonymous identities are used, this could also reveal the identity
+of the owner of an asset.
 
 
 
 ### Minor Changes
 
-> 
-> 
-> * Upgraded gradle to 4.4.1.{{< note >}}
-> To avoid potential incompatibility issues we recommend you also upgrade your CorDapp’s gradle
-> plugin to match. Details on how to do this can be found on the official
-> [gradle website](https://docs.gradle.org/current/userguide/gradle_wrapper.html#sec:upgrading_wrapper){{< /note >}}
-> 
-> * Cash Spending now allows for sending multiple amounts to multiple parties with a single API call
->     * documentation can be found within the JavaDocs on `TwoPartyTradeFlow`.
-> 
-> 
-> * Overall improvements to error handling (RPC, Flows, Network Client).
-> * TLS authentication now supports mixed RSA and ECDSA keys.
-> * PrivacySalt computation is faster as it does not depend on the OS’s entropy pool directly.
-> * Numerous bug fixes and documentation tweaks.
-> * Removed dependency on Jolokia WAR file.
+
+
+* Upgraded gradle to 4.4.1.{{< note >}}
+To avoid potential incompatibility issues we recommend you also upgrade your CorDapp’s gradle
+plugin to match. Details on how to do this can be found on the official
+[gradle website](https://docs.gradle.org/current/userguide/gradle_wrapper.html#sec:upgrading_wrapper){{< /note >}}
+
+* Cash Spending now allows for sending multiple amounts to multiple parties with a single API call
+    * documentation can be found within the JavaDocs on `TwoPartyTradeFlow`.
+
+
+* Overall improvements to error handling (RPC, Flows, Network Client).
+* TLS authentication now supports mixed RSA and ECDSA keys.
+* PrivacySalt computation is faster as it does not depend on the OS’s entropy pool directly.
+* Numerous bug fixes and documentation tweaks.
+* Removed dependency on Jolokia WAR file.
 
 
 
@@ -290,15 +290,15 @@ will only evolve to include new features.
 As of Corda 1.0, the following modules export public APIs for which we guarantee to maintain backwards compatibility,
 unless an incompatible change is required for security reasons:
 
-> 
-> 
-> * **core**:
-> Contains the bulk of the APIs to be used for building CorDapps: contracts, transactions, flows, identity, node services,
-> cryptographic libraries, and general utility functions.
-> * **client-rpc**:
-> An RPC client interface to Corda, for use by both UI facing clients and integration with external systems.
-> * **client-jackson**:
-> Utilities and serialisers for working with JSON representations of basic types.
+
+
+* **core**:
+Contains the bulk of the APIs to be used for building CorDapps: contracts, transactions, flows, identity, node services,
+cryptographic libraries, and general utility functions.
+* **client-rpc**:
+An RPC client interface to Corda, for use by both UI facing clients and integration with external systems.
+* **client-jackson**:
+Utilities and serialisers for working with JSON representations of basic types.
 
 
 Our extensive testing frameworks will continue to evolve alongside future Corda APIs. As part of our commitment to ease of use and modularity
@@ -560,16 +560,16 @@ The new “DemoBench” makes it easy to configure and launch local Corda nodes.
 bundled with its own JRE and packaged as either EXE (Windows), DMG (MacOS) or RPM (Linux-based). It has the following
 features:
 
-> 
-> 
-> * New nodes can be added at the click of a button. Clicking “Add node” creates a new tab that lets you edit the most
-> important configuration properties of the node before launch, such as its legal name and which CorDapps will be loaded.
-> * Each tab contains a terminal emulator, attached to the pseudoterminal of the node. This lets you see console output.
-> * You can launch an Corda Explorer instance for each node at the click of a button. Credentials are handed to the Corda
-> Explorer so it starts out logged in already.
-> * Some basic statistics are shown about each node, informed via the RPC connection.
-> * Another button launches a database viewer in the system browser.
-> * The configurations of all running nodes can be saved into a single `.profile` file that can be reloaded later.
+
+
+* New nodes can be added at the click of a button. Clicking “Add node” creates a new tab that lets you edit the most
+important configuration properties of the node before launch, such as its legal name and which CorDapps will be loaded.
+* Each tab contains a terminal emulator, attached to the pseudoterminal of the node. This lets you see console output.
+* You can launch an Corda Explorer instance for each node at the click of a button. Credentials are handed to the Corda
+Explorer so it starts out logged in already.
+* Some basic statistics are shown about each node, informed via the RPC connection.
+* Another button launches a database viewer in the system browser.
+* The configurations of all running nodes can be saved into a single `.profile` file that can be reloaded later.
 
 
 Soft Locking is a new feature implemented in the vault to prevent a node constructing transactions that attempt to use the

@@ -223,9 +223,9 @@ You manually process received messages as follows:
 * `StartedMockNode.pumpReceive` to process a single message from the node’s queue
 * `MockNetwork.runNetwork` to process all the messages in every node’s queue. This may generate additional messages
 that must in turn be processed> 
-> 
->     * `network.runNetwork(-1)` (the default in Kotlin) will exchange messages until there are no further messages to
-> process
+
+    * `network.runNetwork(-1)` (the default in Kotlin) will exchange messages until there are no further messages to
+process
 
 
 

@@ -224,22 +224,22 @@ dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow
 
 The Corda platform source code is available here:
 
->
-> [https://github.com/corda/corda.git](https://github.com/corda/corda.git)
+
+[https://github.com/corda/corda.git](https://github.com/corda/corda.git)
 
 
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
 
->
-> [https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
->
-> [https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
+
+[https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
+
+[https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
 
 
 And a list of simple sample CorDapps for you to explore basic concepts is available here:
 
->
-> [https://www.corda.net/samples/](https://www.corda.net/samples/)
+
+[https://www.corda.net/samples/](https://www.corda.net/samples/)
 
 
 You can clone these repos to your local machine by running the command `git clone [repo URL]`.

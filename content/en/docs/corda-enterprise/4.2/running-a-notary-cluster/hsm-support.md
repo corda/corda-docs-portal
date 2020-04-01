@@ -30,11 +30,11 @@ identity is drawn in blue. Their cryptographic keys are held in two HSMs.
 
 Notary workers hold three private key entries in their keystore.
 
-> 
-> 
-> * *cordaclientca*, the node certificate authority, issuing the legal identity and TLS keys.
-> * *identity-private-key*, the legal identity used to sign transactions.
-> * *distributed-notary-private-key*, used to notarise transactions.
+
+
+* *cordaclientca*, the node certificate authority, issuing the legal identity and TLS keys.
+* *identity-private-key*, the legal identity used to sign transactions.
+* *distributed-notary-private-key*, used to notarise transactions.
 
 
 The *cordaclientca* and *distributed-notary-private-key* are issued by the

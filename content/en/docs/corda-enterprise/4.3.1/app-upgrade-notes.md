@@ -110,11 +110,12 @@ This stops type inference from occurring and forces the variable to be of type `
 
 Platform Version 5 requires Gradle 5.4 to build. If you use the Gradle wrapper, you can upgrade by running:
 
-> 
-> ```shell
-> ./gradlew wrapper --gradle-version 5.4.1
-> ```
-> 
+
+```shell
+./gradlew wrapper --gradle-version 5.4.1
+```
+
+
 
 Otherwise, upgrade your installed copy in the usual manner for your operating system.
 

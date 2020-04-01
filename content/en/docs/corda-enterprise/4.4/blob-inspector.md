@@ -24,7 +24,7 @@ The tool is distributed as part of Corda Enterprise 4.4 in the form of runnable 
 To run simply pass in the file or URL as the first parameter:
 
 ```kotlin
-> java -jar corda-tools-blob-inspector-4.4.jar <file or URL>
+java -jar corda-tools-blob-inspector-4.4.jar <file or URL>
 ```
 
 

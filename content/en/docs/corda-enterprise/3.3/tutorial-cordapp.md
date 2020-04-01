@@ -206,7 +206,9 @@ functionally identical, we will refer to the Kotlin version throughout the docum
 * After the build finishes, you will see the generated nodes in the `kotlin-source/build/nodes` folder
     * There will be a folder for each generated node, plus a `runnodes` shell script (or batch file on Windows) to run
 all the nodes simultaneously
-    * Each node in the `nodes` folder has the following structure:```none
+    * Each node in the `nodes` folder has the following structure:
+
+```none
 . nodeName
 ├── additional-node-infos  // NodeInfos for the other nodes on the bootstrapped network.
 ├── certificates           // The node's certificate (Signed by the Doorman).

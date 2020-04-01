@@ -30,7 +30,7 @@ The tool is distributed in the form of runnable JAR file: “corda-tools-explore
 ## Running the UI
 
 ```kotlin
-> java -jar corda-tools-explorer-3.1.jar
+java -jar corda-tools-explorer-3.1.jar
 ```
 
 

@@ -177,19 +177,19 @@ It is intended to be used by Corda Enterprise node administrators.
 
 Currently it has these features:
 
-> 
-> 
-> * It allows running the migration on the database (`--execute-migration` )
-> * Offers the option to inspect the actual SQL statements that will be run as part of the current migration (`--dry-run` )
-> * Sometimes, when a node or the database management tool crashes while running migrations, Liquibase will not release the lock.
-> This can happen during some long database operation, or when an admin kills the process.
-> ( This cannot happen during normal operation of a node. Only during the migration process.)
-> See: <[http://www.liquibase.org/documentation/databasechangeloglock_table.html](http://www.liquibase.org/documentation/databasechangeloglock_table.html)>.
-> The tool provides a “release-lock” command that would forcibly unlock the database migration process.
-> * When a CorDapp that does not is ready to be deployed on a Corda Enterprise production node,
-> using this tool, the CorDapp can be “lifted” (`--create-migration-sql-for-cordapp`).
-> The reason this is needed is because those CorDapps don’t handle this enterprise level concern.
-> See below for details.
+
+
+* It allows running the migration on the database (`--execute-migration` )
+* Offers the option to inspect the actual SQL statements that will be run as part of the current migration (`--dry-run` )
+* Sometimes, when a node or the database management tool crashes while running migrations, Liquibase will not release the lock.
+This can happen during some long database operation, or when an admin kills the process.
+( This cannot happen during normal operation of a node. Only during the migration process.)
+See: <[http://www.liquibase.org/documentation/databasechangeloglock_table.html](http://www.liquibase.org/documentation/databasechangeloglock_table.html)>.
+The tool provides a “release-lock” command that would forcibly unlock the database migration process.
+* When a CorDapp that does not is ready to be deployed on a Corda Enterprise production node,
+using this tool, the CorDapp can be “lifted” (`--create-migration-sql-for-cordapp`).
+The reason this is needed is because those CorDapps don’t handle this enterprise level concern.
+See below for details.
 
 
 It has the following command line options:

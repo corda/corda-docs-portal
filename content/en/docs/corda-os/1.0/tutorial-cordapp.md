@@ -170,13 +170,13 @@ about which version is required
 * **lib** contains the Quasar jar which rewrites our CorDapp’s flows to be checkpointable
 * **kotlin-source** contains the source code for the example CorDapp written in Kotlin
 
-> 
-> 
-> * **kotlin-source/src/main/kotlin** contains the source code for the example CorDapp
-> * **kotlin-source/src/main/resources** contains the certificate store, some static web content to be served by the
-> nodes and the WebServerPluginRegistry file
-> * **kotlin-source/src/test/kotlin** contains unit tests for the contracts and flows, and the driver to run the nodes
-> via IntelliJ
+
+
+* **kotlin-source/src/main/kotlin** contains the source code for the example CorDapp
+* **kotlin-source/src/main/resources** contains the certificate store, some static web content to be served by the
+nodes and the WebServerPluginRegistry file
+* **kotlin-source/src/test/kotlin** contains unit tests for the contracts and flows, and the driver to run the nodes
+via IntelliJ
 
 
 
@@ -220,7 +220,9 @@ functionally identical, we will refer to the Kotlin build throughout the documen
 * After the build process has finished, you will see the newly-build nodes in the `kotlin-source/build/nodes` folder
     * There will be one folder generated for each node you built, plus a `runnodes` shell script (or batch file on
 Windows) to run all the nodes simultaneously
-    * Each node in the `nodes` folder has the following structure:```none
+    * Each node in the `nodes` folder has the following structure:
+
+```none
 . nodeName
 ├── corda.jar
 ├── node.conf
@@ -289,7 +291,9 @@ the IDE
 * Click the green arrow to start the nodes:![run config drop down](/en/images/run-config-drop-down.png "run config drop down")
 The node driver defined in `/src/test/kotlin/com/example/Main.kt` allows you to specify how many nodes you would like
 to run and the configuration settings for each node. For the example CorDapp, the driver starts up four nodes
-and adds an RPC user for all but the “Controller” node (which serves as the notary and network map service):```kotlin
+and adds an RPC user for all but the “Controller” node (which serves as the notary and network map service):
+
+```kotlin
 fun main(args: Array<String>) {
     // No permissions required as we are not invoking flows.
     val user = User("user1", "test", permissions = setOf())

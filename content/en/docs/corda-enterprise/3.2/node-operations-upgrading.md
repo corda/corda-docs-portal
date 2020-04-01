@@ -69,50 +69,51 @@ Also, on Corda Enterprise we have integrated Liquibase to track database changes
 
 
 * Backup the database and run the following statements in order to align the database with Corda Enterprise:> 
-> For CorDapps persisting custom entities with `PersistentStateRef` used as a non Primary Key column, the backing table needs to be updated.
-> In SQL replace `your_transaction_id`/`your_output_index` column names with your custom names, if the entity doesn’t use the JPA
-> `@AttributeOverrides` then the default names are `transaction_id` and `output_index`.First, run the following SQL statement to determine whether any existing rows have `NULL` values:```sql
-> SELECT count(*) FROM [YOUR_PersistentState_TABLE_NAME] WHERE your_transaction_id IS NULL OR your_output_index IS NULL;
-> ```
-> 
-> 
-> * If the table already contains rows with `NULL` columns, and `NULL` values and empty strings are handled in the same way,
-> all `NULL` column occurrences can be changed to an empty string using the following SQL:```sql
-> UPDATE [YOUR_PersistentState_TABLE_NAME] SET your_transaction_id="" WHERE your_transaction_id IS NULL;
-> UPDATE [YOUR_PersistentState_TABLE_NAME] SET your_output_index="" WHERE your_output_index IS NULL;
-> ```
-> 
-> Once no rows have any `NULL` values for `transaction_ids` or `output_idx`, then it’s safe to update the table using
-> the following SQL:```sql
-> ALTER TABLE [YOUR_PersistentState_TABLE_NAME] ALTER COLUMN your_transaction_id SET NOT NULL;
-> ALTER TABLE [YOUR_PersistentState_TABLE_NAME] ALTER COLUMN your_output_index SET NOT NULL;
-> ```
-> 
-> 
-> * If the table already contains rows with `NULL` values, and the logic is different between `NULL` values and empty strings
-> and needs to be preserved, you would need to create a copy of the `PersistentStateRef` class with a different name and
-> use the new class in your entity.
-> 
-> No action is needed for default node tables, or custom CorDapp entities using `PersistentStateRef` as a primary key, as
-> in this case the backing columns are automatically not nullable.
-> * A table name with a typo has been corrected> 
-> > ```sql
-> > ALTER TABLE [schema.]NODE_ATTCHMENTS_CONTRACTS RENAME TO NODE_ATTACHMENTS_CONTRACTS;
-> > ```
-> > 
-> > The `schema` parameter is optional.
-> 
-> 
-> {{< note >}}
-> Don’t forget to backup the H2 database as after the changes the database will no longer be compatible with a Corda 3.0 or 3.1 node.{{< /note >}}
+For CorDapps persisting custom entities with `PersistentStateRef` used as a non Primary Key column, the backing table needs to be updated.
+In SQL replace `your_transaction_id`/`your_output_index` column names with your custom names, if the entity doesn’t use the JPA
+`@AttributeOverrides` then the default names are `transaction_id` and `output_index`.First, run the following SQL statement to determine whether any existing rows have `NULL` values:
 
+```sql
+SELECT count(*) FROM [YOUR_PersistentState_TABLE_NAME] WHERE your_transaction_id IS NULL OR your_output_index IS NULL;
+```
+
+
+* If the table already contains rows with `NULL` columns, and `NULL` values and empty strings are handled in the same way,
+ all `NULL` column occurrences can be changed to an empty string using the following SQL:
+
+```sql
+ UPDATE [YOUR_PersistentState_TABLE_NAME] SET your_transaction_id="" WHERE your_transaction_id IS NULL;
+ UPDATE [YOUR_PersistentState_TABLE_NAME] SET your_output_index="" WHERE your_output_index IS NULL;
+```
+ 
+ Once no rows have any `NULL` values for `transaction_ids` or `output_idx`, then it’s safe to update the table using
+ the following SQL:
+
+```sql
+ ALTER TABLE [YOUR_PersistentState_TABLE_NAME] ALTER COLUMN your_transaction_id SET NOT NULL;
+ ALTER TABLE [YOUR_PersistentState_TABLE_NAME] ALTER COLUMN your_output_index SET NOT NULL;
+ ```
+ 
+ 
+* If the table already contains rows with `NULL` values, and the logic is different between `NULL` values and empty strings
+ and needs to be preserved, you would need to create a copy of the `PersistentStateRef` class with a different name and
+ use the new class in your entity.
+ 
+ No action is needed for default node tables, or custom CorDapp entities using `PersistentStateRef` as a primary key, as
+ in this case the backing columns are automatically not nullable.
+* A table name with a typo has been corrected> 
+```sql
+ ALTER TABLE [schema.]NODE_ATTCHMENTS_CONTRACTS RENAME TO NODE_ATTACHMENTS_CONTRACTS;
+```
+
+The `schema` parameter is optional.
+
+{{< note >}}
+Don’t forget to backup the H2 database as after the changes the database will no longer be compatible with a Corda 3.0 or 3.1 node.{{< /note >}}
 
 * Export the data from the H2 database using a specialized tool.
 * Prepare a new database and import the data:
-
-> 
-> 
-> * Use the database management tool (see [Database management](database-management.md)) to setup the database schema.
-> * Import the data into the new database.
+* Use the database management tool (see [Database management](database-management.md)) to setup the database schema.
+* Import the data into the new database.
 
 

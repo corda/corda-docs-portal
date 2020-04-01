@@ -33,7 +33,9 @@ Use latest patched version (1.1.1 or higher) of the services (JAR/ZIP files) ins
 {{< /note >}}
 
 * **Identity Manager, Network Map and Signing Service**Ensure Identity Manager and Network Map service will be configure to upgrade the database upon startup.
-In the configuration files of Identity Manager and Network Map set `runMigration` property to `true` e.g.:```guess
+In the configuration files of Identity Manager and Network Map set `runMigration` property to `true` e.g.:
+
+```guess
 database {
     runMigration = true
     ...
@@ -69,7 +71,9 @@ signing tasks by referencing the Signing Service documentation.
 * **SQL Server**If you’re currently using Microsoft SQL server then, in previous versions of CENM, this worked out of the
 box because the JDBC driver jar was shipped as part of the CENM distributable. This is no longer the case
 as CENM expands to support more databases it becomes impractical to do this, it also allows upgrading the
-driver version to be done without shipping a new version of CENM.Using the new database configuration section, you should configure you persistence layer as follows:```guess
+driver version to be done without shipping a new version of CENM.Using the new database configuration section, you should configure you persistence layer as follows:
+
+```guess
 database {
     ...
     jdbcDriver = "/path/to/sqljdbc_7.2/enu/mssql-jdbc-7.2.2.jre8.jar"
@@ -79,7 +83,9 @@ database {
 ```
 
 
-* **PostgreSQL**PostgreSQL is now officially supported as a tested and verified alternative.To use PostgreSQL, configure the persistence layer as follows:```guess
+* **PostgreSQL**PostgreSQL is now officially supported as a tested and verified alternative.To use PostgreSQL, configure the persistence layer as follows:
+
+```guess
 database {
     ...
     jdbcDriver = "/path/to/postgresql-42.2.5.jar"

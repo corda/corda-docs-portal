@@ -78,32 +78,34 @@ If using an Enterprise grade **commercial** database you have two options:
 
 * Use the Corda Database management tool to generate and execute SQL upgrade scripts.Generate the scripts by running the following command:
 
-> java -jar corda-tools-database-manager-4.0.jar –base-directory /path/to/node –dry-run
-
-> 
-> The generated scripts should then be applied by your database administrator using their tooling of choice or by executing the following command:
+java -jar corda-tools-database-manager-4.0.jar –base-directory /path/to/node –dry-run
 
 
-> java -jar corda-tools-database-manager-4.0.jar –base-directory /path/to/node –execute-migration
+The generated scripts should then be applied by your database administrator using their tooling of choice or by executing the following command:
 
-> 
-> Restart the node with the upgraded `corda.jar`.
-> 
-> {{< note >}}
-> This is the recommended best practice in strictly controlled UAT, staging and production environments.
-> 
-> {{< /note >}}
-> 
-> {{< warning >}}
-> Ensure you use the same version of the Database management tool as the Corda Node it wil be used against.
-> 
-> {{< /warning >}}
-> 
-> 
+
+java -jar corda-tools-database-manager-4.0.jar –base-directory /path/to/node –execute-migration
+
+
+Restart the node with the upgraded `corda.jar`.
+
+{{< note >}}
+This is the recommended best practice in strictly controlled UAT, staging and production environments.
+
+{{< /note >}}
+
+{{< warning >}}
+Ensure you use the same version of the Database management tool as the Corda Node it wil be used against.
+
+{{< /warning >}}
+
+
 
 
 * Configure the node to automatically execute all database SQL scripts upon startup.
-This requires setting the following flag in the node’s associated `node.conf` configuration file:```none
+This requires setting the following flag in the node’s associated `node.conf` configuration file:
+
+```none
 database.runMigration = true
 ```
 
@@ -134,16 +136,16 @@ All steps of this procedure except the first one needed to be run:*Extract DDL s
 *Apply DDL scripts on a database*
 *Apply remaining data upgrades on a database.*Note the last step is important because Corda 4 contains new columns/tables which needed to be populated based on your existing data,
 and these migration can’t be expressed in DDL script.Specifically, the `vault_states` table adds the following:> 
-> 
->     * `relevancy_status` column
->     * referenced `state_party` table (and new fields)
+
+    * `relevancy_status` column
+    * referenced `state_party` table (and new fields)
 
 
 and uses some custom migration code (executed as a custom change set by Liquibase) to achieve this. In order to determine if a state is relevant
 for a node, the migration code needs to know the nodes name, which it obtains from `myLegalName` (set in the Database management tool configuration file).
 The migration code also requires access to the node’s CorDapps in order to understand which custom `MappedSchema` objects to process.> 
-> 
->     * If you are not reusing a node base directory, copy any CorDapps from a node being upgraded to *cordapps* subdirectory accessed by the tool.
+
+    * If you are not reusing a node base directory, copy any CorDapps from a node being upgraded to *cordapps* subdirectory accessed by the tool.
 
 
 

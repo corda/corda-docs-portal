@@ -51,10 +51,10 @@ Corda Enterprise notary service to operate in HA mode, a highly available databa
 
 Running the Corda Enterprise notary service in highly available mode requires the following:
 
-> 
-> 
-> * One of the notary implementations that supports highly available mode
-> * A database supported by the notary implementation, configured in highly available mode
+
+
+* One of the notary implementations that supports highly available mode
+* A database supported by the notary implementation, configured in highly available mode
 
 
 

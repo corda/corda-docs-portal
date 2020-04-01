@@ -20,12 +20,12 @@ title: Corda Enterprise notary service overview
 
 A highly-available Corda notary service is made up of two components:
 
-> 
-> 
-> * The *notary workers*: A set of Corda notary nodes that each has a separate legal identity but
-> share a single service identity, and are configured to work together in high-availability mode
-> * The *notary state DB*: A single logical database that all the notary workers connect to and
-> that is itself configured to be highly-available
+
+
+* The *notary workers*: A set of Corda notary nodes that each has a separate legal identity but
+share a single service identity, and are configured to work together in high-availability mode
+* The *notary state DB*: A single logical database that all the notary workers connect to and
+that is itself configured to be highly-available
 
 
 In addition to the shared database for the notary state, each notary worker requires its own

@@ -31,12 +31,12 @@ inputs), while creating zero or more new states (the outputs).
 The process of creating and applying this transaction to a ledger will be conducted by the IOU’s lender, and will
 require the following steps:
 
-> 
-> 
-> * Building the transaction proposal for the issuance of a new IOU onto a ledger
-> * Signing the transaction proposal
-> * Recording the transaction
-> * Sending the transaction to the IOU’s borrower so that they can record it too
+
+
+* Building the transaction proposal for the issuance of a new IOU onto a ledger
+* Signing the transaction proposal
+* Recording the transaction
+* Sending the transaction to the IOU’s borrower so that they can record it too
 
 
 At this stage, we do not require the borrower to approve and sign IOU issuance transactions. We will be able to impose
@@ -192,11 +192,11 @@ annotation out will lead to some very weird error messages!
 
 There are also a few more annotations, on the `FlowLogic` subclass itself:
 
-> 
-> 
-> * `@InitiatingFlow` means that this flow is part of a flow pair and that it triggers the other side to run the
-> the counterpart flow.
-> * `@StartableByRPC` allows the node owner to start this flow via an RPC call
+
+
+* `@InitiatingFlow` means that this flow is part of a flow pair and that it triggers the other side to run the
+the counterpart flow.
+* `@StartableByRPC` allows the node owner to start this flow via an RPC call
 
 
 Let’s walk through the steps of `FlowLogic.call` itself. This is where we actually describe the procedure for
@@ -228,8 +228,8 @@ We’ll build our transaction proposal in two steps:
 
 Our transaction will have the following structure:
 
-> 
-> ![simple tutorial transaction](/en/images/simple-tutorial-transaction.png "simple tutorial transaction")
+
+![simple tutorial transaction](/en/images/simple-tutorial-transaction.png "simple tutorial transaction")
 
 
 * The output `IOUState` on the right represents the state we will be adding to the ledger. As you can see, there are

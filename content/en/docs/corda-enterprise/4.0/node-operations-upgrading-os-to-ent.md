@@ -54,24 +54,24 @@ we have validated to work well for this upgrade exercise.
 {{< /note >}}
 The procedure for migrating from H2 to a commercial database is as follows:
 
-> 
-> 
-> * [Create a database user with schema permissions](node-database.md#db-setup-step-1-ref)
-> * Configure a Corda node to connect to the new database following [Corda node configuration changes](node-database.md#db-setup-step-3-ref)
-> and specific options for [you database vendor](node-database.md#db-setup-vendors-ref)
-> * Create database schema following one of 3 possible procedures,
-> depending on the database user permissions and preferred database upgrade policy> 
-> > 
-> > * [Database schema management upon node startup](node-operations-database-schema-setup.md#db-setup-auto-upgrade-ref)
-> > * [Database Management Tool applies schema changes directly](node-operations-database-schema-setup.md#db-setup-database-management-direct-execution-ref)
-> > * [Database Management Tool generates DDL script to be run manually](node-operations-database-schema-setup.md#db-setup-database-management-ddl-execution-ref)Execute the first 3 steps: *Essential preparation before the first installation*, *Extract DDL script using Database Management Tool*,
-> > *Apply DDL scripts on a database*.
-> 
-> 
-> 
-> * Migrate data from H2 databaseThe migration from H2 database requires a third party specialized tool.
-> Your organisation may need to purchase a licence to use it.
-> Please contact R3 for further advice.
+
+
+* [Create a database user with schema permissions](node-database.md#db-setup-step-1-ref)
+* Configure a Corda node to connect to the new database following [Corda node configuration changes](node-database.md#db-setup-step-3-ref)
+and specific options for [you database vendor](node-database.md#db-setup-vendors-ref)
+* Create database schema following one of 3 possible procedures,
+depending on the database user permissions and preferred database upgrade policy> 
+
+* [Database schema management upon node startup](node-operations-database-schema-setup.md#db-setup-auto-upgrade-ref)
+* [Database Management Tool applies schema changes directly](node-operations-database-schema-setup.md#db-setup-database-management-direct-execution-ref)
+* [Database Management Tool generates DDL script to be run manually](node-operations-database-schema-setup.md#db-setup-database-management-ddl-execution-ref)Execute the first 3 steps: *Essential preparation before the first installation*, *Extract DDL script using Database Management Tool*,
+*Apply DDL scripts on a database*.
+
+
+
+* Migrate data from H2 databaseThe migration from H2 database requires a third party specialized tool.
+Your organisation may need to purchase a licence to use it.
+Please contact R3 for further advice.
 
 
 

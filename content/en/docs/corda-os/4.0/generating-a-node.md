@@ -24,17 +24,17 @@ A node can be created manually by creating a folder that contains the following 
 
 
 * The Corda JAR> 
-> 
->     * Can be downloaded from [https://r3.bintray.com/corda/net/corda/corda/](https://r3.bintray.com/corda/net/corda/corda/) (under /VERSION_NUMBER/corda-VERSION_NUMBER.jar)
+
+    * Can be downloaded from [https://r3.bintray.com/corda/net/corda/corda/](https://r3.bintray.com/corda/net/corda/corda/) (under /VERSION_NUMBER/corda-VERSION_NUMBER.jar)
 
 
 
 * A node configuration file entitled `node.conf`, configured as per [Node configuration](corda-configuration-file.md)
 * A folder entitled `cordapps` containing any CorDapp JARs you want the node to load
 * **Optional:** A webserver JAR entitled `corda-webserver.jar` that will connect to the node via RPC> 
-> 
->     * The (deprecated) default webserver can be downloaded from [http://r3.bintray.com/corda/net/corda/corda-webserver/](http://r3.bintray.com/corda/net/corda/corda-webserver/) (under /VERSION_NUMBER/corda-VERSION_NUMBER.jar)
->     * A Spring Boot alternative can be found here: [https://github.com/corda/spring-webserver](https://github.com/corda/spring-webserver)
+
+    * The (deprecated) default webserver can be downloaded from [http://r3.bintray.com/corda/net/corda/corda-webserver/](http://r3.bintray.com/corda/net/corda/corda-webserver/) (under /VERSION_NUMBER/corda-VERSION_NUMBER.jar)
+    * A Spring Boot alternative can be found here: [https://github.com/corda/spring-webserver](https://github.com/corda/spring-webserver)
 
 
 
@@ -175,10 +175,10 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 
 The default behaviour of Cordform is to deploy CorDapp JARs “as built”:
 
-> 
-> 
-> * prior to Corda 4 all CorDapp JARs were unsigned.
-> * as of Corda 4, CorDapp JARs created by the Gradle *cordapp* plugin are signed by a Corda development certificate by default.
+
+
+* prior to Corda 4 all CorDapp JARs were unsigned.
+* as of Corda 4, CorDapp JARs created by the Gradle *cordapp* plugin are signed by a Corda development certificate by default.
 
 
 The Cordform `signing` entry can be used to override and customise the signing of CorDapp JARs.
@@ -286,8 +286,8 @@ The nodes’ webservers will not be started. Instead, you should interact with e
 (see the [node configuration options](corda-configuration-file.md)). You have to enable the shell by adding the
 following line to each node’s `node.conf` file:
 
-> 
-> `sshd { port = 2222 }`
+
+`sshd { port = 2222 }`
 
 
 Where `2222` is the port you want to open to SSH into the shell.

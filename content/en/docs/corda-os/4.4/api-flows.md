@@ -1228,13 +1228,13 @@ SecureHash idOfTxWeSigned = subFlow(new SignTxFlow(counterpartySession, SignTran
 
 Types of things to check include:
 
-> 
-> 
-> * Ensuring that the transaction received is the expected type, i.e. has the expected type of inputs and outputs
-> * Checking that the properties of the outputs are expected, this is in the absence of integrating reference
-> data sources to facilitate this
-> * Checking that the transaction is not incorrectly spending (perhaps maliciously) asset states, as potentially
-> the transaction creator has access to some of signer’s state references
+
+
+* Ensuring that the transaction received is the expected type, i.e. has the expected type of inputs and outputs
+* Checking that the properties of the outputs are expected, this is in the absence of integrating reference
+data sources to facilitate this
+* Checking that the transaction is not incorrectly spending (perhaps maliciously) asset states, as potentially
+the transaction creator has access to some of signer’s state references
 
 
 
@@ -1654,21 +1654,21 @@ Flow worker threads belong to the thread pool that executes flows.
 {{< /note >}}
 Examples of where this functionality is useful include:
 
-> 
-> 
-> * Triggering a long running process on an external system
-> * Retrieving information from a external service that might go down
+
+
+* Triggering a long running process on an external system
+* Retrieving information from a external service that might go down
 
 
 `FlowLogic` provides two `await` functions that allow custom operations to be defined and executed outside of the context of a flow.
 Below are the interfaces that must be implemented and passed into `await`, along with brief descriptions of what they do:
 
-> 
-> 
-> * `FlowExternalOperation` - An operation that returns a result which should be run using a thread from one of the node’s
-> thread pools.
-> * `FlowExternalAsyncOperation` - An operation that returns a future which should be run on a thread provided to its implementation.
-> Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`.
+
+
+* `FlowExternalOperation` - An operation that returns a result which should be run using a thread from one of the node’s
+thread pools.
+* `FlowExternalAsyncOperation` - An operation that returns a future which should be run on a thread provided to its implementation.
+Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`.
 
 
 
@@ -1833,15 +1833,15 @@ public class Data {
 
 In summary, the following steps are taken in the code above:
 
-> 
-> 
-> * `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example).
-> * `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the
-> external system. The external system, in this example, will handle deduplication and return the previous result if it was already
-> computed.
-> * An implementation of `FlowExternalOperation` (`RetrieveDataFromExternalSystem`) is created that calls `ExternalService.retrieveDataFromExternalSystem`.
-> * `RetrieveDataFromExternalSystem` is then passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
-> * The result of `RetrieveDataFromExternalSystem.execute` is then returned to the flow once its execution finishes.
+
+
+* `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example).
+* `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the
+external system. The external system, in this example, will handle deduplication and return the previous result if it was already
+computed.
+* An implementation of `FlowExternalOperation` (`RetrieveDataFromExternalSystem`) is created that calls `ExternalService.retrieveDataFromExternalSystem`.
+* `RetrieveDataFromExternalSystem` is then passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
+* The result of `RetrieveDataFromExternalSystem.execute` is then returned to the flow once its execution finishes.
 
 
 
@@ -2046,17 +2046,17 @@ public class Data {
 
 In summary, the following steps are taken in the code above:
 
-> 
-> 
-> * `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example).
-> * `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the
-> external system. The external system, in this example, will handle deduplication and return the previous result if it was already
-> computed.
-> * A `CompletableFuture` is created that contacts the external system. `CompletableFuture.supplyAsync` takes in a reference to the
-> `ExecutorService` which will provide a thread for the external operation to run on.
-> * An implementation of `FlowExternalAsyncOperation` (`RetrieveDataFromExternalSystem`) is created that calls the `ExternalService.retrieveDataFromExternalSystem`.
-> * `RetrieveDataFromExternalSystem` is then passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
-> * The result of `RetrieveDataFromExternalSystem.execute` is then returned to the flow once its execution finishes.
+
+
+* `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example).
+* `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the
+external system. The external system, in this example, will handle deduplication and return the previous result if it was already
+computed.
+* A `CompletableFuture` is created that contacts the external system. `CompletableFuture.supplyAsync` takes in a reference to the
+`ExecutorService` which will provide a thread for the external operation to run on.
+* An implementation of `FlowExternalAsyncOperation` (`RetrieveDataFromExternalSystem`) is created that calls the `ExternalService.retrieveDataFromExternalSystem`.
+* `RetrieveDataFromExternalSystem` is then passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
+* The result of `RetrieveDataFromExternalSystem.execute` is then returned to the flow once its execution finishes.
 
 
 
@@ -2091,12 +2091,12 @@ restart.
 {{< /note >}}
 Below are examples of how deduplication could be handled:
 
-> 
-> 
-> * The external system records successful computations and returns previous results if requested again.
-> * The external system is idempotent, meaning the computation can be made multiple times without altering any state (similar to the point above).
-> * An extra external service maintains a record of deduplication IDs.
-> * Recorded inside of the node’s database.
+
+
+* The external system records successful computations and returns previous results if requested again.
+* The external system is idempotent, meaning the computation can be made multiple times without altering any state (similar to the point above).
+* An extra external service maintains a record of deduplication IDs.
+* Recorded inside of the node’s database.
 
 
 {{< note >}}
@@ -2244,13 +2244,13 @@ public class ExternalService extends SingletonSerializeAsToken {
 
 In the code above:
 
-> 
-> 
-> * A `ListenableFuture` is created and receives a thread from the `ListeningExecutorService`. This future does all the processing.
-> * A `CompletableFuture` is created, so that it can be returned to and executed by a `FlowExternalAsyncOperation`.
-> * A `FutureCallback` is registered to the `ListenableFuture`, which will complete the `CompletableFuture` (either successfully or
-> exceptionally) depending on the outcome of the `ListenableFuture`.
-> * `CompletableFuture.cancel` is overridden to propagate its cancellation down to the underlying `ListenableFuture`.
+
+
+* A `ListenableFuture` is created and receives a thread from the `ListeningExecutorService`. This future does all the processing.
+* A `CompletableFuture` is created, so that it can be returned to and executed by a `FlowExternalAsyncOperation`.
+* A `FutureCallback` is registered to the `ListenableFuture`, which will complete the `CompletableFuture` (either successfully or
+exceptionally) depending on the outcome of the `ListenableFuture`.
+* `CompletableFuture.cancel` is overridden to propagate its cancellation down to the underlying `ListenableFuture`.
 
 
 
@@ -2290,24 +2290,25 @@ complicated).
 For example, the `finance` package currently uses `FlowLogic.sleep` to make several attempts at coin selection when
 many states are soft locked, to wait for states to become unlocked:
 
-> 
-> ```kotlin
-> for (retryCount in 1..maxRetries) {
->     if (!attemptSpend(services, amount, lockId, notary, onlyFromIssuerParties, withIssuerRefs, stateAndRefs)) {
->         log.warn("Coin selection failed on attempt $retryCount")
->         // TODO: revisit the back off strategy for contended spending.
->         if (retryCount != maxRetries) {
->             stateAndRefs.clear()
->             val durationMillis = (minOf(retrySleep.shl(retryCount), retryCap / 2) * (1.0 + Math.random())).toInt()
->             FlowLogic.sleep(durationMillis.millis)
->         } else {
->             log.warn("Insufficient spendable states identified for $amount")
->         }
->     } else {
->         break
->     }
-> }
-> 
-> ```
-> {{/* github src='finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' url='https://github.com/corda/corda/blob/release/os/4.4/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt#L101-L115' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' start='DOCSTART CASHSELECT 1' end='DOCEND CASHSELECT 1' */}}[AbstractCashSelection.kt](https://github.com/corda/corda/blob/release/os/4.4/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt)
+
+```kotlin
+for (retryCount in 1..maxRetries) {
+    if (!attemptSpend(services, amount, lockId, notary, onlyFromIssuerParties, withIssuerRefs, stateAndRefs)) {
+        log.warn("Coin selection failed on attempt $retryCount")
+        // TODO: revisit the back off strategy for contended spending.
+        if (retryCount != maxRetries) {
+            stateAndRefs.clear()
+            val durationMillis = (minOf(retrySleep.shl(retryCount), retryCap / 2) * (1.0 + Math.random())).toInt()
+            FlowLogic.sleep(durationMillis.millis)
+        } else {
+            log.warn("Insufficient spendable states identified for $amount")
+        }
+    } else {
+        break
+    }
+}
+
+```
+
+{{/* github src='finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' url='https://github.com/corda/corda/blob/release/os/4.4/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt#L101-L115' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' start='DOCSTART CASHSELECT 1' end='DOCEND CASHSELECT 1' */}}[AbstractCashSelection.kt](https://github.com/corda/corda/blob/release/os/4.4/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt)
 

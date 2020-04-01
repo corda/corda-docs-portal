@@ -83,16 +83,17 @@ gradlew clean deployNodes
 Running `deployNodes` will build the nodes under `build/nodes`. If we navigate to one of these folders, we’ll see
 the three node folders. Each node folder has the following structure:
 
-> 
-> ```bash
-> .
-> |____corda.jar                     // The runnable node
-> |____corda-webserver.jar           // The node's webserver
-> |____node.conf                     // The node's configuration file
-> |____cordapps
-> |____java/kotlin-source-0.1.jar  // Our IOU CorDapp
-> ```
-> 
+
+```bash
+.
+|____corda.jar                     // The runnable node
+|____corda-webserver.jar           // The node's webserver
+|____node.conf                     // The node's configuration file
+|____cordapps
+|____java/kotlin-source-0.1.jar  // Our IOU CorDapp
+```
+
+
 
 Let’s start the nodes by running the following commands from the root of the project:
 
@@ -108,8 +109,8 @@ This will start a terminal window for each node, and an additional terminal wind
 terminal windows in all. Give each node a moment to start - you’ll know it’s ready when its terminal windows displays
 the message, “Welcome to the Corda interactive shell.”.
 
-> 
-> ![running node](/en/images/running_node.png "running node")
+
+![running node](/en/images/running_node.png "running node")
 
 
 ## Interacting with the nodes

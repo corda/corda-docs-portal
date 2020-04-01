@@ -254,16 +254,16 @@ Ensure you checkout the corresponding branch for for Corda Enterprise 4.2 by run
 
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
 
-> 
-> [https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
-> 
-> [https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
+
+[https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
+
+[https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
 
 
 A comprehensive list of samples, including CorDapps written by R3 and community CorDapps and projects, are available here:
 
-> 
-> [https://www.corda.net/samples/](https://www.corda.net/samples/)
+
+[https://www.corda.net/samples/](https://www.corda.net/samples/)
 
 
 You can clone these repos to your local machine by running the command `git clone [repo URL]`.

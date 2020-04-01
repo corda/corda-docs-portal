@@ -115,7 +115,9 @@ of the CRL checking with the certificates generated in previous versions of Cord
 A limited distribution preview of Corda Enterprise 3.0 was made available to a small number of users. If your app uses this version, here are some specific notes on how to upgrade to the Generally Available release:
 
 
-* Update versions in your build files, for Gradle, as an example:```kotlin
+* Update versions in your build files, for Gradle, as an example:
+
+```kotlin
 shell
 
 ext.corda_release_version = '3.0'

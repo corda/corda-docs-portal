@@ -263,23 +263,23 @@ Upon receiving the binaries, the quickest way to get started developing your Cor
 {{< /note >}}
 be done by firstly unpacking the `corda-3.1-developer-pack.tar.gz` tarball:
 
-> 
-> > 
-> > `tar -xvf corda-3.1-developer-pack.tar.gz`
-> 
-> 
-> Then, copy the unpacked `respository` folder to your local Maven repository:
-> 
-> > 
-> > `rsync -av repository ~/.m2/repository`
-> 
-> 
-> The extracted folder can now be deleted:
-> 
-> > 
-> > `rm -rf repository`
-> 
-> 
+
+
+`tar -xvf corda-3.1-developer-pack.tar.gz`
+
+
+Then, copy the unpacked `respository` folder to your local Maven repository:
+
+
+`rsync -av repository ~/.m2/repository`
+
+
+The extracted folder can now be deleted:
+
+
+`rm -rf repository`
+
+
 
 
 ### Run from the terminal
@@ -324,16 +324,16 @@ dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow
 
 A CorDapp template that you can use as the basis for your own CorDapps is available in both Java and Kotlin versions:
 
-> 
-> [https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
-> 
-> [https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
+
+[https://github.com/corda/cordapp-template-java.git](https://github.com/corda/cordapp-template-java.git)
+
+[https://github.com/corda/cordapp-template-kotlin.git](https://github.com/corda/cordapp-template-kotlin.git)
 
 
 And a list of simple sample CorDapps for you to explore basic concepts is available here:
 
-> 
-> [https://www.corda.net/samples/](https://www.corda.net/samples/)
+
+[https://www.corda.net/samples/](https://www.corda.net/samples/)
 
 
 You can clone these repos to your local machine by running the command `git clone [repo URL]`.

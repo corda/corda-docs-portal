@@ -174,19 +174,19 @@ It is intended to be used by Corda Enterprise node administrators.
 
 Currently it has these features:
 
-> 
-> 
-> * It allows running the migration on the database (`--execute-migration` )
-> * Offers the option to inspect the actual SQL statements that will be run as part of the current migration (`--dry-run` )
-> * Sometimes, when a node or the database management tool crashes while running migrations, Liquibase will not release the lock.
-> This can happen during some long database operation, or when an admin kills the process.
-> ( This cannot happen during normal operation of a node. Only during the migration process.)
-> See: <[http://www.liquibase.org/documentation/databasechangeloglock_table.html](http://www.liquibase.org/documentation/databasechangeloglock_table.html)>.
-> The tool provides a “release-lock” command that would forcibly unlock the database migration process.
-> * When a CorDapp that does not is ready to be deployed on a Corda Enterprise production node,
-> using this tool, the CorDapp can be “lifted” (`--create-migration-sql-for-cordapp`).
-> The reason this is needed is because those CorDapps don’t handle this enterprise level concern.
-> See below for details.
+
+
+* It allows running the migration on the database (`--execute-migration` )
+* Offers the option to inspect the actual SQL statements that will be run as part of the current migration (`--dry-run` )
+* Sometimes, when a node or the database management tool crashes while running migrations, Liquibase will not release the lock.
+This can happen during some long database operation, or when an admin kills the process.
+( This cannot happen during normal operation of a node. Only during the migration process.)
+See: <[http://www.liquibase.org/documentation/databasechangeloglock_table.html](http://www.liquibase.org/documentation/databasechangeloglock_table.html)>.
+The tool provides a “release-lock” command that would forcibly unlock the database migration process.
+* When a CorDapp that does not is ready to be deployed on a Corda Enterprise production node,
+using this tool, the CorDapp can be “lifted” (`--create-migration-sql-for-cordapp`).
+The reason this is needed is because those CorDapps don’t handle this enterprise level concern.
+See below for details.
 
 
 It has the following command line options:
@@ -216,7 +216,7 @@ only command that will actually write to the database.|
 For example:
 
 ```kotlin
-> java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --execute-migration
+java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --execute-migration
 ```
 
 {{< note >}}
@@ -237,13 +237,13 @@ The first time you set up your node, you will want to create the necessary datab
 steps. Using the database management tool, attempt a dry-run to inspect the output SQL:
 
 ```kotlin
-> java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --dry-run
+java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --dry-run
 ```
 
 The output sql from the above command can be executed directly on the database or this command can be run:
 
 ```kotlin
-> java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --execute-migration
+java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --execute-migration
 ```
 
 At this point the node can be started successfully.
@@ -270,13 +270,13 @@ These are the steps:
 * Call the database management tool:
 
 ```kotlin
-> java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --create-migration-sql-for-cordapp com.example.MyMappedSchema
+java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --create-migration-sql-for-cordapp com.example.MyMappedSchema
 ```
 
 
-> 
-> This will generate a file called `my-mapped-schema.changelog-master.sql` in a folder called `migration` in the `base-directory`.
-> In case you don’t specify the actual `MappedSchema` name, the tool will generate one SQL file for each schema defined in the CorDapp
+
+This will generate a file called `my-mapped-schema.changelog-master.sql` in a folder called `migration` in the `base-directory`.
+In case you don’t specify the actual `MappedSchema` name, the tool will generate one SQL file for each schema defined in the CorDapp
 
 
 
@@ -350,7 +350,7 @@ then the advice at [this StackOverflow question](https://stackoverflow.com/quest
 may be useful. You can run
 
 ```kotlin
-> java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --release-lock
+java -jar corda-tools-database-manager-3.3.jar --base-directory /path/to/node --release-lock
 ```
 
 to force Liquibase to give up the lock.

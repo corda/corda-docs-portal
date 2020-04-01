@@ -81,11 +81,11 @@ devMode : true
 * **language**: 
 cfg
 
-> 
-> The most important fields regarding network configuration are:
-> 
-> 
-> * `p2pAddress`: This specifies a host and port to which Artemis will bind for messaging with other nodes. Note that the
+
+The most important fields regarding network configuration are:
+
+
+* `p2pAddress`: This specifies a host and port to which Artemis will bind for messaging with other nodes. Note that the
 
 
 address bound will **NOT** be `my-corda-node`, but rather `::` (all addresses on all network interfaces). The hostname specified

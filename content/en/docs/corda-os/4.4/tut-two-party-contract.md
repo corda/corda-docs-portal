@@ -63,10 +63,10 @@ interface Contract {
 We can see that `Contract` expresses its constraints through a `verify` function that takes a transaction as input,
 and:
 
-> 
-> 
-> * Throws an `IllegalArgumentException` if it rejects the transaction proposal
-> * Returns silently if it accepts the transaction proposal
+
+
+* Throws an `IllegalArgumentException` if it rejects the transaction proposal
+* Returns silently if it accepts the transaction proposal
 
 
 
@@ -85,18 +85,18 @@ shortly)
 
 We might also want to impose some constraints on the properties of the issued `IOUState`:
 
-> 
-> 
-> * Its value must be non-negative
-> * The lender and the borrower cannot be the same entity
+
+
+* Its value must be non-negative
+* The lender and the borrower cannot be the same entity
 
 
 And finally, we’ll want to impose constraints on who is required to sign the transaction:
 
-> 
-> 
-> * The IOU’s lender must sign
-> * The IOU’s borrower must sign
+
+
+* The IOU’s lender must sign
+* The IOU’s borrower must sign
 
 
 We can picture this transaction as follows:

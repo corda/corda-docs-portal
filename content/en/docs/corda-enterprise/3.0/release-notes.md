@@ -33,90 +33,90 @@ Corda Enterprise 3.0 is operationally compatible with Open Source Corda 3.x whil
 
 **High Availability**
 
-> 
-> This release introduces the Hot-Cold High Availability configuration for Corda Enterprise nodes, which addresses the following requirements:
-> 
-> 
-> * A logical Corda node continues to be available as long as at least one of the clustered physical nodes is available.
-> * No loss, corruption or duplication of data on the ledger due to component outages.
-> * Continuity of flows throughout node failures.
-> * Support for rolling software upgrades in a live network.
-> 
-> See [here](hot-cold-deployment.md#hot-cold-ref) for further details on how to set-up and operate Hot-Cold node HA.
+
+This release introduces the Hot-Cold High Availability configuration for Corda Enterprise nodes, which addresses the following requirements:
+
+
+* A logical Corda node continues to be available as long as at least one of the clustered physical nodes is available.
+* No loss, corruption or duplication of data on the ledger due to component outages.
+* Continuity of flows throughout node failures.
+* Support for rolling software upgrades in a live network.
+
+See [here](hot-cold-deployment.md#hot-cold-ref) for further details on how to set-up and operate Hot-Cold node HA.
 
 
 **Additional Supported SQL Databases**
 
-> 
-> [PostgreSQL 9.6](node-database.md#postgres-ref), [Azure SQL and SQL Server 2017](node-database.md#sql-server-ref) and [Oracle 11g and 12c](node-database.md#oracle-ref) are now supported SQL databases.
-> Database settings can be specified as part of the node configuration file.
-> See [Node database](node-database.md) for further details.
+
+[PostgreSQL 9.6](node-database.md#postgres-ref), [Azure SQL and SQL Server 2017](node-database.md#sql-server-ref) and [Oracle 11g and 12c](node-database.md#oracle-ref) are now supported SQL databases.
+Database settings can be specified as part of the node configuration file.
+See [Node database](node-database.md) for further details.
 
 
 **Database Management and Migration Tool**
 
-> 
-> Corda Enterprise 3.0 ships with a tool for tracking, managing and applying database schema migrations.
-> A framework for data migration provides a way to upgrade the version of Corda Enterprise or installed CorDapps while preserving data integrity and service continuity. It is also used to prepare a database for first use with Corda Enterprise.
-> Based on [Liquibase](http://www.liquibase.org/), the tool also allows exporting DDL and data to a file, allowing DBAs to inspect the SQL or apply the SQL statements and to apply them manually if necessary.
-> See database migration for further details.
+
+Corda Enterprise 3.0 ships with a tool for tracking, managing and applying database schema migrations.
+A framework for data migration provides a way to upgrade the version of Corda Enterprise or installed CorDapps while preserving data integrity and service continuity. It is also used to prepare a database for first use with Corda Enterprise.
+Based on [Liquibase](http://www.liquibase.org/), the tool also allows exporting DDL and data to a file, allowing DBAs to inspect the SQL or apply the SQL statements and to apply them manually if necessary.
+See database migration for further details.
 
 
 **Multi-threaded Flow Processing**
 
-> 
-> Corda Enterprise 3.0 enables multi-threaded processing of flows, resulting in vastly higher performance than Corda 3.0. In Corda flows are processed on a single thread and
-> thus individual flow steps are not processed concurrently. Corda Enterprise is able to process multiple flow steps concurrently, the number of which is only limited by
-> available CPU cores, memory and database configuration.  This allows Corda Enterprise to process a greater number
-> of flows and transactions in a given time frame than Open Source Corda and to truly take advantage of large server
-> / VM configurations. The number of operating system threads that are used is determined by the `flowThreadPoolSize` configuration property.
-> See [Node configuration](corda-configuration-file.md) for further details.
+
+Corda Enterprise 3.0 enables multi-threaded processing of flows, resulting in vastly higher performance than Corda 3.0. In Corda flows are processed on a single thread and
+thus individual flow steps are not processed concurrently. Corda Enterprise is able to process multiple flow steps concurrently, the number of which is only limited by
+available CPU cores, memory and database configuration.  This allows Corda Enterprise to process a greater number
+of flows and transactions in a given time frame than Open Source Corda and to truly take advantage of large server
+/ VM configurations. The number of operating system threads that are used is determined by the `flowThreadPoolSize` configuration property.
+See [Node configuration](corda-configuration-file.md) for further details.
 
 
 **New Network Map Architecture**
 
-> 
-> This release introduces the new network map architecture. The network map service has been redesigned to enable future increased network scalability and redundancy, reduced runtime operational overhead,
-> support for multiple notaries, and administration of network compatibility zones (CZ) and business networks.
-> 
-> A Corda Compatibility Zone (CZ) is defined as a grouping of participants and services (notaries, oracles,
-> doorman, network map server) configured within an operational Corda network to be interoperable and compatible with
-> each other.
-> See [Network Map](network-map.md) and bootstrapping the network for further details.
+
+This release introduces the new network map architecture. The network map service has been redesigned to enable future increased network scalability and redundancy, reduced runtime operational overhead,
+support for multiple notaries, and administration of network compatibility zones (CZ) and business networks.
+
+A Corda Compatibility Zone (CZ) is defined as a grouping of participants and services (notaries, oracles,
+doorman, network map server) configured within an operational Corda network to be interoperable and compatible with
+each other.
+See [Network Map](network-map.md) and bootstrapping the network for further details.
 
 
 **Corda Firewall**
 
-> 
-> Corda Enterprise 3.0 introduces the Bridge and Corda Firewall components to enable secure setup of a Corda Node in a DMZ environment.
-> See [Corda Firewall Overview](corda-firewall.md) for further details.
+
+Corda Enterprise 3.0 introduces the Bridge and Corda Firewall components to enable secure setup of a Corda Node in a DMZ environment.
+See [Corda Firewall Overview](corda-firewall.md) for further details.
 
 
 **Improved Operational Metrics**
 
-> 
-> Corda Enterprise 3.0 provides additional metrics compared to Corda. A richer collection of information is exported through JMX via Jolokia for monitoring.
+
+Corda Enterprise 3.0 provides additional metrics compared to Corda. A richer collection of information is exported through JMX via Jolokia for monitoring.
 
 
 **Operational Compatibility With Open Source Corda**
 
-> 
-> Corda Enterprise 3.0 provides a baseline for wire stability and compatibility with open-source releases of Corda from version 3.0 onwards.
-> 
-> It delivers forward compatibility with future versions of Corda Enterprise:
-> 
-> 
-> * Is operationally compatible with future versions of Corda Enterprise.
-> * Is upgradeable to future version of Corda Enterprise, preserving transaction and other data.
-> 
-> It delivers operational compatibility with open-source Corda:
-> 
-> 
-> * Can be used in networks seamlessly transacting with nodes running Corda 3.x and future versions.
-> * Can run CorDapps developed on Corda 3.x and future versions. Note that some database changes may be required to achieve this. See [Node upgrades](node-operations-upgrading.md) for more information.
-> * Is compatible with ledger data created using Corda 3.x and future versions.
-> 
-> Furthermore, the RPC client-server communications transport protocol is now fully AMQP based.
+
+Corda Enterprise 3.0 provides a baseline for wire stability and compatibility with open-source releases of Corda from version 3.0 onwards.
+
+It delivers forward compatibility with future versions of Corda Enterprise:
+
+
+* Is operationally compatible with future versions of Corda Enterprise.
+* Is upgradeable to future version of Corda Enterprise, preserving transaction and other data.
+
+It delivers operational compatibility with open-source Corda:
+
+
+* Can be used in networks seamlessly transacting with nodes running Corda 3.x and future versions.
+* Can run CorDapps developed on Corda 3.x and future versions. Note that some database changes may be required to achieve this. See [Node upgrades](node-operations-upgrading.md) for more information.
+* Is compatible with ledger data created using Corda 3.x and future versions.
+
+Furthermore, the RPC client-server communications transport protocol is now fully AMQP based.
 
 
 {{< note >}}

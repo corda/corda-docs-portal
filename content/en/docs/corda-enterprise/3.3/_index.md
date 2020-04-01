@@ -18,13 +18,13 @@ Welcome to the documentation website for Corda Enterprise 3.3, based on the Cord
 
 
 * High performance, thanks to multi-threaded flow execution and extensive tuning.
-* Support for more database backends:>
->
->     * SQL Server 2017
->     * Azure SQL
->     * Oracle 11g RC2
->     * Oracle 12c
->     * PostgreSQL 9.6
+* Support for more database backends:
+
+    * SQL Server 2017
+    * Azure SQL
+    * Oracle 11g RC2
+    * Oracle 12c
+    * PostgreSQL 9.6
 
 
 

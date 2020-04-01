@@ -43,11 +43,11 @@ Tickets are moved from `Approved` status to `Done` automatically, once the reque
 
 Additionally, the following 3 custom fields need to be created and configured in JIRA.
 
-> 
-> 
-> * Request ID
-> * Reject Reason
-> * Reject Reason Description
+
+
+* Request ID
+* Reject Reason
+* Reject Reason Description
 
 
 {{< note >}}

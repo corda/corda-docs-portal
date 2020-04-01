@@ -43,18 +43,18 @@ The name must also obey the following constraints:
 
 
 * The `organisation`, `locality` and `country` attributes are present> 
-> 
->     * The `state`, `organisational-unit` and `common name` attributes are optional
+
+    * The `state`, `organisational-unit` and `common name` attributes are optional
 
 
 
 * The fields of the name have the following maximum character lengths:> 
-> 
->     * Common name: 64
->     * Organisation: 128
->     * Organisation unit: 64
->     * Locality: 64
->     * State: 64
+
+    * Common name: 64
+    * Organisation: 128
+    * Organisation unit: 64
+    * Locality: 64
+    * State: 64
 
 
 
