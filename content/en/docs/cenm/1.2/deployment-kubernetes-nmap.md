@@ -18,11 +18,13 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 
 ## Configuration
 
+{{< table >}}
+
 | Parameter                     | Description                                              | Default value         |
 | ----------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                   | Display additional information while running bash scripts (useful while investigating issues) | `false` |
-| `dockerImage.name`            | URL to Network Map Docker image                     | `acrcenm.azurecr.io/nmap/nmap` |
-| `dockerImage.tag`             | Docker image tag | `1.2` |
+| `dockerImage.name`            | URL to Network Map Docker image                     | `corda/enterprise-networkmap` |
+| `dockerImage.tag`             | Docker image tag | `1.2-zulu-openjdk8u242` |
 | `dockerImage.pullPolicy`      | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `service.type`                | Kubernetes service type, https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types | `LoadBalancer` |
 | `service.port`                | Kubernetes service port/targetPort for external communication | `10000` |
@@ -41,5 +43,7 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 | `cordaJarMx`                  | Initial value for memory allocation (GB) | `1` |
 | `jarPath`                     | Path to a folder which contains Network Map jar files | `bin` |
 | `configPath`                  | Path to a folder which contains Network Map configuration file | `etc` |
+
+{{< /table >}}
 
 For additional information on database connection details refer to the official documentation: [database documentation](config-database.md).

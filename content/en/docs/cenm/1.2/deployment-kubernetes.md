@@ -47,7 +47,7 @@ weight: 20
 > CENM docker images are based on `azul/zulu-openjdk:8u242`
 
 Each CENM service has dedicated docker image. They are designed to be minimal and optimized to run on Kubernetes cluster.
-They are **not** designed to run as standalone docker containers. They are stored in acrcenm.azurecr.io container repository:
+They are **not** designed to run as standalone docker containers. They are stored in Docker Hub:
 
 {{< table >}}
 

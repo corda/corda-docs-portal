@@ -35,11 +35,13 @@ The name needs to be a valid X500 name and commas need to be escaped by backslas
 
 ## Configuration variables
 
+{{< table >}}
+
 | Parameter                                    | Description                                              | Default value         |
 | -------------------------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                                  | Display additional information while running bash scripts (useful while investigating issues) | `false` |
-| `dockerImage.name`                           | URL to Signer Docker image                     | `acrcenm.azurecr.io/signer/signer` |
-| `dockerImage.tag`                            | Docker image Tag | `1.2` |
+| `dockerImage.name`                           | URL to Signer Docker image                     | `corda/enterprise-signer` |
+| `dockerImage.tag`                            | Docker image Tag | `1.2-zulu-openjdk8u242` |
 | `dockerImage.pullPolicy`                     | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `service.type`                               | Kubernetes service type, https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types | `LoadBalancer` |
 | `service.port`                               | Kubernetes service port/targetPort for external communication | `10000` |
@@ -50,7 +52,7 @@ The name needs to be a valid X500 name and commas need to be escaped by backslas
 | `shell.sshdPort`                             | Signer ssh port | `2222` |
 | `shell.user`                                 | Signer ssh user | `signer` |
 | `shell.password`                             | Signer ssh password | `signerP` |
-| `cordaJarMx`                                 | Initial value for memory allocation | `1` |
+| `cordaJarMx`                                 | Initial value for memory allocation (GB) | `1` |
 | `jarPath`                                    | Path to a folder which contains Signer jar files | `bin` |
 | `configPath`                                 | Path to a folder which contains Signer configuration file | `etc` |
 | `pki.certificates.tlscrlsigner.subject`      | Subject of the certificate for signing the CRL for the Corda Node’s TLS-level certificate (alias: tlscrlsigner) | `CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
@@ -59,3 +61,5 @@ The name needs to be a valid X500 name and commas need to be escaped by backslas
 | `pki.certificates.subordinateca.subject`     | Subject of Corda Subordinate certificate (alias: subordinateca) | `CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.identitymanagerca.subject` | Subject of Corda Identity Manager certificate (alias: identitymanagerca) | `CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
 | `pki.certificates.networkmap.subject`        | Subject of Corda Network Map certificate (alias: networkmap)  | `CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US` |
+
+{{< /table >}}

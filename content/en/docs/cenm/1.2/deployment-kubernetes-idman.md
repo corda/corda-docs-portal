@@ -18,11 +18,13 @@ helm install idman idman --set shell.password="superDifficultPassword"
 
 ## Configuration
 
+{{< table >}}
+
 | Parameter                     | Description                                              | Default value         |
 | ----------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                   | Display additional information while running bash scripts (useful while investigating issues) | `false` |
-| `dockerImage.name`            | URL to Identity Manager Docker image                     | `acrcenm.azurecr.io/idman/idman` |
-| `dockerImage.tag`             | Docker image Tag | `1.2` |
+| `dockerImage.name`            | URL to Identity Manager Docker image                     | `corda/enterprise-identitymanager` |
+| `dockerImage.tag`             | Docker image Tag | `1.2-zulu-openjdk8u242` |
 | `dockerImage.pullPolicy`      | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `service.type`                | Kubernetes service type, https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types | `LoadBalancer` |
 | `service.port`                | Kubernetes service port/targetPort for external communication | `10000` |
@@ -38,8 +40,10 @@ helm install idman idman --set shell.password="superDifficultPassword"
 | `database.user`               | Identity Manager database connection details | `example-db-user` |
 | `database.password`           | Identity Manager database connection details | `example-db-password` |
 | `database.runMigration`       | Identity Manager database connection details | `true` |
-| `cordaJarMx`                  | Initial value for memory allocation | `1` |
+| `cordaJarMx`                  | Initial value for memory allocation (GB) | `1` |
 | `jarPath`                     | Path to a folder which contains Identity Manager jar files | `bin` |
 | `configPath`                  | Path to a folder which contains Identity Manager configuration file | `etc` |
+
+{{< /table >}}
 
 For additional information on database connection details refer to the official documentation: [database documentation](config-database.md).
