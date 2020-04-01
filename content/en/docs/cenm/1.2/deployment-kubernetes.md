@@ -165,14 +165,16 @@ version.BuildInfo{Version:"v3.1.2", GitCommit:"afe70585407b420d0097d07b21c47dc51
 - Ensure you have your cluster subscription [as your active subscription](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-set)
 - [Connect to your cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#connect-to-the-cluster)
 
-#### (3) Create storage class and namespace
+#### (3) Create storage class, namespace and RBAC
 
 Run the following instruction once the previous points have been cleared:
 
 `All examples below are using namespace **cenm**`
 
+> Note: edit k8s/cenm.yaml and modify RoleBinding/everything-in-cenm to include your user(s) Azure group
+
 ```bash
-kubectl apply -f deployment/k8s/cenm.yaml
+kubectl apply -f k8s/cenm.yaml  # Run as Kubernetes privileged user
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```
@@ -190,7 +192,7 @@ You can find the files required in the following steps on the [CENM deployment r
 To bootstrap new CENM environment with allocating new, external IP run:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm
 ```
 
@@ -207,7 +209,7 @@ kubectl get pods -o wide
 It is possible that external IPs have been already allocated - in this case it is possible to reuse them by specifying their services names:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm -i idman-ip -n notary-ip
 ```
 
@@ -216,7 +218,7 @@ cd network-services/deployment/k8s/helm
 There are several helm commands used to bootstrap new CENM environment, each one creates one CENM service (signer, identity manager, etc). They need to be run in the correct order.
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 
 # these helm charts trigger public IP allocation
 helm install idman-ip idman-ip
@@ -226,7 +228,7 @@ helm install notary-ip notary-ip
 kubectl get svc --namespace cenm idman-ip --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"   # step 1
 kubectl get svc --namespace cenm notary-ip --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"  # step 2
 
-# these helm charts bootstrap CENM
+# these helm charts bootstrap all CENM services
 helm install signer signer --set idmanPublicIP=[use IP from step 1]
 helm install idman idman
 helm install notary notary --set notaryPublicIP=[use IP from step 2]
