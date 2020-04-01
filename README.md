@@ -1,4 +1,4 @@
-# Hugo based Corda docs
+# Corda Developer Documentation
 
 [![Build Status](https://ci01.dev.r3.com/buildStatus/icon?job=Docs-Builders%2FBuild%2Fdocs-site%2Fmaster)](https://ci01.dev.r3.com/job/Docs-Builders/job/Build/job/docs-site/job/master/)
 [![Build Status](https://ci01.dev.r3.com/buildStatus/icon?job=Docs-Builders%2FDeploy%2Fdocs-site%2Fmaster&subject=deploy&status=ok)](https://ci01.dev.r3.com/job/Docs-Builders/job/Deploy/job/docs-site/job/master/)

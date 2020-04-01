@@ -33,7 +33,7 @@ Corda provides a number of flexible query mechanisms for accessing the Vault:
 
 
 * Vault Query API
-* Using a JDBC session (as described in [Persistence](api-persistence.md#jdbc-session-ref))
+* Using a JDBC session (as described in [Persistence](api-persistence.md#jdbc-session))
 * Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries
 * Custom 3rd party Data Access frameworks such as [Spring Data](http://projects.spring.io/spring-data)
 
