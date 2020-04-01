@@ -33,7 +33,6 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
-                githubNotify context: 'Docsite build', description: 'Docsite build has been started',  status: 'PENDING'
                 sh """
                     make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
                 """
