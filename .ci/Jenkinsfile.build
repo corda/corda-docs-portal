@@ -1,5 +1,6 @@
 #!groovy
 def DOCKER_REPOSITORY = "docsite.software.r3.com"
+def GITHUB_NOTIFY_CONTEXT = 'Docsite Build & Deploy 2 Stage'
 
 def MAKE_PARAMS = [
     'PROD_IMAGE="${IMAGE}"',         // do not change the quotes! Variable is for Linux Shell!!
@@ -33,6 +34,7 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
+                step([$class: 'GitHubCommitStatusSetter', contextSource: [$class: 'ManuallyEnteredCommitContextSource', context: GITHUB_NOTIFY_CONTEXT]])
                 sh """
                     make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
                 """
@@ -94,6 +96,9 @@ pipeline {
     }
 
     post {
+        always {
+            step([$class: 'GitHubCommitStatusSetter', contextSource: [$class: 'ManuallyEnteredCommitContextSource', context: GITHUB_NOTIFY_CONTEXT]])
+        }
         cleanup {
             deleteDir() /* clean up our workspace */
         }
