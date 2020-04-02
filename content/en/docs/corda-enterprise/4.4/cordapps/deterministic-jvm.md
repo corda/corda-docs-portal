@@ -1,32 +1,26 @@
 ---
 aliases:
-- /head/key-concepts-djvm.html
-- /HEAD/key-concepts-djvm.html
-- /key-concepts-djvm.html
-- /releases/release-V4.4/key-concepts-djvm.html
+- /releases/4.4/cordapps/deterministic-djvm.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-4:
-    identifier: corda-os-4-4-key-concepts-djvm
-    parent: corda-os-4-4-key-concepts
-    weight: 1150
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps
 tags:
 - concepts
 - djvm
-title: Deterministic JVM
+title: How are transactions resolved?
+weight: 20
 ---
 
 
-# Deterministic JVM
-
-
+# The Deterministic JVM
 
 ## Introduction
 
-It is important that all nodes that process a transaction always agree on whether it is valid or not. Because
-transaction types are defined using JVM byte code, this means that the execution of that byte code must be fully
-deterministic. Out of the box a standard JVM is not fully deterministic, thus we must make some modifications in order
-to satisfy our requirements.
+It is important that all nodes that process a transaction always agree on whether it is valid or not, because
+transaction types are defined using JVM byte code. This means that the execution of that byte code must be fully
+deterministic. A standard JVM is not fully deterministic, and so some modifications have been made to supply a fully
+deterministic version, the DJVM.
 
 So, what does it mean for a piece of code to be fully deterministic?  Ultimately, it means that the code, when viewed
 as a function, is pure. In other words, given the same set of inputs, it will always produce the same set of outputs
@@ -37,19 +31,16 @@ without inflicting any side-effects that might later affect the computation.
 
 For a program running on the JVM, non-determinism could be introduced by a range of sources, for instance:
 
-
-
 * **External input**, *e.g.*, the file system, network, system properties and clocks.
 * **Random number generators**.
 * **Halting criteria**, *e.g.*, different decisions about when to terminate long running programs.
-* **Hash-codes**, or more specifically `Object.hashCode()`, which is typically implemented either by returning a
-pointer address or by assigning the object a random number. This could, for instance, surface as different iteration
-orders over hash maps and hash sets, or be used as non-pure input into arbitrary expressions.
+* **Hash-codes**, or more specifically `Object.hashCode()`, which is typically implemented either by returning a pointer
+address or by assigning the object a random number. This could, for instance, surface as different iteration orders over
+hash maps and hash sets, or be used as non-pure input into arbitrary expressions.
 * Differences in hardware **floating point arithmetic**.
 * **Multi-threading** and consequent differences in scheduling strategies, affinity, *etc.*
 * Differences in **API implementations** between nodes.
 * **Garbage collector callbacks**.
-
 
 To ensure that the contract verification function is fully pure even in the face of infinite loops we want to use a
 custom-built JVM sandbox. The sandbox performs static analysis of loaded byte code and a rewriting pass to allow for
@@ -70,15 +61,11 @@ A `ClassSource` object referencing such an implementation can be passed into the
 Output>` together with an input of type `Input`. The executor has operations for both execution and static
 validation, namely `run()` and `validate()`. These methods both return a summary object.
 
-
-
 *
     * Whether or not the runnable was successfully executed.
     * If successful, the return value of `Function.apply()`.
     * If failed, the exception that was raised.
     * And in both cases, a summary of all accrued costs during execution.
-
-
 *
     * A type hierarchy of classes and interfaces loaded and touched by the sandbox’s class loader during analysis, each
 of which contain information about the respective transformations applied as well as meta-data about the types
@@ -87,12 +74,10 @@ themselves and all references made from said classes.
 severity `ERROR` will prevent execution.
 
 
-
-
 The sandbox has a configuration that applies to the execution of a specific runnable. This configuration, on a higher
 level, contains a set of rules, definition providers and emitters.
 
-![djvm overview](/en/images/djvm-overview.png "djvm overview")
+![djvm overview](../resources/djvm-overview.png "djvm overview")
 The set of rules is what defines the constraints posed on the runtime environment. A rule can act on three different
 levels, namely on a type-, member- or instruction-level. The set of rules get processed and validated by the
 `RuleValidator` prior to execution.
@@ -114,7 +99,6 @@ work may well introduce additional constraints that we would want to place on th
 
 
 {{< topic >}}
-
 * [Disallow Catching ThreadDeath Exception](#disallow-catching-threaddeath-exception)
 * [Disallow Catching ThresholdViolationException](#disallow-catching-thresholdviolationexception)
 * [Disallow Dynamic Invocation](#disallow-dynamic-invocation)
@@ -124,9 +108,8 @@ work may well introduce additional constraints that we would want to place on th
 * [Disallow Breakpoints](#disallow-breakpoints)
 * [Disallow Reflection](#disallow-reflection)
 * [Disallow Unsupported API Versions](#disallow-unsupported-api-versions)
-
-
 {{< /topic >}}
+
 {{< note >}}
 It is worth noting that not only smart contract code is instrumented by the sandbox, but all code that it can
 transitively reach. In particular this means that the Java runtime classes and any
@@ -171,9 +154,9 @@ Forbids finalizers as these can be called at unpredictable times during executio
 controlled by the garbage collector. As stated in the standard Java documentation:
 
 
-
-Called by the garbage collector on an object when garbage collection determines that there are no more references
-to the object.
+>
+> Called by the garbage collector on an object when garbage collection determines that there are no more references
+> to the object.
 
 
 
@@ -267,13 +250,13 @@ and returns the value from the `hashCode()` method implementation. It also has a
 
 The loaded classes are further rewritten in two ways:
 
-
-
-* All allocations of new objects of type `java.lang.Object` get mapped into using the sandboxed object.
-* Calls to the constructor of `java.lang.Object` get mapped to the constructor of `sandbox.java.lang.Object`
-instead, passing in a constant value for now. In the future, we can easily have this passed-in hash-code be a pseudo
-random number seeded with, for instance, the hash of the transaction or some other dynamic value, provided of course
-that it is deterministically derived.
+>
+>
+> * All allocations of new objects of type `java.lang.Object` get mapped into using the sandboxed object.
+> * Calls to the constructor of `java.lang.Object` get mapped to the constructor of `sandbox.java.lang.Object`
+> instead, passing in a constant value for now. In the future, we can easily have this passed-in hash-code be a pseudo
+> random number seeded with, for instance, the hash of the transaction or some other dynamic value, provided of course
+> that it is deterministically derived.
 
 
 
@@ -399,21 +382,21 @@ Runtime Cost Summary:
 
 The output should be pretty self-explanatory, but just to summarise:
 
-
-
-* It prints out the return value from the `Function<Object, Object>.apply()` method implemented in
-`net.corda.sandbox.Hello`.
-* It also prints out the aggregated costs for allocations, invocations, jumps and throws.
+>
+>
+> * It prints out the return value from the `Function<Object, Object>.apply()` method implemented in
+> `net.corda.sandbox.Hello`.
+> * It also prints out the aggregated costs for allocations, invocations, jumps and throws.
 
 
 Other commands to be aware of are:
 
-
-
-* `djvm check` which allows you to perform some up-front static analysis without running the code. However, be aware
-that the DJVM also transforms some non-deterministic operations into `RuleViolationError` exceptions. A successful
-`check` therefore does *not* guarantee that the code will behave correctly at runtime.
-* `djvm inspect` which allows you to inspect what byte code modifications will be applied to a class.
-* `djvm show` which displays the transformed byte code of a class, *i.e.*, the end result and not the difference.
+>
+>
+> * `djvm check` which allows you to perform some up-front static analysis without running the code. However, be aware
+> that the DJVM also transforms some non-deterministic operations into `RuleViolationError` exceptions. A successful
+> `check` therefore does *not* guarantee that the code will behave correctly at runtime.
+> * `djvm inspect` which allows you to inspect what byte code modifications will be applied to a class.
+> * `djvm show` which displays the transformed byte code of a class, *i.e.*, the end result and not the difference.
 
 

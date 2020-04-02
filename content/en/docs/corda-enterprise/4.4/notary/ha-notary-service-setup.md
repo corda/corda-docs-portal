@@ -17,12 +17,10 @@ weight: 10
 
 # Corda Enterprise HA notary service set-up
 
-
 The Corda Enterprise notary service can be configured in high-availability (HA) mode. For the Corda Enterprise notary
-service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview](ha-notary-service-overview.md) for more information.
+service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview](./ha-notary-service-overview.html) for more information.
 
 Running an HA notary requires the following:
-
 
 * JPA or MySQL notary implementations
 * A database supported by the notary implementation, configured in high-availability mode
@@ -35,10 +33,8 @@ For a list of databases supported by each of the above notary implementations, p
 Before setting up an HA notary, your Corda Enterprise distribution should contain all the following `.JAR` files,
 configuration information, and capabilities:
 
-
-* The notary worker and database machines need to be configured to use
-reliable and trusted time servers. The time source has to be monotonic and
-support leap second smearing.
+* The notary worker and database machines need to be configured to use reliable and trusted time servers. The time
+source has to be monotonic and support leap second smearing.
 * Java runtime
 * Corda Enterprise JAR
 * [Notary Health Check](../notary-healthcheck.md) Tool
@@ -46,8 +42,8 @@ support leap second smearing.
 * Root access to a Linux machine or VM to install the selected database
 * The private IP addresses of your database hosts
 * The public IP addresses of your notary hosts
-* The database driver in the form of a `.JAR` file, located inside the “drivers” folder
-* The relevant HSM library `.JAR` (if storing keys inside a HSM). See ../cryptoservice-configuration for more information.
+* The database driver in the form of a `.JAR` file, located inside the "drivers" folder
+* The relevant HSM library `.JAR` (if storing keys inside a HSM). See [cryptoservice configuration](./cryptoservice-configuration.html) for more information.
 * Database root password, used to create the Corda user, setting up the database and tables (only required for some installation methods)
 * Corda database user password, used by the notary service to access the database
 * State snapshot transfer (SST) database user password, used by the Percona cluster for data replication
@@ -74,9 +70,9 @@ service must be included in the network parameters. The steps below assume the n
 Network Map, and that the above prerequisites have been met.
 
 
-### 1. Register the notary service identity
+1. Register the notary service identity
 
-Before any workers can be started up the HA notary service identity must be registered with the network’s Identity Manager.
+Before any workers can be started up the HA notary service identity must be registered with the network's Identity Manager.
 To register the notary service identity with the Identity Manager, run the notary registration tool using the the notary
 workers `node.conf` file.
 
@@ -88,7 +84,7 @@ chain if using an HSM.
 See [notary registration](../ha-utilities.md#notary-reg-tool) for more information on using the notary registration tool.
 
 
-### 2. Register the notary workers
+2. Register the notary workers
 
 After the notary service is registered with the Identity Manager, each notary worker must be registered with the Identity
 Manager. This process is similar to registering a standard Corda Node, but the notary workers also require access to the
@@ -103,11 +99,11 @@ identity and node CA entries will be added to the `certificates/nodekeystore.jks
 entry. If configured to use an HSM, the generated keys are stored in the HSM and not in the `.jks` file.
 
 
-### 3. Add the notary service to the Network Parameters
+3. Add the notary service to the network parameters
 
 In order for network participants to use the new HA notary the notary service must be present in the network parameters. This involves
 configuring and setting the initial network parameters (if setting up a new network), or modifying the existing parameters and performing a
-flag day (if using an existing network). Please refer to the [CENM documentation](https://docs.cenm.r3.com/) for more information on this
+flag day (if using an existing network). Please refer to the [CENM documentation](../../../cenm/1.2.html) for more information on this
 process.
 
 {{< note >}}
@@ -116,5 +112,4 @@ add the HA notary to the network parameters before registering any worker nodes 
 CENM with version < 1.2 is being run then the HA notary can only be added to the parameters using a signed node info file, meaning that
 at least one worker node needs to be registered first, and the resulting signed node info file should be copied over the to the Network
 Map service.
-
 {{< /note >}}

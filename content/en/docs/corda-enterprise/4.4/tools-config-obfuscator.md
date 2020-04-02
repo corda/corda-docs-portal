@@ -22,7 +22,6 @@ must be provided the same seed and passphrase to deobfuscate the configuration.
 {{< note >}}
 The tool makes node installation less vulnerable to someone trawling plain text files searching for passwords and
 credentials of resources that they should not have access to in the first place.
-
 {{< /note >}}
 
 {{< warning >}}
@@ -30,7 +29,6 @@ This feature will not make password protection completely secure. However, it wi
 against trawling attacks.
 
 It is also recommended to use the most up to date version of this tool for improved security.
-
 {{< /warning >}}
 
 
@@ -38,14 +36,14 @@ It is also recommended to use the most up to date version of this tool for impro
 ## Using the command-line tool
 
 The command-line tool is included as a JAR file, named `corda-tools-config-obfuscator-<version>.jar`.
-This tool takes as input the configuration file that we want to obfuscate, denoted `CONFIG_FILE` in
-the usage screen. The Tool takes the seed and the passphrase as inputs.
+This tool takes as input the configuration file that is to be obfuscated, denoted `CONFIG_FILE` in
+the usage screen. The tool also takes a seed and a passphrase as inputs, and uses them to derive a 256bit AES encryption
+key.
 
 
 {{< warning >}}
 For backwards compatibility reasons, the seed and passphrase have default values and can be omitted.
 However, to gain the benefits of obfuscated configuration files, the seed and passphrase must be set.
-
 {{< /warning >}}
 
 
@@ -67,20 +65,15 @@ or the provided file name.
 * `-h`, `--help` is a flag used to show this help message and exit.
 * `-V`, `--version` is a flag used to print version information and exit.
 
-
-The following options provide backwards compatibility, but should not be used in cases where backwards compatibility is not required.>
->
-* `HARDWARE_ADDRESS` is the primary hardware address of the machine onwhich the configuration file resides. By default, the MAC address of the
-running machine will be used. Supplying `DEFAULT` will explicitly
-use the default value.
-
-
+The following options provide backwards compatibility, but should not be used in cases where backwards compatibility is not required.
+* `HARDWARE_ADDRESS` is the primary hardware address of the machine on which the configuration file resides. By default, the MAC address of the
+running machine will be used. Supplying `DEFAULT` will explicitly use the default value.
 
 Note that, by default, the tool only prints out the transformed configuration to the terminal for
 verification. To persist the changes, we need to use the `-w` flag, which ensures that the obfuscated
 content gets written back into the provided configuration file.
 
-The `-w` flag also takes an *optional* file name for cases where we want to write the result back to
+The `-w` flag also takes an optional file name for cases where we want to write the result back to
 a different file. If the optional file name is not provided, the flag needs to be provided at the end
 of the command:
 
@@ -95,13 +88,13 @@ $ java -jar corda-tools-config-obfuscator-<version>.jar node_template.conf -w
 Note also that `HARDWARE_ADDRESS` is optional.
 
 {{< note >}}
-The tool works on both HOCON and JSON files. Include directives (i.e. `include "other.conf"`) are not followed by the tool. If you wish to obfuscate fields in multiple files, you will need to run the tool against each file individually. The node will de-obfuscate the included files automatically.
-
+The tool works on both HOCON and JSON files. Include directives (i.e. `include "other.conf"`) are not followed by the
+tool. If you wish to obfuscate fields in multiple files, you will need to run the tool against each file individually.
+The node will de-obfuscate the included files automatically.
 {{< /note >}}
 
 {{< warning >}}
 The Corda Enterprise Network Manager ([https://docs.cenm.r3.com/](https://docs.cenm.r3.com/)) does not currently support obfuscated configurations.
-
 {{< /warning >}}
 
 
@@ -120,7 +113,7 @@ To indicate parts of the configuration that should be obfuscated, we can place t
 }
 ```
 
-Which, after having been run through the obfuscation tool, would yield something like:
+Which, after having been run through the obfuscation tool, would result in something like:
 
 ```json
 {
@@ -161,11 +154,9 @@ For instance:
 }
 ```
 
-
 ## Limitations
 
-
-* The `<encrypt{}>` blocks can only appear inside string properties. They cannot be used to obfuscate entire
+The `<encrypt{}>` blocks can only appear inside string properties. They cannot be used to obfuscate entire
 configuration blocks. Otherwise, the node will not be able to decipher the obfuscated content. More explicitly,
-this means that the blocks can only appear on the right hand-side of the colon, and for string properties only
+this means that the blocks can only appear on the right hand-side of the colon, and for string properties only.
 

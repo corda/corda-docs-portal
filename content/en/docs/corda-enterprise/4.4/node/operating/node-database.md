@@ -206,7 +206,7 @@ It is good practice for node operators to back up the database before upgrading 
 
 Symptom: Problems acquiring the lock, with output like this:
 
-
+```
 Waiting for changelog lock….
 Waiting for changelog lock….
 Waiting for changelog lock….
@@ -218,13 +218,11 @@ Liquibase Update Failed: Could not acquire change log lock.  Currently locked by
 SEVERE 2013-03-20 16:59:liquibase: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
 liquibase.exception.LockException: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
 
->
 at liquibase.lockservice.LockService.waitForLock(LockService.java:81)
 at liquibase.Liquibase.tag(Liquibase.java:507)
 at liquibase.integration.commandline.Main.doMigration(Main.java:643)
 at liquibase.integration.commandline.Main.main(Main.java:116)
-
-
+```
 
 Advice: See [this StackOverflow question](https://stackoverflow.com/questions/15528795/liquibase-lock-reasons).
 You can run `java -jar tools-database-manager-4.0.jar --base-directory /path/to/node --release-lock` to force Liquibase to give up the lock.
