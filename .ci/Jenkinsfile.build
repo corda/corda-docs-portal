@@ -34,7 +34,10 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
-                step([$class: 'GitHubCommitStatusSetter', contextSource: [$class: 'ManuallyEnteredCommitContextSource', context: GITHUB_NOTIFY_CONTEXT]])
+                step([$class: 'GitHubCommitStatusSetter',
+                      contextSource: [$class: 'ManuallyEnteredCommitContextSource', context: GITHUB_NOTIFY_CONTEXT],
+                      reposSource: [$class: 'ManuallyEnteredRepositorySource', url: env.GIT_URL]
+                ])
                 sh """
                     make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
                 """
@@ -97,7 +100,10 @@ pipeline {
 
     post {
         always {
-            step([$class: 'GitHubCommitStatusSetter', contextSource: [$class: 'ManuallyEnteredCommitContextSource', context: GITHUB_NOTIFY_CONTEXT]])
+                step([$class: 'GitHubCommitStatusSetter',
+                      contextSource: [$class: 'ManuallyEnteredCommitContextSource', context: GITHUB_NOTIFY_CONTEXT],
+                      reposSource: [$class: 'ManuallyEnteredRepositorySource', url: env.GIT_URL]
+                ])
         }
         cleanup {
             deleteDir() /* clean up our workspace */
