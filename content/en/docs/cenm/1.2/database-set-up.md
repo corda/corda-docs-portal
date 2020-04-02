@@ -72,10 +72,10 @@ in more depth further down.
 Setting up a CENM service (Identity Manager / Network Map) to connect to a database requires:
 
 
-* [Creating a database user with schema permissions](#db-setup-step-1-ref)
-* [Database table creation](#db-setup-step-2-ref)
-* [CENM service configuration changes](#db-setup-step-3-ref)
-* [Database configuration](#db-setup-step-4-ref)
+* [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
+* [Database table creation](#2-database-schema-creation)
+* [CENM service configuration changes](#3-cenm-service-configuration)
+* [Database configuration](#4-database-configuration)
 
 
 
@@ -106,10 +106,10 @@ Each CENM service needs to use a separate database user and schema where multipl
 Creating database users with schema permissions for:
 
 
-* [Azure SQL](#db-setup-create-user-azure-ref)
-* [SQL Server](#db-setup-create-user-sqlserver-ref)
-* [Oracle](#db-setup-create-user-oracle-ref)
-* [PostgreSQL](#db-setup-create-user-postgresql-ref)
+* [Azure SQL](#azure-sql)
+* [SQL Server](#sql-server)
+* [Oracle](#oracle)
+* [PostgreSQL](#postgresql)
 
 
 
@@ -241,7 +241,7 @@ Connect to the database as an administrator and run the following script to crea
 ```sql
 CREATE USER "my_user" WITH LOGIN PASSWORD 'my_password';
 CREATE SCHEMA "my_schema";
-GRANT USAGE ON SCHEMA "my_schema" TO "my_user";
+GRANT USAGE, CREATE ON SCHEMA "my_schema" TO "my_user";
 GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON ALL tables IN SCHEMA "my_schema" TO "my_user";
 ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON tables TO "my_user";
 GRANT USAGE, SELECT ON ALL sequences IN SCHEMA "my_schema" TO "my_user";
@@ -385,10 +385,10 @@ database = {
 Configuration templates for each database vendor are shown below:
 
 
-* [Azure SQL](#db-setup-configure-cenm-azure-ref)
-* [SQL Server](#db-setup-configure-cenm-sqlserver-ref)
-* [Oracle](#db-setup-configure-cenm-oracle-ref)
-* [PostgreSQL](#db-setup-configure-cenm-postgresql-ref)
+* [Azure SQL](#azure-sql-1)
+* [SQL Server](#sql-server-1)
+* [Oracle](#oracle-1)
+* [PostgreSQL](#postgresql-1)
 
 
 
@@ -428,7 +428,7 @@ database = {
 
 
 
-Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
+Replace placeholders *\<database_server\>* and *\<my_database\>* with appropriate values (*\<my_database\>* is a user database).
 The `database.schema` is the database schema name assigned to the user.
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539),
@@ -473,7 +473,7 @@ database = {
 
 
 
-Replace placeholders *<host>* and *<port>* with appropriate values (the default SQL Server port is 1433).
+Replace placeholders *\<host\>* and *\<port\>* with appropriate values (the default SQL Server port is 1433).
 By default the connection to the database is not SSL. To secure the JDBC connection, refer to
 [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
@@ -519,7 +519,7 @@ database = {
 }
 ```
 
-Replace the placeholders *<host>*, *<port>* and *<sid>* with appropriate values. (For a basic Oracle installation, the default *<sid>* value is *xe*.)
+Replace the placeholders *\<host\>*, *\<port\>* and *\<sid\>* with appropriate values. (For a basic Oracle installation, the default *<sid>* value is *xe*.)
 If the user was created with *administrative* permissions, the schema name `database.schema` is equal to the user name (*my_user*).
 
 When connecting with a database user with restricted permissions, all queries need to be prefixed with the other schema name.
@@ -555,7 +555,7 @@ database = {
 
 
 
-Replace the placeholders *<host>*, *<port>*, and *<database>* with appropriate values.
+Replace the placeholders *\<host\>*, *\<port\>*, and *\<database\>* with appropriate values.
 The `database.schema` is the database schema name assigned to the user.
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity
 (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
@@ -717,6 +717,3 @@ To remove service tables run the following SQL script:
 ```sql
 DROP SCHEMA IF EXISTS "my_schema" CASCADE;
 ```
-
-
-
