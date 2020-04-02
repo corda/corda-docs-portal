@@ -1,6 +1,8 @@
 #!groovy
 def DOCKER_REPOSITORY = "docsite.software.r3.com"
 def GITHUB_NOTIFY_CONTEXT = 'Docsite Build & Deploy 2 Stage'
+def DEPLOYMENT_CREDENTIALS = 'docsite-staging'
+def ARTIFACTORY_BUILD_NAME = 'Docsite Docker image'
 
 def MAKE_PARAMS = [
     'PROD_IMAGE="${IMAGE}"',         // do not change the quotes! Variable is for Linux Shell!!
@@ -67,19 +69,19 @@ pipeline {
                     serverId: 'R3-Artifactory',
                     image: "${env.IMAGE}:${env.IMAGE_TAG}",
                     targetRepo: 'docsite-local',
-                    buildName: 'Docsite Docker image'
+                    buildName: ARTIFACTORY_BUILD_NAME
                 )
                 echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry as 'latest'"
                 rtDockerPush (
                     serverId: 'R3-Artifactory',
                     image: "${env.IMAGE}:latest",
                     targetRepo: 'docsite-local',
-                    buildName: 'Docsite Docker image'
+                    buildName: ARTIFACTORY_BUILD_NAME
                 )
                 echo 'Publishing build info to Artifactory server'
                 rtPublishBuildInfo (
                     serverId: 'R3-Artifactory',
-                    buildName: 'Docsite Docker image'
+                    buildName: ARTIFACTORY_BUILD_NAME
                 )
             }
         }
@@ -91,7 +93,7 @@ pipeline {
                 }
             }
             steps {
-                sshagent(['docsite-staging']) {
+                sshagent([DEPLOYMENT_CREDENTIALS]) {
                     sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@docs-staging.corda.net update-docsite"
                 }
             }
