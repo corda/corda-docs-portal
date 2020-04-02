@@ -64,7 +64,7 @@ the total amount held that is important, rather than the actual units held.
 
 We can picture the hierarchy as follows:
 
-![state hierarchy](cordapps/../resources/state-hierarchy.png "state hierarchy")
+![state hierarchy](/en/images/state-hierarchy.png "state hierarchy")
 
 ### LinearState
 

@@ -41,7 +41,7 @@ throughout this guide.
 
 ## Overview
 
-![ha notary overview2](running-a-notary-cluster/resources/ha-notary-overview2.png "ha notary overview2")
+![ha notary overview2](/en/ha-notary-overview2.png "ha notary overview2")
 The figure above displays Corda client nodes in green on the top, then the Corda
 notary worker nodes in red in the middle and on the bottom are the Percona nodes in blue.
 
@@ -68,7 +68,7 @@ not be sufficient, depending on your throughput and latency requirements.
 
 ### Colocating Percona and the Notary Service
 
-![percona colocated](running-a-notary-cluster/resources/percona-colocated.png "percona colocated")
+![percona colocated](/en/percona-colocated.png "percona colocated")
 You can run a Percona Server and a Corda notary worker on the same machine.
 
 

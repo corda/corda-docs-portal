@@ -45,7 +45,7 @@ By calling `rpc.clearNetworkMapCache()` all these tables will be cleared and rec
 
 Read more here: network-map
 
-![node info tables](node/operating/resources/database/node_info_tables.png "node info tables")
+![node info tables](/en/images/node_info_tables.png "node info tables")
 
 {{< table >}}
 
@@ -174,7 +174,7 @@ Read more in key-concepts-ledger
 
 Read more in tutorial-attachments and node-services
 
-![attachments tables](node/operating/resources/database/attachments_tables.png "attachments tables")
+![attachments tables](/en/images/attachments_tables.png "attachments tables")
 
 {{< table >}}
 
@@ -421,7 +421,7 @@ The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` t
 
 ### Fungible states
 
-![vault fungible states](node/operating/resources/database/vault_fungible_states.png "vault fungible states")
+![vault fungible states](/en/images/vault_fungible_states.png "vault fungible states")
 
 {{< table >}}
 
@@ -450,7 +450,7 @@ The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` t
 
 ### Linear states
 
-![vault linear states](node/operating/resources/database/vault_linear_states.png "vault linear states")
+![vault linear states](/en/images/vault_linear_states.png "vault linear states")
 
 {{< table >}}
 

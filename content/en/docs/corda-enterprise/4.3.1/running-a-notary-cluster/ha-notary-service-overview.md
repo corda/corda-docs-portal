@@ -35,7 +35,7 @@ Corda nodes that have been configured to operate in notary mode.
 The can visualise this as follows, with the Corda client nodes in green on the top, the Corda
 notary worker nodes in red in the middle, and the database nodes on the bottom in blue.
 
-![ha notary overview2](running-a-notary-cluster/resources/ha-notary-overview2.png "ha notary overview2")
+![ha notary overview2](/en/ha-notary-overview2.png "ha notary overview2")
 Client nodes requesting notarisation from the notary will connect to the available notary workers
 in a round-robin fashion. The task of a worker node is to verify the notarisation request, the
 transaction timestamp (if present), and resolve and verify the transaction chain (if the notary
@@ -56,4 +56,4 @@ not be sufficient depending on your throughput and latency requirements.
 If desired, you can choose to run each database server and its Corda notary worker on the same
 machine:
 
-![ha notary colocated](running-a-notary-cluster/resources/ha-notary-colocated.png "ha notary colocated")
+![ha notary colocated](/en/ha-notary-colocated.png "ha notary colocated")

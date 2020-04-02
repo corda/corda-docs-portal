@@ -145,7 +145,7 @@ When starting Corda nodes using the ‘driver DSL’, you should see a startup m
 
 The following diagram illustrates Corda flow metrics visualized using hawtio:
 
-![hawtio jmx](operating/resources/hawtio-jmx.png "hawtio jmx")
+![hawtio jmx](/en/images/hawtio-jmx.png "hawtio jmx")
 
 ### Monitoring via Graphite
 

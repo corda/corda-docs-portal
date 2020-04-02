@@ -84,7 +84,7 @@ issues, especially the preferred master election.
 
 ### Zookeeper
 
-[![zookeeper](design/failure-detection-master-election/zookeeper.png "zookeeper")](zookeeper.png)
+[![zookeeper](/en/zookeeper.png "zookeeper")](/en/zookeeper.png)
 Preferred leader election - while the default algorithm does not take into account a leader preference, a custom
 algorithm can be implemented to suit our needs.
 
@@ -108,7 +108,7 @@ Cons:
 
 ### Atomix
 
-[![atomix](design/failure-detection-master-election/./atomix.png "atomix")](./atomix.png)
+[![atomix](/en/atomix.png "atomix")](/en/atomix.png)
 Preferred leader election - cannot be implemented easily; a creative solution would be required.
 
 Environment with 2 nodes - using only embedded replicas, there’s no solution; Atomix comes also as a standalone server

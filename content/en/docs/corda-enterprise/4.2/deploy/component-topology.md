@@ -18,7 +18,7 @@ title: Component topology
 
 It is useful to take a high level perspective of the Corda components, especially the various communication protocols that Corda employs in its operations. The diagram below illustrates the various communication protocols used by the Corda Node communicating with peers on the Corda Network.
 
-![overview](deploy/../resources/overview.png "overview")
+![overview](/en/images/overview.png "overview")
 Corda Nodes communicate with each other using the asynchronous AMQP/TLS 1.2 protocols. HTTP communication is only used for initial registration of Corda Nodes and sharing the Corda Node address locations by way of the network map. Client applications communicate with Corda Nodes using RPC calls. A Node’s vault is a database that relies on JDBC connection from the Corda Node.
 
 When hosting a Corda Node on-premise, it’s important to consider:
@@ -33,7 +33,7 @@ When hosting a Corda Node on-premise, it’s important to consider:
 In any given production deployment of Corda Enterprise, the most common components are the Corda Node, vault, and firewall.
 
 
-![nodebridgefloat nbrs](deploy/../resources/nodebridgefloat_nbrs.png "nodebridgefloat nbrs")
+![nodebridgefloat nbrs](/en/images/nodebridgefloat_nbrs.png "nodebridgefloat nbrs")
 A typical Node deployment.
 
 

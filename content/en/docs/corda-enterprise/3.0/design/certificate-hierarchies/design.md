@@ -98,7 +98,7 @@ context.
 
 ## **Target** Solution
 
-[![cert structure v2](design/certificate-hierarchies/./images/cert_structure_v2.png "cert structure v2")](./images/cert_structure_v2.png)
+[![cert structure v2](/en/cert_structure_v2.png "cert structure v2")](/en/cert_structure_v2.png)
 The design introduces discrete intermediate CAs below the network trust root for each logical service exposed by the doorman - specifically:
 
 

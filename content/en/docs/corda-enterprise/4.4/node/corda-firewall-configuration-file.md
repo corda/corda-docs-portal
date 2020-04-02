@@ -499,14 +499,14 @@ This is also the recommended full enterprise deployment pattern, although there 
 
 Conceptually deployment will be done as follows:
 
-![deployment concept](node/../resources/ha/deployment_concept.png "deployment concept")
+![deployment concept](/en/images/deployment_concept.png "deployment concept")
 In this example it is assumed that a large organisation is running two nodes that represent two distinct legal entities. Each node/entity has its own set of CorDapps installed
 and its own transaction storage (vault). These two nodes are running within a Green/Trusted Zone and can be interacted with via RPC calls from clients (either standalone or embedded in other applications).
 In order to be able to communicate outside of the organisation, special provisions are made in the form of Bridge, Float and SOCKS Proxy.
 
 The following diagram illustrates physical deployment of the example setup discussed above:
 
-![physical deployment](node/../resources/ha/physical_deployment.png "physical deployment")
+![physical deployment](/en/images/physical_deployment.png "physical deployment")
 {{< note >}}
 The arrows on the diagram show in which direction connection is initiated. The actual data exchange may then be happening in both directions.
 
@@ -519,7 +519,7 @@ The SOCKS5 proxy is running on `vmSocks` which also resides in the DMZ.
 
 Each of the `vmInfra1` and `vmInfra2` computers host: ZooKeeper cluster participant, Bridge instance and Artemis cluster participant:
 
-![Infra](node/../resources/ha/Infra.png "Infra")
+![Infra](/en/images/Infra.png "Infra")
 To facilitate High Availability requirement deployment is split onto two data centers.
 
 {{< note >}}

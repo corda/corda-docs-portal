@@ -29,7 +29,7 @@ The decision of how many levels to include is a key feature of the [proposed cer
 Under this option, intermediate CA certificates for key signing services (Doorman, Network Map, CRL) are generated as
 direct children of the root certificate.
 
-[![option1](design/certificate-hierarchies/decisions/../images/option1.png "option1")](../images/option1.png)
+[![option1](/en/option1.png "option1")](/en/option1.png)
 
 #### Advantages
 
@@ -50,7 +50,7 @@ as the Root CA should be used only to issue other certificates.
 Under this option, an additional ‘Company CA’ cert is generated from the root CA cert, which is then used to generate
 intermediate certificates.
 
-[![option2](design/certificate-hierarchies/decisions/../images/option2.png "option2")](../images/option2.png)
+[![option2](/en/option2.png "option2")](/en/option2.png)
 
 #### Advantages
 

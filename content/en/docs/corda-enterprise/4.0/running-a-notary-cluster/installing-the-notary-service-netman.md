@@ -76,7 +76,7 @@ Adding a Corda notary to an existing network is covered in
 the network services documentation (TBD where this is hosted). Removing a notary from a network
 is currently not supported.
 
-![doorman light](running-a-notary-cluster/resources/doorman-light.png "doorman light")
+![doorman light](/en/doorman-light.png "doorman light")
 The notary sends a certificate signing request (CSR) to the doorman for
 approval. Once approved, the notary obtains a signed certificate from the
 doorman. The notary can then produce a signed node info file that contains the

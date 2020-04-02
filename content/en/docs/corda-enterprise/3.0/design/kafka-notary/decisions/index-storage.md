@@ -62,7 +62,7 @@ implementations (B-tree, R-tree, concurrent B-tree).
 
 Performance test results when running on a Macbook Pro with Intel Core i7-4980HQ CPU @ 2.80GHz, 16 GB RAM, SSD:
 
-[![store comparison](design/kafka-notary/decisions/../images/store-comparison.png "store comparison")](../images/store-comparison.png)
+[![store comparison](/en/store-comparison.png "store comparison")](/en/store-comparison.png)
 Multiple tests were run with varying number of transactions and input states per transaction: “1m x 1” denotes a million
 transactions with one input state.
 

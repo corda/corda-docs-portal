@@ -44,4 +44,4 @@ happen due to high write contention|
 
 Below is a screenshot of the metrics displayed in the Hawtio console.
 
-![metrics](running-a-notary-cluster/resources/metrics.png "metrics")
+![metrics](/en/metrics.png "metrics")
