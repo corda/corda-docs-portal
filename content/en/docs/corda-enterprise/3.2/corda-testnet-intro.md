@@ -31,9 +31,9 @@ The Corda Testnet is currently in private beta. Interested parties can request i
 
 ## Deploying a Corda node to the Corda Testnet
 
-Access to the Corda Testnet is enabled by visiting [https://testnet.corda.network](https://testnet.corda.network).
+Access to the Corda Testnet is enabled by visiting [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet).
 
-[![testnet landing](/en/images/testnet-landing.png "testnet landing")](https://testnet.corda.network)
+[![testnet landing](/en/images/testnet-landing.png "testnet landing")](https://marketplace.r3.com/network/testnet)
 Click on “Join the Corda Testnet”.
 
 Select whether you want to register a company or as an individual on the Testnet.
@@ -54,7 +54,7 @@ We currently only support federated login using Google email accounts. Please en
 Gmail is recommended. If you want to use a non-Gmail account you can enable your email for Google: [https://support.google.com/accounts/answer/176347?hl=en](https://support.google.com/accounts/answer/176347?hl=en)
 
 {{< /note >}}
-Once you have been approved, navigate to [https://testnet.corda.network](https://testnet.corda.network) and click on “I have an invitation”.
+Once you have been approved, navigate to [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet) and click on “I have an invitation”.
 
 Sign in using the Google login service:
 

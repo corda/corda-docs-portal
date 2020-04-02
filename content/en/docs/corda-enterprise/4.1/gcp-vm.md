@@ -17,7 +17,7 @@ title: Deploying Corda to Corda Testnet from a Google Cloud Platform VM
 # Deploying Corda to Corda Testnet from a Google Cloud Platform VM
 
 
-This document explains how to deploy a Corda node to Google Cloud Platform that can connect directly to the Corda Testnet. A self service download link can be obtained from [https://testnet.corda.network](https://testnet.corda.network). This document will describe how to set up a virtual machine on the Google Cloud Platform (GCP) to deploy your pre-configured Corda node and automatically connnect to Testnet.
+This document explains how to deploy a Corda node to Google Cloud Platform that can connect directly to the Corda Testnet. A self service download link can be obtained from [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet). This document will describe how to set up a virtual machine on the Google Cloud Platform (GCP) to deploy your pre-configured Corda node and automatically connnect to Testnet.
 
 
 ## Pre-requisites
@@ -107,7 +107,7 @@ web application and click on the copy to clipboard button to get a one
 time installation script.
 
 {{< note >}}
-If you have not already set up your account on Testnet then please visit [https://testnet.corda.network](https://testnet.corda.network) and sign up.
+If you have not already set up your account on Testnet then please visit [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet) and sign up.
 
 {{< /note >}}
 ![testnet platform](/en/images/testnet-platform.png "testnet platform")
@@ -118,7 +118,7 @@ In the terminal of your cloud instance paste the command you just copied to inst
 your unique Corda instance:
 
 ```bash
-sudo ONE_TIME_DOWNLOAD_KEY=YOUR_UNIQUE_DOWNLOAD_KEY_HERE bash -c "$(curl -L https://testnet.corda.network/api/user/node/install.sh)"
+sudo ONE_TIME_DOWNLOAD_KEY=YOUR_UNIQUE_DOWNLOAD_KEY_HERE bash -c "$(curl -L https://marketplace.r3.com/network/testnet/api/user/node/install.sh)"
 ```
 
 

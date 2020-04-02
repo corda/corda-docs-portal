@@ -58,7 +58,7 @@ This doesn’t need to be the same as the Azure region you host your node in. It
 {{< /note >}}
 You will need to obtain a `one-time-download-key` in order to set up the template. This will allow the template scripts to connect to, and provision the node to the Corda Testnet.
 
-You can register with Testnet and obtain the `ONE-TIME-DOWNLOAD-KEY` at [https://testnet.corda.network](https://testnet.corda.network) or see the Testnet documentation: [Joining Corda Testnet](corda-testnet-intro.md).
+You can register with Testnet and obtain the `ONE-TIME-DOWNLOAD-KEY` at [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet) or see the Testnet documentation: [Joining Corda Testnet](corda-testnet-intro.md).
 
 Finally you can select your database sizing in the `Corda Data Tier Performance` (the default is fine for typical usage).
 

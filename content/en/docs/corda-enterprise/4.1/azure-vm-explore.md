@@ -20,7 +20,7 @@ title: Deploying Corda to Corda Testnet from an Azure Cloud Platform VM
 
 This document will describe how to set up a virtual machine on the Azure Cloud Platform to deploy your pre-configured
 Corda node and automatically connnect to Testnet. A self-service download link can be obtained from
-[https://testnet.corda.network](https://testnet.corda.network).
+[https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet).
 
 
 ## Pre-requisites
@@ -112,11 +112,11 @@ you configured earlier to log into the remote VM:
 ### STEP 4: Download and set up your Corda node
 
 Now that your Azure environment is configured you can switch to the
-[Testnet web application](https://testnet.corda.network/platform) and click “Copy” to get a one-time installation
+[Testnet web application](https://marketplace.r3.com/network/testnet/platform) and click “Copy” to get a one-time installation
 script.
 
 {{< note >}}
-If you have not already set up your account on Testnet, please visit [https://testnet.corda.network](https://testnet.corda.network) and sign
+If you have not already set up your account on Testnet, please visit [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet) and sign
 up.
 
 {{< /note >}}
@@ -129,7 +129,7 @@ link.
 In the terminal of your cloud instance, paste the command you just copied to install and run your Corda node:
 
 ```bash
-sudo ONE_TIME_DOWNLOAD_KEY=YOUR_UNIQUE_DOWNLOAD_KEY_HERE bash -c "$(curl -L https://testnet.corda.network/api/user/node/install.sh)"
+sudo ONE_TIME_DOWNLOAD_KEY=YOUR_UNIQUE_DOWNLOAD_KEY_HERE bash -c "$(curl -L https://marketplace.r3.com/network/testnet/api/user/node/install.sh)"
 ```
 
 

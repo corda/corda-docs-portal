@@ -109,7 +109,7 @@ I want to:
 |Corda Network is a global production network of Corda nodes, operated by the independent
 Corda Network Foundation. You can learn more here: [https://corda.network/participation/index.html](https://corda.network/participation/index.html)|
 |Corda Testnet is a test network, operated for the community by R3. You can learn
-more here: [https://testnet.corda.network](https://testnet.corda.network)|
+more here: [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet)|
 
 {{< /table >}}
 

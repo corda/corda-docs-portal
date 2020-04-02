@@ -19,7 +19,7 @@ title: Deploying Corda to Corda Testnet from an AWS Cloud Platform VM
 
 
 This document explains how to deploy a Corda node to AWS that can connect directly to the Corda Testnet.
-A self service download link can be obtained from [https://testnet.corda.network](https://testnet.corda.network). This
+A self service download link can be obtained from [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet). This
 document will describe how to set up a virtual machine on the AWS
 Cloud Platform to deploy your pre-configured Corda node and automatically connnect
 to Testnet.
@@ -96,7 +96,7 @@ web application and click on the copy to clipboard button to get a one
 time installation script.
 
 {{< note >}}
-If you have not already set up your account on Testnet then please visit [https://testnet.corda.network](https://testnet.corda.network) and sign up.
+If you have not already set up your account on Testnet then please visit [https://marketplace.r3.com/network/testnet](https://marketplace.r3.com/network/testnet) and sign up.
 
 {{< /note >}}
 ![testnet platform](/en/images/testnet-platform.png "testnet platform")
@@ -107,7 +107,7 @@ In the terminal of your cloud instance paste the command you just copied to inst
 your unique Corda instance on that instance:
 
 ```bash
-sudo ONE_TIME_DOWNLOAD_KEY=YOUR_UNIQUE_DOWNLOAD_KEY_HERE bash -c "$(curl -L https://testnet.corda.network/api/user/node/install.sh)"
+sudo ONE_TIME_DOWNLOAD_KEY=YOUR_UNIQUE_DOWNLOAD_KEY_HERE bash -c "$(curl -L https://marketplace.r3.com/network/testnet/api/user/node/install.sh)"
 ```
 
 
