@@ -1,8 +1,46 @@
 #!groovy
-def DOCKER_REPOSITORY = "docsite.software.r3.com"
-def GITHUB_NOTIFY_CONTEXT = 'Docsite Build & Deploy 2 Stage'
-def DEPLOYMENT_CREDENTIALS = 'docsite-staging'
-def ARTIFACTORY_BUILD_NAME = 'Docsite Docker image'
+class Configuration {
+    String ARTIFACTORY_BUILD_NAME = 'Docsite Docker image'
+    String ARTIFACTORY_SERVER = 'software.r3.com'
+    String getDockerRegistry() {
+        return "${dockerRepo}.${ARTIFACTORY_SERVER}"
+    }
+    String getTargetRepo() {
+        return "${dockerRepo}-local"
+    }
+    String getDeploymentCredentials() {
+        return deploymentCredentials
+    }
+    String getDocsite() {
+        return docsite
+    }
+    String getBuildName() {
+        if (branch != 'master')
+            return "${ARTIFACTORY_BUILD_NAME} (${branch})"
+        return ARTIFACTORY_BUILD_NAME
+    }
+    String setBranch(String branch) {
+        this.branch = branch
+    }
+    String dockerRepo
+    String deploymentCredentials
+    String docsite
+    String branch
+    Configuration(dockerRepo,deploymentCredentials, docsite) {
+        this.dockerRepo = dockerRepo
+        this.deploymentCredentials = deploymentCredentials
+        this.docsite = docsite
+        this.branch = branch
+    }
+}
+def CONFIG = [
+    master: new Configuration('docsite','docsite-production', 'docsite@${DOCSITE_SERVER}'), // do not change the quotes! Variable is for Linux Shell!!
+    staging: new Configuration('docsite-dev', 'docsite-staging', 'docsite@docs-staging.corda.net') // do not change the quotes! Variable is for Linux Shell!!
+]
+Configuration config = CONFIG[(env.BRANCH_NAME =~ /^PR-[0-9]+$/)? 'pr': env.BRANCH_NAME]
+if (!config)
+    config = CONFIG['staging']
+config.branch = env.BRANCH_NAME
 
 def MAKE_PARAMS = [
     'PROD_IMAGE="${IMAGE}"',         // do not change the quotes! Variable is for Linux Shell!!
@@ -17,12 +55,12 @@ pipeline {
     agent { label "basic" }
 
     parameters {
-        booleanParam defaultValue: false, description: 'Check it to force publishing Docsite Docker image regardless of the branch it is built for', name: 'FORCE_PUBLISH'
+        booleanParam defaultValue: false, description: 'Check it to force publishing Docsite Docker image even if building a pull request', name: 'DO_PUBLISH'
     }
 
     environment {
         IMAGE_TAG="${env.GIT_COMMIT[0..5]}"
-        IMAGE="${DOCKER_REPOSITORY}/corda-docs-nginx"
+        IMAGE="${config.dockerRegistry}/corda-docs-nginx"
     }
 
     options {
@@ -36,21 +74,18 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
-                step([$class: 'GitHubCommitStatusSetter',
-                      contextSource: [$class: 'ManuallyEnteredCommitContextSource', context: GITHUB_NOTIFY_CONTEXT],
-                      reposSource: [$class: 'ManuallyEnteredRepositorySource', url: env.GIT_URL]
-                ])
                 sh """
                     make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
                 """
-		        sh 'docker images'
+                sh 'docker images'
             }
         }
         stage('Publish Docker image to Registry') {
             when {
                 anyOf {
                     branch 'master'
-                    expression { params.FORCE_PUBLISH }
+                    branch 'staging'
+                    expression { params.DO_PUBLISH }
                 }
             }
             steps {
@@ -68,20 +103,20 @@ pipeline {
                 rtDockerPush (
                     serverId: 'R3-Artifactory',
                     image: "${env.IMAGE}:${env.IMAGE_TAG}",
-                    targetRepo: 'docsite-local',
-                    buildName: ARTIFACTORY_BUILD_NAME
+                    targetRepo: config.getTargetRepo(),
+                    buildName: config.getBuildName()
                 )
                 echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry as 'latest'"
                 rtDockerPush (
                     serverId: 'R3-Artifactory',
                     image: "${env.IMAGE}:latest",
-                    targetRepo: 'docsite-local',
-                    buildName: ARTIFACTORY_BUILD_NAME
+                    targetRepo: config.getTargetRepo(),
+                    buildName: config.getBuildName()
                 )
                 echo 'Publishing build info to Artifactory server'
                 rtPublishBuildInfo (
                     serverId: 'R3-Artifactory',
-                    buildName: ARTIFACTORY_BUILD_NAME
+                    buildName: config.getBuildName()
                 )
             }
         }
@@ -89,24 +124,19 @@ pipeline {
             when {
                 anyOf {
                     branch 'master'
-                    expression { params.FORCE_PUBLISH }
+                    branch 'staging'
+                    expression { params.DO_PUBLISH }
                 }
             }
             steps {
-                sshagent([DEPLOYMENT_CREDENTIALS]) {
-                    sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@docs-staging.corda.net update-docsite"
+                sshagent([config.deploymentCredentials]) {
+                    sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${config.docsite} update-docsite"
                 }
             }
         }
     }
 
     post {
-        always {
-                step([$class: 'GitHubCommitStatusSetter',
-                      contextSource: [$class: 'ManuallyEnteredCommitContextSource', context: GITHUB_NOTIFY_CONTEXT],
-                      reposSource: [$class: 'ManuallyEnteredRepositorySource', url: env.GIT_URL]
-                ])
-        }
         cleanup {
             deleteDir() /* clean up our workspace */
         }
