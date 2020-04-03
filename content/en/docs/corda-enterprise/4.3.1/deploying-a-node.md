@@ -50,7 +50,7 @@ handling, and ensures the Corda service is run at boot.
 
 
 
-* As root/sys admin user - add a system user which will be used to run Corda:> 
+* As root/sys admin user - add a system user which will be used to run Corda:>
 `sudo adduser --system --no-create-home --group corda`
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
@@ -106,7 +106,7 @@ If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
 {{< /note >}}
 
 * **SystemD**: Create a `corda.service` file based on the example below and save it in the `/etc/systemd/system/`
-directory> 
+directory>
 ```shell
 [Unit]
 Description=Corda Node - Bank of Breakfast Tea
@@ -129,7 +129,7 @@ WantedBy=multi-user.target
 
 
 
-* **Upstart**: Create a `corda.conf` file based on the example below and save it in the `/etc/init/` directory> 
+* **Upstart**: Create a `corda.conf` file based on the example below and save it in the `/etc/init/` directory>
 ```shell
 description "Corda Node - Bank of Breakfast Tea"
 
@@ -145,19 +145,19 @@ exec java -jar /opt/corda/corda.jar
 
 
 
-* Make the following changes to `corda.service` or `corda.conf`:> 
+* Make the following changes to `corda.service` or `corda.conf`:>
 
 * Make sure the service description is informative - particularly if you plan to run multiple nodes.
 * Change the username to the user account you want to use to run Corda. **We recommend that this user account is
 not root**
-* **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:> 
+* **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:>
 
     * `sudo chown root:root /etc/systemd/system/corda.service`
     * `sudo chmod 644 /etc/systemd/system/corda.service`
 
 
 
-* **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:> 
+* **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:>
 
     * `sudo chown root:root /etc/init/corda.conf`
     * `sudo chmod 644 /etc/init/corda.conf`
@@ -168,49 +168,9 @@ not root**
 
 
 
-{{< note >}}
-The Corda test webserver provides a simple interface for interacting with your installed CorDapps in a browser.
-Running the webserver is optional.
-
-{{< /note >}}
-
-* **SystemD**: Create a `corda-webserver.service` file based on the example below and save it in the `/etc/systemd/system/`
 directory
 
 ```shell
-[Unit]
-Description=Webserver for Corda Node - Bank of Breakfast Tea
-Requires=network.target
-
-[Service]
-Type=simple
-User=corda
-WorkingDirectory=/opt/corda
-ExecStart=/usr/bin/java -jar /opt/corda/corda-webserver.jar
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-```
-
-
-
-
-* **Upstart**: Create a `corda-webserver.conf` file based on the example below and save it in the `/etc/init/`
-directory
-
-```shell
-description "Webserver for Corda Node - Bank of Breakfast Tea"
-
-start on runlevel [2345]
-stop on runlevel [!2345]
-
-respawn
-setuid corda
-chdir /opt/corda
-exec java -jar /opt/corda/corda-webserver.jar
-```
-
 
 * Provision the required certificates to your node. Contact the network permissioning service or see
 [Network certificates](permissioning.md)
@@ -318,7 +278,7 @@ sc start cordanode1
 ```
 
 
-* Modify the batch file:> 
+* Modify the batch file:>
 
 * If you are installing multiple nodes, use a different service name (`cordanode1`), and modify
 *AppDirectory*, *AppStdout* and *AppStderr* for each node accordingly

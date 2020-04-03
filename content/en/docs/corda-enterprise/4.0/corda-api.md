@@ -94,12 +94,6 @@ Some of the public modules may depend on internal modules, so be careful to not 
 testing modules depend on the node module and so you may end having the node in your test classpath.
 
 
-{{< warning >}}
-The web server module will be removed in future. You should call Corda nodes through RPC from your web server of choice e.g., Spring Boot, Vertx, Undertow.
-
-{{< /warning >}}
-
-
 
 ## The `@DoNotImplement` annotation
 

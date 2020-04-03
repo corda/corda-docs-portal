@@ -163,7 +163,7 @@ be done by firstly unpacking the `corda-3.1-developer-pack.tar.gz` compressed ta
 * Move into the `cordapp-example` folder by running `cd cordapp-example`
 * From the `cordapp-example` folder, deploy the nodes by running `gradlew deployNodes`
 * Start the nodes by running `call kotlin-source/build/nodes/runnodes.bat`
-* Wait until all the terminal windows display either `Webserver started up in XX.X sec` or `Node for "NodeC" started up and registered in XX.XX sec`
+* Wait until all the terminal windows display `Node for "NodeC" started up and registered in XX.XX sec`
 * Confirm that the CorDapp is running correctly by visiting the front end at [http://localhost:10009/web/example/](http://localhost:10009/web/example/)
 
 
@@ -288,7 +288,7 @@ The extracted folder can now be deleted:
 * Move into the `cordapp-example` folder by running `cd cordapp-example`
 * From the `cordapp-example` folder, deploy the nodes by running `./gradlew deployNodes`
 * Start the nodes by running `kotlin-source/build/nodes/runnodes`. Do not click while 7 additional terminal windows start up.
-* Wait until all the terminal windows display either `Webserver started up in XX.X sec` or `Node for "NodeC" started up and registered in XX.XX sec`
+* Wait until all the terminal windows display `Node for "NodeC" started up and registered in XX.XX sec`
 * Confirm that the CorDapp is running correctly by visiting the front end at [http://localhost:10009/web/example/](http://localhost:10009/web/example/)
 
 

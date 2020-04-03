@@ -42,18 +42,6 @@ By default, the node will look for a configuration file called `node.conf` and a
 in the current working directory. You can override the configuration file and workspace paths on the command line (e.g.
 `./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
 
-Optionally run the node’s webserver as well by opening a terminal window in the node’s folder and running:
-
-```shell
-java -jar corda-webserver.jar
-```
-
-
-{{< warning >}}
-The node webserver is for testing purposes only and will be removed soon.
-
-{{< /warning >}}
-
 
 
 

@@ -127,12 +127,6 @@ Future releases will reject any CorDapps that use types from these packages.
 
 
 
-{{< warning >}}
-The web server module will be removed in future. You should call Corda nodes through RPC from your web server of choice e.g., Spring Boot, Vertx, Undertow.
-
-{{< /warning >}}
-
-
 
 ## The `@DoNotImplement` annotation
 

@@ -334,8 +334,4 @@ The Corda web server is not meant to be used for real, production-quality
 web apps. Instead it shows one example way of using Corda RPC in web apps
 to provide a REST API on top of the Corda native RPC mechanism.
 
-{{< note >}}
-The Corda web server may be removed in future and replaced with
-sample specific webapps using a standard framework like Spring Boot.
 
-{{< /note >}}

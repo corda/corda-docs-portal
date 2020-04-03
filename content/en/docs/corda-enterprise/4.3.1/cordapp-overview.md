@@ -42,8 +42,7 @@ They implement the `ContractState` interface
 But the CorDapp JAR can also include other class definitions. These may include:
 
 
-* APIs and static web content: These are served by Corda’s built-in webserver. This webserver is not
-production-ready, and should be used for testing purposes only
+* APIs and static web content
 * Utility classes
 
 
@@ -55,7 +54,7 @@ the following components:
 
 * A `BondState`, used to represent bonds as shared facts on the ledger
 * A `BondContract`, used to govern which ledger updates involving `BondState` states are valid
-* Three flows:> 
+* Three flows:>
 
     * An `IssueBondFlow`, allowing new `BondState` states to be issued onto the ledger
     * A `TradeBondFlow`, allowing existing `BondState` states to be bought and sold on the ledger
