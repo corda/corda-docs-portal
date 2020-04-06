@@ -21,7 +21,7 @@ title: Interacting with a node
 
 ## Overview
 
-To interact with your node, you need to write a client in a JVM-compatible language using the [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class.
+To interact with your node, you need to write a client in a JVM-compatible language using the [CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class.
 This class allows you to connect to your node via a message queue protocol and provides a simple RPC interface for
 interacting with the node. You make calls on a JVM object as normal, and the marshalling back-and-forth is handled for
 you.
@@ -30,7 +30,7 @@ you.
 {{< warning >}}
 The built-in Corda webserver is deprecated and unsuitable for production use. If you want to interact with
 your node via HTTP, you will need to stand up your own webserver that connects to your node using the
-[CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server
+[CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server
 [here](https://github.com/corda/spring-webserver).
 
 {{< /warning >}}
@@ -40,7 +40,7 @@ your node via HTTP, you will need to stand up your own webserver that connects t
 
 ## Connecting to a node via RPC
 
-To use [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `com.r3.corda:corda-rpc:$corda_release_version` as a `compile` dependency
+To use [CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `com.r3.corda:corda-rpc:$corda_release_version` as a `compile` dependency
 in your client’s `build.gradle` file. As the RPC library has a transitive dependency on a patched version of Caffeine in Corda
 Enterprise 4.0, you also need to add `corda-dependencies` to the list of repositories for your project in order to resolve
 this dependency:
@@ -52,11 +52,11 @@ repositories {
 }
 ```
 
-[CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
-[CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](api/javadoc/net/corda/core/messaging/CordaRPCOps.html)
+[CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
+[CordaRPCConnection](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/core/messaging/CordaRPCOps.html)
 object that you can use to interact with the node.
 
-Here is an example of using [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
+Here is an example of using [CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -134,9 +134,9 @@ class ClientRpcExample {
 
 
 {{< warning >}}
-The returned [CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
+The returned [CordaRPCConnection](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
 server side resources. When you’re done with it, call `close` on it. Alternatively you may use the `use`
-method on [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed in lambda finishes. Don’t create
+method on [CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed in lambda finishes. Don’t create
 a new proxy for every call you make - reuse an existing one.
 
 {{< /warning >}}
@@ -552,7 +552,7 @@ such situations:
 
 {{< warning >}}
 The list of `NetworkHostAndPort` passed to this function should represent one or more addresses reflecting the number of
-instances of a node configured to service the client RPC request. See `haAddressPool` in [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) for further information on
+instances of a node configured to service the client RPC request. See `haAddressPool` in [CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) for further information on
 using an RPC Client for load balancing and failover.
 
 {{< /warning >}}
@@ -608,7 +608,7 @@ If TLS communications to the RPC endpoint are required the node should be config
 The node admin should then create a node specific RPC certificate and key, by running the node once with `generate-rpc-ssl-settings` command specified (see [Node command-line options](node-commandline.md)).
 The generated RPC TLS trust root certificate will be exported to a `certificates/export/rpcssltruststore.jks` file which should be distributed to the authorised RPC clients.
 
-The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](api/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
+The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
 argument with the appropriate path for the `rpcssltruststore.jks` file. The client connection will then use this to validate the RPC server handshake.
 
 Note that RPC TLS does not use mutual authentication, and delegates fine grained user authentication and authorisation to the RPC security features detailed above.

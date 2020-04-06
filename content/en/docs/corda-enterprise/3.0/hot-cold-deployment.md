@@ -94,6 +94,7 @@ A possible configuration for a hot-cold environment would be:
 {{< table >}}
 
 |Name|Protocol|Port|Path|Used by|
+|----|--------|----|----|-------|
 |p2p|TCP|10002||ha-lbr-p2p|
 |rpc|TCP|10003||ha-lbr-rpc|
 |web|HTTP|10004|/|ha-lbr-web|
@@ -122,6 +123,7 @@ Using the health probe example, a possible load balancer configuration would be:
 {{< table >}}
 
 |Name|Rule|Backend pool|Health probe|
+|----|----|------------|------------|
 |ha-lbr-p2p|TCP/10002|ha-testing|p2p|
 |ha-lbr-rpc|TCP/10003|ha-testing|rpc|
 |ha-lbr-web|TCP/10004|ha-testing|web|
@@ -177,9 +179,10 @@ After creating a load balancer for each traffic type, the configuration should l
 {{< table >}}
 
 |Name|Port Configuration|Health Check|
-|ha-lb-p2p|10002 (TCP) forwarding to 10002 (TCP)|[TCP:10002](TCP:10002.md)|
-|ha-lb-rpc|10003 (TCP) forwarding to 10003 (TCP)|[TCP:10003](TCP:10003.md)|
-|ha-lb-web|10004 (HTTP) forwarding to 10004 (HTTP)|[HTTP:10004](HTTP:10004.md)|
+|----|------------------|------------|
+|ha-lb-p2p|10002 (TCP) forwarding to 10002 (TCP)|TCP:10002|
+|ha-lb-rpc|10003 (TCP) forwarding to 10003 (TCP)|TCP:10003|
+|ha-lb-web|10004 (HTTP) forwarding to 10004 (HTTP)|HTTP:10004|
 
 {{< /table >}}
 

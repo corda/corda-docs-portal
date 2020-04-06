@@ -33,7 +33,6 @@ introducing support for a number of additional HSMs as well as adding support fo
 For deployments of pre-1.0 CENM a migration tool has been added to rewrite legacy
 configurations to be compatible with 1.1.
 
-
 ### Major New Features
 
 **Oracle Database Support**
@@ -54,9 +53,7 @@ Support for HSMs has been significantly extended, and as part of this work the H
 now dynamically loaded and should be provided by the user. Support has been added for Azure Key Vault,
 as well as for Gemalto and Securosys HSMs in both the PKI Tool and Signing Service.
 
-
 ### Other Improvements
-
 
 * CENM now supports encryption of passwords in configuration files, using encryption keys derived from
 hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
@@ -70,9 +67,7 @@ in the staging table (see *Troubleshooting Common Issues* section).
 * Simplified configuration by removing configuration options for private network maps. This feature is being
 removed in preference of using subzones, and therefore these configuration options merely add complexity.
 
-
 ### Known Issues
-
 
 * The PKI tool fails if the password for a key store and key are different. This only applies to local key
 stores. Please ensure key passwords match the key store password to avoid this issue.
@@ -82,7 +77,6 @@ is 1.1.
 * Config migration tool does not generate a `shell` configuration section, and therefore the generated configurations may not be usable as-is.
 This is intentional in order as the operator needs to make decisions on this configuration, for example password.
 * PKI tool reports “Error whilst attempt to read config lines.” if it cannot find a configuration file, rather than a more specific error message.
-
 
 ## Release 1.0
 
@@ -96,7 +90,6 @@ Network Foundation since its launch in 2018 and the R3 TestNet before it.
 Please note, whilst this is the first public release of the Corda Enterprise Network Manager, these
 release notes and any associated documentation should be read from the perspective of those coming
 fresh to the product but also those who are upgrading from pre-release versions.
-
 
 ### Major New Features
 
@@ -120,7 +113,6 @@ queue” of older versions. See [Configuring the ENM services to use SSL](enm-wi
 
 **Security And Performance Fixes**
 
-
 ### Minor Features
 
 **Postgresql Support**
@@ -134,9 +126,7 @@ Corda Network Map protocol. This was done to better draw distinction between the
 required by Corda nodes, and the more free-form functionality offered to users. This will allow for future
 versioned changes to the protocol without changing that which the Corda nodes depend upon.
 
-
 ### Major New Features
-
 
 * `/network-map`
 * `/network-map-user`
@@ -165,7 +155,6 @@ the user, eliminating the frustration from having to address errors one by one.
 
 **Security And Performance Fixes**
 
-
 ### Minor Features
 
 **Postgresql Support**
@@ -185,7 +174,6 @@ required by Corda nodes, and the more free-form functionality offered to users. 
 versioned changes to the protocol without changing that which the Corda nodes depend upon.
 
 The two top-level endpoints are now
-
 
 * `/network-map`
 * `/network-map-user`
@@ -217,7 +205,6 @@ The service-based architecture requires tooling around service state monitoring.
 there is no dedicated utility that would address that issue. As for now, the network operator needs to rely only on service logs and manual service endpoint pinging in order to
 assess in what state the service is.
 
-
-* Identity Manager: [http:/](http:/)/<<IDENTITY_MANAGER_ADDRESS>>/status
-* Network Map: [http:/](http:/)/<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname
-* Revocation Service (currently part of the Identity Manager): [http:/](http:/)/<<REVOCATION_SERVICE_ADDRESS>>/status
+* Identity Manager: `http://<<IDENTITY_MANAGER_ADDRESS>>/status`
+* Network Map: `http://<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname`
+* Revocation Service (currently part of the Identity Manager): `http://<<REVOCATION_SERVICE_ADDRESS>>/status`

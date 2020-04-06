@@ -300,7 +300,7 @@ change as it should represent the legal identity of your node
 
 
 * Copy the required Java keystores to the node. See [Network permissioning](permissioning.md)
-* Download the [NSSM service manager](nssm.cc)
+* Download the [NSSM service manager](http://nssm.cc)
 * Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`
 * Save the following as `C:\Corda\nssm.bat`:
 

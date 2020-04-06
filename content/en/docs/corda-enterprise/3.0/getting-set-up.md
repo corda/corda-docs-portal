@@ -124,7 +124,7 @@ This tarball contains all of the Corda dependencies as they would appear in your
 `C:\Documents and Settings\{your-username}\.m2`.
 
 To build CorDapps on development machines the Corda Enterprise binaries will need to be discoverable by Gradle. The
-[build.gradlehttps://github.com/corda/cordapp-example/blob/release-enterprise-V3/build.gradle](build.gradlehttps://github.com/corda/cordapp-example/blob/release-enterprise-V3/build.gradle) file on the
+[build.gradle](https://github.com/corda/cordapp-example/blob/release-enterprise-V3/build.gradle) file on the
 `cordapp-example` `release-enterprise-V3` branch includes instructions on how to allow Gradle to discover
 dependencies.
 

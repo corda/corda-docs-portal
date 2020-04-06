@@ -32,7 +32,7 @@ Operating System specific installers are provided as part of Corda Enterprise 3.
 Run the installer and follow instructions on the screen.
 Once installer completes it will start `Corda DemoBench` application:
 
-![demobench initial](../../tools/demobench/demobench-initial.png "demobench initial")
+![demobench initial](/en/demobench-initial.png "demobench initial")
 Each node must have a unique name to identify it to the network map service. DemoBench will suggest node names, nearest cities and local port numbers to use.The first node will be a notary. Hence only notary services will be available to be selected in the `Services` list. For subsequent nodes you may also select any of Corda’s other built-in services.Press the `Start node` button to launch the Corda node with your configuration.DemoBench launches each new node in a terminal emulator. The `View Database`, `Launch Explorer` and `Launch Web Server` buttons will all be disabled until the node has finished booting. DemoBench will then display simple statistics about the node such as its cash balance.
 It is currently impossible from DemoBench to restart a node that has terminated, e.g. because the user typed “bye” at the node’s shell prompt. However, that node’s data and logs still remain in its directory.
 

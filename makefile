@@ -78,8 +78,7 @@ clean: ## Remove (temp) repos
 	rm -rf $(ROOT_DIR)/repos $(ROOT_DIR)/public
 
 #######################################################################################################################
-# Other tasks
-#######################################################################################################################
+# Searching - Site crawling
 
 build-algolia-image:
 	$(DOCKER) build $(ROOT_DIR)/.ci/algolia --tag $(ALGOLIA_IMAGE) -f .ci/algolia/Dockerfile
@@ -87,3 +86,9 @@ build-algolia-image:
 crawl: build-algolia-image ## Start a crawl of docs.corda.net and upload to algolia, then set the searchable facets
 	.ci/algolia/crawl.sh $(ALGOLIA_APPLICATION_ID) $(ALGOLIA_API_ADMIN_KEY)
 	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(ALGOLIA_IMAGE) .ci/algolia/configure_index_by_rest.py .ci/algolia/facets.json $(ALGOLIA_APPLICATION_ID) $(ALGOLIA_API_ADMIN_KEY)
+
+#######################################################################################################################
+# Searching - Site crawling
+
+linkchecker: prod-docker-image ## Check all links are valid
+	.ci/checks/linkchecker.sh $(PROD_IMAGE)

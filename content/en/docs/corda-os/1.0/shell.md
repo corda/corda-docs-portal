@@ -107,7 +107,7 @@ e.g. “100.12 CHF”
 * Strings do not need to be surrounded by quotes unless they contain a comma or embedded quotes. This makes it
 a lot more convenient to type such strings.
 
-Other types also have sensible mappings from strings. See [the defined parsers](api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html) for more information.
+Other types also have sensible mappings from strings. See [the defined parsers](https://api.corda.net/api/corda-os/1.0/html/api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html) for more information.
 
 Nested objects can be created using curly braces, as in `{ a: 1, b: 2}`. This is helpful when no particular
 parser is defined for the type you need, for instance, if an API requires a `Pair<String, Int>`

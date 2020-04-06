@@ -29,8 +29,8 @@ connection to the node (see “clientrpc”) then your JSON mapper can resolve i
 The API is described in detail here:
 
 
-* [Kotlin API docs](api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
-* [JavaDoc](api/javadoc/net/corda/client/jackson/package-summary.html)
+* [Kotlin API docs](https://api.corda.net/api/corda-enterprise/4.4/html/api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
+* [JavaDoc](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/client/jackson/package-summary.html)
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}

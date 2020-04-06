@@ -29,14 +29,12 @@ production nodes.
 When starting a node, the `corda.jar` file defaults to reading the node’s configuration from a `node.conf` file in the directory from which the command to launch Corda is executed.
 There are two command-line options to override this behaviour:
 
-
 * The `--config-file` command line option allows you to specify a configuration file with a different name, or in a different file location.
 Paths are relative to the current working directory
 * The `--base-directory` command line option allows you to specify the node’s workspace location.
 A `node.conf` configuration file is then expected in the root of this workspace.
 
 If you specify both command line arguments at the same time, the node will fail to start.
-
 
 ## Configuration file format
 
@@ -50,7 +48,6 @@ This prevents configuration errors when mixing keys containing `.` wrapped with 
 `"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#reference-conf) would be not overwritten by the property
 `dataSourceProperties.dataSourceClassName = "val2"` in *node.conf*.
 
-
 {{< warning >}}
 If a property is defined twice the last one will take precedence. The library currently used for parsing HOCON
 currently does not provide a way to catch duplicates when parsing files and will silently override values for the same key.
@@ -58,7 +55,6 @@ For example having `key=initialValue` defined first in node.conf and later on do
 lines `key=overridingValue` will result into the value being `overridingValue`.
 
 {{< /warning >}}
-
 
 By default the node will fail to start in presence of unknown property keys.
 To alter this behaviour, the `on-unknown-config-keys` command-line argument can be set to `IGNORE` (default is `FAIL`).
@@ -72,8 +68,6 @@ for more information.
 
 ## Overriding configuration values
 
-
-
 ### Placeholder Overrides
 
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
@@ -86,7 +80,6 @@ rpcSettings {
   adminAddress="localhost:10015"
 }
 ```
-
 
 ### Direct Overrides
 
@@ -132,9 +125,7 @@ SET corda_jarDirs_0=./libs
 SET corda_jarDirs_1=./morelibs
 ```
 
-
 #### Limitations
-
 
 * If the same key is overridden by both an environment variable and system property, the system property takes precedence.
 * Variables and properties are case sensitive. Corda will warn you if a variable
@@ -155,6 +146,7 @@ java -Dcorda.jarDirs_0=./newdir1
 ```
 
 The resulting value of `jarDirs` will be `["./newdir1"]`.
+
 * You can’t override a populated list with an empty list. For example, when `devMode=false`, `cordappSignerKeyFingerprintBlacklist` is
 pre-populated with Corda development keys. It isn’t possible to set this to an empty list via the commandline. You can however override
 the list with an all zero hash which will remove the keys:
@@ -163,16 +155,13 @@ the list with an all zero hash which will remove the keys:
 java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="0000000000000000000000000000000000000000000000000000000000000000"
 ```
 
-
 * Objects in lists cannot currently be overridden. For example the `rpcUsers` configuration key is a list of user objects, overriding these
 via environment variables or system properties will not work.
-
 
 ## Configuration file fields
 
 {{< note >}}
 The available configuration fields are listed below in alphabetic order.
-
 {{< /note >}}
 
 An array of additional host:port values, which will be included in the advertised NodeInfo in the network map in addition to the [p2pAddress](#corda-configuration-file-p2paddress).
@@ -224,7 +213,7 @@ The number of threads available to execute external operations that have been ca
 Duration of the period suspended flows waiting for IO are logged.*Default:* 60 secondsThreshold duration suspended flows waiting for IO need to exceed before they are logged.*Default:* 60 secondsWhen a flow implementing the `TimedFlow` interface and setting the `isTimeoutEnabled` flag does not complete within a defined elapsed time, it is restarted from the initial checkpoint.
 Currently only used for notarisation requests with clustered notaries: if a notary cluster member dies while processing a notarisation request, the client flow eventually times out and gets restarted.
 On restart the request is resent to a different notary cluster member in a round-robin fashion. Note that the flow will keep retrying forever.The initial flow timeout period.*Default:* 30 secondsThe number of retries the back-off time keeps growing for.
-For subsequent retries, the timeout value will remain constant.*Default:* 6The base of the exponential backoff, *t_{wait} = timeout * backoffBase^{retryCount}**Default:* 1.8Defines port for h2 DB.**Important: Deprecated please use h2Setting instead**
+For subsequent retries, the timeout value will remain constant.*Default:* 6The base of the exponential backoff, *t_{wait} = timeout *backoffBase^{retryCount}**Default:* 1.8Defines port for h2 DB.**Important: Deprecated please use h2Setting instead**
 Sets the H2 JDBC server host and port.
 See [Database access when running H2](node-database-access-h2.md).
 For non-localhost address the database password needs to be set in `dataSourceProperties`.*Default:* NULLAn optional list of file system directories containing JARs to include in the classpath when launching via `corda.jar` only.
@@ -232,7 +221,9 @@ Each should be a string.
 Only the JARs in the directories are added, not the directories themselves.
 This is useful for including JDBC drivers and the like. e.g. `jarDirs = [ ${baseDirectory}"/libs" ]`.
 (Note that you have to use the `baseDirectory` substitution value when pointing to a relative path).*Default:* not definedIf set, will enable JMX metrics reporting via the Jolokia HTTP/JSON agent on the corresponding port.
-Default Jolokia access url is [http://127.0.0.1:port/jolokia/](http://127.0.0.1:port/jolokia/)*Default:* not definedProvides an option for registering an alternative JMX reporter.
+Default Jolokia access url is `http://127.0.0.1:port/jolokia/`
+
+*Default:* not definedProvides an option for registering an alternative JMX reporter.
 Available options are `JOLOKIA` and `NEW_RELIC`.The Jolokia configuration is provided by default.
 The New Relic configuration leverages the [Dropwizard](https://metrics.dropwizard.io/3.2.3/manual/third-party.html) NewRelicReporter solution.
 See [Introduction to New Relic for Java](https://docs.newrelic.com/docs/agents/java-agent/getting-started/introduction-new-relic-java) for details on how to get started and how to install the New Relic Java agent.*Default:* `JOLOKIA`
@@ -294,6 +285,7 @@ Keys and values of the map should be strings. e.g. `systemProperties = { "visual
 Default value is NULL, which indicates no CRL availability for the TLS certificate.**Important: This needs to be set if crlCheckSoftFail is false (i.e. strict CRL checking is on).***Default:* NULLCRL issuer (given in the X500 name format) for the TLS certificate.
 Default value is NULL, which indicates that the issuer of the TLS certificate is also the issuer of the CRL.**Important: If this parameter is set then `tlsCertCrlDistPoint` needs to be set as well.***Default:* NULLThe password to unlock the Trust store file (`<workspace>/certificates/truststore.jks`) containing the Corda network root certificate.
 This is the non-secret value for the development certificates automatically generated during the first node run.*Default:* trustpassInternal option.**Important: Please do not change.***Default:* falseInternal option.**Important: Please do not change.***Default:* InMemory
+
 ## Reference.conf
 
 A set of default configuration options are loaded from the built-in resource file `/node/src/main/resources/reference.conf`.
@@ -335,7 +327,6 @@ verifierType = InMemory
 ```
 
 [reference.conf](https://github.com/corda/corda/blob/release/os/4.4/node/src/main/resources/reference.conf)
-
 
 ## Configuration examples
 
@@ -422,16 +413,12 @@ networkServices {
 
 [example-node-with-networkservices.conf](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
 
-
-
 ## Generating a public key hash
 
 This section details how a public key hash can be extracted and generated from a signed CorDapp. This is required for a select number of
 configuration properties.
 
 Below are the steps to generate a hash for a CorDapp signed with a RSA certificate. A similar process should work for other certificate types.
-
-
 
 * Extract the contents of the signed CorDapp jar.
 * Run the following command (replacing the < > variables):
@@ -442,8 +429,4 @@ openssl pkcs7 -in <extract_signed_jar_directory>/META-INF/<signature_to_hash>.RS
 | openssl rsa -pubin -outform der | openssl dgst -sha256
 ```
 
-
-
 * Copy the public key hash that is generated and place it into the required location (e.g. in `node.conf`).
-
-

@@ -40,66 +40,73 @@
 }
 
 .r3-o-landing__content-wrapper a {
+    align-items: center;
+    box-sizing: border-box;
     border: none;
     border-radius: 40px;
     color: #fff;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: bold;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    margin: 20px 12px 0;
+    max-height: 50px;
+    height: 50px;
     line-height: 1.1;
-    letter-spacing: 0.1em;
-    padding: 10px 0;
-    text-align: center;
     text-decoration: none;
-    width: 176px;
+    width: 150px;
+}
+
+.r3-o-landing__content-wrapper a span {
+    text-align: center;
 }
 
 .r3-o-landing__content-wrapper a:hover {
     text-decoration: none;
 }
 
+
 .r3-o-landing__content-wrapper .corda {
     background-color: var(--red-500);
-    margin-bottom: 5px;
 }
 
 .r3-o-landing__content-wrapper .corda:hover {
-    background-color: var(--red-400);
-}
-
-.r3-o-landing__content-wrapper .corda-light:hover {
-   cursor: pointer;
+    background-color: #fff;
+    border: 2px solid var(--red-500);
+    color: var(--red-500);
 }
 
 .r3-o-landing__content-wrapper .github {
     background-color: var(--grey-500);
-    margin-bottom: 5px;
-    margin-top: 0;
 }
 
 .r3-o-landing__content-wrapper .github:hover {
     background-color: var(--grey-400);
 }
 
-.r3-o-landing__content-wrapper .tool-tip {
-    display: inline-block;
-    position: relative;
+.r3-o-landing__content-wrapper .corda-light  {
+    border: 2px solid var(--grey-400);
+    color: var(--grey-400);
 }
 
-.r3-o-landing__content-wrapper .tool-tip a {
-    min-height: 55px;
-    display: inline-block;
-}
+.r3-o-landing__content-wrapper .corda-light:hover {
+    border: 2px solid var(--grey-400);
+    cursor: default;
+ }
 
-.tool-tip a span:last-child {
+ .r3-o-landing__content-wrapper .corda-light span:last-child {
     display: none;
 }
 
-.tool-tip:hover a span:first-child {
+.r3-o-landing__content-wrapper .corda-light:hover {
+    border: 2px solid var(--grey-400);
+}
+
+.r3-o-landing__content-wrapper .corda-light:hover span:first-child {
     display: none;
 }
 
-.tool-tip:hover a span:last-child {
+.r3-o-landing__content-wrapper .corda-light:hover span:last-child {
     color: var(--grey-400);
     display: inline;
 }

@@ -16,7 +16,6 @@ title: Release notes
 
 # Release notes
 
-
 ## Unreleased
 
 Unbundled the JDBC Driver, this will require those of you running SQL Server to download the JDBC driver jar
@@ -29,14 +28,10 @@ versioned changes to the protocol without changing that which the Corda nodes de
 
 The two top-level endpoints are now
 
-
-
 * `/network-map`
 * `/network-map-user`
 
-
 see [Network Map Overview](network-map-overview.md) for more information.
-
 
 * Signing Service -> Doorman socket based communication added.
 
@@ -52,12 +47,10 @@ in a configuration file or remembering the correct start up flag.
 Added multi-phase parsing of config files. Parsing and validation errors are now batched before being presented to
 the user, eliminating the frustration from having to address errors one by one.
 
-
 ## Release 0.3
 
 The newest release introduces some large changes to the way the Network Management services operate, and lays the ground
 work for some exciting changes and streamlining in the future.
-
 
 ### Support For Segregated Sub Zones
 
@@ -69,7 +62,6 @@ of temporary private notaries can be delivered whilst retaining the option (in s
 to merge into the ‘main’ zone and gain the benefit of being able to transact with a far broader pool of peers. Note that
 this merging functionality is not currently supported but is planned for a future release. See the [Sub Zones](sub-zones.md)
 documentation for more information.
-
 
 ### Schema Separation
 
@@ -86,7 +78,6 @@ support was also introduced.
 See the [Upgrading Corda Enterprise Network Manager](upgrade-notes.md) documentation for a more detailed list of the changes as a result of the schema separation,
 as well as the knock on effects for a zone operator.
 
-
 ### Embedded Shell
 
 Another change that is introduced in the newest release is the ability to interact with the Doorman and Network Map
@@ -95,13 +86,11 @@ for example by viewing the current set of nodes within the public network, or vi
 Requests that are awaiting approval. This will be built upon in the next release, allow for more advanced interactions
 with the services. See the [Embedded Shell](shell.md) documentation for more information.
 
-
 ### Upgrading & Data Migration
 
 Because this release contains changes that will likely require modifications in existing infrastructure (adding a new
 database schema or instance), a data migration tool has been provided to facilitate the upgrade path from a 0.2
 environment. See the [Upgrading Corda Enterprise Network Manager](upgrade-notes.md) documentation for more information.
-
 
 ### Private Network Functionality
 
@@ -111,26 +100,21 @@ network support on a per Network Map service basis, as well as introduces new �
 *Note that managing private networks directly via the database is now strongly discouraged*. See the
 [Private Network Map](private-network-map.md) documentation for more information.
 
-
 ### Service Monitoring
 
 The service-based architecture requires tooling around service state monitoring. Currently (i.e. with the 0.3 release),
 there is no dedicated utility that would address that issue. As for now, the network operator needs to rely only on service logs and manual service endpoint pinging in order to
 assess in what state the service is. Better tooling around service health-check is planned to be added in the next release of the ENM.
 
-
-* Doorman: [http:/](http:/)/<<DOORMAN_ADDRESS>>/status
-* Network Map: [http:/](http:/)/<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname
-* Revocation Service (currently part of Doorman): [http:/](http:/)/<<REVOCATION_SERVICE_ADDRESS>>/status
-
+* Doorman: `http://<<DOORMAN_ADDRESS>>/status`
+* Network Map: `http://<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname`
+* Revocation Service (currently part of Doorman): `http://<<REVOCATION_SERVICE_ADDRESS>>/status`
 
 ### Documentation
 
 The entire documentation for the Network Services has been redone and published under the [http://docs.netman.r3.com](http://docs.netman.r3.com)
 
-
 ### Issues Fixed
-
 
 * Added missing *my-hostname* endpoint missing in the Network Map Server. [[ENM-185](https://r3-cev.atlassian.net/browse/ENM-185)]
 * Revert network parameters constraints on the *maxTransactionSize*. [[ENM-187](https://r3-cev.atlassian.net/browse/ENM-187)]
@@ -147,18 +131,13 @@ The entire documentation for the Network Services has been redone and published 
 * Minor doc fix. [[ENM-184](https://r3-cev.atlassian.net/browse/ENM-184)]
 * Minor doc fix. [ [ENM-194](https://r3-cev.atlassian.net/browse/ENM-194) ]
 
-
 ## Release 0.2.2
-
 
 ### Issues Fixed
 
-
 * Add the migration script for the allowAutoEnrollment column addition to the private networks table. [[ENM-188](https://r3-cev.atlassian.net/browse/ENM-188)]
 
-
 ## Release 0.2.1
-
 
 ### Backward Compatibility
 
@@ -166,12 +145,10 @@ The major addition in the 0.2.1 release is backward compatibility, which was abs
 constraints. This release of the Network Services fully supports old V0.1 PKI key stores and configuration files. See
 [Upgrading Corda Enterprise Network Manager](upgrade-notes.md) for more information.
 
-
 ### Config Upgrade Tool
 
 Together with automated support for the 0.1 config files, the 0.2.1 release brings the Config Upgrade Tool. This
 translates any 0.1 or 0.2.0 config file to 0.2.1 format.
-
 
 ### Certificate Hierarchy Verifier
 
@@ -180,14 +157,11 @@ Verifier, which ensures correctness of the generated certificate hierarchy with 
 See [Certificates Validator](tool-certificates-validator.md) for more details regarding this tool and [Tools & Utilities](tools-index.md) for a comprehensive
 list of all available tools.
 
-
 ### Documentation
 
 The entire documentation for the Network Services has been redone and published under the [http://docs.netman.r3.com](http://docs.netman.r3.com)
 
-
 ### Issues Fixed
-
 
 * Fix error logging when exception during Jira workflow plugin creation. [[ENM-182](https://r3-cev.atlassian.net/browse/ENM-182)]
 * Fix keyPassword field for the revocation section in the configuration upgdrader. [[ENM-178](https://r3-cev.atlassian.net/browse/ENM-178)]
@@ -197,7 +171,6 @@ The entire documentation for the Network Services has been redone and published 
 * Throw an explicit error when exception during local signer creation. [[ENM-162](https://r3-cev.atlassian.net/browse/ENM-162)]
 * Fix error logging within config parsing. [[ENM-161](https://r3-cev.atlassian.net/browse/ENM-161)]
 * Remove stack trace from the error logging. [[ENM-156](https://r3-cev.atlassian.net/browse/ENM-156)]
-
 
 ## Release 0.2.0
 
@@ -233,4 +206,3 @@ networkMap {
     ...
 }
 ```
-

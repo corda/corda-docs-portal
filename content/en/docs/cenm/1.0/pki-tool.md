@@ -16,10 +16,8 @@ title: Public Key Infrastructure (PKI) Tool
 
 # Public Key Infrastructure (PKI) Tool
 
-
 The purpose of the PKI Tool is to facilitate the certificate hierarchy generation process. Using the tool one is able to
 set up key stores (both local and HSM) with customised certificates and generate accompanied certificate revocation lists.
-
 
 ## Running the PKI Tool
 
@@ -31,7 +29,6 @@ Command line syntax:
 ```bash
 java -jar pkitool-<VERSION>.jar --config-file <CONFIG_FILE>
 ```
-
 
 ## Generating Certificates for non-Production Deployments
 
@@ -74,7 +71,6 @@ Moreover, the default configuration assumes local key stores and as such it is n
 
 The PKI Tool configuration is composed of three sections:
 
-
 * Key stores configuration. This is a list of key stores that are used by the tool in order to either store the
 generated keys and certificate chains or to be inspected for the signing key retrieval.
 * Certificates stores configuration. This is a list of certificates stores that are used by the tool for storing generated
@@ -94,7 +90,6 @@ tool supports different kind of authentications. See [Public Key Infrastructure 
 The mixed list of the key store types is allowed by the tool.
 This way the scenario where some keys are generated on an HSM device and some are stored locally is supported.
 
-
 ### Example of local key stores specification
 
 ```guess
@@ -113,7 +108,6 @@ keyStores = {
     }
 }
 ```
-
 
 ### Example of HSM key stores specification
 
@@ -149,7 +143,6 @@ keyStores = {
 }
 ```
 
-
 ### Example of mixed key stores specification
 
 ```guess
@@ -177,7 +170,6 @@ keyStores = {
 In case of the local key store specification, the password attribute can be omitted and in such a case the
 value defined in *defaultPassword* will be used.
 
-
 ### Example of local key stores specification without password
 
 ```guess
@@ -195,11 +187,9 @@ keyStores = {
 }
 ```
 
-
 ## Certificates stores configuration
 
 The certificates stores configuration is a list the certificates stores that will hold the generated certificates.
-
 
 ### Example of the certificates stores specification
 
@@ -219,7 +209,6 @@ certificatesStores = {
 Similarly, the password parameter can be omitted from the certificate store specification and the one defined under the
 *defaultPassword* will be used instead.
 
-
 ### Example of certificates stores specification without password
 
 ```guess
@@ -234,7 +223,6 @@ certificatesStores = {
 }
 ```
 
-
 ## Certificate configuration
 
 The certificate configuration consists of the actual certificate hierarchy definition. It is expressed as a map between
@@ -242,7 +230,6 @@ the aliases and certificate configuration objects. Most of the configuration par
 specified explicitly in the configuration file those will be used. See [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) for more information.
 
 Following is the example of the certificate hierarchy specification in the PKI Tool configuration file.
-
 
 ### Example of certificates configuration
 
@@ -339,7 +326,6 @@ certificates = {
 
 Assuming default values this could be reduced to the following:
 
-
 ### Example of certificates configuration (reduced)
 
 ```guess
@@ -377,7 +363,6 @@ certificates = {
 }
 ```
 
-
 ## Corda Certificate Types
 
 To simplify Corda compliant certificate hierarchy, the PKI Tool introduces Corda certificate types. Those can be seen,
@@ -387,9 +372,7 @@ to the Corda hierarchy is required, this feature comes very handy and reduces th
 
 Following are the Corda certificate types that can be used in the certificate hierarchy configuration:
 
-
 ### Corda Network Certificates
-
 
 * `CORDA_TLS_CRL_SIGNER` - certificate for signing the CRL for the Corda Node’s TLS-level certificate.
 * `CORDA_ROOT` - Corda Root certificate
@@ -397,21 +380,17 @@ Following are the Corda certificate types that can be used in the certificate hi
 * `CORDA_IDENTITY_MANAGER` - Corda Identity Manager certificate
 * `CORDA_NETWORK_MAP` - Corda Network Map certificate
 
-
 ### SSL Certificates for Corda Network Services
-
 
 * `CORDA_SSL_ROOT` - Corda SSL Root certificate
 * `CORDA_SSL_IDENTITY_MANAGER` - Corda SSL Identity Manager certificate
 * `CORDA_SSL_NETWORK_MAP` - Corda SSL Network Map certificate
 * `CORDA_SSL_SIGNER` - Corda SSL Signer certificate
 
-
 ### Corda Certificate Types usage
 
 Corda certificate types can be used in the certificate hierarchy configuration in place of
 the certificate aliases prepended with `::`.
-
 
 ### Example (Corda Network hierarchy with Corda Certificate Types)
 
@@ -452,9 +431,7 @@ are included in this store.
 
 The above Corda certificate type configuration assumes also the default certificate/key aliases. Those are as following:
 
-
 ### Corda Certificate Types Aliases
-
 
 * `CORDA_TLS_CRL_SIGNER` - “cordatlscrlsigner”
 * `CORDA_ROOT` - “cordarootca”
@@ -468,7 +445,6 @@ The above Corda certificate type configuration assumes also the default certific
 
 In order to use your custom aliases for certificate/key referencing, one needs to prepend the Corda certificate types with
 the chosen alias. Following is the usage example for custom aliases with Corda certificate types:
-
 
 ### Example (Corda Certificate Types with custom aliases)
 
@@ -485,7 +461,6 @@ The above configuration results in the Corda Network hierarchy generation, where
 Apart from the alias customization, the Corda certificate types can be customised further
 by overriding the default properties of the certificate configuration.
 Following is the example of the `subject` property customization in the CORDA_NETWORK_MAP certificate type.
-
 
 ### Example (Corda Certificate Types with custom properties)
 
@@ -526,14 +501,12 @@ certificates = {
 }
 ```
 
-
 ## Configuring Certificate Revocation List Data
 
 By default all certificate configurations (including the Corda certificate types) come without the certificate revocation
 information. As such, all the certificates will be generated without `Certificate Revocation List Distribution Point`
 extension. In order to configure the Certificate Revocation Distribution Point extension and potentially generate a
 CRL file signed by the CRL issuer, the issuing certificate configuration needs to be enriched by the CRL configuration block.
-
 
 ### Example (Corda Certificate Types with CRL configuration)
 
@@ -568,7 +541,7 @@ certificates = {
 It is important to note that the CRL configuration block applies to the certificates issued by the CA which certificate
 configuration is extended with the CRL configuration block. In the above example, the CRL block is present in the
 `::CORDA_SUBORDINATE` certificate, however both `::CORDA_IDENTITY_MANAGER` and `::CORDA_NETWORK_MAP` are the certificates
-that will have the CRL Distribution Point extension pointing to the “[http://127.0.0.1/certificate-revocation-list/subordinate](http://127.0.0.1/certificate-revocation-list/subordinate)”
+that will have the CRL Distribution Point extension pointing to the `http://127.0.0.1/certificate-revocation-list/subordinate`
 serving the “subordinate.crl” file.
 
 {{< /note >}}

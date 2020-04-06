@@ -286,7 +286,7 @@ only visible to the permissioning service.
 
 
 * Copy the required Java keystores to the node. See [Network certificates](permissioning.md)
-* Download the [NSSM service manager](nssm.cc)
+* Download the [NSSM service manager](http://nssm.cc)
 * Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`
 * Save the following as `C:\Corda\nssm.bat`:
 

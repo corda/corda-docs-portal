@@ -30,8 +30,8 @@ connection to the node (see “[Client RPC](clientrpc.md)”) then your JSON map
 The API is described in detail here:
 
 
-* [Kotlin API docs](api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
-* [JavaDoc](api/javadoc/net/corda/client/jackson/package-summary.html)
+* [Kotlin API docs](https://api.corda.net/api/corda-os/3.0/html/api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
+* [JavaDoc](https://api.corda.net/api/corda-os/3.0/html/api/javadoc/net/corda/client/jackson/package-summary.html)
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}

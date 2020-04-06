@@ -24,17 +24,17 @@ with a running node. The library connects to the node using a message queue prot
 interface to interact with the node. You make calls on a Java object as normal, and the marshalling back and forth is
 handled for you.
 
-The starting point for the client library is the [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) provides a `start` method
-that returns a [CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConnection.html). A [CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) allows you to access an implementation of the
-[CordaRPCOps](api/javadoc/net/corda/core/messaging/CordaRPCOps.html) interface with `proxy` in Kotlin or `getProxy()` in Java. The observables that are returned by RPC
+The starting point for the client library is the [CordaRPCClient](https://api.corda.net/api/corda-enterprise/3.3/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. [CordaRPCClient](https://api.corda.net/api/corda-enterprise/3.3/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) provides a `start` method
+that returns a [CordaRPCConnection](https://api.corda.net/api/corda-enterprise/3.3/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html). A [CordaRPCConnection](https://api.corda.net/api/corda-enterprise/3.3/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) allows you to access an implementation of the
+[CordaRPCOps](https://api.corda.net/api/corda-enterprise/3.3/html/api/javadoc/net/corda/core/messaging/CordaRPCOps.html) interface with `proxy` in Kotlin or `getProxy()` in Java. The observables that are returned by RPC
 operations can be subscribed to in order to receive an ongoing stream of updates from the node. More detail on this
 functionality is provided in the docs for the `proxy` method.
 
 
 {{< warning >}}
-The returned [CordaRPCConnection](api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
+The returned [CordaRPCConnection](https://api.corda.net/api/corda-enterprise/3.3/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
 server side resources. When you’re done with it, call `close` on it. Alternatively you may use the `use`
-method on [CordaRPCClient](api/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed in lambda finishes. Don’t create
+method on [CordaRPCClient](https://api.corda.net/api/corda-enterprise/3.3/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed in lambda finishes. Don’t create
 a new proxy for every call you make - reuse an existing one.
 
 {{< /warning >}}

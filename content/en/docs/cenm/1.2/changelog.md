@@ -33,6 +33,10 @@ Refer to CENM database setup page.
 * Network Map service - new column `platform_version` added to database tables `node_info` and `node_info_staging`.
 
 
+## CENM 1.1.2
+
+* Bug fix: The issue where Signer requires multiple authentication is now fixed for both Utimaco card reader configuration and all other HSMs.
+
 ## CENM 1.1
 
 
@@ -95,4 +99,3 @@ the future versioning of both independently.
 * Added client and server health check tools to the utilities JAR
 * Change of the naming convention Enterprise Zone Manager -> Enterprise Network Manager.
 * Added packageOwnership map to the network parameters config
-

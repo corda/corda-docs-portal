@@ -19,7 +19,9 @@ and there will be an extra icon in the title bar of the site:
 
 ![edit icon](images/page-edit.png)
 
-which should open the current page in VSCode (only).
+which should open the current page in VSCode.
+
+For other editors see the note at the bottom of the page.
 
 In Windows Powershell (assuming there are no spaces in your `pwd`):
 
@@ -163,9 +165,44 @@ graph TD;
     B-->D;
     C-->D;
 {{% /mermaid %}}
+```
 
 ##  Tips and Gotchas
 
 * Index pages should be `_index.md` otherwise sub-pages don't get rendered.
     * https://discourse.gohugo.io/t/not-generating-any-pages-other-than-index/10565
 * When searching, prefer `gohugo` as your search term.
+
+## Opening Web Pages in Editors
+
+### VSCode (default)
+
+Windows:
+
+```powershell
+.\serve_and_edit.ps1
+```
+
+Mac/Linux:
+```shell
+make local-serve-and-edit  #  or  hugo-serve-and-edit
+```
+
+### Atom
+
+You need to install the [open package](https://atom.io/packages/open).
+
+If this is your preferred editor, then consider setting `HUGO_PARAMS_EDITOR` in your environment.
+
+Windows Powershell:
+
+```powershell
+$env:HUGO_PARAMS_EDITOR="atom"
+.\serve_and_edit.ps1
+```
+
+Mac/Linux:
+```shell
+export HUGO_PARAMS_EDITOR=atom
+make local-serve-and-edit  #  or  hugo-serve-and-edit
+```

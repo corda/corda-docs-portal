@@ -25,5 +25,13 @@
 # do not delete....
 siteroot = "Override on cmd line using HUGO_PARAMS_SITEROOT=$(pwd) hugo serve"
 
-# vscode is the ONLY SUPPORTED editor at the moment
+# Open web page from browser in specified editor.  Supported:
+#
+# *  vscode
+# *  atom
+#
+# Override on cmd line using HUGO_PARAMS_EDITOR=atom
 editor = "vscode"
+
+# insert https://github.com/Khan/tota11y
+a11y = false

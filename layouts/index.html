@@ -13,16 +13,19 @@
                 <div class="r3-o-landing__content-wrapper r3-o-col-8 r3-o-col-md-6">
                     <h5>{{ .Page.Params.header }}</h5>
                     <p>{{ .Page.Params.tagline }}</p>
-                    <a href="{{ relref . .Page.Params.target_corda_os }}"><img alt="Corda"
-                            src="images/png/Corda_Button.png" width="85%"></a>
-                    <a href="{{ relref . .Page.Params.target_corda_enterprise }}"><img alt="Corda"
-                            src="images/png/Corda_Enterprise_Button.png" width="85%"></a>
-                    <a href="{{ relref . .Page.Params.target_cenm }}"><img alt="Corda" src="images/png/CENM_Button.png"
-                            width="85%"></a>
-                    <div class="tool-tip">
-                        <a class="corda-light">
-                            <span><img src="images/png/Dev_Tutorials_button.png" width="85%"></span>
-                            <span><img src="images/png/Coming_soon_button.png" width="85%"></span>
+                    <div class="corda-buttons">
+                        <a class="corda" href="{{ relref . .Page.Params.target_corda_os }}">
+                            <span>Corda</span>
+                        </a>
+                        <a class="github" href="{{ relref . .Page.Params.target_corda_enterprise }}">
+                            <span>Corda Enterprise</span>
+                        </a>
+                        <a class="github" href="{{ relref . .Page.Params.target_cenm }}">
+                            <span>Corda Enterprise Network Manager</span>
+                        </a>
+                        <a class="corda-light" href="">
+                            <span>Developer<br/>Tutorials</span>
+                            <span>Coming<br/>Soon</span>
                         </a>
                     </div>
                 </div>

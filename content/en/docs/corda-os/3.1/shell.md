@@ -173,7 +173,7 @@ Where `newCampaign` is a parameter of type `Campaign`.
 
 #### Mappings from strings to types
 
-Several parameter types can automatically be mapped from strings. See the [defined parsers](api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html) for more information. We
+Several parameter types can automatically be mapped from strings. See the [defined parsers](https://api.corda.net/api/corda-os/3.1/html/api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html) for more information. We
 cover the most common types here.
 
 

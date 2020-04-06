@@ -38,11 +38,6 @@ Welcome to the documentation website for Corda Enterprise 3.2, based on the Cord
 
 You can learn more in the [Release notes](release-notes.md).
 
-{{< note >}}
-You can read this site offline by [downloading the PDF](_static/corda-developer-site.pdf).
-
-{{< /note >}}
-
 Corda Enterprise is binary compatible with apps developed for the open source node. This docsite is intended for
 administrators and advanced users who wish to learn how to install and configure an enterprise deployment. For
 application development please continue to refer to [the main project documentation website](https://docs.corda.net/).
