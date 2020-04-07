@@ -15,17 +15,19 @@ class Configuration {
         return docsite
     }
     String getBuildName() {
-        if (defaultPublish != 'master')
-            return "${ARTIFACTORY_BUILD_NAME} (${this.defaultPublish})"
-        return ARTIFACTORY_BUILD_NAME
+        return "${ARTIFACTORY_BUILD_NAME} (${branch})"
     }
     boolean getDefaultPublish() {
         return defaultPublish
+    }
+    void setBranch(String branch) {
+        this.branch = branch
     }
     String dockerRepo
     String deploymentCredentials
     String docsite
     String defaultPublish
+    String branch
     Configuration(dockerRepo,deploymentCredentials, docsite, defaultPublish) {
         this.dockerRepo = dockerRepo
         this.deploymentCredentials = deploymentCredentials
@@ -40,6 +42,7 @@ switch (env.BRANCH_NAME) {
     case "master": config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.corda.net', true);
     default: config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.corda.net', false);
 }
+config.branch = env.BRANCH_NAME
 
 def MAKE_PARAMS = [
     'PROD_IMAGE="${IMAGE}"',         // do not change the quotes! Variable is for Linux Shell!!
