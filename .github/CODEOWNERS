@@ -1,0 +1,8 @@
+# https://help.github.com/en/articles/about-code-owners
+# Everything is owned by Technical Writers
+* @corda/technical-writers
+
+# Except for configuration for CI...
+/.ci @corda/infrastructure
+# ... and Github
+/.github @corda/infrastructure
