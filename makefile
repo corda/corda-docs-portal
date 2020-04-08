@@ -17,14 +17,6 @@ help: ## Show this help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 #######################################################################################################################
-# to be removed
-repos: ## Run clone repo script
-	$(ROOT_DIR)/scripts/get_repos.sh
-
-convert: ## Run rst->xml->md script
-	python3 $(ROOT_DIR)/scripts/run_sphinx.py
-
-#######################################################################################################################
 # local only tasks
 
 local-serve: ## Build and serve hugo locally from memory or just use 'hugo' directly
@@ -88,7 +80,7 @@ crawl: build-algolia-image ## Start a crawl of docs.corda.net and upload to algo
 	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(ALGOLIA_IMAGE) .ci/algolia/configure_index_by_rest.py .ci/algolia/facets.json $(ALGOLIA_APPLICATION_ID) $(ALGOLIA_API_ADMIN_KEY)
 
 #######################################################################################################################
-# Searching - Site crawling
+# Build checks
 
 linkchecker: prod-docker-image ## Check all links are valid
 	.ci/checks/linkchecker.sh $(PROD_IMAGE)
