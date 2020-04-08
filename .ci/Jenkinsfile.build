@@ -23,24 +23,29 @@ class Configuration {
     void setBranch(String branch) {
         this.branch = branch
     }
+    String getLatestTag() {
+        return latestTag
+    }
     String dockerRepo
     String deploymentCredentials
     String docsite
     String defaultPublish
     String branch
-    Configuration(dockerRepo,deploymentCredentials, docsite, defaultPublish) {
+    String latestTag
+    Configuration(dockerRepo,deploymentCredentials, docsite, defaultPublish, latestTag) {
         this.dockerRepo = dockerRepo
         this.deploymentCredentials = deploymentCredentials
         this.docsite = docsite
         this.defaultPublish = defaultPublish
+        this.latestTag = latestTag
     }
 }
 
 Configuration config
 switch (env.BRANCH_NAME) {
-    case ~/publish-.*$/: config = new Configuration('docsite','docsite-production', '10.10.0.4', true); break;
-    case "master": config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.corda.net', true);
-    default: config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.corda.net', false);
+    case ~/publish-.*$/: config = new Configuration('docsite','docsite-production', 'docs-staging.dev.r3.corda.internal', true, "latest"); break;
+    case "master": config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.dev.r3.corda.internal', true, "latest");
+    default: config = new Configuration('docsite-dev', 'docsite-preview', 'docs-preview.dev.r3.corda.internal', false, "preview");
 }
 config.branch = env.BRANCH_NAME
 
@@ -58,7 +63,6 @@ pipeline {
 
     parameters {
         booleanParam defaultValue: config.defaultPublish, description: 'Publishing Docsite Docker image?', name: 'DO_PUBLISH'
-        string defaultValue: config.docsite, description: 'Address of server to publish Docsite Docker image to', name: 'DOCSITE_SERVER', trim: true
     }
 
     environment {
@@ -80,6 +84,9 @@ pipeline {
                 sh """
                     make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
                 """
+                script {
+                    docker.image("${env.IMAGE}:${env.IMAGE_TAG}").tag(config.latestTag)
+                }
                 sh 'docker images'
             }
         }
@@ -88,10 +95,6 @@ pipeline {
                 expression { params.DO_PUBLISH }
             }
             steps {
-                script {
-                    docker.image("${env.IMAGE}:${env.IMAGE_TAG}").tag('latest')
-                }
-
                 echo "Creating Artifactory server"
                 rtServer (
                     id: 'R3-Artifactory',
@@ -108,7 +111,7 @@ pipeline {
                 echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry as 'latest'"
                 rtDockerPush (
                     serverId: 'R3-Artifactory',
-                    image: "${env.IMAGE}:latest",
+                    image: "${env.IMAGE}:${config.latestTag}",
                     targetRepo: config.getTargetRepo(),
                     buildName: config.getBuildName()
                 )
@@ -125,7 +128,7 @@ pipeline {
             }
             steps {
                 sshagent([config.deploymentCredentials]) {
-                    sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@${params.DOCSITE_SERVER} update-docsite"
+                    sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@${config.docsite} update-docsite"
                 }
             }
         }
