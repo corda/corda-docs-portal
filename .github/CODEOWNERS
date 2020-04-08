@@ -3,6 +3,8 @@
 * @corda/technical-writers
 
 # Except for configuration for CI...
-/.ci @corda/infrastructure
+/.ci/ @corda/infrastructure
 # ... and Github
-/.github @corda/infrastructure
+/.github/ @corda/infrastructure
+# ... and scripts
+/scripts/ @corda/infrastructure
