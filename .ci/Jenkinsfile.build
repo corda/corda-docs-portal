@@ -8,24 +8,24 @@ class Configuration {
     String getTargetRepo() {
         return "${dockerRepo}-local"
     }
-    String getDeploymentCredentials() {
-        return deploymentCredentials
-    }
-    String getDocsite() {
-        return docsite
-    }
+//    String getDeploymentCredentials() {
+//        return deploymentCredentials
+//    }
+//    String getDocsite() {
+//        return docsite
+//    }
     String getBuildName() {
         return "${ARTIFACTORY_BUILD_NAME} (${branch})"
     }
-    boolean getDefaultPublish() {
-        return defaultPublish
-    }
-    void setBranch(String branch) {
-        this.branch = branch
-    }
-    String getLatestTag() {
-        return latestTag
-    }
+//    boolean getDefaultPublish() {
+//        return defaultPublish
+//    }
+//    void setBranch(String branch) {
+//        this.branch = branch
+//    }
+//    String getLatestTag() {
+//        return latestTag
+//    }
     String dockerRepo
     String deploymentCredentials
     String docsite
@@ -90,45 +90,62 @@ pipeline {
                 sh 'docker images'
             }
         }
-        stage('Publish Docker image to Registry') {
+
+        stage('Publish & Deploy') {
             when {
                 expression { params.DO_PUBLISH }
+                beforeAgent true
             }
-            steps {
-                echo "Creating Artifactory server"
-                rtServer (
-                    id: 'R3-Artifactory',
-                    url: 'https://software.r3.com/artifactory',
-                    credentialsId: 'docsite-publisher'
-                )
-                echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry"
-                rtDockerPush (
-                    serverId: 'R3-Artifactory',
-                    image: "${env.IMAGE}:${env.IMAGE_TAG}",
-                    targetRepo: config.getTargetRepo(),
-                    buildName: config.getBuildName()
-                )
-                echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry as 'latest'"
-                rtDockerPush (
-                    serverId: 'R3-Artifactory',
-                    image: "${env.IMAGE}:${config.latestTag}",
-                    targetRepo: config.getTargetRepo(),
-                    buildName: config.getBuildName()
-                )
-                echo 'Publishing build info to Artifactory server'
-                rtPublishBuildInfo (
-                    serverId: 'R3-Artifactory',
-                    buildName: config.getBuildName()
-                )
-            }
-        }
-        stage('Deploy Docker image to staging') {
-            when {
-                expression { params.DO_PUBLISH }
-            }
-            steps {
-                sshagent([config.deploymentCredentials]) {
-                    sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@${config.docsite} update-docsite"
+            stages {
+                stage('Publish Docker image') {
+                    steps {
+                        echo "Creating Artifactory server"
+                        rtServer (
+                            id: 'R3-Artifactory',
+                            url: 'https://software.r3.com/artifactory',
+                            credentialsId: 'docsite-publisher'
+                        )
+                        rtBuildInfo (
+                            captureEnv: true,
+                            buildName: config.buildName
+                        )
+                        echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry"
+                        rtDockerPush (
+                            serverId: 'R3-Artifactory',
+                            image: "${env.IMAGE}:${env.IMAGE_TAG}",
+                            targetRepo: config.targetRepo,
+                            buildName: config.buildName
+                        )
+                        echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry as 'latest'"
+                        rtDockerPush (
+                            serverId: 'R3-Artifactory',
+                            image: "${env.IMAGE}:${config.latestTag}",
+                            targetRepo: config.targetRepo,
+                            buildName: config.buildName
+                        )
+                        echo 'Publishing build info to Artifactory server'
+                        rtPublishBuildInfo (
+                            serverId: 'R3-Artifactory',
+                            buildName: config.buildName
+                        )
+                    }
+                }
+                stage('Deploy Docker image') {
+                    steps {
+                        sshagent([config.deploymentCredentials]) {
+                            sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@${config.docsite} update-docsite"
+                        }
+                    }
+                }
+                stage('Add Interactive Promotion') {
+                    steps {
+                        rtAddInteractivePromotion (
+                            serverId: 'R3-Artifactory',
+                            buildName: config.buildName,
+                            targetRepo: 'docsite-local',
+                            sourceRepo: config.dockerRepo
+                        )
+                    }
                 }
             }
         }
