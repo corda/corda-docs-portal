@@ -132,7 +132,7 @@ The following table represents memory requirements for each CENM component based
 | Network Map       |  1              | cordaJarMx                             | cordaJarMx        | cordaJarMx + 2  |
 | Notary            |  3              | cordaJarMx                             | cordaJarMx        | cordaJarMx + 2  |
 
-Note: Kubernetes cluster should have at least 6 GB of free memory available to all CENM services.
+Note: Kubernetes cluster should have at least 8 GB of **free memory** available to all CENM services.
 
 ## Deploying your network
 
