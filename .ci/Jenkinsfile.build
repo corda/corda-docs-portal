@@ -43,7 +43,7 @@ class Configuration {
 
 Configuration config
 switch (env.BRANCH_NAME) {
-    case ~/publish-.*$/: config = new Configuration('docsite','docsite-production', 'docs-staging.dev.r3.corda.internal', true, "latest"); break;
+    case ~/publish-.*$/: config = new Configuration('docsite','docsite-production', 'docs-prod.dev.r3.corda.internal', true, "latest"); break;
     case "master": config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.dev.r3.corda.internal', true, "latest");
     default: config = new Configuration('docsite-dev', 'docsite-preview', 'docs-preview.dev.r3.corda.internal', false, "preview");
 }
