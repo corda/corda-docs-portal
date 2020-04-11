@@ -153,8 +153,7 @@ The column name change allowed us to have a simplified migration steps, avoiding
 ## Distributing scripts with CorDapps
 
 By default Corda expects a Liquibase script file name to be a hyphenated version of the `MappedSchema` name
-(upper case letters changed to lowercase and be prefixed with hyphen, except the beginning of file).
-E.g. for a `MappedSchema` named *MySchema*, Corda searches for a *my_schema.changelog.master.xml* file
+(upper case letters changed to lowercase and be prefixed with hyphen, except the beginning of file). For instance, for a `MappedSchema` named *MySchema*, Corda searches for a *my-schema.changelog-master.xml* file
 (*json* and *sql* extensions are also allowed) under *migration* package in CorDapp JARs.
 
 You can also set the name and the location in the `MappedSchema` code by overriding a field `val migrationResource: String`.
