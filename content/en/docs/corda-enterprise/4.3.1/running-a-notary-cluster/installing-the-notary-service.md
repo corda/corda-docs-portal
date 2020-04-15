@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3-1:
     identifier: corda-enterprise-4-3-1-installing-the-notary-service
-    parent: corda-enterprise-4-3-1-toctree
+    parent: corda-enterprise-4-3-1-ha-notary-service-overview
     weight: 1060
 tags:
 - installing
