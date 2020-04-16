@@ -2,12 +2,12 @@
 
 ## Quick Start
 
-If you are editing existing documentation already present in https://github.com/corda/docs-site then all you need to do is:
+If you are editing existing documentation already present in https://github.com/corda/corda-docs then all you need to do is:
 
-* [Fork the repository](https://guides.github.com/activities/forking/).
-* [Edit your fork](https://guides.github.com/activities/forking/#making-changes).
-* [Push to your fork](https://guides.github.com/activities/forking/#making-changes).
-* [Make a pull request](https://guides.github.com/activities/forking/#making-a-pull-request).
+1. [Fork](https://guides.github.com/activities/forking/) this repo: [corda/corda-docs](https://github.com/corda/corda-docs)
+2. [Edit your fork](https://guides.github.com/activities/forking/#making-changes)
+3. [Push to your fork](https://guides.github.com/activities/forking/#making-changes)
+4. [Make a pull request](https://guides.github.com/activities/forking/#making-a-pull-request)
 
 For Apple and Linux users, after installing hugo and VSCode, run:
 
