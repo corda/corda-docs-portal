@@ -54,7 +54,7 @@ The *clear current view* button only clears the data in the currently viewed out
 output listeners defined (as in the example above, we have *Aggregate Graph*, *Graph Results* and *View Results in Table*),
 any collector not currently selected is not affected. *Clear all data* will clear the results from all collectors.
 
-See [Understanding and Creating Testplans](jmeter-testplans.html) for details on the testplan, and how to create one.
+See [Understanding and Creating Testplans](jmeter-testplans.md) for details on the testplan, and how to create one.
 
 
 ## Running JMeter headless

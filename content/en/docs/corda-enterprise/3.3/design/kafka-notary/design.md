@@ -99,7 +99,7 @@ containing committed state references and pointers to the corresponding request 
 reconstructed by replaying and applying request log entries. There is a range of fast key-value stores that can be used
 for implementation.
 
-[![high level](design/kafka-notary/./images/high-level.svg "high level")](./images/high-level.svg)
+[![high level](design/kafka-notary/./images/high-level.svg "high level")](images/high-level.svg)
 At high level, client notarisation requests first get forwarded to a central replicated request log. The requests are
 then applied in order to the consumed state index in each worker to verify input state uniqueness. Each individual
 request outcome (success/conflict) is then sent back to the initiating client by the worker responsible for it. To
@@ -150,7 +150,7 @@ state index.
 
 A Kafka-based notary service does not deviate much from the high-level target solution architecture as described above.
 
-[![kafka high level](design/kafka-notary/./images/kafka-high-level.svg "kafka high level")](./images/kafka-high-level.svg)
+[![kafka high level](design/kafka-notary/./images/kafka-high-level.svg "kafka high level")](images/kafka-high-level.svg)
 For our purposes we can view Kafka as a replicated durable queue we can push messages (*records*) to and consume from.
 Consuming a record just increments the consumer’s position pointer, and does not delete it. Old records eventually
 expire and get cleaned up, but the expiry time can be set to “indefinite” so all data is retained (it’s a supported
@@ -194,7 +194,7 @@ It also stores a special key-value pair denoting the position of the last applie
 
 Let’s have a closer look at what exactly happens when a client sends a notarisation request to a notary worker node.
 
-[![steps](design/kafka-notary/./images/steps.svg "steps")](./images/steps.svg)
+[![steps](design/kafka-notary/./images/steps.svg "steps")](images/steps.svg)
 A small note on terminology: the “notary service” we refer to in this section is the internal long-running service in the Corda node.
 
 

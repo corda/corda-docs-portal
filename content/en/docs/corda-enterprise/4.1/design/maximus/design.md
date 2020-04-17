@@ -101,7 +101,7 @@ to self-organize the work balancing amongst themselves.
 
 ### Current State
 
-[![current state](design/maximus/./images/current_state.png "current state")](./images/current_state.png)
+[![current state](design/maximus/./images/current_state.png "current state")](images/current_state.png)
 The current enterprise node solution in GA 3.1 is as above. This has dynamic HA failover available for the bridge/float
 using ZooKeeper as leader elector, but the node has to be hot-cold. There is some sharing support for the ZooKeeper
 cluster, but otherwise all this infrastructure has to be replicated per identity. In addition, all elements of this have
@@ -110,7 +110,7 @@ to have at least one resident instance to ensure that messages are captured and 
 
 ### Corda 4.0 Agreed Target with SNI Shared Corda Firewalls
 
-[![shared bridge float](design/maximus/./images/shared_bridge_float.png "shared bridge float")](./images/shared_bridge_float.png)
+[![shared bridge float](design/maximus/./images/shared_bridge_float.png "shared bridge float")](images/shared_bridge_float.png)
 Here by sharing the P2P Artemis externally and work on the messaging protocol it should be possible to reuse the corda
 firewall for multiple nodes. This means that the externally advertised address will be stable for the whole cluster
 independent of the deployed identities. Also, the durable messaging is outside nodes, which means that we can
@@ -120,7 +120,7 @@ messages. Mostly this is a prelude to greater sharing in the future Maximus stat
 
 ### Intermediate State Explored during POC
 
-[![maximus poc](design/maximus/./images/maximus_poc.png "maximus poc")](./images/maximus_poc.png)
+[![maximus poc](design/maximus/./images/maximus_poc.png "maximus poc")](images/maximus_poc.png)
 During the POC we explore the model above, although none of the components were completed to a production standard. The
 key feature here is that the RPC side has been split out of the node and has API support for multiple identities built
 in. The flow and P2P elements of the node have been split out too, which means that the ‘FlowWorker’ start-up code can
@@ -135,7 +135,7 @@ service will live in the RPC service as potentially the FlowWorkers will not yet
 
 ### Proposed Maximus Phase 1 State
 
-[![maximus phase1](design/maximus/./images/maximus_phase1.png "maximus phase1")](./images/maximus_phase1.png)
+[![maximus phase1](design/maximus/./images/maximus_phase1.png "maximus phase1")](images/maximus_phase1.png)
 The productionised version of the above POC will introduce ‘Max Nodes’ that can load FlowWorkers on demand. We still
 require only one runs at once, but for this we will use ZooKeeper to ensure that FlowWorkers with capacity compete to
 process the work and only one wins. Based on trials we can safely run a couple of identities at one inside the same Max
@@ -146,7 +146,7 @@ physical resources, but some sort of scheduler could control how many Max Nodes 
 
 ### Final State Maximus with Dynamic Resource Management
 
-[![maximus final](design/maximus/./images/maximus_final.png "maximus final")](./images/maximus_final.png)
+[![maximus final](design/maximus/./images/maximus_final.png "maximus final")](images/maximus_final.png)
 The final evolution is to add dynamic cost control to the system. As the Max Nodes are homogeneous the RpcWorker can
 monitor the load and signal metrics available to Kubernetes. This means that Max Nodes can be added and removed as
 required and potentially cost zero. Ideally, separate work would begin in parallel to combine database data into a

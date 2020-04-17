@@ -37,13 +37,13 @@ The first thing you need to do is clone a CorDapp template to modify.
 
 ## Step Two: Creating states
 
-Since the CorDapp models a car dealership network, a state must be created to represent cars. States are immutable objects representing on-ledger facts. A state might represent a physical asset like a car, or an intangible asset or agreement like an IOU. For more information on states, see the [state documentation](./key-concepts-states.html).
+Since the CorDapp models a car dealership network, a state must be created to represent cars. States are immutable objects representing on-ledger facts. A state might represent a physical asset like a car, or an intangible asset or agreement like an IOU. For more information on states, see the [state documentation](key-concepts-states.md).
 
 
 * From IntelliJ expand the source files and navigate to the following state template file: `contracts > src > main > kotlin > com.template > states > TemplateState.kt`.
 * Right-click on **TemplateState.kt** in the project navigation on the left. Select **Refactor** > **Copy**.
 * Rename the file to `CarState` and click **OK**.
-* Double-click the new state file to open it. Add the following imports to the top of the state file:> 
+* Double-click the new state file to open it. Add the following imports to the top of the state file:>
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -91,7 +91,7 @@ Don’t worry if you’re not sure exactly how these should appear, you can chec
 
 * Remove the `data` and `participants` parameters.
 * Add a body to the `CarState` class that overrides participants to contain a list of `owningBank`, `holdingDealer`, and `manufacturer`.
-* The `CarState` file should now appear as follows:> 
+* The `CarState` file should now appear as follows:>
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -138,14 +138,14 @@ The `CarState` definition has now been created. It lists the properties and asso
 
 ## Step Three: Creating contracts
 
-After creating a state, you must create a contract. Contracts define the rules that govern how states can be created and evolved. For example, a contract for a Cash state should check that any transaction that changes the ownership of the cash is signed by the current owner and does not create cash from thin air. To learn more about contracts, see the [contracts documentation](./key-concepts-contracts.html).
+After creating a state, you must create a contract. Contracts define the rules that govern how states can be created and evolved. For example, a contract for a Cash state should check that any transaction that changes the ownership of the cash is signed by the current owner and does not create cash from thin air. To learn more about contracts, see the [contracts documentation](key-concepts-contracts.html).
 
 
 * From IntelliJ, expand the project source and navigate to: `contracts > src > main > kotlin > com > template > contracts > TemplateContract.kt`
 * Right-click on **TemplateContract.kt** in the project navigation on the left. Select **Refactor > Copy**.
 * Rename the file to `CarContract` and click **OK**.
 * Double-click the new contract file to open it.
-* Add the following imports to the top of the file:> 
+* Add the following imports to the top of the file:>
 {{< tabs name="tabs-3" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -250,7 +250,7 @@ class CarContract : Contract {
 * From IntelliJ, expand the project source and navigate to: `workflows > src > main > kotlin > com.template.flows > Flows.kt`
 * Right-click on **Flows.kt** in the project navigation on the left. Select **Refactor > Copy**.
 * Rename the file to `CarFlow` and click **OK**.
-* Add the following imports to the top of the file:> 
+* Add the following imports to the top of the file:>
 {{< tabs name="tabs-6" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -347,7 +347,7 @@ class CarIssueResponder(val counterpartySession: FlowSession) : FlowLogic<Unit>(
 * Update the return type of both `call()` transactions to be of type `SignedTransaction`.
 * In the `call()` function, create a `TransactionBuilder` object similarly. The `TransactionBuilder` class should take in the notary node. The output state and command must be added to the `TransactionBuilder`.
 * Verify the transaction by calling `verify(serviceHub)` on the `TransactionBuilder`.
-* Sign the transaction and store the result in a variable, using the following [serviceHub](./api-service-hub.html) method:{{< tabs name="tabs-8" >}}
+* Sign the transaction and store the result in a variable, using the following [serviceHub](api-service-hub.md) method:{{< tabs name="tabs-8" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 val notary = serviceHub.networkMapCache.notaryIdentities.first()
@@ -552,7 +552,7 @@ The Gradle build files must be updated to change the node configuration.
 
 
 * Navigate to the `build.gradle` file in the root `cordapp-template-kotlin` directory.
-* In the `deployNodes` task, update the nodes to read as follows:> 
+* In the `deployNodes` task, update the nodes to read as follows:>
 {{< tabs name="tabs-13" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -633,7 +633,7 @@ Maintain window focus on the node windows, if the nodes fail to load, close them
 {{< /note >}}
 
 
-* To run flows in your CorDapp, enter the following flow command from any non-notary terminal window:> 
+* To run flows in your CorDapp, enter the following flow command from any non-notary terminal window:>
 {{< tabs name="tabs-14" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -660,13 +660,13 @@ The vault is the node’s repository of all information from the ledger that inv
 The getting started experience is designed to be lightweight and get to code as quickly as possible, for more detail, see the following documentation:
 
 
-* [CorDapp design best practice](./writing-a-cordapp.html)
-* [Testing CorDapp contracts](./tutorial-test-dsl.html)
+* [CorDapp design best practice](writing-a-cordapp.md)
+* [Testing CorDapp contracts](tutorial-test-dsl.md)
 
 For operational users, see the following documentation:
 
 
-* [Node structure and configuration](/corda-nodes-index.html)
-* [Deploying a node to a server](deploying-a-node.html)
-* [Notary documentation](running-a-notary.html)
+* [Node structure and configuration](corda-nodes-index.md)
+* [Deploying a node to a server](deploying-a-node.md)
+* [Notary documentation](running-a-notary.md)
 

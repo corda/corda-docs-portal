@@ -20,8 +20,8 @@ title: Getting started developing CorDapps
 Getting started with Corda will walk you through the process of setting up a development environment, deploying an example CorDapp, and building your own CorDapp based on the example.
 
 * [Setting up a development environment](#setting-up-a-development-environment)
-* [Deploying an example CorDapp](./quickstart-deploy.html)
-* [Building your own CorDapp](./quickstart-build.html)
+* [Deploying an example CorDapp](quickstart-deploy.html)
+* [Building your own CorDapp](quickstart-build.html)
 
 ## Setting up a development environment
 

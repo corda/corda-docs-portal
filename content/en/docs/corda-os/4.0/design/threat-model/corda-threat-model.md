@@ -50,7 +50,7 @@ mitigate key security risks in support of these requirements.
 The diagram below illustrates the network architecture, protocols and high level data flows that comprise the Corda Network. The threat model has been developed
 based upon this architecture.
 
-[![threat model](design/threat-model/./images/threat-model.png "threat model")](./images/threat-model.png)
+[![threat model](design/threat-model/./images/threat-model.png "threat model")](images/threat-model.png)
 
 ## Threat Model
 

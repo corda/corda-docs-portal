@@ -33,7 +33,7 @@ real time. Notes will be sent afterwards to corda-dev.
 
 The following diagram illustrates the process flow:
 
-[![designReviewProcess](design/./designReviewProcess.png "designReviewProcess")](./designReviewProcess.png)
+[![designReviewProcess](design/./designReviewProcess.png "designReviewProcess")](designReviewProcess.png)
 At least some of the following people will take part in a DRB meeting:
 
 

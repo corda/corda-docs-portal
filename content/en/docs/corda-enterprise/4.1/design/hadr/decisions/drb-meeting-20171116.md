@@ -47,7 +47,7 @@ The design was noted to be dependent on a lot on external dependencies for repli
 MN noted that certain databases are not yet officially supported in Corda.
 
 
-### [Near-term-target](./near-term-target.md), [Medium-term target](./medium-term-target.md)
+### [Near-term-target](near-term-target.md), [Medium-term target](medium-term-target.md)
 
 Outlining the hot-cold design, MN highlighted importance of ensuring only one node is active at one time. MN argued for having a tested hot-cold solution as a ‘backstop’. MN confirmed the work involved was to develop DB/SAN exclusion checkers and test appropriately.
 
@@ -56,7 +56,7 @@ JC queried whether unknowns exist for hot-cold. MN described limitations of Azur
 JC noted there was optionality around both the replication mechanisms and the on-premises vs. cloud deployment.
 
 
-### [Message storage](./db-msg-store.md)
+### [Message storage](db-msg-store.md)
 
 Lack of support for storing Artemis messages via JDBC was raised, and the possibility for RedHat to provide an enhancement was discussed.
 
@@ -113,7 +113,7 @@ RGB queried why Artemis couldn’t be run in clustered mode now. MN explained.
 AB queried what Finastra asked for. MO implied nothing specific; MH maintained this would be needed anyway.
 
 
-### [Broker separation](./external-broker.md)
+### [Broker separation](external-broker.md)
 
 MN outlined his rationale for Broker separation.
 
@@ -124,14 +124,14 @@ MN gave an assumption that HA was for enterprise only; RGB, JC: pointed out that
 **DECISION AGREED**: The broker should only be separated if required by other features (e.g. the float), otherwise not. (RGB, JC, MH agreed).
 
 
-### [Load balancers and multi-IP](./ip-addressing.md)
+### [Load balancers and multi-IP](ip-addressing.md)
 
 The topic was discussed.
 
 **DECISION AGREED**: The design can allow for optional load balancers to be implemented by clients.
 
 
-### [Crash shell](./crash-shell.md)
+### [Crash shell](crash-shell.md)
 
 MN provided outline explanation.
 

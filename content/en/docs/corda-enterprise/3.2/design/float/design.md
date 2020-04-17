@@ -39,7 +39,7 @@ source Corda.
 
 The diagram below illustrates the current mechanism for peer-to-peer messaging between Corda nodes.
 
-[![current p2p state](design/float/./current-p2p-state.png "current p2p state")](./current-p2p-state.png)
+[![current p2p state](design/float/./current-p2p-state.png "current p2p state")](current-p2p-state.png)
 When a flow running on a Corda node triggers a requirement to send a message to a peer node, it first checks for
 pre-existence of an applicable message queue for that peer.
 
@@ -149,7 +149,7 @@ The following design decisions fed into this design:
 The proposed solution introduces a reverse proxy component (“**float**”) which may be sited in the DMZ, as illustrated
 in the diagram below.
 
-[![full float](design/float/./full-float.png "full float")](./full-float.png)
+[![full float](design/float/./full-float.png "full float")](full-float.png)
 The main role of the float is to forward incoming AMQP link packets from authenticated TLS links to the AMQP Bridge
 Manager, then echo back final delivery acknowledgements once the Bridge Manager has successfully inserted the messages.
 The Bridge Manager is responsible for rejecting inbound packets on queues that are not local inboxes to prevent e.g.
@@ -302,7 +302,7 @@ able to abstract this.
 
 #### In-Process AMQP Bridging
 
-[![in process amqp bridging](design/float/./in-process-amqp-bridging.png "in process amqp bridging")](./in-process-amqp-bridging.png)
+[![in process amqp bridging](design/float/./in-process-amqp-bridging.png "in process amqp bridging")](in-process-amqp-bridging.png)
 In this phase of evolution we hook the same bridge creation code as before and use the same in-process data access to
 network map cache. However, we now implement AMQP sender clients using proton-j and netty for TLS layer and connection
 retry. This will also involve formalising the AMQP packet format of the Corda P2P protocol. Once a bridge makes a
@@ -319,7 +319,7 @@ dropped if it doesn’t match expectations.
 
 #### Out of process Artemis Broker and Bridges
 
-[![out of proc artemis broker bridges](design/float/./out-of-proc-artemis-broker-bridges.png "out of proc artemis broker bridges")](./out-of-proc-artemis-broker-bridges.png)
+[![out of proc artemis broker bridges](design/float/./out-of-proc-artemis-broker-bridges.png "out of proc artemis broker bridges")](out-of-proc-artemis-broker-bridges.png)
 Move the Artemis broker and bridge formation logic out of the node. This requires formalising the bridge creation
 requests, but allows clustered brokers, standardised AMQP usage and ultimately pluggable brokers. We should implement a
 netty socket server on the bridge and forward authenticated packets to the local Artemis broker inbound queues. An AMQP

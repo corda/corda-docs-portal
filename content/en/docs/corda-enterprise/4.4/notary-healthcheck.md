@@ -172,4 +172,4 @@ monitor notary health via a dashboard or hook up an alerter. As an example, this
 view on a failing notary check. Note the metrics for *success*, *fail*, *inflight*, and *maxinflightTime* for the
 notary service and the cluster members on the left hand side.
 
-![hawtio healthcheck](./resources/hawtio-healthcheck.png "hawtio healthcheck")
+![hawtio healthcheck](resources/hawtio-healthcheck.png "hawtio healthcheck")

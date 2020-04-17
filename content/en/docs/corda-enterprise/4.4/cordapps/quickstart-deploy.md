@@ -21,7 +21,7 @@ At this point we’ve set up the development environment, and have an example Co
 
 The local Corda network includes one notary, and three nodes, each representing parties in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](/docs/corda-os/4.4/key-concepts-node.md).
 
-Before continuing, ensure that you’ve [set up your development environment](./quickstart-index.html).
+Before continuing, ensure that you’ve [set up your development environment](quickstart-index.md).
 
 
 ## Step One: Deploy the CorDapp locally
@@ -67,5 +67,5 @@ This command displays all of the IOU states in the node’s vault. States are im
 
 ## Next steps
 
-After deploying the example CorDapp, the next step is to start [writing a CorDapp](./quickstart-build.html) containing your own contract, states, and flows.
+After deploying the example CorDapp, the next step is to start [writing a CorDapp](quickstart-build.md) containing your own contract, states, and flows.
 

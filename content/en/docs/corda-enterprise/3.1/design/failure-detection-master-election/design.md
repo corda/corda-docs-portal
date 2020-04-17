@@ -108,7 +108,7 @@ Cons:
 
 ### Atomix
 
-[![atomix](design/failure-detection-master-election/./atomix.png "atomix")](./atomix.png)
+[![atomix](design/failure-detection-master-election/./atomix.png "atomix")](atomix.png)
 Preferred leader election - cannot be implemented easily; a creative solution would be required.
 
 Environment with 2 nodes - using only embedded replicas, there’s no solution; Atomix comes also as a standalone server

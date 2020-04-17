@@ -58,7 +58,7 @@ Thus, HA is essential for enterprise Corda and providing help to administrators 
 
 ### Current node topology
 
-[![no ha](design/hadr/./no-ha.png "no ha")](./no-ha.png)
+[![no ha](design/hadr/./no-ha.png "no ha")](no-ha.png)
 The current solution has a single integrated process running in one JVM including Artemis, H2 database, Flow State
 Machine, P2P bridging. All storage is on the local file system. There is no HA capability other than manual restart of
 the node following failure.
@@ -144,7 +144,7 @@ The following design decisions are assumed by this design:
 
 ### Hot-Cold (minimum requirement)
 
-[![hot cold](design/hadr/./hot-cold.png "hot cold")](./hot-cold.png)
+[![hot cold](design/hadr/./hot-cold.png "hot cold")](hot-cold.png)
 Small scale software failures on a node are recovered from locally via restarting/re-setting the offending component by
 the external (to JVM) “Health Watchdog” (HW) process. The HW process (eg a shell script or similar) would monitor
 parameters for java processes by periodically query them (sleep period a few seconds). This may require introduction of
@@ -194,7 +194,7 @@ heartbeat table. Code size should be minimal.
 
 ### Hot-Warm (Medium-term solution)
 
-[![hot warm](design/hadr/./hot-warm.png "hot warm")](./hot-warm.png)
+[![hot warm](design/hadr/./hot-warm.png "hot warm")](hot-warm.png)
 Hot-warm aims to automate failover and provide failover of individual major components e.g. Artemis.
 
 It involves Two key changes to the hot-cold design:
@@ -234,7 +234,7 @@ the primary node will require configuration management.
 
 ### Hot-Hot (Long-term strategic solution)
 
-[![hot hot](design/hadr/./hot-hot.png "hot hot")](./hot-hot.png)
+[![hot hot](design/hadr/./hot-hot.png "hot hot")](hot-hot.png)
 In this configuration, all nodes are actively processing work and share a clustered database. A mechanism for sharding
 or distributing the work load will need to be developed.
 

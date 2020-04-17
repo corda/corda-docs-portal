@@ -29,7 +29,7 @@ enable a proactive enterprise management and monitoring solution of Corda nodes 
 includes a set of “liveliness” checks to verify and validate correct functioning of a Corda node (and associated
 CorDapp).
 
-[![MonitoringLoggingOverview](design/monitoring-management/./MonitoringLoggingOverview.png "MonitoringLoggingOverview")](./MonitoringLoggingOverview.png)
+[![MonitoringLoggingOverview](design/monitoring-management/./MonitoringLoggingOverview.png "MonitoringLoggingOverview")](MonitoringLoggingOverview.png)
 In the above diagram, the left hand side dotted box represents the components within scope for this design. It is
 anticipated that 3rd party enterprise-wide system management solutions will closely follow the architectural component
 breakdown in the right hand side box, and thus seamlessly integrate with the proposed Corda event generation and logging

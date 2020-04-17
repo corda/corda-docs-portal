@@ -98,7 +98,7 @@ context.
 
 ## **Target** Solution
 
-[![cert structure v2](design/certificate-hierarchies/./images/cert_structure_v2.png "cert structure v2")](./images/cert_structure_v2.png)
+[![cert structure v2](design/certificate-hierarchies/./images/cert_structure_v2.png "cert structure v2")](images/cert_structure_v2.png)
 The design introduces discrete intermediate CAs below the network trust root for each logical service exposed by the doorman - specifically:
 
 
@@ -113,7 +113,7 @@ Each of the above certificates will specify a CRL allowing the certificate to be
 (primarily R3) will be required to maintain this CRL for the lifetime of the process.
 
 TLS certificates will remain issued under Node CA certificates (see [decision: TLS trust
-root](./decisions/tls-trust-root.md)).
+root](decisions/tls-trust-root.md)).
 
 Nodes will be able to specify CRL(s) for TLS certificates they issue; in general, they will be required to such CRLs for
 the lifecycle of the TLS certificates.

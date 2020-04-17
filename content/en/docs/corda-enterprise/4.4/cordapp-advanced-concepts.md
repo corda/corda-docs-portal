@@ -67,7 +67,7 @@ all objects are loaded in the same classloader and can be freely used and filter
 
 Behind the scenes, the matter is more complex. As can be seen in this illustration:
 
-![tx chain](./resources/tx-chain.png "tx chain")
+![tx chain](resources/tx-chain.png "tx chain")
 
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references

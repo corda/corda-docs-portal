@@ -18,9 +18,9 @@ title: Running the example CorDapp
 
 At this point we’ve set up the development environment, and have an example CorDapp in an IntelliJ project. In this section, the CorDapp will be deployed to locally running Corda nodes.
 
-The local Corda network includes one notary, and three nodes, each representing parties in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](./key-concepts-node.html).
+The local Corda network includes one notary, and three nodes, each representing parties in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](key-concepts-node.md).
 
-Before continuing, ensure that you’ve [set up your development environment](./quickstart-index.html).
+Before continuing, ensure that you’ve [set up your development environment](quickstart-index.md).
 
 
 ## Step One: Deploy the CorDapp locally
@@ -41,7 +41,7 @@ To deploy the nodes on Mac or Linux run the following command: `./gradlew clean 
 
 On Mac/Linux run the following command: `workflows-kotlin/build/nodes/runnodes`
 
-This command opens four terminal windows: the notary, and a node each for PartyA, PartyB, and PartyC. A notary is a validation service that prevents double-spending, enforces timestamping, and may also validate transactions. For more information on notaries, see the [notary documentation](./key-concepts-notaries.html).
+This command opens four terminal windows: the notary, and a node each for PartyA, PartyB, and PartyC. A notary is a validation service that prevents double-spending, enforces timestamping, and may also validate transactions. For more information on notaries, see the [notary documentation](key-concepts-notaries.md).
 
 {{< note >}}
 Maintain window focus on the node windows, if the nodes fail to load, close them using `ctrl + d`. The `runnodes` script opens each node directory and runs `java -jar corda.jar`.
@@ -66,5 +66,5 @@ This command displays all of the IOU states in the node’s vault. States are im
 
 ## Next steps
 
-After deploying the example CorDapp, the next step is to start [writing a CorDapp](./quickstart-build.html) containing your own contract, states, and flows.
+After deploying the example CorDapp, the next step is to start [writing a CorDapp](quickstart-build.md) containing your own contract, states, and flows.
 

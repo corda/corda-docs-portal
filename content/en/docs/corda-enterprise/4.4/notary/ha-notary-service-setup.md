@@ -18,7 +18,7 @@ weight: 10
 # Corda Enterprise HA notary service set-up
 
 The Corda Enterprise notary service can be configured in high-availability (HA) mode. For the Corda Enterprise notary
-service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview](./ha-notary-service-overview.html) for more information.
+service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview](ha-notary-service-overview.md) for more information.
 
 Running an HA notary requires the following:
 
@@ -43,7 +43,7 @@ source has to be monotonic and support leap second smearing.
 * The private IP addresses of your database hosts
 * The public IP addresses of your notary hosts
 * The database driver in the form of a `.JAR` file, located inside the "drivers" folder
-* The relevant HSM library `.JAR` (if storing keys inside a HSM). See [cryptoservice configuration](./cryptoservice-configuration.html) for more information.
+* The relevant HSM library `.JAR` (if storing keys inside a HSM). See [cryptoservice configuration](cryptoservice-configuration.md) for more information.
 * Database root password, used to create the Corda user, setting up the database and tables (only required for some installation methods)
 * Corda database user password, used by the notary service to access the database
 * State snapshot transfer (SST) database user password, used by the Percona cluster for data replication

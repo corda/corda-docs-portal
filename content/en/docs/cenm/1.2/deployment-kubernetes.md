@@ -422,5 +422,5 @@ DATA/trust-stores/network-root-truststore.jks
 
 Visit CENM official documentation for more information about network parameters:
 
-- [Updating Network Parameters](./updating-network-parameters.html)
-- [Network Parameters List](./config-network-parameters.html)
+- [Updating Network Parameters](updating-network-parameters.md)
+- [Network Parameters List](config-network-parameters.md)
