@@ -16,10 +16,7 @@ tags:
 title: Nodes
 ---
 
-
-# Nodes
-
-
+# Node Usage
 
 * [Node folder structure](node-structure.md)
 * [Node identity](node-naming.md)
@@ -36,6 +33,3 @@ title: Nodes
 * [Creating nodes locally](generating-a-node.md)
 * [Running nodes locally](running-a-node.md)
 * [Flow Hospital](node-flow-hospital.md)
-
-
-
