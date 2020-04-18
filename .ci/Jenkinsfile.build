@@ -8,31 +8,16 @@ class Configuration {
     String getTargetRepo() {
         return "${dockerRepo}-local"
     }
-//    String getDeploymentCredentials() {
-//        return deploymentCredentials
-//    }
-//    String getDocsite() {
-//        return docsite
-//    }
     String getBuildName() {
         return "${ARTIFACTORY_BUILD_NAME} (${branch})"
     }
-//    boolean getDefaultPublish() {
-//        return defaultPublish
-//    }
-//    void setBranch(String branch) {
-//        this.branch = branch
-//    }
-//    String getLatestTag() {
-//        return latestTag
-//    }
     String dockerRepo
     String deploymentCredentials
     String docsite
-    String defaultPublish
+    boolean defaultPublish
     String branch
     String latestTag
-    Configuration(dockerRepo,deploymentCredentials, docsite, defaultPublish, latestTag) {
+    Configuration(String dockerRepo, String deploymentCredentials, String docsite, boolean defaultPublish, String latestTag) {
         this.dockerRepo = dockerRepo
         this.deploymentCredentials = deploymentCredentials
         this.docsite = docsite
@@ -43,9 +28,15 @@ class Configuration {
 
 Configuration config
 switch (env.BRANCH_NAME) {
-    case ~/publish-.*$/: config = new Configuration('docsite','docsite-production', 'docs-prod.dev.r3.corda.internal', true, "latest"); break;
-    case "master": config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.dev.r3.corda.internal', true, "latest");
-    default: config = new Configuration('docsite-dev', 'docsite-preview', 'docs-preview.dev.r3.corda.internal', false, "preview");
+    case ~/publish-.*$/:
+        config = new Configuration('docsite','docsite-production', 'docs-prod.dev.r3.corda.internal', true, "latest")
+        break
+    case "master":
+        config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.dev.r3.corda.internal', true, "latest")
+        break
+    default:
+        config = new Configuration('docsite-dev', 'docsite-preview', 'docs-preview.dev.r3.corda.internal', false, "preview")
+        break
 }
 config.branch = env.BRANCH_NAME
 
