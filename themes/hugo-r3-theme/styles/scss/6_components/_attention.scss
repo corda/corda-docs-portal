@@ -2,6 +2,6 @@ $attn-class: "#{$class-object-prefix}attention";
 
 .#{$attn-class} {
     background-color: $green-200;
-    color: $green-900;
     border-left: 0.5rem solid $green-500;
+    color: $green-900;
 }
