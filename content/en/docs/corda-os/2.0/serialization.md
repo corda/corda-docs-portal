@@ -117,7 +117,7 @@ Documentation on that format, and how JVM classes are translated to AMQP, will b
 
 We describe here what is and will be supported in the Corda AMQP format from the perspective
 of CorDapp developers, to allow for CorDapps to take into consideration the future state.  The AMQP serialization format will of
-course continue to apply the whitelisting functionality that is already in place and described in [Object serialization](.md).
+course continue to apply the whitelisting functionality that is already in place and described in this page.
 
 
 ## Core Types

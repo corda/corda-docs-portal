@@ -171,6 +171,20 @@ def _fix_page_api_link(full_url_to_file, markdown_file, resource_url):
     pass
 
 
+def _try_and_fix_bad_markdown_links(full_url_to_file, markdown_file, resource_url):
+    if resource_url == ".md":
+        LOG.debug(f"Cannot fix {full_url_to_file}")
+        return False
+
+    # url = os.path.basename(resource_url)
+
+    src = "(" + resource_url
+    dest = '({{% ref "' + resource_url + '" %}}'
+    _search_and_replace([markdown_file], [(src, dest)])
+    LOG.debug(f"Fixed {full_url_to_file}")
+    return True
+
+
 def _try_and_fix_page(full_url_to_file, markdown_file, resource_url):
     LOG.debug(f"{full_url_to_file} / {markdown_file} / {resource_url}")
 
@@ -232,10 +246,14 @@ def process_link_checker_file(args, csv_file):
                 LOG.debug("Skipping localhost urls")
                 continue
 
-            if row["valid"] is None or row["valid"] == 'True':
+            bad_site_url = args.base_url and row["url"] and args.base_url in row["url"] and row["url"].endswith(".md")
+            valid = (row["valid"] is None or row["valid"] == 'True') and not bad_site_url
+
+            if valid:
                 continue
 
-            if any([item in row.get("result", "") for item in ["SSLError", "HTTPSConnectionPool"]]):
+            bad_tls = any([item in row.get("result", "") for item in ["SSLError", "HTTPSConnectionPool"]])
+            if bad_tls:
                 results.add("warning", localhost, _row_to_string(args.base_url, row))
                 continue
 
@@ -246,19 +264,24 @@ def process_link_checker_file(args, csv_file):
 
             url_name = row.get("urlname", "")
 
-            if any([url_name.endswith(suffix) for suffix in [".png", ".gif", ".jpg", ".jpeg", ".svg"]]):
+            bad_missing_images = any([url_name.endswith(suffix) for suffix in [".png", ".gif", ".jpg", ".jpeg", ".svg"]])
+            if bad_missing_images:
                 if args.ignore_images:
                     continue
                 if args.fix:
                     _try_and_fix_image(url, markdown_file, url_name)
                 image_count += 1
 
-            if url_name.endswith(".html"):
+            bad_missing_regular_link = url_name.endswith(".html")
+            if bad_missing_regular_link:
                 if args.ignore_pages:
                     continue
                 if args.fix:
                     _try_and_fix_page(url, markdown_file, url_name)
                 page_count += 1
+
+            if bad_site_url and args.fix:
+                _try_and_fix_bad_markdown_links(url, markdown_file, url_name)
 
             results.add("error", localhost, _row_to_string(args.base_url, row))
 

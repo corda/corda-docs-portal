@@ -606,10 +606,8 @@ The vault is the node’s repository of all information from the ledger that inv
 The getting started experience is designed to be lightweight and get to code as quickly as possible, for more detail, see the following documentation:
 
 * [CorDapp design best practice](writing-a-cordapp.md)
-* [Testing CorDapp contracts](tutorial-test-dsl.md)
 
 For operational users, see the following documentation:
 
-* [Node structure and configuration](corda-nodes-index.md)
-* [Deploying a node to a server](/docs/corda-os/4.4/deploying-a-node.md)
-* [Notary documentation](/docs/corda-os/4.4/running-a-notary.md)
+* [Deploying a node to a server](deploying-a-node.md)
+* [Notary documentation](running-a-notary.md)

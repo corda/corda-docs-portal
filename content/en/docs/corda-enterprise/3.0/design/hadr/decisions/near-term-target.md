@@ -44,7 +44,7 @@ outcomes.
 * No answer at all for simple DR modes.
 
 
-### 2. Hot-cold (see [HA design doc](../design.md))
+### 2. Hot-cold (see [HA design doc]({{% ref "../design.md" %}}))
 
 
 #### Advantages

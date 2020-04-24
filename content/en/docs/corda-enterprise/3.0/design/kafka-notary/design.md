@@ -74,16 +74,16 @@ The notary service should be able to:
 
 
 
-* [Design Decision: Replication framework](decisions/replicated-storage.md)
-    * [Background / Context](decisions/replicated-storage.md#background-context)
-    * [Options Analysis](decisions/replicated-storage.md#options-analysis)
-    * [Recommendation and justification](decisions/replicated-storage.md#recommendation-and-justification)
+* [Design Decision: Replication framework]({{% ref "decisions/replicated-storage.md" %}})
+    * [Background / Context]({{% ref "decisions/replicated-storage.md" %}}#background-context)
+    * [Options Analysis]({{% ref "decisions/replicated-storage.md" %}}#options-analysis)
+    * [Recommendation and justification]({{% ref "decisions/replicated-storage.md" %}}#recommendation-and-justification)
 
 
-* [Design Decision: Storage engine for committed state index](decisions/index-storage.md)
-    * [Background / Context](decisions/index-storage.md#background-context)
-    * [Options Analysis](decisions/index-storage.md#options-analysis)
-    * [Recommendation and justification](decisions/index-storage.md#recommendation-and-justification)
+* [Design Decision: Storage engine for committed state index]({{% ref "decisions/index-storage.md" %}})
+    * [Background / Context]({{% ref "decisions/index-storage.md" %}}#background-context)
+    * [Options Analysis]({{% ref "decisions/index-storage.md" %}}#options-analysis)
+    * [Recommendation and justification]({{% ref "decisions/index-storage.md" %}}#recommendation-and-justification)
 
 
 
@@ -141,8 +141,8 @@ state index.
 
 |Heading|Recommendation|
 |--------------------------------------------------|--------------------------------------------------|
-|[Replication framework](decisions/replicated-storage.md)|Option C|
-|[Index storage engine](decisions/index-storage.md)|Option A|
+|[Replication framework]({{% ref "decisions/replicated-storage.md" %}})|Option C|
+|[Index storage engine]({{% ref "decisions/index-storage.md" %}})|Option A|
 
 {{< /table >}}
 

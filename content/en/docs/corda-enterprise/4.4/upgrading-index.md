@@ -18,7 +18,7 @@ weight: 1
 * [Upgrading CorDapps to Corda Enterprise 4.4](app-upgrade-notes-enterprise.md)
 * [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md)
 * [Upgrading your node to Corda 4](node-upgrade-notes.md)
-* [Upgrading Corda Enterprise Network Manager](cenm-upgrade-notes.md)
+* [Upgrading Corda Enterprise Network Manager](/docs/cenm/1.2/upgrade-notes.md)
 
 
 

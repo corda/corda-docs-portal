@@ -89,8 +89,8 @@ The `freshIdentitiesConfiguration` field contains the following attributes:
 |mode|String|Yes|Defines the mode of operation, valid values are: `WRAPPED` or `DEGRADED_WRAPPED`.|
 |masterKeyAlias|String|No|Defines an alias for the wrapping key. The default value is `wrapping-key-alias`.|
 |cryptoServiceConfiguration|N/A|Yes|Contains the `cryptoServiceName` and `cryptoServiceConf` attributes.|
-|cryptoServiceName|String|Yes|Defines the type of HSM. Valid values can be found in the [HSM documentation](cryptoservice-configuration.md).|
-|cryptoServiceConf|String|Yes|Defines a path to the HSM configuration file to use, for details, see the [HSM documentation](cryptoservice-configuration.md).|
+|cryptoServiceName|String|Yes|Defines the type of HSM. Valid values can be found in the [HSM documentation]({{% ref "cryptoservice-configuration.md" %}}).|
+|cryptoServiceConf|String|Yes|Defines a path to the HSM configuration file to use, for details, see the [HSM documentation]({{% ref "cryptoservice-configuration.md" %}}).|
 
 {{< /table >}}
 

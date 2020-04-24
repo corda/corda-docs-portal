@@ -163,7 +163,7 @@ Each Network Map requires
     * [A note on identities on Corda Testnet](corda-testnet-intro.md#a-note-on-identities-on-corda-testnet)
 
 
-* [Deploying Corda to Testnet](deploy-to-testnet-index.md)
+* Deploying Corda to Testnet
     * [Azure Marketplace](azure-vm.md)
         * [Pre-requisites](azure-vm.md#pre-requisites)
         * [Deploying the Corda Network](azure-vm.md#deploying-the-corda-network)

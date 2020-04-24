@@ -84,9 +84,9 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 
 |Description|JAR name|Alias|
 |[Corda node](running-a-node.md#starting-an-individual-corda-node)|`corda-<version>.jar`|`corda --<option>`|
-|[Network bootstrapper](network-bootstrapper.md)|`corda-tools-network-bootstrapper-<version>.jar`|`bootstrapper --<option>`|
+|[Network bootstrapper]({{% ref "network-bootstrapper.md" %}})|`corda-tools-network-bootstrapper-<version>.jar`|`bootstrapper --<option>`|
 |[Standalone shell](shell.md#standalone-shell)|`corda-tools-shell-cli-<version>.jar`|`corda-shell --<option>`|
-|[Blob inspector](blob-inspector.md)|`corda-tools-blob-inspector-<version>.jar`|`blob-inspector --<option>`|
+|[Blob inspector]({{% ref "blob-inspector.md" %}})|`corda-tools-blob-inspector-<version>.jar`|`blob-inspector --<option>`|
 
 {{< /table >}}
 

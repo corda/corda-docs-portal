@@ -21,7 +21,7 @@ pluralizeListTitles = false
 uglyurls = true
 
 # Change to error eventually.
-refLinksErrorLevel = "WARNING"
+refLinksErrorLevel = "ERROR"
 
 # Don't care about these.
 disableKinds = ["taxonomy", "taxonomyTerm"]

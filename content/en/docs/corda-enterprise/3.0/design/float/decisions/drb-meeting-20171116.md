@@ -53,7 +53,7 @@ MN continued to outline how the design was constrained by expected DMZ rules and
 MN went onto describe the target solution in detail, covering the handling of both inbound and outbound connections. He highlighted implicit overlaps with the HA design – clustering support, queue names etc., and clarified that the local broker was not required to use AMQP.
 
 
-### [TLS termination](ssl-termination.md)
+### [TLS termination]({{% ref "ssl-termination.md" %}})
 
 JC questioned where the TLS connection would terminate. MN outlined the pros and cons of termination on firewall vs. float, highlighting the consequence of float termination that access by the float to the to the private key was required, and that mechanisms may be needed to store that key securely.
 
@@ -92,7 +92,7 @@ MH advocated option 2c - just to accept risk and store on file system – on the
 **DECISION CONFIRMED**: Accept option 2b - Terminate on float, inject key from internal portion of the float  (RGB, JC, MH agreed)
 
 
-### [E2E encryption](e2e-encryption.md)
+### [E2E encryption]({{% ref "e2e-encryption.md" %}})
 
 DH proposed that E2E encryption would be much better but conceded the time limitations and agreed that the threat scenario of a compromised DMZ device was the same under the proposed options. MN agreed.
 
@@ -105,7 +105,7 @@ MN highlighted the link to AMQP serialisation work being done.
 **DECISION CONFIRMED:** Add placeholder, subject to more detailed design proposal (RGB, JC, MH agreed)
 
 
-### [AMQP vs. custom protocol](p2p-protocol.md)
+### [AMQP vs. custom protocol]({{% ref "p2p-protocol.md" %}})
 
 MN described alternative options involving onion-routing etc.
 
@@ -126,7 +126,7 @@ RGB queried whether full AMQP implementation should be done in this phase. MN pr
 **DECISION CONFIRMED:** Continue to use AMQP (RGB, JC, MH agreed)
 
 
-### [Pluggable broker prioritisation](pluggable-broker.md)
+### [Pluggable broker prioritisation]({{% ref "pluggable-broker.md" %}})
 
 MN outlined arguments for deferring pluggable brokers, whilst describing how he’d go about implementing the functionality. MH agreed with prioritisation for later.
 

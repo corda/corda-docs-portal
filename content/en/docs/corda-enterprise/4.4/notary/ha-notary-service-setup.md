@@ -43,7 +43,7 @@ source has to be monotonic and support leap second smearing.
 * The private IP addresses of your database hosts
 * The public IP addresses of your notary hosts
 * The database driver in the form of a `.JAR` file, located inside the "drivers" folder
-* The relevant HSM library `.JAR` (if storing keys inside a HSM). See [cryptoservice configuration](cryptoservice-configuration.md) for more information.
+* The relevant HSM library `.JAR` (if storing keys inside a HSM). See [cryptoservice configuration]({{% ref "../node/operating/cryptoservice-configuration.md" %}}) for more information.
 * Database root password, used to create the Corda user, setting up the database and tables (only required for some installation methods)
 * Corda database user password, used by the notary service to access the database
 * State snapshot transfer (SST) database user password, used by the Percona cluster for data replication

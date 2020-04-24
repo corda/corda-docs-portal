@@ -35,9 +35,9 @@ I want to:
 
 |Useful links|Description|
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|[Key concepts](key-concepts.md)|The key concepts and features of the Corda Platform|
-|[Getting set up for CorDapp development](getting-set-up.md)|Set up your machine for running and developing CorDapps|
-|[Running the example CorDapp](tutorial-cordapp.md)|A guide to running a simple CorDapp|
+|[Key concepts]({{% ref "key-concepts.md" %}})|The key concepts and features of the Corda Platform|
+|[Getting set up for CorDapp development]({{% ref "getting-set-up.md" %}})|Set up your machine for running and developing CorDapps|
+|[Running the example CorDapp]({{% ref "tutorial-cordapp.md" %}})|A guide to running a simple CorDapp|
 
 {{< /table >}}
 
@@ -50,11 +50,11 @@ I want to:
 
 |Useful links|Description|
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|[Hello, World!](hello-world-introduction.md)|A coding walk-through of a basic CorDapp|
-|[What is a CorDapp?](cordapp-overview.md)|An introduction to CordApps|
-|[Structuring a CorDapp](writing-a-cordapp.md)|How to structure a CorDapp project|
-|[Building and installing a CorDapp](cordapp-build-systems.md)|How to build a CorDapp|
-|[Corda API](corda-api.md)|A guide to the CorDapp API|
+|[Hello, World!]({{% ref "hello-world-introduction.md" %}})|A coding walk-through of a basic CorDapp|
+|[What is a CorDapp?]({{% ref "cordapp-overview.md" %}})|An introduction to CordApps|
+|[Structuring a CorDapp]({{% ref "writing-a-cordapp.md" %}})|How to structure a CorDapp project|
+|[Building and installing a CorDapp]({{% ref "cordapp-build-systems.md" %}})|How to build a CorDapp|
+|[Corda API]({{% ref "corda-api.md" %}})|A guide to the CorDapp API|
 
 {{< /table >}}
 
@@ -67,14 +67,14 @@ I want to:
 
 |Useful links|Description|
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|[Creating nodes locally](generating-a-node.md)|Guidance on creating Corda nodes for development and testing locally and on Docker|
-|[Node folder structure](node-structure.md)|The Corda node folder structure and how to name your node|
-|[Node configuration](corda-configuration-file.md)|A detailed description of the Corda node configuration file with examples|
-|[Running nodes locally](running-a-node.md)|Guidance on running Corda nodes locally and on Docker|
+|[Creating nodes locally]({{% ref "generating-a-node.md" %}})|Guidance on creating Corda nodes for development and testing locally and on Docker|
+|[Node folder structure]({{% ref "node-structure.md" %}})|The Corda node folder structure and how to name your node|
+|[Node configuration]({{% ref "corda-configuration-file.md" %}})|A detailed description of the Corda node configuration file with examples|
+|[Running nodes locally]({{% ref "running-a-node.md" %}})|Guidance on running Corda nodes locally and on Docker|
 |setting-up-a-corda-network|Considerations for setting up a Corda network|
-|[Node shell](shell.md)|Guidance on using an embedded command line to control and monitor a node|
-|[Node administration](node-administration.md)|How to monitor a Corda node using an RPC interface|
-|[Node Explorer](node-explorer.md)|A GUI-based tool to view transactional data and transactional history for a node|
+|[Node shell]({{% ref "shell.md" %}})|Guidance on using an embedded command line to control and monitor a node|
+|[Node administration]({{% ref "node-administration.md" %}})|How to monitor a Corda node using an RPC interface|
+|[Node Explorer]({{% ref "node-explorer.md" %}})|A GUI-based tool to view transactional data and transactional history for a node|
 
 {{< /table >}}
 
@@ -87,15 +87,15 @@ I want to:
 
 |Useful links|Description|
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|[Node folder structure](node-structure.md)|The Corda node folder structure and how to name your node|
-|[Node configuration](corda-configuration-file.md)|A detailed description of the Corda node configuration file with examples|
-|[Deploying a node to a server](deploying-a-node.md)|A step-by-step guide on deploying a Corda node to your own server|
-|[Azure Marketplace](azure-vm.md)|A step-by-step guide on creating a Corda Network on Azure|
-|[AWS Marketplace](aws-vm.md)|A step-by-step guide on creating a Corda Network on AWS|
-|[Node shell](shell.md)|Guidance on using an embedded command line to control and monitor a node|
-|[Node administration](node-administration.md)|How to monitor a Corda node using an RPC interface|
-|[Node Explorer](node-explorer.md)|A GUI-based tool to view transactional data and transactional history for a node|
-|[Blob Inspector](blob-inspector.md)|A troubleshooting tool allowing you to read the contents of a binary blob file|
+|[Node folder structure]({{% ref "node-structure.md" %}})|The Corda node folder structure and how to name your node|
+|[Node configuration]({{% ref "corda-configuration-file.md" %}})|A detailed description of the Corda node configuration file with examples|
+|[Deploying a node to a server]({{% ref "deploying-a-node.md" %}})|A step-by-step guide on deploying a Corda node to your own server|
+|[Azure Marketplace]({{% ref "azure-vm.md" %}})|A step-by-step guide on creating a Corda Network on Azure|
+|[AWS Marketplace]({{% ref "aws-vm.md" %}})|A step-by-step guide on creating a Corda Network on AWS|
+|[Node shell]({{% ref "shell.md" %}})|Guidance on using an embedded command line to control and monitor a node|
+|[Node administration]({{% ref "node-administration.md" %}})|How to monitor a Corda node using an RPC interface|
+|[Node Explorer]({{% ref "node-explorer.md" %}})|A GUI-based tool to view transactional data and transactional history for a node|
+|[Blob Inspector]({{% ref "blob-inspector.md" %}})|A troubleshooting tool allowing you to read the contents of a binary blob file|
 
 {{< /table >}}
 
