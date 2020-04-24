@@ -1,4 +1,12 @@
-    <title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
+{{ if .Parent }}
+{{ if ne .Parent.Page.Title "" }}
+<title itemprop="name">{{ .Title }} | {{ .Parent.Page.Title }} | {{ .Site.Title }}</title>
+{{ else }}
+<title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
+{{ end }}
+{{ else }}
+<title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
+{{ end }}
 <!-- internal templates usage start -->
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/opengraph.html" . }}
