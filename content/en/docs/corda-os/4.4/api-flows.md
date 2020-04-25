@@ -2309,6 +2309,3 @@ for (retryCount in 1..maxRetries) {
 }
 
 ```
-
-{{/* github src='finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' url='https://github.com/corda/corda/blob/release/os/4.4/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt#L101-L115' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.4/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt' start='DOCSTART CASHSELECT 1' end='DOCEND CASHSELECT 1' */}}[AbstractCashSelection.kt](https://github.com/corda/corda/blob/release/os/4.4/finance/workflows/src/main/kotlin/net/corda/finance/workflows/asset/selection/AbstractCashSelection.kt)
-
