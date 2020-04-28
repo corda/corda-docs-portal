@@ -21,8 +21,8 @@ Try [Corda Enterprise 3.3 documentation](/docs/corda-enterprise/3.3/_index.md) i
 
 
 
-* [Set up your machine for CorDapp development](getting-set-up.md)
-* [Run the Example CorDapp](tutorial-cordapp.md)
+* [Set up your machine for CorDapp development](getting-set-up.md/)
+* [Run the Example CorDapp](tutorial-cordapp.md/)
 * [View CorDapps in Corda Explore](http://explore.corda.zone/)
 * [Download sample CorDapps](https://www.corda.net/samples/)
 

@@ -592,7 +592,7 @@ states that point to contracts outside their package will trigger a log warning 
 
 ## Step 9. Learn about signature constraints and JAR signing
 
-design/data-model-upgrades/signature-constraints are a new data model feature introduced in Corda 4. They make it much easier to
+Signature-constraints are a new data model feature introduced in Corda 4. They make it much easier to
 deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
 the act of upgrading your app to use the version 4 Gradle plugins will result in your app being automatically signed, and new states
 automatically using new signature constraints selected automatically based on these signing keys.
@@ -600,8 +600,6 @@ automatically using new signature constraints selected automatically based on th
 
 {{< important >}}
 You will be able to use this feature if the compatibility zone you plan to deploy on has raised its minimum platform version
-
-
 {{< /important >}}
 
 to check the correctness of the transaction. Please take this into account for your own schedule planning.You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
@@ -641,9 +639,7 @@ packages, they could call package-private methods, which may not be expected by 
 and request ownership of your root package namespaces (e.g. `com.megacorp.*`), with the signing keys you will be using to sign your app JARs.
 The zone operator can then add your signing key to the network parameters, and prevent attackers defining types in your own package namespaces.
 Whilst this feature is optional and not strictly required, it may be helpful to block attacks at the boundaries of a Corda based application
-where type names may be taken “as read”. You can learn more about this feature and the motivation for it by reading
-“design/data-model-upgrades/package-namespace-ownership”.
-
+where type names may be taken “as read”.
 
 ## Step 11. Consider adding extension points to your flows
 
@@ -668,7 +664,7 @@ may result in queries returning more states than expected if the node is using o
 Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
-* The [new withEntityManager API](api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
+* The [new withEntityManager API](https://api.corda.net/api/corda-os/4.0/html/api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
 * [Reference States](api-states.md#reference-states), that let you use an input state without consuming it.
 * [State Pointers](api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 

@@ -609,5 +609,5 @@ The getting started experience is designed to be lightweight and get to code as 
 
 For operational users, see the following documentation:
 
-* [Deploying a node to a server](deploying-a-node.md)
-* [Notary documentation](running-a-notary.md)
+* [Deploying a node to a server](../node/deploy/deploying-a-node.md/)
+* [Notary documentation](../notary/running-a-notary.md/)

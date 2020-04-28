@@ -101,7 +101,7 @@ Each Network Map requires
 
 
 
-* [Corda Networks](.md)
+* [Corda Networks](corda-networks.md/)
 * [What is a compatibility zone?](compatibility-zones.md)
     * [How do I become part of a compatibility zone?](compatibility-zones.md#how-do-i-become-part-of-a-compatibility-zone)
         * [Bootstrapping a compatibility zone](compatibility-zones.md#bootstrapping-a-compatibility-zone)

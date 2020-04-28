@@ -122,8 +122,3 @@ See “[App versioning with signature constraints](api-contract-constraints.md#c
 
 
 {{< /important >}}
-
-{{< note >}}
-You can read the original design doc here: [CorDapp Minimum and Target Platform Version](design/targetversion/design.md).
-
-{{< /note >}}

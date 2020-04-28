@@ -12,7 +12,6 @@ tags:
 title: Client RPC
 ---
 
-
 # Client RPC
 
 There are multiple ways to interact with a node from a *client program*, but if your client is written in a JVM
@@ -113,14 +112,6 @@ printed to the logs and the observable will be unsubscribed for you. But don’t
 is non-deterministic.
 
 {{< /warning >}}
-
-
-
-## Futures
-
-A method can also return a `ListenableFuture` in its object graph and it will be treated in a similar manner to
-observables. Calling the `cancel` method on the future will unsubscribe it from any future value and release any resources.
-
 
 ## Versioning
 

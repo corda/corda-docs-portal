@@ -99,11 +99,6 @@ name = "Corda Enterprise"
 weight = 10
 
 [[corda-enterprise-3-0]]
-identifier = "corda-enterprise-3-0-design-docs"
-name = "Design docs"
-weight = 240
-
-[[corda-enterprise-3-0]]
 identifier = "corda-enterprise-3-0-development"
 name = "Development"
 weight = 50

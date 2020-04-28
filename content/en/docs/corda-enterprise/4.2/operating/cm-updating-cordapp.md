@@ -264,7 +264,7 @@ In an explicit upgrade, contracts and states can be changed in arbitrary ways, i
 
 
 {{< warning >}}
-In Corda 4 we’ve introduced the Signature Constraint (see [API: contract constraints](api-contract-constraints.html)). States created or migrated to
+In Corda 4 we’ve introduced the Signature Constraint (see [contract constraints](../api-contract-constraints.md/)). States created or migrated to
 the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
 Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 

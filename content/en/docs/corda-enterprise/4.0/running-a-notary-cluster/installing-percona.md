@@ -251,7 +251,7 @@ FLUSH PRIVILEGES;
 
 Once you have updated the `wsrep.cnf` on all nodes, start MySQL on all the
 remaining nodes of your cluster. Run this command on all nodes of your cluster,
-except the first one. The config file is shown [above](.md#wsrep-cnf).
+except the first one.
 
 ```sh
 service mysql start

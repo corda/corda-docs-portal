@@ -66,7 +66,7 @@ RPCs don’t typically do anything that changes the global ledger, but they may 
 database. Each RPC is one method on the `CordaRPCOps` interface, and may return a stream of events that will
 be shown on screen until you press Ctrl-C. You perform an RPC by using `run` followed by the name.
 
-**<a href="api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html">Documentation of available RPCs</a>**
+**[Documentation of available RPCs](https://api.corda.net/api/corda-os/2.0/html/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html)**
 Whichever form of change is used, there is a need to provide *parameters* to either the RPC or the flow
 constructor. Because parameters can be any arbitrary Java object graph, we need a convenient syntax to express
 this sort of data. The shell uses a syntax called [Yaml](http://www.yaml.org/spec/1.2/spec.html) to do this.

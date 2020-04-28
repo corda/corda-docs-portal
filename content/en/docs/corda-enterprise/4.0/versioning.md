@@ -125,7 +125,3 @@ See “[App versioning with signature constraints](api-contract-constraints.md#c
 
 {{< /important >}}
 
-{{< note >}}
-You can read the original design doc here: design/targetversion/design.
-
-{{< /note >}}

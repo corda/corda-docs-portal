@@ -163,7 +163,6 @@ thread {
     /**
      * @suppress Returns a list of all recorded transactions.
      *
-     * TODO This method should be removed once SGX work is finalised and the design of the corresponding API using [FilteredTransaction] can be started
      */
     @Deprecated("This method is intended only for internal use and will be removed from the public API soon.")
     fun internalVerifiedTransactionsSnapshot(): List<SignedTransaction>
@@ -171,7 +170,6 @@ thread {
     /**
      * @suppress Returns the full transaction for the provided ID
      *
-     * TODO This method should be removed once SGX work is finalised and the design of the corresponding API using [FilteredTransaction] can be started
      */
     @CordaInternal
     @Deprecated("This method is intended only for internal use and will be removed from the public API soon.")
@@ -180,7 +178,6 @@ thread {
     /**
      * @suppress Returns a data feed of all recorded transactions and an observable of future recorded ones.
      *
-     * TODO This method should be removed once SGX work is finalised and the design of the corresponding API using [FilteredTransaction] can be started
      */
     @Deprecated("This method is intended only for internal use and will be removed from the public API soon.")
     @RPCReturnsObservables

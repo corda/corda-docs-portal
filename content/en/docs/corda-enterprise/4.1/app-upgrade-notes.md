@@ -693,9 +693,7 @@ packages, they could call package-private methods, which may not be expected by 
 and request ownership of your root package namespaces (e.g. `com.megacorp.*`), with the signing keys you will be using to sign your app JARs.
 The zone operator can then add your signing key to the network parameters, and prevent attackers defining types in your own package namespaces.
 Whilst this feature is optional and not strictly required, it may be helpful to block attacks at the boundaries of a Corda based application
-where type names may be taken “as read”. You can learn more about this feature and the motivation for it by reading
-“[Package namespace ownership](design/data-model-upgrades/package-namespace-ownership.md)”.
-
+where type names may be taken “as read”.
 
 ## Step 11. Consider adding extension points to your flows
 
@@ -720,7 +718,7 @@ may result in queries returning more states than expected if the node is using o
 Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
-* The [new withEntityManager API](api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
+* The [new withEntityManager API](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
 * [Reference States](api-states.md#reference-states), that let you use an input state without consuming it.
 * [State Pointers](api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 

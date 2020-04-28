@@ -75,18 +75,3 @@ this is used internally by the notary client flow when talking to an HA notary. 
 member of the notary cluster if it doesn’t hear back from the original member it sent the request to within a “reasonable” time.
 The time is hard to document as the notary members, if actually alive, will inform the requester of the ETA of a response.
 This can occur an infinite number of times.  i.e. we never give up notarising.  No intervention required.
-
-
-
-
-## Futures
-
-The flow hospital will be extended in the following areas:
-
-
-* Human Computer Interaction (HCI) with MQ integration <ref design/CID>
-* Addition of Public APIs (and CRaSH utility functions) to trigger retries
-* Improved back-off and retry policies
-* Improved Explorer visualization operational controls (eg. ability to select and retry or terminate a failed flow).
-* Tighter integration with Corda Enterprise monitoring and management tooling
-

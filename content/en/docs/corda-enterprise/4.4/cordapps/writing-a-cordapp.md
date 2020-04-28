@@ -54,7 +54,7 @@ Please use the branch of the template that corresponds to the major version of C
 ### Build system
 
 The templates are built using Gradle. A Gradle wrapper is provided in the `wrapper` folder, and the dependencies are
-defined in the `build.gradle` files. See [Building and installing a CorDapp](cordapp-build-systems.md) for more information.
+defined in the `build.gradle` files. See [Building and installing a CorDapp](cordapp-build-systems.md/) for more information.
 
 No templates are currently provided for Maven or other build systems.
 

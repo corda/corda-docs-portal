@@ -174,11 +174,11 @@ These are for testing purposes and would be removed in a production CorDapp.
 In writing a CorDapp, these pages may be particularly helpful:
 
 
-* [Getting set up](getting-set-up.md), to set up your development environment.
-* The [Hello, World!](hello-world-introduction.md) tutorial to write your first CorDapp.
-* [Building a CorDapp](cordapp-build-systems.md) to build and run your CorDapp.
-* The [API docs](/api/javadoc/index.html) to read about the API available in developing CorDapps.
-* There is also a [Cheat sheet](cheat-sheet.md) recapping the key types.
-* The [Flow cookbook](flow-cookbook.md) to see code examples of how to perform common flow tasks.
+* [Getting set up](getting-set-up.md/), to set up your development environment.
+* The [Hello, World!](hello-world-introduction.md/) tutorial to write your first CorDapp.
+* [Building a CorDapp](cordapp-build-systems.md/) to build and run your CorDapp.
+* The [API docs](https://api.corda.net/api/corda-enterprise/3.0/html/api/javadoc/) to read about the API available in developing CorDapps.
+* There is also a [Cheat sheet](cheat-sheet.md/) recapping the key types.
+* The [Flow cookbook](flow-cookbook.md/) to see code examples of how to perform common flow tasks.
 * [Sample CorDapps](https://www.corda.net/samples/) showing various parts of Corda’s functionality.
 
