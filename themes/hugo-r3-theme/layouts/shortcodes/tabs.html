@@ -2,20 +2,23 @@
 {{ .Page.Scratch.Add "tabset-counter" 1 }}
 {{ $tab_set_id := .Get "name" | default (printf "tabset-%s-%d" (.Page.RelPermalink) (.Page.Scratch.Get "tabset-counter") ) | anchorize }}
 {{ $tabs := .Scratch.Get "tabs" }}
+{{ $default_tab := default "kotlin" .Site.Params.default_tab }}
 {{ if .Inner }}{{/* We don't use the inner content, but Hugo will complain if we don't reference it. */}}{{ end }}
 <div class="r3-o-tabs" id="{{ $tab_set_id }}">{{/* tabs activated by javascript */}}
 <ul class="nav nav-tabs">
 {{ range $i, $e := $tabs }}
-{{ $tab_name := trim .name " " }}
-{{ $id := printf "%s-%s" $tab_set_id $tab_name }}
-<li class="nav-item"><a class="nav-link" href="#{{ $id }}" data-toggle="tab">{{ trim .name " " }}</a></li>
+{{ $one_tab := eq 1 (len $tabs)}}
+{{ $is_default_tab := eq .name $default_tab | or $one_tab }}
+{{ $id := printf "%s-%d" $tab_set_id $i }}
+<li class="nav-item"><a class="nav-link {{ if $is_default_tab }}active{{end}}" href="#{{ $id }}" data-toggle="tab">{{ trim .name " " }}</a></li>
 {{ end }}
 </ul>
 <div class="tab-content">
 {{ range $i, $e := $tabs }}
-{{ $tab_name := trim .name " " }}
-{{ $id := printf "%s-%s" $tab_set_id $tab_name }}
-<div id="{{ $id }}" class="tab-pane fade">
+{{ $one_tab := eq 1 (len $tabs)}}
+{{ $is_default_tab := eq .name $default_tab | or $one_tab }}
+{{ $id := printf "%s-%d" $tab_set_id $i }}
+<div id="{{ $id }}" class="tab-pane fade {{ if $is_default_tab }}show active{{end}}">
 	{{ with .content }}
 		{{ . }}
 	{{ else }}
@@ -24,7 +27,7 @@
 			{{ with $.Page.Resources.GetMatch (printf "**%s*" .include)  }}
 				{{ if ne .ResourceType "page" }}
 				{{/* Assume it is a file that needs code highlighting. */}}
-				{{ $codelang := $e.codelang | default ( path.Ext .Name | strings.TrimPrefix ".") }}
+				{{ $codelang := $e.codelang | default ( path.Ext .Name | strings.TrimPrefix ".") }} 
 				{{ highlight .Content $codelang "" }}
 				{{ else}}
 					{{ .Content }}
@@ -35,7 +38,7 @@
 		{{ $page := site.GetPage "page" $path }}
 		{{ with $page }}
 			{{ .Content }}
-		{{ else }}
+		{{ else }}	
 		{{ errorf "[%s] tabs include not found for path %q" site.Language.Lang $path}}
 		{{ end }}
 		{{ end }}
