@@ -277,6 +277,10 @@ To update the format, you can type `output-format set json`.
 
 The currently supported formats are `json`, `yaml`. The default format is `yaml`.
 
+{{<warning>}}
+This setting only affects the output of the `run ...` commands - for example, `run nodeInfo`. 
+The format of any other shell output is not affected - the result of a flow invocation is simply printed on the console by calling its own `Any#toString` method.
+{{</warning>}}
 
 ### Flow commands
 
