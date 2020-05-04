@@ -135,7 +135,7 @@ This upgrade procedure is a mix of running the DDL script for schema update and 
 All steps of this procedure except the first one needed to be run:*Extract DDL script using :ref:`Database management tool <migration-tool>`*
 *Apply DDL scripts on a database*
 *Apply remaining data upgrades on a database.*Note the last step is important because Corda 4 contains new columns/tables which needed to be populated based on your existing data,
-and these migration can’t be expressed in DDL script.Specifically, the `vault_states` table adds the following:> 
+and these migration can’t be expressed in DDL script.Specifically, the `vault_states` table adds the following:>
 
     * `relevancy_status` column
     * referenced `state_party` table (and new fields)
@@ -143,7 +143,7 @@ and these migration can’t be expressed in DDL script.Specifically, the `vault_
 
 and uses some custom migration code (executed as a custom change set by Liquibase) to achieve this. In order to determine if a state is relevant
 for a node, the migration code needs to know the nodes name, which it obtains from `myLegalName` (set in the Database management tool configuration file).
-The migration code also requires access to the node’s CorDapps in order to understand which custom `MappedSchema` objects to process.> 
+The migration code also requires access to the node’s CorDapps in order to understand which custom `MappedSchema` objects to process.>
 
     * If you are not reusing a node base directory, copy any CorDapps from a node being upgraded to *cordapps* subdirectory accessed by the tool.
 
@@ -182,9 +182,7 @@ Your upgrade is complete.
 
 {{< warning >}}
 if upgrading from Corda Enterprise 3.x, please ensure your node has been upgraded to the latest point release of that
-distribution. See [Upgrade a Corda 3.X Enterprise Node](https://docs.corda.r3.com/releases/3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node)
+distribution. See [Upgrade a Corda 3.X Enterprise Node](https://docs.corda.net/docs/corda-enterprise/3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node)
 for information on upgrading Corda 3.x versions.
 
 {{< /warning >}}
-
-

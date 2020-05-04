@@ -1054,4 +1054,3 @@ TransactionSignature sig2 = getServiceHub().createSignature(onceSignedTx, otherI
 
 Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [API: Flows](api-flows.md) for
 more details.
-

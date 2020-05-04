@@ -262,28 +262,28 @@ identifier = "corda-enterprise-4-2-operations"
 name = "Operations"
 weight = 280
 
-[[corda-enterprise-4-3-1]]
-identifier = "corda-enterprise-4-3-1-corda-api"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-corda-api"
 name = "Corda API"
 weight = 290
 
-[[corda-enterprise-4-3-1]]
-identifier = "corda-enterprise-4-3-1-corda-enterprise"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-corda-enterprise"
 name = "Corda Enterprise"
 weight = 80
 
-[[corda-enterprise-4-3-1]]
-identifier = "corda-enterprise-4-3-1-development"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-development"
 name = "Development"
 weight = 170
 
-[[corda-enterprise-4-3-1]]
-identifier = "corda-enterprise-4-3-1-miscellaneous"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-miscellaneous"
 name = "Miscellaneous"
 weight = 520
 
-[[corda-enterprise-4-3-1]]
-identifier = "corda-enterprise-4-3-1-operations"
+[[corda-enterprise-4-3]]
+identifier = "corda-enterprise-4-3-operations"
 name = "Operations"
 weight = 430
 
@@ -386,4 +386,3 @@ weight = 40
 identifier = "corda-os-4-4-participate"
 name = "Participate"
 weight = 410
-

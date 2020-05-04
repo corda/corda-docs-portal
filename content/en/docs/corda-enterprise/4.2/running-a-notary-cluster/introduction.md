@@ -21,7 +21,7 @@ title: Highly Available Notary Service Setup
 In this chapter you’ll learn how to set up, configure and start a highly
 available (HA) Corda Enterprise notary service from scratch. If you’re
 targeting an environment with the Corda Enterprise Network Manager (CENM),
-documented at [https://docs.cenm.r3.com](https://docs.cenm.r3.com), you require the registration tool.  If
+documented at [https://docs.corda.net](https://docs.corda.net), you require the registration tool.  If
 you don’t require the CENM, and you don’t want to join an existing network, the
 bootstrapper allows you to set up a cluster of nodes from a set of
 configuration files.
@@ -207,6 +207,3 @@ more in the [Network certificates](../permissioning.md) document.
 * [Percona XtraDB Cluster, the underlying replicated Database](installing-percona.md)
 * [Setting up the Notary Service](installing-the-notary-service.md)
 * [Percona Monitoring, Backup and Restore (Advanced)](operating-percona.md)
-
-
-

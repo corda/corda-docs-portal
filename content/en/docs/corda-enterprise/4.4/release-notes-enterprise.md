@@ -18,7 +18,7 @@ title: Corda Enterprise Release notes
 
 ## Corda Enterprise 4.4
 
-This release extends the [Corda Enterprise 4.3 release](https://docs.corda.r3.com/releases/4.3/release-notes-enterprise.html)
+This release extends the [Corda Enterprise 4.3 release](https://docs.corda.net/docs/corda-enterprise/4.3/release-notes-enterprise.html)
 with further performance, resilience and operational improvements.
 
 Corda Enterprise 4.4 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. Please refer to product documentation for details.
@@ -104,7 +104,7 @@ The Configuration Obfuscator has been improved to:
 
 
 * Use a more robust key derivation function (PBKDF2 with HMAC-SHA256)
-* 
+*
     * keyboard input (stdin)
     * Command-line
     * Environment variables
@@ -126,4 +126,3 @@ From Corda Enterprise 4.4 onwards, we are moving towards an open core strategy. 
 
 As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.4](app-upgrade-notes-enterprise.md)) to ease the upgrade
 of CorDapps to Corda Enterprise 4.4.
-

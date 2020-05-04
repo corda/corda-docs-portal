@@ -15,11 +15,11 @@ The site implicitly gives us a the language for the current set of pages.
 
 We then need to do the following steps:
 
-* These 3 parameters are set in every page inside a software version in their `meta` tags, and are indexed by Algolia, e.g. 
+* These 3 parameters are set in every page inside a software version in their `meta` tags, and are indexed by Algolia, e.g.
 
 ```html
 <meta name="docsearch:language" content="en">
-<meta name="docsearch:version" content="4.3.1">
+<meta name="docsearch:version" content="4.3">
 <meta name="docsearch:project" content="corda-enterprise">
 ```
 
@@ -32,11 +32,11 @@ if (document.querySelector('#search-input')) {
         apiKey: "1fe3367db02689b4aeebc59efad5abaf",
         indexName: "docs.corda.net",
         inputSelector: "#search-input",
-        algoliaOptions: { 
+        algoliaOptions: {
             hitsPerPage: 5,
             facetFilters: [
                 'project:corda-enterprise',
-                'version:4.3.1',
+                'version:4.3',
                 'language:en'
             ]
         }

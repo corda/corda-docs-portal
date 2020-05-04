@@ -70,7 +70,7 @@ Java 8 JDK should be installed on your virtual machine. Refer to your internal p
 These are the configuration files that will be created during the process:
 
 
-* **Corda Node - node.conf**: 
+* **Corda Node - node.conf**:
 This configuration file contains settings for the following components and functions:
 - Doorman
 - Network Map
@@ -81,14 +81,14 @@ This configuration file contains settings for the following components and funct
 - Crash shell port, user, and password
 
 
-* **Corda Firewall Bridge - firewall.conf**: 
+* **Corda Firewall Bridge - firewall.conf**:
 This configuration file contains specifies the location of:
 - Artemis broker IP address and port
 - Corda Float listening address and port
 - Location of local JKS PKI authentication keys
 
 
-* **Corda Firewall Float - firewall.conf**: 
+* **Corda Firewall Float - firewall.conf**:
 This configuration file contains specifies the location of:
 - Corda Float tunnel listening address and port (Bridge connecting address and port)
 - Corda Float public endpoint
@@ -96,7 +96,7 @@ This configuration file contains specifies the location of:
 
 
 
-You can find examples of configuration files [available here](https://docs.corda.r3.com/corda-firewall-configuration-file.html)
+You can find examples of configuration files [available here](https://docs.corda.net/docs/corda-enterprise/4.2/corda-firewall-configuration-file.html)
 
 
 ### Installing the Corda Node
@@ -344,12 +344,12 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 [float.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/float.md)
 
-A full list of the parameters that can be utilized in these configuration files can be found here : [https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html](https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html)
+A full list of the parameters that can be utilized in these configuration files can be found here : [https://docs.corda.net/docs/corda-enterprise/4.2/corda-firewall-configuration-file.html](https://docs.corda.net/docs/corda-enterprise/4.2/corda-firewall-configuration-file.html)
 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade
 
-In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found here : [https://docs.corda.r3.com/releases/master/corda-firewall-upgrade.html](https://docs.corda.r3.com/releases/master/corda-firewall-upgrade.html)
+In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found here : [https://docs.corda.net/docs/corda-enterprise/4.2/corda-firewall-upgrade.html](https://docs.corda.net/docs/corda-enterprise/4.2/corda-firewall-upgrade.html)
 
 
 ### Port Policy and Network Configuration
@@ -490,4 +490,3 @@ SOCKS works by establishing a TCP/IP connection with another server on the behal
 SOCKS proxies provide an improvement over HTTP proxy in terms of speed of data delivery & by preventing data packets being mis-routed or mislabeled. This provides an overall improvement in terms of stability and avoiding data transfer errors that could otherwise happen.
 
 The additional benefit of utilizing a SOCKS server is that it facilitates organizations enforce security policy and allow applications to reach legitimate external hosts through simple, centrally controlled rule-based settings.
-

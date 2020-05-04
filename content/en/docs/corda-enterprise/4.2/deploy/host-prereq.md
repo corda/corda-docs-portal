@@ -205,7 +205,7 @@ During deployment the following system (not user) tables will be created in the 
 
 Detailed information on the Corda Vault can be found here:
 
-[https://docs.corda.r3.com/releases/master/node-database.html](https://docs.corda.r3.com/releases/master/node-database.html)
+[https://docs.corda.net/docs/corda-enterprise/4.2/node-database.html](https://docs.corda.net/docs/corda-enterprise/4.2/node-database.html)
 
 JDBC Connectivity to the Corda Vault is handled in the Corda Enterprise `node.conf` file in `/opt/corda`. Here are examples for each supported RDBMS.
 
@@ -273,4 +273,3 @@ Oracle RDBMS
 ```
 
 [node.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/node.md)
-

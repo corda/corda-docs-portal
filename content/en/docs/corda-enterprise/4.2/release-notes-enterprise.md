@@ -19,7 +19,7 @@ title: Release notes
 
 ## Corda Enterprise 4.2
 
-This release extends the [Corda Enterprise 4.1 release](https://docs.corda.r3.com/releases/4.1/release-notes-enterprise.html)
+This release extends the [Corda Enterprise 4.1 release](https://docs.corda.net/docs/corda-enterprise/4.1/release-notes-enterprise.html)
 with new mission critical enterprise capabilities to enhance support for HSM (hardware security module) signing devices and improved logging for profiling time spent
 outside of Corda.
 
@@ -36,14 +36,14 @@ For example, at the time of writing, the Corda Enterprise 4.2 interoperability a
 ### Key new features and components
 
 
-* **Further Hardware Security Module (HSM) support**> 
+* **Further Hardware Security Module (HSM) support**>
 This release adds full support for the Corda Firewall to hold all TLS 1.2 keys in an HSM, thus allowing the private keys which authenticate communication with peers to be
 more fully protected. The `float` component of the Corda Firewall which receives inbound peer connections does not require any direct connection to an HSM from the DMZ.
 Tooling is provided to support node TLS key generation on an HSM during the node registration process.This release adds support for storing the node’s CA and legal identity key in a [Securosys Primus X](https://www.securosys.ch/product/high-availability-high-performance-hardware-security-module) HSM. Please refer to the associated section of the [HSM support for legal identity keys](cryptoservice-configuration.md) page for more details.This release adds support for more secure storage of confidential identity keys using an HSM. With this feature, nodes can create and use confidential identity keys that are fully secured by an HSM, while not being subject to any capacity constraints of the HSM.
 These keys can now be stored in the database in an encrypted form with the encryption key stored inside the HSM. Any operations using these keys (e.g. signing a transaction) can be forwarded to the associated HSM, so that this key material is not exposed to the node at all.
 This is supported only for the Securosys Primus X HSM in this release. Please refer to the [Options for confidential identities](confidential-identities-hsm.md) page for more details.
 
-* **Improved logging for HSM and vault operations**> 
+* **Improved logging for HSM and vault operations**>
 Previous logging coverage was not sufficient to allow users to tell apart the time spent by a CorDapp on internal Corda operations and the time spent outside of Corda (i.e. while performing a DB query or accessing
 an HSM). Corda Enterprise 4.2 logs additional information in the detailed log file, information which can be used for profiling the duration of HSM and vault operations. The new logging lines follow a structured format that
 is both human readable and easily parsable. Please refer to the **Logging** section of [Node administration](node-administration.md) page for more details.
@@ -68,7 +68,7 @@ corrective actions can be taken to resolve the issues flows are facing. Further 
 
 ### Known issues
 
-Please refer to same section in [Corda Enterprise 4](https://docs.corda.r3.com/releases/4.0/release-notes-enterprise.html)
+Please refer to same section in [Corda Enterprise 4](https://docs.corda.net/docs/corda-enterprise/4.0/release-notes-enterprise.html)
 
 
 ### Upgrade notes
@@ -92,4 +92,3 @@ If the finance CorDapp is being used in a mixed-distribution network, the open s
 {{< /note >}}
 Visit the [https://www.r3.com/corda-enterprise](https://www.r3.com/corda-enterprise/) for more information about Corda Enterprise.
 Customers that have purchased support can access it online at  [https://support.r3.com](https://support.r3.com/).
-

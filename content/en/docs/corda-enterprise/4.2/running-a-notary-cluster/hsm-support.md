@@ -38,7 +38,7 @@ Notary workers hold three private key entries in their keystore.
 
 
 The *cordaclientca* and *distributed-notary-private-key* are issued by the
-Identity Manager of the Enterprise Network Map, see [https://docs.cenm.r3.com](https://docs.cenm.r3.com).
+Identity Manager of the Enterprise Network Map, see [https://docs.corda.net](https://docs.corda.net).
 The *cordaclientca* is issuing the *identity-private-key*.
 
 The *identity-private-key* is used for P2P messaging, whereas a single
@@ -149,4 +149,3 @@ java -Dlog4j.configurationFile=notary-tool-log4j.xml \
      --network-root-truststore=<trust store> \
      --network-root-truststore-password=<password>
 ```
-
