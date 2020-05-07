@@ -19,7 +19,7 @@ title: Release notes
 
 ## Release 1.1.3
 
-* CENM 1.1.3 introduces fixes to known issues in CENM 1.1.
+CENM 1.1.3 introduces fixes to known issues in CENM 1.1.
 
 Fixed issues
 * Identity Manager upgrade from CENM 0.4:
@@ -30,11 +30,11 @@ Fixed issues
 
 ## Release 1.1.1
 
-* CENM 1.1.1 introduces a fix to a known issue in CENM 1.1.
+CENM 1.1.1 introduces a fix to a known issue in CENM 1.1.
 
 Fixed issues
 
-* Identity Manager upgrade from CENM 0.4 causes JIRA Workflow Plugin to lose all pending tickets.
+Identity Manager upgrade from CENM 0.4 causes JIRA Workflow Plugin to lose all pending tickets.
 
 ## Release 1.1
 
