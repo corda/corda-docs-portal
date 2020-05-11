@@ -4,6 +4,8 @@ aliases:
 - /HEAD/shell.html
 - /shell.html
 - /releases/release-V4.4/shell.html
+- /docs/corda-os/head/shell.html
+- /docs/corda-os/shell.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -278,7 +280,7 @@ To update the format, you can type `output-format set json`.
 The currently supported formats are `json`, `yaml`. The default format is `yaml`.
 
 {{<warning>}}
-This setting only affects the output of the `run ...` commands - for example, `run nodeInfo`. 
+This setting only affects the output of the `run ...` commands - for example, `run nodeInfo`.
 The format of any other shell output is not affected - the result of a flow invocation is simply printed on the console by calling its own `Any#toString` method.
 {{</warning>}}
 
@@ -305,7 +307,7 @@ simple JSON-like language. The key features of Yaml are:
 
 
 * Parameters are separated by commas
-* Each parameter is specified as a `key: value` pair> 
+* Each parameter is specified as a `key: value` pair>
 
     * There **MUST** to be a space after the colon, otherwise you’ll get a syntax error
 
@@ -498,7 +500,3 @@ The shell will be enhanced over time. The currently known limitations include:
 * The `jdbc` command requires you to explicitly log into the database first
 * Commands placed in the `shell-commands` directory are only noticed after the node is restarted
 * The `jul` command advertises access to logs, but it doesn’t work with the logging framework we’re using
-
-
-
-

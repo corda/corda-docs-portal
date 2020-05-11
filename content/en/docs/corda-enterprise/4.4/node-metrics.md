@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node-metrics.html
+- /docs/corda-enterprise/head/node-metrics.html
+- /docs/corda-enterprise/node-metrics.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -114,4 +116,3 @@ weightPercent are only available for weight-based caches.
 |net.corda:type=P2P,name=SendQueueSizeOnInsert|Histogram measuring the size of the in-memory send queue in the state machine when new messages are added|
 
 {{< /table >}}
-

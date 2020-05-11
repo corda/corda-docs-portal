@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/sub-zones.html
+- /docs/cenm/head/sub-zones.html
+- /docs/cenm/sub-zones.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:

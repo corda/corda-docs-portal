@@ -4,6 +4,8 @@ aliases:
 - /HEAD/quickstart-build.html
 - /quickstart-build.html
 - /releases/release-V4.4/quickstart-build.html
+- /docs/corda-os/head/quickstart-build.html
+- /docs/corda-os/quickstart-build.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -672,4 +674,3 @@ For operational users, see the following documentation:
 * [Node structure and configuration](/corda-nodes-index.html)
 * [Deploying a node to a server](deploying-a-node.html)
 * [Notary documentation](running-a-notary.html)
-

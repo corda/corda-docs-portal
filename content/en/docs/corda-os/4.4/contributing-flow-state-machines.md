@@ -4,6 +4,8 @@ aliases:
 - /HEAD/contributing-flow-state-machines.html
 - /contributing-flow-state-machines.html
 - /releases/release-V4.4/contributing-flow-state-machines.html
+- /docs/corda-os/head/contributing-flow-state-machines.html
+- /docs/corda-os/contributing-flow-state-machines.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -290,4 +292,3 @@ operation. We can see that there are two state “diff”s printed, one that wou
 and one that actually happened, which marked the flow’s state as errored. The rest of the transitions involve error
 propagation (triggered by the `FlowHospital`) and notification of failure, which ultimately raises the exception on
 the RPC `resultFuture`.
-

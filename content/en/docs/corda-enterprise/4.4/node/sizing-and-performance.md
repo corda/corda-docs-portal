@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/sizing-and-performance.html
+- /docs/corda-enterprise/head/node/sizing-and-performance.html
+- /docs/corda-enterprise/node/sizing-and-performance.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -276,4 +278,3 @@ In the highest throughput scenarios in Figure 1, node A experiences between 500 
 since under normal circumstances flow checkpoint traffic is write-only.  In order to maximise the bandwidth available between two nodes it
 is necessary to use the `useOpenSsl` option described in corda-configuration-file.  The JVM implementation of SSL is restricted in the
 bandwidth it can sustain over a single connection.
-

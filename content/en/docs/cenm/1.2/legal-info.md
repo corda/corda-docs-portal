@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/legal-info.html
+- /docs/cenm/head/legal-info.html
+- /docs/cenm/legal-info.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:

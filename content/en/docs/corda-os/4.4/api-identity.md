@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-identity.html
 - /api-identity.html
 - /releases/release-V4.4/api-identity.html
+- /docs/corda-os/head/api-identity.html
+- /docs/corda-os/api-identity.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -218,4 +220,3 @@ Alice may know all of the confidential identities ahead of time, but Bob not kno
 The assembled transaction therefore has three input states *x*, *y* and *z*, for which only Alice possesses
 certificates for all confidential identities. `IdentitySyncFlow` must send not just Alice’s confidential identity but
 also any other identities in the transaction to the Bob and Charlie.
-

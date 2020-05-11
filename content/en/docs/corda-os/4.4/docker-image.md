@@ -4,6 +4,8 @@ aliases:
 - /HEAD/docker-image.html
 - /docker-image.html
 - /releases/release-V4.4/docker-image.html
+- /docs/corda-os/head/docker-image.html
+- /docs/corda-os/docker-image.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -191,4 +193,3 @@ docker run -ti \
         -p 10201:10201 \
         corda/corda-zulu-java1.8-4.4:latest
 ```
-

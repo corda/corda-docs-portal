@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/identity-manager.html
+- /docs/cenm/head/identity-manager.html
+- /docs/cenm/identity-manager.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -539,11 +541,11 @@ All inter-service communication can be configured with SSL support. See [Configu
 There are an additional two parameters that need to be specified with the revocation workflow config block:
 
 
-* **crlCacheTimeout**: 
+* **crlCacheTimeout**:
 The time (in milliseconds) for nodes to cache the CRL for
 
 
-* **crlFiles**: 
+* **crlFiles**:
 The list of CRLs for other participants within the certificate chain. This is necessary as when a node checks
 for revoked certificates, it needs to check all certificates within the certificate chain. This parameter can
 be used to include CRLs to remove the requirement for node operators to provide their own CRL
@@ -785,4 +787,3 @@ shell {
 ```
 
 [identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)
-

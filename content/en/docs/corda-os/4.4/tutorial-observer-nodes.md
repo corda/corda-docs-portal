@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tutorial-observer-nodes.html
 - /tutorial-observer-nodes.html
 - /releases/release-V4.4/tutorial-observer-nodes.html
+- /docs/corda-os/head/tutorial-observer-nodes.html
+- /docs/corda-os/tutorial-observer-nodes.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -108,4 +110,3 @@ expected if just those transactions sent with the ALL_VISIBLE recording flag wer
 * Nodes may re-record transaction if they have previously recorded them as a participant and wish to record them as an observer. However,
 the node cannot resolve a forward chain of transactions if this is done. This means that if you wish to re-record a chain of transactions
 and get the new output states to be correctly marked as consumed, the full chain must be sent to the node *in order*.
-

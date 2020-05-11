@@ -4,6 +4,8 @@ aliases:
 - /HEAD/legal-info.html
 - /legal-info.html
 - /releases/release-V4.4/legal-info.html
+- /docs/corda-os/head/legal-info.html
+- /docs/corda-os/legal-info.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

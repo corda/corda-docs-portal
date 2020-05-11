@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-djvm.html
 - /key-concepts-djvm.html
 - /releases/release-V4.4/key-concepts-djvm.html
+- /docs/corda-os/head/key-concepts-djvm.html
+- /docs/corda-os/key-concepts-djvm.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -415,5 +417,3 @@ that the DJVM also transforms some non-deterministic operations into `RuleViolat
 `check` therefore does *not* guarantee that the code will behave correctly at runtime.
 * `djvm inspect` which allows you to inspect what byte code modifications will be applied to a class.
 * `djvm show` which displays the transformed byte code of a class, *i.e.*, the end result and not the difference.
-
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/app-upgrade-notes.html
+- /docs/corda-enterprise/head/app-upgrade-notes.html
+- /docs/corda-enterprise/app-upgrade-notes.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -864,4 +866,3 @@ You have some choices here:
 * Delete your `lib` directory and switch to using the Gradle test runner
 
 Instructions for both options can be found in Running tests in Intellij.
-

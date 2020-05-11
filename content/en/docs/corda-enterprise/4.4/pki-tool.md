@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/pki-tool.html
+- /docs/corda-enterprise/head/pki-tool.html
+- /docs/corda-enterprise/pki-tool.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -478,4 +480,3 @@ HSMs. Refer to the signing-service documentation for more information.
 
 
 #### Azure Key Vault HSM Configuration
-

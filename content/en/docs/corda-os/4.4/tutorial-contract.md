@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tutorial-contract.html
 - /tutorial-contract.html
 - /releases/release-V4.4/tutorial-contract.html
+- /docs/corda-os/head/tutorial-contract.html
+- /docs/corda-os/tutorial-contract.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -987,4 +989,3 @@ the all future cash states stemming from this one.
 We will also consider marking states that are capable of being encumbrances as such. This will prevent states being used
 as encumbrances inadvertently. For example, the time-lock above would be usable as an encumbrance, but it makes no sense to
 be able to encumber a cash state with another one.
-

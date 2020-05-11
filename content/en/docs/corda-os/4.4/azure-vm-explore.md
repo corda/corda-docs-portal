@@ -4,6 +4,8 @@ aliases:
 - /HEAD/azure-vm-explore.html
 - /azure-vm-explore.html
 - /releases/release-V4.4/azure-vm-explore.html
+- /docs/corda-os/head/azure-vm-explore.html
+- /docs/corda-os/azure-vm-explore.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -156,4 +158,3 @@ To test that your deployment is working correctly, follow the instructions in [U
 the Finance CorDapp and issue cash to a counterparty.
 
 This will also demonstrate how to install a custom CorDapp.
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-ecosystem.html
 - /key-concepts-ecosystem.html
 - /releases/release-V4.4/key-concepts-ecosystem.html
+- /docs/corda-os/head/key-concepts-ecosystem.html
+- /docs/corda-os/key-concepts-ecosystem.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -79,4 +81,3 @@ The network operator enforces rules regarding the information that nodes must pr
 **What makes Corda different to other networks?**
 
 Other Distributed Ledger Technology (DLT) platforms use global broadcast and gossip networks to propagate data. Corda uses point-to-point messages, and sends them only on a need to know basis (lazy propagation).
-

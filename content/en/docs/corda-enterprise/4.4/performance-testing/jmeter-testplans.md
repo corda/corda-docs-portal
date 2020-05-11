@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/performance-testing/jmeter-testplans.html
+- /docs/corda-enterprise/head/performance-testing/jmeter-testplans.html
+- /docs/corda-enterprise/performance-testing/jmeter-testplans.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -81,4 +83,3 @@ that run different samplers in various combinations.
 * The testplan should have at least one global listener that captures results from all thread groups.
 
 Detailed description of the parts of a test plan can be found in the [JMeter documentation](https://jmeter.apache.org/usermanual/test_plan.html).
-

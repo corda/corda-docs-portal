@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/docker-image.html
+- /docs/corda-enterprise/head/docker-image.html
+- /docs/corda-enterprise/docker-image.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:

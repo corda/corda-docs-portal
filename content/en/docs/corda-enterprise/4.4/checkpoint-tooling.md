@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/checkpoint-tooling.html
+- /docs/corda-enterprise/head/checkpoint-tooling.html
+- /docs/corda-enterprise/checkpoint-tooling.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -611,4 +613,3 @@ The checkpoint dump gives good diagnostics on the reason a flow may be suspended
   }
 }
 ```
-

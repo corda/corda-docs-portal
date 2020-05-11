@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node-database-migration-logging.html
+- /docs/corda-enterprise/head/node-database-migration-logging.html
+- /docs/corda-enterprise/node-database-migration-logging.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -208,4 +210,3 @@ java -jar -Dlog4j.configurationFile=log4j2.xml,path_to_custom_file.xml corda.jar
 ```
 
 Enabling custom logging is also described in node-administration-logging.
-

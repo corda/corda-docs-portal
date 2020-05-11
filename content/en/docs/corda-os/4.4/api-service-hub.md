@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-service-hub.html
 - /api-service-hub.html
 - /releases/release-V4.4/api-service-hub.html
+- /docs/corda-os/head/api-service-hub.html
+- /docs/corda-os/api-service-hub.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -73,4 +75,3 @@ Additional, `ServiceHub` exposes the following properties:
 a `StateAndRef`
 * `ServiceHub.signInitialTransaction` to sign a `TransactionBuilder` and convert it into a `SignedTransaction`
 * `ServiceHub.createSignature` and `ServiceHub.addSignature` to create and add signatures to a `SignedTransaction`
-

@@ -1,9 +1,12 @@
 ---
 aliases:
 - /releases/release-1.2/deployment-kubernetes.html
+- /docs/cenm/head/deployment-kubernetes.html
+- /docs/cenm/deployment-kubernetes.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
+    identifier: cenm-1-2-deployment-kubernetes
     parent: cenm-1-2-operations
 tags:
 - config

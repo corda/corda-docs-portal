@@ -4,6 +4,8 @@ aliases:
 - /HEAD/cordapp-advanced-concepts.html
 - /cordapp-advanced-concepts.html
 - /releases/release-V4.4/cordapp-advanced-concepts.html
+- /docs/corda-os/head/cordapp-advanced-concepts.html
+- /docs/corda-os/cordapp-advanced-concepts.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -435,5 +437,3 @@ The *finance* CorDapp is a sample and should not normally be used in production 
 the app developer requires some code, they can just copy it under their own namespace.
 
 {{< /warning >}}
-
-

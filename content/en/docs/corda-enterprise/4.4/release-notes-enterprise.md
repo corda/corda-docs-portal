@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/release-notes-enterprise.html
+- /docs/corda-enterprise/head/release-notes-enterprise.html
+- /docs/corda-enterprise/release-notes-enterprise.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:

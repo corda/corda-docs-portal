@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-states.html
 - /api-states.html
 - /releases/release-V4.4/api-states.html
+- /docs/corda-os/head/api-states.html
+- /docs/corda-os/api-states.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -525,4 +527,3 @@ When building transactions, any `StatePointer` s contained within inputs or outp
 be optionally resolved to reference states using the `resolveStatePointers` method. The effect is that the pointed to
 data is carried along with the transaction. This may or may not be appropriate in all circumstances, which is why
 calling the method is optional.
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/enm-components.html
+- /docs/cenm/head/enm-components.html
+- /docs/cenm/enm-components.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -124,4 +126,3 @@ Run by entities who wish to join the network, a node submits it’s Legal Identi
 On success, it will receive a PKI certificate linking that legal identity with its public key. It will then use that
 certificate to sign it’s Node Info (detailing it’s externally addressable location on the internet) and submit that to
 the Network Map.
-

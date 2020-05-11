@@ -4,6 +4,8 @@ aliases:
 - /HEAD/contract-catalogue.html
 - /contract-catalogue.html
 - /releases/release-V4.4/contract-catalogue.html
+- /docs/corda-os/head/contract-catalogue.html
+- /docs/corda-os/contract-catalogue.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -97,4 +99,3 @@ commands as long as they apply to different terms, but could not have an `Issue`
 Netting of obligations supports close-out netting (which can be triggered by either obligor or beneficiary, but is
 limited to bilateral netting), and payment netting (which requires signatures from all involved parties, but supports
 multilateral netting).
-

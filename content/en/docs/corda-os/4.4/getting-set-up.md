@@ -4,6 +4,8 @@ aliases:
 - /HEAD/getting-set-up.html
 - /getting-set-up.html
 - /releases/release-V4.4/getting-set-up.html
+- /docs/corda-os/head/getting-set-up.html
+- /docs/corda-os/getting-set-up.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -63,4 +65,3 @@ API documentation, the [flow cookbook](flow-cookbook.md) and the
 [samples](https://www.corda.net/samples/) along the way.
 
 If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://slack.corda.net/).
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/contributing.html
 - /contributing.html
 - /releases/release-V4.4/contributing.html
+- /docs/corda-os/head/contributing.html
+- /docs/corda-os/contributing.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -184,7 +186,7 @@ the [Community Maintainers](contributing-philosophy.md#community-maintainers) di
 
 
 * (Optional) Open an additional PR to add yourself to the
-[contributors list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md)> 
+[contributors list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md)>
 
 * The format is generally `firstname surname (company)`, but the company can be omitted if desired
 
@@ -235,5 +237,3 @@ By making a contribution to this project, I certify that:
     maintained indefinitely and may be redistributed consistent with
     this project or the open source license(s) involved.
 ```
-
-

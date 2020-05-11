@@ -4,6 +4,8 @@ aliases:
 - /HEAD/cordapp-upgradeability.html
 - /cordapp-upgradeability.html
 - /releases/release-V4.4/cordapp-upgradeability.html
+- /docs/corda-os/head/cordapp-upgradeability.html
+- /docs/corda-os/cordapp-upgradeability.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-flows.html
 - /key-concepts-flows.html
 - /releases/release-V4.4/key-concepts-flows.html
+- /docs/corda-os/head/key-concepts-flows.html
+- /docs/corda-os/key-concepts-flows.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -114,4 +116,3 @@ The flow framework allows nodes to have many flows active at once. These flows m
 This is achieved by serializing flows to disk whenever they enter a blocking state (e.g. when they’re waiting on I/O
 or a networking call). Instead of waiting for the flow to become unblocked, the node immediately starts work on any
 other scheduled flows, only returning to the original flow at a later date.
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/shell.html
+- /docs/cenm/head/shell.html
+- /docs/cenm/shell.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -279,5 +281,3 @@ The current supported commands that can be run from the shell are:
 ```
 
 [SignerShellCommands.kt](https://github.com/corda/network-services/blob/release/1.2/services/src/main/kotlin/com/r3/enm/services/signer/shell/SignerShellCommands.kt)
-
-

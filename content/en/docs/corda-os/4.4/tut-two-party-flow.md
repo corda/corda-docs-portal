@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tut-two-party-flow.html
 - /tut-two-party-flow.html
 - /releases/release-V4.4/tut-two-party-flow.html
+- /docs/corda-os/head/tut-two-party-flow.html
+- /docs/corda-os/tut-two-party-flow.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -307,4 +309,3 @@ You should now be ready to develop your own CorDapps. You can also find a list o
 
 If you get stuck at any point, please reach out on [Slack](https://slack.corda.net/) or
 [Stack Overflow](https://stackoverflow.com/questions/tagged/corda).
-

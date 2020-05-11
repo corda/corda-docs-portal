@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/deploy/running-a-node.html
+- /docs/corda-enterprise/head/node/deploy/running-a-node.html
+- /docs/corda-enterprise/node/deploy/running-a-node.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -268,4 +270,3 @@ connectivity problem in the log.
 
 {{< /note >}}
 Once critical resources node relies upon are available again, it is safe for Node operator to re-start the node for normal operation.
-

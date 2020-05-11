@@ -4,6 +4,8 @@ aliases:
 - /HEAD/running-a-notary.html
 - /running-a-notary.html
 - /releases/release-V4.4/running-a-notary.html
+- /docs/corda-os/head/running-a-notary.html
+- /docs/corda-os/running-a-notary.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -66,4 +68,3 @@ serialization which is disabled by default in Corda due to security risks, and i
 be customised.
 
 We do not recommend using it in any long-running test or production deployments.
-

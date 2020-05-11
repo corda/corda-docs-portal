@@ -4,6 +4,8 @@ aliases:
 - /HEAD/cli-application-shell-extensions.html
 - /cli-application-shell-extensions.html
 - /releases/release-V4.4/cli-application-shell-extensions.html
+- /docs/corda-os/head/cli-application-shell-extensions.html
+- /docs/corda-os/cli-application-shell-extensions.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -93,4 +95,3 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 |[Blob inspector]({{% ref "blob-inspector.md" %}})|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.4.jar`|
 
 {{< /table >}}
-

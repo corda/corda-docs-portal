@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/deploy/env-prod-test.html
+- /docs/corda-enterprise/head/node/deploy/env-prod-test.html
+- /docs/corda-enterprise/node/deploy/env-prod-test.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:

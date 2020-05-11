@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/crl-endpoint-check-tool.html
+- /docs/cenm/head/crl-endpoint-check-tool.html
+- /docs/cenm/crl-endpoint-check-tool.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -72,4 +74,3 @@ Listing certificates' CRLs under cordaclientca alias:
     - No CRL endpoints provided for given certificate
  ------------------------
 ```
-

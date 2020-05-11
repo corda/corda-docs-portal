@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/cryptoservice-configuration.html
+- /docs/corda-enterprise/head/node/operating/cryptoservice-configuration.html
+- /docs/corda-enterprise/node/operating/cryptoservice-configuration.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -379,5 +381,3 @@ Module protection type is used for key generation and nCipherKM KeyStore instanc
 The communication with the HSM is achieved via a daemon middleware process (called hardserver). If that process is restarted, the node also needs to be restarted to be able to communicate with the HSM. This can be done automatically by monitoring either that process or the node’s logs for CryptoService exceptions coming from operations with the HSM.
 
 {{< /note >}}
-
-

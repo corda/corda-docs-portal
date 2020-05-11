@@ -4,6 +4,8 @@ aliases:
 - /HEAD/node-administration.html
 - /node-administration.html
 - /releases/release-V4.4/node-administration.html
+- /docs/corda-os/head/node-administration.html
+- /docs/corda-os/node-administration.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -367,7 +369,7 @@ Outputs to the shell a list of all attachments along with the following informat
 
 
 
-* Whether an attachment is installed locally> 
+* Whether an attachment is installed locally>
 
     * `True` if the attachment is installed in the CorDapps directory or uploaded via RPC
     * `False` in all other scenarios, including attachments received from a peer node or uploaded via any means other than RPC
@@ -397,5 +399,3 @@ hash if there is no name to display.
 The output above shows that two CorDapps have been installed locally and are therefore trusted. The 3rd record is an attachment received
 from another node, hence the `Name` field containing `Received from: O=PartyA, L=London, C=GB`. The CorDapp is also trusted as another
 CorDapp has been signed by a common key, the `Trust Root` field is filled in to highlight this.
-
-

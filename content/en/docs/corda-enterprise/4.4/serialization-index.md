@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/serialization-index.html
+- /docs/corda-enterprise/head/serialization-index.html
+- /docs/corda-enterprise/serialization-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -25,6 +27,3 @@ weight: 20
 * [JSON](json.md)
 * [Blob Inspector](blob-inspector.md)
 * [Wire format](wire-format.md)
-
-
-

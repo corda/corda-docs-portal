@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/changelog-enterprise.html
+- /docs/corda-enterprise/head/changelog-enterprise.html
+- /docs/corda-enterprise/changelog-enterprise.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -282,4 +284,3 @@ process for existing projects in the `tools\scripts` directory of the Corda repo
 multiple transactions at once.
 * Shell (embedded available only in dev mode or via SSH) connects to the node via RPC instead of using the `CordaRPCOps` object directly.
 To enable RPC connectivity ensure node’s `rpcSettings.address` and `rpcSettings.adminAddress` settings are present.
-

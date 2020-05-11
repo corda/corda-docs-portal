@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/flow-testing.html
+- /docs/corda-enterprise/head/flow-testing.html
+- /docs/corda-enterprise/flow-testing.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -143,4 +145,3 @@ directly to the `megaCorpNode.services.recordTransaction` method (note that this
 transactions are valid) inside a `database.transaction`.  All node flows run within a database transaction in the
 nodes themselves, but any time we need to use the database directly from a unit test, you need to provide a database
 transaction as shown here.
-

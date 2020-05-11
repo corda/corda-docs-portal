@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/database-management-tool.html
+- /docs/corda-enterprise/head/database-management-tool.html
+- /docs/corda-enterprise/database-management-tool.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:

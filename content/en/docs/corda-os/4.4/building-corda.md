@@ -4,6 +4,8 @@ aliases:
 - /HEAD/building-corda.html
 - /building-corda.html
 - /releases/release-V4.4/building-corda.html
+- /docs/corda-os/head/building-corda.html
+- /docs/corda-os/building-corda.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -75,4 +77,3 @@ These instructions were tested on Ubuntu Server 18.04 LTS. This distribution inc
 * Open the terminal
 * Run `git clone https://github.com/corda/corda.git`
 * Run `./gradlew build`
-

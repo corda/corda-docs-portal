@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-stability-guarantees.html
 - /api-stability-guarantees.html
 - /releases/release-V4.4/api-stability-guarantees.html
+- /docs/corda-os/head/api-stability-guarantees.html
+- /docs/corda-os/api-stability-guarantees.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -90,4 +92,3 @@ functionality, the annotation is a warning that we may need to extend them in fu
 Cordapp developers should therefore just use these classes “as is”, and *not* attempt to extend or implement any of them themselves.
 
 This annotation is inherited by subclasses and sub-interfaces.
-

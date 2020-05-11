@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/updating-network-parameters.html
+- /docs/cenm/head/updating-network-parameters.html
+- /docs/cenm/updating-network-parameters.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -26,7 +28,7 @@ Typical update process is as follows:
 
 
 * Start network map with initial network parameters.
-* To advertise an update:> 
+* To advertise an update:>
 
 * Stop the Network Map service.
 * Run it with `--set-network-parameters` flag, along with the network truststore related flags. See the ‘Setting
@@ -57,7 +59,7 @@ new parameters. This will not
 activate the new network parameters on the nodes, only inform the Network Map service that the node has agreed to the
 update. See [https://docs.corda.net/tutorial-clientrpc-api.html](https://docs.corda.net/tutorial-clientrpc-api.html) for further details.
 The Network Map’s shell contains a command to list network participants that have or haven’t accepted the new
-network parameters:> 
+network parameters:>
 ```bash
 view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>,
 pageNumber: <which page to show, every page contains 100 records>
@@ -101,7 +103,7 @@ offline during this time. The three commands for managing this process are:
 
 
 * Advertising an update with `--set-network-parameters` flag can be replaced via
-`run networkParametersRegistration` shell command. For instance:> 
+`run networkParametersRegistration` shell command. For instance:>
 ```bash
 run networkParametersRegistration networkParametersFile: params.conf, \
 networkTrustStore: ./certificates/network-root-truststore.jks, \
@@ -177,4 +179,3 @@ Note that when reading from file:
 
 `epoch` will increase by one every time the network parameters are updated, however larger jumps can be achieved by
 manually setting the next epoch value within the config file..
-

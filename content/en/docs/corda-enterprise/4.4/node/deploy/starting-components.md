@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/deploy/starting-components.html
+- /docs/corda-enterprise/head/node/deploy/starting-components.html
+- /docs/corda-enterprise/node/deploy/starting-components.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -67,5 +69,3 @@ You should see the following output in the Float log:
 ```shell
 Now listening for incoming connections on VM-Of-Float-Public-IP:Port
 ```
-
-

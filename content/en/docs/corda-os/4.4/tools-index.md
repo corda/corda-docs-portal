@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tools-index.html
 - /tools-index.html
 - /releases/release-V4.4/tools-index.html
+- /docs/corda-os/head/tools-index.html
+- /docs/corda-os/tools-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -28,6 +30,3 @@ wish to try the [Blob Inspector](blob-inspector.md).
 * [DemoBench](demobench.md)
 * [Node Explorer](node-explorer.md)
 * [Checkpoint Tooling](checkpoint-tooling.md)
-
-
-

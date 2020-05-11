@@ -4,6 +4,8 @@ aliases:
 - /HEAD/versioning.html
 - /versioning.html
 - /releases/release-V4.4/versioning.html
+- /docs/corda-os/head/versioning.html
+- /docs/corda-os/versioning.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -126,4 +128,3 @@ The `versionId` specified for the JAR manifest is currently used for informative
 
 
 {{< /important >}}
-

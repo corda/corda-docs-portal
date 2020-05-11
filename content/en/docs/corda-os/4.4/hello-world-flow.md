@@ -4,6 +4,8 @@ aliases:
 - /HEAD/hello-world-flow.html
 - /hello-world-flow.html
 - /releases/release-V4.4/hello-world-flow.html
+- /docs/corda-os/head/hello-world-flow.html
+- /docs/corda-os/hello-world-flow.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -367,4 +369,3 @@ will be the finalised transaction which will be recorded in the borrower’s vau
 
 Our flow, and our CorDapp, are now ready! We have now defined a flow that we can start on our node to completely
 automate the process of issuing an IOU onto the ledger. All that’s left is to spin up some nodes and test our CorDapp.
-

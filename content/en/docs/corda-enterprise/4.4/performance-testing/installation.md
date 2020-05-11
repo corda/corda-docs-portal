@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/performance-testing/installation.html
+- /docs/corda-enterprise/head/performance-testing/installation.html
+- /docs/corda-enterprise/performance-testing/installation.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -72,4 +74,3 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/setup/node-naming.html
+- /docs/corda-enterprise/head/node/setup/node-naming.html
+- /docs/corda-enterprise/node/setup/node-naming.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -88,6 +90,3 @@ Mappings to external identifiers such as Companies House nos., LEI, BIC, etc. sh
 certificate extensions. These values may change for operational reasons, without the identity they’re associated with
 necessarily changing, and their inclusion in the distinguished name would cause significant logistical complications.
 The OID and format for these extensions will be described in a further specification.
-
-
-

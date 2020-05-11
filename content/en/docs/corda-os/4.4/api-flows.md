@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-flows.html
 - /api-flows.html
 - /releases/release-V4.4/api-flows.html
+- /docs/corda-os/head/api-flows.html
+- /docs/corda-os/api-flows.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

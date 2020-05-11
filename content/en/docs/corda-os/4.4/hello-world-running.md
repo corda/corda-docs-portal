@@ -4,6 +4,8 @@ aliases:
 - /HEAD/hello-world-running.html
 - /hello-world-running.html
 - /releases/release-V4.4/hello-world-running.html
+- /docs/corda-os/head/hello-world-running.html
+- /docs/corda-os/hello-world-running.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -230,4 +232,3 @@ There are a number of improvements we could make to this CorDapp:
 
 But for now, the biggest priority is to add an `IOUContract` imposing constraints on the evolution of each
 `IOUState` over time. This will be the focus of our next tutorial.
-

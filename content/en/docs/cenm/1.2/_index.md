@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/index.html
+- /docs/cenm/head/index.html
+- /docs/cenm/index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:

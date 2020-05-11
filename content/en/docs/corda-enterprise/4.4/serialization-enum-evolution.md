@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/serialization-enum-evolution.html
+- /docs/corda-enterprise/head/serialization-enum-evolution.html
+- /docs/corda-enterprise/serialization-enum-evolution.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -425,5 +427,3 @@ The following evolutions are not currently supports
 
 * Removing constants
 * Reordering constants
-
-

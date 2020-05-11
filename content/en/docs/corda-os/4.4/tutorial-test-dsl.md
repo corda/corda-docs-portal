@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tutorial-test-dsl.html
 - /tutorial-test-dsl.html
 - /releases/release-V4.4/tutorial-test-dsl.html
+- /docs/corda-os/head/tutorial-test-dsl.html
+- /docs/corda-os/tutorial-test-dsl.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -851,4 +853,3 @@ public void chainCommercialPaperTweak() {
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
-

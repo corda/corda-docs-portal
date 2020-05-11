@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/monitoring-logging.html
+- /docs/corda-enterprise/head/node/operating/monitoring-logging.html
+- /docs/corda-enterprise/node/operating/monitoring-logging.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -266,5 +268,3 @@ The values for `keyStorePassword` and `trustStorePassword` in the above example 
 This method does not offer full protection. We recommend using further obfuscation methods for sensitive data.
 
 {{< /warning >}}
-
-

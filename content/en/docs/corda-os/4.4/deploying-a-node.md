@@ -4,6 +4,8 @@ aliases:
 - /HEAD/deploying-a-node.html
 - /deploying-a-node.html
 - /releases/release-V4.4/deploying-a-node.html
+- /docs/corda-os/head/deploying-a-node.html
+- /docs/corda-os/deploying-a-node.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -293,4 +295,3 @@ You can verify Corda is running by connecting to your RPC port from another host
 
 If you receive the message “Escape character is ^]”, Corda is running and accessible. Press Ctrl-] and Ctrl-D to exit
 telnet.
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/installing-jpa.html
+- /docs/corda-enterprise/head/notary/installing-jpa.html
+- /docs/corda-enterprise/notary/installing-jpa.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -386,6 +388,3 @@ may be specified if desired. It is important to use the correct service name.
 ```javascript
 dataSource.url="jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST={host 1 IP address})(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST={host 2 IP address})(PORT=1521))(CONNECT_DATA=(SERVICE_NAME={service name})))"
 ```
-
-
-

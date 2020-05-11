@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/pki-tool.html
+- /docs/cenm/head/pki-tool.html
+- /docs/cenm/pki-tool.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -1145,4 +1147,3 @@ certificates = {
 ```
 
 [pki-tool-aws-cloud-hsm.conf](https://github.com/corda/network-services/blob/release/1.2/pki-tool/src/test/resources/configs/pki-tool-aws-cloud-hsm.conf)
-

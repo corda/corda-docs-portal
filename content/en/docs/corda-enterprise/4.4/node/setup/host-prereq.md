@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/setup/host-prereq.html
+- /docs/corda-enterprise/head/node/setup/host-prereq.html
+- /docs/corda-enterprise/node/setup/host-prereq.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -145,4 +147,3 @@ During deployment the following system (not user) tables will be created in the 
 Detailed information on the Corda Vault can be found [here](../operating/node-database.html).
 
 JDBC Connectivity to the Corda Vault is handled in the Corda Enterprise `node.conf` file in `/opt/corda`. Here are examples for each supported RDBMS.
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/flow-state-machines.html
 - /flow-state-machines.html
 - /releases/release-V4.4/flow-state-machines.html
+- /docs/corda-os/head/flow-state-machines.html
+- /docs/corda-os/flow-state-machines.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -863,4 +865,3 @@ problems (e.g. the other side doesn’t know the trade)
 For example to implement human transaction authorisations
 * A standard library of flows that can be easily sub-classed by local developers in order to integrate internal
 reporting logic, or anything else that might be required as part of a communications lifecycle
-

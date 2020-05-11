@@ -4,6 +4,8 @@ aliases:
 - /HEAD/upgrading-cordapps.html
 - /upgrading-cordapps.html
 - /releases/release-V4.4/upgrading-cordapps.html
+- /docs/corda-os/head/upgrading-cordapps.html
+- /docs/corda-os/upgrading-cordapps.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -832,4 +834,3 @@ This can be simulated with a scenario like this:
 are being successfully read by nodes with the old CorDapp.
 6. Upgrade all nodes and simulate the deadline expiration.
 7. Make sure old transactions can be consumed, and new features are successfully used in new transactions.
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-node.html
 - /key-concepts-node.html
 - /releases/release-V4.4/key-concepts-node.html
+- /docs/corda-os/head/key-concepts-node.html
+- /docs/corda-os/key-concepts-node.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -26,7 +28,7 @@ title: Nodes
 
 
 * *A node is JVM run-time with a unique network identity running the Corda software*
-* *The node has two interfaces with the outside world:*> 
+* *The node has two interfaces with the outside world:*>
 
     * *A network layer, for interacting with other nodes*
     * *RPC, for interacting with the node’s owner*
@@ -130,4 +132,3 @@ As their number - which can be monitored through RPC - reaches zero, it is safe 
 This property is durable, meaning that restarting the node will not reset it to its default value and that a RPC command is required.
 
 The node can be safely shut down via a drain using the shell.
-

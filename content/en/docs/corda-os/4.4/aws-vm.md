@@ -4,6 +4,8 @@ aliases:
 - /HEAD/aws-vm.html
 - /aws-vm.html
 - /releases/release-V4.4/aws-vm.html
+- /docs/corda-os/head/aws-vm.html
+- /docs/corda-os/aws-vm.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -91,4 +93,3 @@ Additional support is available on [Stack Overflow](https://stackoverflow.com/qu
 You can build and run any other [Corda samples](https://www.corda.net/samples) or your own custom CorDapp here.
 
 Or to join the growing Corda community and get straight into the Corda open source codebase, head over to the [Github Corda repo](https://www.github.com/corda)
-

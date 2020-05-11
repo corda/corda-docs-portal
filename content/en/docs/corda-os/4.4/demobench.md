@@ -4,6 +4,8 @@ aliases:
 - /HEAD/demobench.html
 - /demobench.html
 - /releases/release-V4.4/demobench.html
+- /docs/corda-os/head/demobench.html
+- /docs/corda-os/demobench.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -142,4 +144,3 @@ explorer/
 cordapps/
     bank-of-corda.jar
 ```
-

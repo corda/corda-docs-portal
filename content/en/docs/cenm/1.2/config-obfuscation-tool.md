@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/config-obfuscation-tool.html
+- /docs/cenm/head/config-obfuscation-tool.html
+- /docs/cenm/config-obfuscation-tool.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -193,4 +195,3 @@ service in a cloud), the following example command shows how a custom MAC addres
 ```bash
 java -jar identitymanager.jar --config-file <im-config-obfuscated.conf> -o --hardware-address 44:1C:8F:36:C2:A8
 ```
-

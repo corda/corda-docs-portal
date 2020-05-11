@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary-healthcheck.html
+- /docs/corda-enterprise/head/notary-healthcheck.html
+- /docs/corda-enterprise/notary-healthcheck.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:

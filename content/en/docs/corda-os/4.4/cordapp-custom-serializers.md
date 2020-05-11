@@ -4,6 +4,8 @@ aliases:
 - /HEAD/cordapp-custom-serializers.html
 - /cordapp-custom-serializers.html
 - /releases/release-V4.4/cordapp-custom-serializers.html
+- /docs/corda-os/head/cordapp-custom-serializers.html
+- /docs/corda-os/cordapp-custom-serializers.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -256,4 +258,3 @@ into the serialized byte stream.
 
 By writing a custom serializer for a class it has the effect of adding that class to the whitelist, meaning such
 classes don’t need explicitly adding to the CorDapp’s whitelist.
-

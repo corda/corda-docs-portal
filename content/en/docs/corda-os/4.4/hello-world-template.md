@@ -4,6 +4,8 @@ aliases:
 - /HEAD/hello-world-template.html
 - /hello-world-template.html
 - /releases/release-V4.4/hello-world-template.html
+- /docs/corda-os/head/hello-world-template.html
+- /docs/corda-os/hello-world-template.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -90,4 +92,3 @@ workflows/src/main/kotlin/com/template/flows/Flows.kt
 ## Progress so far
 
 We now have a template that we can build upon to define our IOU CorDapp. Let’s start by defining the `IOUState`.
-

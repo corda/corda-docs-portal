@@ -1,4 +1,20 @@
-# CENM Identity Manager Helm Chart
+---
+aliases:
+- /releases/release-1.2/deployment-kubernetes-idman.html
+- /docs/cenm/head/deployment-kubernetes-idman.html
+- /docs/cenm/deployment-kubernetes-idman.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2:
+    parent: cenm-1-2-deployment-kubernetes
+tags:
+- config
+- kubernetes
+title: CENM Identity Manager Helm chart
+weight: 100
+---
+
+# CENM Identity Manager Helm chart
 
 This Helm chart is to configure, deploy and run CENM [Identity Manager](identity-manager.md) service.
 

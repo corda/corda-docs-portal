@@ -4,6 +4,8 @@ aliases:
 - /HEAD/hello-world-introduction.html
 - /hello-world-introduction.html
 - /releases/release-V4.4/hello-world-introduction.html
+- /docs/corda-os/head/hello-world-introduction.html
+- /docs/corda-os/hello-world-introduction.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -90,4 +92,3 @@ tutorial.
 We’ve designed a simple CorDapp that will allow nodes to agree new IOUs on the blockchain.
 
 Next, we’ll take a look at the template project we’ll be using as the basis for our CorDapp.
-

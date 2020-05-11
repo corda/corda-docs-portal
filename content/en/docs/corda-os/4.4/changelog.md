@@ -4,6 +4,8 @@ aliases:
 - /HEAD/changelog.html
 - /changelog.html
 - /releases/release-V4.4/changelog.html
+- /docs/corda-os/head/changelog.html
+- /docs/corda-os/changelog.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -353,4 +355,3 @@ Similarly with `CommercialPaperUtils` and `ObligationUtils`.
 The only exception to this is `Interpolator` and related classes. These are now in the [IRS demo workflows CorDapp](https://github.com/corda/corda/tree/master/samples/irs-demo/cordapp/workflows-irs).
 * Vault states are migrated when moving from V3 to V4: the relevancy column is correctly filled, and the state party table is populated.
 Note: This means Corda can be slow to start up for the first time after upgrading from V3 to V4.
-

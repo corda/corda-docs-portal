@@ -4,6 +4,8 @@ aliases:
 - /HEAD/release-notes.html
 - /release-notes.html
 - /releases/release-V4.4/release-notes.html
+- /docs/corda-os/head/release-notes.html
+- /docs/corda-os/release-notes.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

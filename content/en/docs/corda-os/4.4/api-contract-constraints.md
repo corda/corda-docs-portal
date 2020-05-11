@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-contract-constraints.html
 - /api-contract-constraints.html
 - /releases/release-V4.4/api-contract-constraints.html
+- /docs/corda-os/head/api-contract-constraints.html
+- /docs/corda-os/api-contract-constraints.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -141,7 +143,7 @@ Below are two examples of possible scenarios around blacklisting signing keys:
 
 
 
-* The statements below are true for both examples:> 
+* The statements below are true for both examples:>
 
     * `Alice` has `Contracts CorDapp` installed
     * `Bob` has an upgraded version of `Contracts CorDapp` (known as `Contracts CorDapp V2`) installed
@@ -151,7 +153,7 @@ Below are two examples of possible scenarios around blacklisting signing keys:
 
 
 
-* Example 1:> 
+* Example 1:>
 
     * `Alice` has not blacklisted any attachment signing keys
     * `Bob` transacts with `Alice`
@@ -161,7 +163,7 @@ Below are two examples of possible scenarios around blacklisting signing keys:
 
 
 
-* Example 2:> 
+* Example 2:>
 
     * `Alice` blacklists `Bob`’s attachment signing key
     * `Bob` transacts with `Alice`
@@ -473,4 +475,3 @@ See [Creating nodes locally](generating-a-node.md) for detailed instructions.
 You are specifying the fully-qualified name of the contract incorrectly. For example, you’ve defined `MyContract` in
 the package `com.mycompany.myapp.contracts`, but the fully-qualified contract name you pass to the
 `TransactionBuilder` is `com.mycompany.myapp.MyContract` (instead of `com.mycompany.myapp.contracts.MyContract`).
-

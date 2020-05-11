@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/config-identity-manager-parameters.html
+- /docs/cenm/head/config-identity-manager-parameters.html
+- /docs/cenm/config-identity-manager-parameters.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -21,94 +23,94 @@ title: Identity Manager Configuration Parameters
 Configuration reference for the Identity Manager service.
 
 
-* **address**: 
+* **address**:
 The host and port on which the service runs
 
 
-* **database**: 
+* **database**:
 See [CENM Database Configuration](config-database.md)
 
 
-* **shell**: 
+* **shell**:
 *(Optional)* See [Shell Configuration Parameters](config-shell.md)
 
 
-* **localSigner**: 
+* **localSigner**:
 *(Optional)* Configuration of the local signer for the Identity Manager service. Useful for debug, testing or when HSM support is not available.
 
 
-* **keyStore**: 
+* **keyStore**:
 Configuration for key store containing the Identity Manager service key pair.
 
 
-* **file**: 
+* **file**:
 Path to the key store file containing the signing keys for the Identity Manager service.
 
 
-* **password**: 
+* **password**:
 Key store password.
 
 
 
 
-* **keyAlias**: 
+* **keyAlias**:
 Key alias under which the key can be found in the key store.
 
 
-* **keyPassword**: 
+* **keyPassword**:
 Password for the ‘keyAlias’ key entry within the key store.
 
 
-* **signInterval**: 
+* **signInterval**:
 How often the signing process should be triggered (in milliseconds).
 
 
-* **timeout**: 
+* **timeout**:
 *(Optional)* The maximum time allowed for execution of the signing process (in milliseconds). Defaults
 to 30 seconds. If the timeout threshold is reached then the signing process will be aborted and wait
 before retrying. The wait time after each failure is determined by an exponential backoff strategy.
 
 
-* **crlDistributionUrl**: 
+* **crlDistributionUrl**:
 *(Optional)* REST endpoint under which the certificate revocation list issued by Identity Manager can be obtained.
 It is needed as this URL is encoded in certificates issued by Identity Manager.
 
 
 
 
-* **workflows**: 
+* **workflows**:
 
-* **workflow-id**: 
+* **workflow-id**:
 
-* **type**: 
+* **type**:
 either ISSUANCE or REVOCATION, see below for details of each
 
 
-* **enmListener**: 
+* **enmListener**:
 Details on how the service will communicate with the rest of the ENM deployment.
 
 
-* **port**: 
+* **port**:
 Port that the service will bind to and other ENM components will connect to.
 
 
-* **verbose**: 
+* **verbose**:
 *(Optional)* Enables verbose logging for the socket layer
 
 
-* **reconnect**: 
+* **reconnect**:
 Whether a client should be attempt to reconnect if the connection is dropped.
 
 
-* **ssl**: 
+* **ssl**:
 See [SSL Settings](config-ssl.md)
 
 
 
 
-* **plugin**: 
+* **plugin**:
 
-* **pluginClass**: 
+* **pluginClass**:
 The main class of the plugin being loaded.
 
 {{< note >}}
@@ -116,11 +118,11 @@ For automatic acceptance of requests, set this to the ApproveAll plugin (“com.
 
 {{< /note >}}
 
-* **pluginJar**: 
+* **pluginJar**:
 *(Optional)* The absolute path to workflow plugin JAR file.
 
 
-* **config**: 
+* **config**:
 *(Optional)* a free-form map that allows options to be passed to the plugin class
 
 
@@ -128,17 +130,17 @@ For automatic acceptance of requests, set this to the ApproveAll plugin (“com.
 
 
 
-* **“issuance workflow”**: 
+* **“issuance workflow”**:
 
-* **updateInterval**: 
+* **updateInterval**:
 How often the Issuance Workflow Processor should synchronise Certificate Signing Request statuses
 
 
-* **versionInfoValidation**: 
+* **versionInfoValidation**:
 *(Optional)* Configuration for the validation of node version info during Certificate Signing Request submission
 
 
-* **minimumPlatformVersion**: 
+* **minimumPlatformVersion**:
 *(Optional - defaults to -1)* The minimum platform version of Corda that a node needs
 to be running to successfully submit Certificate Signing Requests. The platform
 version is an integer value which increments on any release where any of the
@@ -158,7 +160,7 @@ Network Map and the corresponding Network Parameter configurations.
 {{< /important >}}
 
 
-* **newPKIOnly**: 
+* **newPKIOnly**:
 *(Optional - defaults to false)* A boolean that determines whether Certificate Signing Request should be rejected for all nodes running an outdated
 version of Corda that does not support the new PKI (arbitrary length certificate chains).
 
@@ -167,21 +169,14 @@ version of Corda that does not support the new PKI (arbitrary length certificate
 
 
 
-* **“revocation workflow”**: 
+* **“revocation workflow”**:
 
-* **crlCacheTimeout**: 
+* **crlCacheTimeout**:
 How often the Revocation Workflow Processor should synchronise Certificate Revocation Requests statuses.
 Also the time after the CRL cache in Revocation Web Service will be cleared.
 
 
-* **crlFiles**: 
+* **crlFiles**:
 A List of CRLs hosted by the Identity Manager in addition to the Revocation List of the certificate signing CSR’s for nodes. This allows the
 Identity Manager to host the CRLs for those nodes that do not wish to host their own CRL infrastructure at the cost of not being
 able to revoke TLS certificates issued by the node.
-
-
-
-
-
-
-

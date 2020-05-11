@@ -4,6 +4,8 @@ aliases:
 - /HEAD/cli-ux-guidelines.html
 - /cli-ux-guidelines.html
 - /releases/release-V4.4/cli-ux-guidelines.html
+- /docs/corda-os/head/cli-ux-guidelines.html
+- /docs/corda-os/cli-ux-guidelines.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -258,4 +260,3 @@ As part of the release process, the release manager should regenerate the YAML f
 * Copy the resulting YAML from the test output
 * Check out the master branch
 * Replace the text in `<fully.qualified.tool.name>.yml` with the text generated on the release branch
-

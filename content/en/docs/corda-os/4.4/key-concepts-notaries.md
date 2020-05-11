@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-notaries.html
 - /key-concepts-notaries.html
 - /releases/release-V4.4/key-concepts-notaries.html
+- /docs/corda-os/head/key-concepts-notaries.html
+- /docs/corda-os/key-concepts-notaries.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -125,7 +127,7 @@ Both types of notaries record the calling party’s identity: the public key and
 
 <a name="key-concepts-notaries-id1"></a>
 
-\[1\] 
+\[1\]
 A state reference is composed of the issuing transaction’s id and the state’s position in the outputs. It does not
 reveal what kind of state it is or its contents.
 
@@ -165,4 +167,3 @@ achieved using a special notary-change transaction that takes:
 The input state’s appointed notary cluster will sign the transaction if it doesn’t constitute a double-spend, at which
 point a state will enter existence that has all the properties of the old state, but has a different appointed notary
 cluster.
-

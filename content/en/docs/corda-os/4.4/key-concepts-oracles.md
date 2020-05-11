@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-oracles.html
 - /key-concepts-oracles.html
 - /releases/release-V4.4/key-concepts-oracles.html
+- /docs/corda-os/head/key-concepts-oracles.html
+- /docs/corda-os/key-concepts-oracles.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -63,4 +65,3 @@ for more information on how transaction tear-offs work.
 
 If they wish to monetize their services, oracles can choose to only sign a transaction and attest to the validity of
 the fact it contains for a fee.
-

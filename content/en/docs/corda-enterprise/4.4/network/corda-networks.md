@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/network/corda-networks.html
+- /docs/corda-enterprise/head/network/corda-networks.html
+- /docs/corda-enterprise/network/corda-networks.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -186,10 +188,3 @@ Each Network Map requires
 
 
         * [Selecting parameter values](setting-up-a-dynamic-compatibility-zone.md#selecting-parameter-values)
-
-
-
-
-
-
-

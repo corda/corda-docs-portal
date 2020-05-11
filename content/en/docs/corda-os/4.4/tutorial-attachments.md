@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tutorial-attachments.html
 - /tutorial-attachments.html
 - /releases/release-V4.4/tutorial-attachments.html
+- /docs/corda-os/head/tutorial-attachments.html
+- /docs/corda-os/tutorial-attachments.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -242,4 +244,3 @@ doesn’t already have the attachment in its storage, we upload it from a JAR re
 we expected. Then a trivial transaction is built that has the attachment and a single signature and it’s sent to
 the other side using the FinalityFlow. The result of starting the flow is a stream of progress messages and a
 `returnValue` observable that can be used to watch out for the flow completing successfully.
-

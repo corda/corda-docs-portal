@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/metering-collector.html
+- /docs/corda-enterprise/head/metering-collector.html
+- /docs/corda-enterprise/metering-collector.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -221,4 +223,3 @@ An example of the output JSON on the shell is shown below:
 ```bash
 {"totalCount":2,"version":1,"query":{"startDate":"2019-11-13T00:00:00Z","endDate":"2019-11-15T00:00:00Z","filter":{"filterBy":"NONE","values":[]},"pageNumber":1,"totalPages":1,"pageSize":10000},"entries":[{"signingId":{"type":"NODE_IDENTITY","accountId":null},"txType":"STANDARD","commands":["net.corda.finance.contracts.asset.Cash.Commands.Issue"],"count":1},{"signingId":{"type":"NODE_IDENTITY","accountId":null},"txType":"STANDARD","commands":["net.corda.finance.contracts.asset.Cash.Commands.Move"],"count":1}]}
 ```
-

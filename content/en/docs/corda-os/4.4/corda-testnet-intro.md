@@ -4,6 +4,8 @@ aliases:
 - /HEAD/corda-testnet-intro.html
 - /corda-testnet-intro.html
 - /releases/release-V4.4/corda-testnet-intro.html
+- /docs/corda-os/head/corda-testnet-intro.html
+- /docs/corda-os/corda-testnet-intro.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -57,4 +59,3 @@ If you host your node on your own machine or a corporate server you must ensure 
 ## A note on identities on Corda Testnet
 
 Unlike the main Corda Network, which is designed for verified real world identities, The Corda Testnet automatically assigns a “distinguished name” as your identity on the network. This is to prevent name abuse such as the use of offensive language in the names or name squatting. This allows the provision of a node to be automatic and instantaneous. It also enables the same user to safely generate many nodes without accidental name conflicts. If you require a human readable name then please contact support and a partial organisation name can be approved.
-

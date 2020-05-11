@@ -4,6 +4,8 @@ aliases:
 - /HEAD/clientrpc.html
 - /clientrpc.html
 - /releases/release-V4.4/clientrpc.html
+- /docs/corda-os/head/clientrpc.html
+- /docs/corda-os/clientrpc.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -316,11 +318,11 @@ supported types of such data source, identified by the `dataSource.type` field:
 
 
 
-* **INMEMORY**: 
+* **INMEMORY**:
 A static list of user credentials and permissions specified by the `users` field.
 
 
-* **DB**: 
+* **DB**:
 An external RDBMS accessed via the JDBC connection described by `connection`. Note that, unlike the `INMEMORY`
 case, in a user database permissions are assigned to *roles* rather than individual users. The current implementation
 expects the database to store data according to the following schema:
@@ -607,7 +609,3 @@ Note that RPC TLS does not use mutual authentication, and delegates fine grained
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
 `@CordaSerializable` annotation.  See [Object serialization](serialization.md). An example is shown in [Using the client RPC API](tutorial-clientrpc-api.md).
-
-
-
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-contracts.html
 - /api-contracts.html
 - /releases/release-V4.4/api-contracts.html
+- /docs/corda-os/head/api-contracts.html
+- /docs/corda-os/api-contracts.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -360,4 +362,3 @@ public class XContract implements Contract {
 {{% /tab %}}
 
 {{< /tabs >}}
-

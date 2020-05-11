@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tut-two-party-contract.html
 - /tut-two-party-contract.html
 - /releases/release-V4.4/tut-two-party-contract.html
+- /docs/corda-os/head/tut-two-party-contract.html
+- /docs/corda-os/tut-two-party-contract.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -329,4 +331,3 @@ must be different entities
 
 Next, we’ll update the `IOUFlow` so that it obeys these contract constraints when issuing an `IOUState` onto the
 ledger.
-

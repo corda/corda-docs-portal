@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/network/azure-vm.html
+- /docs/corda-enterprise/head/network/azure-vm.html
+- /docs/corda-enterprise/network/azure-vm.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -196,4 +198,3 @@ You can open log files with any text editor.
 Now you have built a Corda network and used a basic Corda CorDapp do go and visit the [dedicated Corda website](https://www.corda.net)
 
 Or to join the growing Corda community and get straight into the Corda open source codebase, head over to the [Github Corda repo](https://www.github.com/corda)
-

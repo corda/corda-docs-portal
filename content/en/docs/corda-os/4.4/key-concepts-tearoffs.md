@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-tearoffs.html
 - /key-concepts-tearoffs.html
 - /releases/release-V4.4/key-concepts-tearoffs.html
+- /docs/corda-os/head/key-concepts-tearoffs.html
+- /docs/corda-os/key-concepts-tearoffs.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

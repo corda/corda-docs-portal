@@ -1,4 +1,20 @@
-# CENM Signer Helm Chart
+---
+aliases:
+- /releases/release-1.2/deployment-kubernetes-signer.html
+- /docs/cenm/head/deployment-kubernetes-signer.html
+- /docs/cenm/deployment-kubernetes-signer.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2:
+    parent: cenm-1-2-deployment-kubernetes
+tags:
+- config
+- kubernetes
+title: CENM Signer Helm chart
+weight: 200
+---
+
+# CENM Signer Helm chart
 
 This Helm chart is to configure, deploy and run CENM [Signing](signing-service.md) service.
 

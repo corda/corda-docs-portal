@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-transactions.html
 - /key-concepts-transactions.html
 - /releases/release-V4.4/key-concepts-transactions.html
+- /docs/corda-os/head/key-concepts-transactions.html
+- /docs/corda-os/key-concepts-transactions.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -115,7 +117,7 @@ Each required signer should only sign the transaction if the following two condi
 
 
 * **Transaction validity**: For both the proposed transaction, and every transaction in the chain of transactions
-that created the current proposed transaction’s inputs:> 
+that created the current proposed transaction’s inputs:>
 
     * The transaction is digitally signed by all the required parties
     * The transaction is *contractually valid* (see [Contracts](key-concepts-contracts.md))
@@ -233,4 +235,3 @@ The notary pool provides the point of finality in the system.
 Note that if the notary entity is absent then the transaction is not notarised at all. This is intended for
 issuance/genesis transactions that don’t consume any other states and thus can’t double spend anything.
 For more information on the notary services, see [Notaries](key-concepts-notaries.md).
-

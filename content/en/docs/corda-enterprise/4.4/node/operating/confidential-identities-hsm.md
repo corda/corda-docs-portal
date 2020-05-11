@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/confidential-identities-hsm.html
+- /docs/corda-enterprise/head/node/operating/confidential-identities-hsm.html
+- /docs/corda-enterprise/node/operating/confidential-identities-hsm.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -132,4 +134,3 @@ you will have to re-run the node registration process, which will skip the steps
 Note that Corda still ensures that only the wrapped keys corresponding to confidential identities are allowed to be exported and only in wrapped form.
 * Specifically for PrimusX HSM, you will also need to enable the JCE API for wrapping (`jce_process.active` set to `enabled`) and ideally disable key invalidation (`invalidate_keys` set to `disabled`),
 so that ephemeral keys do not continue to consume memory after being used and explicitly cleaned up.
-

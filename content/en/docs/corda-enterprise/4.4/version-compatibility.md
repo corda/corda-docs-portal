@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/version-compatibility.html
+- /docs/corda-enterprise/head/version-compatibility.html
+- /docs/corda-enterprise/version-compatibility.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:

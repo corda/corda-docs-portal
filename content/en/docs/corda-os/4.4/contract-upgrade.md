@@ -4,6 +4,8 @@ aliases:
 - /HEAD/contract-upgrade.html
 - /contract-upgrade.html
 - /releases/release-V4.4/contract-upgrade.html
+- /docs/corda-os/head/contract-upgrade.html
+- /docs/corda-os/contract-upgrade.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

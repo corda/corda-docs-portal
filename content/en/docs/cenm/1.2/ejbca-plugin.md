@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/ejbca-plugin.html
+- /docs/cenm/head/ejbca-plugin.html
+- /docs/cenm/ejbca-plugin.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -375,4 +377,3 @@ On success you should see a message similar to:
 EJBCA plugin started
 SMR Service started
 ```
-

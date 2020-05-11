@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/cli-application-shell-extensions.html
+- /docs/corda-enterprise/head/node/operating/cli-application-shell-extensions.html
+- /docs/corda-enterprise/node/operating/cli-application-shell-extensions.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -95,4 +97,3 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 
 Database Manager                `database-manager --<option>`  `corda-tools-database-manager-4.4.jar`
 Corda Firewall          `corda-firewall --<option>`    `corda-firewall-4.4.jar`                                 |
-

@@ -1,6 +1,8 @@
-    ---
+---
 aliases:
 - /releases/4.4/cordapps/getting-set-up.html
+- /docs/corda-enterprise/head/cordapps/getting-set-up.html
+- /docs/corda-enterprise/cordapps/getting-set-up.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -465,4 +467,3 @@ API documentation in the sidebar, the [flow cookbook](flow-cookbook.md) and the
 
 If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via
 [our Slack channels](http://slack.corda.net/).
-

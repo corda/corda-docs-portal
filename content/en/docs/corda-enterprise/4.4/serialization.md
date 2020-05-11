@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/serialization.html
+- /docs/corda-enterprise/head/serialization.html
+- /docs/corda-enterprise/serialization.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -688,4 +690,3 @@ all versions of the class. This ensures an object serialized with an older idea 
 and a version of the current state of the class instantiated.
 
 More detail can be found in [Default Class Evolution](serialization-default-evolution.md).
-

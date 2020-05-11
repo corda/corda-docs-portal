@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/cordapp-compatibility.html
+- /docs/corda-enterprise/head/cordapps/cordapp-compatibility.html
+- /docs/corda-enterprise/cordapps/cordapp-compatibility.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -52,4 +54,3 @@ to run on Corda Enterprise should have unit and integration tests using Corda En
 
 In summary, structure your app as kernel (contracts, states, dependencies) and workflow (the rest) and be sure to compile the kernel
 against Corda open source. You can compile your workflow (Jars) against the distribution of Corda that they target.
-

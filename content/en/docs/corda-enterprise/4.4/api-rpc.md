@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/api-rpc.html
+- /docs/corda-enterprise/head/api-rpc.html
+- /docs/corda-enterprise/api-rpc.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -63,6 +65,3 @@ The key RPC operations exposed by the node are:
 
 * `CordaRPCOps.uploadAttachment`/`CordaRPCOps.openAttachment`/`CordaRPCOps.attachmentExists`
     * Uploads, opens and checks for the existence of attachments
-
-
-

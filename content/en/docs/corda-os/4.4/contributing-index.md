@@ -4,6 +4,8 @@ aliases:
 - /HEAD/contributing-index.html
 - /contributing-index.html
 - /releases/release-V4.4/contributing-index.html
+- /docs/corda-os/head/contributing-index.html
+- /docs/corda-os/contributing-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -32,6 +34,3 @@ Corda is an open-source project and contributions are welcome!
 * [CLI UX Guide](cli-ux-guidelines.md)
 * [Extending the state machine](contributing-flow-state-machines.md)
 * [Flow framework internals](contributing-flow-internals.md)
-
-
-

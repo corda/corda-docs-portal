@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/setup/node-structure.html
+- /docs/corda-enterprise/head/node/setup/node-structure.html
+- /docs/corda-enterprise/node/setup/node-structure.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -55,4 +57,3 @@ The keystores store the key pairs and certificates under the following aliases:
 
 All the keystores use the password provided in the node’s configuration file using the `keyStorePassword` attribute.
 If no password is configured, it defaults to `cordacadevpass`.
-

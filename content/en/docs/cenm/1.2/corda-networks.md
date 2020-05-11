@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/corda-networks.html
+- /docs/cenm/head/corda-networks.html
+- /docs/cenm/corda-networks.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -99,5 +101,3 @@ Each Network Map requires
 * A starting set of network parameters
 * One or more notaries for inclusion in the whitelist
 * A signing service configured to sign the network map and network parameters
-
-

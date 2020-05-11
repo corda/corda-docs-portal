@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/faq/eta-mechanism.html
+- /docs/corda-enterprise/head/notary/faq/eta-mechanism.html
+- /docs/corda-enterprise/notary/faq/eta-mechanism.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -45,4 +47,3 @@ their requests as intended.
 ## How can I configure ETA threshold?
 
 In the notary config - `notaryConfig.etaMessageThresholdSeconds`.
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/performance-testing/performance-tuning.html
+- /docs/corda-enterprise/head/performance-testing/performance-tuning.html
+- /docs/corda-enterprise/performance-testing/performance-tuning.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -177,4 +179,3 @@ guaranteed that the configuration is suitable.
 
 If monitoring a node reveals that it does not perform as expected, further tweaking might be required, or the creation of a test plan that
 matches the usage pattern observed with real life use and with the CorDapps that get used.
-

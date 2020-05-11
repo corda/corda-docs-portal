@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/health-survey.html
+- /docs/corda-enterprise/head/health-survey.html
+- /docs/corda-enterprise/health-survey.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -233,4 +235,3 @@ fun CordaRPCOps.runHealthSurvey(parameters: Array<String>): Pair<String, ByteArr
     return this.startFlow(::HealthSurveyFlow, parameters).returnValue.get()
 }
 ```
-

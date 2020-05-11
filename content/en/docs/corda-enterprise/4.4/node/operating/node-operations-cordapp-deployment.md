@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/node-operations-cordapp-deployment.html
+- /docs/corda-enterprise/head/node/operating/node-operations-cordapp-deployment.html
+- /docs/corda-enterprise/node/operating/node-operations-cordapp-deployment.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -258,4 +260,3 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.<cordapp_table> TO my_user
 
 
 Change *<cordapp_table>*  to a cordap table name.
-

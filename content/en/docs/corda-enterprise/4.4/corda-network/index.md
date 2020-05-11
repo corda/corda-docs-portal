@@ -1,6 +1,10 @@
 ---
 aliases:
 - /releases/4.4/corda-network/index.html
+- /docs/corda-enterprise/head/corda-network/index.html
+- /docs/corda-enterprise/corda-network/index.html
+- /docs/corda-enterprise/head/corda-network.html
+- /docs/corda-enterprise/corda-network.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -70,4 +74,3 @@ otherwise rely, is to be treated as ‘confirmed’ in accordance with the terms
 
 The Support Service is provided to participants and business network operators to manage and resolve inquiries and incidents
 relating to the Identity Service, Network Map Service and Notary Services.
-

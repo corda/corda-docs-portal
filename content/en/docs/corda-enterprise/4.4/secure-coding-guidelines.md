@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/secure-coding-guidelines.html
+- /docs/corda-enterprise/head/secure-coding-guidelines.html
+- /docs/corda-enterprise/secure-coding-guidelines.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -60,4 +62,3 @@ in the foot. Things to watch out for:
 fields are changing except the intended fields!
 * Accidentally catching and discarding exceptions that might be thrown by validation logic.
 * Calling into other contracts via virtual methods if you don’t know what those other contracts are or might do.
-

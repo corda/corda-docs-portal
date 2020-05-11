@@ -4,6 +4,8 @@ aliases:
 - /HEAD/permissioning.html
 - /permissioning.html
 - /releases/release-V4.4/permissioning.html
+- /docs/corda-os/head/permissioning.html
+- /docs/corda-os/permissioning.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -71,7 +73,7 @@ The key pairs and certificates must obey the following restrictions:
 
 * The certificates must follow the [X.509v3 standard](https://tools.ietf.org/html/rfc5280)
 * The TLS certificates must follow the [TLS v1.2 standard](https://tools.ietf.org/html/rfc5246)
-* The root network CA, doorman CA, and node CA keys, as well as the node TLS keys, must follow one of the following schemes:> 
+* The root network CA, doorman CA, and node CA keys, as well as the node TLS keys, must follow one of the following schemes:>
 
 * ECDSA using the NIST P-256 curve (secp256r1)
 * ECDSA using the Koblitz k1 curve (secp256k1)
@@ -104,4 +106,3 @@ it is important to recognise these extensions and the constraints noted above.
 
 Certificate path validation is extended so that a certificate must contain the extension if the extension was present
 in the certificate of the issuer.
-

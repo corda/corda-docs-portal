@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/notary-metrics.html
+- /docs/corda-enterprise/head/notary/notary-metrics.html
+- /docs/corda-enterprise/notary/notary-metrics.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -105,4 +107,3 @@ composition, and changes in leadership in particular. For example, Percona offer
 ../sizing-and-performance
 
 Although Corda exports Artemis metrics, these are for internal purposes only, as they are hard to interpret.
-

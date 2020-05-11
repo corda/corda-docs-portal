@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/corda-network/UAT.html
+- /docs/corda-enterprise/head/UAT.html
+- /docs/corda-enterprise/UAT.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -52,4 +54,3 @@ Corda Network Pre-Production is governed by an [independent Foundation](https://
 Steps to join are outlined on the [Corda Network site](https://corda.network/participation/index.html).
 
 For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network) or at [info@corda.network](mailto:info@corda.network)
-

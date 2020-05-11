@@ -4,6 +4,8 @@ aliases:
 - /HEAD/setting-up-a-dynamic-compatibility-zone.html
 - /setting-up-a-dynamic-compatibility-zone.html
 - /releases/release-V4.4/setting-up-a-dynamic-compatibility-zone.html
+- /docs/corda-os/head/setting-up-a-dynamic-compatibility-zone.html
+- /docs/corda-os/setting-up-a-dynamic-compatibility-zone.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -214,4 +216,3 @@ run a non-validating notary, with BFT fault tolerance, which implies recruiting 
 
 New network parameters will be added over time as Corda evolves. You will need to ensure that when your users upgrade,
 all the new network parameters are being served. You can ask for advice on the [corda-dev mailing list](https://groups.io/g/corda-dev).
-

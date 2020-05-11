@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/installing-the-notary-service.html
+- /docs/corda-enterprise/head/notary/installing-the-notary-service.html
+- /docs/corda-enterprise/notary/installing-the-notary-service.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -185,4 +187,3 @@ dataSourceProperties = {
 
 The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../ha-utilities.md#notary-reg-tool).
 Once the service is registered, each worker node is registered using the `initial-registration` process. See ../joining-a-compatibility-zone.
-

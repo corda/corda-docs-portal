@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-vault-query.html
 - /api-vault-query.html
 - /releases/release-V4.4/api-vault-query.html
+- /docs/corda-os/head/api-vault-query.html
+- /docs/corda-os/api-vault-query.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -177,7 +179,7 @@ There are four implementations of this interface which can be chained together t
 * `VaultQueryCriteria` provides filterable criteria on attributes within the Vault states table: status (UNCONSUMED,
 CONSUMED), state reference(s), contract state type(s), notaries, soft locked states, timestamps (RECORDED, CONSUMED),
 state constraints (see [Constraint Types](api-contract-constraints.md#implicit-constraint-types)), relevancy (ALL, RELEVANT, NON_RELEVANT),
-participants (exact or any match).> 
+participants (exact or any match).>
 {{< note >}}
 Sensible defaults are defined for frequently used attributes (status = UNCONSUMED, always include soft
 locked states).{{< /note >}}
@@ -186,7 +188,7 @@ locked states).{{< /note >}}
 * `FungibleAssetQueryCriteria` provides filterable criteria on attributes defined in the Corda Core
 `FungibleAsset` contract state interface, used to represent assets that are fungible, countable and issued by a
 specific party (eg. `Cash.State` and `CommodityContract.State` in the Corda finance module). Filterable
-attributes include: participants (exact or any match), owner(s), quantity, issuer party(s) and issuer reference(s).> 
+attributes include: participants (exact or any match), owner(s), quantity, issuer party(s) and issuer reference(s).>
 {{< note >}}
 All contract states that extend the `FungibleAsset` now automatically persist that interfaces common
 state attributes to the **vault_fungible_states** table.{{< /note >}}
@@ -195,7 +197,7 @@ state attributes to the **vault_fungible_states** table.{{< /note >}}
 * `LinearStateQueryCriteria` provides filterable criteria on attributes defined in the Corda Core `LinearState`
 and `DealState` contract state interfaces, used to represent entities that continuously supersede themselves, all
 of which share the same `linearId` (e.g. trade entity states such as the `IRSState` defined in the SIMM
-valuation demo). Filterable attributes include: participants (exact or any match), linearId(s), uuid(s), and externalId(s).> 
+valuation demo). Filterable attributes include: participants (exact or any match), linearId(s), uuid(s), and externalId(s).>
 {{< note >}}
 All contract states that extend `LinearState` or `DealState` now automatically persist those
 interfaces common state attributes to the **vault_linear_states** table.{{< /note >}}
@@ -209,7 +211,7 @@ documentation and associated examples. Custom criteria expressions are expressed
 types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (sum, avg,
 max, min, count) with optional grouping and sorting. Furthermore, a rich DSL is provided to enable simple
 construction of custom criteria using any combination of `ColumnPredicate`. See the `Builder` object in
-`QueryCriteriaUtils` for a complete specification of the DSL.> 
+`QueryCriteriaUtils` for a complete specification of the DSL.>
 {{< note >}}
 Custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to
 [Persistence](api-persistence.md) for mechanisms of registering custom schemas for different testing
@@ -1063,4 +1065,3 @@ a view which maps each state to one or more external IDs. The entity relationshi
 ![state to external id](/en/images/state-to-external-id.png "state to external id")
 When performing a vault query, it is now possible to query for states by external ID using the `externalIds` parameter in
 `VaultQueryCriteria`.
-

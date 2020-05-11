@@ -4,6 +4,8 @@ aliases:
 - /HEAD/contributing-philosophy.html
 - /contributing-philosophy.html
 - /releases/release-V4.4/contributing-philosophy.html
+- /docs/corda-os/head/contributing-philosophy.html
+- /docs/corda-os/contributing-philosophy.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -37,7 +39,7 @@ The project is supported and maintained by [R3](https://www.r3.com).
 The Corda maintainers, developers and extended community make active use of the following channels:
 
 
-* The [Corda Slack team](http://slack.corda.net/) for general community discussion, and in particular:> 
+* The [Corda Slack team](http://slack.corda.net/) for general community discussion, and in particular:>
 
     * The `#contributing` channel for discussions around contributing
     * The `#design` channel for discussions around the platform’s design
@@ -67,7 +69,7 @@ merged; they are held to the same standard as all other contributions. The commu
 Current community maintainers:
 
 
-* [Rick Parker](https://github.com/rick-r3) - Contact me:> 
+* [Rick Parker](https://github.com/rick-r3) - Contact me:>
 
     * On the [Corda Slack team](http://slack.corda.net/), either in the `#community` channel or by direct message using the handle
 `@parkri`
@@ -97,5 +99,3 @@ community contributes a feature which the R3 team have implemented only in their
 Our approach is simple: if the contribution meets the standards for the project (see above), then the existence of a competing commercial
 implementation will not be used as a reason to reject it. In other words, it is our policy that should a community feature be contributed
 which meets the criteria above, we will accept it or work with the contributor to merge/reconcile it with the commercial feature.
-
-

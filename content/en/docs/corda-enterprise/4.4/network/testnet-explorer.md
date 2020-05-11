@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/network/testnet-explorer.html
+- /docs/corda-enterprise/head/network/testnet-explorer.html
+- /docs/corda-enterprise/network/testnet-explorer.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -159,4 +161,3 @@ or wait for a success message to be displayed:
 
 ![explorer transactions](../resources/explorer-transactions.png "explorer transactions")
 Congratulations! You have now successfully installed a CorDapp and executed a transaction on the Corda Testnet.
-

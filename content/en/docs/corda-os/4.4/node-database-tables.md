@@ -4,6 +4,8 @@ aliases:
 - /HEAD/node-database-tables.html
 - /node-database-tables.html
 - /releases/release-V4.4/node-database-tables.html
+- /docs/corda-os/head/node-database-tables.html
+- /docs/corda-os/node-database-tables.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -508,4 +510,3 @@ These are [Liquibase](https://www.liquibase.org) proprietary tables used by Cord
 |LOCKEDBY||
 
 {{< /table >}}
-

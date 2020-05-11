@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/quick-start.html
+- /docs/cenm/head/quick-start.html
+- /docs/cenm/quick-start.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -474,4 +476,3 @@ Deduced Identity Manager service from provided config file...
 Binding Shell SSHD server on port <SHELL_PORT>
 Network management web services started on <IDENTITY_MANAGER_ADDRESS> with [RegistrationWebService, CertificateRevocationWebService, MonitoringWebService]
 ```
-

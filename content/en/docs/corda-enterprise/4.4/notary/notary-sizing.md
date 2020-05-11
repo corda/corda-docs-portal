@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/notary-sizing.html
+- /docs/corda-enterprise/head/notary/notary-sizing.html
+- /docs/corda-enterprise/notary/notary-sizing.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -138,4 +140,3 @@ Note that the performance below is representative only.
 |200 billion|500|
 
 {{< /table >}}
-

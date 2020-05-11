@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/upgrading-index.html
+- /docs/corda-enterprise/head/upgrading-index.html
+- /docs/corda-enterprise/upgrading-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -19,6 +21,3 @@ weight: 1
 * [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md)
 * [Upgrading your node to Corda 4](node-upgrade-notes.md)
 * [Upgrading Corda Enterprise Network Manager](/docs/cenm/1.2/upgrade-notes.md)
-
-
-

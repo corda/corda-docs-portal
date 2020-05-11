@@ -4,6 +4,8 @@ aliases:
 - /HEAD/node-database.html
 - /node-database.html
 - /releases/release-V4.4/node-database.html
+- /docs/corda-os/head/node-database.html
+- /docs/corda-os/node-database.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -155,4 +157,3 @@ dataSourceProperties = {
     connectionTimeout = 50000
 }
 ```
-

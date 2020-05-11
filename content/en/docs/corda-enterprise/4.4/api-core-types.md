@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/api-core-types.html
+- /docs/corda-enterprise/head/api-core-types.html
+- /docs/corda-enterprise/api-core-types.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -56,5 +58,3 @@ Signature verification is performed in two stages:
 * The public keys corresponding to the signatures are matched against the leaves of the composite key tree in question,
 and the total combined weight of all children is calculated for every intermediary node. If all thresholds are satisfied,
 the composite key requirement is considered to be met.
-
-

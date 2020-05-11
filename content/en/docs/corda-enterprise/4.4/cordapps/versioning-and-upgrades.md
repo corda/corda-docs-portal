@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/versioning-and-upgrades.html
+- /docs/corda-enterprise/head/cordapps/versioning-and-upgrades.html
+- /docs/corda-enterprise/cordapps/versioning-and-upgrades.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -27,6 +29,3 @@ you’re at a stage of your development that requires planning for post-launch i
 It’s worth planning for versioning and upgrades from the start, especially if you plan for your CorDapp to itself provide APIs to other
 apps. Apps extending the platform with industry-specific data models is a common case, and ensuring you can evolve your data model as
 the world changes is a key part of any professionally built software.
-
-
-

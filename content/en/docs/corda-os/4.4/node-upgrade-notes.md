@@ -4,6 +4,8 @@ aliases:
 - /HEAD/node-upgrade-notes.html
 - /node-upgrade-notes.html
 - /releases/release-V4.4/node-upgrade-notes.html
+- /docs/corda-os/head/node-upgrade-notes.html
+- /docs/corda-os/node-upgrade-notes.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -99,4 +101,3 @@ You may now do any checks that you wish to perform, read the logs, and so on. Wh
 `run setFlowsDrainingModeEnabled enabled: false`
 
 Your upgrade is complete.
-

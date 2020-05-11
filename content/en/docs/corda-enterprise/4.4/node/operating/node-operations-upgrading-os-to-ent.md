@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/node-operations-upgrading-os-to-ent.html
+- /docs/corda-enterprise/head/node/operating/node-operations-upgrading-os-to-ent.html
+- /docs/corda-enterprise/node/operating/node-operations-upgrading-os-to-ent.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -133,4 +135,3 @@ to a 3rd party commercial databases.
 It can be used via the GUI application or from the command-line, however it only runs on Windows: Vista SP2 and later, as well as Windows Server 2008 and later.
 The tool works by connecting to both databases simultaneously and migrates tables, their data, and other schema objects form one database to the other.
 It can be used to migrate from a H2 database by connecting to its database file.
-

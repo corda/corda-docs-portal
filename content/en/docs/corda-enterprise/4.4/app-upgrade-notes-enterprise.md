@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/app-upgrade-notes-enterprise.html
+- /docs/corda-enterprise/head/app-upgrade-notes-enterprise.html
+- /docs/corda-enterprise/app-upgrade-notes-enterprise.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -216,4 +218,3 @@ dependencies {
 
 
 * Workflow CorDapps.Please follow the instructions listed in step 5 of [Upgrading apps to Corda 4](app-upgrade-notes.md#cordapp-upgrade-finality-flow-ref).
-

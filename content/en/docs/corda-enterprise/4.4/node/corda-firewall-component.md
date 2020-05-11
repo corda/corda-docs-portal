@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/corda-firewall-component.html
+- /docs/corda-enterprise/head/node/corda-firewall-component.html
+- /docs/corda-enterprise/node/corda-firewall-component.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -762,6 +764,3 @@ Corda Firewall been tested to support 100 concurrent connections which are inten
 moment there were around 1 GB of data in flight.
 
 If necessary, memory allocated to Corda Firewall can be changed using `custom.jvmArgs` configuration file option.
-
-
-

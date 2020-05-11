@@ -4,6 +4,8 @@ aliases:
 - /HEAD/contributing-flow-internals.html
 - /contributing-flow-internals.html
 - /releases/release-V4.4/contributing-flow-internals.html
+- /docs/corda-os/head/contributing-flow-internals.html
+- /docs/corda-os/contributing-flow-internals.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -410,7 +412,7 @@ The processing of an event consists of two steps:
 
 
 * Calculating a transition. This is the pure `StateMachineState` + `Event` -> `TransitionResult` function.
-* Executing the transition. This is done by a `TransitionExecutor`, which in turn uses an `ActionExecutor` for individual 
+* Executing the transition. This is done by a `TransitionExecutor`, which in turn uses an `ActionExecutor` for individual
 {{< warning >}}``{{< /warning >}}
 
 Action``s.
@@ -461,7 +463,7 @@ actions.add(Action.ScheduleEvent(Event.DoRemainingWork))
 
 It marks the error state as `propagating = true` and schedules a `DoRemainingWork`. The processing of that event in turn will detect
 that we are errored and propagating, and there are some errors that haven’t been propagated yet. It then propagates those errors and updates
-the “propagated index” to indicate all errors have been dealt with. Subsequent 
+the “propagated index” to indicate all errors have been dealt with. Subsequent
 {{< warning >}}``{{< /warning >}}
 
 DoRemainingWork``s will thus do nothing. However, in case
@@ -617,4 +619,3 @@ around pending either manual intervention or a restart of the node (in which cas
 start), or trigger error propagation, which makes the error permanent and notifies other parties the flow has sessions with of the failure.
 
 This is where we can do special logic to handle certain error conditions like notary failures in a specific way e.g. by retrying.
-

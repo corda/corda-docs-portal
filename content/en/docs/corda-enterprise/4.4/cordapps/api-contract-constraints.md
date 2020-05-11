@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/api-contract-constraints.html
+- /docs/corda-enterprise/head/cordapps/api-contract-constraints.html
+- /docs/corda-enterprise/cordapps/api-contract-constraints.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -447,4 +449,3 @@ See generating-a-node for detailed instructions.
 You are specifying the fully-qualified name of the contract incorrectly. For example, you’ve defined `MyContract` in
 the package `com.mycompany.myapp.contracts`, but the fully-qualified contract name you pass to the
 `TransactionBuilder` is `com.mycompany.myapp.MyContract` (instead of `com.mycompany.myapp.contracts.MyContract`).
-

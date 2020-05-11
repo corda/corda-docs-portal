@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/cm-updating-cordapp.html
+- /docs/corda-enterprise/head/node/operating/cm-updating-cordapp.html
+- /docs/corda-enterprise/node/operating/cm-updating-cordapp.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -663,4 +665,3 @@ parameter must be a supported type, an open wildcard (*), or a bounded wildcard 
 wildcard
 * Any superclass must adhere to the same rules, but can be abstract
 * Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
-

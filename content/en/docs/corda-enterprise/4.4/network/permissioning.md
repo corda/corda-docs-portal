@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/network/permissioning.html
+- /docs/corda-enterprise/head/network/permissioning.html
+- /docs/corda-enterprise/network/permissioning.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -95,4 +97,3 @@ it is important to recognise these extensions and the constraints noted above.
 
 Certificate path validation is extended so that a certificate must contain the extension if the extension was present
 in the certificate of the issuer.
-

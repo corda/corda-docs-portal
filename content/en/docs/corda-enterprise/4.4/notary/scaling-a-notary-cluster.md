@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/scaling-a-notary-cluster.html
+- /docs/corda-enterprise/head/notary/scaling-a-notary-cluster.html
+- /docs/corda-enterprise/notary/scaling-a-notary-cluster.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -69,4 +71,3 @@ node and associated DB (not the DB cluster).
 Alternatively, the underlying DB cluster can be scaled up and down. In general, scaling the DB cluster up will increase resiliency, but at
 the cost of decreased performance. Detailed steps to achieve this is out of scope for this document. Please refer to the documentation of
 the underlying DB cluster provider.
-

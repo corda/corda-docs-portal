@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tutorial-custom-notary.html
 - /tutorial-custom-notary.html
 - /releases/release-V4.4/tutorial-custom-notary.html
+- /docs/corda-os/head/tutorial-custom-notary.html
+- /docs/corda-os/tutorial-custom-notary.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -124,4 +126,3 @@ To create a flow test that uses your custom notary service, you can set the clas
 [CustomNotaryTest.kt](https://github.com/corda/corda/blob/release/os/4.4/testing/node-driver/src/test/kotlin/net/corda/testing/node/CustomNotaryTest.kt)
 
 After this, your custom notary will be the default notary on the mock network, and can be used in the same way as described in [Writing flow tests](flow-testing.md).
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-time-windows.html
 - /key-concepts-time-windows.html
 - /releases/release-V4.4/key-concepts-time-windows.html
+- /docs/corda-os/head/key-concepts-time-windows.html
+- /docs/corda-os/key-concepts-time-windows.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

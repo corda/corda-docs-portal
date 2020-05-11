@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/serialization-default-evolution.html
+- /docs/corda-enterprise/head/serialization-default-evolution.html
+- /docs/corda-enterprise/serialization-default-evolution.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -289,4 +291,3 @@ data class Example5 (val b: String, val a: Int)
 {{% /tab %}}
 
 {{< /tabs >}}
-

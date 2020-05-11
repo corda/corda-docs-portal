@@ -4,6 +4,8 @@ aliases:
 - /HEAD/wire-format.html
 - /wire-format.html
 - /releases/release-V4.4/wire-format.html
+- /docs/corda-os/head/wire-format.html
+- /docs/corda-os/wire-format.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -238,7 +240,7 @@ The list type will be defined as a restricted type, like so:
 * Label: NULL
 * Provides: []
 * Source: “list”
-* 
+*
 * Symbol: net.corda:2A8U5kaXW/lD5ns+l0xPFg==
 * Numeric: NULL
 
@@ -543,4 +545,3 @@ envelope [
        }
 ]
 ```
-

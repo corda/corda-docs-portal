@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-transactions.html
 - /api-transactions.html
 - /releases/release-V4.4/api-transactions.html
+- /docs/corda-os/head/api-transactions.html
+- /docs/corda-os/api-transactions.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -1266,4 +1268,3 @@ TransactionSignature sig2 = getServiceHub().createSignature(onceSignedTx, otherI
 
 Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [API: Flows](api-flows.md) for
 more details.
-

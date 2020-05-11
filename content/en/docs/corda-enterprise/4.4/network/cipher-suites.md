@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/network/cipher-suites.html
+- /docs/corda-enterprise/head/cipher-suites.html
+- /docs/corda-enterprise/network/cipher-suites.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -168,4 +170,3 @@ ECDSA and RSA algorithms.
 |NO||
 
 {{< /table >}}
-

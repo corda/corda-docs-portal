@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/cm-backup.html
+- /docs/corda-enterprise/head/node/operating/cm-backup.html
+- /docs/corda-enterprise/node/operating/cm-backup.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -56,5 +58,3 @@ If the above holds, Corda components will benefit from the following:
 Private keys used to sign transactions should be preserved with the utmost care. The recommendation is to keep at least two separate copies on a storage not connected to the Internet.
 
 {{< /warning >}}
-
-

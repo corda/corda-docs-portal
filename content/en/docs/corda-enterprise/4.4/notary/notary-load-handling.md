@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/notary-load-handling.html
+- /docs/corda-enterprise/head/notary/notary-load-handling.html
+- /docs/corda-enterprise/notary/notary-load-handling.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -49,4 +51,3 @@ can consume messages from the queue then message processing delays can start to 
 
 If running a HA notary cluster then scaling up the worker cluster size will help negate this problem. See [Scaling A Notary Cluster](scaling-a-notary-cluster.md)
 for more information. The backpressure within the flow engine should also help to prevent this scenario.
-

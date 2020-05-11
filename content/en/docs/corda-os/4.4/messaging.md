@@ -4,6 +4,8 @@ aliases:
 - /HEAD/messaging.html
 - /messaging.html
 - /releases/release-V4.4/messaging.html
+- /docs/corda-os/head/messaging.html
+- /docs/corda-os/messaging.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -144,6 +146,3 @@ with the advertised X.500 legal name from the network map service.
 
 *
     * Connect to the P2P broker using the `SystemUsers/Peer` user and a doorman signed certificate. The authentication is performed based on the root CA.
-
-
-

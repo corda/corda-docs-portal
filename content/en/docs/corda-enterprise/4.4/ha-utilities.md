@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/ha-utilities.html
+- /docs/corda-enterprise/head/ha-utilities.html
+- /docs/corda-enterprise/ha-utilities.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -409,4 +411,3 @@ After successful registration, a keystore file is created by the tool. The locat
 This key store contains the service identity certificate (and key if not using a HSM) that all notary workers of this notary cluster share.
 Due to HSM restrictions around storing certificate chains, the key store will still be generated when using a HSM however it will only
 contain the notary service certificate chain. See [HSM Support](notary/hsm-support.md#hsm-support) for more information.
-

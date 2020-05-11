@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tut-two-party-introduction.html
 - /tut-two-party-introduction.html
 - /releases/release-V4.4/tut-two-party-introduction.html
+- /docs/corda-os/head/tut-two-party-introduction.html
+- /docs/corda-os/tut-two-party-introduction.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -43,6 +45,3 @@ We’ll start by writing the contract.
 
 * [Writing the contract](tut-two-party-contract.md)
 * [Updating the flow](tut-two-party-flow.md)
-
-
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tutorial-integration-testing.html
 - /tutorial-integration-testing.html
 - /releases/release-V4.4/tutorial-integration-testing.html
+- /docs/corda-os/head/tutorial-integration-testing.html
+- /docs/corda-os/tutorial-integration-testing.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

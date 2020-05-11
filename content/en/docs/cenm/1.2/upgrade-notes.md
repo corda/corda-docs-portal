@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/upgrade-notes.html
+- /docs/cenm/head/upgrade-notes.html
+- /docs/cenm/upgrade-notes.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -21,7 +23,7 @@ in question. If not specified, you may assume the versions you are currently usi
 
 We also strongly recommend cross referencing with the [Changelog](changelog.md) to confirm changes.
 
-<!--- 
+<!---
 ## 1.2 to 1.2.1
 
  **Identity Manager**

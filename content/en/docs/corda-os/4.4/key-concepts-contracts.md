@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-contracts.html
 - /key-concepts-contracts.html
 - /releases/release-V4.4/key-concepts-contracts.html
+- /docs/corda-os/head/key-concepts-contracts.html
+- /docs/corda-os/key-concepts-contracts.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -118,4 +120,3 @@ these cases, an oracle is required. See [Oracles](key-concepts-oracles.md) for f
 Each contract also refers to a legal prose document that states the rules governing the evolution of the state over
 time in a way that is compatible with traditional legal systems. This document can be relied upon in the case of
 legal disputes.
-

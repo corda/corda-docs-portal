@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/network-bootstrapper.html
+- /docs/corda-enterprise/head/network-bootstrapper.html
+- /docs/corda-enterprise/network-bootstrapper.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -495,4 +497,3 @@ in the given file. See [Overriding network parameters via a file](#overriding-ne
 ### Sub-commands
 
 `install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See cli-application-shell-extensions for more info.
-

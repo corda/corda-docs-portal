@@ -4,6 +4,8 @@ aliases:
 - /HEAD/node-services.html
 - /node-services.html
 - /releases/release-V4.4/node-services.html
+- /docs/corda-os/head/node-services.html
+- /docs/corda-os/node-services.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

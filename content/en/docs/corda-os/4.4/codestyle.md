@@ -4,6 +4,8 @@ aliases:
 - /HEAD/codestyle.html
 - /codestyle.html
 - /releases/release-V4.4/codestyle.html
+- /docs/corda-os/head/codestyle.html
+- /docs/corda-os/codestyle.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -259,4 +261,3 @@ not directly visible.
 Because this is a developer platform, *many* changes are user visible. That means *many* PRs will require docsite changes.
 When you review a PR that doesn’t change the docsite, you should be asking yourself “why does this PR not require docs
 changes” rather than the other way around (“does this PR require changes”), which is easier to forget about.
-

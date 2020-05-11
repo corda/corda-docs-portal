@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-states.html
 - /key-concepts-states.html
 - /releases/release-V4.4/key-concepts-states.html
+- /docs/corda-os/head/key-concepts-states.html
+- /docs/corda-os/key-concepts-states.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -85,4 +87,3 @@ where one party creates reference data, which is then used (but not updated) by 
 states containing reference data are referred to as “reference states”. Syntactically, reference states are no different
 to regular states. However, they are treated different by Corda transactions. See [Transactions](key-concepts-transactions.md) for
 more details.
-

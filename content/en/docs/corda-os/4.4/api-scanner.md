@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-scanner.html
 - /api-scanner.html
 - /releases/release-V4.4/api-scanner.html
+- /docs/corda-os/head/api-scanner.html
+- /docs/corda-os/api-scanner.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

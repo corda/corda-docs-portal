@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/api-identity.html
+- /docs/corda-enterprise/head/cordapps/api-identity.html
+- /docs/corda-enterprise/cordapps/api-identity.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -46,6 +48,3 @@ basis.
 
 The `PartyAndCertificate` class is also used by the network map service to represent well-known identities, with the
 certificate path proving the certificate was issued by the doorman service.
-
-
-

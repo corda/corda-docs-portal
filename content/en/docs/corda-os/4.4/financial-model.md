@@ -4,6 +4,8 @@ aliases:
 - /HEAD/financial-model.html
 - /financial-model.html
 - /releases/release-V4.4/financial-model.html
+- /docs/corda-os/head/financial-model.html
+- /docs/corda-os/financial-model.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -97,4 +99,3 @@ The following diagram illustrates the complete Contract State hierarchy:
 ![financialContractStateModel](/en/images/financialContractStateModel.png "financialContractStateModel")
 Note there are currently two packages, a core library and a finance model specific library.
 Developers may re-use or extend the Finance types directly or write their own by extending the base types from the Core library.
-

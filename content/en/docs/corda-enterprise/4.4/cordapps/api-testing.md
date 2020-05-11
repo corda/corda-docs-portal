@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/api-testing.html
+- /docs/corda-enterprise/head/cordapps/api-testing.html
+- /docs/corda-enterprise/cordapps/api-testing.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -313,4 +315,3 @@ be verified separately by placing a `verifies` or `fails` statement  within the 
 * Further examples are available in the Example CorDapp in
 [Java](https://github.com/corda/samples/blob/release-V4/cordapp-example/workflows-java/src/test/java/com/example/test/flow/IOUFlowTests.java) and
 [Kotlin](https://github.com/corda/samples/blob/release-V4/cordapp-example/workflows-kotlin/src/test/kotlin/com/example/test/flow/IOUFlowTests.kt)
-

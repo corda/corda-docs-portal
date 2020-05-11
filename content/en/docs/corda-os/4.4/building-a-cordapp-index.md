@@ -4,6 +4,8 @@ aliases:
 - /HEAD/building-a-cordapp-index.html
 - /building-a-cordapp-index.html
 - /releases/release-V4.4/building-a-cordapp-index.html
+- /docs/corda-os/head/building-a-cordapp-index.html
+- /docs/corda-os/building-a-cordapp-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -31,6 +33,3 @@ title: CorDapps
 * [Secure coding guidelines](secure-coding-guidelines.md)
 * [Configuring Responder Flows](flow-overriding.md)
 * [Flow cookbook](flow-cookbook.md)
-
-
-

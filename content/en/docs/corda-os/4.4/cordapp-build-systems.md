@@ -4,6 +4,8 @@ aliases:
 - /HEAD/cordapp-build-systems.html
 - /cordapp-build-systems.html
 - /releases/release-V4.4/cordapp-build-systems.html
+- /docs/corda-os/head/cordapp-build-systems.html
+- /docs/corda-os/cordapp-build-systems.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

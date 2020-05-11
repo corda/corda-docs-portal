@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/machine-migration.html
+- /docs/corda-enterprise/head/notary/machine-migration.html
+- /docs/corda-enterprise/notary/machine-migration.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -32,4 +34,3 @@ nodes are still able to handle requests. No service downtime is expected.
 * Start the notary worker on the new machine.
 * Check the logs and monitoring service to see if the notary worker node started as expected and is successfully handling notarisation requests.
 * Dispose of the old machine once the service is up and running on the new machine.
-

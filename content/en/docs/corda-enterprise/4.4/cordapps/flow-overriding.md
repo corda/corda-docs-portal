@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/flow-overriding.html
+- /docs/corda-enterprise/head/cordapps/flow-overriding.html
+- /docs/corda-enterprise/cordapps/flow-overriding.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -236,5 +238,3 @@ it would be possible to invoke either `BaseInitiator` or `NotaryOnlyInitiator` a
 You must ensure the sequence of sends/receives/subFlows in a subclass are compatible with the parent.
 
 {{< /warning >}}
-
-

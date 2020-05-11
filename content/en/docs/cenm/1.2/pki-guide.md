@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/pki-guide.html
+- /docs/cenm/head/pki-guide.html
+- /docs/cenm/pki-guide.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:

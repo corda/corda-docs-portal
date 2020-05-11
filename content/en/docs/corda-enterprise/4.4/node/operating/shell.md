@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/shell.html
+- /docs/corda-enterprise/head/node/operating/shell.html
+- /docs/corda-enterprise/node/operating/shell.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -485,7 +487,3 @@ The shell will be enhanced over time. The currently known limitations include:
 * The `jdbc` command requires you to explicitly log into the database first
 * Commands placed in the `shell-commands` directory are only noticed after the node is restarted
 * The `jul` command advertises access to logs, but it doesn’t work with the logging framework we’re using
-
-
-
-

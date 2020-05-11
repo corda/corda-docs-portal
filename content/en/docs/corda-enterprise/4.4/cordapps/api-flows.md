@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/api-flows.html
+- /docs/corda-enterprise/head/cordapps/api-flows.html
+- /docs/corda-enterprise/cordapps/api-flows.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -1883,6 +1885,3 @@ for (retryCount in 1..maxRetries) {
     }
 }
 ```
-
-
-

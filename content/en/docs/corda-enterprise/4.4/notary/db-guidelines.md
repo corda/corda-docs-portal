@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/db-guidelines.html
+- /docs/corda-enterprise/head/notary/db-guidelines.html
+- /docs/corda-enterprise/notary/db-guidelines.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -55,4 +57,3 @@ in mind when performance tuning the notary.
 Any database used with the JPA notary should have its transaction isolation level set to no lower than
 `READ_COMMITTED`. The JPA notary itself will attempt to use a transaction isolation level of
 `READ_COMMITTED`.
-

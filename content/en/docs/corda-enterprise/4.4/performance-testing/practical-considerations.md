@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/performance-testing/practical-considerations.html
+- /docs/corda-enterprise/head/performance-testing/practical-considerations.html
+- /docs/corda-enterprise/performance-testing/practical-considerations.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -140,6 +142,3 @@ throughput reading from runs that ran for less time than at least a couple of mi
 * The last two columns are meaningless in the context of a Corda sampler and should be ignored.
 
 The graph section can be handy to visualize the distribution of the statistics.
-
-
-

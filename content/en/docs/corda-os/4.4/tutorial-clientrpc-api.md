@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tutorial-clientrpc-api.html
 - /tutorial-clientrpc-api.html
 - /releases/release-V4.4/tutorial-clientrpc-api.html
+- /docs/corda-os/head/tutorial-clientrpc-api.html
+- /docs/corda-os/tutorial-clientrpc-api.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -614,4 +616,3 @@ annotated with `@StartableByRPC`. Flows without this annotation cannot execute u
 
 See more on security in [Secure coding guidelines](secure-coding-guidelines.md), node configuration in [Node configuration](corda-configuration-file.md) and
 Cordformation in [Running nodes locally](running-a-node.md).
-

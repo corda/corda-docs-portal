@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts.html
 - /key-concepts.html
 - /releases/release-V4.4/key-concepts.html
+- /docs/corda-os/head/key-concepts.html
+- /docs/corda-os/key-concepts.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -80,6 +82,3 @@ The detailed thinking and rationale behind these concepts are presented in two w
 
 
 Explanations of the key concepts are also available as [videos](https://vimeo.com/album/4555732/).
-
-
-

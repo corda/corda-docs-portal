@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/performance-testing/jmeter-samplers.html
+- /docs/corda-enterprise/head/performance-testing/jmeter-samplers.html
+- /docs/corda-enterprise/performance-testing/jmeter-samplers.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -128,4 +130,3 @@ The SDK and sampler code is freely available, but please note that it requires a
 to be used.
 
 See the README and the annotated code examples in the SDK for instructions how to build your own custom sampler.
-

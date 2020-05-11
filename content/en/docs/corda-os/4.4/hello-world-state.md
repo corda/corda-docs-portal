@@ -4,6 +4,8 @@ aliases:
 - /HEAD/hello-world-state.html
 - /hello-world-state.html
 - /releases/release-V4.4/hello-world-state.html
+- /docs/corda-os/head/hello-world-state.html
+- /docs/corda-os/hello-world-state.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -183,4 +185,3 @@ If you’ve read the white paper or Key Concepts section, you’ll know that eac
 imposes invariants on how the state evolves over time. Including a contract isn’t crucial for our first CorDapp, so
 we’ll just use the empty `TemplateContract` and `TemplateContract.Commands.Action` command defined by the template
 for now. In the next tutorial, we’ll implement our own contract and command.
-

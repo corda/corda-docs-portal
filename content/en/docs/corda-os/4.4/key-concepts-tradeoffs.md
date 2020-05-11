@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-tradeoffs.html
 - /key-concepts-tradeoffs.html
 - /releases/release-V4.4/key-concepts-tradeoffs.html
+- /docs/corda-os/head/key-concepts-tradeoffs.html
+- /docs/corda-os/key-concepts-tradeoffs.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -108,4 +110,3 @@ example, Corda re-uses:
 * Standard JVM programming languages for the development of CorDapps
 * Existing SQL databases
 * Existing message queue implementations
-

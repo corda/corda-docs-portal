@@ -4,6 +4,8 @@ aliases:
 - /HEAD/deterministic-modules.html
 - /deterministic-modules.html
 - /releases/release-V4.4/deterministic-modules.html
+- /docs/corda-os/head/deterministic-modules.html
+- /docs/corda-os/deterministic-modules.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

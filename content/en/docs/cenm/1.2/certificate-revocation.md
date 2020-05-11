@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/certificate-revocation.html
+- /docs/cenm/head/certificate-revocation.html
+- /docs/cenm/certificate-revocation.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -79,49 +81,49 @@ issued by the Node CA.
 Submission of the certificate revocation requests expects the following fields to be present in the request payload:
 
 
-* **certificateSerialNumber**: 
+* **certificateSerialNumber**:
 Serial number of the certificate that is to be revoked.
 
 
-* **csrRequestId**: 
+* **csrRequestId**:
 Certificate signing request identifier associated with the certificate that is to be revoked.
 
 
-* **legalName**: 
+* **legalName**:
 Legal name associated with the certificate that is to be revoked.
 
 
-* **reason**: 
+* **reason**:
 Revocation reason (as specified in the java.security.cert.CRLReason). The following values are allowed:
 
 
-* **KEY_COMPROMISE**: 
+* **KEY_COMPROMISE**:
 This reason indicates that it is known or suspected that the certificate subject’s private key has been compromised. It applies to end-entity certificates only.
 
 
-* **CA_COMPROMISE**: 
+* **CA_COMPROMISE**:
 This reason indicates that it is known or suspected that the certificate subject’s private key has been compromised. It applies to certificate authority (CA) certificates only.
 
 
-* **AFFILIATION_CHANGED**: 
+* **AFFILIATION_CHANGED**:
 This reason indicates that the subject’s name or other information has changed.
 
 
-* **SUPERSEDED**: 
+* **SUPERSEDED**:
 This reason indicates that the certificate has been superseded.
 
 
-* **CESSATION_OF_OPERATION**: 
+* **CESSATION_OF_OPERATION**:
 This reason indicates that the certificate is no longer needed.
 
 
-* **PRIVILEGE_WITHDRAWN**: 
+* **PRIVILEGE_WITHDRAWN**:
 This reason indicates that the privileges granted to the subject of the certificate have been withdrawn.
 
 
 
 
-* **reporter**: 
+* **reporter**:
 Issuer of this certificate revocation request.
 
 
@@ -146,4 +148,3 @@ any signing issues to be resolved.
 See [Signing Services](signing-service.md) for details on building and signing CRLs, and especially the “updatePeriod”
 configuration field which is used to determine the next update deadline. See also [CRL Endpoint Check Tool](crl-endpoint-check-tool.md)
 for more information how to check CRLs’ update deadlines.
-

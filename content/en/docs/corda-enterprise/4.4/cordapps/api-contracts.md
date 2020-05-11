@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/api-contracts.html
+- /docs/corda-enterprise/head/cordapps/api-contracts.html
+- /docs/corda-enterprise/cordapps/api-contracts.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -222,6 +224,3 @@ class XContract : Contract {
 
 After learning about writing contracts, we suggest you either learn more about how contract constraints can be used in
 [Contract Constraints](api-contract-constraints.md), or learn about [Writing CorDapp States](api-states.md), or [Writing CorDapp Flows](api-flows.md).
-
-
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/node-flow-hospital.html
 - /node-flow-hospital.html
 - /releases/release-V4.4/node-flow-hospital.html
+- /docs/corda-os/head/node-flow-hospital.html
+- /docs/corda-os/node-flow-hospital.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

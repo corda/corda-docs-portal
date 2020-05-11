@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/api-transactions.html
+- /docs/corda-enterprise/head/cordapps/api-transactions.html
+- /docs/corda-enterprise/cordapps/api-transactions.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -420,4 +422,3 @@ Or using another one of our public keys:
 
 Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [Writing CorDapp Flows](api-flows.md) for
 more details.
-

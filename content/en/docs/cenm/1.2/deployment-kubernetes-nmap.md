@@ -1,4 +1,20 @@
-# CENM Network Map Helm Chart
+---
+aliases:
+- /releases/release-1.2/deployment-kubernetes-nmap.html
+- /docs/cenm/head/deployment-kubernetes-nmap.html
+- /docs/cenm/deployment-kubernetes-nmap.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2:
+    parent: cenm-1-2-deployment-kubernetes
+tags:
+- config
+- kubernetes
+title: CENM Network Map Helm chart
+weight: 300
+---
+
+# CENM Network Map Helm chart
 
 This Helm chart is to configure, deploy and run CENM [Network Map](network-map.md) service.
 

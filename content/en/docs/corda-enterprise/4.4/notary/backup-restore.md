@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/backup-restore.html
+- /docs/corda-enterprise/head/notary/backup-restore.html
+- /docs/corda-enterprise/notary/backup-restore.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -39,4 +41,3 @@ To summarise:
 
 * For worker nodes: it is essential to back up the `certificates` directory, `node.conf` can also be backed up for convenience when restoring. To restore a worker node, re-create the node directory with the right Corda jar and drivers, and place the `certificates` folder and `node.conf`. Start the node as normal.
 * For the replicated notary database: periodic backups should be setup for the whole data-set. To restore the replicated notary database, follow the database vendor specific instructions.
-

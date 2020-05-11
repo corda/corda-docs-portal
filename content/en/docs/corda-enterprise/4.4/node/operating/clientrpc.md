@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/clientrpc.html
+- /docs/corda-enterprise/head/node/operating/clientrpc.html
+- /docs/corda-enterprise/node/operating/clientrpc.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -536,9 +538,3 @@ Note that RPC TLS does not use mutual authentication, and delegates fine grained
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
 `@CordaSerializable` annotation.  See serialization. An example is shown in tutorial-clientrpc-api.
-
-
-
-
-
-

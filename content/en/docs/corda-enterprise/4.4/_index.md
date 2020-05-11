@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/index.html
+- /docs/corda-enterprise/head/index.html
+- /docs/corda-enterprise/index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:

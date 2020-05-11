@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/testing.html
+- /docs/corda-enterprise/head/testing.html
+- /docs/corda-enterprise/testing.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -192,4 +194,3 @@ task installQuasar(type: Copy) {
 ```
 
 and then you can run `gradlew installQuasar`.
-

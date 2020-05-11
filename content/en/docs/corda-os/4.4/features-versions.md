@@ -4,6 +4,8 @@ aliases:
 - /HEAD/features-versions.html
 - /features-versions.html
 - /releases/release-V4.4/features-versions.html
+- /docs/corda-os/head/features-versions.html
+- /docs/corda-os/features-versions.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -62,4 +64,3 @@ of Corda as well as opt in to newer features should they happen to be available 
 |Underlying Support for Accounts|5|4|4.3|4.3|
 
 {{< /table >}}
-

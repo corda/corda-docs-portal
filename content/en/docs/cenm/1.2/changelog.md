@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/changelog.html
+- /docs/cenm/head/changelog.html
+- /docs/cenm/changelog.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:

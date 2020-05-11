@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-testing.html
 - /api-testing.html
 - /releases/release-V4.4/api-testing.html
+- /docs/corda-os/head/api-testing.html
+- /docs/corda-os/api-testing.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -802,4 +804,3 @@ public void chainCommercialPaperDoubleSpend() {
 * Further examples are available in the Example CorDapp in
 [Java](https://github.com/corda/samples/blob/release-V4/cordapp-example/workflows-java/src/test/java/com/example/test/flow/IOUFlowTests.java) and
 [Kotlin](https://github.com/corda/samples/blob/release-V4/cordapp-example/workflows-kotlin/src/test/kotlin/com/example/test/flow/IOUFlowTests.kt)
-

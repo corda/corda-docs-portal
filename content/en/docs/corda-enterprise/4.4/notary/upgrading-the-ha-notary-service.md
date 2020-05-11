@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/upgrading-the-ha-notary-service.html
+- /docs/corda-enterprise/head/notary/upgrading-the-ha-notary-service.html
+- /docs/corda-enterprise/notary/upgrading-the-ha-notary-service.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -98,4 +100,3 @@ CREATE TABLE IF NOT EXISTS notary_committed_transactions (
 
 * In the unlikely event that the database gets corrupted, take all the notary worker nodes down and restore the database.
 * Perform a rolling upgrade on the notary worker nodes. Follow the [node upgrade guide](../node-upgrade-notes.md) for each node, and make sure the node is running and is no longer in flow draining mode before moving on to the next one.
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/joining-a-compatibility-zone.html
 - /joining-a-compatibility-zone.html
 - /releases/release-V4.4/joining-a-compatibility-zone.html
+- /docs/corda-os/head/joining-a-compatibility-zone.html
+- /docs/corda-os/joining-a-compatibility-zone.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/deploy/generating-a-node.html
+- /docs/corda-enterprise/head/node/deploy/generating-a-node.html
+- /docs/corda-enterprise/node/deploy/generating-a-node.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -560,4 +562,3 @@ need to re-run the task to see the changes take effect.
 
 If the task is a `Dockerform` task, running the task will also create an additional `Dockerfile` in each node
 directory in the `build/nodes` directory.
-

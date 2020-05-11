@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/release-notes-index.html
+- /docs/corda-enterprise/head/release-notes-index.html
+- /docs/corda-enterprise/release-notes-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -20,5 +22,3 @@ weight: 4
 * [Corda release notes](release-notes.md)
 * [Corda Enterprise Release notes](release-notes-enterprise.md)
 * [Corda Enterprise changelog](changelog-enterprise.md)
-
-

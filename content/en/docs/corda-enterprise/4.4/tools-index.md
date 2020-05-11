@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/tools-index.html
+- /docs/corda-enterprise/head/tools-index.html
+- /docs/corda-enterprise/tools-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -31,6 +33,3 @@ wish to try the [Blob Inspector](blob-inspector.md).
 * [Health Survey Tool](health-survey.md)
 * [Embedded Shell](shell.md)
 * [Public Key Infrastructure (PKI) Tool](pki-tool.md)
-
-
-

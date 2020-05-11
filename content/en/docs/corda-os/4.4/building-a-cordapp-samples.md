@@ -4,6 +4,8 @@ aliases:
 - /HEAD/building-a-cordapp-samples.html
 - /building-a-cordapp-samples.html
 - /releases/release-V4.4/building-a-cordapp-samples.html
+- /docs/corda-os/head/building-a-cordapp-samples.html
+- /docs/corda-os/building-a-cordapp-samples.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -41,4 +43,3 @@ If you would like to see flow activity on the nodes type in the node terminal `f
 
 {{< /note >}}
 Please report any bugs with the samples on [GitHub](https://github.com/corda/corda/issues).
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/cenm-support-matrix.html
+- /docs/cenm/head/cenm-support-matrix.html
+- /docs/cenm/cenm-support-matrix.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-2:
@@ -34,4 +36,3 @@ Both the Signing Service and the PKI Tool support a variety of HSMs. The
 |AWS CloudHSM|N/A|3.0.0|
 
 {{< /table >}}
-

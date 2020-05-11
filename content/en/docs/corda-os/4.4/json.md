@@ -4,6 +4,8 @@ aliases:
 - /HEAD/json.html
 - /json.html
 - /releases/release-V4.4/json.html
+- /docs/corda-os/head/json.html
+- /docs/corda-os/json.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

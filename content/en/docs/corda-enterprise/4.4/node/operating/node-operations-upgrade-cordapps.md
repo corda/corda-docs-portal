@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/node-operations-upgrade-cordapps.html
+- /docs/corda-enterprise/head/node/operating/node-operations-upgrade-cordapps.html
+- /docs/corda-enterprise/node/operating/node-operations-upgrade-cordapps.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -87,6 +89,3 @@ The database update for a CorDapp upgrade follows the same steps as database set
 provided by the CorDapp developer to query the vault and run this for all states
     * The contract upgrade initiate flow only needs to be run on one of the participants for each state. The flow will
 automatically upgrade the state on all participants.
-
-
-

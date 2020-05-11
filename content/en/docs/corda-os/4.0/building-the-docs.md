@@ -10,125 +10,157 @@ menu:
 tags:
 - building
 - docs
-title: Building the documentation
+title: Build the documentation
 ---
 
+# Build the docs
 
-# Building the documentation
+The documentation source files are under the `../content` directory in the [corda-docs](https://github.com/corda/corda-docs/) repository, and is written in `markdown` format.
 
-The documentation is under the `docs` folder, and is written in reStructuredText format. Documentation in HTML format
-is pre-generated, as well as code documentation, and this can be done automatically via a provided script.
+The documentation output in HTML format is generated using [Hugo](https://github.com/gohugoio/hugo/releases). You can build the docs locally in seconds once you have set up your environment (see below).
 
+## Build the docs locally
 
-## Requirements
+Steps:
 
-In order to build the documentation you will need a development environment set up as described under [Building Corda](building-corda.md).
+1. Download [Visual Studio Code](https://code.visualstudio.com/) or a markdown editor of your choice ([atom](https://atom.io/), for example).
+2. Download [Hugo](https://github.com/gohugoio/hugo/releases). Use the latest version, otherwise at least v0.65.
+3. Ensure the Hugo binary is on your `PATH`.
+4. Fork the [corda-docs](https://github.com/corda/corda-docs/) repository.
+5. In command-line, navigate (`cd`) to root of the fork repo.
+6. Run `hugo serve`
+7. Open the local docs site build on [http://localhost:1313](http://localhost:1313) (or whatever it says in the console) in your browser.
+8. Edit the documentation source files in `markdown` - all source files are in the `../content` directory in the repo structure. Each edit triggers an immediate page update on [http://localhost:1313](http://localhost:1313).
 
-You will also need additional dependencies based on your O/S which are detailed below.
+## Contribute to documentation updates
 
+To propose an update to the public released Corda docs, fork the [corda-docs](https://github.com/corda/corda-docs/) repository, make your changes, and submit a pull request targeting the `master` branch in the upstream repository from your fork.
 
-## Windows
+### Steps
+1. Fork the [corda-docs](https://github.com/corda/corda-docs/) repository and add it as upstream (or sync your existing fork with the upstream repo’s `master` branch - see below for instructions).
+2. Edit the documentation files in a new branch in your fork.
+3. Commit and push the changes to your fork.
+4. Create a pull request targeting the `master` branch in the upstream repo. Your pull request will be auto-assigned to R3's technical writing team for review.
 
+### Where are the files
 
-### Git, bash and make
+The documentation for all released versions of Corda OS, Corda Enterprise, and Corda Enterprise Network Manager (CENM) are organised in sub-directories, following the product flavour and then the version.
 
-In order to build the documentation for Corda you need a `bash` emulator with `make` installed and accessible from the command prompt. Git for
-Windows ships with a version of MinGW that contains a `bash` emulator, to which you can download and add a Windows port of
-`make`, instructions for which are provided below. Alternatively you can install a full version of MinGW from [here](http://www.mingw.org/).
+For example:
 
+`../corda-docs/content/en/docs/corda-os/1.0`
 
-* Go to [ezwinports](https://sourceforge.net/projects/ezwinports/files/) and click the download for `make-4.2.1-without-guile-w32-bin.zip`
-* Navigate to the Git installation directory (by default `C:\Program Files\Git`), open `mingw64`
-* Unzip the downloaded file into this directory, but do NOT overwrite/replace any existing files
-* Add the Git `bin` directory to your system PATH environment variable (by default `C:\Program Files\Git\bin`)
-* Open a new command prompt and run `bash` to test that you can access the Git bash emulator
-* Type `make` to make sure it has been installed successfully (you should get an error
-like `make: *** No targets specified and no makefile found.  Stop.`)
+## Edit web pages directly in Visual Studio Code
 
+After installing Hugo and Visual Studio Code, run the following commands per operating system.
 
-### Python, Pip and VirtualEnv
+Windows Powershell (assuming there are no spaces in your directory names):
 
+`.\serve_and_edit.ps1`
 
-* Visit [https://www.python.org/downloads](https://www.python.org/downloads)
-* Scroll down to the most recent v2 release (tested with v.2.7.15) and click the download link
-* Download the “Windows x86-64 MSI installer”
-* Run the installation, making a note of the Python installation directory (defaults to `c:\Python27`)
-* Add the Python installation directory (e.g. `c:\Python27`) to your system PATH environment variable
-* Add the Python scripts sub-directory (e.g. `c:\Python27\scripts`) to your system PATH environment variable
-* Open a new command prompt and check you can run Python by running `python --version`
-* Check you can run pip by running `pip --version`
-* Install `virtualenv` by running `pip install virtualenv` from the commandline
-* Check you can run `virualenv` by running `virtualenv --version` from the commandline.
+Mac/Linux:
 
+`make local-serve-and-edit`  
 
-### LaTeX
+Or if you want to use Docker:
 
-Corda requires LaTeX to be available for building the documentation. The instructions below are for installing TeX Live
-but other distributions are available.
+`hugo-serve-and-edit`
 
+As a result, there will be an extra icon in the title bar of your local docs site, which should open the current page in Visual Studio Code:
 
-* Visit [https://tug.org/texlive/](https://tug.org/texlive/)
-* Click download
-* Download and run `install-tl-windows.exe`
-* Keep the default options (simple installation is fine)
-* Open a new command prompt and check you can run `pdflatex` by running `pdflatex --version`
+![Visual Studio Code](/en/images/hugo-vscode-page-edit.png "Visual Studio Code")
 
+## Edit web pages directly in Atom
 
-## Debian/Ubuntu Linux
+After installing Hugo and Atom (you need to install the open package!), run the following commands per operating system.
 
-These instructions were tested on Ubuntu Server 18.04 LTS. This distribution includes `git` and `python` so only the following steps are required:
+If this is your preferred editor, then consider setting `HUGO_PARAMS_EDITOR` in your environment.
 
+Windows Powershell:
 
-### Pip/VirtualEnv
-
-
-* Run `sudo apt-get install python-pip`
-* Run `pip install virtualenv`
-* Run `pip --version` to verify that pip is installed correctly
-* Run `virtualenv --version` to verify that virtualenv is installed correctly
-
-
-### LaTeX
-
-Corda requires LaTeX to be available for building the documentation. The instructions below are for installing TeX Live
-but other distributions are available.
-
-
-* Run `sudo apt-get install texlive-full`
-
-
-## Build
-
-Once the requirements are installed, you can automatically build the HTML format user documentation, PDF, and
-the API documentation by running the following script:
-
-```shell
-// On Windows
-gradlew buildDocs
-
-// On Mac and Linux
-./gradlew buildDocs
+```
+$env:HUGO_PARAMS_EDITOR="atom"
+.\serve_and_edit.ps1
 ```
 
-Alternatively you can build non-HTML formats from the `docs` folder.
+Mac/Linux:
 
-However, running `make` from the command line requires further dependencies to be installed. When building in Gradle they
-are installed in a [python virtualenv](https://virtualenv.pypa.io/en/stable/), so they will need explicitly installing
-by running:
-
-```shell
-pip install -r requirements.txt
+```
+export HUGO_PARAMS_EDITOR=atom
+make local-serve-and-edit
 ```
 
-Change directory to the `docs` folder and then run the following to see a list of all available formats:
+Or if you want to use Docker:
 
-```shell
-make
+```
+export HUGO_PARAMS_EDITOR=atom
+make hugo-serve-and-edit
 ```
 
-For example to produce the documentation in HTML format run:
+## Keep your fork in sync with the upstream repo
 
-```shell
-make html
+To best way to keep your fork in sync with the upstream (original) repository is to add it as the `upstream` repo after you create the fork.
+
+### Add the upstream repo
+
+To add `upstream`:
+
+```
+$ cd <to-your-fork-repo-dir>
+$ git remote add upstream git://github.com/corda/corda-docs.git
 ```
 
+You would normally only need do this once after you create the fork.
+
+### View your remotes
+
+To view your remotes:
+
+`git remote -v`
+
+You should see something like this:
+
+```
+$ git remote -v
+
+origin	https://github.com/ivanterziev-r3/corda-docs.git (fetch)  #  YOUR FORK
+origin	https://github.com/ivanterziev-r3/corda-docs.git (push)
+upstream	git://github.com/corda/corda-docs.git (fetch)  #  THE ORIGINAL REPO
+upstream	git://github.com/corda/corda-docs.git (push)
+```
+
+### Keep the upstream repo updated
+
+To keep the upstream updated (in other words, to fetch all the stuff from the upstream repo):
+
+`$ git fetch upstream`
+
+### Sync your fork
+
+There are two ways in which you can do this - merge or rebase.
+
+#### Merge the upstream with your fork
+
+To sync your fork via merge:
+
+`$ git merge upstream/master master`
+
+This command will merge the latest changes from the `master` branch of the upstream into your local fork’s `master` branch.
+
+To merge a different branch, replace `master` with the name of that branch for both repos.
+
+#### Rebase the upstream with your fork
+
+`$ git rebase upstream/master`
+
+To rebase a different branch, replace `master` with the name of that branch for both repos.
+
+{{< note >}}
+
+After the merge or rebase, don’t forget to push your local fork's master branch (or another branch you’ve synced) to the fork origin `master` (or another corresponding branch).
+
+For example:
+
+`git push origin master`
+
+{{< /note >}}

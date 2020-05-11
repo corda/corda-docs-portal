@@ -4,6 +4,8 @@ aliases:
 - /HEAD/loadtesting.html
 - /loadtesting.html
 - /releases/release-V4.4/loadtesting.html
+- /docs/corda-os/head/loadtesting.html
+- /docs/corda-os/loadtesting.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -227,4 +229,3 @@ Stability test is one variation of the load test, instead of flooding the nodes 
 To run the stability test, set the load test mode to STABILITY_TEST (`mode=STABILITY_TEST` in config file or `-Dloadtest.mode=STABILITY_TEST` in system properties).
 
 The stability test will first self issue cash using `StabilityTest.selfIssueTest` and after that it will randomly pay and exit cash using `StabilityTest.crossCashTest` for P2P testing, unlike the load test, the stability test will run without any disruption.
-

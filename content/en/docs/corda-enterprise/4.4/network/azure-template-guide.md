@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/network/azure-template-guide.html
+- /docs/corda-enterprise/head/network/azure-template-guide.html
+- /docs/corda-enterprise/network/azure-template-guide.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -77,4 +79,3 @@ You can now log in to your resource by selecting the virtual machine in the reso
 ## Testing the deployment
 
 You can test the deployment by following the instructions in [Using the Node Explorer to test a Corda Enterprise node on Corda Testnet](testnet-explorer.md).
-

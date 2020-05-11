@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/notary-db-migration.html
+- /docs/corda-enterprise/head/notary/notary-db-migration.html
+- /docs/corda-enterprise/notary/notary-db-migration.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -106,4 +108,3 @@ issue_transaction_output_id|
 * Reconfigure the notary to use the JPA notary connected to the target database.
 * Restart the notary.
 * Verify that the notary operates normally.
-

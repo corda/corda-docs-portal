@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tutorial-building-transactions.html
 - /tutorial-building-transactions.html
 - /releases/release-V4.4/tutorial-building-transactions.html
+- /docs/corda-os/head/tutorial-building-transactions.html
+- /docs/corda-os/tutorial-building-transactions.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -430,4 +432,3 @@ not expose that data to the other node directly. A full example of this
 can be found in the `NodeInterestRates` Oracle code from the
 `irs-demo` project which interacts with the `RatesFixFlow` flow.
 Also, refer to the [Transaction tear-offs](tutorial-tear-offs.md).
-

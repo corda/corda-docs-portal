@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/cordapp-constraint-migration.html
+- /docs/corda-enterprise/head/cordapps/cordapp-constraint-migration.html
+- /docs/corda-enterprise/cordapps/cordapp-constraint-migration.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -186,4 +188,3 @@ TransactionBuilder txBuilder = new TransactionBuilder(notary)
 * As a node operator you need to add the new signed version of the contracts CorDapp to the `/cordapps` folder together with the latest version of the flows jar.
 Please also ensure that the original unsigned contracts CorDapp is removed from the `/cordapps` folder (this will already be present in the
 nodes attachments store) to ensure the lookup code in step 3 retrieves the correct signed contract CorDapp JAR.
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/soft-locking.html
+- /docs/corda-enterprise/head/soft-locking.html
+- /docs/corda-enterprise/soft-locking.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -62,4 +64,3 @@ before they are transferred to the intended recipient. Soft locking will automat
 
 Other use cases for *soft locking* may involve competing flows attempting to match trades or any other concurrent
 activities that may involve operating on an identical set of unconsumed states.
-

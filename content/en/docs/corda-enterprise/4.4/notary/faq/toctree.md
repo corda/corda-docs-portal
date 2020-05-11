@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/faq/toctree.html
+- /docs/corda-enterprise/head/notary/faq/toctree.html
+- /docs/corda-enterprise/notary/faq/toctree.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 title: Frequently-Asked-Questions
@@ -35,8 +37,3 @@ Frequently asked questions for anything notary related:
     * [What happens on multiple successful responses caused by retrying?](notary-failover.md#what-happens-on-multiple-successful-responses-caused-by-retrying)
     * [Is it possible to receive a success and failure because of retrying?](notary-failover.md#is-it-possible-to-receive-a-success-and-failure-because-of-retrying)
     * [If there is a network outage/partition, how does this affect the notary?](notary-failover.md#if-there-is-a-network-outage-partition-how-does-this-affect-the-notary)
-
-
-
-
-

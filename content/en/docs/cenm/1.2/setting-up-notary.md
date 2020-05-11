@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/release-1.2/setting-up-notary.html
+- /docs/cenm/head/setting-up-notary.html
+- /docs/cenm/setting-up-notary.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -98,4 +100,3 @@ Follow instructions here [Network Map Service](network-map.md)
 ```bash
 java -jar corda.jar --config-file <NODE_CONF_FILE>
 ```
-

@@ -4,6 +4,8 @@ aliases:
 - /HEAD/corda-nodes-index.html
 - /corda-nodes-index.html
 - /releases/release-V4.4/corda-nodes-index.html
+- /docs/corda-os/head/corda-nodes-index.html
+- /docs/corda-os/corda-nodes-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/blob-inspector.html
+- /docs/corda-enterprise/head/blob-inspector.html
+- /docs/corda-enterprise/blob-inspector.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -152,4 +154,3 @@ never normally need to specify this. Possible values [BINARY, HEX, BASE64]. Defa
 ### Sub-commands
 
 `install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See cli-application-shell-extensions for more info.
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/oracles.html
+- /docs/corda-enterprise/head/oracles.html
+- /docs/corda-enterprise/oracles.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -444,4 +446,3 @@ You can then write tests on your mock network to verify the nodes interact with 
 [OracleNodeTearOffTests.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt)
 
 See [here](https://github.com/corda/corda/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt) for more examples.
-

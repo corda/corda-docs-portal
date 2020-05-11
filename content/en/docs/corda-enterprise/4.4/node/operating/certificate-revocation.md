@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/operating/certificate-revocation.html
+- /docs/corda-enterprise/head/node/operating/certificate-revocation.html
+- /docs/corda-enterprise/node/operating/certificate-revocation.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -95,4 +97,3 @@ Also, Corda AMQP serialization framework is used as the serialization framework.
 
 {{< /note >}}
 Because of the proprietary serialization mechanism, it is assumed that those endpoints are used by dedicated tools that support this kind of data encoding.
-

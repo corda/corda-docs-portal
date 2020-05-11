@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/api-vault-query.html
+- /docs/corda-enterprise/head/cordapps/api-vault-query.html
+- /docs/corda-enterprise/cordapps/api-vault-query.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -498,4 +500,3 @@ a view which maps each state to one or more external IDs. The entity relationshi
 ![state to external id](/en/images/state-to-external-id.png "state to external id")
 When performing a vault query, it is now possible to query for states by external ID using the `externalIds` parameter in
 `VaultQueryCriteria`.
-

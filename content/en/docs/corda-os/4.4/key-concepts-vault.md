@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-vault.html
 - /key-concepts-vault.html
 - /releases/release-V4.4/key-concepts-vault.html
+- /docs/corda-os/head/key-concepts-vault.html
+- /docs/corda-os/key-concepts-vault.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -81,5 +83,3 @@ Note the following:
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
 Section 8 of the [Technical white paper](/en/pdf/corda-technical-whitepaper.pdf) describes features of the vault yet to be implemented including private key management, state splitting and merging, asset re-issuance and node event scheduling.
-
-

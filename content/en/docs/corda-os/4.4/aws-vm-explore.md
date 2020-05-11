@@ -4,6 +4,8 @@ aliases:
 - /HEAD/aws-vm-explore.html
 - /aws-vm-explore.html
 - /releases/release-V4.4/aws-vm-explore.html
+- /docs/corda-os/head/aws-vm-explore.html
+- /docs/corda-os/aws-vm-explore.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -132,4 +134,3 @@ tail -f /opt/corda/logs/node-<VM-NAME>.log
 To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up the Finance CorDapp and issue cash to a counterparty.
 
 This will also demonstrate how to install a custom CorDapp.
-

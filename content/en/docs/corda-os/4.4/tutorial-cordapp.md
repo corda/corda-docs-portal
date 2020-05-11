@@ -4,6 +4,8 @@ aliases:
 - /HEAD/tutorial-cordapp.html
 - /tutorial-cordapp.html
 - /releases/release-V4.4/tutorial-cordapp.html
+- /docs/corda-os/head/tutorial-cordapp.html
+- /docs/corda-os/tutorial-cordapp.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -542,4 +544,3 @@ See [Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-run
 ## Debugging your CorDapp
 
 See [Debugging a CorDapp](debugging-a-cordapp.md).
-

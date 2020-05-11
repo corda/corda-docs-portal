@@ -4,6 +4,8 @@ aliases:
 - /HEAD/serialization-index.html
 - /serialization-index.html
 - /releases/release-V4.4/serialization-index.html
+- /docs/corda-os/head/serialization-index.html
+- /docs/corda-os/serialization-index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -27,6 +29,3 @@ title: Serialization
 * [JSON](json.md)
 * [Blob Inspector](blob-inspector.md)
 * [Wire format](wire-format.md)
-
-
-

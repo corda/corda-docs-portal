@@ -1,3 +1,19 @@
+---
+aliases:
+- /releases/release-1.2/deployment-kubernetes-notary.html
+- /docs/cenm/head/deployment-kubernetes-notary.html
+- /docs/cenm/deployment-kubernetes-notary.html
+date: '2020-01-08T09:59:25Z'
+menu:
+  cenm-1-2:
+    parent: cenm-1-2-deployment-kubernetes
+tags:
+- config
+- kubernetes
+title: CENM Notary Helm chart
+weight: 400
+---
+
 # CENM Notary Helm Chart
 
 This Helm chart is to configure, deploy and run a Corda Notary.

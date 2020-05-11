@@ -4,6 +4,8 @@ aliases:
 - /HEAD/compatibility-zones.html
 - /compatibility-zones.html
 - /releases/release-V4.4/compatibility-zones.html
+- /docs/corda-os/head/compatibility-zones.html
+- /docs/corda-os/compatibility-zones.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -47,4 +49,3 @@ Network (the main compatibility zone) or the Corda Testnet. See [Joining an exis
 
 Some users may also be interested in setting up their own dynamic compatibility zone. For instructions and a discussion
 of whether this approach is suitable for you, see [Setting up a dynamic compatibility zone](setting-up-a-dynamic-compatibility-zone.md).
-

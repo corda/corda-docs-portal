@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/installing-the-notary-service-bootstrapper.html
+- /docs/corda-enterprise/head/notary/installing-the-notary-service-bootstrapper.html
+- /docs/corda-enterprise/notary/installing-the-notary-service-bootstrapper.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -50,4 +52,3 @@ CorDapp developers should select the notary service identity from the network ma
 ```kotlin
 serviceHub.networkMapCache.getNotary(CordaX500Name("HA Notary", "London", "GB"))
 ```
-

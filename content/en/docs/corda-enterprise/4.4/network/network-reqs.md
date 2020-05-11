@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/network/network-reqs.html
+- /docs/corda-enterprise/head/network/network-reqs.html
+- /docs/corda-enterprise/network/network-reqs.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -17,39 +19,39 @@ title: Corda network considerations
 There is a set of parameters that all Nodes on the network must agree on in order to interoperate. These are listed below.
 
 
-* **minimumPlatformVersion**: 
+* **minimumPlatformVersion**:
 The minimum platform version that the nodes must be running. Any node which is below this will not start.
 
 
-* **notaries**: 
+* **notaries**:
 List of identity and validation type (either validating or non-validating) of the notaries which are permitted in the compatibility zone.
 
 
-* **maxMessageSize**: 
+* **maxMessageSize**:
 Maximum allowed size in bytes of an individual message sent over the wire. Note that attachments are a special case and may be fragmented for streaming transfer, however, an individual transaction or flow message may not be larger than this value.
 
 
-* **maxTransactionSize**: 
+* **maxTransactionSize**:
 Maximum allowed size in bytes of a transaction. This is the size of the transaction object and its attachments.
 
 
-* **modifiedTime**: 
+* **modifiedTime**:
 The time when the network parameters were last modified by the compatibility zone operator.
 
 
-* **epoch**: 
+* **epoch**:
 Version number of the network parameters. Starting from 1, this will always increment whenever any of the parameters change.
 
 
-* **whitelistedContractImplementations**: 
+* **whitelistedContractImplementations**:
 List of whitelisted versions of contract code. For each contract class there is a list of SHA-256 hashes of the approved CorDapp jar versions containing that contract.
 
 
-* **eventHorizon**: 
+* **eventHorizon**:
 Time after which nodes are considered to be unresponsive and removed from network map. Nodes republish their NodeInfo on a regular interval. Network map treats that as a heartbeat from the node.
 
 
-* **packageOwnership**: 
+* **packageOwnership**:
 List of the network-wide java packages that were successfully claimed by their owners. Any CorDapp JAR that offers contracts and states in any of these packages must be signed by the owner. This ensures that when a node encounters an owned contract it can uniquely identify it and knows that all other nodes can do the same. Encountering an owned contract in a JAR that is not signed by the rightful owner is most likely a sign of malicious behaviour, and should be reported. The transaction verification logic will throw an exception when this happens.
 
 
@@ -108,7 +110,7 @@ Here are the basis goals of a Segregated Sub Zone:
 * The ability to hive off members of the business network into a private enclave
 * The ability to cloak the members of the business network
 * That is where the notary is not whitelisted globally and is operated to the standard deemed acceptable by the BNO, not the Zone operator and members (as per those in the global whitelist)
-* The ability to operate “private” notary service> 
+* The ability to operate “private” notary service>
 That is where the notary can exist in the global whitelist but is restricted to notarisation of specific State types
 The ability to operate non whitelisted, “less universally trusted”, notaries.
 The ability to operate their own Compatibility Zone.
@@ -139,4 +141,3 @@ The diagram below outlines the overview of SSZ.
 * The identity service for sub-zones must be managed by a single Doorman
 * Should require no changes to the Corda Node
 * Notaries will not exist in multiple sub-zones
-

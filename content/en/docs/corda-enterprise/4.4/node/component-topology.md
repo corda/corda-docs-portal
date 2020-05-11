@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/node/component-topology.html
+- /docs/corda-enterprise/head/node/component-topology.html
+- /docs/corda-enterprise/node/component-topology.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -62,4 +64,3 @@ Detailed setup instruction for Apache Artemis can be found in [Apache Artemis do
 [HA utilities](../ha-utilities.html) for Artemis server configuration tool, which you can use to build a local, configured for Corda, Apache Artemis directory.
 
 The Corda Node VM public IP address is used for RPC client connections, however, it is only addressable by RPC clients with direct access to the Node VM’s internal network. The public IP address cannot be used to access the Node from the DMZ or the public internet.
-

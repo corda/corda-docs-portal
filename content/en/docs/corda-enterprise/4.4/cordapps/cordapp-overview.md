@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/cordapp-overview.html
+- /docs/corda-enterprise/head/cordapps/cordapp-overview.html
+- /docs/corda-enterprise/cordapps/cordapp-overview.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -79,4 +81,3 @@ However, there are several more components that are required in order to impleme
 * A `BondContract` must also be created to define the rules defining valid transactions
 
 Each node owner will install this CorDapp onto their node, and can then issue, trade, and exit bonds with other node owners.
-

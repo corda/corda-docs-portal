@@ -4,6 +4,8 @@ aliases:
 - /HEAD/secure-coding-guidelines.html
 - /secure-coding-guidelines.html
 - /releases/release-V4.4/secure-coding-guidelines.html
+- /docs/corda-os/head/secure-coding-guidelines.html
+- /docs/corda-os/secure-coding-guidelines.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -67,4 +69,3 @@ in the foot. Things to watch out for:
 fields are changing except the intended fields!
 * Accidentally catching and discarding exceptions that might be thrown by validation logic.
 * Calling into other contracts via virtual methods if you don’t know what those other contracts are or might do.
-

@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/network/joining-a-compatibility-zone.html
+- /docs/corda-enterprise/head/network/joining-a-compatibility-zone.html
+- /docs/corda-enterprise/network/joining-a-compatibility-zone.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:

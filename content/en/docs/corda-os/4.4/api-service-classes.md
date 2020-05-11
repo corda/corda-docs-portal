@@ -4,6 +4,8 @@ aliases:
 - /HEAD/api-service-classes.html
 - /api-service-classes.html
 - /releases/release-V4.4/api-service-classes.html
+- /docs/corda-os/head/api-service-classes.html
+- /docs/corda-os/api-service-classes.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:

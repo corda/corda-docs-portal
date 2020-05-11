@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/flow-cookbook.html
+- /docs/corda-enterprise/head/cordapps/flow-cookbook.html
+- /docs/corda-enterprise/cordapps/flow-cookbook.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -1391,4 +1393,3 @@ public class FlowCookbook {
 [FlowCookbook.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
-

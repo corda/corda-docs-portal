@@ -4,6 +4,8 @@ aliases:
 - /HEAD/node-structure.html
 - /node-structure.html
 - /releases/release-V4.4/node-structure.html
+- /docs/corda-os/head/node-structure.html
+- /docs/corda-os/node-structure.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -61,4 +63,3 @@ All the keystores use the password provided in the node’s configuration file u
 If no password is configured, it defaults to `cordacadevpass`.
 
 To learn more, see [Network certificates](permissioning.md).
-

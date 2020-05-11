@@ -4,6 +4,8 @@ aliases:
 - /HEAD/key-concepts-consensus.html
 - /key-concepts-consensus.html
 - /releases/release-V4.4/key-concepts-consensus.html
+- /docs/corda-os/head/key-concepts-consensus.html
+- /docs/corda-os/key-concepts-consensus.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -97,4 +99,3 @@ If one or more of the inputs have already been consumed in another transaction, 
 and the transaction proposal is considered invalid.
 
 Uniqueness consensus is provided by notaries. See [Notaries](key-concepts-notaries.md) for more details.
-

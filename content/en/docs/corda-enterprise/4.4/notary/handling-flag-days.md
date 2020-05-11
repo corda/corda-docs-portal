@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/handling-flag-days.html
+- /docs/corda-enterprise/head/notary/handling-flag-days.html
+- /docs/corda-enterprise/notary/handling-flag-days.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:

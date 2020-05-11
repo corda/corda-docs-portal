@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/deterministic-djvm.html
+- /docs/corda-enterprise/head/cordapps/deterministic-djvm.html
+- /docs/corda-enterprise/cordapps/deterministic-djvm.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -398,5 +400,3 @@ Other commands to be aware of are:
 > `check` therefore does *not* guarantee that the code will behave correctly at runtime.
 > * `djvm inspect` which allows you to inspect what byte code modifications will be applied to a class.
 > * `djvm show` which displays the transformed byte code of a class, *i.e.*, the end result and not the difference.
-
-

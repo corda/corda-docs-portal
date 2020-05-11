@@ -4,6 +4,8 @@ aliases:
 - /HEAD/testing.html
 - /testing.html
 - /releases/release-V4.4/testing.html
+- /docs/corda-os/head/testing.html
+- /docs/corda-os/testing.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -101,4 +103,3 @@ task installQuasar(type: Copy) {
 ```
 
 and then you can run `gradlew installQuasar`.
-

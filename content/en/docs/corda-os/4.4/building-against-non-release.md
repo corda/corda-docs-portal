@@ -4,6 +4,8 @@ aliases:
 - /HEAD/building-against-non-release.html
 - /building-against-non-release.html
 - /releases/release-V4.4/building-against-non-release.html
+- /docs/corda-os/head/building-against-non-release.html
+- /docs/corda-os/building-against-non-release.html
 date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
@@ -60,6 +62,3 @@ time may differ. If you are using an unstable release and need help debugging an
 * In your CorDapp’s root `build.gradle` file:
 * Update `ext.corda_release_version` to the `corda_release_version` noted down earlier
 * Update `corda_gradle_plugins_version` to the `gradlePluginsVersion` noted down earlier
-
-
-

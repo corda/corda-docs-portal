@@ -4,11 +4,15 @@ aliases:
 - /HEAD/corda-network/UAT.html
 - /corda-network/UAT.html
 - /releases/release-V4.4/corda-network/UAT.html
+- /docs/corda-os/head/corda-network/UAT.html
+- /docs/corda-os/corda-network/UAT.html
+- /docs/corda-os/head/UAT.html
+- /docs/corda-os/UAT.html
 date: '2020-01-08T09:59:25Z'
-menu: 
+menu:
   corda-os-4-4:
     parent: corda-os-4-4-corda-network
-    identifier: corda-os-4-4-corda-network-uat
+    weight: 10
 tags:
 - UAT
 title: 'Corda Network: Pre-Production Environment'
@@ -56,4 +60,3 @@ Corda Network Pre-Production is governed by an [independent Foundation](https://
 Steps to join are outlined on the [Corda Network site](https://corda.network/participation/index.html).
 
 For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network) or at [info@corda.network](mailto:info@corda.network)
-

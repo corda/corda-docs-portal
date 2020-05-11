@@ -4,6 +4,8 @@ aliases:
 - /HEAD/deploy-locally.html
 - /deploy-locally.html
 - /releases/release-V4.4/deploy-locally.html
+- /docs/corda-os/head/deploy-locally.html
+- /docs/corda-os/deploy-locally.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
@@ -188,4 +190,3 @@ It is possible to copy the `node.zip` file from your local machine to any other 
 ## Testing your deployment
 
 To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up the Finance CorDapp and issue cash to a counterparty.
-

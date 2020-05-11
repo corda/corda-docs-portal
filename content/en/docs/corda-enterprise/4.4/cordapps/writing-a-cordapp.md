@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/cordapps/writing-a-cordapp.html
+- /docs/corda-enterprise/head/cordapps/writing-a-cordapp.html
+- /docs/corda-enterprise/cordapps/writing-a-cordapp.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -169,4 +171,3 @@ In a production CorDapp:
 `TemplateWebPlugin.java`, `resources/templateWeb`, and `net.corda.webserver.services.WebServerPluginRegistry`)
 and replace them with a production-ready webserver
 * We would also move `TemplateClient.java` into a separate module so that it is not included in the CorDapp
-

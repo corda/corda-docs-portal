@@ -1,6 +1,8 @@
 ---
 aliases:
 - /releases/4.4/notary/installing-percona.html
+- /docs/corda-enterprise/head/notary/installing-percona.html
+- /docs/corda-enterprise/notary/installing-percona.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
@@ -313,4 +315,3 @@ mysql> use corda;
 ```
 
 In the next section, we’re [Configuring the notary worker nodes](installing-the-notary-service.md).
-
