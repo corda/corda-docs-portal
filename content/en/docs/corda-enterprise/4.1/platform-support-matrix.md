@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-platform-support-matrix
-    weight: 70
+    weight: 41
 tags:
 - platform
 - support
