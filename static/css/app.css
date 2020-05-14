@@ -6,5 +6,6 @@
 @import "5_objects/row.css";
 @import "5_objects/col.css";
 
+@import "6_components/cookie-declaration.css";
 @import "6_components/container.css";
 @import "6_components/landing.css";

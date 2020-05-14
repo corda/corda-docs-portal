@@ -3,6 +3,7 @@
     {{ partial "head.html" . }}
     <body>
         <noscript>You need to enable javascript for this site</noscript>
+        {{- partial "cookie-banner.html" . -}}
         {{- partial "header.html" . -}}
         <div class="container-fluid r3-o-container-fluid">
             <div class="row position-relative">
@@ -37,8 +38,7 @@
                 </div>
             </div>
         </div>
-
+        {{ partial "globals.html" .}}
         {{- partial "scripts.html" . -}}
-        {{- partial "scripts-docs.html" . -}}
     </body>
 </html>

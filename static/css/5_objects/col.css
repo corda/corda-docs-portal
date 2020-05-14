@@ -7,6 +7,15 @@
     width: 100%;
 }
 
+.r3-o-col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+}
+
 @media screen and (min-width: 768px) {
     .r3-o-col-md-6 {
         flex: 0 0 50%;

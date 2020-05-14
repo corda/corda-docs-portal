@@ -1,0 +1,40 @@
+.r3-o-cookie-declaration {
+    color: var(--grey-400);
+    margin-top: 40px;
+    max-width: 768px;
+    padding: 0 35px;
+    width: 100%;
+}
+
+.r3-o-cookie-declaration h1, .r3-o-cookie-declaration h2 {
+    color: var(--grey-500);
+    margin-top: 0;
+}
+
+.r3-o-cookie-declaration h1 {    
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.r3-o-cookie-declaration h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.r3-o-cookie-declaration p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4em;
+    margin-bottom: 22px;
+}
+
+@media screen and (min-width: 768px) {
+    .r3-o-cookie-declaration {
+        max-width: 1140px;
+        padding: 0 22px;
+    }
+
+    .r3-o-cookie-declaration h1 {    
+        font-size: 36px;
+    }
+}

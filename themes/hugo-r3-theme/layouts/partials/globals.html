@@ -1,0 +1,11 @@
+{{ if .Site.Params.algolia_appId }}
+{{ $project := or .Parent.Page.Params.project .Page.Params.project}}
+{{ $version := or .Parent.Page.Params.version .Page.Params.version}}
+<script type="text/javascript">
+    window.facetFilters = [
+        'project:{{- $project -}}',
+        'version:{{- $version -}}',
+        'language:{{- .Site.Language.Lang -}}'
+    ]
+</script>
+{{ end }}

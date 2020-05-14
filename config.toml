@@ -88,6 +88,7 @@ default_tab = "java"
 
 ogimage = "/images/png/corda.png"
 
+# hack - these values are asigned in global.html
 algolia_appId = "UX2KMUWFAL"
 algolia_apiKey = "1fe3367db02689b4aeebc59efad5abaf"
 algolia_index = "docs.corda.net"

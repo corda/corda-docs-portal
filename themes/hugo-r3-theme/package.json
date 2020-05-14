@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "docsearch.js": "^2.6.3",
+    "cookies-eu-banner": "^2.0.1",
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
     "lodash-es": "^4.17.15",

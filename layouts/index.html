@@ -4,6 +4,7 @@
 
     <body>
         <noscript>You need to enable javascript for this site</noscript>
+        {{- partial "cookie-banner.html" . -}}
         {{- partial "header.html" . -}}
         <div class="r3-o-landing r3-o-landing__container">
             <div class="r3-o-row">
@@ -62,9 +63,6 @@
             </div>
         </footer>
         {{ partial "scripts.html" . }}
-        <script>
-            oneTimePopUp("#popup");
-        </script>
     </body>
 
     </html>

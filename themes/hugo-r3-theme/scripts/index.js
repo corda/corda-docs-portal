@@ -3,6 +3,7 @@ import { activateListeners } from "./nav";
 import { scrollOffset, clickLinkOnNavExpandDropDown, uncheckDropDownOnClick } from "./sitemap";
 import { activateTabs } from "./activate-tabs";
 import { searchShortcut } from "./search-shortcut";
+import { DocsiteCookies } from "./cookie-banner";
 
 document.addEventListener("DOMContentLoaded", function() {
     applyAnchors();
@@ -12,4 +13,5 @@ document.addEventListener("DOMContentLoaded", function() {
     searchShortcut();
     clickLinkOnNavExpandDropDown();
     uncheckDropDownOnClick();
+    new DocsiteCookies();
 });
