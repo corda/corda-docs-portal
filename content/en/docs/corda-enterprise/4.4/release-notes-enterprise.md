@@ -18,9 +18,9 @@ title: Corda Enterprise Release notes
 # Corda Enterprise Release notes
 
 
-## Corda Enterprise 4.4.1
+## Corda Enterprise 4.4.2
 
-Corda Enterprise 4.4.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.4 and a fix to a new issue related to a recent third-party dependency update.
+Corda Enterprise 4.4.2 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.4 and a fix to a new issue related to a recent third-party dependency update.
 
 ### Upgrade recommendation
 
