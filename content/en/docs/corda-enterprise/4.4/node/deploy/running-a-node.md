@@ -45,6 +45,24 @@ in the current working directory. You can override the configuration file and wo
 `./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
 
 
+{{< note >}}
+If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the obfuscation seed and passphrase to the node in the node run command.
+
+To do so using the [Configuration Obfuscator](../../tools-config-obfuscation.md) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
+
+The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration Obfuscator command-line tool:
+
+```bash
+$ java -jar corda.jar --config-obfuscation-seed my-seed --config-obfuscation-passphrase my-passphrase
+
+```
+
+To pass the seed and passphrase to a node using environment variables, follow the example below:
+
+```bash
+$ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=my-passphrase; java -jar corda.jar
+```
+{{< /note >}}
 
 
 ### Setting JVM arguments
