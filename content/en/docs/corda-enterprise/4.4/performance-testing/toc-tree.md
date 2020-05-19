@@ -5,6 +5,12 @@ aliases:
 - /docs/corda-enterprise/performance-testing/toc-tree.html
 date: '2020-01-08T09:59:25Z'
 menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-miscellaneous
+    identifier: corda-enterprise-4-4-perf-index
+    name: Performance Testing
+    weight: 2000
 title: Corda Enterprise Performance Testing
 ---
 

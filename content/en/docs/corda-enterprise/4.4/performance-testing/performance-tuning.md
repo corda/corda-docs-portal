@@ -4,7 +4,10 @@ aliases:
 - /docs/corda-enterprise/head/performance-testing/performance-tuning.html
 - /docs/corda-enterprise/performance-testing/performance-tuning.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-perf-index
+    weight: 2008
 tags:
 - performance
 - tuning

@@ -4,7 +4,10 @@ aliases:
 - /docs/corda-enterprise/head/performance-testing/r3-performance-runs.html
 - /docs/corda-enterprise/performance-testing/r3-performance-runs.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-perf-index
+    weight: 2006
 tags:
 - r3
 - performance
