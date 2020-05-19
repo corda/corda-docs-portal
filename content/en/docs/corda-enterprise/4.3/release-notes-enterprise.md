@@ -17,6 +17,39 @@ title: Release notes
 # Release notes
 
 
+## Corda Enterprise 4.3.3
+
+
+Corda Enterprise 4.3.3 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.3.1 and a fix to a new issue related to a recent third-party dependency update.
+
+
+### Upgrade recommendation
+
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-index.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+
+### Fixed issues
+
+* A recent JDK update has broken the way we used delegated signatures for TLS (Transport Layer Security) handshakes. We have fixed this issue through patches on all affected Corda Enterprise versions (4.2+) to allow users to upgrade to the latest versions of compatible JDK distributions. If you have not upgraded to one of the patched releases yet, do not upgrade to Java 8 version `8u252` or higher.
+* Fixed an issue that prevents operations run on the node’s external thread pool from being executed multiple times [[CORDA-3686](https://r3-cev.atlassian.net/browse/CORDA-3686)].
+* Database indexes have been added for the `NODE_MESSAGE_IDS` and `VAULT_STATES` table to speed up frequently-used queries.
+* A number of problems with the JPA notary have been addressed:
+    * Ensure that notarisation succeeds when committing large batches of states using CockroachDB.
+    * Prevent database connection leak on unexpected DB exceptions.
+    * Prevent incorrect handling of scenarios where a successful transaction containing an input state and an unspent reference state is retried.
+* Resolved a race condition in `FlowLogic.waitForLedgerCommit`.
+* Fixed an issue in the [IRS sample app](contract-irs.md) where a checkpoint could not be restored.
+* Made `recordTransaction` idempotent, preventing constraint violation errors when trying to add a transaction that is already in the vault.
+* Fixed an issue to prevent notarisation batches containing duplicate transactions from getting stuck.
+* Fixed an issue to allow the CRaSH shell to use the built-in "dashboard" command in a safe way.
+* Published the metering collection tool as part of the Corda Enterprise distribution.
+* Fixed an issue in DNS resolution when using the Corda Health Survey.
+* Fixed an issue to allow the Corda Health Survey Tool to follow HTTP to HTTPS redirects when resolving Identity Manager/Network Map addresses.
+
+
 ## Corda Enterprise 4.3.1
 
 Corda Enterprise 4.3.1 is a patch release of Corda Enterprise that includes fixes for several issues identified post development of Corda Enterprise 4.3.
