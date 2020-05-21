@@ -1,8 +1,6 @@
 $toc-object: ".#{$class-object-prefix}toc";
-
 #{$toc-object} {
     overflow-y: auto;
-
     h4 {
         color: $grey-800;
         font-size: 18px;
@@ -13,81 +11,82 @@ $toc-object: ".#{$class-object-prefix}toc";
         padding-left: 40px;
         text-transform: uppercase;
     }
-
     #TableOfContents {
-        & > ul {
+        &>ul {
             font-size: 16px;
             list-style-type: none;
             margin: 0;
             overflow-y: auto;
             padding-left: 40px;
-
-            & > li {
+            &>li {
                 border-bottom: 1px solid $grey-200;
                 color: $grey-800;
                 cursor: pointer;
                 letter-spacing: 2px;
                 padding: 10px 5px;
                 text-transform: uppercase;
-
-                & > a {
+                &>a {
                     color: $grey-800;
-
                     &:hover {
                         color: $red-400;
                         text-decoration-line: none;
                     }
                 }
-
-                & > ul {
+                &>ul {
                     display: none;
                     font-size: 14px;
                     list-style: none;
                     margin: 0;
                     perspective: 900;
                     padding: 0;
-
-                    & > li {
-                        & > a {}
+                    &>li {
+                        &>a {}
                     }
                 }
-
                 &:first-child {
                     border-top: 1px solid $grey-200;
                 }
-
                 &:hover {
                     background-color: $grey-100;
-
-                    & > a {
+                    &>a {
                         color: $red-400;
                     }
                 }
             }
         }
     }
-
+    #to-top {
+        padding-left: 0;
+        li {
+            list-style: none;
+            a {
+                color: $grey-800;
+                &:hover {
+                    color: $red-400;
+                    text-decoration-line: none;
+                }
+            }
+            i {
+                padding-left: 5px;
+            }
+        }
+    }
     @media screen and (min-width: 1200px) {
-
         h4 {
             margin-bottom: 20px;
             padding-left: 0;
         }
-
         #TableOfContents {
-            & > ul {
+            &>ul {
                 padding-left: 0;
-
-                & > li {
+                &>li {
                     border: none;
                     padding: 0 0 10px;
                     letter-spacing: normal;
                     text-transform: initial;
-
                     &:first-child {
                         border-top: none;
                     }
-
                     &:hover {
                         background-color: inherit;
                     }
@@ -96,4 +95,3 @@ $toc-object: ".#{$class-object-prefix}toc";
         }
     }
 }
-

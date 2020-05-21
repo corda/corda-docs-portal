@@ -1,8 +1,15 @@
 <div id="toc" class="r3-o-toc">
-    {{ $element := .Page.TableOfContents }}
-    {{ if eq $element `<nav id="TableOfContents"></nav>`}}
-        <strong>Empty</strong>
-    {{ end }}
+    {{ $element := .Page.TableOfContents }} {{ if eq $element `
+    <nav id="TableOfContents"></nav>`}}
+    <strong>Empty</strong> {{ end }}
     <h4>{{- .Page.Title -}}</h4>
     {{- .Page.TableOfContents -}}
+    <ul id="to-top">
+        <li>
+            <a href="#">
+                Back to top
+                <i><img src="/images/svg/up-arrow.svg" height="9px"></i>
+            </a>
+        </li>
+    </ul>
 </div>

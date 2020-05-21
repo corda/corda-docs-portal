@@ -1,5 +1,4 @@
 $nav-object: "#{$class-object-prefix}nav";
-
 .#{$nav-object} {
     background-color: white;
     bottom: 0;
@@ -8,7 +7,7 @@ $nav-object: "#{$class-object-prefix}nav";
     left: 0;
     height: 100%;
     -webkit-overflow-scrolling: touch;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 32px;
@@ -16,28 +15,23 @@ $nav-object: "#{$class-object-prefix}nav";
     top: 0;
     width: 312px;
     z-index: 100;
-
     h5 {
         margin-bottom: 20px;
         padding-left: 22px;
     }
-
     nav {
         font-size: 14px;
         margin-top: 22px;
-
         &:first-child {
             margin-top: 0;
         }
     }
-
     @media screen and (min-width: 1200px) {
         box-shadow: unset;
         height: 100vh;
         padding-top: 10px;
         position: -webkit-sticky !important;
         position: sticky !important;
-
         h5 {
             text-align: center;
             padding-left: 0;
