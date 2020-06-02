@@ -4,7 +4,11 @@
 import $ from 'jquery';
 import 'jquery-ui';
 import 'jquery-ui/ui/widgets/tabs';
-import 'bootstrap';
+
+//  Importing bootstrap on its own adds an extra event handler to jquery
+//  that breaks the dropdown toggle, i.e. the versions menu, so we have
+//  to import only the component we want instead - the bootstrap-jquery-tab
+import 'bootstrap/js/dist/tab';
 
 const default_tab = "java";
 
