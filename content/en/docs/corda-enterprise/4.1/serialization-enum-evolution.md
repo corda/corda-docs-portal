@@ -248,7 +248,7 @@ Just as with the `CordaSerializationTransformRename` transformation if a single 
 then the meta transform may be omitted.
 
 {{< tabs name="tabs-7" >}}
-{{% tab name="kotlin" %}}
+{{< tab name="kotlin" >}}
 ```kotlin
 @CordaSerializationTransformEnumDefault("D", "C")
 enum class Example {
@@ -296,7 +296,7 @@ enum class Example {
 When deserializing the most applicable transform will be applied. Continuing the above example, deserializing
 nodes could have three distinct views on what the enum Example looks like (annotations omitted for brevity)
 
-{{< tabs name="tabs-9" >}}
+{{< tabs name="tabs-9-1" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 // The original version of the class. Will deserialize: -
@@ -310,7 +310,9 @@ enum class Example {
 }
 ```
 {{% /tab %}}
+{{< /tabs >}}
 
+{{< tabs name="tabs-9-2" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 // The class as it existed after the first addition. Will deserialize:
@@ -324,7 +326,9 @@ enum class Example {
 }
 ```
 {{% /tab %}}
+{{< /tabs >}}
 
+{{< tabs name="tabs-9-3" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 // The current state of the class. All values will deserialize as themselves
@@ -426,5 +430,3 @@ The following evolutions are not currently supports
 
 * Removing constants
 * Reordering constants
-
-
