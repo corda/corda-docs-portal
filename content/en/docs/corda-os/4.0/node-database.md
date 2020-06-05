@@ -56,31 +56,6 @@ on the standard schema search path according to the
 the schema search path must be set explicitly for the user.
 
 
-### SQLServer
-
-Nodes also have untested support for Microsoft SQL Server 2017, using Microsoft JDBC Driver 6.2 for SQL Server. Here is
-an example node configuration for SQLServer:
-
-```groovy
-dataSourceProperties = {
-    dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
-    dataSource.url = "jdbc:sqlserver://[HOST]:[PORT];databaseName=[DATABASE_NAME]"
-    dataSource.user = [USER]
-    dataSource.password = [PASSWORD]
-}
-database = {
-    transactionIsolationLevel = READ_COMMITTED
-}
-jarDirs = ["[FULL_PATH]/sqljdbc_6.2/enu/"]
-```
-
-Note that:
-
-
-* Ensure the directory referenced by jarDirs contains only one JDBC driver JAR file; by the default,
-sqljdbc_6.2/enu/contains two JDBC JAR files for different Java versions.
-
-
 ## Node database tables
 
 By default, the node database has the following tables:
