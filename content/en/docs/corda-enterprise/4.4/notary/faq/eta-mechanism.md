@@ -4,10 +4,17 @@ aliases:
 - /docs/corda-enterprise/head/notary/faq/eta-mechanism.html
 - /docs/corda-enterprise/notary/faq/eta-mechanism.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-corda-nodes-notary-faq-eta-mechanism
+    name: "ETA Mechanism Overview"
+    parent: corda-enterprise-4-4-running-a-notary-cluster-faq-toctree
 tags:
-- mechanism
+- notary
+- ETA mechanism
+- etaMessageThresholdSeconds
 title: ETA Mechanism Overview
+weight: 1
 ---
 
 

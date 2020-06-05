@@ -4,12 +4,21 @@ aliases:
 - /docs/corda-enterprise/head/notary/faq/toctree.html
 - /docs/corda-enterprise/notary/faq/toctree.html
 date: '2020-01-08T09:59:25Z'
-menu: []
-title: Frequently-Asked-Questions
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-running-a-notary-cluster-faq-toctree
+    name: "Notary FAQs"
+    parent: corda-enterprise-4-4-corda-nodes
+tags:
+    - notary
+    - FAQs
+    - frequently asked questions
+title: Notary Frequently Asked Questions (FAQs)
+weight: 15
 ---
 
 
-# Frequently-Asked-Questions
+# Notary Frequently Asked Questions (FAQs)
 
 Frequently asked questions for anything notary related:
 

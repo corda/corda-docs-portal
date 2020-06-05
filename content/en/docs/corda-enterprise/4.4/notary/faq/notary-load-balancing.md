@@ -4,12 +4,16 @@ aliases:
 - /docs/corda-enterprise/head/notary/faq/notary-load-balancing.html
 - /docs/corda-enterprise/notary/faq/notary-load-balancing.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-corda-nodes-notary-faq-notary-load-balancing
+    name: "Notary Load Balancing"
+    parent: corda-enterprise-4-4-running-a-notary-cluster-faq-toctree
 tags:
 - notary
-- load
-- balancing
+- load balancing
 title: Notary Load Balancing
+weight: 2
 ---
 
 
