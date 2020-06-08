@@ -138,10 +138,19 @@ e.g. *C3NMP4ssword* is a valid password. Passwords are delimited with single quo
 Use different passwords for *my_admin_user* and *my_user*.
 
 Connect to a user database as the administrator (replace *master* with a user database in the connection string).
+
 Run the following script to create a schema and assign user permissions:
 
 ```sql
 CREATE SCHEMA my_schema;
+```
+
+After creating the schema you may need to commit the change - for example, with the `GO`
+command on Microsoft tools, or `commit;` on other tools.
+
+Run the following script to assign user permissions:
+
+```sql
 CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
 GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
 GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
@@ -183,7 +192,14 @@ Run the following script to create a schema and assign user permissions:
 
 ```sql
 CREATE SCHEMA my_schema;
+```
 
+After creating the schema you may need to commit the change - for example, with the `GO`
+command on Microsoft tools, or `commit;` on other tools.
+
+Run the following script to assign user permissions:
+
+```sql
 CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
 GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
 GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
