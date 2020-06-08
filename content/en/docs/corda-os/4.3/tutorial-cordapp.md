@@ -368,7 +368,7 @@ the web form served from the home directory.
 To create an IOU between PartyA and PartyB, run the following command from the command line:
 
 ```bash
-curl -i -X POST 'http://localhost:50005/api/example/create-iou?iouValue=12&partyName=O=PartyC,L=Paris,C=FR' -H 'Content-Type: application/x-www-form-urlencoded'
+curl -i -X POST 'http://localhost:50005/api/example/create-iou?iouValue=12&partyName=O=PartyB,L=New%20York,C=US' -H 'Content-Type: application/x-www-form-urlencoded'
 ```
 
 Note that both PartyA’s port number (`50005`) and PartyB are referenced in the PUT request path. This command
@@ -539,4 +539,3 @@ See [Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-run
 ## Debugging your CorDapp
 
 See [Debugging a CorDapp](debugging-a-cordapp.md).
-
