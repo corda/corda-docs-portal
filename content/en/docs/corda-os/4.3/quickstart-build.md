@@ -43,7 +43,7 @@ Since the CorDapp models a car dealership network, a state must be created to re
 * From IntelliJ expand the source files and navigate to the following state template file: `contracts > src > main > kotlin > com.template > states > TemplateState.kt`.
 * Right-click on **TemplateState.kt** in the project navigation on the left. Select **Refactor** > **Copy**.
 * Rename the file to `CarState` and click **OK**.
-* Double-click the new state file to open it. Add the following imports to the top of the state file:> 
+* Double-click the new state file to open it. Add the following imports to the top of the state file:>
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -91,7 +91,7 @@ Don’t worry if you’re not sure exactly how these should appear, you can chec
 
 * Remove the `data` and `participants` parameters.
 * Add a body to the `CarState` class that overrides participants to contain a list of `owningBank`, `holdingDealer`, and `manufacturer`.
-* The `CarState` file should now appear as follows:> 
+* The `CarState` file should now appear as follows:>
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -145,7 +145,7 @@ After creating a state, you must create a contract. Contracts define the rules t
 * Right-click on **TemplateContract.kt** in the project navigation on the left. Select **Refactor > Copy**.
 * Rename the file to `CarContract` and click **OK**.
 * Double-click the new contract file to open it.
-* Add the following imports to the top of the file:> 
+* Add the following imports to the top of the file:>
 {{< tabs name="tabs-3" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -223,7 +223,7 @@ class CarContract : Contract {
         when(command) {
           is Commands.Issue -> requireThat {
             "There should be no input state" using (tx.inputs.isEmpty())
-            "There should be one input state" using (tx.outputs.size == 1)
+            "There should be one output state" using (tx.outputs.size == 1)
             "The output state must be of type CarState" using (tx.outputs.get(0).data is CarState)
             val outputState = tx.outputs.get(0).data as CarState
             "The licensePlateNumber must be seven characters long" using (outputState.licensePlateNumber.length == 7)
@@ -250,7 +250,7 @@ class CarContract : Contract {
 * From IntelliJ, expand the project source and navigate to: `workflows > src > main > kotlin > com.template.flows > Flows.kt`
 * Right-click on **Flows.kt** in the project navigation on the left. Select **Refactor > Copy**.
 * Rename the file to `CarFlow` and click **OK**.
-* Add the following imports to the top of the file:> 
+* Add the following imports to the top of the file:>
 {{< tabs name="tabs-6" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -552,7 +552,7 @@ The Gradle build files must be updated to change the node configuration.
 
 
 * Navigate to the `build.gradle` file in the root `cordapp-template-kotlin` directory.
-* In the `deployNodes` task, update the nodes to read as follows:> 
+* In the `deployNodes` task, update the nodes to read as follows:>
 {{< tabs name="tabs-13" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -633,7 +633,7 @@ Maintain window focus on the node windows, if the nodes fail to load, close them
 {{< /note >}}
 
 
-* To run flows in your CorDapp, enter the following flow command from any non-notary terminal window:> 
+* To run flows in your CorDapp, enter the following flow command from any non-notary terminal window:>
 {{< tabs name="tabs-14" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -669,4 +669,3 @@ For operational users, see the following documentation:
 * [Node structure and configuration](/corda-nodes-index.html)
 * [Deploying a node to a server](deploying-a-node.html)
 * [Notary documentation](running-a-notary.html)
-
