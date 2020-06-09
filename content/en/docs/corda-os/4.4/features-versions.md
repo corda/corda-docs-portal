@@ -7,15 +7,19 @@ aliases:
 - /docs/corda-os/head/features-versions.html
 - /docs/corda-os/features-versions.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-4:
+    identifier: corda-os-4-4-features-versions
+    weight: 2
 tags:
 - features
 - versions
-title: Corda Features to Versions
+- platform versions
+title: Corda features and versions
 ---
 
 
-# Corda Features to Versions
+# Corda features and versions
 
 New versions of Corda introduce new features. These fall into one of three categories which have subtle but important implications for
 node owners, application developers and network operators.
@@ -50,7 +54,7 @@ of Corda as well as opt in to newer features should they happen to be available 
 {{< table >}}
 
 
-# Corda Features
+# Corda features
 
 |Feature|Corda Platform Version (PV)|Min Network Platform Version (network mPV)|Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|

@@ -13,7 +13,7 @@ tags:
 - release
 - notes
 title: Release notes and changelog
-weight: 4
+weight: 5
 ---
 
 

@@ -10,7 +10,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-os-4-4:
     identifier: corda-os-4-4-node-upgrade-notes
-    weight: 3
+    weight: 4
 tags:
 - node
 - upgrade
