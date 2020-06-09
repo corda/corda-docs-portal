@@ -2,7 +2,10 @@
 aliases:
 - /releases/3.2/node-database-access-h2.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu: 
+  corda-enterprise-3-2:
+    parent: corda-enterprise-3-2-corda-nodes-index
+    weight: 1085
 tags:
 - node
 - database
