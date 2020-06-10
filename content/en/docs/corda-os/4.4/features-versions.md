@@ -58,9 +58,9 @@ of Corda as well as opt in to newer features should they happen to be available 
 
 |Feature|Corda Platform Version (PV)|Min Network Platform Version (network mPV)|Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|
+|Hash Constraints|1|1|1.0|1.0|
 |Observer Nodes|2|2|2.0|n/a|
 |Corda Serialization Framework|3|3|3.0|3.0|
-|Hash Constraints|1|1|1.0|1.0|
 |Whitelist Constraints|3|3|3.0|3.0|
 |Inline Finality Flow|4|3|4.0|4.0|
 |Reference States|4|4|4.0|4.0|

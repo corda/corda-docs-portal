@@ -25,7 +25,7 @@ Before reading this page, you should be familiar with the key concepts of [Contr
 {{< /note >}}
 {{< note >}}
 As of Corda 4.3 the *minimumPlatformVersion* required to use these features is 4
-(see [Network Parameters](network-map.md#network-parameters) and [Corda Features to Versions](features-versions.md) for more details).
+(see [Network Parameters](network-map.md#network-parameters) and [Corda Features and Versions](features-versions.md) for more details).
 
 {{< /note >}}
 
@@ -138,7 +138,7 @@ Below are two examples of possible scenarios around blacklisting signing keys:
 
 
 
-* The statements below are true for both examples:> 
+* The statements below are true for both examples:>
 
     * `Alice` has `Contracts CorDapp` installed
     * `Bob` has an upgraded version of `Contracts CorDapp` (known as `Contracts CorDapp V2`) installed
@@ -148,7 +148,7 @@ Below are two examples of possible scenarios around blacklisting signing keys:
 
 
 
-* Example 1:> 
+* Example 1:>
 
     * `Alice` has not blacklisted any attachment signing keys
     * `Bob` transacts with `Alice`
@@ -158,7 +158,7 @@ Below are two examples of possible scenarios around blacklisting signing keys:
 
 
 
-* Example 2:> 
+* Example 2:>
 
     * `Alice` blacklists `Bob`’s attachment signing key
     * `Bob` transacts with `Alice`
@@ -470,4 +470,3 @@ See [Creating nodes locally](generating-a-node.md) for detailed instructions.
 You are specifying the fully-qualified name of the contract incorrectly. For example, you’ve defined `MyContract` in
 the package `com.mycompany.myapp.contracts`, but the fully-qualified contract name you pass to the
 `TransactionBuilder` is `com.mycompany.myapp.MyContract` (instead of `com.mycompany.myapp.contracts.MyContract`).
-

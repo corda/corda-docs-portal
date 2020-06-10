@@ -2,15 +2,19 @@
 aliases:
 - /releases/release-V4.3/features-versions.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-3:
+    identifier: corda-os-4-3-features-versions
+    weight: 25
 tags:
 - features
 - versions
-title: Corda Features to Versions
+- platform versions
+title: Corda features and versions
 ---
 
 
-# Corda Features to Versions
+# Corda features and versions
 
 New versions of Corda introduce new features. These fall into one of three categories which have subtle but important implications for
 node owners, application developers and network operators.
@@ -49,9 +53,9 @@ of Corda as well as opt in to newer features should they happen to be available 
 
 |Feature|Corda Platform Version (PV)|Min Network Platform Version (network mPV)|Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|
+|Hash Constraints|1|1|1.0|1.0|
 |Observer Nodes|2|2|2.0|n/a|
 |Corda Serialization Framework|3|3|3.0|3.0|
-|Hash Constraints|1|1|1.0|1.0|
 |Whitelist Constraints|3|3|3.0|3.0|
 |Inline Finality Flow|4|3|4.0|4.0|
 |Reference States|4|4|4.0|4.0|
@@ -59,4 +63,3 @@ of Corda as well as opt in to newer features should they happen to be available 
 |Underlying Support for Accounts|5|4|4.3|4.3|
 
 {{< /table >}}
-

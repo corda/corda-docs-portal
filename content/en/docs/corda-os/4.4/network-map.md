@@ -176,7 +176,7 @@ The transaction verification logic will throw an exception when this happens.
 
 
 {{< note >}}
-To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.4 see [Corda Features to Versions](features-versions.md)
+To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.4 see [Corda Features and Versions](features-versions.md)
 
 {{< /note >}}
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6
