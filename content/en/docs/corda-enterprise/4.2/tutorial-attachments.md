@@ -67,12 +67,13 @@ Attachment metadata can be queried in a similar way to the vault (see [API: Vaul
 `AttachmentQueryCriteria` can be used to build a query using the following set of column operations:
 
 
-* Binary logical (AND, OR)
-* Comparison (LESS_THAN, LESS_THAN_OR_EQUAL, GREATER_THAN, GREATER_THAN_OR_EQUAL)
-* Equality (EQUAL, NOT_EQUAL)
-* Likeness (LIKE, NOT_LIKE)
-* Nullability (IS_NULL, NOT_NULL)
-* Collection based (IN, NOT_IN)
+* Binary logical (`AND`, `OR`)
+* Comparison (`LESS_THAN`, `LESS_THAN_OR_EQUAL`, `GREATER_THAN`, `GREATER_THAN_OR_EQUAL`)
+* Equality (`EQUAL`, `NOT_EQUAL`)
+* Likeness (`LIKE`, `NOT_LIKE`)
+* Nullability (`IS_NULL`, `NOT_NULL`)
+* Collection based (`IN`, `NOT_IN`)
+* Standard SQL-92 aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`, `COUNT`)
 
 The `and` and `or` operators can be used to build complex queries. For example:
 
@@ -239,4 +240,3 @@ doesn’t already have the attachment in its storage, we upload it from a JAR re
 we expected. Then a trivial transaction is built that has the attachment and a single signature and it’s sent to
 the other side using the FinalityFlow. The result of starting the flow is a stream of progress messages and a
 `returnValue` observable that can be used to watch out for the flow completing successfully.
-
