@@ -17,30 +17,28 @@ title: Upgrading Corda Enterprise Network Manager
 
 # Upgrading Corda Enterprise Network Manager
 
-These notes provide instructions for upgrading your network management (Doorman, Network Map or Revocation) service or
-signing service from previous versions to the newest version. Please consult the relevant release notes of the release
+This document provides instructions for upgrading your network management suite - Identity Manager Service (formerly Doorman), Network Map Service, or Revocation Service - or
+Signing Service from previous versions to the newest version. Please consult the relevant release notes of the release
 in question. If not specified, you may assume the versions you are currently using are still in force.
 
 We also strongly recommend cross referencing with the [Changelog](changelog.md) to confirm changes.
 
-<!---
 ## 1.2 to 1.2.1
 
- **Identity Manager**
+ **Identity Manager Service**
 
   The release includes changes to database schemas (see [Changelog](changelog.md)) for Oracle databases;
-  new columns are created automatically upon each service startup.
-  Ensure the Identity Manager is configured to perform this migration
-  by setting ``runMigration`` property to ``true``.
+  new columns are created automatically upon each service start-up.
+  Ensure the Identity Manager Service is configured to perform this migration
+  by setting the `runMigration` property to `true`.
 
-  The upgrade process is otherwise just a drop-in replacement of the existing JARs with ``<service>-1.2.1.jar``.
-  Ensure you stop the service before replacing the JAR files.
+  The upgrade process is otherwise just a drop-in replacement of the existing `.jar` files with `<service>-1.2.1.jar`.
+  Ensure you stop the service before replacing the `.jar` files.
   Ensure that there are no orphan processes running after shout down.
 
 ## 1.1 to 1.2.1
 
- See the upgrade note for 1.1 to 1.2.
--->
+ See the upgrade note for 1.1 to 1.2 below.
 
 ## 1.1 to 1.2
 
