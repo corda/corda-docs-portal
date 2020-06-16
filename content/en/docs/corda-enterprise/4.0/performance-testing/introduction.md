@@ -24,7 +24,6 @@ capture the start/return rates and thus throughput of the system under test.
 This guide assumes that you have a working Corda test network or
 know how to set one up - the set-up and topology of the Corda network as well as the hardware used can have a sweeping
 impact on performance, so there is not much point in performance testing before these points have been considered.
-
 {{< /warning >}}
 
 
@@ -178,4 +177,3 @@ then start to break it up in smaller payments, allowing the following settings t
 * Number of input states to a new transaction (i.e. pay a larger sums from change shards of the previous transaction).
 
 Advanced tests also include testing e.g. connecting to the target node via float/firewall.
-
