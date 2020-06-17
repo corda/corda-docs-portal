@@ -69,6 +69,11 @@ we include them here as they can aid debugging but, for the avoidance of doubt, 
 
 {{< /note >}}
 
+{{< note >}}
+Note that we support HTTP OK (response code 200), any other kind of response codes including HTTP redirects (response code 301) are not supported.
+
+{{< /note >}}
+
 {{< table >}}
 
 |Request method|Path|Description|

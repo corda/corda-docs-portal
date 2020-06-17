@@ -58,6 +58,11 @@ The set of REST end-points for the network map service are as follows.
 
 {{< /table >}}
 
+{{< note >}}
+Note that we support HTTP OK (response code 200), any other kind of response codes including HTTP redirects (response code 301) are not supported.
+
+{{< /note >}}
+
 
 ### Additional endpoints from R3
 
