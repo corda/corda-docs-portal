@@ -50,17 +50,43 @@ on CRL lifecycle are covered under [Lifecycle](#crl-lifecycle).
 
 ## HTTP certificate revocation protocol
 
-The set of REST end-points for the revocation service are as follows.
+The set of REST endpoints for the revocation service are determined by the CRL file names provided in the PKI tool configuration.
+The example below shows the relevant part of such a PKI configuration along with the respective endpoints.
+
+```guess
+certificates = {
+    "::CORDA_TLS_CRL_SIGNER" = {
+        crl = {
+          crlDistributionUrl = "http://identitymanager:10000/certificate-revocation-list/tls"
+          indirectIssuer = true
+          issuer = "CN=Corda TLS Signer Certificate, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US"
+          file = "/etc/corda/crl-files/tls.crl"
+        }
+    },
+    "::CORDA_ROOT" = {
+        crl = {
+          crlDistributionUrl = "http://identitymanager:10000/certificate-revocation-list/root"
+          file = "/etc/corda/crl-files/root.crl"
+        }
+    },
+    "::CORDA_SUBORDINATE" = {
+        crl = {
+          crlDistributionUrl = "http://identitymanager:10000/certificate-revocation-list/subordinate"
+          file = "/etc/corda/crl-files/subordinate.crl"
+        }
+    }
+)
+```
 
 
 {{< table >}}
 
 |Request method|Path|Description|
 |----------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|POST|/certificate-revocation-request|To upload a certificate revocation request.|
-|GET|/certificate-revocation-list/doorman|Retrieves the certificate revocation list issued by the Doorman CA. Returns an ASN.1 DER-encoded java.security.cert.X509CRL object.|
-|GET|/certificate-revocation-list/root|Retrieves the certificate revocation list issued by the Root CA. Returns an ASN.1 DER-encoded java.security.cert.X509CRL object.|
-|GET|/certificate-revocation-list/empty|Retrieves the empty certificate revocation list issued by the Root CA. Returns an ASN.1 DER-encoded java.security.cert.X509CRL object.|
+|POST|/certificate-revocation-request|Uploads a certificate revocation request.|
+|GET|/certificate-revocation-list/subordinate|Retrieves the certificate revocation list issued by the Subordinate CA. The Subordinate CA is the intermediary certificate between the root, and the Doorman CA. Returns an ASN.1 DER-encoded CRL, as defined in RFC 3280.|
+|GET|/certificate-revocation-list/tls|Retrieves the certificate revocation list of the TLS root CA. This TLS hierarchy is used for communication between CENM services (not Corda nodes). Returns an ASN.1 DER-encoded CRL, as defined in RFC 3280.|
+|GET|/certificate-revocation-list/root|Retrieves the certificate revocation list issued by the Root CA. Returns an ASN.1 DER-encoded CRL, as defined in RFC 3280.|
 
 {{< /table >}}
 

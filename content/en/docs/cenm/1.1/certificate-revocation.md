@@ -36,17 +36,43 @@ Note: It is assumed that the signed certificate revocation list is always availa
 
 ## HTTP certificate revocation protocol
 
-The set of REST end-points for the revocation service are as follows.
+The set of REST endpoints for the revocation service are determined by the CRL file names provided in the PKI tool configuration.
+The example below shows the relevant part of such a PKI configuration along with the respective endpoints.
+
+```guess
+certificates = {
+    "::CORDA_TLS_CRL_SIGNER" = {
+        crl = {
+          crlDistributionUrl = "http://identitymanager:10000/certificate-revocation-list/tls"
+          indirectIssuer = true
+          issuer = "CN=Corda TLS Signer Certificate, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US"
+          file = "/etc/corda/crl-files/tls.crl"
+        }
+    },
+    "::CORDA_ROOT" = {
+        crl = {
+          crlDistributionUrl = "http://identitymanager:10000/certificate-revocation-list/root"
+          file = "/etc/corda/crl-files/root.crl"
+        }
+    },
+    "::CORDA_SUBORDINATE" = {
+        crl = {
+          crlDistributionUrl = "http://identitymanager:10000/certificate-revocation-list/subordinate"
+          file = "/etc/corda/crl-files/subordinate.crl"
+        }
+    }
+)
+```
 
 
 {{< table >}}
 
 |Request method|Path|Description|
 |----------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|POST|/certificate-revocation-request|To upload a certificate revocation request.|
-|GET|/certificate-revocation-list/doorman|Retrieves the certificate revocation list issued by the Doorman CA. Returns an ASN.1 DER-encoded java.security.cert.X509CRL object.|
-|GET|/certificate-revocation-list/root|Retrieves the certificate revocation list issued by the Root CA. Returns an ASN.1 DER-encoded java.security.cert.X509CRL object.|
-|GET|/certificate-revocation-list/empty|Retrieves the empty certificate revocation list issued by the Root CA. Returns an ASN.1 DER-encoded java.security.cert.X509CRL object.|
+|POST|/certificate-revocation-request|Uploads a certificate revocation request.|
+|GET|/certificate-revocation-list/subordinate|Retrieves the certificate revocation list issued by the Subordinate CA. The Subordinate CA is the intermediary certificate between the root, and the Doorman CA. Returns an ASN.1 DER-encoded CRL, as defined in RFC 3280.|
+|GET|/certificate-revocation-list/tls|Retrieves the certificate revocation list of the TLS root CA. This TLS hierarchy is used for communication between CENM services (not Corda nodes). Returns an ASN.1 DER-encoded CRL, as defined in RFC 3280.|
+|GET|/certificate-revocation-list/root|Retrieves the certificate revocation list issued by the Root CA. Returns an ASN.1 DER-encoded CRL, as defined in RFC 3280.|
 
 {{< /table >}}
 
@@ -67,49 +93,49 @@ issued by the Node CA.
 Submission of the certificate revocation requests expects the following fields to be present in the request payload:
 
 
-* **certificateSerialNumber**: 
+* **certificateSerialNumber**:
 Serial number of the certificate that is to be revoked.
 
 
-* **csrRequestId**: 
+* **csrRequestId**:
 Certificate signing request identifier associated with the certificate that is to be revoked.
 
 
-* **legalName**: 
+* **legalName**:
 Legal name associated with the certificate that is to be revoked.
 
 
-* **reason**: 
+* **reason**:
 Revocation reason (as specified in the java.security.cert.CRLReason). The following values are allowed.
 
 
-* **KEY_COMPROMISE**: 
+* **KEY_COMPROMISE**:
 This reason indicates that it is known or suspected that the certificate subject’s private key has been compromised. It applies to end-entity certificates only.
 
 
-* **CA_COMPROMISE**: 
+* **CA_COMPROMISE**:
 This reason indicates that it is known or suspected that the certificate subject’s private key has been compromised. It applies to certificate authority (CA) certificates only.
 
 
-* **AFFILIATION_CHANGED**: 
+* **AFFILIATION_CHANGED**:
 This reason indicates that the subject’s name or other information has changed.
 
 
-* **SUPERSEDED**: 
+* **SUPERSEDED**:
 This reason indicates that the certificate has been superseded.
 
 
-* **CESSATION_OF_OPERATION**: 
+* **CESSATION_OF_OPERATION**:
 This reason indicates that the certificate is no longer needed.
 
 
-* **PRIVILEGE_WITHDRAWN**: 
+* **PRIVILEGE_WITHDRAWN**:
 This reason indicates that the privileges granted to the subject of the certificate have been withdrawn.
 
 
 
 
-* **reporter**: 
+* **reporter**:
 Issuer of this certificate revocation request.
 
 
