@@ -12,7 +12,7 @@ tags:
 - cordapp
 - samples
 title: CorDapp samples
-weight: 13
+weight: 14
 ---
 
 # CorDapp samples

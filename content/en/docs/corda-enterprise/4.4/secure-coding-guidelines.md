@@ -4,12 +4,15 @@ aliases:
 - /docs/corda-enterprise/head/secure-coding-guidelines.html
 - /docs/corda-enterprise/secure-coding-guidelines.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps
 tags:
 - secure
 - coding
 - guidelines
 title: Secure coding guidelines
+weight: 6
 ---
 
 

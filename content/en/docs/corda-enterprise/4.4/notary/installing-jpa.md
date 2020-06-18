@@ -13,7 +13,7 @@ tags:
 - installing
 - jpa
 title: Configuring a JPA notary backend
-weight: 9
+weight: 100
 ---
 
 # Configuring a JPA notary backend

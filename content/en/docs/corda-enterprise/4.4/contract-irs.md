@@ -4,7 +4,11 @@ aliases:
 - /docs/corda-enterprise/head/contract-irs.html
 - /docs/corda-enterprise/contract-irs.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-contract-irs
+    name: "Interest rate swaps"
+    parent: corda-enterprise-4-4-component-library-index
 tags:
 - contract
 - irs

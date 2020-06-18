@@ -4,11 +4,16 @@ aliases:
 - /docs/corda-enterprise/head/contract-catalogue.html
 - /docs/corda-enterprise/contract-catalogue.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-contract-catalogue
+    name: "Contract catalogue"
+    parent: corda-enterprise-4-4-component-library-index
 tags:
 - contract
 - catalogue
 title: Contract catalogue
+weight: 10
 ---
 
 

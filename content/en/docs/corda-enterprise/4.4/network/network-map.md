@@ -10,12 +10,12 @@ menu:
 tags:
 - network
 - map
-title: The network map
+title: Network map
 weight: 3
 ---
 
 
-# The network map
+# Network map
 
 
 The network map is a collection of signed `NodeInfo` objects. Each NodeInfo is signed by the node it represents and

@@ -12,6 +12,7 @@ tags:
 - contract
 - constraints
 title: Contract Constraints
+weight: 10
 ---
 
 

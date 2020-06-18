@@ -12,7 +12,7 @@ tags:
 - database
 - admin
 title: Database schema setup
-weight: 2
+weight: 30
 ---
 
 

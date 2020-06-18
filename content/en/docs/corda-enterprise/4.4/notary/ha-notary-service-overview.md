@@ -15,7 +15,7 @@ tags:
 - service
 - overview
 title: Corda Enterprise notary service overview
-weight: 8
+weight: 90
 ---
 
 

@@ -4,12 +4,15 @@ aliases:
 - /docs/corda-enterprise/head/node-database-intro.html
 - /docs/corda-enterprise/node-database-intro.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating-db
 tags:
 - node
 - database
 - intro
 title: Database management
+weight: 10
 ---
 
 

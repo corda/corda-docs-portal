@@ -12,7 +12,7 @@ tags:
 - database
 - tables
 title: Database tables
-weight: 3
+weight: 50
 ---
 
 # Database tables

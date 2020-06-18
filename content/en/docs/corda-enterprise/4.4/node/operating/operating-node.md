@@ -11,8 +11,8 @@ menu:
     parent: corda-enterprise-4-4-corda-nodes
 tags:
 - node
-title: Operating a Corda Node
-weight: 5
+title: Operating a Corda node
+weight: 60
 ---
 
-# Operating a Corda Node
+# Operating a Corda node

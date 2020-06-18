@@ -7,13 +7,13 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
     identifier: corda-enterprise-4-4-corda-nodes-configuring
-    name: "Configuring a Node"
+    name: "Configuring a node"
     parent: corda-enterprise-4-4-corda-nodes
 tags:
 - node
 - naming
 title: Node identity
-weight: 3
+weight: 40
 ---
 
 # Node identity

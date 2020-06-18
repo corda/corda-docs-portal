@@ -4,15 +4,18 @@ aliases:
 - /docs/corda-enterprise/head/docker-image.html
 - /docs/corda-enterprise/docker-image.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-networks
 tags:
 - docker
 - image
-title: Official Corda Docker Image
+title: Official Corda Docker image
+weight: 7
 ---
 
 
-# Official Corda Docker Image
+# Official Corda Docker image
 
 ## Running a node connected to a Compatibility Zone in Docker
 

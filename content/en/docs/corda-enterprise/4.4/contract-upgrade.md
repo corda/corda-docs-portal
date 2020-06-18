@@ -4,11 +4,14 @@ aliases:
 - /docs/corda-enterprise/head/contract-upgrade.html
 - /docs/corda-enterprise/contract-upgrade.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-contracts
 tags:
 - contract
 - upgrade
 title: Upgrading contracts
+weight: 20
 ---
 
 

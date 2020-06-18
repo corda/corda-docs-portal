@@ -4,12 +4,15 @@ aliases:
 - /docs/corda-enterprise/head/building-against-non-release.html
 - /docs/corda-enterprise/building-against-non-release.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps
 tags:
 - building
 - against
 - release
 title: Building CorDapps against a non-release branch
+weight: 11
 ---
 
 

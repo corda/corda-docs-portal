@@ -7,7 +7,11 @@ aliases:
 - /docs/corda-os/head/building-against-non-release.html
 - /docs/corda-os/building-against-non-release.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-os-4-4:
+    identifier: corda-os-4-4-building-against-non-release
+    parent: corda-os-4-4-building-a-cordapp-index
+    weight: 1065
 tags:
 - building
 - against

@@ -4,12 +4,15 @@ aliases:
 - /docs/corda-enterprise/head/flow-state-machines.html
 - /docs/corda-enterprise/flow-state-machines.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps-flows
 tags:
 - flow
 - state
 - machines
 title: Writing flows
+weight: 7
 ---
 
 

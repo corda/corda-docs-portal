@@ -13,7 +13,7 @@ tags:
 - notary
 - operate
 title: Operating a notary
-weight: 11
+weight: 120
 ---
 
 

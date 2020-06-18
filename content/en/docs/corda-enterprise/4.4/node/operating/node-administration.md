@@ -4,11 +4,14 @@ aliases:
 - /docs/corda-enterprise/head/node/operating/node-administration.html
 - /docs/corda-enterprise/node/operating/node-administration.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes
 tags:
 - node
 - administration
 title: Node administration
+weight: 75
 ---
 
 

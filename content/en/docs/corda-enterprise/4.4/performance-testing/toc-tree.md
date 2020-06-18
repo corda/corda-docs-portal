@@ -4,18 +4,15 @@ aliases:
 - /docs/corda-enterprise/head/performance-testing/toc-tree.html
 - /docs/corda-enterprise/performance-testing/toc-tree.html
 date: '2020-01-08T09:59:25Z'
-menu: []
-menu:
+menu:  
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-miscellaneous
     identifier: corda-enterprise-4-4-perf-index
-    name: Performance Testing
-    weight: 2000
-title: Corda Enterprise Performance Testing
+    weight: 2000    
+title: Performance Testing
 ---
 
 
-# Corda Enterprise Performance Testing
+# Performance Testing
 
 This section contains the documentation on running performance test of Corda Enterprise
 

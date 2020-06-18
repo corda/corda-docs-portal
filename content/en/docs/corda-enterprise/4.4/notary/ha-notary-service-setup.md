@@ -13,7 +13,7 @@ tags:
 - service
 - setup
 title: Corda Enterprise HA notary service set-up
-weight: 10
+weight: 105
 ---
 
 

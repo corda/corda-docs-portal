@@ -4,11 +4,14 @@ aliases:
 - /docs/corda-enterprise/head/event-scheduling.html
 - /docs/corda-enterprise/event-scheduling.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-cordapps
 tags:
 - event
 - scheduling
 title: Event scheduling
+weight: 30
 ---
 
 

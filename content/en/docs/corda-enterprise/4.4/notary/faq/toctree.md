@@ -8,13 +8,13 @@ menu:
   corda-enterprise-4-4:
     identifier: corda-enterprise-4-4-running-a-notary-cluster-faq-toctree
     name: "Notary FAQs"
-    parent: corda-enterprise-4-4-corda-nodes
+    parent: corda-enterprise-4-4-corda-nodes-notary-operate
 tags:
     - notary
     - FAQs
     - frequently asked questions
 title: Notary Frequently Asked Questions (FAQs)
-weight: 15
+weight: 125
 ---
 
 

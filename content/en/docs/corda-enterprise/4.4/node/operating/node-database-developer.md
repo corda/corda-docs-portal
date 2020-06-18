@@ -12,7 +12,7 @@ tags:
 - database
 - developer
 title: Simplified database schema setup for development
-weight: 1
+weight: 20
 ---
 
 

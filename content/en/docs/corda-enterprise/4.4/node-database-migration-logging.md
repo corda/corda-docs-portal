@@ -4,18 +4,21 @@ aliases:
 - /docs/corda-enterprise/head/node-database-migration-logging.html
 - /docs/corda-enterprise/node-database-migration-logging.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-corda-nodes-operating-db
 tags:
 - node
 - database
 - migration
 - logging
-title: Database Schema Migration Logging
+title: Database schema migration logging
+weight: 50
 ---
 
 
 
-# Database Schema Migration Logging
+# Database schema migration logging
 
 Database migrations for the Corda node’s internal database objects are recorded in the node’s default log file.
 

@@ -13,7 +13,7 @@ tags:
 - env
 - dev
 title: Deploying in a development environment
-weight: 4
+weight: 50
 ---
 
 

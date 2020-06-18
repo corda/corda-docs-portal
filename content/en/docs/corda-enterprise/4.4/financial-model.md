@@ -4,7 +4,11 @@ aliases:
 - /docs/corda-enterprise/head/financial-model.html
 - /docs/corda-enterprise/financial-model.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-4:
+    identifier: corda-enterprise-4-4-financial-model
+    name: "Financial model"
+    parent: corda-enterprise-4-4-component-library-index
 tags:
 - financial
 - model
