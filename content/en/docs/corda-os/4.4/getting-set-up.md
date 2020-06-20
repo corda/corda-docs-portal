@@ -21,38 +21,45 @@ title: Getting set up for CorDapp development
 
 # Getting set up for CorDapp development
 
-There are four pieces of required software for CorDapp development: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle 5.4.1.
+There are four pieces of required software for CorDapp development: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle.
 
+## Installing the Java 8 JDK
 
-* Install the Java 8 JDK, version 8u171. We have tested using the following Java builds:
+Install the Java 8 JDK. Corda requires at least version 8u171, but do not currently support Java 9 or higher for this version of Corda.
 
+Corda has been tested against the following Java builds:
 
+  * [Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+  * [Amazon Corretto](https://aws.amazon.com/corretto/)
+  * [Red Hat’s OpenJDK](https://developers.redhat.com/products/openjdk/overview/)
+  * [Zulu’s OpenJDK](https://www.azul.com/)
 
-* [Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Amazon Corretto](https://aws.amazon.com/corretto/)
-* [Red Hat’s OpenJDK](https://developers.redhat.com/products/openjdk/overview/)
-* [Zulu’s OpenJDK](https://www.azul.com/)
+{{< note >}}
+  OpenJDK builds often exclude JavaFX, which is required by the Corda GUI tools. Corda supports only Java 8.
+  {{< /note >}}
 
-Please note: OpenJDK builds often exclude JavaFX, which is required by the Corda GUI tools. Corda supports only Java 8.
+If you are using Windows, you must also add Java to the PATH environment variable by following the instructions in the [Oracle documentation](https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html#path).
 
-If you are using Windows: Add Java to the PATH environment variable by following the instructions in the [Oracle documentation](https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html#path).
+## Installing the IntelliJ IDEA
 
+IntelliJ is an IDE that offers strong support for Kotlin and Java development.
 
-
-* Install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/). Corda supports IntelliJ IDEA versions **2017.x**, **2018.x**, and **2019.x**; and Kotlin plugin version 1.2.71.
+Install the [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/). Corda supports IntelliJ IDEA versions **2017.x**, **2018.x**, and **2019.x**; and Kotlin plugin version 1.2.71.
 
 
 To install IntelliJ IDEA in a Ubuntu environment, navigate to the [Jetbrains IntelliJ snap package](https://snapcraft.io/intellij-idea-community).
 
+## Installing Git
 
+We use Git to host our sample CorDapp and provide version control.
 
-* Install [git](https://git-scm.com/).
-* Install [Gradle version 5.4.1](https://gradle.org/install/). If you are using a supported Corda sample, the included `gradlew` script should install Gradle automatically.
+To install Git, navigate to [Git](https://git-scm.com/) and install your preferred version, depending on your OS.
 
+## Installing Gradle
 
-Please note: Corda requires Gradle version 5.4.1, and does not support any other version of Gradle.
+If you intend to proceed directly to run an example CorDapp, as described in [Running an example CorDapp](tutorial-cordapp.md), the included `gradlew` script should install Gradle automatically when you open the sample CorDapp in IntelliJ.
 
-
+If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.org/releases/) and locate and install Gradle **version 5.4.1**.  Corda requires Gradle version 5.4.1, and does not support any other version of Gradle.
 
 ## Next steps
 

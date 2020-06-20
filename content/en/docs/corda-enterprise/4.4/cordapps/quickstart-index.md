@@ -4,11 +4,8 @@ aliases:
 - /docs/corda-enterprise/head/cordapps/quickstart-index.html
 - /docs/corda-enterprise/cordapps/quickstart-index.html
 date: '2020-01-08T09:59:25Z'
-menu:
-  corda-enterprise-4-4:
-    identifier: corda-enterprise-4-4-cordapps-quickstart
-    name: "Getting started developing CorDapps"
-    parent: corda-enterprise-4-4-cordapps
+menu: []
+
 tags:
 - quickstart
 title: Getting started developing CorDapps

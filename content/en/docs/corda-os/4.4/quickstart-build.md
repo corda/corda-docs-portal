@@ -7,11 +7,7 @@ aliases:
 - /docs/corda-os/head/quickstart-build.html
 - /docs/corda-os/quickstart-build.html
 date: '2020-01-08T09:59:25Z'
-menu:
-  corda-os-4-4:
-    identifier: corda-os-4-4-quickstart-build
-    parent: corda-os-4-4-quickstart-index
-    weight: 1020
+menu: []
 tags:
 - quickstart
 - build

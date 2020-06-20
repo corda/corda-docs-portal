@@ -4,11 +4,7 @@ aliases:
 - /docs/corda-enterprise/head/cordapps/quickstart-deploy.html
 - /docs/corda-enterprise/cordapps/quickstart-deploy.html
 date: '2020-01-08T09:59:25Z'
-menu:
-    corda-enterprise-4-4:
-        identifier: "corda-enterprise-4-4-cordapps-quickstart-running"
-        name: "Running the example CorDapp"
-        parent: corda-enterprise-4-4-cordapps-quickstart
+menu: []
 tags:
 - quickstart
 - deploy
