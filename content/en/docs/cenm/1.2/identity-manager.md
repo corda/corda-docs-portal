@@ -687,7 +687,7 @@ workflows {
       pluginClass = "com.r3.enmplugins.approveall.ApproveAll"
     }
     crlCacheTimeout = 2000
-    crlFiles = ["./crl/root.crl", "./crl/subordinate.crl", "./crl-files/tls.crl"]
+    crlFiles = ["./crl-files/root.crl", "./crl-files/subordinate.crl", "./crl-files/tls.crl"]
   }
 }
 
@@ -774,7 +774,7 @@ workflows {
             }
         }
         crlCacheTimeout = 2000
-        crlFiles = ["./crl/root.crl", "./crl/subordinate.crl", "./crl-files/tls.crl"]
+        crlFiles = ["./crl-files/root.crl", "./crl-files/subordinate.crl", "./crl-files/tls.crl"]
     }
 }
 
