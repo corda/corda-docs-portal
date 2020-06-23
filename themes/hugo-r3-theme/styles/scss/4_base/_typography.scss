@@ -33,3 +33,25 @@ p {
 ul, li {
     color: #2f353f;
 }
+
+article {
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
+    h4 {
+        font-size: 1.125rem;
+    }
+    p {
+        color: $grey-800;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
