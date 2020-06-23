@@ -177,10 +177,11 @@ The current supported commands that can be run from the shell are:
     @RunCommand
     fun clientHealthCheck()
 
-    @Description(description = "View nodes that have or haven't accepted a given parameters update ($DEFAULT_PAGE_SIZE entry per page)",
+    @Description(description = "View nodes that have or haven't accepted a given parameters update " +
+                "($DEFAULT_PAGE_SIZE entry per page, 0-indexed pagination)",
             example = "view nodesAcceptedParametersUpdate accepted: true, " +
                     "parametersHash: 0E3A4A700868D1E480A7C31E85621FE5E627A6A361EBE92B3F7A0048A90DE076 " +
-                    "pageNumber: 1")
+                    "pageNumber: 0")
     @ViewCommand
     fun nodesAcceptedParametersUpdate(accepted: Boolean,
                                       parametersHash: String,

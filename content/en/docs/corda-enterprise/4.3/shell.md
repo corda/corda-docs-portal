@@ -38,11 +38,14 @@ with the node using RPC calls.
 
 
 * Watching flows (`flow watch`) requires `InvokeRpc.stateMachinesFeed`.
-* Starting flows requires `InvokeRpc.startTrackedFlowDynamic`, `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a
+* Starting flows requires `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a
 permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently
 allows the user to kill *any* flow, so please be careful when granting it!
 
+{{< note >}}
+`InvokeRpc.startTrackedFlowDynamic` permission gives permission to run all existing flows.
+{{< /note >}}
 
 ## The shell via the local terminal
 

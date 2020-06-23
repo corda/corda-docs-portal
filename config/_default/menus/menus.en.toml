@@ -93,6 +93,41 @@ identifier = "cenm-1-2-tools-and-utilities"
 name = "Tools & Utilities"
 weight = 270
 
+[[cenm-1-3]]
+identifier = "cenm-1-3-cenm-releases"
+name = "CENM Releases"
+weight = 70
+
+[[cenm-1-3]]
+identifier = "cenm-1-3-concepts-and-overview"
+name = "Concepts and Overview"
+weight = 10
+
+[[cenm-1-3]]
+identifier = "cenm-1-3-configuration"
+name = "Configuration"
+weight = 210
+
+[[cenm-1-3]]
+identifier = "cenm-1-3-operations"
+name = "Operations"
+weight = 110
+
+[[cenm-1-3]]
+identifier = "cenm-1-3-public-key-infrastructure"
+name = "Public Key Infrastructure"
+weight = 300
+
+[[cenm-1-3]]
+identifier = "cenm-1-3-signing-plugin-samples"
+name = "Signing Plugin Samples"
+weight = 330
+
+[[cenm-1-3]]
+identifier = "cenm-1-3-tools-and-utilities"
+name = "Tools & Utilities"
+weight = 270
+
 [[corda-enterprise-3-0]]
 identifier = "corda-enterprise-3-0-corda-enterprise"
 name = "Corda Enterprise"
@@ -312,6 +347,27 @@ identifier = "corda-enterprise-4-4-corda-networks"
 name = "Corda Networks"
 weight = 40
 
+[[corda-enterprise-4-5]]
+identifier = "corda-enterprise-4-5-upgrading-and-tools"
+name = "Upgrading CorDapps and Nodes"
+weight = 10
+
+[[corda-enterprise-4-5]]
+identifier = "corda-enterprise-4-5-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-5]]
+identifier = "corda-enterprise-4-5-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-5]]
+identifier = "corda-enterprise-4-5-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-5-corda-nodes"
+weight = 60
+
 [[corda-os-4-0]]
 identifier = "corda-os-4-0-development"
 name = "Development"
@@ -386,3 +442,29 @@ weight = 40
 identifier = "corda-os-4-4-participate"
 name = "Participate"
 weight = 410
+
+[[corda-os-4-5]]
+identifier = "corda-os-4-5-upgrading"
+name = "Upgrading CorDapps and nodes"
+weight = 15
+
+[[corda-os-4-5]]
+identifier = "corda-os-4-5-development"
+name = "Development"
+weight = 20
+
+[[corda-os-4-5]]
+identifier = "corda-os-4-5-corda-api"
+name = "Corda API"
+weight = 40
+
+[[corda-os-4-5]]
+identifier = "corda-os-4-5-operations"
+name = "Operations"
+weight = 30
+
+[[corda-os-4-5]]
+identifier = "corda-os-4-5-contributing-index"
+name = "Participate"
+weight = 410
+

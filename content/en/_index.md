@@ -1,14 +1,14 @@
 ---
 title: "Home"
 date: 2020-01-08T09:59:25Z
-target_corda_os: /docs/corda-os/4.4/_index.md
-target_corda_enterprise: /docs/corda-enterprise/4.4/_index.md
-target_cenm: /docs/cenm/1.2/_index.md
-header: OPEN-SOURCE BLOCKCHAIN PLATFORM FOR BUSINESS
-tagline: Join thousands of developers building applications on Corda. Corda enables businesses to transact directly and in strict privacy using smart contracts, reducing transaction and record-keeping costs and streamlining business operations.
-summary: Join thousands of developers building applications on Corda. Corda enables businesses to transact directly and in strict privacy using smart contracts, reducing transaction and record-keeping costs and streamlining business operations.
+target_corda_os: /docs/corda-os/4.5/_index.md
+target_corda_enterprise: /docs/corda-enterprise/4.5/_index.md
+target_cenm: /docs/cenm/1.3/_index.md
+header: DOCUMENTATION & TRAINING FOR CORDA PLATFORM DEVELOPERS AND OPERATORS
+tagline: Use the docs to help develop Corda applications, run a network, and operate enterprise level tools for your business. New to Corda? Take the training and begin your journey to becoming a Corda blockchain specialist today.
+summary: Use the docs to help develop Corda applications, run a network, and operate enterprise level tools for your business. New to Corda? Take the training and begin your journey to becoming a Corda blockchain specialist today.
 ---
 
-# If you see this then the page template is broken
+# There is a problem with this site
 
-Go and edit `/layouts/index.html`
+Please refresh the page or visit the main [Corda website](https://www.corda.net) to get in touch.
