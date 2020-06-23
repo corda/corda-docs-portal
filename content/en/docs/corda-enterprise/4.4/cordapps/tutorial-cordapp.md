@@ -93,18 +93,15 @@ The `cordapp-example` folder is structured as follows:
 │   ├── build.gradle
 │   └── src
 │       └── main
-            ├── java
+│           ├── java
 │           │   └── com
 │           │       └── example
 │           │           └── server
-│           │               └── JavaClientRpc
-│           ├── kotlin
-│           │   └── com
-│           │       └── example
-│           │           └── server
-│           │               ├── MainController.kt
-│           │               ├── NodeRPCConnection.kt
-│           │               └── Server.kt
+│           │               ├── CONSTANTS.java
+│           │               ├── MainController.java
+│           │               ├── NodeRPCConnection.java
+│           │               └── Server.java
+│           │               
 │           └── resources
 │               ├── application.properties
 │               └── public
@@ -208,13 +205,12 @@ The `cordapp-example` folder is structured as follows:
 ├── settings.gradle
 └── TRADEMARK
 
-
 ```
 
 The key files and directories are as follows:
 
 * The **root directory** contains some gradle files, a README, a LICENSE and a TRADEMARK statement
-* **clients** contains the source code for spring boot integration
+* **clients** contains the source code for Spring Boot integration
 * **config** contains log4j2 configs
 * **contracts-java** and **workflows-java** contain the source code for the example CorDapp written in Java
 * **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin
@@ -250,15 +246,17 @@ The first step is to deploy the CorDapp to nodes running locally. To do this:
 ├── certificates
 ├── corda.jar              // The Corda node runtime
 ├── cordapps               // The node's CorDapps
-│   ├── corda-finance-contracts-4.4.jar
-│   ├── corda-finance-workflows-4.4.jar
-│   └── cordapp-example-0.1.jar
+│   ├── config
+│   ├── corda-example-contracts-0.1.jar
+│   └── corda-example-workflows-0.1.jar
+├── djvm
 ├── drivers
 ├── logs
 ├── network-parameters
 ├── node.conf              // The node's configuration file
 ├── nodeInfo-<HASH>        // The hash will be different each time you generate a node
-└── persistence.mv.db      // The node's database
+├── persistence.mv.db      // The node's database
+└── persistence.trace.db   // The node's database
 ```
 
 
@@ -282,7 +280,7 @@ Start a Spring Boot server for each node by opening a terminal/command prompt fo
 * Unix/Mac OSX: `./gradlew runPartyXServer`
 * Windows: `gradlew.bat runPartyXServer`
 
-Look for the "Started ServerKt in X seconds" message &mdash; don’t rely on the % indicator.
+Look for the `Started Server in X seconds` message &mdash; don’t rely on the % indicator.
 
 
 {{< warning >}}
