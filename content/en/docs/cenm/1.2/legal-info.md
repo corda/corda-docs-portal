@@ -15,8 +15,9 @@ tags:
 title: Legal notice
 ---
 
-# CORDA ENTERPRISE NETWORK MANAGER 1.2 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
-Do Not Translate or Localize
+# Corda Enterprise Network Manager 1.2 third-party software notices and licence information
+
+**Do not translate or localise.**
 
 This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise Network Manager software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 

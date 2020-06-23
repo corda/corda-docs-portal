@@ -3,11 +3,12 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-5:
     parent: corda-enterprise-4-5-release-notes
+    weight: 300
 tags:
 - legal
 - info
-title: Third-Party Software Licence Information
-weight: 4
+title: Third-party software licence information
+
 ---
 # Corda Enterprise 4.5 third-party software notices and licence information
 
