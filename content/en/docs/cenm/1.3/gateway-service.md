@@ -17,15 +17,13 @@ title: FARM Service
 
 # FARM Service
 
-The Front-end Application for Remote Management (FARM) service provides a gateway between front-end CENM service interfaces, and the [Auth Service](auth-service) that underpins authentication and authorisation in CENM services.
+The Front-end Applications for Remote Management (FARM) Service provides a gateway between front-end CENM service interfaces, and the [Auth Service](auth-service) that underpins authentication and authorisation in CENM services.
 
-Once installed and configured, users can connect with the FARM Service via the [CENM CLI Tool](cenm-cli-tool) to manage CENM service tasks. Administrators can use the FARM Service address plus `/admin` to access the (CENM User Admin Tool)[user-admin] via a web browser. 
+Once installed and configured, users can connect with the FARM Service via the [CENM CLI Tool](cenm-cli-tool) to manage CENM service tasks. Administrators can use the FARM Service address plus `/admin` to access the (CENM User Admin Tool)[user-admin] via a web browser.
 
 {{< note >}}
-
 As a gateway service, FARM does not need its own database - so there is no database configuration required when you are setting up.
-
-{{ /note >}}
+{{< /note >}}
 
 ## Install the gateway FARM service
 
