@@ -79,11 +79,11 @@ Before using the SDK to create a token, you need to have a clear understanding o
 
 ## Create tokens using the Tokens SDK
 
-When you know what kind of token you want to introduce into the network, you can start defining it. The requirements for each token depend on whether it is fungible, and whether it can evolve over time.  
+When you know what kind of token you want to introduce into the network, you can start defining it. The requirements for each token depend on whether it is fungible, and whether it can evolve over time.
 
 Use the list below to understand what needs to be included in the token you want to create.
 
-## The process of using the Tokens SDK  
+## The process of using the Tokens SDK
 
 Once you have established what type of token you want to create, you can use the Tokens SDK to perform the following key tasks:
 
@@ -118,7 +118,7 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 
 In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](token-diamond-example) for a fuller picture.
 
-{{< tabs name="tabs-1234" >}}
+{{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 /** Creating an evolveable TokenType */
@@ -133,7 +133,7 @@ data class DiamondGradingReport(
         override val linearId: UniqueIdentifier = UniqueIdentifier()
 ) : EvolvableTokenType() {
         override val maintainers: List<Party>
-            get() = listOf()             
+            get() = listOf()
         override val fractionDigits: Int
             get() = 2
 }
@@ -236,7 +236,7 @@ Fungible tokens can be split using a flow initiated by the **Move** command. Thi
 
 In the below example, Alice instantiates a token representing a BitCoin. This token is generated using the Tokens SDK's built-in `money` library.
 
-{{< tabs name="tabs-1234" >}}
+{{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 val fungibleToken = 1 of DigitalCurrency.getInstance("BTC") issuedBy aliceParty heldBy aliceParty
