@@ -2,31 +2,33 @@
 date: '2020-06-12T12:00:00Z'
 menu:
   corda-enterprise-4-5:
-    identifier: one-click-developer-test-environment
-    name: "One-click developer test environment"
+    identifier: one-click-corda-deployment
+    name: "One-click Corda deployment"
     parent: corda-enterprise-4-5-corda-nodes
 tags:
 - env
 - dev
 
-title: One-click developer test environment
+title: One-click Corda deployment
 weight: 65
 ---
 
 
-# One-click developer test environment
+# One-click Corda deployment
 
-This document describes how a CorDapp developer can test their CorDapp in an Azure environment. It uses three Azure deployment templates.
+This document describes how Corda nodes and networks can be deployed in one click in an Azure environment. It uses three Azure deployment templates:
 
-* **CENM Deployment**: CENM is deployed onto a newly-created Kubernetes cluster.
-* **Nodes Onto An Existing Network**: Deploy Nodes onto an newly-created Kubernetes cluster that connects to an externally running network.
-* **Corda One Click**: CEMN is deployed onto a newly-created Kubernetes cluster and then nodes running a custom CorDapp are deployed.
+* **CENM Deployment**: CENM is deployed onto a newly-created Azure Kubernetes Service cluster.
+* **Nodes Onto An Existing Network**: Deploy Nodes onto an newly-created Azure Kubernetes Service cluster that connects to an externally running network.
+* **Corda One Click**: CEMN is deployed onto a newly-created Azure Kubernetes Service cluster and then nodes running a custom CorDapp are deployed.
 
-The templates can be found on the Azure Marketplace or downloaded from the [`corda-cloud-deployer` repo](https://github.com/corda/corda-cloud-deployer/) on GitHub.
+The templates can be found on the Azure Marketplace or downloaded from the [`azure-resource-management-templates` repo](https://github.com/corda/azure-resource-management-templates/) on GitHub.
+
+The deployed nodes will use H2 databases, will not be configured to use hardware security modules or Corda Enterprise Firewall instances, and will not be deployed in high-availability mode.
 
 ## Prerequisites
 
-To delpoy the one-click developer test environment on Azure, you need the following.
+To deploy the node and its CorDapps on Azure, you need the following.
 
 1. An Azure account
 2. A Resource Group
@@ -60,7 +62,7 @@ To delpoy the one-click developer test environment on Azure, you need the follow
 
 2. Run the command `gradlew buildDockerFile` and the plugin will build your image locally for you.
 
-3. Upload the Docker image to your private repo on Azure. The repo should be in the same resource group that wull be used for deployment.
+3. Upload the Docker image to your private repo on Azure. The repo should be in the same resource group that will be used for deployment.
 
    ```bash
    docker push <azure registry>/<image name>:<version>
@@ -139,7 +141,7 @@ To deploy a Corda Node into an existing CENM network, you will need a copy of th
 
 1. Click **Purchase** and wait while the cluster and containers deploy. This can take around 20 minutes.
 
-1. Return to the resource group. The resouce group should now contain a cluster (Kubernetes service) with the cluster name you set and a delpoyment (container instances) with the deployment name you set.
+1. Return to the resource group. The resouce group should now contain a cluster (Kubernetes service) with the cluster name you set and a deployment (container instances) with the deployment name you set.
 
 1. Click the the container group with the name deployment name.
 
@@ -148,6 +150,8 @@ To deploy a Corda Node into an existing CENM network, you will need a copy of th
 1. Here you should see two containers, `cenm-deployer` and `node-deployer`
 
 `node-deployer` will wait for `cenm-deployer` to complete its deployment before deploying the Corda Nodes.
+
+## Interacting with the deployed nodes
 
 Once `node-deployer` has completed, it will display the RPC address and port and the command to connect to it over SSH.
 
