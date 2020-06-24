@@ -49,11 +49,13 @@ For more information about the new APIs, see the [API flows](api-flows.html#comm
 Existing CorDapps will have to be updated to benefit from the new API.
 {{< /note >}}
 
-### Tokens SDK documentation and training
+### Improved Tokens SDK along with new documentation and training 
 
-The Tokens SDK documentation has been relocated to the main Corda and Corda Enterprise documentation site, along with a comprehensive training module for developers in the Corda training site.
-[Read the documentation](token-sdk-introduction.md). 
-[Explore the training module](https://training.corda.net/libraries/tokens-sdk/)
+The Tokens SDK has been extended to provide a consistent API for use in both Java and Kotlin.
+
+The documentation has been relocated to the main Corda and Corda Enterprise documentation site, and a comprehensive training module for developers added to the Corda training site.
+[Read the documentation](token-sdk-introduction.md).
+[Explore the training module](https://training.corda.net/libraries/tokens-sdk/).
 
 ### Error code knowledge base
 

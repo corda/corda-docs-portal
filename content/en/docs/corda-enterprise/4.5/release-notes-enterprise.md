@@ -98,9 +98,6 @@ The CorDapp is designed to diagnose ledger inconsistencies caused by either of t
 
 See the `LedgerSync` [documentation section](node/collaborative-recovery/ledger-sync.md) for more information.
 
-
-
-
 ### HA Notary readback queue
 
 Each Notary worker now has a readback queue. This queue collects recently-spent states, then double-checks that they have correctly been recorded as spent in the Notary database. If this mechanism detects an inconsistency, an error is recorded in the worker’s log file, and a JMX metric for unpersisted DB records is updated.
@@ -148,12 +145,14 @@ The following libraries have been updated:
 * `netty` updated to [4.1.46.Final](https://github.com/netty/netty/releases/tag/netty-4.1.46.Final)
 * `tcnative` updated to [2.0.29.Final](https://github.com/netty/netty-tcnative/releases/tag/netty-tcnative-parent-2.0.29.Final)
 
-### Tokens SDK documentation and training
+### Improved Tokens SDK along with new documentation and training
 
-The Tokens SDK documentation has been relocated to the main Corda and Corda Enterprise documentation site, along with a comprehensive training module for developers in the Corda training site.
+The Tokens SDK has been extended to provide a consistent API for use in both Java and Kotlin.
 
-[Read the documentation](cordapps/token-sdk-introduction.md).
-[Explore the training module](https://training.corda.net/libraries/tokens-sdk/)
+The documentation has been relocated to the main Corda and Corda Enterprise documentation site, and a comprehensive training module for developers added to the Corda training site.
+[Read the documentation](token-sdk-introduction.md).
+[Explore the training module](https://training.corda.net/libraries/tokens-sdk/).
+
 ### Other improvements
 
 * All database columns containing datestamps have been standardised to use UTC (the time zone used was previously inconsistent).
