@@ -1,20 +1,23 @@
 ---
 date: '2020-04-07T12:00:00Z'
-menu: []
+menu:
+  corda-enterprise-4-5:
+    parent: corda-enterprise-4-5-toc-tree
 tags:
 - practical
 - considerations
-title: Practical Considerations
+title: Practical considerations
+weight: 700
 ---
 
 
-# Practical Considerations
+# Practical considerations
 
 This page is listing some practical considerations and tips that might be useful when performance testing Corda Enterprise.
 
 
 
-## Resetting a Node
+## Resetting a node
 
 
 {{< warning >}}
@@ -138,6 +141,3 @@ throughput reading from runs that ran for less time than at least a couple of mi
 * The last two columns are meaningless in the context of a Corda sampler and should be ignored.
 
 The graph section can be handy to visualize the distribution of the statistics.
-
-
-

@@ -13,10 +13,10 @@ title: Corda Network Foundation
 ---
 
 
-# Corda Network
+# Corda Network Foundation
 
 
-## Introduction to Corda Network
+## Introduction to Corda Network Foundation
 
 [Corda Network](https://corda.network/) is a publicly-available internet of Corda nodes operated by network participants. Each
 node is identified by a certificate issued by the network’s identity service, and will also be discoverable on a network map.
@@ -73,4 +73,3 @@ otherwise rely, is to be treated as ‘confirmed’ in accordance with the terms
 
 The Support Service is provided to participants and business network operators to manage and resolve inquiries and incidents
 relating to the Identity Service, Network Map Service and Notary Services.
-

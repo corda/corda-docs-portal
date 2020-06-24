@@ -1,10 +1,13 @@
 ---
 date: '2020-04-07T12:00:00Z'
-menu: []
+menu:
+  corda-enterprise-4-5:
+    parent: corda-enterprise-4-5-toc-tree
 tags:
 - r3
 - performance
 title: Reproducing the R3 performance test numbers
+weight: 600
 ---
 
 
@@ -153,4 +156,3 @@ It is recommended to manage the database server manually and optimise for write 
 
 For the test, JMeter server instances on 4 node machines and the simple notary machine all connect to one node via RPC
 to drive the tests. A external JMeter client uses the `NightlyBenchmark.jmx` test plan to run the tests.
-

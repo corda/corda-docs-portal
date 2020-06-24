@@ -1,24 +1,27 @@
 ---
 date: '2020-04-07T12:00:00Z'
-menu: []
+menu:
+  corda-enterprise-4-5:
+    parent: corda-enterprise-4-5-toc-tree
 tags:
 - jmeter
 - samplers
-title: JMeter Samplers
+title: JMeter samplers
+weight: 400
 ---
 
 {{< note >}}
 All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and Installing the Performance Test Suite](installation.html) for more information.
 {{< /note >}}
 
-# JMeter Samplers
+# JMeter samplers
 
 JMeter uses samplers to interact with the system under test. It comes with a number of built-in
 [samplers](https://jmeter.apache.org/usermanual/component_reference.html#samplers),  mostly
 around testing web sites and infrastructure.
 
 
-## Corda Flow Sampling
+## Corda flow sampling
 
 For performance testing Corda, the [Java Request sampler](https://jmeter.apache.org/usermanual/component_reference.html#Java_Request) is used. This sampler works by calling
 a Java class implementing the `org.apache.jmeter.protocol.java.sampler.JavaSamplerClient` interface and passing
@@ -44,7 +47,7 @@ group, and `setupTest` and `teardownTest` get called once per thread. Note that 
 once all thread groups have run and the test plan is terminating.
 
 
-## Provided Sampler Clients
+## Provided sampler clients
 
 [JMeter Corda](running-jmeter-corda.md) provides a number of sampler implementations that can be used with the Java Request sampler. They all
 share some common base infrastructure that allows them to invoke flows on a Corda node via RPC. All of these samplers
@@ -67,7 +70,7 @@ server, not the client machine.
 * `CashIssueSampler`: this sampler client has the class name `com.r3.corda.jmeter.CashIssueSampler` and starts the flow `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueFlow`. This flow self-issues 1.1 billion cash tokens on the node it is running on, and stores it in the vault. In addition to the common properties described for `EmptyFlowSampler` above, this sampler client also requires:
    * `notaryName`: the X500 name of the notary that is acceptable to transfer cash tokens issued via this sampler. Issuing tokens does not need to be notarised, and therefore invoking this sampler does not create traffic to the notary. However, the notary is stored as part of the cash state and must be valid to do anything else with the cash state, therefore this sampler checks the notary identity against the network parameters of the node.
 * `CashIssueAndPaySampler`: this sampler client has the classname `com.r3.corda.jmeter.CashIssueAndPaySampler` and, depending on its parameters, it can start either of these flows -  `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueAndPaymentFlow` or `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueAndpaymentNoSelection`. Either way it issues 2 million dollars in tokens and then transfers the sum to a configurable other node, thus invoking the full vault access, peer-to-peer communication and notarisation cycle. In addition to the parameters required for `CashIssueSampler`, this sampler also requires:
-   * `otherPartyName`: the X500 name of the recipient node of the payment. 
+   * `otherPartyName`: the X500 name of the recipient node of the payment.
    * `useCoinSelection`: whether to use coin selection to select the tokens for paying, or use the cash reference returned by the issuance call. The value of this flag switches between the two different flows mentioned above. Coin selection adds a set
 of additional problems to the processing, so it is of interest to measure its impact.
    * `anonymousIdentities`: switches the creation of anonymised per-transactions keys on and off.
@@ -85,14 +88,14 @@ of additional problems to the processing, so it is of interest to measure its im
 	* `backchainSize`: the size of the backchain that will be generated during the test setup via bilateral payments.
 
 
-## Custom Sampler Clients
+## Custom sampler clients
 
 The sampler clients provided with [JMeter Corda](running-jmeter-corda.md) all target the performance testing CorDapps developed along with the
 performance test tool kit. In order to drive performance tests using different CorApps, custom samplers need to be
 used that can drive the respective CorDapp via RPC.
 
 
-### Loading a Custom Sampler Client
+### Loading a custom sampler client
 
 The JAR file for the custom sampler needs to be added to the search path of JMeter in order for the Java sampler to
 be able to load it. The `-XadditionalSearchPaths` flag can be used to do this. It takes a list of semicolon separated
@@ -122,7 +125,7 @@ as the interaction with the CorDapp is happening server side - in this case, onl
 file on its search path.
 
 
-### Writing a Custom Sampler Client
+### Writing a custom sampler client
 
 An SDK with examples on how to write samplers to drive different CorDapps is availabe at [https://github.com/corda/jmeter-sampler](https://github.com/corda/jmeter-sampler)
 The SDK and sampler code is freely available, but please note that it requires access to a licensed local Corda Enterprise installation

@@ -11,11 +11,11 @@ menu:
 tags:
 - UAT
 weight: 1
-title: 'Corda Network: Pre-Production Environment'
+title: 'Corda Network: Pre-Production environment'
 ---
 
 
-# Corda Network: Pre-Production Environment
+# Corda Network: Pre-Production environment
 
 Corda Network Pre-Production (or UAT) seeks to provide a test environment which is as close as possible to Corda Network in its make-up and operation.
 
@@ -56,4 +56,3 @@ Corda Network Pre-Production is governed by an [independent Foundation](https://
 Steps to join are outlined on the [Corda Network site](https://corda.network/participation/index.html).
 
 For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network) or at [info@corda.network](mailto:info@corda.network)
-

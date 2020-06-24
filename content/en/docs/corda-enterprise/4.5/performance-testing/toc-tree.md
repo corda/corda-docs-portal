@@ -1,7 +1,11 @@
 ---
 date: '2020-04-07T12:00:00Z'
-menu: []
+menu:
+  corda-enterprise-4-5:
+    identifier: corda-enterprise-4-5-toc-tree
+    name: "Corda Enterprise Performance Testing"
 title: Corda Enterprise Performance Testing
+weight: 400
 ---
 
 
@@ -12,13 +16,10 @@ This section contains the documentation on running performance test of Corda Ent
 
 
 * [Introduction](introduction.md)
-* [Obtaining and Installing the Performance Test Suite](installation.md)
+* [Obtaining and installing the performance test suite](installation.md)
 * [Running JMeter Corda](running-jmeter-corda.md)
-* [JMeter Samplers](jmeter-samplers.md)
-* [Understanding and Creating Testplans](jmeter-testplans.md)
+* [JMeter samplers](jmeter-samplers.md)
+* [Understanding and creating testplans](jmeter-testplans.md)
 * [Reproducing the R3 performance test numbers](r3-performance-runs.md)
-* [Practical Considerations](practical-considerations.md)
-* [Performance Tuning a Node](performance-tuning.md)
-
-
-
+* [Practical considerations](practical-considerations.md)
+* [Performance-tuning a node](performance-tuning.md)

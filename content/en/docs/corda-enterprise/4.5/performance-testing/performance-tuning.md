@@ -1,14 +1,17 @@
 ---
 date: '2020-04-07T12:00:00Z'
-menu: []
+menu:
+  corda-enterprise-4-5:
+    parent: corda-enterprise-4-5-toc-tree
 tags:
 - performance
 - tuning
-title: Performance Tuning a Node
+title: Performance-tuning a node
+weight: 800
 ---
 
 
-# Performance Tuning a Node
+# Performance-tuning a node
 
 Great, so we have set up a test cluster, have all the CorDapps and JMeter installed, sorted out the firewall rules, we can get a request
 go through via the JMeter GUI (see [View Results in Table](practical-considerations.md#view-results-in-table) for details how to verify that), we have sorted
@@ -56,7 +59,7 @@ running into the issues mentioned above, and then proceed with tweaking other pa
 to run a few tests checking whether the amount of memory can be reduced without affecting performance.
 
 
-### Tweaking the threads count
+### Tweaking the thread count
 
 Especially on large server machines, the default number of flow threads might be on the upper limit of what is sensible. In order to find
 the optimal number, it is necessary to tweak that number via the configuration, restart the node(s), and rerun a test plan to see how the
@@ -189,4 +192,3 @@ guaranteed that the configuration is suitable.
 
 If monitoring a node reveals that it does not perform as expected, further tweaking might be required, or the creation of a test plan that
 matches the usage pattern observed with real life use and with the CorDapps that get used.
-

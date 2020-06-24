@@ -1,14 +1,17 @@
 ---
 date: '2020-04-07T12:00:00Z'
-menu: []
+menu:
+  corda-enterprise-4-5:
+    parent: corda-enterprise-4-5-toc-tree
 tags:
 - jmeter
 - testplans
-title: Understanding and Creating Testplans
+title: Understanding and creating testplans
+weight: 500
 ---
 
 
-# Understanding and Creating Testplans
+# Understanding and creating testplans
 
 JMeter offers a very flexible and powerful tool kit to build a large variety of testplans. This document can only give
 a brief overview over what testplans are typically used for Corda performance testing. To get an overview of what is
@@ -16,7 +19,7 @@ available in JMeter, and if you are looking into writing more elaborate testplan
 manual](https://jmeter.apache.org/usermanual/index.html).
 
 
-## Structure of a Simple Testplan
+## Structure of a simple testplan
 
 The testplan is a hierarchy of configuration elements. The only elements used in our simple test plans are
 *Variables*, *Thread Groups*, *Samplers* and *Listeners*. Rather than creating a new testplan from scratch,
@@ -50,7 +53,7 @@ trends, but as the time window is fixed and it loops back to the beginning and p
 the usefulness for long running tests is limited.This aggregator collects processing time stats and throughput on a per thread group basis as a table, and keeps
 a running total for the run.Like the Aggregate Report, but also offers to tools to plot the results.
 
-## Included Testplans
+## Included testplans
 
 Two testplans are included with the performance test suite, to be found in the `Sample Testplans` directory in the zip
 file. Note that both test plans are templates only and you cannot run them directly - first you need to set
@@ -61,7 +64,7 @@ to go. The structure of this test plan is a good place to start creating your ow
 * * `NightlyBenchmarkSample.jmx`: this is a copy of the test plan that is used for performance testing of Corda Enterprise at R3. This plan has a lot of different tests, each in its own thread group. All thread groups are run one after another. These different tests show the usage of all the different sampler clients described in [JMeter Samplers](jmeter-samplers.md). This test plan uses variables to avoid the repetition of values that might require changing. To get the test plan working, you must provide the appropriate values for your Corda network installation. A useful way to try out some parts of the test plan is to load it in an interactive JMeter session, and to disable most of the thread groups in order to only run a few tests. You can enable/disable thread groups from the right-click menu.
 
 
-## Creating Testplans
+## Creating testplans
 
 The JMeter GUI can be used to create and try out new testplans. The easiest way of doing this to take a copy of an
 existing testplan and modify this as the structure of all testplans is fairly similar.
@@ -75,4 +78,3 @@ that run different samplers in various combinations.
 * The testplan should have at least one global listener that captures results from all thread groups.
 
 Detailed description of the parts of a test plan can be found in the [JMeter documentation](https://jmeter.apache.org/usermanual/test_plan.html).
-

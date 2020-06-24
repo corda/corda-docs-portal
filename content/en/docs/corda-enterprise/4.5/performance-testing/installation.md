@@ -1,19 +1,22 @@
 ---
 date: '2020-04-07T12:00:00Z'
-menu: []
+menu:
+  corda-enterprise-4-5:
+    parent: corda-enterprise-4-5-toc-tree
 tags:
 - installation
-title: Obtaining and Installing the Performance Test Suite
+title: Obtaining and installing the performance test suite
+weight: 200
 ---
 
 
-# Obtaining and Installing the Performance Test Suite
+# Obtaining and installing the performance test suite
 
 As a registered user of Corda Enterprise, you can get the performance test suite as a zip file from the same location where the Corda
 Enterprise artifacts are available. Look for a file called `jmeter-corda-<version>-testsuite.zip`.
 
 
-## File Contents
+## File contents
 
 The performance test suite is shipped as a `.zip` file containing the following files:
 
@@ -28,7 +31,7 @@ The performance test suite is shipped as a `.zip` file containing the following 
 ## Installation
 
 
-### Client Installation
+### Client installation
 
 Simply create a working directory for JMeter Corda on the client machine and unzip the performance test suite to this
 directory. This app requires an Oracle JRE version 1.8 build 172 or later. After unpacking,
@@ -72,4 +75,3 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-
