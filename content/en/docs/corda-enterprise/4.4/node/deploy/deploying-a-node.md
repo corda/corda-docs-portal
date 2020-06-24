@@ -47,7 +47,7 @@ handling, and ensures the Corda service is run at boot.
 
 
 
-* A supported Java distribution. The supported versions are listed in getting-set-up
+* A supported Java distribution (see [Getting set up for CorDapp development](getting-set-up.md))
 
 
 
@@ -251,7 +251,7 @@ at boot, and means the Corda service stays running with no users connected to th
 
 
 
-* A supported Java distribution. The supported versions are listed in getting-set-up
+* A supported Java distribution (see [Getting set up for CorDapp development](getting-set-up.md))
 
 
 

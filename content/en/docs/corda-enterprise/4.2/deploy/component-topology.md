@@ -59,7 +59,7 @@ The primary function of the Corda Firewall is to act as an application level fir
 
 The Float is effectively an inbound socket listener which provides packet filtering and is a DMZ compatible component. The Float exposes a public IP address and port to which other peers on the network can connect. This prevents the Node from being exposed to peers. The Float’s public IP address must be configured on the outer firewall such that peers can connect to it. The Float’s primary function is to bundle messages and send them to the Bridge across a DMZ internal firewall. The Bridge in turn runs some additional health checks on the message prior to sending to the Corda Node Artemis queue. It is important to remember that the Bridge is the initiator of the connection between the Float and Bridge. The Corda node can be configured to use a external Artemis broker instead of embedded broker to provide messaging layer HA capability in enterprise environment.
 
-Detailed setup instruction for Apache Artemis can be found in [Apache Artemis documentation](https://activemq.apache.org/artemis/docs/latest/index.html). Also see
+Detailed setup instructions for Apache Artemis can be found in [Apache Artemis documentation](https://activemq.apache.org/artemis/docs/latest/index.html). Also see
 [HA utilities](../ha-utilities.html) for Artemis server configuration tool, which you can use to build a local, configured for Corda, Apache Artemis directory.
 
 The Corda Node VM public IP address is used for RPC client connections, however, it is only addressable by RPC clients with direct access to the Node VM’s internal network. The public IP address cannot be used to access the Node from the DMZ or the public internet.

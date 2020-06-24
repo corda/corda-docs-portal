@@ -25,9 +25,9 @@ Try [Corda Enterprise 3.3 documentation](/docs/corda-enterprise/3.3/_index.md) i
 
 ## Introduction
 
-The Corda bridge/float component is designed for enterprise deployments and acts as an application level
+The Corda bridge/float component is designed for enterprise deployments and acts as an application-level
 firewall and protocol break on all internet facing endpoints. The `corda-bridgeserver.jar` encapsulates the peer
-network functionality of the basic Corda Enterprise node, so that this can be operated separately from the security sensitive
+network functionality of the basic Corda Enterprise node, so that it can be operated separately from the security sensitive
 JVM runtime of the node. This gives separation of functionality and ensures that the legal identity keys are not
 used in the same process as the internet TLS connections. Also, it adds support for enterprise deployment requirements,
 such as High Availability (HA) and SOCKS proxy support.
@@ -44,12 +44,12 @@ Enterprise, the in-node version should be turned off and a standalone and HA ver
 `corda-bridgeserver.jar`, possibly integrating with a SOCKS proxy.
 
 The *float* component refers to the inbound socket listener, packet filtering and DMZ compatible component. In the
-simple all-in-one node all inbound peer connections terminate directly onto an embedded Artemis broker component
-hosted within the node. The connection authentication and packet the filtering is managed directly via Artemis
-permission controls managed directly inside the node JVM. For Corda Enterprise deployments we provide a more
+simple all-in-one node, all inbound peer connections terminate directly onto an embedded Artemis broker component
+hosted within the node. The connection authentication and packet filtering is managed directly via Artemis
+permission controls managed directly inside the node JVM. For Corda Enterprise deployments, we provide a more
 secure and configurable isolation component that is available using code inside `corda-bridgeserver.jar`. This
 component is designed to provide a clear protocol break and thus prevents the node and Artemis server ever being
-directly exposed to peers. For simpler deployments with no DMZ the float and bridge logic can also be run as a
+directly exposed to peers. For simpler deployments with no DMZ, the float and bridge logic can also be run as a
 single application behind the firewall, but still protecting the node and hosted Artemis. In future we may also host
 the Artemis server out of process and shared across nodes, but this will be transparent to peers as the interchange
 protocol will continue to be AMQP 1.0 over TLS.
@@ -61,7 +61,7 @@ All deployment modes of the bridge, float, or all-in-one node are transparently 
 
 ## Message path between peer nodes
 
-When a flow within a node needs to send a message to a peer there is a carefully orchestrated sequence of steps to ensure
+When a flow within a node needs to send a message to a peer, there is a carefully orchestrated sequence of steps to ensure
 correct secure routing based upon the network map information and to ensure safe, restartable delivery to the remote flow.
 Adding the bridge and float to this process adds some extra steps and security checking of the messages.
 The complete sequence is therefore:
@@ -71,10 +71,10 @@ The complete sequence is therefore:
 of the flow fiber within the `StateMachine` and posting the message to the internal `MessagingService`. This ensures that
 the send activity will be retried if there are any errors before further durable transmission of the message.
 * The `MessagingService` checks if this is a new destination node and if an existing out queue and bridge exists in Artemis.
-If the durable out queue does not exist then this will need to be created in Artemis:
-* First the durable queue needs to be created in the peer-to-peer Artemis. Each queue is uniquely named based upon the hash of the
+If the durable out queue does not exist, then this will need to be created in Artemis:
+* First, the durable queue needs to be created in the peer-to-peer Artemis. Each queue is uniquely named based upon the hash of the
 legal identity `PublicKey` of the target node.
-* Once the queue creation is complete a bridge creation request is also published onto the Artemis bus via the bridge control protocol.
+* Once the queue creation is complete, a bridge creation request is also published to the Artemis bus via the bridge control protocol.
 This message uses information from the network map to link the out queue to the target host and port and TLS credentials.
 The flow does not need to wait for any response at this point and can carry on to send messages to the Artemis out queue.
 * The message when received by the bridge process opens a TLS connection to the remote peer (optionally, this
@@ -83,46 +83,44 @@ and confirm that the certificate path is anchored at the network root certificat
 the expected target as specified in the create bridge message using details contained in the network map.
 The links are long lived so as to reduce the setup cost of the P2P messaging.
 In future, there may also be denial-of-service protection measures applied.
-* If the outgoing TLS 1.2 link is created successfully then the bridge opens a consumer on the Artemis out queue.
+* If the outgoing TLS 1.2 link is created successfully, then the bridge opens a consumer on the Artemis out queue.
 The pending messages will then be transferred to the remote destination using AMQP 1.0, with final removal from the
 out queue only occurring when the remote end fully acknowledges safe message receipt. This ensures at least once
 delivery semantics.
 * Note that at startup of either the node or the bridge, the bridge control protocol resynchronises the bridging state,
 so that all out queues have an active bridge.
-
-
-* Assuming an out queue exists the message can be posted to Artemis and the bridge should eventually deliver this
+* Assuming an out queue exists, the message can be posted to Artemis and the bridge should eventually deliver this
 message to the remote system.
-* On receipt of a message acknowledge from Artemis the `StateMachine` can continue flow if it is not awaiting a response
-i.e. a `send` operation. Otherwise it remains suspended waiting for the reply.
+* On receipt of a message acknowledge from Artemis, the `StateMachine` can continue flow if it is not awaiting a response
+(that is, a `send` operation). Otherwise it remains suspended waiting for the reply.
 * The receiving end of the bridge TLS/AMQP 1.0 link might be the Artemis broker of a remote node,
 but for now we assume it is an enterprise deployment that is using a float process running behind a firewall.
 The receiver will already have confirmed the validity of the TLS originator when it accepted the TLS handshake.
 However, the float does some further basic checking of received messages and their associated headers.
-For instance the message must be targeted at an inbox address and must be below the network parameters defined `maxMessageSize`.
-* Having passed initial checks on the message the float bundles up the message and originator as a payload to be
+For instance, the message must be targeted at an inbox address and must be below the network parameters defined `maxMessageSize`.
+* Having passed initial checks on the message, the float bundles up the message and originator as a payload to be
 sent across the DMZ internal firewall. This inbound message path uses a separate AMQP 1.0/TLS control tunnel.
-(N.B. This link is initiated from the local master bridge in the trusted zone to the float in the DMZ. This allows a
+(Note that this link is initiated from the local master bridge in the trusted zone to the float in the DMZ. This allows a
 simple firewall rule to be configured which blocks any attempts to probe the internal network from the DMZ.)
-Once the message is forwarded the float keeps track of the delivery acknowledgements,
+Once the message is forwarded, the float keeps track of the delivery acknowledgements,
 so that the original sender will consume the message in the source queue, only on final delivery to the peer inbox.
 Any disconnections, or problems will send a reject status leading to redelivery from source.
-* The bridge process having now received custody of the message does further checks that the message is good. At the
+* The bridge process, having now received custody of the message, does further checks that the message is good. At the
 minute the checks are essentially of well formedness of the message and that the source and destination are valid.
 However, future enhancements may include deep inspection of the message payload for CorDapp blacklisting, and other purposes.
 Any problems and the message is acknowledged to prevent further redelivery, logged to audit and dropped.
-* Assuming this is a normal message it is passed onto the Artemis inbox and on acknowledgment of delivery
-is cascaded back. Thus, Artemis acknowledgement, leads to acknowledgement of the tunnel AMQP packet,
+* Assuming this is a normal message, it is passed on to the Artemis inbox and on acknowledgment of delivery,
+is cascaded back. Thus, Artemis acknowledgement leads to acknowledgement of the tunnel AMQP packet,
 which acknowledges the AMQP back to the sending bridge and that finally marks the Artemis out queue item as consumed.
-To prevent this leading to very slow one after the other message delivery the AMQP channels using sliding window flow control.
+To prevent this leading to very slow, one-after-the-other message delivery, the AMQP channels use sliding window flow control.
 (Currently, a practical default is set internally and the window size is not user configurable.)
-* The `MessagingService` on the peer node will pick up the message from inbox on Artemis, carry out any necessary
+* The `MessagingService` on the peer node will pick up the message from the inbox on Artemis and carry out any necessary
 deduplication. This deduplication is needed as the distributed restartable logic of the Corda wire protocol only
-offers ‘at least once’ delivery guarantees.
+offers 'at least once' delivery guarantees.
 The resulting unique messages are then passed to the `StateMachine` so that the remote flow can be woken up.
 * The reply messages use the authenticated originator flag attached by the float to route the replies back to the
 correct originator.{{< note >}}
-That the message reply path is not via the inbound path, but instead is via a separately validated route
+The message reply path is not via the inbound path, but instead is via a separately validated route
 from the local bridge to the original node’s float and then on to the original node via Artemis.{{< /note >}}
 
 
@@ -173,7 +171,7 @@ dynamically with the official TLS key when activated via the tunnel and this key
 ### DMZ ready with outbound SOCKS
 
 Some organisations require dynamic outgoing connections to operate via a SOCKS proxy. The code supports this option
-by adding extra information to the `outboundConfig` section of the bridge process. An simplified example deployment is shown here
+by adding extra information to the `outboundConfig` section of the bridge process. A simplified example deployment is shown here
 to highlight the option:
 
 ![bridge with socks](/en/images/bridge_with_socks.png "bridge with socks")
@@ -185,6 +183,6 @@ cluster to provide bridge master selection and extra instances of the bridge and
 hot-warm operation of all the bridge and float instances. The Corda Enterprise node should be run as hot-cold HA too.
 Highlighted in the diagram is the addition of the `haConfig` section to point at `zookeeper` and also the use of secondary
 addresses in the `alternateArtemisAddresses` to allow node failover and in the `floatAddresses` to point at a
-pool of DMZ float processes.:
+pool of DMZ float processes.
 
 ![ha bridge float](/en/images/ha_bridge_float.png "ha bridge float")
