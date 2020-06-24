@@ -9,15 +9,13 @@ menu:
 
 ---
 
-# Release files and checksums
+# Corda Enterprise Network Manager 1.3 release files and checksums
 
 Customers who have access to the Corda repositories can download the release files from the repositories.
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 
-## CENM 1.3 release
-
-Downloads for CENM 1.3 release:
+## Release files and checksums
 
 * accounts-application-1.0.0.jar (60 Mb / 63145112 bytes)
   * `8c65803f28dad1cd4ffbf1343820890021b7297c` (sha1)

@@ -8,13 +8,11 @@ menu:
     weight: 2
 ---
 
-# Release files and checksums
+# Corda Open Source (OS) 4.5 release files and checksums
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 
-## Corda Open Source (OS) 4.5 release
-
-Downloads for Corda OS 4.5 release:
+## Release files and checksums
 
 * corda-common-configuration-parsing-4.5-javadoc.jar (433 bytes / 433 bytes)
   * `3346bc96589f643369e843777727ac977d96932c` (sha1)

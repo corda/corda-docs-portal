@@ -12,15 +12,13 @@ tags:
 - enterprise
 ---
 
-# Release files and checksums
+# Corda Enterprise 4.5 release files and checksums
 
 Customers who have access to the Corda repositories can download the release files from the repositories.
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 
-## Corda Enterprise 4.5 release
-
-Downloads for Corda Enterprise 4.5 release:
+## Release files and checksums
 
 * corda-common-configuration-parsing-4.5-javadoc.jar (448 bytes / 448 bytes)
   * `b4d67f22d95f05f862c52a4443206283981126a0` (sha1)
