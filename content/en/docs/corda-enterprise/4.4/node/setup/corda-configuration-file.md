@@ -584,6 +584,10 @@ This is an optimisation for sharing transaction backchains. Corda Enterprise nod
   This is useful for including JDBC drivers and the like. e.g. ``jarDirs = [ ${baseDirectory}"/libs" ]``.
   (Note that you have to use the ``baseDirectory`` substitution value when pointing to a relative path).
 
+{{< warning >}}
+If an item in a list is overridden via an environment variable/system property, the whole list will be overridden. This mechanism should not be used for CorDapps directory.
+{{< /warning >}}
+
   *Default:* not defined
 
     This property is only available for Corda distributed with Capsule. For the Corda tarball distribution this option is unavailable.
