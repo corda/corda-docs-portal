@@ -29,16 +29,15 @@ The MySQLUniquenessProvider collects and exposes the following metrics.
 {{< table >}}
 
 |Metric Name|Description|
-|-----------------------------|------------------------------------------------------------------------------|
+|:-----------------------------|:------------------------------------------------------------------------------|
 |Commit|Transaction commit duration and transactions per seconds|
 |IPS|Input states per second|
-|BatchCommit|Transaction batch commit duration and rate meter|
-|Rollback|When writing to multiple masters with Galera, transaction rollbacks may
-happen due to high write contention|
-|ConnectionException|Incremented when we can not obtain a DB connection|
+|`BatchCommit`|Transaction batch commit duration and rate meter|
+|Rollback|When writing to multiple masters with Galera, transaction rollbacks may happen due to high write contention|
+|`ConnectionException`|Incremented when we can not obtain a DB connection|
 |Conflicts|Double spend attempts, including notarisation retries|
-|NumberOfInputStates|Distribution of number of input states per transaction|
-|requestQueue.queuedStates|Number of requests in the queue at insert|
+|`NumberOfInputStates`|Distribution of number of input states per transaction|
+|`requestQueue.queuedStates`|Number of requests in the queue at insert|
 
 {{< /table >}}
 

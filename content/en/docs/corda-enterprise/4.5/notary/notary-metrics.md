@@ -24,7 +24,7 @@ all meters use exponential moving averages.
 {{< table >}}
 
 |Metric Name|Type|Description|
-|-----------------------------|-----------|------------------------------------------------------------------------------|
+|:-----------------------------|:-----------|:-------------------------------------------------------------------|
 | Commit | Timer | Measures the time taken in milliseconds to commit a single transaction and the number of transactions per second (TPS).|
 | IPS | Meter | Measures the number of comitted input states per second (IPS).|
 | Rollback | Counter | Tracks the number of database transaction rollbacks. These might occur due to transient SQL exceptions, which are mitigated by retrying, or unexpected errors that cause the notarisation to be aborted.|

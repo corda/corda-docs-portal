@@ -28,38 +28,20 @@ all meters use exponential moving averages.
 {{< table >}}
 
 |Metric Name|Type|Description|
-|-----------------------------|-----------|------------------------------------------------------------------------------|
-|Commit|Timer|Measures the time taken in milliseconds to commit a single transaction
-and the number of transactions per second (TPS).|
-|IPS|Meter|Measures the number of comitted input states per second (IPS).|
-|Rollback|Counter|Tracks the number of database transaction rollbacks. These might occur due
-to transient SQL exceptions, which are mitigated by retrying, or unexpected
-errors that cause the notarisation to be aborted.|
-|ConnectionException|Counter|Tracks the number of times that the notary service is unable to obtain a
-database connection.|
-|Conflicts|Counter|Tracks the number of double spend attempts. Note that this will also include
-notarisation retries.|
-|NumberOfInputStates|Histogram|Tracks the statistical distribution of the number of input states per
-transaction.|
-|requestQueueSize|Gauge|Tracks the number of transactions in the notarisation queue at a point in
-time.|
-|requestQueue.queuedStates|Histogram|Tracks the statistical distribution of the total number of states in the
-notarisation queue.|
-|requestQueue.size|Histogram|Tracks the statistical distribution of the number of transactions in the
-notarisation queue.|
-|requestProcessingETASeconds|Histogram|Tracks the statistical distribution of the measured estimated time taken in
-seconds to process a given request. A notary service that is aware
-of its own throughput can return an estimate of how long requests will be
-queued for before they can be processed. Note that a default ETA is returned
-if there are no transactions currently in the queue.|
-|NumberOfUniqueTxHashes|Histogram|Tracks the statistical distribution of the number of unique transactions
-that contributed states to a each transaction. This is mainly intended for
-trend analysis of the number of transactions a given transaction depends on.|
-|ProcessedBatchSize|Histogram|Measures the statistical distribution of the number of states notarised per
-batch. The notary groups and processes states in batches for performance
-reasons.|
-|BatchCommit|Timer|Measures the time taken in milliseconds to commit a single batch and the
-number of batches per second.|
+|:-----------------------------|:-----------|:-------------------------------------------------------------|
+| Commit | Timer | Measures the time taken in milliseconds to commit a single transaction and the number of transactions per second (TPS). |
+| IPS | Meter | Measures the number of comitted input states per second (IPS).|
+| Rollback | Counter | Tracks the number of database transaction rollbacks. These might occur due to transient SQL exceptions, which are mitigated by retrying, or unexpected errors that cause the notarisation to be aborted.|
+| `ConnectionException` | Counter | Tracks the number of times that the notary service is unable to obtain a database connection. |
+| Conflicts | Counter | Tracks the number of double spend attempts. Note that this will also include notarisation retries. |
+| `NumberOfInputStates` | Histogram | Tracks the statistical distribution of the number of input states per transaction. |
+| `requestQueueSize` | Gauge | Tracks the number of transactions in the notarisation queue at a point in time. |
+| `requestQueue.queuedStates` | Histogram | Tracks the statistical distribution of the total number of states in the notarisation queue. |
+| `requestQueue.size` | Histogram | Tracks the statistical distribution of the number of transactions in the notarisation queue. |
+| `requestProcessingETASeconds` | Histogram | Tracks the statistical distribution of the measured estimated time taken in seconds to process a given request. A notary service that is aware of its own throughput can return an estimate of how long requests will be queued for before they can be processed. Note that a default ETA is returned if there are no transactions currently in the queue. |
+| `NumberOfUniqueTxHashes` | Histogram | Tracks the statistical distribution of the number of unique transactions that contributed states to a each transaction. This is mainly intended for trend analysis of the number of transactions a given transaction depends on. |
+| `ProcessedBatchSize` | Histogram | Measures the statistical distribution of the number of states notarised per batch. The notary groups and processes states in batches for performance reasons.|
+| `BatchCommit` | Timer | Measures the time taken in milliseconds to commit a single batch and the number of batches per second. |
 
 {{< /table >}}
 
