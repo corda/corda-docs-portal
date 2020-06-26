@@ -1,6 +1,4 @@
 ---
-aliases:
-- /updating-network-parameters.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-5:
@@ -18,157 +16,136 @@ title: Updating the network parameters
 # Updating the network parameters
 
 The initial network parameters can be subsequently changed through an update process. However, these changes must first
-be advertised to the entire network to allow nodes time to agree to the changes. Every time the server needs to be shutdown
-and run with one of the following flags: `--set-network-parameters`, `--flag-day` or `--cancel-update`. For change to be
-advertised to the nodes new network map has to be signed (either by HSM or by local signer).
-
-Typical update process is as follows:
-
-
-* Start network map with initial network parameters.
-* To advertise an update:>
->
-> * Stop the Network Map Service.
-> * Run it with `--set-network-parameters` flag, along with the network truststore related flags. See the ‘Setting
-> the Network Parameters’ section within the [Network Map Service](../../../../cenm/1.3/network-map.md) document for more information. The network parameters
-> file must have `parametersUpdate` configuration block:```guess
-> parametersUpdate {
->     description = "Important update"
->     updateDeadline = "2017-08-31T05:10:36.297Z" # ISO-8601 time, substitute it with update deadline
-> }
-> ```
->
-> Where *description* is a short description of the update that will be communicated to the nodes and `updateDeadline` is
-> the time (in ISO-8601 format) by which all nodes in the network must decide that they have accepted the new parameters.{{< note >}}
-> Currently only backwards compatible changes to the network parameters can be made, i.e. notaries can’t be
-> removed (eg. they will be always added to the existing list), max transaction size can only increase, etc.{{< /note >}}
-> Upon success the process will exit. Not that as the Network Map Service is up and running again, nothing will be
-> sent to the nodes yet.
-> * Start the Network Map Service as normal without any flags. When the nodes on the network next poll the service for
-> the latest Network Map they will be notified of the proposed parameter update.
-
-
-
-* Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
-new parameters. This will not
-activate the new network parameters on the nodes, only inform the Network Map Service that the node has agreed to the
-update. See [https://docs.corda.net/tutorial-clientrpc-api.html](https://docs.corda.net/tutorial-clientrpc-api.html) for further details.
-The Network Map’s shell contains a command to list network participants that have or haven’t accepted the new
-network parameters:>
-> ```bash
-> view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>,
-> pageNumber: <which page to show, every page contains 100 records>
-> ```
->
-
-It is also possible to poll the network map database to check how many network participants have accepted the new
-network parameters - the information is stored in the `node-info.accepted_parameters_hash` column.
-* Once the `updateDeadline` has passed, a flag day can be issued. This is the act of changing the active network
-parameters to be the parameters advertised in step 2. To achieve this, restart the Network Map Service with the
-`--flag-day` flag. This will cause all nodes in the network to shutdown when they next poll the service due to a
-parameter hash mismatch. The nodes that didn’t accept the parameter update will be removed from the network map and
-unable to restart until they accept. The nodes that accepted, can be restarted and continue as normal.{{< note >}}
-All nodes will currently shutdown regardless of acceptance as there is currently no hotswapping of Network
-Parameters within a node.{{< /note >}}
-{{< note >}}
-A flag day cannot be issued *before* the `updateDeadline` has passed. Therefore this should be chosen carefully.{{< /note >}}
-
-
-It is possible to cancel the previously scheduled update. To do so simply run:
-
-```bash
-java -jar networkmap.jar --cancel-update
-```
-
-The Network Map Service will continue to advertise the cancelled update until the new network map is signed.
+be advertised to the entire network to allow nodes time to agree to the changes.
 
 {{< note >}}
-It is not recommended to advertise new parameters or cancel the update during the period between flag day
-issuance and the next network map signing, especially if the scheduled network map signing task is configured.
-This can result in inconsistent parameters update record in the database and implicit cancellation of the
-issued flag day.
-
+This process has changed extensively in CENM 1.3. The legacy process is still
+supported for services which use the shell interface instead of the admin RPC
+interface - for example, in the CENM Command-Line Interface (CLI) tool. However, this document presumes  that you
+use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation](../1.2/updating-network-parameters.md).
 {{< /note >}}
 
-## Updating the network paramaters via service’s shell
+At a high level, the process is as follows:
 
-Network parameters updates can be done via shell commands, eliminating the need to bring the Network Map Service
-offline during this time. The three commands for managing this process are:
+1. Edit the network parameters configuration. This includes setting an update deadline by which
+   nodes are expected to have accepted the new parameters.
+2. Set the network parameters configuration in the Zone Service.
+3. Advertise the new network parameters from the Network Map Service.
+4. Sign the new network parameters from the Signing Service.
+5. Wait for the update deadline to pass.
+6. Execute the network parameter update.
+7. Sign the new network map containing the new network parameters, via the Signing Service.
 
+## Editing network parameters configuration
 
-* Advertising an update with `--set-network-parameters` flag can be replaced via
-`run networkParametersRegistration` shell command. For instance:>
-> ```bash
-> run networkParametersRegistration networkParametersFile: params.conf, \
-> networkTrustStore: ./certificates/network-root-truststore.jks, \
-> trustStorePassword: trustpass, \
-> rootAlias: cordarootca
-> ```
->
+See [Setting the Network Parameters](network-map.md#network-parameters)
+for information on the network parameters configuration file format and options.
 
-
-* Flag day can be initiated via `run flagDay` command.
-* Cancellation of the previously scheduled update can be done by running `run cancelUpdate` command.
-
-{{< note >}}
-Bear in mind initial network parameters setting cannot be done via shell since Network Map Service cannot run
-without Network Parameters.
-
-{{< /note >}}
-
-## Bootstrapping the network parameters
-
-When the Network Map Service is running it will serve the current network map including the network parameters.
-
-The first time it is started it will need to know the initial value for those parameters, these
-can be specified with a file, like this:
+When updating the network parameters, ensure that the network parameters file has the
+`parametersUpdate` configuration block configured, as shown in the example below:
 
 ```guess
-notaries : [
-    {
-        notaryNodeInfoFile: "/Path/To/NodeInfo/File1"
-        validating: true
-    },
-    {
-        notaryNodeInfoFile: "/Path/To/NodeInfo/File2"
-        validating: false
-    }
-]
-minimumPlatformVersion = 1
-maxMessageSize = 10485760
-maxTransactionSize = 10485760
-eventHorizonDays = 30 # Duration in days
-
-whitelistContracts = {
-    cordappsJars = [
-        "/Path/To/CorDapp/JarFile1",
-    ],
-    exclude = [
-        "com.cordapp.contracts.ContractToExclude1",
-    ]
+parametersUpdate {
+    description = "Important update"
+    updateDeadline = "2017-08-31T05:10:36.297Z" # ISO-8601 time, substitute it with update deadline
 }
-
-packageOwnership = [
-    {
-        packageName = "com.megacorp.example.claimed.package",
-        publicKeyPath = "/example/path/to/public_key_rsa.pem",
-        algorithm = "RSA"
-    },
-    {
-        packageName = "com.anothercorp.example",
-        publicKeyPath = "/example/path/to/public_key_ec.pem",
-        algorithm = "EC"
-    }
-]
 ```
 
-And the location of that file can be specified with: `--set-network-parameters`.
+In this example, `description` is a short description of the update that will be communicated to the nodes, and `updateDeadline` is
+the time (in ISO-8601 format) by which all nodes in the network must decide that they have accepted the new parameters.
+A Flag Day cannot be issued *before* the `updateDeadline` has passed, so make sure to set the right `updateDeadline` time.
 
-Note that when reading from file:
+{{< note >}}
+Currently you can only make backward-compatible changes to the network parameters. For example, you cannot remove notaries 
+(they will be always added to the existing list), you can only increase the max transaction size, and so on.
+{{< /note >}}
 
+## Set network parameter update
 
-* `epoch` will be initialised to 1, unless a different value is specified within the configuration file
-* `modifiedTime` will be the network map start-up time
+Push the new network parameters to the Zone Service, using a command like the one below:
 
-`epoch` will increase by one every time the network parameters are updated, however larger jumps can be achieved by
-manually setting the next epoch value within the configuration file..
+```bash
+cenm netmap netparams update submit -p config/parameters.conf
+```
+
+The Angel Service of the Network Map Service will pick up the new network parameters
+from the Zone service automatically.
+
+## Advertise network parameter update
+
+The next step is to tell the Network Map Service to advertise the update to
+nodes, using the following command:
+
+```bash
+cenm netmap netparams update advertise
+```
+
+When the nodes on the network next poll the service for
+the latest Network Map, they will be notified of the proposed parameter update.
+
+## Sign new network parameters
+
+You must execute the commands listed below on the Signing Service - this means that
+you must run the commands from within the same secure network as the service.
+The recommended deployment includes a FARM Service dedicated to these high
+security actions:
+
+* Fetch the unsigned network parameters - command: `cenm signer netmap netparams unsigned`.
+* Sign the updated network parameters - command: `cenm signer netmap netparams sign -h <hash>`.
+
+## Node operators accept the update
+
+Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
+new parameters. This will not
+activate the new network parameters on the nodes - it will only inform the Network Map Service that the node has agreed to the
+update. See [the Corda node RPC API](../../corda/4.5/tutorial-clientrpc-api.md) for further details.
+
+To list network participants that have or have not accepted the new network parameters,
+run the following command:
+
+```bash
+cenm signer netmap netparams update status --network-params-hash <parameters update hash value>
+```
+
+## Execute network parameters update
+
+Once the `updateDeadline` has passed, you can issue a Flag Day. This is the act of changing the active network
+parameters to be the parameters advertised in step 2. To do so, use the following 
+command:
+
+```bash
+cenm netmap netparams update execute
+```
+
+As a result, all nodes on the network will shut down when they next poll the service, due to a
+parameter hash mismatch. The nodes that did not accept the parameter update will be removed from the network map and
+will be unable to restart until they accept. The nodes that accepted can be restarted and continue as normal.
+
+{{< note >}}
+Corda 4.6 does not support hotswapping of Network Parameters within a node. As a result, all nodes will shut down in this situation, regardless of whether they have accepted the parameter update or not.
+{{< /note >}}
+
+## Sign the network map
+
+As with signing the network parameters, you should run the high security commands listed below 
+from within the same network as the Signing Service:
+
+* Fetch the unsigned Network Map - command: `cenm signer netmap unsigned`.
+* Sign the Network Map - command: `cenm signer netmap sign -h <hash>`.
+
+# Cancelling an update
+
+It is possible to cancel a previously scheduled update. To do so, run the following command:
+
+```bash
+cenm signer netmap netparams update cancel
+```
+
+The Network Map Service will continue to advertise the cancelled update until a new network map is signed.
+
+{{< note >}}
+You should avoid advertising new parameters or cancelling the update during the period between Flag Day
+issuance and the next network map signing, especially if the scheduled network map signing task is configured.
+Otherwise you can cause an inconsistent parameters update record in the database and the implicit cancellation of the
+issued Flag Day.
+{{< /note >}}

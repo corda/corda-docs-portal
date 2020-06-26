@@ -202,7 +202,7 @@ This is a sample `node.conf` which details a configuration connecting to the Cor
 
 ```
 
-[nodefull.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/resources/nodefull.conf)
+[nodefull.conf](../../resources/nodefull.conf)
 
 
 ### Implementing the Corda Firewall PKI
@@ -304,7 +304,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 ```
 
-[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/resources/bridge.conf)
+[bridge.conf](../../resources/bridge.conf)
 
 
 ### Float Installation
@@ -340,14 +340,14 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 ```
 
-[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/resources/float.conf)
+[float.conf](../../resources/float.conf)
 
-A full list of the parameters that can be utilized in these configuration files can be found here : [https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html](https://docs.corda.r3.com/releases/master/corda-firewall-configuration-file.html)
+A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda Enterprise Firewall](corda-firewall-configuration-file.md).
 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade
 
-In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found here : [https://docs.corda.r3.com/releases/master/corda-firewall-upgrade.html](https://docs.corda.r3.com/releases/master/corda-firewall-upgrade.html)
+In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found in [Firewall upgrade](../../node/corda-firewall-upgrade.html).
 
 
 ### Port Policy and Network Configuration
@@ -430,7 +430,7 @@ refresh_pattern .               0       20%     4320
 debug_options ALL,3
 ```
 
-{{/* github src='docs/source/resources/squidconfig.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/resources/squidconfig.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.5/docs/source/resources/squidconfig.conf' start='' end='' */}}[squidconfig.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/resources/squidconfig.conf)
+[squidconfig.conf](../../resources/squidconfig.conf)
 
 
 * Once Squid is successfully installed run:
@@ -471,7 +471,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 
 ```
 
-[squidstatus.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/resources/squidstatus.conf)
+[squidstatus.conf](../../resources/squidstatus.conf)
 
 
 * At this point you can ssh to the VM where the Corda Node is installed and run the following command:
@@ -486,10 +486,9 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 
 ```javascript
 1552502594.525  70615 10.1.0.30 TCP_TUNNEL/200 30087 CONNECT netmap.uat.corda.network:443 - HIER_DIRECT/51.140.164.141 -
-
 ```
 
-{{/* github src='docs/source/resources/access.conf' url='https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/resources/access.conf' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.5/docs/source/resources/access.conf' start='' end='' */}}[access.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/resources/access.conf)
+[access.conf](../../resources/access.conf)
 
 
 ## Using Socks Proxy with Corda Bridge
@@ -514,5 +513,5 @@ The additional benefit of utilizing a SOCKS server is that it facilitates organi
 
 ```
 
-[socks.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/resources/socks.conf)
+[socks.conf](../../resources/socks.conf)
 

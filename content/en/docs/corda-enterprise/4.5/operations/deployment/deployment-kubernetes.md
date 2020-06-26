@@ -277,13 +277,13 @@ kubectl get svc idman-ip notary-ip
 Run the command below to obtain the pod name for the Signing Service:
 
 ```bash
-kubectl get pods -o wide`
+kubectl get pods -o wide
 ```
 
 You will find the truststore password in the `signer/files/pki.conf`, where the default value used in this Helm chart is `trust-store-password`.
 
 {{< note >}} For more details about joining a CENM network, see:
-[Joining an existing compatibility zone](../../corda-os/4.5/joining-a-compatibility-zone.html).
+[Joining an existing compatibility zone](../../../../corda-os/4.5/joining-a-compatibility-zone.md).
 {{< /note >}}
 
 ### Display logs

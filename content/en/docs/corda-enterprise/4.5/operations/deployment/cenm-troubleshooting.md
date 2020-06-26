@@ -37,7 +37,8 @@ status of the service (whether it is executing and if it is reachable):
 
 {{< table >}}
 
-|**Service**|**Request Type**|**Endpoint**|**Return Value**|
+|Service|Request Type|Endpoint|Return Value|
+|:--|:--|:--|:--|
 |Identity Manager Service|GET|`/status`|Status information of the Identity Manager deployment.|
 |Network Map Service|GET|`/network-map/my-hostname`|IP address of the caller.|
 |Revocation Workflow (sub-service of Identity Manager)|GET|`/status`|Status information of the Identity Manager deployment.|
