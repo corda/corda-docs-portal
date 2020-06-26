@@ -24,7 +24,7 @@ weight: 2
 {{< table >}}
 
 |Platform|CPU Architecture|Versions|
-|---------------------------------------|-----------------------|--------------|
+|:---------------------------------------|:-----------------------|:--------------|
 |Red Hat Enterprise Linux|x86-64|7.x, 6.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
 |Ubuntu Linux|x86-64|16.10, 16.04|
@@ -39,12 +39,10 @@ weight: 2
 {{< table >}}
 
 |Platform|CPU Architecture|Versions|
-|---------------------------------------|-----------------------|--------------|
+|:---------------------------------------|:-----------------------|:--------------|
 |Microsoft Windows|x86-64|10, 8.x|
-|Microsoft Windows Server|x86-64|2016, 2012
-R2, 2012|
-|Apple macOS|x86-64|10.9 and
-above|
+|Microsoft Windows Server|x86-64|2016, 2012 R2, 2012|
+|Apple macOS|x86-64|10.9 and above|
 
 {{< /table >}}
 
@@ -54,17 +52,12 @@ above|
 
 {{< table >}}
 
-|Vendor|CPU
-Architecture|Versions|JDBC Driver|
-|---------------------------|-----------------|-----------------|------------------|
-|Microsoft|x86-64|Azure SQL, SQL
-Server 2017|Microsoft JDBC
-Driver 6.2|
+|Vendor|CPU Architecture|Versions|JDBC Driver|
+|:---------------------------|:-----------------|:-----------------|:------------------|
+|Microsoft|x86-64|Azure SQL, SQL Server 2017|Microsoft JDBC Driver 6.2|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6|PostgreSQL JDBC
-Driver 42.1.4|
-
+|PostgreSQL|x86-64|9.6|PostgreSQL JDBC Driver 42.1.4|
 {{< /table >}}
 
 

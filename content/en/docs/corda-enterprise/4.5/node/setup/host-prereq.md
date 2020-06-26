@@ -20,7 +20,7 @@ weight: 2
 {{< table >}}
 
 |Platform|CPU Architecture|Versions|
-|---------------------------------------|-----------------------|--------------|
+|:---------------------------------------|:-----------------------|:--------------|
 |Red Hat Enterprise Linux|x86-64|7.x, 6.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
 |Ubuntu Linux|x86-64|16.10, 16.04|
@@ -37,10 +37,8 @@ weight: 2
 |Platform|CPU Architecture|Versions|
 |:------------------|:--------------------|:-----------|
 |Microsoft Windows|x86-64|10, 8.x|
-|Microsoft Windows Server|x86-64|2016, 2012
-R2, 2012|
-|Apple macOS|x86-64|10.9 and
-above|
+|Microsoft Windows Server|x86-64|2016, 2012 R2, 2012|
+|Apple macOS|x86-64|10.9 and above|
 
 {{< /table >}}
 
