@@ -1,4 +1,7 @@
 ---
+aliases:
+- /docs/cenm/head/index.html
+- /docs/cenm/index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
