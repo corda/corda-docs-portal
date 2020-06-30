@@ -16,9 +16,7 @@ version: '4.4'
 
 [Corda](https://www.corda.net/) is an open-source blockchain platform. If you’d like a quick introduction to blockchains and how Corda is different, then watch this short video:
 
-<embed>
-<iframe src="https://player.vimeo.com/video/205410473" width="640" height="360" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"></iframe>
-</embed>
+{{< vimeo 205410473 >}}
 
 
 **Want to start coding on Corda?** Familiarise yourself with the [key concepts](key-concepts.md), then read

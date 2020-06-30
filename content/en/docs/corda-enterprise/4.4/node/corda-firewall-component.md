@@ -14,7 +14,7 @@ tags:
 - firewall
 - component
 title: Firewall component overview
-weight: 20
+weight: 64
 ---
 
 
