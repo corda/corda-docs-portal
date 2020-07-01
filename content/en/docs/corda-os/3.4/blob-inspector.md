@@ -21,7 +21,7 @@ disadvantage is the inability to view the contents in a human-friendly manner. T
 by allowing the contents of a binary blob file (or URL end-point) to be output in either YAML or JSON. It uses
 `JacksonSupport` to do this (see [JSON](json.md)).
 
-The latest version of the tool can be downloaded from [here](https://www.corda.net/downloads/).
+The tool is distributed as part of Corda OS 3.4 in the form of runnable `.jar.` file - `corda-tools-blob-inspector-3.4-corda.jar`.
 
 To run simply pass in the file or URL as the first parameter:
 
@@ -81,4 +81,3 @@ net.corda.nodeapi.internal.SignedNodeInfo
 
 Notice the file is actually a serialised `SignedNodeInfo` object, which has a `raw` property of type `SerializedBytes<NodeInfo>`.
 This property is materialised into a `NodeInfo` and is output under the `deserialized` field.
-

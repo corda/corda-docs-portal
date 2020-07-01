@@ -21,7 +21,7 @@ disadvantage is the inability to view the contents in a human-friendly manner. T
 this issue by allowing the contents of a binary blob file (or URL end-point) to be output in either YAML or JSON. It
 uses `JacksonSupport` to do this (see [JSON](json.md)).
 
-The tool can be downloaded from [here](https://corda.net/resources).
+The tool is distributed as part of Corda OS 4.1 in the form of runnable `.jar.` file - `corda-tools-blob-inspector-4.1.jar`.
 
 To run simply pass in the file or URL as the first parameter:
 
@@ -141,4 +141,3 @@ never normally need to specify this. Possible values [BINARY, HEX, BASE64]. Defa
 ### Sub-commands
 
 `install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
-
