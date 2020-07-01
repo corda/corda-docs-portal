@@ -6,11 +6,12 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-miscellaneous
+    parent: corda-enterprise-4-4-corda-network
+    identifier: corda-enterprise-4-4-corda-network-UAT
 tags:
 - UAT
 title: "Corda Network Pre-Production Environment"
-weight: 2
+weight: 1000
 ---
 
 # Corda Network Pre-Production Environment

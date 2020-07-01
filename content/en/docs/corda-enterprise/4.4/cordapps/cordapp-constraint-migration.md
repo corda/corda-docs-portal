@@ -25,29 +25,29 @@ explicitly consume and evolve pre Corda 4 states.
 Faced with the exercise of upgrading an existing Corda 3.x CorDapp to Corda 4, you need to consider the following:
 
 
-* What existing unconsumed states have been issued on ledger by a previous version of this CorDapp and using other constraint types?>
-If you have existing **hash** constrained states see [Migrating hash constraints](#hash-constraint-migration).If you have existing **CZ whitelisted** constrained states see [Migrating CZ whitelisted constraints](#cz-whitelisted-constraint-migration).If you have existing **always accept** constrained states these are not consumable nor evolvable as they offer no security and should only
-be used in test environments.
+### What existing unconsumed states have been issued on ledger by a previous version of this CorDapp and using other constraint types?
 
-* What type of contract states does my CorDapp use?>
-**Linear states** typically evolve over an extended period of time (defined by the lifecycle of the associated business use case), and
-thus are prime candidates for constraints migration.**Fungible states** are created by an issuer and transferred around a Corda network until explicitly exited (by the same issuer).
-They do not evolve as linear states, but are transferred between participants on a network. Their consumption may produce additional new
-output states to represent adjustments to the original state (e.g. change when spending cash). For the purposes of constraints migration,
-it is desirable that any new output states are produced using the new Corda 4 signature constraint types.Where you have long transaction chains of fungible states, it may be advisable to send them back to the issuer for re-issuance (this is
+If you have existing **hash** constrained states, see [Migrating hash constraints](#migrating-hash-constraints).
+
+If you have existing **CZ whitelisted** constrained states, see [Migrating CZ whitelisted constraints](#migrating-cz-whitelisted-constraints). If you have existing **always accept** constrained states, these are not consumable nor evolvable as they offer no security and should only be used in test environments.
+
+### What type of contract states does my CorDapp use?
+
+**Linear states** typically evolve over an extended period of time (defined by the lifecycle of the associated business use case), and thus are prime candidates for constraints migration.
+
+**Fungible states** are created by an issuer and transferred around a Corda network until explicitly exited (by the same issuer). They do not evolve as linear states, but are transferred between participants on a network. Their consumption may produce additional new output states to represent adjustments to the original state (for example, change when spending cash).
+
+For the purposes of constraints migration, it is desirable that any new output states are produced using the new Corda 4 signature constraint types. Where you have long transaction chains of fungible states, it may be advisable to send them back to the issuer for re-issuance (this is
 called “chain snipping” and has performance advantages as well as simplifying constraints type migration).
 
-* Should I use the **implicit** or **explicit** upgrade path?>
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.md#implicit-vs-explicit-upgrades).**Implicit** upgrades allow pre-authorising multiple implementations of the contract ahead of time.
-They do not require additional coding and do not incur a complex choreographed operational upgrade process.
+### Should I use the **implicit** or **explicit** upgrade path?
 
-
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../cordapps/api-contract-constraints.md#implicit-vs-explicit-upgrades). **Implicit** upgrades allow pre-authorising multiple implementations of the contract ahead of time. They do not require additional coding and do not incur a complex choreographed operational upgrade process.
 
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (eg. same state definition, commands and verification code) and
 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-Contract CorDapp please read [Contract and state versioning](../node/operating/cm-updating-cordapp.md#contract-upgrading-ref) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
-
+Contract CorDapp please read [Contract and state versioning](../node/operating/cm-updating-cordapp.md#contract-and-state-versioning) and [CorDapp Upgradeability Guarantees](../cordapps/cordapp-upgradeability.md) to understand your options.
 {{< /warning >}}
 
 
@@ -57,11 +57,10 @@ the original unsigned CorDapp and re-issuing them using the new signed CorDapp).
 
 
 
-## Hash constraints migration
+## Migrating hash constraints
 
 {{< note >}}
 These instructions only apply to CorDapp Contract JARs (unless otherwise stated).
-
 {{< /note >}}
 
 ### Corda 4.4
@@ -70,7 +69,7 @@ Corda 4.4 requires some additional steps to consume and evolve pre-existing on-l
 
 
 * All Corda Nodes in the same CZ or business network that may encounter a transaction chain with a hash constrained state must be started using
-relaxed hash constraint checking mode as described in [Hash constrained states in private networks](api-contract-constraints.md#relax-hash-constraints-checking-ref).
+relaxed hash constraint checking mode as described in [Hash constrained states in private networks](../cordapps/api-contract-constraints.md#hash-constrained-states-in-private-networks).
 * CorDapp flows that build transactions using pre-existing *hash-constrained* states must explicitly set output states to use *signature constraints*
 and specify the related public key(s) used in signing the associated CorDapp Contract JAR:
 
@@ -114,7 +113,7 @@ nodes attachments store) to ensure the lookup code in step 2 retrieves the corre
 
 
 
-## CZ whitelisted constraints migration
+## Migrating CZ whitelisted constraints
 
 {{< note >}}
 These instructions only apply to CorDapp Contract JARs (unless otherwise stated).
@@ -126,15 +125,15 @@ These instructions only apply to CorDapp Contract JARs (unless otherwise stated)
 Corda 4.4 requires some additional steps to consume and evolve pre-existing on-ledger **CZ whitelisted** constrained states:
 
 
-* As the original developer of the CorDapp, the first step is to sign the latest version of the JAR that was released (see [Building and installing a CorDapp](cordapp-build-systems.md)).
+* As the original developer of the CorDapp, the first step is to sign the latest version of the JAR that was released (see [Building and installing a CorDapp](../cordapps/cordapp-build-systems.md)).
 The key used for signing will be used to sign all subsequent releases, so it should be stored appropriately. The JAR can be signed by multiple keys owned
-by different parties and it will be expressed as a `CompositeKey` in the `SignatureAttachmentConstraint` (See api-core-types).
+by different parties and it will be expressed as a `CompositeKey` in the `SignatureAttachmentConstraint` (See [API: Core types](../api-core-types)).
 * The new Corda 4 signed CorDapp JAR must be registered with the CZ network operator (as whitelisted in the network parameters which are distributed
 to all nodes in that CZ). The CZ network operator should check that the JAR is signed and not allow any more versions of it to be whitelisted in the future.
 From now on the development organisation that signed the JAR is responsible for signing new versions.The process of CZ network CorDapp whitelisting depends on how the Corda network is configured:
 
-* if using a hosted CZ network (such as [The Corda Network](https://docs.corda.net/head/corda-network/index.html) or
-[UAT Environment](https://docs.corda.net/head/corda-network/UAT.html) ) running an Identity Operator (formerly known as Doorman) and
+* if using a hosted CZ network (such as [Corda Network Foundation](../corda-network/the-corda-network.html) or
+[UAT Environment](../corda-network/UAT.html)) running an Identity Operator (formerly known as Doorman) and
 Network Map Service, you should manually send the hashes of the two JARs to the CZ network operator and request these be added using
 their network parameter update process.
 * if using a local network created using the Network Bootstrapper tool, please follow the instructions in
