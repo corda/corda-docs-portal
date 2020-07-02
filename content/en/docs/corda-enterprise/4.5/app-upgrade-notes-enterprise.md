@@ -18,8 +18,6 @@ title: Upgrading CorDapps to Corda Enterprise 4.5
 
 # Upgrading CorDapps to Corda Enterprise 4.5
 
-TO DO: Replace this section with upgrade instructions for 4.5
-
 ## Upgrading from Open Source
 
 
