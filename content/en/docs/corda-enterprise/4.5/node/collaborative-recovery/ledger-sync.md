@@ -143,7 +143,7 @@ If `ScheduleReconciliationFlow` returns without successfully scheduling reconcil
 
 #### Example usage
 
-`flow start ScheduledReconciliationFlow parties: ["O=PartyA, L=London, C=GB", "O=PartyB, L=Ottawa, C=CA"]`
+`flow start ScheduleReconciliationFlow parties: ["O=PartyA, L=London, C=GB", "O=PartyB, L=Ottawa, C=CA"]`
 
 #### Parameters
 
