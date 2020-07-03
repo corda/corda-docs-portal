@@ -106,16 +106,15 @@ be configured to collect data from Jolokia and write to DataDog web api.
 In order to ensure that a Jolokia agent is instrumented with the JVM run-time, you can choose one of these options:
 
 
-* Specify the Node configuration parameter *jmxMonitoringHttpPort*.
-* When using the launcher, add the line *-javaagent:../../drivers/jolokia-jvm-1.6.0-agent.jar=port=7777,host=localhost* to the *[JVMOptions] sections of the `launcher/app/launcher.cfg*. Make sure to place the Jolokia agent that you specify there into the *drivers* folder.
-* Start the node with *java -jar corda.jar -javaagent:drivers/jolokia-jvm-1.6.0-agent.jar=port=7777,host=localhost*.
+* Specify the Node configuration parameter `jmxMonitoringHttpPort` which will attempt to load the Jolokia driver.
+* Start the node with `java -Dcapsule.jvm.args="-javaagent:path/to/jolokia-jvm-{VERSION}-agent.jar=port=7777,host=localhost" -jar corda.jar` where `path/to/jolokia-jvm-{VERSION}-agent.jar` is the path to the driver, and `{VERSION}` is the version required by Corda, currently 1.6.1.
 
 The following JMX statistics are exported:
 
 
-* Corda specific metrics: flow information (total started, finished, in-flight; flow duration by flow type), attachments (count)
-* Apache Artemis metrics: queue information for P2P and RPC services
-* JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system
+* Corda specific metrics: see [Node metrics](../../node-metrics.md) for a list.
+* Apache Artemis metrics: queue information for P2P and RPC services.
+* JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system.
 
 
 ### Notes for production use
