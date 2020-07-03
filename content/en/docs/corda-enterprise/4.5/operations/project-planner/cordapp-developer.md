@@ -32,8 +32,8 @@ There are a number of pre-requisites for CorDapp development.
 
 |Platform|CPU Architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Microsoft Windows|x86-64|10,8.x|
-|Microsoft Windows Server|x86-64|2016, 2012 R2,2012|
+|Microsoft Windows|x86-64|10, 8.x|
+|Microsoft Windows Server|x86-64|2016, 2012 R2, 2012|
 |Apple macOS|x86-64|10.9 and above|
 
 {{< /table >}}
