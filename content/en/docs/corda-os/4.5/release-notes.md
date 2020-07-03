@@ -49,7 +49,7 @@ For more information about the new APIs, see the [API flows](api-flows.html#comm
 Existing CorDapps will have to be updated to benefit from the new API.
 {{< /note >}}
 
-### Improved Tokens SDK along with new documentation and training 
+### Improved Tokens SDK along with new documentation and training
 
 The Tokens SDK has been extended to provide a consistent API for use in both Java and Kotlin.
 
@@ -84,7 +84,7 @@ The full list of blocked functions can be found below:
 
 ### Updated Dockerform task
 
-We have updated our `Dockerform` [local development task](`generating-a-node.md`) plug-in to use PostgreSQL as the chosen external database.
+We have updated our `Dockerform` [local development task](generating-a-node.md) plug-in to use PostgreSQL as the chosen external database.
 
 ## Platform version change
 

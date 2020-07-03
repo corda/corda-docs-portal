@@ -127,7 +127,7 @@ If custom aliases have not been configured then, as each worker will attempt to 
 separate HSMs must be used. Also, as noted above, if a HA HSM is not available then each worker should be setup with its own HSM.
 
 When a “one HSM per worker” setup is being used, the distributed notary service signing key has to be copied between the HSMs to ensure
-that each worker has access to it. As a consequence, your HSM of choice needs to provide a secure mechanism to keys between HSM instances.
+that each worker has access to it. As a consequence, your HSM of choice needs to provide a secure mechanism to copy keys between HSM instances.
 
 {{< note >}}
 A single Corda node (including notary workers) can not be configured to utilise more than one HSM in the current version.
