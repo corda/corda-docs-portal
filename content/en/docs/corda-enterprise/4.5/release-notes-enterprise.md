@@ -150,7 +150,7 @@ The following libraries have been updated:
 The Tokens SDK has been extended to provide a consistent API for use in both Java and Kotlin.
 
 The documentation has been relocated to the main Corda and Corda Enterprise documentation site, and a comprehensive training module for developers added to the Corda training site.
-[Read the documentation](token-sdk-introduction.md).
+[Read the documentation](cordapps/token-sdk-introduction.md).
 [Explore the training module](https://training.corda.net/libraries/tokens-sdk/).
 
 ### Other improvements
