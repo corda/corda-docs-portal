@@ -72,9 +72,6 @@ To deploy the node and its CorDapps on Azure, you need the following.
 
 ## Deploying CENM from Azure
 
-[resource-group]: ../../resources/resource-group.png
-[containers]: ../../resources/containers.png
-
 1. Open your Azure CENM Deployment Template in Deploy Mode.
 
 2. Select appropriate **Subscription** and **Resource Group**.
@@ -97,11 +94,11 @@ To deploy the node and its CorDapps on Azure, you need the following.
 
 11. Click the the container group with the name deployment name. In this example it is `cenm`.
 
-    ![resource-group]
+    {{< figure src="../../resources/resource-group.png" width="1168px" >}}
 
 12. In the left-hand column, click **Containers**
 
-    ![containers]
+    {{< figure src="../../resources/containers.png" width="350px" >}}
 
 13. Here you should see a single container called **cenm-deployer**. Click **cenm-deployer** and then click **Logs**. From here you can monitor the deployment of your CENM instance.
 
