@@ -214,13 +214,18 @@ This file is based on or incorporates material from the projects listed below (T
 191.	txw2
 192.	validation-api
 
+
+
 ================================================
+
 ================================================
+
+
 
 ## Start of Notices
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 amqp-client 5.5.3      
 https://www.rabbitmq.com/java-client.html      
@@ -921,10 +926,13 @@ http://www.apache.org/licenses/LICENSE-2.0.txt
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
+================================================
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+================================================
+
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 jackson-annotations	2.9.0			      
 https://github.com/FasterXML/jackson-annotations			      
@@ -1282,7 +1290,7 @@ END OF TERMS AND CONDITIONS
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -1290,7 +1298,7 @@ END OF TERMS AND CONDITIONS
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 javassist 3.24.0-GA
 Copyright (C) 1999-2019 by Shigeru Chiba, All rights reserved.
@@ -1602,9 +1610,7 @@ Alternatively, the contents of this software may be used under the terms of the 
 
 **END OF LICENSE TEXT**
 
-**END OF NOTICES AND INFORMATION for above components**
-
-
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -1612,7 +1618,7 @@ Alternatively, the contents of this software may be used under the terms of the 
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 Antlr 2.7.7 			      
 Copyright © 2012 Terence Parr & Sam Harwell			      
@@ -1771,7 +1777,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -1779,7 +1785,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 LatencyUtils 2.0.3			      
 Copyright (c) 2012, 2013, 2014 Gil Tene			      
@@ -1829,14 +1835,14 @@ https://github.com/LatencyUtils/LatencyUtils/blob/master/LICENSE
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
 
 ================================================
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 asm 7.1			      
 Copyright (c) 2000-2011 INRIA, France Telecom			      
@@ -1916,7 +1922,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -1924,7 +1930,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 eddsa 0.3.0			      
 https://github.com/str4d/ed25519-java			      
@@ -2058,7 +2064,7 @@ For more information, please see https://creativecommons.org/publicdomain/zero/1
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -2066,7 +2072,7 @@ For more information, please see https://creativecommons.org/publicdomain/zero/1
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 aopalliance-repackaged 2.5.0-b30					      
 https://github.com/javaee/hk2			      
@@ -2914,7 +2920,7 @@ from your version.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -2922,7 +2928,7 @@ from your version.
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 jetty-continuation 9.2.14.v20151106			      
 Copyright © 2016 The Eclipse Foundation. All Rights Reserved.			      
@@ -3390,7 +3396,7 @@ any resulting litigation.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -3398,7 +3404,7 @@ any resulting litigation.
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 javax.servlet-api 3.1.0			      
 Copyright (c) 1997-2017 Oracle and/or its affiliates.			      
@@ -3678,14 +3684,14 @@ As a special exception, the copyright holders of this library give you permissio
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
 
 ================================================
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 osgi-resource-locator	1.0.1					      
 https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.5/jersey/project/project/jersey-gf-ejb/dependencies.html			      
@@ -4451,7 +4457,7 @@ from your version.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -4459,7 +4465,7 @@ from your version.
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 quasar-core 0.7.11_r3			      
 Copyright (c) 2013-2018, Parallel Universe Software Co.			      
@@ -4483,14 +4489,14 @@ as published by the Free Software Foundation.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
 
 ================================================
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 metrics-new-relic 1.1.1					      
 https://github.com/palominolabs/metrics-new-relic/tree/v1.1.1			      
@@ -4500,7 +4506,8 @@ https://github.com/palominolabs/metrics-new-relic/blob/master/LICENSE
 
 # Copyfree Open Innovation License
 This is version 0.4 of the Copyfree Open Innovation License.
-## Terms and Conditions
+
+**Terms and Conditions**
 
 Redistributions, modified or unmodified, in whole or in part, must retain
 applicable copyright or other legal privilege notices, these conditions, and
@@ -4524,13 +4531,14 @@ NO WARRANTY OF ANY KIND IS IMPLIED BY, OR SHOULD BE INFERRED FROM, THIS LICENSE 
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
-================================================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 ================================================
 
+================================================
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 javax.persistence-api 2.2			      
 Copyright (c) 2008, 2019 Oracle and/or its affiliates. All rights reserved.			      
@@ -4819,7 +4827,7 @@ version(s), and exceptions or additional permissions here}."
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -4827,7 +4835,7 @@ version(s), and exceptions or additional permissions here}."
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 h2 1.4.199			      
 http://www.h2database.com/			      
@@ -5075,7 +5083,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -5083,7 +5091,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 checker-qual 2.8.1			      
 Copyright 2004-present by the Checker Framework developers			      
@@ -5506,7 +5514,7 @@ THE SOFTWARE.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -5514,7 +5522,7 @@ THE SOFTWARE.
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 crash.cli 1.7.4			      
 Copyright (c) 2003-2009 eXo Platform SAS.			      
@@ -5682,7 +5690,7 @@ END OF TERMS AND CONDITIONS
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -5690,7 +5698,7 @@ END OF TERMS AND CONDITIONS
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 jsr305	3.0.2			      
 http://findbugs.sourceforge.net/			      
@@ -5757,7 +5765,7 @@ If the Library as you received it specifies that a proxy can decide whether futu
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -5765,7 +5773,7 @@ If the Library as you received it specifies that a proxy can decide whether futu
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 animal-sniffer-annotations 1.17					      
 https://www.mojohaus.org/animal-sniffer/animal-sniffer-annotations/index.htmlhttps://www.mojohaus.org/animal-sniffer/license.html
@@ -5817,7 +5825,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -5825,7 +5833,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 newrelic-api	3.10.0			      
 Copyright (c) 2008-2019 New Relic, Inc.			      
@@ -5874,7 +5882,7 @@ for lost profits or data.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
@@ -5882,7 +5890,7 @@ for lost profits or data.
 ================================================
 
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
+======== START OF NOTICES AND INFORMATION for the following components ========
 
 HdrHistogram 2.1.9			      
 https://github.com/HdrHistogram/HdrHistogram			      
@@ -5934,7 +5942,7 @@ the Author.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
-=============END OF NOTICES AND INFORMATION for above components=================
+========= END OF NOTICES AND INFORMATION for the above components ========
 
 
 ================================================
