@@ -33,9 +33,24 @@ If you are new to Corda, and want a guided tutorial on using the Tokens SDK for 
 
 {{< /note >}}
 
-## Upgrade from v 1.1 to 1.2
+## Upgrade from V1.1 to V1.2
 
-If you have developed a CorDapp that uses the Tokens SDK V1.1, you can upgrade to 1.2:
+If you have developed a CorDapp that uses the Tokens SDK V1.1, you can upgrade to 1.2.
+
+### Compatibility
+
+Both versions 1.1 and 1.2 of the Tokens SDK are compatible with **platform version 5 (Corda release 4.3)** and higher.
+
+### Changes in V1.2
+
+The main changes in the Tokens SDK V1.2 are designed to improve application of the SDK for those using a Java code base.
+
+Overview of changes:
+
+* All of the utility methods, subflows and RPC enabled flows have been annotated with @JVMOverloads to ensure the appropriate Java constructors are generated where the source Kotlin constructor contains nullable arguments. This ensures a seamless experience when using the Tokens SDK from a Java code base.
+* The `selection` and `money` `.jar` files have been moved into the `workflows` `.jar` file.
+
+To upgrade from Tokens SDK V1.1 to V1.2:
 
 1. Change the V number (version number) in your CorDapp's relevant Gradle file from 1.1 to 1.2.
 
