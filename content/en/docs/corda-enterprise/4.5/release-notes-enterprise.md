@@ -176,7 +176,7 @@ For more information about platform versions, see [Versioning](../../corda-os/4.
 * We have fixed an issue where Corda's internal `providerMap` field in `core`, which is supposed to be private, was both public and mutable.
 * We have fixed an issue with failing session init messages when the state machine replayed them from the Artemis queue in order to retry flows that had not yet persisted their first checkpoint, due to problems with database connectivity.
 * We have fixed an issue where the `com.r3.corda.enterprise.settlementperftestcordapp.flows.SwapStockForCashFlowTest` failed for Oracle 11 due to failed migration.
-+ * We have fixed an issue where `Level.WARN` and `Level.FATAL` logs did not include the original log message after updating them to extract more information from the stack traces.
+* We have fixed an issue where `Level.WARN` and `Level.FATAL` logs did not include the original log message after updating them to extract more information from the stack traces.
 * We have fixed an issue where a race condition would occur when a flow hung while waiting for the ledger to commit a transaction with hash even when that transaction was present in the database.
 * We have fixed an issue where no CRL check was done when using embedded Artemis, which could cause nodes to continue to be involved in transactions after they had been blacklisted.
 * We have fixed an issue with inconsistent error messages on starting components if HSM was not available.
