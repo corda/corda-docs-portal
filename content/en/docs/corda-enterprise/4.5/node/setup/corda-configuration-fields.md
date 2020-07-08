@@ -21,7 +21,7 @@ The available configuration fields are listed below in alphabetic order.
 
 An array of additional host:port values, which will be included in the advertised NodeInfo in the network map in addition to the `p2pAddress`.
 Nodes can use this configuration option to advertise HA endpoints and aliases to external parties.
-0.0.0.0 is not a valid host setting since each additionalP2PAddress must be an external client address.  
+0.0.0.0 is not a valid host setting since each additionalP2PAddress must be an external client address.
 
 *Default:* empty list
 
@@ -292,9 +292,9 @@ Allows fine-grained controls of various features only available in the enterpris
     * `eventsToRecord` defines which types of events will be recorded by the audit service - currently supported types are `{NONE, RPC, ALL}`
     * *Default:* `NONE`
 
-## `tuning`
+## Tuning
 
-Performance tuning parameters for Corda Enterprise
+Tuning is a section withing the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
 
 ## `backchainFetchBatchSize`
 
@@ -480,7 +480,7 @@ If `messagingServerAddress` is specified the default assumption is that the arte
 Setting this to `false` overrides this behaviour and runs the artemis internally to the node, but bound to the address specified in `messagingServerAddress`.
 This allows the address and port advertised in `p2pAddress` to differ from the local binding, especially if there is external remapping by firewalls, load balancers , or routing rules. Note that `detectPublicIp` should be set to `false` to ensure that no translation of the `p2pAddress` occurs before it is sent to the network map.
 
-0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.  
+0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.
 
 *Default:* not defined
 

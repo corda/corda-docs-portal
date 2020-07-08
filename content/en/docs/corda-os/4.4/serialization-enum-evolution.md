@@ -200,9 +200,7 @@ node, don’t know anything about constant D
 {{< note >}}
 Just as with the `CordaSerializationTransformRename` transformation if a single transform is being applied
 then the meta transform may be omitted.
-
-{{< tabs name="tabs-7" >}}
-{{< tab name="kotlin" >}}
+{{< /note >}}
 
 ```kotlin
 @CordaSerializationTransformEnumDefault("D", "C")
@@ -210,16 +208,10 @@ enum class Example {
     A, B, C, D
 }
 ```
-{{< /tab >}}
 
-{{< /tabs >}}
-
-{{< /note >}}
 New constants may default to any other constant older than them, including constants that have also been added
 since inception. In this example, having added D (above) we add the constant E and chose to default it to D
 
-{{< tabs name="tabs-8" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
     CordaSerializationTransformEnumDefault("E", "D"),
@@ -229,9 +221,6 @@ enum class Example {
     A, B, C, D, E
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 {{< note >}}
 Alternatively, we could have decided both new constants should have been defaulted to the first

@@ -40,6 +40,7 @@ status of the service (whether it is executing and if it is reachable):
 {{< table >}}
 
 |**Service**|**Request Type**|**Endpoint**|**Return Value**|
+|:--|:--|:--|:--|
 |Doorman|GET|`/status`|Status information of the Doorman deployment.|
 |Network Map service|GET|`/network-map/my-hostname`|IP address of the caller.|
 |Revocation (currently part of Doorman)|GET|`/status`|Status information of the Doorman deployment.|

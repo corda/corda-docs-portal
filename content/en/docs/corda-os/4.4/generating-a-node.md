@@ -37,7 +37,7 @@ The remaining files and folders described in [Node folder structure](node-struct
 
 ## The Cordform task
 
-Corda provides a gradle plugin called `Cordform` that allows you to automatically generate and configure a set of nodes for testing and demos. Here is an example `Cordform` task called `deployNodes` that creates three nodes, defined in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V6/build.gradle#L95):
+Corda provides a gradle plugin called `Cordform` that allows you to automatically generate and configure a set of nodes for testing and demos. Here is an example `Cordform` task called `deployNodes` that creates three nodes, defined in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V6/build.gradle#L120):
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {

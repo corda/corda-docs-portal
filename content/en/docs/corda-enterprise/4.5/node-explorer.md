@@ -10,7 +10,6 @@ title: Node Explorer
 weight: 160
 ---
 
-
 # Node Explorer
 
 {{< note >}}
@@ -30,7 +29,7 @@ Use Node Explorer to:
 
 ## Install Node Explorer
 
-Node Explorer is a standalone tool that accesses your node and its CorDapps using your security credentials - you don't need to install it directly onto any particular node.  
+Node Explorer is a standalone tool that accesses your node and its CorDapps using your security credentials - you don't need to install it directly onto any particular node.
 
 ### Requirements
 

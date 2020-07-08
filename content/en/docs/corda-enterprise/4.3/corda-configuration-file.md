@@ -591,6 +591,9 @@ For non-localhost address the database password needs to be set in `dataSourcePr
   Only the JARs in the directories are added, not the directories themselves.
   This is useful for including JDBC drivers and the like. e.g. `jarDirs = [ ${baseDirectory}"/libs" ]`.
   (Note that you have to use the `baseDirectory` substitution value when pointing to a relative path).
+{{< note >}}
+If an item in a list is overridden via an environment variable/system property, the whole list will be overridden. This mechanism should not be used for CorDapps directory.
+{{< /note >}}
 
   *Default:* not defined
 
@@ -734,7 +737,7 @@ Default Jolokia access url is <http://127.0.0.1:port/jolokia/>
   * `maxBatchSize`
     The maximum number of transactions processed in a single batch. Larger batches are generally processed more
     efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize`
-    metric exposed by the notary to determine batch utilisation. For more information, see :doc:`running-a-notary-cluster/notary-metrics`  
+    metric exposed by the notary to determine batch utilisation. For more information, see :doc:`running-a-notary-cluster/notary-metrics`
 
     *Default:* 500
 

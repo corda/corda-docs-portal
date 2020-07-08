@@ -14,11 +14,7 @@ tags:
 title: Enum Evolution
 ---
 
-
-
-
 # Enum Evolution
-
 
 In the continued development of a CorDapp an enumerated type that was fit for purpose at one time may
 require changing. Normally, this would be problematic as anything serialised (and kept in a vault) would
@@ -33,21 +29,17 @@ This is achieved through the use of certain annotations. Whenever a change is ma
 capturing the change must be added (whilst it can be omitted any interoperability will be lost). Corda
 supports two modifications to enumerated types, adding new constants, and renaming existing constants
 
-
 {{< warning >}}
 Once added evolution annotations MUST NEVER be removed from a class, doing so will break
 both forward and backward compatibility for this version of the class and any version moving
-forward
-
+forward.
 {{< /warning >}}
-
-
 
 ## The Purpose of Annotating Changes
 
 The biggest hurdle to allowing enum constants to be changed is that there will exist instances of those
 classes, either serialized in a vault or on nodes with the old, unmodified, version of the class that we
-must be able to interoperate with. Thus if a received data structure references an enum assigned a constant
+must be able to inter-operate with. Thus if a received data structure references an enum assigned a constant
 value that doesn’t exist on the running JVM, a solution is needed.
 
 For this, we use the annotations to allow developers to express their backward compatible intentions.
@@ -61,8 +53,7 @@ the new one) a deserializing system should treat any instances of the new one as
 {{< note >}}
 Ultimately, this may mean some design compromises are required. If an enumeration is
 planned as being often extended and no sensible defaults will exist then including a constant
-in the original version of the class that all new additions can default to may make sense
-
+in the original version of the class that all new additions can default to may make sense.
 {{< /note >}}
 
 ## Evolution Transmission
@@ -71,7 +62,6 @@ An object serializer, on creation, will inspect the class it represents for any 
 If a class is thus decorated those rules will be encoded as part of any serialized representation of a
 data structure containing that class. This ensures that on deserialization the deserializing object will
 have access to any transformative rules it needs to build a local instance of the serialized object.
-
 
 ## Evolution Precedence
 
@@ -87,8 +77,8 @@ not by examining the fingerprint
 
 {{< note >}}
 Corda’s AMQP fingerprinting for enumerated types include the type name and the enum constants
-
 {{< /note >}}
+
 Newer vs older is important as the deserializer needs to use the more recent set of transforms to ensure it
 can transform the serialised object into the form as it exists in the deserializer. Newness is determined simply
 by length of the list of all transforms. This is sufficient as transform annotations should only ever be added
@@ -99,20 +89,14 @@ technically there is nothing to prevent annotations being removed in newer versi
 this will break backward compatibility and should thus be avoided unless a rigorous upgrade procedure
 is in place to cope with all deployed instances of the class and all serialised versions existing
 within vaults.
-
 {{< /warning >}}
 
-
 Thus, on deserialization, there will be two options to chose from in terms of transformation rules
-
-
 
 * Determined from the local class and the annotations applied to it (the local copy)
 * Parsed from the AMQP header (the remote copy)
 
-
 Which set is used will simply be the largest.
-
 
 ## Renaming Constants
 
@@ -122,21 +106,14 @@ list.
 
 Each instance must provide the new name of the constant as well as the old. For example, consider the following enumeration:
 
-{{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 enum class Example {
     A, B, C
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 If we were to rename constant C to D this would be done as follows:
 
-{{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializationTransformRenames (
     CordaSerializationTransformRename("D", "C")
@@ -145,9 +122,6 @@ enum class Example {
     A, B, D
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 {{< note >}}
 The parameters to the `CordaSerializationTransformRename` annotation are defined as ‘to’ and ‘from,
@@ -158,23 +132,16 @@ from C
 In the case where a single rename has been applied the meta annotation may be omitted. Thus, the following is
 functionally identical to the above:
 
-{{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializationTransformRename("D", "C")
 enum class Example {
     A, B, D
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 However, as soon as a second rename is made the meta annotation must be used. For example, if at some time later
 B is renamed to E:
 
-{{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializationTransformRenames (
     CordaSerializationTransformRename(from = "B", to = "E"),
@@ -184,23 +151,15 @@ enum class Example {
     A, E, D
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
-
 
 ### Rules
-
-
 
 * A constant cannot be renamed to match an existing constant, this is enforced through language constraints
 * A constant cannot be renamed to a value that matches any previous name of any other constant
 
-
 If either of these covenants are inadvertently broken, a `NotSerializableException` will be thrown on detection
 by the serialization engine as soon as they are detected. Normally this will be the first time an object doing
 so is serialized. However, in some circumstances, it could be at the point of deserialization.
-
 
 ## Adding Constants
 
@@ -210,21 +169,14 @@ must be included that signifies, on deserialization, which constant value should
 serialised property if that value doesn’t exist on the version of the class as it exists on the deserializing
 node.
 
-{{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 enum class Example {
     A, B, C
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 If we were to add the constant D
 
-{{< tabs name="tabs-6" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
     CordaSerializationTransformEnumDefault("D", "C")
@@ -233,38 +185,28 @@ enum class Example {
     A, B, C, D
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 {{< note >}}
 The parameters to the `CordaSerializationTransformEnumDefault` annotation are defined as ‘new’ and ‘old’,
 so in the above example it can be read as constant D should be treated as constant C if you, the deserializing
 node, don’t know anything about constant D
-
 {{< /note >}}
+
 {{< note >}}
 Just as with the `CordaSerializationTransformRename` transformation if a single transform is being applied
 then the meta transform may be omitted.
+{{< /note >}}
 
-{{< tabs name="tabs-7" >}}
-{{< tab name="kotlin" >}}
 ```kotlin
 @CordaSerializationTransformEnumDefault("D", "C")
 enum class Example {
     A, B, C, D
 }
 ```
-{{< /tab >}}
 
-{{< /tabs >}}
-
-{{< /note >}}
 New constants may default to any other constant older than them, including constants that have also been added
 since inception. In this example, having added D (above) we add the constant E and chose to default it to D
 
-{{< tabs name="tabs-8" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
     CordaSerializationTransformEnumDefault("E", "D"),
@@ -274,9 +216,6 @@ enum class Example {
     A, B, C, D, E
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 {{< note >}}
 Alternatively, we could have decided both new constants should have been defaulted to the first
@@ -291,13 +230,11 @@ enum class Example {
     A, B, C, D, E
 }
 ```
-
 {{< /note >}}
+
 When deserializing the most applicable transform will be applied. Continuing the above example, deserializing
 nodes could have three distinct views on what the enum Example looks like (annotations omitted for brevity)
 
-{{< tabs name="tabs-9-1" >}}
-{{% tab name="kotlin-1" %}}
 ```kotlin
 // The original version of the class. Will deserialize: -
 //   A -> A
@@ -309,11 +246,7 @@ enum class Example {
     A, B, C
 }
 ```
-{{% /tab %}}
-{{< /tabs >}}
 
-{{< tabs name="tabs-9-2" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 // The class as it existed after the first addition. Will deserialize:
 //   A -> A
@@ -325,28 +258,18 @@ enum class Example {
     A, B, C, D
 }
 ```
-{{% /tab %}}
-{{< /tabs >}}
 
-{{< tabs name="tabs-9-3" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 // The current state of the class. All values will deserialize as themselves
 enum class Example {
     A, B, C, D, E
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 Thus, when deserializing a value that has been encoded as E could be set to one of three constants (E, D, and C)
 depending on how the deserializing node understands the class.
 
-
 ### Rules
-
-
 
 * New constants must be added to the end of the existing list of constants
 * Defaults can only be set to “older” constants, i.e. those to the left of the new constant in the list
@@ -354,26 +277,17 @@ depending on how the deserializing node understands the class.
 * New constants can be renamed at a later date using the appropriate annotation
 * When renamed, if a defaulting annotation refers to the old name, it should be left as is
 
-
-
 ## Combining Evolutions
 
 Renaming constants and adding constants can be combined over time as a class changes freely. Added constants can
 in turn be renamed and everything will continue to be deserializeable. For example, consider the following enum:
 
-{{< tabs name="tabs-10" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 enum class OngoingExample { A, B, C }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 For the first evolution, two constants are added, D and E, both of which are set to default to C when not present
 
-{{< tabs name="tabs-11" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
     CordaSerializationTransformEnumDefault("E", "C"),
@@ -381,14 +295,9 @@ For the first evolution, two constants are added, D and E, both of which are set
 )
 enum class OngoingExample { A, B, C, D, E }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 Then lets assume constant C is renamed to CAT
 
-{{< tabs name="tabs-12" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
     CordaSerializationTransformEnumDefault("E", "C"),
@@ -397,17 +306,12 @@ Then lets assume constant C is renamed to CAT
 @CordaSerializationTransformRename("C", "CAT")
 enum class OngoingExample { A, B, CAT, D, E }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 Note how the first set of modifications still reference C, not CAT. This is as it should be and will
 continue to work as expected.
 
 Subsequently is is fine to add an additional new constant that references the renamed value.
 
-{{< tabs name="tabs-13" >}}
-{{% tab name="kotlin" %}}
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
     CordaSerializationTransformEnumDefault("F", "CAT"),
@@ -417,16 +321,10 @@ Subsequently is is fine to add an additional new constant that references the re
 @CordaSerializationTransformRename("C", "CAT")
 enum class OngoingExample { A, B, CAT, D, E, F }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
-
 
 ## Unsupported Evolutions
 
 The following evolutions are not currently supports
-
-
 
 * Removing constants
 * Reordering constants

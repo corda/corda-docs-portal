@@ -23,7 +23,7 @@ title: Creating nodes locally
 A node can be created manually by creating a folder that contains the following items:
 
 
-* The Corda JAR> 
+* The Corda JAR>
 
     * Can be downloaded from [https://r3.bintray.com/corda/net/corda/corda/](https://r3.bintray.com/corda/net/corda/corda/) (under /4.1/corda-4.1.jar)
 
@@ -31,7 +31,7 @@ A node can be created manually by creating a folder that contains the following 
 
 * A node configuration file entitled `node.conf`, configured as per [Node configuration](corda-configuration-file.md)
 * A folder entitled `cordapps` containing any CorDapp JARs you want the node to load
-* **Optional:** A webserver JAR entitled `corda-webserver.jar` that will connect to the node via RPC> 
+* **Optional:** A webserver JAR entitled `corda-webserver.jar` that will connect to the node via RPC>
 
     * The (deprecated) default webserver can be downloaded from [http://r3.bintray.com/corda/net/corda/corda-webserver/](http://r3.bintray.com/corda/net/corda/corda-webserver/) (under /4.1/corda-4.1.jar)
     * A Spring Boot alternative can be found here: [https://github.com/corda/spring-webserver](https://github.com/corda/spring-webserver)
@@ -46,7 +46,7 @@ The remaining files and folders described in [Node folder structure](node-struct
 
 Corda provides a gradle plugin called `Cordform` that allows you to automatically generate and configure a set of
 nodes for testing and demos. Here is an example `Cordform` task called `deployNodes` that creates three nodes, defined
-in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V4/build.gradle#L95):
+in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V4/build.gradle#L120):
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {

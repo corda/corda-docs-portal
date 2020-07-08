@@ -246,10 +246,9 @@ You should therefore see two different output files upon invoking the checkpoint
 * `<NODE_BASE>\logs\checkpoints_agent-<date>.log` contains output from this agent tool (types and sizes of a checkpoint stack)
 
 {{< note >}}
-You will only see a separate *checkpoints_agent-<date>.log* file if you configure a separate log4j logger as described below.
-Otherwise all diagnostics logging will be routed to the standard Corda node log file: `node-<hostname>.log`.
-
+A checkpoint agent log is created by default even when no specific configuration is provided for checkpoint  agent. Every time a node starts up, an empty  checkpoint agent log is created.
 {{< /note >}}
+
 If you **only** wish to log checkpoint data for failing flows, start the checkpoint agent with the following arguments:
 
 ```shell

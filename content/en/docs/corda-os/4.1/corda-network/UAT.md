@@ -5,11 +5,11 @@ date: '2020-01-08T09:59:25Z'
 menu: []
 tags:
 - UAT
-title: 'Corda Network: UAT Environment'
+title: 'Corda Network: UAT environment'
 ---
 
 
-# Corda Network: UAT Environment
+# Corda Network: UAT environment
 
 For owners of tested CorDapps with a firm plan to take them into production, a bespoke UAT environment can be provided by R3. Here, such CorDapps can be further tested in the network configuration they will experience in production, utilising relevant Corda Network Services (including the Identity Operator, and trusted notaries).
 

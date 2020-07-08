@@ -1,17 +1,6 @@
 ---
-aliases:
-- /head/node-explorer.html
-- /HEAD/node-explorer.html
-- /node-explorer.html
-- /releases/release-V4.4/node-explorer.html
-- /docs/corda-os/head/node-explorer.html
-- /docs/corda-os/node-explorer.html
 date: '2020-01-08T09:59:25Z'
-menu:
-  corda-os-4-4:
-    identifier: corda-os-4-4-node-explorer-retired
-    parent: corda-os-4-4-tools-index
-    weight: 1050
+menu: []
 tags:
 - node
 - explorer
