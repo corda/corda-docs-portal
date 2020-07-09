@@ -27,14 +27,13 @@ title: Node database
 
 By default, nodes store their data in an H2 database. See [Database access when running H2](node-database-access-h2.md).
 
-Nodes can also be configured to use PostgreSQL and SQL Server. However, these are experimental community contributions.
-The Corda continuous integration pipeline does not run unit tests or integration tests of these databases.
-
 
 ### PostgreSQL
 
-Nodes can also be configured to use PostgreSQL 9.6, using PostgreSQL JDBC Driver 42.2.8. Here is an example node
-configuration for PostgreSQL:
+Nodes can also be configured to use PostgreSQL 9.6, using PostgreSQL JDBC Driver 42.2.8. However, this is an experimental community contribution.
+The Corda continuous integration pipeline does not run unit tests or integration tests of this databases.
+
+Here is an example node configuration for PostgreSQL:
 
 ```groovy
 dataSourceProperties = {
