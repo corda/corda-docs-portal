@@ -76,7 +76,7 @@ Saved initial network parameters to be signed:
 
 ### Starting The Network Map Service
 
-Once you have set the network parameters, you can start the Network Map Service 
+Once you have set the network parameters, you can start the Network Map Service
 manually by running the following command:
 
 ```bash
@@ -105,7 +105,7 @@ Similar to the Identity Manager the main elements that need to be configured for
 * [Network Data Signing Mechanism](#network-data-signing-mechanism)
 * [Cache Timeout](#cache-timeout)
 * [Node Certificate Revocation Checking](#node-certificate-revocation-checking)
-* [ENM Internal Server](#enm-internal-server)
+* [CENM Internal Server](#cenm-internal-server)
 * [Identity Manager & Revocation Communication](#identity-manager-revocation-communication)
 * [Restricting A Node’s Corda Version (optional)](#restricting-a-node-s-corda-version-optional)
 * [Admin RPC Interface](#admin-rpc-interface)
@@ -193,7 +193,7 @@ database {
 An example configuration for a Network Map Service using a Microsoft SQL Service database, configured to run the
 migrations on start-up is:
 
-```guess
+```java
 database {
     driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     jdbcDriver = "path/to/mssql-<EXAMPLE_JDBC_DRIVER>.jar"
@@ -244,7 +244,7 @@ key stores which should include the necessary signing keys along with their full
 
 To enable the local signer, the top level `localSigner` configuration block should be added to the configuration file:
 
-```guess
+```java
 localSigner {
     keyStore {
         file = exampleKeyStore.jks
@@ -348,7 +348,7 @@ The configuration block `adminListener` is used to define the properties of this
 listener, such as the port it listens on as well as the retrying and logging behaviour.
 For example, add the following to the service configuration:
 
-```guess
+```java
 ...
 adminListener {
     port = 5050
@@ -466,6 +466,7 @@ and Network Map Service
 {{< /note >}}
 
 ### Admin RPC
+
 To use the RPC API in the Network Map Service, you must define a configuration property called `adminListener`.
 Example:
 ```docker
@@ -542,7 +543,7 @@ copied over to the Network Map Service.
 
 ### Example Network Parameters File
 
-```guess
+```java
 notaries : [
     {
         notaryNodeInfoFile: "/Path/To/NodeInfo/File1"
