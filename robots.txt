@@ -1,0 +1,26 @@
+User-agent: *
+Disallow: /docs/corda-os/4.4/
+Disallow: /docs/corda-os/4.3/
+Disallow: /docs/corda-os/4.1/
+Disallow: /docs/corda-os/4.0/
+Disallow: /docs/corda-os/3.4/
+Disallow: /docs/corda-os/3.3/
+Disallow: /docs/corda-os/3.2/
+Disallow: /docs/corda-os/3.1/
+Disallow: /docs/corda-os/3.0/
+Disallow: /docs/corda-os/2.0/
+Disallow: /docs/corda-os/1.0/
+Disallow: /docs/corda-enterprise/4.4/
+Disallow: /docs/corda-enterprise/4.3/
+Disallow: /docs/corda-enterprise/4.2/
+Disallow: /docs/corda-enterprise/4.1/
+Disallow: /docs/corda-enterprise/4.0/
+Disallow: /docs/corda-enterprise/3.3/
+Disallow: /docs/corda-enterprise/3.2/
+Disallow: /docs/corda-enterprise/3.1/
+Disallow: /docs/corda-enterprise/3.0/
+Disallow: /docs/cenm/1.2/
+Disallow: /docs/cenm/1.1/
+Disallow: /docs/cenm/1.0/
+
+Sitemap: https://docs.corda.net/sitemap.xml
