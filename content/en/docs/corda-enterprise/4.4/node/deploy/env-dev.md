@@ -246,23 +246,22 @@ for information on valid inputs.
 
 
 * **packageOwnership**:
-A list of package owners. See [Package namespace ownership](#id3) for more information. For each package owner, the following fields
-are required:
+A list of package owners. For each package owner, the following fields are required:
 
 
-* **packageName**:
+  * **packageName**:
 Java package name (e.g *com.my_company* ).
 
 
-* **keystore**:
+  * **keystore**:
 The path of the keystore file containing the signed certificate.
 
 
-* **keystorePassword**:
+  * **keystorePassword**:
 The password for the given keystore (not to be confused with the key password).
 
 
-* **keystoreAlias**:
+  * **keystoreAlias**:
 The alias for the name associated with the certificate to be associated with the package namespace.
 
 
