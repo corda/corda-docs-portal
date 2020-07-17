@@ -73,13 +73,13 @@ present in the majority of names, but is an option for the cases which require i
 The name must also obey the following constraints:
 
 
-* The `organisation`, `locality` and `country` attributes are present> 
+* The `organisation`, `locality` and `country` attributes are present
 
     * The `state`, `organisational-unit` and `common name` attributes are optional
 
 
 
-* The fields of the name have the following maximum character lengths:> 
+* The fields of the name have the following maximum character lengths:  
 
     * Common name: 64
     * Organisation: 128
@@ -90,7 +90,7 @@ The name must also obey the following constraints:
 
 
 * The `country` attribute is a valid ISO 3166-1 two letter code in upper-case
-* All attributes must obey the following constraints:> 
+* All attributes must obey the following constraints:
 
     * Upper-case first letter
     * Has at least two letters
@@ -98,13 +98,13 @@ The name must also obey the following constraints:
     * Does not include the following characters: `,` , `=` , `$` , `"` , `'` , `\`
     * Is in NFKC normalization form
     * Does not contain the null character
-    * Only the latin, common and inherited unicode scripts are supported
+    * Only the Latin, common and inherited unicode scripts are supported
 
 
 
-* The `organisation` field of the name also obeys the following constraints:> 
+* The `organisation` field of the name also obeys the following constraints:
 
-    * No double-spacing> 
+    * No double-spacing
 
         * This is to avoid right-to-left issues, debugging issues when we can’t pronounce names over the phone, and
 character confusability attacks
@@ -118,8 +118,7 @@ character confusability attacks
 
 ### External identifiers
 
-Mappings to external identifiers such as Companies House nos., LEI, BIC, etc. should be stored in custom X.509
+Mappings to external identifiers such as Companies House numbers, LEI, BIC, etc. should be stored in custom X.509
 certificate extensions. These values may change for operational reasons, without the identity they’re associated with
 necessarily changing, and their inclusion in the distinguished name would cause significant logistical complications.
 The OID and format for these extensions will be described in a further specification.
-

@@ -41,7 +41,7 @@ into the `plugins` folder.
 A node’s name must be a valid X500 name that obeys the following additional constraints:
 
 
-* The fields of the name have the following maximum character lengths:> 
+* The fields of the name have the following maximum character lengths:  
 
     * Common name: 64
     * Organisation: 128
@@ -53,7 +53,7 @@ A node’s name must be a valid X500 name that obeys the following additional co
 
 * The country code is a valid ISO 3166-1 two letter code in upper-case
 * The organisation, locality and country attributes are present
-* The organisation field of the name obeys the following constraints:> 
+* The organisation field of the name obeys the following constraints:
 
     * Has at least two letters
     * No leading or trailing whitespace
@@ -62,7 +62,7 @@ A node’s name must be a valid X500 name that obeys the following additional co
     * Does not contain the words “node” or “server”
     * Does not include the characters ‘,’ or ‘=’ or ‘$’ or ‘”’ or ‘’’ or ‘'
     * Is in NFKC normalization form
-    * Only the latin, common and inherited unicode scripts are supported
+    * Only the Latin, common and inherited unicode scripts are supported
 
 
 
@@ -174,4 +174,3 @@ Windows) to run all the nodes at once. If you make any changes to your `deployNo
 the task to see the changes take effect.
 
 You can now run the nodes by following the instructions in [Running a node](running-a-node.md).
-
