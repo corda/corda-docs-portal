@@ -1,0 +1,47 @@
+#!groovy
+/**
+ * Jenkins pipeline to reindex public Docsite.
+ * Requirements are to start it twice a week.
+ */
+
+pipeline {
+    agent { label 'small' }
+
+    options {
+        timestamps()
+        timeout(time: 30, unit: 'MINUTES')
+        disableConcurrentBuilds() // this makes killAllExistingBuildsForJob always do nothing
+        buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '7'))
+        ansiColor('xterm')
+
+        /*
+         * a bit awkward to read
+         * is parameter is true  -> push events are *not* ignored
+         * if parameter is false -> push events *are* ignored
+         */
+        overrideIndexTriggers(false)
+    }
+
+    triggers {
+        /**
+         * twice a week: Wed & Sun
+         * some time between 0:00 and 2:59
+         */
+        cron 'H H(0-2) * * 3,7'
+    }
+
+    stages {
+        stage('Refresh search index') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'algolia-credentials',
+                        passwordVariable: 'ALGOLIA_API_ADMIN_KEY',
+                        usernameVariable: 'ALGOLIA_APPLICATION_ID')
+                ]) {
+                    sh 'make crawl'
+                }
+            }
+        }
+    }
+}
