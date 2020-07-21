@@ -88,6 +88,11 @@ for the case of distributing small files that rarely change, HTTP is a well unde
 own protocol is designed for complex multi-way conversations between authenticated identities using signed binary
 messages separated into parallel and nested flows, which isn’t necessary for network map distribution.
 
+{{< note >}}
+
+Note that only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are not supported.
+
+{{< /note >}}
 
 ## The `additional-node-infos` directory
 
