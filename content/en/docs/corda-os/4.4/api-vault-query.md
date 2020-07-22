@@ -969,19 +969,6 @@ If the results you were expecting do not match actual returned query results, we
 
 For advanced use cases that require sophisticated pagination, sorting, grouping, and aggregation functions, it is recommended that the CorDapp developer utilise one of the many proven frameworks that ship with this capability out of the box, namely, implementations of JPQL (JPA Query Language) such as Hibernate for advanced SQL access, and Spring Data for advanced pagination and ordering constructs.
 
-The Corda tutorials provide examples satisfying these additional use cases:
-
-
-
-
-* Example CorDapp service using Vault API Custom Query to access attributes of IOU State
-* Example CorDapp service query extension executing Named Queries via [JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql)
-* [Advanced pagination](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html) queries using Spring Data [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)
-
-
-
-
-
 
 ## Mapping owning keys to external IDs
 

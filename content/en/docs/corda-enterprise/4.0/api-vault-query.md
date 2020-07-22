@@ -949,25 +949,12 @@ taking place in between and/or in parallel to paging requests. When using pagina
 `totalStatesAvailable` (from the `Vault.Page` result) and adjust further paging requests appropriately.
 
 
-## Other use case scenarios
+## Other use-case scenarios
 
 For advanced use cases that require sophisticated pagination, sorting, grouping, and aggregation functions, it is
 recommended that the CorDapp developer utilise one of the many proven frameworks that ship with this capability out of
 the box, namely, implementations of JPQL (JPA Query Language) such as Hibernate for advanced SQL access, and
 Spring Data for advanced pagination and ordering constructs.
-
-The Corda Tutorials provide examples satisfying these additional Use Cases:
-
-
-
-
-* Example CorDapp service using Vault API Custom Query to access attributes of IOU State
-* Example CorDapp service query extension executing Named Queries via [JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql)
-* [Advanced pagination](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html) queries using Spring Data [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)
-
-
-
-
 
 
 ## Mapping owning keys to external IDs
