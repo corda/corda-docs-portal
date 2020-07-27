@@ -25,7 +25,7 @@ def _setup_logging():
 
 
 def process(app_id, write_key, index_name, facets):
-    LOG.info(f"Setting facets for searching on index {index_name}")
+    LOG.info(f"Setting facets for searching on index {index_name} - {facets}")
     client = SearchClient.create(app_id, write_key)
     index = client.init_index(index_name)
 
@@ -34,6 +34,16 @@ def process(app_id, write_key, index_name, facets):
         'attributesForFaceting': facets
     })
     LOG.info(f"Setting facets for searching on index {index_name} finished")
+
+    settings = index.get_settings()
+    index_facets = settings.get('attributesForFaceting', [])
+    LOG.info(f"Facets on index = {index_facets}")
+
+    if not set(facets).issubset(index_facets):
+        LOG.error("Facets are not set on the index.  Searching will be broken on the site.")
+        return 1
+
+    return 0
 
 
 def main():
@@ -52,8 +62,8 @@ def main():
         sys.exit(1)
 
     cfg = json.loads("\n".join(open(args.config, 'r').readlines()))
-    process(args.appId, args.writeKey, cfg["index"], cfg["facets"])
+    return process(args.appId, args.writeKey, cfg["index"], cfg["facets"])
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
