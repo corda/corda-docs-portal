@@ -6,7 +6,7 @@ menu:
   corda-enterprise-4-3:
     identifier: corda-enterprise-4-3-corda-nodes-index
     parent: corda-enterprise-4-3-operations
-    weight: 450
+    weight: 430
 tags:
 - corda
 - nodes

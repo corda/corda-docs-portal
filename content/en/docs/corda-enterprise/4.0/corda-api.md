@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-0:
     identifier: corda-enterprise-4-0-corda-api
-    weight: 50
+    weight: 75
 tags:
 - corda
 - api
@@ -103,4 +103,3 @@ functionality, the annotation is a warning that we may need to extend them in fu
 Cordapp developers should therefore just use these classes “as is”, and *not* attempt to extend or implement any of them themselves.
 
 This annotation is inherited by subclasses and sub-interfaces.
-

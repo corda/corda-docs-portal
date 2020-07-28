@@ -1,8 +1,10 @@
 ---
 aliases:
-- /releases/4.1/corda-network/UAT.html
+- /releases/4.1/corda-network/uat.html
 date: '2020-01-08T09:59:25Z'
-menu: []
+menu:
+  corda-enterprise-4-1:
+    parent: corda-enterprise-4-1-the-corda-network
 tags:
 - UAT
 title: 'Corda Network: UAT environment'
@@ -13,37 +15,35 @@ title: 'Corda Network: UAT environment'
 
 For owners of tested CorDapps with a firm plan to take them into production, a bespoke UAT environment can be provided by R3. Here, such CorDapps can be further tested in the network configuration they will experience in production, utilising relevant Corda Network Services (including the Identity Operator, and trusted notaries).
 
-Corda UAT is not intended for customers’ full test cycles, as it is expected that the bulk of CorDapp testing will occur in simpler network configurations run by the CorDapp provider, but is available for testing of functionally complete and tested CorDapps in realistic network settings to simulate the real-world business environment, including the production settings of network parameters, Corda network services and supported Corda versions.
+Corda UAT is not intended for customers’ full test cycles, as it is expected that the bulk of CorDapp testing will occur in simpler network configurations run by the CorDapp provider, but is available for testing of functionally complete and tested CorDapps in realistic network settings.  The environment simulates the real-world business environment, including the production settings of network parameters, Corda network services and supported Corda versions.
 
-UAT is therefore more aligned to the testing of the operational characteristics of networked CorDapps rather than their specific functional features, although we recognise there can be overlap between the two. Realistic test data is therefore expected to be used and may include data copied from production environments and hence representing real world entities and business activities. It will be up to the introducer of such data to ensure that all relevant data protection legislation is complied with and, in particular, that the terms and conditions under which Corda Network Services processes such data is suitable for their needs. All test data will be cleared down from Corda Network Services on the completion of testing.
+UAT is therefore more aligned to the testing of the operational characteristics of networked CorDapps rather than their specific functional features, although we recognise there can be overlap between the two. Realistic test data is therefore expected to be used and may include data copied from production environments and hence representing real world entities and business activities. It will be up to the introducer of such data to ensure that all relevant data protection legislation is complied with and, in particular, that the terms and conditions under which Corda Network services process such data is suitable for their needs. All test data will be cleared from Corda Network services on the completion of testing.
 
 More information about UAT will continue to be uploaded on this site or related sub-sites.
 
 
+## Pre-requisites to joining the UAT environment
+
+*The below pre-requisites assume the potential participant is joining the UAT environment directly, and as such is not "sponsoring" or onboarding other participants. If this is the case, please contact your Corda representative for how to "sponsor" end-participants.*
+
+### Technical pre-requisites
+
+* One or more physical or virtual machines with a compatible operating system and a compatible Java version (for example, Oracle JDK 8u131+) upon which to deploy Corda
+* Corda software - either Open Source or Corda Enterprise (Corda Enterprise requires a license from R3)
+* A static external IP address for each machine on which Corda will be run
+
+### Business pre-requisites
+
+* Appropriate contractual terms have been agreed for access to the Corda Network services
+* Access to the appropriate environment has been agreed with your project representative with sufficient advance notice (4 weeks is standard but may be longer if you have special service requirements) to ensure appropriate SLAs can be in place. Your project representative will be able to supply the booking template.
+
+{{< note >}}
+Corda Network UAT is an R3 owned and operated environment and service designed to support parties intending to join Corda Network proper with realistic network test facilities. In contrast, Corda Network is a production network governed by an [Independent Foundation](https://corda.network/governance/index.html) and has no responsibility for Corda Network UAT. Corda Network UAT seeks to provide a test environment which is as close as possible to Corda Network in its make-up and operation.
+{{< /note >}}
+
 ## Joining the UAT environment
 
-*The below joining steps assume the potential participant is joining the UAT environment directly, and as such is not “sponsoring” or onboarding other participants. If this is the case, please contact your Corda representative for how to ‘sponsor’ end-participants onto UAT.*
-
-**Pre-requisites:**
-
-*Technical*
-
-
-* One or more physical or virtual machines upon which to deploy Corda, with compatible operating system and a compatible Java version (e.g. Oracle JDK 8u131+)
-* Corda software - either Open Source or Corda Enterprise (license from R3)
-* A static external IP addresses must be available for each machine on which Corda will be run.
-
-*Business*
-
-
-* Appropriate contractual terms have been agreed for access to the Services
-* Access to the appropriate environment has been agreed with your project representative with sufficient advance notice (4 weeks standard but may be longer if you have special service requirements) to ensure appropriate SLAs can be in place. Your project representative will be able to supply the booking template.
-
-**Note**:
-*Corda Network UAT is an R3 owned and operated environment and service designed to support parties intending to join Corda Network proper with realistic network test facilities. In contrast, Corda Network is a production network governed by an `independent Foundation <https://corda.network/governance/index.html>`_ and has no responsibility for Corda Network UAT. Corda Network UAT seeks to provide a test environment which is as close as possible to Corda Network in its make-up and operation.*
-
-
-## Steps to join UAT environment
+*The below joining steps assume the potential participant is joining the UAT environment directly, and as such is not "sponsoring" or onboarding other participants. If this is the case, please contact your Corda representative for how to "sponsor" end-participants.*
 
 **Step 1.** Obtain Corda software - either:
 
@@ -60,20 +60,20 @@ There is further guidance available on Corda docs for getting set up on Corda.
 
 Configuring the node includes:
 
-4.1. **Choosing an email address.** The email address should belong to a suitably authorised employee of the node operator organisation. The email address is only retained by the Operator for the purposes of contact in relation to identity checks and any administrative issues. It is not included in the certificate.
+  * **Choosing an email address** The email address should belong to a suitably authorised employee of the node operator organisation. The email address is only retained by the Operator for the purposes of contact in relation to identity checks and any administrative issues. It is not included in the certificate.
 
-4.2. **Choosing a Distinguished Name** A DN must be unique within Corda Network. The DN is comprised of separate fields as per the table below. Only O and OU are used for the identity uniqueness check, and the other fields are considered as attributes of the identity.
+  * **Choosing a Distinguished Name** A DN must be unique within Corda Network. The DN is comprised of separate fields as per the table below. Only O and OU are used for the identity uniqueness check, and the other fields are considered as attributes of the identity.
 
-All data fields must adhere to the following constraints:
+    All data fields must adhere to the following constraints:
 
 
-* Only uses Latin, common and inherited unicode scripts
-* Upper-case first letter
-* At least two letters
-* No leading or trailing whitespace
-* Does not include the following characters: , , = , $ , ” , ‘ ,
-* Is in NFKC normalization form
-* Does not contain the null character
+    * Only uses Latin, common and inherited unicode scripts
+    * Upper-case first letter
+    * At least two letters
+    * No leading or trailing whitespace
+    * Does not include the following characters: , , = , $ , ” , ‘ ,
+    * Is in NFKC normalization form
+    * Does not contain the null character
 
 
 {{< table >}}
@@ -91,8 +91,9 @@ All data fields must adhere to the following constraints:
 
 The above fields must be populated accurately with respect to the legal status of the entity being registered. As part of standard onboarding checks for Corda Network, the Identity Operator may verify that these details have been accurately populated and reject requests where the population of these fields does not appear to be correct.
 
-**4.3. Specify URLs For Initial Registration**
-The settings below must be added to the node.conf at the end of the file:
+  * **Specifying URLs For initial registration**
+
+    The settings below must be added to the node.conf at the end of the file:
 
 ```guess
 networkServices {
@@ -146,7 +147,7 @@ Business Network Operators need to ensure their participants have signed the UAT
 *Direct Model*
 Direct participants should email the Identity Operator indicating acceptance of the in-force Terms of Use (prior to availability of click-through agreements either attach the relevant document or refer to the document by date, name and version number).
 
-**Step 7. Identity Checks.**
+**Step 7. Identity checks.**
 The Identity Operator does verification checks – upon receipt of a CSR, a number of identity-related checks will be conducted, before issuing a certificate.
 
 **Identity checks do not constitute formal Know Your Customer (KYC) or Enhanced Due Diligence (EDD) checks. Node operators and their users are responsible for carrying out appropriate due diligence on any participant in relation to transactions performed via Corda Network.**
@@ -174,4 +175,3 @@ Installation and configuration of your Corda applications must be undertaken by 
 Business Network Operators should co-ordinate any post-install tests that may involve a small number of low value transactions on the business network to assure themselves of the correct setup of their node. Node operators should co-ordinate with their Business Network Operator in this regard. All node-initiated activity on the network from the point of connection is the responsibility of the node operator.
 
 For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network)
-

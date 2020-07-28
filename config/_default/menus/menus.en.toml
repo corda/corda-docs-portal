@@ -253,11 +253,6 @@ name = "Operations"
 weight = 280
 
 [[corda-enterprise-4-1]]
-identifier = "corda-enterprise-4-1-corda-network"
-name = "Corda Network"
-weight = 260
-
-[[corda-enterprise-4-1]]
 identifier = "corda-enterprise-4-1-development"
 name = "Development"
 weight = 70
@@ -278,11 +273,6 @@ name = "Corda Enterprise"
 weight = 90
 
 [[corda-enterprise-4-2]]
-identifier = "corda-enterprise-4-2-corda-network"
-name = "Corda Network"
-weight = 380
-
-[[corda-enterprise-4-2]]
 identifier = "corda-enterprise-4-2-development"
 name = "Development"
 weight = 180
@@ -290,7 +280,7 @@ weight = 180
 [[corda-enterprise-4-2]]
 identifier = "corda-enterprise-4-2-miscellaneous"
 name = "Miscellaneous"
-weight = 390
+weight = 4000
 
 [[corda-enterprise-4-2]]
 identifier = "corda-enterprise-4-2-operations"
@@ -300,7 +290,7 @@ weight = 280
 [[corda-enterprise-4-3]]
 identifier = "corda-enterprise-4-3-corda-api"
 name = "Corda API"
-weight = 290
+weight = 64
 
 [[corda-enterprise-4-3]]
 identifier = "corda-enterprise-4-3-corda-enterprise"
@@ -335,7 +325,7 @@ weight = 20
 [[corda-enterprise-4-4]]
 identifier = "corda-enterprise-4-4-miscellaneous"
 name = "Miscellaneous"
-weight = 50
+weight = 4000
 
 [[corda-enterprise-4-4]]
 identifier = "corda-enterprise-4-4-upgrading-and-tools"
@@ -383,11 +373,6 @@ identifier = "corda-os-4-0-participate"
 name = "Participate"
 weight = 240
 
-[[corda-os-4-0]]
-identifier = "corda-os-4-0-docker"
-name = "Docker"
-weight = 250
-
 [[corda-os-4-1]]
 identifier = "corda-os-4-1-development"
 name = "Development"
@@ -404,14 +389,14 @@ name = "Participate"
 weight = 270
 
 [[corda-os-4-3]]
-identifier = "corda-os-4-3-corda-api"
-name = "Corda API"
-weight = 180
-
-[[corda-os-4-3]]
 identifier = "corda-os-4-3-development"
 name = "Development"
 weight = 60
+
+[[corda-os-4-3]]
+identifier = "corda-os-4-3-corda-api"
+name = "Corda API"
+weight = 50
 
 [[corda-os-4-3]]
 identifier = "corda-os-4-3-operations"
@@ -431,7 +416,7 @@ weight = 20
 [[corda-os-4-4]]
 identifier = "corda-os-4-4-corda-api"
 name = "Corda API"
-weight = 30
+weight = 15
 
 [[corda-os-4-4]]
 identifier = "corda-os-4-4-operations"
@@ -449,14 +434,14 @@ name = "Upgrading CorDapps and nodes"
 weight = 15
 
 [[corda-os-4-5]]
-identifier = "corda-os-4-5-development"
-name = "Development"
-weight = 20
-
-[[corda-os-4-5]]
 identifier = "corda-os-4-5-corda-api"
 name = "Corda API"
-weight = 40
+weight = 17
+
+[[corda-os-4-5]]
+identifier = "corda-os-4-5-development"
+name = "Development"
+weight = 25
 
 [[corda-os-4-5]]
 identifier = "corda-os-4-5-operations"
@@ -467,4 +452,3 @@ weight = 30
 identifier = "corda-os-4-5-contributing-index"
 name = "Participate"
 weight = 410
-
