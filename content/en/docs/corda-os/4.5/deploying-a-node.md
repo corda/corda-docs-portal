@@ -52,7 +52,7 @@ handling, and ensures the Corda service is run at boot.
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
 * Download the [Corda jar](https://r3.bintray.com/corda/net/corda/corda/)
-(under `/4.5/corda-4.4.jar`) and place it in `/opt/corda`
+(under `/4.5/corda-4.5.jar`) and place it in `/opt/corda`
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
 * Save the below as `/opt/corda/node.conf`. See [Node configuration](corda-configuration-file.md) for a description of these options:
@@ -205,7 +205,7 @@ example using PowerShell:
 
 ```shell
 mkdir C:\Corda
-wget http://jcenter.bintray.com/net/corda/corda/4.5/corda-4.4.jar -OutFile C:\Corda\corda.jar
+wget http://jcenter.bintray.com/net/corda/corda/4.5/corda-4.5.jar -OutFile C:\Corda\corda.jar
 ```
 
 

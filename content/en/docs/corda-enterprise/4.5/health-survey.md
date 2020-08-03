@@ -23,7 +23,7 @@ it and the firewall (if deployed externally) for information on configuration, s
 To run the health survey tool, use the following command:
 
 ```kotlin
-java -jar corda-tools-health-survey-4.4.jar --base-directory DIRECTORY [--node-configuration DIRECTORY]
+java -jar corda-tools-health-survey-4.5.jar --base-directory DIRECTORY [--node-configuration DIRECTORY]
 ```
 
 Usage:

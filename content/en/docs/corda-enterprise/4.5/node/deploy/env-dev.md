@@ -36,7 +36,7 @@ The Corda Network Bootstrapper can be downloaded from [here](https://software.r3
 Create a directory containing a node config file, ending in `_node.conf`, for each node you want to create. `devMode` must be set to true. Then run the following command:
 
 ```bash
-java -jar corda-tools-network-bootstrapper-4.4.jar --dir <nodes-root-dir>
+java -jar corda-tools-network-bootstrapper-4.5.jar --dir <nodes-root-dir>
 ```
 
 For example running the command on a directory containing these files:
@@ -139,7 +139,7 @@ can use the Network Bootstrapper on the following directory structure:
 Then run the Network Bootstrapper again from the root dir:
 
 ```bash
-java -jar corda-tools-network-bootstrapper-4.4.jar --dir <nodes-root-dir>
+java -jar corda-tools-network-bootstrapper-4.5.jar --dir <nodes-root-dir>
 ```
 
 Which will give the following:
@@ -202,13 +202,13 @@ be used to override the default network parameters. See [Command line options](#
 You can provide a network parameters overrides file using the following syntax:
 
 ```bash
-java -jar corda-tools-network-bootstrapper-4.4.jar --network-parameter-overrides=<path_to_file>
+java -jar corda-tools-network-bootstrapper-4.5.jar --network-parameter-overrides=<path_to_file>
 ```
 
 Or alternatively, by using the short form version:
 
 ```bash
-java -jar corda-tools-network-bootstrapper-4.4.jar -n=<path_to_file>
+java -jar corda-tools-network-bootstrapper-4.5.jar -n=<path_to_file>
 ```
 
 The network parameter overrides file is a HOCON file with the following fields, all of which are optional. Any field that is not provided will be

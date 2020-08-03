@@ -552,7 +552,7 @@ Capsule unpacks content of the Fat Jar only once and subsequent runs perform fas
 For Float and Bridge to communicate a tunnel keystore has to be created as follows:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.4.jar generate-internal-tunnel-ssl-keystores -p tunnelStorePass -e tunnelPrivateKeyPassword -t tunnelTrustpass
+java -jar corda-tools-ha-utilities-4.5.jar generate-internal-tunnel-ssl-keystores -p tunnelStorePass -e tunnelPrivateKeyPassword -t tunnelTrustpass
 ```
 
 This should produce files: `tunnel/float.jks`, `tunnel/tunnel-truststore.jks` and `tunnel/bridge.jks` which will be used later on.
@@ -568,7 +568,7 @@ arrangements. Artemis trust password can and should be different.
 The tool should be used as follows:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.4.jar generate-internal-artemis-ssl-keystores -p artemisStorePass -t artemisTrustpass
+java -jar corda-tools-ha-utilities-4.5.jar generate-internal-artemis-ssl-keystores -p artemisStorePass -t artemisTrustpass
 ```
 
 This should produce files: `artemis/artemis-truststore.jks`, `artemis/artemis.jks` which will be used later on.
@@ -787,7 +787,7 @@ sshd {
 Given two configuration files above, in order to produce node keystores the following command should be used:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.4.jar node-registration --config-files=./entityA/node.conf --config-files=./entityB/node.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass
+java -jar corda-tools-ha-utilities-4.5.jar node-registration --config-files=./entityA/node.conf --config-files=./entityB/node.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass
 ```
 
 This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on Corda Network configuration this process may require manual approval
@@ -852,7 +852,7 @@ Since there is a single Bridge instance representing multiple nodes, it will nee
 In order to produce such aggregated keystore, the following command should be used:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.4.jar import-ssl-key --bridge-keystore-password=bridgeKeyStorePassword --bridge-keystore=./nodesCertificates/nodesUnitedSslKeystore.jks --node-keystores=./entityA/certificates/sslkeystore.jks --node-keystore-passwords=entityAStorePass --node-keystores=./entityB/certificates/sslkeystore.jks --node-keystore-passwords=entityBStorePass
+java -jar corda-tools-ha-utilities-4.5.jar import-ssl-key --bridge-keystore-password=bridgeKeyStorePassword --bridge-keystore=./nodesCertificates/nodesUnitedSslKeystore.jks --node-keystores=./entityA/certificates/sslkeystore.jks --node-keystore-passwords=entityAStorePass --node-keystores=./entityB/certificates/sslkeystore.jks --node-keystore-passwords=entityBStorePass
 ```
 
 As a result `./nodesCertificates/nodesUnitedSslKeystore.jks` file will be produced containing 2 entries.
@@ -1078,7 +1078,7 @@ File copy from previous stages:
 `vmInfra1` box will host Artemis `master` instance. To generate application distribution with the config files, please run:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.4.jar configure-artemis --install --distribution ${ARTEMIS_DISTRIBUTION_DIR} --path ${WORKING_DIR}/artemis-master --user "CN=artemis, O=Corda, L=London, C=GB" --ha MASTER --acceptor-address vmInfra1:11005 --keystore ./artemis/artemis.jks --keystore-password artemisStorePass --truststore ./artemis/artemis-truststore.jks --truststore-password artemisTrustpass --connectors vmInfra1:11005,vmInfra2:11005
+java -jar corda-tools-ha-utilities-4.5.jar configure-artemis --install --distribution ${ARTEMIS_DISTRIBUTION_DIR} --path ${WORKING_DIR}/artemis-master --user "CN=artemis, O=Corda, L=London, C=GB" --ha MASTER --acceptor-address vmInfra1:11005 --keystore ./artemis/artemis.jks --keystore-password artemisStorePass --truststore ./artemis/artemis-truststore.jks --truststore-password artemisTrustpass --connectors vmInfra1:11005,vmInfra2:11005
 ```
 
 Where `ARTEMIS_DISTRIBUTION_DIR` - is the path to the directory where Artemis was downloaded and extracted. Example: `/home/apache-artemis-2.6.3`
@@ -1100,7 +1100,7 @@ Repeat steps from [Artemis cluster participant](#artemis-cluster-participant) se
 `vmInfra2` box will host Artemis `slave` instance. To generate application distribution with the config files, please run:
 
 ```kotlin
-java -jar corda-tools-ha-utilities-4.4.jar configure-artemis --install --distribution ${ARTEMIS_DISTRIBUTION_DIR} --path ${WORKING_DIR}/artemis-slave --user "CN=artemis, O=Corda, L=London, C=GB" --ha SLAVE --acceptor-address vmInfra2:11005 --keystore ./artemis/artemis.jks --keystore-password artemisStorePass --truststore ./artemis/artemis-truststore.jks --truststore-password artemisTrustpass --connectors vmInfra2:11005,vmInfra1:11005
+java -jar corda-tools-ha-utilities-4.5.jar configure-artemis --install --distribution ${ARTEMIS_DISTRIBUTION_DIR} --path ${WORKING_DIR}/artemis-slave --user "CN=artemis, O=Corda, L=London, C=GB" --ha SLAVE --acceptor-address vmInfra2:11005 --keystore ./artemis/artemis.jks --keystore-password artemisStorePass --truststore ./artemis/artemis-truststore.jks --truststore-password artemisTrustpass --connectors vmInfra2:11005,vmInfra1:11005
 ```
 
 Where `ARTEMIS_DISTRIBUTION_DIR` - is the path to the directory where Artemis was downloaded and extracted. Example: `/home/apache-artemis-2.6.3`

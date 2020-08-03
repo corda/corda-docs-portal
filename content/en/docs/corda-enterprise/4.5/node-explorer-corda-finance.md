@@ -21,13 +21,13 @@ To run Node Explorer on your machine, you will need JavaFX for Java 8. If you do
 
 The node explorer provides views into a node’s vault and transaction data using Corda’s RPC framework. The user can execute cash transaction commands to issue and move cash to other parties on the network or exit cash (eg. remove from the ledger)
 
-The tool is distributed in the form of runnable JAR file: “corda-tools-explorer-4.4.jar”.
+The tool is distributed in the form of runnable JAR file: “corda-tools-explorer-4.5.jar”.
 
 
 ## Running the UI
 
 ```kotlin
-java -jar corda-tools-explorer-4.4.jar
+java -jar corda-tools-explorer-4.5.jar
 ```
 
 

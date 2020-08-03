@@ -615,7 +615,7 @@ task prepareDockerNodes(type: net.corda.plugins.Dockerform, dependsOn: ['jar']) 
     }
 
     // This property needs to be outside the node {...} elements
-    dockerImage = "corda/corda-zulu-java1.8-4.4"
+    dockerImage = "corda/corda-zulu-java1.8-4.5"
 }
 ```
 
