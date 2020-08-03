@@ -12,3 +12,5 @@ summary: Use the docs to help develop Corda applications, run a network, and ope
 # There is a problem with this site
 
 Please refresh the page or visit the main [Corda website](https://www.corda.net) to get in touch.
+
+This page is rendered from the theme.

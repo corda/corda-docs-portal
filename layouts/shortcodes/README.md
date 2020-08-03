@@ -1,7 +1,3 @@
-# Shortcodes
+# Short-codes
 
-R3 doc-site specific shortcodes go here.
-
-
-
-
+R3 doc-site specific short-codes go here.
