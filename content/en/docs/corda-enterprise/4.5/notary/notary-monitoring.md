@@ -29,7 +29,7 @@ The database monitoring agent is only supported by a high-availability JPA notar
 ## Database monitoring agent
 
 You can use the database monitoring agent to check that previously notarised transactions are still present in the notary
-database. ByThe database monitoring agent allows you to check that previously notarised transactions are still present in
+database. The database monitoring agent allows you to check that previously notarised transactions are still present in
 the notary database so that you can be notified of database errors, such as accidental entry deletion, invalid database
 entries, or silent write failures caused by bugs in the JDBC driver.
 
