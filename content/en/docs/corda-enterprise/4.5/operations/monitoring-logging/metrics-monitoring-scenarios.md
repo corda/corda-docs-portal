@@ -15,7 +15,7 @@ weight: 20
 You can monitor the metrics data from your node for a variety of reasons, and in different ways. Some suggested scenarios for monitoring are:
 
 * **Risk of out of memory error** - Monitor the used memory in your node's `HeapMemoryUsage` attribute.
-* **High memory usage** - Monitor the `SystemCpuLoad` property of your node, to check for high CPU measurements.
+* **High CPU usage** - Monitor the `SystemCpuLoad` property of your node, to check for high CPU measurements.
 * **High flow error rate** - Check for repeated errors in the flows being used on your node. Flows are the way CorDapps perform their functions, if there is a high level of errors, there may be either an issue with your node, or a bug in the CorDapp or flow itself.
 * **Network parameter update proposal not accepted** - Check to see whether network parameters that you or another party has proposed to the Network Map have yet been accepted. The updates could still be awaiting approval.
 * **Processing messages takes too long** - Measure the time taken for Peer to Peer (P2P) messaging to be processed. If there is a high latency, you can choose to flag this as an error.
