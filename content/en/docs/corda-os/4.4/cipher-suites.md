@@ -74,7 +74,7 @@ are compatible with TLS 1.2, while the default scheme per key type is also shown
 {{< table >}}
 
 |Cipher suite|Description|TLS|Default for|
-|-------------------------|---------------------------------------------------------------|-----|-------------------------|
+|:-------------------------|:---------------------------------------------------------------|:-----|:-------------------------|
 | Pure EdDSA using the ed25519 curve and SHA-512 | EdDSA represents the current state of the art in mainstream cryptography. It implements elliptic curve cryptography with deterministic signatures a fast implementation, explained constants, side channel resistance and many other desirable characteristics. However, it is relatively new and not widely supported, for example, you can’t use it in TLS yet (a draft RFC exists but is not standardised yet).|NO| node identity / confidential identity / network map (dev)|
 | ECDSA using the NIST P-256 curve (secp256r1) and SHA-256 | This is the default choice for most systems that support elliptic curve cryptography today and is recommended by NIST. It is also supported by the majority of the HSM vendors. |YES| root network CA / doorman CA / node CA / tls network map (CN)|
 | ECDSA using the Koblitz k1 curve (secp256k1) and SHA-256 | secp256k1 is the curve adopted by Bitcoin and as such there is a wealth of infrastructure, code and advanced algorithms designed for use with it. This curve is standardised by NIST as part of the “Suite B” cryptographic algorithms and as such is more widely supported than ed25519. By supporting it we gain access to the ecosystem of advanced cryptographic techniques and devices pioneered by the Bitcoin community.|NO||

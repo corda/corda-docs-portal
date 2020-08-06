@@ -71,98 +71,11 @@ are compatible with TLS 1.2, while the default scheme per key type is also shown
 {{< table >}}
 
 |Cipher suite|Description|TLS|Default for|
-|-------------------------|---------------------------------------------------------------|-----|-------------------------|
-|
-Pure EdDSA using the
-ed25519 curve
-and SHA-512
-
-|
-EdDSA represents the current state of the art in mainstream
-cryptography. It implements elliptic curve cryptography
-with deterministic signatures a fast implementation,
-explained constants, side channel resistance and many other
-desirable characteristics. However, it is relatively new
-and not widely supported, for example, you can’t use it in
-TLS yet (a draft RFC exists but is not standardised yet).
-
-|NO|
-* node identity
-* confidential identity
-* network map (dev)
-
-|
-|
-ECDSA using the
-NIST P-256 curve
-(secp256r1)
-and SHA-256
-
-|
-This is the default choice for most systems that support
-elliptic curve cryptography today and is recommended by
-NIST. It is also supported by the majority of the HSM
-vendors.
-
-|YES|
-* root network CA
-* doorman CA
-* node CA
-* tls
-* network map (CN)
-
-|
-|
-ECDSA using the
-Koblitz k1 curve
-(secp256k1)
-and SHA-256
-
-|
-secp256k1 is the curve adopted by Bitcoin and as such there
-is a wealth of infrastructure, code and advanced algorithms
-designed for use with it. This curve is standardised by
-NIST as part of the “Suite B” cryptographic algorithms and
-as such is more widely supported than ed25519. By
-supporting it we gain access to the ecosystem of advanced
-cryptographic techniques and devices pioneered by the
-Bitcoin community.
-
-|NO||
-|
-RSA (3072bit) PKCS#1
-and SHA-256
-
-|
-RSA is well supported by any sort of hardware or software
-as a signature algorithm no matter how old, for example,
-legacy HSMs will support this along with obsolete operating
-systems. RSA is using bigger keys than ECDSA and thus it is
-recommended for inclusion only for its backwards
-compatibility properties, and only for usage where legacy
-constraints or government regulation forbids the usage of
-more modern approaches.
-
-|YES||
-|
-SPHINCS-256
-and SHA-512
-(experimental)
-
-|
-SPHINCS-256 is a post-quantum secure algorithm that relies
-only on hash functions. It is included as a hedge against
-the possibility of a malicious adversary obtaining a
-quantum computer capable of running Shor’s algorithm in
-future. SPHINCS is based ultimately on a clever usage of
-Merkle hash trees. Hash functions are a very heavily
-studied and well understood area of cryptography. Thus, it
-is assumed that there is a much lower chance of
-breakthrough attacks on the underlying mathematical
-problems. However, SPHINCS uses relatively big public keys,
-it is slower and outputs bigger signatures than EdDSA,
-ECDSA and RSA algorithms.
-
-|NO||
+|:-------------------------|:---------------------------------------------------------------|:-----|:-------------------------|
+| Pure EdDSA using the ed25519 curve and SHA-512 | EdDSA represents the current state of the art in mainstream cryptography. It implements elliptic curve cryptography with deterministic signatures a fast implementation, explained constants, side channel resistance and many other desirable characteristics. However, it is relatively new and not widely supported, for example, you can’t use it in TLS yet (a draft RFC exists but is not standardised yet).|No| Node identity, confidential identity, network map (dev)|
+| ECDSA using the NIST P-256 curve (secp256r1) and SHA-256 | This is the default choice for most systems that support elliptic curve cryptography today and is recommended by NIST. It is also supported by the majority of the HSM vendors. |Yes| Root network CA, doorman CA, node CA, tls, network map (CN)|
+| ECDSA using the Koblitz k1 curve (secp256k1) and SHA-256 | secp256k1 is the curve adopted by Bitcoin and as such there is a wealth of infrastructure, code and advanced algorithms designed for use with it. This curve is standardised by NIST as part of the “Suite B” cryptographic algorithms and as such is more widely supported than ed25519. By supporting it we gain access to the ecosystem of advanced cryptographic techniques and devices pioneered by the Bitcoin community. | No |  |
+| RSA (3072bit) PKCS#1 and SHA-256 | RSA is well supported by any sort of hardware or software as a signature algorithm no matter how old, for example, legacy HSMs will support this along with obsolete operating systems. RSA is using bigger keys than ECDSA and thus it is recommended for inclusion only for its backwards compatibility properties, and only for usage where legacy constraints or government regulation forbids the usage of more modern approaches. | Yes |  |
+| SPHINCS-256 and SHA-512 (experimental) | SPHINCS-256 is a post-quantum secure algorithm that relies only on hash functions. It is included as a hedge against the possibility of a malicious adversary obtaining a quantum computer capable of running Shor’s algorithm in future. SPHINCS is based ultimately on a clever usage of Merkle hash trees. Hash functions are a very heavily studied and well understood area of cryptography. Thus, it is assumed that there is a much lower chance of breakthrough attacks on the underlying mathematical problems. However, SPHINCS uses relatively big public keys, it is slower and outputs bigger signatures than EdDSA, ECDSA and RSA algorithms. | No |  |
 
 {{< /table >}}
