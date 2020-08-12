@@ -12,7 +12,7 @@ tags:
 - enterprise
 ---
 
-# Release files and checksums
+# Corda Enterprise release files and checksums
 
 Customers who have access to the Corda repositories can download the release files from the repositories.
 
