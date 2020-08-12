@@ -16,6 +16,28 @@ title: Release notes
 
 # Release notes
 
+## Corda Enterprise 4.3.4
+
+
+Corda Enterprise 4.3.4 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.3.3.
+
+
+### Upgrade recommendation
+
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-index.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+
+### Fixed issues
+
+* The handling of default cases in Vault Query has been checked for consistency.
+* The CPU usage of the `NodeMeteringBackground` process has been decreased.
+* The memory management for `AttachmentClassLoader` and `AttachmentURLStreamHandlerFactory` has been improved.
+* `hashLookup` command help has been corrected.
+* A security update to prevent AMQP header spoofing has been applied.
+
 
 ## Corda Enterprise 4.3.3
 
