@@ -16,6 +16,29 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.5.1
+
+Corda Enterprise 4.5.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.5.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-index.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* Fixed an issue where the Classloader failed to find a Command class when Optional generic was used on Type definition.
+* The [Configuraton Obfuscator tool](tools-config-obfuscator.md) has been fixed to work for HSM configuration files.
+* Fixed an issue where retrying session inits could fail due to database connectivity.
+* The H2 version has been reverted to 1.4.197 to avoid a dependency issue introduced after the previous upgrade.
+* The CPU usage of the `NodeMeteringBackground` process has been decreased.
+* A security update to prevent AMQP header spoofing has been applied.
+* Fixed an issue where passing two sessions with the same counterparty to the `CollectSignaturesFlow` led to both counterparties' flows having to wait infinitely for messages from the other party.
+* A previously unhandled exception in `FlowStateMachineImpl.run().initialiseFlow()` is now handled correctly.
+* Fixed an issue where Corda Firewall did not start if its main configuration and its HSM configuration were obfuscated.
+* Fixed an issue where a TLS handshake timeout led to blacklisting endpoint.
+* Added support to the spent state audit command for specifying state references in the form `txId(outputIdx)` in addition to the existing `txId:outputIdx`.
 
 ## Corda Enterprise 4.5 release overview
 
