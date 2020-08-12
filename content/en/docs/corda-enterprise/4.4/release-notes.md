@@ -11,6 +11,7 @@ tags:
 - release
 - notes
 title: Corda release notes
+weight: 30
 ---
 
 
