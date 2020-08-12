@@ -18,6 +18,33 @@ weight: 10
 
 # Corda Enterprise Release notes
 
+## Corda Enterprise 4.4.3
+
+Corda Enterprise 4.4.3 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.4.2.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-index.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* Session rollbacks are now allowed inside an entity manager.
+* Sensitive information is no longer exposed as clear text on logs and terminal when using the [Database Management Tool](database-management-tool.md). 
+* Fixed an issue where the Classloader failed to find a Command class when Optional generic was used on Type definition.
+* The [Configuraton Obfuscator tool](tools-config-obfuscator.md) has been fixed to work for HSM configuration files.
+* The H2 version has been reverted to 1.4.197 to avoid a dependency issue introduced after the previous upgrade.
+* A security update to prevent AMQP header spoofing has been applied.
+* A previously unhandled exception in `FlowStateMachineImpl.run().initialiseFlow()` is now handled correctly.
+* The CPU usage of the `NodeMeteringBackground` process has been decreased.
+* The `backchainFetchBatchSize` option has been moved to the tuning section of the node configuration file.
+* Fixed an error in DNS name resolution when using the [Corda Health Survey tool](health-survey.md).
+* Fixed an issue where Corda Firewall did not start if its main configuration and its HSM configuration were obfuscated.
+* Fixed an issue where deobfuscation options were missing from [HA Utilities](ha-utilities.md) in `generate-internal-tunnel-ssl-keystores` mode.
+* Some Corda Enterprise 4.5 features have been backported to allow AKS deployment in Corda Enterprise 4.4.3.
+* Fixed `vaultService.updates.subscribe` errors when running inside `STATE_MACHINE_STARTED` event handler.
+
 
 ## Corda Enterprise 4.4.2
 

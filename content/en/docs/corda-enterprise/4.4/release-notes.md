@@ -18,9 +18,7 @@ weight: 30
 # Corda release notes
 
 
-Welcome to the Corda 4.4 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.4 comes with those same guarantees. States and apps valid in Corda 3.0 are usable in Corda 4.4.
-
-
+Welcome to the Corda 4.4 release notes. Please read these carefully to understand what’s new in this release, and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.4 comes with those same guarantees. States and apps valid in Corda 3.0 are usable in Corda 4.4.
 
 ## Corda 4.4
 
