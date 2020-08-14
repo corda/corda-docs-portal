@@ -203,7 +203,7 @@ public class State implements OwnableState {
 
 {{< /tabs >}}
 
-We define a class that implements the `ContractState` interface.
+We define a class that indirectly implements the `ContractState` via `OwnableState`.
 
 We have four fields in our state:
 

@@ -200,7 +200,7 @@ public class State implements OwnableState {
 
 {{< /tabs >}}
 
-We define a class that implements the `ContractState` interface.
+We define a class that indirectly implements the `ContractState` via `OwnableState`.
 
 We have four fields in our state:
 
@@ -986,4 +986,3 @@ the all future cash states stemming from this one.
 We will also consider marking states that are capable of being encumbrances as such. This will prevent states being used
 as encumbrances inadvertently. For example, the time-lock above would be usable as an encumbrance, but it makes no sense to
 be able to encumber a cash state with another one.
-
