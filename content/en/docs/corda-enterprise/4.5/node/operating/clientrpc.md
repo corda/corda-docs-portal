@@ -47,6 +47,74 @@ object that you can use to interact with the node.
 Here is an example of using [CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.5/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
 
 {{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+import net.corda.client.rpc.CordaRPCClient
+import net.corda.core.utilities.NetworkHostAndPort.Companion.parse
+import net.corda.core.utilities.loggerFor
+import org.slf4j.Logger
+
+class ClientRpcExample {
+    companion object {
+        val logger: Logger = loggerFor<ClientRpcExample>()
+    }
+
+    fun main(args: Array<String>) {
+        require(args.size == 3) { "Usage: TemplateClient <node address> <username> <password>" }
+        val nodeAddress = parse(args[0])
+        val username = args[1]
+        val password = args[2]
+
+        val client = CordaRPCClient(nodeAddress)
+        val connection = client.start(username, password)
+        val cordaRPCOperations = connection.proxy
+
+        logger.info(cordaRPCOperations.currentNodeTime().toString())
+
+        connection.notifyServerAndClose()
+    }
+}
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+import net.corda.client.rpc.CordaRPCClient;
+import net.corda.client.rpc.CordaRPCConnection;
+import net.corda.core.messaging.CordaRPCOps;
+import net.corda.core.utilities.NetworkHostAndPort;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+class ClientRpcExample {
+    private static final Logger logger = LoggerFactory.getLogger(ClientRpcExample.class);
+
+    public static void main(String[] args) {
+        if (args.length != 3) {
+            throw new IllegalArgumentException("Usage: TemplateClient <node address> <username> <password>");
+        }
+        final NetworkHostAndPort nodeAddress = NetworkHostAndPort.parse(args[0]);
+        String username = args[1];
+        String password = args[2];
+
+        final CordaRPCClient client = new CordaRPCClient(nodeAddress);
+        final CordaRPCConnection connection = client.start(username, password);
+        final CordaRPCOps cordaRPCOperations = connection.getProxy();
+
+        logger.info(cordaRPCOperations.currentNodeTime().toString());
+
+        connection.notifyServerAndClose();
+    }
+}
+
+```
+{{% /tab %}}
+
+[ClientRpcExample.kt](https://github.com/corda/enterprise/blob/release/ent/4.6/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/enterprise/blob/release/ent/4.6/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java) | ![github](/images/svg/github.svg "github")
+
 {{< /tabs >}}
 
 {{< warning >}}
@@ -57,7 +125,7 @@ a new proxy for every call you make - reuse an existing one.
 
 {{< /warning >}}
 
-For further information on using the RPC API, see tutorial-clientrpc-api.
+For further information on using the RPC API, see [Using the client RPC API](../../../../corda-os/4.5/tutorial-clientrpc-api.md).
 
 ## RPC permissions
 
@@ -130,7 +198,7 @@ rpcUsers=[
 ```
 
 {{% note %}}
-Methods listed above `nodeInfo` and `networkMapSnapshot` are from `CordaRPCOps` interface. This is a legacy form of specifying permissions in which `CordaRPCOps` interface is implied. Please see below for a way to provide permissions in case of multiple RPC interfaces.
+The methods listed above `nodeInfo` and `networkMapSnapshot` are from the `CordaRPCOps` interface. This is a legacy form of specifying permissions in which `CordaRPCOps` interface is implied. Please see below for a way to provide permissions in case of multiple RPC interfaces.
 {{% /note %}}
 
 ### Granting permissions for RPC operations
@@ -140,14 +208,14 @@ Methods listed above `nodeInfo` and `networkMapSnapshot` are from `CordaRPCOps` 
 The syntax has multiple forms:
 
 * `InvokeRpc:com.fully.qualified.package.CustomClientRpcOps#firstMethod`
-  * Here, we are assuming that that there is a fully qualified interface `com.fully.qualified.package.CustomClientRpcOps` which has a method `firstMethod` permission to which we are specifying explicitly;
+  * Here, we are assuming that that there is a fully qualified interface `com.fully.qualified.package.CustomClientRpcOps` which has a method `firstMethod` permission to which we are specifying explicitly.
 * `InvokeRpc:com.fully.qualified.package.CustomClientRpcOps#ALL`
   * Here we are granting permissions to all the methods of `com.fully.qualified.package.CustomClientRpcOps` interface.
 * `InvokeRpc:com.fully.qualified.package.CustomClientRpcOps#READ_ONLY`
   * Here we are granting permissions to a group of methods or properties that have been marked with `@RpcPermissionGroup(READ_ONLY)`. It is possible to define as many groups as necessary and mark `RPCOps` interface methods as necessary. Every method may belong to multiple groups.
 
 {{% note %}}
-It is not un-common for `RPCOps` interfaces to inherit from each other. Permissions to specific methods or methods groups should always be expressed using the declaring interface name. It is possible to say that when granting RPC permissions a Node Operator should disregard `RPCOps` interfaces hierarchy.
+It is not uncommon for `RPCOps` interfaces to inherit from each other. Permissions to specific methods or methods groups should always be expressed using the declaring interface name. It is possible to say that when granting RPC permissions, a node operator should disregard `RPCOps` interfaces hierarchy.
 {{% /note %}}
 
 Consider the following interface definition in `com.fully.qualified.package` package:
@@ -179,7 +247,7 @@ Syntax `InvokeRpc:com.fully.qualified.package.Beta#READ_ONLY` will grant permiss
 Syntax `InvokeRpc:com.fully.qualified.package.Alpha#READ_ONLY` will grant permission to `readAlpha()` method only, but not `betaValue` property.
 
 {{% note %}}
-Permissions strings are case insensitive.
+Permission strings are case-insensitive.
 {{% /note %}}
 
 ### Granting all permissions
@@ -205,15 +273,15 @@ Setting `rpcUsers` provides a simple way of granting RPC permissions to a fixed 
 obvious shortcomings. To support use cases aiming for higher security and flexibility, Corda offers additional security
 features such as:
 
-* Fetching users credentials and permissions from an external data source (e.g.: a remote RDBMS), with optional in-memory
+* Fetching users' credentials and permissions from an external data source (e.g.: a remote RDBMS), with optional in-memory
 caching. In particular, this allows credentials and permissions to be updated externally without requiring nodes to be
 restarted.
 * Password stored in hash-encrypted form. This is regarded as must-have when security is a concern. Corda currently supports
-a flexible password hash format conforming to the Modular Crypt Format provided by the [Apache Shiro framework](https://shiro.apache.org/static/1.2.5/apidocs/org/apache/shiro/crypto/hash/format/Shiro1CryptFormat.html)
+a flexible password hash format conforming to the Modular Crypt Format provided by the [Apache Shiro framework](https://shiro.apache.org/static/1.2.5/apidocs/org/apache/shiro/crypto/hash/format/Shiro1CryptFormat.html).
 
 These features are controlled by a set of options nested in the `security` field of `node.conf`.
-The following example shows how to configure retrieval of users credentials and permissions from a remote database with
-passwords in hash-encrypted format and enable in-memory caching of users data:
+The following example shows how to configure retrieval of users' credentials and permissions from a remote database with
+passwords in hash-encrypted format and enable in-memory caching of users' data:
 
 ```groovy
 security = {
@@ -278,11 +346,9 @@ An external RDBMS accessed via the JDBC connection described by `connection`. No
 case, in a user database permissions are assigned to *roles* rather than individual users. The current implementation
 expects the database to store data according to the following schema:
 
->
->
-* Table `users` containing columns `username` and `password`. The `username` column *must have unique values*.
-* Table `user_roles` containing columns `username` and `role_name` associating a user to a set of *roles*.
-* Table `roles_permissions` containing columns `role_name` and `permission` associating a role to a set of
+  * Table `users` containing columns `username` and `password`. The `username` column *must have unique values*.
+  * Table `user_roles` containing columns `username` and `role_name` associating a user to a set of *roles*.
+  * Table `roles_permissions` containing columns `role_name` and `permission` associating a role to a set of
 permission strings.
 
 {{< note >}}
@@ -308,7 +374,7 @@ format can be produced by using the [Apache Shiro Hasher command line tool](http
 
 ### Caching user accounts data
 
-A cache layer on top of the external data source of users credentials and permissions can significantly improve
+A cache layer on top of the external data source of users' credentials and permissions can significantly improve
 performances in some cases, with the disadvantage of causing a (controllable) delay in picking up updates to the underlying data.
 Caching is disabled by default, it can be enabled by defining the `options.cache` field in `security.authService`,
 for example:
@@ -337,7 +403,7 @@ This feature comes with a cost: the server must queue up objects emitted by the 
 download them. Note that the server side observation buffer is bounded, once it fills up the client is considered
 slow and will be disconnected. You are expected to subscribe to all the observables returned, otherwise client-side
 memory starts filling up as observations come in. If you don’t want an observable then subscribe then unsubscribe
-immediately to clear the client-side buffers and to stop the server from streaming. For Kotlin users there is a
+immediately to clear the client-side buffers and to stop the server from streaming. For Kotlin users, there is a
 convenience extension method called `notUsed()` which can be called on an observable to automate this step.
 
 If your app quits then server side resources will be freed automatically.
@@ -366,7 +432,7 @@ any resources.
 
 ## Versioning
 
-The client RPC protocol is versioned using the node’s platform version number (see versioning). When a proxy is created
+The client RPC protocol is versioned using the node’s platform version number (see [Versioning](../../cordapps/versioning.md)). When a proxy is created
 the server is queried for its version, and you can specify your minimum requirement. Methods added in later versions
 are tagged with the `@RPCSinceVersion` annotation. If you try to use a method that the server isn’t advertising support
 of, an `UnsupportedOperationException` is thrown. If you want to know the version of the server, just use the
@@ -531,8 +597,9 @@ This approach provides at-least-once guarantees. It cannot provide exactly-once 
 
 ## Wire security
 
-If TLS communications to the RPC endpoint are required the node should be configured with `rpcSettings.useSSL=true` see corda-configuration-file.
-The node admin should then create a node specific RPC certificate and key, by running the node once with `generate-rpc-ssl-settings` command specified (see node-commandline).
+If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../setup/corda-configuration-file)).
+The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](../node-commandline.md)).
+
 The generated RPC TLS trust root certificate will be exported to a `certificates/export/rpcssltruststore.jks` file which should be distributed to the authorised RPC clients.
 
 The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](https://api.corda.net/api/corda-enterprise/4.5/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
@@ -544,4 +611,4 @@ Note that RPC TLS does not use mutual authentication, and delegates fine grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-`@CordaSerializable` annotation.  See serialization. An example is shown in tutorial-clientrpc-api.
+`@CordaSerializable` annotation (see [Object serialization](../../serialization.md)). An example is shown in [Using the client RPC API](../../../../corda-os/4.5/tutorial-clientrpc-api.md).
