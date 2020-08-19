@@ -367,7 +367,7 @@ Please do not change.
 
   This flag toggles auto accepting of network parameter changes.
   If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator.
-  See :doc:`network-map` for more information on the update process and current auto-acceptable parameters.
+  See the [network map page](network-map.md) for more information on the update process and current auto-acceptable parameters.
   Set to `false` to disable.
 
   *Default:* true
