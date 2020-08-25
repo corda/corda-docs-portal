@@ -210,7 +210,7 @@ The process for contributing a large change to Corda is as follows:
 
 2. The project maintainers will feed back on your proposal. Some of the criteria they will be evaluating the proposal against include:
 
-    * The contribution is/is not aligned with Corda’s mission statement (as outlined in the [Corda Introductory Whitepaper](https://docs.corda.net/en/pdf/corda-introductory-whitepaper.pdf)).
+    * The contribution is/is not aligned with Corda’s mission statement (as outlined in the [Corda Introductory Whitepaper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/)).
 
     * The contribution will/will not negatively impact the ability of R3 and other project contributors to deliver improvements to the platform.
 
