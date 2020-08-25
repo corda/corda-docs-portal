@@ -57,6 +57,7 @@ features at any given time. To avoid surprises and foster transparency,
 [our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the
 [Community Maintainers](contributing-philosophy.md#community-maintainers)
 
+In addition, there are a number of additional requirements that apply to ["large" contributions](contributing.md#large-contributions).
 
 ## Making the required changes
 
@@ -182,12 +183,44 @@ the [Community Maintainers](contributing-philosophy.md#community-maintainers) di
 
 
 * (Optional) Open an additional PR to add yourself to the
-[contributors list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md)>
+[contributors list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md)
 
 * The format is generally `firstname surname (company)`, but the company can be omitted if desired
 
 
+## Large contributions
 
+A “large” contribution is one that meets one or more of the following criteria:
+
+* It would require users to modify or recompile their CorDapps.
+* It would introduce a new user-facing feature or configuration option.
+* It would negatively impact performance or security (e.g. by introducing a new dependency).
+* It would take a long time to implement - two weeks or more.
+* It would significantly increase the project’s QA or support costs.
+
+Large contributions can be disruptive - both for users of the Corda platform, and for platform developers who are modifying the same parts of the software as part of the established product roadmap. In addition, the work of reviewing and maintaining these contributions diverts the team’s resources from other efforts. Generally, it is more effective to put in a feature request via the [corda-dev mailing list](https://groups.io/g/corda-dev) instead.
+
+The process for contributing a large change to Corda is as follows:
+
+1. Raise a discussion of your proposed contribution on the [corda-dev mailing list](https://groups.io/g/corda-dev).
+
+    * Please search the [mailing list archives](https://groups.io/g/corda-dev/topics) first for similar proposals that may have been discussed and declined in the past.
+
+    * You will need to provide evidence that you are capable of delivering a large change to the platform. This can be done by contributing smaller changes to Corda first, or by otherwise showing your ability and commitment to delivering large changes to complex, established projects.
+
+2. The project maintainers will feed back on your proposal. Some of the criteria they will be evaluating the proposal against include:
+
+    * The contribution is/is not aligned with Corda’s mission statement (as outlined in the [Corda Introductory Whitepaper](https://docs.corda.net/en/pdf/corda-introductory-whitepaper.pdf)).
+
+    * The contribution will/will not negatively impact the ability of R3 and other project contributors to deliver improvements to the platform.
+
+    * The contribution will/will not require the project maintainers to have access to proprietary hardware or software resources.
+
+    * The contribution will/will not impact the project’s QA or support costs.
+
+3. If the proposal is accepted, please raise a design PR on the [Corda GitHub project](https://github.com/corda/corda). The design should give the rationale for the change, how the change will be implemented, and what alternative designs were rejected. The engineering team will review your design and indicate any required changes.
+
+4. Once the design is approved, please go ahead with the change according to the [guidelines for small and medium contributions](contributing.md#making-the-required-changes). In addition to those guidelines, we require that large contributions be fully exercised by tests, including any exception paths and error handling.
 
 
 ## Developer Certificate of Origin
