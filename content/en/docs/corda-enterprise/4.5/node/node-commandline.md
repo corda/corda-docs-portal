@@ -28,6 +28,9 @@ The node can optionally be started with the following command-line options:
 * `--help`, `-h`: Show this help message and exit.
 * `--version`, `-V`: Print version information and exit.
 
+{{< warning >}}
+Ensure that the `[COMMAND]` precedes all options. Failing this, the provided arguments will not be in scope for the command and default arguments will be used instead as a result. For example, if `-f custom_config.conf` precedes the `[COMMAND]`, Corda will look for the default `node.conf` instead of the specified `custom_config.conf`.
+{{< /warning >}}
 
 ## Sub-commands
 
