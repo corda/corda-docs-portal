@@ -115,7 +115,7 @@ The CorDapp is designed to diagnose ledger inconsistencies caused by either of t
 * A disaster affecting a node’s relational datastore.
 * More rarely, a hardware or connectivity fault.
 
-`LedgerSync` can be run either on demand or on a regular basis. The app contacts all peers of the initiating node that are on the same business network, and produces a report detailing if all transactions relevant to both the node and the target peers, held in the initiating node’s ledger (transactions are considered relevant to a node if it was involved as either state participant or owner). If `LedgerSync` finds that the initiating tool is missing any relevant transaction, it flags the discrepancy to the operator, who can then proceed to recover the missing data.
+`LedgerSync` can be run either on demand or on a regular basis. The app contacts all peers of the initiating node that are on the same business network, and produces a report detailing all transactions relevant to both the node and the target peers, held in the initiating node’s ledger (transactions are considered relevant to a node if it was involved as either state participant or owner). If `LedgerSync` finds that the initiating tool is missing any relevant transaction, it flags the discrepancy to the operator, who can then proceed to recover the missing data.
 
 `LedgerSync` is designed to be compliant with the Corda privacy model. It does not share any transaction information with network peers that shouldn’t already have access to it.
 
