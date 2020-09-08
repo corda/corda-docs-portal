@@ -25,7 +25,15 @@ title: Joining Corda Testnet
 
 The Corda Testnet is an open public network of Corda nodes on the internet. It is designed to be a complement to *the* Corda Network where any entity can transact real world value with any other counterparty in the context of any application. The Corda Testnet is designed for “non-production” use in a genuine global context of Corda nodes, including but not limited to CorDapp development, multi-party testing, demonstration and showcasing of applications and services, learning, training and development of the Corda platform technology and specific applications of Corda.
 
-The Corda Testnet is based on exactly the same technology as the main Corda Network, but can be joined on a self-service basis through the automated provisioning system described below.
+The Corda Testnet is based on the same underlying technology as the main Corda Network, however it can be joined on a self-service basis through the automated provisioning system described below.
+
+{{< warning >}}
+
+The Corda Testnet services are a demonstration version only - they are supported on a "best-effort" basis and there are no commitments with regards to their uptime.
+
+Users looking for long-lasting supported networks should consider the [Corda Network](https://corda.network/) for UAT and Production Networks, or refer to [the Corda Enterprise Network Manager documentation](https://docs.corda.net/docs/cenm/index.html) to evaluate or license the software recommended to operate a production Network on Corda.
+
+{{< /warning >}}
 
 
 ## Deploying a Corda node to the Corda Testnet
