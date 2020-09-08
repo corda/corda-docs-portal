@@ -246,7 +246,7 @@ Run the following script to create a schema and users’ permissions:
 
 ```sql
 CREATE SCHEMA my_schema;
-
+GO
 CREATE USER my_admin_user FOR LOGIN my_admin_login WITH DEFAULT_SCHEMA = my_schema;
 GRANT ALTER ON SCHEMA::my_schema TO my_admin_user;
 GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_schema TO my_admin_user;
