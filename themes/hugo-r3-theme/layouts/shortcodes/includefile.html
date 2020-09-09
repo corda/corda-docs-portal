@@ -1,0 +1,7 @@
+{{ $file := "undefined" }}
+{{ if .IsNamedParams }}
+{{ $file = .Get "file" }}
+{{ else }}
+{{ $file = .Get 0 }}
+{{end}}
+{{ readFile $file | markdownify }}
