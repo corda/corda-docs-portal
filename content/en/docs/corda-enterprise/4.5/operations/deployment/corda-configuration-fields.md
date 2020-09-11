@@ -22,7 +22,7 @@ The available configuration fields are listed below in alphabetic order.
 
 An array of additional host:port values, which will be included in the advertised NodeInfo in the network map in addition to the `p2pAddress`.
 Nodes can use this configuration option to advertise HA endpoints and aliases to external parties.
-0.0.0.0 is not a valid host setting since each additionalP2PAddress must be an external client address.  
+0.0.0.0 is not a valid host setting since each additionalP2PAddress must be an external client address.
 
 *Default:* empty list
 
@@ -63,7 +63,7 @@ Cannot be set at the same time as the `networkServices` option.
 
 List of the public keys fingerprints (SHA-256 of public key hash) not allowed as Cordapp JARs signers.
 The node will not load Cordapps signed by those keys.
-The option takes effect only in production mode and defaults to Corda development keys (``["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]``), in development mode any key is allowed to sign Cordpapp JARs.
+The option takes effect only in production mode and defaults to Corda development keys (`["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]`), in development mode any key is allowed to sign Cordpapp JARs.
 
 This property requires retrieving the hashes of public keys that need to be blacklisted.
 
@@ -71,15 +71,15 @@ This property requires retrieving the hashes of public keys that need to be blac
 
 ## `crlCheckArtemisServer`
 
-Set this configuration field to ``true`` to enable CRL checking of TLS certificates for inbound P2P connections into the embedded Artemis messaging server. The CRL checking mode is defined by `crlCheckSoftFail` option.
+Set this configuration field to `true` to enable CRL checking of TLS certificates for inbound P2P connections into the embedded Artemis messaging server. The CRL checking mode is defined by `crlCheckSoftFail` option.
 
-*Default:* ``false``
+*Default:* `false`
 
 ## `crlCheckSoftFail`
 
-This is a boolean flag that when enabled (i.e. ``true`` value is set) causes certificate revocation list (CRL) checking to use soft fail mode.
+This is a boolean flag that when enabled (i.e. `true` value is set) causes certificate revocation list (CRL) checking to use soft fail mode.
 Soft fail mode allows the revocation check to succeed if the revocation status cannot be determined because of a network error.
-If this parameter is set to ``false`` rigorous CRL checking takes place. This involves each certificate in the certificate path being checked for a CRL distribution point extension, and that this extension points to a URL serving a valid CRL.
+If this parameter is set to `false` rigorous CRL checking takes place. This involves each certificate in the certificate path being checked for a CRL distribution point extension, and that this extension points to a URL serving a valid CRL.
 This means that if any CRL URL in the certificate path is inaccessible, the connection with the other party will fail and be marked as bad.
 Additionally, if any certificate in the hierarchy, including the self-generated node SSL certificate, is missing a valid CRL URL, then the certificate path will be marked as invalid.
 
@@ -121,7 +121,7 @@ Optional path to the configuration file for the CryptoService provider. This may
 
 ## `cryptoServiceTimeout`
 
-Optional timeout value of actions sent to the the CryptoService (HSM). If the HSM takes longer than this duration to respond then a ``TimedCryptoServiceException`` will be thrown and handled by the Flow Hospital.
+Optional timeout value of actions sent to the the CryptoService (HSM). If the HSM takes longer than this duration to respond then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital.
 
 *Default:* 1s
 
@@ -130,7 +130,7 @@ Optional timeout value of actions sent to the the CryptoService (HSM). If the HS
 Set custom command line attributes (e.g. Java system properties) on the node process via the capsule launcher
 
 * `jvmArgs`
-  * A list of JVM arguments to apply to the node process. This removes any defaults specified from ``corda.jar``, but can be overridden from the command line.
+  * A list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
   * *Default:* not defined
 
 ## `database`
@@ -138,35 +138,35 @@ Set custom command line attributes (e.g. Java system properties) on the node pro
 Database configuration
 
 * `transactionIsolationLevel`:
-  * Transaction isolation level as defined by the ``TRANSACTION_`` constants in ``java.sql.Connection``, but without the ``TRANSACTION_`` prefix.
-  * *Default:* ``REPEATABLE_READ``
+  * Transaction isolation level as defined by the `TRANSACTION_` constants in `java.sql.Connection`, but without the `TRANSACTION_` prefix.
+  * *Default:* `REPEATABLE_READ`
 * `exportHibernateJMXStatistics`:
   * Whether to export Hibernate JMX statistics.  **Caution: enabling this option causes expensive run-time overhead**
   * *Default:* false
 * `initialiseSchema`
   * The property is used only when a node runs against a H2 database, and it's replaced by the `runMigration` property for other databases.
   * Boolean which indicates whether to update the database schema at startup (or create the schema when node starts for the first time).
-  * If set to ``false`` on startup, the node will validate if it's running against a compatible database schema.
+  * If set to `false` on startup, the node will validate if it's running against a compatible database schema.
   * *Default:* true
 * `initialiseAppSchema`
   * The property is used only when a node runs against a H2 database.
-  * The property allows to override ``database.initialiseSchema`` for the Hibernate DDL generation for CorDapp schemas.
-  * ``UPDATE`` performs an update of CorDapp schemas, while ``VALID`` only verifies their integrity and ``NONE`` performs no check.
-  * When ``initialiseSchema`` is set to ``false``, then ``initialiseAppSchema`` may be set as ``VALID`` or ``NONE`` only.
-  * *Default:* CorDapp schema creation is controlled with ``initialiseSchema``.
+  * The property allows to override `database.initialiseSchema` for the Hibernate DDL generation for CorDapp schemas.
+  * `UPDATE` performs an update of CorDapp schemas, while `VALID` only verifies their integrity and `NONE` performs no check.
+  * When `initialiseSchema` is set to `false`, then `initialiseAppSchema` may be set as `VALID` or `NONE` only.
+  * *Default:* CorDapp schema creation is controlled with `initialiseSchema`.
 * `runMigration`
-  * Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please check :doc:`database-management`. If migration is not run, on startup, the node will check if it's running on the correct database version.
+  * Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please check [Database management scripts](../../cordapps/database-management.md). If migration is not run, on startup, the node will check if it's running on the correct database version.
     The property is used only when a node runs against a database other than H2, and it's replaced by the ``initialiseSchema`` property for other databases.
   * *Default:* false
 * `schema`
   * Some database providers require a schema name when generating DDL and SQL statements. The value is passed to the Hibernate    property 'hibernate.default_schema'. This is optional.
 * `hibernateDialect`
-  * Optional property for testing/development against an unsupported database. The value is passed to Hibernate ``hibernate.dialect`` option.     All supported databases don't require this option, as Hibernate sets the correct dialect value out of box.
+  * Optional property for testing/development against an unsupported database. The value is passed to Hibernate `hibernate.dialect` option.     All supported databases don't require this option, as Hibernate sets the correct dialect value out of box.
 
 ## `dataSourceProperties`
 
 This section is used to configure the JDBC connection and database driver used for the node's persistence.
-To add additional data source properties (for a specific JDBC driver) use the ``dataSource.`` prefix with the property name (e.g. ``dataSource.customProperty = value``).
+To add additional data source properties (for a specific JDBC driver) use the `dataSource.` prefix with the property name (e.g. `dataSource.customProperty = value`).
 
 * `dataSourceClassName`
   * JDBC Data Source class name.
@@ -176,7 +176,7 @@ To add additional data source properties (for a specific JDBC driver) use the ``
   * Database user.
 * `dataSource.password`
   * Database password.
-  
+
 *Default:*
 
 ```
@@ -190,20 +190,20 @@ dataSource.password = ""
 
 This flag toggles the auto IP detection behaviour.
 If enabled, on startup the node will attempt to discover its externally visible IP address first by looking for any public addresses on its network interfaces, and then by sending an IP discovery request to the network map service.
-Set to ``true`` to enable.
+Set to `true` to enable.
 
 *Default:* false
 
 ## `devMode`
 
 This flag sets the node to run in development mode.
-On startup, if the keystore ``<workspace>/certificates/sslkeystore.jks``
-does not exist, a developer keystore will be used if ``devMode`` is true.
-The node will exit if ``devMode`` is false and the keystore does not exist.
-``devMode`` also turns on background checking of flow checkpoints to shake out any bugs in the checkpointing process.
-Also, if ``devMode`` is true, Hibernate will try to automatically create the schema required by Corda or update an existing schema in the SQL database; if ``devMode`` is false, Hibernate will simply validate the existing schema, failing on node start if the schema is either not present or not compatible.
-If no value is specified in the node configuration file, the node will attempt to detect if it's running on a developer machine and set ``devMode=true`` in that case.
-This value can be overridden from the command line using the ``--dev-mode`` option.
+On startup, if the keystore `<workspace>/certificates/sslkeystore.jks`
+does not exist, a developer keystore will be used if `devMode` is true.
+The node will exit if `devMode` is false and the keystore does not exist.
+`devMode` also turns on background checking of flow checkpoints to shake out any bugs in the checkpointing process.
+Also, if `devMode` is true, Hibernate will try to automatically create the schema required by Corda or update an existing schema in the SQL database; if `devMode` is false, Hibernate will simply validate the existing schema, failing on node start if the schema is either not present or not compatible.
+If no value is specified in the node configuration file, the node will attempt to detect if it's running on a developer machine and set `devMode=true` in that case.
+This value can be overridden from the command line using the `--dev-mode` option.
 
 This flag affects the default value for Java heap size.
 
@@ -211,7 +211,7 @@ This flag affects the default value for Java heap size.
 
 ## `devModeOptions`
 
-Allows modification of certain ``devMode`` features
+Allows modification of certain `devMode` features
 
 {{< important >}}
 This is an unsupported configuration.
@@ -282,9 +282,9 @@ Allows fine-grained controls of various features only available in the enterpris
   * `artemisCryptoServiceConfig`
     * This is an optional crypto service configuration which will be used for HSM TLS signing when interacting with the Artemis message server.
     * This option only makes sense when running a standalone Artemis messaging server to connect to the Bridge.
-    * If this option is missing, the local file system will be used to store private keys inside ``JKS`` key stores.
+    * If this option is missing, the local file system will be used to store private keys inside `JKS` key stores.
     * `cryptoServiceName`
-      * The name of HSM provider to be used. E.g.: ``UTIMACO``, ``GEMALTO_LUNA``, etc.
+      * The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc.
     * `cryptoServiceConf`
       * Absolute path to HSM provider specific configuration which will contain everything necessary to establish connection with HSM.
       * *Default:* Not present so local file system is used.
@@ -293,9 +293,15 @@ Allows fine-grained controls of various features only available in the enterpris
     * `eventsToRecord` defines which types of events will be recorded by the audit service - currently supported types are `{NONE, RPC, ALL}`
     * *Default:* `NONE`
 
-## `tuning`
+## Tuning
 
-Performance tuning parameters for Corda Enterprise
+Tuning is a section withing the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
+
+## `backchainFetchBatchSize`
+
+This is an optimisation for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
+
+*Default:* 50
 
 ## `flowThreadPoolSize`
 
@@ -324,7 +330,7 @@ architecture. For these reasons, the default size for the flow framework thread 
   * Incoming RPC calls are queued until a thread from this
   pool is available to handle the connection, prepare any required data and start the requested flow. As  this
   might be a non-trivial amount of work, the size of this pool can be configured in Corda Enterprise.
-  * On a multicore machine with a large ``flowThreadPoolSize``, this might need to be increased, to avoid flow threads being idle while the payload is being deserialized and the flow invocation run.
+  * On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow threads being idle while the payload is being deserialized and the flow invocation run.
   * If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this * number slightly.
   * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source) and the number of flow threads.
 * `journalBufferTimeout`
@@ -399,22 +405,22 @@ Defines port for h2 DB.
 ## `h2Settings`
 
 Sets the H2 JDBC server host and port.
-For non-localhost address the database password needs to be set in ``dataSourceProperties``.
+For non-localhost address the database password needs to be set in `dataSourceProperties`.
 
 *Default:* NULL
 
 ## `jarDirs`
 
-An optional list of file system directories containing JARs to include in the classpath when launching via ``corda.jar`` only.
+An optional list of file system directories containing JARs to include in the classpath when launching via `corda.jar` only.
 Each should be a string.
 Only the JARs in the directories are added, not the directories themselves.
-This is useful for including JDBC drivers and the like. e.g. ``jarDirs = [ ${baseDirectory}"/libs" ]``.
-(Note that you have to use the ``baseDirectory`` substitution value when pointing to a relative path).
+This is useful for including JDBC drivers and the like. e.g. `jarDirs = [ ${baseDirectory}"/libs" ]`.
+(Note that you have to use the `baseDirectory` substitution value when pointing to a relative path).
 
 {{< warning >}}
- If an item in a list is overridden via an environment variable/system property, the whole list will be overridden. This mechanism should not be used for CorDapps directory.
- {{< /warning >}}
- 
+If an item in a list is overridden via an environment variable/system property, the whole list will be overridden. This mechanism should not be used for CorDapps directory.
+{{< /warning >}}
+
 *Default:* not defined
 
 This property is only available for Corda distributed with Capsule. For the Corda tarball distribution this option is unavailable.
@@ -430,16 +436,16 @@ Default Jolokia access url is <http://127.0.0.1:port/jolokia/>
 ## `jmxReporterType`
 
 Provides an option for registering an alternative JMX reporter.
-Available options are ``JOLOKIA`` and ``NEW_RELIC``.
+Available options are `JOLOKIA` and `NEW_RELIC`.
 
 The Jolokia configuration is provided by default.
 The New Relic configuration leverages the Dropwizard NewRelicReporter solution.
 
-*Default:* ``JOLOKIA``
+*Default:* `JOLOKIA`
 
 ## `keyStorePassword`
 
-The password to unlock the KeyStore file (``<workspace>/certificates/sslkeystore.jks``) containing the node certificate and private key.
+The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
 
 **Important: This is the non-secret value for the development certificates automatically generated during the first node run.
 Alternatively, these keys can be managed in secure hardware devices.**
@@ -453,7 +459,7 @@ Internal option.
 **Important: Please do not change.**
 
 *Default:* true
- 
+
 ## `manAllowed`
 
 Enables the usage of the shell 'man' command. Please note it makes use of insecure APIs and should be enabled with caution.
@@ -471,11 +477,11 @@ If not provided the node will run one locally.
 
 ## `messagingServerExternal`
 
-If ``messagingServerAddress`` is specified the default assumption is that the artemis broker is running externally.
-Setting this to ``false`` overrides this behaviour and runs the artemis internally to the node, but bound to the address specified in ``messagingServerAddress``.
-This allows the address and port advertised in ``p2pAddress`` to differ from the local binding, especially if there is external remapping by firewalls, load balancers , or routing rules. Note that ``detectPublicIp`` should be set to ``false`` to ensure that no translation of the ``p2pAddress`` occurs before it is sent to the network map.
+If `messagingServerAddress` is specified the default assumption is that the artemis broker is running externally.
+Setting this to `false` overrides this behaviour and runs the artemis internally to the node, but bound to the address specified in `messagingServerAddress`.
+This allows the address and port advertised in `p2pAddress` to differ from the local binding, especially if there is external remapping by firewalls, load balancers , or routing rules. Note that `detectPublicIp` should be set to `false` to ensure that no translation of the `p2pAddress` occurs before it is sent to the network map.
 
-0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.  
+0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.
 
 *Default:* not defined
 
@@ -492,7 +498,7 @@ The name must be a valid X.500 distinguished name, as per the [node naming const
 ## `notary`
 
 Optional configuration object which if present configures the node to run as a notary. If running as part of a HA notary cluster, please
-specify the ``serviceLegalName`` and either the ``mysql`` (deprecated) or ``jpa`` configuration as described below. For a single-node notary only the ``validating`` property is required.
+specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below. For a single-node notary only the `validating` property is required.
 
 * `validating`
   * Boolean to determine whether the notary is a validating or non-validating one.
@@ -501,7 +507,7 @@ specify the ``serviceLegalName`` and either the ``mysql`` (deprecated) or ``jpa`
   * If the node is part of a distributed cluster, specify the legal name of the cluster. At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.
   * *Default:* not defined
 * `extraConfig`
-  * Configuration for the single-node notary only. For HA notaries use either the ``mysql`` (deprecated) or ``jpa`` configuration.
+  * Configuration for the single-node notary only. For HA notaries use either the `mysql` (deprecated) or `jpa` configuration.
 * `batchSize`
   * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches;       however, larger batches may worsen latency.
   * *Default:* 32
@@ -530,7 +536,7 @@ specify the ``serviceLegalName`` and either the ``mysql`` (deprecated) or ``jpa`
     * Exponential back-off multiplier base for use in determining time increment between reconnection attempts.
     * *Default:* 1.5
   * `maxBatchSize`
-    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see :doc:`running-a-notary-cluster/notary-metrics`
+    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics](../../notary/notary-metrics.md).
     * *Default:* 500
   * `maxBatchInputStates`
     * The maximum combined number of input states processed in a single batch. If the number of transactions in a batch is equal to `maxBatchSize`, but the number of states in the batch is greater than `maxBatchInputStates`, that batch will  be split into two smaller batches.
@@ -569,6 +575,7 @@ specify the ``serviceLegalName`` and either the ``mysql`` (deprecated) or ``jpa`
               password="myStrongPassword"
             }
           }
+        ```
 
   * `etaMessageThresholdSeconds`
     * If the wait time estimate on the internal queue exceeds this value, the notary may send
@@ -592,7 +599,7 @@ specify the ``serviceLegalName`` and either the ``mysql`` (deprecated) or ``jpa`
       * Must list the addresses of all the members in the cluster. At least one of the members must be active and be able to communicate with the cluster leader for the node to join the cluster. If  empty, a new cluster will be bootstrapped.
       * *Default:* not defined
   * `jpa`
-    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to :doc:`running-a-notary-cluster/installing-the-notary-service`.
+    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](../../notary/installing-the-notary-service.md).
     * `connectionRetries`
       * The number of times to retry connection to the database. This should be based on the number of database servers in the replicated setup.
       * *Default:* 2
@@ -619,7 +626,7 @@ specify the ``serviceLegalName`` and either the ``mysql`` (deprecated) or ``jpa`
       * *Default:* 100 000
     * `database`
       * `initialiseSchema`
-        * Boolean which indicates whether to update the database schema at startup (or create the schema when notary starts for the first time). This property is used only when a notary runs against an H2 database. For information on schema setup for non H2 databases, please see :doc:`running-a-notary-cluster/installing-jpa`.
+        * Boolean which indicates whether to update the database schema at startup (or create the schema when notary starts for the first time). This property is used only when a notary runs against an H2 database. For information on schema setup for non H2 databases, please see [Configuring a JPA notary backend](../../notary/installing-jpa.md).
         * *Default:* true
       * `validateSchema`
         * Sets whether to validate the database schema before allowing the notary to start. Will prevent the notary from starting if validation fails with log messages indicating the reason(s)           for the failure. The validation will ensure that the database tables match that of the entities configured in the notary. This will not check whether any migrations have been run.
@@ -631,10 +638,10 @@ specify the ``serviceLegalName`` and either the ``mysql`` (deprecated) or ``jpa`
     * `dataSourceProperties`
       * This section is used to configure the JDBC connection to the database cluster. For example:
       * `autoCommit`
-        * JDBC operation mode where every update to the database is immediately made permanent. For HA notary it has to be disabled, i.e. set to ``"false"``.
+        * JDBC operation mode where every update to the database is immediately made permanent. For HA notary it has to be disabled, i.e. set to `"false"`.
         * *Default:* not defined
       * `jdbcUrl`
-        * The JDBC connection string. Has to contain a comma-separated list of IPs for all database servers. For example, if we have a 3-node CockroachDB cluster with addresses 10.18.1.1, 10.18.1.2 and 10.18.1.3, and the notary worker is connecting to CockroachDB via SSL using certificates created for the user ``corda``:
+        * The JDBC connection string. Has to contain a comma-separated list of IPs for all database servers. For example, if we have a 3-node CockroachDB cluster with addresses 10.18.1.1, 10.18.1.2 and 10.18.1.3, and the notary worker is connecting to CockroachDB via SSL using certificates created for the user `corda`:
 
         ```shell
         "jdbc:postgresql://10.18.1.1,10.18.1.2,10.18.1.3/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8"
@@ -667,7 +674,7 @@ If not provided then the defined defaults below are used.
 
 * `autoAcceptEnabled`
   * This flag toggles auto accepting of network parameter changes.
-  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See :doc:`network-map` for more information on the update process and current auto-acceptable parameters. Set to ``false`` to disable.
+  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See [Network map](../../network/network-map.md) for more information on the update process and current auto-acceptable parameters. Set to ``false`` to disable.
   * Default: true
 * `excludedAutoAcceptableParameters`
   * List of auto-acceptable parameter names to explicitly exclude from auto-accepting. Allows a node operator to control the behaviour at a more granular level.
@@ -675,9 +682,9 @@ If not provided then the defined defaults below are used.
 
 ## `networkServices`
 
-If the Corda compatibility zone services, both network map and registration (doorman), are not running on the same endpoint and thus have different URLs then this option should be used in place of the ``compatibilityZoneURL`` setting.
+If the Corda compatibility zone services, both network map and registration (doorman), are not running on the same endpoint and thus have different URLs then this option should be used in place of the `compatibilityZoneURL` setting.
 
-**Important: Only one of ``compatibilityZoneURL`` or ``networkServices`` should be used.**
+**Important: Only one of `compatibilityZoneURL` or `networkServices` should be used.**
 
 * `doormanURL`
   * Root address of the network registration service.
@@ -689,15 +696,15 @@ If the Corda compatibility zone services, both network map and registration (doo
   * Optional UUID of the private network operating within the compatibility zone this node should be joining.
   * *Default:* not defined
 * `proxyType`
-  * Optional - this can be used to turn on using a proxy for the http connections to doorman and network map. Allowed    values are ``DIRECT``, ``HTTP`` and ``SOCKS``. If set to anything else than ``DIRECT``, the proxyAddress must also    be set.
-  * *Default:* ``DIRECT`` (i.e. no proxy)
+  * Optional - this can be used to turn on using a proxy for the http connections to doorman and network map. Allowed    values are `DIRECT`, `HTTP` and `SOCKS`. If set to anything else than `DIRECT`, the proxyAddress must also    be set.
+  * *Default:* `DIRECT` (i.e. no proxy)
 * `proxyAddress`
   * Optional hostname and port of a HTTP or SOCKS proxy to be used for connections to the network map or doorman.
   * *Default:* not defined
 * `proxyUser`
   * Optional user name for authentication with the proxy. Note that Corda only supports username/password based basic authentication.
 * `proxyPassword`
-  * Optional password for authentication with the proxy. The password can be obfuscated using the :doc:`tools-config-obfuscator`.
+  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator](../../tools-config-obfuscator.md).
 * `csrToken`
   * Optional token to provide alongside the certificate signing request (CSR) as part of the HTTP header during node registration. The token can be used by certificate signing authority (or Identity Manager Service) to verify additional identity requirements. The maximum token length is limited by the maximum HTTP header size, which is normally 8KB, assuming that a few other internal attributes are also present in the header. Also, the token length itself may never exceed 8192, limited by the database structure. Only US-ASCII characters are allowed.
   * *Default:* not defined
@@ -730,12 +737,12 @@ quasarExcludePackages=["org.xml**", "org.yaml**"]
 ## `relay`
 
 If provided, the node will attempt to tunnel inbound connections via an external relay. The relay's address will be
-advertised to the network map service instead of the provided ``p2pAddress``.
+advertised to the network map service instead of the provided `p2pAddress`.
 
 * `relayHost`
   * Hostname of the relay machine
 * `remoteInboundPort`
-  * A port on the relay machine that accepts incoming TCP connections. Traffic will be forwarded from this port to the local port specified in ``p2pAddress``.
+  * A port on the relay machine that accepts incoming TCP connections. Traffic will be forwarded from this port to the local port specified in `p2pAddress`.
 * `username`
   * Username for establishing an SSH connection with the relay.
 * `privateKeyFile`
@@ -743,7 +750,7 @@ advertised to the network map service instead of the provided ``p2pAddress``.
 * `publicKeyFile`
   * Path to the public key file for SSH authentication.
 * `sshPort`
-  * Port to be used for SSH connection, default ``22``.
+  * Port to be used for SSH connection, default `22`.
 
 ## `rpcAddress`
 
@@ -775,7 +782,7 @@ Options for the RPC server exposed by the Node.
   * boolean, indicates whether or not the node should require clients to use SSL for RPC connections.
   * *Default:* false
 * `ssl`
-  * (mandatory if ``useSsl=true``) SSL settings for the RPC server.
+  * (mandatory if `useSsl=true`) SSL settings for the RPC server.
   * `keyStorePath`
     * Absolute path to the key store containing the RPC SSL certificate.
     * *Default:* not defined
@@ -795,7 +802,7 @@ Each user in the list is a configuration object with the following fields:
   * The password
   * *Default:* not defined
 * `permissions`
-  * A list of permissions for starting flows via RPC. To give the user the permission to start the flow `foo.bar.FlowClass`, add the string `StartFlow.foo.bar.FlowClass` to the list. If the list contains the string `ALL`, the user can start any flow via RPC. Wildcards are also allowed , for example `StartFlow.foo.bar.*` will allow the user to start any flow within the ``foo.bar`` package.
+  * A list of permissions for starting flows via RPC. To give the user the permission to start the flow `foo.bar.FlowClass`, add the string `StartFlow.foo.bar.FlowClass` to the list. If the list contains the string `ALL`, the user can start any flow via RPC. Wildcards are also allowed , for example `StartFlow.foo.bar.*` will allow the user to start any flow within the `foo.bar` package.
   This value is intended for administrator users and for development.
   * *Default:* not defined
 
@@ -810,7 +817,7 @@ It uses the same credentials and permissions as RPC subsystem.
 It has one required parameter.
 
 `port`:
-  The port to start SSH server on e.g. ``sshd { port = 2222 }``.
+  The port to start SSH server on e.g. `sshd { port = 2222 }`.
 
   *Default:* not defined
 
@@ -824,8 +831,8 @@ Internal option.
 
 ## `systemProperties`
 
-An optional map of additional system properties to be set when launching via ``corda.jar`` only.
-Keys and values of the map should be strings. e.g. ``systemProperties = { "visualvm.display.name" = FooBar }``
+An optional map of additional system properties to be set when launching via `corda.jar` only.
+Keys and values of the map should be strings. e.g. `systemProperties = { "visualvm.display.name" = FooBar }`
 
 *Default:* not defined
 
@@ -855,7 +862,7 @@ Default value is NULL, which indicates that the issuer of the TLS certificate is
 
 ## `trustStorePassword`
 
-The password to unlock the Trust store file (``<workspace>/certificates/truststore.jks``) containing the Corda network root certificate.
+The password to unlock the Trust store file (`<workspace>/certificates/truststore.jks`) containing the Corda network root certificate.
 This is the non-secret value for the development certificates automatically generated during the first node run.
 
 *Default:* trustpass
@@ -863,7 +870,7 @@ This is the non-secret value for the development certificates automatically gene
 ## `useOpenSsl`
 
 If set to true, the node will use a native SSL implementation for TLS rather than the JVM SSL. The native SSL library currently shipped with
-Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to ``false``.
+Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`.
 
 ## `useTestClock`
 

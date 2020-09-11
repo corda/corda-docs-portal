@@ -217,12 +217,12 @@ Additionally, if any certificate in the hierarchy, including the self-generated 
 ### `cryptoServiceName`
 
 Optional name of the CryptoService implementation. This only needs to be set if you intend to use a different provider than the default one
-(see :doc:`cryptoservice-configuration`).
+(see [HSM support for legal identity keys](cryptoservice-configuration.md)).
 
 ### `cryptoServiceConf`
 
 Optional path to the configuration file for the CryptoService provider. This may have to be present if you use a different CryptoService provider
-than the default one (see :doc:`cryptoservice-configuration`).
+than the default one (see [HSM support for legal identity keys](cryptoservice-configuration.md)).
 
 ### `cryptoServiceTimeout`
 
@@ -273,7 +273,7 @@ Database configuration
 
 * `runMigration`
   Boolean on whether to run the database migration scripts at startup. In production   please keep it false. For more information please
-  check :doc:`database-management`. If migration is not run, on startup, the node will   check if it's running on the correct database version.
+  check [Database management scripts](database-management.md). If migration is not run, on startup, the node will   check if it's running on the correct database version.
   The property is used only when a node runs against a database other than H2, and it's   replaced by the `initialiseSchema` property for other databases.
 
   *Default:* false
@@ -445,7 +445,7 @@ To add additional data source properties (for a specific JDBC driver) use the `d
     If this option is missing, the local file system will be used to store private keys inside `JKS` key stores.
 
   * `cryptoServiceName`
-        The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. Please see: :doc:`Crypto service configuration <cryptoservice-configuration>`.
+        The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. Please see: [HSM support for legal identity keys](cryptoservice-configuration.md).
   * `cryptoServiceConf`
         Absolute path to HSM provider specific configuration which will contain everything necessary to establish connection with HSM.
 
@@ -715,7 +715,8 @@ Default Jolokia access url is <http://127.0.0.1:port/jolokia/>
       *Default:* 20
 
 * `mysql`
-    If using the MySQL notary (deprecated), specify this configuration section with the settings below. For more details refer to :doc:`running-a-notary-cluster/installing-the-notary-service`.
+    If using the MySQL notary (deprecated), specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes
+](running-a-notary-cluster/installing-the-notary-service.md).
 
   * `connectionRetries`
     The number of times to retry connection to the MySQL database. This should be based on the number of database servers in the replicated
@@ -737,7 +738,7 @@ Default Jolokia access url is <http://127.0.0.1:port/jolokia/>
   * `maxBatchSize`
     The maximum number of transactions processed in a single batch. Larger batches are generally processed more
     efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize`
-    metric exposed by the notary to determine batch utilisation. For more information, see :doc:`running-a-notary-cluster/notary-metrics`
+    metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics](running-a-notary-cluster/notary-metrics.md).
 
     *Default:* 500
 
@@ -839,7 +840,7 @@ Default Jolokia access url is <http://127.0.0.1:port/jolokia/>
     *Default:* not defined
 
 * `jpa`
-    If using the JPA notary, specify this configuration section with the settings below. For more details refer to :doc:`running-a-notary-cluster/installing-the-notary-service`.
+    If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](running-a-notary-cluster/installing-the-notary-service.md).
 
   * `connectionRetries`
     The number of times to retry connection to the database. This should be based on the number of database servers in the replicated
@@ -861,7 +862,7 @@ Default Jolokia access url is <http://127.0.0.1:port/jolokia/>
   * `maxBatchSize`
     The maximum number of transactions processed in a single batch. Larger batches are generally processed more
     efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize`
-    metric exposed by the notary to determine batch utilization. For more information, see :doc:`running-a-notary-cluster/notary-metrics`
+    metric exposed by the notary to determine batch utilization. For more information, see [Highly-available notary metrics](running-a-notary-cluster/notary-metrics.md).
 
     *Default:* 500
 
@@ -892,7 +893,7 @@ Default Jolokia access url is <http://127.0.0.1:port/jolokia/>
     * `initialiseSchema`
         Boolean which indicates whether to update the database schema at startup (or create the schema when notary starts for the first time).
         This property is used only when a notary runs against an H2 database. For information on schema setup for non H2 databases, please
-        see :doc:`running-a-notary-cluster/installing-jpa`.
+        see [Configuring the notary backend - JPA](running-a-notary-cluster/installing-jpa.md).
 
         *Default:* true
 
@@ -958,7 +959,7 @@ If not provided then the defined defaults below are used.
 * `autoAcceptEnabled`
     This flag toggles auto accepting of network parameter changes.
     If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator.
-    See :doc:`network-map` for more information on the update process and current auto-acceptable parameters.
+    See [The network map](network-map.md) for more information on the update process and current auto-acceptable parameters.
     Set to `false` to disable.
 
     *Default:* true
@@ -1008,7 +1009,7 @@ If not provided then the defined defaults below are used.
     basic authentication.
 
 * `proxyPassword`
-    Optional password for authentication with the proxy. The password can be obfuscated using the :doc:`tools-config-obfuscator`.
+    Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator](tools-config-obfuscator.md).
 
 * `csrToken`
     Optional token to provide alongside the certificate signing request (CSR) as part of the HTTP header during node registration.

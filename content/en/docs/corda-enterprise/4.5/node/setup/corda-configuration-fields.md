@@ -154,8 +154,8 @@ Database configuration
   * When `initialiseSchema` is set to `false`, then `initialiseAppSchema` may be set as `VALID` or `NONE` only.
   * *Default:* CorDapp schema creation is controlled with `initialiseSchema`.
 * `runMigration`
-  * Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please check :doc:`database-management`. If migration is not run, on startup, the node will check if it's running on the correct database version.
-    The property is used only when a node runs against a database other than H2, and it's replaced by the `initialiseSchema` property for other databases.
+  * Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please check [Database management scripts](../../cordapps/database-management.md). If migration is not run, on startup, the node will check if it's running on the correct database version.
+    The property is used only when a node runs against a database other than H2, and it's replaced by the ``initialiseSchema`` property for other databases.
   * *Default:* false
 * `schema`
   * Some database providers require a schema name when generating DDL and SQL statements. The value is passed to the Hibernate    property 'hibernate.default_schema'. This is optional.
@@ -535,7 +535,7 @@ specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` conf
     * Exponential back-off multiplier base for use in determining time increment between reconnection attempts.
     * *Default:* 1.5
   * `maxBatchSize`
-    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see :doc:`running-a-notary-cluster/notary-metrics`
+    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics](../../notary/notary-metrics.md).
     * *Default:* 500
   * `maxBatchInputStates`
     * The maximum combined number of input states processed in a single batch. If the number of transactions in a batch is equal to `maxBatchSize`, but the number of states in the batch is greater than `maxBatchInputStates`, that batch will  be split into two smaller batches.
@@ -598,7 +598,7 @@ specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` conf
       * Must list the addresses of all the members in the cluster. At least one of the members must be active and be able to communicate with the cluster leader for the node to join the cluster. If  empty, a new cluster will be bootstrapped.
       * *Default:* not defined
   * `jpa`
-    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to :doc:`running-a-notary-cluster/installing-the-notary-service`.
+    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](../../notary/installing-the-notary-service.md).
     * `connectionRetries`
       * The number of times to retry connection to the database. This should be based on the number of database servers in the replicated setup.
       * *Default:* 2
@@ -625,7 +625,7 @@ specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` conf
       * *Default:* 100 000
     * `database`
       * `initialiseSchema`
-        * Boolean which indicates whether to update the database schema at startup (or create the schema when notary starts for the first time). This property is used only when a notary runs against an H2 database. For information on schema setup for non H2 databases, please see :doc:`running-a-notary-cluster/installing-jpa`.
+        * Boolean which indicates whether to update the database schema at startup (or create the schema when notary starts for the first time). This property is used only when a notary runs against an H2 database. For information on schema setup for non H2 databases, please see [Configuring a JPA notary backend](../../notary/installing-jpa.md).
         * *Default:* true
       * `validateSchema`
         * Sets whether to validate the database schema before allowing the notary to start. Will prevent the notary from starting if validation fails with log messages indicating the reason(s)           for the failure. The validation will ensure that the database tables match that of the entities configured in the notary. This will not check whether any migrations have been run.
@@ -673,7 +673,7 @@ If not provided then the defined defaults below are used.
 
 * `autoAcceptEnabled`
   * This flag toggles auto accepting of network parameter changes.
-  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See :doc:`network-map` for more information on the update process and current auto-acceptable parameters. Set to `false` to disable.
+  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See [Network map](../../network/network-map.md) for more information on the update process and current auto-acceptable parameters. Set to ``false`` to disable.
   * Default: true
 * `excludedAutoAcceptableParameters`
   * List of auto-acceptable parameter names to explicitly exclude from auto-accepting. Allows a node operator to control the behaviour at a more granular level.
@@ -703,7 +703,7 @@ If the Corda compatibility zone services, both network map and registration (doo
 * `proxyUser`
   * Optional user name for authentication with the proxy. Note that Corda only supports username/password based basic authentication.
 * `proxyPassword`
-  * Optional password for authentication with the proxy. The password can be obfuscated using the :doc:`tools-config-obfuscator`.
+  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator](../../tools-config-obfuscator.md).
 * `csrToken`
   * Optional token to provide alongside the certificate signing request (CSR) as part of the HTTP header during node registration. The token can be used by certificate signing authority (or Identity Manager Service) to verify additional identity requirements. The maximum token length is limited by the maximum HTTP header size, which is normally 8KB, assuming that a few other internal attributes are also present in the header. Also, the token length itself may never exceed 8192, limited by the database structure. Only US-ASCII characters are allowed.
   * *Default:* not defined
