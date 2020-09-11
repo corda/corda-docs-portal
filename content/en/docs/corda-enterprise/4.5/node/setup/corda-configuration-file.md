@@ -165,22 +165,20 @@ Here are the contents of the `reference.conf` file:
         "cordapps"
     ],
     "keyStorePassword" : "MYPASSWORD",
-    "myLegalName" : " MYLEGALNAME",
+    "myLegalName" : "MYLEGALNAME",
     "p2pAddress" : "banka.com:10005", // Host and port exposed by Internet facing firewall/load balancer in front of float servers in DMZ.
     "messagingServerAddress" : "0.0.0.0:11005", // Specifying endpoints of local Artemis instances
     "messagingServerExternal" : false, // Specifying that it is not an external instance
     "devMode" : false, // Turn off things like key autogeneration and require proper doorman registration.
     "detectPublicIp" : false, // Do not perform any public IP lookup on the host.
 
-
     "networkServices" : {
-    "doormanURL" : "https://doorman.uat.corda.network/",
-    "networkMapURL" : "https://netmap.uat.corda.network/"
-},
+        "doormanURL" : "https://doorman.uat.corda.network/",
+        "networkMapURL" : "https://netmap.uat.corda.network/"
+    },
 
 //Azure SQL
 //Microsoft SQL Server 2017
-
     "dataSourceProperties" : {
         "dataSource" : {
             "url" : "jdbc:sqlserver://SERVER:1433;database=DATABASENAME;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
@@ -189,6 +187,7 @@ Here are the contents of the `reference.conf` file:
         },
         "dataSourceClassName" : "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
     },
+
 // postGres 9.6 RDBMS
     "dataSourceProperties" : {
         "dataSource" : {
@@ -198,6 +197,7 @@ Here are the contents of the `reference.conf` file:
         },
         "dataSourceClassName" : "org.postgresql.ds.PGSimpleDataSource"
     },
+
 // Oracle 11gR2/12cR2 RDBMS
     "dataSourceProperties" : {
         "dataSourceClassName" : "oracle.jdbc.pool.OracleDataSource",
@@ -212,22 +212,22 @@ Here are the contents of the `reference.conf` file:
         "schema" : "dbo",
         "transactionIsolationLevel" : "READ_COMMITTED"
     },
+
     "rpcSettings" : {
         "address" : "0.0.0.0:10003",
         "adminAddress" : "0.0.0.0:10004"
     },
-"rpcUsers" : [
-     {
-        "password" : "test1",
- "user" : "user1",
-        "permissions" : [ "ALL" ]
-    }
+    "rpcUsers" : [
+        {
+            "password" : "test1",
+            "user" : "user1",
+            "permissions" : [ "ALL" ]
+        }
     ],
     "trustStorePassword" : "PASSWORD",
     "sshd" : {
-    "port" : "2222"
-
-},
+        "port" : "2222"
+    },
 }
 
 ```

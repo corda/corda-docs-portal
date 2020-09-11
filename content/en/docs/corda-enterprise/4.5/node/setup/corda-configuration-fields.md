@@ -447,7 +447,7 @@ The New Relic configuration leverages the Dropwizard NewRelicReporter solution.
 The password to unlock the KeyStore file (`<workspace>/certificates/sslkeystore.jks`) containing the node certificate and private key.
 
 **Important: This is the non-secret value for the development certificates automatically generated during the first node run.
-Longer term these keys will be managed in secure hardware devices.**
+Alternatively, these keys can be managed in secure hardware devices.**
 
 *Default:* cordacadevpass
 
@@ -490,6 +490,7 @@ The legal identity of the node.
 This acts as a human-readable alias to the node's public key and can be used with the network map to look up the node's info.
 This is the name that is used in the node's certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
 At runtime, Corda checks whether this name matches the name in the node's certificates.
+The name must be a valid X.500 distinguished name, as per the [node naming constraints](node-naming.md).
 
 *Default:* not defined
 
