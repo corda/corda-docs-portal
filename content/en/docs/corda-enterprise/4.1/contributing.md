@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-contributing
-    parent: corda-enterprise-4-1-contributing-index
+    parent: corda-enterprise-4-1-participate
     weight: 1020
 tags:
 - contributing
@@ -165,7 +165,7 @@ the [Community Maintainers](contributing-philosophy.md#community-maintainers) di
 
 
 * (Optional) Open an additional PR to add yourself to the
-[contributors list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md)> 
+[contributors list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md)>
 
 * The format is generally `firstname surname (company)`, but the company can be omitted if desired
 

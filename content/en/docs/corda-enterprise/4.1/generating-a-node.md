@@ -22,44 +22,30 @@ title: Creating nodes locally
 
 A node can be created manually by creating a folder that contains the following items:
 
+* The Corda Enterprise JAR
 
-* The Corda JAR> 
+    * The binary `corda-4.1.jar` provided to your organisation.
 
-    * Can be downloaded from [https://r3.bintray.com/corda/net/corda/corda/](https://r3.bintray.com/corda/net/corda/corda/) (under /4.1/corda-4.1.jar)
+* A node configuration file entitled `node.conf`, configured as per the [node configuration docs](corda-configuration-file.md)
 
-
-
-* A node configuration file entitled `node.conf`, configured as per [Node configuration](corda-configuration-file.md)
 * A folder entitled `cordapps` containing any CorDapp JARs you want the node to load
-* **Optional:** A webserver JAR entitled `corda-webserver.jar` that will connect to the node via RPC> 
 
-    * The (deprecated) default webserver can be downloaded from [http://r3.bintray.com/corda/net/corda/corda-webserver/](http://r3.bintray.com/corda/net/corda/corda-webserver/) (under /4.1/corda-4.1.jar)
-    * A Spring Boot alternative can be found here: [https://github.com/corda/spring-webserver](https://github.com/corda/spring-webserver)
+* **Optional:** A webserver JAR entitled `corda-webserver.jar` that will connect to the node via RPC
 
-
-
+    * The (deprecated) default webserver is available to you for testing and should not be used in a production environment.
+    * A Spring Boot alternative can be found here: https://github.com/corda/spring-webserver
 
 The remaining files and folders described in [Node folder structure](node-structure.md) will be generated at runtime.
-
 
 ## The Cordform task
 
 Corda provides a gradle plugin called `Cordform` that allows you to automatically generate and configure a set of
 nodes for testing and demos. Here is an example `Cordform` task called `deployNodes` that creates three nodes, defined
-in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V4/build.gradle#L120):
+in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V4/build.gradle#L95):
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     directory "./build/nodes"
-
-    nodeDefaults {
-            cordapps = [
-            "net.corda:corda-finance-contracts:$corda_release_version",
-            "net.corda:corda-finance-workflows:$corda_release_version",
-            "net.corda:corda-confidential-identities:$corda_release_version"
-            ]
-    }
-
     node {
         name "O=Notary,L=London,C=GB"
         // The notary will offer a validating notary service.
@@ -73,6 +59,8 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         h2Port   10004
         // Starts an internal SSH server providing a management shell on the node.
         sshdPort 2223
+        // Includes the corda-finance CorDapp on our node.
+        cordapps = ["$corda_release_distribution:corda-finance:$corda_release_version"]
         extraConfig = [
             // Setting the JMX reporter type.
             jmxReporterType: 'JOLOKIA',
@@ -89,6 +77,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         }
         webPort  10007
         h2Port   10008
+        cordapps = ["$corda_release_distribution:corda-finance:$corda_release_version"]
         // Grants user1 all RPC permissions.
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
@@ -101,11 +90,14 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         }
         webPort  10011
         h2Port   10012
+        cordapps = ["$corda_release_distribution:corda-finance:$corda_release_version"]
         // Grants user1 the ability to start the MyFlow flow.
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
     }
 }
 ```
+
+Ensure Corda Enterprise binaries are available on your machine.
 
 Running this task will create three nodes in the `build/nodes` folder:
 
@@ -154,6 +146,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     }
 }
 ```
+Additional properties can be also specified directly by the `extraConfig` property which defines a map of keys and values. The example config above uses `extraConfig` to set value of the `jvmArgs` property.
 
 Cordform parameter *drivers* of the *node* entry lists paths of the files to be copied to the *./drivers* subdirectory of the node.
 To copy the same file to all nodes *ext.drivers* can be defined in the top level and reused for each node via *drivers=ext.drivers`*.

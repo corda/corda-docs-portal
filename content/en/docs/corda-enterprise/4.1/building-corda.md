@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-building-corda
-    parent: corda-enterprise-4-1-contributing-index
+    parent: corda-enterprise-4-1-participate
     weight: 1030
 tags:
 - building

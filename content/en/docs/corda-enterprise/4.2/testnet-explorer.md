@@ -97,7 +97,9 @@ echo "issuableCurrencies = [ USD ]" > /opt/corda/cordapps/config/corda-finance-4
 sudo systemctl start corda
 ```
 
-Your node is now running the Finance Cordapp.{{< note >}}
+Your node is now running the Finance Cordapp.
+
+{{< note >}}
 You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs/node-<VM-NAME>.log`. This
 file will list installed apps at startup. Search for `Loaded CorDapps` in the logs.{{< /note >}}
 

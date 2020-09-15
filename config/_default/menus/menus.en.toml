@@ -263,9 +263,24 @@ name = "Operations"
 weight = 180
 
 [[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-corda-enterprise"
+name = "Enterprise Features"
+weight = 200
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-performance-testing"
+name = "Performance Testing"
+weight = 250
+
+[[corda-enterprise-4-1]]
 identifier = "corda-enterprise-4-1-participate"
 name = "Participate"
 weight = 270
+
+[[corda-enterprise-4-1]]
+identifier = "corda-enterprise-4-1-upgrading"
+name = "Upgrading CorDapps and Nodes"
+weight = 60
 
 [[corda-enterprise-4-2]]
 identifier = "corda-enterprise-4-2-corda-enterprise"

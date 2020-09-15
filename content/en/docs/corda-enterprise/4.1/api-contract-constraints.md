@@ -14,9 +14,6 @@ tags:
 title: 'API: Contract Constraints'
 ---
 
-
-
-
 # API: Contract Constraints
 
 {{< note >}}
@@ -49,15 +46,14 @@ to it.
 Constraints are not the only way to manage upgrades to transactions. There are two ways of handling
 upgrades to a smart contract in Corda:
 
-
 * **Implicit**: By pre-authorising multiple implementations of the contract ahead of time, using constraints.
 * **Explicit**: By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-The advantage of pre-authorising upgrades using constraints is that you don’t need the heavyweight process of creating
+The advantage of pre-authorising upgrades using constraints is that you don't need the heavyweight process of creating
 upgrade transactions for every state on the ledger. The disadvantage is that you place more faith in third parties,
 who could potentially change the app in ways you did not expect or agree with. The advantage of using the explicit
-upgrade approach is that you can upgrade states regardless of their constraint, including in cases where you didn’t
+upgrade approach is that you can upgrade states regardless of their constraint, including in cases where you didn't
 anticipate a need to do so. But it requires everyone to sign, manually authorise the upgrade,
 consumes notary and ledger resources, and is just in general more complex.
 
@@ -68,7 +64,6 @@ This article focuses on the first approach. To learn about the second please see
 ## Types of Contract Constraints
 
 Corda supports several types of constraints to cover a wide set of client requirements:
-
 
 * **Hash constraint**: Exactly one version of the app can be used with this state. This prevents the app from being upgraded in the future while still
 making use of the state created with the original version.
@@ -97,7 +92,7 @@ way makes it possible for multiple versions to be valid across the network as lo
 logic provided by the apps.
 
 Hash and zone whitelist constraints are left over from earlier Corda versions before Signature Constraints were
-implemented. They make it harder to upgrade applications than when using signature constraints, so they’re best avoided.
+implemented. They make it harder to upgrade applications than when using signature constraints, so they're best avoided.
 
 ### Signing CorDapps for use with Signature Constraints
 
@@ -106,7 +101,15 @@ The signers of the app can consist of a single organisation or multiple organisa
 across the nodes that intend to use it.
 
 Each transaction received by a node will then verify that the apps attached to it have the correct signers as specified by its
-Signature Constraints. This ensures that the version of each app is acceptable to the transaction’s input states.
+Signature Constraints. This ensures that the version of each app is acceptable to the transaction's input states.
+
+If a node receives a transaction that uses a contract attachment that it doesn't trust, but there is an attachment present on the node with
+the same contract classes and same signatures, then the node will execute that contract's code as if it were trusted. This means that nodes
+are no longer required to have every version of a CorDapp uploaded to them in order to verify transactions running older version of a CorDapp.
+Instead, it is sufficient to have any version of the CorDapp contract installed.
+
+For third party dependencies attached to the transaction, the rule is slightly different. In this case, the attachment will be trusted by the
+node provided there is another trusted attachment in the node's attachment store that has been signed with the same keys.
 
 More information on how to sign an app directly from Gradle can be found in the
 [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
@@ -120,7 +123,6 @@ This is expanded upon in [Using Contract Constraints in Transactions](#contract-
 {{< note >}}
 Signature Constraints are used by default except when a new transaction contains an input state with a Hash Constraint. In this
 situation the Hash Constraint is used.
-
 {{< /note >}}
 
 
@@ -145,7 +147,6 @@ This gives the node operator the opportunity to recover from those errors, which
 adding the right cordapp jar to the `cordapps` folder.
 
 
-
 ### Hash constrained states in private networks
 
 Where private networks started life using CorDapps with hash constrained states, we have introduced a mechanism to relax the checking of
@@ -153,8 +154,7 @@ these hash constrained states when upgrading to signed CorDapps using signature 
 
 The Java system property `-Dnet.corda.node.disableHashConstraints="true"` may be set to relax the hash constraint checking behaviour. For
 this to work, every participant of the network must set the property to the same value. Therefore, this mode should only be used upon
-“out of band” agreement by all participants in a network.
-
+"out of band" agreement by all participants in a network.
 
 {{< warning >}}
 This flag should remain enabled until every hash constrained state is exited from the ledger.
@@ -216,7 +216,7 @@ transaction verification will fail with a `TransactionContractConflictException`
 ## Using Contract Constraints in Transactions
 
 The app version used by a transaction is defined by its attachments. The JAR containing the state and contract classes, and optionally its
-dependencies, are all attached to the transaction. Nodes will download this JAR from other nodes if they haven’t seen it before,
+dependencies, are all attached to the transaction. Nodes will download this JAR from other nodes if they haven't seen it before,
 so it can be used for verification.
 
 The `TransactionBuilder` will manage the details of constraints for you, by selecting both constraints
@@ -311,61 +311,73 @@ Starting with version 4 of Corda the constraint propagation logic has been imple
 unless disabled by putting `@NoConstraintPropagation` on the `Contract` class which reverts to the previous behavior of expecting
 apps to do this.
 
-For contracts that are not annotated with `@NoConstraintPropagation`, the platform implements a fairly simple constraint transition policy
-to ensure security and also allow the possibility to transition to the new `SignatureAttachmentConstraint`.
+For contracts that are not annotated with ``@NoConstraintPropagation``, the platform implements a fairly simple constraint transition policy
+to ensure security and also allow the possibility to transition to the new ``SignatureAttachmentConstraint``.
 
-During transaction building the `AutomaticPlaceholderConstraint` for output states will be resolved and the best contract attachment versions
-will be selected based on a variety of factors so that the above holds true. If it can’t find attachments in storage or there are no
-possible constraints, the `TransactionBuilder` will throw an exception.
+During transaction building the ``AutomaticPlaceholderConstraint`` for output states will be resolved and the best contract attachment versions
+will be selected based on a variety of factors so that the above holds true. If it can't find attachments in storage or there are no
+possible constraints, the ``TransactionBuilder`` will throw an exception.
 
+Constraints migration to Corda 4
+--------------------------------
 
-## Constraints migration to Corda 4
-
-Please read [CorDapp constraints migration](cordapp-constraint-migration.md) to understand how to consume and evolve pre-Corda 4 issued hash or CZ whitelisted constrained states
+Please read :doc:`cordapp-constraint-migration` to understand how to consume and evolve pre-Corda 4 issued hash or CZ whitelisted constrained states
 using a Corda 4 signed CorDapp (using signature constraints).
 
+Debugging
+---------
+If an attachment constraint cannot be resolved, a ``MissingContractAttachments`` exception is thrown. There are three common sources of
+``MissingContractAttachments`` exceptions:
 
-## Debugging
-
-If an attachment constraint cannot be resolved, a `MissingContractAttachments` exception is thrown. There are three common sources of
-`MissingContractAttachments` exceptions:
+Not setting CorDapp packages in tests
+*************************************
 
 You are running a test and have not specified the CorDapp packages to scan.
-When using `MockNetwork` ensure you have provided a package containing the contract class in `MockNetworkParameters`. See [API: Testing](api-testing.md).
+When using ``MockNetwork`` ensure you have provided a package containing the contract class in ``MockNetworkParameters``. See :doc:`api-testing`.
 
-Similarly package names need to be provided when testing using `DriverDSl`. `DriverParameters` has a property `cordappsForAllNodes` (Kotlin)
-or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp` created by utility method `TestCordapp.findCordapp(String)`.
+Similarly package names need to be provided when testing using ``DriverDSl``. ``DriverParameters`` has a property ``cordappsForAllNodes`` (Kotlin)
+or method ``withCordappsForAllNodes`` in Java. Pass the collection of ``TestCordapp`` created by utility method ``TestCordapp.findCordapp(String)``.
 
-Example of creation of two Cordapps with Finance App Flows and Finance App Contracts in Kotlin:
+Example of creation of two Cordapps with Finance App Flows and Finance App Contracts:
 
+.. container:: codeset
 
-```kotlin
-Driver.driver(DriverParameters(cordappsForAllNodes = listOf(TestCordapp.findCordapp("net.corda.finance.schemas"),
-        TestCordapp.findCordapp("net.corda.finance.flows"))) {
-    // Your test code goes here
-})
-```
+   .. sourcecode:: kotlin
 
+        Driver.driver(DriverParameters(
+            cordappsForAllNodes = listOf(
+                TestCordapp.findCordapp("net.corda.finance.schemas"),
+                TestCordapp.findCordapp("net.corda.finance.flows")
+            )
+        ) {
+            // Your test code goes here
+        })
 
+   .. sourcecode:: java
 
-The same example in Java:
+        Driver.driver(
+            new DriverParameters()
+                .withCordappsForAllNodes(
+                    Arrays.asList(
+                        TestCordapp.findCordapp("net.corda.finance.schemas"),
+                        TestCordapp.findCordapp("net.corda.finance.flows")
+                    )
+                ),
+            dsl -> {
+              // Your test code goes here
+            }
+        );
 
+Starting a node missing CorDapp(s)
+**********************************
 
-```java
-Driver.driver(new DriverParameters()
-        .withCordappsForAllNodes(Arrays.asList(TestCordapp.findCordapp("net.corda.finance.schemas"),
-        TestCordapp.findCordapp("net.corda.finance.flows"))), dsl -> {
-    // Your test code goes here
-});
-```
+When running the Corda node ensure all CordDapp JARs are placed in ``cordapps`` directory of each node.
+By default Gradle Cordform task ``deployNodes`` copies all JARs if CorDapps to deploy are specified.
+See :doc:`generating-a-node` for detailed instructions.
 
+Wrong fully-qualified contract name
+***********************************
 
-
-When running the Corda node ensure all CordDapp JARs are placed in `cordapps` directory of each node.
-By default Gradle Cordform task `deployNodes` copies all JARs if CorDapps to deploy are specified.
-See [Creating nodes locally](generating-a-node.md) for detailed instructions.
-
-You are specifying the fully-qualified name of the contract incorrectly. For example, you’ve defined `MyContract` in
-the package `com.mycompany.myapp.contracts`, but the fully-qualified contract name you pass to the
-`TransactionBuilder` is `com.mycompany.myapp.MyContract` (instead of `com.mycompany.myapp.contracts.MyContract`).
-
+You are specifying the fully-qualified name of the contract incorrectly. For example, you've defined ``MyContract`` in
+the package ``com.mycompany.myapp.contracts``, but the fully-qualified contract name you pass to the
+``TransactionBuilder`` is ``com.mycompany.myapp.MyContract`` (instead of ``com.mycompany.myapp.contracts.MyContract``).

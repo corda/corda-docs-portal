@@ -160,10 +160,10 @@ Read more in [Using attachments](tutorial-attachments.md) and [Node services](no
 
 {{< table >}}
 
-|NODE_ATTACHMENTS|Stores attachments|
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|ATT_ID|The hash of the content of the file.|
-|CONTENT|The binary content|
+                        |NODE_ATTACHMENTS|Stores attachments|
+                        |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+                        |ATT_ID|The hash of the content of the file.|
+                        |CONTENT|The binary content|
 |FILENAME|Not used at the moment.|
 |INSERTION_DATE|Date.|
 |UPLOADER|One of: `p2p`, `app`, `rpc`, `unknown`. Currently used for for determining if this attachment is safe to execute during transaction verification.|

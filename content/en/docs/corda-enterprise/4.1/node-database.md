@@ -10,85 +10,140 @@ menu:
 tags:
 - node
 - database
-title: Node database
+title: Database Migration Tool
 ---
 
+# Database Migration Tool
 
-# Node database
+By default, a node will *not* attempt to execute database migration scripts at startup (even when a new version has been deployed),
+but will check the database "version" and halt if the database is not in sync with the node, to avoid data corruption.
 
+This setup/procedure is recommended for production systems.
 
+Running the migration at startup automatically can be configured by specifying true in the ``database.runMigration``
+node configuration setting (default behaviour is false).
+We recommend enabling database schema auto-creation/upgrade for development or test purposes only.
+It is safe to run at startup if you have implemented the usual best practices for database management
+(e.g. running a backup before installing a new version).
 
-## Configuring the node database
+## Database Management Tool
 
+The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
+It is intended to be used by Corda Enterprise node administrators.
 
-### H2
+The following sections document the available subcommands suitable for a node operator or database administrator.
 
-By default, nodes store their data in an H2 database. See [Database access when running H2](node-database-access-h2.md).
+### Executing a dry run of the SQL migration scripts
 
-Nodes can also be configured to use PostgreSQL and SQL Server. However, these are experimental community contributions.
-The Corda continuous integration pipeline does not run unit tests or integration tests of these databases.
+The `dry-run` subcommand can be used to output the database migration to the specified output file or to the console.
+The output directory is the one specified by the `--base-directory` parameter.
 
+Usage:
 
-### PostgreSQL
-
-Nodes can also be configured to use PostgreSQL 9.6, using PostgreSQL JDBC Driver 42.1.4. Here is an example node
-configuration for PostgreSQL:
-
-```groovy
-dataSourceProperties = {
-    dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
-    dataSource.url = "jdbc:postgresql://[HOST]:[PORT]/[DATABASE]"
-    dataSource.user = [USER]
-    dataSource.password = [PASSWORD]
-}
-database = {
-    transactionIsolationLevel = READ_COMMITTED
-}
+```shell
+    database-manager dry-run [-hvV] [--doorman-jar-path=<doormanJarPath>]
+                             [--logging-level=<loggingLevel>] [--mode=<mode>]
+                             -b=<baseDirectory> [-f=<configFile>] [<outputFile>]
 ```
 
-Note that:
+The `outputFile` parameter can be optionally specified determine what file to output the generated SQL to, or use
+`CONSOLE` to output to the console.
 
+Additional options:
 
-* Database schema name can be set in JDBC URL string e.g. *currentSchema=my_schema*
-* Database schema name must either match the `dataSource.user` value to end up
-on the standard schema search path according to the
-[PostgreSQL documentation](https://www.postgresql.org/docs/9.3/static/ddl-schemas.html#DDL-SCHEMAS-PATH), or
-the schema search path must be set explicitly for the user.
-* If your PostgresSQL database is hosting multiple schema instances (using the JDBC URL currentSchema=my_schema)
-for different Corda nodes, you will need to create a *hibernate_sequence* sequence object manually for each subsequent schema added after the first instance.
-Corda doesn’t provision Hibernate with a schema namespace setting and a sequence object may be not created.
-Run the DDL statement and replace *my_schema* with your schema namespace:
+* `--base-directory`, `-b`: (Required) The node working directory where all the files are kept (default: `.`).
+* `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
+* `--mode`: The operating mode. Possible values: NODE, DOORMAN. Default: NODE.
+* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman JAR.
+* `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
+* `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
+* `--help`, `-h`: Show this help message and exit.
+* `--version`, `-V`: Print version information and exit.
 
-```groovy
-CREATE SEQUENCE my_schema.hibernate_sequence INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 8 CACHE 1 NO CYCLE;
+### Executing SQL migration scripts
+
+The `execute-migration` subcommand runs migration scripts on the node's database.
+
+Usage:
+
+```shell
+    database-manager execute-migration [-hvV] [--doorman-jar-path=<doormanJarPath>]
+                                       [--logging-level=<loggingLevel>]
+                                       [--mode=<mode>] -b=<baseDirectory>
+                                       [-f=<configFile>]
 ```
 
+* `--base-directory`, `-b`: (Required) The node working directory where all the files are kept (default: `.`).
+* `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
+* `--mode`: The operating mode. Possible values: NODE, DOORMAN. Default: NODE.
+* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman JAR.
+* `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
+* `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
+* `--help`, `-h`: Show this help message and exit.
+* `--version`, `-V`: Print version information and exit.
+
+### Releasing database locks
+
+The `release-lock` subcommand forces the release of database locks. Sometimes, when a node or the database management
+tool crashes while running migrations, Liquibase will not release the lock. This can happen during some long
+database operations, or when an admin kills the process (this cannot happen during normal operation of a node,
+only [during the migration process](http://www.liquibase.org/documentation/databasechangeloglock_table.html).
+
+Usage:
+
+```shell
+    database-manager release-lock [-hvV] [--doorman-jar-path=<doormanJarPath>]
+                                  [--logging-level=<loggingLevel>] [--mode=<mode>]
+                                  -b=<baseDirectory> [-f=<configFile>]
+```
+Additional options:
+
+* `--base-directory`, `-b`: (Required) The node working directory where all the files are kept (default: `.`).
+* `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
+* `--mode`: The operating mode. Possible values: NODE, DOORMAN. Default: NODE.
+* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman JAR.
+* `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
+* `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
+* `--help`, `-h`: Show this help message and exit.
+* `--version`, `-V`: Print version information and exit.
+
+### Database Manager shell extensions
+
+The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto-completion for
+bash and zsh. See [shell extensions](cli-application-shell-extensions.md) for more info.
 
 
+{{< note >}}
+When running the database management tool, it is preferable to use absolute paths when specifying the "base-directory".
+{{</ note >}}
 
-### SQLServer
+{{< warning >}}
+It is good practice for node operators to back up the database before upgrading to a new version.
+{{</ warning >}}
 
-Nodes also have untested support for Microsoft SQL Server 2017, using Microsoft JDBC Driver 6.2 for SQL Server. Here is
-an example node configuration for SQLServer:
+### Troubleshooting
 
-```groovy
-dataSourceProperties = {
-    dataSourceClassName = "com.microsoft.sqlserver.jdbc.SQLServerDataSource"
-    dataSource.url = "jdbc:sqlserver://[HOST]:[PORT];databaseName=[DATABASE_NAME]"
-    dataSource.user = [USER]
-    dataSource.password = [PASSWORD]
-}
-database = {
-    transactionIsolationLevel = READ_COMMITTED
-}
-jarDirs = ["[FULL_PATH]/sqljdbc_6.2/enu/"]
+Symptom: Problems acquiring the lock, with output like this:
+
+```
+Waiting for changelog lock....
+Waiting for changelog lock....
+Waiting for changelog lock....
+Waiting for changelog lock....
+Waiting for changelog lock....
+Waiting for changelog lock....
+Waiting for changelog lock....
+Liquibase Update Failed: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
+SEVERE 2013-03-20 16:59:liquibase: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
+liquibase.exception.LockException: Could not acquire change log lock.  Currently locked by SomeComputer (192.168.15.X) since 2013-03-20 13:39
+        at liquibase.lockservice.LockService.waitForLock(LockService.java:81)
+        at liquibase.Liquibase.tag(Liquibase.java:507)
+        at liquibase.integration.commandline.Main.doMigration(Main.java:643)
+        at liquibase.integration.commandline.Main.main(Main.java:116)
 ```
 
-Note that:
-
-
-* Ensure the directory referenced by jarDirs contains only one JDBC driver JAR file; by the default,
-sqljdbc_6.2/enu/contains two JDBC JAR files for different Java versions.
+Advice: See [this StackOverflow question](https://stackoverflow.com/questions/15528795/liquibase-lock-reasons).
+You can run `java -jar tools-database-manager-4.1.jar --base-directory /path/to/node --release-lock` to force Liquibase to give up the lock.
 
 
 ## Node database tables
@@ -131,20 +186,14 @@ By default, the node database has the following tables:
 
 {{< /table >}}
 
+The node database for a Simple Notary has additional tables:
 
-## Database connection pool
+{{< table >}}
 
-Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating the connection pool.
-To configure the connection pool any custom properties can be set in the *dataSourceProperties* section.
+|Table name|Columns|
+|----------|-------|
+| NODE_NOTARY_COMMITTED_STATES | OUTPUT_INDEX, TRANSACTION_ID, CONSUMING_TRANSACTION_ID |
+|  NODE_NOTARY_COMMITTED_TXS | TRANSACTION_ID  |
+| NODE_NOTARY_REQUEST_LOG | ID, CONSUMING_TRANSACTION_ID, REQUESTING_PARTY_NAME, REQUEST_TIMESTAMP, REQUEST_SIGNATURE |
 
-For example:
-
-```groovy
-dataSourceProperties = {
-    dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
-    ...
-    maximumPoolSize = 10
-    connectionTimeout = 50000
-}
-```
-
+{{</ table >}}

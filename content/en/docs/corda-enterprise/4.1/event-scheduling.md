@@ -27,7 +27,6 @@ state can expose an upcoming event and what action to take if the scheduled time
 Many financial instruments have time sensitive components to them.  For example, an Interest Rate Swap has a schedule
 for when:
 
-
 * Interest rate fixings should take place for floating legs, so that the interest rate used as the basis for payments
 can be agreed.
 * Any payments between the parties are expected to take place.
@@ -62,49 +61,37 @@ The important thing to remember is that in the current implementation, each node
 will execute the same `FlowLogic`, so it needs to establish roles in the business process based on the contract
 state and the node it is running on. Each side will follow different but complementary paths through the business logic.
 
-{{< note >}}
-The scheduler’s clock always operates in the UTC time zone for uniformity, so any time zone logic must be
-performed by the contract, using `ZonedDateTime`.
+.. note:: The scheduler's clock always operates in the UTC time zone for uniformity, so any time zone logic must be
+   performed by the contract, using ``ZonedDateTime``.
 
-{{< /note >}}
-The production and consumption of `ContractStates` is observed by the scheduler and the activities associated with
-any consumed states are unscheduled.  Any newly produced states are then queried via the `nextScheduledActivity`
-method and if they do not return `null` then that activity is scheduled based on the content of the
-`ScheduledActivity` object returned. Be aware that this *only* happens if the vault considers the state
-“relevant”, for instance, because the owner of the node also owns that state. States that your node happens to
-encounter but which aren’t related to yourself will not have any activities scheduled.
+The production and consumption of ``ContractStates`` is observed by the scheduler and the activities associated with
+any consumed states are unscheduled.  Any newly produced states are then queried via the ``nextScheduledActivity``
+method and if they do not return ``null`` then that activity is scheduled based on the content of the
+``ScheduledActivity`` object returned. Be aware that this *only* happens if the vault considers the state
+"relevant", for instance, because the owner of the node also owns that state. States that your node happens to
+encounter but which aren't related to yourself will not have any activities scheduled.
 
+An example
+----------
 
-## An example
+Let's take an example of the interest rate swap fixings for our scheduled events.  The first task is to implement the
+``nextScheduledActivity`` method on the ``State``.
 
-Let’s take an example of the interest rate swap fixings for our scheduled events.  The first task is to implement the
-`nextScheduledActivity` method on the `State`.
+.. container:: codeset
 
-{{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
-```kotlin
-override fun nextScheduledActivity(thisStateRef: StateRef, flowLogicRefFactory: FlowLogicRefFactory): ScheduledActivity? {
-    val nextFixingOf = nextFixingOf() ?: return null
+    .. code-block:: kotlin
 
-    // This is perhaps not how we should determine the time point in the business day, but instead expect the schedule to detail some of these aspects
-    val instant = suggestInterestRateAnnouncementTimeWindow(index = nextFixingOf.name, source = floatingLeg.indexSource, date = nextFixingOf.forDay).fromTime!!
-    return ScheduledActivity(flowLogicRefFactory.create("net.corda.irs.flows.FixingFlow\$FixingRoleDecider", thisStateRef), instant)
-}
+        override fun nextScheduledActivity(thisStateRef: StateRef, flowLogicRefFactory: FlowLogicRefFactory): ScheduledActivity? {
+            val nextFixingOf = nextFixingOf() ?: return null
 
-```
-{{% /tab %}}
+            // This is perhaps not how we should determine the time point in the business day, but instead expect the schedule to detail some of these aspects
+            val instant = suggestInterestRateAnnouncementTimeWindow(index = nextFixingOf.name, source = floatingLeg.indexSource, date = nextFixingOf.forDay).fromTime!!
+            return ScheduledActivity(flowLogicRefFactory.create("net.corda.irs.flows.FixingFlow\$FixingRoleDecider", thisStateRef), instant)
+        }
 
-
-
-
-[IRS.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/irs-demo/cordapp/contracts-irs/src/main/kotlin/net/corda/irs/contract/IRS.kt) | ![github](/images/svg/github.svg "github")
-
-{{< /tabs >}}
-
-The first thing this does is establish if there are any remaining fixings.  If there are none, then it returns `null`
-to indicate that there is no activity to schedule.  Otherwise it calculates the `Instant` at which the interest rate
+The first thing this does is establish if there are any remaining fixings.  If there are none, then it returns ``null``
+to indicate that there is no activity to schedule.  Otherwise it calculates the ``Instant`` at which the interest rate
 should become available and schedules an activity at that time to work out what roles each node will take in the fixing
-business process and to take on those roles.  That `FlowLogic` will be handed the `StateRef` for the interest
-rate swap `State` in question, as well as a tolerance `Duration` of how long to wait after the activity is triggered
+business process and to take on those roles.  That ``FlowLogic`` will be handed the ``StateRef`` for the interest
+rate swap ``State`` in question, as well as a tolerance ``Duration`` of how long to wait after the activity is triggered
 for the interest rate before indicating an error.
-

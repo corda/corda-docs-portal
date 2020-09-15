@@ -168,7 +168,7 @@ ha-utilities generate-internal-tunnel-ssl-keystores [-hvV] [--logging-level=<log
 Configuring an external Artemis broker to be used by Corda nodes and firewall components can be a little daunting. This tool will generate the necessary configuration files and install (if needed) a new Artemis instance.
 Please note that the generated configuration files will be copied to a destination supplied as an argument to the command, replacing existing ones.
 The keystore and truststore information will be downloaded by the clients when Artemis is configured in HA mode. Therefore, the tool will configure broker.xml with paths relative to the Artemis instance (for acceptors) and client’s working directory (for connectors).
-For example, using the option –keystore ./artemiscerts/keystore.jks will require the keystore to be installed in $ARTEMIS_DIR/etc/artemiscerts and $NODE_OR_BRIDGE_DIR/artemiscerts.
+For example, using the option --keystore ./artemiscerts/keystore.jks will require the keystore to be installed in $ARTEMIS_DIR/etc/artemiscerts and $NODE_OR_BRIDGE_DIR/artemiscerts.
 
 
 #### Command-line options

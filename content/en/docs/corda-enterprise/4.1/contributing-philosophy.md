@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-contributing-philosophy
-    parent: corda-enterprise-4-1-contributing-index
+    parent: corda-enterprise-4-1-participate
     weight: 1010
 tags:
 - contributing
@@ -35,7 +35,7 @@ working together to build and maintain this open source enterprise-grade blockch
 The Corda maintainers, developers and extended community make active use of the following channels:
 
 
-* The [Corda Slack team](http://slack.corda.net/) for general community discussion, and in particular:> 
+* The [Corda Slack team](http://slack.corda.net/) for general community discussion, and in particular:>
 
     * The `#contributing` channel for discussions around contributing
     * The `#design` channel for discussions around the platform’s design
@@ -65,7 +65,7 @@ merged; they are held to the same standard as all other contributions. The commu
 Current community maintainers:
 
 
-* [Joel Dudley](https://github.com/joeldudleyr3) - Contact me:> 
+* [Joel Dudley](https://github.com/joeldudleyr3) - Contact me:>
 
     * On the [Corda Slack team](http://slack.corda.net/), either in the `#community` channel or by direct message using the handle
 `@joel`
