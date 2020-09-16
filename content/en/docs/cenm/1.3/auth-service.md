@@ -22,7 +22,7 @@ The Auth service is the user authentication and authorization service for CENM. 
 * Signing service.
 * Network map (and associated network configurations and node info).
 
-Whenever you use the [User admin tool](user-admin-tool) to create new users, groups or roles, the Auth service is updated to authenticate those users and their permissions. If you use the [CENM Command Line Interface](cenm-cli-tool), the auth service verifies your security clearance to operate on the required context of the service.
+Whenever you use the [User admin tool](user-admin) to create new users, groups or roles, the Auth service is updated to authenticate those users and their permissions. If you use the [CENM Command Line Interface](cenm-cli-tool), the auth service verifies your security clearance to operate on the required context of the service.
 
 When you use any front end interface for CENM, the Auth service is activated and updated via a front-end gateway, called the [FARM service](gateway-service).
 
