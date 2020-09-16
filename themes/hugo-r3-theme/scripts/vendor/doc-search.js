@@ -7,7 +7,7 @@ export function docSearchInit(){
     if (document.querySelector('#search-input')) {
         //https://www.algolia.com/doc/api-reference/api-parameters/facetFilters/?language=javascript
         let algoliaOptions = {
-            hitsPerPage: 5,
+            hitsPerPage: 30,
             facetFilters: facetFilters
         };
 
