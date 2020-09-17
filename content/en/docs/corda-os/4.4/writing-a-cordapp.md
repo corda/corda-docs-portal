@@ -35,13 +35,7 @@ A common pattern is to have:
 * One module containing only the CorDapp’s contracts and/or states, as well as any required dependencies
 * A second module containing the remaining classes that depend on these contracts and/or states
 
-This is because each time a contract is used in a transaction, the entire JAR containing the contract’s definition is
-attached to the transaction. This is to ensure that the exact same contract and state definitions are used when
-verifying this transaction at a later date. Because of this, you will want to keep this module, and therefore the
-resulting JAR file, as small as possible to reduce the size of your transactions and keep your node performant.
-
 However, this two-module structure is not prescriptive:
-
 
 * A library CorDapp containing only contracts and states would only need a single module
 * In a CorDapp with multiple sets of contracts and states that **do not** depend on each other, each independent set of

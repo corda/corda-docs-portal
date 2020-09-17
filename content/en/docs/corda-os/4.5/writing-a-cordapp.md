@@ -32,13 +32,7 @@ A common pattern is to have:
 * One module containing only the CorDapp’s contracts and/or states, as well as any required dependencies
 * A second module containing the remaining classes that depend on these contracts and/or states
 
-This is because each time a contract is used in a transaction, the entire JAR containing the contract’s definition is
-attached to the transaction. This is to ensure that the exact same contract and state definitions are used when
-verifying this transaction at a later date. Because of this, you will want to keep this module, and therefore the
-resulting JAR file, as small as possible to reduce the size of your transactions and keep your node performant.
-
 However, this two-module structure is not prescriptive:
-
 
 * A library CorDapp containing only contracts and states would only need a single module
 * In a CorDapp with multiple sets of contracts and states that **do not** depend on each other, each independent set of
@@ -151,7 +145,7 @@ The `src` directory is structured as follows:
 Within `main`, we have the following directories:
 
 
-* `java`, which contains the source-code for our CorDapp:> 
+* `java`, which contains the source-code for our CorDapp:>
 
     * `TemplateFlow.java`, which contains a template `FlowLogic` subclass
     * `TemplateState.java`, which contains a template `ContractState` implementation
@@ -163,7 +157,7 @@ Within `main`, we have the following directories:
 
 
 
-* `resources/META-INF/services`, which contains various registries:> 
+* `resources/META-INF/services`, which contains various registries:>
 
     * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialisation whitelists
     * `net.corda.webserver.services.WebServerPluginRegistry`, which registers the CorDapp’s web plugins
@@ -179,4 +173,3 @@ In a production CorDapp:
 `TemplateWebPlugin.java`, `resources/templateWeb`, and `net.corda.webserver.services.WebServerPluginRegistry`)
 and replace them with a production-ready webserver
 * We would also move `TemplateClient.java` into a separate module so that it is not included in the CorDapp
-
