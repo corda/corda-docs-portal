@@ -15,31 +15,31 @@ tags:
 - cordapp
 - deploy
 - quickstart
-title: Running an example CorDapp
+title: Running a sample CorDapp
 weight: 3
 
 ---
 
 
-# Running an example CorDapp
+# Running a sample CorDapp
 
-To help you get up and running on Corda, a number of example CorDapps for both Java and Kotlin are available from the [Corda page on GitHub](https://github.com/corda) &mdash;
- see the [Java samples repository](https://github.com/corda/samples-java) and the [Kotlin samples repository](https://github.com/corda/samples-kotlin). This topic describes how to deploy and run an example CorDapp.
+To help you get up and running on Corda, a number of sample CorDapps for both Java and Kotlin are available from the [Corda page on GitHub](https://github.com/corda) &mdash;
+ see the [Java samples repository](https://github.com/corda/samples-java) and the [Kotlin samples repository](https://github.com/corda/samples-kotlin). This topic describes how to deploy and run a sample CorDapp.
 
 {{< note >}}
-If you'd like to deploy and run an example CorDapp as you work through this topic, ensure that you’ve [set up your development environment](getting-set-up.md) before proceeding.
+If you'd like to deploy and run a sample CorDapp as you work through this topic, ensure that you’ve [set up your development environment](getting-set-up.md) before proceeding.
 {{< /note >}}
 
 ## Scenario
 
-The local Corda network includes one notary, and three nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](key-concepts-node.md).
+The local Corda network includes one notary, and three nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](../node/component-topology.md).
 
-The example CorDapp allows nodes to agree IOUs with each other, as long as they obey the following contract rules:
+The sample CorDapp allows nodes to agree IOUs with each other, as long as they obey the following contract rules:
 
 * The IOU’s value is strictly positive
 * A node is not trying to issue an IOU to itself
 
-This section describes how to deploy and run the example CorDapp on the following four test nodes:
+This section describes how to deploy and run the sample CorDapp on the following four test nodes:
 
 * **Notary**, which runs a notary service
 * **PartyA**
@@ -48,37 +48,50 @@ This section describes how to deploy and run the example CorDapp on the followin
 
 Because data is only propagated on a need-to-know basis, any IOUs agreed between PartyA and PartyB become “shared facts” between PartyA and PartyB only. PartyC won’t be aware of these IOUs.
 
-## Downloading an example CorDapp
+## Downloading a sample CorDapp
 
 {{< note >}}
-CorDapps can be written in any language targeting the JVM. However, source files for the example CorDapps are provided in both Kotlin and Java. Since both sets of source files are functionally identical, the instructions in this topic will refer to the Java version.
+CorDapps can be written in any language targeting the JVM. However, source files for the sample CorDapps are provided in both Kotlin and Java. Since both sets of source files are functionally identical, the instructions in this topic will refer to the Java version.
 {{< /note >}}
 
-To download the example CorDapp, open a command prompt or terminal and use the following command to clone the Java samples repository:
-`git clone https://github.com/corda/samples-java`
+To download the sample CorDapp, open a command prompt or terminal in the directory where you want to download the sample CorDapp, and run the following command to clone the  samples repository:
 
-The `samples-java` repository contains a number of example CorDapps. For details of all the example CorDapps and their features and usage, see the Readme at the top level of the `samples-java` folder.
+{{< tabs name="tabs-1" >}}
+{{% tab name="java" %}}
+```java
+git clone https://github.com/corda/samples-java
+```
+{{% /tab %}}
 
-The example CorDapp that we are going to run and deploy is the **Basic** CorDapp &mdash; the source files for this CorDapp are located in the `samples-java\Basic\cordapp-example` folder.
+{{% tab name="kotlin" %}}
+```kotlin
+git clone https://github.com/corda/samples-kotlin
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
+The `samples-java` and `samples-kotlin` repositories each contain a number of sample CorDapps. For details of all the sample CorDapps and their features and usage, see the Readme file located within the `samples-java` or `samples-kotlin` folder.
+
+The sample CorDapp that we are going to run and deploy is the **Basic** CorDapp &mdash; the source files for this CorDapp are located in the `Basic\cordapp-example` sub-folder.
 
 
-## Opening the example CorDapp in IntelliJ IDEA
+## Opening the sample CorDapp in IntelliJ IDEA
 
-To open the example CorDapp in the IntelliJ IDEA:
+To open the sample CorDapp in the IntelliJ IDEA:
 
-* Open IntelliJ.
-*From the splash screen, click **Open**, navigate to the `samples-java\Basic\cordapp-example` folder, and click **OK**. The project containing the example CorDapp should open.
-* Specify which JDK you are using. To do this:
-  * Click **File** >  **Project Structure**.
-  * Under **Project Settings**, click the **Project** option (if not displayed by default).
-  * In the **Project SDK** section, click **New…** > **JDK**, then select the home directory of your JDK and click **OK**.
-* Specify the following additional settings:
-  * Select **Modules**, then click the **+** button located just above the `cordapp-example` folder and select **Import Module**.
-  * On the **Select File or Directory to Import** window, navigate to `samples-java\Basic\cordapp-example` and click **OK**.  
-  * On the **Import Module** window, select the **Import module from external model** option, then select **Gradle** from the list of options and click **Next**.
-  * Select the **Use auto-import** checkbox and click **Finish**, then click **OK**.
+1. Open IntelliJ. From the splash screen, click **Open**, navigate to the `Basic\cordapp-example` sub-folder, and click **OK**. The sample CorDapp opens.
+2. Specify which JDK you are using. To do this:
+    * Click **File** >  **Project Structure**.
+    * Under **Project Settings**, click the **Project** option (if not displayed by default).
+    * In the **Project SDK** section, click **New…** > **JDK**, then select the home directory of your JDK and click **OK**.
+3. Specify the following additional settings:
+    * Select **Modules**, then click the **+** button located just above the `cordapp-example` folder and select **Import Module**.
+    * On the **Select File or Directory to Import** window, navigate to `samples-java\Basic\cordapp-example` and click **OK**.
+    * On the **Import Module** window, select the **Import module from external model** option, then select **Gradle** from the list of options and click **Next**.
+    * Select the **Use auto-import** checkbox and click **Finish**, then click **OK**.
 
-Gradle will now download all the project dependencies and perform some indexing. This usually takes a minute or so.
+    Gradle will now download all the project dependencies and perform some indexing. This usually takes a minute or so.
 
 
 ### Project structure
@@ -101,7 +114,7 @@ The `cordapp-example` folder is structured as follows:
 │           │               ├── MainController.java
 │           │               ├── NodeRPCConnection.java
 │           │               └── Server.java
-│           │               
+│           │  
 │           └── resources
 │               ├── application.properties
 │               └── public
@@ -112,7 +125,7 @@ The `cordapp-example` folder is structured as follows:
 │   ├── dev
 │      └── log4j2.xml
 │  
-│       
+│  
 ├── contracts-java
 │   ├── build.gradle
 │   └── src
@@ -211,34 +224,33 @@ The key files and directories are as follows:
 
 * The **root directory** contains some gradle files, a README, a LICENSE and a TRADEMARK statement
 * **clients** contains the source code for Spring Boot integration
-* **config** contains log4j2 configs
-* **contracts-java** and **workflows-java** contain the source code for the example CorDapp written in Java
+* **config** contains the log4j2 configuration
+* **contracts-java** and **workflows-java** contain the source code for the sample CorDapp written in Java
 * **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin
 * **gradle** contains the gradle wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required
 * **lib** contains the Quasar jar, which rewrites our CorDapp’s flows to be checkpointable
 
 
-## Starting the example CorDapp
+## Starting the sample CorDapp
 
-Starting the example CorDapp is a two step-process:
-* First, you must deploy the example CorDapp to a set of test nodes running locally, as described in the section that follows.
+Starting the sample CorDapp is a two step-process:
+* First, you must deploy the sample CorDapp to a set of test nodes running locally, as described in the section that follows.
 * Once you have deployed the CorDapp to the nodes, you must then start the nodes to launch the CorDapp.
 
 ### Deploying the CorDapp locally
 
 The first step is to deploy the CorDapp to nodes running locally. To do this:
 
-* Open a terminal window in the `cordapp-example` directory.
-* Run the `deployNodes` Gradle task to build four nodes with the CorDapp installed on them:
-    * Unix/Mac OSX: `./gradlew deployNodes`
-    * Windows: `gradlew.bat deployNodes`
-* After the build finishes, you will see the following output in the `workflows-java/build/nodes` folder:
-    * A folder for each generated node
-    * A `runnodes` shell script for running all the nodes simultaneously on osX
-    * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
+1. Open a terminal window in the `cordapp-example` directory.
+2. Run the `deployNodes` Gradle task to build four nodes with the CorDapp installed on them:
+      * Unix/Mac OSX: `./gradlew deployNodes`
+      * Windows: `gradlew.bat deployNodes`
+3. After the build finishes, navigate to the `workflows-java/build/nodes` or `workflows-kotlin/build/nodes` folder - you should see the following output:
+      * A folder for each generated node
+      * A `runnodes` shell script for running all the nodes simultaneously on osX
+      * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-
-* Each node in the `nodes` folder is structured as follows:
+      Each node in the `nodes` folder is structured as follows:
 
 ```none
 . nodeName
@@ -262,17 +274,23 @@ The first step is to deploy the CorDapp to nodes running locally. To do this:
 
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create an entirely new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally](generating-a-node.md) and build your CorDapp JARs as described
+`deployNodes` is a utility task that can be used in a development environment to create an entirely new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally](../node/deploy/generating-a-node.md) and build your CorDapp JARs as described
 in [Building and installing a CorDapp](cordapp-build-systems.md).
 {{< /note >}}
 
-### Launching the example CorDapp
+### Launching the sample CorDapp
 
-Start the nodes by running the following command from the root of the `cordapp-example` folder:
+Start the nodes by running the relevant command below from the root of the `cordapp-example` folder:
 
+To run the Java sample CorDapp, run the command that corresponds to your operating system:
 
 * Unix/Mac OSX: `workflows-java/build/nodes/runnodes`
 * Windows: `call workflows-java\build\nodes\runnodes.bat`
+
+To run the Kotlin sample CorDapp, run the command that corresponds to your operating system:
+
+* Unix/Mac OSX: `workflows-kotlin/build/nodes/runnodes`
+* Windows: `call workflows-kotlin\build\nodes\runnodes.bat`
 
 Start a Spring Boot server for each node by opening a terminal/command prompt for each node and entering the following command, replacing X with A, B and C:
 
@@ -284,7 +302,7 @@ Look for the `Started Server in X seconds` message &mdash; don’t rely on the %
 
 
 {{< warning >}}
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](shell.md).
+On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](../node/operating/shell.md).
 {{< /warning >}}
 
 
@@ -316,11 +334,11 @@ Fri Mar 02 17:34:02 GMT 2018>>>
 
 It usually takes around 60 seconds for the nodes to finish starting up. Each node will display “Welcome to the Corda interactive shell” along with a prompt when ready.
 
-You can read more about how to generate nodes [here](generating-a-node.md).
+You can read more about how to generate nodes [here](../node/deploy/generating-a-node.md).
 
-## Interacting with the example CorDapp
+## Interacting with the sample CorDapp
 
-You can interact with the example CorDapp in various ways:
+You can interact with the sample CorDapp in various ways:
 
 * Via HTTP
 * Via the interactive shell (terminal only)
@@ -464,7 +482,7 @@ As before, the interactive shell of PartyC will not display any IOUs.
 ### Via the h2 web console
 
 You can connect directly to your node’s database to see its stored states, transactions and attachments. To do so,
-please follow the instructions in [Node database](node-database.md).
+please follow the instructions in [Node database](../node/operating/node-database.md).
 
 
 ## Running nodes across machines
@@ -481,7 +499,7 @@ The nodes can be configured to communicate as a network even when distributed ac
 * For each node, open its `node.conf` file and change `localhost` in its `p2pAddress` to the IP address of the machine
 where the node will be run (e.g. `p2pAddress="10.18.0.166:10007"`)
 * These changes require new node-info files to be distributed amongst the nodes. Use the network bootstrapper tool
-(see [Network Bootstrapper](network-bootstrapper.md)) to update the files and have them distributed locally:`java -jar network-bootstrapper.jar workflows-java/build/nodes`
+(see [Network Bootstrapper](../network-bootstrapper.md)) to update the files and have them distributed locally:`java -jar network-bootstrapper.jar workflows-java/build/nodes`
 * Move the node folders to their individual machines (for example, using a USB key). It is important that none of the
 nodes - including the notary - end up on more than one machine. Each computer should also have a copy of `runnodes`
 and `runnodes.bat`. For example, you may end up with the following layout:
@@ -527,7 +545,7 @@ You can run the CorDapp’s integration tests by running the `Run Integration Te
 
 ### Running tests in IntelliJ
 
-See [Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners).
+See [Running tests in IntelliJ](../testing.md#tutorial-cordapp-alternative-test-runners).
 
 
 ## Debugging the CorDapp
