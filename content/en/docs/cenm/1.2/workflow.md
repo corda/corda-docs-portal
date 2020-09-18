@@ -187,7 +187,6 @@ data class WorkflowPluginRequest(val requestId: String,
                                  val legalName: CordaX500Name? = null)
 
 ```
-{{/* github src='workflow/src/main/kotlin/com/r3/enm/workflow/api/WorkflowPlugin.kt' url='https://github.com/corda/network-services/blob/release/1.2/workflow/src/main/kotlin/com/r3/enm/workflow/api/WorkflowPlugin.kt' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/workflow/src/main/kotlin/com/r3/enm/workflow/api/WorkflowPlugin.kt' start='' end='' */}}
 
 There are two `Request` implementations which plugins can support, `CertificateSigningRequest`
 and `CertificateRevocationRequest`:
@@ -228,7 +227,6 @@ enum class CertificateStatus {
     VALID, SUSPENDED, REVOKED
 }
 ```
-{{/* github src='services-api/src/main/kotlin/com/r3/enm/model/CertificateSigningRequest.kt' url='https://github.com/corda/network-services/release/1.2/services-api/src/main/kotlin/com/r3/enm/model/CertificateSigningRequest.kt' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/services-api/src/main/kotlin/com/r3/enm/model/CertificateSigningRequest.kt' start='' end='' */}}
 
 ```kotlin
 /*
@@ -263,7 +261,6 @@ data class CertificateRevocationRequest(override val requestId: String,
                                         val reason: CRLReason,
                                         val reporter: String) : Request
 ```
-{{/* github src='services-api/src/main/kotlin/com/r3/enm/model/CertificateRevocationRequest.kt' url='https://github.com/corda/network-services/release/1.2/services-api/src/main/kotlin/com/r3/enm/model/CertificateRevocationRequest.kt' raw='https://raw.githubusercontent.com/corda/network-services/release/1.2/services-api/src/main/kotlin/com/r3/enm/model/CertificateRevocationRequest.kt' start='' end='' */}}
 
 {{< note >}}
 Currently, any implementation of the `WorkflowPlugin` interface **must** provide a constructor which takes
@@ -392,9 +389,6 @@ class FileBaseCSRPlugin(
 }
 
 ```
-
-[FileBaseCSRPlugin.kt](https://github.com/corda/network-services/blob/release/1.2/plugins/src/main/kotlin/com/r3/enmplugins/example/FileBaseCSRPlugin.kt)
-
 
 ## Example 2
 

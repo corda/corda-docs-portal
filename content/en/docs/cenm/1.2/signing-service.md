@@ -1051,9 +1051,6 @@ signers = {
 
 ```
 
-[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf)
-
-
 ### Signing Keys From HSM
 
 ```docker
@@ -1282,9 +1279,6 @@ signers = {
 
 ```
 
-[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)
-
-
 ### Singing Keys Form Local Key Store with SMR Service as data source
 
 ```docker
@@ -1391,9 +1385,6 @@ signers = {
 }
 
 ```
-
-[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf)
-
 
 ## Signable Material Retriever
 
@@ -1595,9 +1586,6 @@ materialManagementTasks = {
 
 ```
 
-[smr-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/smr/smr-test-valid.conf)
-
-
 ### Developing Signing Plugins
 
 As mentioned before, we enable possibility of writing custom plugin to support external Signing infrastructures. A plugin
@@ -1618,9 +1606,7 @@ public interface StartablePlugin {
 
 ```
 
-[StartablePlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/StartablePlugin.java)
-
-Each signable material submission plugin method must return its’ status:
+Each signable material submission plugin method must return it's status:
 
 ```java
 
@@ -1631,9 +1617,6 @@ Each signable material submission plugin method must return its’ status:
  */
 public enum SigningStatus {PENDING, COMPLETED}
 ```
-
-[SigningStatus.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/commonapi/src/main/java/com/r3/enm/smrpluginapi/common/SigningStatus.java)
-
 
 #### CA Signing Plugin
 
@@ -1668,8 +1651,6 @@ public interface CASigningPlugin extends StartablePlugin {
 }
 
 ```
-
-[CASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/ca/src/main/java/com/r3/enm/smrpluginapi/ca/CASigningPlugin.java)
 
 CSR submission method output:
 
@@ -1841,8 +1822,6 @@ public interface NonCASigningPlugin extends StartablePlugin {
 }
 
 ```
-
-[NonCASigningPlugin.java](https://github.com/corda/network-services/blob/release/1.2/smr-plugin-api/nonca/src/main/java/com/r3/enm/smrpluginapi/nonca/NonCASigningPlugin.java)
 
 Network Map submission method output:
 

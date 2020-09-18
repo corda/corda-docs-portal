@@ -187,8 +187,6 @@ data class WorkflowPluginRequest(val requestId: String,
 
 ```
 
-[WorkflowPlugin.kt](https://github.com/corda/network-services/blob/release/1.2/workflow/src/main/kotlin/com/r3/enm/workflow/api/WorkflowPlugin.kt)
-
 {{< note >}}
 Currently, any implementation of the `WorkflowPlugin` interface **must** provide a constructor which takes
 exactly two arguments of types `com.typesafe.config.Config` and `com.r3.enm.workflow.api.plugins.PluginLogger` (in this order).
@@ -316,9 +314,6 @@ class FileBaseCSRPlugin(
 }
 
 ```
-
-[FileBaseCSRPlugin.kt](https://github.com/corda/network-services/blob/release/1.2/plugins/src/main/kotlin/com/r3/enmplugins/example/FileBaseCSRPlugin.kt)
-
 
 ## Example 2
 

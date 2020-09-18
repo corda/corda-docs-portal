@@ -699,9 +699,6 @@ shell {
 
 ```
 
-[identity-manager-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf)
-
-
 #### Production Configuration
 
 Below is an example of a more production-like configuration of the Identity Manager. It is configured with a Issuance
@@ -785,5 +782,3 @@ shell {
 }
 
 ```
-
-[identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)

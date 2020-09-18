@@ -993,9 +993,6 @@ signers = {
 
 ```
 
-[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf)
-
-
 ### Signing Keys From HSM
 
 ```docker
@@ -1224,9 +1221,6 @@ signers = {
 
 ```
 
-[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)
-
-
 ### Singing Keys Form Local Key Store with SMR Service as data source
 
 ```docker
@@ -1333,9 +1327,6 @@ signers = {
 }
 
 ```
-
-[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.2-configs/signer/signer-test-valid.conf)
-
 
 ## Signable Material Retriever
 

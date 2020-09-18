@@ -38,22 +38,22 @@ The initial network parameters file can be loaded into the network map service d
 `--set-network-parameters` flag. The complete list of flags required to set the network parameters is as follows:
 
 
-* **[–set-network-parameters] or [-s]**: 
+* **[–set-network-parameters] or [-s]**:
 This flag specifies that you wish to set or update the network parameters, and
 should be followed by the new network parameters configuration file.
 
 
-* **[–network-truststore] or [-t]**: 
+* **[–network-truststore] or [-t]**:
 This is used to define the network trustStore, which should contain the root
 certificate (similar to the *network-root-truststore.jks* file for Corda nodes). This is needed to validate that the
 notaries that have been set in the network parameters have a valid certificate issued by the Identity Manager.
 
 
-* **[–truststore-password] or [-p]**: 
+* **[–truststore-password] or [-p]**:
 The password for the above trustStore.
 
 
-* **[–root-alias] or [-a]**: 
+* **[–root-alias] or [-a]**:
 The alias for the root certificate within the above trustStore.
 
 
@@ -461,9 +461,6 @@ shell {
 
 ```
 
-[network-map-test-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/network-map/network-map-test-valid.conf)
-
-
 ## Network Parameters
 
 Along with the above configuration, a *network-parameters* configuration file also needs to be created. This defines the
@@ -526,4 +523,3 @@ useful especially when dealing with node’s deployment in environments with IP 
 |GET|/network-map/my-hostname|Returns the IP address of the requestor.|
 
 {{< /table >}}
-

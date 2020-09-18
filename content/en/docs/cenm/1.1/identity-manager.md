@@ -530,11 +530,11 @@ All inter-service communication can be configured with SSL support. See [Configu
 There are an additional two parameters that need to be specified with the revocation workflow config block:
 
 
-* **crlCacheTimeout**: 
+* **crlCacheTimeout**:
 The time (in milliseconds) for nodes to cache the CRL for
 
 
-* **crlFiles**: 
+* **crlFiles**:
 The list of CRLs for other participants within the certificate chain. This is necessary as when a node checks
 for revoked certificates, it needs to check all certificates within the certificate chain. This parameter can
 be used to include CRLs to remove the requirement for node operators to provide their own CRL
@@ -688,9 +688,6 @@ shell {
 
 ```
 
-[identity-manager-test-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-test-valid.conf)
-
-
 #### Production Configuration
 
 Below is an example of a more production-like configuration of the Identity Manager. It is configured with a Issuance
@@ -774,6 +771,3 @@ shell {
 }
 
 ```
-
-[identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)
-

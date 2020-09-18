@@ -394,56 +394,56 @@ The configuration file for the Signing Service should include the following para
 such where appropriate):
 
 
-* **shell**: 
+* **shell**:
 The configuration for the services integrated shell.
 
 
-* **hsmLibraries**: 
+* **hsmLibraries**:
 List of configurations for any third party HSM libraries.
 
 
-* **type**: 
+* **type**:
 The HSM type for the library (`UTIMACO_HSM`, `GEMALTO_HSM`, `SECUROSYS_HSM` or `AZURE_KEY_VAULT_HSM`).
 
 
-* **jars**: 
+* **jars**:
 List of paths for the HSM Jars.
 
 
-* **sharedLibDir**: 
+* **sharedLibDir**:
 Optional path to the shared library directory.
 
 
 
 
-* **globalCertificateStore**: 
+* **globalCertificateStore**:
 *(Optional)* Certificate store that will be used for any signers that don’t have their own certificate store
 defined. Should contain all certificates to build the entire certificate chain from the signing key back to the root.
 
 
-* **file**: 
+* **file**:
 Certificate store file location.
 
 
-* **password**: 
+* **password**:
 Certificate store password.
 
 
 
 
-* **signingKeys**: 
+* **signingKeys**:
 Map of human-readable aliases (string) to signing key configurations. Should contain all signing keys that
 are used within the signing processes defined in the signers map. See the [signing key map entry example](#signing-key-map-entry-example)
 below for the expected format.
 
 
-* **serviceLocations**: 
+* **serviceLocations**:
 Map of human-readable aliases (string) to ENM service location configurations. Should contain all
 services that are used within the signing processes defined in the signers map. See the
 [service location map entry example](#service-location-map-entry-example) below for the expected format.
 
 
-* **signers**: 
+* **signers**:
 Map of human-readable aliases (string) to signing task configuration. Defines the tasks that can be run by a
 user via the interactive shell. Each signing task should refer to exactly one signing key and one service
 location using the alias defined in the above maps. See the [signers map entry example](#signers-map-entry-example) below for the
@@ -463,19 +463,19 @@ A signing key can come from two sources - a local Java key store or a HSM.
 #### Local Signing Key Example
 
 
-* **alias**: 
+* **alias**:
 Alias of the signing key within the key store
 
 
-* **type**: 
+* **type**:
 The signing key type - `LOCAL` in this case
 
 
-* **keyStore**: 
+* **keyStore**:
 File path of the local key store
 
 
-* **password**: 
+* **password**:
 Password to access the key store
 
 
@@ -493,52 +493,52 @@ A signing task can only be scheduled if its signing key requires no runtime user
 
 {{< /note >}}
 
-* **alias**: 
+* **alias**:
 Alias of the signing key within the HSM
 
 
-* **type**: 
+* **type**:
 The signing key type - `UTIMACO_HSM` in this case
 
 
-* **keyStore**: 
+* **keyStore**:
 Configuration of the HSM key store.
 
 
-* **host**: 
+* **host**:
 Host name (or IP address) of the HSM device.
 
 
-* **port**: 
+* **port**:
 Port number of the HSM device.
 
 
-* **users**: 
+* **users**:
 List of user authentication configurations. Each entry in the list should have the following format:
 
 
-* **username**: 
+* **username**:
 HSM username. This can be omitted from the configuration and input at runtime.
 
 
-* **mode**: 
+* **mode**:
 One of the 3 possible authentication modes:
 `PASSWORD` - User’s password as set-up in the HSM.
 `CARD_READER` - Smart card reader authentication.
 `KEY_FILE` - Key file based authentication.
 
 
-* **password**: 
+* **password**:
 Only relevant if mode is `PASSWORD` or `KEY_FILE`. Specifies either the password credential
 for the associated user or the password to the key file, depending on the selected mode. This can be
 omitted from the configuration and input at runtime.
 
 
-* **keyFilePath**: 
+* **keyFilePath**:
 Only relevant if mode is `KEY_FILE`. Key file path.
 
 
-* **device**: 
+* **device**:
 Only relevant if mode is `CARD_READER`. Specifies the connection string to the card reader device.
 Default value: “:cs2:auto:USB0”.
 
@@ -547,34 +547,34 @@ Default value: “:cs2:auto:USB0”.
 
 
 
-* **group**: 
+* **group**:
 Key group (string) of the signing key. This is the Utimaco HSM name spacing concept. See Utimaco docs for more
 details.
 
 
-* **specifier**: 
+* **specifier**:
 Key specifier (string) of the signing key. This is the legacy Utimaco HSM name spacing concept. See Utimaco
 docs for more details.
 
 
-* **authThreshold**: 
+* **authThreshold**:
 Authentication threshold required to access the signing key within the HSM. This value corresponds to
 the summation of permission values of all logged-in users. Setting this provides a way to ensure use of
 the signing key (and therefore execution of the signing task) can only be achieved once X out of Y
 privileged HSM users authenticated. Defaults to 1.
 
 
-* **certificateStore**: 
+* **certificateStore**:
 *(Optional if using globalCertificateStore)* Certificate store containing all certificates required to build the
 entire certificate chain from the signing key back to the root. This is required as the signing keys within the HSM
 do not contain their full certificate chains.
 
 
-* **file**: 
+* **file**:
 Certificate store file location.
 
 
-* **password**: 
+* **password**:
 Certificate store password.
 
 
@@ -590,40 +590,40 @@ running the Signing service (see Gemalto documentation for this). A partition sh
 the HSM along with a crypto officer role.
 
 
-* **alias**: 
+* **alias**:
 Alias of the signing key within the HSM
 
 
-* **type**: 
+* **type**:
 The signing key type - `GEMALTO_HSM` in this case
 
 
-* **credentials**: 
+* **credentials**:
 Connection credentials for the HSM.
 
 
-* **keyStore**: 
+* **keyStore**:
 Slot or partition of the HSM. E.g. “tokenlabel:<EXAMPLE_PARTITION_NAME>”
 
 
-* **password**: 
+* **password**:
 Password for the keyStore. E.g. the corresponding crypto officer role’s password. This can be omitted
 from the configuration and input at runtime.
 
 
 
 
-* **certificateStore**: 
+* **certificateStore**:
 *(Optional if using globalCertificateStore)* Certificate store containing all certificates required to build the
 entire certificate chain from the signing key back to the root. This is required as the signing keys within the HSM
 do not contain their full certificate chains.
 
 
-* **file**: 
+* **file**:
 Certificate store file location.
 
 
-* **password**: 
+* **password**:
 Certificate store password.
 
 
@@ -639,55 +639,55 @@ Each entry in the `serviceLocations` map should be keyed on the user-defined, hu
 string and is used only within the config to map the service locations to each signing task that use it.
 
 
-* **enmService**: 
+* **enmService**:
 The connection details for the CENM service that acts as the data source
 
 
-* **host**: 
+* **host**:
 Host name (or IP address) that the CENM service is running on
 
 
-* **port**: 
+* **port**:
 Port that the CENM service is listening on (for inter-ENM communication)
 
 
-* **verbose**: 
+* **verbose**:
 Boolean representing whether debug information for the IPC between the Signer and the remote service
 should be displayed.
 
 
-* **ssl**: 
+* **ssl**:
 *(Optional)* SSL Information for connection with the CENM service.
 
 
-* **keyStore**: 
+* **keyStore**:
 Key store configuration for the Signing Service SSL key pair.
 
 
-* **location**: 
+* **location**:
 Location on the file system of the keystore containing the SSL public / private keypair
 of the Signing Service.
 
 
-* **password**: 
+* **password**:
 password for the keyStore
 
 
-* **keyPassword**: 
+* **keyPassword**:
 *(Optional)* Password for the keypair, can be omitted if the same as the keystore.
 
 
 
 
-* **trustStore**: 
+* **trustStore**:
 Trust store configuration for the SSL PKI root of trust.
 
 
-* **location**: 
+* **location**:
 Location on the file system of the keystore containing the SSL PKI root of trust.
 
 
-* **password**: 
+* **password**:
 password for the trust root keystore.
 
 
@@ -707,26 +707,26 @@ string and is used by the user when viewing and invoking the signing task from w
 Each signing task should use exactly one signing key and service location, and be configured for exactly one data type.
 
 
-* **type**: 
+* **type**:
 The data type for the signing task. Should be one of `CSR`, `CRL`, `NETWORK_MAP` or `NETWORK_PARAMETERS`.
 
 
-* **signingKeyAlias**: 
+* **signingKeyAlias**:
 The alias for the signing key used by the signing task. Should refer to one of the aliases in the
 `signingKeys` map defined above.
 
 
-* **serviceLocationAlias**: 
+* **serviceLocationAlias**:
 The alias for the service location used by the signing task. Should refer to one of the aliases
 in the `serviceLocations` map defined above.
 
 
-* **crlDistributionPoint**: 
+* **crlDistributionPoint**:
 Relevant only if type is `CRL` or `CSR` (optional for `CSR`). The endpoint that the CRL is
 hosted on.
 
 
-* **updatePeriod**: 
+* **updatePeriod**:
 Relevant only if type is `CRL`. This represents the millisecond duration between CRL updates and is baked into the
 generated CRL via the `nextUpdate` X509 field. For users of this CRL, this defines two key pieces of information:
 
@@ -743,19 +743,19 @@ signing task is being run manually then a sufficiently large enough value should
 or delays in the process.
 
 
-* **validDays**: 
+* **validDays**:
 Relevant only if type is `CSR`. The number of days that a certificate is valid for, counted from the time of
 signing. It is highly important that this is set to something sufficiently large enough (e.g 7300 which represents
 20 years) as nodes with expired certificates will not be able to communicate across the network.
 
 
-* **schedule**: 
+* **schedule**:
 *(Optional)* The scheduled for automated execution of the signing task. Note that this can only be set on tasks that
 are linked to signing keys that require no manual user authentication. That is, either a local key store or HSM
 signing key using `PASSWORD` or `KEY_FILE` authentication with the password preconfigured.
 
 
-* **interval**: 
+* **interval**:
 The duration interval between signing executions. Either a number representing the millisecond duration
 or a string duration with unit suffix. See above [scheduling signing tasks](#scheduling-signing-tasks) section on accepted format.
 
@@ -867,9 +867,6 @@ signers = {
 }
 
 ```
-
-[signer-test-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/signer/signer-test-valid.conf)
-
 
 ### Signing Keys From HSM
 
@@ -1100,6 +1097,3 @@ signers = {
 }
 
 ```
-
-[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.1/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)
-

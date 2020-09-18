@@ -91,9 +91,6 @@ certificates = {
 }
 ```
 
-[certificate-hierarchy-generator-local-minimal.conf](https://github.com/corda/network-services/blob/release/1.0/utilities/src/test/resources/certificate-hierarchy-generator-local-minimal.conf)
-
-
 #### Running The Tool
 
 The required certificate stores and key pairs can be generated using the tool-certificate-hierarchy-generator via
@@ -169,8 +166,6 @@ shell {
 }
 
 ```
-
-[doorman-simple.conf](https://github.com/corda/network-services/blob/release/1.0/network-management/src/test/resources/v0.3-configs/doorman-simple.conf)
 
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
@@ -328,8 +323,6 @@ shell {
 
 ```
 
-[network-map-simple.conf](https://github.com/corda/network-services/blob/release/1.0/network-management/src/test/resources/v0.3-configs/network-map-simple.conf)
-
 {{< note >}}
 The example uses a local h2 database. You can modify this to point to an separate DB instance by modifying the
 `dataSourceProperties` section. See the “Database properties” section of [Network Map Service](network-map.md) for more information,
@@ -436,4 +429,3 @@ more features, in particular:
 * Private networks within the Network Map service ([Private Network Map](private-network-map.md))
 
 See the configuration sections within the doorman and [Network Map Service](network-map.md) docs to learn more.
-

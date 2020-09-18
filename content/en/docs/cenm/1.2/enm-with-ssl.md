@@ -327,9 +327,6 @@ shell {
 
 ```
 
-[identity-manager-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/identity-manager/identity-manager-prod-valid.conf)
-
-
 ### Network Map Service
 
 ```docker
@@ -392,9 +389,6 @@ shell {
 }
 
 ```
-
-[network-map-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/network-map/network-map-prod-valid.conf)
-
 
 ### Signing Service
 
@@ -623,5 +617,3 @@ signers = {
 }
 
 ```
-
-[signer-prod-valid.conf](https://github.com/corda/network-services/blob/release/1.2/services/src/test/resources/v1.1-configs/signer/signer-prod-valid.conf)
