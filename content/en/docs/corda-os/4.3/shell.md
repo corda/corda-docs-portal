@@ -64,6 +64,10 @@ It may be disabled by passing the `--no-local-shell` flag when running the node.
 
 The shell is also accessible via SSH.
 
+{{< warning >}}
+The SSH port should not be exposed publicly. Limit exposure of the SSH port as much as possible.
+{{< /warning >}}
+
 
 ### Enabling SSH access
 
@@ -267,7 +271,7 @@ simple JSON-like language. The key features of Yaml are:
 
 
 * Parameters are separated by commas
-* Each parameter is specified as a `key: value` pair> 
+* Each parameter is specified as a `key: value` pair>
 
     * There **MUST** to be a space after the colon, otherwise you’ll get a syntax error
 
@@ -453,7 +457,3 @@ The shell will be enhanced over time. The currently known limitations include:
 * The `jdbc` command requires you to explicitly log into the database first
 * Commands placed in the `shell-commands` directory are only noticed after the node is restarted
 * The `jul` command advertises access to logs, but it doesn’t work with the logging framework we’re using
-
-
-
-

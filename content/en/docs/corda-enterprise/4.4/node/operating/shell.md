@@ -89,6 +89,10 @@ It may be disabled by passing the `--no-local-shell` flag when running the node.
 
 The shell is also accessible via SSH.
 
+{{< warning >}}
+The SSH port should not be exposed publicly. Limit exposure of the SSH port as much as possible.
+{{< /warning >}}
+
 
 ### Enabling SSH access
 
@@ -252,6 +256,7 @@ Some RPCs return a stream of events that will be shown on screen until you press
 
 You can find a list of the available RPC methods
 [here](https://docs.corda.net/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
+
 
 
 ### Shutting down the node

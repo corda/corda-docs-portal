@@ -87,6 +87,10 @@ trusted hosts and will refuse to connect in case of a change. This check can be 
 
 {{< /note >}}
 
+{{< note >}}
+The ssh port should not be exposed publicly. Exposure of the ssh port must be as limited as possible.
+{{< /note >}}
+
 ## Supported Commands
 
 The top level list of available commands can be seen by executing `help` from the shell. There are currently two types
