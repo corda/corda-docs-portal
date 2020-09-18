@@ -88,7 +88,7 @@ These templates are designed to be lightweight and targeted as a development too
 The templates cannot be used to create highly-available nodes or set up nodes protected by the Corda Firewall.
 {{< /note >}}
 
-See the [one-click developer test environment](node/deploy/oneclick-developer-test-environment.md) documentation section for more information.
+See the [One-click Corda deployment](node/deploy/one-click-deployment.md) documentation section for more information.
 
 ### Further Hardware Security Module (HSM) support
 
