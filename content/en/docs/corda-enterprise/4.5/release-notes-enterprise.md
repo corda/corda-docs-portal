@@ -75,21 +75,6 @@ Furthermore, we have updated our `Dockerform` [local development task](node/depl
 To run the Corda Enterprise images, the Corda Enterprise evaluation must be programmatically accepted via a dedicated environment variable. See the [official Corda Docker image](docker-image.md) documentation section for more information.
 {{< /note >}}
 
-### New Azure cloud templates
-
-To facilitate deployment and testing of Corda in a cloud environment, we have created new cloud templates leveraging Microsoft’s Azure Cloud Computing Platform. The templates are available in the Azure marketplace and can be used to:
-
-* Generate a complete Corda network (including the Corda Enterprise Network Manager and one or more nodes)
-* Add a new Corda Enterprise node to an existing network
-
-These templates are designed to be lightweight and targeted as a development tool to help test CorDapps quickly within an existing network. The templates leverage Docker and Kubernetes under the hood, and allow users to bundle their own CorDapps into node containers to speed the set-up.
-
-{{< note >}}
-The templates cannot be used to create highly-available nodes or set up nodes protected by the Corda Firewall.
-{{< /note >}}
-
-See the [One-click Corda deployment](node/deploy/one-click-deployment.md) documentation section for more information.
-
 ### Further Hardware Security Module (HSM) support
 
 Corda Enterprise 4.5 introduces the ability to use AWS CloudHSM to secure the cryptographic keys used by a node. Legal identity, TLS Firewall and Confidential Identity keys can now all be stored in an AWS HSM.
