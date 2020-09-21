@@ -1,4 +1,4 @@
-4.3---
+---
 aliases:
 - /releases/4.3/running-a-node.html
 date: '2020-01-08T09:59:25Z'
