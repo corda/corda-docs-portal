@@ -40,7 +40,22 @@ If you are using them you should re-namespace them to a package namespace you co
 
 {{< /warning >}}
 
+## Platform version matrix
 
+{{< table >}}
+| Corda release  | Platform version |
+| :------------- | :------------- |
+| 4.4 | 6 |
+| 4.3 | 5 |
+| 4.2 | 4 |
+| 4.1 | 4 |
+| 4.0 | 4 |
+| 3.3 | 3 |
+{{< /table >}}
+
+## Upgrading apps to Platform Version 6
+
+No manual upgrade steps are required.
 
 
 ## Upgrading apps to Platform Version 5
