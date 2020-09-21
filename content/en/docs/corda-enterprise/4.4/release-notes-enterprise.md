@@ -31,7 +31,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 ### Fixed issues
 
 * Session rollbacks are now allowed inside an entity manager.
-* Sensitive information is no longer exposed as clear text on logs and terminal when using the [Database Management Tool](database-management-tool.md). 
+* Sensitive information is no longer exposed as clear text on logs and terminal when using the [Database Management Tool](database-management-tool.md).
 * Fixed an issue where the Classloader failed to find a Command class when Optional generic was used on Type definition.
 * The [Configuraton Obfuscator tool](tools-config-obfuscator.md) has been fixed to work for HSM configuration files.
 * The H2 version has been reverted to 1.4.197 to avoid a dependency issue introduced after the previous upgrade.
@@ -95,7 +95,7 @@ This change has some implications on the upgrade process (see “Upgrade Notes�
 
 
 This release adds support for storing the node’s CA and legal identity key in a [nCipher nShield Connect](https://www.ncipher.com/products/general-purpose-hsms/nshield-connect) HSM.
-Please refer to the associated section of the cryptoservice-configuration page for more details.
+Please refer to the associated section in [Using an HSM with Corda Enterprise](node/operating/cryptoservice-configuration.md) for more details.
 
 We also have extended the set of HSMs available for the storage of a highly-available notary’s shared service key. The notary’s shared service key can now be stored in the following HSM types:
 
@@ -175,5 +175,5 @@ The new version of the tool can only be used with Corda Enterprise 4.4 (and abov
 
 From Corda Enterprise 4.4 onwards, we are moving towards an open core strategy. Common APIs shared by Corda Enterprise will only be available in Corda Open Source. Therefore, any CorDapps written against Corda Enterprise 4.4 or later will have to depend on the open source version of `corda-core`.
 
-As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.4](app-upgrade-notes-enterprise.md)) to ease the upgrade
+As per previous major releases, we have provided a [comprehensive upgrade guide](app-upgrade-notes-enterprise.md) to ease the upgrade
 of CorDapps to Corda Enterprise 4.4.
