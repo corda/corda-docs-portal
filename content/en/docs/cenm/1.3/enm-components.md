@@ -42,6 +42,10 @@ workflow management tools to be used to capture those processes in a formal way.
 
 This can be thought of as the Registration Authority for the Corda network represented by the deployed CENM software.
 
+{{< warning >}}
+**The Identity Manager cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.**
+{{< /warning >}}
+
 
 ## The Signing Service
 
@@ -68,6 +72,9 @@ zone is achieved. As such,the most important of those is a list of trusted notar
 A zone can play host to any number of these sets of consensus rules, each forming a distinct sub zone within the
 main zone as a whole.
 
+{{< warning >}}
+**The Network Map cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.**
+{{< /warning >}}
 
 # The Workflow
 

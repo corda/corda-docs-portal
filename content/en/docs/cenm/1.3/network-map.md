@@ -33,6 +33,10 @@ As of CENM 1.3, the initial bootstrap is managed via the Zone Service for the
 network, along with the Angel Service of the Network Map Services. Service
 restarts are handled automatically.
 
+{{< warning >}}
+**The Network Map Service cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.**
+{{< /warning >}}
+
 
 ### Setting the Network Parameters
 

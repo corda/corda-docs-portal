@@ -133,3 +133,7 @@ If the `adminListener` property is present in the configuration, this means that
     The password for the trust root keystore.
   * **issuer**: The \"iss\" claim in the JWT - you must set the same value as in the Auth Service's configuration. Required unless authentication is disabled.
   * **leeway**: Defines the amount of time, in seconds, allowed when checking JSON Web Token (JWT) issuance and expiration times. Required unless authentication is disabled. We recommend a default time of **10 seconds**.
+
+## Redirection forbidden
+
+The Network Map cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.

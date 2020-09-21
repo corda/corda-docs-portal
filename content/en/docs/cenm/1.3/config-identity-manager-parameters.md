@@ -161,3 +161,7 @@ If the `adminListener` property is present in the configuration, this means that
 
 To view the latest changes to the obfuscated configuration files,
 see [Obfuscation configuration file changes](obfuscated-config-file-changes.md).
+
+## Redirection forbidden
+
+The Identity Manager cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.

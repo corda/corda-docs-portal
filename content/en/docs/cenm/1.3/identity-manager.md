@@ -24,6 +24,9 @@ The Identity Manager Service acts as the gatekeeper to the network. It is formed
 * **Issuance**: Responsible for issuing certificates to new nodes wanting to join the network.
 * **Revocation**: *(Optional)* Responsible for handling certificate revocation requests as well as hosting the CRL endpoints that are used by participants to check a certificate’s revocation status.
 
+{{< warning >}}
+**The Identity Manager Service cannot be redirected. Only HTTP OK (response code 200) is supported - any other kind of response codes, including HTTP redirects (for example, response code 301), are NOT supported.**
+{{< /warning >}}
 
 ## Running The Identity Manager Service
 
