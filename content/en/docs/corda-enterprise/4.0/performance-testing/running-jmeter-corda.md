@@ -31,7 +31,7 @@ java -jar jmeter-corda-jar <wrapper arguments> -- <jmeter arguments>
 
 ## JMeter Corda Wrapper Arguments
 
-The JMeter Corda wrappper understands the following optional arguments:
+The JMeter Corda wrapper understands the following optional arguments:
 
 `-?`, `-h`, `--help`This will print a help text for the JMeter Corda wrapper arguments and also trigger printing of the JMeter help
 text`-Xssh`This tells the wrapper to set up SSH tunnels. It takes a list of host names as argument. See [SSH Tunnel Set-Up](#ssh-tunnel) for
@@ -196,4 +196,3 @@ java -jar jmeter-corda.jar -XjmeterProperties <property file including hostnames
 
 It is recommended to consult the JMeter manual on [Remote Testing](https://jmeter.apache.org/usermanual/remote-test.html)
 when setting up remote testing without SSH tunneling.
-
