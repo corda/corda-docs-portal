@@ -166,9 +166,6 @@ SignedTransaction transaction = nodeA.getServices().getValidatedTransactions().g
 This allows you to check whether a given transaction has (or has not) been stored, and whether it has the correct
 attributes.
 
-This allows you to check whether a given state has (or has not) been stored, and whether it has the correct attributes.
-
-
 ### Further examples
 
 

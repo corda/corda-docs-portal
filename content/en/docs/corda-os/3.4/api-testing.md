@@ -199,7 +199,7 @@ You manually process received messages as follows:
 
 * `StartedMockNode.pumpReceive` to process a single message from the node’s queue
 * `MockNetwork.runNetwork` to process all the messages in every node’s queue. This may generate additional messages
-that must in turn be processed> 
+that must in turn be processed>
 
     * `network.runNetwork(-1)` (the default in Kotlin) will exchange messages until there are no further messages to
 process
@@ -327,9 +327,6 @@ SignedTransaction transaction = nodeA.getServices().getValidatedTransactions().g
 
 This allows you to check whether a given transaction has (or has not) been stored, and whether it has the correct
 attributes.
-
-This allows you to check whether a given state has (or has not) been stored, and whether it has the correct attributes.
-
 
 ### Further examples
 
@@ -794,4 +791,3 @@ public void chainCommercialPaperDoubleSpend() {
 * Further examples are available in the Example CorDapp in
 [Java](https://github.com/corda/cordapp-example/blob/release-V3/java-source/src/test/java/com/example/flow/IOUFlowTests.java) and
 [Kotlin](https://github.com/corda/cordapp-example/blob/release-V3/kotlin-source/src/test/kotlin/com/example/flow/IOUFlowTests.kt)
-
