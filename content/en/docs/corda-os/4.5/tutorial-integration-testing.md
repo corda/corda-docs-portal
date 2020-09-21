@@ -87,11 +87,6 @@ driver(new DriverParameters()
 ```
 {{% /tab %}}
 
-
-
-
-[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 The above code starts two nodes:
@@ -136,11 +131,6 @@ CordaRPCOps bobProxy = bobClient.start("bobUser", "testPassword2").getProxy();
 ```
 {{% /tab %}}
 
-
-
-
-[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 Next we connect to Alice and Bob from the test process using the test users we created. We establish RPC links that allow
@@ -164,11 +154,6 @@ Observable<Vault.Update<Cash.State>> aliceVaultUpdates = aliceProxy.vaultTrack(C
 
 ```
 {{% /tab %}}
-
-
-
-
-[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -228,11 +213,6 @@ expectEvents(bobVaultUpdates, true, () ->
 ```
 {{% /tab %}}
 
-
-
-
-[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 We start a `CashIssueAndPaymentFlow` flow on the Alice node. We specify that we want Alice to self-issue $1000 which is
@@ -280,11 +260,6 @@ expectEvents(aliceVaultUpdates, true, () ->
 
 ```
 {{% /tab %}}
-
-
-
-
-[KotlinIntegrationTestingTutorial.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/KotlinIntegrationTestingTutorial.kt) | [JavaIntegrationTestingTutorial.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/JavaIntegrationTestingTutorial.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

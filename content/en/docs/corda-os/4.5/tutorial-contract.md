@@ -193,11 +193,6 @@ public class State implements OwnableState {
 ```
 {{% /tab %}}
 
-
-
-
-[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [State.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 We define a class that indirectly implements the `ContractState` via `OwnableState`.
@@ -282,11 +277,6 @@ public static class Commands implements CommandData {
 ```
 {{% /tab %}}
 
-
-
-
-[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 We define a simple grouping interface or static class, this gives us a type that all our commands have in common,
@@ -331,11 +321,6 @@ public void verify(LedgerTransaction tx) {
 
 ```
 {{% /tab %}}
-
-
-
-
-[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -565,11 +550,6 @@ for (InOutGroup group : groups) {
 ```
 {{% /tab %}}
 
-
-
-
-[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 This loop is the core logic of the contract.
@@ -696,11 +676,6 @@ fun generateIssue(issuance: PartyAndReference, faceValue: Amount<Issued<Currency
 ```
 {{% /tab %}}
 
-
-
-
-[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 We take a reference that points to the issuing party (i.e. the caller) and which can contain any internal
@@ -742,11 +717,6 @@ public static final String IOU_CONTRACT_ID = "com.example.contract.IOUContract";
 ```
 {{% /tab %}}
 
-
-
-
-[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 This value, which is the fully qualified class name of the contract, tells the Corda platform where to find the contract
@@ -784,11 +754,6 @@ fun generateMove(tx: TransactionBuilder, paper: StateAndRef<State>, newOwner: Ab
 ```
 {{% /tab %}}
 
-
-
-
-[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 Here, the method takes a pre-existing `TransactionBuilder` and adds to it. This is correct because typically
@@ -825,11 +790,6 @@ fun generateRedeem(tx: TransactionBuilder, paper: StateAndRef<State>, services: 
 
 ```
 {{% /tab %}}
-
-
-
-
-[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

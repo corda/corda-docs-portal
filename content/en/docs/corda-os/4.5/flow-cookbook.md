@@ -1400,10 +1400,4 @@ public class FlowCookbook {
 ```
 {{% /tab %}}
 
-
-
-
-[FlowCookbook.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FlowCookbook.kt) | [FlowCookbook.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/java/net/corda/docs/java/FlowCookbook.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
-

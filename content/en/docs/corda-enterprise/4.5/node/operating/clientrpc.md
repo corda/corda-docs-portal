@@ -113,8 +113,6 @@ class ClientRpcExample {
 ```
 {{% /tab %}}
 
-[ClientRpcExample.kt](https://github.com/corda/enterprise/blob/release/ent/4.6/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/enterprise/blob/release/ent/4.6/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 {{< warning >}}

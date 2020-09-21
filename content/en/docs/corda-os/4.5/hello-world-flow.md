@@ -185,11 +185,6 @@ public class IOUFlow extends FlowLogic<Void> {
 ```
 {{% /tab %}}
 
-
-
-
-[IOUFlow.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlow.kt) | [IOUFlow.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 If you’re following along in Java, you’ll also need to rename `Initiator.java` to `IOUFlow.java`.
@@ -348,11 +343,6 @@ public class IOUFlowResponder extends FlowLogic<Void> {
 ```
 {{% /tab %}}
 
-
-
-
-[IOUFlowResponder.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/helloworld/IOUFlowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlowResponder.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 As with the `IOUFlow`, our `IOUFlowResponder` flow is a `FlowLogic` subclass where we’ve overridden `FlowLogic.call`.
@@ -366,4 +356,3 @@ will be the finalised transaction which will be recorded in the borrower’s vau
 
 Our flow, and our CorDapp, are now ready! We have now defined a flow that we can start on our node to completely
 automate the process of issuing an IOU onto the ledger. All that’s left is to spin up some nodes and test our CorDapp.
-

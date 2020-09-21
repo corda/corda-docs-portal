@@ -83,11 +83,6 @@ flow with a full node.
 ```
 {{% /tab %}}
 
-
-
-
-[TutorialFlowAsyncOperationTest.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/kotlin/tutorial/test/TutorialFlowAsyncOperationTest.kt) | [TutorialFlowAsyncOperationTest.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/integration-test/java/net/corda/docs/java/tutorial/test/TutorialFlowAsyncOperationTest.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 The above will spin up a node and run our example flow.
@@ -139,11 +134,6 @@ public final class SummingOperationThrowing implements FlowAsyncOperation<Intege
 
 ```
 {{% /tab %}}
-
-
-
-
-[TutorialFlowAsyncOperation.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowAsyncOperation.kt) | [SummingOperationThrowing.java](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/SummingOperationThrowing.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -289,4 +279,3 @@ operation. We can see that there are two state “diff”s printed, one that wou
 and one that actually happened, which marked the flow’s state as errored. The rest of the transitions involve error
 propagation (triggered by the `FlowHospital`) and notification of failure, which ultimately raises the exception on
 the RPC `resultFuture`.
-

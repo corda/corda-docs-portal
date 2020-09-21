@@ -88,8 +88,6 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 
 ```
 
-[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/4.5/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)
-
 {{< note >}}
 Several of the core interfaces at the heart of Corda are already annotated and so any classes that implement
 them will automatically be whitelisted.  This includes `Contract`, `ContractState` and `CommandData`.
