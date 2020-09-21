@@ -87,9 +87,7 @@ network under the old paradigm where there was only the one zone.
 Each Network Map that represents a segregated sub zone is configured separately from the others as a distinct entity
 unaware of one another
 
-Each Network Map requires
-
-
+Each Network Map requires:
 
 * A configuration file
 * A starting set of network parameters
@@ -97,70 +95,39 @@ Each Network Map requires
 * A signing service configured to sign the network map and network parameters
 
 
+## More in this section
 
-
-* [Corda Networks](corda-networks.md)
 * [What is a compatibility zone?](compatibility-zones.md)
     * [How do I become part of a compatibility zone?](compatibility-zones.md#how-do-i-become-part-of-a-compatibility-zone)
         * [Bootstrapping a compatibility zone](compatibility-zones.md#bootstrapping-a-compatibility-zone)
         * [Joining an existing compatibility zone](compatibility-zones.md#joining-an-existing-compatibility-zone)
-        * [Setting up a dynamic compatibility zone](compatibility-zones.md#setting-up-a-dynamic-compatibility-zone)
-
-
-
-
+        * [Setting up a dynamic compatibility zone](setting-up-a-dynamic-compatibility-zone.md) (in detail)
+            * [Do you need to create your own dynamic compatibility zone?](setting-up-a-dynamic-compatibility-zone.md#do-you-need-to-create-your-own-dynamic-compatibility-zone)
+            * [Why create your own zone?](setting-up-a-dynamic-compatibility-zone.md#why-create-your-own-zone)
+            * [How to create your own compatibility zone](setting-up-a-dynamic-compatibility-zone.md#how-to-create-your-own-compatibility-zone)
+                * [Using an existing network map implementation](setting-up-a-dynamic-compatibility-zone.md#using-an-existing-network-map-implementation)
+                * [Creating your own network map implementation](setting-up-a-dynamic-compatibility-zone.md#creating-your-own-network-map-implementation)
+                    * [Writing a network map server](setting-up-a-dynamic-compatibility-zone.md#writing-a-network-map-server)
+                    * [Writing a doorman server](setting-up-a-dynamic-compatibility-zone.md#writing-a-doorman-server)
+                    * [Setting zone parameters](setting-up-a-dynamic-compatibility-zone.md#setting-zone-parameters)
+                * [Selecting parameter values](setting-up-a-dynamic-compatibility-zone.md#selecting-parameter-values)
 * [Network certificates](permissioning.md)
     * [Certificate hierarchy](permissioning.md#certificate-hierarchy)
     * [Key pair and certificate formats](permissioning.md#key-pair-and-certificate-formats)
     * [Certificate role extension](permissioning.md#certificate-role-extension)
-
-
 * [The network map](network-map.md)
     * [HTTP network map protocol](network-map.md#http-network-map-protocol)
         * [Additional endpoints from R3](network-map.md#additional-endpoints-from-r3)
-
-
     * [The `additional-node-infos` directory](network-map.md#the-additional-node-infos-directory)
     * [Network parameters](network-map.md#network-parameters)
     * [Network parameters update process](network-map.md#network-parameters-update-process)
         * [Automatic Acceptance](network-map.md#automatic-acceptance)
         * [Manual Acceptance](network-map.md#manual-acceptance)
-
-
     * [Private networks](network-map.md#private-networks)
     * [Cleaning the network map cache](network-map.md#cleaning-the-network-map-cache)
-
-
 * [Joining Corda Testnet](corda-testnet-intro.md)
     * [Deploying a Corda node to the Corda Testnet](corda-testnet-intro.md#deploying-a-corda-node-to-the-corda-testnet)
     * [A note on identities on Corda Testnet](corda-testnet-intro.md#a-note-on-identities-on-corda-testnet)
-
-
-* [Using Azure Resource Manager Templates to deploy a Corda Enterprise node](azure-template-guide.md)
-    * [Prerequisites](azure-template-guide.md#prerequisites)
-    * [Find Corda Enterprise on Azure Marketplace](azure-template-guide.md#find-corda-enterprise-on-azure-marketplace)
-    * [Testing the deployment](azure-template-guide.md#testing-the-deployment)
-
-
-* [Using the Node Explorer to test a Corda Enterprise node on Corda Testnet](testnet-explorer.md)
-    * [Prerequisites](testnet-explorer.md#prerequisites)
-    * [Get the testing tools](testnet-explorer.md#get-the-testing-tools)
-    * [Connect to the node](testnet-explorer.md#connect-to-the-node)
-    * [Check your network identity and counterparties](testnet-explorer.md#check-your-network-identity-and-counterparties)
-    * [Test issuance transaction](testnet-explorer.md#test-issuance-transaction)
-
-
-* [Cipher suites supported by Corda](cipher-suites.md)
-    * [Certificate hierarchy](cipher-suites.md#certificate-hierarchy)
-    * [Supported cipher suites](cipher-suites.md#supported-cipher-suites)
-
-
-* [Joining an existing compatibility zone](joining-a-compatibility-zone.md)
-* [Joining Corda Testnet](corda-testnet-intro.md)
-    * [Deploying a Corda node to the Corda Testnet](corda-testnet-intro.md#deploying-a-corda-node-to-the-corda-testnet)
-    * [A note on identities on Corda Testnet](corda-testnet-intro.md#a-note-on-identities-on-corda-testnet)
-
-
 * Deploying Corda to Testnet
     * [Azure Marketplace](azure-vm.md)
         * [Pre-requisites](azure-vm.md#pre-requisites)
@@ -168,19 +135,15 @@ Each Network Map requires
         * [Using the Yo! CorDapp](azure-vm.md#using-the-yo-cordapp)
         * [Viewing logs](azure-vm.md#viewing-logs)
         * [Next Steps](azure-vm.md#next-steps)
-
-
-
-
-* [Setting up a dynamic compatibility zone](setting-up-a-dynamic-compatibility-zone.md)
-    * [Do you need to create your own dynamic compatibility zone?](setting-up-a-dynamic-compatibility-zone.md#do-you-need-to-create-your-own-dynamic-compatibility-zone)
-    * [Why create your own zone?](setting-up-a-dynamic-compatibility-zone.md#why-create-your-own-zone)
-    * [How to create your own compatibility zone](setting-up-a-dynamic-compatibility-zone.md#how-to-create-your-own-compatibility-zone)
-        * [Using an existing network map implementation](setting-up-a-dynamic-compatibility-zone.md#using-an-existing-network-map-implementation)
-        * [Creating your own network map implementation](setting-up-a-dynamic-compatibility-zone.md#creating-your-own-network-map-implementation)
-            * [Writing a network map server](setting-up-a-dynamic-compatibility-zone.md#writing-a-network-map-server)
-            * [Writing a doorman server](setting-up-a-dynamic-compatibility-zone.md#writing-a-doorman-server)
-            * [Setting zone parameters](setting-up-a-dynamic-compatibility-zone.md#setting-zone-parameters)
-
-
-        * [Selecting parameter values](setting-up-a-dynamic-compatibility-zone.md#selecting-parameter-values)
+    * [Using Azure Resource Manager Templates to deploy a Corda Enterprise node](azure-template-guide.md)
+        * [Prerequisites](azure-template-guide.md#prerequisites)
+        * [Find Corda Enterprise on Azure Marketplace](azure-template-guide.md#find-corda-enterprise-on-azure-marketplace)
+        * [Using the Node Explorer to test a Corda Enterprise node on Corda Testnet](testnet-explorer.md)
+            * [Prerequisites](testnet-explorer.md#prerequisites)
+            * [Get the testing tools](testnet-explorer.md#get-the-testing-tools)
+            * [Connect to the node](testnet-explorer.md#connect-to-the-node)
+            * [Check your network identity and counterparties](testnet-explorer.md#check-your-network-identity-and-counterparties)
+            * [Test issuance transaction](testnet-explorer.md#test-issuance-transaction)
+* [Cipher suites supported by Corda](cipher-suites.md)
+    * [Certificate hierarchy](cipher-suites.md#certificate-hierarchy)
+    * [Supported cipher suites](cipher-suites.md#supported-cipher-suites)
