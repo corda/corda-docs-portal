@@ -173,9 +173,7 @@ permitted in the network.
 
 
 * **maxMessageSize**:
-Maximum allowed size in bytes of an individual message sent over the wire. Note that attachments are a
-special case and may be fragmented for streaming transfer, however, an individual transaction or flow
-message may not be larger than this value.
+Maximum allowed size in bytes of an individual message sent over the wire.
 
 
 * **maxTransactionSize**:

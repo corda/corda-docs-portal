@@ -134,9 +134,7 @@ in the compatibility zone.
 
 
 * **maxMessageSize**:
-Maximum allowed size in bytes of an individual message sent over the wire. Note that attachments are
-a special case and may be fragmented for streaming transfer, however, an individual transaction or flow message
-may not be larger than this value.
+Maximum allowed size in bytes of an individual message sent over the wire.
 
 
 * **maxTransactionSize**:
@@ -330,4 +328,3 @@ java -jar corda.jar clear-network-cache
 or call RPC method *clearNetworkMapCache* (it can be invoked through the node’s shell as *run clearNetworkMapCache*, for more information on
 how to log into node’s shell see [Node shell](shell.md)). As we are testing and hardening the implementation this step shouldn’t be required.
 After cleaning the cache, network map data is restored on the next poll from the server or filesystem.
-
