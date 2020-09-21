@@ -45,40 +45,8 @@ For this type of deployment, version 3.x would have the following configuration:
 {{< table >}}
 
 |node.conf 3.x|node.conf 4.x|
-|------------------------------------------------|------------------------------------------------|
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="nodeserver:11005"
-messagingServerExternal = false
-rpcSettings {
-    address="nodeserver:10006"
-    adminAddress="nodeserver:10007"
-}
-enterpriseConfiguration = {
-    externalBridge = true
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="nodeserver:11005"
-messagingServerExternal = false
-rpcSettings {
-    address="nodeserver:10006"
-    adminAddress="nodeserver:10007"
-}
-enterpriseConfiguration = {
-    externalBridge = true
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|
+|:------------------------------------------------|:------------------------------------------------|
+|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="nodeserver:11005"<br>messagingServerExternal = false<br>rpcSettings {<br>    address="nodeserver:10006"<br>    adminAddress="nodeserver:10007"<br>}<br>enterpriseConfiguration = {<br>    externalBridge = true<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="nodeserver:11005"<br>messagingServerExternal = false<br>rpcSettings {<br>    address="nodeserver:10006"<br>    adminAddress="nodeserver:10007"<br>}<br>enterpriseConfiguration = {<br>    externalBridge = true<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|
 
 {{< /table >}}
 
@@ -86,38 +54,8 @@ trustStorePassword = "trustPass"
 {{< table >}}
 
 |bridge.conf 3.x|firewall.conf 4.x|
-|---------------------------------------------------|--------------------------------------------------|
-|```javascript
-bridgeMode = SenderReceiver
-outboundConfig {
-    artemisBrokerAddress = "nodeserver:11005"
-}
-inboundConfig {
-    listeningAddress = "bridgeexternal:10005"
-}
-networkParametersPath = network-parameters
-sslKeystore = "./nodeCerts/sslkeystore.jks"
-keyStorePassword = "keyPass"
-trustStoreFile = "./nodeCerts/truststore.jks"
-trustStorePassword = "trustPass"
-```
-
-|```javascript
-firewallMode = SenderReceiver
-outboundConfig {
-    artemisBrokerAddress = "nodeserver:11005"
-}
-inboundConfig {
-    listeningAddress = "bridgeexternal:10005"
-}
-networkParametersPath = network-parameters
-sslKeystore = "./nodeCerts/sslkeystore.jks"
-keyStorePassword = "keyPass"
-trustStoreFile = "./nodeCerts/truststore.jks"
-trustStorePassword = "trustPass"
-```
-
-|
+|:---------------------------------------------------|:--------------------------------------------------|
+|<pre>bridgeMode = SenderReceiver<br>outboundConfig {<br>    artemisBrokerAddress = "nodeserver:11005"<br>}<br>inboundConfig {<br>    listeningAddress = "bridgeexternal:10005"<br>}<br>networkParametersPath = network-parameters<br>sslKeystore = "./nodeCerts/sslkeystore.jks"<br>keyStorePassword = "keyPass"<br>trustStoreFile = "./nodeCerts/truststore.jks"<br>trustStorePassword = "trustPass"<br></pre>|<pre>firewallMode = SenderReceiver<br>outboundConfig {<br>    artemisBrokerAddress = "nodeserver:11005"<br>}<br>inboundConfig {<br>    listeningAddress = "bridgeexternal:10005"<br>}<br>networkParametersPath = network-parameters<br>sslKeystore = "./nodeCerts/sslkeystore.jks"<br>keyStorePassword = "keyPass"<br>trustStoreFile = "./nodeCerts/truststore.jks"<br>trustStorePassword = "trustPass"<br></pre>|
 
 {{< /table >}}
 
@@ -128,40 +66,8 @@ trustStorePassword = "trustPass"
 {{< table >}}
 
 |node.conf 3.x|node.conf 4.x|
-|------------------------------------------------|------------------------------------------------|
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="nodeserver:11005"
-messagingServerExternal = false
-rpcSettings {
-    address="nodeserver:10006"
-    adminAddress="nodeserver:10007"
-}
-enterpriseConfiguration = {
-    externalBridge = true
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="nodeserver:11005"
-messagingServerExternal = false
-rpcSettings {
-    address="nodeserver:10006"
-    adminAddress="nodeserver:10007"
-}
-enterpriseConfiguration = {
-    externalBridge = true
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|
+|:------------------------------------------------|:------------------------------------------------|
+|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="nodeserver:11005"<br>messagingServerExternal = false<br>rpcSettings {<br>    address="nodeserver:10006"<br>    adminAddress="nodeserver:10007"<br>}<br>enterpriseConfiguration = {<br>    externalBridge = true<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="nodeserver:11005"<br>messagingServerExternal = false<br>rpcSettings {<br>    address="nodeserver:10006"<br>    adminAddress="nodeserver:10007"<br>}<br>enterpriseConfiguration = {<br>    externalBridge = true<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|
 
 {{< /table >}}
 
@@ -169,54 +75,8 @@ trustStorePassword = "trustPass"
 {{< table >}}
 
 |bridge.conf - Bridge configuration 3.x|firewall.conf - Bridge configuration 4.x|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
-bridgeMode = BridgeInner
-outboundConfig {
-    artemisBrokerAddress = "nodeserver:11005"
-}
-bridgeInnerConfig {
-    floatAddress = [ "dmzinternal:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    customSSLConfiguration {
-        keyStorePassword = "bridgepass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./bridgecerts/bridge.jks"
-        trustStoreFile = "./bridgecerts/trust.jks"
-        crlCheckSoftFail = true
-    }
-}
-networkParametersPath = network-parameters
-sslKeystore = "./nodeCerts/sslkeystore.jks"
-keyStorePassword = "keyPass"
-trustStoreFile = "./nodeCerts/truststore.jks"
-trustStorePassword = "trustPass"
-```
-
-|```javascript
-firewallMode = BridgeInner
-outboundConfig {
-    artemisBrokerAddress = "nodeserver:11005"
-}
-bridgeInnerConfig {
-    floatAddress = [ "dmzinternal:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    tunnelSSLConfiguration {
-        keyStorePassword = "bridgepass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./bridgecerts/bridge.jks"
-        trustStoreFile = "./bridgecerts/trust.jks"
-
-    }
-}
-networkParametersPath = network-parameters
-sslKeystore = "./nodeCerts/sslkeystore.jks"
-keyStorePassword = "keyPass"
-trustStoreFile = "./nodeCerts/truststore.jks"
-trustStorePassword = "trustPass"
-```
-
-|
+|:----------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|
+|<pre>bridgeMode = BridgeInner<br>outboundConfig {<br>    artemisBrokerAddress = "nodeserver:11005"<br>}<br>bridgeInnerConfig {<br>    floatAddress = [ "dmzinternal:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    customSSLConfiguration {<br>        keyStorePassword = "bridgepass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./bridgecerts/bridge.jks"<br>        trustStoreFile = "./bridgecerts/trust.jks"<br>        crlCheckSoftFail = true<br>    }<br>}<br>networkParametersPath = network-parameters<br>sslKeystore = "./nodeCerts/sslkeystore.jks"<br>keyStorePassword = "keyPass"<br>trustStoreFile = "./nodeCerts/truststore.jks"<br>trustStorePassword = "trustPass"<br></pre>|<pre>firewallMode = BridgeInner<br>outboundConfig {<br>    artemisBrokerAddress = "nodeserver:11005"<br>}<br>bridgeInnerConfig {<br>    floatAddress = [ "dmzinternal:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    tunnelSSLConfiguration {<br>        keyStorePassword = "bridgepass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./bridgecerts/bridge.jks"<br>        trustStoreFile = "./bridgecerts/trust.jks"<br><br>    }<br>}<br>networkParametersPath = network-parameters<br>sslKeystore = "./nodeCerts/sslkeystore.jks"<br>keyStorePassword = "keyPass"<br>trustStoreFile = "./nodeCerts/truststore.jks"<br>trustStorePassword = "trustPass"<br></pre>|
 
 {{< /table >}}
 
@@ -224,45 +84,8 @@ trustStorePassword = "trustPass"
 {{< table >}}
 
 |bridge.conf - Float configuration 3.x|firewall.conf - Float configuration 4.x|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
-bridgeMode = FloatOuter
-inboundConfig {
-    listeningAddress = "dmzexternal:10005"
-}
-floatOuterConfig {
-    floatAddress = [ "dmzinternal:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    customSSLConfiguration {
-        keyStorePassword = "floatpass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./floatcerts/float.jks"
-        trustStoreFile = "./floatcerts/trust.jks"
-        crlCheckSoftFail = true
-    }
-}
-networkParametersPath = network-parameters
-```
-
-|```javascript
-firewallMode = FloatOuter
-inboundConfig {
-    listeningAddress = "dmzexternal:10005"
-}
-floatOuterConfig {
-    floatAddress = [ "dmzinternal:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    tunnelSSLConfiguration {
-        keyStorePassword = "floatpass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./floatcerts/float.jks"
-        trustStoreFile = "./floatcerts/trust.jks"
-
-    }
-}
-```
-
-|
+|:----------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|
+|<pre>bridgeMode = FloatOuter<br>inboundConfig {<br>    listeningAddress = "dmzexternal:10005"<br>}<br>floatOuterConfig {<br>    floatAddress = [ "dmzinternal:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    customSSLConfiguration {<br>        keyStorePassword = "floatpass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./floatcerts/float.jks"<br>        trustStoreFile = "./floatcerts/trust.jks"<br>        crlCheckSoftFail = true<br>    }<br>}<br>networkParametersPath = network-parameters<br></pre>|<pre>firewallMode = FloatOuter<br>inboundConfig {<br>    listeningAddress = "dmzexternal:10005"<br>}<br>floatOuterConfig {<br>    floatAddress = [ "dmzinternal:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    tunnelSSLConfiguration {<br>        keyStorePassword = "floatpass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./floatcerts/float.jks"<br>        trustStoreFile = "./floatcerts/trust.jks"<br><br>    }<br>}<br></pre>|
 
 {{< /table >}}
 
@@ -279,50 +102,8 @@ SOCKS configuration property from **socksProxyConfig** to **proxyConfig**.
 {{< table >}}
 
 |node.conf 3.x - Hot instance|node.conf 4.x - Hot instance|
-|------------------------------------------------|------------------------------------------------|
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="nodeserver1:11005"
-messagingServerExternal = false
-rpcSettings {
-    address="nodeserver1:10006"
-    adminAddress="nodeserver1:10007"
-}
-enterpriseConfiguration = {
-    externalBridge = true
-    mutualExclusionConfiguration = {
-        on = true
-        updateInterval = 20000
-        waitInterval = 40000
-    }
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="nodeserver1:11005"
-messagingServerExternal = false
-rpcSettings {
-    address="nodeserver1:10006"
-    adminAddress="nodeserver1:10007"
-}
-enterpriseConfiguration = {
-    externalBridge = true
-    mutualExclusionConfiguration = {
-        on = true
-        updateInterval = 20000
-        waitInterval = 40000
-    }
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|
+|:------------------------------------------------|:------------------------------------------------|
+|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="nodeserver1:11005"<br>messagingServerExternal = false<br>rpcSettings {<br>    address="nodeserver1:10006"<br>    adminAddress="nodeserver1:10007"<br>}<br>enterpriseConfiguration = {<br>    externalBridge = true<br>    mutualExclusionConfiguration = {<br>        on = true<br>        updateInterval = 20000<br>        waitInterval = 40000<br>    }<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="nodeserver1:11005"<br>messagingServerExternal = false<br>rpcSettings {<br>    address="nodeserver1:10006"<br>    adminAddress="nodeserver1:10007"<br>}<br>enterpriseConfiguration = {<br>    externalBridge = true<br>    mutualExclusionConfiguration = {<br>        on = true<br>        updateInterval = 20000<br>        waitInterval = 40000<br>    }<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|
 
 {{< /table >}}
 
@@ -330,50 +111,8 @@ trustStorePassword = "trustPass"
 {{< table >}}
 
 |node.conf 3.x - Cold instance|node.conf 4.x - Cold instance|
-|------------------------------------------------|------------------------------------------------|
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="nodeserver2:11005"
-messagingServerExternal = false
-rpcSettings {
-    address="nodeserver2:10006"
-    adminAddress="nodeserver2:10007"
-}
-enterpriseConfiguration = {
-    externalBridge = true
-    mutualExclusionConfiguration = {
-        on = true
-        updateInterval = 20000
-        waitInterval = 40000
-    }
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="nodeserver2:11005"
-messagingServerExternal = false
-rpcSettings {
-    address="nodeserver2:10006"
-    adminAddress="nodeserver2:10007"
-}
-enterpriseConfiguration = {
-    externalBridge = true
-    mutualExclusionConfiguration = {
-        on = true
-        updateInterval = 20000
-        waitInterval = 40000
-    }
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|
+|:------------------------------------------------|:------------------------------------------------|
+|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="nodeserver2:11005"<br>messagingServerExternal = false<br>rpcSettings {<br>    address="nodeserver2:10006"<br>    adminAddress="nodeserver2:10007"<br>}<br>enterpriseConfiguration = {<br>    externalBridge = true<br>    mutualExclusionConfiguration = {<br>        on = true<br>        updateInterval = 20000<br>        waitInterval = 40000<br>    }<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="nodeserver2:11005"<br>messagingServerExternal = false<br>rpcSettings {<br>    address="nodeserver2:10006"<br>    adminAddress="nodeserver2:10007"<br>}<br>enterpriseConfiguration = {<br>    externalBridge = true<br>    mutualExclusionConfiguration = {<br>        on = true<br>        updateInterval = 20000<br>        waitInterval = 40000<br>    }<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|
 
 {{< /table >}}
 
@@ -381,64 +120,8 @@ trustStorePassword = "trustPass"
 {{< table >}}
 
 |bridge.conf - Bridge configuration 3.x (same for every instance)|firewall.conf - Bridge configuration 4.x (same for every instance)|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
-bridgeMode = BridgeInner
-outboundConfig {
-    artemisBrokerAddress = "nodeserver1:11005"
-    alternateArtemisBrokerAddresses = ["nodeserver2:11005"]
-}
-bridgeInnerConfig {
-    floatAddress = [ "dmzinternal1:12005", "dmzinternal2:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    customSSLConfiguration {
-        keyStorePassword = "bridgepass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./bridgecerts/bridge.jks"
-        trustStoreFile = "./bridgecerts/trust.jks"
-        crlCheckSoftFail = true
-    }
-}
-haConfig {
-   haConnectionString = "zk://zookeep1:11105,zk://zookeep2:11105,
-                         zk://zookeep3:11105"
-}
-networkParametersPath = network-parameters
-sslKeystore = "./nodeCerts/sslkeystore.jks"
-keyStorePassword = "keyPass"
-trustStoreFile = "./nodeCerts/truststore.jks"
-trustStorePassword = "trustPass"
-```
-
-|```javascript
-firewallMode = BridgeInner
-outboundConfig {
-    artemisBrokerAddress = "nodeserver1:11005"
-    alternateArtemisBrokerAddresses = ["nodeserver2:11005"]
-}
-bridgeInnerConfig {
-    floatAddress = [ "dmzinternal1:12005", "dmzinternal2:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    tunnelSSLConfiguration {
-        keyStorePassword = "bridgepass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./bridgecerts/bridge.jks"
-        trustStoreFile = "./bridgecerts/trust.jks"
-
-    }
-}
-haConfig {
-   haConnectionString = "zk://zookeep1:11105,zk://zookeep2:11105,
-                         zk://zookeep3:11105"
-}
-networkParametersPath = network-parameters
-sslKeystore = "./nodeCerts/sslkeystore.jks"
-keyStorePassword = "keyPass"
-trustStoreFile = "./nodeCerts/truststore.jks"
-trustStorePassword = "trustPass"
-```
-
-|
+|:----------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|
+|<pre>bridgeMode = BridgeInner<br>outboundConfig {<br>    artemisBrokerAddress = "nodeserver1:11005"<br>    alternateArtemisBrokerAddresses = ["nodeserver2:11005"]<br>}<br>bridgeInnerConfig {<br>    floatAddress = [ "dmzinternal1:12005", "dmzinternal2:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    customSSLConfiguration {<br>        keyStorePassword = "bridgepass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./bridgecerts/bridge.jks"<br>        trustStoreFile = "./bridgecerts/trust.jks"<br>        crlCheckSoftFail = true<br>    }<br>}<br>haConfig {<br>   haConnectionString = "zk://zookeep1:11105,zk://zookeep2:11105,<br>                         zk://zookeep3:11105"<br>}<br>networkParametersPath = network-parameters<br>sslKeystore = "./nodeCerts/sslkeystore.jks"<br>keyStorePassword = "keyPass"<br>trustStoreFile = "./nodeCerts/truststore.jks"<br>trustStorePassword = "trustPass"<br></pre>|<pre>firewallMode = BridgeInner<br>outboundConfig {<br>    artemisBrokerAddress = "nodeserver1:11005"<br>    alternateArtemisBrokerAddresses = ["nodeserver2:11005"]<br>}<br>bridgeInnerConfig {<br>    floatAddress = [ "dmzinternal1:12005", "dmzinternal2:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    tunnelSSLConfiguration {<br>        keyStorePassword = "bridgepass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./bridgecerts/bridge.jks"<br>        trustStoreFile = "./bridgecerts/trust.jks"<br><br>    }<br>}<br>haConfig {<br>   haConnectionString = "zk://zookeep1:11105,zk://zookeep2:11105,<br>                         zk://zookeep3:11105"<br>}<br>networkParametersPath = network-parameters<br>sslKeystore = "./nodeCerts/sslkeystore.jks"<br>keyStorePassword = "keyPass"<br>trustStoreFile = "./nodeCerts/truststore.jks"<br>trustStorePassword = "trustPass"<br></pre>|
 
 {{< /table >}}
 
@@ -446,45 +129,8 @@ trustStorePassword = "trustPass"
 {{< table >}}
 
 |bridge.conf - Float configuration 3.x hot instance|firewall.conf - Float configuration 4.x hot instance|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
-bridgeMode = FloatOuter
-inboundConfig {
-    listeningAddress = "dmzexternal1:10005"
-}
-floatOuterConfig {
-    floatAddress = [ "dmzinternal1:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    customSSLConfiguration {
-        keyStorePassword = "floatpass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./floatcerts/float.jks"
-        trustStoreFile = "./floatcerts/trust.jks"
-        crlCheckSoftFail = true
-    }
-}
-networkParametersPath = network-parameters
-```
-
-|```javascript
-firewallMode = FloatOuter
-inboundConfig {
-    listeningAddress = "dmzexternal1:10005"
-}
-floatOuterConfig {
-    floatAddress = [ "dmzinternal1:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    tunnelSSLConfiguration {
-        keyStorePassword = "floatpass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./floatcerts/float.jks"
-        trustStoreFile = "./floatcerts/trust.jks"
-
-    }
-}
-```
-
-|
+|:----------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|
+|<pre>bridgeMode = FloatOuter<br>inboundConfig {<br>    listeningAddress = "dmzexternal1:10005"<br>}<br>floatOuterConfig {<br>    floatAddress = [ "dmzinternal1:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    customSSLConfiguration {<br>        keyStorePassword = "floatpass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./floatcerts/float.jks"<br>        trustStoreFile = "./floatcerts/trust.jks"<br>        crlCheckSoftFail = true<br>    }<br>}<br>networkParametersPath = network-parameters<br></pre>|<pre>firewallMode = FloatOuter<br>inboundConfig {<br>    listeningAddress = "dmzexternal1:10005"<br>}<br>floatOuterConfig {<br>    floatAddress = [ "dmzinternal1:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    tunnelSSLConfiguration {<br>        keyStorePassword = "floatpass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./floatcerts/float.jks"<br>        trustStoreFile = "./floatcerts/trust.jks"<br><br>    }<br>}<br></pre>|
 
 {{< /table >}}
 
@@ -492,45 +138,8 @@ floatOuterConfig {
 {{< table >}}
 
 |bridge.conf - Float configuration 3.x warm instance|firewall.conf - Float configuration 4.x warm instance|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
-bridgeMode = FloatOuter
-inboundConfig {
-    listeningAddress = "dmzexternal2:10005"
-}
-floatOuterConfig {
-    floatAddress = [ "dmzinternal2:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    customSSLConfiguration {
-        keyStorePassword = "floatpass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./floatcerts/float.jks"
-        trustStoreFile = "./floatcerts/trust.jks"
-        crlCheckSoftFail = true
-    }
-}
-networkParametersPath = network-parameters
-```
-
-|```javascript
-firewallMode = FloatOuter
-inboundConfig {
-    listeningAddress = "dmzexternal2:10005"
-}
-floatOuterConfig {
-    floatAddress = [ "dmzinternal2:12005" ]
-    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
-    tunnelSSLConfiguration {
-        keyStorePassword = "floatpass"
-        trustStorePassword = "trustpass"
-        sslKeystore = "./floatcerts/float.jks"
-        trustStoreFile = "./floatcerts/trust.jks"
-
-    }
-}
-```
-
-|
+|:----------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|
+|<pre>bridgeMode = FloatOuter<br>inboundConfig {<br>    listeningAddress = "dmzexternal2:10005"<br>}<br>floatOuterConfig {<br>    floatAddress = [ "dmzinternal2:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    customSSLConfiguration {<br>        keyStorePassword = "floatpass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./floatcerts/float.jks"<br>        trustStoreFile = "./floatcerts/trust.jks"<br>        crlCheckSoftFail = true<br>    }<br>}<br>networkParametersPath = network-parameters<br></pre>|<pre>firewallMode = FloatOuter<br>inboundConfig {<br>    listeningAddress = "dmzexternal2:10005"<br>}<br>floatOuterConfig {<br>    floatAddress = [ "dmzinternal2:12005" ]<br>    expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"<br>    tunnelSSLConfiguration {<br>        keyStorePassword = "floatpass"<br>        trustStorePassword = "trustpass"<br>        sslKeystore = "./floatcerts/float.jks"<br>        trustStoreFile = "./floatcerts/trust.jks"<br><br>    }<br>}<br></pre>|
 
 {{< /table >}}
 
@@ -556,56 +165,8 @@ The machines hosting the Artemis instances are *artemisserver1* and *artemisserv
 {{< table >}}
 
 |node.conf - Internal Artemis|node.conf - External Artemis (HA mode)|
-|------------------------------------------------|----------------------------------------------------------------------|
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="nodeserver:11005"
-messagingServerExternal = false
-rpcSettings {
-    address="nodeserver:10006"
-    adminAddress="nodeserver:10007"
-}
-enterpriseConfiguration = {
-
-
-
-
-
-
-
-
-    externalBridge = true
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|```javascript
-myLegalName="O=Bank A,L=London,C=GB"
-p2pAddress="banka.com:10005"
-messagingServerAddress="artemisserver1:11005"
-messagingServerExternal = true
-rpcSettings {
-    address="nodeserver:10006"
-    adminAddress="nodeserver:10007"
-}
-enterpriseConfiguration = {
-    messagingServerConnectionConfiguration = "CONTINUOUS_RETRY"
-    messagingServerBackupAddresses = ["artemisserver2:11005"]
-    messagingServerSslConfiguration = {
-                sslKeystore = artemis/artemis.jks
-                keyStorePassword = artemisStorePass
-                trustStoreFile = artemis/artemis-truststore.jks
-                trustStorePassword = artemisTrustpass
-    }
-    externalBridge = true
-}
-keyStorePassword = "keyPass"
-trustStorePassword = "trustPass"
-```
-
-|
+|:------------------------------------------------|:----------------------------------------------------------------------|
+|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="nodeserver:11005"<br>messagingServerExternal = false<br>rpcSettings {<br>    address="nodeserver:10006"<br>    adminAddress="nodeserver:10007"<br>}<br>enterpriseConfiguration = {<br>    externalBridge = true<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|<pre>myLegalName="O=Bank A,L=London,C=GB"<br>p2pAddress="banka.com:10005"<br>messagingServerAddress="artemisserver1:11005"<br>messagingServerExternal = true<br>rpcSettings {<br>    address="nodeserver:10006"<br>    adminAddress="nodeserver:10007"<br>}<br>enterpriseConfiguration = {<br>    messagingServerConnectionConfiguration = "CONTINUOUS_RETRY"<br>    messagingServerBackupAddresses = ["artemisserver2:11005"]<br>    messagingServerSslConfiguration = {<br>                sslKeystore = artemis/artemis.jks<br>                keyStorePassword = artemisStorePass<br>                trustStoreFile = artemis/artemis-truststore.jks<br>                trustStorePassword = artemisTrustpass<br>    }<br>    externalBridge = true<br>}<br>keyStorePassword = "keyPass"<br>trustStorePassword = "trustPass"<br></pre>|
 
 {{< /table >}}
 
@@ -613,52 +174,8 @@ trustStorePassword = "trustPass"
 {{< table >}}
 
 |firewall.conf - Bridge Internal Artemis|firewall.conf - Bridge External Artemis|
-|---------------------------------------------------|----------------------------------------------------------------------|
-|```javascript
-firewallMode = SenderReceiver
-outboundConfig {
-    artemisBrokerAddress = "nodeserver:11005"
-
-
-
-
-
-
-
-}
-inboundConfig {
-    listeningAddress = "bridgeexternal:10005"
-}
-networkParametersPath = network-parameters
-sslKeystore = "./nodeCerts/sslkeystore.jks"
-keyStorePassword = "keyPass"
-trustStoreFile = "./nodeCerts/truststore.jks"
-trustStorePassword = "trustPass"
-```
-
-|```javascript
-firewallMode = SenderReceiver
-outboundConfig {
-    artemisBrokerAddress = "artemisserver1:11005"
-    alternateArtemisBrokerAddresses = [ "artemisserver2:11005" ]
-    artemisSSLConfiguration {
-        keyStorePassword = "artemisStorePass"
-        trustStorePassword = "artemisTrustpass"
-        sslKeystore = "artemis/artemis.jks"
-        trustStoreFile = "artemis/artemis-truststore.jks"
-    }
-}
-inboundConfig {
-    listeningAddress = "bridgeexternal:10005"
-}
-networkParametersPath = network-parameters
-sslKeystore = "./nodeCerts/unitedSslKeystore.jks"
-keyStorePassword = "keyPass"
-trustStoreFile = "./nodeCerts/truststore.jks"
-trustStorePassword = "trustPass"
-```
-
-|
+|:---------------------------------------------------|:----------------------------------------------------------------------|
+|<pre>firewallMode = SenderReceiver<br>outboundConfig {<br>    artemisBrokerAddress = "nodeserver:11005"<br>}<br>inboundConfig {<br>    listeningAddress = "bridgeexternal:10005"<br>}<br>networkParametersPath = network-parameters<br>sslKeystore = "./nodeCerts/sslkeystore.jks"<br>keyStorePassword = "keyPass"<br>trustStoreFile = "./nodeCerts/truststore.jks"<br>trustStorePassword = "trustPass"<br></pre>|<pre>firewallMode = SenderReceiver<br>outboundConfig {<br>    artemisBrokerAddress = "artemisserver1:11005"<br>    alternateArtemisBrokerAddresses = [ "artemisserver2:11005" ]<br>    artemisSSLConfiguration {<br>        keyStorePassword = "artemisStorePass"<br>        trustStorePassword = "artemisTrustpass"<br>        sslKeystore = "artemis/artemis.jks"<br>        trustStoreFile = "artemis/artemis-truststore.jks"<br>    }<br>}<br>inboundConfig {<br>    listeningAddress = "bridgeexternal:10005"<br>}<br>networkParametersPath = network-parameters<br>sslKeystore = "./nodeCerts/unitedSslKeystore.jks"<br>keyStorePassword = "keyPass"<br>trustStoreFile = "./nodeCerts/truststore.jks"<br>trustStorePassword = "trustPass"<br></pre>|
 
 {{< /table >}}
 
@@ -668,4 +185,3 @@ trustStorePassword = "trustPass"
 To add additional nodes behind the same Corda firewall (either all-in-one bridge or bridge and float), it’s sufficient
 to configure the new nodes to connect to Artemis as shown in the previous section. The same applies for the bridge. The additional
 nodes need to set their P2P address as the shared float’s address. Furthermore, all previous floats except the shared one need to be shut down.
-

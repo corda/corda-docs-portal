@@ -44,12 +44,11 @@ scripts will require updating as well.
 
 For this type of deployment, version 3.x would have the following configuration:
 
+#### Node configuration file
 
-{{< table >}}
+Version 3.x:
 
-|node.conf 3.x|node.conf 4.x|
-|------------------------------------------------|------------------------------------------------|
-|```javascript
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver:11005"
@@ -65,7 +64,9 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|```javascript
+Version 4.x:
+
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver:11005"
@@ -81,16 +82,10 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|
 
-{{< /table >}}
+`bridge.conf` version 3.x:
 
-
-{{< table >}}
-
-|bridge.conf 3.x|firewall.conf 4.x|
-|---------------------------------------------------|--------------------------------------------------|
-|```javascript
+```javascript
 bridgeMode = SenderReceiver
 outboundConfig {
     artemisBrokerAddress = "nodeserver:11005"
@@ -105,7 +100,9 @@ trustStoreFile = "./nodeCerts/truststore.jks"
 trustStorePassword = "trustPass"
 ```
 
-|```javascript
+`firewall.conf` version 4.x:
+
+```javascript
 firewallMode = SenderReceiver
 outboundConfig {
     artemisBrokerAddress = "nodeserver:11005"
@@ -120,19 +117,14 @@ trustStoreFile = "./nodeCerts/truststore.jks"
 trustStorePassword = "trustPass"
 ```
 
-|
-
-{{< /table >}}
-
 
 ### DMZ ready (node + bridge + float)
 
+#### Node configuration file
 
-{{< table >}}
+Version 3.x
 
-|node.conf 3.x|node.conf 4.x|
-|------------------------------------------------|------------------------------------------------|
-|```javascript
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver:11005"
@@ -148,7 +140,9 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|```javascript
+Version 4.x
+
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver:11005"
@@ -164,16 +158,11 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|
+#### Bridge configuration file
 
-{{< /table >}}
+`bridge.conf` - Bridge configuration version 3.x
 
-
-{{< table >}}
-
-|bridge.conf - Bridge configuration 3.x|firewall.conf - Bridge configuration 4.x|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
+```javascript
 bridgeMode = BridgeInner
 outboundConfig {
     artemisBrokerAddress = "nodeserver:11005"
@@ -196,7 +185,9 @@ trustStoreFile = "./nodeCerts/truststore.jks"
 trustStorePassword = "trustPass"
 ```
 
-|```javascript
+`firewall.conf` - Bridge configuration version 4.x
+
+```javascript
 firewallMode = BridgeInner
 outboundConfig {
     artemisBrokerAddress = "nodeserver:11005"
@@ -219,16 +210,11 @@ trustStoreFile = "./nodeCerts/truststore.jks"
 trustStorePassword = "trustPass"
 ```
 
-|
+#### Float configuration file
 
-{{< /table >}}
+`bridge.conf` - Float configuration version 3.x
 
-
-{{< table >}}
-
-|bridge.conf - Float configuration 3.x|firewall.conf - Float configuration 4.x|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
+```javascript
 bridgeMode = FloatOuter
 inboundConfig {
     listeningAddress = "dmzexternal:10005"
@@ -247,7 +233,9 @@ floatOuterConfig {
 networkParametersPath = network-parameters
 ```
 
-|```javascript
+`firewall.conf` - Float configuration version 4.x
+
+```javascript
 firewallMode = FloatOuter
 inboundConfig {
     listeningAddress = "dmzexternal:10005"
@@ -264,10 +252,6 @@ floatOuterConfig {
     }
 }
 ```
-
-|
-
-{{< /table >}}
 
 
 ### DMZ ready with outbound SOCKS
@@ -278,12 +262,11 @@ SOCKS configuration property from **socksProxyConfig** to **proxyConfig**.
 
 ### Full production HA DMZ ready (hot/cold node, hot/warm bridge)
 
+#### Node configuration file - Hot instance
 
-{{< table >}}
+`node.conf` version 3.x - Hot instance
 
-|node.conf 3.x - Hot instance|node.conf 4.x - Hot instance|
-|------------------------------------------------|------------------------------------------------|
-|```javascript
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver1:11005"
@@ -304,7 +287,9 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|```javascript
+`node.conf` version 4.x - Hot instance
+
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver1:11005"
@@ -325,16 +310,11 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|
+#### Node configuration file - Cold instance
 
-{{< /table >}}
+`node.conf` version 3.x - Cold instance
 
-
-{{< table >}}
-
-|node.conf 3.x - Cold instance|node.conf 4.x - Cold instance|
-|------------------------------------------------|------------------------------------------------|
-|```javascript
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver2:11005"
@@ -355,7 +335,9 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|```javascript
+`node.conf` version 4.x - Cold instance
+
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver2:11005"
@@ -376,16 +358,11 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|
+#### Bridge configuration (same for every instance)
 
-{{< /table >}}
+`bridge.conf` - Bridge configuration version 3.x (same for every instance)
 
-
-{{< table >}}
-
-|bridge.conf - Bridge configuration 3.x (same for every instance)|firewall.conf - Bridge configuration 4.x (same for every instance)|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
+```javascript
 bridgeMode = BridgeInner
 outboundConfig {
     artemisBrokerAddress = "nodeserver1:11005"
@@ -413,7 +390,9 @@ trustStoreFile = "./nodeCerts/truststore.jks"
 trustStorePassword = "trustPass"
 ```
 
-|```javascript
+`firewall.conf` - Bridge configuration version 4.x (same for every instance)
+
+```javascript
 firewallMode = BridgeInner
 outboundConfig {
     artemisBrokerAddress = "nodeserver1:11005"
@@ -441,16 +420,11 @@ trustStoreFile = "./nodeCerts/truststore.jks"
 trustStorePassword = "trustPass"
 ```
 
-|
+#### Float configuration (hot instance)
 
-{{< /table >}}
+`bridge.conf` - Float configuration version 3.x hot instance
 
-
-{{< table >}}
-
-|bridge.conf - Float configuration 3.x hot instance|firewall.conf - Float configuration 4.x hot instance|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
+```javascript
 bridgeMode = FloatOuter
 inboundConfig {
     listeningAddress = "dmzexternal1:10005"
@@ -469,7 +443,9 @@ floatOuterConfig {
 networkParametersPath = network-parameters
 ```
 
-|```javascript
+`firewall.conf` - Float configuration 4.x hot instance
+
+```javascript
 firewallMode = FloatOuter
 inboundConfig {
     listeningAddress = "dmzexternal1:10005"
@@ -487,16 +463,11 @@ floatOuterConfig {
 }
 ```
 
-|
+#### Float configuration (warm instance)
 
-{{< /table >}}
+`bridge.conf` - Float configuration version 3.x warm instance
 
-
-{{< table >}}
-
-|bridge.conf - Float configuration 3.x warm instance|firewall.conf - Float configuration 4.x warm instance|
-|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|```javascript
+```javascript
 bridgeMode = FloatOuter
 inboundConfig {
     listeningAddress = "dmzexternal2:10005"
@@ -515,7 +486,9 @@ floatOuterConfig {
 networkParametersPath = network-parameters
 ```
 
-|```javascript
+`firewall.conf` - Float configuration version 4.x warm instance
+
+```javascript
 firewallMode = FloatOuter
 inboundConfig {
     listeningAddress = "dmzexternal2:10005"
@@ -532,10 +505,6 @@ floatOuterConfig {
     }
 }
 ```
-
-|
-
-{{< /table >}}
 
 
 ## Reconfiguring to the shared Corda Firewall Architecture
@@ -555,12 +524,11 @@ The machines hosting the Artemis instances are *artemisserver1* and *artemisserv
 
 ### Node + Bridge to Node + Artemis + Bridge
 
+#### Node configuration
 
-{{< table >}}
+`node.conf` - Internal Artemis
 
-|node.conf - Internal Artemis|node.conf - External Artemis (HA mode)|
-|------------------------------------------------|----------------------------------------------------------------------|
-|```javascript
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="nodeserver:11005"
@@ -584,7 +552,9 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|```javascript
+`node.conf` - External Artemis (HA mode)
+
+```javascript
 myLegalName="O=Bank A,L=London,C=GB"
 p2pAddress="banka.com:10005"
 messagingServerAddress="artemisserver1:11005"
@@ -608,16 +578,11 @@ keyStorePassword = "keyPass"
 trustStorePassword = "trustPass"
 ```
 
-|
+#### Bridge configuration
 
-{{< /table >}}
+`firewall.conf` - Bridge Internal Artemis
 
-
-{{< table >}}
-
-|firewall.conf - Bridge Internal Artemis|firewall.conf - Bridge External Artemis|
-|---------------------------------------------------|----------------------------------------------------------------------|
-|```javascript
+```javascript
 firewallMode = SenderReceiver
 outboundConfig {
     artemisBrokerAddress = "nodeserver:11005"
@@ -639,7 +604,9 @@ trustStoreFile = "./nodeCerts/truststore.jks"
 trustStorePassword = "trustPass"
 ```
 
-|```javascript
+`firewall.conf` - Bridge External Artemis
+
+```javascript
 firewallMode = SenderReceiver
 outboundConfig {
     artemisBrokerAddress = "artemisserver1:11005"
@@ -660,10 +627,6 @@ keyStorePassword = "keyPass"
 trustStoreFile = "./nodeCerts/truststore.jks"
 trustStorePassword = "trustPass"
 ```
-
-|
-
-{{< /table >}}
 
 
 ### Multiple nodes behind the Bridge
