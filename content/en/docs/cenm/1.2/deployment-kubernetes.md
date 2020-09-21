@@ -65,7 +65,9 @@ They are **not** designed to run as standalone docker containers. They are store
 
 All helm charts by default use CENM docker images with tag `1.2-zulu-openjdk8u242`.
 
-Mixing different CENM components releases (major.minor) is not supported.
+{{< note >}}
+The use of different CENM versions on the same network is not supported - all services on a given network must be on the same CENM version.
+{{< /note >}}
 
 ### Helm charts
 
