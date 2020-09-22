@@ -510,9 +510,6 @@ specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` conf
 * `batchSize`
   * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches;       however, larger batches may worsen latency.
   * *Default:* 32
-* `batchTimeoutMs`
-  * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full.  Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
-  * *Default:* 200
 * `maxInputStates`
   * The maximum combined number of input states processed in a single batch when finding conflicts.
   * *Default:* 2 000
