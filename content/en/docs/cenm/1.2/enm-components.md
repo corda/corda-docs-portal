@@ -73,9 +73,7 @@ main zone as a whole.
 
 # The Workflow
 
-The Identity Manager’s issuance and revocation services both allow for a workflow component that allows the steps
-the zone operator deems suitable for reaching certainty an entity requesting it’s Legal Identity be recognised truly
-is that identity be codified into a repeatable process. Ultimately a request is either accepted or rejected. Certain
+The Identity Manager’s issuance and revocation services both support plugins to model the workflow of approving certificate issuance/revocation. This enables zone operators to use a provided workflow, such as JIRA, or develop their own workflow. Ultimately a request is either accepted or rejected. Certain
 elements can only be signed once a request has been approved and put into an accepted state, such as a CSR request.
 
 “Out of the box” the CENM suite supports either a Jira based workflow or one that “ApprovesAll”. However, the
@@ -83,8 +81,7 @@ latter should only be used under very strict testing scenarios as it blindly app
 the services.
 
 Accepting a CSR is a statement by the operator of a network that they agree the request is from the Legal
-Identity it claims to be and that they are welcome to join the network. Once accepted, they will be issued a certificate
-signed by the trust root of the network.
+Identity it claims to be and that they are welcome to join the network. Once accepted, they will be issued a signed certificate that has a signing chain back to the trust root.
 
 {{< note >}}
 The policies put in place around this process are intentionally left to the discretion of a network operator

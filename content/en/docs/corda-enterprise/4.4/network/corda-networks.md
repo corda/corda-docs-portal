@@ -85,7 +85,7 @@ For more information, see sub-zones
 
 ### Operating a Segregated Sub Zone
 
-From the perspective of a mature ENM deployment, operating a sub zone post ENM 0.3 is the same as operating a single
+From the perspective of a mature CENM deployment, operating a sub zone post ENM 0.3 is the same as operating a single
 network under the old paradigm where there was only the one zone.
 
 Each Network Map that represents a segregated sub zone is configured separately from the others as a distinct entity

@@ -324,7 +324,7 @@ external signing service.
 
 #### Issuance Internal Interface
 
-Similarly to the other Enterprise Network Manager (ENM) services, the Identity Manager is designed to be able to communicate between other services
+Similarly to the other Corda Enterprise Network Manager (CENM) services, the Identity Manager is designed to be able to communicate between other services
 such as the Network Map and Signing services. Both the Issuance and, optionally, the Revocation workflows have their own
 internal listening socket interface that is created on start-up which can receive and respond to messages from other CENM services.
 For example, the Revocation workflow’s CENM listener can respond to messages from the Network Map regarding certificate

@@ -272,7 +272,7 @@ network map or parameter changes. It should be used in all production environmen
 checks are required.
 
 In order to retrieve the network map and parameter data, the signing service will communicate with the Network Map
-service via its [ENM internal server](#enm-internal-server). This is the only configuration option that is needed if signing is being done
+service via its [CENM internal server](#cenm-internal-server). This is the only configuration option that is needed if signing is being done
 via the external signing service.
 
 

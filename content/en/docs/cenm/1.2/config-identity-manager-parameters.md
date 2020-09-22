@@ -172,8 +172,7 @@ version of Corda that does not support the new PKI (arbitrary length certificate
 * **“revocation workflow”**:
 
 * **crlCacheTimeout**:
-How often the Revocation Workflow Processor should synchronise Certificate Revocation Requests statuses.
-Also the time after the CRL cache in Revocation Web Service will be cleared.
+The interval after which the Revocation Workflow Processor needs to synchronise Certificate Revocation Requests (CRR) statuses, as well as the duration after the CRL cache in Revocation Web Service is cleared.
 
 
 * **crlFiles**:

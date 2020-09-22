@@ -301,7 +301,7 @@ If a node is a member of a private network, the current implementation of Corda 
 id during its registration request to the Doorman (if configured on the node side). A consequence of this design and the
 separation of Doorman and the Network Map Service is that when a node submits its node info to a Network Map Service,
 the Network Map Service needs to communicate with the Doorman service as it can no longer do the direct lookup of a
-node’s private network membership from within the Doorman database. This is facilitated via a new internal *ENM server* that
+node’s private network membership from within the Doorman database. This is facilitated via a new internal *CENM server* that
 lives within each CENM service.
 
 In case of a deployment scenario involving CENM upgrade from version prior to 0.3, the configuration file for the

@@ -499,7 +499,7 @@ services that are used within the signing processes defined in the signers map. 
 
 
 * **caSmrLocation**:
-*(Optional, use instead of CA related serviceLocations)* CA part of Signable Material Retriever ENM
+*(Optional, use instead of CA related serviceLocations)* CA part of Signable Material Retriever CENM
 service location configuration.
 
 
@@ -761,7 +761,7 @@ The connection details for the CENM service that acts as the data source
   * **host**:
   The host name (or IP address) that the CENM service is running on.
   * **port**:
-  The port that the CENM service is listening on (for inter-ENM communication).
+  The port that the CENM service is listening on (for inter-CENM communication).
   * **verbose**:
   A boolean parameter that determines whether debug information for the IPC between the Signing Service and the remote service
   should be displayed.

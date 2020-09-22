@@ -114,8 +114,7 @@ administration UI.
 for which certificate will be created. Certificate request is done and after that we collect generated certifciate’s
 chain since node will only accept chains which root certificate matches the one provided in network root truststore.
 
-`submitCRL()` method takes current CRL in form of `crl` argument and set of Certificate Revocation Requests under
-`newCRRs` argument. First of all, revocation of all new revocation requests is performed. After that CRL is updated and
+`submitCRL()` method takes current CRL in form of `crl` argument and a Certificate Revocation List to be updated. First of all, revocation of all new revocation requests is performed. After that CRL is updated and
 fetched. At the end we form response as specified in interface.
 
 ```java

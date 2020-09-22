@@ -41,7 +41,7 @@ that chains back to the common root.
 
 {{< important >}}
 For the avoidance of doubt, the trust root, certificates and keys used to secure communication between
-ENM components are completely independent of those created/managed by this toolset for the management of
+CENM components are completely independent of those created/managed by this toolset for the management of
 a Corda network.
 
 

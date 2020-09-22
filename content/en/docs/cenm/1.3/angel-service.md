@@ -51,7 +51,7 @@ The full list of arguments you can use when starting the Angel Service are descr
 - `--network-truststore`: The network truststore file path. Optional, but must be specified if the managed service is Network Map, otherwise the Angel Service cannot execute the Flag Day workflow.
 - `--truststore-password`: The password for the network truststore file. Optional, but must be specified if the managed service is Network Map, otherwise the Angel Service cannot execute the Flag Day workflow.
 - `--root-alias`: The root alias. Optional, but must be specified if the managed service is Network Map, otherwise the Angel Service cannot execute the Flag Day workflow.
-- `--tls`: Defines whether TLS is used on listening sockets (ENM and admin). Defaults to `false` if no value is provided.
+- `--tls`: Defines whether TLS is used on listening sockets (CENM and admin). Defaults to `false` if no value is provided.
 - `--tls-keystore`: The path for the TLS keystore. Required if `--tls` is set to `true`.
 - `--tls-keystore-password`: The password for the TLS keystore. Required if `--tls` is set to `true`.
 - `--tls-truststore`: The path for the TLS truststore. Required if `--tls` is set to `true`.

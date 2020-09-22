@@ -282,7 +282,7 @@ customized with the configuration file. See [Public Key Infrastructure (PKI) Too
 **Full End to End SSL communication**
 
 All CENM components now communicate over SSL with one another, this completes the removal of the “database as message
-queue” of older versions. See [Configuring the ENM services to use SSL](enm-with-ssl.md) for more information.
+queue” of older versions. See [Configuring the CENM services to use SSL](enm-with-ssl.md) for more information.
 
 **Security And Performance Fixes**
 

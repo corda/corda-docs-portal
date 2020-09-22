@@ -50,7 +50,7 @@ The full list of configuration options follows below:
 
 - `--enm-listener-port`: The port where the Zone Service listens for Angel Services to connect.
 - `--enm-reconnect`: Allows you to reconnect. Defaults to `true` if no value is provided.
-- `--tls`: Defines whether TLS is used on listening sockets (ENM and admin). Defaults to `false` if no value is provided.
+- `--tls`: Defines whether TLS is used on listening sockets (CENM and admin). Defaults to `false` if no value is provided.
 - `--tls-keystore`: The path for the TLS keystore. Required if `--tls` is set to `true`.
 - `--tls-keystore-password`: The password for the TLS keystore. Required if `--tls` is set to `true`.
 - `--tls-truststore`: The path for the TLS truststore. Required if `--tls` is set to `true`.
