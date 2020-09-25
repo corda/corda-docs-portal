@@ -41,7 +41,7 @@ corrective actions can be taken to resolve the issues flows are facing. One poss
 
 
 {{< warning >}}
-Deleting checkpoints manually or via `flow kill`/``killFlow` can lead to an inconsistent ledger among transacting parties. Great care
+Deleting checkpoints manually or via `flow kill`/`killFlow` can lead to an inconsistent ledger among transacting parties. Great care
 and coordination with a flow’s counterparties must be taken to ensure that a initiating flow and flows responding to it are correctly
 removed. This experience will be improved in the future. Making it easier to kill flows while notifying their counterparties.
 
@@ -57,12 +57,12 @@ To retrieve this information, execute `run dumpCheckpoints` in the node’s shel
 Below are some of the more important fields included in the output:
 
 
-* `flowId`: The id of the flow
-* `topLevelFlowClass`: The name of the original flow that was invoked (by RPC or a service)
-* `topLevelFlowLogic`: Detailed view of the top level flow
-* `flowCallStackSummary`: A summarised list of the current stack of sub flows along with any progress tracker information
-* `suspendedOn`: The command that the flow is suspended on (e.g. `SuspendAndReceive`) which includes the `suspendedTimestamp`
-* `flowCallStack` A detailed view of the of the current stack of sub flows
+* `flowId`: The id of the flow.
+* `topLevelFlowClass`: The name of the original flow that was invoked (by RPC or a service).
+* `topLevelFlowLogic`: Detailed view of the top level flow.
+* `flowCallStackSummary`: A summarised list of the current stack of sub flows along with any progress tracker information.
+* `suspendedOn`: The command that the flow is suspended on (for example, `SendAndReceive`), which includes the `suspendedTimestamp`.
+* `flowCallStack` A detailed view of the of the current stack of sub flows.
 
 
 
@@ -363,4 +363,3 @@ The checkpoint dump gives good diagnostics on the reason a flow may be suspended
   }
 }
 ```
-

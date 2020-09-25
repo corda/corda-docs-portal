@@ -63,12 +63,12 @@ To retrieve this information, execute `checkpoints dump` in the node’s shell. 
 Below are some of the more important fields included in the output:
 
 
-* `flowId`: The id of the flow
-* `topLevelFlowClass`: The name of the original flow that was invoked (by RPC or a service)
-* `topLevelFlowLogic`: Detailed view of the top level flow
-* `flowCallStackSummary`: A summarised list of the current stack of sub flows along with any progress tracker information
-* `suspendedOn`: The command that the flow is suspended on (e.g. `SuspendAndReceive`) which includes the `suspendedTimestamp`
-* `flowCallStack` A detailed view of the of the current stack of sub flows
+* `flowId`: The id of the flow.
+* `topLevelFlowClass`: The name of the original flow that was invoked (by RPC or a service).
+* `topLevelFlowLogic`: Detailed view of the top level flow.
+* `flowCallStackSummary`: A summarised list of the current stack of sub flows along with any progress tracker information.
+* `suspendedOn`: The command that the flow is suspended on (for example, `SendAndReceive`), which includes the `suspendedTimestamp`.
+* `flowCallStack` A detailed view of the of the current stack of sub flows.
 
 
 
