@@ -21,8 +21,6 @@ In configuring the notary worker nodes, please note the following:
 
 
 * The X500 name of the notary service is configured in `notary.serviceLegalName`. *Only required for HA notaries*
-* Notice the parameters `rewriteBatchedStatements=true&useSSL=false&failOverReadOnly=false`
-of the JDBC URL
 * Put the IP address or host name of the nearest shared DB server first in the JDBC
 URL. When running a DB node and a notary worker node on a single machine, list the
 local IP first
