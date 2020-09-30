@@ -373,8 +373,9 @@ We now release Docker images for the Corda Enterprise Firewall [https://hub.dock
 
 Our Docker Hub organisation (https://hub.docker.com/u/corda) now contains all the Docker images required for a full production deployment of Corda Enterprise.
 
-### Other changes
+### Other changes and improvements
 
+* To avoid a third-party dependency issue, we have reverted the supported H2 Database Engine version to **1.4.197** in Corda Enterprise versions 4.4.3, 4.5.1, and 4.6.
 * To reduce the risk of vulnerabilities, we have upgraded the Apache Zookeeper version used by the Corda Enterprise [Firewall component](node/corda-firewall-component.md#prerequisites-4) from 3.5.4-Beta to 3.61. See [Apache ZooKeeper setup](operations/deployment/corda-firewall-configuration-file.md#apache-zookeeper-setup) for more information.
 * We have upgraded `commons-beanutils` to version 1.9.4 for improved security.
 * As of Corda Enterprise 4.6, support for [DemoBench](demobench.md) is deprecated.
