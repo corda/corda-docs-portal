@@ -201,6 +201,14 @@ a.button {
                       <form id="site-search-form" action="" role="search" class="r3-o-search">
                         <input type="search" id="search-input" class="form-control" placeholder="Search all the docs..." name="search-input" value=""/>
                       </form>
+                      <script type="text/javascript">
+    window.facetFilters = [
+        ['project:corda-enterprise', 'project:corda-os', 'project:cenm'],
+        ['version:4.6','version:1.4'],
+        'language:en'
+    ]
+                      </script>
+
                     </div>
 <div class="tab">
   <button class="tablinks active" onclick="openSection(event, 'home')">Home</button>
@@ -257,8 +265,7 @@ a.button {
 
       <ul>
         <li><a href=
-        "docs/corda-os/4.6/node-database.html">Understanding the
-        node database</a></li>
+        "docs/corda-os/4.6/node-database-tables.html">Database tables</a></li>
 
         <li><a href=
         "docs/corda-os/4.6/node-flow-hospital.html">Flow
@@ -553,7 +560,7 @@ a.button {
     <li class="item1">Concepts and Overview
 
       <ul>
-        <li><a href="doc/cenm/1.4/corda-networks.html">Corda
+        <li><a href="docs/cenm/1.4/corda-networks.html">Corda
         Networks</a></li>
 
         <li><a href=
@@ -703,10 +710,10 @@ a.button {
 
   <p>The remaining tutorials cover individual platform features
   in isolation. They don't depend on the code from the <em>Hello,
-  World!</em> tutorials, and can be read in any order.</p>
+  World</em> tutorials, and can be read in any order.</p>
 
   <ul class="grid-container">
-    <li class="area1">Hello, World!
+    <li class="area1">Hello, World
 
       <ol>
         <li><a href=
@@ -786,7 +793,7 @@ a.button {
 <div id="featured" class="tabcontent">
   <h2>Featured apps</h2>
 
-  <p>Explore the documentation for some of Corda's most popular features, apps, and tools.</p>
+  <p>Explore the documentation for some of Corda's most popular features, apps and tools.</p>
 
   <ul class="grid-container">
     <li class="item1">
@@ -801,7 +808,7 @@ a.button {
 
         <li><a href=
         "docs/corda-enterprise/4.6/cordapps/token-diamond-example.html">
-        Tokens SDK walkthrough - a diamond as an evolvable token</a></li>
+        Tokens SDK walkthrough - a diamond as an evovable token</a></li>
       </ul>
     </li>
     <li class="item2">
@@ -823,7 +830,7 @@ a.button {
 </div>
 <div id="training" class="tabcontent">
     <h2>Training</h2>
-    <p>For more information about Corda training, please visit <a href="https://training.corda.net/">Corda Training</a>.</p>
+    <p>For more inforation about Corda training, please visit <a href="https://training.corda.net/">Corda Training</a>.</p>
 </div>
 <!--<div id="security" class="tabcontent">
     <h2>Security Advisories</h2>
