@@ -254,22 +254,21 @@ Allows fine-grained controls of various features only available in the enterpris
   * `trustStorePassword`
     * The password for TLS TrustStore.
     * *Default:* not defined
-  * `messagingServerConnectionConfiguration`
-    * Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 initial connect attempts, 5 reconnect attempts in case of failure, starting retry interval of 5 seconds with an exponential back-off multiplier of 1.5 for up to 3 minutes retry interval),
-    * FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).
-    * *Default:* DEFAULT
-  * `messagingServerBackupAddresses`
-    * List of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.
-    * *Default:* empty list
-  * `artemisCryptoServiceConfig`
-    * This is an optional crypto service configuration which will be used for HSM TLS signing when interacting with the Artemis message server.
-    * This option only makes sense when running a standalone Artemis messaging server to connect to the Bridge.
-    * If this option is missing, the local file system will be used to store private keys inside `JKS` key stores.
-    * `cryptoServiceName`
-      * The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc.
-    * `cryptoServiceConf`
-      * Absolute path to HSM provider specific configuration which will contain everything necessary to establish connection with HSM.
-      * *Default:* Not present so local file system is used.
+* `messagingServerConnectionConfiguration`
+  * Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 initial connect attempts, 5 reconnect attempts in case of failure, starting retry interval of 5 seconds with an exponential back-off multiplier of 1.5 for up to 3 minutes retry interval),
+  * FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).
+  * *Default:* DEFAULT
+* `messagingServerBackupAddresses`
+  * List of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.
+  * *Default:* empty list
+* `artemisCryptoServiceConfig`
+  * This is an optional crypto service configuration which will be used for HSM TLS signing when interacting with the Artemis message server.
+  * This option only makes sense when `messagingServerSslConfiguration` is specified: either to connect to a standalone Artemis messaging server, or when external Bridge is configured. If this option is missing, the local file system will be used to store private keys inside JKS key stores, as defined by `messagingServerSslConfiguration`.
+  * `cryptoServiceName`
+    * The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc.
+  * `cryptoServiceConf`
+    * Absolute path to HSM provider specific configuration which will contain everything necessary to establish connection with HSM.
+    * *Default:* Not present so local file system is used.
 * `attachmentClassLoaderCacheSize`
   * This field can be used to configure the attachments class loader cache size - this is the number of attachments per cache. This cache caches the class loaders used to store the transaction attachments.
   * *Default:* The default value is `256` attachments per cache.
