@@ -2,57 +2,833 @@
 <html{{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
     {{ partial "head.html" . }}
 
+<style type="text/css">
+
+
+ul.grid-container {
+  display: grid;
+  grid-gap:10px;
+  padding:10px;
+}
+
+ul.grid-container {
+  grid-template-areas:
+    'tl tm tr'
+    'ml mm mr'
+    'bl bm br'
+    'fl fm fr';
+}
+ul.grid-container li {
+  list-style-type: none;
+  border: 2px solid rgb(30,36,65);
+  padding: 0.5em;
+  border-radius: 0.75em;
+}
+
+ul.grid-container ol li {
+  list-style-type: decimal;
+}
+
+ul.grid-container li li {
+  border-style: none;
+  padding:0;
+}
+
+ul.grid-container a:link, ul.grid-container a:visited, a:link, a:visited {
+  color:rgb(30,36,65);
+}
+
+ul.grid-container a:hover, a:hover {
+  text-decoration:underline;
+}
+ul.grid-container li li a:link, ul.grid-container li li a:visited {
+  color: rgb(86,91,113);
+}
+
+li.area1 {
+  grid-area:tl;
+}
+li.area2 {
+  grid-area:tr;
+}
+li.area2 ul {
+  column-count: 2
+}
+li.item1 {
+  grid-area:tl;
+        }
+li.item2 {
+  grid-area:tm;
+        }
+li.item3 {
+  grid-area:tr;
+        }
+li.item4 {
+  grid-area:ml;
+        }
+li.item5 {
+  grid-area:mm;
+        }
+li.item6 {
+  grid-area:mr;
+        }
+li.item7 {
+  grid-area:bl;
+        }
+li.item8 {
+  grid-area:bm;
+        }
+li.item9 {
+  grid-area:br;
+        }
+li.item10 {
+  grid-area:fl
+}
+
+a.button {
+  display:block;
+  border: 2px solid rgb(30,36,65);
+  padding: 0.5em;
+  border-radius: 0.75em;
+  background-color: rgb(30,36,65);
+  color: white;
+  font-weight: bold;
+  margin-top:1em;
+}
+
+        /* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid rgb(30,36,65);
+  border-radius: 0.75em 0.75em 0 0;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: rgb(86,91,113);
+  color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid rgb(30,36,65);
+  border-top: none;
+  border-radius: 0 0 0.75em 0.75em;
+  padding-left:15%;
+  padding-right:15%;
+  padding-bottom: 2%;
+}
+
+.initial {
+  display:block;
+}
+
+@media (max-width: 1200px){
+  ul.grid-container {
+    grid-template-areas:
+      'tl'
+      'tm'
+      'tr'
+      'ml'
+      'mm'
+      'mr'
+      'bl'
+      'bm'
+      'br'
+      'fl'
+      'fm'
+      'fr';
+  }
+  li.area2 ul {
+    column-count: 1
+  }
+
+}
+
+</style>
+
     <body>
+      <!-- https://www.w3schools.com/howto/howto_js_tabs.asp -->
+          <script type="text/javascript">
+            function openSection(evt, section) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(section).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+          </script>
+      <!-- Most of this content should probably be in content/en/_index.md -->
         <noscript>You need to enable javascript for this site</noscript>
         {{- partial "cookie-banner.html" . -}}
         {{- partial "header.html" . -}}
-        <div class="r3-o-landing r3-o-landing__container">
-            <div class="r3-o-row">
-                <div class="r3-o-landing__image-wrapper r3-o-col-8 r3-o-col-md-6">
-                    <img src="images/png/corda-docs.png" alt="corda-docs" />
-                </div>
-                <div class="r3-o-landing__content-wrapper r3-o-col-8 r3-o-col-md-6">
-                    <h5>{{ .Page.Params.header }}</h5>
-                    <p>{{ .Page.Params.tagline }}</p>
-                    <div class="corda-buttons">
-                        <a class="corda" href="{{ relref . .Page.Params.target_corda_os }}">
-                            <span>Corda</span>
-                        </a>
-                        <a class="github" href="{{ relref . .Page.Params.target_corda_enterprise }}">
-                            <span>Corda Enterprise</span>
-                        </a>
-                        <a class="github" href="{{ relref . .Page.Params.target_cenm }}">
-                            <span>Corda Enterprise Network Manager</span>
-                        </a>
-                        <a class="github" href="https://training.corda.net" target=new>
-                            <span>Corda <br/> Training</span>
-                        </a>
+        <main style="margin: 1em;">
+            <!--The above inline style should never make it into production-->
+                    <h1>{{ .Page.Params.header }}</h1>
+                    <div>
+                      <form id="site-search-form" action="" role="search" class="r3-o-search">
+                        <input type="search" id="search-input" class="form-control" placeholder="Search all the docs..." name="search-input" value=""/>
+                      </form>
                     </div>
-                </div>
-            </div>
-            <div id="popup" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <p>We’re giving our documentation a refresh. You might notice a few changes to the look and
-                                feel, and these updates will continue over the coming months. Don’t worry – all the docs
-                                will still be here when you need them.</p>
-                            <p>docs.corda.net is now the home of all Corda product
-                                documentation (Corda OS, Corda Enterprise, and Corda Enterprise Network Manager).</p>
-                            <p>The biggest changes for now are behind the scenes – we’re making it easier and faster to
-                                give
-                                you new documentation when it’s needed.</p>
-                            <p>We hope you like it – stay tuned for more updates in the near future.</p>
-                        </div>
+<div class="tab">
+  <button class="tablinks active" onclick="openSection(event, 'home')">Home</button>
+  <button class="tablinks" onclick="openSection(event, 'os')">Corda</button>
+  <button class="tablinks" onclick="openSection(event, 'enterprise')">Corda Enterprise</button>
+  <button class="tablinks" onclick="openSection(event, 'cenm')">CENM</button>
+  <button class="tablinks" onclick="openSection(event, 'tutorials')">Tutorials</button>
+  <button class="tablinks" onclick="openSection(event, 'training')">Training</button>
+  <!-- <button class="tablinks" onclick="openSection(event, 'refapps')">Reference Applications</button>-->
+  <button class="tablinks" onclick="openSection(event, 'featured')">Featured apps</button>
+  <!-- <button class="tablinks" onclick="openSection(event, 'security')">Security Advisories</button> -->
+</div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<div id="home" class="tabcontent initial">
+  <h2>Corda Documentation</h2>
+  <p>{{ .Page.Params.tagline }}</p>
+</div>
+
+<div id="os" class="tabcontent">
+  <h2>Corda</h2>
+
+  <p>Access the documentation for Corda - our open-source blockchain platform.</p>
+
+  <ul class="grid-container">
+    <li class="item1">
+      <a href=
+      "/docs/corda-os/4.6/cordapp-overview.html">Developing
+      CorDapps</a>
+
+      <ul>
+        <li><a href=
+        "/docs/corda-os/4.6/getting-set-up.html">Getting setup
+        for CorDapp development</a></li>
+
+        <li><a href=
+        "/docs/corda-os/4.6/tutorial-cordapp.html">Running an
+        example CorDapp</a></li>
+
+        <li><a href=
+        "/docs/corda-os/4.6/writing-a-cordapp.html">CorDapp
+        structure and format</a></li>
+
+        <li><a href=
+        "/docs/corda-os/4.6/cordapp-overview.html">Read
+        more....</a></li>
+      </ul>
+    </li>
+
+    <li class="item2">
+      <a href=
+      "docs/corda-os/4.6/introduction/cordanodeadmin.html">Administering
+      a Corda Node</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-os/4.6/node-database.html">Understanding the
+        node database</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/node-flow-hospital.html">Flow
+        hospital</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/introduction/cordanodeadmin.html">Read
+        more...</a></li>
+      </ul>
+    </li>
+
+    <li class="item3">
+      <a href=
+      "docs/corda-os/4.6/introduction/assetissuer.html">Issuing
+      an asset</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-os/4.6/token-sdk-introduction.html">Tokens
+        SDK</a></li>
+
+        <li><a href="docs/corda-os/4.6/api-states.html">Writing
+        CorDapp States</a></li>
+
+        <li><a href="docs/corda-os/4.6/api-flows.html">Writing
+        CordDapp Flows</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/api-vault-query.html">Writing vault
+        queries</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/api-transactions.html">Understanding
+        transactions</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/introduction/assetissuer.html">Read
+        more...</a></li>
+      </ul>
+    </li>
+
+    <li class="item4">
+      <a href=
+      "docs/corda-os/4.6/introduction/networkparticipant.html">Participating
+      in a network</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-os/4.6/api-transactions.html">Understanding
+        transactions</a></li>
+
+        <li><a href="docs/corda-os/4.6/api-flows.html">Writing
+        CorDapp Flows</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/introduction/networkparticipant.html">Read
+        more...</a></li>
+      </ul>
+    </li>
+
+    <li class="item5">
+      <a href="docs/corda-os/4.6/introduction/bno.html">Business
+      Network Operator (BNO)</a>
+
+      <ul>
+        <li><a href="docs/corda-os/4.6/network-map.html">Network
+        map</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/permissioning.html">Network
+        certificates</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/introduction/bno.html">Read
+        more...</a></li>
+      </ul>
+    </li>
+  </ul><a class="button" href="/docs/corda-os/4.6.html">All Corda
+  4.6 Documentation</a> <a class="button" href=
+  "/docs/corda-os/4.6/release-notes.html">Corda 4.6
+  release notes</a>
+</div>
+
+<div id="enterprise" class="tabcontent">
+  <h2>Corda Enterprise</h2>
+
+  <p>Access documentation for the commercial edition of Corda - a platform optimised to meet the privacy, security
+  and efficiency demands of business in a connected world.</p>
+
+  <ul class="grid-container">
+    <li class="item1">
+      <a href=
+      "/docs/corda-enterprise/4.6/cordapps/cordapp-overview.html">
+      Developing CorDapps</a>
+
+      <ul>
+        <li><a href=
+        "/docs/corda-enterprise/4.6/cordapps/getting-set-up.html">
+        Getting setup for CorDapp development</a></li>
+
+        <li><a href=
+        "/docs/corda-enterprise/4.6/cordapps/tutorial-cordapp.html">
+        Running an example CorDapp</a></li>
+
+        <li><a href=
+        "/docs/corda-enterprise/4.6/cordapps/writing-a-cordapp.html">
+        CorDapp structure and format</a></li>
+
+        <li><a href=
+        "/docs/corda-enterprise/4.6/cordapps/cordapp-overview.html">
+        Read more....</a></li>
+      </ul>
+    </li>
+
+    <li class="item2">
+      <a href=
+      "docs/corda-enterprise/4.6/introduction/cordanodeadmin.html">
+      Administering a Corda Node</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/component-topology.html">Understanding
+        the node</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/operating/node-database.html">
+        Understanding the node database</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/operating/cryptoservice-configuration.html">
+        Using an HSM with Corda Enterprise</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/operating/cm-backup.html">
+        Backup and restoration of a Corda node</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/node-metrics.html">Node
+        metrics</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/operating/monitoring-logging.html">
+        Node monitoring and logging</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/health-survey.html">Health
+        survey tool</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/metering-collector.html">Metering
+        collection tool</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/node-flow-hospital.html">Flow
+        hospital</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/corda-firewall-component.html">
+        Firewall component overview</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/introduction/cordanodeadmin.html">
+        Read more...</a></li>
+      </ul>
+    </li>
+
+    <li class="item3">
+      <a href=
+      "docs/corda-enterprise/4.6/introduction/assetissuer.html">Issuing
+      an asset</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-enterprise/4.6/cordapps/token-sdk-introduction.html">
+        Tokens SDK</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/cordapps/api-states.html">Writing
+        CorDapp States</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/cordapps/api-flows.html">Writing
+        CordDapp Flows</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/cordapps/api-vault-query.html">
+        Writing vault queries</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/cordapps/api-transactions.html">
+        Understanding transactions</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/introduction/assetissuer.html">
+        Read more...</a></li>
+      </ul>
+    </li>
+
+    <li class="item4">
+      <a href=
+      "docs/corda-enterprise/4.6/introduction/networkparticipant.html">
+      Participating in a network</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-enterprise/4.6/cordapps/api-transactions.html">
+        Understanding transactions</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/cordapps/api-flows.html">Writing
+        CorDapp Flows</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/introduction/networkparticipant.html">
+        Read more...</a></li>
+      </ul>
+    </li>
+
+    <li class="item5">
+      <a href=
+      "docs/corda-enterprise/4.6/introduction/bno.html">Business
+      Network Operator (BNO)</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-enterprise/4.6/network/corda-networks.html">Understanding
+        Corda Networks</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/network/network-map.html">Network
+        map</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/notary/ha-notary-service-overview.html">
+        Corda Enterprise notary service overview</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/pki-tool.html">Public Key
+        Infrastructure (PKI) Tool</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/pki-guide.html">Certificate
+        Hierarchy Guide</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/network/permissioning.html">Network
+        certificates</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/introduction/bno.html">Read
+        more...</a></li>
+      </ul>See also: <a href="docs/cenm/1.4.html">Corda
+      Enterprise Network Manager</a>
+    </li>
+
+    <li class="item6">
+      <a href=
+      "docs/corda-enterprise/4.6/operations/ops-index.html">Network
+      operator</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-enterprise/4.6/operations/project-planner/corda-planning.html">
+        Corda for project planners</a></li>
+
+        <li><a href=
+        "/docs/corda-enterprise/4.6/operations/deployment/deployment.html">
+        Corda deployment</a></li>
+
+        <li><a href=
+        "/docs/corda-enterprise/4.6/operations/monitoring-logging/monitoring-logging-intro.html">
+        Monitoring and logging</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/operations/ops-index.html">Read
+        more....</a></li>
+      </ul>
+    </li>
+  </ul><a class="button" href=
+  "/docs/corda-enterprise/4.6.html">All Corda Enterprise 4.6
+  Documentation</a> <a class="button" href=
+  "/docs/corda-enterprise/4.6/release-notes-enterprise.html">Corda
+  Enterprise 4.6 release notes</a>
+</div>
+
+<div id="cenm" class="tabcontent">
+  <h2>CENM</h2>
+
+  <p>The Corda Enterprise Network Manager (CENM) is a commercial product that allows you to run your own Corda network. Access the documentation to install and operate all aspects of deployment, operation, and consensus rules.</p>
+
+  <ul class="grid-container">
+    <li class="item1">Concepts and Overview
+
+      <ul>
+        <li><a href="doc/cenm/1.4/corda-networks.html">Corda
+        Networks</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/enm-components.html">Components of the
+        Corda Enterprise Network Manager</a></li>
+
+        <li><a href="docs/cenm/1.4/sub-zones.html">Sub
+        Zones</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/network-map-overview.html">Network Map
+        Overview</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/certificate-revocation.html">Certificate
+        Revocation List</a></li>
+      </ul>
+    </li>
+
+    <li class="item2">CENM Releases
+
+      <ul>
+        <li><a href="docs/cenm/1.4/release-notes.html">Release
+        notes</a></li>
+
+        <li><a href="docs/cenm/1.4/legal-info.html">Third-party
+        software license information</a></li>
+      </ul>
+    </li>
+
+    <li class="item3">Operations
+
+      <ul>
+        <li><a href=
+        "docs/cenm/1.4/deployment-kubernetes.html">CENM
+        Deployment with Docker, Kubernetes, and Helm
+        charts</a></li>
+
+        <li><a href="docs/cenm/1.4/angel-service.html">Angel
+        Service</a></li>
+
+        <li><a href="docs/cenm/1.4/auth-service.html">Auth
+        service</a></li>
+
+        <li><a href="docs/cenm/1.4/gateway-service.html">Gateway
+        Service</a></li>
+
+        <li><a href="docs/cenm/1.4/quick-start.html">CENM test
+        environment quick start guide</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/identity-manager.html">Identity Manager
+        Service</a></li>
+
+        <li><a href="docs/cenm/1.4/network-map.html">Network Map
+        Service</a></li>
+
+        <li><a href="docs/cenm/1.4/signing-service.html">Signing
+        and SMR Services</a></li>
+
+        <li><a href="docs/cenm/1.4/zone-service.html">Zone
+        Service</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/updating-network-parameters.html">Updating
+        the network parameters</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/obfuscated-config-file-changes.html">Obfuscated
+        configuration file changes</a></li>
+
+        <li><a href="docs/cenm/1.4/upgrade-notes.html">Upgrading
+        Corda Enterprise Network Manager</a></li>
+
+        <li><a href="docs/cenm/1.4/database-set-up.html">CENM
+        Databases</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/troubleshooting-common-issues.html">Troubleshooting
+        Common Issues</a></li>
+
+        <li><a href="docs/cenm/1.4/cenm-support-matrix.html">CENM
+        support matrix</a></li>
+      </ul>
+    </li>
+
+    <li class="item4">Configuration
+
+      <ul>
+        <li><a href=
+        "docs/cenm/1.4/config-identity-manager-parameters.html">Identity
+        Manager Configuration Parameters</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/config-network-map-parameters.html">Network
+        Map Configuration Parameters</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/config-network-parameters.html">Network
+        Parameters</a></li>
+
+        <li><a href="docs/cenm/1.4/enm-with-ssl.html">Configuring
+        the CENM services to use SSL</a></li>
+
+        <li><a href=
+        "docs/cenm/1.4/workflow.html">Workflow</a></li>
+      </ul>
+    </li>
+
+    <li class="item5">Tools &amp; Utilities
+
+      <ul>
+        <li><a href="docs/cenm/1.4/tools-index.html">Tools and
+        utilities</a></li>
+
+        <li><a href="docs/cenm/1.4/shell.html">Embedded
+        Shell</a></li>
+      </ul>
+    </li>
+
+    <li class="item6">Public Key Infrastructure
+
+      <ul>
+        <li><a href="docs/cenm/1.4/pki-guide.html">Certificate
+        Hierarchy Guide</a></li>
+      </ul>
+    </li>
+
+    <li class="item7">Signing Plugin Samples
+
+      <ul>
+        <li><a href="docs/cenm/1.4/ejbca-plugin.html">EJBCA
+        Sample Plugin</a></li>
+      </ul>
+    </li>
+  </ul><a class="button" href="docs/cenm/1.4.html">All CENM 1.4
+  Documentation</a> <a class="button" href=
+  "docs/cenm/1.4/release-notes.html">CENM 1.4 release notes</a>
+</div>
+
+<div id="tutorials" class="tabcontent">
+  <h2>Tutorials</h2>
+
+  <p>The <em>Hello, World!</em> tutorials should be followed in
+  sequence and show how to extend the Java or Kotlin CorDapp
+  Template into a full CorDapp.</p>
+
+  <p>The remaining tutorials cover individual platform features
+  in isolation. They don't depend on the code from the <em>Hello,
+  World</em> tutorials, and can be read in any order.</p>
+
+  <ul class="grid-container">
+    <li class="area1">Hello, World
+
+      <ol>
+        <li><a href=
+        "docs/corda-os/4.6/hello-world-introduction.html">Hello,
+        World!</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/tut-two-party-introduction.html">Hello,
+        World! Pt 2 - Contract Constraints</a></li>
+      </ol>
+    </li>
+
+    <li class="area2">Other tutorials
+
+      <ul>
+        <li><a href=
+        "docs/corda-os/4.6/tutorial-contract.html">Writing a
+        contract</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/tutorial-test-dsl.html">Writing a
+        contract test</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/contract-upgrade.html">Upgrading
+        contracts</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/tutorial-integration-testing.html">Integration
+        testing</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/tutorial-clientrpc-api.html">Using the
+        client RPC API</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/tutorial-building-transactions.html">Building
+        transactions</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/flow-state-machines.html">Writing
+        flows</a></li>
+
+        <li><a href="docs/corda-os/4.6/flow-testing.html">Writing
+        flow tests</a></li>
+
+        <li><a href="docs/corda-os/4.6/oracles.html">Writing
+        oracle services</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/tutorial-custom-notary.html">Writing a
+        custom notary service (experimental)</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/tutorial-tear-offs.html">Transaction
+        tear-offs</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/tutorial-attachments.html">Using
+        attachments</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/event-scheduling.html">Event
+        scheduling</a></li>
+
+        <li><a href=
+        "docs/corda-os/4.6/tutorial-observer-nodes.html">Observer
+        nodes</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--<div id="refapps" class="tabcontent">
+    <h2>Reference Applications</h2>
+  </div>-->
+
+<div id="featured" class="tabcontent">
+  <h2>Featured apps</h2>
+
+  <p>Explore the documentation for some of Corda's most popular features, apps and tools.</p>
+
+  <ul class="grid-container">
+    <li class="item1">
+      <a href=
+      "docs/corda-enterprise/4.6/cordapps/token-sdk-introduction.html">
+      Tokens SDK</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-enterprise/4.6/cordapps/token-selection.html">
+        Selection in the Tokens SDK</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/cordapps/token-diamond-example.html">
+        Tokens SDK walkthrough - a diamond as an evovable token</a></li>
+      </ul>
+    </li>
+    <li class="item2">
+      <a href=
+      "docs/corda-enterprise/4.6/node/collaborative-recovery/introduction-cr.html">
+      Collaborative Recovery</a>
+
+      <ul>
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/collaborative-recovery/business-network-integration.html">
+        Add collaborative recovery to your Business Network</a></li>
+
+        <li><a href=
+        "docs/corda-enterprise/4.6/node/collaborative-recovery/ledger-sync.html">
+        The LedgerSync CorDapp</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div id="training" class="tabcontent">
+    <h2>Training</h2>
+    <p>For more inforation about Corda training, please visit <a href="https://training.corda.net/">Corda Training</a>.</p>
+</div>
+<!--<div id="security" class="tabcontent">
+    <h2>Security Advisories</h2>
+  </div>-->
+        </main>
         <footer>
             <div>
                 <p>

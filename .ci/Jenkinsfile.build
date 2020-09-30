@@ -38,6 +38,31 @@ switch (env.BRANCH_NAME) {
         config = new Configuration('docsite-dev', 'docsite-preview', 'docs-preview.dev.r3.corda.internal', false, "preview")
         break
 }
+if(params.PREVIEW != null) {
+    switch (params.PREVIEW) {
+        case 'default':
+            break
+        case 'tolkien':
+            config = new Configuration('docsite-dev', 'docsite-preview-tolkien', 'docs-preview.dev.r3.corda.internal', false, "tolkien")
+            break
+        case 'borges':
+            config = new Configuration('docsite-dev', 'docsite-preview-borges', 'docs-preview.dev.r3.corda.internal', false, "borges")
+            break
+        case 'seel':
+            config = new Configuration('docsite-dev', 'docsite-preview-seel', 'docs-preview.dev.r3.corda.internal', false, "seel")
+            break
+        case 'baldwin':
+            config = new Configuration('docsite-dev', 'docsite-preview-baldwin', 'docs-preview.dev.r3.corda.internal', false, "baldwin")
+            break
+        case 'rooney':
+            config = new Configuration('docsite-dev', 'docsite-preview-rooney', 'docs-preview.dev.r3.corda.internal', false, "rooney")
+            break
+        case 'banks':
+            config = new Configuration('docsite-dev', 'docsite-preview-banks', 'docs-preview.dev.r3.corda.internal', false, "banks")
+            break
+    }
+}
+
 config.branch = env.BRANCH_NAME
 
 def MAKE_PARAMS = [
@@ -54,6 +79,7 @@ pipeline {
 
     parameters {
         booleanParam defaultValue: config.defaultPublish, description: 'Publishing Docsite Docker image?', name: 'DO_PUBLISH'
+        choice(name: 'PREVIEW', choices: 'default\ntolkien\nborges\nseel\nbaldwin\nrooney\nbanks', description: 'Preview site')
     }
 
     environment {
