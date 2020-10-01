@@ -172,9 +172,6 @@ echo --Done
 
     create database if not exists $CORDA_SCHEMA;
 
-    grant admin to corda;
-    grant all on database $CORDA_SCHEMA to corda;
-
     create table $CORDA_SCHEMA.notary_committed_states (
         state_ref varchar(73) not null,
         consuming_transaction_id varchar(64) not null,
@@ -204,6 +201,14 @@ echo --Done
         constraint id4 primary key (state_ref, consuming_transaction_id),
         index (state_ref, request_timestamp, consuming_transaction_id)
         );
+
+    create user if not exists corda;
+
+    grant select on database $CORDA_SCHEMA to corda;
+    grant insert on database $CORDA_SCHEMA to corda;
+
+    grant select on table $CORDA_SCHEMA.* to corda;
+    grant insert on table $CORDA_SCHEMA.* to corda;
 
     select 'CONVERTING notary_committed_states' as status;
 
@@ -240,7 +245,7 @@ echo --Done
         CONCAT('$UUID', TO_HEX(r.request_id)) as id,
         ENCODE(r.consuming_transaction_id, 'hex') as consuming_transaction_id,
         r.requesting_party_name as requesting_party_name,
-        TIMEZONE(r.request_date, 'UTC') as request_date,
+        r.request_date::timestamp as request_date,
         r.request_signature as request_signature,
         r.worker_node_x500_name as worker_node_x500_name
     from
@@ -270,6 +275,7 @@ echo --Done
 
     COCKROACH_FIRST_NODE=${COCKROACH_NODES%% *}
     CORDA_SCHEMA=corda
+    COCKROACH_ROOT=/opt/cockroachdb
 
     echo PERCONA
 
