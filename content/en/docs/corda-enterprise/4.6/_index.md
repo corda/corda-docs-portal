@@ -27,7 +27,7 @@ transactions that consumes any of the proposed transaction’s input states.
 
 * For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.6 release notes](release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
 * For all Corda open source release notes, see the [Corda release notes](../../corda-os/4.6/release-notes.md) page.
-* For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../cenm/1.4/release-notes.m) page.
+* For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../cenm/1.4/release-notes.md) page.
 {{< /note >}}
 
 ## Corda Enterprise
