@@ -97,7 +97,7 @@ Node operators can now use the Multi RPC client to interact with a Corda Enterpr
 All of these interfaces are located in the `:client:extensions-rpc` module. Corda Enterprise customers can extend these interfaces to add custom, user-defined functionality to help manage their Corda Enterprise nodes.
 
 {{< note >}}
-`COMPLETED`, `FAILED` and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using [a unique client-provided ID](#ability-to-prevent-duplicate-flow-starts-and-retrieve-the-status-of-started-flows).
+`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using [a unique client-provided ID](#ability-to-prevent-duplicate-flow-starts-and-retrieve-the-status-of-started-flows).
 {{< /note >}}
 
 For more information, see the [Interacting with a node](node/operating/clientrpc.md) documentation section or see [MultiRPCClient](https://api.corda.net/api/corda-enterprise/4.6/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
@@ -326,7 +326,7 @@ For more information, see [Node configuration reference](node/setup/corda-config
 
 Notary data stored in a Percona database can now be migrated to Cockroach DB.
 
-For more information, see [Upgrading a notary](notary/upgrading-a-notary.md).
+For more information, see [Importing Percona notary data to CockroachDB](notary/upgrading-a-notary.md).
 
 ### Notary identity configuration
 

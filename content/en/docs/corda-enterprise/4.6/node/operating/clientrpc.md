@@ -350,6 +350,10 @@ To interact with your node via any of the following interfaces, you need to buil
 All of these interfaces are located in the `:client:extensions-rpc` module.
 
 {{< note >}}
+`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using a unique, client-provided ID. For more information, see [Starting a flow with a client-provided unique ID](../../flow-start-with-client-id.md).
+{{< /note >}}
+
+{{< note >}}
 `CordaRPCClient` enables you to interact with the `CordaRPCOps` remote interface. However, if you intend to interact with any of the other remote interfaces that the Corda Enterprise provides, you need to build a client that uses the [MultiRPCClient](https://api.corda.net/api/corda-enterprise/4.6/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class.
 {{< /note >}}
 
