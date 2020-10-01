@@ -117,7 +117,7 @@ output all tasks that can be run along with their schedule, if applicable.
 
 ### Performing a health check
 
-To verify that all configured CENM data sources or a single SMR Service data source are reachable by the Signing Service, a health check can be performed
+To verify that all configured CENM data sources are reachable by the Signing Service, a health check can be performed
 by running the `run clientHealthCheck`. This will iteratively run through each service, sending a simple ping message
 and verifying a successful response. Any unsuccessful connection attempts will be displayed to the console. This method
 is especially useful after the initial setup to verify that the Signing and CENM services have been configured
@@ -131,7 +131,6 @@ The configuration for the Signing Service consists of the following sections:
 
 * The [global configuration options](#global-configuration-options) (interactive shell and optional default certificate store)
 * The [signing keys](#signing-keys) that are used across all signing tasks
-* The [direct CENM Service Locations](#direct-cenm-service-locations) data sources or [indirect data source via SMR Service Location](#indirect-data-source-via-smr-service-location) that are used across all signing tasks
 * The [signing tasks](#signing-tasks) that can be run through the service
 
 
@@ -266,46 +265,8 @@ You must configure a service location for each signing task. The tasks retrieve
 unsigned material from these defined locations, and then push the signed material back to the
 same location once signed.
 
-Service locations either directly connect to the service which manages the material
-(i.e. CSRs, Network Map) or via the SMR Service (which enables routing different
-material to different services via plugins).
-
-#### Direct CENM service locations
-
-Typically pairs of Network Map and Network Parameters signing tasks will share the same Network Map
-Service, and likewise CSR and CRL singing tasks will share a common Identity Manager Service. To make this
-simpler, service locations are configured as a map of service location aliases (referenced by the
-signing task configuration) to CENM service locations.
-
-The Zone Service provides these service locations automatically from the configured locations of Identity Manager
-and Network Map Services. These service locations use aliases with a well-defined syntax, as follows:
-
-* Identity Manager Service issuance workflow: `issuance`
-* Identity Manager Service revocation workflow: `revocation`
-* Network Map Service: `network-map-<subzone ID>`
-
-{{< note >}}
-Communication with the configured service locations can be configured to use SSL for a secure, encrypted
-connection. This is strongly recommended for production deployments. See [Configuring the CENM services to use SSL](enm-with-ssl.md) for more
-information.
-
-{{< /note >}}
-
-#### Indirect data source via SMR Service Location
-
-For all CA related signing tasks (CSRs and CRLs), a global data source for getting the unsigned data and persisting the
-signed data needs to be defined. This is CENM location of CA related part of Signable Material Retriever Service.
-
-For all non CA related signing tasks (Network Maps and Network Parameters), a global data source for getting the unsigned
-data and persisting the signed data needs to be defined. This is CENM location of non CA related part of Signable
-Material Retriever Service.
-
-{{< note >}}
-Communication with the configured SMR Service location can be configured to use SSL for a secure, encrypted
-connection. This is strongly recommended for production deployments. See [Configuring the CENM services to use SSL](enm-with-ssl.md) for more
-information.
-
-{{< /note >}}
+Service locations directly connect to the service, which manages the material
+(CSRs, Network Map).
 
 #### Signing Tasks
 
@@ -313,8 +274,8 @@ This configuration section defines each signing task that can be run via the ser
 entry to the `signers` configuration map, keyed by the human-readable alias for the task (used when interacting with
 the service via shell). The value for the entry consists of the configuration options specific to that task such as the
 signing key and data source that is uses (using the previously defined aliases in the `signingKeys` and
-`serviceLocations` configuration parameters, or in `materialManagementTasks` when SMR Service is used), data type specific options such as the CSR validity period as well as
-schedule if applicable.
+`serviceLocation` configuration parameters and an optional `plugin` parameter if the task requires a plug-in for signing),
+data type specific options such as the CSR validity period as well as schedule if applicable.
 
 Each signing task maps to exactly one of four possibly data types:
 
@@ -324,6 +285,15 @@ Each signing task maps to exactly one of four possibly data types:
 * **Network Map** - building and signing a new Network Map.
 * **Network Parameters** - signing new Network Parameters and Network Parameter Updates.
 
+#### Using a Signing plugin
+
+Each entry in the `signers` map can use a plug-in for signing. If the `plugin` configuration property is defined
+the material will be retrieved from the matching service (Identity Manager or Network Map) and it will be sent
+to the plug-in for signing.
+
+The rest depends on the plug-in's architecture. The only contract between the Signing Service and its plug-ins
+that the returned signing data must be a pre-defined type. For more information about these types, see the
+[Developing Signing Plugins](#developing-signing-plugins) section.
 
 #### Scheduling Signing tasks
 
@@ -482,11 +452,13 @@ it will not be used at all.
 
 
   * **timeout**
-  An optional parameter that enables you to set a Signing Service timeout for communication to each of the services used within the signing processes defined in the signers map, in a way that allows high node count network maps to get signed and to operate at reliable performance levels. The `timeout` value is set in milliseconds and the default value is 10000 milliseconds. The example below shows a `serviceLocations` configuration block for the Network Map Service using the `timeout` parameter:
+  An optional parameter that enables you to set a Signing Service timeout for communication to each of the services used within the signing processes defined in the signers map, in a way that allows high node count network maps to get signed and to operate at reliable performance levels.
+  The `timeout` value is set in milliseconds and the default value is 10000 milliseconds.
+  The example below shows a `serviceLocation` configuration block for the Network Map Service using the `timeout` parameter:
 
   ```yaml
-  serviceLocations = {
-      "network-map" = {
+  serviceLocation = [
+      {
                host = http://example.com
                port = 10000
                ssl = {
@@ -502,13 +474,8 @@ it will not be used at all.
                }
                timeout = 10000
            }
-  }
+  ]
   ```
-
-  {{< note >}}The `timeout` parameter's value is stored in a new column in the [Zone Service](zone-service.md)'s database tables `socket_config` and `signer_config` called `timeout`. This value can remain `null` (for example, if `timeout` is not defined in `serviceLocations`), in which case the default 10000 milliseconds value (`timeout = 10000`) will be used wherever applicable. Please note that currently, due to a known issue with `serviceLocations`, when the `timeout` parameter is passed to the Zone Service via the Signing Service's `serviceLocations` configuration block, only the `timeout` value of the first `serviceLocations` location will be taken into account and used for all other service locations.{{< /note >}}
-
-
-
 
 
 * **signers**:
@@ -807,6 +774,10 @@ serviceLocation = [
 
 Only the host and port are mandatory, the rest of the properties are optional.
 When using a CSR or CRL task please make sure that no `subZoneId` is provided since that is only valid when using a Network Map.
+{{< note >}}
+Please note that this configuration might lead to duplication. For example, for Network Parameters
+and Network Map signing tasks, the `serviceLocation` property will probably be the same.
+{{< /note >}}
 
 * **crlDistributionPoint**:
 Relevant only if type is `CRL` or `CSR` (optional for `CSR`). The endpoint that the CRL is
@@ -904,7 +875,8 @@ signers = {
     "Example CSR Signer" = {
         type = CSR
         signingKeyAlias = "IdentityManagerLocal"
-        serviceLocationAlias = "identity-manager"
+        serviceLocation = [
+        ]
         crlDistributionPoint = "http://localhost:10000/certificate-revocation-list/doorman"
         validDays = 7300 # 20 year certificate expiry
         schedule {
@@ -921,7 +893,6 @@ signers = {
     "Example CRL Signer" = {
         type = CRL
         signingKeyAlias = "IdentityManagerLocal"
-        serviceLocationAlias = "revocation"
         crlDistributionPoint = "http://localhost:10000/certificate-revocation-list/doorman"
         updatePeriod = 86400000 # 1 day CRL expiry
         schedule {
@@ -938,7 +909,6 @@ signers = {
     "Example Network Map Signer" = {
         type = NETWORK_MAP
         signingKeyAlias = "NetworkMapLocal"
-        serviceLocationAlias = "network-map-1"
         schedule {
             interval = 1minute
         }
@@ -954,7 +924,6 @@ signers = {
     "Example Network Parameters Signer" = {
         type = NETWORK_PARAMETERS
         signingKeyAlias = "NetworkMapLocal"
-        serviceLocationAlias = "network-map-1"
         schedule {
             interval = 10minute
         }
@@ -1498,7 +1467,7 @@ CSR submission method output:
 
 ```java
 /**
- * Signable Material Retriever (SMR) service response containing the status of a certificate signing requests (CSR).
+ * Signing Service plugin response containing the status of a certificate signing requests (CSR).
  */
 public final class CSRResponse {
 
@@ -1571,7 +1540,7 @@ CRL submission method output:
 
 ```java
 /**
- * Signable Material Retriever (SMR) service response containing the status
+ * Signing Service plugin response containing the status
  * of a certificate revocation list (CRL) request.
  */
 public final class CRLResponse {
@@ -1834,53 +1803,98 @@ public final class NMSigningData {
 ```
 
 
-### Default Signing Plugins
+### Example Signing Plugins
 
-SMR ships with plugins for the CENM provided Signing Service. The only requirement is to provide
-the plugins’ `.jar` paths, classes to instantiate and configurations.
+The Signing Service ships with example plug-ins.
+
+{{< note >}}
+Please note that these plug-ins should only be used as a base
+when developing plug-ins and they should never be used in a production environment.
+{{< note >}}
+
+Please refer to the `README` docs inside the source directories for each plug-in as they contain all the
+necessary information about the architecture and usage of those plug-ins.
+
+#### Example CA Signing Plugin
+
+The CA plugin class name to configure is always `com.r3.enm.signingserviceplugins.exampleplugin.ca.ExampleCaSigningPlugin`.
+
+The diagram below shows how the plug-in works on a high level.  
+The plug-in acts as a bridge between the Signing Service and a possible third-party signer architecture.  
+The plug-in will launch its own RPC server for the third party to connect to.
+This RPC API involves fetching (getting the signable data) and submitting (pushing the signed data back).
+
+The plug-in has an in-memory storage that acts as a database and stores two things:
+1. The requests that are signed by the third party.
+2. The requests that are ready to sign by the third party.
+
+When the user submits a request for signing to the Signing Service, it sends the signable
+data to the plug-in and returns a `PENDING` status immediately.
+The signing request is NOT persisted to the CENM services at this stage (the request is not yet considered done).
 
 
-#### CA Default Signing Plugin
+The user is informed that the signing has not finished yet, and is sent an ID for tracking.
+For a CSR request, this looks as follows:
 
-The CA plugin class name to configure is always `com.r3.enm.smrplugins.defaultplugin.ca.CASMRSigningPlugin`.
-
-This default plugin also has its own simple configuration which defines the port the SMR will bind to for the Signing
-Service to connect to.
-
-Here is example CA default plugin’s configuration:
-
-```docker
-enmListener = {
-    port = 5010
-}
 ```
+The following requests didn't sign immediately, please follow up with the provided tracking it to check the request status:
+ O=NodeA, L=London, C=GB - Tracking id: 00354917-5795-4969-96ee-ae2c4406fde3
+```
+
+In the background, the Signing Service periodically queries the plug-in to check whether the given request(s) has/have been completed.
+
+If any of the pending requests has been signed by the plug-in (so a `COMPLETED` status is returned for it), the Signing Service
+persists it to the CENM services, and the request is considered as done. As a result, in case of a CSR request for example,
+the Corda node will join the network.
+
+If any of the pending requests fails, it is not persisted and is removed from the pending requests.
+
+
+{{< figure zoom="./resources/example-ca-plugin-diagram.png" width="800" title="Example CA plug-in diagram (click to zoom)" alt="Example CA plug-in diagram" >}}
+
+An example third-party signer is also attached. It uses a Signing Service configuration to sign the
+data stored inside the example CA plug-in.
 
 {{< note >}}
 CA Plugin’s configuration file must be in the same directory as the service’s `.jar` file and must be named
-“plugin-ca.conf”
+“ca-plugin.conf”
 
 {{< /note >}}
 
-#### Non CA Default Signing Plugin
+There is an example configuration attached to the source for both the CA plug-in and the third-party Signer.
 
-The non CA plugin class name to configure is always `com.r3.enm.smrplugins.defaultplugin.nonca.NonCASMRSigningPlugin`.
+#### Non CA Example Signing Plugin
 
-This default plugin also has its own simple configuration which defines the port the SMR will bind to for the Signing
-Service to connect to.
+The non-CA plug-in's class name to configure is always `com.r3.enm.signingserviceplugins.example.nonca.ExampleNonCaSigningPlugin`.
 
-Here is example non CA default plugin’s configuration:
+The plug-in has an in-memory storage that contains two maps - one for the Network Parameters requests and another one
+for the Network Map requests. In a real-world scenario, this would be a database where the status of
+each submitted request could be stored.
 
-```docker
-enmListener = {
-    port = 5011
-}
-```
+The plug-in uses a dummy signing mechanism using the `NonCaLocalSigner` class.
 
 {{< note >}}
 Non CA Plugin’s configuration file must be in the same directory as the service’s `.jar` file and must be named
-“plugin-non-ca.conf”
-
+“non-ca-local-signer.conf”
 {{< /note >}}
+
+There is an example configuration in the `resources` directory.
+
+This configuration contains the signing key that should be used for Network Map / Network Parameters signing. The configuration
+is parsed as a Signing Service configuration for the sake of simplicity, so it contains some placeholder data.
+
+The plug-in can use HSM signing too, not just local signing -
+refer to the [Signing Service configuration](#signing-service-configuration) section for more information on how to do that
+and create the configuration accordingly.
+
+{{< note >}}
+The Network Map signing key must be aliased as `NetworkMapLocal` in the configuration.
+{{< /note >}}
+
+Once the signing is done, the plug-in will return a `COMPLETED` status immediately.
+
+This means that this example does not utilise the asynchronous signing completely - so, there will be no `PENDING` status.
+However, the tracking ID will still be returned and the request can be tracked via the tracking functions.
 
 ### Other Sample Plugins
 
@@ -1941,7 +1955,3 @@ authServiceConfig {
 ## Obfuscated configuration files
 
 To view the latest changes to the obfuscated configuration files, see [Obfuscation configuration file changes](obfuscated-config-file-changes.md).
-
-{{< note >}}
-You should not obfuscate SMR plugin configuration files as they are not yet supported.
-{{< /note >}}
