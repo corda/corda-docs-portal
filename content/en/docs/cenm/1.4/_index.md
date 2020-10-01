@@ -21,6 +21,15 @@ This is provided as an alternative to using the service-level-managed production
 that are otherwise available from [Corda Network](https://corda.network), which is governed by the independent
 [Corda Network Foundation](https://corda.network/).
 
+{{< note >}}
+**Release notes**
+
+* For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](release-notes.md) page.
+* For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.6 release notes](../../corda-enterprise/4.6/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
+* For all Corda open source release notes, see the [Corda release notes](../../corda-os/4.6/release-notes.md) page.
+
+{{< /note >}}
+
 The Corda Enterprise Network Manager provides three main services:
 
 * [Identity Manager Service](identity-manager.md) - enables nodes to join the network, and handles revocation of a node certificate.

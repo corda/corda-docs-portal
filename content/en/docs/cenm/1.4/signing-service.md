@@ -1491,7 +1491,7 @@ public final class CSRResponse {
     public String getRequestId() {
         return requestId;
     }
-    
+
     /**
      * Constructs a response with CRL request status. with the specified data.
      *
@@ -1550,20 +1550,20 @@ public final class CRLResponse {
     */
     @Nonnull
     public final SigningStatus getStatus();
-    
+
     /**
     * Returns signed certificate revocation list (CRL).
     */
     @Nullable
     public final CRLSigningData getCrlSigningData();
-    
+
     /**
     * Returns the ID of the request. Might be null if the request is completed immediately and no ID is provided
     * for later use.
     */
     @Nullable
     public String getRequestId();
-    
+
     /**
     * Constructs a response with the specified status and signed CRL.
     *
@@ -1742,7 +1742,7 @@ public final class NetworkParametersResponse {
      */
     @Nullable
     public String getRequestId();
-    
+
     /**
      * Returns signed Network Parameters
      */
@@ -1810,7 +1810,7 @@ The Signing Service ships with example plug-ins.
 {{< note >}}
 Please note that these plug-ins should only be used as a base
 when developing plug-ins and they should never be used in a production environment.
-{{< note >}}
+{{< /note >}}
 
 Please refer to the `README` docs inside the source directories for each plug-in as they contain all the
 necessary information about the architecture and usage of those plug-ins.
