@@ -242,6 +242,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * The alias of the distributed notary signing key alias (used if this node is a notary). Allowed are up to 100 lower case alphanumeric    characters and the hyphen (-).
   * *Default:* distributed-notary-private-key
 * `messagingServerSslConfiguration`
+  * TLS configuration used to connect to external P2P Artemis message server. Required when `messagingServerExternal` = `true`. Also, it can be used optionally with embedded Artemis when external Bridge is configured. For more information, see [Storing node TLS keys in HSM](../../node/setup/tls-keys-in-hsm.md).
   * `sslKeystore`
     * The path to the KeyStore file to use in Artemis connections.
     * *Default:* not defined
@@ -254,26 +255,64 @@ Allows fine-grained controls of various features only available in the enterpris
   * `trustStorePassword`
     * The password for TLS TrustStore.
     * *Default:* not defined
-  * `messagingServerConnectionConfiguration`
-    * Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 initial connect attempts, 5 reconnect attempts in case of failure, starting retry interval of 5 seconds with an exponential back-off multiplier of 1.5 for up to 3 minutes retry interval),
-    * FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).
-    * *Default:* DEFAULT
-  * `messagingServerBackupAddresses`
-    * List of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.
-    * *Default:* empty list
-  * `artemisCryptoServiceConfig`
-    * This is an optional crypto service configuration which will be used for HSM TLS signing when interacting with the Artemis message server.
-    * This option only makes sense when running a standalone Artemis messaging server to connect to the Bridge.
-    * If this option is missing, the local file system will be used to store private keys inside `JKS` key stores.
-    * `cryptoServiceName`
-      * The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc.
-    * `cryptoServiceConf`
-      * Absolute path to HSM provider specific configuration which will contain everything necessary to establish connection with HSM.
-      * *Default:* Not present so local file system is used.
+* `messagingServerConnectionConfiguration`
+  * Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 initial connect attempts, 5 reconnect attempts in case of failure, starting retry interval of 5 seconds with an exponential back-off multiplier of 1.5 for up to 3 minutes retry interval),
+  * FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).
+  * *Default:* DEFAULT
+* `messagingServerBackupAddresses`
+  * List of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.
+  * *Default:* empty list
+* `artemisCryptoServiceConfig`
+  * This is an optional crypto service configuration which will be used for HSM TLS signing when interacting with the Artemis message server.
+  * This option only makes sense when `messagingServerSslConfiguration` is specified: either to connect to a standalone Artemis messaging server, or when external Bridge is configured. If this option is missing, the local file system will be used to store private keys inside JKS key stores, as defined by `messagingServerSslConfiguration`.
+  * `cryptoServiceName`
+    * The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc.
+  * `cryptoServiceConf`
+    * Absolute path to HSM provider specific configuration which will contain everything necessary to establish connection with HSM.
+    * *Default:* Not present so local file system is used.
+* `attachmentClassLoaderCacheSize`
+  * This field can be used to configure the attachments class loader cache size - this is the number of attachments per cache. This cache caches the class loaders used to store the transaction attachments.
+  * *Default:* The default value is `256` attachments per cache.
+  * **IMPORTANT: The default value must not be changed unless explicitly advised by R3 support!**
 * `auditService`
   * Allows for configuration of audit services within the node
     * `eventsToRecord` defines which types of events will be recorded by the audit service - currently supported types are `{NONE, RPC, ALL}`
     * *Default:* `NONE`
+* `maintenanceMode`
+  * An optional field used by [Node Maintenance Mode](../../node/operating/maintenance-mode.md#configuration-of-node-maintenance-mode), which enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
+  * *Default:* Not present. By default, no maintenance activities will be performed if the `maintenanceMode` section is not provided. Without the new parameter, Corda will behave as if maintenance mode is not available.
+  * If the `maintenanceMode` sub-section is provided, then **ALL** `maintenanceMode` parameters (as described below) must be supplied and must also pass configuration validation at start-up.
+  * Parameters:
+    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode](../operating/maintenance-mode.md#configuration-of-node-maintenance-mode). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
+    * `duration` is the maximum time that a maintenance window is expected to take to run all tasks. At start-up, Corda will check for all maintenance events that occur within the following week. If there is an overlap (due the specified duration being longer than the interval between any two adjacent maintenance windows), Corda Enterprise will emit a *warning* to the log which will precisely specify the overlap scenario but no further action will be taken. Additionally, if the time that the maintenance tasks *actually* take to run exceeds the specified duration, a warning will be emitted to the log but the maintenance tasks will not be interrupted. The purpose of the duration parameter is to allow the user to check that there are no overlaps and to allow monitoring of overrunning activities via log messaging and monitoring. The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing, see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.md#duration-format).
+    * `rpcAuditDataRetentionPeriod` is a parameter to the RPC table maintenance task and specifies how long records should be kept for within the table for. The parameter is in HOCON *period* format - for example, `‘365d’, ‘1w’`. In general, the following suffixes should be sufficient: `‘d’ (days), ‘w’ (weeks), ‘m’ (months), ‘y’ (years)`. For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.md#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
+  * [Node Maintenance Mode](../../node/operating/maintenance-mode.md#configuration-of-node-maintenance-mode) uses the `processedMessageCleanup` parameters (see below).
+* `processedMessageCleanup`
+  * An optional field that allows you to run the message ID cleanup task at shutdown. The same rules will apply for calculation of default values as when the activity runs at shutdown.
+  * This field and its parameters are also used by the [Node Maintenance Mode](../../node/operating/maintenance-mode.md#configuration-of-node-maintenance-mode) (`maintenanceMode` just above) functionality.
+  * Parameters:
+    * `generalRetentionPeriodInDays` indicates the number of days a message (sent during recovery) will be retained. If not specified, it will default to the specified `senderRetentionPeriodInDays` value plus the event horizon duration (or 365 days, if the event horizon is larger than 365 days).
+    * `senderRetentionPeriodInDays` indicates the number of days a message (sent during normal operation) will be retained. If not specified, it will default to 7 days.
+    * In both of these cases, these are sensible defaults and **you should only update them after serious consideration and when advised to do so by R3 support**. Reducing the value of these periods means the node will clean up records more eagerly, so storage from the table will be reclaimed more quickly. However, this also means there is a higher risk of processing some messages more than once.
+  * Example:
+  ```
+  {
+      enterpriseConfiguration {
+          processedMessageCleanup {
+              generalRetentionPeriodInDays = 365
+              senderRetentionPeriodInDays = 7
+          }
+      }
+  }
+  ```
+* `tlsCryptoServiceConfig`
+  * Optional crypto service configuration to store node's TLS private key in HSM. If this option is missing, the TLS private key will be stored in the file-based `sslkeystore.jks`.
+  * Parameters:
+    * `cryptoServiceName`: the name of the CryptoService provider to be used.
+    * `cryptoServiceConf`: the path to the configuration file for the CryptoService provider.
+* `tlsKeyAlias`
+  * The alias of the TLS key. It can consist of up to 100 lowercase alphanumeric characters and the hyphen (-).
+  * *Default:* `cordaclienttls`
 
 ## Tuning
 
@@ -465,6 +504,10 @@ This allows the address and port advertised in `p2pAddress` to differ from the l
 
 0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.
 
+{{< note >}}
+When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM](../../node/setup/tls-keys-in-hsm.md).
+{{< /note >}}
+
 *Default:* not defined
 
 ## `myLegalName`
@@ -473,20 +516,25 @@ The legal identity of the node.
 This acts as a human-readable alias to the node's public key and can be used with the network map to look up the node's info.
 This is the name that is used in the node's certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
 At runtime, Corda checks whether this name matches the name in the node's certificates.
-The name must be a valid X.500 distinguished name, as per the [node naming constraints](node-naming.md).
+The name must be a valid X.500 distinguished name, as per the [node naming constraints](../../node/setup/node-naming.md).
 
 *Default:* not defined
 
 ## `notary`
 
-Optional configuration object which if present configures the node to run as a notary. If running as part of a HA notary cluster, please
-specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below. For a single-node notary only the `validating` property is required.
+Include this optional configuration object in the node configuration file if you want to configure the node to run as a notary.
+
+{{< warning >}}
+If running as part of a HA notary cluster, you must specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below.
+
+For a single-node notary, you must specify the `validating` and `serviceLegalName` configuration fields.
+{{< /warning >}}
 
 * `validating`
   * Boolean to determine whether the notary is a validating or non-validating one.
   * *Default:* false
 * `serviceLegalName`
-  * If the node is part of a distributed cluster, specify the legal name of the cluster. At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.
+  * Specify the legal name of the notary service. At runtime, Corda checks whether this name matches the name of the certificate of the notary.
   * *Default:* not defined
 * `extraConfig`
   * Configuration for the single-node notary only. For HA notaries use either the `mysql` (deprecated) or `jpa` configuration.
@@ -603,6 +651,9 @@ specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` conf
     * `maxQueueSize`
       * The maximum number of commit requests in flight. Once the capacity is reached the service will block on further commit requests.
       * *Default:* 100 000
+    * `generateNativeSQL`
+      * Boolean enabling the generation of native SQL for CockroachDB databases with multi-row insert statements. Enabling this configuration option results in better notary performance in some implementations.
+      * *Default:* false
     * `database`
       * `validateSchema`
         * Sets whether to validate the database schema before allowing the notary to start. Will prevent the notary from starting if validation fails with log messages indicating the reason(s)           for the failure. The validation will ensure that the database tables match that of the entities configured in the notary. This will not check whether any migrations have been run.
@@ -863,3 +914,19 @@ Internal option.
 **Important: Please do not change.**
 
 *Default:* InMemory
+
+## `reloadCheckpointAfterSuspend`
+
+  This is an optional configuration option that enables you to detect unrestorable checkpoints when developing CorDapps and thus reduces the risk of writing flows that cannot be retried gracefully. To use this functionality, set `reloadCheckpointAfterSuspend` to `true`:
+
+  ```
+  reloadCheckpointAfterSuspend = true
+  ```
+
+  {{< note >}}
+  This option is disabled by default and is independent from `devMode`.
+  {{< /note >}}
+
+  For full details, see [Automatic detection of unrestorable checkpoints](../../node/setup/checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
+
+  *Default:* not defined

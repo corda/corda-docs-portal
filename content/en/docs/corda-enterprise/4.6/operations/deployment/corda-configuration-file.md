@@ -139,13 +139,13 @@ java -Dcorda.jarDirs_0=./newdir1
 
 The resulting value of `jarDirs` will be `["./newdir1"]`.
 
-* You can't override a populated list with an empty list. For example, when ``devMode=false``, ``cordappSignerKeyFingerprintBlacklist`` is pre-populated with Corda development keys. It isn't possible to set this to an empty list via the commandline. You can however override the list with an all zero hash which will remove the keys:
+* You can't override a populated list with an empty list. For example, when `devMode=false`, `cordappSignerKeyFingerprintBlacklist` is pre-populated with Corda development keys. It isn't possible to set this to an empty list via the command line. You can however override the list with an all zero hash which will remove the keys:
 
 ```shell script
 java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="0000000000000000000000000000000000000000000000000000000000000000"
 ```
 
-* Objects in lists cannot currently be overridden. For example the ``rpcUsers`` configuration key is a list of user objects, overriding these via environment variables or system properties will not work.
+* Objects in lists cannot currently be overridden. For example the `rpcUsers` configuration key is a list of user objects, overriding these via environment variables or system properties will not work.
 
 ## Configuration file fields
 
@@ -153,9 +153,9 @@ See [Configuration file fields](corda-configuration-fields.md).
 
 ## Reference.conf
 
-A set of default configuration options are loaded from the built-in resource file ``/node/src/main/resources/reference.conf``.   This file can be found in the ``:node`` gradle module of the [Corda repository](https://github.com/corda/corda). Any options you do not specify in your own ``node.conf`` file will use these defaults.
+A set of default configuration options are loaded from the built-in resource file `/node/src/main/resources/reference.conf`.   This file can be found in the `:node` gradle module of the [Corda repository](https://github.com/corda/corda). Any options you do not specify in your own `node.conf` file will use these defaults.
 
-Here are the contents of the ``reference.conf`` file:
+Here are the contents of the `reference.conf` file:
 
 ```json
 {
@@ -177,7 +177,7 @@ Here are the contents of the ``reference.conf`` file:
     "networkServices" : {
         "doormanURL" : "https://doorman.uat.corda.network/",
         "networkMapURL" : "https://netmap.uat.corda.network/"
-    },
+},
 
 //Azure SQL
 //Microsoft SQL Server 2017
@@ -238,7 +238,7 @@ Here are the contents of the ``reference.conf`` file:
 ### Simple notary configuration file
 
 ```
-    myLegalName = "O=Notary Service,OU=corda,L=London,C=GB"
+    myLegalName = "O=Notary Node, L=London, C=GB"
     keyStorePassword = "cordacadevpass"
     trustStorePassword = "trustpass"
     p2pAddress = "localhost:12345"
@@ -249,6 +249,7 @@ Here are the contents of the ``reference.conf`` file:
         adminAddress = "my-corda-node:10004"
     }
     notary {
+        serviceLegalName = "O=Notary Service, L=London, C=GB"
         validating = false
     }
     compatibilityZoneURL : "https://cz.corda.net"
@@ -281,4 +282,4 @@ openssl pkcs7 -in <extract_signed_jar_directory>/META-INF/<signature_to_hash>.RS
 | openssl rsa -pubin -outform der | openssl dgst -sha256
 ```
 
-- Copy the public key hash that is generated and place it into the required location (e.g. in ``node.conf``).
+- Copy the public key hash that is generated and place it into the required location (for example, in `node.conf`).

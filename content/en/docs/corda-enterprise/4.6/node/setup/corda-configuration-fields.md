@@ -241,7 +241,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * The alias of the distributed notary signing key alias (used if this node is a notary). Allowed are up to 100 lower case alphanumeric    characters and the hyphen (-).
   * *Default:* distributed-notary-private-key
 * `messagingServerSslConfiguration`
-  * TLS configuration used to connect to external P2P Artemis message server. Required when `messagingServerExternal` = `true`. Also, it can be used optionally with embedded Artemis when external Bridge is configured. For more information, see [Storing node TLS keys in HSM](../../tls-keys-in-hsm.md).
+  * TLS configuration used to connect to external P2P Artemis message server. Required when `messagingServerExternal` = `true`. Also, it can be used optionally with embedded Artemis when external Bridge is configured. For more information, see [Storing node TLS keys in HSM](tls-keys-in-hsm.md).
   * `sslKeystore`
     * The path to the KeyStore file to use in Artemis connections.
     * *Default:* not defined
@@ -504,7 +504,7 @@ This allows the address and port advertised in `p2pAddress` to differ from the l
 0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.
 
 {{< note >}}
-When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM](../../tls-keys-in-hsm.md).
+When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM](tls-keys-in-hsm.md).
 {{< /note >}}
 
 *Default:* not defined
@@ -521,8 +521,13 @@ The name must be a valid X.500 distinguished name, as per the [node naming const
 
 ## `notary`
 
-Optional configuration object which if present configures the node to run as a notary. If running as part of a HA notary cluster, please
-specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below. For a single-node notary only the `validating` property is required.
+Include this optional configuration object in the node configuration file if you want to configure the node to run as a notary.
+
+{{< warning >}}
+If running as part of a HA notary cluster, you must specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below.
+
+For a single-node notary, you must specify the `validating` and `serviceLegalName` configuration fields.
+{{< /warning >}}
 
 * `validating`
   * Boolean to determine whether the notary is a validating or non-validating one.

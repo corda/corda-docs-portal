@@ -281,4 +281,4 @@ openssl pkcs7 -in <extract_signed_jar_directory>/META-INF/<signature_to_hash>.RS
 | openssl rsa -pubin -outform der | openssl dgst -sha256
 ```
 
-- Copy the public key hash that is generated and place it into the required location (e.g. in `node.conf`).
+- Copy the public key hash that is generated and place it into the required location (for example, in `node.conf`).
