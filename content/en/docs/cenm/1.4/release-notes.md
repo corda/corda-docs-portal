@@ -150,30 +150,11 @@ with multiple accounts for each task The Signing Service now prompts a specific 
 ### Known issues
 
 * Cloud deployment of CENM 1.4 on Azure or AWS will not work on the same cluster if CENM 1.2 or 1.3 is already running on that cluster (and vice versa). This is due to a conflict in the naming of some Kubernetes components used in both deployments, which currently prevents versions 1.2/1.3 and 1.4 from running on the same cluster.
-* Due to a known issue with `serviceLocations`, when the new optional `timeout` [parameter](signing-service.md#signing-service-configuration-parameters) is passed to the Zone Service via the Signing Service's `serviceLocations` configuration block, only the `timeout` value of the first `serviceLocations` location will be taken into account and used for all other service locations.
 * The Command-line Interface Tool `request status` command does not work for completed requests.
 * When there are incorrect `signer-ca` settings or a `ca-plugin` has stopped, an exception appears instead of a description of the issue.
-* The Gateway Service error `Invalid character found in method name. HTTP method names must be tokens` may occur after successfully deploying CENM on Kubernetes, registering new nodes, and performing flows. However, there is no side effect to this error and the user is able to connect to the Command-line Interface Tool and execute Command-line Interface commands.
-* There are currently two inconsistencies in service console error codes:
-  * `config-parse-error` does not display help while `config-file-not-readable` does.
-  * `config-parse-error` does not colour the error code red while `config-file-not-readable` does.
-* Various CENM services handle and write new error codes to the logs inconsistently. The Signing Service, Identity Manager Service, and Network Map Service write error codes to the `DUMP` log. The Auth Service and Gateway Service write error codes to both the `OPS` and `DUMP` logs.
-* The `config-substitution-error` code is not triggered when it should be. The Angel Service for the Signing Service displays the `config-file-doesnt-exist` error code in the `DUMP` log, while the Zone Service throws an exception in the `OPS` and `DUMP` logs.
-* The `config-parsing-and-validation-error` code cannot be triggered and appears as `config-parse-error`.
-* The Auth and Gateway Services display two different error messages when their configurations do not exist. The correct error for the Auth Service is: `ERROR: Config file does not exist.` The correct error for the Gateway Service is: `ERROR: The file does not exist.`
-* Network Map Service updates get stuck after the registration of about 2,500 nodes.
-* The `smr` command in the Command-line Interface (CLI) Tool is only used in CENM version 1.3. Its usage in later versions is deprecated due to the removal of the SMR (Signable Material Retriever) Service in CENM 1.4 - see the [New features and enhancements](#new-features-and-enhancements) section above for more details.
-* The Admin RPC client incorrectly throws an `RpcServerException` with a `GENERAL_ERROR` code and a null message. It should throw an `RpcServerException` with a `SIGNER_SIGNABLE_MATERIAL_SOURCE_UNREACHABLE` error code.
-* On execution of `submitCertificateRevocationRequestWithLegalName` when the Identity Manager Service configuration does not have a `REVOCATION` workflow, the Admin RPC client does not throw exceptions as expected and returns empty responses instead. It should throw two `RpcServerException` exceptions with `IDENTITY_MANAGER_INVALID_REVOCATION_REASON` and `IDENTITY_MANAGER_CERTIFICATE_NOT_FOUND` codes or an exception noting that the `REVOCATION` workflow is not set up.
-*  The `config-file-doesnt-exist` error code does not appear when the Signing Service is started with a non-existing configuration file. No error code or link to relevant documentation appears in the console or logs.
-* When creating a user in the [CENM User Admin Tool](user-admin.md), there is a typo in the "Role Name" notification. The notification should read: "Role name field should not contain empty spaces!"
-* When several CRR requests are submitted and the `plugin-ca`/`signer-ca` is used, the CRL with CRR should be signed, records in the `workflow_crr` table should be updated, and the certificate statuses should be updated from `VALID` to `REVOKED`. However, currently the `signer-ca` shows revoked node details, the records in the `workflow_crr` table are `Pending`, and certificates are `VALID` instead of `REVOKED`.
-* There is an inconsistency in how configuration validation handles an incorrect `trustStore` location. For some parameters, a service will not start. For others, a service will try to start and will then fail.
-* The Command-line Interface (CLI) Tool should produce an error code instead of throwing Java `DUMP` exceptions (such as `java.io.FileNotFoundException`) for issues like adding the wrong file name or having a space in the path of a file.
-* Information about the running version of CENM components is missing from the logs.
-* The app version is not displayed when running Helm Charts.
-* When a Signing Service is started with an incomplete or incorrect configuration, a stack trace occurs. This should be handled as an exception.
-* The CENM Command-line Interface Tool supports the following additional certificate revocation reasons, which are not supported by the Identity Manager Service: `CERTIFICATE_HOLD`, `UNUSED`, `REMOVE_FROM_CRL`, `AA_COMPROMISE`, and `UNSPECIFIED`.
+* There are currently two different logs that services write error codes to (`DUMP` and `OPS`), with some services writing to both.
+* Error codes are not yet thrown consistently in logs or console across all services.
+* When multiple CRR requests are submitted, the certificates are not updated correctly from `VALID` to `REVOKED`. This issue does not affect the CRL.
 * When creating an AWS Postgres database, users are unable to connect to the database when they have selected the Virtual Private Cloud (VPC) of their Elastic Kubernetes Service (EKS) Cluster. However, they are able to connect when they have selected the default VPC.
 
 
