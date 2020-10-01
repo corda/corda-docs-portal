@@ -332,7 +332,7 @@ For more information, see [Upgrading a notary](notary/upgrading-a-notary.md).
 
 When registering a notary, the new field `notary.serviceLegalName` must be defined. This allows single-node notaries to be upgraded to HA notaries.
 
-For more information, see [Running a notary](notary/running-a-notary.md).
+For more information, see [Notary service overview](notary/ha-notary-service-overview.md).
 
 ### Standalone JPA notary optimisation
 
@@ -345,7 +345,7 @@ We have added a way for Corda Enterprise node operators to schedule maintenance 
 * Clear the RPC audit table.
 * Clean up the message ID table.
 
-Maintenance windows can be scheduled through a node’s [configuration file](node/setup/corda-configuration-file.md) using the new, optional `maintenanceMode` configuration field within the `enterpriseConfiguration` top-level [configuration section](../node/setup/corda-configuration-fields.md#enterpriseconfiguration).
+Maintenance windows can be scheduled through a node’s [configuration file](node/setup/corda-configuration-file.md) using the new, optional `maintenanceMode` configuration field within the `enterpriseConfiguration` top-level [configuration section](node/setup/corda-configuration-fields.md#enterpriseconfiguration).
 
 A descriptive log entry is emitted whenever a node triggers or completes a maintenance window.
 
@@ -380,7 +380,7 @@ Our Docker Hub organisation (https://hub.docker.com/u/corda) now contains all th
 * We have upgraded `commons-beanutils` to version 1.9.4 for improved security.
 * As of Corda Enterprise 4.6, support for [DemoBench](demobench.md) is deprecated.
 * We have released a new minor version of [Accounts SDK](https://github.com/corda/accounts/blob/master/docs.md) - version 1.0.2. This version includes database improvements that make it compatible with Corda Enterprise 4.6. If you are planning to use the Accounts SDK with Corda Enterprise 4.6, you must use Accounts SDK V 1.0.2.
-* We have released a new minor version of [Tokens SDK](token-sdk-introduction.md) - version 1.2.1. This version includes database improvements that make it compatible with Corda Enterprise 4.6. If you are planning to use the Tokens SDK with Corda Enterprise 4.6, you must use Tokens SDK V 1.2.1.
+* We have released a new minor version of [Tokens SDK](cordapps/token-sdk-introduction.md) - version 1.2.1. This version includes database improvements that make it compatible with Corda Enterprise 4.6. If you are planning to use the Tokens SDK with Corda Enterprise 4.6, you must use Tokens SDK V 1.2.1.
 * When starting a new driver using the driver DSL, the notary node will start by default as a thread in the same JVM process that runs the driver regardless of the `startNodesInProcess` driver properties (and not as a new process if the `startNodesInProcess` is `false`). This setting can be overridden. Please note that if the test interacts with the notary and expects the notary to run as a new process, you must set `startInProcess` to `false`.
 * In Corda Enterprise 4.6, if a CorDapp's `minimumPlatformVersion` is higher than the platform version of the node, the CorDapp is not loaded and the node fails to start. This is a change in behaviour compared to Corda Enterprise 4.5 where under these conditions the node would start up and log that the CorDapp could not be loaded. See [Versioning](cordapps/versioning.md) for more information.
 
@@ -425,7 +425,7 @@ In Corda Enterprise 4.6, database migrations are run on initial node registratio
 
 To prevent this, use the `--skip-schema-creation` flag alongside the `--initial-registration` command.
 
-The `initial-registration` command is described in [Node command-line options](node/node-commandline.md#sub-commands) and [Joining a compatibility zone](joining-a-compatibility-zone.md#joining-an-existing-compatibility-zone).
+The `initial-registration` command is described in [Node command-line options](node/node-commandline.md#sub-commands) and [Joining a compatibility zone](network/joining-a-compatibility-zone.md#joining-an-existing-compatibility-zone).
 
 {{< /warning >}}
 
