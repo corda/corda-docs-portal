@@ -875,8 +875,6 @@ signers = {
     "Example CSR Signer" = {
         type = CSR
         signingKeyAlias = "IdentityManagerLocal"
-        serviceLocation = [
-        ]
         crlDistributionPoint = "http://localhost:10000/certificate-revocation-list/doorman"
         validDays = 7300 # 20 year certificate expiry
         schedule {
