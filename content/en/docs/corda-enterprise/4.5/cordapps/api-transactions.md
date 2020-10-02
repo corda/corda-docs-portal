@@ -58,6 +58,22 @@ An input state is added to a transaction as a `StateAndRef`, which combines:
 * A `StateRef` identifying this `ContractState` as the output of a specific transaction
 
 {{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val ourStateAndRef: StateAndRef<DummyState> = serviceHub.toStateAndRef<DummyState>(ourStateRef)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+StateAndRef ourStateAndRef = getServiceHub().toStateAndRef(ourStateRef);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 A `StateRef` uniquely identifies an input state, allowing the notary to mark it as historic. It is made up of:
@@ -67,6 +83,22 @@ A `StateRef` uniquely identifies an input state, allowing the notary to mark it 
 * The state’s index in the outputs of that transaction
 
 {{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val ourStateRef: StateRef = StateRef(SecureHash.sha256("DummyTransactionHash"), 0)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+StateRef ourStateRef = new StateRef(SecureHash.sha256("DummyTransactionHash"), 0);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 The `StateRef` links an input state back to the transaction that created it. This means that transactions form
@@ -87,6 +119,22 @@ A reference input state is added to a transaction as a `ReferencedStateAndRef`. 
 obtained from a `StateAndRef` by calling the `StateAndRef.referenced()` method which returns a `ReferencedStateAndRef`.
 
 {{< tabs name="tabs-3" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val referenceState: ReferencedStateAndRef<DummyState> = ourStateAndRef.referenced()
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+ReferencedStateAndRef referenceState = ourStateAndRef.referenced();
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 **Handling of update races:**
@@ -130,12 +178,44 @@ outputs of previous transactions. Instead, we create the desired output states a
 add them to the transaction directly:
 
 {{< tabs name="tabs-4" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val ourOutputState: DummyState = DummyState()
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+DummyState ourOutputState = new DummyState();
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 In cases where an output state represents an update of an input state, we may want to create the output state by basing
 it on the input state:
 
 {{< tabs name="tabs-5" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val ourOtherOutputState: DummyState = ourOutputState.copy(magicNumber = 77)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+DummyState ourOtherOutputState = ourOutputState.copy(77);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Before our output state can be added to a transaction, we need to associate it with a contract. We can do this by
@@ -146,6 +226,22 @@ wrapping the output state in a `StateAndContract`, which combines:
 * A `String` identifying the contract governing the state
 
 {{< tabs name="tabs-6" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val  ourOutput: StateAndContract = StateAndContract(ourOutputState, DummyContract.PROGRAM_ID)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+StateAndContract ourOutput = new StateAndContract(ourOutputState, DummyContract.PROGRAM_ID);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -158,6 +254,30 @@ A command is added to the transaction as a `Command`, which combines:
 * A `List<PublicKey>` representing the command’s required signers
 
 {{< tabs name="tabs-7" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val commandData: DummyContract.Commands.Create = DummyContract.Commands.Create()
+val ourPubKey: PublicKey = serviceHub.myInfo.legalIdentitiesAndCerts.first().owningKey
+val counterpartyPubKey: PublicKey = counterparty.owningKey
+val requiredSigners: List<PublicKey> = listOf(ourPubKey, counterpartyPubKey)
+val ourCommand: Command<DummyContract.Commands.Create> = Command(commandData, requiredSigners)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+DummyContract.Commands.Create commandData = new DummyContract.Commands.Create();
+PublicKey ourPubKey = getServiceHub().getMyInfo().getLegalIdentitiesAndCerts().get(0).getOwningKey();
+PublicKey counterpartyPubKey = counterparty.getOwningKey();
+List<PublicKey> requiredSigners = ImmutableList.of(ourPubKey, counterpartyPubKey);
+Command<DummyContract.Commands.Create> ourCommand = new Command<>(commandData, requiredSigners);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -166,6 +286,22 @@ A command is added to the transaction as a `Command`, which combines:
 Attachments are identified by their hash:
 
 {{< tabs name="tabs-8" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val ourAttachment: SecureHash = SecureHash.sha256("DummyAttachment")
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+SecureHash ourAttachment = SecureHash.sha256("DummyAttachment");
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 The attachment with the corresponding hash must have been uploaded ahead of time via the node’s RPC interface.
@@ -177,16 +313,68 @@ Time windows represent the period during which the transaction must be notarised
 time, or be open at either end:
 
 {{< tabs name="tabs-9" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val ourTimeWindow: TimeWindow = TimeWindow.between(Instant.MIN, Instant.MAX)
+val ourAfter: TimeWindow = TimeWindow.fromOnly(Instant.MIN)
+val ourBefore: TimeWindow = TimeWindow.untilOnly(Instant.MAX)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+TimeWindow ourTimeWindow = TimeWindow.between(Instant.MIN, Instant.MAX);
+TimeWindow ourAfter = TimeWindow.fromOnly(Instant.MIN);
+TimeWindow ourBefore = TimeWindow.untilOnly(Instant.MAX);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 We can also define a time window as an `Instant` plus/minus a time tolerance (e.g. 30 seconds):
 
 {{< tabs name="tabs-10" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val ourTimeWindow2: TimeWindow = TimeWindow.withTolerance(serviceHub.clock.instant(), 30.seconds)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+TimeWindow ourTimeWindow2 = TimeWindow.withTolerance(getServiceHub().getClock().instant(), Duration.ofSeconds(30));
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Or as a start-time plus a duration:
 
 {{< tabs name="tabs-11" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val ourTimeWindow3: TimeWindow = TimeWindow.fromStartAndDuration(serviceHub.clock.instant(), 30.seconds)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+TimeWindow ourTimeWindow3 = TimeWindow.fromStartAndDuration(getServiceHub().getClock().instant(), Duration.ofSeconds(30));
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -201,6 +389,22 @@ If the transaction has input states or a time-window, we need to instantiate the
 that will notarise the inputs and verify the time-window:
 
 {{< tabs name="tabs-12" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val txBuilder: TransactionBuilder = TransactionBuilder(specificNotary)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+TransactionBuilder txBuilder = new TransactionBuilder(specificNotary);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 We discuss the selection of a notary in [Writing CorDapp Flows](api-flows.md).
@@ -209,6 +413,22 @@ If the transaction does not have any input states or a time-window, it does not 
 instantiated without one:
 
 {{< tabs name="tabs-13" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val txBuilderNoNotary: TransactionBuilder = TransactionBuilder()
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+TransactionBuilder txBuilderNoNotary = new TransactionBuilder();
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -219,6 +439,35 @@ The next step is to build up the transaction proposal by adding the desired comp
 We can add components to the builder using the `TransactionBuilder.withItems` method:
 
 {{< tabs name="tabs-14" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+    /** A more convenient way to add items to this transaction that calls the add* methods for you based on type */
+    fun withItems(vararg items: Any) = apply {
+        for (t in items) {
+            when (t) {
+                is StateAndRef<*> -> addInputState(t)
+                is ReferencedStateAndRef<*> -> addReferenceState(t)
+                is AttachmentId -> addAttachment(t)
+                is TransactionState<*> -> addOutputState(t)
+                is StateAndContract -> addOutputState(t.state, t.contract)
+                is ContractState -> throw UnsupportedOperationException("Removed as of V1: please use a StateAndContract instead")
+                is Command<*> -> addCommand(t)
+                is CommandData -> throw IllegalArgumentException("You passed an instance of CommandData, but that lacks the pubkey. You need to wrap it in a Command object first.")
+                is TimeWindow -> setTimeWindow(t)
+                is PrivacySalt -> setPrivacySalt(t)
+                else -> throw IllegalArgumentException("Wrong argument type: ${t.javaClass}")
+            }
+        }
+    }
+
+```
+{{% /tab %}}
+
+
+
+
+[TransactionBuilder.kt](https://github.com/corda/corda/blob/release/os/4.5/core/src/main/kotlin/net/corda/core/transactions/TransactionBuilder.kt) | ![github](/images/svg/github.svg "github")
+
 {{< /tabs >}}
 
 `withItems` takes a `vararg` of objects and adds them to the builder based on their type:
@@ -240,6 +489,44 @@ Passing in objects of any other type will cause an `IllegalArgumentException` to
 Here’s an example usage of `TransactionBuilder.withItems`:
 
 {{< tabs name="tabs-15" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+txBuilder.withItems(
+        // Inputs, as ``StateAndRef``s that reference the outputs of previous transactions
+        ourStateAndRef,
+        // Outputs, as ``StateAndContract``s
+        ourOutput,
+        // Commands, as ``Command``s
+        ourCommand,
+        // Attachments, as ``SecureHash``es
+        ourAttachment,
+        // A time-window, as ``TimeWindow``
+        ourTimeWindow
+)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+txBuilder.withItems(
+        // Inputs, as ``StateAndRef``s that reference to the outputs of previous transactions
+        ourStateAndRef,
+        // Outputs, as ``StateAndContract``s
+        ourOutput,
+        // Commands, as ``Command``s
+        ourCommand,
+        // Attachments, as ``SecureHash``es
+        ourAttachment,
+        // A time-window, as ``TimeWindow``
+        ourTimeWindow
+);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 There are also individual methods for adding components.
@@ -247,41 +534,171 @@ There are also individual methods for adding components.
 Here are the methods for adding inputs and attachments:
 
 {{< tabs name="tabs-16" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+txBuilder.addInputState(ourStateAndRef)
+txBuilder.addAttachment(ourAttachment)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+txBuilder.addInputState(ourStateAndRef);
+txBuilder.addAttachment(ourAttachment);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 An output state can be added as a `ContractState`, contract class name and notary:
 
 {{< tabs name="tabs-17" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 We can also leave the notary field blank, in which case the transaction’s default notary is used:
 
 {{< tabs name="tabs-18" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Or we can add the output state as a `TransactionState`, which already specifies the output’s contract and notary:
 
 {{< tabs name="tabs-19" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val txState: TransactionState<DummyState> = TransactionState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+TransactionState txState = new TransactionState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Commands can be added as a `Command`:
 
 {{< tabs name="tabs-20" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+txBuilder.addCommand(ourCommand)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+txBuilder.addCommand(ourCommand);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Or as `CommandData` and a `vararg PublicKey`:
 
 {{< tabs name="tabs-21" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+txBuilder.addCommand(commandData, ourPubKey, counterpartyPubKey)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+txBuilder.addCommand(commandData, ourPubKey, counterpartyPubKey);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 For the time-window, we can set a time-window directly:
 
 {{< tabs name="tabs-22" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+txBuilder.setTimeWindow(ourTimeWindow)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+txBuilder.setTimeWindow(ourTimeWindow);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Or define the time-window as a time plus a duration (e.g. 45 seconds):
 
 {{< tabs name="tabs-23" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+txBuilder.setTimeWindow(serviceHub.clock.instant(), 45.seconds)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+txBuilder.setTimeWindow(getServiceHub().getClock().instant(), Duration.ofSeconds(45));
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -292,11 +709,45 @@ Once the builder is ready, we finalize it by signing it and converting it into a
 We can either sign with our legal identity key:
 
 {{< tabs name="tabs-24" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val onceSignedTx: SignedTransaction = serviceHub.signInitialTransaction(txBuilder)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+SignedTransaction onceSignedTx = getServiceHub().signInitialTransaction(txBuilder);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Or we can also choose to use another one of our public keys:
 
 {{< tabs name="tabs-25" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val otherIdentity: PartyAndCertificate = serviceHub.keyManagementService.freshKeyAndCert(ourIdentityAndCert, false)
+val onceSignedTx2: SignedTransaction = serviceHub.signInitialTransaction(txBuilder, otherIdentity.owningKey)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+PartyAndCertificate otherIdentity = getServiceHub().getKeyManagementService().freshKeyAndCert(getOurIdentityAndCert(), false);
+SignedTransaction onceSignedTx2 = getServiceHub().signInitialTransaction(txBuilder, otherIdentity.getOwningKey());
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Either way, the outcome of this process is to create an immutable `SignedTransaction` with our signature over it.
@@ -311,6 +762,22 @@ A `SignedTransaction` is a combination of:
 * A list of signatures over that transaction
 
 {{< tabs name="tabs-26" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+@KeepForDJVM
+@CordaSerializable
+data class SignedTransaction(val txBits: SerializedBytes<CoreTransaction>,
+                             override val sigs: List<TransactionSignature>
+) : TransactionWithSignatures {
+
+```
+{{% /tab %}}
+
+
+
+
+[SignedTransaction.kt](https://github.com/corda/corda/blob/release/os/4.5/core/src/main/kotlin/net/corda/core/transactions/SignedTransaction.kt) | ![github](/images/svg/github.svg "github")
+
 {{< /tabs >}}
 
 Before adding our signature to the transaction, we’ll want to verify both the transaction’s contents and the
@@ -329,6 +796,22 @@ We can now verify the transaction’s contents to ensure that it satisfies the c
 and output states:
 
 {{< tabs name="tabs-27" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+twiceSignedTx.verify(serviceHub)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+twiceSignedTx.verify(getServiceHub());
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Checking that the transaction meets the contract constraints is only part of verifying the transaction’s contents. We
@@ -343,11 +826,57 @@ we can then inspect.
 We achieve this by using the `ServiceHub` to convert the `SignedTransaction` into a `LedgerTransaction`:
 
 {{< tabs name="tabs-28" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val ledgerTx: LedgerTransaction = twiceSignedTx.toLedgerTransaction(serviceHub)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+LedgerTransaction ledgerTx = twiceSignedTx.toLedgerTransaction(getServiceHub());
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 We can now perform our additional verification. Here’s a simple example:
 
 {{< tabs name="tabs-29" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val outputState: DummyState = ledgerTx.outputsOfType<DummyState>().single()
+if (outputState.magicNumber == 777) {
+    // ``FlowException`` is a special exception type. It will be
+    // propagated back to any counterparty flows waiting for a
+    // message from this flow, notifying them that the flow has
+    // failed.
+    throw FlowException("We expected a magic number of 777.")
+}
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+DummyState outputState = ledgerTx.outputsOfType(DummyState.class).get(0);
+if (outputState.getMagicNumber() != 777) {
+    // ``FlowException`` is a special exception type. It will be
+    // propagated back to any counterparty flows waiting for a
+    // message from this flow, notifying them that the flow has
+    // failed.
+    throw new FlowException("We expected a magic number of 777.");
+}
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -359,6 +888,22 @@ valid signature over the hash of the transaction prevents tampering.
 We can verify that all the transaction’s required signatures are present and valid as follows:
 
 {{< tabs name="tabs-30" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+fullySignedTx.verifyRequiredSignatures()
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+fullySignedTx.verifyRequiredSignatures();
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 However, we’ll often want to verify the transaction’s existing signatures before all of them have been collected. For
@@ -366,12 +911,44 @@ this we can use `SignedTransaction.verifySignaturesExcept`, which takes a `varar
 which the signatures are allowed to be missing:
 
 {{< tabs name="tabs-31" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+onceSignedTx.verifySignaturesExcept(counterpartyPubKey)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+onceSignedTx.verifySignaturesExcept(counterpartyPubKey);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 There is also an overload of `SignedTransaction.verifySignaturesExcept`, which takes a `Collection` of the
 public keys for which the signatures are allowed to be missing:
 
 {{< tabs name="tabs-32" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+onceSignedTx.verifySignaturesExcept(listOf(counterpartyPubKey))
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+onceSignedTx.verifySignaturesExcept(singletonList(counterpartyPubKey));
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 If the transaction is missing any signatures without the corresponding public keys being passed in, a
@@ -380,6 +957,22 @@ If the transaction is missing any signatures without the corresponding public ke
 We can also choose to simply verify the signatures that are present:
 
 {{< tabs name="tabs-33" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+twiceSignedTx.checkSignaturesAreValid()
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+twiceSignedTx.checkSignaturesAreValid();
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Be very careful, however - this function neither guarantees that the signatures that are present are required, nor
@@ -394,11 +987,44 @@ Once we are satisfied with the contents and existing signatures over the transac
 We can sign using our legal identity key, as follows:
 
 {{< tabs name="tabs-34" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val twiceSignedTx: SignedTransaction = serviceHub.addSignature(onceSignedTx)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+SignedTransaction twiceSignedTx = getServiceHub().addSignature(onceSignedTx);
+
+```
+{{% /tab %}}
+
+
 {{< /tabs >}}
 
 Or we can choose to sign using another one of our public keys:
 
 {{< tabs name="tabs-35" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val twiceSignedTx2: SignedTransaction = serviceHub.addSignature(onceSignedTx, otherIdentity2.owningKey)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+SignedTransaction twiceSignedTx2 = getServiceHub().addSignature(onceSignedTx, otherIdentity2.getOwningKey());
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 We can also generate a signature over the transaction without adding it to the transaction directly.
@@ -406,11 +1032,43 @@ We can also generate a signature over the transaction without adding it to the t
 We can do this with our legal identity key:
 
 {{< tabs name="tabs-36" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val sig: TransactionSignature = serviceHub.createSignature(onceSignedTx)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+TransactionSignature sig = getServiceHub().createSignature(onceSignedTx);
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Or using another one of our public keys:
 
 {{< tabs name="tabs-37" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val sig2: TransactionSignature = serviceHub.createSignature(onceSignedTx, otherIdentity2.owningKey)
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+TransactionSignature sig2 = getServiceHub().createSignature(onceSignedTx, otherIdentity2.getOwningKey());
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 
@@ -418,4 +1076,3 @@ Or using another one of our public keys:
 
 Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [Writing CorDapp Flows](api-flows.md) for
 more details.
-
