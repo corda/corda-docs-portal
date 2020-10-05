@@ -526,6 +526,6 @@ there is no dedicated utility that would address that issue. As for now, the net
 assess in what state the service is.
 
 
-* Identity Manager: [http:/](http:/)/<<IDENTITY_MANAGER_ADDRESS>>/status
-* Network Map: [http:/](http:/)/<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname
-* Revocation Service (currently part of the Identity Manager): [http:/](http:/)/<<REVOCATION_SERVICE_ADDRESS>>/status
+* Identity Manager: `http://<<IDENTITY_MANAGER_ADDRESS>>/status`
+* Network Map: `http://<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname`
+* Revocation Service (currently part of the Identity Manager): `http://<<REVOCATION_SERVICE_ADDRESS>>/status`
