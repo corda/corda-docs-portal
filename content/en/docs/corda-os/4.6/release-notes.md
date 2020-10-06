@@ -23,7 +23,7 @@ Welcome to the Corda 4.6 release notes.
 
 This release introduces a number of new features and some major functional and operational improvements, and fixes a range of issues in the following major areas:
 
-**Business Network Membership improvements**.
+**Business Network Membership improvements**
 
 Corda 4.6 adds support for Business Network membership representation. In the short video overview below we are introducing a new core concept in Corda and tooling to model membership lists in Corda and represent natively business networks:
 
@@ -39,7 +39,7 @@ We have rationalised the way in which database schema management is performed ac
 * We have removed automatic schema migration for updating from Corda versions prior to 4.0.
 * We have added support in Corda open source for packaging custom CorDapp schemas into Liquibase migrations through introducing Liquibase schema migration/description scripts for CorDapps.
 
-**Flow management features and improvements**.
+**Flow management features and improvements**
 
 Corda 4.6 provides the ability to use a unique ID to [prevent duplicate flow starts](#ability-to-prevent-duplicate-flow-starts-and-retrieve-the-status-of-started-flows). This can be done using an RPC client and is an additional way to start flows by passing in a unique identifier when starting a flow. This allows you to:
   * Check that a flow started correctly (for example, if there was a disconnect event).
@@ -51,7 +51,7 @@ Watch the short video overview of this feature:
 
 {{< youtube nn0sP5HDiG0 >}}
 
-**Developer experience features and improvements.**
+**Developer experience features and improvements**
 
 We are focused on improving the overall developer experience to ensure Corda maintains its status as an easy-to-use platform for developers. In this release we have a number of improvements that will help developers build more resilient applications.
 
@@ -169,7 +169,7 @@ Corda’s RPC client now allows each flow to be started with a unique client-pro
 
 This enables you to:
 
-* Reconnect reliably to previously started flows.  
+* Reconnect reliably to previously started flows.
 * Reclaim a flow's result or exception at any time in the future.
 
 For more information, see [Starting a flow with a client-provided unique ID](flow-start-with-client-id.md).

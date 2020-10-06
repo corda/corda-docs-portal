@@ -315,7 +315,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
 ## Tuning
 
-Tuning is a section withing the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
+Tuning is a section within the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
 
 ## `backchainFetchBatchSize`
 
@@ -926,6 +926,6 @@ Internal option.
   This option is disabled by default and is independent from `devMode`.
   {{< /note >}}
 
-  For full details, see [Automatic detection of unrestorable checkpoints](checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
+  For full details, see [Automatic detection of unrestorable checkpoints](../../checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
 
   *Default:* not defined

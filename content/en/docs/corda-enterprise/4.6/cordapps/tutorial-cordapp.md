@@ -32,7 +32,7 @@ If you'd like to deploy and run a sample CorDapp as you work through this topic,
 
 ## Scenario
 
-The local Corda network includes one notary, and three nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](key-concepts-node.md).
+The local Corda network includes one notary, and three nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](../node/component-topology.md/).
 
 The sample CorDapp allows nodes to agree IOUs with each other, as long as they obey the following contract rules:
 
@@ -274,7 +274,7 @@ The first step is to deploy the CorDapp to nodes running locally. To do this:
 
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create an entirely new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally](generating-a-node.md) and build your CorDapp JARs as described
+`deployNodes` is a utility task that can be used in a development environment to create an entirely new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally](../node/deploy/generating-a-node.md/) and build your CorDapp JARs as described
 in [Building and installing a CorDapp](cordapp-build-systems.md).
 {{< /note >}}
 
@@ -302,7 +302,7 @@ Look for the `Started Server in X seconds` message &mdash; don’t rely on the %
 
 
 {{< warning >}}
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](shell.md).
+On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](../node/operating/shell.md/).
 {{< /warning >}}
 
 
@@ -334,7 +334,7 @@ Fri Mar 02 17:34:02 GMT 2018>>>
 
 It usually takes around 60 seconds for the nodes to finish starting up. Each node will display “Welcome to the Corda interactive shell” along with a prompt when ready.
 
-You can read more about how to generate nodes [here](generating-a-node.md).
+You can read more about how to generate nodes [here](../node/deploy/generating-a-node.md/).
 
 ## Interacting with the sample CorDapp
 
@@ -482,7 +482,7 @@ As before, the interactive shell of PartyC will not display any IOUs.
 ### Via the h2 web console
 
 You can connect directly to your node’s database to see its stored states, transactions and attachments. To do so,
-please follow the instructions in [Node database](node-database.md).
+please follow the instructions in [Node database](../node/operating/node-database.md/).
 
 
 ## Running nodes across machines
@@ -499,7 +499,7 @@ The nodes can be configured to communicate as a network even when distributed ac
 * For each node, open its `node.conf` file and change `localhost` in its `p2pAddress` to the IP address of the machine
 where the node will be run (e.g. `p2pAddress="10.18.0.166:10007"`)
 * These changes require new node-info files to be distributed amongst the nodes. Use the network bootstrapper tool
-(see [Network Bootstrapper](network-bootstrapper.md)) to update the files and have them distributed locally:`java -jar network-bootstrapper.jar workflows-java/build/nodes`
+(see [Network Bootstrapper](../network-bootstrapper.md)) to update the files and have them distributed locally:`java -jar network-bootstrapper.jar workflows-java/build/nodes`
 * Move the node folders to their individual machines (for example, using a USB key). It is important that none of the
 nodes - including the notary - end up on more than one machine. Each computer should also have a copy of `runnodes`
 and `runnodes.bat`. For example, you may end up with the following layout:
@@ -545,7 +545,7 @@ You can run the CorDapp’s integration tests by running the `Run Integration Te
 
 ### Running tests in IntelliJ
 
-See [Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners).
+See [Running tests in IntelliJ](../testing.md#tutorial-cordapp-alternative-test-runners).
 
 
 ## Debugging the CorDapp

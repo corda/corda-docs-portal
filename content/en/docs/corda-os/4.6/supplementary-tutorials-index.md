@@ -24,9 +24,9 @@ As these tutorials don’t depend on the code from any of the other tutorials, y
 {{< table >}}
 | Topics| Supplementary tutorials |
 |---------|----------|
-| **Contracts** | [Scheduling events](event-scheduling.md) <br/><br/> [Upgrading contracts](contract-upgrade.md)|
-| **Transactions** | [Working with attachments](tutorial-attachments.md) <br/><br/> [Defining transaction tear-offs](tutorial-tear-offs.md) <br/><br/> [Posting transactions to observer nodes](tutorial-observer-nodes.md) |
-| **Oracles** | [Writing oracle services](oracles.md) |
-| **Notaries** | [Writing custom notary services (experimental)](tutorial-custom-notary.md) |
-| **Nodes** | [Working with the CordaRPCClient API](tutorial-clientrpc-api.md) |
+| **Contracts** | [Scheduling events](event-scheduling.html/) <br/><br/> [Upgrading contracts](contract-upgrade.html/)|
+| **Transactions** | [Working with attachments](tutorial-attachments.html/) <br/><br/> [Defining transaction tear-offs](tutorial-tear-offs.html/) <br/><br/> [Posting transactions to observer nodes](tutorial-observer-nodes.html/) |
+| **Oracles** | [Writing oracle services](oracles.html/) |
+| **Notaries** | [Writing custom notary services (experimental)](tutorial-custom-notary.html/) |
+| **Nodes** | [Working with the CordaRPCClient API](tutorial-clientrpc-api.html/) |
 {{< /table >}}

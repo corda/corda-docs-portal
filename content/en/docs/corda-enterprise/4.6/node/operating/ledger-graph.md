@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-6:
     parent: corda-enterprise-4-6-corda-nodes-operating
 tags:
-- in memory 
+- in memory
 - transaction data
 - install
 - node operator
@@ -99,7 +99,7 @@ If you're installing the <nobr>`ledger-graph-confidential-identities`</nobr> Cor
 
 ### Restart the Node
 
-Restart the node in the same manner originally started by the [node operator](./deploy/deploying-a-node.html).
+Restart the node in the same manner originally started by the [node operator](../deploy/deploying-a-node.md/).
 
 Depending on the size of the  node's vault, it might take longer to start than it did previously.
 

@@ -120,7 +120,7 @@ The key steps for the upgrade are:
 You must generate SSL key pairs and certificates for the new services before deploying them.
 You can do this using the PKI tool, and it is best to replace the
 SSL certificates and keys for all services during this process. A draft PKI tool configuration
-for generating the full SSL hierarchy is provided under [config-samples/upgrade-pki-tool-1.3.conf](config-samples/upgrade-pki-tool-1.3.conf).
+for generating the full SSL hierarchy is provided under [config-samples/upgrade-pki-tool-1.3.conf](config-samples/upgrade-pki-tool.conf/).
 
 {{% important %}}
 You must replace the `subject` and `crlDistributionUrl` entries in this configuration with values

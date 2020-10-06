@@ -47,7 +47,7 @@ To start the Node run the following command from the Node VM:
 {{< note >}}
 If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator](../../tools-config-obfuscation.md) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
+To do so using the [Configuration Obfuscator](../../tools-config-obfuscator.md/) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration Obfuscator command-line tool:
 
@@ -67,7 +67,7 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 All flows can be paused when the node starts up - you can enable this in one of the following ways:
 
 * Use the command-line option `--pause-all-flows`.
-* Add the `smmStartMode="Safe"` option to the [node configuration file](node/setup/corda-configuration-file.md).
+* Add the `smmStartMode="Safe"` option to the [node configuration file](../setup/corda-configuration-file.md/).
 
 These flows can then be individually retried via RPC or the node shell.
 

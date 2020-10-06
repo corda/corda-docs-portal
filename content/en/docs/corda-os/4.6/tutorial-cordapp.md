@@ -480,7 +480,7 @@ As before, the interactive shell of PartyC will not display any IOUs.
 ### Via the h2 web console
 
 You can connect directly to your node’s database to see its stored states, transactions and attachments. To do so,
-please follow the instructions in [Node database](node-database.md).
+please follow the instructions in [Node database](node-database-access-h2.md).
 
 
 ## Running nodes across machines

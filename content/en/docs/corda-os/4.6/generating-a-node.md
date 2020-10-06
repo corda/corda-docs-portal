@@ -190,7 +190,7 @@ rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
 ```
 
-* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](../setup/corda-configuration-fields.md#sshd). For example:
+* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](corda-configuration-fields.md#sshd). For example:
 
 ```kotlin
 sshd {

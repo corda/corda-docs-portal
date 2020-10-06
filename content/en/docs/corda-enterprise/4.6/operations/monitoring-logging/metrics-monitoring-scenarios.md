@@ -22,7 +22,7 @@ You can monitor the metrics data from your node for a variety of reasons, and in
 * **Committing transactions time** - Measure how long it takes to commit an executed action on the network.
 * **Signing transactions time** - Where a signature is required for a transaction, you can measure the time being taken for this to be completed.
 
-You can see a complete list, and guidance on monitoring specific scenarios in the [Monitoring scenarios docs](../../node/operating/monitoring-scenarios).
+You can see a complete list, and guidance on monitoring specific scenarios in the [Monitoring scenarios docs](../../node/operating/monitoring-scenarios.md/).
 
 ## Metrics data
 
@@ -37,4 +37,4 @@ You can get metrics for your node from these key sources:
 * **P2P** - Messaging between parties can be measured in a number of ways, including metrics for latency between messages being sent and received between nodes, the size of sent messages, the interval between received P2P messages.
 * **Other metrics** - Measure the tine taken to sign a transaction or check whether proposed network parameter updates have been accepted yet.
 
-Take a look at the [Node metrics documentation](../../node/operating/node-metrics) for a complete range of the metrics data available from your node.
+Take a look at the [Node metrics documentation](../../node-metrics.md/) for a complete range of the metrics data available from your node.

@@ -110,7 +110,7 @@ and then proceed with the upgrade following the instructions above.
 ### Reusing an existing database
 
 To reuse an existing database, follow the same database instructions as
-upgrading withing the same Corda version.
+upgrading within the same Corda version.
 
 ### Migrating from H2 database to other database vendor
 

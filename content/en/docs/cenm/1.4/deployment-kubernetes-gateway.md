@@ -12,7 +12,7 @@ weight: 60
 
 # CENM Gateway Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [CENM Gateway Service](gateway-service.md) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [CENM Gateway Service](gateway-service.md/) on Kubernetes.
 
 ## Example usage
 
@@ -44,4 +44,5 @@ helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=Y --set 
 | `zonePort`                    | Zone Service port | `12345` |
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
-For additional information on database connection details refer to the official documentation: [database documentation](config-database.md).
+
+For additional information on database connection details refer to the official documentation: [database documentation](config-database.md/).

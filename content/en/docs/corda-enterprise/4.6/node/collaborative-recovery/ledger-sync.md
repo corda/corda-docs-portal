@@ -564,7 +564,7 @@ In all cases, it may be necessary to *kill* the flow. See below for the details 
 
 ### Step 3. Transaction recovery
 
-If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recover-automatic.html) or a [ManualRecovery](ledger-recover-manual.html).
+If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recovery-automatic.md/) or a [Manual Recovery](ledger-recovery-manual.md/).
 
 #### Killing Reconciliation Flows
 

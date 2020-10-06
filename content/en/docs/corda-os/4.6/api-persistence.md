@@ -33,7 +33,7 @@ automatically every time a state is recorded in the node’s local vault as part
 {{< note >}}
 By default, nodes use an H2 database which is accessed using *Java Database Connectivity* JDBC. Any database
 with a JDBC driver is a candidate and several integrations have been contributed to by the community.
-Please see the info in “[Node database](node-database.md)” for details.
+Please see the info in “[Node database](node-database-access-h2.md)” for details.
 
 {{< /note >}}
 

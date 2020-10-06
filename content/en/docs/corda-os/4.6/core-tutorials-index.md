@@ -17,15 +17,15 @@ title: Core tutorials
 
 #  Core tutorials
 
-Once you've worked through the [Hello, World!](hello-world-introduction.md) tutorials and are ready to dig a bit deeper, the Core tutorials cover all of the key skills you will need to be able to develop CorDapps.
+Once you've worked through the [Hello, World!](hello-world-introduction.md/) tutorials and are ready to dig a bit deeper, the Core tutorials cover all of the key skills you will need to be able to develop CorDapps.
 
 While these tutorials don’t depend on the code from any of the other tutorials, for optimum learning, it's recommended that you complete the tutorials in the order shown.
 
 {{< table >}}
 | Main steps in basic CorDapp development | Core tutorials |
 |---------|----------|----------|----------|
-| 1. Write the contract and test that it works. | (a) [Writing contracts](tutorial-contract.md) <br/><br/> (b) [Writing contract tests](tutorial-test-dsl.md) |
-| 2. Build your transactions. | (a) [Building transactions](tutorial-building-transactions.md) |
-| 3. Write your flows and test that they work. | (a) [Writing flows](flow-state-machines.md) <br/><br/> (b) [Writing flow tests](flow-testing.md) |
-| 4. Check that it all works together. | (a) [Conducting integration testing](tutorial-integration-testing.md) |
+| 1. Write the contract and test that it works. | (a) [Writing contracts](tutorial-contract.html/) <br/><br/> (b) [Writing contract tests](tutorial-test-dsl.html/) |
+| 2. Build your transactions. | (a) [Building transactions](tutorial-building-transactions.html/) |
+| 3. Write your flows and test that they work. | (a) [Writing flows](flow-state-machines.html/) <br/><br/> (b) [Writing flow tests](flow-testing.html/) |
+| 4. Check that it all works together. | (a) [Conducting integration testing](tutorial-integration-testing.html/) |
 {{< /table >}}

@@ -53,7 +53,7 @@ If you are using them you should re-namespace them to a package namespace you co
 
 ### Required actions relating to database optimisation in Corda 4.6
 
-The operational improvements around [database schema harmonisation](release-notes.md#database-schema-harmonisation) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
+The operational improvements around [database schema harmonisation](release-notes-enterprise.md#database-schema-harmonisation) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
 
 The required steps for each upgrade path are described below.
 
@@ -875,7 +875,7 @@ may result in queries returning more states than expected if the node is using o
 Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
-* The [new withEntityManager API](api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
+* The [new withEntityManager API](https://api.corda.net/api/corda-os/4.6/html/api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
 * [Reference States](cordapps/api-states.md#reference-states), that let you use an input state without consuming it.
 * [State Pointers](cordapps/api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 

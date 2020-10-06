@@ -113,7 +113,7 @@ and then proceed with the upgrade following the instructions in [above](#node-op
 ### Reusing an existing database
 
 To reuse an existing database, follow the same database instructions as
-[upgrading withing the same Corda version](#node-operations-upgrading-os-to-ent-1).
+[upgrading within the same Corda version](#node-operations-upgrading-os-to-ent-1).
 
 
 ### Migrating from H2 database to other database vendor

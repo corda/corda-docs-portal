@@ -42,13 +42,13 @@ By default, the node will look for a configuration file called `node.conf` and a
 in the current working directory. You can override the configuration file and workspace paths on the command line (e.g.
 `./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
 
-If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../../node-commandline.md) for details.
+If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../node-commandline.md/) for details.
 
 {{< note >}}
 If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the
 obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator](../../tools-config-obfuscation.md) command-line tool, use the
+To do so using the [Configuration Obfuscator](../../tools-config-obfuscator.md/) command-line tool, use the
 `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration
@@ -290,7 +290,7 @@ The steps described above enable you to create the same test deployment as a `de
 Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
 For more information, see [Database management](../../node-database-intro.md).
 
-If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../../node-commandline.md) for details.
+If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../node-commandline.md) for details.
 
 
 ## Stability of the Corda Node

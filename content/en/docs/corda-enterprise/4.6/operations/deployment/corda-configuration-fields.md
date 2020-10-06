@@ -283,7 +283,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * *Default:* Not present. By default, no maintenance activities will be performed if the `maintenanceMode` section is not provided. Without the new parameter, Corda will behave as if maintenance mode is not available.
   * If the `maintenanceMode` sub-section is provided, then **ALL** `maintenanceMode` parameters (as described below) must be supplied and must also pass configuration validation at start-up.
   * Parameters:
-    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode](../operating/maintenance-mode.md#configuration-of-node-maintenance-mode). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
+    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode](../../node/operating/maintenance-mode.md#configuration-of-node-maintenance-mode). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
     * `duration` is the maximum time that a maintenance window is expected to take to run all tasks. At start-up, Corda will check for all maintenance events that occur within the following week. If there is an overlap (due the specified duration being longer than the interval between any two adjacent maintenance windows), Corda Enterprise will emit a *warning* to the log which will precisely specify the overlap scenario but no further action will be taken. Additionally, if the time that the maintenance tasks *actually* take to run exceeds the specified duration, a warning will be emitted to the log but the maintenance tasks will not be interrupted. The purpose of the duration parameter is to allow the user to check that there are no overlaps and to allow monitoring of overrunning activities via log messaging and monitoring. The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing, see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.md#duration-format).
     * `rpcAuditDataRetentionPeriod` is a parameter to the RPC table maintenance task and specifies how long records should be kept for within the table for. The parameter is in HOCON *period* format - for example, `‘365d’, ‘1w’`. In general, the following suffixes should be sufficient: `‘d’ (days), ‘w’ (weeks), ‘m’ (months), ‘y’ (years)`. For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.md#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
   * [Node Maintenance Mode](../../node/operating/maintenance-mode.md#configuration-of-node-maintenance-mode) uses the `processedMessageCleanup` parameters (see below).
@@ -316,7 +316,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
 ## Tuning
 
-Tuning is a section withing the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
+Tuning is a section within the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
 
 ## `backchainFetchBatchSize`
 
@@ -927,6 +927,6 @@ Internal option.
   This option is disabled by default and is independent from `devMode`.
   {{< /note >}}
 
-  For full details, see [Automatic detection of unrestorable checkpoints](../../node/setup/checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
+  For full details, see [Automatic detection of unrestorable checkpoints](../../checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
 
   *Default:* not defined

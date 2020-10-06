@@ -247,7 +247,7 @@ The steps described above enable you to create the same test deployment as a `de
 ## Database migrations
 
 Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-For more information, see [Database management](node-database.md).
+For more information, see [Database management](node-database-access-h2.md).
 
 From Corda 4.6, if you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](node-commandline.md) for details.
 

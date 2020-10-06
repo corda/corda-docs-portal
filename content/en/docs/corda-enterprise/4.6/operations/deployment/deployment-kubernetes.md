@@ -331,10 +331,10 @@ database {
 
 ### Update network parameters
 
-Use the CENM [Command-Line (CLI) tool](../../../../cenm/1.4/cenm-cli-tool.md) to run commands to update the network parameters.
+Use the CENM [Command-Line (CLI) tool](../../../../cenm/1.4/cenm-cli-tool.md/) to run commands to update the network parameters.
 
-See the official CENM documentation for more information about the list of available [network parameters](./config-network-parameters.html)
-and instructions on [updating network parameters](./updating-network-parameters.html).
+See the official CENM documentation for more information about the list of available [network parameters](../../../../cenm/1.4/config-network-parameters.md/)
+and instructions on [updating network parameters](./updating-network-parameters.md/).
 
 ### Run Flag Day
 
@@ -346,7 +346,7 @@ This operation is scheduled to take place at regular intervals (by default, once
 
 ### Signing Service configuration
 
-The Signing Service is not managed by the [Angel Service](../../../../cenm/1.4/angel-service.md) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
+The Signing Service is not managed by the [Angel Service](../../../../cenm/1.4/angel-service.md/) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
 To change the Singing Service configuration, you must log in to a Kubernetes pod, update the configuration file, and restart the service.
 
 ## Delete Network

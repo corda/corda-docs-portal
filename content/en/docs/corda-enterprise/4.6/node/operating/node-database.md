@@ -81,7 +81,7 @@ but will check the database “version” and halt if the database is not in syn
 To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool-ref).
 This setup/procedure is recommended for production systems.
 
-Running the migration at startup automatically can only be configured by using the `initial registration` sub-command when running the node. The standard way of running the schema initialisation / migration scripts is to run the `run-migration-script` sub-command - see [Node command-line options](node-commandline.md).
+Running the migration at startup automatically can only be configured by using the `initial registration` sub-command when running the node. The standard way of running the schema initialisation / migration scripts is to run the `run-migration-script` sub-command - see [Node command-line options](../node-commandline.md).
 We recommend enabling database schema auto-creation/upgrade for development or test purposes only.
 It is safe to run at startup if you have implemented the usual best practices for database management
 (e.g. running a backup before installing a new version).
@@ -101,7 +101,7 @@ The database management tool is for production databases only. H2 databases cann
 
 {{< /note >}}
 
-You can review all available commands and options in the [Database Management Tool documentation](../../database-management-tool). 
+You can review all available commands and options in the [Database Management Tool documentation](../../database-management-tool).
 
 ## Node database tables
 

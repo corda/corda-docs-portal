@@ -20,7 +20,7 @@ weight: 1
 
 This release introduces a number of new features, major functional and operational improvements, and fixes for a range of known issues in the following major areas:
 
-**Flow management features and improvements**.
+**Flow management features and improvements**
 
 The new flow management features and improvements introduced in Corda Enterprise 4.6 include:
 
@@ -58,10 +58,10 @@ Watch this short video overview of the ability to prevent duplicate flow starts 
 * We now release [Docker images](#deployment-docker-images-for-corda-enterprise-firewall-and-all-corda-enterprise-setup-tools) for Corda Enterprise Firewall and all Corda Enterprise setup tools.
 * This release introduces a set of improvements to make the flow state machine more resilient.
 * We have added support for [storing node TLS keys in HSM](#support-for-storing-node-tls-keys-in-hsm-without-firewall) even without running the Corda Firewall. A new optional `tlsCryptoServiceConfig` section was introduced inside `enterpriseConfiguration` in `node.conf`.
-* We have introduced Node Maintenance Mode, which enables you to [schedule maintenance windows](#node-maintenance-mode) for your nodes via the `maintenanceMode` configuration field within the `enterpriseConfiguration` [node configuration file](node/setup/corda-configuration-fields.html#enterpriseconfiguration) section.  
+* We have introduced Node Maintenance Mode, which enables you to [schedule maintenance windows](#node-maintenance-mode) for your nodes via the `maintenanceMode` configuration field within the `enterpriseConfiguration` [node configuration file](node/setup/corda-configuration-fields.html#enterpriseconfiguration) section.
 * We have added the ability to perform message ID cleanup less aggressively. Corda Enterprise now performs a [less aggressive and safer cleanup](#ability-to-perform-message-id-cleanup-less-aggressively) of the table that contains identifiers of previously processed messages.
 
-**Developer experience features and improvements.**
+**Developer experience features and improvements**
 
 We are focused on improving the overall developer experience to ensure Corda maintains its status as an easy-to-use platform for developers. In this release we have a number of improvements that will help developers build more resilient applications.
 
@@ -146,7 +146,7 @@ Corda’s RPC client now allows each flow to be started with a unique client-pro
 
 This enables you to:
 
-* Reconnect reliably to previously started flows.  
+* Reconnect reliably to previously started flows.
 * Reclaim a flow's result or exception at any time in the future.
 
 For more information, see [Starting a flow with a client-provided unique ID](flow-start-with-client-id.md).

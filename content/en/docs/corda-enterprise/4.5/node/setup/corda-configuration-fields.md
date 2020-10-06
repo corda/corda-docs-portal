@@ -294,7 +294,7 @@ Allows fine-grained controls of various features only available in the enterpris
 
 ## Tuning
 
-Tuning is a section withing the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
+Tuning is a section within the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
 
 ## `backchainFetchBatchSize`
 
