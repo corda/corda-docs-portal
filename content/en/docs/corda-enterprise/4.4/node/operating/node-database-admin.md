@@ -26,10 +26,10 @@ If you just need a quick database setup for testing/development, please refer to
 Setting up a Corda node to connect to a database requires:
 
 
-* [Creating a database user with schema permissions](#db-setup-step-1-ref)
-* [Database schema creation](#db-setup-step-2-ref) with Corda Database Management Tool
-* [Corda node configuration changes](#db-setup-step-3-ref)
-* [Database configuration](#db-setup-step-4-ref)
+* [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
+* [Database schema creation](#2-database-schema-creation) with Corda Database Management Tool
+* [Corda node configuration changes](#3-corda-node-configuration)
+* [Database configuration](#4-database-configuration)
 
 
 
@@ -43,7 +43,7 @@ The less restricted permission set for a database user with **administrative per
 
 {{< note >}}
 This step refers to *schema* as a namespace with a set of permissions,
-the schema content (tables, indexes) is created in [the next step](#db-setup-step-2-ref).
+the schema content (tables, indexes) is created in [the next step](#2-database-schema-creation).
 
 {{< /note >}}
 Variants of Data Definition Language (DDL) scripts are provided for each supported database vendor.
@@ -62,10 +62,10 @@ Each Corda node needs to use a separate database user and schema where multiple 
 Creating database users with schema permissions for:
 
 
-* [Azure SQL](#db-setup-create-user-azure-ref)
-* [SQL Server](#db-setup-create-user-sqlserver-ref)
-* [Oracle](#db-setup-create-user-oracle-ref)
-* [PostgreSQL](#db-setup-create-user-postgresql-ref)
+* [Azure SQL](#azure-sql)
+* [SQL Server](#sql-server)
+* [Oracle](#oracle)
+* [PostgreSQL](#postgresql)
 
 
 
@@ -174,12 +174,12 @@ GRANT CREATE SEQUENCE TO my_admin_user;
 GRANT SELECT ON v_$parameter TO my_admin_user;
 ```
 
-The permissions for the Corda node user to access database objects will be assigned in [the following step](node-operations-cordapp-deployment.md#db-setup-step-2-oracle-extra-step-ref)
+The permissions for the Corda node user to access database objects will be assigned in [the following step](#oracle-1)
 after the database objects are created.
 
 The last permission for the *v_$parameter* view is needed when a database is running in
 [Database Compatibility mode](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/upgrd/what-is-oracle-database-compatibility.html).
-If the permission is not granted then [Corda Database Management Tool](node-database.md#database-management-tool-ref) will output the message
+If the permission is not granted then [Corda Database Management Tool](node-database.md#database-management-tool) will output the message
 *‘Could not set check compatibility mode on OracleDatabase, assuming not running in any sort of compatibility mode …’* in a log file,
 the message can be ignored.
 
@@ -223,7 +223,7 @@ ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences 
 
 All data structures (tables, indexes) must be created before the Corda node connects to a database with **restricted permissions**.
 Corda is released without a separate set of DDL scripts, instead a database administrator needs to use
-the [Corda Database Management Tool](node-database.md#database-management-tool-ref) to output the DDL scripts and run the scripts against a database.
+the [Corda Database Management Tool](node-database.md#database-management-tool) to output the DDL scripts and run the scripts against a database.
 Each Corda release version has the associated Corda Database Management Tool release which outputs a compatible set of DDL scripts.
 The DDL scripts contain the history of a database evolution - series of table alterations leading to the current state, using the
 functionality of [Liquibase](http://www.liquibase.org) which is used by Corda for database schema management.
@@ -239,9 +239,9 @@ Replace the schema namespace *my_schema* with the schema used by the node.
 DDL script for management tables for:
 
 
-* [Azure SQL and SQL Server](#db-setup-liquibase-management-tables-azure-ref)
-* [Oracle](#db-setup-liquibase-management-tables-oracle-ref)
-* [PostgreSQL](#db-setup-liquibase-management-tables-postgresql-ref)
+* [Azure SQL and SQL Server](#azure-sql-and-sql-server)
+* [Oracle](#oracle-1)
+* [PostgreSQL](#postgresql-1)
 
 
 
@@ -356,10 +356,10 @@ Create a `node.conf` with properties for your database, and copy the respective 
 The `node.conf` templates for each database vendor are shown below:
 
 
-* [Azure SQL](node-operations-cordapp-deployment.md#db-setup-configure-db-tool-azure-ref)
-* [SQL Server](node-operations-cordapp-deployment.md#db-setup-configure-db-tool-sqlserver-ref)
-* [Oracle](node-operations-cordapp-deployment.md#db-setup-configure-db-tool-oracle-ref)
-* [PostgreSQL](node-operations-cordapp-deployment.md#db-setup-configure-db-tool-postgresql-ref)
+* [Azure SQL](#azure-sql-1)
+* [SQL Server](#sql-server-1)
+* [Oracle](#oracle-2)
+* [PostgreSQL](#postgresql-2)
 
 
 
@@ -490,7 +490,7 @@ A script will be generated named *migration/*.sql* in the base directory.
 This script contains all the statements to create/modify data structures (e.g. tables/indexes)
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables.
-Refer to [Corda Database Management Tool](node-database.md#database-management-tool-ref) manual for more detail.
+Refer to the [Corda Database Management Tool](node-database.md#database-management-tool) manual for more detail.
 
 
 ### 2.4. Apply DDL scripts on a database
@@ -663,7 +663,7 @@ database = {
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to install the appropriate JDBC driver.
 Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
-Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](../setup/corda-configuration-file.md#corda-configuration-file-jar-dirs-ref).
+Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](../setup/corda-configuration-fields.md#jardirs).
 The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
 * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
 To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:
@@ -685,10 +685,10 @@ dataSourceProperties = {
 Configuration templates for each database vendor are shown below:
 
 
-* [Azure SQL](#db-setup-configure-node-azure-ref)
-* [SQL Server](#db-setup-configure-node-sqlserver-ref)
-* [Oracle](#db-setup-configure-node-oracle-ref)
-* [PostgreSQL](#db-setup-configure-node-postgresql-ref)
+* [Azure SQL](#azure-sql-2)
+* [SQL Server](#sql-server-2)
+* [Oracle](#oracle-4)
+* [PostgreSQL](#postgresql-3)
 
 
 
@@ -720,7 +720,7 @@ The `database.schema` is the database schema name assigned to the user.
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
 extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* (the archive comes with two JARs).
-[Common Configuration Steps paragraph](#db-setup-step-3-ref) explains the correct location for the driver JAR in the node installation structure.
+The [Common Configuration Steps paragraph](#3-corda-node-configuration) explains the correct location for the driver JAR in the node installation structure.
 
 
 
@@ -754,7 +754,7 @@ The `database.schema` is the database schema name assigned to the user.
 
 The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
 extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` (the archive comes with two JARs).
-[Common Configuration Steps](#db-setup-step-3-ref) explains the correct location for the driver JAR in the node installation structure.
+The [Common Configuration Steps](#3-corda-node-configuration) section explains the correct location for the driver JAR in the node installation structure.
 
 Ensure JDBC connection properties match the SQL Server setup. Especially when trying to reuse Azure SQL JDBC URLs
 which are invalid for SQL Server. This may lead to a Corda node failing to start with message:
@@ -794,7 +794,7 @@ The additional configuration entry `connectionInitSql` sets the current schema t
 
 Do not change the default isolation for this database (*READ_COMMITTED*), as the Corda platform has been validated for functional correctness and performance using this level.
 
-Place the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c in the node directory `drivers` described in [Common Configuration Steps](#db-setup-step-3-ref).
+Place the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
 Database schema name can be set in JDBC URL string e.g. currentSchema=my_schema.
 
 
@@ -907,7 +907,7 @@ This behaviour differs from Corda Open Source where the value is not wrapped in 
 
 Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 
-Place the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* in the node directory `drivers` described in [Common Configuration Steps](#db-setup-step-3-ref).
+Place the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
 
 
 
