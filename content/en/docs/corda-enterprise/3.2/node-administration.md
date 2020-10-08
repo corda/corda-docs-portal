@@ -178,8 +178,6 @@ access to reads from localhost:
 </restrict>
 ```
 
-{{/* github src='config/prod/jolokia-access.xml' url='https://github.com/corda/enterprise/blob/3.2/config/prod/jolokia-access.xml' raw='https://raw.githubusercontent.com/corda/enterprise/3.2/config/prod/jolokia-access.xml' start='' end='' */}}[jolokia-access.xml](https://github.com/corda/enterprise/blob/release/ent/3.2/config/prod/jolokia-access.xml)
-
 
 #### Notes for development/test use
 
@@ -276,5 +274,3 @@ If the above holds, Corda components will benefit from the following:
 Private keys used to sign transactions should be preserved with the utmost care. The recommendation is to keep at least two separate copies on a storage not connected to the Internet.
 
 {{< /warning >}}
-
-

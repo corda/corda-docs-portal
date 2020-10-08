@@ -138,7 +138,6 @@ public class IOUState implements ContractState {
 
 
 
-[state.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/state.kt) | [IOUState.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUState.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -181,4 +180,3 @@ If you’ve read the white paper or Key Concepts section, you’ll know that eac
 imposes invariants on how the state evolves over time. Including a contract isn’t crucial for our first CorDapp, so
 we’ll just use the empty `TemplateContract` and `TemplateContract.Commands.Action` command defined by the template
 for now. In the next tutorial, we’ll implement our own contract and command.
-

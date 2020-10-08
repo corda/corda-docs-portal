@@ -29,7 +29,7 @@ Corda pervasively uses a custom form of type safe binary serialisation. This sta
 weakly or untyped string-based serialisation schemes like JSON or XML. The primary drivers for this were:
 
 
-* A desire to have a schema describing what has been serialized alongside the actual data:> 
+* A desire to have a schema describing what has been serialized alongside the actual data:>
 
 * To assist with versioning, both in terms of being able to interpret data archived long ago (e.g. trades from
 a decade ago, long after the code has changed) and between differing code versions.
@@ -86,7 +86,7 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 
 ```
 
-[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)
+[ClientRpcTutorial.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcTutorial.kt)
 
 {{< note >}}
 Several of the core interfaces at the heart of Corda are already annotated and so any classes that implement
@@ -688,4 +688,3 @@ all versions of the class. This ensures an object serialized with an older idea 
 and a version of the current state of the class instantiated.
 
 More detail can be found in [Default Class Evolution](serialization-default-evolution.md).
-

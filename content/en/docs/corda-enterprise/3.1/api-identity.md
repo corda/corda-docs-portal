@@ -105,9 +105,8 @@ override fun call(): SignedTransaction {
 
 ```
 {{% /tab %}}
-{{/* github src='finance/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt' url='https://github.com/corda/enterprise/blob/3.1/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt#L65-L70' raw='https://raw.githubusercontent.com/corda/enterprise/3.1/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt' start='DOCSTART 2' end='DOCEND 2' */}}
 
-[TwoPartyDealFlow.kt](https://github.com/corda/enterprise/blob/release/ent/3.1/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
+
 
 {{< /tabs >}}
 
@@ -158,9 +157,8 @@ val twiceSignedTx = partSignedTx + sellerSignature
 
 ```
 {{% /tab %}}
-{{/* github src='finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' url='https://github.com/corda/enterprise/blob/3.1/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt#L186-L196' raw='https://raw.githubusercontent.com/corda/enterprise/3.1/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' start='DOCSTART 6' end='DOCEND 6' */}}
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/3.1/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+
 
 {{< /tabs >}}
 
@@ -196,9 +194,8 @@ subFlow(IdentitySyncFlow.Receive(otherSideSession))
 
 ```
 {{% /tab %}}
-{{/* github src='finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' url='https://github.com/corda/enterprise/blob/3.1/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt#L101-L103' raw='https://raw.githubusercontent.com/corda/enterprise/3.1/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt' start='DOCSTART 07' end='DOCEND 07' */}}
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/3.1/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+
 
 {{< /tabs >}}
 
@@ -214,4 +211,3 @@ Alice may know all of the confidential identities ahead of time, but Bob not kno
 The assembled transaction therefore has three input states *x*, *y* and *z*, for which only Alice possesses
 certificates for all confidential identities. `IdentitySyncFlow` must send not just Alice’s confidential identity but
 also any other identities in the transaction to the Bob and Charlie.
-

@@ -491,5 +491,4 @@ fun verify_that_the_oracle_signs_the_transaction_if_the_interest_rate_within_all
 
 {{< /tabs >}}
 
-See [here](https://github.com/corda/corda/samples/irs-demo/cordapp/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt) for more examples.
-
+See [here](https://github.com/corda/corda/blob/release/os/4.0/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt) for more examples.

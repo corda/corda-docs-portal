@@ -175,8 +175,6 @@ public class IOUFlow extends FlowLogic<Void> {
 
 
 
-[flow.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/flow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 If you’re following along in Java, you’ll also need to rename `TemplateFlow.java` to `IOUFlow.java`. Let’s walk
@@ -295,4 +293,3 @@ built-in flow called `FinalityFlow`. `FinalityFlow` completely automates the pro
 
 Our flow, and our CorDapp, are now ready! We have now defined a flow that we can start on our node to completely
 automate the process of issuing an IOU onto the ledger. All that’s left is to spin up some nodes and test our CorDapp.
-

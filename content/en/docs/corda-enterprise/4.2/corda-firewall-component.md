@@ -189,7 +189,7 @@ rpcSettings = {
 
 ```
 
-[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/node_bridge/node.conf)
+[node.conf](resources/bridge/node_bridge/node.conf)
 
 
 #### bridge.conf
@@ -206,7 +206,7 @@ networkParametersPath = network-parameters
 
 ```
 
-[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/node_bridge/bridge.conf)
+[bridge.conf](resources/bridge/node_bridge/bridge.conf)
 
 
 ### DMZ ready (node + bridge + float)
@@ -256,7 +256,7 @@ enterpriseConfiguration = {
 
 ```
 
-[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/node_bridge_float/node.conf)
+[node.conf](resources/bridge/node_bridge_float/node.conf)
 
 
 #### bridge.conf
@@ -279,7 +279,7 @@ bridgeInnerConfig {
 networkParametersPath = network-parameters
 ```
 
-[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/node_bridge_float/bridge.conf)
+[bridge.conf](resources/bridge/node_bridge_float/bridge.conf)
 
 
 #### float.conf
@@ -301,7 +301,7 @@ floatOuterConfig {
 }
 ```
 
-[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/node_bridge_float/float.conf)
+[float.conf](resources/bridge/node_bridge_float/float.conf)
 
 
 ### DMZ ready with outbound SOCKS
@@ -344,7 +344,7 @@ enterpriseConfiguration = {
 
 ```
 
-[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/socks_proxy/node.conf)
+[node.conf](resources/bridge/socks_proxy/node.conf)
 
 
 #### bridge.conf
@@ -374,7 +374,7 @@ networkParametersPath = network-parameters
 
 ```
 
-[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/socks_proxy/bridge.conf)
+[bridge.conf](resources/bridge/socks_proxy/bridge.conf)
 
 
 #### float.conf
@@ -396,7 +396,7 @@ floatOuterConfig {
 }
 ```
 
-[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/socks_proxy/float.conf)
+[float.conf](resources/bridge/socks_proxy/float.conf)
 
 
 ### Full production HA DMZ ready mode (hot/cold node, hot/warm bridge)
@@ -456,7 +456,7 @@ enterpriseConfiguration = {
 
 ```
 
-[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/ha_nodes/node.conf)
+[node.conf](resources/bridge/ha_nodes/node.conf)
 
 
 #### bridge.conf
@@ -483,7 +483,7 @@ networkParametersPath = network-parameters
 
 ```
 
-[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/ha_nodes/bridge.conf)
+[bridge.conf](resources/bridge/ha_nodes/bridge.conf)
 
 
 #### float.conf
@@ -505,7 +505,7 @@ floatOuterConfig {
 }
 ```
 
-[float.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/ha_nodes/float.conf)
+[float.conf](resources/bridge/ha_nodes/float.conf)
 
 
 ## Operating modes of shared Bridge and Float
@@ -560,7 +560,7 @@ rpcSettings = {
 
 ```
 
-[bank-a-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/multiple_non_ha_nodes/bank-a-node.conf)
+[bank-a-node.conf](resources/bridge/multiple_non_ha_nodes/bank-a-node.conf)
 
 
 #### bank-b-node.conf
@@ -594,7 +594,7 @@ rpcSettings = {
 
 ```
 
-[bank-b-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/multiple_non_ha_nodes/bank-b-node.conf)
+[bank-b-node.conf](resources/bridge/multiple_non_ha_nodes/bank-b-node.conf)
 
 
 #### bridge.conf
@@ -625,7 +625,7 @@ trustStorePassword = nodeTrustpass
 trustStoreFile = nodesCertificates/truststore.jks
 ```
 
-[bridge.conf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge/multiple_non_ha_nodes/bridge.conf)
+[bridge.conf](resources/bridge/multiple_non_ha_nodes/bridge.conf)
 
 
 ### Adding new nodes to existing shared Bridge

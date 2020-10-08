@@ -107,7 +107,7 @@ class IOUFlow(val iouValue: Int,
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/flow.kt' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/flow.kt#L20-L56' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/flow.kt' start='DOCSTART 01' end='DOCEND 01' */}}
+
 {{% tab name="java" %}}
 ```java
 // Add these imports:
@@ -173,9 +173,8 @@ public class IOUFlow extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java#L18-L77' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java' start='DOCSTART 01' end='DOCEND 01' */}}
 
-[flow.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/helloworld/flow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/helloworld/IOUFlow.java) | ![github](/images/svg/github.svg "github")
+
 
 {{< /tabs >}}
 
@@ -295,4 +294,3 @@ built-in flow called `FinalityFlow`. `FinalityFlow` completely automates the pro
 
 Our flow, and our CorDapp, are now ready! We have now defined a flow that we can start on our node to completely
 automate the process of issuing an IOU onto the ledger. All that’s left is to spin up some nodes and test our CorDapp.
-

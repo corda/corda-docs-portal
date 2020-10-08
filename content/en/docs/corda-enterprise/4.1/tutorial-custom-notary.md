@@ -42,7 +42,7 @@ class MyCustomValidatingNotaryService(override val services: ServiceHubInternal,
 
 ```
 
-[MyCustomNotaryService.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
+[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.1/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
 
 The next step is to write a notary service flow. You are free to copy and modify the existing built-in flows such
 as `ValidatingNotaryFlow`, `NonValidatingNotaryFlow`, or implement your own from scratch (following the
@@ -83,7 +83,7 @@ class MyValidatingNotaryFlow(otherSide: FlowSession, service: MyCustomValidating
 
 ```
 
-[MyCustomNotaryService.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
+[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.1/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
 
 To enable the service, add the following to the node configuration:
 
@@ -93,4 +93,3 @@ notary : {
     className : "net.corda.notarydemo.MyCustomValidatingNotaryService" # The fully qualified name of your service class
 }
 ```
-

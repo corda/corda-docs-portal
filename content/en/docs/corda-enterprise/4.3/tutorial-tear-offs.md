@@ -42,7 +42,7 @@ val filtering = Predicate<Any> {
 
 
 
-[TutorialTearOffs.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
+[TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -59,7 +59,7 @@ val ftx: FilteredTransaction = stx.buildFilteredTransaction(filtering)
 
 
 
-[TutorialTearOffs.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
+[TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -85,7 +85,7 @@ val timeWindow: TimeWindow? = ftx.timeWindow
 
 
 
-[TutorialTearOffs.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
+[TutorialTearOffs.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/tearoffs/TutorialTearOffs.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -125,7 +125,7 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 
 ```
 
-[NodeInterestRates.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 
 {{< note >}}
 The way the `FilteredTransaction` is constructed ensures that after signing of the root hash it’s impossible to add or remove

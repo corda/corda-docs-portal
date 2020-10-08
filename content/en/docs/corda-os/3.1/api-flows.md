@@ -373,7 +373,7 @@ In addition `FlowLogic` provides functions that batch receives:
 
 
 
-* Receives from all 
+* Receives from all
 {{< warning >}}``{{< /warning >}}
 
 FlowSession``s specified in the passed in map. The received types may differ.
@@ -381,7 +381,7 @@ FlowSession``s specified in the passed in map. The received types may differ.
 
 
 * `receiveAll(receiveType: Class<R>, sessions: List<FlowSession>): List<UntrustworthyData<R>>`
-    * Receives from all 
+    * Receives from all
 {{< warning >}}``{{< /warning >}}
 
 FlowSession``s specified in the passed in list. The received types must be the same.
@@ -1357,5 +1357,4 @@ for (retryCount in 1..MAX_RETRIES) {
 
 ```
 
-{{/* github src='finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt' url='https://github.com/corda/corda/blob/3.1/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt#L108-L122' raw='https://raw.githubusercontent.com/corda/corda/3.1/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt' start='DOCSTART CASHSELECT 1' end='DOCEND CASHSELECT 1' */}}[AbstractCashSelection.kt](https://github.com/corda/corda/blob/release/os/3.1/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt)
-
+[AbstractCashSelection.kt](https://github.com/corda/corda/blob/release/os/3.1/finance/src/main/kotlin/net/corda/finance/contracts/asset/cash/selection/AbstractCashSelection.kt)

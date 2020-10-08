@@ -82,7 +82,7 @@ auditServiceConfiguration : {
 silencedIPs = []
 ```
 
-[firewalldefault.conf](https://github.com/corda/enterprise/blob/release/ent/4.0/bridge/src/main/resources/firewalldefault.conf)
+[firewalldefault.conf](resources/bridge/firewalldefault.conf)
 
 
 ## Firewall operating modes
@@ -98,20 +98,20 @@ Assuming that an external firewall is to be used, the `corda-firewall.jar` opera
 The particular mode is selected via the required `firewallMode` configuration property inside `firewall.conf`:
 
 
-* **SenderReceiver**: 
+* **SenderReceiver**:
 selects a single process firewall solution to isolate the node and Artemis broker from direct Internet contact.
 It is still assumed that the firewall process is behind a firewall, but both the message sending and receiving paths will pass via the `bridge`.
 In this mode the `outboundConfig` and `inboundConfig` configuration sections of `firewall.conf` must be provided,
 the `bridgeInnerConfig` and `floatOuterConfig` sections should not be present.
 
 
-* **BridgeInner**: 
+* **BridgeInner**:
 mode runs this instance of the `corda-firewall.jar` as the trusted portion of the peer-to-peer firewall float.
 Specifically, this process runs the complete outbound message processing. For the inbound path it operates only the filtering and durable storing portions of the message processing.
 The process expects to connect through a firewall to a matched `FloatOuter` instance running in the DMZ as the actual `TLS 1.2/AMQP 1.0` termination point.
 
 
-* **FloatOuter**: 
+* **FloatOuter**:
 causes this instance of the `corda-firewall.jar` to run as a protocol break proxy for inbound message path. The process
 will initialise a `TLS` control port and await connection from the `BridgeInner`. Once the control connection is successful the `BridgeInner` will securely provision
 the `TLS` socket server key and certificates into the `FloatOuter`. The process will then start listening for inbound connection from peer nodes.
@@ -125,23 +125,23 @@ The available config fields are listed below. `baseDirectory` is available as a 
 absolute path to the firewall’s base directory.
 
 
-* **certificatesDirectory**: 
+* **certificatesDirectory**:
 An optional parameter which specifies directory from which SSL keys and Trust store keys will be loaded from. If missing the value is defaulted to `baseDirectory/certificates`.
 
 
-* **sslKeystore**: 
+* **sslKeystore**:
 An optional parameter which specifies the file from which SSL keys stores will be loaded from. If missing the value is defaulted to `<certificatesDirectory>/sslkeystore.jks`.
 
 
-* **trustStoreFile**: 
+* **trustStoreFile**:
 An optional parameter which specifies the file from which Trust store keys will be loaded from. If missing the value is defaulted to `<certificatesDirectory>/truststore.jks`.
 
 
-* **firewallMode**: 
+* **firewallMode**:
 Determines operating mode of the firewall. See above.
 
 
-* **keyStorePassword**: 
+* **keyStorePassword**:
 The password to unlock the TLS KeyStore file (`<workspace>/<certificatesDirectory>/sslkeystore.jks`) containing the
 node certificate and private key. The private key password must be the same due to limitations in the Artemis libraries.
 
@@ -151,7 +151,7 @@ Longer term these keys will be managed in secure hardware devices.
 
 {{< /note >}}
 
-* **trustStorePassword**: 
+* **trustStorePassword**:
 The password to unlock the Trust store file (`<workspace>/<certificatesDirectory>/truststore.jks`) containing
 the Corda network root certificate. This is the non-secret value for the development certificates automatically
 generated during the first node run.
@@ -161,53 +161,53 @@ Longer term these keys will be managed in secure hardware devices.
 
 {{< /note >}}
 
-* **networkParametersPath**: 
+* **networkParametersPath**:
 This is the file path to a copy of the `network-parameters` as copied from a node after it has fetched the latest version from the network-map via http.
 It is used to correctly configure the maximum allowed message size. The maximum message size limit is already enforced by the P2P Artemis inside the `node`,
 but the `bridge` also enforces this before forwarding messages to remote peers and also the `float` enforces this on received packets.
 If the size limit is breached these messages will be consumed and discarded, so that they are not replayed forever.
 
 
-* **outboundConfig**: 
+* **outboundConfig**:
 This section is used to configure the processing of outbound messages. It is required for `SenderReceiver` and `BridgeInner` modes and must be absent for `FloatOuter` mode:
 
 
-* **artemisBrokerAddress**: 
+* **artemisBrokerAddress**:
 The primary host and port for peer-to-peer Artemis broker. This may be running inside to the node, in which case it will hosted on the port of the `p2pAddress`,
 or the `messagingServerAddress` if that is defined and `messagingServerExternal` is `false`. Otherwise, it could be an independently run Artemis broker.
 
 
-* **alternateArtemisBrokerAddresses**: 
+* **alternateArtemisBrokerAddresses**:
 Optionally if there are multiple Artemis broker address e.g. for hot-cold node deployment, then additional hosts and ports may be included in a list.
 
 
-* **artemisSSLConfiguration**: 
+* **artemisSSLConfiguration**:
 The default behaviour is that the outgoing `TLS 1.2/AMQP 1.0` connections present certificate details from (`<workspace>/<certificatesDirectory>/sslkeystore.jks`)
 and validate against (`<workspace>/<certificatesDirectory>/truststore.jks`), using the passwords defined in the root config. However, distinct KeyStores may be configured in this section:
 
 
-* **keyStorePassword**: 
+* **keyStorePassword**:
 The password for the TLS KeyStore.
 
 
-* **keyStorePrivateKeyPassword**: 
+* **keyStorePrivateKeyPassword**:
 Optional parameter to lock the private keys within the KeyStore. If it is missing, it will be assumed that the private keys password is the same as
 `keyStorePassword` above.
 
 
-* **trustStorePassword**: 
+* **trustStorePassword**:
 The password for TLS TrustStore.
 
 
-* **sslKeystore**: 
+* **sslKeystore**:
 The path to the KeyStore file to use in outgoing `TLS 1.2/AMQP 1.0` connections.
 
 
-* **trustStoreFile**: 
+* **trustStoreFile**:
 The path to the TrustStore file to use in outgoing `TLS 1.2/AMQP 1.0` connections.
 
 
-* **crlCheckSoftFail**: 
+* **crlCheckSoftFail**:
 If true (recommended setting) allows certificate checks to pass if the CRL(certificate revocation list) provider is unavailable.
 
 
@@ -219,27 +219,27 @@ If true (recommended setting) allows certificate checks to pass if the CRL(certi
 
 
 
-* **proxyConfig**: 
+* **proxyConfig**:
 This section is optionally present if outgoing peer connections should go via a SOCKS4, SOCKS5, or HTTP CONNECT tunnelling proxy:
 
 
-* **version**: 
+* **version**:
 Either SOCKS4, SOCKS5, or HTTP to define the protocol version used in connecting to the SOCKS proxy.
 
 
-* **proxyAddress**: 
+* **proxyAddress**:
 Host and port of the proxy.
 
 
-* **userName**: 
+* **userName**:
 Optionally a user name that will be presented to the proxy after connect.
 
 
-* **password**: 
+* **password**:
 Optionally, a password to present to the SOCKS5 or HTTP Proxy. It is not valid for SOCKS4 proxies and it should always be combined with [userName].
 
 
-* **proxyTimeoutMS**: 
+* **proxyTimeoutMS**:
 optionally, specify a timeout in msec if the proxy is unusually slow to initate connections. The default value used is 10000 msec.
 
 
@@ -248,12 +248,12 @@ optionally, specify a timeout in msec if the proxy is unusually slow to initate 
 
 
 
-* **inboundConfig**: 
+* **inboundConfig**:
 This section is used to configure the properties of the listening port. It is required for `SenderReceiver` and `FloatOuter` modes and must be absent for `BridgeInner` mode:
 
 
 
-* **listeningAddress**: 
+* **listeningAddress**:
 The host and port to bind to as `TLS 1.2/AMQP 1.0` listener. This may be a specific network interface on multi-homed machines.
 It may also differ from the externally exposed public `p2pAddress` of the port if the firewalls, or load balancers transparently reroute the traffic.
 
@@ -261,33 +261,33 @@ It may also differ from the externally exposed public `p2pAddress` of the port i
 
 
 
-* **customSSLConfiguration**: 
+* **customSSLConfiguration**:
 The default behaviour is that the inbound `TLS 1.2/AMQP 1.0` connections present certificate details from (`<workspace>/<certificatesDirectory>/sslkeystore.jks`)
 and validate against (`<workspace>/<certificatesDirectory>/truststore.jks`), using the passwords defined in the root config. However, distinct KeyStores may be configured in this section:
 
 
-* **keyStorePassword**: 
+* **keyStorePassword**:
 The password for the TLS KeyStore.
 
 
-* **keyStorePrivateKeyPassword**: 
+* **keyStorePrivateKeyPassword**:
 Optional parameter to lock the private keys within the KeyStore. If it is missing, it will be assumed that the private keys password is the same as
 `keyStorePassword` above.
 
 
-* **trustStorePassword**: 
+* **trustStorePassword**:
 The password for TLS TrustStore.
 
 
-* **sslKeystore**: 
+* **sslKeystore**:
 The path to the KeyStore file to use in inbound `TLS 1.2/AMQP 1.0` connections.
 
 
-* **trustStoreFile**: 
+* **trustStoreFile**:
 The path to the TrustStore file to use in inbound `TLS 1.2/AMQP 1.0` connections.
 
 
-* **crlCheckSoftFail**: 
+* **crlCheckSoftFail**:
 If true (recommended setting) allows certificate checks to pass if the CRL(certificate revocation list) provider is unavailable.
 
 
@@ -295,20 +295,20 @@ If true (recommended setting) allows certificate checks to pass if the CRL(certi
 
 
 
-* **bridgeInnerConfig**: 
+* **bridgeInnerConfig**:
 This section is required for `BridgeInner` mode and configures the tunnel connection to the `FloatOuter` (s) in the DMZ. The section should be absent in `SenderReceiver` and `FloatOuter` modes:
 
 
-* **floatAddresses**: 
+* **floatAddresses**:
 The list of host and ports to connect the available `FloatOuter` instances. At least one must be present.
 The active `BridgeInner` will round-robin over available `FloatOuter` addresses until it can connect and activate one.
 
 
-* **expectedCertificateSubject**: 
+* **expectedCertificateSubject**:
 The X500 Subject name that will be presented in client certificates from the remote `FloatOuter` instances.
 
 
-* **tunnelSSLConfiguration**: 
+* **tunnelSSLConfiguration**:
 {{< note >}}
 For ease of use the TLS default control tunnel connections present certificate details from (`<workspace>/<certificatesDirectory>/sslkeystore.jks`)
 and validate against (`<workspace>/<certificatesDirectory>/truststore.jks`), using the passwords defined in the root config.
@@ -316,28 +316,28 @@ However, it is strongly recommended that distinct KeyStores should be configured
 
 {{< /note >}}
 
-* **keyStorePassword**: 
+* **keyStorePassword**:
 The password for the TLS KeyStore.
 
 
-* **keyStorePrivateKeyPassword**: 
+* **keyStorePrivateKeyPassword**:
 Optional parameter to lock the private keys within the KeyStore. If it is missing, it will be assumed that the private keys password is the same as
 `keyStorePassword` above.
 
 
-* **trustStorePassword**: 
+* **trustStorePassword**:
 The password for TLS TrustStore.
 
 
-* **sslKeystore**: 
+* **sslKeystore**:
 The path to the KeyStore file to use in control tunnel connections.
 
 
-* **trustStoreFile**: 
+* **trustStoreFile**:
 The path to the TrustStore file to use in control tunnel connections.
 
 
-* **crlCheckSoftFail**: 
+* **crlCheckSoftFail**:
 If true (recommended setting) allows certificate checks to pass if the CRL(certificate revocation list) provider is unavailable.
 
 
@@ -345,19 +345,19 @@ If true (recommended setting) allows certificate checks to pass if the CRL(certi
 
 
 
-* **floatOuterConfig**: 
+* **floatOuterConfig**:
 This section is required for `FloatOuter` mode and configures the control tunnel listening socket. It should be absent for `SenderReceiver` and `BridgeInner` modes:
 
 
-* **floatAddress**: 
+* **floatAddress**:
 The host and port to bind the control tunnel listener socket to. This can be for a specific interface if used on a multi-homed machine.
 
 
-* **expectedCertificateSubject**: 
+* **expectedCertificateSubject**:
 The X500 Subject name that will be presented in client certificates from the `BridgeInner` when it connects to this `FloatOuter` instance.
 
 
-* **tunnelSSLConfiguration**: 
+* **tunnelSSLConfiguration**:
 {{< note >}}
 For ease of use the TLS default control tunnel connection presents certificate details from (`<workspace>/<certificatesDirectory>/sslkeystore.jks`)
 and validate against (`<workspace>/<certificatesDirectory>/truststore.jks`), using the passwords defined in the root config.
@@ -365,28 +365,28 @@ However, it is strongly recommended that distinct KeyStores should be configured
 
 {{< /note >}}
 
-* **keyStorePassword**: 
+* **keyStorePassword**:
 The password for the TLS KeyStore.
 
 
-* **keyStorePrivateKeyPassword**: 
+* **keyStorePrivateKeyPassword**:
 Optional parameter to lock the private keys within the KeyStore. If it is missing, it will be assumed that the private keys password is the same as
 `keyStorePassword` above.
 
 
-* **trustStorePassword**: 
+* **trustStorePassword**:
 The password for TLS TrustStore.
 
 
-* **sslKeystore**: 
+* **sslKeystore**:
 The path to the KeyStore file to use in control tunnel connections.
 
 
-* **trustStoreFile**: 
+* **trustStoreFile**:
 The path to the TrustStore file to use in control tunnel connections.
 
 
-* **crlCheckSoftFail**: 
+* **crlCheckSoftFail**:
 If true (recommended setting) allows certificate checks to pass if the CRL(certificate revocation list) provider is unavailable.
 
 
@@ -394,14 +394,14 @@ If true (recommended setting) allows certificate checks to pass if the CRL(certi
 
 
 
-* **haConfig**: 
+* **haConfig**:
 Optionally the `SenderReceiver` and `BridgeInner` modes can be run in a hot-warm configuration, which determines the active instance using an external master election service.
 Currently, the leader election process can be delegated to Zookeeper, or the firewall can use the `Bully Algorithm` (see [here](https://en.wikipedia.org/wiki/Bully_algorithm)) via Publish/Subscribe messages on the artemis broker.
 For production it is recommended that a Zookeeper cluster be used as this will protect against network partitioning scenarios. However, the `Bully Algorithm` mode does not require any additional server processes.
 Eventually other electors may be supported e.g. `etcd`. This configuration section controls these options:
 
 
-* **haConnectionString**: 
+* **haConnectionString**:
 A string containing the connection details of the master electors as a comma delimited list of individual connection strings.
 
 
@@ -409,12 +409,12 @@ A string containing the connection details of the master electors as a comma del
 * To use the `Bully Algorithm` running over artemis the single connection string should be set to `bully://localhost`.
 
 
-* **haPriority**: 
+* **haPriority**:
 The implementation uses a prioritise leader election algorithm, so that a preferred master instance can be set. The highest priority is 0 and larger integers have lower priority.
 At the same level of priority, it is random which instance wins the leader election. If a `bridge` instance dies another will have the opportunity to become master in instead.
 
 
-* **haTopic**: 
+* **haTopic**:
 Sets the zookeeper/artemis topic that the nodes used in resolving the election and must be the same for all `bridge`
 instances competing for master status. This is available to allow a single zookeeper/artemis cluster to be reused with multiple
 sets of `bridges` (e.g. in test environments).
@@ -423,41 +423,41 @@ The default value is `bridge/ha` and would not normally need to be changed if th
 
 
 
-* **auditServiceConfiguration**: 
+* **auditServiceConfiguration**:
 Both `FloatOuter` and `BridgeInner` components have an audit service which is currently outputting into the process log some traffic statistics.
 
 
-* **loggingIntervalSec**: 
+* **loggingIntervalSec**:
 This is an integer value which controls how frequently, in seconds, statistics will be written into the logs.
 
 
 
 
-* **artemisReconnectionIntervalMin**: 
+* **artemisReconnectionIntervalMin**:
 If connection to the local Artemis server fails the initial reconnection attempt will be
 after [artemisReconnectionIntervalMin] ms. The default interval is 5000 ms.
 Subsequent retries will take be exponentially backed off until they reach [artemisReconnectionIntervalMax] ms.
 
 
-* **artemisReconnectionIntervalMax**: 
+* **artemisReconnectionIntervalMax**:
 The worst case Artemis retry period after repeated failure to connect is [artemisReconnectionIntervalMax] ms. The default interval is 60000 ms.
 
 
-* **p2pConfirmationWindowSize**: 
+* **p2pConfirmationWindowSize**:
 This is a performance tuning detail within the Artemis connection setup, which controls the send acknowledgement behaviour.
 Its value should only be modified from the default if suggested by R3 to resolve issues.
 
 
-* **enableAMQPPacketTrace**: 
+* **enableAMQPPacketTrace**:
 Set this developer flag to true if very detailed logs are required for connectivity debugging. Note that the logging volume is substantial, so do not enable in production systems.
 
 
-* **healthCheckPhrase**: 
+* **healthCheckPhrase**:
 An optional Health Check Phrase which if passed through the channel will cause AMQP Server to echo it back instead of doing normal pipeline processing.
 This parameter can be used to facilitate F5 “TCP Echo” health-check monitor. Only when TCP posting starting with `healthCheckPhrase` in UTF-8 encoding is sent to application port the server will echo the same pass phrase back.
 
 
-* **silencedIPs**: 
+* **silencedIPs**:
 An optional list of strings of that will be compared to the remote IPv4/IPv6 source address of inbound socket connections.
 If there is a match all logging for this connection will be reduced to TRACE level. The intention is to allow simple filtering of health check connections from load balancers and other monitoring components.
 
@@ -1346,4 +1346,3 @@ The ultimate test is of course running some flows.
 it would make sense to check that `EntityA` can successfully talk to `Entity B`, as well as have some external node sending flows to `EntityA` and `Entity B`.
 
 Desired effect is dependent on the CorDapps installed, however the Bridge and the Float will log some stats every minute detailing the number of messages relayed in every direction.
-

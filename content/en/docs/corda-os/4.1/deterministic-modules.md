@@ -13,7 +13,7 @@ tags:
 title: Deterministic Corda Modules
 ---
 
- .red {color:red} 
+ .red {color:red}
 
 # Deterministic Corda Modules
 
@@ -114,7 +114,7 @@ task checkDeterminism(type: ProGuardTask, dependsOn: jdkTask) {
 
 ```
 
-{{/* github src='core-deterministic/build.gradle' url='https://github.com/corda/corda/blob/release/os/4.1/core-deterministic/build.gradle#L152-L168' raw='https://raw.githubusercontent.com/corda/corda/release/os/4.1/core-deterministic/build.gradle' start='DOCSTART 01' end='DOCEND 01' */}}[build.gradle](https://github.com/corda/corda/blob/release/os/4.1/core-deterministic/build.gradle)
+[build.gradle](https://github.com/corda/corda/blob/release/os/4.1/core-deterministic/build.gradle)
 
 This step will fail if ProGuard spots any Java API references that still cannot be satisfied by the deterministic
 `rt.jar`, and hence it will break the build.
@@ -142,9 +142,9 @@ $ gradlew jdk8u-deterministic:copyJdk
 
 Now select `File/Project Structure/Platform Settings/SDKs` and add a new JDK SDK with the
 `jdk8u-deterministic/jdk` directory as its home. Rename this SDK to something like “1.8 (Deterministic)”.This *should* be sufficient for IntelliJ. However, if IntelliJ realises that this SDK does not contain a
-full JDK then you will need to configure the new SDK by hand:> 
+full JDK then you will need to configure the new SDK by hand:>
 
-* Create a JDK Home directory with the following contents:> 
+* Create a JDK Home directory with the following contents:>
 `jre/lib/rt.jar`
 where `rt.jar` here is this renamed artifact:
 
@@ -201,7 +201,7 @@ buildscript {
 
 * Go to `File/Settings/Build, Execution, Deployment/Build Tools/Gradle`, and configure Gradle’s JVM to be the
 project’s JVM.
-* Go to `File/Settings/Build, Execution, Deployment/Build Tools/Gradle/Runner`, and select these options:> 
+* Go to `File/Settings/Build, Execution, Deployment/Build Tools/Gradle/Runner`, and select these options:>
 
 * Delegate IDE build/run action to Gradle
 * Run tests using the Gradle Test Runner
@@ -379,5 +379,3 @@ private fun nonDeterministicOperations() {
     // etc
 }
 ```
-
-

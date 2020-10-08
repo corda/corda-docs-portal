@@ -44,7 +44,7 @@ val connFuture = client.start()
 val conn = connFuture.get()
 val flowStatusRPCOPs = conn.proxy
 ```
-To view the full code sample, see [NodeFlowStatusRpcOps.kt](https://github.com/corda/enterprise/blob/release/ent/4.6/client/extensions-rpc/src/main/kotlin/net/corda/client/rpc/proxy/NodeFlowStatusRpcOps.kt).
+To view the full code sample, see [NodeFlowStatusRpcOps.kt](../../resources/extensions-rpc/NodeFlowStatusRpcOps.kt).
 
 For details of how to build a Multi RPC Client, see [Building a Multi RPC Client](clientrpc.md). See also [MultiRPCClient](https://api.corda.net/api/corda-enterprise/4.6/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
 
@@ -114,7 +114,7 @@ matchingFlows.forEach { flowId ->
 }
 
 ```
-[NodeFlowStatusRpcOps.kt](https://github.com/corda/enterprise/blob/release/ent/4.6/client/extensions-rpc/src/main/kotlin/net/corda/client/rpc/proxy/NodeFlowStatusRpcOps.kt)
+[NodeFlowStatusRpcOps.kt](../../resources/extensions-rpc/NodeFlowStatusRpcOps.kt)
 
 When this query is executed, a list of the flow IDs for all flows that did not complete and which meet the search criteria is returned. For each flow ID, the status of the specified flow is also returned.
 

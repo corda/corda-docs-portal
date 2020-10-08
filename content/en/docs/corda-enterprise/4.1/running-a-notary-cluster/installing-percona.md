@@ -160,6 +160,7 @@ wsrep_sst_method=xtrabackup-v2
 #Authentication for SST method
 wsrep_sst_auth={{ sst_user }}:{{ sst_pass }}
 ```
+[wsrep.cnf](../resources/wsrep.cnf) | ![github](/images/svg/github.svg "github")
 
 The file `/etc/mysql/percona-xtradb-cluster.conf.d/mysqld.cnf` contains additional settings like the data directory. We're assuming
 you keep the default `/var/lib/mysql`.
@@ -252,4 +253,3 @@ mysql> use corda;
 ```
 
 In the next section, we're [Setting up the Notary Service](installing-the-notary-service.md). You can read about [Percona Monitoring, Backup and Restore (Advanced)](operating-percona.md) in a later section of this tutorial.
-

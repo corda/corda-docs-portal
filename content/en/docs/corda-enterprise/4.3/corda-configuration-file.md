@@ -1276,7 +1276,7 @@ verifierType = InMemory
 
 ```
 
-[reference.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/node/src/main/resources/reference.conf)
+[reference.conf](https://github.com/corda/corda/blob/release/os/4.3/node/src/main/resources/reference.conf)
 
 ## Configuration examples
 
@@ -1307,7 +1307,7 @@ devMode = true
 
 ```
 
-[example-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/resources/example-node.conf)
+[example-node.conf](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/resources/example-node.conf)
 
 ```none
 myLegalName = "O=Notary Service,OU=corda,L=London,C=GB"
@@ -1368,7 +1368,7 @@ networkServices {
 
 ```
 
-[example-node-with-networkservices.conf](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
+[example-node-with-networkservices.conf](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
 
 ## Generating a public key hash
 

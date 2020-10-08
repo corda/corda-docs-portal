@@ -104,7 +104,7 @@ override fun call(): SignedTransaction {
 
 
 
-[TwoPartyDealFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyDealFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -159,7 +159,7 @@ val twiceSignedTx = partSignedTx + sellerSignature
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -199,7 +199,7 @@ subFlow(IdentitySyncFlow.Receive(otherSideSession))
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

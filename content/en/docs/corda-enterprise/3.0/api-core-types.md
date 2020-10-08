@@ -40,9 +40,7 @@ interface NamedByHash {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/enterprise/blob/3.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L30-L33' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 1' end='DOCEND 1' */}}
 
-[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -76,5 +74,3 @@ Signature verification is performed in two stages:
 * The public keys corresponding to the signatures are matched against the leaves of the composite key tree in question,
 and the total combined weight of all children is calculated for every intermediary node. If all thresholds are satisfied,
 the composite key requirement is considered to be met.
-
-

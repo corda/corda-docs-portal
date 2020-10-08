@@ -192,7 +192,7 @@ wsrep_sst_auth={{ sst_user }}:{{ sst_pass }}
 
 
 
-[wsrep.cnf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/notary/resources/wsrep.cnf) | ![github](/images/svg/github.svg "github")
+[wsrep.cnf](../resources/wsrep.cnf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -307,4 +307,3 @@ mysql> use corda;
 ```
 
 In the next section, we’re [Configuring the notary worker nodes](installing-the-notary-service.md).
-

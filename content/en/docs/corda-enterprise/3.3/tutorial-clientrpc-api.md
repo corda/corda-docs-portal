@@ -49,7 +49,6 @@ fun main(args: Array<String>) {
 
 ```
 
-[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 
 Now we can connect to the node itself using a valid RPC user login and start generating transactions in a different
 thread using `generateTransactions` (to be defined later):
@@ -64,7 +63,6 @@ thread {
 
 ```
 
-[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 
 `proxy` exposes the full RPC interface of the node:
 
@@ -381,7 +379,6 @@ thread {
 
 ```
 
-[CordaRPCOps.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/core/src/main/kotlin/net/corda/core/messaging/CordaRPCOps.kt)
 
 The RPC operation we need in order to dump the transaction graph is `internalVerifiedTransactionsFeed`. The type
 signature tells us that the RPC operation will return a list of transactions and an `Observable` stream. This is a
@@ -393,7 +390,6 @@ val (transactions: List<SignedTransaction>, futureTransactions: Observable<Signe
 
 ```
 
-[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 
 The graph will be defined as follows:
 
@@ -414,7 +410,6 @@ when (printOrVisualise) {
 
 ```
 
-[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 
 Now we just need to create the transactions themselves!
 
@@ -449,7 +444,6 @@ fun generateTransactions(proxy: CordaRPCOps) {
 
 ```
 
-[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 
 We utilise several RPC functions here to query things like the notaries in the node cluster or our own vault. These RPC
 functions also return `Observable` objects so that the node can send us updated values. However, we don’t need updates
@@ -496,7 +490,6 @@ Now let’s try to visualise the transaction graph. We will use a graph drawing 
 
 ```
 
-[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 
 If we run the client with `Visualise` we should see a simple random graph being drawn as new transactions are being created.
 
@@ -521,7 +514,6 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 
 ```
 
-[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
 
 See more on plugins in [Running nodes locally](running-a-node.md).
 
@@ -578,4 +570,3 @@ annotated with `@StartableByRPC`. Flows without this annotation cannot execute u
 
 See more on security in [Secure coding guidelines](secure-coding-guidelines.md), node configuration in [Node configuration](corda-configuration-file.md) and
 Cordformation in [Running nodes locally](running-a-node.md).
-

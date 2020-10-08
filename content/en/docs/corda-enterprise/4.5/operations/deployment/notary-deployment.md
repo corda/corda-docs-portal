@@ -97,7 +97,7 @@ notary {
 
 
 
-[dbm.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/notary/resources/dbm.conf) | ![github](/images/svg/github.svg "github")
+[dbm.conf](../../resources/dbm.conf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -430,6 +430,3 @@ may be specified if desired. It is important to use the correct service name.
 ```javascript
 dataSource.url="jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST={host 1 IP address})(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST={host 2 IP address})(PORT=1521))(CONNECT_DATA=(SERVICE_NAME={service name})))"
 ```
-
-
-

@@ -74,9 +74,6 @@ import java.util.List;
 
 
 
-
-[flow.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 And update `IOUFlow.call` by changing the code following the retrieval of the notary’s identity from the network as
@@ -153,9 +150,6 @@ return null;
 {{% /tab %}}
 
 
-
-
-[flow.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -280,10 +274,6 @@ public class IOUFlowResponder extends FlowLogic<Void> {
 {{% /tab %}}
 
 
-
-
-[flowResponder.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 As with the `IOUFlow`, our `IOUFlowResponder` flow is a `FlowLogic` subclass where we’ve overridden
@@ -341,4 +331,3 @@ You should now be ready to develop your own CorDapps. You can also find a list o
 
 If you get stuck at any point, please reach out on [Slack](https://slack.corda.net/) or
 [Stack Overflow](https://stackoverflow.com/questions/tagged/corda).
-

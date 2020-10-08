@@ -71,7 +71,7 @@ Just define a new flow that wraps the SendTransactionFlow/ReceiveTransactionFlow
 
 
 
-[AutoOfferFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt) | ![github](/images/svg/github.svg "github")
+[AutoOfferFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -105,4 +105,3 @@ that have not already been received will also have ALL_VISIBLE states recorded. 
 and a participant may have some transactions with all states recorded and some with only relevant states recorded, even
 if those transactions are part of the same chain. As a result, there may be more states present in the vault than would be
 expected if just those transactions sent with the ALL_VISIBLE recording flag were processed in this way.
-

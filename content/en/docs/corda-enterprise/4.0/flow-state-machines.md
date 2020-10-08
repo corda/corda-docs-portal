@@ -108,7 +108,7 @@ movement of the asset.
 transaction in B’s local vault, and then sending it on to S who also checks it and commits the transaction to S’s
 local vault.
 
-You can find the implementation of this flow in the file `finance/workflows/src/main/kotlin/net/corda/finance/TwoPartyTradeFlow.kt`.
+You can find the implementation of this flow in the file [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt).
 
 Assuming no malicious termination, they both end the flow being in possession of a valid, signed transaction that
 represents an atomic asset swap.
@@ -178,7 +178,7 @@ object TwoPartyTradeFlow {
 
 
 
-[TutorialFlowStateMachines.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt) | ![github](/images/svg/github.svg "github")
+[TutorialFlowStateMachines.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/flowstatemachines/TutorialFlowStateMachines.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -325,9 +325,7 @@ override fun call(): SignedTransaction {
 {{% /tab %}}
 
 
-
-
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -454,7 +452,7 @@ private fun assembleSharedTX(assetForSale: StateAndRef<OwnableState>, tradeReque
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -626,7 +624,7 @@ val txId = subFlow(signTransactionFlow).id
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -767,7 +765,7 @@ private static final ProgressTracker.Step RECORDING = new ProgressTracker.Step(
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -809,7 +807,7 @@ private static final ProgressTracker.Step VERIFYING_AND_SIGNING = new ProgressTr
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.0/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | [TutorialFlowStateMachines.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/flowstatemachines/TutorialFlowStateMachines.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -853,4 +851,3 @@ problems (e.g. the other side doesn’t know the trade)
 For example to implement human transaction authorisations
 * A standard library of flows that can be easily sub-classed by local developers in order to integrate internal
 reporting logic, or anything else that might be required as part of a communications lifecycle
-

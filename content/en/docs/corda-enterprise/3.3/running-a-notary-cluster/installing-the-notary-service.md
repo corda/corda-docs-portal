@@ -87,7 +87,7 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 
 
-[node.conf](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/running-a-notary-cluster/resources/node.conf) | ![github](/images/svg/github.svg "github")
+[node.conf](../resources/node.conf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -101,6 +101,3 @@ Omit `compatibilityZoneURL` and set `devMode = true` when using the bootstrapper
 
 
 * [Using the Bootstrapper](installing-the-notary-service-bootstrapper.md)
-
-
-

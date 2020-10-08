@@ -112,7 +112,7 @@ task checkDeterminism(type: ProGuardTask, dependsOn: jdkTask) {
 
 ```
 
-{{/* github src='core-deterministic/build.gradle' url='https://github.com/corda/enterprise/blob/release/ent/4.3/core-deterministic/build.gradle#L174-L190' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.3/core-deterministic/build.gradle' start='DOCSTART 01' end='DOCEND 01' */}}[build.gradle](https://github.com/corda/enterprise/blob/release/ent/4.3/core-deterministic/build.gradle)
+[build.gradle](https://github.com/corda/corda/blob/release/os/4.3/core-deterministic/build.gradle)
 
 This step will fail if ProGuard spots any Java API references that still cannot be satisfied by the deterministic
 `rt.jar`, and hence it will break the build.
@@ -266,7 +266,7 @@ annotation class KeepForDJVM
 
 ```
 
-[KeepForDJVM.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt)
+[KeepForDJVM.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/KeepForDJVM.kt)
 
 
 To preserve any Kotlin functions, properties or type aliases that have been declared outside of a `class`,
@@ -301,7 +301,7 @@ annotation class DeleteForDJVM
 
 ```
 
-[DeleteForDJVM.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt)
+[DeleteForDJVM.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/DeleteForDJVM.kt)
 
 
 You must also ensure that a deterministic class’s primary constructor does not reference any classes that are
@@ -360,7 +360,7 @@ annotation class StubOutForDJVM
 
 ```
 
-[StubOutForDJVM.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt)
+[StubOutForDJVM.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/StubOutForDJVM.kt)
 
 
 This annotation instructs `JarFilter` to replace the function’s body with either an empty body (for functions

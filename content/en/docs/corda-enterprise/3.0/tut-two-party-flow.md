@@ -55,7 +55,7 @@ import net.corda.core.utilities.ProgressTracker
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt#L14-L25' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt' start='DOCSTART 01' end='DOCEND 01' */}}
+
 {{% tab name="java" %}}
 ```java
 import co.paralleluniverse.fibers.Suspendable;
@@ -73,9 +73,7 @@ import java.util.List;
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java#L14-L25' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' start='DOCSTART 01' end='DOCEND 01' */}}
 
-[flow.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -113,7 +111,7 @@ subFlow(FinalityFlow(fullySignedTx))
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt#L43-L67' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt' start='DOCSTART 02' end='DOCEND 02' */}}
+
 {{% tab name="java" %}}
 ```java
 // We create a transaction builder.
@@ -149,9 +147,7 @@ return null;
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java#L59-L88' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java' start='DOCSTART 02' end='DOCEND 02' */}}
 
-[flow.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flow.kt) | [IOUFlow.java](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlow.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -223,7 +219,7 @@ class IOUFlowResponder(val otherPartySession: FlowSession) : FlowLogic<Unit>() {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flowResponder.kt' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flowResponder.kt#L22-L42' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flowResponder.kt' start='DOCSTART 01' end='DOCEND 01' */}}
+
 {{% tab name="java" %}}
 ```java
 // Add these imports:
@@ -272,9 +268,8 @@ public class IOUFlowResponder extends FlowLogic<Void> {
 
 ```
 {{% /tab %}}
-{{/* github src='docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java#L14-L56' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java' start='DOCSTART 01' end='DOCEND 01' */}}
 
-[flowResponder.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/flowResponder.kt) | [IOUFlowResponder.java](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUFlowResponder.java) | ![github](/images/svg/github.svg "github")
+
 
 {{< /tabs >}}
 
@@ -333,4 +328,3 @@ You should now be ready to develop your own CorDapps. You can also find a list o
 
 If you get stuck at any point, please reach out on [Slack](https://slack.corda.net/) or
 [Stack Overflow](https://stackoverflow.com/questions/tagged/corda).
-

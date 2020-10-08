@@ -76,9 +76,9 @@ rpcUsers : [
 devMode : true
 
 ```
-{{/* github src='docs/source/example-code/src/main/resources/example-node.conf' url='https://github.com/corda/enterprise/blob/3.2/docs/source/example-code/src/main/resources/example-node.conf' raw='https://raw.githubusercontent.com/corda/enterprise/3.2/docs/source/example-code/src/main/resources/example-node.conf' start='' end='' */}}[example-node.conf](https://github.com/corda/enterprise/blob/release/ent/3.2/docs/source/example-code/src/main/resources/example-node.conf)
 
-* **language**: 
+
+* **language**:
 cfg
 
 
@@ -128,4 +128,3 @@ Depending on your network setup you may need to tunnel to do this remotely.
 See the [Using the client RPC API](tutorial-clientrpc-api.md) on how to establish an RPC link.
 
 Sidenote: A client is always associated with a single node with a single identity, which only sees their part of the ledger.
-

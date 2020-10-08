@@ -128,7 +128,7 @@ class ClientRpcExample {
 
 
 
-[ClientRpcExample.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java) | ![github](/images/svg/github.svg "github")
+[ClientRpcExample.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/ClientRpcExample.kt) | [ClientRpcExample.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/ClientRpcExample.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -357,11 +357,11 @@ supported types of such data source, identified by the `dataSource.type` field:
 
 
 
-* **INMEMORY**: 
+* **INMEMORY**:
 A static list of user credentials and permissions specified by the `users` field.
 
 
-* **DB**: 
+* **DB**:
 An external RDBMS accessed via the JDBC connection described by `connection`. Note that, unlike the `INMEMORY`
 case, in a user database permissions are assigned to *roles* rather than individual users. The current implementation
 expects the database to store data according to the following schema:
@@ -547,7 +547,7 @@ such situations:
 
 ```
 
-[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
+[BankOfCordaClientApi.kt](https://github.com/corda/corda/blob/release/os/4.0/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
 
 
 {{< warning >}}
@@ -590,7 +590,7 @@ on the `Observable` returned by `CordaRPCOps`.
 
 ```
 
-[BankOfCordaClientApi.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
+[BankOfCordaClientApi.kt](https://github.com/corda/corda/blob/release/os/4.0/samples/bank-of-corda-demo/src/main/kotlin/net/corda/bank/api/BankOfCordaClientApi.kt)
 
 In this code snippet it is possible to see that the function `performRpcReconnect` creates an RPC connection and implements
 the error handler upon subscription to an `Observable`. The call to this `onError` handler will be triggered upon failover, at which
@@ -619,7 +619,3 @@ Note that RPC TLS does not use mutual authentication, and delegates fine grained
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
 `@CordaSerializable` annotation.  See [Object serialization](serialization.md). An example is shown in [Using the client RPC API](tutorial-clientrpc-api.md).
-
-
-
-

@@ -261,7 +261,7 @@ public static class SimpleFlowUsingOldApi extends FlowLogic<SignedTransaction> {
 
 
 
-[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+[FinalityFlowMigration.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -310,7 +310,7 @@ public static class SimpleFlowUsingNewApi extends FlowLogic<SignedTransaction> {
 
 
 
-[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+[FinalityFlowMigration.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -357,7 +357,7 @@ public static class SimpleNewResponderFlow extends FlowLogic<Void> {
 
 
 
-[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+[FinalityFlowMigration.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -435,7 +435,7 @@ public static class ExistingInitiatingFlow extends FlowLogic<SignedTransaction> 
 
 
 
-[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+[FinalityFlowMigration.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -495,7 +495,7 @@ if (otherSide.getCounterpartyFlowInfo().getFlowVersion() >= 2) {
 
 
 
-[FinalityFlowMigration.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
+[FinalityFlowMigration.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/FinalityFlowMigration.kt) | [FinalityFlowMigration.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/java/net/corda/docs/java/FinalityFlowMigration.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -684,4 +684,3 @@ You have some choices here:
 * Delete your `lib` directory and switch to using the Gradle test runner
 
 Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.md#tutorial-cordapp-running-tests-intellij).
-

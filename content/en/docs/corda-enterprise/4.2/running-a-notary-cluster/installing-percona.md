@@ -170,7 +170,7 @@ wsrep_sst_auth={{ sst_user }}:{{ sst_pass }}
 
 
 
-[wsrep.cnf](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/running-a-notary-cluster/resources/wsrep.cnf) | ![github](/images/svg/github.svg "github")
+[wsrep.cnf](../resources/wsrep.cnf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -268,4 +268,3 @@ mysql> use corda;
 ```
 
 In the next section, we’re [Setting up the Notary Service](installing-the-notary-service.md). You can read about [Percona Monitoring, Backup and Restore (Advanced)](operating-percona.md) in a later section of this tutorial.
-

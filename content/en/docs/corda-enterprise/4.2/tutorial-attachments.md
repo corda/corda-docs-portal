@@ -105,7 +105,7 @@ val complexCondition =
 
 
 
-[NodeAttachmentServiceTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt) | ![github](/images/svg/github.svg "github")
+[NodeAttachmentServiceTest.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -191,7 +191,7 @@ fun recipient(rpc: CordaRPCOps, webPort: Int) {
 
 
 
-[AttachmentDemo.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
+[AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.1/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -231,7 +231,7 @@ private fun sender(rpc: CordaRPCOps, inputStream: InputStream, hash: SecureHash.
 
 
 
-[AttachmentDemo.kt](https://github.com/corda/enterprise/blob/release/ent/4.2/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
+[AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.1/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

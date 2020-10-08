@@ -194,7 +194,7 @@ public class State implements OwnableState {
 
 
 
-[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [State.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java) | ![github](/images/svg/github.svg "github")
+[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [State.java](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/State.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -283,7 +283,7 @@ public static class Commands implements CommandData {
 
 
 
-[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
+[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -333,7 +333,7 @@ public void verify(@NotNull LedgerTransaction tx) {
 
 
 
-[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
+[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -568,7 +568,7 @@ for (InOutGroup<State, State> group : groups) {
 
 
 
-[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
+[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -699,7 +699,7 @@ fun generateIssue(issuance: PartyAndReference, faceValue: Amount<Issued<Currency
 
 
 
-[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
+[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -745,7 +745,7 @@ public static final String IOU_CONTRACT_ID = "com.example.contract.IOUContract";
 
 
 
-[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
+[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | [CommercialPaper.java](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/contract/CommercialPaper.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -787,7 +787,7 @@ fun generateMove(tx: TransactionBuilder, paper: StateAndRef<State>, newOwner: Ab
 
 
 
-[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
+[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -829,7 +829,7 @@ fun generateRedeem(tx: TransactionBuilder, paper: StateAndRef<State>, services: 
 
 
 
-[TutorialContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
+[TutorialContract.kt](https://github.com/corda/corda/blob/release/os/4.3/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/contract/TutorialContract.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

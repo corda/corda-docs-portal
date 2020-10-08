@@ -87,7 +87,6 @@ private static final TestIdentity bigCorp = new TestIdentity(new CordaX500Name("
 
 
 
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -197,8 +196,6 @@ public void simpleCP() {
 
 
 
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 Let’s take a look at a transaction that fails.
@@ -246,9 +243,6 @@ public void simpleCPMove() {
 {{% /tab %}}
 
 
-
-
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -315,7 +309,6 @@ public void simpleCPMoveFails() {
 
 
 
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -367,8 +360,6 @@ public void simpleCPMoveSuccessAndFailure() {
 
 
 
-
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -433,10 +424,6 @@ public void simpleIssuanceWithTweak() {
 {{% /tab %}}
 
 
-
-
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 `tweak` creates a local copy of the transaction. This makes possible to locally “ruin” the transaction while not
@@ -493,9 +480,6 @@ public void simpleIssuanceWithTweakTopLevelTx() {
 {{% /tab %}}
 
 
-
-
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -584,8 +568,6 @@ public void chainCommercialPaper() {
 
 
 
-
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -702,7 +684,6 @@ public void chainCommercialPaperDoubleSpend() {
 
 
 
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -816,7 +797,5 @@ public void chainCommercialPaperTweak() {
 
 
 
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
-

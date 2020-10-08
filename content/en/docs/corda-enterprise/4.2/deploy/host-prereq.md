@@ -272,4 +272,4 @@ Oracle RDBMS
 
 ```
 
-[node.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/node.md)
+[node.md](https://github.com/corda/corda/blob/release/os/4.1/docs/source/resources/node.md)

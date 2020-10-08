@@ -61,7 +61,7 @@ interface QueryableState : ContractState {
 
 ```
 
-[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+
 
 The `QueryableState` interface requires the state to enumerate the different relational schemas it supports, for
 instance in cases where the schema has evolved, with each one being represented by a `MappedSchema` object return
@@ -101,7 +101,7 @@ interface SchemaService {
 
 ```
 
-[SchemaService.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
+
 
 ```kotlin
 /**
@@ -149,7 +149,7 @@ open class MappedSchema(schemaFamily: Class<*>,
 
 ```
 
-[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+
 
 The `SchemaService` can be configured by a node administrator to select the schemas used by each app. In this way the
 relational view of ledger states can evolve in a controlled fashion in lock-step with internal systems or other
@@ -278,7 +278,6 @@ object CashSchemaV1 : MappedSchema(
 
 ```
 
-[CashSchemaV1.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/finance/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt)
 
 
 ## Identity mapping
@@ -307,7 +306,6 @@ Use the `ServiceHub` `jdbcSession` function to obtain a JDBC connection as illus
 
 ```
 
-[HibernateConfigurationTest.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
 
 JDBC sessions can be used in Flows and Service Plugins (see “[Writing flows](flow-state-machines.md)”)
 
@@ -360,7 +358,6 @@ object CustomVaultQuery {
 
 ```
 
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomVaultQuery.kt)
 
 which is then referenced within a custom flow:
 
@@ -390,7 +387,5 @@ which is then referenced within a custom flow:
 
 ```
 
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/CustomVaultQuery.kt)
 
 For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md)
-

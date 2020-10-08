@@ -376,7 +376,6 @@ private static final TestIdentity bigCorp = new TestIdentity(new CordaX500Name("
 
 
 
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -471,7 +470,6 @@ private val ledgerServices = MockServices(
 
 
 
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -512,8 +510,6 @@ private final MockServices simpleLedgerServices = new MockServices(
 
 
 
-
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -572,8 +568,6 @@ public void simpleCPMoveSuccess() {
 
 
 
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 Once all the transaction components have been specified, you can run `verifies()` to check that the given transaction is valid.
@@ -626,9 +620,6 @@ public void simpleCPMoveFails() {
 {{% /tab %}}
 
 
-
-
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -690,8 +681,6 @@ public void simpleCPMoveSuccessAndFailure() {
 
 
 
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 You can also use the `tweak` function to create a locally scoped transaction that you can make changes to
@@ -745,8 +734,6 @@ public void simpleIssuanceWithTweakTopLevelTx() {
 
 
 
-
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -858,8 +845,6 @@ public void chainCommercialPaperDoubleSpend() {
 
 
 
-
-[TutorialTestDSL.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/kotlin/net/corda/docs/tutorial/testdsl/TutorialTestDSL.kt) | [CommercialPaperTest.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/CommercialPaperTest.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

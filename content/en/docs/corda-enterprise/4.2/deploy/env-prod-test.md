@@ -96,7 +96,7 @@ This configuration file contains specifies the location of:
 
 
 
-You can find examples of configuration files [available here](https://docs.corda.net/docs/corda-enterprise/4.2/corda-firewall-configuration-file.html)
+You can find examples of configuration files [available here](https://github.com/corda/corda/blob/release/os/4.1/corda-firewall-configuration-file.html)
 
 
 ### Installing the Corda Node
@@ -204,7 +204,7 @@ This is a sample `node.conf` which details a configuration connecting to the Cor
 
 ```
 
-[nodefull.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/nodefull.md)
+[nodefull.md](https://github.com/corda/corda/blob/release/os/4.1/docs/source/resources/nodefull.md)
 
 
 ### Implementing the Corda Firewall PKI
@@ -306,7 +306,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 ```
 
-[bridge.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/bridge.md)
+[bridge.md](https://github.com/corda/corda/blob/release/os/4.1/docs/source/resources/bridge.md)
 
 
 ### Float Installation
@@ -342,7 +342,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 ```
 
-[float.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/float.md)
+[float.md](https://github.com/corda/corda/blob/release/os/4.1/docs/source/resources/float.md)
 
 A full list of the parameters that can be utilized in these configuration files can be found here : [https://docs.corda.net/docs/corda-enterprise/4.2/corda-firewall-configuration-file.html](https://docs.corda.net/docs/corda-enterprise/4.2/corda-firewall-configuration-file.html)
 
@@ -458,7 +458,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 
 ```
 
-[squidstatus.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/squidstatus.md)
+[squidstatus.md](https://github.com/corda/corda/blob/release/os/4.1/docs/source/resources/squidstatus.md)
 
 
 * At this point you can ssh to the VM where the Corda Node is installed and run the following command:
@@ -476,7 +476,7 @@ Mar 13 18:44:10 corda-firewall-proxies squid[14261]: Squid Parent: (squid-1) pro
 
 ```
 
-{{/* github src='docs/source/resources/squidstatus.md' url='https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/squidstatus.md' raw='https://raw.githubusercontent.com/corda/enterprise/release/ent/4.2/docs/source/resources/squidstatus.md' start='' end='' */}}[access.md](https://github.com/corda/enterprise/blob/release/ent/4.2/docs/source/resources/access.md)
+[access.md](https://github.com/corda/corda/blob/release/os/4.1/docs/source/resources/access.md)
 
 
 ## Using Socks Proxy with Corda Bridge

@@ -57,9 +57,8 @@ interface Contract {
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/enterprise/blob/3.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L234-L252' raw='https://raw.githubusercontent.com/corda/enterprise/3.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 5' end='DOCEND 5' */}}
 
-[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/3.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
+
 
 {{< /tabs >}}
 
@@ -158,9 +157,9 @@ data class LedgerTransaction @JvmOverloads constructor(
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt' url='https://github.com/corda/enterprise/blob/3.1/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt#L39-L54' raw='https://raw.githubusercontent.com/corda/enterprise/3.1/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt' start='DOCSTART 1' end='DOCEND 1' */}}
 
-[LedgerTransaction.kt](https://github.com/corda/enterprise/blob/release/ent/3.1/core/src/main/kotlin/net/corda/core/transactions/LedgerTransaction.kt) | ![github](/images/svg/github.svg "github")
+
+
 
 {{< /tabs >}}
 
@@ -275,9 +274,7 @@ data class CommandWithParties<out T : CommandData>(
 
 ```
 {{% /tab %}}
-{{/* github src='core/src/main/kotlin/net/corda/core/contracts/Structures.kt' url='https://github.com/corda/enterprise/blob/3.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt#L223-L230' raw='https://raw.githubusercontent.com/corda/enterprise/3.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt' start='DOCSTART 6' end='DOCEND 6' */}}
 
-[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/3.1/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -345,4 +342,3 @@ public class XContract implements Contract {
 {{% /tab %}}
 
 {{< /tabs >}}
-

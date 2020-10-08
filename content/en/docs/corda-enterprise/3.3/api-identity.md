@@ -104,9 +104,6 @@ override fun call(): SignedTransaction {
 
 
 
-
-[TwoPartyDealFlow.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyDealFlow.kt) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 `SwapIdentitiesFlow` goes through the following key steps:
@@ -160,8 +157,6 @@ val twiceSignedTx = partSignedTx + sellerSignature
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 The identity synchronization flow goes through the following key steps:
@@ -199,9 +194,6 @@ subFlow(IdentitySyncFlow.Receive(otherSideSession))
 
 
 
-
-[TwoPartyTradeFlow.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/finance/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 `IdentitySyncFlow` will serve all confidential identities in the provided transaction, irrespective of well-known
@@ -216,4 +208,3 @@ Alice may know all of the confidential identities ahead of time, but Bob not kno
 The assembled transaction therefore has three input states *x*, *y* and *z*, for which only Alice possesses
 certificates for all confidential identities. `IdentitySyncFlow` must send not just Alice’s confidential identity but
 also any other identities in the transaction to the Bob and Charlie.
-

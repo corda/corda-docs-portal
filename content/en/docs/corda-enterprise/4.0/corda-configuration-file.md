@@ -170,7 +170,7 @@ This is the name that is used in the node’s certificates (either when requesti
 At runtime, Corda checks whether this name matches the name in the node’s certificates.
 For more details please read [Node identity](node-naming.md#node-naming) chapter.*Default:* not definedOptional configuration object which if present configures the node to run as a notary. If running as part of a HA notary cluster, please
 specify the `serviceLegalName` and `mysql` configuration as described below. For a single-node notary only the `validating` property is required.Boolean to determine whether the notary is a validating or non-validating one.*Default:* falseIf the node is part of a distributed cluster, specify the legal name of the cluster.
-At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.*Default:* not definedIf part of a HA cluster, specify this configuration section with the settings below. For more details refer to [Setting up the Notary Service](running-a-notary-cluster/installing-the-notary-service.md).> 
+At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.*Default:* not definedIf part of a HA cluster, specify this configuration section with the settings below. For more details refer to [Setting up the Notary Service](running-a-notary-cluster/installing-the-notary-service.md).>
 The number of times to retry connection to the MySQL database. This should be based on the number of database servers in the replicated
 setup.*Default:* 2, for a 3 server cluster.This section is used to configure the JDBC connection to the database cluster. For example:JDBC operation mode where every update to the database is immediately made permanent. For HA notary it has to be disabled, i.e. set to `"false"`.*Default:* not definedThe JDBC connection string. Has to contain a comma-separated list of IPs for all database servers. For example, if we have a 3-node cluster with addresses 10.18.1.1, 10.18.1.2 and 10.18.1.3,
 and the database name is `corda`:
@@ -195,12 +195,12 @@ mysql {
 }
 ```
 
-*(Deprecated)* If part of a distributed Raft cluster, specify this configuration object with the following settings:> 
+*(Deprecated)* If part of a distributed Raft cluster, specify this configuration object with the following settings:>
 The host and port to which to bind the embedded Raft server. Note that the Raft cluster uses a
 separate transport layer for communication that does not integrate with ArtemisMQ messaging services.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
 be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
 new cluster will be bootstrapped.*Default:* not defined
-*(Deprecated)* If part of a distributed BFT-SMaRt cluster, specify this configuration object with the following settings:> 
+*(Deprecated)* If part of a distributed BFT-SMaRt cluster, specify this configuration object with the following settings:>
 The zero-based index of the current replica. All replicas must specify a unique replica id.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
 be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
 new cluster will be bootstrapped.*Default:* not defined
@@ -217,7 +217,7 @@ However, note that the host is the included as the advertised entry in the netwo
 As a result the value listed here must be **externally accessible when running nodes across a cluster of machines.**
 If the provided host is unreachable, the node will try to auto-discover its public one.*Default:* not definedIf provided, the node will attempt to tunnel inbound connections via an external relay. The relay’s address will be
 advertised to the network map service instead of the provided `p2pAddress`.Hostname of the relay machineA port on the relay machine that accepts incoming TCP connections. Traffic will be forwarded from this port to the local port specified in `p2pAddress`.Username for establishing an SSH connection with the relay.Path to the private key file for SSH authentication. The private key must not have a passphrase.Path to the public key file for SSH authentication.Port to be used for SSH connection, default `22`.The address of the RPC system on which RPC requests can be made to the node.
-If not provided then the node will run without RPC.**Important: Deprecated. Use rpcSettings instead.***Default:* not definedOptions for the RPC server exposed by the Node.**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the “generate-rpc-ssl-settings” command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**> 
+If not provided then the node will run without RPC.**Important: Deprecated. Use rpcSettings instead.***Default:* not definedOptions for the RPC server exposed by the Node.**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the “generate-rpc-ssl-settings” command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**>
 host and port for the RPC server binding.*Default:* not definedhost and port for the RPC admin binding (this is the endpoint that the node process will connect to).*Default:* not definedboolean, indicates whether the node will connect to a standalone broker for RPC.*Default:* falseboolean, indicates whether or not the node should require clients to use SSL for RPC connections.*Default:* false(mandatory if `useSsl=true`) SSL settings for the RPC server.Absolute path to the key store containing the RPC SSL certificate.*Default:* not definedPassword for the key store.*Default:* not defined
 A list of users who are authorised to access the RPC system.
 Each user in the list is a configuration object with the following fields:Username consisting only of word characters (a-z, A-Z, 0-9 and _)*Default:* not definedThe password*Default:* not definedA list of permissions for starting flows via RPC.
@@ -303,7 +303,7 @@ verifierType = InMemory
 
 ```
 
-[reference.conf](https://github.com/corda/enterprise/blob/release/ent/4.0/node/src/main/resources/reference.conf)
+[reference.conf](https://github.com/corda/corda/blob/release/os/4.0/node/src/main/resources/reference.conf)
 
 
 ## Configuration examples
@@ -338,7 +338,7 @@ devMode = true
 
 ```
 
-[example-node.conf](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/resources/example-node.conf)
+[example-node.conf](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/resources/example-node.conf)
 
 
 ### Simple notary configuration file
@@ -405,5 +405,4 @@ networkServices {
 
 ```
 
-[example-node-with-networkservices.conf](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
-
+[example-node-with-networkservices.conf](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)

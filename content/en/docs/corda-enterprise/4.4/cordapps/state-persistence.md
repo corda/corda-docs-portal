@@ -552,7 +552,7 @@ object CustomVaultQuery {
 
 ```
 
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 
 which is then referenced within a custom flow:
 
@@ -582,7 +582,7 @@ which is then referenced within a custom flow:
 
 ```
 
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 
 For examples on testing `@CordaService` implementations, see the oracle example here.
 

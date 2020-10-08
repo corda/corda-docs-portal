@@ -71,7 +71,7 @@ Just define a new flow that wraps the SendTransactionFlow/ReceiveTransactionFlow
 
 
 
-[AutoOfferFlow.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt) | ![github](/images/svg/github.svg "github")
+[AutoOfferFlow.kt](https://github.com/corda/corda/blob/release/os/4.3/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

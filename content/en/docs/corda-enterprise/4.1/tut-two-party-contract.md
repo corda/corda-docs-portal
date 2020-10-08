@@ -201,7 +201,7 @@ public class IOUContract implements Contract {
 
 
 
-[IOUContract.kt](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUContract.kt) | [IOUContract.java](https://github.com/corda/enterprise/blob/release/ent/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java) | ![github](/images/svg/github.svg "github")
+[IOUContract.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/tutorial/twoparty/IOUContract.kt) | [IOUContract.java](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -326,4 +326,3 @@ must be different entities
 
 Next, we’ll update the `IOUFlow` so that it obeys these contract constraints when issuing an `IOUState` onto the
 ledger.
-

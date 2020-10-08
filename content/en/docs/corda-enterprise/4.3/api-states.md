@@ -61,7 +61,7 @@ interface ContractState {
 
 
 
-[ContractState.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt) | ![github](/images/svg/github.svg "github")
+[ContractState.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/ContractState.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -121,7 +121,7 @@ interface LinearState : ContractState {
 
 
 
-[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
+[Structures.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -181,7 +181,7 @@ interface OwnableState : ContractState {
 
 
 
-[Structures.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
+[Structures.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/Structures.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -227,7 +227,7 @@ interface FungibleState<T : Any> : ContractState {
 
 
 
-[FungibleState.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt) | ![github](/images/svg/github.svg "github")
+[FungibleState.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/FungibleState.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -371,7 +371,7 @@ data class TransactionState<out T : ContractState> @JvmOverloads constructor(
 
 
 
-[TransactionState.kt](https://github.com/corda/enterprise/blob/release/ent/4.3/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt) | ![github](/images/svg/github.svg "github")
+[TransactionState.kt](https://github.com/corda/corda/blob/release/os/4.3/core/src/main/kotlin/net/corda/core/contracts/TransactionState.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

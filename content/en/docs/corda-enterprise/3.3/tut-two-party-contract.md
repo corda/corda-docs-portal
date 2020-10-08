@@ -198,8 +198,6 @@ public class IOUContract implements Contract {
 
 
 
-[contract.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/kotlin/net/corda/docs/tutorial/twoparty/contract.kt) | [IOUContract.java](https://github.com/corda/enterprise/blob/release/ent/3.3/docs/source/example-code/src/main/java/net/corda/docs/java/tutorial/twoparty/IOUContract.java) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 If you’re following along in Java, you’ll also need to rename `TemplateContract.java` to `IOUContract.java`.
@@ -323,4 +321,3 @@ must be different entities
 
 Next, we’ll update the `IOUFlow` so that it obeys these contract constraints when issuing an `IOUState` onto the
 ledger.
-

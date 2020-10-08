@@ -63,7 +63,7 @@ driver(DriverParameters(
 
 
 ```
-{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt#L50-L70' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' start='START 1' end='END 1' */}}[IntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt)
+
 The above code starts three nodes:
 
 
@@ -86,7 +86,7 @@ val bobClient = CordaRPCClient(bob.rpcAddress)
 val bobProxy = bobClient.start("bobUser", "testPassword2").proxy
 
 ```
-{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt#L74-L78' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' start='START 2' end='END 2' */}}[IntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt)
+
 After getting the handles we wait for both parties to register with
 the network map to ensure we don’t have race conditions with network
 map registration. Next we connect to Alice and Bob respectively from
@@ -98,7 +98,7 @@ val bobVaultUpdates = bobProxy.vaultTrackBy<Cash.State>(criteria = QueryCriteria
 val aliceVaultUpdates = aliceProxy.vaultTrackBy<Cash.State>(criteria = QueryCriteria.VaultQueryCriteria(status = Vault.StateStatus.ALL)).updates
 
 ```
-{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt#L82-L83' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' start='START 3' end='END 3' */}}[IntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt)
+
 We will be interested in changes to Alice’s and Bob’s vault, so we
 query a stream of vault updates from each.
 
@@ -139,7 +139,7 @@ bobVaultUpdates.expectEvents {
 }
 
 ```
-{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt#L87-L118' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' start='START 4' end='END 4' */}}[IntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt)
+
 The first loop creates 10 threads, each starting a `CashFlow` flow
 on the Alice node. We specify that we want to issue `i` dollars to
 Bob, setting our notary as the notary responsible for notarising the
@@ -198,7 +198,7 @@ aliceVaultUpdates.expectEvents {
 }
 
 ```
-{{/* github src='docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' url='https://github.com/corda/enterprise/blob/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt#L122-L152' raw='https://raw.githubusercontent.com/corda/enterprise/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt' start='START 5' end='END 5' */}}[IntegrationTestingTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.0/docs/source/example-code/src/integration-test/kotlin/net/corda/docs/IntegrationTestingTutorial.kt)
+
 This time we’ll do it sequentially. We make Bob pay 1,2,..10 dollars
 to Alice in order. We make sure that a the `CashFlow` has finished
 by waiting on `startFlow` ‘s `returnValue`.
@@ -221,4 +221,3 @@ from IntelliJ and run the test, or alternatively use gradle:
 # Run example-code integration tests
 ./gradlew docs/source/example-code:integrationTest -i
 ```
-

@@ -63,7 +63,7 @@ interface QueryableState : ContractState {
 
 ```
 
-[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.0/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
 
 The `QueryableState` interface requires the state to enumerate the different relational schemas it supports, for
 instance in situations where the schema has evolved. Each relational schema is represented as a `MappedSchema`
@@ -103,7 +103,7 @@ interface SchemaService {
 
 ```
 
-[SchemaService.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
+[SchemaService.kt](https://github.com/corda/corda/blob/release/os/4.0/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
 
 ```kotlin
 /**
@@ -150,7 +150,7 @@ open class MappedSchema(schemaFamily: Class<*>,
 
 ```
 
-[PersistentTypes.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.0/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
 
 With this framework, the relational view of ledger states can evolve in a controlled fashion in lock-step with internal systems or other
 integration points and is not dependant on changes to the contract code.
@@ -472,7 +472,7 @@ Use the `ServiceHub` `jdbcSession` function to obtain a JDBC connection as illus
 
 ```
 
-[HibernateConfigurationTest.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
+[HibernateConfigurationTest.kt](https://github.com/corda/corda/blob/release/os/4.0/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
 
 JDBC sessions can be used in flows and services (see “[Writing flows](flow-state-machines.md)”).
 
@@ -525,7 +525,7 @@ object CustomVaultQuery {
 
 ```
 
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 
 which is then referenced within a custom flow:
 
@@ -555,7 +555,7 @@ which is then referenced within a custom flow:
 
 ```
 
-[CustomVaultQuery.kt](https://github.com/corda/enterprise/blob/release/ent/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 
 For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md).
 
@@ -676,4 +676,3 @@ Please note that suspendable flow operations such as:
 * `FlowLogic.subFlow`
 
 Cannot be used within the lambda function passed to `withEntityManager`.
-

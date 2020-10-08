@@ -80,7 +80,7 @@ silencedIPs = []
 useProxyForCrls = true
 ```
 
-[firewalldefault_latest.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/bridge/src/main/resources/firewalldefault_latest.conf)
+[firewalldefault_latest.conf](../../resources/bridge/firewalldefault_latest.conf)
 
 
 ## Firewall operating modes
@@ -1368,4 +1368,3 @@ The ultimate test is of course running some flows.
 it would make sense to check that `EntityA` can successfully talk to `Entity B`, as well as have some external node sending flows to `EntityA` and `Entity B`.
 
 Desired effect is dependent on the CorDapps installed, however the Bridge and the Float will log some stats every minute detailing the number of messages relayed in every direction.
-

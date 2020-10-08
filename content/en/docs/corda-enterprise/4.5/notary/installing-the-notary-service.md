@@ -90,11 +90,11 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 
 
-[node.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/notary/resources/node.conf) | ![github](/images/svg/github.svg "github")
+[node.conf](../resources/node.conf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
-See ../corda-configuration-file for a complete reference.
+See [Node configuration](../../node/setup/corda-configuration-file.md) for a complete reference.
 
 
 ## MySQL notary (deprecated)
@@ -128,7 +128,7 @@ notary {
 
 
 
-[percona.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/notary/resources/percona.conf) | ![github](/images/svg/github.svg "github")
+[percona.conf](../resources/percona.conf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -173,7 +173,7 @@ dataSourceProperties = {
 }
 ```
 
-[config_obfuscator](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/notary/resources/config_obfuscator)
+[config_obfuscator](../resources/config_obfuscator)
 
 
 
@@ -181,4 +181,3 @@ dataSourceProperties = {
 
 The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../ha-utilities.md#notary-reg-tool).
 Once the service is registered, each worker node is registered using the `initial-registration` process. See ../joining-a-compatibility-zone.
-

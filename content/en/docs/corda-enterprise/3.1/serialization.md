@@ -33,7 +33,7 @@ Corda pervasively uses a custom form of type safe binary serialisation. This sta
 weakly or untyped string-based serialisation schemes like JSON or XML. The primary drivers for this were:
 
 
-* A desire to have a schema describing what has been serialized alongside the actual data:> 
+* A desire to have a schema describing what has been serialized alongside the actual data:>
 
 * To assist with versioning, both in terms of being able to interpret data archived long ago (e.g. trades from
 a decade ago, long after the code has changed) and between differing code versions.
@@ -88,7 +88,7 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 }
 
 ```
-{{/* github src='docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' url='https://github.com/corda/enterprise/blob/3.1/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt#L146-L156' raw='https://raw.githubusercontent.com/corda/enterprise/3.1/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt' start='START 7' end='END 7' */}}[ClientRpcTutorial.kt](https://github.com/corda/enterprise/blob/release/ent/3.1/docs/source/example-code/src/main/kotlin/net/corda/docs/ClientRpcTutorial.kt)
+
 {{< note >}}
 Several of the core interfaces at the heart of Corda are already annotated and so any classes that implement
 them will automatically be whitelisted.  This includes `Contract`, `ContractState` and `CommandData`.
@@ -666,4 +666,3 @@ all versions of the class. This ensures an object serialized with an older idea 
 and a version of the current state of the class instantiated.
 
 More detail can be found in [Default Class Evolution](serialization-default-evolution.md).
-

@@ -105,8 +105,6 @@ val complexCondition =
 
 
 
-[NodeAttachmentStorageTest.kt](https://github.com/corda/enterprise/blob/release/ent/3.3/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentStorageTest.kt) | ![github](/images/svg/github.svg "github")
-
 {{< /tabs >}}
 
 
@@ -235,4 +233,3 @@ doesn’t already have the attachment in its storage, we upload it from a JAR re
 we expected. Then a trivial transaction is built that has the attachment and a single signature and it’s sent to
 the other side using the FinalityFlow. The result of starting the flow is a stream of progress messages and a
 `returnValue` observable that can be used to watch out for the flow completing successfully.
-

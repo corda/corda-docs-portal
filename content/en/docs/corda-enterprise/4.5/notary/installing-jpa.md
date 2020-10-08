@@ -94,7 +94,7 @@ notary {
 
 
 
-[dbm.conf](https://github.com/corda/enterprise/blob/release/ent/4.5/docs/source/notary/resources/dbm.conf) | ![github](/images/svg/github.svg "github")
+[dbm.conf](../resources/dbm.conf) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
