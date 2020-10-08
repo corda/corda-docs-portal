@@ -23,15 +23,8 @@ title: Upgrading CorDapps to Corda Enterprise 4.6
 
 ### Running on Corda Enterprise 4.6
 
-A prerequisite to upgrade to Corda Enterprise 4.6 is to ensure your CorDapp is upgraded to Open Source Corda 4.x.
+A prerequisite to upgrade to Corda Enterprise 4.6 is to ensure your CorDapp is upgraded to Corda open source 4.6.
 Please follow the instructions in [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md) section to complete this initial step.
-
-{{< warning >}}
-**IMPORTANT!**
-1. Do **not** install any new CorDapp, or a version adding schema entities, before running the `sync-app-schemas` sub-command as described in [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md). Any mapped schema found in the CorDapps will be added to the changelog **without** trying to create the matching database entities.
-2. If you are upgrading a node to Corda 4.6 while any CorDapp with mapped schemas is being installed, you **must synchronise the schemas** (and thus run `sync-app-schemas`) **before** the node can start again and/or before any app schema updates can be run. Therefore, you must **not** install or update a CorDapp with new or modified schemas while upgrading
-the node, or after upgrading but before synchronising the app schemas.
-{{< /warning >}}
 
 There is no requirement to re-compile your CorDapp to Corda Enterprise in order to run it on Corda Enterprise. If you wish your CorDapp to
 be compatible with nodes running Open Source, then compiling against Open Source Corda V4.x will suffice.
