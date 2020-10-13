@@ -148,7 +148,8 @@ Alice has an outdated (and unconsumed) evolvable token. GIC, Denise, Bob and Cha
 
 ```val oldDiamond = publishDiamondTx.singleOutput<DiamondGradingReport>()
 assertHasStateAndRef(oldDiamond, alice)
-assertNotHasStateAndRef(oldDiamond, gic, denise, bob, charlie)```
+assertNotHasStateAndRef(oldDiamond, gic, denise, bob, charlie)
+```
 
 No party has nonfungible (discrete) tokens:
 
