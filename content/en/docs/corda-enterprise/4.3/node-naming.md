@@ -46,7 +46,7 @@ The name must also obey the following constraints:
 
     * The `state`, `organisational-unit` and `common name` attributes are optional
 
-
+* The X.500 name can have no more than 128 characters across the six fields.
 
 * The fields of the name have the following maximum character lengths:
 
