@@ -53,3 +53,5 @@ The law requires that we only store cookies on your device if they are strictly 
 site. For all other types of cookies, we need your permission.
 
 Learn more about who we are, how you can contact us, and how we process personal data in our [privacy policy](https://www.r3.com/privacy-policy/).
+
+For questions or requests relating to processing of personal data, please contact us on [privacy@r3.com](mailto:privacy@r3.com).
