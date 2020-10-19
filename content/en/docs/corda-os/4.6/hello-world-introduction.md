@@ -63,7 +63,7 @@ Your IOU CorDapp is no exception. It will define the following components:
 
 ### IOUState
 
-For a state, you will use the `IOUState`, representing an IOU. It will contain the IOU’s value, its lender and its borrower. We can visualize
+For a state, you will use the `IOUState`, representing an IOU. It will contain the IOU’s value, its lender, and its borrower. We can visualize
 `IOUState` as follows:
 
 
@@ -81,11 +81,11 @@ steps:
 
 ### IOUContract
 
-For this tutorial, you will use the default `TemplateContract`. You will update it to create a fully-fledged `IOUContract` in [Applying contract constraints](tut-two-party-introduction.md).
+For this tutorial, you will use the default `TemplateContract`. You will update it to create a full-fledged `IOUContract` in [Applying contract constraints](tut-two-party-introduction.md).
 
 
 ## Progress so far
 
-So far, you've decided on a design a simple CorDapp that will allow nodes to agree new IOUs on the blockchain.
+So far, you've decided on a design for a simple CorDapp that will allow nodes to agree new IOUs on the blockchain.
 
 Next, you’ll take a look at the template project you’ll be using as the basis for our CorDapp.

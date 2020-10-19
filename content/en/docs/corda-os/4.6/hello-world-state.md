@@ -43,7 +43,7 @@ interface ContractState {
 As you can see, the `ContractState` interface has a single field, `participants`. `participants` is a list of the
 entities for which this state is relevant.
 
-Beyond this, you state is free to define any fields, methods, helpers or inner classes that the state requires to accurately
+Beyond this, your state is free to define any fields, methods, helpers or inner classes that the state requires to accurately
 represent a given type of shared fact on the blockchain.
 
 {{< note >}}
@@ -55,8 +55,8 @@ Learning some Kotlin will be very useful for understanding how Corda works inter
 experienced Java developer a day or so to pick up. However, learning Kotlin isn’t essential. Because Kotlin code
 compiles to JVM bytecode, CorDapps written in other JVM languages such as Java can interoperate with Corda.
 
-If you do want to dive into Kotlin, there’s an official
-[getting started guide](https://kotlinlang.org/docs/tutorials/), and a series of
+If you do want to dive into Kotlin, see the official
+[getting started guide](https://kotlinlang.org/docs/tutorials/) and exercises under
 [Kotlin Koans](https://kotlinlang.org/docs/tutorials/koans.html).
 
 {{< /note >}}
@@ -67,9 +67,9 @@ How should you define the `IOUState` representing IOUs on the blockchain? Beyond
 interface, your `IOUState` will also need properties to track the relevant features of the IOU:
 
 
-* The value of the IOU
-* The lender of the IOU
-* The borrower of the IOU
+* The value of the IOU.
+* The lender of the IOU.
+* The borrower of the IOU.
 
 There are many more fields you could include, such as the IOU’s currency, but let’s ignore those for now. Adding them
 later is often as simple as adding an additional property to your class definition.
@@ -86,15 +86,15 @@ If you’re following along in Java, you’ll need to first rename `TemplateStat
 To define `IOUState`, you'll also need to make the following changes:
 
 
-* You'll need to rename the `TemplateState` class to `IOUState`
-* You'll need to add properties for `value`, `lender` and `borrower`, along with the required getters and setters in
+* You'll need to rename the `TemplateState` class to `IOUState`.
+* You'll need to add properties for `value`, `lender` and `borrower`, along with the required getters and setters in.
 Java:
-    * `value` is of type `int` (in Java)/`Int` (in Kotlin)
-    * `lender` and `borrower` are of type `Party`
-        * `Party` is a built-in Corda type that represents an entity on the network
+    * `value` is of type `int` (in Java)/`Int` (in Kotlin).
+    * `lender` and `borrower` are of type `Party`.
+        * `Party` is a built-in Corda type that represents an entity on the network.
 
-* You'll need to overridde `participants` to return a list of the `lender` and `borrower`
-    * `participants` is a list of all the parties who should be notified of the creation or consumption of this state
+* You'll need to override `participants` to return a list of the `lender` and `borrower`.
+    * `participants` is a list of all the parties who should be notified of the creation or consumption of this state.
 
 The IOUs that you issue onto a ledger will simply be instances of this class.
 
@@ -108,10 +108,12 @@ The code examples below show how your code should be looking after doing all of 
 import net.corda.core.identity.Party
 
 // Replace TemplateState's definition with:
+@BelongsToContract(TemplateContract::class)
 class IOUState(val value: Int,
                val lender: Party,
                val borrower: Party) : ContractState {
     override val participants get() = listOf(lender, borrower)
+
 }
 
 ```
@@ -173,5 +175,13 @@ on the blockchain, while only sharing information on a need-to-know basis.
 
 If you’ve read the white paper or Key Concepts section, you’ll know that each state has an associated contract that
 imposes invariants on how the state evolves over time. Including a contract isn’t crucial for our first CorDapp, so
-we’ll just use the empty `TemplateContract` and `TemplateContract.Commands.Action` command defined by the template
-for now. In the next tutorial, we’ll implement our own contract and command.
+you’ll just use the empty `TemplateContract` and `TemplateContract.Commands.Action` command defined by the template
+for now.
+
+{{% note %}}
+While you don't need to rewrite the contract, you will need to make a few small changes if you are following the tutorial in Java.
+* Change three instances of `TemplateState` to `IOUState`.
+* Change `getMsg` to `getValue`.
+{{% /note %}}
+
+In the next tutorial, you’ll implement our own contract and command.
