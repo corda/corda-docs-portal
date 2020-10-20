@@ -11,7 +11,7 @@ tags:
 title: Managing Business Network membership
 ---
 
-# Business Network management
+# Business Network membership management
 
 This Corda platform extension allows you to create and manage business networks - as a node operator, this means you can define and create a logical network based on a set of common CorDapps as well as a shared business context.
 
@@ -283,7 +283,7 @@ subFlow(ModifyGroupFlow(bnGroupId, bnGroupName, newParticipantsList, notary))
 
 You can temporarily suspend a member or completely remove them from the business network. Suspending a member will result in a membership status change to `SUSPENDED` and still allow said member to be in the business network. Revocation means that the membership is marked as historic/spent and and a new one will have to be requested and activated in order for the member to re-join the network.
 
-When a membership is revoked, the member is also removed from all Business Network Groups. 
+When a membership is revoked, the member is also removed from all Business Network Groups.
 
 To suspend a member of the network:
 
