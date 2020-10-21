@@ -32,8 +32,7 @@ contracts and states would go in a separate module to reduce transaction size
 * In a CorDapp with multiple sets of contracts and states that **do** depend on each other, either keep them in the
 same module or create separate modules that depend on each other
 * The module containing the flows and other classes can be structured in any way because it is not attached to
-transactions
-
+transactions.
 
 ## Template CorDapps
 

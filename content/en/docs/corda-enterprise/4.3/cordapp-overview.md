@@ -22,6 +22,10 @@ Corda node owners can invoke over RPC:
 
 ![node diagram](/en/images/node-diagram.png "node diagram")
 
+{{< note >}}
+When designing your CorDapp, you may want to consider using the [CorDapp Design Language](/docs/cdl/cdl/cdl-overview) to structure and organise your designs. This can be especially helpful for complex CorDapps.
+{{< /note >}}
+
 ## CorDapp components
 
 CorDapps take the form of a set of JAR files containing class definitions written in Java and/or Kotlin.

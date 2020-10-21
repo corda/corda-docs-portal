@@ -20,13 +20,15 @@ Corda node owners can invoke over RPC:
 
 {{< figure alt="node diagram" zoom="../resources/node-diagram.png" >}}
 
+{{< note >}}
+When designing your CorDapp, you may want to consider using the [CorDapp Design Language](/docs/cdl/cdl/cdl-overview) to structure and organise your designs. This can be especially helpful for complex CorDapps.
+{{< /note >}}
+
 ## CorDapp components
 
 CorDapps take the form of a set of JAR files containing class definitions written in Java and/or Kotlin.
 
 These class definitions will commonly include the following elements:
-
-
 
 * Flows
 * States
@@ -49,7 +51,7 @@ subclass `FlowLogic`. For more information on flows, see [Writing CorDapp Flows]
 States define the facts that parties agree and transact over. States implement the `ContractState` interface. For more
 information on states, see [Writing CorDapp States](api-states.md).
 
-Contracts define the shared rules for updating the ledger. Contracts implement the `Contract` interface``. To learn
+Contracts define the shared rules for updating the ledger. Contracts implement the `Contract` interface. To learn
 more about implementing contracts, see [Writing CorDapp Contracts](api-contracts.md).
 
 Services are intended to provide long-lived utilities that don’t need to run on the network. Services subclass `SingletonSerializationToken`
@@ -78,4 +80,3 @@ However, there are several more components that are required in order to impleme
 * A `BondContract` must also be created to define the rules defining valid transactions
 
 Each node owner will install this CorDapp onto their node, and can then issue, trade, and exit bonds with other node owners.
-

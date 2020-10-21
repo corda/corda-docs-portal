@@ -22,6 +22,10 @@ Corda node owners can invoke over RPC:
 
 ![node diagram](/en/images/node-diagram.png "node diagram")
 
+{{< note >}}
+When designing your CorDapp, you may want to consider using the [CorDapp Design Language](/docs/cdl/cdl/cdl-overview) to structure and organise your designs. This can be especially helpful for complex CorDapps.
+{{< /note >}}
+
 ## CorDapp components
 
 CorDapps take the form of a set of JAR files containing class definitions written in Java and/or Kotlin.
@@ -55,7 +59,7 @@ the following components:
 
 * A `BondState`, used to represent bonds as shared facts on the ledger
 * A `BondContract`, used to govern which ledger updates involving `BondState` states are valid
-* Three flows: 
+* Three flows:
 
     * An `IssueBondFlow`, allowing new `BondState` states to be issued onto the ledger
     * A `TradeBondFlow`, allowing existing `BondState` states to be bought and sold on the ledger
@@ -105,4 +109,3 @@ advanced database migration scripts, or some other Enterprise-only feature).
 
 In summary, structure your app as kernel (contracts, states, dependencies) and workflow (the rest) and be sure to compile the kernel
 against Corda open source. You can compile your workflow (Jars) against the distribution of Corda that they target.
-
