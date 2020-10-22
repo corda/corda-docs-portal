@@ -264,89 +264,91 @@ This file is based on or incorporates material from the projects listed below (T
 
 122.  metrics-jmx io.dropwizard.metrics 4.1.0
 
-123.  mina-core org.apache.mina 2.0.16
+123.	metrics-new-relic 1.1.1
 
-124.  minlog com.esotericsoftware 1.3.0
+124.  mina-core org.apache.mina 2.0.16
 
-125.  netty-buffer io.netty 4.1.46.Final
+125.  minlog com.esotericsoftware 1.3.0
 
-126.  netty-codec io.netty 4.1.46.Final
+126.  netty-buffer io.netty 4.1.46.Final
 
-127.  netty-codec-http io.netty 4.1.46.Final
+127.  netty-codec io.netty 4.1.46.Final
 
-128.  netty-codec-socks io.netty 4.1.46.Final
+128.  netty-codec-http io.netty 4.1.46.Final
 
-129.  netty-common io.netty 4.1.46.Final
+129.  netty-codec-socks io.netty 4.1.46.Final
 
-130.  netty-handler io.netty 4.1.46.Final
+130.  netty-common io.netty 4.1.46.Final
 
-131.  netty-handler-proxy io.netty 4.1.46.Final
+131.  netty-handler io.netty 4.1.46.Final
 
-132.  netty-resolver io.netty 4.1.46.Final
+132.  netty-handler-proxy io.netty 4.1.46.Final
 
-133.  netty-tcnative-boringssl-static io.netty 2.0.29.Final
+133.  netty-resolver io.netty 4.1.46.Final
 
-134.  netty-transport io.netty 4.1.46.Final
+134.  netty-tcnative-boringssl-static io.netty 2.0.29.Final
 
-135.  netty-transport-native-epoll io.netty 4.1.46.Final
+135.  netty-transport io.netty 4.1.46.Final
 
-136.  netty-transport-native-kqueue io.netty 4.1.46.Final
+136.  netty-transport-native-epoll io.netty 4.1.46.Final
 
-137.  netty-transport-native-unix-common io.netty 4.1.46.Final
+137.  netty-transport-native-kqueue io.netty 4.1.46.Final
 
-138.  newrelic-api com.newrelic.agent.java 3.10.0
+138.  netty-transport-native-unix-common io.netty 4.1.46.Final
 
-139.  objenesis org.objenesis 2.5.1
+139.  newrelic-api com.newrelic.agent.java 3.10.0
 
-140.  okhttp com.squareup.okhttp3 3.14.2
+140.  objenesis org.objenesis 2.5.1
 
-141.  okio com.squareup.okio 1.17.2
+141.  okhttp com.squareup.okhttp3 3.14.2
 
-142.  picocli info.picocli 3.9.6
+142.  okio com.squareup.okio 1.17.2
 
-143.  proton-j org.apache.qpid 0.33.0
+143.  picocli info.picocli 3.9.6
 
-144.  quasar-core co.paralleluniverse 0.7.10
+144.  proton-j org.apache.qpid 0.33.0
 
-145.  reflectasm com.esotericsoftware 1.11.3
+145.  quasar-core co.paralleluniverse 0.7.10
 
-146.  rxjava io.reactivex 1.3.8
+146.  reflectasm com.esotericsoftware 1.11.3
 
-147.  shiro-cache org.apache.shiro 1.4.1
+147.  rxjava io.reactivex 1.3.8
 
-148.  shiro-config-core org.apache.shiro 1.4.1
+148.  shiro-cache org.apache.shiro 1.4.1
 
-149.  shiro-config-ogdl org.apache.shiro 1.4.1
+149.  shiro-config-core org.apache.shiro 1.4.1
 
-150.  shiro-core org.apache.shiro 1.4.1
+150.  shiro-config-ogdl org.apache.shiro 1.4.1
 
-151.  shiro-crypto-cipher org.apache.shiro 1.4.1
+151.  shiro-core org.apache.shiro 1.4.1
 
-152.  shiro-crypto-core org.apache.shiro 1.4.1
+152.  shiro-crypto-cipher org.apache.shiro 1.4.1
 
-153.  shiro-crypto-hash org.apache.shiro 1.4.1
+153.  shiro-crypto-core org.apache.shiro 1.4.1
 
-154.  shiro-event org.apache.shiro 1.4.1
+154.  shiro-crypto-hash org.apache.shiro 1.4.1
 
-155.  shiro-lang org.apache.shiro 1.4.1
+155.  shiro-event org.apache.shiro 1.4.1
 
-156.  slf4j-api org.slf4j 1.7.30
+156.  shiro-lang org.apache.shiro 1.4.1
 
-157.  slf4j-nop org.slf4j 1.7.30
+157.  slf4j-api org.slf4j 1.7.30
 
-158.  snakeyaml org.yaml 1.23
+158.  slf4j-nop org.slf4j 1.7.30
 
-159.  snappy org.iq80.snappy 0.4
+159.  snakeyaml org.yaml 1.23
 
-160.  sshd-common org.apache.sshd 2.3.0
+160.  snappy org.iq80.snappy 0.4
 
-161.  sshd-core org.apache.sshd 2.3.0
+161.  sshd-common org.apache.sshd 2.3.0
 
-162.  sshd-pam org.apache.sshd 0.11.0
+162.  sshd-core org.apache.sshd 2.3.0
 
-163.  stax-ex org.jvnet.staxex 1.8
+163.  sshd-pam org.apache.sshd 0.11.0
 
-164.  txw2 org.glassfish.jaxb 2.3.1
+164.  stax-ex org.jvnet.staxex 1.8
+
+165.  txw2 org.glassfish.jaxb 2.3.1
 
 
 ## Start of Notices
@@ -3993,6 +3995,63 @@ from your version.
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
+metrics-new-relic       1.1.1
+[https://github.com/palominolabs/metrics-new-relic](https://github.com/palominolabs/metrics-new-relic)
+[https://github.com/palominolabs/metrics-new-relic/blob/master/LICENSE](https://github.com/palominolabs/metrics-new-relic/blob/master/LICENSE)
+
+———————–START OF LICENSE TEXT———————————–
+
+# Copyfree Open Innovation License
+
+This is version 0.4 of the Copyfree Open Innovation License.
+
+## Terms and Conditions
+
+Redistributions, modified or unmodified, in whole or in part, must retain
+applicable copyright or other legal privilege notices, these conditions, and
+the following license terms and disclaimer.  Subject to these conditions, the
+holder(s) of copyright or other legal privileges, author(s) or assembler(s),
+and contributors of this work hereby grant to any person who obtains a copy of
+this work in any form:
+
+1. Permission to reproduce, modify, distribute, publish, sell, sublicense, use,
+and/or otherwise deal in the licensed material without restriction.
+
+2. A perpetual, worldwide, non-exclusive, royalty-free, irrevocable patent
+license to reproduce, modify, distribute, publish, sell, use, and/or otherwise
+deal in the licensed material without restriction, for any and all patents:
+
+
+a. Held presently or in the future by each such holder of copyright or
+other legal privilege, author or assembler, or contributor, necessarily
+infringed by the contributions alone or by combination with the work, of
+that privilege holder, author or assembler, or contributor.
+
+b. Necessarily infringed by the work at the time that holder of copyright
+or other privilege, author or assembler, or contributor made any
+contribution to the work.
+
+
+NO WARRANTY OF ANY KIND IS IMPLIED BY, OR SHOULD BE INFERRED FROM, THIS LICENSE
+OR THE ACT OF DISTRIBUTION UNDER THE TERMS OF THIS LICENSE, INCLUDING BUT NOT
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS, ASSEMBLERS, OR HOLDERS OF
+COPYRIGHT OR OTHER LEGAL PRIVILEGE BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN ACTION OF CONTRACT, TORT, OR OTHERWISE ARISING FROM, OUT
+OF, OR IN CONNECTION WITH THE WORK OR THE USE OF OR OTHER DEALINGS IN THE WORK.
+
+———————END OF LICENSE TEXT—————————————–
+
+=============END OF NOTICES AND INFORMATION for above components=================
+
+
+================================================
+
+================================================
+
+
+=========== START OF NOTICES AND INFORMATION for the following components=========
+
 quasar-core 0.7.10
 Copyright (c) 2013-2018, Parallel Universe Software Co. 
 http://docs.paralleluniverse.co/quasar/
@@ -5346,49 +5405,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
 newrelic-api  3.10.0
-Copyright (c) 2008-2019 New Relic, Inc.
-https://newrelic.com/
-https://docs.newrelic.com/docs/licenses/license-information/other-licenses/new-relic-agent-license
+Copyright (c) 2010-2014 New Relic, Inc. All rights reserved.
+[https://newrelic.com/](https://newrelic.com/)
 
 -----------------------START OF LICENSE TEXT-----------------------------------
 
-Copyright (c) 2008-2019 New Relic, Inc.  All rights reserved.
+Copyright (c) 2010-2014 New Relic, Inc. All rights reserved.
 
-Certain inventions disclosed in this file may be claimed within
-patents owned or patent applications filed by New Relic, Inc. or third
-parties.
+Certain inventions disclosed in this file may be claimed within patents owned or patent applications filed by New Relic, Inc. or third parties. Subject to the terms of this notice, New Relic grants you a nonexclusive, nontransferable license, without the right to sublicense, to (a) install and execute one copy of these files on any number of workstations owned or controlled by you and (b) distribute verbatim copies of these files to third parties. As a condition to the foregoing grant, you must provide this notice along with each copy you distribute and you must not remove, alter, or obscure this notice.
 
-Subject to the terms of this notice, New Relic grants you a
-nonexclusive, nontransferable license, without the right to
-sublicense, to (a) install and execute one copy of these files on any
-number of workstations owned or controlled by you and (b) distribute
-verbatim copies of these files to third parties.  As a condition to the
-foregoing grant, you must provide this notice along with each copy you
-distribute and you must not remove, alter, or obscure this notice. All
-other use, reproduction, modification, distribution, or other
-exploitation of these files is strictly prohibited, except as may be set
-forth in a separate written license agreement between you and New
-Relic.  The terms of any such license agreement will control over this
-notice.  The license stated above will be automatically terminated and
-revoked if you exceed its scope or violate any of the terms of this
-notice.
+All other use, reproduction, modification, distribution, or other exploitation of these
+files is strictly prohibited, except as may be set forth in a separate written license agreement between you and New Relic. The terms of any such license agreement will control over this notice. The license stated above will be automatically terminated and revoked if you exceed its scope or violate any of the terms of this notice.
 
-This License does not grant permission to use the trade names,
-trademarks, service marks, or product names of New Relic, except as
-required for reasonable and customary use in describing the origin of
-this file and reproducing the content of this notice.  You may not
-mark or brand this file with any trade name, trademarks, service
-marks, or product names other than the original brand (if any)
-provided by New Relic.
+This License does not grant permission to use the trade names, trademarks, service marks, or product names of New Relic, except as required for reasonable and customary use in describing the origin of this file and reproducing the content of this notice. You may not mark or brand this file with any trade name, trademarks, service marks, or product names other than the original brand (if any) provided by New Relic.
 
-Unless otherwise expressly agreed by New Relic in a separate written
-license agreement, these files are provided AS IS, WITHOUT WARRANTY OF
-ANY KIND, including without any implied warranties of MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE, TITLE, or NON-INFRINGEMENT.  As a
-condition to your use of these files, you are solely responsible for
-such use. New Relic will have no liability to you for direct,
-indirect, consequential, incidental, special, or punitive damages or
-for lost profits or data.
+Unless otherwise expressly agreed by New Relic in a separate written license agreement, these files are provided AS IS, WITHOUT WARRANTY OF ANY KIND, including without any implied warranties of MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, or NON-INFRINGEMENT. As a condition to your use of these files, you are solely responsible for such use. New Relic will have no liability to you for direct, indirect, consequential, incidental, special, or punitive damages or for lost profits or data.
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
