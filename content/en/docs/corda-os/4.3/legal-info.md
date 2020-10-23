@@ -80,11 +80,11 @@ This file is based on or incorporates material from the projects listed below (T
 * error_prone_annotations
 * forms
 * forms_rt
-* 
+*
 {{< warning >}}geronimojms_{{< /warning >}}
 
  2.0_spec
-* 
+*
 {{< warning >}}geronimojson_{{< /warning >}}
 
  1.0_spec
@@ -1067,7 +1067,7 @@ defend, and hold each Contributor harmless for any liability
 incurred by, or claims asserted against, such Contributor by reason
 of your accepting any such warranty or additional liability.
 
-END OF TERMS AND CONDITIONSAPPENDIX: How to apply the Apache License to your work.> 
+END OF TERMS AND CONDITIONSAPPENDIX: How to apply the Apache License to your work.>
 To apply the Apache License to your work, attach the following
 boilerplate notice, with the fields enclosed by brackets “[]”
 replaced with your own identifying information. (Don’t include
@@ -1078,7 +1078,7 @@ same “printed page” as the copyright notice for easier
 identification within third-party archives.
 Copyright [yyyy] [name of copyright owner]Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.
-You may obtain a copy of the License at> 
+You may obtain a copy of the License at>
 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an “AS IS” BASIS,
@@ -2001,7 +2001,7 @@ Copyright (c) 2011 Oracle and/or its affiliates. All rights reserved.
 COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
 
 
-* Definitions.1.1. Contributor. means each individual or entity that creates or contributes to the creation of Modifications.1.2. Contributor Version. means the combination of the Original Software, prior Modifications used by a Contributor (if any), and the Modifications made by that particular Contributor.1.3. Covered Software. means (a) the Original Software, or (b) Modifications, or (c) the combination of files containing Original Software with files containing Modifications, in each case including portions thereof.1.4. Executable. means the Covered Software in any form other than Source Code.1.5. Initial Developer. means the individual or entity that first makes Original Software available under this License.1.6. Larger Work. means a work which combines Covered Software or portions thereof with code not governed by the terms of this License.1.7. License. means this document.1.8. Licensable. means having the right to grant, to the maximum extent possible, whether at the time of the initial grant or subsequently acquired, any and all of the rights conveyed herein.1.9. Modifications. means the Source Code and Executable form of any of the following:> 
+* Definitions.1.1. Contributor. means each individual or entity that creates or contributes to the creation of Modifications.1.2. Contributor Version. means the combination of the Original Software, prior Modifications used by a Contributor (if any), and the Modifications made by that particular Contributor.1.3. Covered Software. means (a) the Original Software, or (b) Modifications, or (c) the combination of files containing Original Software with files containing Modifications, in each case including portions thereof.1.4. Executable. means the Covered Software in any form other than Source Code.1.5. Initial Developer. means the individual or entity that first makes Original Software available under this License.1.6. Larger Work. means a work which combines Covered Software or portions thereof with code not governed by the terms of this License.1.7. License. means this document.1.8. Licensable. means having the right to grant, to the maximum extent possible, whether at the time of the initial grant or subsequently acquired, any and all of the rights conveyed herein.1.9. Modifications. means the Source Code and Executable form of any of the following:>
 
 * Any file that results from an addition to, deletion from or modification of the contents of a file containing Original Software or previous Modifications;
 * Any new file that contains any part of the Original Software or previous Modification; or
@@ -2009,9 +2009,9 @@ COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
 
 
 1.10. Original Software. means the Source Code and Executable form of computer software code that is originally released under this License.1.11. Patent Claims. means any patent claim(s), now owned or hereafter acquired, including without limitation, method, process, and apparatus claims, in any patent Licensable by grantor.1.12. Source Code. means (a) the common form of computer software code in which modifications are made and (b) associated documentation included in or with such code.1.13. You. (or .Your.) means an individual or a legal entity exercising rights under, and complying with all of the terms of, this License. For legal entities, .You. includes any entity which controls, is controlled by, or is under common control with You. For purposes of this definition, .control. means (a) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (b) ownership of more than fifty percent (50%) of the outstanding shares or beneficial ownership of such entity.
-* License Grants.> 
+* License Grants.>
 
-2.1. The Initial Developer Grant.Conditioned upon Your compliance with Section 3.1 below and subject to third party intellectual property claims, the Initial Developer hereby grants You a world-wide, royalty-free, non-exclusive license:> 
+2.1. The Initial Developer Grant.Conditioned upon Your compliance with Section 3.1 below and subject to third party intellectual property claims, the Initial Developer hereby grants You a world-wide, royalty-free, non-exclusive license:>
 
 
 * under intellectual property rights (other than patent or trademark) Licensable by Initial Developer, to use, reproduce, modify, display, perform, sublicense and distribute the Original Software (or portions thereof), with or without Modifications, and/or as part of a Larger Work; and
@@ -2024,7 +2024,7 @@ COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
 
 
 
-2.2. Contributor Grant.Conditioned upon Your compliance with Section 3.1 below and subject to third party intellectual property claims, each Contributor hereby grants You a world-wide, royalty-free, non-exclusive license:> 
+2.2. Contributor Grant.Conditioned upon Your compliance with Section 3.1 below and subject to third party intellectual property claims, each Contributor hereby grants You a world-wide, royalty-free, non-exclusive license:>
 
 * under intellectual property rights (other than patent or trademark) Licensable by Contributor to use, reproduce, modify, display, perform, sublicense and distribute the Modifications created by such Contributor (or portions thereof), either on an unmodified basis, with other Modifications, as Covered Software and/or as part of a Larger Work; and
 * under Patent Claims infringed by the making, using, or selling of Modifications made by that Contributor either alone and/or in combination with its Contributor Version (or portions of such combination), to make, use, sell, offer for sale, have made, and/or otherwise dispose of: (1) Modifications made by that Contributor (or portions thereof); and (2) the combination of Modifications made by that Contributor with its Contributor Version (or portions of such combination).
@@ -2034,7 +2034,7 @@ COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
 
 
 
-* Distribution Obligations.> 
+* Distribution Obligations.>
 3.1. Availability of Source Code.
 Any Covered Software that You distribute or otherwise make available in Executable form must also be made available in Source Code form and that Source Code form must be distributed only under the terms of this License. You must include a copy of this License with every copy of the Source Code form of the Covered Software You distribute or otherwise make available. You must inform recipients of any such Covered Software in Executable form as to how they can obtain such Covered Software in Source Code form in a reasonable manner on or through a medium customarily used for software exchange.3.2. Modifications.
 The Modifications that You create or to which You contribute are governed by the terms of this License. You represent that You believe Your Modifications are Your original creation(s) and/or You have sufficient rights to grant the rights conveyed by this License.3.3. Required Notices.
@@ -2043,14 +2043,14 @@ You may not offer or impose any terms on any Covered Software in Source Code for
 You may distribute the Executable form of the Covered Software under the terms of this License or under the terms of a license of Your choice, which may contain terms different from this License, provided that You are in compliance with the terms of this License and that the license for the Executable form does not attempt to limit or alter the recipient.s rights in the Source Code form from the rights set forth in this License. If You distribute the Covered Software in Executable form under a different license, You must make it absolutely clear that any terms which differ from this License are offered by You alone, not by the Initial Developer or Contributor. You hereby agree to indemnify the Initial Developer and every Contributor for any liability incurred by the Initial Developer or such Contributor as a result of any such terms You offer.3.6. Larger Works.
 You may create a Larger Work by combining Covered Software with other code not governed by the terms of this License and distribute the Larger Work as a single product. In such a case, You must make sure the requirements of this License are fulfilled for the Covered Software.
 
-* Versions of the License.> 
+* Versions of the License.>
 4.1. New Versions.
 Sun Microsystems, Inc. is the initial license steward and may publish revised and/or new versions of this License from time to time. Each version will be given a distinguishing version number. Except as provided in Section 4.3, no one other than the license steward has the right to modify this License.4.2. Effect of New Versions.
 You may always continue to use, distribute or otherwise make the Covered Software available under the terms of the version of the License under which You originally received the Covered Software. If the Initial Developer includes a notice in the Original Software prohibiting it from being distributed or otherwise made available under any subsequent version of the License, You must distribute and make the Covered Software available under the terms of the version of the License under which You originally received the Covered Software. Otherwise, You may also choose to use, distribute or otherwise make the Covered Software available under the terms of any subsequent version of the License published by the license steward.4.3. Modified Versions.
 When You are an Initial Developer and You want to create a new license for Your Original Software, You may create and use a modified version of this License if You: (a) rename the license and remove any references to the name of the license steward (except to note that the license differs from this License); and (b) otherwise make it clear that the license contains terms which differ from this License.
 
 * DISCLAIMER OF WARRANTY.COVERED SOFTWARE IS PROVIDED UNDER THIS LICENSE ON AN .AS IS. BASIS, WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT THE COVERED SOFTWARE IS FREE OF DEFECTS, MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE COVERED SOFTWARE IS WITH YOU. SHOULD ANY COVERED SOFTWARE PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL DEVELOPER OR ANY OTHER CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY COVERED SOFTWARE IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER.
-* TERMINATION.> 
+* TERMINATION.>
 6.1. This License and the rights granted hereunder will terminate automatically if You fail to comply with terms herein and fail to cure such breach within 30 days of becoming aware of the breach. Provisions which, by their nature, must remain in effect beyond the termination of this License shall survive.6.2. If You assert a patent infringement claim (excluding declaratory judgment actions) against Initial Developer or a Contributor (the Initial Developer or Contributor against whom You assert such claim is referred to as .Participant.) alleging that the Participant Software (meaning the Contributor Version where the Participant is a Contributor or the Original Software where the Participant is the Initial Developer) directly or indirectly infringes any patent, then any and all rights granted directly or indirectly to You by such Participant, the Initial Developer (if the Initial Developer is not the Participant) and all Contributors under Sections 2.1 and/or 2.2 of this License shall, upon 60 days notice from Participant terminate prospectively and automatically at the expiration of such 60 day notice period, unless if within such 60 day period You withdraw Your claim with respect to the Participant Software against such Participant either unilaterally or pursuant to a written agreement with Participant.6.3. In the event of termination under Sections 6.1 or 6.2 above, all end user licenses that have been validly granted by You or any distributor hereunder prior to termination (excluding licenses granted to You by any distributor) shall survive termination.
 
 * LIMITATION OF LIABILITY.UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER TORT (INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL YOU, THE INITIAL DEVELOPER, ANY OTHER CONTRIBUTOR, OR ANY DISTRIBUTOR OF COVERED SOFTWARE, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON FOR ANY INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOST PROFITS, LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER COMMERCIAL DAMAGES OR LOSSES, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES. THIS LIMITATION OF LIABILITY SHALL NOT APPLY TO LIABILITY FOR DEATH OR PERSONAL INJURY RESULTING FROM SUCH PARTY.S NEGLIGENCE TO THE EXTENT APPLICABLE LAW PROHIBITS SUCH LIMITATION. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THIS EXCLUSION AND LIMITATION MAY NOT APPLY TO YOU.
@@ -2181,25 +2181,25 @@ If the program is interactive, make it output a short notice like this when it s
 
 
 Gnomovision version 69, Copyright (C) year name of author
-Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type 
+Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type
 {{< warning >}}`{{< /warning >}}
 
-show w’. This is free software, and you are welcome to redistribute it under certain conditions; type 
+show w’. This is free software, and you are welcome to redistribute it under certain conditions; type
 {{< warning >}}`{{< /warning >}}
 
 show c’ for details.
 
 
-The hypothetical commands 
+The hypothetical commands
 {{< warning >}}`{{< /warning >}}
 
-show w’ and 
+show w’ and
 {{< warning >}}`{{< /warning >}}
 
-show c’ should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than 
+show c’ should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than
 {{< warning >}}`{{< /warning >}}
 
-show w’ and 
+show w’ and
 {{< warning >}}`{{< /warning >}}
 
 show c’; they could even be mouse-clicks or menu items–whatever suits your program.
@@ -2207,7 +2207,7 @@ show c’; they could even be mouse-clicks or menu items–whatever suits your p
 You should also get your employer (if you work as a programmer) or your school, if any, to sign a “copyright disclaimer” for the program, if necessary. Here is a sample; alter the names:
 
 
-Yoyodyne, Inc., hereby disclaims all copyright interest in the program 
+Yoyodyne, Inc., hereby disclaims all copyright interest in the program
 {{< warning >}}`{{< /warning >}}
 
 Gnomovision’ (which makes passes at compilers) written by James Hacker.
@@ -3644,52 +3644,24 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
-newrelic-api    3.10.0
-Copyright (c) 2008-2019 New Relic, Inc.
+newrelic-api  3.10.0
+Copyright (c) 2010-2014 New Relic, Inc. All rights reserved.
 [https://newrelic.com/](https://newrelic.com/)
-[https://docs.newrelic.com/docs/licenses/license-information/other-licenses/new-relic-agent-license](https://docs.newrelic.com/docs/licenses/license-information/other-licenses/new-relic-agent-license)
 
-———————–START OF LICENSE TEXT———————————–
+-----------------------START OF LICENSE TEXT-----------------------------------
 
-Copyright (c) 2008-2019 New Relic, Inc.  All rights reserved.
+Copyright (c) 2010-2014 New Relic, Inc. All rights reserved.
 
-Certain inventions disclosed in this file may be claimed within
-patents owned or patent applications filed by New Relic, Inc. or third
-parties.
+Certain inventions disclosed in this file may be claimed within patents owned or patent applications filed by New Relic, Inc. or third parties. Subject to the terms of this notice, New Relic grants you a nonexclusive, nontransferable license, without the right to sublicense, to (a) install and execute one copy of these files on any number of workstations owned or controlled by you and (b) distribute verbatim copies of these files to third parties. As a condition to the foregoing grant, you must provide this notice along with each copy you distribute and you must not remove, alter, or obscure this notice.
 
-Subject to the terms of this notice, New Relic grants you a
-nonexclusive, nontransferable license, without the right to
-sublicense, to (a) install and execute one copy of these files on any
-number of workstations owned or controlled by you and (b) distribute
-verbatim copies of these files to third parties.  As a condition to the
-foregoing grant, you must provide this notice along with each copy you
-distribute and you must not remove, alter, or obscure this notice. All
-other use, reproduction, modification, distribution, or other
-exploitation of these files is strictly prohibited, except as may be set
-forth in a separate written license agreement between you and New
-Relic.  The terms of any such license agreement will control over this
-notice.  The license stated above will be automatically terminated and
-revoked if you exceed its scope or violate any of the terms of this
-notice.
+All other use, reproduction, modification, distribution, or other exploitation of these
+files is strictly prohibited, except as may be set forth in a separate written license agreement between you and New Relic. The terms of any such license agreement will control over this notice. The license stated above will be automatically terminated and revoked if you exceed its scope or violate any of the terms of this notice.
 
-This License does not grant permission to use the trade names,
-trademarks, service marks, or product names of New Relic, except as
-required for reasonable and customary use in describing the origin of
-this file and reproducing the content of this notice.  You may not
-mark or brand this file with any trade name, trademarks, service
-marks, or product names other than the original brand (if any)
-provided by New Relic.
+This License does not grant permission to use the trade names, trademarks, service marks, or product names of New Relic, except as required for reasonable and customary use in describing the origin of this file and reproducing the content of this notice. You may not mark or brand this file with any trade name, trademarks, service marks, or product names other than the original brand (if any) provided by New Relic.
 
-Unless otherwise expressly agreed by New Relic in a separate written
-license agreement, these files are provided AS IS, WITHOUT WARRANTY OF
-ANY KIND, including without any implied warranties of MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE, TITLE, or NON-INFRINGEMENT.  As a
-condition to your use of these files, you are solely responsible for
-such use. New Relic will have no liability to you for direct,
-indirect, consequential, incidental, special, or punitive damages or
-for lost profits or data.
+Unless otherwise expressly agreed by New Relic in a separate written license agreement, these files are provided AS IS, WITHOUT WARRANTY OF ANY KIND, including without any implied warranties of MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, or NON-INFRINGEMENT. As a condition to your use of these files, you are solely responsible for such use. New Relic will have no liability to you for direct, indirect, consequential, incidental, special, or punitive damages or for lost profits or data.
 
-———————END OF LICENSE TEXT—————————————–
+---------------------END OF LICENSE TEXT-----------------------------------------
 
 =============END OF NOTICES AND INFORMATION for above components=================
 
@@ -3750,4 +3722,3 @@ THE POSSIBILITY OF SUCH DAMAGE.
 
 
 ———————-END OF OPEN SOURCE LICENSES ———————–
-
