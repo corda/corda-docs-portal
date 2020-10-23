@@ -10,11 +10,11 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading your node to Corda 4
+title: Upgrading your node to Corda 4.3
 ---
 
 
-# Upgrading your node to Corda 4
+# Upgrading your node to Corda 4.3
 
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to
 applications. It consists of the following steps:
@@ -32,8 +32,8 @@ Note: The protocol is designed to tolerate node outages. During the upgrade proc
 
 ## Step 1. Drain the node
 
-Before a node, or an application on a node, can be upgraded, the node must be put in [Draining mode](key-concepts-node.md#draining-mode). This brings the currently running
-[Flows](key-concepts-flows.md) to a smooth halt (existing work is finished, and new work is queued rather than being processed).
+Before a node, or an application on a node, can be upgraded, the node must be put in draining-mode. This brings the currently running
+[Flows](key-concepts-flows.md/) to a smooth halt (existing work is finished, and new work is queued rather than being processed).
 
 Draining flows is a key task for node administrators to perform. It exists to simplify applications by ensuring apps don’t have to be
 able to migrate workflows from any arbitrary point to other arbitrary points, a task that would rapidly become unfeasible as workflow
@@ -64,7 +64,7 @@ For a detailed explanation of Corda backup and recovery guarantees, see [Backup 
 
 ## Step 3. Update database
 
-This step should be performed for production systems.
+This step is mandatory for production systems.
 
 If you are updating a Corda node that is currently using the default H2 database (which should be used for development purposes),
 then skip this step. In this situation, a Corda node will auto-update its database on startup.
@@ -72,10 +72,10 @@ then skip this step. In this situation, a Corda node will auto-update its databa
 You can also skip the manual database update and allow a Corda node to auto-update its database on startup when:
 
 
-* a database setup is for testing/development purposes and a Corda node connects with *administrative permissions*
+* A database setup is for testing/development purposes and a Corda node connects with *administrative permissions*.
 (it can modify database schema)
-* you are upgrading a production system, however your policy allows a Corda node to auto-update its database
-and a Corda node connects with *administrative permissions*
+* You are upgrading a production system, however your policy allows a Corda node to auto-update its database
+and a Corda node connects with *administrative permissions*.
 
 In both cases ensure that a node configuration `node.conf` file contains:
 
@@ -94,8 +94,8 @@ The tool is configured in a similar manner to the Corda node.
 A base directory needs to be provided with the following content:
 
 
-* a `node.conf` file with database connection settings
-* a `drivers` directory (where the JDBC driver will be placed)
+* A `node.conf` file with database connection settings.
+* A `drivers` directory (where the JDBC driver will be placed).
 
 Create a `node.conf` with the properties for your database.
 `node.conf` templates for each database vendor are shown below.
@@ -122,15 +122,15 @@ myLegalName = <node_legal_name>
 
 
 
-Replace placeholders *<server>*, *<login>*, *<password>*, and *<database>* with appropriate values.
-*<database>* should be a user database and *<schema>* a schema namespace.
-Ensure *<login>* and *<password>* are for a database user with visibility of the *<schema>*.
+Replace placeholders `<server>`, `<login>`, `<password>`, and `<database>` with appropriate values.
+`<database>` should be a user database and `<schema>` a schema namespace.
+Ensure `<login>` and `<password>` are for a database user with visibility of the `<schema>`.
 The `myLegalName` field is obligatory, however, it is used in Step 3.4 only
 (the tool doesn’t understand the context of the run and always requires the field to be present).
-For this step you can use any valid dummy name e.g. *O=Dummy,L=London,C=GB* for *<node_legal_name>*.
+For this step you can use any valid dummy name - for example, `O=Dummy,L=London,C=GB` for `<node_legal_name>`.
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-Extract the archive, and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into the `drivers` directory.
+Extract the archive, and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
 #### SQL Server
@@ -151,15 +151,15 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Replace placeholders *<server>*, *<login>*, *<password>*, *<database>* with appropriate values.
-*<database>* is a database name and *<schema>* is a schema namespace.
-Ensure *<login>* and *<password>* are for a database user with visibility of the *<schema>*.
+Replace placeholders `<server>`, `<login>`, `<password>`, `<database>` with appropriate values.
+`<database>` is a database name and `<schema>` is a schema namespace.
+Ensure `<login>` and `<password>` are for a database user with visibility of the `<schema>`.
 The `myLegalName` field is obligatory however it is used in Step 3.4 only
 (the tool doesn’t understand the context of the run and always requires the field to be present).
-For this step you can use any valid dummy name e.g. *O=Dummy,L=London,C=GB* for *<node_legal_name>*.
+For this step you can use any valid dummy name - for example, `O=Dummy,L=London,C=GB` for `<node_legal_name>`.
 
 The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-Extract the archive, and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into the `drivers` directory.
+Extract the archive, and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
 #### Oracle
@@ -180,13 +180,13 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Replace placeholders *<host>*, *<port>* and *<sid>*, *<user>*, *<password>* and *<schema>* with appropriate values.
-*<schema>* is a database schema namespace, for a basic setup the schema name equals *<user>*.
+Replace placeholders `<host>`, `<port>` and `<sid>`, `<user>`, `<password>` and `<schema>` with appropriate values.
+`<schema>` is a database schema namespace, for a basic setup the schema name equals `<user>`.
 The `myLegalName` field is obligatory however it is used in Step 3.4 only
 (the tool doesn’t understand the context of the run and always requires the field to be present).
-For this step you can use any valid dummy name e.g. *O=Dummy,L=London,C=GB* for *<node_legal_name>*.
+For this step you can use any valid dummy name - for example, `O=Dummy,L=London,C=GB` for `<node_legal_name>`.
 
-Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c into the `drivers` directory.
+Copy the Oracle JDBC driver `ojdbc6.jar` for 11g RC2 or `ojdbc8.jar` for Oracle 12c into the `drivers` directory.
 
 
 #### PostgreSQL
@@ -207,12 +207,12 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Replace placeholders *<host>*, *<port>*, *<database>*, *<user>*, *<password>* and *<schema>* with appropriate values.
-*<schema>* is the database schema name assigned to the user,
+Replace placeholders `<host>`, `<port>`, `<database>`, `<user>`, `<password>` and `<schema>` with appropriate values.
+`<schema>` is the database schema name assigned to the user,
 the value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
 The `myLegalName` field is obligatory however it is used in Step 3.4 only
 (the tool doesn’t understand the context of the run and always requires the field to be present).
-For this step you can use any valid dummy name e.g. *O=Dummy,L=London,C=GB* for *<node_legal_name>*.
+For this step you can use any valid dummy name - for example, `O=Dummy,L=London,C=GB` for `<node_legal_name>`.
 
 Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
 
@@ -225,10 +225,10 @@ To run the tool, use the following command:
 java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory
 ```
 
-The option `-b` points to the base directory (which contains a `node.conf` file, and *drivers* and *cordapps* subdirectories).
+The option `-b` points to the base directory (which contains a `node.conf` file, and `drivers` and `cordapps` subdirectories).
 
-A script named *migration/*.sql* will be generated in the base directory.
-This script will contain all the statements required to modify and create data structures (e.g. tables/indexes),
+A script named `migration/.sql` will be generated in the base directory.
+This script will contain all the statements required to modify and create data structures (for example, tables/indexes),
 and inserts the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables itself.
 For descriptions of the options, refer to the [Corda Database Management Tool](node-database.md#database-management-tool-ref) manual.
@@ -236,13 +236,10 @@ For descriptions of the options, refer to the [Corda Database Management Tool](n
 
 ### 3.3. Apply DDL scripts on a database
 
-The generated DDL script can be applied by the database administrator using their tooling of choice.
-The script needs to be run by a database user with *administrative* permissions,
-with a *<schema>* set as the default schema for that user and matching the schema used by a Corda node.
-(e.g. for Azure SQL or SQL Server you should not use the default database administrator account).
+The generated DDL script can be applied by the database administrator using their tooling of choice. The script needs to be run by a database user with *administrative* permissions, with a `<schema>` set as the default schema for that user and matching the schema used by a Corda node. (for example, for Azure SQL or SQL Server you should not use the default database administrator account).
 
 {{< note >}}
-You may connect as a different user to the one used by a Corda node (e.g. when a node connects via
+You may connect as a different user to the one used by a Corda node (for example, when a node connects via
 a user with *restricted permissions*), as long as your user has the same default schema as the node has.
 (The generated DDL script adds the schema prefix to most of the statements, but not to all of them.)
 
@@ -260,13 +257,10 @@ An accidental re-run of the scripts will fail (as the tables are already there),
 
 ### 3.4. Apply data updates on a database
 
-The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows
-and specific node configuration (e.g. node legal name).
-Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool (or a Corda node).
+The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration (for example, node legal name). Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool (or a Corda node). These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x - for example, upgrading from 4.3 to 4.4.
 
 The Database Management Tool can execute the remaining data upgrade.
-As the schema structure is already created in the 3rd step, the tool can connect with *restricted* database permissions.
-The only activities in this step are inserts/upgrades data rows, and no alterations to the schema are applied.
+As the schema structure is already created in the 3rd step, the tool can connect with *restricted* database permissions. The only activities in this step are inserts/upgrades data rows, and no alterations to the schema are applied.
 
 You can reuse the tool configuration directory (with modifications) created in Step 3.1, or you can run the tool
 accessing the base directory of a Corda node (for which the data update is being performed).
@@ -277,39 +271,35 @@ If you are reusing the tool configuration directory:
 
 
 
-* ensure `myLegalName` setting in `node.conf` is set with a node name for which the data update will be run
-(e.g. while upgrading database schema used by a node *O=PartyA,L=London,C=GB*, assign the same value to `myLegalName`).
+1. Ensure `myLegalName` setting in `node.conf` is set with a node name for which the data update will be run
+(for example, while upgrading database schema used by a node *O=PartyA,L=London,C=GB*, assign the same value to `myLegalName`).
 {{< warning >}}
 Any `node.conf` misconfiguration may cause data row migration to be wrongly applied. This may happen silently (without any error).
 The value of `myLegalName` must exactly match the node name that is used in the given database schema.{{< /warning >}}
 
+2. Create `cordapps` subdirectory and copy the CorDapps used by the Corda node.
 
-
-* create `cordapps` subdirectory and copy the CorDapps used by the Corda node
-* change the database user to one with *restricted permissions*. This ensures no database alteration is performed by this step.To run the remaining data migration, run:
+3. Change the database user to one with *restricted permissions*. This ensures no database alteration is performed by this step.To run the remaining data migration, run:
 
 ```shell
 java -jar tools-database-manager-4.0-RC03.jar execute-migration -b .
 ```
 
-
-
-
-
+>
 The option `-b` points to the base directory (with a `node.conf` file, and *drivers* and *cordapps* subdirectories).
-
-
 
 
 ## Step 4. Replace `corda.jar` with the new version
 
+Replace the `corda.jar` with the latest version of Corda.
+
 Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
-Make sure it’s available on your path, and that you’ve read the [Release notes](release-notes.md). Pay particular attention to which version of Java this
+Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java this
 node requires.
 
 
 {{< important >}}
-Corda 4 requires Java 8u171 or any higher Java 8 patchlevel. Java 9+ is not currently supported.
+Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not currently supported.
 
 
 {{< /important >}}
@@ -331,8 +321,8 @@ Your upgrade is complete.
 
 
 {{< warning >}}
-if upgrading from Corda Enterprise 3.x, please ensure your node has been upgraded to the latest point release of that
-distribution. See [Upgrade a Corda 3.X Enterprise Node](https://docs.corda.net/docs/corda-enterprise/3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node)
+If upgrading from Corda Enterprise 3.x, please ensure your node has been upgraded to the latest point release of that
+distribution. See [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node)
 for information on upgrading Corda 3.x versions.
 
 {{< /warning >}}
