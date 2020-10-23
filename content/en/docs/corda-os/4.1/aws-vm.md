@@ -83,9 +83,8 @@ You can now interact with your running CorDapp. See the instructions [here](http
 
 Now you have built a Corda network and used a basic Corda Cordapp do go and visit the [dedicated Corda website](https://www.corda.net)
 
-Additional support is available on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) and the [Corda Slack channel](https://slack.corda.net/).
+Additional support is available on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) and the [Corda Slack channel](http://cordaledger.slack.com/).
 
 You can build and run any other [Corda samples](https://www.corda.net/samples) or your own custom CorDapp here.
 
 Or to join the growing Corda community and get straight into the Corda open source codebase, head over to the [Github Corda repo](https://www.github.com/corda)
-

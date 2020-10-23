@@ -308,6 +308,5 @@ You should now be ready to develop your own CorDapps. You can also find a list o
 [here](https://www.corda.net/samples/). As you write CorDapps, you’ll also want to learn more about the
 [Corda API](corda-api.md).
 
-If you get stuck at any point, please reach out on [Slack](https://slack.corda.net/) or
+If you get stuck at any point, please reach out on [Slack](http://cordaledger.slack.com/) or
 [Stack Overflow](https://stackoverflow.com/questions/tagged/corda).
-

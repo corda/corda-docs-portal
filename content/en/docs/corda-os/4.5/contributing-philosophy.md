@@ -36,7 +36,7 @@ The project is supported and maintained by [R3](https://www.r3.com).
 The Corda maintainers, developers and extended community make active use of the following channels:
 
 
-* The [Corda Slack team](http://slack.corda.net/) for general community discussion, and in particular:> 
+* The [Corda Slack team](http://cordaledger.slack.com/) for general community discussion, and in particular:>
 
     * The `#contributing` channel for discussions around contributing
     * The `#design` channel for discussions around the platform’s design
@@ -48,10 +48,9 @@ The Corda maintainers, developers and extended community make active use of the 
 * The [Stack Overflow corda tag](https://stackoverflow.com/questions/tagged/corda) for specific technical questions
 
 
-## Project Leadership and Maintainers
+## Project leadership and maintainers
 
-The leader of this project is currently [Mike Hearn](https://github.com/mikehearn), who is also the Lead Platform Engineer at R3. The
-project leader appoints the project’s Community Maintainers, who are responsible for merging community contributions into the code base and
+The project leaders appoint the project’s community maintainers, who are responsible for merging community contributions into the code base and
 acting as points of contact.
 
 In addition to the project leader and community maintainer(s), developers employed by R3 who have passed our technical interview process
@@ -59,23 +58,9 @@ have commit privileges to the repo. All R3 contributions undergo peer review, wh
 merged; they are held to the same standard as all other contributions. The community is encouraged both to observe and participate in this
 [review process](https://github.com/corda/corda/pulls).
 
-
-
 ### Community maintainers
 
-Current community maintainers:
-
-
-* [Rick Parker](https://github.com/rick-r3) - Contact me:> 
-
-    * On the [Corda Slack team](http://slack.corda.net/), either in the `#community` channel or by direct message using the handle
-`@parkri`
-    * By email: rick.parker at r3.com
-
-
-
-
-We anticipate additional maintainers joining the project in the future from across the community.
+You can contact our community maintainers in the `#contributing` channel on the [Corda Slack team](http://cordaledger.slack.com).
 
 
 ## Existing Contributors
@@ -96,5 +81,3 @@ community contributes a feature which the R3 team have implemented only in their
 Our approach is simple: if the contribution meets the standards for the project (see above), then the existence of a competing commercial
 implementation will not be used as a reason to reject it. In other words, it is our policy that should a community feature be contributed
 which meets the criteria above, we will accept it or work with the contributor to merge/reconcile it with the commercial feature.
-
-

@@ -287,5 +287,5 @@ After completing this tutorial, your CorDapp should look like this:
 You should now be ready to develop your own CorDapps. You can also find a list of sample CorDapps
 [here](https://www.corda.net/samples/). You are now ready to learn more about the Corda API.
 
-If you get stuck at any point, please reach out on [Slack](https://slack.corda.net/) or
+If you get stuck at any point, please reach out on [Slack](http://cordaledger.slack.com/) or
 [Stack Overflow](https://stackoverflow.com/questions/tagged/corda).

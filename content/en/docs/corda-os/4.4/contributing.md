@@ -30,7 +30,7 @@ There are several ways to identify an area where you can contribute to Corda:
 * The easiest is just to message one of the [Community Maintainers](contributing-philosophy.md#community-maintainers) saying “I want to help!”. They’ll work
 with you to find an area for you to contribute
 * If you have a specific contribution in mind, confirm whether the contribution is appropriate first by reaching out in the
-`#contributing` channel of the [Corda Slack](http://slack.corda.net/) or contacting one of the
+`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of the
 [Community Maintainers](contributing-philosophy.md#community-maintainers) directly
 * If you do not have a specific contribution in mind, you can also browse the issues labelled as `help wanted` on the
 [Corda GitHub issues](https://github.com/corda/corda/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) page
@@ -171,7 +171,7 @@ accordance with the Developer Certificate of Origin ([https://developercertifica
 
 
 
-* Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://slack.corda.net/) or contacting one of
+* Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
 the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly
 * The reviewer will either:
 

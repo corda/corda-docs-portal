@@ -26,7 +26,7 @@ our [Hello, World! tutorial](hello-world-introduction.md).
 **Want background reading material?** The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business
 audience. The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.
 
-**Questions or comments?** Get in touch on [Slack](https://slack.corda.net/) or ask a question on
+**Questions or comments?** Get in touch on [Slack](http://cordaledger.slack.com/) or ask a question on
 [Stack Overflow](https://stackoverflow.com/questions/tagged/corda).
 
 We look forward to seeing what you can do with Corda!
