@@ -38,7 +38,7 @@ To install using Docker:
 2. Use the command line to download the Docker image with CENM CLI:
 
      ```bash
-     docker pull cenm-cli:1.4-zulu-openjdk8u242
+     docker pull corda/enterprise-cenm-cli:1.4-zulu-openjdk8u242
      ```
 
 You have installed the Docker image with CENM CLI tool.

@@ -108,7 +108,7 @@ The deployment steps are given below:
 - Download the Docker image with CENM [Command-Line Interface (CLI) tool](cenm-cli-tool.md) so you can manage CENM services:
 
     ```bash
-    docker pull cenm-cli:1.3-zulu-openjdk8u242
+    docker pull corda/enterprise-cenm-cli:1.4-zulu-openjdk8u242
     ```
 
 #### 2. Set up the Kubernetes cluster
@@ -151,7 +151,7 @@ and an explanation of CENM database configuration options.
 
 #### 6. Bootstrap CENM
 
-**Option 1.** Bootstrap by allocating new external IP addresses
+**Option 1:** Bootstrap by allocating new external IP addresses
 
 To bootstrap your network, run the `bootstrap.cenm` script from the `/k8s/helm` directory.
 The script includes the `--ACCEPT_LICENSE Y` argument, which is mandatory and confirms that you have read and accepted the license agreement.
@@ -189,7 +189,7 @@ The process will continue to run on the cluster after the script has exited. You
 kubectl get pods -o wide
 ```
 
- **Option 2.**  Bootstrap by reusing already allocated external IP addresses
+ **Option 2:**  Bootstrap by reusing already allocated external IP addresses
 
 If your external IPs have been already allocated you can reuse them by specifying their services names:
 
@@ -201,10 +201,11 @@ cd network-services/deployment/k8s/helm
 ## Network operations
 
 Use the CENM [Command Line Interface (CLI) Tool](cenm-cli-tool.md) to access the [Gateway Service](gateway-service.md) from your local machine.
-To star CENM CLI Tool run Docker command starting Docker container with the tool:
+
+To start CENM CLI Tool, run Docker command starting Docker container with the tool:
 
   ```bash
-  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli cenm-cli:1.3-zulu-openjdk8u242
+  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.4-zulu-openjdk8u242
   ```
 
 The welcome message will appear:
