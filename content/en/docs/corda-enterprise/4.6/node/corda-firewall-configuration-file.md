@@ -931,7 +931,7 @@ The following process will be hosted by each of the VMs:
 #### Apache ZooKeeper setup
 
 Apache ZooKeeper(ZK) is needed to facilitate leader election among two hot-warm Bridge Instances.
-We require using version [3.5.4-beta](https://apache.org/dist/zookeeper/zookeeper-3.5.4-beta/zookeeper-3.5.4-beta.tar.gz) and have 3 cluster participants which will be hosted on `vmInfra1`, `vmInfra2` and `vmZkWitness`.
+We require using version [3.6.1](https://zookeeper.apache.org/releases.html#download) and have 3 cluster participants which will be hosted on `vmInfra1`, `vmInfra2` and `vmZkWitness`.
 
 Assuming `/opt/corda` is the base directory for ZK instance on `vmInfra1` the following files needs to be created:
 
