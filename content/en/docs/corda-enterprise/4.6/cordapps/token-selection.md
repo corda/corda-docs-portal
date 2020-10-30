@@ -29,13 +29,21 @@ You can write flows for moving your tokens that allow selection from either:
 
 **In-memory selection** is a much faster method of choosing the right token reserves to use in a transaction. However, you may decide you prefer **Database** selection as it keeps the database as the only active source of truth for your tokens.
 
+## Token selection and soft-locking
+
+Soft Locking is implemented in the vault to try and prevent a node constructing transactions that attempt to use the same input(s) simultaneously. Such transactions would result in naturally wasted work when the notary rejects them as double spend attempts.
+
+Soft locks are automatically applied to coin selection (eg. cash spending) to ensure that no two transactions attempt to spend the same fungible states. The outcome of such an eventuality will result in an `InsufficientBalanceException` for one of the requesters if there are insufficient number of fungible states available to satisfy both requests.
+
+In addition, if you use Tokens SDK 1.2.2, token selection also checks whether it would have been possible to satisfy the amount if some of these tokens had not been soft locked. If this would have been possible, then an `InsufficientNotLockedBalanceException` is thrown.
+
 ## Token selection with multithreaded SMM
 
 A multithreaded environment is characterised by running tokens with Corda Enterprise where the number of flow workers is configured to be > 1.
 
 You can only use in-memory selection in a multithreaded environment. This is  because a cache of available tokens balances are maintained for querying in the JVM. This means the query time to select available tokens is extremely fast, preventing the need for soft-locking tokens in the DB. Tokens are simply selected, added to a transaction and spent.
 
-In DB selection, token states must be queried from the vault and “selected” by soft locking the record in the database. This doesn’t work in a multi-threaded environment and multiple threads running at the same time may end up selecting the same token state to be spent. This will lead to the node throwing an `InsufficientBalanceException` as all available token states (and associated records) are reserved for other concurrent transactions. While this won’t jeopardize data, it could impact the performance of your application.
+In DB selection, token states must be queried from the vault and “selected” by soft-locking the record in the database. This doesn’t work in a multi-threaded environment and multiple threads running at the same time may end up selecting the same token state to be spent. This will lead to the node throwing an `InsufficientBalanceException` or `InsufficientNotLockedBalanceException` as all available token states (and associated records) are reserved for other concurrent transactions. While this won’t jeopardize data, it could impact the performance of your application.
 
 ## Move tokens using Database Selection
 
@@ -103,9 +111,8 @@ You can use generic versions of `MoveTokensFlow` or `addMoveTokens` (not `addMov
 
 To use in-memory selection, you must ensure the CorDapp `VaultWatcherService` is installed and the service is running. This comes as part of the Tokens SDK.
 
-To initialise this service, you must select an `indexingStrategy`. An indexing strategy is used to apply an index to recorded records of Token States in in the `VaultWatcherService`. This improves querying time (and ultimately the performance of your application). As always - you can tune different use cases for better performance by selecting the appropriate indexing strategy.
+To initialise this service, you must select an `indexingStrategy`. An indexing strategy is used to apply an index to recorded records of Token States in in the `VaultWatcherService`. This improves querying time (and ultimately the performance of your application). As always - you can tune different use cases for better performance by selecting the appropriate indexing strategy:
 
-* **Token_Only** selection strategy indexes states only using token type and identifier.
 * **External_ID** strategy can be used to group states from many public keys connected to a given unique user ID. If you use **Accounts**, this strategy is ideal because it allows for faster querying of tokens that belong to accounts.
 * **Public_key** strategy makes a token 'bucket' for each public key.
 
