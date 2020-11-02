@@ -94,7 +94,7 @@ This configuration file contains specifies the location of:
 
 
 
-You can find examples of configuration files [available here](../../node/corda-firewall-configuration-file.html)
+You can find examples of firewall configuration files in [Configuring the Corda Enterprise Firewall](firewall-deployment.md).
 
 
 ### Installing the Corda Node
@@ -340,7 +340,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 [float.conf](../../resources/float.conf)
 
-A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda Enterprise Firewall](corda-firewall-configuration-file.md).
+A full list of the parameters that can be utilized in these configuration files can be found in [Corda Enterprise Firewall configuration fields](corda-firewall-configuration-fields.md).
 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade
