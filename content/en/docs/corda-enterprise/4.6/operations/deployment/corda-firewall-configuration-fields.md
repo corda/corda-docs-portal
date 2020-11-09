@@ -318,4 +318,4 @@ If this option is missing, local file system will be used to store private keys 
 
 ## bridgeConnectionTTLSeconds
 Time interval from establishing the Bridge AMQP client connection, the bridge to float tunnel connection and the float inbound connection after which the connection will be restarted, seconds.
-Used to refresh TLS symmetric sessions keys and ensure that CRL revocations are up to date. Disabled if set to 0. Default value is 3600.
+Used to refresh TLS symmetric sessions keys and ensure that CRL revocations are up to date. Disabled if set to 0. Default value is 0.
