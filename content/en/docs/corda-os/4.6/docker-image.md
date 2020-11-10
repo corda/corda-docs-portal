@@ -38,7 +38,7 @@ docker run -ti \
         -v /path/to/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.4:latest
+        corda/corda-zulu-java1.8-4.6:latest
 ```
 
 As the node runs within a container, several mount points are required:
@@ -80,7 +80,7 @@ docker run -ti \
         -v /home/user/sharedFolder/network-parameters:/opt/corda/network-parameters \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.4:latest
+        corda/corda-zulu-java1.8-4.6:latest
 ```
 
 There is a new mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` which is used to hold the `nodeInfo` of all the nodes within the network.
@@ -105,7 +105,7 @@ docker run -ti \
         -e LOCALITY="London" -e COUNTRY="GB" \
         -v /home/user/docker/config:/etc/corda \
         -v /home/user/docker/certificates:/opt/corda/certificates \
-        corda/corda-zulu-java1.8-4.4:latest config-generator --testnet
+        corda/corda-zulu-java1.8-4.6:latest config-generator --testnet
 ```
 
 `$MY_PUBLIC_ADDRESS` will be the public address that this node will be advertised on.
@@ -131,7 +131,7 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.4:latest
+        corda/corda-zulu-java1.8-4.6:latest
 ```
 
 
@@ -158,7 +158,7 @@ docker run -ti --net="host" \
         -e RPC_USER="PartyA"      \
         -v /home/user/docker/config:/etc/corda          \
         -v /home/user/docker/certificates:/opt/corda/certificates \
-        corda/corda-zulu-java1.8-4.4:latest config-generator --generic --exit-on-generate
+        corda/corda-zulu-java1.8-4.6:latest config-generator --generic --exit-on-generate
 ```
 
 Several environment variables must also be passed to the container to allow it to register:
@@ -192,6 +192,6 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.4:latest
+        corda/corda-zulu-java1.8-4.6:latest
 ```
 
