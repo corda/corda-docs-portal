@@ -23,17 +23,17 @@
 
                     </div>
 <div class="tab">
-  <button class="tablinks active" onclick="openSection(event, 'home')">Home</button>
-  <button class="tablinks" onclick="openSection(event, 'os')">Corda</button>
-  <button class="tablinks" onclick="openSection(event, 'enterprise')">Corda Enterprise</button>
-  <button class="tablinks" onclick="openSection(event, 'cenm')">CENM</button>
-  <button class="tablinks" onclick="openSection(event, 'tutorials')">Tutorials</button>
-  <button class="tablinks" onclick="openSection(event, 'training')">Training</button>
-  <button class="tablinks" onclick="openSection(event, 'cdl')">CorDapp Design Language</button>
-  <!-- <button class="tablinks" onclick="openSection(event, 'refapps')">Reference Applications</button>-->
-  <button class="tablinks" onclick="openSection(event, 'featured')">Featured apps</button>
-  <button class="tablinks" onclick="openSection(event, 'api')">Corda APIs</button>
-  <!-- <button class="tablinks" onclick="openSection(event, 'security')">Security Advisories</button> -->
+  <button class="tablinks active" onclick="openSection('home')" id="homeButton">Home</button>
+  <button class="tablinks" onclick="openSection('os')" id="osButton">Corda</button>
+  <button class="tablinks" onclick="openSection('enterprise')" id="enterpriseButton">Corda Enterprise</button>
+  <button class="tablinks" onclick="openSection('cenm')" id="cenmButton">CENM</button>
+  <button class="tablinks" onclick="openSection('tutorials')" id="tutorialsButton">Tutorials</button>
+  <button class="tablinks" onclick="openSection('training')" id="trainingButton">Training</button>
+  <button class="tablinks" onclick="openSection('cdl')" id="cdlButton">CorDapp Design Language</button>
+  <!-- <button class="tablinks" onclick="openSection('refapps')" id="refappsButton">Reference Applications</button>-->
+  <button class="tablinks" onclick="openSection('featured')" id="featuredButton">Featured apps</button>
+  <button class="tablinks" onclick="openSection('api')" id="apiButton">Corda APIs</button>
+  <!-- <button class="tablinks" onclick="openSection('security')" id="securityButton">Security Advisories</button> -->
 </div>
 
 
@@ -736,6 +736,11 @@
 <!--<div id="security" class="tabcontent">
     <h2>Security Advisories</h2>
   </div>-->
+  <script type="text/javascript">
+  if (getCookie('selectedTab')) {
+    openSection(getCookie('selectedTab'))
+  }
+</script>
         </main>
         <footer>
             <div>
