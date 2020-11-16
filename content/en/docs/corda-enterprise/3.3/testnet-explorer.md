@@ -59,9 +59,9 @@ If this is an HA node, make sure to stop both the hot and cold nodes before proc
 * Download the Resources:Download the finance CorDapp and database manager to your VM instance:
 
 ```bash
-wget https://ci-artifactory.corda.r3cev.com/artifactory/downloads/cordapps/finance/ent/corda-finance-3.3.jar \
-     https://ci-artifactory.corda.r3cev.com/artifactory/downloads/cordapps/finance/ent/corda-finance-3.3-sources.jar \
-     https://ci-artifactory.corda.r3cev.com/artifactory/downloads/tools/database-manager/ent/corda-tools-database-manager-3.3.jar
+wget https://software.r3.com/artifactory/downloads/cordapps/finance/ent/corda-finance-3.3.jar \
+     https://software.r3.com/artifactory/downloads/cordapps/finance/ent/corda-finance-3.3-sources.jar \
+     https://software.r3.com/artifactory/downloads/tools/database-manager/ent/corda-tools-database-manager-3.3.jar
 ```
 
 Copy the downloads from `/home/<USER>/` to `/opt/corda/cordapps/`.This is required to run some flows to check your connections, and to issue/transfer cash to counterparties.
@@ -107,7 +107,7 @@ You can double-check that the CorDapp is loaded in the log file `/opt/corda/logs
 * Now download the Node Explorer to your **LOCAL** machine:
 
 ```bash
-wget https://ci-artifactory.corda.r3cev.com/artifactory/downloads/tools/node-explorer/ent/corda-tools-explorer-3.3.jar
+wget https://software.r3.com/artifactory/downloads/tools/node-explorer/ent/corda-tools-explorer-3.3.jar
 ```
 
 

@@ -134,7 +134,7 @@ For Corda nodes running version 2
 
 ```shell
 cd /opt/corda/plugins
-wget http://ci-artifactory.corda.r3cev.com/artifactory/cordapp-showcase/yo-4.jar
+wget http://software.r3.com/artifactory/cordapp-showcase/yo-4.jar
 ```
 
 Now restart Corda and the Corda webserver using the following commands or restart your Corda VM from the Azure portal:

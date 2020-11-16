@@ -46,8 +46,8 @@ ps aux | grep corda.jar | awk '{ print $2 }' | xargs sudo kill
 * Download the finance CorDappIn the terminal on your cloud instance run:
 
 ```bash
-wget https://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-finance-contracts-/<VERSION>-corda/corda-finance-contracts-<VERSION>-corda.jar
-wget https://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-finance-workflows-/<VERSION>-corda/corda-finance-workflows-<VERSION>-corda.jar
+wget https://software.r3.com/artifactory/corda-releases/net/corda/corda-finance-contracts-/<VERSION>-corda/corda-finance-contracts-<VERSION>-corda.jar
+wget https://software.r3.com/artifactory/corda-releases/net/corda/corda-finance-workflows-/<VERSION>-corda/corda-finance-workflows-<VERSION>-corda.jar
 ```
 
 This is required to run some flows to check your connections, and to issue/transfer cash to counterparties. Copy it to
@@ -81,7 +81,7 @@ Node Explorer is a JavaFX GUI which connects to the node over the RPC interface 
 Download the Node Explorer from here:
 
 ```bash
-http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-tools-explorer/<VERSION>-corda/corda-tools-explorer-<VERSION>-corda.jar
+http://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-explorer/<VERSION>-corda/corda-tools-explorer-<VERSION>-corda.jar
 ```
 
 

@@ -104,7 +104,7 @@ file will list installed apps at startup. Search for `Loaded CorDapps` in the lo
 * Now download the Node Explorer to your **LOCAL** machine:
 
 ```bash
-http://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.0/corda-tools-explorer-4.0.jar
+http://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-explorer/4.0/corda-tools-explorer-4.0.jar
 ```
 
 

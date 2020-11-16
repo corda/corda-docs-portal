@@ -24,7 +24,7 @@ Currently, the network you build will either be made up of local `docker` nodes 
 containers.
 
 The Corda Network Builder can be downloaded from
-[https://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-network-builder/X.Y-corda/corda-network-builder-X.Y-corda-executable.jar](https://ci-artifactory.corda.r3cev.com/artifactory/corda-releases/net/corda/corda-network-builder/X.Y-corda/corda-network-builder-X.Y-corda-executable.jar),
+[https://software.r3.com/artifactory/corda-releases/net/corda/corda-network-builder/X.Y-corda/corda-network-builder-X.Y-corda-executable.jar](https://software.r3.com/artifactory/corda-releases/net/corda/corda-network-builder/X.Y-corda/corda-network-builder-X.Y-corda-executable.jar),
 where `X` is the major Corda version and `Y` is the minor Corda version.
 
 
