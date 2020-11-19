@@ -6,16 +6,16 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-4:
-    identifier: cenm-1-4-legal-info
+    identifier: cenm-1-4-1-legal-info
     parent: cenm-1-4-cenm-releases
-    weight: 120
+    weight: 130
 tags:
 - legal
 - info
-title: Third-party software licence information
+title: Third-party software licence information - CENM 1.4.1
 ---
 
-# Corda Enterprise Network Manager 1.4 third-party software notices and licence information
+# Corda Enterprise Network Manager 1.4.1 third-party software notices and licence information
 
 **Do not translate or localise.**
 

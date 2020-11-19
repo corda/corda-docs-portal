@@ -1,23 +1,21 @@
 ---
 aliases:
-- /releases/4.2/legal-info.html
+- /releases/4.3/legal-info.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-2:
-    identifier: corda-enterprise-4-2-legal-info
-    parent: corda-enterprise-4-2-miscellaneous
-    weight: 420
+  corda-enterprise-4-3:
+    identifier: corda-enterprise-4-3-0-legal-info
+    parent: corda-enterprise-4-3-miscellaneous
+    weight: 550
 tags:
 - legal
 - info
-title: Legal notice
+title: Third-party software notices and licence information - CE 4.3.0
 ---
 
+# Corda Enterprise 4.3.0 third-party software notices and licence information
 
-# Legal notice
-
-CORDA ENTERPRISE 4.2 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
-Do Not Translate or Localize
+**Do not translate or localise.**
 
 This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by  implication, estoppel or otherwise.
 

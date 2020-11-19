@@ -16,7 +16,16 @@ title: Release notes
 
 # Release notes
 
-## Release 1.3.1
+## Corda Enterprise Network Manager 1.3.2
+
+CENM 1.3.2 introduces fixes to known issues in CENM 1.3.
+
+### Fixed issues
+
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool](pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+
+## Corda Enterprise Network Manager 1.3.1
 
 CENM 1.3.1 introduces fixes to known issues in CENM 1.3.
 
@@ -28,7 +37,7 @@ CENM 1.3.1 introduces fixes to known issues in CENM 1.3.
 * Fixed an issue where `keyPassword` was not hidden in log files for each CENNM Service with a configuration file.
 * Fixed an issue with an unclear error message for unhandled exceptions.
 
-## CENM 1.3 release overview
+## Corda Enterprise Network Manager 1.3
 
 CENM 1.3 introduces a new Command-Line Interface (CLI) tool for network operators to manage CENM services. This functionality ships with new services that enable you to manage CENM configurations (the new Zone Service), to create new users and roles (the new User Admin tool), and to authenticate and authorise users (the new Auth Service). The Auth Service supports full Role-Based Access Control (RBAC) and provides a web-based management interface for system administrators to create and manage user groups and entitlements.
 
@@ -83,16 +92,25 @@ Our documentation now provides some deployment recommendations on how to make th
 - The bootstrap deployment script does not set up an Angel Service for the Signing Service, and any changes to the configuration must be made using the old process used for CENM 1.2 (in this scenario only). The Signing Service does support the Angel Service, and can be configured via the Zone Service if managed by an Angel Service.
 - The `netmap netparams` update status CLI command renders raw `JSON` only.
 
-## Release 1.2.2
+## Corda Enterprise Network Manager 1.2.3
+
+CENM 1.2.3 introduces fixes to known issues in CENM 1.2.
+
+### Fixed issues
+
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool](pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+
+## Corda Enterprise Network Manager 1.2.2
 
 CENM 1.2.2 introduces fixes to known issues in CENM 1.2.
 
-Fixed issues
+### Fixed issues
 
-* Using `csr_token` as part of a node registration causes the registration to fail when the Identity Manager is set up to use a supported version of Oracle database.
+* Using `csr_token` as part of a node registration causes the registration to fail when the Identity Manager is set up to use a supported version of Oracle DB.
 * Creating and signing the CRL fails when upgrading from CENM 0.4 if the existing revoked certificates lacked a revocation reason.
 
-## Release 1.2
+## Corda Enterprise Network Manager 1.2
 
 ### Major Features
 
@@ -192,7 +210,7 @@ are currently being processed and reject surplus creation attempts. The Identity
 as warning: “There is already a ticket: ‘<TICKET ID>’ corresponding to *Request ID* = <VALUE>, not creating a new one.”
 
 
-## Release 1.1
+## Corda Enterprise Network Manager 1.1
 
 The R3 Network Services team is excited to announce the release of CENM 1.1,
 introducing support for a number of additional HSMs as well as adding support for Oracle DB.
@@ -250,7 +268,7 @@ This is intentional in order as the operator needs to make decisions on this con
 * PKI tool reports “Error whilst attempt to read config lines.” if it cannot find a configuration file, rather than a more specific error message.
 
 
-## Release 1.0
+## Corda Enterprise Network Manager 1.0
 
 R3 and The Network Services team are proud to deliver the inaugural release of the Corda Enterprise
 Network Manager version 1.0. The CENM can be used to operate a bespoke Corda network when the requirement

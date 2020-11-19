@@ -15,6 +15,23 @@ title: Corda Enterprise 4.1 Release Notes
 
 # Release notes
 
+## Corda Enterprise 4.1.1
+
+Corda Enterprise 4.1.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.1.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-index.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* We have fixed a security issue relating to potential signature forgery. To do so, we have introduced batch signing capability in the `signTransactionAndSendResponse` of the `NotaryServiceFlow` flow so that a Merkle Tree is built with a single transaction to be signed, and then the transaction signature is constructed with the partial Merkle tree containing that single transaction.
+
+
+## Corda Enterprise 4.1
+
 Corda Enterprise 4.1 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 4.0 and 3.x, while providing enterprise-grade features and performance.
 
 {{< note >}}
@@ -23,7 +40,7 @@ For example, at the time of writing, the Corda Enterprise 4.1 interoperability a
 {{</ note >}}
 
 
-## Key new features and components
+### Key new features and components
 
 
 * **Futurex Hardware Security Module (HSM) support**
@@ -38,7 +55,7 @@ For example, at the time of writing, the Corda Enterprise 4.1 interoperability a
   This release improves security by adding username/password authentication configuration support for these proxies.
   Note: this security capability is already present for Corda Firewall SOCKS proxies.
 
-## Further improvements, additions and changes
+### Further improvements, additions and changes
 
 * Database schema generation fix and documentation clarifications: Corda Enterprise 4.1 should use the *runMigration* flag when running against non-H2
   databases and the *initialiseSchema* flag when running against an H2 database. See :ref:`Database properties <database_properties_ref>`.
@@ -81,12 +98,12 @@ of the nodes database schema by default).
 
 * Users of the (Percona cluster) HA Notary Service must now manually install the associated mySQL JDBC Driver for every worker node.
 
-## Known issues
+### Known issues
 
 
 Please refer to same section in [Corda Enterprise 4](https://docs.corda.net/docs/corda-enterprise/4.0/release-notes-enterprise.html)
 
-## Upgrade notes
+### Upgrade notes
 
 As per previous major releases, we have provided a comprehensive upgrade notes (:doc:`app-upgrade-notes-enterprise`) to ease the upgrade
 of CorDapps to Corda Enterprise 4.1. In line with our commitment to API stability, code level changes are fairly minimal.

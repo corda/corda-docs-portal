@@ -16,6 +16,19 @@ title: Release notes
 
 # Release notes
 
+## Corda Enterprise 4.0.1
+
+Corda Enterprise 4.0.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.0.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-index.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* We have fixed a security issue relating to potential signature forgery. To do so, we have introduced batch signing capability in the `signTransactionAndSendResponse` of the `NotaryServiceFlow` flow so that a Merkle Tree is built with a single transaction to be signed, and then the transaction signature is constructed with the partial Merkle tree containing that single transaction.
 
 ## Corda Enterprise 4.0
 
@@ -60,7 +73,7 @@ Additionally, we have added support for the RedHat distribution of Artemis calle
 * **Performance Test Suite for benchmarking**The Performance Test suite enables customers to run their own benchmarks for comparative testing across different configurations and identifying hardware and resource sizing requirements.
 Using this test framework, customers can test and validate their infrastructure performance and determine whether or not improvements are needed
 before going live.See [Performance Test Suite](performance-testing/installation.md) and [Corda Enterprise Performance Testing](performance-testing/toc-tree.md) for further details.
-* **Node health survey tool**This is a simple tool that collects and packages up material that R3 Support will need to be able to help a customer with a support request, including things like:> 
+* **Node health survey tool**This is a simple tool that collects and packages up material that R3 Support will need to be able to help a customer with a support request, including things like:>
 
     * a censored version of the config (i.e., without passwords, etc.),
     * logs from the last 3 days (if the user is happy to include these),
@@ -171,4 +184,3 @@ In a mixed-distribution network the open source finance contract CorDapp should 
 {{< /note >}}
 Visit the [https://www.r3.com/corda-enterprise](https://www.r3.com/corda-enterprise/) for more information about Corda Enterprise.
 Customers that have purchased support can access it online at  [https://support.r3.com](https://support.r3.com/).
-

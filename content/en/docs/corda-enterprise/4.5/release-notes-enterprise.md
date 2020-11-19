@@ -16,6 +16,24 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.5.2
+
+Corda Enterprise 4.5.2 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.5.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-index.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by Corda Enterprise Network Manager (CENM) was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in [CENM 1.2](https://docs.corda.net/docs/cenm/1.2.html)) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [CENM PKI Tool](https://docs.corda.net/docs/cenm/pki-tool.html) now generates certificates with serial number sizes of up to 16 octets/bytes. This fix provides better support for Node and HA tools.
+* We have fixed an issue where the Corda node would not start up (when not in `dev` mode) if a Network Map Service instance was not running.
+* We have fixed an issue where the [Health Survey Tool](health-survey.md) would hang after performing all its checks if at the same time the external Artemis server was stopped during the "Received ECHO from bridge" step.
+* We have fixed an issue where [Health Survey Tool](health-survey.md) would stall on node RPC invocation check when the node was started while the [CENM Network Map Service](https://docs.corda.net/docs/cenm/network-map.html) was down.
+* We have fixed an issue where some existing customer CorDapps that were working on Corda Enterprise 4.3 could not be registered successfully when Corda Enterprise was upgraded to version 4.5.
+
 ## Corda Enterprise 4.5.1
 
 Corda Enterprise 4.5.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.5.

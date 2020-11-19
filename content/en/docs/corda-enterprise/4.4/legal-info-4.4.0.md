@@ -1,20 +1,24 @@
 ---
-date: '2020-04-07T12:00:00Z'
+aliases:
+- /releases/4.4/legal-info.html
+- /docs/corda-enterprise/head/legal-info.html
+- /docs/corda-enterprise/legal-info.html
+date: '2020-01-08T09:59:25Z'
 menu:
-  corda-enterprise-4-5:
-    parent: corda-enterprise-4-5-release-notes
-    weight: 300
+  corda-enterprise-4-4:
+    parent: corda-enterprise-4-4-miscellaneous
 tags:
 - legal
 - info
-title: Third-party software licence information
-
+title: Third-party software notices and licence information - CE 4.4.0
+weight: 4
 ---
-# Corda Enterprise 4.5 third-party software notices and licence information
+
+# Corda Enterprise 4.4.0 third-party software notices and licence information
 
 **Do not translate or localise.**
 
-This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise software licence terms. The original copyright notices and the licences under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by  implication, estoppel or otherwise.
+This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by  implication, estoppel or otherwise.
 
 1.	animal-sniffer-annotations
 2.	annotations
@@ -51,52 +55,52 @@ This file is based on or incorporates material from the projects listed below (T
 33.	commons-cli
 34.	commons-codec
 35.	commons-collections
-36.	commons-collections4
-37.	commons-csv
-38.	commons-io
-39.	commons-lang3
-40.	config
-41.	copycat-client
-42.	copycat-protocol
-43.	copycat-server
-44.	corda
-45.	corda-common-validation
-46.	corda-confidential-identities
-47.	corda-core
-48.	corda-jackson
+36.	commonscollections4
+37.	commons-io
+38.	commons-lang3
+39.	config
+40.	copycat-client
+41.	copycat-protocol
+42.	copycat-server
+43.	corda
+44.	corda-common-validation
+45.	corda-confidential-identities
+46.	corda-core
+47.	corda-jackson
+48.	corda-node
 49.	corda-rpc
 50.	corda-serialization
-51.	corda-tools-cliutils
-52.	crash.cli
-53.	curator-client
-54.	curator-framework
-55.	curator-recipes
-56.	disruptor
-57.	doclet-cs
-58.	dom4j
-59.	eddsa
-60.	error_prone_annotations
-61.	failureaccess
-62.	FastInfoset
-63. gant_groovy-1.8
-64.	geronimo-jms_2.0_spec
-65.	geronimo-json_1.0_spec
-66.	groovy-all
-67.	guava
-68.	gwtbootstrap3
+51.	corda-shell
+52.	corda-tools-cliutils
+53.	crash.cli
+54.	curator-client
+55.	curator-framework
+56.	curator-recipes
+57.	disruptor
+58.	doclet-main
+59.	dom4j
+60.	eddsa
+61.	error_prone_annotations
+62.	failureaccess
+63.	FastInfoset
+64.	forms_rt
+65.	geronimo-jms_ 2.0_spec
+66.	geronimo-json_ 1.0_spec
+67.	groovy-all
+68.	guava
 69.	h2
 70.	HdrHistogram
 71.	hibernate-commons-annotations
 72.	hibernate-core
 73.	hibernate-java8
 74.	HikariCP
-75.	istack-commons-runtime
+75.	istack-commons-runetime
 76.	j2objc-annotations
 77.	jackson-annotations
 78.	jackson-core
 79.	jackson-databind
-80.	jackson-dataformat-yaml
-81.	jackson-datatype-jsr310
+80.	jacksondataformat-yaml
+81.	jackson-datatype- jsr310
 82.	jackson-module-kotlin
 83.	jandex
 84.	jansi
@@ -106,86 +110,88 @@ This file is based on or incorporates material from the projects listed below (T
 88.	jaxb-api
 89.	jaxb-runtime
 90.	jboss-logging
-91.	jboss-transaction-api_1.2_spec
+91.	jboss-transaction- api_1.2_spec
 92.	jcabi-log
 93.	jcabi-manifests
 94.	jcl-over-slf4j
 95.	jgroups
-96.	johnzon-core
-97.	jolokia-core
-98.	jolokia-jvm
-99.	jpam
-100.	jquery
-101.	jsch
-102.	json-simple
-103.	jsr305
-104.	jul-to-slf4j
-105.	kotlin-reflect
-106.	kotlin-stdlib
-107.	kotlin-stdlib-common
-108.	kotlin-stdlib-jdk7
-109.	kotlin-stdlib-jdk8
-110.	kotlin-stdlib-jre7
-111.	kotlin-stdlib-jre8
-112.	kryo
-113.	kryo-serializers
-114.	LatencyUtils
-115.	liquibase-core
-116.	liquibase-slf4j
-117.	listenablefuture
-118.	log4j-api
-119.	log4j-core
-120.	log-over-slf4j
-121.	log4j-slf4j-impl
-122.	log4j-web
-123.	metrics-core
-124.	metrics-graphite
-125.	metrics-jmx
-126.	metrics-new-relic
-127.	mina-core
-128.	minlog
-129.	netty
-130.	netty-buffer
-131.	netty-codec
-132.	netty-codec-http
-133.	netty-codec-socks
-134.	netty-common
-135.	netty-handler
-136.	netty-handler-proxy
-137.	netty-resolver
-138.	netty-tcnative-boringssl-static
-139.	netty-transport
-140.	netty-transport-native-epoll
-141.	netty-transport-native-kqueue
-142.	netty-transport-native-unix-common
-143.	newrelic-api
-144.	objenesis
-145.	okhttp
-146.	okio
-147.	picocli
-148.	proton-j
-149.	quasar-core
-150.	reflectasm
-151.	rxjava
-152.	shiro-cache
-153.	shiro-config-core
-154.	shiro-config-ogdl
-155.	shiro-core
-156.	shiro-crypto-cipher
-157.	shiro-crypto-core
-158.	shiro-crypto-hash
-159.	shiro-event
-160.	shiro-lang
-161.	slf4j-api
-162.	slf4j-nop
-163.	snakeyaml
-164.	snappy
-165.	sshd-common
-166.	sshd-core
-167.	sshd-pam
-168.	stax-ex
-169.	txw2
-170.	zookeeper
+96.	jimfs
+97.	johnzon-core
+98.	jolokia-core
+99.	jolokia-jvm
+100.	jpam
+101.	jquery
+102.	jsch
+103.	json-simple
+104.	jsr305
+105.	jul-to-slf4j
+106.	kotlin-reflect
+107.	kotlin-stdlib
+108.	kotlin-stdlib-common
+109.	kotlin-stdlib-jdk7
+110.	kotlin-stdlib-jdk8
+111.	kotlin-stdlib-jre7
+112.	kotlin-stdlib-jre8
+113.	kryo
+114.	kryo-serializers
+115.	LatencyUtils
+116.	liquibase-core
+117.	liquibase-slf4j
+118.	listenablefuture
+119.	log4j
+120.	log4j-api
+121.	log4j-core
+122.	log4j-slf4j-impl
+123.	log4j-web
+124.	metrics-core
+125.	metrics-graphite
+126.	metrics-jmx
+127.	metrics-new-relic
+128.	mina-core
+129.	minlog
+130.	netty
+131.	netty-buffer
+132.	netty-codec
+133.	netty-codec-http
+134.	netty-codec-socks
+135.	netty-common
+136.	netty-handler
+137.	netty-handler-proxy
+138.	netty-resolver
+139.	netty-tcnative-boringssl-static
+140.	netty-transport
+141.	netty-transport-native-epoll
+142.	netty-transport-native-kqueue
+143.	netty-transport-native-unix-common
+144.	newrelic-api
+145.	objenesis
+146.	okhttp
+147.	okio
+148.	gant_groovy1.8
+149.	gwtbootstrap3
+150.	picocli
+151.	proton-j
+152.	quasar-core
+153.	reflectasm
+154.	rxjava
+155.	shiro-cache
+156.	shiro-config-core
+157.	shiro-config-ogdl
+158.	shiro-core
+159.	shiro-crypto-cipher
+160.	shiro-crypto-core
+161.	shiro-crypto-hash
+162.	shiro-event
+163.	shiro-lang
+164.	slf4j-api
+165.	slf4j-nop
+166.	snakeyaml
+167.	snappy
+168.	sshd-core
+169.	sshd-pam
+170.	stax-ex
+171.	txw2
+172.	zookeeper
 
 ## Start of Notices
 ===================== START OF NOTICES AND INFORMATION for the following components =====================
@@ -226,16 +232,25 @@ j2objc-annotations 1.3
 [https://github.com/google/j2objc/](https://github.com/google/j2objc/)
 [https://github.com/google/j2objc/blob/master/LICENSE](https://github.com/google/j2objc/blob/master/LICENSE)
 
+jimfs 1.1
+https://github.com/google/jimfs
+https://github.com/google/jimfs/blob/master/LICENSE
+
 json-simple 1.1.1
 http://code.google.com/p/json-simple/
 http://www.apache.org/licenses/LICENSE-2.0
+
+forms_rt 7.0.3
+Copyright © 2008 Jetbrains
+http://www.jetbrains.com/
+https://github.com/JetBrains/intellij-community/blob/master/LICENSE.txt
 
 disruptor 3.4.2
 Copyright © 2011 - 2018 LMAX Ltd.
 http://lmax-exchange.github.com/disruptor
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
-okhttp 3.11.0
+okhttp	3.11.0
 https://github.com/square/okhttp
 https://github.com/square/okhttp/blob/master/LICENSE.txt
 
@@ -264,11 +279,7 @@ http://commons.apache.org/proper/commons-codec/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
 commons-collections 3.2.2
-http://commons.apache.org/commons-collections/
-http://www.apache.org/licenses/LICENSE-2.0.txt
-
-commons-csv 1.8
-http://commons.apache.org/collections-csv/
+http://commons.apache.org/collections/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
 commons-io 2.6
@@ -335,55 +346,55 @@ netty 3.10.6.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-buffer 4.1.46.Final
+netty-buffer 4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-codec 4.1.46.Final
+netty-codec 4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-codec-http 4.1.46.Final
+netty-codec-http 4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-natty-codec-socks 4.1.46.Final
+natty-codec-socks 4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-common 4.1.46.Final
+netty-common 4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-handler 4.1.46.Final
+netty-handler 4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-handler-proxy 4.1.46.Final
+netty-handler-proxy 4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-resolver	4.1.46.Final
+netty-resolver	4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-tcnative-boringssl-static 2.0.29.Final
-https://netty.io/
-https://github.com/netty/netty-tcnative/blob/master/LICENSE.txt
-
-netty-transport	4.1.46.Final
+netty-tcnative-boringssl-static	2.0.14.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport-native-epoll 4.1.46.Final
+netty-transport	4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport-native-kqueue 4.1.46.Final
+netty-transport-native-epoll 4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport-native-unix-common 4.1.46.Final
+netty-transport-native-kqueue 4.1.29.Final
+https://netty.io/
+https://github.com/netty/netty/blob/4.1/LICENSE.txt
+
+netty-transport-native-unix-common 4.1.29.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
@@ -395,7 +406,7 @@ byte-buddy 1.9.10
 https://bytebuddy.net/#/
 http://www.apache.org/licenses/LICENSE-2.0.html
 
-corda 4.4
+corda 4.3
 Copyright 2016 - 2020, R3 Limited.
 https://github.com/corda/corda
 https://github.com/corda/corda/blob/release/os/4.5/LICENSE
@@ -405,27 +416,37 @@ Copyright 2016 - 2020, R3 Limited.
 https://github.com/corda/corda
 https://github.com/corda/corda/blob/release/os/4.5/LICENSE
 
-corda-confidential-identities 4.4
+corda-confidential-identities 4.3
 Copyright 2016 - 2020, R3 Limited.
 https://github.com/corda/corda
 https://github.com/corda/corda/blob/release/os/4.5/LICENSE
 
-corda-core 4.4
+corda-core 4.3
 Copyright 2016 - 2020, R3 Limited.
 https://github.com/corda/corda
 https://github.com/corda/corda/blob/release/os/4.5/LICENSE
 
-corda-jackson 4.4
+corda-jackson 4.3
 Copyright 2016 - 2020, R3 Limited.
 https://github.com/corda/corda
 https://github.com/corda/corda/blob/release/os/4.5/LICENSE
 
-corda-rpc 4.4
+corda-node 4.3
 Copyright 2016 - 2020, R3 Limited.
 https://github.com/corda/corda
 https://github.com/corda/corda/blob/release/os/4.5/LICENSE
 
-corda-serialization 4.4
+corda-rpc 4.3
+Copyright 2016 - 2020, R3 Limited.
+https://github.com/corda/corda
+https://github.com/corda/corda/blob/release/os/4.5/LICENSE
+
+corda-serialization 4.3
+Copyright 2016 - 2020, R3 Limited.
+https://github.com/corda/corda
+https://github.com/corda/corda/blob/release/os/4.5/LICENSE
+
+corda-shell 4.3
 Copyright 2016 - 2020, R3 Limited.
 https://github.com/corda/corda
 https://github.com/corda/corda/blob/release/os/4.5/LICENSE
@@ -534,6 +555,10 @@ listenablefuture 9999.0-empty-to-avoid-conflict-with-guava
 Copyright (C) 2007 The Guava Authors
 https://github.com/google/guava/blob/master/guava/src/com/google/common/util/concurrent/ListenableFuture.java
 
+log4j 1.2.17
+https://github.com/apache/logging-log4j2
+https://github.com/apache/logging-log4j2/blob/master/LICENSE.txt
+
 log4j-api 2.11.2
 https://github.com/apache/logging-log4j2
 https://github.com/apache/logging-log4j2/blob/master/LICENSE.txt
@@ -594,11 +619,7 @@ shiro-lang 1.4.1
 https://github.com/apache/shiro
 https://github.com/apache/shiro/blob/master/LICENSE
 
-sshd-common 2.3.0
-https://github.com/apache/mina-sshd
-https://github.com/apache/mina-sshd/blob/master/LICENSE.txt
-
-sshd-core 2.3.0
+sshd-core 1.6.0
 https://github.com/apache/mina-sshd
 https://github.com/apache/mina-sshd/blob/master/LICENSE.txt
 
@@ -790,7 +811,7 @@ https://www.apache.org/licenses/LICENSE-2.0
       modifications, and in Source or Object form, provided that You
       meet the following conditions:
 
-        (a) You must give any other recipients of the Work or Derivative Works a copy of this License; and
+        >**(a)** You must give any other recipients of the Work or Derivative Works a copy of this License; and
 
         (b) You must cause any modified files to carry prominent notices stating that You changed the files; and
 
@@ -1138,9 +1159,9 @@ Although the Lesser General Public License is Less protective of the users' free
 
 The precise terms and conditions for copying, distribution and modification follow. Pay close attention to the difference between a "work based on the library" and a "work that uses the library". The former contains code derived from the library, whereas the latter must be combined with the library in order to run.
 
-TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+=====================# TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
-This License Agreement applies to any software library or other program which contains a notice placed by the copyright holder or other authorized party saying it may be distributed under the terms of this Lesser General Public License (also called "this License"). Each licensee is addressed as "you".
+* This License Agreement applies to any software library or other program which contains a notice placed by the copyright holder or other authorized party saying it may be distributed under the terms of this Lesser General Public License (also called "this License"). Each licensee is addressed as "you".
 
 A "library" means a collection of software functions and/or data prepared so as to be conveniently linked with application programs (which use some of those functions and data) to form executables.
 
@@ -1152,11 +1173,11 @@ Activities other than copying, distribution and modification are not covered by 
 
 1. You may copy and distribute verbatim copies of the Library's complete source code as you receive it, in any medium, provided that you conspicuously and appropriately publish on each copy an appropriate copyright notice and disclaimer of warranty; keep intact all the notices that refer to this License and to the absence of any warranty; and distribute a copy of this License along with the Library.
 
-You may charge a fee for the physical act of transferring a copy, and you may at your option offer warranty protection in exchange for a fee.
+  You may charge a fee for the physical act of transferring a copy, and you may at your option offer warranty protection in exchange for a fee.
 
 2. You may modify your copy or copies of the Library or any portion of it, thus forming a work based on the Library, and copy and distribute such modifications or work under the terms of Section 1 above, provided that you also meet all of these conditions:
 
-a) The modified work must itself be a software library.
+  a) The modified work must itself be a software library.
 b) You must cause the files modified to carry prominent notices stating that you changed the files and the date of any change.
 c) You must cause the whole of the work to be licensed at no charge to all third parties under the terms of this License.
 d) If a facility in the modified Library refers to a function or a table of data to be supplied by an application program that uses the facility, other than as an argument passed when the facility is invoked, then you must make a good faith effort to ensure that, in the event an application does not supply such function or table, the facility still operates, and performs whatever part of its purpose remains meaningful.
@@ -1809,12 +1830,12 @@ Copyright (c) 2000-2011 INRIA, France Telecom
 https://asm.ow2.io/index.html
 https://asm.ow2.io/license.html
 
-Doclet-cs 1.1.0
+doclet-main 1.0.4
 Copyright (c) 2015, Arno Unkrig All rights reserved.
 http://unkrig.de/w/Cs-doclet
 http://unkrig.de/w/MAIN_doclet#License
 
-javax.activation-api 1.2.0
+javax.activation-api	1.2.0
 Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.
 https://github.com/eclipse-ee4j/jaf
 https://github.com/eclipse-ee4j/jaf/blob/master/LICENSE.md
@@ -2023,7 +2044,7 @@ COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
 
    1.9. Modifications. means the Source Code and Executable form of any of the following:
 
-        A. Any file that results from an addition to, deletion from or modification of the contents of a file containing Original Software or previous Modifications;
+      *  A. Any file that results from an addition to, deletion from or modification of the contents of a file containing Original Software or previous Modifications;
 
         B. Any new file that contains any part of the Original Software or previous Modification; or
 
@@ -2043,9 +2064,9 @@ COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
 
       Conditioned upon Your compliance with Section 3.1 below and subject to third party intellectual property claims, the Initial Developer hereby grants You a world-wide, royalty-free, non-exclusive license:
 
-        (a) under intellectual property rights (other than patent or trademark) Licensable by Initial Developer, to use, reproduce, modify, display, perform, sublicense and distribute the Original Software (or portions thereof), with or without Modifications, and/or as part of a Larger Work; and
+      * (a) under intellectual property rights (other than patent or trademark) Licensable by Initial Developer, to use, reproduce, modify, display, perform, sublicense and distribute the Original Software (or portions thereof), with or without Modifications, and/or as part of a Larger Work; and
 
-        (b) under Patent Claims infringed by the making, using or selling of Original Software, to make, have made, use, practice, sell, and offer for sale, and/or otherwise dispose of the Original Software (or portions thereof).
+         (b) under Patent Claims infringed by the making, using or selling of Original Software, to make, have made, use, practice, sell, and offer for sale, and/or otherwise dispose of the Original Software (or portions thereof).
 
         (c) The licenses granted in Sections 2.1(a) and (b) are effective on the date Initial Developer first distributes or otherwise makes the Original Software available to a third party under the terms of this License.
 
@@ -2155,7 +2176,7 @@ The precise terms and conditions for copying, distribution and modification foll
 
 TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
-This License applies to any program or other work which contains a notice placed by the copyright holder saying it may be distributed under the terms of this General Public License. The "Program", below, refers to any such program or work, and a "work based on the Program" means either the Program or any derivative work under copyright law: that is to say, a work containing the Program or a portion of it, either verbatim or with modifications and/or translated into another language. (Hereinafter, translation is included without limitation in the term "modification".) Each licensee is addressed as "you"
+0. This License applies to any program or other work which contains a notice placed by the copyright holder saying it may be distributed under the terms of this General Public License. The "Program", below, refers to any such program or work, and a "work based on the Program" means either the Program or any derivative work under copyright law: that is to say, a work containing the Program or a portion of it, either verbatim or with modifications and/or translated into another language. (Hereinafter, translation is included without limitation in the term "modification".) Each licensee is addressed as "you"
 
   Activities other than copying, distribution and modification are not covered by this License; they are outside its scope. The act of running the Program is not restricted, and the output from the Program is covered only if its contents constitute a work based on the Program (independent of having been made by running the Program). Whether that is true depends on what the Program does.
 
@@ -2277,7 +2298,7 @@ As a special exception, the copyright holders of this library give you permissio
 
 ===================== START OF NOTICES AND INFORMATION for the following components
 
-istack-commons-runtime 3.07
+istack-commons-runetime 3.07
 https://javaee.github.io/jaxb-istack-commons/LICENSE
 
 jaxb-api 2.3.1
@@ -4388,15 +4409,10 @@ Copyright (c) 2012-2015 Matt Bertolini
 https://github.com/mattbertolini/liquibase-slf4j
 https://opensource.org/licenses/mit-license.html
 
-log4j-over-slf4j 1.7.26
-Copyright (c) 2004-2017 QOS.ch
-http://www.slf4j.org/
-http://www.slf4j.org/license.html
-
-classgraph 4.8.78
+classgraph 4.6.12
 Copyright (c) 2019 Luke Hutchison
 https://github.com/classgraph/classgraph
-https://github.com/classgraph/classgraph/blob/master/LICENSE-ClassGraph.txt
+https://github.com/classgraph/classgraph/blob/master/LICENSE
 
 jquery 1.11.1
 Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors
@@ -4590,7 +4606,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================
 END OF THIRD PARTY NOTICES FOR
-Corda Enterprise V. 4.5
+Corda Enterprise V. 4.4
 ================================================
 
 

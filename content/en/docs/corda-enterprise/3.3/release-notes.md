@@ -16,7 +16,19 @@ title: Release notes
 
 # Release notes
 
+## Corda Enterprise 3.3.1
 
+Corda Enterprise 3.3.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 3.3.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-index.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* We have fixed a security issue relating to potential signature forgery. To do so, we have introduced batch signing capability in the `signTransactionAndSendResponse` of the `NotaryServiceFlow` flow so that a Merkle Tree is built with a single transaction to be signed, and then the transaction signature is constructed with the partial Merkle tree containing that single transaction.
 
 ## Corda Enterprise 3.3
 
@@ -319,4 +331,3 @@ ext.corda_release_distribution = 'com.r3.corda'
 
 
 Visit the [https://www.r3.com/corda-enterprise](https://www.r3.com/corda-enterprise/) for more information about Corda Enterprise. Customers that have purchased support can access it online at  [https://support.r3.com](https://support.r3.com/).
-
