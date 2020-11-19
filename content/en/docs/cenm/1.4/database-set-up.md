@@ -931,7 +931,7 @@ To migrate as service:
 ### 5.1. Zone Service database migration in CENM 1.4
 
 If you are upgrading to CENM 1.4 from CENM 1.3, you **must** set `runMigration = true` in the database configuration. This is required due to a change in the Zone Service database schema - a new column in the database tables `socket_config` and `signer_config` called `timeout` is used to record the new optional `timeout` parameter values used in `serviceLocations` configuration blocks (Signing Services) and `identityManager` and `revocation` configuration blocks (Network Map Service). This value can remain `null`,
-in which case the default 10 seconds timeout will be used wherever applicable.
+in which case the default 30 seconds timeout will be used wherever applicable.
 
 An example follows below:
 
