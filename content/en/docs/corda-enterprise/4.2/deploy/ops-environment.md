@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
     identifier: corda-enterprise-4-2-ops-environment
-    parent: corda-enterprise-4-2-node-config
+    parent: corda-enterprise-4-2-deploying-node
     weight: 1010
 tags:
 - ops
