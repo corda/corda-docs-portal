@@ -1,14 +1,14 @@
 ---
-date: '2020-09-25T12:00:00Z'
+date: '2020-11-11T12:00:00Z'
 menu:
-  corda-os-4-6:
-    identifier: corda-os-4-6-business-network-management
-    parent: corda-os-4-6-corda-networks-index
-    weight: 1200
+  corda-enterprise-4-6:
+    parent: corda-enterprise-4-6-corda-networks
 tags:
-- BNO
-- notary
+- corda
+- networks
 title: Managing Business Network membership
+weight: 500
+
 ---
 
 # Business Network membership management
