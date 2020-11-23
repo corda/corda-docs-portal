@@ -132,8 +132,8 @@ SET corda_jarDirs_1=./morelibs
 * If the same key is overridden by both an environment variable and system property, the system property takes precedence.
 * Variables and properties are case sensitive. Corda will warn you if a variable
 prefixed with `CORDA` cannot be mapped to a valid property. Shadowing occurs when two properties
-of the same type with the same key are defined. For example having `corda.p2Aaddress=host:port` and `corda_p2Aaddress=host1:port1`
-will raise an exception on startup. This is to prevent hard to spot mistakes.
+of the same type with the same key are defined. For example having `corda_p2Aaddress=host:port` and `corda_p2Aaddress=host1:port1`
+will raise an exception on startup. This is to prevent mistakes that are hard to spot.
 * If an item in a list is overridden via an environment variable/system property, the whole list will be overridden. E.g., with a `node.conf`
 containing:
 
