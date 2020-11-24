@@ -2,12 +2,12 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
-    parent: corda-enterprise-4-6-corda-networks
+    parent: corda-enterprise-4-6-corda-nodes
 tags:
 - node
 - cloud
 title: Corda Enterprise cloud images
-weight: 8
+weight: 130
 ---
 
 

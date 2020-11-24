@@ -6,12 +6,12 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-corda-networks
+    parent: corda-enterprise-4-4-corda-nodes
 tags:
 - node
 - cloud
 title: Corda Enterprise cloud images
-weight: 8
+weight: 220
 ---
 
 
