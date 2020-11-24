@@ -20,12 +20,12 @@ Enterprise artifacts are available. Look for a file called `jmeter-corda-<versio
 
 The performance test suite is shipped as a `.zip` file containing the following files:
 
-* `jmeter-corda-<version>-capsule.jar`: a fat `.jar` file that contains the wrapped JMeter code to drive performance tests as well as all the required dependencies to run the JMeter application. It is referred to as `jmeter-corda.jar` throughout on this and other related pages in the Corda documentation.
-* `corda-ptflows-<version>.jar`: a performance test CorDapp used by the built-in samplers and the included sample test plans. If you intend to use these test plans, you should deploy this CorDapp to any node of the system under test. The CorDapp itself is called `com.r3.corda.enterprise.perftestcordapp`.
-* `settlement-perftest-cordapp-<version>.jar`: a performance test CorDapp used by the built-in samplers and the included sample test plans. If you intend to use these test plans, you should deploy this CorDapp to any node of the system under test. For more information, see [introduction](introduction.html#performance-test-cordapp).
-* * A number of test plan `.jmx` files. For more information, see [included testplans](jmeter-testplans.md#included-testplans).
-* `jmeter.properties`: * `jmeter.properties`: an example of the `jmeter.properties` file used to configure JMeter. If you need a custom configuration, you should base it on this file.
-* `sample-server-rmi.config`: an annotated sample for the server RMI mapping required to use remote JMeter over SSH tunnels. For more information, see [SSH Tunnel Set-Up](running-jmeter-corda.md#ssh-tunnel).
+* `jmeter-corda-<version>-capsule.jar`: A fat `.jar` file that contains the wrapped JMeter code to drive performance tests as well as all the required dependencies to run the JMeter application. It is referred to as `jmeter-corda.jar` throughout on this and other related pages in the Corda documentation.
+* `corda-ptflows-<version>.jar`: A performance test CorDapp used by the built-in samplers and the included sample test plans. If you intend to use these test plans, you should deploy this CorDapp to any node of the system under test. The CorDapp itself is called `com.r3.corda.enterprise.perftestcordapp`.
+* `settlement-perftest-cordapp-<version>.jar`: A performance test CorDapp used by the built-in samplers and the included sample test plans. If you intend to use these test plans, you should deploy this CorDapp to any node of the system under test. For more information, see [introduction](introduction.html#performance-test-cordapp).
+* A number of test plan `.jmx` files. For more information, see [included testplans](jmeter-testplans.md#included-testplans).
+* `jmeter.properties`: An example of the `jmeter.properties` file used to configure JMeter. If you need a custom configuration, you should base it on this file.
+* `sample-server-rmi.config`: An annotated sample for the server RMI mapping required to use remote JMeter over SSH tunnels. For more information, see [SSH Tunnel Set-Up](running-jmeter-corda.md#ssh-tunnel).
 
 
 ## Installation
@@ -57,7 +57,7 @@ java -jar <path to jmeter-corda jar> -XjmeterProperties <path to properties file
 ```
 
 If you want to use JMeter Corda remotely, it is suggested to install the JMeter server as a system service on the servers
-it is required to run on. Assuming a linux system with a systemd based run control, the service to install would look
+it is required to run on. Assuming a Linux system with a systemd-based run control, the service to install would look
 something like this:
 
 ```kotlin

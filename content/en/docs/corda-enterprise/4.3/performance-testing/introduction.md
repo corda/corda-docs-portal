@@ -38,11 +38,11 @@ impact on performance, so there is not much point in performance testing before 
 A typical test architecture consists of the following components:
 
 
-* a Corda network to be tested. This should be a network of Corda nodes along with a notary that is self-contained
-(i.e. does not depend on any external services). See e.g. ../corda-test-networks for information on
+* A Corda network to be tested. This should be a network of Corda nodes along with a notary that is self-contained
+(in other words, does not depend on any external services). See the documentation on [Corda Networks](../network/corda-networks.md) for information on
 setting up a network.
-* a CorDapp that is to be tested and needs to be installed on the cluster
-* an app to drive the test - Apache JMeter is used here
+* A CorDapp that is to be tested and needs to be installed on the cluster
+* An app to drive the test - Apache JMeter is used here
 
 
 ### Apache JMeter
@@ -53,7 +53,7 @@ like parallelising tasks, running tasks in a specific order and count and time b
 
 The interactions with the system under test are done via so called *samplers* (see [JMeter Samplers](jmeter-samplers.md)) that can be
 triggered by JMeter and then
-run an action. JMeter has a number of built-in samplers, mostly around web technology, e.g. for HTTP requests, database
+run an action. JMeter has a number of built-in samplers, mostly around web technology, for example - for HTTP requests, database
 queries, starting scripts and so on. It is also possible to provide custom samplers that can run Java code when invoked.
 
 For the Corda performance tests, a custom sampler is used that invokes one or more specific flows via remote procedure
@@ -66,7 +66,7 @@ the test definition.
 By default, JMeter runs in interactive mode, i.e. it brings up a graphical user interface (GUI) that allows the user to
 create, view, modify and run a test definition. Tests can either be in process (i.e. the sampler runs in the GUI
 process) or can be fanned out to a set of JMeter server instances that will run under the control of a JMeter client
-connected to them (see [Server Mode](#jmeter-server))
+connected to them (see [Server Mode](#jmeter-server)).
 
 
 #### Non-Interactive Mode
@@ -114,7 +114,7 @@ measuring the throughput of a node, the test definition instructs all JMeter ser
 thus saturating the RPC handler and driving the node as hard as possible. The test typically e.g. issues cash on the node
 (no interaction with other nodes) or sends cash to a second node which requires sending P2P messages back and forth.
 
-![jmeter network overview](/en/jmeter-network-overview.png "jmeter network overview")
+{{< figure alt="jmeter network overview" zoom="/en/jmeter-network-overview.png" >}}
 
 ## Performance Tests
 
@@ -177,8 +177,8 @@ Therefore more advanced test flows/test plans have been developed that allow to 
 then start to break it up in smaller payments, allowing the following settings to be tweaked:
 
 
-* Number of states to be transferred in one transaction
-* Number of change states created per transaction (i.e. the number of output states of the transaction)
-* Number of input states to a new transaction (i.e. pay a larger sums from change shards of the previous transaction).
+* Number of states to be transferred in one transaction.
+* Number of change states created per transaction (that is, the number of output states of the transaction).
+* Number of input states to a new transaction (that is, pay a larger sums from change shards of the previous transaction).
 
-Advanced tests also include testing e.g. connecting to the target node via float/firewall.
+Advanced tests also include testing - for example, connecting to the target node via float/firewall.

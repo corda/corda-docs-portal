@@ -22,7 +22,7 @@ This page is listing some practical considerations and tips that might be useful
 
 {{< warning >}}
 Resetting a node this way loses all data and states associated with this node! This process is intended to reset
-a test system to a blank slate state. **Never** do this to a production system, you will lose all your assets.
+a test system to a blank slate state. **Never** do this to a production system - you will lose all your assets.
 
 {{< /warning >}}
 
@@ -30,23 +30,22 @@ a test system to a blank slate state. **Never** do this to a production system, 
 The Corda Enterprise test cluster at R3 uses an automated set-up to deploy Corda to the test machines, and in the process
 completely wipes the database - so resetting the state of the Corda test network is a matter of running a fresh installation
 and waiting a handful of minutes. This is the recommended set-up when running performance testing regularly, but might be too
-involved for occasional performance tests that can be run on manually deployed clusters.
+involved for occasional performance tests that can be run on manually-deployed clusters.
 
 In these cases, the state of the installed node can be reset by doing the following:
 
 
-* Stop the Corda node process.
-* Delete the `artemis` folder in its working directory
-* (Optionally) delete the `logs` folder
-* Wipe the database for the node
-* Restart the node. It should rebuild its database and behave like a freshly installed and registered Corda node.
+1. Stop the Corda node process.
+2. Delete the `artemis` folder in its working directory.
+3. (Optionally) delete the `logs` folder.
+4. Wipe the database for the node.
+5. Restart the node. It should rebuild its database and behave like a freshly installed and registered Corda node.
 
 It is important to not delete any other files/directories from the node directory, as these are required for the node to restart
 successfully.
 This requires that the database user of the node has permission to create the respective tables/and indices. This is
 not recommended in a production setting but might be useful in a performance testing context.
-Also note that `runMigration = true` needs to be set in the node’s database configuration, thus allowing liquibase to run and rebuild
-the schema.
+Also note that to allow liquibase to run and rebuild the schema, you need to run the `run-migration-script` sub-command.
 
 Note that this will not reset the node registration, identity, keys or the network parameters - it only affects the states and transactions
 it knows about. If you have a performance test cluster, it is advisable to reset the whole cluster at the same time.
@@ -60,7 +59,7 @@ How to wipe the node database depends on the database being used:
 #### H2
 
 In H2, wiping the database simply consists of deleting the files `persistence.mv.db` and `persistence.trace.db` from the node’s working
-directory
+directory.
 
 
 #### Microsoft SQL Server
@@ -87,7 +86,7 @@ In PostgreSQL and Oracle, it is possible to just drop the schema for the node - 
 
 ## Interpreting and trouble-shooting JMeter output
 
-To collect the ouput of a JMeter performance run, we need to add listeners to the test plan. Some of the really useful listeners are:
+To collect the output of a JMeter performance run, we need to add listeners to the test plan. Some useful listeners include:
 
 
 
@@ -95,10 +94,10 @@ To collect the ouput of a JMeter performance run, we need to add listeners to th
 This listener just lists all the runs that have been completed, one run per row, stating the thread name, sampler
 label, the sample time in milliseconds, the result status and the latency in milliseconds, among other (usually less useful) fields.
 
-![jmeter results table](../resources/jmeter-results-table.png "jmeter results table")
-This view is particularly useful when trying out any changes (new flow, new sampler, new installation) to see if it is working at all.
-The potential outcomes are
+{{< figure alt="jmeter results table" zoom="../resources/jmeter-results-table.png" >}}
 
+This view is particularly useful when trying out any changes (new flow, new sampler, new installation) to see if it is working at all.
+The potential outcomes are:
 
 * The list stays empty. Most likely something is wrong in the set-up of the node and the jmeter server process, and requests never
 actually make it to start a flow. Check the logs of the JMeter client and the JMeter server process.
@@ -124,7 +123,7 @@ This listener aggregates all the runs for each thread group and the whole test p
 It also allows plotting these statistics in basic charts and to save the results as a csv file. This is what we use for looking at the
 performance results on a day to day basis.
 
-![jmeter results aggregate](../resources/jmeter-results-aggregate.png "jmeter results aggregate")
+{{< figure alt="jmeter results aggregate" zoom="../resources/jmeter-results-aggregate.png" >}}
 This listener has one line for each sampler being run as part of the test plan, and a total line summing up/averaging the results
 for the whole test plan.
 

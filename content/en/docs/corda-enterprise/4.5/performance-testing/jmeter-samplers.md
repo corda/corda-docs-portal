@@ -66,7 +66,7 @@ server, not the client machine.
    * `minimumNodePlatformVersion`: the minimum platform version that the JMeter client will require from the Corda nodes. It defaults to 4, which can be used to test with Corda 4.0 nodes or later.
    * `username`: the RPC user name of the Corda node.
    * `password`: the RPC password of the Corda node.
-![empty flow sampler](../resources/empty-flow-sampler.png "empty flow sampler")
+{{< figure alt="empty flow sampler" zoom="../resources/empty-flow-sampler.png" >}}
 * `CashIssueSampler`: this sampler client has the class name `com.r3.corda.jmeter.CashIssueSampler` and starts the flow `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueFlow`. This flow self-issues 1.1 billion cash tokens on the node it is running on, and stores it in the vault. In addition to the common properties described for `EmptyFlowSampler` above, this sampler client also requires:
    * `notaryName`: the X500 name of the notary that is acceptable to transfer cash tokens issued via this sampler. Issuing tokens does not need to be notarised, and therefore invoking this sampler does not create traffic to the notary. However, the notary is stored as part of the cash state and must be valid to do anything else with the cash state, therefore this sampler checks the notary identity against the network parameters of the node.
 * `CashIssueAndPaySampler`: this sampler client has the classname `com.r3.corda.jmeter.CashIssueAndPaySampler` and, depending on its parameters, it can start either of these flows -  `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueAndPaymentFlow` or `com.r3.corda.enterprise.perftestcordapp.flows.CashIssueAndpaymentNoSelection`. Either way it issues 2 million dollars in tokens and then transfers the sum to a configurable other node, thus invoking the full vault access, peer-to-peer communication and notarisation cycle. In addition to the parameters required for `CashIssueSampler`, this sampler also requires:
@@ -127,7 +127,7 @@ file on its search path.
 
 ### Writing a custom sampler client
 
-An SDK with examples on how to write samplers to drive different CorDapps is availabe at [https://github.com/corda/jmeter-sampler](https://github.com/corda/jmeter-sampler)
+An SDK with examples on how to write samplers to drive different CorDapps is availabe at [https://github.com/corda/jmeter-sampler](https://github.com/corda/jmeter-sampler).
 The SDK and sampler code is freely available, but please note that it requires access to a licensed local Corda Enterprise installation
 to be used.
 

@@ -326,7 +326,7 @@ must be able to actually cope with the level of parallelism to make the number o
 using e.g. H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
 architecture. For these reasons, the default size for the flow framework thread pool is the minimum between two times the available number of processors and 30. Overriding this value in the configuration allows to specify any number.
 
-* `rpcThreadPoolSize`
+## `rpcThreadPoolSize`
   * The number of threads handling RPC calls - this defines how many RPC requests can be handled
   in parallel without queueing. The default value is set to the number of available processor cores.
   * Incoming RPC calls are queued until a thread from this
@@ -335,9 +335,11 @@ architecture. For these reasons, the default size for the flow framework thread 
   * On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow threads being idle while the payload is being deserialized and the flow invocation run.
   * If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this * number slightly.
   * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source) and the number of flow threads.
-* `journalBufferTimeout`
+
+## `journalBufferTimeout`
   * The interval (in nanoseconds) at which Artemis messages that are buffered in-memory will be flushed to disk, if the buffer hasn't been filled yet. Setting this to 0 will disable the internal buffer and writes will be written directly to the journal file.
-* `journalBufferSize`
+
+## `journalBufferSize`
   * The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
 
 ## `extraNetworkMapKeys`

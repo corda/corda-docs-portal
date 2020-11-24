@@ -19,20 +19,21 @@ presented or published occasionally.
 
 ## Test Network
 
-The performance test runs in a self contained test network consisting of
+The performance test runs in a self-contained test network consisting of
 
 
-* 4 node machines, each running one Corda node
-* 1 simple notary running on a separate machine
-* separate database servers for all the nodes
-* optionally a doorman/network map server - the test network can be set up using the bootstrapper or the network map
-approach - this does not impact performance however.
+* 4 node machines, each running one Corda node.
+* 1 simple notary running on a separate machine.
+* Separate database servers for all the nodes.
+* Optionally a doorman/network map server - the test network can be set up using the bootstrapper or the network map
+approach - this does not impact performance, however.
 
 The performance network sits behind a firewall that allows incoming connections only via SSH, however the machines
 within the network can connect to each other on a range of ports (Corda Remote Procedure Call (RPC), Corda peer to
 peer connection (P2P) and JDBC connections to various database servers are all allowed).
 
 {{< figure alt="performance cluster" zoom="../resources/performance-cluster.png" >}}
+
 A Corda JMeter server instance is running on all 4 nodes and on the notary server. The JMeter client connects to the
 JMeter server instances via SSH tunnels. As the JMeter servers run within the firewalled network, they are free to
 open RPC connections to any of the Corda nodes - which one they connect to is configured in the JMeter test plan.
@@ -58,7 +59,7 @@ and Oracle 12 databases.
 #### Microsoft Azure
 
 The initial performance network was set up on a cluster of Microsoft Azure nodes. The following specs have been chosen
-for the network setup
+for the network setup:
 
 
 {{< table >}}
@@ -83,9 +84,9 @@ testing in the cloud has a few drawbacks:
 
 * The performance of virtual machines in the cloud is not always consistent. How fast they go exactly depends on what
 else is going on, so fluctuations in measured performance could not always be attributed to changes to Corda.
-* Cloud databases are optimised for web apps etc. Therefore, they are mostly read-optimised. Corda, however, writes
+* Cloud databases are optimised for web apps, etc. Therefore, they are mostly read-optimised. Corda, however, writes
 a lot of checkpoints and transactions to the database which required us to install custom database instances.
-* The virtual hard drives in the cloud have very limited througput, which causes bottlenecks for Artemis queues,
+* The virtual hard drives in the cloud have very limited throughput, which causes bottlenecks for Artemis queues,
 log file writing and database writing. Getting more performant storage in the cloud is either very expensive or
 plainly not possible.
 
@@ -97,6 +98,7 @@ dedicated hardware in a rented data center. To build up the performance test net
 acquired. They are all placed in the same data center, with 10Gb/s network connectivity.
 
 Intel  2x Xeon E5-2687Wv4, 24 cores hyperthreaded, 256GB DDR4 ECC 2133 MHz, 2x 400GB NVMEIntel  Xeon E5-2687Wv4 - 12 cores hyperthreaded, 256GB DDR4 ECC 2133 MHz, 2 x 1GB NVMEIntel  Xeon E5-2687Wv4 - 12 cores hyperthreaded, 256GB DDR4 ECC 2133 MHz, 2 x 1GB NVME
+
 ### Node Configuration
 
 For performance runs, the nodes run with pretty standard configuration. However, there are a few tweaks:
@@ -124,8 +126,8 @@ devMode = false
 ```
 
 Depending on the type of machines used, it is recommended that the `rpcThreadPoolSize` does not exceed the number of
-virtual cores (i.e 2 x number of cores when hyperthreading is enabled), and the `flowThreadPoolSize` should be around
-4 times the number of virtual cores. Depending on other factors like disk I/O, networking, memory etc. tweaking these
+virtual cores (that is, 2 x number of cores when hyperthreading is enabled), and the `flowThreadPoolSize` should be around
+4 times the number of virtual cores. Depending on other factors like disk I/O, networking, memory, etc., tweaking these
 numbers can yield better performance results.
 
 
@@ -146,7 +148,7 @@ Each node has its own, dedicated database server running Microsoft SQL Server 20
 Note that the disk write latency and throughput on the database machine are critical for the node’s performance as the
 Corda checkpointing mechanism means that many checkpoints are written to the database, and then deleted again when the
 flow finishes. Checkpoints will only be read when a flow is resumed or restarted, which might not happen a lot when
-running a large number of short-lived flows. Therefore, a read-optimised database server (as e.g. the hosted database
+running a large number of short-lived flows. Therefore, a read-optimised database server (as, for example, the hosted database
 instances offered by the big cloud providers) is not ideal for a busy Corda node and will limit throughput.
 It is recommended to manage the database server manually and optimise for write throughput at least as much as for read.
 
@@ -154,4 +156,4 @@ It is recommended to manage the database server manually and optimise for write 
 ## Test Plan
 
 For the test, JMeter server instances on 4 node machines and the simple notary machine all connect to one node via RPC
-to drive the tests. A external JMeter client uses the `NightlyBenchmark.jmx` test plan to run the tests.
+to drive the tests. An external JMeter client uses the `NightlyBenchmark.jmx` test plan to run the tests.

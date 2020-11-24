@@ -127,7 +127,7 @@ file on its search path.
 
 ### Writing a custom sampler client
 
-An SDK with examples on how to write samplers to drive different CorDapps is availabe at [https://github.com/corda/jmeter-sampler](https://github.com/corda/jmeter-sampler)
+An SDK with examples on how to write samplers to drive different CorDapps is availabe at [https://github.com/corda/jmeter-sampler](https://github.com/corda/jmeter-sampler).
 The SDK and sampler code is freely available, but please note that it requires access to a licensed local Corda Enterprise installation
 to be used.
 

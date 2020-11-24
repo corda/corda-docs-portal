@@ -14,7 +14,7 @@ title: Performance Tuning a Node
 ---
 
 
-# Performance Tuning a Node
+# Performance tuning a node
 
 Great, so we have set up a test cluster, have all the CorDapps and JMeter installed, sorted out the firewall rules, we can get a request
 go through via the JMeter GUI (see [View Results in Table](practical-considerations.md#view-results-in-table) for details how to verify that), we have sorted
@@ -24,7 +24,7 @@ Time to tune the node.
 
 ## Tweaking the node settings
 
-The main parameters that can be tweaked for a Corda Enterprise node are
+The main parameters that can be tweaked for a Corda Enterprise node are:
 
 
 * The number of flow threads (the number of flows that can be live and active in the state machine at the same time). The default
@@ -33,7 +33,7 @@ value for this is twice the number of processor cores available on the machine, 
 for this is the number of processor cores available on the machine
 * The amount of heap space the node process can allocate. The default for this is 512 megabytes.
 
-For a machine with *n* cores, this will create up to *3*n* Corda threads. On top of that, the messaging system (Artemis and Netty) will
+For a machine with *n* cores, this will create up to *3n* Corda threads. On top of that, the messaging system (Artemis and Netty) will
 create their own messaging handling thread infrastructure.
 On a server machine with many processor cores, this can lead to over a 100 threads sharing 512 megabyte of memory - this leaves the
 threads fighting for resources, and memory contention and very poor performance will be the result.
@@ -45,10 +45,10 @@ control so it is easy to go back and check settings for previous results.
 
 ### Tweaking the memory
 
-The first tweak should be to give the node more memory - the instructions  [how to deploy a node](../deploying-a-node.md) recommend at
+The first tweak should be to give the node more memory - the instructions  how to deploy a node recommend at
 least 2GB of memory. Performance tests at R3 typically use 8GB of memory for one node. This depends on the available memory and
 how many nodes (and other processes) are run on the same machine. There are various ways to set the heap memory of the node documented at
-[Setting JVM arguments](../running-a-node.md#setting-jvm-args). The recommended approach for performance optimisation work is to use the JVM argument section in the node
+[Setting JVM arguments](../node/deploy/running-a-node.md#setting-jvm-args). The recommended approach for performance optimisation work is to use the JVM argument section in the node
 config file as this captures the memory setting along with any other settings.
 
 Be careful with the total amount of memory allocated to processes - if the total memory allocated to all processes on one machine exceeds
@@ -62,14 +62,14 @@ running into the issues mentioned above, and then proceed with tweaking other pa
 to run a few tests checking whether the amount of memory can be reduced without affecting performance.
 
 
-### Tweaking the threads count
+### Tweaking the thread count
 
 Especially on large server machines, the default number of flow threads might be on the upper limit of what is sensible. In order to find
 the optimal number, it is necessary to tweak that number via the configuration, restart the node(s), and rerun a test plan to see how the
 numbers have changed. In order to keep the tests reproducible, it might be a good idea to wipe the database between tests so index sizes
 and query times do not skew the test results for later runs (see [Resetting a Node](practical-considerations.md#resetting-a-node)).
 
-Flow and RPC threads can be set explicitly using the [tuning section](../corda-configuration-file.md#enterprise-config-tuning) of the enterprise configuration. Add the following section to your
+Flow and RPC threads can be set explicitly using the [tuning section](../node/setup/corda-configuration-file.md#enterprise-config-tuning) of the enterprise configuration. Add the following section to your
 node configuration file:
 
 ```kotlin

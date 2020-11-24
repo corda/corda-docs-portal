@@ -21,8 +21,7 @@ Time to tune the node.
 
 ## Tweaking the node settings
 
-The main parameters that can be tweaked for a Corda Enterprise node are
-
+The main parameters that can be tweaked for a Corda Enterprise node are:
 
 * The number of flow threads (the number of flows that can be live and active in the state machine at the same time). The default
 value for this is twice the number of processor cores available on the machine, capped at 30.
@@ -30,8 +29,9 @@ value for this is twice the number of processor cores available on the machine, 
 for this is the number of processor cores available on the machine
 * The amount of heap space the node process can allocate. The default for this is 512 megabytes.
 
-For a machine with *n* cores, this will create up to *3*n* Corda threads. On top of that, the messaging system (Artemis and Netty) will
+For a machine with *n* cores, this will create up to *3n* Corda threads. On top of that, the messaging system (Artemis and Netty) will
 create their own messaging handling thread infrastructure.
+
 On a server machine with many processor cores, this can lead to over a 100 threads sharing 512 megabyte of memory - this leaves the
 threads fighting for resources, and memory contention and very poor performance will be the result.
 
@@ -96,10 +96,10 @@ will be broken, so it should ideally be on a redundant storage medium.
 ### Fine-tuning the Artemis configuration
 
 The following configuration options control some aspects of Artemis and can affect the throughput and latency of an application:
-* `p2pConfirmationWindowSize`: the size of the in-memory buffer, used by the broker to buffer completed commands before acknowledging them to the client.
-* `brokerConnectionTtlCheckIntervalMs`: the interval at which acknowledgements of completed commands are to be sent in case `p2pConfirmationWindowSize` is not exhausted in time.
-* `journalBufferSize`: the size of the in-memory buffer used to store messages before they are flushed to disk.
-* `journalBufferTimeout`: the interval at which Artemis messages that are buffered in-memory are to be flushed to disk if the `journalBufferSize` is not exhausted in time.
+* `p2pConfirmationWindowSize`: The size of the in-memory buffer, used by the broker to buffer completed commands before acknowledging them to the client.
+* `brokerConnectionTtlCheckIntervalMs`: The interval at which acknowledgements of completed commands are to be sent in case `p2pConfirmationWindowSize` is not exhausted in time.
+* `journalBufferSize`: The size of the in-memory buffer used to store messages before they are flushed to disk.
+* `journalBufferTimeout`: The interval at which Artemis messages that are buffered in-memory are to be flushed to disk if the `journalBufferSize` is not exhausted in time.
 
 As a result, you can control how frequently Artemis persists messages to disk and how frequently acknowledgements are sent back to clients. These values can affect the latency of flows, since a flow is expected to wait less on Artemis if it flushes messages to disk and sends acknowledgements more frequently. However, such configuration tweaks can also affect the throughput of flows, since flushing to disk more frequently and sending acknowledgements more frequently can result in a reduced efficiency of the utilisation of the disk and network resources. It is important that you benchmark any changes to these values in order to make sure that you have achieved the desired balance between throughput and latency.
 

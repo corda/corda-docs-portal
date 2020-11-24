@@ -281,11 +281,11 @@ bandwidth it can sustain over a single connection.
 ## Comparing Corda Enterprise 4.3 vs Corda Enterprise 4.6
 
 This section contains a comparative analysis between Corda Enterprise 4.3 and Corda Enterprise 4.6, with a main focus on the parallelisation improvements introduced in version 4.5. The analysis also covers some of the improvements introduced in version 4.4. The features discussed are listed below:
-* the batched transaction resolution, introduced in version 4.4.
-* the new Artemis tuning options (`brokerConnectionTtlCheckIntervalMs` and `journalBufferTimeout`), introduced in version 4.4.
-* the new `sendAll` API for sending messages to multiple parties in a more efficient way.
-* the p2p message compression, introduced in version 4.5.
-* the parallelised flows (`CollectSignaturesFlow`, `FinalityFlow`), introduced in version 4.5.
+* The batched transaction resolution, introduced in version 4.4.
+* The new Artemis tuning options (`brokerConnectionTtlCheckIntervalMs` and `journalBufferTimeout`), introduced in version 4.4.
+* The new `sendAll` API for sending messages to multiple parties in a more efficient way.
+* The p2p message compression, introduced in version 4.5.
+* The parallelised flows (`CollectSignaturesFlow`, `FinalityFlow`), introduced in version 4.5.
 
 ### Test setup
 
@@ -328,11 +328,11 @@ The main observations from the tests follow below:
 The last test performed was focused on the impact of some of the new tuning options introduced in Corda Enterprise 4.5. The goal of this test was to provide some insight into the behaviour of these parameters, and to evaluate the default options. The options that were covered were those controlling the flush frequency of Artemis buffers (`brokerConnectionTtlCheckIntervalMs` and `journalBufferTimeout`), and the option controlling P2P message compression (`enableP2PCompression`). For more information, see [Node configuration](../node/setup/corda-configuration-file.md).
 
 Five different variations were tested, as follows:
-* the default configuration, which had `brokerConnectionTtlCheckIntervalMs = 20`, `journalBufferTimeout = 3333333` and `enableP2PCompression = true` configured. This variation is called "default" in the graphs below.
-* a configuration that flushes very frequently. It had `brokerConnectionTtlCheckIntervalMs = 1` and `journalBufferTimeout = 1000000` configured. This variation is called "artemis-frequent-flush" in the graphs below.
-* a configuration that flushes in a medium frequency. It had `brokerConnectionTtlCheckIntervalMs = 10` and `journalBufferTimeout = 10000000` configured. This variation is called "artemis-medium-flush" in the graphs below.
-* a configuration that flushes in a low frequency. It had `brokerConnectionTtlCheckIntervalMs = 20` and `journalBufferTimeout = 20000000` configured. This variation is called "artemis-infrequent-flush" in the graphs below.
-* a configuration that disables P2P message compression. It had `enableP2PCompression = false` configured. This variation is called "no-compression" in the graphs below.
+* The default configuration, which had `brokerConnectionTtlCheckIntervalMs = 20`, `journalBufferTimeout = 3333333` and `enableP2PCompression = true` configured. This variation is called "default" in the graphs below.
+* A configuration that flushes very frequently. It had `brokerConnectionTtlCheckIntervalMs = 1` and `journalBufferTimeout = 1000000` configured. This variation is called "artemis-frequent-flush" in the graphs below.
+* A configuration that flushes in a medium frequency. It had `brokerConnectionTtlCheckIntervalMs = 10` and `journalBufferTimeout = 10000000` configured. This variation is called "artemis-medium-flush" in the graphs below.
+* A configuration that flushes in a low frequency. It had `brokerConnectionTtlCheckIntervalMs = 20` and `journalBufferTimeout = 20000000` configured. This variation is called "artemis-infrequent-flush" in the graphs below.
+* A configuration that disables P2P message compression. It had `enableP2PCompression = false` configured. This variation is called "no-compression" in the graphs below.
 
 The purpose of this last test was to investigate the effects of these options in both throughput and latency because some of these options introduce trade-offs between these two aspects. To this end, the tests described earlier in this analysis were repeated using the variations listed above. For the latency measurements, 10 nodes were used because, thanks to the low load, there was no expectation for any big interference between nodes on the same machine. For the throughput measurements, only 4 nodes were used in order to avoid any interference between nodes on the same machine due to the high load. The results are shown in the diagrams below - the *x* axis contains the variations used, and the *y* axis shows the average throughput and latency achieved with each variation along with error bars indicating the standard deviation.
 
