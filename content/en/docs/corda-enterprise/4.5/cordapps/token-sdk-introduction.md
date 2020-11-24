@@ -112,7 +112,7 @@ Once you have established what type of token you want to create, you can use the
 
 * **Redeem** and remove the token from the ledger, for example when a party finally takes ownership of their real-life diamond and the token it represents can no longer be used.
 
-### `Tokentype` - the units of a token
+### `TokenType` - the units of a token
 
 A `TokenType` defines the unit of your token.
 
