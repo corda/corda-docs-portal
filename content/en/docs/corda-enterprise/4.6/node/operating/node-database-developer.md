@@ -44,8 +44,7 @@ Setting up a Corda node to connect to a database requires:
 * [Run the node](#db-setup-developer-step-3-ref) to auto-create schema objects
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-(see node-database-access-h2), hence when using H2 database it’s sufficient to [start the node](node-database-admin.md#db-setup-step-3-ref)
-and the database will be created.
+(see the documentation on [Database access when running H2](../../node-database-access-h2), hence when using H2 database it’s sufficient to [start the node](node-database-admin.md#db-setup-step-3-ref) and the database will be created.
 
 
 
@@ -246,7 +245,7 @@ Configuration templates for each database vendor are shown below:
 #### H2
 
 By default, nodes store their data in an H2 database.
-No database setup is needed. Optionally remote H2 access/port can be configured. See node-database-access-h2.
+No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../node-database-access-h2).
 
 
 
@@ -407,7 +406,7 @@ ensure that:
 
 
 * the node can connect to the  database with **administrative permissions** or runs with the default embedded H2 database.
-* you have administrative permissions and you run the `run-migration-script` sub-command with at least one of the following parameters: `--core-schemas` and `--app-schemas`. 
+* you have administrative permissions and you run the `run-migration-script` sub-command with at least one of the following parameters: `--core-schemas` and `--app-schemas`.
 
 
 
