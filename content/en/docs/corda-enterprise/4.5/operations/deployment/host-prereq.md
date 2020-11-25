@@ -135,7 +135,6 @@ During deployment the following system (not user) tables will be created in the 
 * VAULT_TRANSACTION_NOTES
 * V_PKEY_HASH_EX_ID_MAP
 
-Detailed information on the Corda Vault can be found [here](../operating/node-database.html).
+Detailed information on the Corda Vault can be found [here](../../node/operating/node-database.md).
 
 JDBC Connectivity to the Corda Vault is handled in the Corda Enterprise `node.conf` file in `/opt/corda`. Here are examples for each supported RDBMS.
-
