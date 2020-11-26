@@ -36,6 +36,7 @@ fetches a copy of the full network map (from the server or from filesystem for d
 regular time interval for network map and applies any related changes locally.
 Nodes do not automatically deregister themselves, so (for example) nodes going offline briefly for maintenance are retained
 in the network map, and messages for them will be queued, minimising disruption.
+If a node is registered but not started and the service goes down before the first start of the node, the node will fail to restart.
 
 Additionally, on every restart and on daily basis nodes submit signed `NodeInfo` s to the map service. When network map gets
 signed, these changes are distributed as new network data. `NodeInfo` republishing is treated as a heartbeat from the node,
