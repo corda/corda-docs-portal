@@ -22,11 +22,6 @@ retries with backoff and dead-letter routing, security, large message streaming 
 Artemis is hidden behind a thin interface that also has an in-memory only implementation suitable for use in
 unit tests and visualisation tools.
 
-{{< note >}}
-A future version of Corda will allow the MQ broker to be split out of the main node and run as a
-separate server.
-
-{{< /note >}}
 There are multiple ways of interacting with the network. When writing an application you typically won’t use the
 messaging subsystem directly. Instead you will build on top of the [flow framework](flow-state-machines.md),
 which adds a layer on top of raw messaging to manage multi-step flows and let you think in terms of identities
@@ -141,6 +136,3 @@ with the advertised X.500 legal name from the network map service.
 
 *
     * Connect to the P2P broker using the `SystemUsers/Peer` user and a doorman signed certificate. The authentication is performed based on the root CA.
-
-
-
