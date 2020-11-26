@@ -38,7 +38,7 @@ notary : { validating : true }
 ```
 
 For clients to be able to use the notary service, its identity must be added to the network parameters. This will be
-done automatically when creating the network, if using :doc:`network-bootstrapper`. See :doc:`corda-networks-index`
+done automatically when creating the network, if using [Network Bootstrapper](network-bootstrapper.md). See [Networks](corda-networks-index.md)
 for more details.
 
 ## Highly available

@@ -22,8 +22,7 @@ weight: 7
 ## Consequences of flag days for the notary
 
 A flag day signifies the point in time where the network stops using one set of Network Parameters and begins using the new, previously
-proposed set of Network Parameters. This is discussed in the “Network parameters update process” within the network-map
-documentation.
+proposed set of Network Parameters. This is discussed in [Network parameters update process](../network/network-map.md#network-parameters-update-process).
 
 Once a flag day is issued, the next time a node polls the Network Map service it will receive the updated Network Parameters, in turn
 causing the node to shutdown due to a parameter mismatch. As a Notary node (whether a basic Notary or a worker within a HA cluster) is built
@@ -36,8 +35,7 @@ manner prior to the flag day.
 
 {{< /note >}}
 Outlined below is some basic suggestions to best deal with flag days. Note that to avoid any issues restarting the Notary nodes, a Notary
-operator should ensure that all nodes have accepted the parameter update. See the “Network parameters update process” section within the
-network-map for more information.
+operator should ensure that all nodes have accepted the parameter update. See [Network parameters update process](../network/network-map.md#network-parameters-update-process) for more information.
 
 
 ## Single notary
