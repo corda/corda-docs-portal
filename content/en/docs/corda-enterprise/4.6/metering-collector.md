@@ -810,6 +810,10 @@ This parameter requires an object created by the `filterBy` parameter that speci
 
 {{< /table >}}
 
+{{% note %}}
+The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](node/operating/node-database-admin.md#sql-server-3)
+{{% /note %}}
+
 #### Filtering by transaction type
 
 To filter metering data by transaction type, use the `txTypes` parameter in the `MultiAggregatedMeteringCollectionFlow` and `MultiFilteredMeteringCollectionFlow` flows.
@@ -836,6 +840,10 @@ You can use data filtering via the RPC API for the `NodeMeteringCollectionFlow`,
 Filtering by CorDapp is forbidden for the `AggregatedMeteringCollectionFlow` flow - if you provide such a filter, either directly or as part of a boolean filter, an exception `WrongParameterException` will be thrown.
 {{< /note >}}
 
+{{% note %}}
+The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](node/operating/node-database-admin.md#sql-server-3)
+{{% /note %}}
+
 All classes listed below belong to the `com.r3.corda.metering.filter` package.
 
 {{< table >}}
@@ -853,7 +861,3 @@ All classes listed below belong to the `com.r3.corda.metering.filter` package.
 
 {{< /table >}}
 
-
-{{% note %}}
-The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](node/operating/node-database-admin.md#sql-server-3)
-{{% /note %}}
