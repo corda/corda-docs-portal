@@ -303,7 +303,7 @@ are updating an existing network, the value in the existing network parameters f
 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: corda-configuration-hiding-sensitive-data .
+variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node-administration.md#hiding-sensitive-data).
 
 {{< /note >}}
 The available configuration fields are listed below:
@@ -409,7 +409,7 @@ Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an exam
 Checkout the Example CorDapp and follow the instructions to build it [here](https://docs.corda.net/tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
-You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).
+You can point to any existing bootstrapped Corda network (this will have the effect of updating the associated network parameters file).
 
 {{< /note >}}
 

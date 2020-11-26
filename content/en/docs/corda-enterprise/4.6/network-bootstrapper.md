@@ -93,7 +93,7 @@ added to the Contract Whitelist (see below).
 ### Whitelisting contracts
 
 Any CorDapps provided when bootstrapping a network will be scanned for contracts which will be used to create the
-*Zone whitelist* (see api-contract-constraints) for the network.
+*Zone whitelist* (see the documentation on [Contract constraints](../cordapps/api-contract-constraints.html) for the network.
 
 {{< note >}}
 If you only wish to whitelist the CorDapps but not copy them to each node then run with the `--copy-cordapps=No` option.
@@ -300,7 +300,7 @@ are updating an existing network, the value in the existing network parameters f
 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: corda-configuration-hiding-sensitive-data .
+variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.md#hiding-sensitive-data).
 
 {{< /note >}}
 The available configuration fields are listed below:
@@ -406,7 +406,7 @@ Using the Example CorDapp (found in these repositories in [Java](https://github.
 Check out the Example CorDapp and follow the instructions to build it [here](../../corda-os/4.6/tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
-You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).
+You can point to any existing bootstrapped Corda network (this will have the effect of updating the associated network parameters file).
 
 {{< /note >}}
 
