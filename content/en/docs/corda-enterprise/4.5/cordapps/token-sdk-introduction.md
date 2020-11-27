@@ -251,7 +251,7 @@ Fungible tokens can be split using a flow initiated by the **Move** command. Thi
 
 In the below example, Alice instantiates a token representing a BitCoin. This token is generated using the Tokens SDK's built-in `money` library.
 
-{{< tabs name="tabs-1234" >}}
+{{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 val fungibleToken = 1 of DigitalCurrency.getInstance("BTC") issuedBy aliceParty heldBy aliceParty
