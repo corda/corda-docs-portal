@@ -490,7 +490,7 @@ You can find the following useful fields in the output:
 
 ### Work with flows
 
-Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. You can also perform several commands that help to manage flows that have encountered an error. These are: `retry`, `pause`, `pauseAll`, `retryAllPaused`, `pauseAllHospitalized`, and `retryAllPausedHospitalized`.  You may also find it useful to query flow data.
+Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. You may also find it useful to query flow data.
 
 
 #### Query flow data
@@ -615,106 +615,6 @@ net.corda.finance.flows.CashIssueFlow
 net.corda.finance.flows.CashPaymentFlow
 net.corda.finance.internal.CashConfigDataFlow
 ```
-
-
-#### Retry a flow
-
-Use this command to retry a specific flow that is running on the node, identified by its UUID.
-
-##### Example command
-
-`flow retry f6e08ab5-7a79-4225-a62d-1da910ce269e`
-
-##### Example output
-
-`Retrying flow [f6e08ab5-7a79-4225-a62d-1da910ce269e] succeeded`
-
-
-#### Pause a flow
-
-Use this command to pause a specific flow that is running on the node, identified by its UUID.
-
-##### Example command
-
-`flow pause dbf76170-a3bf-4704-85a1-274b1b442430`
-
-##### Example output
-
-If the flow is paused successfully, you will see an output similar to the output below:
-
-`Paused flow [dbf76170-a3bf-4704-85a1-274b1b442430]`
-
-If the flow is not paused successfully, you will receive an error message.
-
-
-#### Pause all flows
-
-Use this command to pause all flows that are running on the node.
-
-##### Command
-
-`flow pauseAll`
-
-##### Output
-
-If all flows are paused successfully, you will see the following output:
-
-`Pausing all flows succeeded.`
-
-If this action is not successful, you will receive an error message.
-
-
-#### Retry all paused flows
-
-Use this command to retry all paused flows on the node.
-
-##### Command
-
-`flow retryAllPaused`
-
-##### Output
-
-If all flows are retried successfully, you will see the following output:
-
-`Retrying all paused flows succeeded.`
-
-If this action is not successful, you will receive an error message.
-
-
-#### Pause all hospitalized flows
-
-Use this command to pause all [hospitalized flows](../node-flow-hospital.md).
-
-##### Command
-
-`flow pauseAllHospitalized`
-
-##### Output
-
-If all hospitalized flows are paused successfully, you will see the following output:
-
-`Pausing all Hospitalized flows succeeded.`
-
-If this action is not successful, you will receive an error message.
-
-
-#### Retry all paused, hospitalized flows
-
-Use this command to retry all paused flows that were hospitalized before they were paused.
-
-##### Command
-
-`flow retryAllPausedHospitalized`
-
-##### Output
-
-If all flows are retried successfully, you will see the following output:
-
-`Retrying all paused hospitalized flows succeeded.`
-
-If not, you will receive an error message.
-
-
 
 
 ### Check if a transaction is recorded on the node
@@ -913,3 +813,4 @@ The shell will be enhanced over time. The currently known limitations include:
 * The `jdbc` command requires you to explicitly log into the database first.
 * Commands placed in the `shell-commands` directory are only noticed after the node is restarted.
 * The `jul` command advertises access to logs, but it doesn’t work with the logging framework used in Corda.
+ing framework used in Corda.
