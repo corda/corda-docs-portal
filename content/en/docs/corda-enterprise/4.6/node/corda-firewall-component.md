@@ -45,12 +45,16 @@ component is designed to provide a clear protocol break and thus prevents the no
 directly exposed to peers. For simpler deployments with no DMZ, the float and bridge logic can also be run as a
 single application behind the firewall, but still protecting the node and hosted Artemis. It is also possible to host
 the Artemis server out of process and shared across nodes, but this will be transparent to peers as the interchange
-protocol will continue to be AMQP 1.0 over TLS.
+protocol will continue to be AMQP 1.0 over TLS. An HA notary requires a separate Corda Firewall that cannot be shared with any other Corda nodes.
 
 {{< note >}}
 All deployment modes of the bridge, float, or all-in-one node are transparently interoperable, if correctly configured.
 
 {{< /note >}}
+
+{{< important >}}
+An HA notary must have a separate Corda Firewall that is not shared with any other nodes.
+{{< /important >}}
 
 ## Message path between peer nodes
 
