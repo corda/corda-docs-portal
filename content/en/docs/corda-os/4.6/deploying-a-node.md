@@ -305,7 +305,7 @@ From Corda 4.6, the database schema objects are not automatically initialised du
 Start the node using the `initial-registration` sub-command:
 
 ```bash
-java -jar corda.jar nitial-registration
+java -jar corda.jar initial-registration
 ```
 
 {{< note >}}
