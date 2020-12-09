@@ -390,7 +390,7 @@ Additionally, the node will create any tables for CorDapps containing Liquibase 
 
 As the Corda node is configured to automatically run migrations on startup,
 no additional database update steps are required when upgrading Corda.
-See the [Corda node upgrade notes](cm-upgrading-node.md#node-upgrade-notes-update-database-ref) for more information.
+See the [Corda node upgrade notes](../../node-upgrade-notes.md) for more information.
 
 
 
