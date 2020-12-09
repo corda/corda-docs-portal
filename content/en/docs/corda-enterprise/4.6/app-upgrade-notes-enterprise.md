@@ -3,20 +3,20 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
     identifier: "corda-enterprise-4-6-enterprise-cordapp-upgrade"
-    name: "Upgrading a CorDapp to Corda Enterprise 4.6"
     parent: corda-enterprise-4-6-upgrading-menu
 tags:
 - app
 - upgrade
 - notes
 - enterprise
-title: Upgrading CorDapps to Corda Enterprise 4.6
+title: Upgrading a CorDapp to Corda Enterprise 4.6
+weight: 10
 ---
 
 
 
 
-# Upgrading CorDapps to Corda Enterprise 4.6
+# Upgrading a CorDapp to Corda Enterprise 4.6
 
 ## Upgrading from Open Source
 

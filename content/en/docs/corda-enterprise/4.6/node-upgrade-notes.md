@@ -3,17 +3,18 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
     identifier: "corda-enterprise-4-6-node-upgrade"
-    name: "Upgrading Nodes to Corda Enterprise 4.6"
     parent: corda-enterprise-4-6-upgrading-menu
 tags:
 - upgrading
 - node
 - upgrade
 - notes
-title: Upgrading your node to Corda 4.6
+title: Upgrading a node to Corda 4.6
+aliases: /docs/corda-enterprise/4.6/node/operating/cm-upgrading-node.html
+weight: 30
 ---
 
-# Upgrading your node to Corda 4.6
+# Upgrading a node to Corda 4.6
 
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to applications. Upgrading from 4.x  consists of the following steps:
 

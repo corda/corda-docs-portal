@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
     identifier: corda-enterprise-4-6-corda-nodes-operating-cm
-    name: "Change management for nodes"
+    name: "Backup and restoration of a Corda node"
     parent: corda-enterprise-4-6-corda-nodes-operating
 tags:
 - cm
@@ -54,3 +54,7 @@ If the above holds, Corda components will benefit from the following:
 Private keys used to sign transactions should be preserved with the utmost care. The recommendation is to keep at least two separate copies on a storage not connected to the Internet.
 
 {{< /warning >}}
+
+## Upgrading
+
+For information about upgrading, see [Upgrading a node to Corda 4.6](../../node-upgrade-notes.md).

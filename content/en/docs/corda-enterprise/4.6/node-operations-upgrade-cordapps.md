@@ -2,24 +2,26 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
-    parent: corda-enterprise-4-6-corda-nodes-operating
+    parent: corda-enterprise-4-6-upgrading-menu
 tags:
 - node
 - operations
 - upgrade
 - cordapps
+aliases: /docs/corda-enterprise/4.6/node/operating/node-operations-upgrade-cordapps.html
 title: Upgrading deployed CorDapps
-weight: 11
+weight: 50
 ---
 
-# Upgrading CorDapps on a node
+# Upgrading deployed CorDapps
 
 In order to upgrade a CorDapp on a node to a new version, it needs to be determined whether any backwards compatible
 changes have been made. These could range from database changes, to changes in the protocol.
 
-For developer information on upgrading CorDapps, see [](../../cordapps/upgrading-cordapps.md).
+For developer information on upgrading CorDapps, see [Release new CorDapp versions
+](cordapps/upgrading-cordapps.md).
 
-To be compatible with Corda Enterprise, CorDapps need to bundle database migaration scripts (see database-management).
+To be compatible with Corda Enterprise, CorDapps need to bundle database migaration scripts (see [Database management scripts](cordapps/database-management.md)).
 
 
 ## Flow upgrades

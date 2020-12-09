@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
-    parent: corda-enterprise-4-6-corda-nodes-operating
+    parent: corda-enterprise-4-6-upgrading-menu
 tags:
 - node
 - operations
@@ -10,11 +10,12 @@ tags:
 - os
 - ent
 title: Upgrading a Corda OS node to Corda Enterprise
-weight: 9
+aliases: /docs/corda-enterprise/4.6/node/operating/node-operations-upgrading-os-to-ent.html
+weight: 60
 ---
 
 
-# Upgrading a Corda (open source) Node to Corda Enterprise
+# Upgrading a Corda OS Node to Corda Enterprise
 
 A Corda (open source) node can be upgraded to Corda Enterprise.
 If the same database is to be reused, the most complicated steps are ensuring custom CorDapps contain

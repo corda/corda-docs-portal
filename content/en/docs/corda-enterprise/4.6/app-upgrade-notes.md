@@ -3,19 +3,16 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
     identifier: "corda-enterprise-4-6-cordapp-upgrade"
-    name: "Upgrading a CorDapp to a newer platform version"
     parent: corda-enterprise-4-6-upgrading-menu
 tags:
 - app
 - upgrade
 - notes
 title: Upgrading a CorDapp to a newer platform version
+weight: 20
 ---
 
-
-
-
-# Upgrading CorDapps to newer Platform Versions
+# Upgrading a CorDapp to a newer platform version
 
 These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
 non-experimental APIs that have been committed to. A list can be found in the api-stability-guarantees page.
