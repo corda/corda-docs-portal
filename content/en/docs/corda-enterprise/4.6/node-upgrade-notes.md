@@ -11,7 +11,7 @@ tags:
 - notes
 title: Upgrading a node to Corda 4.6
 aliases: /docs/corda-enterprise/4.6/node/operating/cm-upgrading-node.html
-weight: 30
+weight: 10
 ---
 
 # Upgrading a node to Corda 4.6

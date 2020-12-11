@@ -11,7 +11,7 @@ tags:
 - ent
 title: Upgrading a Corda OS node to Corda Enterprise
 aliases: /docs/corda-enterprise/4.6/node/operating/node-operations-upgrading-os-to-ent.html
-weight: 60
+weight: 40
 ---
 
 

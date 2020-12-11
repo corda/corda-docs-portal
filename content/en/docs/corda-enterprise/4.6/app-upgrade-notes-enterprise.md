@@ -10,7 +10,7 @@ tags:
 - notes
 - enterprise
 title: Upgrading a CorDapp to Corda Enterprise 4.6
-weight: 10
+weight: 20
 ---
 
 

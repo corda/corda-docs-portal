@@ -4,12 +4,12 @@ menu:
   corda-enterprise-4-6:
     identifier: "corda-enterprise-4-6-features-versions"
     name: "Corda features and versions"
-    parent: corda-enterprise-4-6-upgrading-and-tools
+    parent: corda-enterprise-4-6-upgrading-menu
 tags:
 - features
 - versions
 title: Corda features and versions
-weight: 2
+weight: 70
 ---
 
 

@@ -9,7 +9,7 @@ tags:
 - upgrade
 - notes
 title: Upgrading a CorDapp to a newer platform version
-weight: 20
+weight: 30
 ---
 
 # Upgrading a CorDapp to a newer platform version
