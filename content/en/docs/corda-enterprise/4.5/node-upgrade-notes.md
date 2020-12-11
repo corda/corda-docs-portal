@@ -78,10 +78,10 @@ You can also skip the manual database update and allow a Corda node to auto-upda
 * You are upgrading a production system, however your policy allows a Corda node to auto-update its database
 and a Corda node connects with *administrative permissions*.
 
-In both cases, start the node with the `run-migration-scripts` sub-command with `--core-schemas` and `--app-schemas`.
+In both cases, start the node with the `run-migration-scripts` sub-command.
 
 ```bash
-java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
+java -jar corda.jar run-migration-scripts
 ```
 
 The node will perform any automatic data migrations required, which may take some time. If the migration process is interrupted it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete.
@@ -217,12 +217,10 @@ Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` d
 To run the tool, use the following command:
 
 ```shell
-java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory --core-schemas --app-schemas
+java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory
 ```
 
 The option `-b` points to the base directory (which contains a `node.conf` file, and `drivers` and `cordapps` subdirectories).
-
-`--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
 A script named `migrationYYYYMMDDHHMMSS.sql` will be generated in the current directory.
 This script will contain all the statements required to modify and create data structures (for example, tables/indexes),
@@ -282,7 +280,7 @@ The value of `myLegalName` must exactly match the node name that is used in the 
 3. Change the database user to one with *restricted permissions*. This ensures no database alteration is performed by this step.To run the remaining data migration, run:
 
 ```shell
-java -jar tools-database-manager-4.0-RC03.jar execute-migration -b . --core-schemas --app-schemas
+java -jar tools-database-manager-4.0-RC03.jar execute-migration -b . 
 ```
 
 
@@ -290,9 +288,6 @@ java -jar tools-database-manager-4.0-RC03.jar execute-migration -b . --core-sche
 
 
 The option `-b` points to the base directory (with a `node.conf` file, and *drivers* and *cordapps* subdirectories).
-
-`--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
-
 
 ## Step 4. Replace `corda.jar` with the new version
 
