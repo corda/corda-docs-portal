@@ -141,7 +141,7 @@ Read more in api-identity and node-services
 
 ### Network parameters
 
-Read more here: network-map.
+Read more in [Network map](../../network/network-map.md).
 Each downloaded network parameters file will create an entry in this table.
 The historical network parameters are used when validating transactions, which makes this table logically part of the `Ledger`.
 It is an append only table and the size will be fairly small.
@@ -165,12 +165,12 @@ It is an append only table and the size will be fairly small.
 
 The ledger data is formed of transactions and attachments.
 In future versions this data will be encrypted using SGX.
-Read more in key-concepts-ledger
+Read more in [Ledger](../../../../corda-os/4.6/key-concepts-ledger.md).
 
 
 ### Attachments
 
-Read more in tutorial-attachments and node-services
+Read more in [Working with attachments](../../../../corda-os/4.6/tutorial-attachments.md) and [Node services](../../node-services.md).
 
 {{< figure alt="attachments tables" zoom="/en/images/attachments_tables.png" >}}
 
@@ -212,7 +212,7 @@ Read more in tutorial-attachments and node-services
 
 These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large.
 It is an append-only table, and the data will never change.
-Read more in node-services - `DBTransactionStorage`
+Read more in [Node services](../../node-services.md) - `DBTransactionStorage`.
 This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
 
 
@@ -228,15 +228,9 @@ This is the key ledger table used as a source of truth. In the future the conten
 
 {{< /table >}}
 
-
-
-
-
-
-
 ### Contract upgrades
 
-Read more in contract-upgrade
+Read more in [Upgrading contracts](../../contract-upgrade.md).
 
 
 {{< table >}}
@@ -253,7 +247,7 @@ This table should be empty when no states are authorised for upgrade or after au
 
 ### Scheduling
 
-Read more in event-scheduling
+Read more in [Scheduling time-based events](../../event-scheduling.md).
 
 
 {{< table >}}
@@ -302,7 +296,7 @@ These tables should be append only.
 
 ### Node state machine
 
-Read more in node-services
+Read more in [Node services](../../node-services.md).
 
 {{< table >}}
 
@@ -370,10 +364,9 @@ Read more in node-services
 
 {{< /table >}}
 
-These tables will see the most intense read-write activity, especially `NODE_CHECKPOINTS` and `NODE_CHECKPOINT_BLOBS`. Depending on the installed flows and the traffic on the node the I/O operations on this
-table will be the main bottleneck of the node performance.
+These tables will see the most intense read-write activity, especially `NODE_CHECKPOINTS` and `NODE_CHECKPOINT_BLOBS`. Depending on the installed flows and the traffic on the node, the I/O operations on this table will be the main bottleneck of the node performance.
 There will be an entry for every running flow.
-Draining the node means waiting for this table to become emtpy. Read more in [Upgrading deployed CorDapps](../../node-operations-upgrade-cordapps.md).
+Draining the node means waiting for this table to become empty. Read more in [Upgrading deployed CorDapps](../../node-operations-upgrade-cordapps.md).
 
 
 {{< table >}}
@@ -406,7 +399,7 @@ The size should be fairly constant.
 
 ## Vault tables
 
-Read more about the vault here key-concepts-vault.
+Read more about the vault in [Vault](../../../../corda-os/4.6/key-concepts-vault.md).
 
 Note that the vault tables are guaranteed to remain backwards compatible and are safe to be used directly by third party applications.
 
@@ -607,6 +600,28 @@ The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` t
 |SIGNING_KEY_HASH|Hash of the public key used to sign this CorDapp|
 
 {{< /table >}}
+
+
+## Node RPC audit data
+
+RPC actions play a vital part in the process of triggering commands and flows on a node. In a variety of cases you will need to track the usage of RPC actions - for example, when there are security and regulatory concerns. To do so, you can use the Corda Enterprise node's capability to record audit information about RPC actions as they are received, prior to executing each action.
+
+Read more in [Recording of RPC audit data](../setup/rpc-audit-data-recording.md)
+
+{{< table >}}
+
+|NODE_RPC_AUDIT_DATA|Recording audit information about RPC actions as they are received, prior to executing each action|
+|------------------------------|------------------------------------------------------------------------------------------|
+|USERNAME|The specific user who executed the action (limited to 130 characters)|
+|INTERFACE|the specific type of RPC on which the action was called (limited to 130 characters)|
+|ACTION|The action that the user intended to invoke (limited to 130 characters)|
+|PARAMETERS|For non-flow actions, the parameter list which was passed with the action (limited to 255 characters)|
+|INVOCATIONTIME|The time when the action was recorded by the node and invoked|
+|INVOCATIONID|The unique invocation id of the action|
+|ALLOWED|A boolean field indicating if the user was allowed to call the action|
+
+{{< /table >}}
+
 
 
 ## Liquibase database migration

@@ -127,6 +127,7 @@ During deployment the following system (not user) tables will be created in the 
 * NODE_NETWORK_PARAMETERS
 * NODE_OUR_KEY_PAIRS
 * NODE_PROPERTIES
+* NODE_RPC_AUDIT_DATA
 * NODE_SCHEDULED_STATES
 * NODE_TRANSACTIONS
 * PK_HASH_TO_EXT_ID_MAP
