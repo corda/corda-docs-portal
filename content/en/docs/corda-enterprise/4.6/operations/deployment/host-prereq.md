@@ -44,17 +44,17 @@ weight: 2
 {{< /table >}}
 
 
-## Corda Vault
+## Node databases
 
 
 {{< table >}}
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
-|---------------------------|-----------------|-----------------|------------------|
-|Microsoft|x86-64|Azure SQL, SQL Server 2017|Microsoft JDBC Driver 6.2|
+|-------------------------------|------------------|------------------|------------------------|
+|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6|PostgreSQL JDBC Driver 42.1.4|
+|PostgreSQL|x86-64|9.6, 10.10, 11.5|PostgreSQL JDBC Driver 42.1.4 / 42.2.8|
 
 {{< /table >}}
 
