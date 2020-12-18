@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: -220
+    weight: 30
 project: corda-enterprise
 section_menu: corda-enterprise-4-2
 title: Corda Enterprise 4.2
