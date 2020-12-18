@@ -49,3 +49,14 @@ Database user password
 
 * **additionalProperties**:
 *(Optional)* Additional database properties
+
+* **lockResolutionStrategy**: When `lockResolutionStrategy` is set to `SingleInstance` and `runMigration` is set to `true`, the database lock applied by Liquibase is forcefully removed before the migration. This can solve problems where the application was shut down during migration, and the database remains locked.
+
+  * *Allowed values*:
+    * Not set (Default)
+    * SingleInstance
+
+{{<note>}}
+If multiple CENM instances are connected to the same database, this configuration option can cause startup problems and/or database corruption.
+{{</note>}}
+

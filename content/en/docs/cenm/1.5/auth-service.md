@@ -91,6 +91,10 @@ In the sample below, you can see the initial configuration process:
 
 1. [Database configuration](database-set-up). Add the name, address and login credentials for the SQL database that supports the Auth service.
 
+{{<note>}}
+If multiple CENM instances are connected to the same database, setting `lockResolutionStrategy` to `SingleInstance` can cause startup problems and/or database corruption. For more information, see the [database configuration options](config-database.md/).
+{{</note>}}
+
 2. JSON Web Key configuration. Set the username, password, and location of the RSA keypair store for signing. The location must be the absolute path.
 
 3. Configure the connection to the Gateway service. Add the ID, secret, and scope of services that you use when setting up the Gateway service.
@@ -108,6 +112,7 @@ database {
     user = "testuser"
     password = "password"
     runMigration = true
+    lockResolutionStrategy = "SingleInstance"
 }
 # JSON Web Key configration for JWT signing
 jwk {
