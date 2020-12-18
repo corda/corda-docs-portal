@@ -5,7 +5,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: 1100
+    weight: -260
 project: cdl
 section_menu: cdl
 title: CorDapp Design Language
