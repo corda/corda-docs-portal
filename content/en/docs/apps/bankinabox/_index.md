@@ -9,7 +9,7 @@ menu:
 project: bankinabox
 section_menu: bankinabox
 title: Bank in a Box
-version: 'Bank in a Box'
+version: 'bankinabox'
 ---
 
 # Bank in a Box
