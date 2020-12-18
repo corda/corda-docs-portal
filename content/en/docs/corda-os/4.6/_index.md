@@ -5,7 +5,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   versions:
-    weight: 140
+    weight: -255
 project: corda-os
 section_menu: corda-os-4-6
 title: Corda OS 4.6
