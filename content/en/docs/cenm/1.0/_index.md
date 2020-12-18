@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: 1000
+    weight: 340
 project: cenm
 section_menu: cenm-1-0
 title: CENM 1.0
@@ -100,6 +100,3 @@ Public Key Infrastructure
 
 * [Certificate Hierarchy Generation using the PKI Tool](pki-guide.md)
 * [Public Key Infrastructure (PKI) Tool](pki-tool.md)
-
-
-

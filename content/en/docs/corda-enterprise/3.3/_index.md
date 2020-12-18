@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: -130
+    weight: 45
 project: corda-enterprise
 section_menu: corda-enterprise-3-3
 title: Corda Enterprise 3.3
@@ -43,4 +43,3 @@ Corda Enterprise provides platform API version 3, which matches the API availabl
 Although the shipped JARs may contain new classes and methods that do not appear in API level 3, these should be considered
 preliminary and not for use by application developers at this time.
 {{< /note >}}
-

@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: -110
+    weight: 55
 project: corda-enterprise
 section_menu: corda-enterprise-3-1
 title: Corda Enterprise 3.1

@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: -120
+    weight: 50
 project: corda-enterprise
 section_menu: corda-enterprise-3-2
 title: Corda Enterprise 3.2
@@ -22,7 +22,7 @@ Welcome to the documentation website for Corda Enterprise 3.2, based on the Cord
 
 
 * High performance, thanks to multi-threaded flow execution and extensive tuning.
-* Support for more database backends:> 
+* Support for more database backends:>
 
     * SQL Server 2017
     * Azure SQL
@@ -48,4 +48,3 @@ Although the shipped JARs may contain new classes and methods that do not appear
 preliminary and not for use by application developers at this time.
 
 {{< /note >}}
-
