@@ -11,13 +11,13 @@ weight: 76
 ---
 # Node management console
 
-The node management console allows you to see information about a node and perform some operations on it. It runs as a plug-in for the [Gateway service](../../../cenm/1.5/gateway-service.md).
+The node management console allows you to see information about a node and perform some operations on it. It runs as a plug-in for the [Gateway service](../../../../cenm/1.5/gateway-service.md).
 
 The node management console allows you to see the following information about the node:
 
 * General node information, including:
   * Platform version.
-  * Corda version. 
+  * Corda version.
   * Revision (git hash).
   * Whether node draining is enabled.
   * Status (such as `RUNNING` or `DISCONNECTED`).
@@ -66,14 +66,14 @@ node.admin.middleware {
 
 ## Accessing the node management console
 
-The node management plug-in is accessed through the node management console. To access the flow management console, visit the Gateway service plug-in launcher page, `http://<gateway-service-ip>:<port>/launcher`. 
+The node management plug-in is accessed through the node management console. To access the flow management console, visit the Gateway service plug-in launcher page, `http://<gateway-service-ip>:<port>/launcher`.
 
 ### Permissions
 
 A user can have either read-only permissions, or admin permissions. Permissions are set using the User Admin tool, `http://<gateway-service-ip>:<port>/admin`.
 
 {{% note %}}
-Unless a tab or other functionality, such as killing a node, is specifically restricted, it is available to an unprivileged user. 
+Unless a tab or other functionality, such as killing a node, is specifically restricted, it is available to an unprivileged user.
 {{% /note%}}
 
 ## Viewing general node information
@@ -115,7 +115,7 @@ If you do not have permission to perform this action and you click the tab, a me
 1. Log on to the node management console.
 2.  Navigate to **Logs** tab.
 
-The most recent 500 log events are displayed. Note that this list is static: it does not change. Click **Refresh** to see the most recent 500 log events. This list does *not* contain the startup logs. 
+The most recent 500 log events are displayed. Note that this list is static: it does not change. Click **Refresh** to see the most recent 500 log events. This list does *not* contain the startup logs.
 
 {{% figure zoom="management-console/node-management-console_logs.png" alt="Node management console logs tab" figcaption="Node management console logs tab" %}}
 
