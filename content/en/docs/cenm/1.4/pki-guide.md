@@ -6,7 +6,7 @@ menu:
   cenm-1-4:
     identifier: cenm-1-4-pki-guide
     parent: cenm-1-4-public-key-infrastructure
-    weight: 310
+    weight: 320
 tags:
 - pki
 - guide

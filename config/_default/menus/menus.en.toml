@@ -163,6 +163,36 @@ identifier = "cenm-1-4-tools-and-utilities"
 name = "Tools & Utilities"
 weight = 270
 
+[[cenm-1-5]]
+identifier = "cenm-1-5-cenm-releases"
+name = "CENM Releases"
+weight = 70
+
+[[cenm-1-5]]
+identifier = "cenm-1-5-concepts-and-overview"
+name = "Concepts and Overview"
+weight = 10
+
+[[cenm-1-5]]
+identifier = "cenm-1-5-configuration"
+name = "Configuration"
+weight = 210
+
+[[cenm-1-5]]
+identifier = "cenm-1-5-operations"
+name = "Operations"
+weight = 110
+
+[[cenm-1-5]]
+identifier = "cenm-1-5-public-key-infrastructure"
+name = "Public Key Infrastructure"
+weight = 300
+
+[[cenm-1-5]]
+identifier = "cenm-1-5-signing-plugin-samples"
+name = "Signing Plugin Samples"
+weight = 330
+
 [[corda-enterprise-3-0]]
 identifier = "corda-enterprise-3-0-corda-enterprise"
 name = "Corda Enterprise"
@@ -424,6 +454,22 @@ name = "Operating a Corda Node"
 parent = "corda-enterprise-4-6-corda-nodes"
 weight = 60
 
+[[corda-enterprise-4-7]]
+identifier = "corda-enterprise-4-7-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-7]]
+identifier = "corda-enterprise-4-7-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-7]]
+identifier = "corda-enterprise-4-7-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-7-corda-nodes"
+weight = 60
+
 [[corda-os-4-0]]
 identifier = "corda-os-4-0-development"
 name = "Development"
@@ -541,5 +587,30 @@ weight = 30
 
 [[corda-os-4-6]]
 identifier = "corda-os-4-6-contributing-index"
+name = "Participate"
+weight = 500
+
+[[corda-os-4-7]]
+identifier = "corda-os-4-7-upgrading"
+name = "Upgrading CorDapps and nodes"
+weight = 15
+
+[[corda-os-4-7]]
+identifier = "corda-os-4-7-corda-api"
+name = "Corda API"
+weight = 17
+
+[[corda-os-4-7]]
+identifier = "corda-os-4-7-development"
+name = "Development"
+weight = 20
+
+[[corda-os-4-7]]
+identifier = "corda-os-4-7-operations"
+name = "Operations"
+weight = 30
+
+[[corda-os-4-7]]
+identifier = "corda-os-4-7-contributing-index"
 name = "Participate"
 weight = 500

@@ -44,17 +44,17 @@ weight: 2
 {{< /table >}}
 
 
-## Corda Vault
+## Node databases
 
 
 {{< table >}}
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
-|---------------------------|-----------------|-----------------|------------------|
-|Microsoft|x86-64|Azure SQL, SQL Server 2017|Microsoft JDBC Driver 6.2|
+|-------------------------------|------------------|------------------|------------------------|
+|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6|PostgreSQL JDBC Driver 42.1.4|
+|PostgreSQL|x86-64|9.6, 10.10, 11.5|PostgreSQL JDBC Driver 42.1.4 / 42.2.8|
 
 {{< /table >}}
 
@@ -117,16 +117,22 @@ During deployment the following system (not user) tables will be created in the 
 * NODE_FLOW_EXCEPTIONS
 * NODE_FLOW_METADATA
 * NODE_CONTRACT_UPGRADES
+* NODE_CORDAPP_METADATA
+* NODE_CORDAPP_SIGNERS
 * NODE_IDENTITIES
 * NODE_INFOS
 * NODE_INFO_HOSTS
 * NODE_INFO_PARTY_CERT
 * NODE_LINK_NODEINFO_PARTY
 * NODE_MESSAGE_IDS
+* NODE_METERING_COMMANDS
+* NODE_METERING_CORDAPPS
+* NODE_METERING_DATA
 * NODE_NAMED_IDENTITIES
 * NODE_NETWORK_PARAMETERS
 * NODE_OUR_KEY_PAIRS
 * NODE_PROPERTIES
+* NODE_RPC_AUDIT_DATA
 * NODE_SCHEDULED_STATES
 * NODE_TRANSACTIONS
 * PK_HASH_TO_EXT_ID_MAP

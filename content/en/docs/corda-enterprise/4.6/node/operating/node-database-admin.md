@@ -415,7 +415,18 @@ extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* into th
 
 #### Oracle
 
-The required `node.conf` settings for the Database Management Tool using Oracle:
+First, connect to the database as administrator (any user which can create other users, *my_admin_user* has no such privileges)
+and run the following DDL script to create `my_user`, which you will use in `node.conf`:
+
+
+```sql
+CREATE USER my_user identified by my_password;
+GRANT CREATE SESSION TO my_user;
+GRANT SELECT ON v_$parameter TO my_user;
+```
+
+
+Configure the required `node.conf` settings for the Database Management Tool using Oracle as shown below:
 
 
 ```groovy
@@ -542,17 +553,9 @@ This step is required for Oracle databases only.
 
 ### Oracle
 
-Connect to the database as administrator (any user which can create other users, *my_admin_user* has no such privileges)
-and run the following DDL script:
-
-
-```sql
-CREATE USER my_user identified by my_password;
-GRANT CREATE SESSION TO my_user;
-GRANT SELECT ON v_$parameter TO my_user;
-```
-
-
+{{< note >}}
+For Oracle, you have already created and configured user `my_user` in [Configure the Database Management Tool](#oracle-2).
+{{< /note >}}
 
 Connect to the database as  *my_admin_user* and run the following DDL script,
 the first SQL statement may fail depending on your Oracle database installation type:
@@ -567,6 +570,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_CONTRACTS
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_ATTACHMENTS_SIGNERS TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CHECKPOINTS TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CHECKPOINT_BLOBS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CORDAPP_METADATA TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_CORDAPP_SIGNERS TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_FLOW_RESULTS TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_FLOW_EXCEPTIONS TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_FLOW_METADATA TO my_user;
@@ -579,6 +584,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_HOSTS TO my_user
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_INFO_PARTY_CERT TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_LINK_NODEINFO_PARTY TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MESSAGE_IDS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_METERING_COMMANDS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_METERING_CORDAPPS TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_METERING_DATA TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_MUTUAL_EXCLUSION TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NAMED_IDENTITIES TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_NETWORK_PARAMETERS TO my_user;
@@ -587,6 +595,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_PROPERTIES TO my_user
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_SCHEDULED_STATES TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_TRANSACTIONS TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.PK_HASH_TO_EXT_ID_MAP TO my_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.NODE_RPC_AUDIT_DATA TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.STATE_PARTY TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES TO my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.VAULT_FUNGIBLE_STATES_PARTS TO my_user;

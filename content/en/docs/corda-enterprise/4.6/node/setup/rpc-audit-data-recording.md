@@ -23,13 +23,13 @@ RPC actions play a vital part in the process of triggering commands and flows on
 
 The data recorded by the node is listed below:
 
-- `username` - the specific user who executed the action (limited to 130 characters)
-- `interface` - the specific type of RPC on which the action was called (limited to 130 characters)
-- `action` - the action that the user intended to invoke (limited to 130 characters)
-- `parameters` - for non-flow actions, the parameter list which was passed with the action (limited to 255 characters)
-- `invocationtime` - the time whethatn the action was recorded by the node and invoked
-- `invocationid` - the unique invocation id of the action
-- `allowed` - a boolean field indicating if the `user` was allowed to call the `action`
+- `username` - the specific user who executed the action (limited to 130 characters).
+- `interface` - the specific type of RPC on which the action was called (limited to 130 characters).
+- `action` - the action that the user intended to invoke (limited to 130 characters).
+- `parameters` - for non-flow actions, the parameter list which was passed with the action (limited to 255 characters).
+- `invocationtime` - the time then the action was recorded by the node and invoked.
+- `invocationid` - the unique invocation id of the action.
+- `allowed` - a boolean field indicating if the `user` was allowed to call the `action`.
 
 ## Overview of the RPC audit data recording process
 

@@ -4,7 +4,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: -100
+    weight: 60
 project: corda-enterprise
 section_menu: corda-enterprise-3-0
 title: Corda Enterprise 3.0
@@ -116,5 +116,3 @@ Operations
 * [Certificate Revocation List](certificate-revocation.md)
     * [HTTP certificate revocation protocol](certificate-revocation.md#http-certificate-revocation-protocol)
     * [Node Configuration](certificate-revocation.md#node-configuration)
-
-

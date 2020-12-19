@@ -8,7 +8,7 @@ menu:
   cenm-1-2:
     identifier: cenm-1-2-pki-guide
     parent: cenm-1-2-public-key-infrastructure
-    weight: 310
+    weight: 320
 tags:
 - pki
 - guide
