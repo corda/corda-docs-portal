@@ -79,7 +79,7 @@ In order to perform the upgrade, follow the following steps:
 * Replace the existing JAR with the new one
 * Make any database changes required to any custom vault tables for the upgraded CorDapp. The database update for a
 CorDapp upgrade follows the same steps as database setup for a new CorDapp. Corda Enterprise users can use the Database
-Management Tool as detailed [here](../../corda-enterprise/4.7/node/operations/node-operations-cordapp-deployment.md/).
+Management Tool as detailed [here](../../corda-enterprise/4.7/node/operating/node-operations-cordapp-deployment.md/).
 * Restart the node
 * If you drained the node prior to upgrading, switch off flow draining mode to allow the node to continue to receive requests
     * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `false`

@@ -14,9 +14,6 @@ tags:
 title: Node shell
 ---
 
-
-
-
 # Node shell
 
 The Corda shell is an embedded or standalone command line that allows an administrator to control and monitor a node. It is based on the [CRaSH](http://www.crashub.org/) shell and supports many of the same features. These features include:
@@ -63,7 +60,7 @@ There are also operations that allow starting/killing the flows or even stopping
 * Starting flows requires `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently allows the user to kill *any* flow, so please be careful when granting it!
 
-Description of RPC operations can be found in the [RPC operations](../../api-rpc.md) documentation.
+Description of RPC operations can be found in the [RPC operations](api-rpc.md) documentation.
 
 {{< note >}}
 `InvokeRpc.startTrackedFlowDynamic` permission gives permission to run all existing flows.
@@ -222,7 +219,7 @@ This is a new mode added in the Enterprise 4.3 release to prevent the CRaSH shel
 
 When a shell is running in unsafe mode, the shell behaviour will be the same as before and will include CRaSH built-in commands. By default the internal shell will run in safe mode but will still be have the ability to execute RPC client calls as before based on existing RPC permissions. No Corda functionality is affected by this change; only the ability to access to the CRaSH shell embedded commands.
 
-When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API](../../../../corda-os/4.7/tutorial-clientrpc-api.md) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
+When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API](tutorial-clientrpc-api.md) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
 
 ### Getting help
 
@@ -336,7 +333,7 @@ otherResults: []
 
 ### Upload and download attachments
 
-The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../../../corda-os/4.7/tutorial-attachments.md#uploading-an-attachment) tutorial.
+The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](tutorial-attachments.md#uploading-an-attachment) tutorial.
 
 
 ### Extract attachment information
@@ -495,7 +492,7 @@ Use the different flow commands available to make changes on the ledger. You can
 
 #### Query flow data
 
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](querying-flow-data.html#querying-flow-data-via-the-node-shell).
+The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [querying flow data](../../corda-enterprise/4.6/node/operating/querying-flow-data.html#querying-flow-data-via-the-node-shell).
 
 
 #### Start a flow
@@ -587,9 +584,9 @@ Use this command to display all flows currently running on the node with result 
 The output will show results listed with flow `Id`, `Flow name`, `Initiator`, and `Status`.
 
 ```
-Id                                Flow name                                                          Initiator                        Status                                                             
+Id                                Flow name                                                          Initiator                        Status
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-27fc3a53-5fc3-4c30-a872-a2f282291 Cash Payment Receiver                                              O=BankOfCorda, L=London, C=GB    No return value                                                    
+27fc3a53-5fc3-4c30-a872-a2f282291 Cash Payment Receiver                                              O=BankOfCorda, L=London, C=GB    No return value
 Waiting for completion or Ctrl-C ...
 ```
 
@@ -703,7 +700,7 @@ class is referenced as `net.corda.finance.contracts.asset.Cash$State` (note the 
 
 {{< note >}}
 If your CorDapp is written in Java, named arguments won’t work unless you compiled the node using the
-`-parameters` argument to `javac`. See the documentation on [Creating nodes locally](../deploy/generating-a-node.md) to learn how to specify it via Gradle.
+`-parameters` argument to `javac`. See the documentation on [Creating nodes locally](generating-a-node.md) to learn how to specify it via Gradle.
 {{< /note >}}
 
 

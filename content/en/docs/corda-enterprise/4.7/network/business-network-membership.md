@@ -27,7 +27,7 @@ In this version, you can:
 * Access control group reporting.
 * Query group membership.
 * Log and report actions to membership attestations.
-* Request membership attribute changes.  
+* Request membership attribute changes.
 
 ## Creating and managing a business network
 
@@ -38,7 +38,7 @@ With this extension, you can use a set of flows to:
 * Assign members to membership lists or groups.
 * Update information about a member - such as their Business Network identity.
 * Modify a member's roles in the network.
-* Suspend or revoke membership.  
+* Suspend or revoke membership.
 
 {{< note >}}
 The code samples in this documentation show you how to run management operations using the provided primitives from the context of a tool or Cordapp. It is also possible to do these operations from an RPC client or node shell by simply invoking the supplied administrative flows using data resulted from executing vault queries.
@@ -82,7 +82,7 @@ dependencies {
 }
 ```
 
-3. Add both dependencies in your **Cordform** - `deployNodes` - [task](node/deploy/generating-a-node.md#tasks-using-the-cordform-plug-in).
+3. Add both dependencies in your **Cordform** - `deployNodes` - [task](../node/deploy/generating-a-node.md#tasks-using-the-cordform-plug-in).
 
 You have installed the Business Network membership extension.
 
@@ -184,7 +184,7 @@ subFlow(ModifyGroupFlow(groupId, groupName, newParticipantsList, notary))
 
 ### Onboard a new member without prior request
 
-As an authorised member of the network, you can onboard a new member without needing a prior membership request. The joining party is immediately added to the network with an `ACTIVE` status. You can then add the member directly to the relevant groups.  
+As an authorised member of the network, you can onboard a new member without needing a prior membership request. The joining party is immediately added to the network with an `ACTIVE` status. You can then add the member directly to the relevant groups.
 
 1. Run `OnboardMembershipFlow` to directly issue a new membership with an `ACTIVE` status.
 2. Run `ModifyGroupFlow` to assign the new member to the correct groups.
