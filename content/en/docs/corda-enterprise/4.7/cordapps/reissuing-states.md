@@ -238,14 +238,9 @@ As state references are compared in the contract code, it is impossible to cheat
 
 If the issuing party is not a participant, they do not get updated if the original state is consumed. It is therefore possible for the issuing party to reissue a state, which has already been consumed. However, in that case the requesting party will not be able to prove that such a state has been exited, and therefore be unable to unlock (consume) it.
 
-### Further cheating possibilities that are not covered
+### Preventing other cheating possibilities
 
-Despite the actions preventing cheating described above, cheating still might be possible if state implementation
-allows for that.
-
-{{< note >}}
-Consider using different wording in the customer-facing copy. For example, something along the lines that the issuing party must a trusted party and is expected to act in an appropriate way.
-{{< /note >}}
+The issuing party must be a trusted party and is expected to act in an appropriate way. The use cases described below provide recommendations on state implementations that could prevent other cheating possibilities.
 
 #### Possibility of other party reissuing the state
 
