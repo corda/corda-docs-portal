@@ -725,7 +725,7 @@ val signedTx = subFlow(DepositFiatFlow(accountId, amount))
 
 ## Payments
 
-As noted in the [Loans](#loans) section, [Corda scheduled states](../../docs/corda-os/4.7/event-scheduling.md#implementing-scheduled-events) are utilised in Bank in a Box to create recurring payments that start on a given date and are executed in a specific time period.
+As noted in the [Loans](#loans) section, [Corda scheduled states](../../corda-os/4.7/event-scheduling.md#implementing-scheduled-events) are utilised in Bank in a Box to create recurring payments that start on a given date and are executed in a specific time period.
 
 Payments in Bank in a Box are also a good example of how CorDapps can be integrated with external systems.
 

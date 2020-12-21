@@ -51,7 +51,7 @@ CENM Releases
 * [Release notes](release-notes.md)
 * [Upgrading Corda Enterprise Network Manager](upgrade-notes.md)
 * [Changelog](changelog.md)
-* [Legal notice](legal-info.md)
+* [Legal notice](legal-info-1.2.3.md)
 
 
 

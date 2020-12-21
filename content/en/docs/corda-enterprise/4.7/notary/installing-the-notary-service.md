@@ -93,7 +93,7 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 {{< /tabs >}}
 
-See [Node configuration](../../node/setup/corda-configuration-file.md) for a complete reference.
+See [Node configuration](../node/setup/corda-configuration-file.md) for a complete reference.
 
 
 ## MySQL notary (deprecated)

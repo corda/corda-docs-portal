@@ -50,7 +50,7 @@ You can see that `status` is nullable because the intention is to represent no s
 
 These interfaces are used to define the `AgreementState` and the enum set of statuses based on the CDL status states:
 
-{{< figure zoom="./resources/cdl-agreement-smart-contract-statuses.png" width="1000" title="Click to zoom image in new tab/window" >}}
+{{< figure zoom="../resources/cdl-agreement-smart-contract-statuses.png" width="900" title="Click to zoom image in new tab/window" >}}
 
 AgreementState.kt:
 
