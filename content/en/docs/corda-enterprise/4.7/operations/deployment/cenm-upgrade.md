@@ -157,7 +157,7 @@ pluginJar
 CENM 1.3 introduces a significant number of services. You should upgrade to CENM 1.2.2 before upgrading to 1.3.
 The key steps for the upgrade are:
 
-1. Generate new certificates for [FARM](../../../../cenm/1.3/gateway-service.md), [Auth](../../../../cenm/1.3/auth-service.md), and [Zone](../../../../cenm/1.3/zone-service.md) Services.
+1. Generate new certificates for [Gateway](../../../../cenm/1.3/gateway-service.md), [Auth](../../../../cenm/1.3/auth-service.md), and [Zone](../../../../cenm/1.3/zone-service.md) Services.
 2. Generate a JWT token key pair for Auth Service.
 3. Deploy FARM Service to provide a gateway between the CLI tool and the back-end services.
 4. Deploy Auth Service to provide user authentication and authorisation to other services.
