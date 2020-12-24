@@ -21,7 +21,7 @@ When you have successfully started the Bank in a Box user interface, you will be
 
 The default Admin user name and password are as follows:
 
-* User name: Admin
+* User name: admin
 * Password: password1!
 
 After entering your username and password, you will arrive at the home screen. From the left sidebar navigation, you can access different screens depending on your role (Admin or Customer).
