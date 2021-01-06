@@ -501,6 +501,8 @@ for ((inputs, outputs, _) in groups) {
 
 {{% tab name="java" %}}
 ```java
+import net.corda.finance.contracts.utils.sumCashBy;
+
 TimeWindow timeWindow = tx.getTimeWindow();
 
 for (InOutGroup group : groups) {
@@ -878,6 +880,12 @@ particular position on the same transaction that created the encumbered state. N
 being consumed must have its encumbrance consumed in the same transaction, otherwise the transaction is not valid.
 
 The encumbrance reference is optional in the `ContractState` interface:
+
+If you're using Java, you may want to add this jar to your gradle dependencies for this code example to compile.  
+
+```
+cordaCompile "$corda_release_group:corda-finance-contracts:$corda_release_version"
+```
 
 {{< tabs name="tabs-12" >}}
 {{% tab name="kotlin" %}}
