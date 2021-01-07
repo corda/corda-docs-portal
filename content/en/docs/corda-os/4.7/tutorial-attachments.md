@@ -94,31 +94,37 @@ The `and` and `or` operators can be used to build complex queries. For example:
 {{% tab name="kotlin" %}}
 ```kotlin
 
-assertEquals(
-        emptyList(),
-        storage.queryAttachments(
-                AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexA"))
-                        .and(AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexB"))))
+attachmentStorage.queryAttachments(
+    AttachmentsQueryCriteria(uploaderCondition = Builder.equal("alice"))
+        .and(AttachmentsQueryCriteria(uploaderCondition = Builder.equal("bob")))
 )
+​
+attachmentStorage.queryAttachments(
+    AttachmentsQueryCriteria(uploaderCondition = Builder.equal("alice"))
+        .or(AttachmentsQueryCriteria(uploaderCondition = Builder.equal("bob")))
 
-assertEquals(
-        listOf(hashA, hashB),
-        storage.queryAttachments(
-                AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexA"))
-                        .or(AttachmentsQueryCriteria(uploaderCondition = Builder.equal("complexB"))))
-)
+```
+{{% /tab %}}
 
-val complexCondition =
-        (uploaderCondition("complexB").and(filenamerCondition("archiveB.zip"))).or(filenamerCondition("archiveC.zip"))
+{{% tab name="java" %}}
+```java
 
-
+attachmentStorage.queryAttachments(
+    new AttachmentsQueryCriteria(Builder.INSTANCE.equal("alice"))
+    .and(new AttachmentsQueryCriteria(Builder.INSTANCE.equal("bob")))
+);
+​
+attachmentStorage.queryAttachments(
+    new AttachmentsQueryCriteria(Builder.INSTANCE.equal("alice"))
+        .or(new AttachmentsQueryCriteria(Builder.INSTANCE.equal("bob")))
+);
 ```
 {{% /tab %}}
 
 
 {{< /tabs >}}
 
-[NodeAttachmentServiceTest.kt](https://github.com/corda/corda/blob/release/os/4.7/node/src/test/kotlin/net/corda/node/services/persistence/NodeAttachmentServiceTest.kt)
+
 
 
 ## Fetching attachments
@@ -135,117 +141,196 @@ that isn’t used as part of the contract logic.
 
 ## Example
 
-There is a worked example of attachments, which relays a simple document from one node to another. The “two party
-trade flow” also includes an attachment; however, it is a significantly more complex demo, and less well suited
-for a tutorial.
-
-The demo code is in the file `samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt`,
-with the core logic contained within the two functions `recipient()` and `sender()`. The first thing it does is set
-up an RPC connection to node B using a demo user account (this is all configured in the gradle build script for the demo
-and the nodes will be created using the `deployNodes` gradle task as normal). The `CordaRPCClient.use` method is a
-convenience helper intended for small tools that sets up an RPC connection scoped to the provided block, and brings all
-the RPCs into scope. Once connected the sender/recipient functions are run with the RPC proxy as a parameter.
-
-We’ll look at the recipient function first.
-
-The first thing it does is wait to receive a notification of a new transaction by calling the `verifiedTransactions`
-RPC, which returns both a snapshot and an observable of changes. The observable is made blocking and the next
-transaction the node verifies is retrieved. That transaction is checked to see if it has the expected attachment
-and if so, printed out.
+Here is a simple example of how to attach a file to a transaction and send it to the counterparty. The full code for this demo can be found in the [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Features/attachment-sendfile) and [Java](https://github.com/corda/samples-java/tree/master/Features/attachment-sendfile) sample repositories.
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
+
 ```kotlin
-fun recipient(rpc: CordaRPCOps, webPort: Int) {
-    println("Waiting to receive transaction ...")
-    val stx = rpc.internalVerifiedTransactionsFeed().updates.toBlocking().first()
-    val wtx = stx.tx
-    if (wtx.attachments.isNotEmpty()) {
-        if (wtx.outputs.isNotEmpty()) {
-            val state = wtx.outputsOfType<AttachmentContract.State>().single()
-            require(rpc.attachmentExists(state.hash)) { "attachment matching hash: ${state.hash} does not exist" }
+@InitiatingFlow
+@StartableByRPC
+class SendAttachment(
+        private val receiver: Party,
+        private val unitTest: Boolean
+) : FlowLogic<SignedTransaction>() {
+    companion object {
+        object GENERATING_TRANSACTION : ProgressTracker.Step("Generating transaction")
+        object PROCESS_TRANSACTION : ProgressTracker.Step("PROCESS transaction")
+        object FINALISING_TRANSACTION : ProgressTracker.Step("Obtaining notary signature and recording transaction.")
 
-            // Download the attachment via the Web endpoint.
-            val connection = URL("http://localhost:$webPort/attachments/${state.hash}").openConnection() as HttpURLConnection
-            try {
-                require(connection.responseCode == SC_OK) { "HTTP status code was ${connection.responseCode}" }
-                require(connection.contentType == APPLICATION_OCTET_STREAM) { "Content-Type header was ${connection.contentType}" }
-                require(connection.getHeaderField(CONTENT_DISPOSITION) == "attachment; filename=\"${state.hash}.zip\"") {
-                    "Content-Disposition header was ${connection.getHeaderField(CONTENT_DISPOSITION)}"
-                }
+        fun tracker() = ProgressTracker(
+                GENERATING_TRANSACTION,
+                PROCESS_TRANSACTION,
+                FINALISING_TRANSACTION
+        )
+    }
 
-                // Write out the entries inside this jar.
-                println("Attachment JAR contains these entries:")
-                JarInputStream(connection.inputStream).use {
-                    while (true) {
-                        val e = it.nextJarEntry ?: break
-                        println("Entry> ${e.name}")
-                        it.closeEntry()
-                    }
-                }
-            } finally {
-                connection.disconnect()
-            }
-            println("File received - we're happy!\n\nFinal transaction is:\n\n${Emoji.renderIfSupported(wtx)}")
-        } else {
-            println("Error: no output state found in ${wtx.id}")
-        }
-    } else {
-        println("Error: no attachments found in ${wtx.id}")
+    constructor(receiver: Party) : this(receiver, unitTest = false)
+
+    override val progressTracker = tracker()
+    @Suspendable
+    override fun call():SignedTransaction {
+        // Obtain a reference from a notary we wish to use.
+        /**
+         *  METHOD 1: Take first notary on network, WARNING: use for test, non-prod environments, and single-notary networks only!*
+         *  METHOD 2: Explicit selection of notary by CordaX500Name - argument can by coded in flow or parsed from config (Preferred)
+         *
+         *  * - For production you always want to use Method 2 as it guarantees the expected notary is returned.
+         */
+        val notary = serviceHub.networkMapCache.notaryIdentities.single() // METHOD 1
+        // val notary = serviceHub.networkMapCache.getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB")) // METHOD 2
+
+        //Initiate transaction builder
+        val transactionBuilder = TransactionBuilder(notary)
+
+        //upload attachment via private method
+        val path = System.getProperty("user.dir")
+        println("Working Directory = $path")
+
+        val zipPath = if (unitTest!!) "../test.zip" else "../../../../test.zip"
+
+        //Change the path to "../test.zip" for passing the unit test.
+        //because the unit test are in a different working directory than the running node.
+        val attachmenthash = SecureHash.parse(uploadAttachment(zipPath,
+                serviceHub,
+                ourIdentity,
+                "testzip"))
+
+        progressTracker.currentStep = GENERATING_TRANSACTION
+        //build transaction
+        val ouput = InvoiceState(attachmenthash.toString(), participants = listOf(ourIdentity, receiver))
+        val commandData = InvoiceContract.Commands.Issue()
+        transactionBuilder.addCommand(commandData,ourIdentity.owningKey,receiver.owningKey)
+        transactionBuilder.addOutputState(ouput, InvoiceContract.ID)
+        transactionBuilder.addAttachment(attachmenthash)
+        transactionBuilder.verify(serviceHub)
+
+        //self signing
+        progressTracker.currentStep = PROCESS_TRANSACTION
+        val signedTransaction = serviceHub.signInitialTransaction(transactionBuilder)
+
+
+        //conter parties signing
+        progressTracker.currentStep = FINALISING_TRANSACTION
+
+        val session = initiateFlow(receiver)
+        val fullySignedTransaction = subFlow(CollectSignaturesFlow(signedTransaction, listOf(session)))
+
+        return subFlow(FinalityFlow(fullySignedTransaction, listOf(session)))
     }
 }
 
+
+//private helper method
+private fun uploadAttachment(
+        path: String,
+        service: ServiceHub,
+        whoAmI: Party,
+        filename: String
+): String {
+    val attachmenthash = service.attachments.importAttachment(
+            File(path).inputStream(),
+            whoAmI.toString(),
+            filename)
+
+    return attachmenthash.toString();
+}
 ```
 {{% /tab %}}
 
-{{< /tabs >}}
+{{% tab name="java" %}}
 
+@InitiatingFlow
+@StartableByRPC
+public class SendAttachment extends FlowLogic<SignedTransaction> {
+    private final ProgressTracker.Step GENERATING_TRANSACTION = new ProgressTracker.Step("Generating transaction");
+    private final ProgressTracker.Step PROCESSING_TRANSACTION = new ProgressTracker.Step("PROCESS transaction");
+    private final ProgressTracker.Step FINALISING_TRANSACTION = new ProgressTracker.Step("Obtaining notary signature and recording transaction.");
 
-[AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.7/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt)
+    private final ProgressTracker progressTracker =
+            new ProgressTracker(GENERATING_TRANSACTION, PROCESSING_TRANSACTION, FINALISING_TRANSACTION);
 
+    private final Party receiver;
+    private boolean unitTest = false;
 
-
-The sender correspondingly builds a transaction with the attachment, then calls `FinalityFlow` to complete the
-transaction and send it to the recipient node:
-
-{{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
-```kotlin
-fun sender(rpc: CordaRPCOps, numOfClearBytes: Int = 1024) { // default size 1K.
-    val (inputStream, hash) = InputStreamAndHash.createInMemoryTestZip(numOfClearBytes, 0)
-    sender(rpc, inputStream, hash)
-}
-
-private fun sender(rpc: CordaRPCOps, inputStream: InputStream, hash: SecureHash.SHA256) {
-    // Get the identity key of the other side (the recipient).
-    val notaryParty = rpc.partiesFromName("Notary", false).firstOrNull() ?: throw IllegalArgumentException("Couldn't find notary party")
-    val bankBParty = rpc.partiesFromName("Bank B", false).firstOrNull() ?: throw IllegalArgumentException("Couldn't find Bank B party")
-    // Make sure we have the file in storage
-    if (!rpc.attachmentExists(hash)) {
-        inputStream.use {
-            val id = rpc.uploadAttachment(it)
-            require(hash == id) { "Id was '$id' instead of '$hash'" }
-        }
-        require(rpc.attachmentExists(hash)) { "Attachment matching hash: $hash does not exist" }
+    public SendAttachment(Party receiver) {
+        this.receiver = receiver;
     }
 
-    val flowHandle = rpc.startTrackedFlow(::AttachmentDemoFlow, bankBParty, notaryParty, hash)
-    flowHandle.progress.subscribe(::println)
-    val stx = flowHandle.returnValue.getOrThrow()
-    println("Sent ${stx.id}")
+    public SendAttachment(Party receiver, boolean unitTest) {
+        this.receiver = receiver;
+        this.unitTest = unitTest;
+    }
+
+    @Nullable
+    @Override
+    public ProgressTracker getProgressTracker() {
+        return progressTracker;
+    }
+
+    @Suspendable
+    @Override
+    public SignedTransaction call() throws FlowException {
+
+        // Obtain a reference to a notary we wish to use
+        final Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0); // METHOD 1
+
+        // Initiate transaction Builder
+        TransactionBuilder transactionBuilder = new TransactionBuilder(notary);
+
+        // upload attachment via private method
+        String path = System.getProperty("user.dir");
+        System.out.println("Working Directory = " + path);
+
+        //Change the path to "../test.zip" for passing the unit test.
+        //because the unit test are in a different working directory than the running node.
+        String zipPath = unitTest ? "../test.zip" : "../../../../test.zip";
+
+        SecureHash attachmentHash = null;
+        try {
+            attachmentHash = SecureHash.parse(uploadAttachment(
+                    zipPath,
+                    getServiceHub(),
+                    getOurIdentity(),
+                    "testzip")
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        progressTracker.setCurrentStep(GENERATING_TRANSACTION);
+        // build transaction
+        InvoiceState output = new InvoiceState(attachmentHash.toString(), ImmutableList.of(getOurIdentity(), receiver));
+        InvoiceContract.Commands.Issue commandData = new InvoiceContract.Commands.Issue();
+        transactionBuilder.addCommand(commandData, getOurIdentity().getOwningKey(), receiver.getOwningKey());
+        transactionBuilder.addOutputState(output, InvoiceContract.ID);
+        transactionBuilder.addAttachment(attachmentHash);
+        transactionBuilder.verify(getServiceHub());
+
+        // self signing
+        progressTracker.setCurrentStep(PROCESSING_TRANSACTION);
+        SignedTransaction signedTransaction = getServiceHub().signInitialTransaction(transactionBuilder);
+
+        // counter parties signing
+        progressTracker.setCurrentStep(FINALISING_TRANSACTION);
+
+        FlowSession session = initiateFlow(receiver);
+        SignedTransaction fullySignedTransaction = subFlow(new CollectSignaturesFlow(signedTransaction, ImmutableList.of(session)));
+
+        return subFlow(new FinalityFlow(fullySignedTransaction, ImmutableList.of(session)));
+    }
+
+    private String uploadAttachment(String path, ServiceHub service, Party whoami, String filename) throws IOException {
+        SecureHash attachmentHash = service.getAttachments().importAttachment(
+                new FileInputStream(new File(path)),
+                whoami.toString(),
+                filename
+        );
+
+        return attachmentHash.toString();
+    }
 }
 
-```
 {{% /tab %}}
 
 {{< /tabs >}}
-
-
-[AttachmentDemo.kt](https://github.com/corda/corda/blob/release/os/4.7/samples/attachment-demo/src/main/kotlin/net/corda/attachmentdemo/AttachmentDemo.kt)
-
-
-This side is a bit more complex. Firstly, it looks up its counterparty by name in the network map. Then, if the node
-doesn’t already have the attachment in its storage, we upload it from a JAR resource and check the hash was what
-we expected. Then a trivial transaction is built that has the attachment and a single signature and it’s sent to
-the other side using the FinalityFlow. The result of starting the flow is a stream of progress messages and a
-`returnValue` observable that can be used to watch out for the flow completing successfully.

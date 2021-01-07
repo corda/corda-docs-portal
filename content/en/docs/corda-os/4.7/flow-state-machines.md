@@ -123,7 +123,7 @@ We start by defining two classes that will contain the flow definition. We also 
 each side.
 
 {{< note >}}
-The code samples in this tutorial are only available in Kotlin, but you can use any JVM language to
+The code samples in this tutorial are only available in Kotlin and Java, but you can use any JVM language to
 write them and the approach is the same.
 
 {{< /note >}}
@@ -176,6 +176,110 @@ object TwoPartyTradeFlow {
     }
 }
 
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+@InitiatingFlow
+@StartableByRPC
+public class TwoPartyTradeFlow extends FlowLogic<SignedTransaction> {
+
+    public inline class UnacceptablePriceException {
+        private int givenPrice;
+
+        private OptionalInt(Amount<Currency> givenPrice) {
+            if (givenPrice < 1) { // if price is invalid
+                FlowException("Unacceptable price: $givenPrice");
+            }
+        }
+    }
+
+    public inline class AssetMismatchException extends FlowException {
+        private String expectedTypeName;
+        private String typeName;
+
+        private toString() {
+            return "The submitted asset didn't match the expected type: " + expectedTypeName + " vs " + typeName;
+        }
+    }
+
+    /**
+     * This object is serialised to the network and is the first flow message the seller sends to the buyer.
+     *
+     * @param payToIdentity anonymous identity of the seller, for payment to be sent to.
+     */
+     @CordaSerializable
+     public inline class SellerTradeInfo {
+         private Amount<Currency> price;
+         private PartyAndCertificate payToIdentity;
+
+         public SellerTradeInfo(Amount<Currency> price, PartyAndCertificate payToIdentity) {
+            this.price = price;
+            this.payToIdentity = payToIdentity;
+         }
+     }
+
+
+     @CordaSerializable
+     public inline class Seller extends FlowLogic<SignedTransaction> {
+        private FlowSession otherSideSession;
+        private StateAndRef<OwnableState> assetToSell;
+        private Amount<Currency> price;
+        private PartyAndCertificate myParty;
+
+        public SellerTradeInfo(FlowSession otherSideSession, StateAndRef<OwnableState> assetToSell, Amount<Currency> price, PartyAndCertificate myParty) {
+            this.otherSideSession = otherSideSession;
+            this.assetToSell = assetToSell;
+            this.price = price;
+            this.myParty = myParty;
+        }
+     }
+
+    @Nullable
+    @Override
+    public ProgressTracker getProgressTracker() {
+    return new ProgressTracker();
+    }
+
+    @Nullable
+    @Override
+    public ProgressTracker tracker() {
+        return new ProgressTracker();
+    }
+
+    @Suspendable
+    @Override
+    public SignedTransaction call() throws FlowException {
+        // TODO
+    }
+
+}
+
+
+    @CordaSerializable
+    public inline class Buyer extends FlowLogic<SignedTransaction> {
+        private FlowSession sellerSession;
+        private Party notary;
+        private Amount<Currency> acceptablePrice;
+        private Class<out OwnableState> typeToBuy;
+        private Boolean anonymous;
+
+        public Buyer(private FlowSession sellerSession, private Party notary, private Amount<Currency> acceptablePrice, private Class<out OwnableState> typeToBuy, private Boolean anonymous) {
+            this.sellerSession = sellerSession;
+            this.notary = notary;
+            this.acceptablePrice = acceptablePrice;
+            this.typeToBuy = typeToBuy;
+            this.anonymous = anonymous;
+        }
+
+        @Suspendable
+        @Override
+        public SignedTransaction call() throws FlowException {
+        // TODO
+        }
+    }
+}
 ```
 {{% /tab %}}
 
@@ -322,7 +426,64 @@ override fun call(): SignedTransaction {
 ```
 {{% /tab %}}
 
+{{% tab name="java" %}}
+```java
 
+@Suspendable
+@Override
+public SignedTransaction call() throws FlowException {
+
+    progressTracker.setCurrentStep(AWAITING_PROPOSAL);
+
+    // Make the first message we'll send to kick off the flow.
+    SellerTradeInfo hello = new SellerTradeInfo(price, myParty);
+    // What we get back from the other side is a transaction that *might* be valid and acceptable to us,
+    // but we must check it out thoroughly before we sign!
+    // SendTransactionFlow allows seller to access our data to resolve the transaction.
+    subFlow(SendStateAndRefFlow(otherSideSession, Arrays.asList(assetToSell)));
+    otherSideSession.send(hello);
+
+    // Verify and sign the transaction.
+    progressTracker.setCurrentStep(VERIFYING_AND_SIGNING);
+
+    // DOCSTART 07
+    // Sync identities to ensure we know all of the identities involved in the transaction we're about to
+    // be asked to sign
+    subFlow(IdentitySyncFlow.Receive(otherSideSession));
+
+    // DOCEND 07
+
+    // DOCSTART 5
+    SignTransactionFlow signTransactionFlow = SignTransactionFlow(otherSideSession, VERIFYING_AND_SIGNING.childProgressTracker())
+
+        @Override
+        void checkTransaction(SignedTransaction stx) {
+            // Verify that we know who all the participants in the transaction are
+            Iterable<ContractState> states = getServiceHub().loadStates(stx.getTx().getInputs().toSet()).stream().map(it -> it.getState.getData).collect(Collectors.toList()) + stx.getTx().getOutputs().stream().map(it -> it.getState.getData).collect(Collectors.toList());
+
+
+            for(State state: states) {
+                for(AbstractParty anon: state.getParticipants()) {
+                    // "Transaction state $state involves unknown participant $anon"
+                    assertNotNull(getServiceHub().getIdentityService().getWellKnownPartyFromAnonymous(anon), "Transaction state involves unknown participant");
+                }
+            }
+
+            if (stx.getTx().getOutputStates().sumCashBy(myParty.getParty()).withoutIssuer() != price) {
+                throw new FlowException("Transaction is not sending us the right amount of cash");
+            }
+
+        }
+    }
+
+
+    SecureHash txId = subFlow(signTransactionFlow).getId();
+    // DOCEND 5
+
+    return subFlow(ReceiveFinalityFlow(otherSideSession, txId));
+}
+
+{{% /tab %}}
 
 
 [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.7/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
@@ -450,6 +611,129 @@ private fun assembleSharedTX(assetForSale: StateAndRef<OwnableState>, tradeReque
 {{% /tab %}}
 
 
+{{% tab name="java" %}}
+```java
+@Suspendable
+@Override
+public SignedTransaction call() throws FlowException{
+    progressTracker.setCurrentStep(RECEIVING);
+
+    Pair<StateAndRef<OwnableState>, SellerTradeInfo> p = receiveAndValidateTradeRequest();
+    StateAndRef<OwnableState> assetForSale = p.getKey();
+    SellerTradeInfotradeRequest tradeRequest = p.getValue();
+
+    // Create the identity we'll be paying to, and send the counterparty proof we own the identity
+    PartyAndCertificate buyerAnonymousIdentity = ourIdentityAndCert;
+
+    if (this.anonymous) {
+        buyerAnonymousIdentity getServiceHub().getKeyManagementService().freshKeyAndCert(ourIdentityAndCert, false);
+    }
+
+    // Put together a proposed transaction that performs the trade, and sign it.
+    progressTracker.setCurrentStep(SIGNING);
+    Triple<TransactionBuilder, List<PublicKey>, List<TransactionSignature>> trip = assembleSharedTX(assetForSale, tradeRequest, buyerAnonymousIdentity);
+
+    TransactionBuilder ptx =  trip.getLeft();
+    List<PublicKey> cashSigningPubKeys = trip.getMiddle();
+
+    // DOCSTART 6
+    // Now sign the transaction with whatever keys we need to move the cash.
+    SignedTransaction partSignedTx = getServiceHub().signInitialTransaction(ptx, cashSigningPubKeys);
+
+    // Sync up confidential identities in the transaction with our counterparty
+    subFlow(new IdentitySyncFlow().Send(sellerSession, ptx.toWireTransaction(serviceHub)));
+
+
+    // Send the signed transaction to the seller, who must then sign it themselves and commit
+    // it to the ledger by sending it to the notary.
+    progressTracker.setCurrentStep(COLLECTING_SIGNATURES);
+
+    TransactionSignature sellerSignature = subFlow(CollectSignatureFlow(partSignedTx, sellerSession, sellerSession.getCounterparty().getOwningKey()));
+
+    List<TransactionSignature> twiceSignedTx = new ArrayList<TransactionSignature>();
+    twiceSignedTx.add(partSignedTx);
+    twiceSignedTx.add(sellerSignature);
+
+    // DOCEND 6
+
+    // Notarise and record the transaction.
+    progressTracker.setCurrentStep(RECORDING);
+    return subFlow(new FinalityFlow(twiceSignedTx, sellerSession));
+
+}
+
+
+
+@Suspendable
+private Pair<StateAndRef<OwnableState>, SellerTradeInfo> receiveAndValidateTradeRequest() {
+
+    OwnableState assetForSale = subFlow(ReceiveStateAndRefFlow<OwnableState>(sellerSession)).single();
+
+    progressTracker.setCurrentStep(VERIFYING);
+
+    // What is the seller trying to sell us?
+    StateAndRef asset = assetForSale.getState().getData();
+    String assetTypeName = asset.getClass().getName();
+
+
+    // The asset must either be owned by the well known identity of the counterparty, or we must be able to
+    // prove the owner is a confidential identity of the counterparty.
+    Party assetForSaleIdentity = getServiceHub().getIdentityService().getWellKnownPartyFromAnonymous(asset.owner);
+
+    //"Well known identity lookup returned identity that does not match counterparty"
+    assertEqual(assetForSaleIdentity, sellerSession.counterparty)
+
+    // Register the identity we're about to send payment to. This shouldn't be the same as the asset owner
+    // identity, so that anonymity is enforced.
+
+    wellKnownPayToIdentity = ((getServiceHub().getIdentityService().verifyAndRegisterIdentity(sellerSession.receive<SellerTradeInfo>().getPayToIdentity()) == null) ? (getServiceHub().getIdentityService().verifyAndRegisterIdentity(sellerSession.receive<SellerTradeInfo>().getPayToIdentity()) : sellerSession.receive<SellerTradeInfo>().getPayToIdentity());
+
+    // "Well known identity to pay to must match counterparty identity"
+    assertEqual(wellKnownPayToIdentity.party, sellerSession.counterparty);
+
+
+    if (sellerSession.receive<SellerTradeInfo>().price > acceptablePrice)
+        throw UnacceptablePriceException(sellerSession.receive<SellerTradeInfo>().price)
+    if (!typeToBuy instanceof asset)
+        throw AssetMismatchException(typeToBuy.name, assetTypeName)
+
+    return new Pair<>(assetForSale, sellerSession.receive<SellerTradeInfo>());
+}
+
+
+
+@Suspendable
+    private SharedTx assembleSharedTX(StateAndRef<OwnableState> assetForSale, SellerTradeInfo tradeRequest, PartyAndCertificate buyerAnonymousIdentity) {
+    TransactionBuilder ptx = new TransactionBuilder(notary);
+
+
+    // Add input and output states for the movement of cash, by using the Cash contract to generate the states
+    Triple<TransactionBuilder, List<PublicKey>, List<TransactionSignature>> trip = CashUtils.generateSpend(getServiceHub(), ptx, tradeRequest.getPrice(), ourIdentityAndCert, tradeRequest().getPayToIdentity().getParty());
+
+    TransactionBuilder tx =  trip.getLeft();
+    List<PublicKey> cashSigningPubKeys = trip.getMiddle();
+
+    // Add inputs/outputs/a command for the movement of the asset.
+    tx.addInputState(assetForSale);
+
+    Pair<Commands, State> p = assetForSale.getState().getData().withNewOwner(buyerAnonymousIdentity.getParty());
+    Command command = p.getKey();
+    State state = p.getValue();
+
+
+    tx.addOutputState(state, assetForSale.getState().getContract(), assetForSale.getState().getNotary());
+    tx.addCommand(command, assetForSale.getState().getData().getOwner().getOwningKey());
+
+    // We set the transaction's time-window: it may be that none of the contracts need this!
+    // But it can't hurt to have one.
+    Instant currentTime = getServiceHub().getClock().instant();
+    tx.setTimeWindow(currentTime, 30.getSeconds());
+
+    return SharedTx(tx, cashSigningPubKeys);
+}
+
+
+{{% /tab %}}
 
 
 [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.7/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
@@ -626,7 +910,45 @@ val txId = subFlow(signTransactionFlow).id
 ```
 {{% /tab %}}
 
+{{% tab name="java" %}}
+```java
+public class signTransactionFlow extends FlowLogic<SignedTransaction> {
 
+    ProgressTracker progressTracker = new ProgressTracker();
+
+
+    public SignTransactionFlow(otherSideSession, VERIFYING_AND_SIGNING.childProgressTracker()) {}
+
+
+
+
+    @Override
+    public void checkTransaction(SignedTransaction stx) {
+
+        List<States> states = getServiceHub().loadStates(stx.tx.inputs.toSet()).stream().map( it -> it.getState.getData).collect(Collectors.toList());
+
+        states.addAll(stx.getTx().getOutputs().stream().map(it -> it.getData()).collect(Collectors.toList()));
+
+        for(State state: states){
+
+            for(AbstractParty anon: state.getParticipants()){
+                // "Transaction state $state involves unknown participant $anon"
+                assertNotNull(getServiceHub().getIdentityService().getWellKnownPartyFromAnonymous(anon));
+            }
+        }
+
+    }
+
+
+    if (stx.getTx().getOutputs().sumCashBy(myParty.getParty()).withoutIssuer() != price) {
+        throw new FlowException("Transaction is not sending us the right amount of cash");
+    }
+
+    SignedTransaction txId = subFlow(signTransactionFlow).getId();
+
+}
+```
+{{% /tab %}}
 
 
 [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.7/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")

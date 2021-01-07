@@ -63,6 +63,10 @@ and:
 * Throws an `IllegalArgumentException` if it rejects the transaction proposal
 * Returns silently if it accepts the transaction proposal
 
+{{< note >}}
+As mentioned in the [Writing the state](hello-world-state.md) tutorial, this is Corda source code and is therefore written in Kotlin.
+{{< /note >}}
+
 ## Controlling IOU evolution
 
 What would a good contract for an `IOUState` look like? There is no right or wrong answer - it depends on how you

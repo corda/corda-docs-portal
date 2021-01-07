@@ -31,51 +31,84 @@ means that unit testing a flow requires some infrastructure to provide lightweig
 
 The `MockNetwork` class provides this testing infrastructure layer; you can find this class in the `test-utils` module.
 
-A good example to examine for learning how to unit test flows is the `ResolveTransactionsFlow` tests. This
-flow takes care of downloading and verifying transaction graphs, with all the needed dependencies. We start
-with this basic skeleton:
+The `IOUTransferFlowTests` tests provide a good example for learning how to unit test flows. This test file sits in our sample repositories under `Advanced/obligation-cordapp` and is available in both [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Advanced/obligation-cordapp) and [Java](https://github.com/corda/samples-java/tree/master/Advanced/obligation-cordapp) versions.
 
+Setup codes for both versions are shown here:
+
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
-class ResolveTransactionsFlowTest {
-    private lateinit var mockNet: MockNetwork
-    private lateinit var notaryNode: StartedMockNode
-    private lateinit var megaCorpNode: StartedMockNode
-    private lateinit var miniCorpNode: StartedMockNode
-    private lateinit var newNotaryNode: StartedMockNode
-    private lateinit var megaCorp: Party
-    private lateinit var miniCorp: Party
-    private lateinit var notary: Party
-    private lateinit var newNotary: Party
+
+class IOUTransferFlowTests {
+    lateinit var mockNetwork: MockNetwork
+    lateinit var a: StartedMockNode
+    lateinit var b: StartedMockNode
+    lateinit var c: StartedMockNode
 
     @Before
     fun setup() {
-        val mockNetworkParameters = MockNetworkParameters(
-                cordappsForAllNodes = listOf(DUMMY_CONTRACTS_CORDAPP, enclosedCordapp()),
-                notarySpecs = listOf(
-                        MockNetworkNotarySpec(DUMMY_NOTARY_NAME),
-                        MockNetworkNotarySpec(DUMMY_BANK_A_NAME)
-                )
-        )
-        mockNet = MockNetwork(mockNetworkParameters)
-        notaryNode = mockNet.notaryNodes.first()
-        megaCorpNode = mockNet.createPartyNode(CordaX500Name("MegaCorp", "London", "GB"))
-        miniCorpNode = mockNet.createPartyNode(CordaX500Name("MiniCorp", "London", "GB"))
-        notary = notaryNode.info.singleIdentity()
-        megaCorp = megaCorpNode.info.singleIdentity()
-        miniCorp = miniCorpNode.info.singleIdentity()
-        newNotaryNode = mockNet.notaryNodes[1]
-        newNotary = mockNet.notaryNodes[1].info.singleIdentity()
+        mockNetwork = MockNetwork(listOf("net.corda.training"),
+                notarySpecs = listOf(MockNetworkNotarySpec(CordaX500Name("Notary","London","GB"))))
+        a = mockNetwork.createNode(MockNodeParameters())
+        b = mockNetwork.createNode(MockNodeParameters())
+        c = mockNetwork.createNode(MockNodeParameters())
+        val startedNodes = arrayListOf(a, b, c)
+        // For real nodes this happens automatically, but we have to manually register the flow for tests
+        startedNodes.forEach { it.registerInitiatedFlow(IOUIssueFlowResponder::class.java) }
+        startedNodes.forEach { it.registerInitiatedFlow(IOUTransferFlowResponder::class.java) }
+        mockNetwork.runNetwork()
     }
 
     @After
     fun tearDown() {
-        mockNet.stopNodes()
-        System.setProperty("net.corda.node.dbtransactionsresolver.InMemoryResolutionLimit", "0")
+        mockNetwork.stopNodes()
     }
 
 ```
+{{% /tab %}}
 
-[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/4.7/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)
+{{% tab name="java" %}}
+```java
+
+public class IOUTransferFlowTests {
+
+    private MockNetwork mockNetwork;
+    private StartedMockNode a, b, c;
+
+    @Before
+    public void setup() {
+        MockNetworkParameters mockNetworkParameters = new MockNetworkParameters().withCordappsForAllNodes(
+                Arrays.asList(
+                        TestCordapp.findCordapp("net.corda.samples.contracts")
+                )
+        ).withNotarySpecs(Arrays.asList(new MockNetworkNotarySpec(new CordaX500Name("Notary", "London", "GB"))));
+        mockNetwork = new MockNetwork(mockNetworkParameters);
+        System.out.println(mockNetwork);
+
+        a = mockNetwork.createNode(new MockNodeParameters());
+        b = mockNetwork.createNode(new MockNodeParameters());
+        c = mockNetwork.createNode(new MockNodeParameters());
+
+        ArrayList<StartedMockNode> startedNodes = new ArrayList<>();
+        startedNodes.add(a);
+        startedNodes.add(b);
+        startedNodes.add(c);
+
+        // For real nodes this happens automatically, but we have to manually register the flow for tests
+        startedNodes.forEach(el -> el.registerInitiatedFlow(IOUTransferFlow.Responder.class));
+        startedNodes.forEach(el -> el.registerInitiatedFlow(IOUIssueFlow.ResponderFlow.class));
+        mockNetwork.runNetwork();
+    }
+
+    @After
+    public void tearDown() {
+        mockNetwork.stopNodes();
+    }
+
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 We create a mock network in our `@Before` setup method and create a couple of nodes. We also record the identity
 of the notary in our test network, which will come in handy later. We also tidy up when we’re done.
@@ -84,77 +117,70 @@ of the notary in our test network, which will come in handy later. We also tidy 
 
 Next, we write a test case:
 
+{{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
-@Test(timeout=300_000)
- `resolve from two hashes`() {
-    val (stx1, stx2) = makeTransactions()
-    val p = TestFlow(setOf(stx2.id), megaCorp)
-    val future = miniCorpNode.startFlow(p)
-    mockNet.runNetwork()
-    future.getOrThrow()
-    miniCorpNode.transaction {
-        assertEquals(stx1, miniCorpNode.services.validatedTransactions.getTransaction(stx1.id))
-        assertEquals(stx2, miniCorpNode.services.validatedTransactions.getTransaction(stx2.id))
-    }
+
+@Test
+fun flowReturnsCorrectlyFormedPartiallySignedTransaction() {
+    val lender = a.info.chooseIdentityAndCert().party
+    val borrower = b.info.chooseIdentityAndCert().party
+    val stx = issueIou(IOUState(10.POUNDS, lender, borrower))
+    val inputIou = stx.tx.outputs.single().data as IOUState
+    val flow = IOUTransferFlow(inputIou.linearId, c.info.chooseIdentityAndCert().party)
+    val future = a.startFlow(flow)
+    mockNetwork.runNetwork()
+    val ptx = future.getOrThrow()
+    // Check the transaction is well formed...
+    // One output IOUState, one input state reference and a Transfer command with the right properties.
+    assert(ptx.tx.inputs.size == 1)
+    assert(ptx.tx.outputs.size == 1)
+    assert(ptx.tx.inputs.single() == StateRef(stx.id, 0))
+    println("Input state ref: ${ptx.tx.inputs.single()} == ${StateRef(stx.id, 0)}")
+    val outputIou = ptx.tx.outputs.single().data as IOUState
+    println("Output state: $outputIou")
+    val command = ptx.tx.commands.single()
+    assert(command.value == IOUContract.Commands.Transfer())
+    ptx.verifySignaturesExcept(b.info.chooseIdentityAndCert().party.owningKey, c.info.chooseIdentityAndCert().party.owningKey,
+            mockNetwork.defaultNotaryNode.info.legalIdentitiesAndCerts.first().owningKey)
 }
 
 ```
+{{% /tab %}}
 
-[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/4.7/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)
+{{% tab name="java" %}}
+```java
 
-We’ll take a look at the `makeTransactions` function in a moment. For now, it’s enough to know that it returns two
-`SignedTransaction` objects, the second of which spends the first. Both transactions are known by MegaCorpNode but
-not MiniCorpNode.
+@Test
+    public void flowReturnsCorrectlyFormedPartiallySignedTransaction() throws Exception {
+        Party lender = a.getInfo().getLegalIdentitiesAndCerts().get(0).getParty();
+        Party borrower = b.getInfo().getLegalIdentitiesAndCerts().get(0).getParty();
+        SignedTransaction stx = issueIOU(new IOUState(Currencies.DOLLARS(10), lender, borrower));
+        IOUState inputIou = (IOUState) stx.getTx().getOutputs().get(0).getData();
+        IOUTransferFlow.InitiatorFlow flow = new IOUTransferFlow.InitiatorFlow(inputIou.getLinearId(), c.getInfo().getLegalIdentities().get(0));
+        Future<SignedTransaction> future = a.startFlow(flow);
 
-The test logic is simple enough: we create the flow, giving it MegaCorpNode’s identity as the target to talk to.
-Then we start it on MiniCorpNode and use the `mockNet.runNetwork()` method to bounce messages around until things have
-settled (that is, there are no more messages waiting to be delivered). All this is done using an in memory message
-routing implementation that is fast to initialise and use. Finally, we obtain the result of the flow and do
-some tests on it. We also check the contents of MiniCorpNode’s database to see that the flow had the intended effect
-on the node’s persistent state.
+        mockNetwork.runNetwork();
 
-Here’s what `makeTransactions` looks like:
+        SignedTransaction ptx = future.get();
 
-```kotlin
-private fun makeTransactions(signFirstTX: Boolean = true, withAttachment: SecureHash? = null): Pair<SignedTransaction, SignedTransaction> {
-    // Make a chain of custody of dummy states and insert into node A.
-    val dummy1: SignedTransaction = DummyContract.generateInitial(0, notary, megaCorp.ref(1)).let {
-        if (withAttachment != null)
-            it.addAttachment(withAttachment)
-        when (signFirstTX) {
-            true -> {
-                val ptx = megaCorpNode.services.signInitialTransaction(it)
-                notaryNode.services.addSignature(ptx, notary.owningKey)
-            }
-            false -> {
-                notaryNode.services.signInitialTransaction(it, notary.owningKey)
-            }
-        }
+        // Check the transaction is well formed...
+        // One output IOUState, one input state reference and a Transfer command with the right properties.
+        assert (ptx.getTx().getInputs().size() == 1);
+        assert (ptx.getTx().getOutputs().size() == 1);
+        assert (ptx.getTx().getOutputs().get(0).getData() instanceof IOUState);
+        assert (ptx.getTx().getInputs().get(0).equals(new StateRef(stx.getId(), 0)));
+
+        IOUState outputIOU = (IOUState) ptx.getTx().getOutput(0);
+        Command command = ptx.getTx().getCommands().get(0);
+
+        assert (command.getValue().equals(new IOUContract.Commands.Transfer()));
+        ptx.verifySignaturesExcept(b.getInfo().getLegalIdentities().get(0).getOwningKey(), c.getInfo().getLegalIdentities().get(0).getOwningKey(), mockNetwork.getDefaultNotaryIdentity().getOwningKey());
     }
-    megaCorpNode.transaction {
-        megaCorpNode.services.recordTransactions(dummy1)
-    }
-    val dummy2: SignedTransaction = DummyContract.move(dummy1.tx.outRef(0), miniCorp).let {
-        val ptx = megaCorpNode.services.signInitialTransaction(it)
-        notaryNode.services.addSignature(ptx, notary.owningKey)
-    }
-    megaCorpNode.transaction {
-        megaCorpNode.services.recordTransactions(dummy2)
-    }
-    return Pair(dummy1, dummy2)
-}
 
 ```
+{{% /tab %}}
 
-[ResolveTransactionsFlowTest.kt](https://github.com/corda/corda/blob/release/os/4.7/core-tests/src/test/kotlin/net/corda/coretests/internal/ResolveTransactionsFlowTest.kt)
+{{< /tabs >}}
 
-We’re using the `DummyContract`, a simple test smart contract which stores a single number in its states, along
-with ownership and issuer information. You can issue such states, exit them, and re-assign ownership (move them).
-It doesn’t do anything else. This code simply creates a transaction that issues a dummy state (the issuer is
-`MEGA_CORP`, a pre-defined unit test identity), signs it with the test notary and MegaCorp keys, and then
-converts the builder to the final `SignedTransaction`. It then repeats these steps, but this time, instead of issuing
-it, re-assigns ownership instead. The chain of two transactions is finally committed to MegaCorpNode by sending them
-directly to the `megaCorpNode.services.recordTransaction` method (note that this method doesn’t check that the
-transactions are valid) inside a `database.transaction`. All node flows run within a database transaction in the
-nodes themselves, but any time you need to use the database directly from a unit test, you need to provide a database
-transaction as shown here.
+Writing a test is an intuitive process. You are essentially mimicking what the flow does, composing the transaction, and collecting required signatures. In our example above, we first create the state attributes and package them into a state. Then we start the flow with a mock node. For the verification process, we take the obtained signed transaction and assert the required fields of the transaction as well as that of the input/output states.

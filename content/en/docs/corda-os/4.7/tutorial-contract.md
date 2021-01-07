@@ -677,6 +677,20 @@ fun generateIssue(issuance: PartyAndReference, faceValue: Amount<Issued<Currency
 
 ```
 {{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+@JvmStatic
+    public static TransactionBuilder generateIssue(PartyAndReference issuance,Amount<Issued<Currency>> faceValue, Instant maturityDate, Party notary){
+        CommercialPaper.State state = new CommercialPaper.State(issuance, issuance.getParty(), faceValue, maturityDate);
+        TransactionBuilder txBuilder = new TransactionBuilder(notary).withItems(
+                new StateAndContract(state,CommercialPaper.CP_PROGRAM_ID),
+                new Command(new CommercialPaper.Commands.Issue(), issuance.getParty().getOwningKey()));
+        return txBuilder;
+    }
+
+```
+{{% /tab %}}
 {{< /tabs >}}
 
 You take a reference that points to the issuing party (that is, the caller) and which can contain any internal
@@ -697,7 +711,7 @@ The function we define creates a `CommercialPaper.State` object that mostly just
 but it fills out the owner field of the state to be the same public key as the issuing party.
 
 We then combine the `CommercialPaper.State` object with a reference to the `CommercialPaper` contract, which is
-defined inside the contract itself
+defined inside the contract itself.
 
 {{< tabs name="tabs-9" >}}
 {{% tab name="kotlin" %}}
@@ -755,6 +769,18 @@ fun generateMove(tx: TransactionBuilder, paper: StateAndRef<State>, newOwner: Ab
 ```
 {{% /tab %}}
 
+{{% tab name="java" %}}
+```java
+@JvmStatic
+    public static void generateMove(TransactionBuilder tx, StateAndRef<CommercialPaper.State> paper, AbstractParty newOwner){
+        tx.addInputState(paper);
+        tx.addOutputState(paper.getState().getData().withOwner(newOwner),CommercialPaper.CP_PROGRAM_ID);
+        tx.addCommand(new CommercialPaper.Commands.Move(), paper.getState().getData().getOwner().getOwningKey());
+    }
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 Here, the method takes a pre-existing `TransactionBuilder` and adds to it. This is correct because typically
@@ -788,6 +814,20 @@ fun generateRedeem(tx: TransactionBuilder, paper: StateAndRef<State>, services: 
     tx.addInputState(paper)
     tx.addCommand(Command(Commands.Redeem(), paper.state.data.owner.owningKey))
 }
+
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+@Throws(InsufficientBalanceException::class)
+    @JvmStatic
+    public static void generateRedeem(TransactionBuilder tx, StateAndRef<CommercialPaper.State> paper, ServiceHub services, PartyAndCertificate ourIdentity ){
+        // Add the cash movement using the states in our vault.
+        CashUtils.generateSpend(services, tx, paper.getState().getData().getFaceValue().withoutIssuer(), ourIdentity, paper.getState().getData().getOwner());
+        tx.addInputState(paper);
+        tx.addCommand(new CommercialPaper.Commands.Redeem(), paper.getState().getData().getOwner().getOwningKey());
+    }
 
 ```
 {{% /tab %}}
@@ -828,6 +868,7 @@ The `CollectSignaturesFlow` provides a generic implementation of this process th
 You can see how transactions flow through the different stages of construction by examining the commercial paper
 unit tests.
 
+The generation API can be used in either a contract or a flow, depending on the specific use cases. Implementing the generation API in the contracts allows each of the participants to have a copy of the API, whereas implementing it in the flows allows for more flexibility on who will get the API.
 
 ## Constructing and transmitting multi-party transactions
 
@@ -881,7 +922,9 @@ being consumed must have its encumbrance consumed in the same transaction, other
 
 The encumbrance reference is optional in the `ContractState` interface:
 
+{{< note >}}
 If you're using Java, you may want to add this jar to your gradle dependencies for this code example to compile.  
+{{< /note >}}
 
 ```
 cordaCompile "$corda_release_group:corda-finance-contracts:$corda_release_version"
@@ -890,55 +933,48 @@ cordaCompile "$corda_release_group:corda-finance-contracts:$corda_release_versio
 {{< tabs name="tabs-12" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-val encumbrance: Int? get() = null
+// Full cycle example with 4 elements 0 -> 1, 1 -> 2, 2 -> 3 and 3 -> 0
+// All 3 Cash states and the TimeLock are linked and should be consumed in the same transaction.
+// Note that all of the Cash states are encumbered both together and with time lock.
+ledgerServices.ledger(DUMMY_NOTARY) {
+  transaction {
+    attachments(Cash.PROGRAM_ID, TEST_TIMELOCK_ID)
+    input(Cash.PROGRAM_ID, extraCashState)
+    output(Cash.PROGRAM_ID, "state encumbered by state 1", encumbrance = 1, contractState = stateWithNewOwner)
+    output(Cash.PROGRAM_ID, "state encumbered by state 2", encumbrance = 2, contractState = stateWithNewOwner)
+    output(Cash.PROGRAM_ID, "state encumbered by state 3", encumbrance = 3, contractState = stateWithNewOwner)
+    output(TEST_TIMELOCK_ID, "5pm time-lock", 0, timeLock)
+    command(MEGA_CORP.owningKey, Cash.Commands.Move())
+    verifies()
+  }
+}
 ```
 {{% /tab %}}
 
 {{% tab name="java" %}}
 ```java
-@Nullable
-@Override
-public Integer getEncumbrance() {
+// Full cycle example with 4 elements 0 -> 1, 1 -> 2, 2 -> 3 and 3 -> 0
+// All 3 Cash states and the TimeLock are linked and should be consumed in the same transaction.
+// Note that all of the Cash states are encumbered both together and with time lock.
+ledger(ledgerServices, l -> {
+  l.transaction(tx -> {
+    tx.attachment(Cash.PROGRAM_ID, TEST_TIMELOCK_ID);
+    tx.input(Cash.PROGRAM_ID, extraCashState);
+    tx.output(Cash.PROGRAM_ID, "state encumbered by state 1", 1, stateWithNewOwner);
+    tx.output(Cash.PROGRAM_ID, "state encumbered by state 2", 2, stateWithNewOwner);
+    tx.output(Cash.PROGRAM_ID, "state encumbered by state 3", 3, stateWithNewOwner);
+    tx.output(TEST_TIMELOCK_ID, "5pm time-lock", 0, timeLock);
+    tx.command(MEGA_CORP.getOwningKey(), new Cash.Commands.Move());
+    tx.verifies();
     return null;
-}
+  });
+  return null;
+});
 ```
 {{% /tab %}}
 
 {{< /tabs >}}
 
-The time-lock contract mentioned above can be implemented very simply:
-
-{{< tabs name="tabs-13" >}}
-{{% tab name="kotlin" %}}
-```kotlin
-class TestTimeLock : Contract {
-    ...
-    override fun verify(tx: LedgerTransaction) {
-        val time = tx.timeWindow?.untilTime ?: throw IllegalStateException(...)
-        ...
-        requireThat {
-            "the time specified in the time-lock has passed" by
-                    (time >= tx.inputs.filterIsInstance<TestTimeLock.State>().single().validFrom)
-        }
-    }
-    ...
-}
-```
-{{% /tab %}}
-
-{{< /tabs >}}
-
-We can then set up an encumbered state:
-
-{{< tabs name="tabs-14" >}}
-{{% tab name="kotlin" %}}
-```kotlin
-val encumberedState = Cash.State(amount = 1000.DOLLARS `issued by` defaultIssuer, owner = DUMMY_PUBKEY_1, encumbrance = 1)
-val fourPmTimelock = TestTimeLock.State(Instant.parse("2015-04-17T16:00:00.00Z"))
-```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 When we construct a transaction that generates the encumbered state, we must place the encumbrance in the corresponding output
 position of that transaction. And when we subsequently consume that encumbered state, the same encumbrance state must be

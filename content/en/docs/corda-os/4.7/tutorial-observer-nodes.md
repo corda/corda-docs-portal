@@ -31,70 +31,163 @@ of digitally signed, de-duplicated reports useful for later processing.
 
 ## Adding support for observer nodes
 
-Adding support for observer nodes to your application is easy. The [IRS (interest rate swap) demo](https://github.com/corda/corda/blob/release/os/4.7/samples/irs-demo/cordapp/contracts-irs/src/main/kotlin/net/corda/irs/contract/IRS.kt) shows to do it.
-
-Just define a new flow that wraps the `SendTransactionFlow/ReceiveTransactionFlow`, as follows:
+Adding support for observer nodes to your application is easy. The Trade reporting demo ([Kotlin](https://github.com/corda/samples-kotlin/tree/master/Features/observableStates-tradereporting), [Java](https://github.com/corda/samples-java/tree/master/Features/observablestates-tradereporting)) shows how to do so.
 
 {{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+{{< tab name="kotlin" >}}
 ```kotlin
-    @InitiatedBy(Requester::class)
-    class AutoOfferAcceptor(otherSideSession: FlowSession) : Acceptor(otherSideSession) {
-        @Suspendable
-        override fun call(): SignedTransaction {
-            val finalTx = super.call()
-            // Our transaction is now committed to the ledger, so report it to our regulator. We use a custom flow
-            // that wraps SendTransactionFlow to allow the receiver to customise how ReceiveTransactionFlow is run,
-            // and because in a real life app you'd probably have more complex logic here e.g. describing why the report
-            // was filed, checking that the reportee is a regulated entity and not some random node from the wrong
-            // country and so on.
-            val regulator = serviceHub.identityService.partiesFromName("Regulator", true).single()
-            subFlow(ReportToRegulatorFlow(regulator, finalTx))
-            return finalTx
-        }
-    }
+@InitiatingFlow
+@StartableByRPC
+class TradeAndReport(val buyer: Party, val stateRegulator: Party, val nationalRegulator: Party) : FlowLogic<Unit>() {
+    override val progressTracker = ProgressTracker()
 
-    @InitiatingFlow
-    class ReportToRegulatorFlow(private val regulator: Party, private val finalTx: SignedTransaction) : FlowLogic<Unit>() {
-        @Suspendable
-        override fun call() {
-            val session = initiateFlow(regulator)
-            subFlow(SendTransactionFlow(session, finalTx))
-        }
-    }
+    @Suspendable
+    override fun call() {
+        // Obtain a reference from a notary we wish to use.
+        /**
+         *  METHOD 1: Take first notary on network, WARNING: use for test, non-prod environments, and single-notary networks only!*
+         *  METHOD 2: Explicit selection of notary by CordaX500Name - argument can by coded in flow or parsed from config (Preferred)
+         *
+         *  * - For production you always want to use Method 2 as it guarantees the expected notary is returned.
+         */
+        val notary = serviceHub.networkMapCache.notaryIdentities.single() // METHOD 1
+        // val notary = serviceHub.networkMapCache.getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB")) // METHOD 2
 
-    @InitiatedBy(ReportToRegulatorFlow::class)
-    class ReceiveRegulatoryReportFlow(private val otherSideSession: FlowSession) : FlowLogic<Unit>() {
-        @Suspendable
-        override fun call() {
-            // Start the matching side of SendTransactionFlow above, but tell it to record all visible states even
-            // though they (as far as the node can tell) are nothing to do with us.
-            subFlow(ReceiveTransactionFlow(otherSideSession, true, StatesToRecord.ALL_VISIBLE))
-        }
-    }
+        val transactionBuilder = TransactionBuilder(notary)
+                .addOutputState(HighlyRegulatedState(buyer, ourIdentity), HighlyRegulatedContract.ID)
+                .addCommand(HighlyRegulatedContract.Commands.Trade(), ourIdentity.owningKey)
 
+        val signedTransaction = serviceHub.signInitialTransaction(transactionBuilder)
+
+        val sessions = listOf(initiateFlow(buyer), initiateFlow(stateRegulator))
+        // We distribute the transaction to both the buyer and the state regulator using `FinalityFlow`.
+        subFlow(FinalityFlow(signedTransaction, sessions))
+
+        // We also distribute the transaction to the national regulator manually.
+        subFlow(ReportManually(signedTransaction, nationalRegulator))
+    }
+}
+
+@InitiatingFlow
+class ReportManually(val signedTransaction: SignedTransaction, val regulator: Party) : FlowLogic<Unit>() {
+    override val progressTracker = ProgressTracker()
+
+    @Suspendable
+    override fun call() {
+        val session = initiateFlow(regulator)
+        session.send(signedTransaction)
+    }
+}
+
+@InitiatedBy(ReportManually::class)
+class ReportManuallyResponder(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
+    @Suspendable
+    override fun call() {
+        val signedTransaction = counterpartySession.receive<SignedTransaction>().unwrap { it }
+        // The national regulator records all of the transaction's states using
+        // `recordTransactions` with the `ALL_VISIBLE` flag.
+        serviceHub.recordTransactions(StatesToRecord.ALL_VISIBLE, listOf(signedTransaction))
+    }
+}
 ```
-{{% /tab %}}
+{{< /tab >}}
+
+
+{{< tab name="java" >}}
+```java
+@InitiatingFlow
+@StartableByRPC
+public class TradeAndReport extends FlowLogic<Void> {
+
+    private final Party buyer;
+    private final Party stateRegulator;
+    private final Party nationalRegulator;
+
+    public TradeAndReport(Party buyer, Party stateRegulator, Party nationalRegulator) {
+        this.buyer = buyer;
+        this.stateRegulator = stateRegulator;
+        this.nationalRegulator = nationalRegulator;
+    }
+
+    @Suspendable
+    @Override
+    public Void call() throws FlowException {
+
+        // Obtain a reference to a notary we wish to use.
+        /** METHOD 1: Take first notary on network, WARNING: use for test, non-prod environments, and single-notary networks only!*
+         *  METHOD 2: Explicit selection of notary by CordaX500Name - argument can by coded in flow or parsed from config (Preferred)
+         *
+         *  * - For production you always want to use Method 2 as it guarantees the expected notary is returned.
+         */
+        final Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0); // METHOD 1
+        // final Party notary = getServiceHub().getNetworkMapCache().getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB")); // METHOD 2
+
+        HighlyRegulatedState outputState = new HighlyRegulatedState(buyer, getOurIdentity());
+
+        TransactionBuilder transactionBuilder = new TransactionBuilder(notary)
+                .addOutputState(outputState, HighlyRegulatedContract.ID)
+                .addCommand(new HighlyRegulatedContract.Commands.Trade(), getOurIdentity().getOwningKey());
+
+        SignedTransaction signedTransaction = getServiceHub().signInitialTransaction(transactionBuilder);
+
+        List<FlowSession> sessions = ImmutableList.of(initiateFlow(buyer), initiateFlow(stateRegulator));
+        // We distribute the transaction to both the buyer and the state regulator using `FinalityFlow`.
+        subFlow(new FinalityFlow(signedTransaction, sessions));
+
+        // We also distribute the transaction to the national regulator manually.
+        subFlow(new ReportManually(signedTransaction, nationalRegulator));
+
+        return null;
+    }
+}
+
+@InitiatingFlow
+public class ReportManually extends FlowLogic<Void> {
+    private final ProgressTracker progressTracker = new ProgressTracker();
+    private final SignedTransaction signedTransaction;
+    private final Party regulator;
+
+    public ReportManually(SignedTransaction signedTransaction, Party regulator) {
+        this.signedTransaction = signedTransaction;
+        this.regulator = regulator;
+    }
+
+    @Override
+    public ProgressTracker getProgressTracker() {
+        return progressTracker;
+    }
+
+    @Suspendable
+    @Override
+    public Void call() throws FlowException {
+        FlowSession session = initiateFlow(regulator);
+        session.send(signedTransaction);
+        return null;
+    }
+}
+
+@InitiatedBy(ReportManually.class)
+public class ReportManuallyResponder extends FlowLogic<Void> {
+    private final FlowSession counterpartySession;
+
+    public ReportManuallyResponder(FlowSession counterpartySession) {
+        this.counterpartySession = counterpartySession;
+    }
+
+    @Suspendable
+    @Override
+    public Void call() throws FlowException {
+        SignedTransaction signedTransaction = counterpartySession.receive(SignedTransaction.class).unwrap(it -> it);
+        // The national regulator records all of the transaction's states using
+        // `recordTransactions` with the `ALL_VISIBLE` flag.
+        getServiceHub().recordTransactions(StatesToRecord.ALL_VISIBLE, ImmutableList.of(signedTransaction));
+        return null;
+    }
+}
+```
+{{< /tab >}}
 
 {{< /tabs >}}
-
-
-[AutoOfferFlow.kt](https://github.com/corda/corda/blob/release/os/4.7/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/AutoOfferFlow.kt)
-
-In this example, the `AutoOfferFlow` is the business logic, and we define two very short and simple flows to send
-the transaction to the regulator. There are two important aspects to note here:
-
-
-* The `ReportToRegulatorFlow` is marked as an `@InitiatingFlow` because it will start a new conversation, context
-free, with the regulator.
-* The `ReceiveRegulatoryReportFlow` uses `ReceiveTransactionFlow` in a special way - it tells it to send the
-transaction to the vault for processing, including all states even if not involving our public keys. This is required
-because otherwise the vault will ignore states that don’t list any of the node’s public keys, but in this case,
-we do want to passively observe states we can’t change. So overriding this behaviour is required.
-
-If the states define a relational mapping (see [API: Persistence](api-persistence.md)) then the regulator will be able to query the
-reports from their database and observe new transactions coming in via RPC.
-
 
 ## How observer nodes operate
 

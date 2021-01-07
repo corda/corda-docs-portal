@@ -79,29 +79,35 @@ encounter but which aren’t related to yourself will not have any activities sc
 
 ## Example
 
-Let’s take the example of fixing an interest rate swap. The first task is to implement the
+Let’s take the example of heartbeat sample in our `samples` repositories ([Kotlin](https://github.com/corda/samples-kotlin/tree/master/Features/schedulableState-heartbeat), [Java](https://github.com/corda/samples-java/tree/master/Features/schedulablestate-heartbeat)). The first task is to implement the
 `nextScheduledActivity` method on the `State`.
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-override fun nextScheduledActivity(thisStateRef: StateRef, flowLogicRefFactory: FlowLogicRefFactory): ScheduledActivity? {
-    val nextFixingOf = nextFixingOf() ?: return null
+// Defines the scheduled activity to be conducted by the SchedulableState.
+    override fun nextScheduledActivity(thisStateRef: StateRef, flowLogicRefFactory: FlowLogicRefFactory): ScheduledActivity? {
+        // A heartbeat will be emitted every second. We get the time when the scheduled activity will occur in the constructor rather than in this method. This is
+        // because calling Instant.now() in nextScheduledActivity returns the time at which the function is called, rather than the time at which the state was created.
+        return ScheduledActivity(flowLogicRefFactory.create("com.heartbeat.flows.HeartbeatFlow", thisStateRef), nextActivityTime)
+    }
 
-    // This is perhaps not how we should determine the time point in the business day, but instead expect the schedule to detail some of these aspects
-    val instant = suggestInterestRateAnnouncementTimeWindow(index = nextFixingOf.name, source = floatingLeg.indexSource, date = nextFixingOf.forDay).fromTime!!
-    return ScheduledActivity(flowLogicRefFactory.create("net.corda.irs.flows.FixingFlow\$FixingRoleDecider", thisStateRef), instant)
-}
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+// Defines the scheduled activity to be conducted by the SchedulableState.
+    @Nullable
+    @Override
+    public ScheduledActivity nextScheduledActivity(@NotNull StateRef thisStateRef, @NotNull FlowLogicRefFactory flowLogicRefFactory) {
+        // A heartbeat will be emitted every second.
+        // We get the time when the scheduled activity will occur in the constructor rather than in this method. This is
+        // because calling Instant.now() in nextScheduledActivity returns the time at which the function is called, rather
+        // than the time at which the state was created.
+        return new ScheduledActivity(flowLogicRefFactory.create("net.corda.samples.heartbeat.flows.HeartbeatFlow", thisStateRef), nextActivityTime);
+    }
 
 ```
 {{% /tab %}}
 {{< /tabs >}}
-
-[IRS.kt](https://github.com/corda/corda/blob/release/os/4.7/samples/irs-demo/cordapp/contracts-irs/src/main/kotlin/net/corda/irs/contract/IRS.kt)
-
-The first thing this does is establish if there are any remaining fixings. If there are none, then it returns `null`
-to indicate that there is no activity to schedule. Otherwise, it calculates the `Instant` at which the interest rate
-should become available and schedules an activity at that time to work out what roles each node will take in the fixing
-business process and to take on those roles. That `FlowLogic` will be handed the `StateRef` for the interest
-rate swap `State` in question, as well as a tolerance `Duration` of how long to wait after the activity is triggered
-for the interest rate before indicating an error.
