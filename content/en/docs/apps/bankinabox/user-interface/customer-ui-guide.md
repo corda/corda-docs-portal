@@ -1,7 +1,7 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  bankinabox:
+  apps:
     parent: bank-in-a-box-user-interface
     identifier: bank-in-a-box-customer-ui
 tags:

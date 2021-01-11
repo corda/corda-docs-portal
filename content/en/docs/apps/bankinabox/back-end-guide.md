@@ -1,7 +1,8 @@
 ---
 date: '2020-01-08T09:59:25Z'
 menu:
-  bankinabox:
+  apps:
+    parent: "bankinabox"
     identifier: bank-in-a-box-back-end-guide
 tags:
 - Bank in a Box

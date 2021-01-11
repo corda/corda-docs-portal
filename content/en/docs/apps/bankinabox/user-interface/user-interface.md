@@ -3,7 +3,8 @@ aliases:
 - /docs/apps/bankinabox/user-interface/index.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  bankinabox:
+  apps:
+    parent: "bankinabox"
     identifier: bank-in-a-box-user-interface
 tags:
 - Bank in a Box

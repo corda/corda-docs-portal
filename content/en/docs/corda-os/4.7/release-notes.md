@@ -47,6 +47,15 @@ For more information, see the [Interacting with a node](clientrpc.md) documentat
 
 ### Featured apps
 
+#### Corda Payments Alpha
+
+[Corda Payments Alpha](../../apps/payments/payments-index.md) is a first glimpse at a new set of Apps that allows you to create your own payment solution in Corda.
+
+In this early release version, you can:
+
+- Experiment with making payments across a Corda network, and to parties outside of the network.
+- Trial a live payments solution using Modulr as the Payment Service Provider. 
+
 #### Reference app: Bank in a Box
 
 [Bank in a Box](../../apps/bankinabox/_index.md) is a new, production-ready [CorDapp](cordapp-overview.md) that includes accounts, transactions, and other features typical of a retail banking application.

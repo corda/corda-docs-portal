@@ -1,15 +1,14 @@
 ---
-aliases:
-- /docs/apps/bankinabox/head/index.html
-- /docs/apps/bankinabox/index.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  versions:
-    weight: -260
-project: bankinabox
-section_menu: bankinabox
+  apps:
+    identifier: bankinabox
+    name: Bank in a Box
+tags:
+- Bank in a Box
+- API
 title: Bank in a Box
-version: 'bankinabox'
+weight: 100
 ---
 
 # Bank in a Box
