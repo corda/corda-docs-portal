@@ -24,12 +24,12 @@ Frequently asked questions for anything notary related:
 
 
 
-* [ETA Mechanism Overview](eta-mechanism.md)
-    * [What is the ETA mechanism?](eta-mechanism.md#what-is-the-eta-mechanism)
-    * [How is the ETA calculated?](eta-mechanism.md#how-is-the-eta-calculated)
-    * [Why is there an ETA mechanism?](eta-mechanism.md#why-is-there-an-eta-mechanism)
+* [Backpressure Mechanism Overview](eta-mechanism.md)
+    * [What is the backpressure mechanism?](eta-mechanism.md#what-is-the-eta-mechanism)
+    * [How is the backpressure calculated?](eta-mechanism.md#how-is-the-eta-calculated)
+    * [Why is there a backpressure mechanism?](eta-mechanism.md#why-is-there-an-eta-mechanism)
     * [What happens if I just invoke FinalityFlow again after getting told to wait?](eta-mechanism.md#what-happens-if-i-just-invoke-finalityflow-again-after-getting-told-to-wait)
-    * [How can I configure ETA threshold?](eta-mechanism.md#how-can-i-configure-eta-threshold)
+    * [How can I configure backpressure threshold?](eta-mechanism.md#how-can-i-configure-eta-threshold)
 
 
 * [Notary Load Balancing](notary-load-balancing.md)

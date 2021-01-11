@@ -80,10 +80,10 @@ share the same legal identity in turn registering multiple IP addresses under it
 
 {{< note >}}
 In very extreme cases, where a plethora of nodes are powered up and all send requests for notarisation
-at the same time the ETA mechanism might be triggered on only one worker.
+at the same time the backpressure mechanism might be triggered on only one worker.
 {{< /note >}}
 
-The notary might provide back pressure to the client node, namely the ETA mechanism, which assumes equal load on all HA workers
+The notary might provide back pressure to the client node, namely the backpressure mechanism, which assumes equal load on all HA workers
 and in turn forcing the node to wait for some time before retrying the flow.
 
 A case might occur where the same transaction is submitted multiple times, which in turn should yield

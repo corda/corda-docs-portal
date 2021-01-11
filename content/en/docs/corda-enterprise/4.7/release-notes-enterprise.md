@@ -27,7 +27,7 @@ States and apps valid in Corda 3.0 and above are usable in Corda 4.7.
 The main new features and enhancements in Corda Enterprise 4.7 are listed below:
 
 * [Archiving Service](#archiving-service).
-* [Improved notary back pressure (ETA) mechanism](#improved-notary-back-pressure-eta-mechanism).
+* [Improved notary backpressure (ETA) mechanism](#improved-notary-back-pressure-eta-mechanism).
 * [New management consoles for node management and flow management](#new-management-consoles-for-node-management-and-flow-management).
 * [Certificate rotation](#certificate-rotation).
 * [Single sign-on for Azure AD](#other-changes-and-improvements).
@@ -60,16 +60,16 @@ Some features of the Archiving Service:
 
 See the [Archiving Service documentation section](node/archiving/archiving-setup.md) for more information.
 
-### Improved notary back pressure (ETA) mechanism
+### Improved notary backpressure (ETA) mechanism
 
-To optimise the way notaries handle traffic, we have updated the notary back pressure mechanism (also referred to as [ETA mechanism](notary/faq/eta-mechanism.md#what-is-the-eta-mechanism)) to improve notary performance when there is a sudden increase in notarisation requests. This change increases the accuracy of transaction retry estimates that the notary provides to the node.
+To optimise the way notaries handle traffic, we have updated the notary backpressure mechanism (also referred to as [backpressure mechanism](notary/faq/eta-mechanism.md#what-is-the-eta-mechanism)) to improve notary performance when there is a sudden increase in notarisation requests. This change increases the accuracy of transaction retry estimates that the notary provides to the node.
 
-As a result, the notary back pressure mechanism is now [more precise and responsive](notary/notary-load-handling.md) under "heavy traffic conditions", which leads to fewer node retries, optimised performance, and a better end-user experience for node operators.
+As a result, the notary backpressure mechanism is now [more precise and responsive](notary/notary-load-handling.md) under "heavy traffic conditions", which leads to fewer node retries, optimised performance, and a better end-user experience for node operators.
 
 {{< note >}}
-What is the notary back pressure / ETA mechanism?
+What is the notary backpressure mechanism?
 
-By design, a notary can operate normally under extremely high loads of traffic. The notary back pressure mechanism makes this possible through handling the notarisation requests queue and ensuring that any node retries that happen due to a timeout (usually during periods of high traffic) are a function of the notary's capacity. This mechanism ensures that nodes are guaranteed the time and capacity for notarisation requests and retries when needed. It also preserves the notary's level of efficiency by preventing the notarisation request queue from being artificially increased due to unnecessary node retries.
+By design, a notary can operate normally under extremely high loads of traffic. The notary backpressure mechanism makes this possible through handling the notarisation requests queue and ensuring that any node retries that happen due to a timeout (usually during periods of high traffic) are a function of the notary's capacity. This mechanism ensures that nodes are guaranteed the time and capacity for notarisation requests and retries when needed. It also preserves the notary's level of efficiency by preventing the notarisation request queue from being artificially increased due to unnecessary node retries.
 {{< /note >}}
 
 ### New management consoles for node management and flow management
