@@ -12,9 +12,9 @@ title: Payments Alpha
 weight: 200
 ---
 
-# Payments and Modulr payment rail
+# Corda Payments Alpha
 
-Corda Payments, including payments on the Modulr payment rail, is an early release feature that allows you to create theoretical and experimental payment solutions in Corda - connecting to real Payment Service Providers (PSPs).
+Corda Payments Alpha is an early release feature that allows you to create experimental payment solutions in Corda. With the Modulr Payment Rail, you can use Corda Payments to connect to a live Payment Service Provider (PSPs).
 
 There are two main CorDapps in this version of Corda Payments:
 
