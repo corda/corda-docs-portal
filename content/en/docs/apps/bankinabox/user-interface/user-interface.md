@@ -19,4 +19,4 @@ The user interface on Bank in a Box provides an easy to use solution based on [R
 
 * [Admin user interface](admin-ui-guide.md)
 * [Customer and guest user interface](customer-ui-guide.md)
-* [How to guide](how-to.md)
+* [How-to guide](how-to.md)

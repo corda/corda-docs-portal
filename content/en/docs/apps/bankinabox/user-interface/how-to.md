@@ -7,11 +7,11 @@ menu:
 tags:
 - Bank in a Box
 - UI
-title: How to guide
+title: How-to guide
 weight: 300
 ---
 
-# How to guide
+# How-to guide
 
 When using the Bank in a Box application, you will be able to perform different tasks depending on your user role.
 
