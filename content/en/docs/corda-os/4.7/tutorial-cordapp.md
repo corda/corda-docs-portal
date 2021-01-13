@@ -96,137 +96,209 @@ To open the sample CorDapp in the IntelliJ IDEA:
 
 The `cordapp-example` folder is structured as follows:
 
+{{< tabs name="tabs-2" >}}
+{{% tab name="java" %}}
 
 ```none
 .
-
+├── LICENCE
+├── README.md
+├── TRADEMARK
+├── build.gradle
 ├── clients
 │   ├── build.gradle
 │   └── src
 │       └── main
-│           ├── java
-│           │   └── com
-│           │       └── example
-│           │           └── server
-│           │               ├── CONSTANTS.java
-│           │               ├── MainController.java
-│           │               ├── NodeRPCConnection.java
-│           │               └── Server.java
-│           │  
+│           ├── java
+│           │   └── net
+│           │       └── corda
+│           │           └── samples
+│           │               └── example
+│           │                   ├── Client.java
+│           │                   └── webserver
+│           │                       ├── Controller.java
+│           │                       ├── NodeRPCConnection.java
+│           │                       └── Starter.java
 │           └── resources
-│               ├── application.properties
-│               └── public
-│                   ├── index.html
-│                   └── js
-│                       └── angular-module.js
+│               └── static
+│                   ├── app.js
+│                   └── index.html
 ├── config
 │   ├── dev
-│      └── log4j2.xml
-│  
-│  
-├── contracts-java
+│   │   └── log4j2.xml
+│   └── test
+│       └── log4j2.xml
+├── contracts
 │   ├── build.gradle
 │   └── src
-│       └── main
+│       ├── main
+│       │   └── java
+│       │       └── net
+│       │           └── corda
+│       │               └── samples
+│       │                   └── example
+│       │                       ├── contracts
+│       │                       │   └── IOUContract.java
+│       │                       ├── schema
+│       │                       │   ├── IOUSchema.java
+│       │                       │   └── IOUSchemaV1.java
+│       │                       └── states
+│       │                           └── IOUState.java
+│       └── test
 │           └── java
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract.java
-│                       ├── schema
-│                       │   ├── IOUSchema.java
-│                       │   └── IOUSchemaV1.java
-│                       └── state
-│                           └── IOUState.java
-├── contracts-kotlin
-│   ├── build.gradle
-│   └── src
-│       └── main
-│           └── kotlin
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract
-│                       ├── schema
-│                       │   └── IOUSchema.kt
-│                       └── state
-│                           └── IOUState
+│               └── net
+│                   └── corda
+│                       └── samples
+│                           └── example
+│                               └── contracts
+│                                   ├── ContractTests.java
+│                                   └── StateTests.java
 ├── gradle
 │   └── wrapper
 │       ├── gradle-wrapper.jar
 │       └── gradle-wrapper.properties
-│ 
-├── lib
-│   ├── README.txt
-│   └── quasar.jar
-│ 
-├── workflows-java
-│   ├── build.gradle
-│   └── src
-│       ├── integrationTest
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── DriverBasedTests.java
-│       ├── main
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── flow
-│       │                   └── ExampleFlow.java
-│       └── test
-│           └── java
-│               └── com
-│                   └── example
-│                       ├── NodeDriver.java
-│                       ├── contract
-│                       │   └── IOUContractTests.java
-│                       └── flow
-│                           └── IOUFlowTests.java
-├──  workflows-kotlin
-│    ├── build.gradle
-│    └── src
-│        ├── integrationTest
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── DriverBasedTests.kt
-│        ├── main
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── flow
-│        │                   └── ExampleFlow.kt
-│        └── test
-│            └── kotlin
-│                └── com
-│                    └── example
-│                        ├── NodeDriver.kt
-│                        ├── contract
-│                        │   └── IOUContractTests.kt
-│                        └── flow
-│                            └── IOUFlowTests.kt
-├── build.gradle
 ├── gradle.properties
 ├── gradlew
 ├── gradlew.bat
-├── LICENCE
-├── README.md
 ├── repositories.gradle
 ├── settings.gradle
-└── TRADEMARK
-
+└── workflows
+    ├── build.gradle
+    └── src
+        ├── integrationTest
+        │   └── java
+        │       └── net
+        │           └── corda
+        │               └── samples
+        │                   └── example
+        │                       └── DriverBasedTest.java
+        ├── main
+        │   ├── java
+        │   │   └── net
+        │   │       └── corda
+        │   │           └── samples
+        │   │               └── example
+        │   │                   └── flows
+        │   │                       └── ExampleFlow.java
+        │   └── resources
+        │       └── migration
+        │           ├── iou.changelog-master.xml
+        │           └── iou.changelog-v1.xml
+        └── test
+            └── java
+                └── net
+                    └── corda
+                        └── samples
+                            └── example
+                                └── FlowTests.java
 ```
+{{% /tab %}}
+
+{{% tab name="kotlin" %}}
+```none
+.
+├── LICENCE
+├── README.md
+├── TRADEMARK
+├── build.gradle
+├── clients
+│   ├── build.gradle
+│   └── src
+│       └── main
+│           ├── kotlin
+│           │   └── net
+│           │       └── corda
+│           │           └── samples
+│           │               └── example
+│           │                   ├── Client.kt
+│           │                   └── webserver
+│           │                       ├── Controller.kt
+│           │                       ├── NodeRPCConnection.kt
+│           │                       └── Server.kt
+│           └── resources
+│               └── static
+│                   ├── app.js
+│                   └── index.html
+├── config
+│   ├── dev
+│   │   └── log4j2.xml
+│   └── test
+│       └── log4j2.xml
+├── constants.properties
+├── contracts
+│   ├── build.gradle
+│   └── src
+│       ├── main
+│       │   └── kotlin
+│       │       └── net
+│       │           └── corda
+│       │               └── samples
+│       │                   └── example
+│       │                       ├── contracts
+│       │                       │   └── IOUContract.kt
+│       │                       ├── schema
+│       │                       │   └── IOUSchema.kt
+│       │                       └── states
+│       │                           └── IOUState.kt
+│       └── test
+│           └── kotlin
+│               └── net
+│                   └── corda
+│                       └── samples
+│                           └── example
+│                               └── contracts
+│                                   ├── ContractTests.kt
+│                                   └── StateTests.kt
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── repositories.gradle
+├── settings.gradle
+└── workflows
+    ├── build.gradle
+    └── src
+        ├── integrationTest
+        │   └── kotlin
+        │       └── net
+        │           └── corda
+        │               └── samples
+        │                   └── example
+        │                       └── DriverBasedTest.kt
+        ├── main
+        │   ├── kotlin
+        │   │   └── net
+        │   │       └── corda
+        │   │           └── samples
+        │   │               └── example
+        │   │                   └── flows
+        │   │                       └── ExampleFlow.kt
+        │   └── resources
+        │       └── migration
+        │           ├── iou.changelog-master.xml
+        │           └── iou.changelog-v1.xml
+        └── test
+            └── kotlin
+                └── net
+                    └── corda
+                        └── samples
+                            └── example
+                                └── FlowTests.kt
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 The key files and directories are as follows:
 
 * The **root directory** contains some gradle files, a README, a LICENSE and a TRADEMARK statement
 * **clients** contains the source code for Spring Boot integration
 * **config** contains the log4j2 configuration
-* **contracts-java** and **workflows-java** contain the source code for the sample CorDapp written in Java
-* **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin
+* **contracts** and **workflows** contain the source code for the sample CorDapp written in Java
 * **gradle** contains the gradle wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required
-* **lib** contains the Quasar jar, which rewrites our CorDapp’s flows to be checkpointable
 
 
 ## Starting the sample CorDapp
