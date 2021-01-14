@@ -4,6 +4,8 @@ menu:
   apps:
     identifier: bankinabox
     name: Bank in a Box
+aliases:
+- /docs/apps/bankinabox.html
 tags:
 - Bank in a Box
 - API
