@@ -455,24 +455,822 @@ certificates = {
 {{< note >}}
 HSM keys used by the Signing Service require an accompanying certificate store that contains all certificates in
 the chain, from the signing entity back to the root. This is because the full chains cannot be stored within the
-HSMs. Refer to the signing-service documentation for more information.
+HSMs. Refer to the [Signing Service](../../cenm/1.4/signing-service.md) documentation for more information.
 
 {{< /note >}}
 
 #### Full Configuration (using Local key stores)
 
+```docker
+keyStores = {
+    "identity-manager-key-store" = {
+        type = LOCAL
+        file = "./key-stores/identity-manager-key-store.jks"
+        password = "key-password"
+    }
+    "network-map-key-store" = {
+        type = LOCAL
+        file = "./key-stores/network-map-key-store.jks"
+        password = "key-password"
+    }
+    "network-parameters-key-store" = {
+        type = LOCAL
+        file = "./key-stores/network-parameters-key-store.jks"
+        password = "key-password"
+    }
+    "subordinate-key-store" = {
+        type = LOCAL
+        file = "./key-stores/subordinate-key-store.jks"
+        password = "key-password"
+    }
+    "root-key-store" = {
+        type = LOCAL
+        file = "./key-stores/root-key-store.jks"
+        password = "key-password"
+    }
+    "tls-crl-signer-key-store" = {
+        type = LOCAL
+        file = "./key-stores/tls-crl-signer-key-store.jks"
+        password = "key-password"
+    }
+    "corda-ssl-auth-keys" = {
+         type = LOCAL
+         file = "./key-stores/ssl-auth-key-store.jks"
+         password = "password"
+    }
+    "corda-ssl-gateway-keys" = {
+         type = LOCAL
+         file = "./key-stores/corda-ssl-gateway-keys.jks"
+         password = "key-password"
+    }
+    "corda-ssl-gateway-private-keys" = {
+         type = LOCAL
+         file = "./key-stores/corda-ssl-gateway-private-keys.jks"
+         password = "key-password"
+    }
+    "corda-ssl-identity-manager-keys" = {
+        type = LOCAL
+        file = "./key-stores/ssl-identity-manager-key-store.jks"
+        password = "key-password"
+    }
+    "corda-ssl-network-map-keys" = {
+        type = LOCAL
+        file = "./key-stores/ssl-network-map-key-store.jks"
+        password = "key-password"
+    }
+    "corda-ssl-root-keys" = {
+        type = LOCAL
+        file = "./key-stores/ssl-root-key-store.jks"
+        password = "key-password"
+    }
+    "corda-ssl-signer-keys" = {
+        type = LOCAL
+        file = "./key-stores/ssl-signer-key-store.jks"
+        password = "key-password"
+    }
+    "corda-ssl-zone-keys" = {
+        type = LOCAL
+        file = "./key-stores/corda-ssl-zone-keys.jks"
+        password = "key-password"
+    }
+}
+certificatesStores = {
+    "network-root-trust-store" = {
+        file = "./trust-stores/network-root-truststore.jks"
+        password = "trust-store-password"
+    }
+    "corda-ssl-trust-store" = {
+        file = "./trust-stores/corda-ssl-trust-store.jks"
+        password = "trust-store-password"
+    }
+}
+certificates = {
+    "cordatlscrlsigner" = {
+        key = {
+            type = LOCAL
+            includeIn = ["tls-crl-signer-key-store"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = true
+        keyUsages = [CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        issuesCertificates = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-root-trust-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            indirectIssuer = true
+            issuer = "CN=Corda TLS Signer Certificate, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US"
+            file = "./crl-files/tls.crl"
+        }
+    },
+    "cordarootca" = {
+        key = {
+            type = LOCAL
+            includeIn = ["root-key-store"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = true
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        issuesCertificates = true
+        subject = "CN=Test Root CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-root-trust-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasslrootca" = {
+        key = {
+            type = LOCAL
+            includeIn = ["corda-ssl-root-keys"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = true
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        issuesCertificates = true
+        subject = "CN=Test SSL Root CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["corda-ssl-trust-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/sslroot"
+            file = "./crl-files/sslroot.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        key = {
+            type = LOCAL
+            includeIn = ["subordinate-key-store"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = false
+        signedBy = "cordarootca"
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        issuesCertificates = true
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        key = {
+            type = LOCAL
+            includeIn = ["identity-manager-key-store"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = false
+        signedBy = "cordasubordinateca"
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        role = DOORMAN_CA
+        issuesCertificates = true
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+    },
+    "cordanetworkmap" = {
+        key = {
+            type = LOCAL
+            includeIn = ["network-map-key-store"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = false
+        signedBy = "cordasubordinateca"
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        role = NETWORK_MAP
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+    },
+    "cordanetworkparameters" = {
+        key = {
+            type = LOCAL
+            includeIn = ["network-parameters-key-store"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = false
+        signedBy = "cordasubordinateca"
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        role = NETWORK_MAP
+        issuesCertificates = false
+        subject = "CN=Test Network Parameters Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+    },
+    "cordasslidentitymanager" = {
+        key = {
+            type = LOCAL
+            includeIn = ["corda-ssl-identity-manager-keys"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = false
+        signedBy = "cordasslrootca"
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        issuesCertificates = false
+        subject = "CN=Test Identity Manager SSL Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["corda-ssl-trust-store"]
+    },
+    "cordasslnetworkmap" = {
+        key = {
+            type = LOCAL
+            includeIn = ["corda-ssl-network-map-keys"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "password"
+        }
+        isSelfSigned = false
+        signedBy = "cordasslrootca"
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        issuesCertificates = false
+        subject = "CN=Test Network Map SSL Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["corda-ssl-trust-store"]
+    },
+    "cordasslsigner" = {
+        key = {
+            type = LOCAL
+            includeIn = ["corda-ssl-signer-keys"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = false
+        signedBy = "cordasslrootca"
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        issuesCertificates = false
+        subject = "CN=Test Signer SSL Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["corda-ssl-trust-store"]
+    },
+    "cordasslauth" = {
+        key = {
+            type = LOCAL
+            includeIn = ["corda-ssl-auth-keys"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = false
+        signedBy = "cordasslrootca"
+        keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        issuesCertificates = false
+        subject = "CN=Test Auth SSL Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["corda-ssl-trust-store"]
+    },
+    "cordasslgateway" = {
+       key = {
+            type = LOCAL
+            includeIn = ["corda-ssl-gateway-keys"]
+            algorithm = "ECDSA_SECP256R1_SHA256"
+            password = "key-password"
+        }
+        isSelfSigned = false
+        signedBy = "cordasslrootca"
+        keyUsages = [DIGITAL_SIGNATURE]
+        keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+        validDays = 7300
+        issuesCertificates = false
+        subject = "CN=Test Gateway TLS Signer Certificate, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US"
+        includeIn = ["corda-ssl-trust-store"]
+    },
+    "cordasslgateway-private" = {
+        key = {
+             type = LOCAL
+             includeIn = ["corda-ssl-gateway-private-keys"]
+             algorithm = "ECDSA_SECP256R1_SHA256"
+             password = "key-password"
+         }
+         isSelfSigned = false
+         signedBy = "cordasslrootca"
+         keyUsages = [DIGITAL_SIGNATURE]
+         keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+         validDays = 7300
+         issuesCertificates = false
+         subject = "CN=Test Gateway Private TLS Signer Certificate, OU=Corda, O=R3 HoldCo LLC, L=New York, C=US"
+         includeIn = ["corda-ssl-trust-store"]
+     },
+     "cordasslzone" = {
+         key = {
+             type = LOCAL
+             includeIn = ["corda-ssl-zone-keys"]
+             algorithm = "ECDSA_SECP256R1_SHA256"
+             password = "key-password"
+         }
+         isSelfSigned = false
+         signedBy = "cordasslrootca"
+         keyUsages = [DIGITAL_SIGNATURE, KEY_CERT_SIGN, CRL_SIGN]
+         keyPurposes = [SERVER_AUTH, CLIENT_AUTH]
+         validDays = 7300
+         issuesCertificates = false
+         subject = "CN=Test Zone SSL Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+         includeIn = ["corda-ssl-trust-store"]
+     }
+}
+```
 
 #### Local Configuration
+
+```docker
+defaultPassword = "password"
+keyStores = {
+    "identity-manager-key-store" = {
+        type = LOCAL
+        file = "./key-stores/identity-manager-key-store.jks"
+    }
+    "network-map-key-store" = {
+        type = LOCAL
+        file = "./key-stores/network-map-key-store.jks"
+    }
+    "subordinate-key-store" = {
+        type = LOCAL
+        file = "./key-stores/subordinate-key-store.jks"
+    }
+    "root-key-store" = {
+        type = LOCAL
+        file = "./key-stores/root-key-store.jks"
+    }
+    "tls-crl-signer-key-store" = {
+        type = LOCAL
+        file = "./key-stores/tls-crl-signer-key-store.jks"
+    }
+}
+certificatesStores = {
+    "truststore" = {
+        file = "./trust-stores/network-root-truststore.jks"
+    }
+}
+certificates = {
+    "cordatlscrlsigner" = {
+        key = {
+            type = LOCAL
+            includeIn = ["tls-crl-signer-key-store"]
+        }
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["truststore"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        }
+    },
+    "cordarootca" = {
+        key = {
+            type = LOCAL
+            includeIn = ["root-key-store"]
+        }
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["truststore"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        key = {
+            type = LOCAL
+            includeIn = ["subordinate-key-store"]
+        }
+        signedBy = "cordarootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        key = {
+            type = LOCAL
+            includeIn = ["identity-manager-key-store"]
+        }
+        signedBy = "cordasubordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        role = DOORMAN_CA
+    },
+    "cordanetworkmap" = {
+        key = {
+            type = LOCAL
+            includeIn = ["network-map-key-store"]
+        }
+        signedBy = "cordasubordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        role = NETWORK_MAP
+    }
+}
+```
 
 
 #### Utimaco HSM Configuration
 
+```docker
+hsmLibraries = [{
+    type = UTIMACO_HSM
+    jars = ["/path/to/CryptoServerJCE.jar"]
+}]
+
+defaultPassword = "password"
+defaultKeyStores = ["example-hsm-key-store"]
+
+keyStores = {
+    "example-hsm-key-store" = {
+        type = UTIMACO_HSM
+        host = "192.0.0.1"
+        port = "288"
+        users = [{
+            mode = "PASSWORD"
+            username = "example-user-1"
+            password = "example-password-1"
+        }]
+    }
+}
+certificatesStores = {
+    "network-truststore" = {
+        file = "./trust-stores/network-trust-store.jks"
+    },
+    "certificate-store" = {
+        file = "./trust-stores/certificate-store.jks"
+    }
+}
+certificates = {
+    "cordatlscrlsigner" = {
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        }
+    },
+    "cordarootca" = {
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = DOORMAN_CA
+    },
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = NETWORK_MAP
+    }
+}
+```
+
 
 #### Gemalto HSM Configuration
+
+```docker
+hsmLibraries = [{
+    type = GEMALTO_HSM
+    jars = ["/path/to/primusX.jar"]
+    sharedLibDir = "/path/to/shared/lib/dir/"
+}]
+
+defaultPassword = "password"
+defaultKeyStores = ["example-hsm-key-store"]
+
+keyStores = {
+    "example-hsm-key-store" = {
+        type = GEMALTO_HSM
+        user = {
+            keyStore = "tokenlabel:example-label"
+            password = "example-password"
+        }
+    }
+}
+certificatesStores = {
+    "network-truststore" = {
+        file = "./trust-stores/network-trust-store.jks"
+    },
+    "certificate-store" = {
+        file = "./trust-stores/certificate-store.jks"
+    }
+}
+certificates = {
+    "cordatlscrlsigner" = {
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        }
+    },
+    "cordarootca" = {
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = DOORMAN_CA
+    }
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = NETWORK_MAP
+    }
+}
+```
 
 
 #### Securosys HSM Configuration
 
+```docker
+hsmLibraries = [{
+    type = SECUROSYS_HSM
+    jars = ["/path/to/primusX.jar"]
+}]
+
+defaultPassword = "password"
+defaultKeyStores = ["example-hsm-key-store"]
+
+keyStores = {
+    "example-hsm-key-store" = {
+        type = SECUROSYS_HSM
+        host = "192.0.0.1"
+        port = 288
+        users = [{
+            username = "example-user-1"
+            password = "example-password-1"
+        }]
+    }
+}
+certificatesStores = {
+    "network-truststore" = {
+        file = "./trust-stores/network-trust-store.jks"
+    },
+    "certificate-store" = {
+        file = "./trust-stores/certificate-store.jks"
+    }
+}
+certificates = {
+    "cordatlscrlsigner" = {
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=U"
+        }
+    },
+    "cordarootca" = {
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = DOORMAN_CA
+    },
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = NETWORK_MAP
+    }
+}
+```
+
 
 #### Azure Key Vault HSM Configuration
 
+```docker
+hsmLibraries = [{
+    type = AZURE_KEY_VAULT_HSM
+    jars = ["/path/to/akvLibraries.jar"]
+}]
+
+defaultPassword = "password"
+defaultKeyStores = ["example-hsm-key-store"]
+
+keyStores = {
+    "example-hsm-key-store" = {
+        type = AZURE_KEY_VAULT_HSM
+        keyVaultUrl = "http://example.com"
+        protection = "HARDWARE"
+        credentials = {
+            keyStorePath = "/path/to/keystore.pem"
+            keyStorePassword = "example-password"
+            keyStoreAlias = "example-alias"
+            clientId = "01234567-89ab-cdef-0123-456789abcdef"
+        }
+    }
+}
+
+certificatesStores = {
+    "network-truststore" = {
+        file = "./trust-stores/network-trust-store.jks"
+    },
+    "certificate-store" = {
+        file = "./trust-stores/certificate-store.jks"
+    }
+}
+
+certificates = {
+    "cordatlscrlsigner" = {
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        }
+    },
+    "cordarootca" = {
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = DOORMAN_CA
+    },
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = NETWORK_MAP
+    }
+}
+```
+
+
+#### AWS CloudHSM Configuration
+
+```docker
+hsmLibraries = [{
+    type = AMAZON_CLOUD_HSM
+    jars = ["/opt/cloudhsm/java/cloudhsm-3.0.0.jar"]
+    sharedLibDir = "/opt/cloudhsm/lib"
+}]
+
+defaultPassword = "password"
+defaultKeyStores = ["example-hsm-key-store"]
+
+keyStores = {
+    "example-hsm-key-store" = {
+        type = AMAZON_CLOUD_HSM
+        credentialsAmazon = {
+    		partition = "<partition>"
+    		userName = "<user>"
+    		password = "<password>"
+    	}
+    	localCertificateStore = {
+    		file = "./new-certificate-store.jks"
+    		password = "password"
+    	}
+    }
+}
+
+certificatesStores = {
+    "network-truststore" = {
+        file = "./trust-stores/network-trust-store.jks"
+    },
+    "certificate-store" = {
+        file = "./trust-stores/certificate-store.jks"
+    }
+}
+
+certificates = {
+    "cordatlscrlsigner" = {
+        isSelfSigned = true
+        subject = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/tls"
+            file = "./crl-files/tls.crl"
+            indirectIssuer = true
+            issuer = "CN=Test TLS Signer Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        }
+    },
+    "cordarootca" = {
+        isSelfSigned = true
+        subject = "CN=Test Foundation Service Root Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["network-truststore", "certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/root"
+            file = "./crl-files/root.crl"
+        }
+    },
+    "cordasubordinateca" = {
+        signedBy = "cordarootca"
+        subject = "CN=Test Subordinate CA Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        crl = {
+            crlDistributionUrl = "http://127.0.0.1/certificate-revocation-list/subordinate"
+            file = "./crl-files/subordinate.crl"
+        }
+    },
+    "cordaidentitymanagerca" = {
+        signedBy = "cordasubordinateca"
+        subject = "CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = DOORMAN_CA
+    },
+    "cordanetworkmap" = {
+        signedBy = "cordasubordinateca"
+        issuesCertificates = false
+        subject = "CN=Test Network Map Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US"
+        includeIn = ["certificate-store"]
+        role = NETWORK_MAP
+    }
+}
+```
