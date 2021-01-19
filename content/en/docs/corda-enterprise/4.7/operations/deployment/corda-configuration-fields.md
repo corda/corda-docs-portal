@@ -30,13 +30,11 @@ Nodes can use this configuration option to advertise HA endpoints and aliases to
 
 Optionally specify how much memory should be used to cache attachment contents in memory.
 
-*Default:* 10MB
+*Default:* 8 MB plus 5% of all heap memory above 300MB.
 
 ## `attachmentCacheBound`
 
-Optionally specify how many attachments should be cached locally. Note that this includes only the key and metadata, the content is cached separately and can be loaded lazily.
-
-*Default:* 1024
+This parameter is not used and if specified it is ignored.
 
 ## `blacklistedAttachmentSigningKeys`
 
