@@ -54,11 +54,11 @@ For more information, see the [Interacting with a node](clientrpc.md) documentat
 In this early release version, you can:
 
 - Experiment with making payments across a Corda network, and to parties outside of the network.
-- Trial a live payments solution using Modulr as the Payment Service Provider. 
+- Trial a live payments solution using Modulr as the Payment Service Provider.
 
 #### Reference app: Bank in a Box
 
-[Bank in a Box](../../apps/bankinabox/_index.md) is a new, production-ready [CorDapp](cordapp-overview.md) that includes accounts, transactions, and other features typical of a retail banking application.
+[Bank in a Box](../../apps/bankinabox/bank-index.md) is a new sample [CorDapp](cordapp-overview.md) that includes accounts, transactions, and other features typical of a retail banking application.
 
 The app is designed to showcase key Corda features:
 
@@ -70,6 +70,10 @@ The app is designed to showcase key Corda features:
 Using a set of [flows](key-concepts-flows.md) and [APIs](../../apps/bankinabox/api-guide.md), Bank in a Box provides the ability to create intrabank payments, recurring payments, issue loans, set account limits, and more. It offers a complete solution with a straightforward UI and authenticated roles, all delivered in a [Kubernetes container](https://kubernetes.io/docs/concepts/containers/) for easy deployment.
 
 The application highlights best practices and examples for developers who wish to build banking applications using Corda.
+
+{{< note >}}
+This application should not be used in production.
+{{< /note >}}
 
 ### Platform version change
 
