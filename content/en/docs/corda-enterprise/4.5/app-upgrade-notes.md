@@ -764,16 +764,11 @@ automatically using new signature constraints selected automatically based on th
 
 
 {{< important >}}
-You will be able to use this feature if the compatibility zone you plan to deploy on has raised its minimum platform version
+You will be able to use this feature if the compatibility zone you plan to deploy on has raised its minimum platform version to check the correctness of the transaction. Please take this into account for your own schedule planning. You can read more about signature constraints and what they do in api-contract-constraints. The `TransactionBuilder` class will automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read [Signing the CorDapp JAR](cordapps/cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed with developer certificates is deployed to a production node, the node will refuse to start. Therefore, to deploy apps built for Corda 4 to production, you will need to generate signing keys and integrate them with the build process.
 
 
 {{< /important >}}
 
-to check the correctness of the transaction. Please take this into account for your own schedule planning.You can read more about signature constraints and what they do in api-contract-constraints. The `TransactionBuilder` class will
-automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
-[Signing the CorDapp JAR](cordapps/cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
-with developer certificates is deployed to a production node, the node will refuse to start. Therefore to deploy apps built for Corda 4
-to production you will need to generate signing keys and integrate them with the build process.
 
 {{< note >}}
 Please read the cordapp-constraint-migration guide to understand how to upgrade CorDapps to use Corda 4 signature constraints and consume
