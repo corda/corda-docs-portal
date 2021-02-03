@@ -210,7 +210,7 @@ numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle
 There are several adjustments that are beneficial to make to your Gradle build file, beyond simply incrementing the versions
 as described in step 1.
 
-**Provide app metadata.** This is used by the Corda Gradle build plugin to populate your app JAR with useful information.
+**Provide app metadata.** This is used by the Corda Gradle build plugin to populate your app .jar file with useful information.
 It should look like this:
 
 ```groovy
@@ -262,27 +262,27 @@ future not hold true. You should know the platform version of the node releases 
 The new `versionId` number is a version code for **your** app, and is unrelated to Corda’s own versions.
 It is currently used for informative purposes only.
 
-**Split your app into contract and workflow JARs.** The duplication between `contract` and `workflow` blocks exists because you should split your app into
-two separate JARs/modules, one that contains on-ledger validation code like states and contracts, and one
+**Split your app into contract and workflow .jar files.** The duplication between `contract` and `workflow` blocks exists because you should split your app into
+two separate .jar files/modules, one that contains on-ledger validation code like states and contracts, and one
 for the rest (called by convention the “workflows” module although it can contain a lot more than just flows:
-services would also go here, for instance). For simplicity, here we use one JAR for both, but this is in
+services would also go here, for instance). For simplicity, here we use one .jar file for both, but this is in
 general an anti-pattern and can result in your flow logic code being sent over the network to arbitrary
 third party peers, even though they don’t need it.
 
-In future, the version ID attached to the workflow JAR will also be used to help implement smoother upgrade
+In future, the version ID attached to the workflow .jar file will also be used to help implement smoother upgrade
 and migration features. You may directly reference the gradle version number of your app when setting the
 CorDapp specific versionId identifiers if this follows the convention of always being a whole number
 starting from 1.
 
 If you use the finance demo app, you should adjust your dependencies so you depend on the finance-contracts
-and finance-workflows artifacts from your own contract and workflow JAR respectively.
+and finance-workflows artifacts from your own contract and workflow .jar file respectively.
 
 
 ### Step 4. Remove any custom configuration from the node.conf
 
 CorDapps can no longer access custom configuration items in the `node.conf` file. Any custom CorDapp configuration should be added to a
 CorDapp configuration file. The Node’s configuration will not be accessible. CorDapp configuration files should be placed in the
-*config* subdirectory of the Node’s *cordapps* folder. The name of the file should match the name of the JAR of the CorDapp (eg; if your
+*config* subdirectory of the Node’s *cordapps* folder. The name of the file should match the name of the .jar file of the CorDapp (eg; if your
 CorDapp is called `hello-0.1.jar` the configuration file needed would be `cordapps/config/hello-0.1.conf`).
 
 If you are using the `extraConfig` of a `node` in the `deployNodes` Gradle task to populate custom configuration for testing, you will need
@@ -783,7 +783,7 @@ Learn more by reading [Contract/State Agreement](cordapps/api-contract-constrain
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
 
 
-### Step 9. Learn about signature constraints and JAR signing
+### Step 9. Learn about signature constraints and signing .jar files
 
 [Signature Constraints](cordapps/api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
 deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
@@ -792,7 +792,7 @@ automatically using new signature constraints selected automatically based on th
 
 
 {{< important >}}
-You will be able to use this feature if the compatibility zone you plan to deploy on has raised its minimum platform version to check the correctness of the transaction. Please take this into account for your own schedule planning. You can read more about signature constraints and what they do in api-contract-constraints. The `TransactionBuilder` class will automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read [Signing the CorDapp JAR](cordapps/cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed with developer certificates is deployed to a production node, the node will refuse to start. Therefore, to deploy apps built for Corda 4 to production, you will need to generate signing keys and integrate them with the build process.
+You will be able to use this feature if the compatibility zone you plan to deploy on has raised its minimum platform version to check the correctness of the transaction. Please take this into account for your own schedule planning. You can read more about signature constraints and what they do in api-contract-constraints. The `TransactionBuilder` class will automatically use them if your application .jar file is signed. **We recommend all .jar files are signed**. To learn how to sign your .jar files, read [Signing the CorDapp JAR](cordapps/cordapp-build-systems.md#signing-the-cordapp-jar). In dev mode, all .jar files are signed by developer certificates. If a .jar file that was signed with developer certificates is deployed to a production node, the node will refuse to start. Therefore, to deploy apps built for Corda 4 to production, you will need to generate signing keys and integrate them with the build process.
 
 
 {{< /important >}}
@@ -815,18 +815,18 @@ There are two improvements to how Java package protection is handled in Corda 4:
 * Package namespace ownership
 
 **Sealing.** App isolation has been improved. Version 4 of the finance CorDapps (*corda-finance-contracts.jar*, *corda-finance-workflows.jar*) is now built as a set of sealed and
-signed JAR files. This means classes in your own CorDapps cannot be placed under the following package namespace:  `net.corda.finance`
+signed .jar files. This means classes in your own CorDapps cannot be placed under the following package namespace:  `net.corda.finance`
 
 In the unlikely event that you were injecting code into `net.corda.finance.*` package namespaces from your own apps, you will need to move them
 into a new package, e.g. `net/corda/finance/flows/MyClass.java` can be moved to `com/company/corda/finance/flows/MyClass.java`.
 As a consequence your classes are no longer able to access non-public members of finance CorDapp classes.
 
-When signing your JARs for Corda 4, your own apps will also become sealed, meaning other JARs cannot place classes into your own packages.
+When signing your .jar files for Corda 4, your own apps will also become sealed, meaning other .jar files cannot place classes into your own packages.
 This is a security upgrade that ensures package-private visibility in Java code works correctly. If other apps could define classes in your own
 packages, they could call package-private methods, which may not be expected by the developers.
 
 **Namespace ownership.** This part is only relevant if you are joining a production compatibility zone. You may wish to contact your zone operator
-and request ownership of your root package namespaces (e.g. `com.megacorp.*`), with the signing keys you will be using to sign your app JARs.
+and request ownership of your root package namespaces (e.g. `com.megacorp.*`), with the signing keys you will be using to sign your app .jar files.
 The zone operator can then add your signing key to the network parameters, and prevent attackers defining types in your own package namespaces.
 Whilst this feature is optional and not strictly required, it may be helpful to block attacks at the boundaries of a Corda based application
 where type names may be taken “as read”. You can learn more about this feature and the motivation for it by reading
