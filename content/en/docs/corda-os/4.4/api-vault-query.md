@@ -388,6 +388,12 @@ caution as results returned may exceed your JVM’s memory footprint.
 
 {{< /note >}}
 
+{{< note >}}
+To obtain reliable results when using paging, always specify the sort option. With no sort, RDBMS is free to return results in any order.
+
+{{< /note >}}
+
+
 ## Example usage
 
 
