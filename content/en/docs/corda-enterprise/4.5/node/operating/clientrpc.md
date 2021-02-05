@@ -146,7 +146,7 @@ By default, RPC users are not allowed to perform any RPC operations.
 
 ### Granting flow permissions
 
-In order to provide an RPC user with the permission to start a specific flow, the following syntax can be used: `StartFlow.<fully qualified flow name>` , e.g.:
+To grant an RPC user permission to start a specific flow, use the syntax `StartFlow.<fully qualified flow name>`, and the listed `InvokeRpc` permissions, as shown in the following example:
 
 ```groovy
 rpcUsers=[
@@ -154,6 +154,10 @@ rpcUsers=[
         username=exampleUser
         password=examplePass
         permissions=[
+            "InvokeRpc.nodeInfo",
+            "InvokeRpc.registeredFlows",
+            "InvokeRpc.partiesFromName",
+            "InvokeRpc.wellKnownPartyFromX500Name",
             "StartFlow.net.corda.flows.ExampleFlow1",
             "StartFlow.net.corda.flows.ExampleFlow2"
         ]
@@ -162,7 +166,7 @@ rpcUsers=[
 ]
 ```
 
-In order to provide an RPC user with the permission to start any flow, the following syntax can be used: `InvokeRpc.startFlow`, e.g.:
+To grant an RPC user permission to start any flow, use the syntax `InvokeRpc.startFlow`, `InvokeRpc.startTrackedFlowDynamic`, and the listed `InvokeRpc` permissions, as shown in the following example:
 
 ```groovy
 rpcUsers=[
@@ -170,7 +174,12 @@ rpcUsers=[
         username=exampleUser
         password=examplePass
         permissions=[
-            "InvokeRpc.startFlow"
+            "InvokeRpc.nodeInfo",
+            "InvokeRpc.registeredFlows",
+            "InvokeRpc.partiesFromName",
+            "InvokeRpc.wellKnownPartyFromX500Name",
+            "InvokeRpc.startFlow",
+            "InvokeRpc.startTrackedFlowDynamic"
         ]
     },
     ...
