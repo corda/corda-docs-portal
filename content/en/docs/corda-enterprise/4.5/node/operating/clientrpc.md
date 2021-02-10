@@ -257,6 +257,19 @@ Syntax `InvokeRpc:com.fully.qualified.package.Alpha#READ_ONLY` will grant permis
 Permission strings are case-insensitive.
 {{% /note %}}
 
+### Fixing permissions
+
+If an RPC user tries to perform an RPC operation that they do not have permission for, they will see an error like this:
+
+```
+User not authorized to perform RPC call public abstract net.corda.core.node.services.Vault$Page net.corda.core.messaging.CordaRPCOps.vaultQueryByWithPagingSpec(java.lang.Class,net.corda.core.node.services.vault.QueryCriteria,net.corda.core.node.services.vault.PageSpecification) with target []
+```
+
+To fix this, you must grant them permissions based on the method name: `InvokeRpc.<method name>`, where `<method name>` is the method name of the `CordaRPCOps` interface.
+
+In this example, the method name is `vaultQueryByWithPagingSpec`, so `InvokeRpc.vaultQueryByWithPagingSpec` must be added to the RPC user's `permissions`.
+
+
 ### Granting all permissions
 
 In order to provide an RPC user with the permission to perform any RPC operation (including starting any flow) use the `ALL` permission:
