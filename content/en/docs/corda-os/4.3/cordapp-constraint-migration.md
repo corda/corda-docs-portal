@@ -79,7 +79,7 @@ Corda 4.3 requires some additional steps to consume and evolve pre-existing on-l
 
 
 * All Corda Nodes in the same CZ or business network that may encounter a transaction chain with a hash constrained state must be started using
-relaxed hash constraint checking mode as described in [Hash constrained states in private networks](api-contract-constraints.md#relax-hash-constraints-checking-ref).
+relaxed hash constraint checking mode as described in [Hash constrained states in private networks](https://docs.corda.net/docs/corda-os/4.3/api-contract-constraints.html#hash-constrained-states-in-private-networks).
 * CorDapp flows that build transactions using pre-existing *hash-constrained* states must explicitly set output states to use *signature constraints*
 and specify the related public key(s) used in signing the associated CorDapp Contract JAR:
 
