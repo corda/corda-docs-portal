@@ -107,9 +107,9 @@ The deployment steps are given below:
 
 - Download the Docker image with CENM [Command-Line Interface (CLI) tool](cenm-cli-tool.md) so you can manage CENM services:
 
-    ```bash
-    docker pull corda/enterprise-cenm-cli:1.4-zulu-openjdk8u242
-    ```
+```bash
+  docker pull corda/enterprise-cenm-cli:1.4-zulu-openjdk8u242
+```
 
 #### 2. Set up the Kubernetes cluster
 
