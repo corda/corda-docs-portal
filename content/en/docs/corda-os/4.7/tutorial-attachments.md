@@ -240,6 +240,7 @@ private fun uploadAttachment(
 
 {{% tab name="java" %}}
 
+```java
 @InitiatingFlow
 @StartableByRPC
 public class SendAttachment extends FlowLogic<SignedTransaction> {
