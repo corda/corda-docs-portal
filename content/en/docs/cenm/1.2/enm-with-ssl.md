@@ -20,13 +20,12 @@ title: Configuring the ENM services to use SSL
 
 The following components of the ENM suite can all be configured to encrypt their inter-process communication channels.
 
-
 * Identity Manager (containing previously named Doorman and Revocation services)
 * Network Map
 * Signing Service
+* Signable Material Retriever Service
 
-How to configure this is discussed in this section, whilst the flow of information between these various components
-is shown in the following diagram
+This section explains how to configure the above components and the following diagram shows the flow of information between them.
 
 ![enm with ssl](/en/images/enm-with-ssl.png "enm with ssl")
 
@@ -66,20 +65,13 @@ outside of a testing environment.
 
 ## Configuration
 
-In general ENM components are configured with SSL via the inclusion of an `ssl` config block
-#. The SSL settings themselves, locations of keystores and passwords
-#. The enabling of individual communication channels to use SSL.
-
-
-{{< warning >}}
-If you enable SSL server side, for example on the Identity Manager, then any client that will talk to that
-service must configure SSL for that communication stream.
-
-{{< /warning >}}
-
-
-SSL enablement *could* be mixed within a single ENM deployment, with only a select set of channels encrypted,
+In general, ENM components are configured with SSL via the inclusion of an `ssl` configuration block containing `keyStore` and `trustStore` settings. You cannot enable SSL on the whole ENM suite at once. You must do it one by one on individual components. If you want two components to communicate with each other using SSL, you must enable SSL on both of them. When you enable SSL between two components, the connection between them is mutually authenticated.
+SSL enablement *could* be mixed within a single ENM deployment, with only a selected set of channels encrypted,
 but it will almost certainly be easier to roll it out as a whole.
+
+**Example:**
+If you enable SSL on the server side, for example on the Identity Manager, then any client that will talk to that
+service must configure SSL for that communication stream.
 
 {{< note >}}
 By client, we are referring to elements of the ENM suite talking to another that is listening for such
@@ -91,7 +83,7 @@ acting as clients of the network.
 ### SSL Certificate Configuring
 
 All components should be configured to use SSL with the following configuration block. More details can be found in
-[Identity Manager Configuration Parameters](config-identity-manager-parameters.md) and [Network Map Configuration Parameters](config-network-map-parameters.md)
+[Identity Manager Configuration Parameters](config-identity-manager-parameters.md) and [Network Map Configuration Parameters](config-network-map-parameters.md).
 
 ```docker
 ssl = {
@@ -107,7 +99,7 @@ ssl = {
 }
 ```
 
-The `keyStore` contains the public and private keypair of the service signed by the root key
+The `keyStore` contains the public and private keypair of the service signed by the root key.
 
 
 {{< important >}}
@@ -121,7 +113,7 @@ The `trustStore` contains the root key’s certificate. This is, in effect, comm
 as it is this that enables the various components to trust one another checking that the certificate presented
 chains back to this root certificate.
 
-However, if the key and keystore passwords are the same, then the `keyPassword` option can be omitted
+However, if the key and keystore passwords are the same, then the `keyPassword` option can be omitted.
 
 ```docker
 ssl = {

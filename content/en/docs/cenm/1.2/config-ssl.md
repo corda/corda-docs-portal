@@ -14,39 +14,42 @@ title: SSL Settings
 
 # SSL Settings
 
-SSL Can be configured at both the client and listener ends of the CENM stack. The presence of the SSL
-configuration entity will enable the use of SSL communication between the two parties
+You can configure SSL at both the client and listener ends of the CENM stack. The presence of the SSL
+configuration entity enables the SSL communication between the two parties.
+
+{{< note >}}
+When you enable SSL between two CENM components, the connection between them is mutually authenticated.
+{{< /note >}}
 
 
 * **ssl**:
-SSL settings
+SSL settings.
 
 
-* **keyStore**:
-The services keystore location.
+  * **keyStore**:
+  The services `keyStore` location.
 
 
-* **location**:
-Where the keystore (jks) is, must be a fully resolvable path.
+    * **location**:
+    Path to the location of the `keyStore` `.jks` - must be a fully resolvable path.
 
 
-* **password**:
-Password for the keystore
+    * **password**:
+    Password for the `keyStore`.
 
 
-* **keyPassword**:
-*(Optional)* Password for the keypair, can be omitted if the same as the keystore.
+    * **keyPassword**:
+    *(Optional)* Password for the key pair - can be omitted if it is the same as the `keyStore` password.
 
 
+  * **trustStore**:
+  *(Optional)* If a unique trust root is used (where all SSL keys are signed by a common root), then this `keyStore` must contain the certificate representing the public key of
+  that root. The `keyStore` configured above contains a key pair signed by the root. Can be omitted if a single certificate and key pair is being used or the trust root certificate
+  has been added to the `keyStore`.
+
+    * **location**:
+    Path to the location of the `keyStore` `.jks` - must be a fully resolvable path.
 
 
-* **trustStore**:
-*(Optional)* If a unique trust root is being used, i.e. all SSL Keys are signed by a commonroot, then this keystore needs to contain the certificate representing the public key of
-that root. The `keyStore` configured above will contain a keypair signed by the root.Can be omitted if a single certificate and keypair is being used or the trust root certificate
-has been added to the `keyStore`
-* **location**:
-Where the keystore (jks) is, must be a fully resolvable path.
-
-
-* **password**:
-*(Optional)* Password for the truststore, will inherit the keyStore password if not set
+    * **password**:
+    *(Optional)* Password for the `trustStore`. If not set, inherits the `keyStore` password.
