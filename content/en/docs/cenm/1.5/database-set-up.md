@@ -369,7 +369,7 @@ CREATE USER my_user identified by my_password;
 GRANT CREATE SESSION TO my_user;
 GRANT SELECT ON my_admin_user.DATABASECHANGELOG to my_user;
 GRANT SELECT ON my_admin_user.DATABASECHANGELOGLOCK to my_user;
-GRANT SELECT ON my_admin_user.SEQ_AUDIT_EVENTS  to my_user;
+GRANT SELECT ON my_admin_user.SEQ_AUDIT_EVENTS to my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.AUDIT_EVENTS to my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.AUDIT_EVENT_DATA to my_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON my_admin_user.BASELINE_CHANGES to my_user;
