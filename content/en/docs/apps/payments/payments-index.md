@@ -16,6 +16,10 @@ weight: 200
 
 Corda Payments Alpha is an early release feature that allows you to create experimental payment solutions in Corda. With the Modulr Payment Rail, you can use Corda Payments to connect to a live Payment Service Provider (PSPs).
 
+{{< note >}}
+Corda Payments Alpha is only available to Corda Enterprise customers. To obtain access to Corda Payments Alpha, please contact your account manager.
+{{< /note >}}
+
 There are two main CorDapps in this version of Corda Payments:
 
 * Payments-core - the main CorDapp that enables all flows required to make payments to a chosen PSP.
