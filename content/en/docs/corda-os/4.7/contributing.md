@@ -47,7 +47,7 @@ interactions, and evidence of high-quality peer-review
 * **Size**: The Corda project’s culture is one of small pull-requests, regularly submitted. The larger a pull-request, the more likely it
 is that you will be asked to resubmit as a series of self-contained and individually reviewable smaller PRs
 * **Scope**: We try to ensure the Corda project remains coherent and focused so we ask that the feature’s scope is within the definition
-specified in the [Corda Technical Whitepaper](/en/pdf/corda-technical-whitepaper.pdf)
+specified in the [Corda Technical Whitepaper](https://www.r3.com/white-papers/corda-technical-whitepaper/)
 * **Maintainability**: If the feature will require ongoing maintenance (eg support for a particular brand of database), we may ask you to
 accept responsibility for maintaining this feature
 * **Non-duplicative**: If the contribution duplicates features that already exist or are already in progress, you may be asked to work with
