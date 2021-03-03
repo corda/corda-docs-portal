@@ -53,8 +53,8 @@ registers with the network map it will check its own version against the minimum
 
 ## Minimum platform version
 
-Applications can advertise a *minimum platform version* they require. If your app uses new APIs that were added in (for example) Corda 5,
-you should specify a minimum version of 5. This will ensure the app won’t be loaded by older nodes. If you can *optionally* use the new
+Applications can advertise a *minimum platform version* they require. If your app uses new APIs that were added in (for example) Corda 4.3,
+you should specify a minimum platform version of 5. This will ensure the app won’t be loaded by older nodes. If you can *optionally* use the new
 APIs, you can keep the minimum set to a lower number. Attempting to use new APIs on older nodes can cause `NoSuchMethodError` exceptions
 and similar problems, so you’d want to check the node version using `ServiceHub.myInfo`.
 
@@ -65,14 +65,8 @@ Applications can also advertise a *target version*. This is similar to the conce
 Apps should advertise the highest version of the platform they have been tested against. This allows the node to activate or deactivate
 backwards compatibility codepaths depending on whether they’re necessary or not, as workarounds for apps designed for earlier versions.
 
-For example, consider an app that uses new features introduced in Corda 4, but which has passed regression testing on Corda 5. It will
+For example, consider an app that uses new features introduced in Corda 4, but which has passed regression testing on Corda 4.3. It will
 advertise a minimum platform version of 4 and a target version of 5. These numbers are published in the JAR manifest file.
-
-If this app is loaded into a Corda 6 node, that node may implement backwards compatibility workarounds for your app that make it slower,
-less secure, or less featureful. You can opt-in to getting the full benefits of the upgrade by changing your target version to 6. By doing
-this, you promise that you understood all the changes in Corda 6 and have thoroughly tested your app to prove it works. This testing should
-include ensuring that the app exhibits the correct behaviour on a node running at the new target version, and that the app functions
-correctly in a network of nodes running at the same target version.
 
 Target versioning is one of the mechanisms we have to keep the platform evolving and improving, without being permanently constrained to
 being bug-for-bug compatible with old versions. When no apps are loaded that target old versions, any emulations of older bugs or problems
