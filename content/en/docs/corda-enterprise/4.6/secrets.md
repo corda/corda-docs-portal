@@ -13,7 +13,7 @@ weight: 110
 
 This page documents the secrets that are managed and required by a Corda installation. The secrets fall into two categories:
 
-* Cryptogtaphic keys.
+* Cryptographic keys.
 * Passwords.
 
 The relationships between the secrets and Corda components is shown in the following diagram.
