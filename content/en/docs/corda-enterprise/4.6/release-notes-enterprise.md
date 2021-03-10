@@ -16,6 +16,34 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.6.2
+
+Corda Enterprise 4.6.2 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.6.1
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* We have fixed an issue where the HA utilities tool does not write the correct log file.
+* We have fixed an issue that prevented the HA utilities tool loading third-party HSM `.jar` files from the `drivers` directory when the `generate-internal-tunnel-ssl-keystores` command is run.
+* The `startFlowWithClientId` now uses the same permissioning as the `startFlow` method.
+* Corda Enterprise 4.6.2 now supports version 3.2.1 of the AWS CloudHSM client library.
+* We have fixed an issue that caused the Corda Firewall to throw an error when version information was requested.
+* We have fixed an issue where migrating from Corda Enterprise 4.5 to Corda Enterprise 4.6 could cause some flows to experience a retry loop.
+* We have fixed an issue that could cause flow execution to hang.
+* We have fixed an issue that caused Jmeter to be unable to deserialise CorDapps if they were not listed as Jmeter dependencies.
+* We have fixed an issue that caused the float to not reactivate after a bridge restart.
+* We have fixed an issue that could cause a float to handle two connection attempts from the same bridge simultaneously.
+* We have fixed an issue that misinterpreted an internal error as a bad certificate error, preventing future connection attempts.
+* We have fixed an issue that could cause a node to hang at shutdown.
+* We have fixed an issue that can cause failure at node startup.
+* The `attachmentPresenceCache` has been removed. The functionality is duplicated in the `attachmentContent` cache in the `NodeAttachmentService`.
+* We have fixed an issue that caused timestamps to change timezone between the start and end times of a flow.
+
 ## Corda Enterprise 4.6.1
 
 Corda Enterprise 4.6.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.6.
