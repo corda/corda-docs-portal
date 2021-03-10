@@ -182,7 +182,7 @@ the [Community Maintainers](contributing-philosophy.md#community-maintainers) di
 
 
 * (Optional) Open an additional PR to add yourself to the
-[contributors list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md)
+[contributors list](https://github.com/corda/corda/blob/release/os/4.7/CONTRIBUTORS.md)
 
 * The format is generally `firstname surname (company)`, but the company can be omitted if desired
 
