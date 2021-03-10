@@ -66,7 +66,7 @@ You can contact our community maintainers in the `#contributing` channel on the 
 ## Existing Contributors
 
 Over two hundred individuals have contributed to the development of Corda. You can find a full list of contributors in the
-[CONTRIBUTORS.md list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md).
+[CONTRIBUTORS.md list](https://github.com/corda/corda/blob/release/os/4.6/CONTRIBUTORS.md).
 
 
 ## Transparency and Conflict Policy
