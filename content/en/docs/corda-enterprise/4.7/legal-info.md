@@ -8,7 +8,6 @@ tags:
 - legal
 - info
 title: Third-party software licence information
-
 ---
 
 # Corda Enterprise 4.7 third-party software notices and licence information

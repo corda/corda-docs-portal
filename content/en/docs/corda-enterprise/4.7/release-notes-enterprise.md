@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-7:
-    identifier: "corda-enterprise-4-7-release-notes"
+    identifier: corda-enterprise-4-7-release-notes
     name: "Release notes"
 tags:
 - release
@@ -10,7 +10,6 @@ tags:
 - enterprise
 title: Corda Enterprise release notes
 weight: 1
-
 ---
 
 
@@ -27,7 +26,7 @@ States and apps valid in Corda 3.0 and above are usable in Corda 4.7.
 The main new features and enhancements in Corda Enterprise 4.7 are listed below:
 
 * [Archiving Service](#archiving-service).
-* [Improved notary backpressure (ETA) mechanism](#improved-notary-back-pressure-eta-mechanism).
+* [Improved notary backpressure mechanism](#improved-notary-backpressure-mechanism).
 * [New management consoles for node management and flow management](#new-management-consoles-for-node-management-and-flow-management).
 * [Certificate rotation](#certificate-rotation).
 * [Single sign-on for Azure AD](#other-changes-and-improvements).
@@ -60,9 +59,9 @@ Some features of the Archiving Service:
 
 See the [Archiving Service documentation section](node/archiving/archiving-setup.md) for more information.
 
-### Improved notary backpressure (ETA) mechanism
+### Improved notary backpressure mechanism
 
-To optimise the way notaries handle traffic, we have updated the notary backpressure mechanism (also referred to as [backpressure mechanism](notary/faq/eta-mechanism.md#what-is-the-eta-mechanism)) to improve notary performance when there is a sudden increase in notarisation requests. This change increases the accuracy of transaction retry estimates that the notary provides to the node.
+To optimise the way notaries handle traffic, we have updated the notary [backpressure mechanism](notary/faq/eta-mechanism.md) to improve notary performance when there is a sudden increase in notarisation requests. This change increases the accuracy of transaction retry estimates that the notary provides to the node.
 
 As a result, the notary backpressure mechanism is now [more precise and responsive](notary/notary-load-handling.md) under "heavy traffic conditions", which leads to fewer node retries, optimised performance, and a better end-user experience for node operators.
 
