@@ -78,7 +78,7 @@ deferred to a third party. The relationship between the zone operator and the no
 of the zone operator.
 
 {{< important >}}
-The important part from the perspective of the CENM is that the signed node info
+The important part from the perspective of CENM is that the signed node info
 is transferred from the notary operator to the zone operator.
 
 
