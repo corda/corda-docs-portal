@@ -22,7 +22,7 @@ This is an internal feature. Running a network with multiple subzones is not a s
 
 ## Network from a Node’s Perspective
 
-From the perspective of a node a network is defined by the Identity Manager and Network Map services it is configured
+From the perspective of a node, a network is defined by the Identity Manager and Network Map services it is configured
 to connect to. It has no comprehension of subzones. It simply connects to the services configured within its
 configuration file and, once registered with both, interacts with other nodes and the apps deployed upon it via the
 RPC clients. This is summarised below:
