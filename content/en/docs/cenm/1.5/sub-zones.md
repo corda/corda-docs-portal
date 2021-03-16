@@ -37,7 +37,7 @@ RPC clients. This is summarised below:
 >}}
 
 The node is unaware of other subzones - it sees only those nodes registered with the Network Map service that it has also
-registered with.
+registered with itself.
 
 
 ## Network from a Zone's Perspective
