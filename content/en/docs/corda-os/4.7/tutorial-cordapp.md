@@ -294,11 +294,11 @@ The `cordapp-example` folder is structured as follows:
 
 The key files and directories are as follows:
 
-* The **root directory** contains some gradle files, a README, a LICENSE and a TRADEMARK statement
-* **clients** contains the source code for Spring Boot integration
-* **config** contains the log4j2 configuration
-* **contracts** and **workflows** contain the source code for the sample CorDapp written in Java
-* **gradle** contains the gradle wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required
+* The **root directory** contains some gradle files, a README, a LICENSE and a TRADEMARK statement.
+* **clients** contains the source code for Spring Boot integration.
+* **config** contains the log4j2 configuration.
+* **contracts** and **workflows** contain the source code for the sample CorDapp written in Java.
+* **gradle** contains the Gradle Wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required.
 
 
 ## Starting the sample CorDapp
@@ -315,10 +315,12 @@ The first step is to deploy the CorDapp to nodes running locally. To do this:
 2. Run the `deployNodes` Gradle task to build four nodes with the CorDapp installed on them:
       * Unix/Mac OSX: `./gradlew deployNodes`
       * Windows: `gradlew.bat deployNodes`
-3. After the build finishes, navigate to the `workflows-java/build/nodes` or `workflows-kotlin/build/nodes` folder - you should see the following output:
-      * A folder for each generated node
-      * A `runnodes` shell script for running all the nodes simultaneously on osX
-      * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
+3. After the build finishes, navigate to the `build/nodes` folder - you should see the following output:
+      * A folder for each generated node.
+      * A `runnodes` shell script for running all the nodes simultaneously on osX.
+      * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows.
+      * A `runnodes.jar` file.
+      * A configuration file for each node.
 
       Each node in the `nodes` folder is structured as follows:
 
@@ -329,8 +331,8 @@ The first step is to deploy the CorDapp to nodes running locally. To do this:
 ├── corda.jar              // The Corda node runtime
 ├── cordapps               // The node's CorDapps
 │   ├── config
-│   ├── corda-example-contracts-0.1.jar
-│   └── corda-example-workflows-0.1.jar
+│   ├── contracts-0.1.jar
+│   └── workflows-0.1.jar
 ├── djvm
 ├── drivers
 ├── logs

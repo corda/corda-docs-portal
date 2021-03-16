@@ -105,7 +105,7 @@ the three node folders. Each node folder has the following structure:
 ```
 
 
-Start the nodes by running the following commands from the root of the project:
+Start the nodes by running the following command from the root of the project:
 
 * Mac OSX: `build/nodes/runnodes`
 * Windows: `build/nodes/runnodes.bat`
@@ -135,11 +135,22 @@ More about SSH and how to connect can be found on the [Node shell](shell.md) pag
 You want to create an IOU of 99 with `PartyB`. To start the `IOUFlow`, type the following syntax:
 
 ```bash
-start IOUFlow iouValue: 99, otherParty: "O=PartyB,L=New York,C=US"
+start IOUFlow iouMessage: 99, otherParty: "O=PartyB,L=New York,C=US"
 ```
 
 This single command will cause `PartyA` and `PartyB` to automatically agree an IOU. This is one of the great advantages of
 the flow framework - it allows you to reduce complex negotiation and update processes into a single function call.
+
+Starting this flow will return the following:
+```bash
+✅   Starting
+         Requesting signature by Notary Service
+             Requesting signature by Notary Service
+             Validating response from Notary Service
+    ✅   Broadcasting transaction to participants
+➡️   Done
+Flow completed with result: null
+```
 
 If the flow worked, it should have recorded a new IOU in the vaults of both `PartyA` and `PartyB`. Let’s check.
 

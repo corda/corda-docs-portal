@@ -178,10 +178,28 @@ imposes invariants on how the state evolves over time. Including a contract isn�
 you’ll just use the empty `TemplateContract` and `TemplateContract.Commands.Action` command defined by the template
 for now.
 
-{{% note %}}
-While you don't need to rewrite the contract, you will need to make a few small changes if you are following the tutorial in Java.
-* Change three instances of `TemplateState` to `IOUState`.
-* Change `getMsg` to `getValue`.
-{{% /note %}}
+{{< note >}}
+If following the tutorial in Java, you will have to remove these lines from `TemplateContract` at this stage:
+{{< /note >}}
 
-In the next tutorial, you’ll implement our own contract and command.
+```
+/* We can use the requireSingleCommand function to extract command data from transaction.
+ * However, it is possible to have multiple commands in a signle transaction.*/
+final CommandWithParties<Commands> command = requireSingleCommand(tx.getCommands(), Commands.class);
+final Commands commandData = command.getValue();
+
+if (commandData.equals(new Commands.Send())) {
+    //Retrieve the output state of the transaction
+    IOUState output = tx.outputsOfType(IOUState.class).get(0);
+
+    //Using Corda DSL function requireThat to replicate conditions-checks
+    requireThat(require -> {
+        require.using("No inputs should be consumed when sending the Hello-World message.", tx.getInputStates().size() == 0);
+        require.using("The message must be Hello-World", output.getValue().equals("Hello-World"));
+        return null;
+    });
+}
+```
+
+
+In the next tutorial, you’ll implement your own contract and command.

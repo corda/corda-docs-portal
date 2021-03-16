@@ -30,7 +30,7 @@ Complete each of the tutorial topics in sequence to learn how to extend the [Jav
 
 ## Core tutorials
 
-Once you've worked through the Hello World! tutorials and are ready to dig a bit deeper, the [Core tutorials](core-tutorials-index.md) cover all of the key skills you will need to be able to develop CorDapps.
+Once you've worked through the Hello, World! tutorials and are ready to dig a bit deeper, the [Core tutorials](core-tutorials-index.md) cover all of the key skills you need to develop CorDapps.
 
 While the core tutorials don’t depend on the code from any of the other tutorials, for optimum learning, it's recommended that you complete the tutorials in the order shown.
 
