@@ -16,9 +16,27 @@ title: Release notes
 
 # Release notes
 
+## Corda Enterprise 4.3.6
+
+Corda Enterprise 4.3.6 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.3.5.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* The `attachmentPresenceCache` has been removed. The functionality is duplicated in the `attachmentContent` cache in the `NodeAttachmentService`.
+* We have fixed an issue that caused the float to not reactivate after a bridge restart.
+* We have fixed an issue that could cause a float to handle two connection attempts from the same bridge simultaneously.
+* We have fixed an issue that misinterpreted an internal error as a bad certificate error, preventing future connection attempts.
+* We have fixed an issue that can cause failure at node startup.
+
 ## Corda Enterprise 4.3.5
 
-Corda Enterprise 4.3.5 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.3.
+Corda Enterprise 4.3.5 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.3.4.
 
 ### Upgrade recommendation
 
