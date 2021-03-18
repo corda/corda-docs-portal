@@ -6,12 +6,12 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
-    parent: corda-enterprise-4-4-corda-networks-testnet
+    parent: corda-enterprise-4-4-corda-networks-testnet-decommission
 tags:
 - azure
 - vm
 title: Deploying to the Corda Testnet
-weight: 1
+weight: 2
 ---
 
 

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-0:
     identifier: corda-enterprise-4-0-azure-template-guide
-    parent: corda-enterprise-4-0-corda-networks-index
+    parent: corda-enterprise-4-0-corda-networks-testnet-decommission
     weight: 1060
 tags:
 - azure
@@ -78,4 +78,3 @@ You can now log in to your resource by selecting the virtual machine in the reso
 ## Testing the deployment
 
 You can test the deployment by following the instructions in [Using the Node Explorer to test a Corda Enterprise node on Corda Testnet](testnet-explorer.md).
-

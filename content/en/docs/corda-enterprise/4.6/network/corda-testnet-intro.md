@@ -3,14 +3,14 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
     identifier: corda-enterprise-4-6-corda-networks-testnet
-    name: "Corda Testnet"
-    parent: corda-enterprise-4-6-corda-networks
+    name: "Joining Corda Testnet"
+    parent: corda-enterprise-4-6-corda-networks-testnet-decommission
 tags:
 - corda
 - testnet
 - intro
 title: Joining Corda Testnet
-weight: 6
+weight: 1
 ---
 
 

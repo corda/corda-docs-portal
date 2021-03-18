@@ -7,8 +7,8 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-os-4-5:
     identifier: corda-os-4-5-corda-testnet-intro
-    parent: corda-os-4-5-corda-networks-index
-    weight: 1060
+    parent: corda-os-4-5-deploy-to-testnet-index
+    weight: 1000
 tags:
 - corda
 - testnet

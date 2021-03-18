@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-azure-vm-explore
-    parent: corda-enterprise-4-1-deploy-to-testnet-index
+    parent: corda-enterprise-4-1-corda-networks-testnet-decommission
     weight: 1010
 tags:
 - azure
@@ -162,4 +162,3 @@ To test that your deployment is working correctly, follow the instructions in [U
 the Finance CorDapp and issue cash to a counterparty.
 
 This will also demonstrate how to install a custom CorDapp.
-

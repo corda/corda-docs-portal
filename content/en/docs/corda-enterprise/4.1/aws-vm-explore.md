@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-aws-vm-explore
-    parent: corda-enterprise-4-1-deploy-to-testnet-index
+    parent: corda-enterprise-4-1-corda-networks-testnet-decommission
     weight: 1020
 tags:
 - aws
@@ -132,4 +132,3 @@ Once the node has booted up you can navigate to the external web address of the 
 To test your deployment is working correctly follow the instructions in [Using the Node Explorer to test a Corda node on Corda Testnet](testnet-explorer-corda.md) to set up the Finance CorDapp and issue cash to a counterparty.
 
 This will also demonstrate how to install a custom CorDapp.
-

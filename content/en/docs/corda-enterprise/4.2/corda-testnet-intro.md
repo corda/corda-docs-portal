@@ -5,8 +5,8 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-2:
     identifier: corda-enterprise-4-2-corda-testnet-intro
-    parent: corda-enterprise-4-2-corda-networks-index
-    weight: 1100
+    parent: corda-enterprise-4-2-corda-networks-testnet-decommission
+    weight: 1000
 tags:
 - corda
 - testnet

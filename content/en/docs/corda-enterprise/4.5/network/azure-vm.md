@@ -2,12 +2,12 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-5:
-    parent: corda-enterprise-4-5-corda-networks-testnet
+    parent: corda-enterprise-4-5-corda-networks-testnet-decommission
 tags:
 - azure
 - vm
 title: Deploying to the Corda Testnet
-weight: 1
+weight: 2
 ---
 
 
@@ -194,4 +194,3 @@ You can open log files with any text editor.
 Now you have built a Corda network and used a basic Corda CorDapp do go and visit the [dedicated Corda website](https://www.corda.net)
 
 Or to join the growing Corda community and get straight into the Corda open source codebase, head over to the [Github Corda repo](https://www.github.com/corda)
-

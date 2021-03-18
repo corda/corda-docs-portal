@@ -2,12 +2,12 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-7:
-    parent: corda-enterprise-4-7-corda-networks-testnet
+    parent: corda-enterprise-4-7-corda-networks-testnet-decommission
 tags:
 - azure
 - vm
 title: Deploying to the Corda Testnet
-weight: 1
+weight: 2
 ---
 
 

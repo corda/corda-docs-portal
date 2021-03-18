@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-azure-template-guide
-    parent: corda-enterprise-4-1-operations
+    parent: corda-enterprise-4-1-corda-networks-testnet-decommission
     weight: 500
 tags:
 - aws

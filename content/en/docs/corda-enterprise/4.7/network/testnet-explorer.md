@@ -2,7 +2,7 @@
 date: '2020-09-20T09:59:25Z'
 menu:
   corda-enterprise-4-7:
-    parent: corda-enterprise-4-7-corda-networks-testnet
+    parent: corda-enterprise-4-7-corda-networks-testnet-decommission
 tags:
 - testnet
 - explorer

@@ -5,8 +5,8 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-corda-testnet-intro
-    parent: corda-enterprise-4-1-corda-networks-index
-    weight: 1060
+    parent: corda-enterprise-4-1-corda-networks-testnet-decommission
+    weight: 1000
 tags:
 - corda
 - testnet
@@ -88,4 +88,3 @@ A note on identities on Corda Testnet
 -------------------------------------
 
 Unlike the main Corda Network, which is designed for verified real world identities, The Corda Testnet automatically assigns a "distinguished name" as your identity on the network. This is to prevent name abuse such as the use of offensive language in the names or name squatting. This allows the provision of a node to be automatic and instantaneous. It also enables the same user to safely generate many nodes without accidental name conflicts. If you require a human readable name then please contact support and a partial organisation name can be approved.
-
