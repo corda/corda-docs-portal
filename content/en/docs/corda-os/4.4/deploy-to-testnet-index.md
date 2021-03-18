@@ -21,7 +21,7 @@ title: Corda Testnet
 # Corda Testnet
 
 {{< warning >}}
-To provide the best experience for users setting up a network, we have decided to decommission the use of Testnet effective April 16, 2021. Here we highlight other options that are available to users following the removal of Testnet.
+To provide the best experience for users setting up a network, we have decided to decommission the use of Testnet effective April 31, 2021. Here we highlight other options that are available to users following the removal of Testnet.
 
 Based on your unique networking needs, we are offering a few different ways to get your network up and running.
 
