@@ -18,7 +18,7 @@ title: Running a sample CorDapp
 
 
 
-# Running a sample CorDapp TEST
+# Running a sample CorDapp
 
 To help you get up and running on Corda, a number of sample CorDapps for both Java and Kotlin are available from the [Corda page on GitHub](https://github.com/corda) &mdash;
  see the [Java samples repository](https://github.com/corda/samples-java) and the [Kotlin samples repository](https://github.com/corda/samples-kotlin). This topic describes how to deploy and run a sample CorDapp.
