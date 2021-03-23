@@ -692,21 +692,21 @@ Caused by: java.lang.IllegalStateException: Broken on purpose
 	at com.esotericsoftware.kryo.serializers.MapSerializer.read(MapSerializer.java:162) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.serializers.MapSerializer.read(MapSerializer.java:39) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.Kryo.readObject(Kryo.java:731) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObject(ReplaceableObjectKryo.java:92) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
+	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObject(ReplaceableObjectKryo.java:92) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.13_r3]
 	at com.esotericsoftware.kryo.serializers.DefaultArraySerializers$ObjectArraySerializer.read(DefaultArraySerializers.java:391) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.serializers.DefaultArraySerializers$ObjectArraySerializer.read(DefaultArraySerializers.java:302) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.Kryo.readObject(Kryo.java:731) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObject(ReplaceableObjectKryo.java:92) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
+	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObject(ReplaceableObjectKryo.java:92) ~[quasar-core-0.7.13_r3-jdk8.jar:0.7.13_r3]
 	at com.esotericsoftware.kryo.serializers.ObjectField.read(ObjectField.java:125) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.serializers.CompatibleFieldSerializer.read(CompatibleFieldSerializer.java:145) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.Kryo.readObjectOrNull(Kryo.java:782) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObjectOrNull(ReplaceableObjectKryo.java:107) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
+	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObjectOrNull(ReplaceableObjectKryo.java:107) ~[quasar-core-0.7.13_r3-jdk8.jar:0.7.13_r3]
 	at com.esotericsoftware.kryo.serializers.ObjectField.read(ObjectField.java:132) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.serializers.FieldSerializer.read(FieldSerializer.java:543) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.fibers.Fiber$FiberSerializer.read(Fiber.java:2156) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
-	at co.paralleluniverse.fibers.Fiber$FiberSerializer.read(Fiber.java:2086) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
+	at co.paralleluniverse.fibers.Fiber$FiberSerializer.read(Fiber.java:2156) ~[quasar-core-0.7.13_r3-jdk8.jar:0.7.13_r3]
+	at co.paralleluniverse.fibers.Fiber$FiberSerializer.read(Fiber.java:2086) ~[quasar-core-0.7.13_r3-jdk8.jar:0.7.13_r3]
 	at com.esotericsoftware.kryo.Kryo.readClassAndObject(Kryo.java:813) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readClassAndObject(ReplaceableObjectKryo.java:112) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
+	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readClassAndObject(ReplaceableObjectKryo.java:112) ~[quasar-core-0.7.13_r3-jdk8.jar:0.7.13_r3]
 	at net.corda.nodeapi.internal.serialization.kryo.KryoCheckpointSerializer$deserialize$1$1.invoke(KryoCheckpointSerializer.kt:142) ~[corda-node-api-4.7-SNAPSHOT.jar:?]
 	at net.corda.nodeapi.internal.serialization.kryo.KryoCheckpointSerializer$deserialize$1$1.invoke(KryoCheckpointSerializer.kt:44) ~[corda-node-api-4.7-SNAPSHOT.jar:?]
 	at net.corda.nodeapi.internal.serialization.kryo.KryoStreams.kryoInput(KryoStreams.kt:20) ~[corda-node-api-4.7-SNAPSHOT.jar:?]
@@ -733,5 +733,4 @@ A flow can decide to skip persisting a checkpoint when calling a suspending func
 
 #### Idempotent/timed flows
 
-Idempotent/timed flows always retry from their initial checkpoint when a retry is needed. Therefore, when one of these flows is reloaded when reaching a suspending function, it will load the initial checkpoint and st
-0.7.13_r3
+Idempotent/timed flows always retry from their initial checkpoint when a retry is needed. Therefore, when one of these flows is reloaded when reaching a suspending function, it will load the initial checkpoint and start from the beginning. This is not useful for detecting deserialization errors but checks that the flow generally handles retries correctly.
