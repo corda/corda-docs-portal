@@ -49,7 +49,7 @@ ext.corda_release_version = '4.7'
 ext.corda_core_release_version = '4.7'
 ext.corda_gradle_plugins_version = '5.0.12'
 ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.12_r3'
+ext.quasar_version = '0.7.13_r3'
 ```
 
 and specifying an additional repository entry to point to the location of the Corda Enterprise distribution and Corda dependencies. Any
@@ -160,4 +160,3 @@ cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_re
 ## Upgrading from Corda Enterprise 3.x
 
 You can only upgrade to Corda Enterprise 4.7 from 4.x. To upgrade from 3.x, first upgrade to 4.x and then to 4.7.
-0.7.13_r3
