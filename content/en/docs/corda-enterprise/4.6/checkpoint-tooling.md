@@ -733,5 +733,4 @@ A flow can decide to skip persisting a checkpoint when calling a suspending func
 
 #### Idempotent/timed flows
 
-Idempotent/timed flows always retry from their initial checkpoint when a retry is needed. Therefore, when one of these flows is reloaded when reaching a suspending function, it will load the initial checkpoint and st
-0.7.13_r3
+Idempotent/timed flows always retry from their initial checkpoint when a retry is needed. Therefore, when one of these flows is reloaded when reaching a suspending function, it will load the initial checkpoint and start from the beginning. This is not useful for detecting deserialization errors but checks that the flow generally handles retries correctly.
