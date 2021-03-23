@@ -211,7 +211,7 @@ Alter the versions you depend on in your Gradle file like so:
 ext.corda_release_version = '4.4'
 ext.corda_gradle_plugins_version = '5.0.6'
 ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.12_r3'
+ext.quasar_version = '0.7.13_r3'
 ```
 
 {{< note >}}
@@ -873,7 +873,7 @@ been removed.
 You have some choices here:
 
 
-* Upgrade your `quasar.jar` to `0.7.12_r3`
+* Upgrade your `quasar.jar` to `0.7.13_r3`
 * Delete your `lib` directory and switch to using the Gradle test runner
 
 Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.md#tutorial-cordapp-running-tests-intellij).
