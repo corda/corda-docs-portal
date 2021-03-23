@@ -204,7 +204,7 @@ By default, the JAR file is signed by Corda development certificate.
 
 Confidential identities are signed with development keys by default. You will need to self-sign the `.jar` file when you deploy it to production.
 
-{{< /alert >}}
+{{< /warning >}}
 The signing process can be disabled or configured to use an external keystore.
 The `signing` entry may contain the following parameters:
 
