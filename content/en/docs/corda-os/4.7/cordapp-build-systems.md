@@ -190,7 +190,7 @@ Signing the CorDapp enables its contract classes to use signature constraints in
 for constraints explanation refer to [API: Contract Constraints](api-contract-constraints.md).
 By default, the JAR file is signed by Corda development certificate.
 
-{{< alert >}}
+{{< warning >}}
 
 Confidential identities are signed with development keys by default. You will need to self-sign the `.jar` file when you deploy it to production.
 
