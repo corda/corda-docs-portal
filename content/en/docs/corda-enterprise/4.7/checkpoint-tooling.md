@@ -692,7 +692,7 @@ Caused by: java.lang.IllegalStateException: Broken on purpose
 	at com.esotericsoftware.kryo.serializers.MapSerializer.read(MapSerializer.java:162) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.serializers.MapSerializer.read(MapSerializer.java:39) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.Kryo.readObject(Kryo.java:731) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObject(ReplaceableObjectKryo.java:92) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.13_r3]
+	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObject(ReplaceableObjectKryo.java:92) ~[quasar-core-0.7.13_r3-jdk8.jar:0.7.13_r3]
 	at com.esotericsoftware.kryo.serializers.DefaultArraySerializers$ObjectArraySerializer.read(DefaultArraySerializers.java:391) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.serializers.DefaultArraySerializers$ObjectArraySerializer.read(DefaultArraySerializers.java:302) ~[kryo-4.0.2.jar:?]
 	at com.esotericsoftware.kryo.Kryo.readObject(Kryo.java:731) ~[kryo-4.0.2.jar:?]
