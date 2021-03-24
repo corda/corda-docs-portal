@@ -868,7 +868,7 @@ been removed.
 You have some choices here:
 
 
-* Upgrade your `quasar.jar` to `0.7.13_r3`
+* Upgrade your `quasar.jar` to `0.7.12_r3`
 * Delete your `lib` directory and switch to using the Gradle test runner
 
 Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.md#tutorial-cordapp-running-tests-intellij).
