@@ -195,7 +195,7 @@ Alter the versions you depend on in your Gradle file like so:
 ext.corda_release_version = '4.4'
 ext.corda_gradle_plugins_version = '5.0.6'
 ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.13_r3'
+ext.quasar_version = '0.7.12_r3'
 ```
 
 You also need a add `corda-dependencies` to the list of repositories to make the custom built version of Quasar available:
