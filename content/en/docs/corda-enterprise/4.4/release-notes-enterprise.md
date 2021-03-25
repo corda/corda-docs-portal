@@ -36,6 +36,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * We have fixed an issue that could cause a float to handle two connection attempts from the same bridge simultaneously.
 * We have fixed an issue that misinterpreted an internal error as a bad certificate error, preventing future connection attempts.
 * We have fixed an issue that can cause failure at node startup.
+* We have fixed several issues that caused memory leaks. As a result, we have added two new node configuration fields - `attachmentClassLoaderCacheSize` and `enableURLConnectionCache`. See the [node configuration fields page](node/setup/corda-configuration-file.md) for details.
 
 ## Corda Enterprise 4.4.4
 

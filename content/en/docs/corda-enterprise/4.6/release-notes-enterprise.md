@@ -43,6 +43,8 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * We have fixed an issue that can cause failure at node startup.
 * The `attachmentPresenceCache` has been removed. The functionality is duplicated in the `attachmentContent` cache in the `NodeAttachmentService`.
 * We have fixed an issue that caused timestamps to change timezone between the start and end times of a flow.
+* We have fixed an issue where `CordaPersistence.transaction` did not flush properly and another flush had to be added in order to complete the transaction.
+* We have fixed several issues that caused memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](node/setup/corda-configuration-fields.md#enterpriseconfiguration) for details.
 
 ## Corda Enterprise 4.6.1
 
