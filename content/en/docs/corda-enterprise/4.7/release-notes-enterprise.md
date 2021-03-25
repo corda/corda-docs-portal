@@ -15,6 +15,22 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.7.1
+
+Corda Enterprise 4.7.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.7.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* We have fixed several issues that caused memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](node/setup/corda-configuration-fields.md#enterpriseconfiguration) for details.
+
+
+
 ## Corda Enterprise 4.7 release overview
 
 This release introduces a number of new features and enhancements, and fixes for known issues from previous releases.
