@@ -28,7 +28,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 ### Fixed issues
 
-* We have fixed several issues that caused memory leaks. As a result, we have added two new configuration fields - `attachmentClassLoaderCacheSize` and `enableURLConnectionCache`. See the [node configuration fields page](node/setup/corda-configuration-fields.md#enterpriseconfiguration) for details.
+* We have fixed several issues that caused memory leaks. As a result, we have added two new node configuration fields - `attachmentClassLoaderCacheSize` and `enableURLConnectionCache`. See the [node configuration fields page](node/setup/corda-configuration-fields.md#enterpriseconfiguration) for details.
 * We have fixed an issue where the HA utilities tool does not write the correct log file.
 * We have fixed an issue that prevented the HA utilities tool loading third-party HSM `.jar` files from the `drivers` directory when the `generate-internal-tunnel-ssl-keystores` command is run.
 * Corda Enterprise 4.5.3 now supports version 3.2.1 of the AWS CloudHSM client library.
