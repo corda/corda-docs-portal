@@ -691,48 +691,7 @@ If no errors occur from reloading the flow from the newly created checkpoint, th
 
 If an error does occur when deserializing the flow's checkpoint, a `ReloadFlowFromCheckpointException` is thrown, which causes the flow to be kept in for overnight observation (`HOSPITALIZED` status in the database). This only occurs when the configuration option is turned on as this is not standard behaviour. The exception that caused the failure is logged, which will hopefully provides enough information to figure out what object could not be deserialized correctly. From this point, you can either change your flow or apply custom serialization for objects that failed deserialization.
 
-When a failure occurs in this way, an error similar to the following would be seen in the nodes logs:
-
-```javastacktrace
-Caused by: java.lang.IllegalStateException: Broken on purpose
-	at net.corda.node.flows.BrokenMap.put(FlowRetryTest.kt:449) ~[integrationTest/:?]
-	at com.esotericsoftware.kryo.serializers.MapSerializer.read(MapSerializer.java:162) ~[kryo-4.0.2.jar:?]
-	at com.esotericsoftware.kryo.serializers.MapSerializer.read(MapSerializer.java:39) ~[kryo-4.0.2.jar:?]
-	at com.esotericsoftware.kryo.Kryo.readObject(Kryo.java:731) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObject(ReplaceableObjectKryo.java:92) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
-	at com.esotericsoftware.kryo.serializers.DefaultArraySerializers$ObjectArraySerializer.read(DefaultArraySerializers.java:391) ~[kryo-4.0.2.jar:?]
-	at com.esotericsoftware.kryo.serializers.DefaultArraySerializers$ObjectArraySerializer.read(DefaultArraySerializers.java:302) ~[kryo-4.0.2.jar:?]
-	at com.esotericsoftware.kryo.Kryo.readObject(Kryo.java:731) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObject(ReplaceableObjectKryo.java:92) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
-	at com.esotericsoftware.kryo.serializers.ObjectField.read(ObjectField.java:125) ~[kryo-4.0.2.jar:?]
-	at com.esotericsoftware.kryo.serializers.CompatibleFieldSerializer.read(CompatibleFieldSerializer.java:145) ~[kryo-4.0.2.jar:?]
-	at com.esotericsoftware.kryo.Kryo.readObjectOrNull(Kryo.java:782) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readObjectOrNull(ReplaceableObjectKryo.java:107) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
-	at com.esotericsoftware.kryo.serializers.ObjectField.read(ObjectField.java:132) ~[kryo-4.0.2.jar:?]
-	at com.esotericsoftware.kryo.serializers.FieldSerializer.read(FieldSerializer.java:543) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.fibers.Fiber$FiberSerializer.read(Fiber.java:2156) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
-	at co.paralleluniverse.fibers.Fiber$FiberSerializer.read(Fiber.java:2086) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
-	at com.esotericsoftware.kryo.Kryo.readClassAndObject(Kryo.java:813) ~[kryo-4.0.2.jar:?]
-	at co.paralleluniverse.io.serialization.kryo.ReplaceableObjectKryo.readClassAndObject(ReplaceableObjectKryo.java:112) ~[quasar-core-0.7.12_r3-jdk8.jar:0.7.12_r3]
-	at net.corda.nodeapi.internal.serialization.kryo.KryoCheckpointSerializer$deserialize$1$1.invoke(KryoCheckpointSerializer.kt:142) ~[corda-node-api-4.6-SNAPSHOT.jar:?]
-	at net.corda.nodeapi.internal.serialization.kryo.KryoCheckpointSerializer$deserialize$1$1.invoke(KryoCheckpointSerializer.kt:44) ~[corda-node-api-4.6-SNAPSHOT.jar:?]
-	at net.corda.nodeapi.internal.serialization.kryo.KryoStreams.kryoInput(KryoStreams.kt:20) ~[corda-node-api-4.6-SNAPSHOT.jar:?]
-	at net.corda.nodeapi.internal.serialization.kryo.KryoCheckpointSerializer$deserialize$1.invoke(KryoCheckpointSerializer.kt:131) ~[corda-node-api-4.6-SNAPSHOT.jar:?]
-	at net.corda.nodeapi.internal.serialization.kryo.KryoCheckpointSerializer$deserialize$1.invoke(KryoCheckpointSerializer.kt:44) ~[corda-node-api-4.6-SNAPSHOT.jar:?]
-	at net.corda.nodeapi.internal.serialization.kryo.KryoCheckpointSerializer$kryo$1.execute(KryoCheckpointSerializer.kt:120) ~[corda-node-api-4.6-SNAPSHOT.jar:?]
-	at com.esotericsoftware.kryo.pool.KryoPoolQueueImpl.run(KryoPoolQueueImpl.java:58) ~[kryo-4.0.2.jar:?]
-	at net.corda.nodeapi.internal.serialization.kryo.KryoCheckpointSerializer.kryo(KryoCheckpointSerializer.kt:116) ~[corda-node-api-4.6-SNAPSHOT.jar:?]
-	at net.corda.nodeapi.internal.serialization.kryo.KryoCheckpointSerializer.deserialize(KryoCheckpointSerializer.kt:130) ~[corda-node-api-4.6-SNAPSHOT.jar:?]
-	at net.corda.node.services.statemachine.FlowCreator.getFiberFromCheckpoint(FlowCreator.kt:243) ~[corda-node-4.6-SNAPSHOT.jar:?]
-	at net.corda.node.services.statemachine.FlowCreator.createFlowFromCheckpoint(FlowCreator.kt:80) ~[corda-node-4.6-SNAPSHOT.jar:?]
-	at net.corda.node.services.statemachine.SingleThreadedStateMachineManager.retryFlowFromSafePoint(MultiThreadedStateMachineManager.kt:464) ~[corda-node-4.6-SNAPSHOT.jar:?]
-	at net.corda.node.services.statemachine.ActionExecutorImpl.executeRetryFlowFromSafePoint(ActionExecutorImpl.kt:245) ~[corda-node-4.6-SNAPSHOT.jar:?]
-	at net.corda.node.services.statemachine.ActionExecutorImpl.executeAction(ActionExecutorImpl.kt:70) ~[corda-node-4.6-SNAPSHOT.jar:?]
-	at net.corda.node.services.statemachine.interceptors.MetricActionInterceptor.executeAction(MetricInterceptor.kt:33) ~[corda-node-4.6-SNAPSHOT.jar:?]
-	at net.corda.node.services.statemachine.TransitionExecutorImpl.executeTransition(TransitionExecutorImpl.kt:47) ~[corda-node-4.6-SNAPSHOT.jar:?]
-```
-
-Most of this stack trace is not useful to you as a developer, but it does indicate what object it was trying to serialize at the time. In this scenario, it was trying to serialize a `Map` (as denoted by the `MapSerializer`). This information should allow you to determine what is going wrong.
+When a failure occurs, you can see an error in the node's logs. The stack trace indicates what object it attempted to serialize, which allows you to determine the source of the error.
 
 #### Skipping checkpoints
 
