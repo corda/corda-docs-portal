@@ -274,7 +274,7 @@ To run the sample CorDapp, run the command that corresponds to your operating sy
 * Windows: `.\build\nodes\runnodes.bat`
 
 
-Start a Spring Boot server for each node by opening a terminal/command prompt for each node and entering the following command, replacing X with A and B.
+Start a Spring Boot server for each node by opening a terminal/command prompt for each node and entering the following command, replacing `X` with `A` and `B`.
 
 
 * Unix/Mac OSX: `./gradlew runPartyXServer`
