@@ -498,7 +498,7 @@ You can run the CorDapp’s flow tests by running the `Run Flow Tests - Java` ru
 ### Debug a test
 
 If your test fails, run a Gradle test instead of a unit test.
-1. Open the *Gradle* tab on the right-hand side of your IntelliJ window.
+1. Open the **Gradle** tab on the right-hand side of your IntelliJ window.
 2. Open *Build Tool Settings* (wrench icon) and select ‘Gradle Settings’.
 3. Set Gradle as the default in your ‘Build and Run’ settings and *Apply*.
 4. Go to *Run Configurations* (next to the hammer icon) and select ‘Edit Configurations’.
