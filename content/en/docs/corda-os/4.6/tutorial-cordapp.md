@@ -477,7 +477,7 @@ Corda provides several frameworks for writing unit and integration tests for Cor
 You can run the CorDapp’s integration tests by running the `Run Integration Tests - Java` run configuration.
 
 First, run an integration test to calibrate your environment.
-1. Go to Workflows > src > IntegrationTest > DriverBasedTest.
+1. Go to `Workflows` > `src` > `IntegrationTest` > `DriverBasedTest`.
 2. Select the green arrow next to the test code. This will open the Run Terminal.
 
 ### Contract tests
