@@ -492,7 +492,7 @@ You can run the CorDapp’s contract tests by running the `Run Contract Tests - 
 
 You can run the CorDapp’s flow tests by running the `Run Flow Tests - Java` run configuration.
 
-1. Go to Workflow > src > test > FlowTests.
+1. Go to `Workflow` > `src` > `test` > `FlowTests`.
 2. Select the arrow next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
 ### Debug a test
