@@ -484,7 +484,7 @@ First, run an integration test to calibrate your environment.
 
 You can run the CorDapp’s contract tests by running the `Run Contract Tests - Java` run configuration.
 
-1. Go to Workflow > src > test > ContractTests.
+1. Go to `Workflow` > `src` > `test` > `ContractTests`.
 2. Select the arrow next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
 
