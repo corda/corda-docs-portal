@@ -313,7 +313,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * The alias of the TLS key. It can consist of up to 100 lowercase alphanumeric characters and the hyphen (-).
   * *Default:* `cordaclienttls`
 * `previousIdentityKeyAliases`
-  * List of previous node identity key aliases after key rotation. For more information about this feature, contact R3 support.
+  * List of previous node identity key aliases after key rotation. For more information about this feature, contact your R3 account manager.
   * Default value: An empty list.
 
 ## `tuning`

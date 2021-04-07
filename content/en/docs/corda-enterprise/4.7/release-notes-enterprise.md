@@ -82,7 +82,7 @@ They both run as part of the [Gateway Service](node/gateway-service.md).
 
 ### Certificate rotation
 
-Corda Enterprise 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager](../../cenm/1.5/_index.md). For more information about this feature, contact [R3 support](https://www.r3.com/support/).
+Corda Enterprise 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager](../../cenm/1.5/_index.md). For more information about this feature, contact your R3 account manager.
 
 ### Other changes and improvements
 

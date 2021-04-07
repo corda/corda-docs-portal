@@ -390,7 +390,7 @@ ha-utilities notary-registration [-hrRvV] [--logging-level=<loggingLevel>] [-b=F
 * `-k`, `--output-keystore=FILE`: If set, stores the generated notary service certificate (and key if not using a HSM) in the configured key store.
 * `-h`, `--help`: Show this help message and exit.
 * `-V`, `--version`: Print version information and exit.
-* `-r`, `--renew`: Send a CSR to a different endpoint for certificate renewal. For more information about this feature, [contact R3 support](https://www.r3.com/support/).
+* `-r`, `--renew`: Send a CSR to a different endpoint for certificate renewal. For more information about this feature, contact your R3 account manager.
 
 
 ### Output
@@ -405,4 +405,4 @@ contain the notary service certificate chain. See [HSM Support](notary/hsm-suppo
 
 ## Node Certificate Rotation Tool
 
-For more information about this tool, [contact R3 support](https://www.r3.com/support/).
+For more information about this tool, contact your R3 account manager.
