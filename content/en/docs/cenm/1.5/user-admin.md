@@ -34,7 +34,7 @@ You need administrator access to use the User Admin tool. If you are the first p
 
 ## Access the CENM User Admin tool
 
-Access the User Admin tool from your [Gateway service](gateway-service#manage-your-configuration) instance. Enter the full address of your Gateway service, including the port number, followed by `/admin` into a web browser.
+Access the User Admin tool from your [Gateway Service](gateway-service#manage-your-configuration) instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
 
 For example:
 `http://10.230.41.12:8080/admin`
@@ -60,7 +60,7 @@ When logging into the User Admin tool as an administrator for the first time, yo
 
 To change your password:
 
-1. Login to the User Admin tool. If this is your first login or you have requested a new login, use the temporary password you have been given.
+1. Log in to the User Admin tool. If this is your first login or you have requested a new login, use the temporary password you have been given.
 
 2. On the next screen, click *user profile* in the top right-hand corner.
 
@@ -115,9 +115,9 @@ You can change a user's status, password, or group membership from the **User De
 
 3. Change a user's status or delete a user from the **User Details** panel:
     * **Locked** toggle: If a user tries an incorrect password too many times, they will be locked. Click the **Locked** toggle to unlock them and allow additional attempts.
-    * **Admin** toggle: activate the **Admin** toggle to make a user an administrator.
-    * **Enable** toggle: deactivate or reactivate a user.
-    * **Delete User** button: remove the user from the system.
+    * **Admin** toggle: Activate the **Admin** toggle to make a user an administrator.
+    * **Enable** toggle: Deactivate or reactivate a user.
+    * **Delete User** button: Remove the user from the system.
 
     Updates save automatically.
 
@@ -161,18 +161,18 @@ To make changes to a group:
 2. Click the relevant group.
 
 3. Update your group from the  **Group details** panel:
-    * **Pencil icons** edit the name and description of the group.
-    * **Enable** toggle: activate or deactivate the auto-enrolment of new users into the group.
-    * **Admin** toggle: set the administrator status of the group.
+    * **Pencil icons**: Edit the name and description of the group.
+    * **Enable** toggle: Activate or deactivate the auto-enrolment of new users into the group.
+    * **Admin** toggle: Set the administrator status of the group.
     * **Delete button**: Delete the group. This does not delete the users in the group - they are still active, but do not have any permissions that were assigned at the group level.
 
     Changes save automatically.
 
-4. Edit the users in a group from the 'Edit user assignment' panel.
-    * Open the dropdown to see a list of all users.
-    * Tick the box next to a user to add them to the group.
-    * Click the 'x' next to a user's name to remove them from the group. This will revoke any permissions associated with group membership - you can confirm this by checking the user's individual roles.
-    * Click **Save**.
+4. Edit the users in a group from the **Edit user assignment** panel.
+    a. Click the drop-down menu to see a list of all users.
+    b. Select the checkbox next to a user to add them to the group.
+    c. Click the **x** next to a user's name to remove them from the group. This will revoke any permissions associated with group membership - you can confirm this by checking the user's individual roles.
+    d. Click **Save**.
 
 
 ## Create a new role
