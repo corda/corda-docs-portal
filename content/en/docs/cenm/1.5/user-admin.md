@@ -30,7 +30,7 @@ With the User Admin tool, you can:
 
 ### Who can use it
 
-You need administrator access to the User Admin tool to use it. If you are the first person using the tool in your organisation, you need to request access from your network owner's organization.
+You need administrator access to use the User Admin tool. If you are the first person using the tool in your organisation, you need to request access from your network owner's organisation.
 
 ## Access the CENM User Admin tool
 
