@@ -78,7 +78,7 @@ Corda Enterprise 4.7には2種類の新しい管理コンソールが搭載さ�
 * **Flow管理コンソール**では、ノードで実行されているflowの状態を確認でき、flowに対していくつかの処理を行えます。詳細については、[Flow管理コンソール](node/node-flow-management-console.md)をご覧ください。
 * **ノード管理コンソール**では、ノードについての情報を確認でき、いくつかの処理を行えます。詳細については、[ノード管理コンソール](node/management-console/_index.md)をご覧ください。
 
-どちらのコンソールも、CENM [Gatewayサービス](../../cenm/1.5/gateway-service.md)の一部として動作します。
+どちらのコンソールも、CENM [Gatewayサービス](node/gateway-service.md)の一部として動作します。
 
 ### 証明書ローテーション
 
@@ -86,7 +86,7 @@ Corda Enterprise 4.7では、ノード鍵（Legal Identity）とその証明書�
 
 ### その他の変更と改善
 
-* **Azure ADを使ったシングルサインオン**Azure ADとCorda Authサービスで[簡単な設定](../../cenm/1.5/azure-ad-sso.md)を行うだけで、CordaサービスとAzure AD間でシングルサインオン（SSO）設定を運用できるようになりました。
+* **Azure ADを使ったシングルサインオン**Azure ADとCorda Authサービスで[簡単な設定](node/azure-ad-sso)を行うだけで、CordaサービスとAzure AD間でシングルサインオン（SSO）設定を運用できるようになりました。
 * **HSM統合サポート**Corda Enterpriseでは、サポートされていないHSMとCorda Enterpriseインスタンスのユーザーによる統合をサポートするようになりました。今回のリリースには、例として使えるJava実装のサンプルと、展開前に実装をテストできるテストスイートが含まれています。HSM統合の書き方ガイドについては[HSMに関する項](operations/deployment/hsm-integration.md/)をご覧ください。
 * **HSMにConfidential Identity鍵を保存する機能**Corda Enterpriseは、nCipher、FuturexとAzure Key VaultのHSMにおけるConfidential Identityに関する鍵の保管をサポートするようになりました。nCipherとAzure Key VaultのHSMではConfidential Identity鍵のネイティブでの利用をサポートし、FuturexのHSMではキーラップモードをサポートします。これらのHSMにおけるConfidential Identity鍵保管の設定については、[HSMに関する項](operations/deployment/hsm-deployment-confidential.md#using-an-hsm-with-confidential-identities/)をご覧ください。
 * **HSM API**Corda Enterprise 4.7では、外部のツール開発者がCorda EnterpriseのHSMサポートを拡張するために使える独自のAPIを有するHSMライブラリーが導入されています。

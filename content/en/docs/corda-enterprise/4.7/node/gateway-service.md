@@ -1,44 +1,39 @@
 ---
-date: '2020-06-06T18:19:00Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-gateway
-    parent: cenm-1-5-operations
-    weight: 27
+  corda-enterprise-4-7:
+    parent: corda-enterprise-4-7-corda-nodes
 tags:
 - contexts
 - auth
-- login CENM
 - gateway
+weight: 160
+aliases: "/docs/cenm/1.5/gateway-service.html"
 
 title: Gateway Service
 ---
 
 # Gateway Service
 
-
-The Gateway Service provides a transfer layer between front-end Corda Enterprise Network Manager (CENM) interfaces, and the [Auth Service](auth-service) that underpins authentication and authorisation in CENM.
-
-Once installed and configured, users can connect with the Gateway Service via the [CENM CLI Tool](cenm-cli-tool) to manage CENM service tasks. Administrators can use the Gateway Service address plus `/admin` to access the (CENM User Admin Tool)[user-admin] via a web browser.
+The Gateway Service acts as common entry point for remote management of Corda Nodes as well as networks using CENM - either using the available command-line tools or via the web applications hosted by the Gateway.
 
 {{< warning >}}
 The Gateway Service does not need its own database - so there is no database configuration required when you are setting up.
 {{< /warning >}}
 
 
-### Install the gateway Gateway service
+## Install the Gateway Service
 
 You can install the Gateway Service by installing the Gateway Service `.jar` file:
 
 `java -jar gateway-service.jar -f config.conf`
 
-#### Configure the Gateway Service
+## Configure the Gateway Service
 
 When you configure the Gateway Service, you need to:
 
-1. Specify the endpoint where the Auth service is exposed - this must match the IP or host name of the machine/VM/container and the port that is configured in the Auth Service config file.
+1. Specify the endpoint where the Auth Service is exposed - this must match the IP or host name of the machine/VM/container and the port that is configured in the Auth Service config file.
 
-2. Specify the SSL configuration for connecting to the Auth service. You can do this using the [PKI tool](pki-tool).
+2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool](../../../cenm/1.5/pki-tool).
 
 3. Your authentication credentials, as specified in your [Auth Service configuration](auth-service).
 
@@ -81,12 +76,7 @@ auth {
     }
 }
 
-# CENM zone-service address
-cenm {
-    zoneHost: "zone-service"
-    # Admin listener port of the zone service
-    zonePort: 5063
-}
+# application-specific configuration should go here
 
 # port to bind to (defaults to 8080)
 server {
@@ -94,7 +84,7 @@ server {
 }
 ```
 
-#### Manage Gateway Service configuration
+## Manage Gateway Service configuration
 
 Name of the distribution: `gateway-service.jar`
 
@@ -106,3 +96,13 @@ Command line arguments:
 * `--config-obfuscation-seed[=]` - The seed used in the key derivation function to create a salt
 * `-h, --help`
 * `-V, --version`
+
+## Installing applications onto the Gateway Service
+
+{{< note >}}
+[Auth Service](auth-service) needs to be set up with baseline permission data for each application.
+{{< /note >}}
+
+* [CENM management console](../../../cenm/1.5/cenm-console)
+* [Node management console](management-console)
+* [Flow management console](node-flow-management-console)

@@ -180,7 +180,7 @@ Your interaction with CENM services through the CLI is managed by the Front-end 
 
 When you log in to each session, you specify the full endpoint address of the Gateway service instance you are accessing, for example: `http://10.230.41.12`. You do this using the argument `<server>` in the command line. This endpoint forms the **context** for your session.
 
-Setting a context means that your session can last for the full session duration set in your [Auth Service](auth-service) configuration, without being interrupted by any natural time-outs in your CENM service. It also means you can switch between servers, like staging and production servers, simply by switching from one context alias to another.
+Setting a context means that your session can last for the full session duration set in your [Auth Service](../../corda-enterprise/4.7/node/auth-service) configuration, without being interrupted by any natural time-outs in your CENM service. It also means you can switch between servers, like staging and production servers, simply by switching from one context alias to another.
 
 In most commands in the CLI, you can specify the context you want to use with the command option:
 

@@ -32,16 +32,16 @@ With the User Admin tool, you can:
 
 You can only use the User Admin tool if you are registered to use the tool as an Administrator. If you are the first person using the tool in your organisation, you need to request access from your network owner's organization.
 
-## Access the CENM User Admin tool
+## Access the User Admin tool
 
-You access the User Admin tool from the location of your [Gateway service](gateway-service#manage-your-configuration) instance. Enter the full address of your Gateway service, including the port number, followed by `/admin` into a web browser.
+You access the User Admin tool from the location of your [Gateway Service](../../corda-enterprise/4.7/node/gateway-service#manage-your-configuration) instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
 
 For example:
 `http://10.230.41.12:8080/admin`
 
 ### First login
 
-Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](auth-service).
+Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](../../corda-enterprise/4.7/node/auth-service).
 
 If you do not have these, you need to access them from the operator who configured your Auth Service.
 

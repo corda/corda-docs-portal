@@ -47,10 +47,10 @@ If existing passwords are not complex, add the configuration option to allow wea
 This new setting can be change to `true` or removed only after all users have changed their passwords to meet complexity requirements:
 
 * Minimum 8 characters long.
-* Maximum 50 characters long. 
+* Maximum 50 characters long.
 * Contains at least one number, one lower case character, and one upper case character.
 * Does not contain regular sequences (like `abcdf` or `1234`) that are longer than three characters.
-* Does not contain the username.
+* Does not contain the user name.
 
 ### Identity Manager Workflow Plugin changes
 
@@ -158,7 +158,7 @@ pluginJar
 CENM 1.3 introduces a significant number of services. You should upgrade to CENM 1.2.2 before upgrading to 1.3.
 The key steps for the upgrade are:
 
-1. Generate new certificates for [FARM](gateway-service.md), [Auth](auth-service.md), and [Zone](zone-service.md) Services.
+1. Generate new certificates for [FARM](../../corda-enterprise/4.7/node/gateway-service.md), [Auth](../../corda-enterprise/4.7/node/auth-service.md), and [Zone](zone-service.md) Services.
 2. Generate a JWT token key pair for Auth Service.
 3. Deploy FARM Service to provide a gateway between the CLI tool and the back-end services.
 4. Deploy Auth Service to provide user authentication and authorisation to other services.
@@ -185,7 +185,7 @@ You must replace the `subject` and `crlDistributionUrl` entries in this configur
 appropriate to your deployment.
 {{% /important %}}
 
-To generate the JWT, refer to the [Auth Service](auth-service.md) documentation.
+To generate the JWT, refer to the [Auth Service](../../corda-enterprise/4.7/node/auth-service.md) documentation.
 
 The generated keys and certificates will then need to be distributed to the service hosts,
 replacing the existing SSL (but not network trust root or other signing key/certificates).
@@ -194,8 +194,8 @@ replacing the existing SSL (but not network trust root or other signing key/cert
 
 To deploy the new services, follow the guides in the service documentation:
 
-* [FARM Service](gateway-service.md)
-* [Auth Service](auth-service.md)
+* [FARM Service](../../corda-enterprise/4.7/node/gateway-service.md)
+* [Auth Service](../../corda-enterprise/4.7/node/auth-service.md)
 * [Zone Service](zone-service.md)
 
 {{< note >}}
@@ -205,7 +205,7 @@ systems, and a second one in the secure network alongside the Signing Service.
 
 ### Create user(s)
 
-The [Auth Service](auth-service.md) has an initial user who can manage users, however
+The [Auth Service](../../corda-enterprise/4.7/node/auth-service.md) has an initial user who can manage users, however
 for separation of responsibility this user cannot manage services. Therefore you
 need to create user(s) for configuring the services, as well as potentially users
 to operate the services once they are configured, such as signing certificates.

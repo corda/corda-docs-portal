@@ -30,12 +30,13 @@ To use the CENM management console, you must install it as a *plug-in* to your G
 
 ### Requirements
 
-- [Auth Service](auth-service.md) that has been set up with at least one user (ideally an admin user) and running.
+- [Auth Service](../../corda-enterprise/4.7/node/auth-service.md) that has been set up with at least one user (ideally an admin user) and running.
 - [Zone Service](zone-service.md) running.
+- [Gateway Service](../../corda-enterprise/4.7/node/gateway-service.md) is installed and running.
 
 ### Install the CENM management console
 
-The CENM management console is accessed via the [Gateway service](gateway-service.md). Once you have added the plugin binaries to the correct directory on the machine that hosts your Gateway Service, you can access the web service from any browser.
+The CENM management console is accessed via the [Gateway Service](../../corda-enterprise/4.7/node/gateway-service.md). Once you have added the plugin binaries to the correct directory on the machine that hosts your Gateway Service, you can access the web service from any browser.
 
 To install the CENM management console:
 
