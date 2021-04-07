@@ -44,7 +44,7 @@ Corda Enterprise 4.7 introduces a capability for reissuing node legal identity k
 The introduction of this functionality may require changes to your custom Identity Manager Workflow Plugins, regardless of using certificate reissuance functionality in your system. Make sure to check the [Upgrading Corda Enterprise Network Manager](upgrade-notes.md) page.
 {{< /warning >}}
 
-For more information about this feature, contact [R3 support](https://www.r3.com/support/).
+For more information about this feature, contact your R3 account manager.
 
 ### Fixed issues
 

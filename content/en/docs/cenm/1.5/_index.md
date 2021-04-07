@@ -105,7 +105,7 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [Index](tools-index.md)
 * [Public Key Infrastructure (PKI) Tool](pki-tool.md)
 * [Certificate Revocation Request Submission Tool](tool-crr-submission.md)
-* Node Certificate Rotation Tool (contact [R3 support](https://www.r3.com/support/))
+* Node Certificate Rotation Tool (contact your R3 account manager)
 * [CENM Command-line Interface Tool](cenm-cli-tool.md)
 * [CENM User Admin tool](user-admin.md)
 * [CENM Management Console](cenm-console.md)
