@@ -70,7 +70,7 @@ The name must also obey the following constraints:
 * All data fields adhere to the following constraints:
 
     * Upper-case first letter
-    * Does not include the following characters: `,`, `=`, `$`, `"`, `'`, `\`
+    * Does not include the following characters: `,`, `=`, `+`, `$`, `"`, `'`, `\`
     * Is in NFKC normalization form
     * Does not contain the null character
     * Only the Latin, common and inherited unicode scripts are supported
