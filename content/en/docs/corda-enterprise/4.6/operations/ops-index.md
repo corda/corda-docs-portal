@@ -29,13 +29,13 @@ There are three sections in this guide:
 
 ## Project planner documentation
 
-The project planner documentation gives advice on the requirements of Corda deployments. It explains the likely environments
+The [project planner documentation](project-planner/corda-planning) gives advice on the requirements of Corda deployments. It explains the likely environments
 that you will to deploy, and what components should be deployed there.
 
 ## Operations and deployment guide
 
-The operations and deployment section contains instructions on configuring and deploying all elements of a Corda solution.
+The [operations and deployment section](deployment/deployment) contains instructions on configuring and deploying all elements of a Corda solution.
 
 ## Monitoring and logging
 
-The monitoring and logging section gives advice on the metrics available in Corda and various monitoring scenarios.
+The [monitoring and logging section](monitoring-logging/monitoring-logging-intro) gives advice on the metrics available in Corda and various monitoring scenarios.
