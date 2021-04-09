@@ -266,9 +266,7 @@ in [Building and installing a CorDapp](cordapp-build-systems.md).
 
 ### Launching the sample CorDapp
 
-Start the nodes by running the relevant command below from the root of the `cordapp-example` folder:
-
-To run the sample CorDapp, run the command that corresponds to your operating system:
+To start the nodes and the sample CorDapp, run the command that corresponds to your operating system:
 
 * Unix/Mac OSX: `./build/nodes/runnodes`
 * Windows: `.\build\nodes\runnodes.bat`
@@ -300,7 +298,7 @@ For each node, the `runnodes` script creates a node tab/window:
 --- Corda Open Source corda-4.4 (4157c25) -----------------------------------------------
 
 
-Logs can be found in                    : /Users/joeldudley/Desktop/cordapp-example/workflows-java/build/nodes/PartyA/logs
+Logs can be found in                    : /Users/cordauser/Desktop/cordapp-example/workflows-java/build/nodes/PartyA/logs
 Database connection url is              : jdbc:h2:tcp://localhost:59472/node
 Incoming connection address             : localhost:10005
 Listening on port                       : 10005
@@ -339,12 +337,10 @@ These ports are defined in `clients/build.gradle`.
 Each Spring Boot server exposes the following endpoints:
 
 
-* `/api/example/me`
-* `/api/example/peers`
-* `/api/example/ious`
-* `/api/example/create-iou` with parameters `iouValue` and `partyName` which is CN name of a node
-
-There is also a web front-end served from the home web page e.g. `localhost:50005`.
+* `/me`
+* `/peers`
+* `/ious`
+* `/create-iou` with parameters `iouValue` and `partyName` which is CN name of a node
 
 
 {{< warning >}}
@@ -357,7 +353,7 @@ anti-XSS, anti-XSRF or other security techniques. Do not use this code in produc
 
 #### Creating an IOU via the endpoint
 
-An IOU can be created by sending a PUT request to the `/api/example/create-iou` endpoint directly, or by using the
+An IOU can be created by sending a PUT request to the `/create-iou` endpoint directly, or by using the
 the web form served from the home directory.
 
 To create an IOU between PartyA and PartyB, run the following command from the command line:
@@ -386,7 +382,7 @@ Type `flow list` in the shell to see a list of the flows that your node can run.
 following list:
 
 ```none
-com.example.flow.ExampleFlow$Initiator
+net.corda.samples.example.flows.ExampleFlow$Initiator
 net.corda.core.flows.ContractUpgradeFlow$Authorise
 net.corda.core.flows.ContractUpgradeFlow$Deauthorise
 net.corda.core.flows.ContractUpgradeFlow$Initiate
@@ -474,11 +470,11 @@ Corda provides several frameworks for writing unit and integration tests for Cor
 
 ### Integration tests
 
-You can run the CorDapp’s integration tests by running the `Run Integration Tests - Java` run configuration.
+You can run the CorDapp’s integration tests with the `Run Integration Tests - Java` run configuration.
 
 First, run an integration test to calibrate your environment.
 1. Go to `Workflows` > `src` > `IntegrationTest` > `DriverBasedTest`.
-2. Select the green arrow next to the test code. This will open the Run Terminal.
+2. Select the **green arrow** next to the test code. This will open the Run Terminal.
 
 ### Contract tests
 
@@ -493,18 +489,18 @@ You can run the CorDapp’s contract tests by running the `Run Contract Tests - 
 You can run the CorDapp’s flow tests by running the `Run Flow Tests - Java` run configuration.
 
 1. Go to `Workflow` > `src` > `test` > `FlowTests`.
-2. Select the arrow next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
+2. Select the **arrow** next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
 ### Debug a test
 
 If your test fails, run a Gradle test instead of a unit test.
 1. Open the **Gradle** tab on the right-hand side of your IntelliJ window.
-2. Open *Build Tool Settings* (wrench icon) and select ‘Gradle Settings’.
-3. Set Gradle as the default in your ‘Build and Run’ settings and *Apply*.
-4. Go to *Run Configurations* (next to the hammer icon) and select ‘Edit Configurations’.
+2. Open **Build Tool Settings** (wrench icon) and select **Gradle Settings**.
+3. Set Gradle as the default in your **Build and Run** settings and click **Apply**.
+4. Go to **Run Configurations** (next to the hammer icon) and select **Edit Configurations**.
 5. Delete the unit test driver and click **Apply**.
-6. Return to your test code. You will see the *Gradle icon* (an elephant).
-7. Select the Gradle icon to run your test.
+6. Return to your test code. You will see the **Gradle icon** (an elephant).
+7. Select the **Gradle icon** to run your test.
 
 
 ## Debugging the CorDapp
