@@ -31,7 +31,7 @@ There are currently four types of CENM database schemas:
     * External addresses of services on the network.
     * Configurations of other services on the network.
 
-*  The **Auth** database schema is used by the [Auth Service](auth-service.md) to store RBAC data (users, permissions, groups).
+*  The **Auth** database schema is used by the [Auth Service](../../corda-enterprise/4.7/node/auth-service.md) to store RBAC data (users, permissions, groups).
 
 The services **must** use separate database schemas (either in the same database instance or in completely separate instances) due to the way the migrations are defined. If you try and run an Identity Manager Service, a Network Map Service, a Zone Service, or an Auth Service that shares the same database schema, it will result in errors.
 

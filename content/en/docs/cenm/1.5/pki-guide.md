@@ -46,7 +46,7 @@ The PKI Tool is intended to make it easy to generate all the certificates needed
 The tool generates the keys in the desired key store(s) and outputs a set of certificates necessary for correct Corda Network operation.
 
 {{< note >}}
-It is possible to rotate the Corda root certificate, which leads to reissuing of all certificates in the Corda certificate hierarchy. This is a manual and complex process - please contact [R3 support](https://www.r3.com/support/) for more information.
+It is possible to rotate the Corda root certificate, which leads to reissuing of all certificates in the Corda certificate hierarchy. This is a manual and complex process - please contact your R3 account manager for more information.
 {{< /note >}}
 
 

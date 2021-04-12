@@ -1,15 +1,14 @@
 ---
-date: '2020-12-11T00:19:00Z'
 menu:
-  cenm-1-5:
-    identifier: cenm-1-5-azure-ad-sso
-    parent: cenm-1-5-operations
-    weight: 157
+  corda-enterprise-4-7:
+    parent: corda-enterprise-4-7-corda-nodes
 tags:
 - contexts
 - auth
 - login CENM
 - gateway
+weight: 170
+aliases: "/docs/cenm/1.5/azure-ad-sso.html"
 
 title: Azure AD SSO
 ---
@@ -21,8 +20,8 @@ You can operate a single sign on (SSO) set-up between your Corda services and Az
 To set up SSO with Azure AD, you need to:
 
 1. Configure your Azure AD using the Azure online console.
-2. Configure your [Auth Service](auth-service.md).
-3. If you use the [CENM Command-line Interface Tool](cenm-cli-tool.md), you also need to configure Azure AD to enable commands.
+2. Configure your [Auth Service](../auth-service.md).
+3. If you use the [CENM Command-line Interface Tool](../../../../cenm/1.5/cenm-cli-tool.md), you also need to configure Azure AD to enable commands.
 
 {{< note >}}
 Some steps in the Auth configuration require reference to your Azure AD account and setup, so you should be able to access both when setting up Azure AD SSO.
@@ -36,33 +35,33 @@ You must use the Azure AD console to complete the Auth Service configuration. To
 
 2. Add a new app registration to represent your Corda service.
 
-![step 2](./resources/step2.png)
+![step 2](azure-ad-sso/step2.png)
 
 3. Record the Application (client) ID, Directory (tenant) ID, and Object ID. You will need these when you configure the Auth Service.
 
-![step 3](./resources/step3.png)
+![step 3](azure-ad-sso/step3.png)
 
 4. Set authentication to ensure only accounts in this directory can use the app.
 
 5. Select **Configure Platforms**, and choose **Single-page application**.
 
-![step 5](./resources/step5.png)
+![step 5](azure-ad-sso/step5.png)
 
 6. Enter redirect address for login, and select implicit grant as **ID tokens**.
 
 7. Create new **Client Secret**.
 
-![step 7](./resources/step7.png)
+![step 7](azure-ad-sso/step7.png)
 
 8. Add user permissions - you must apply at least **User.Read**. This is the minimum required scope. In the Azure AD setup, you can select scopes with greater permissions to suit your requirements.
 
-![step 8](./resources/step8.png)
+![step 8](azure-ad-sso/step8.png)
 
 9. Confirm user permissions.
 
 10. Add group permissions.
 
-![step 10](./resources/step10.png)
+![step 10](azure-ad-sso/step10.png)
 
 11. Confirm group permissions.
 
@@ -137,25 +136,25 @@ To allow use of the CENM Command-line Interface Tool, you need to enable a few a
 
 1. In the Azure AD console app registration **Authentication** section, use the switch to treat the application as a public client.
 
-![step 12](./resources/step12.png)
+![step 12](azure-ad-sso/step12.png)
 
 2. Click **Add a platform**.
 
-![step 13](./resources/step13.png)
+![step 13](azure-ad-sso/step13.png)
 
 3. In **Configure platform**, select **Mobile and Desktop Applications**.
 
-![step 14](./resources/step14.png)
+![step 14](azure-ad-sso/step14.png)
 
 4. In **Configure desktop and devices**, select the predefined url that starts with **msal**.
 
-![step 15](./resources/step15.png)
+![step 15](azure-ad-sso/step15.png)
 
 {{< note >}}
 If the custom redirect URI fails, you can select the URI: `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 {{< /note >}}
 
-You can now access Azure login using the [CENM Command-line Interface Tool](cenm-cli-tool.md).
+You can now access Azure login using the [CENM Command-line Interface Tool](../../../../cenm/1.5/cenm-cli-tool.md).
 
 To log in:
 
