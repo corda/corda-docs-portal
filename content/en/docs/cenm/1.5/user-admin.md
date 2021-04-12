@@ -77,7 +77,7 @@ Users can access network services to perform tasks. To give a user permissions, 
 
 Administrators *cannot* have any role as a user on your network operation services.
 
-![create_user](resources/create_user.png)
+![create_user](resources/create_user_new.png)
 
 {{< note >}}
 You must be registered as an administrator to create new users and administrators.
@@ -107,7 +107,7 @@ To add a new user or administrator:
 
 You can change a user's status, password, or group membership from the **User Details** screen.
 
-![Manage user](resources/edit_user.png)
+![Manage user](resources/user_details_new.png)
 
 1. Select **Users** from the side menu to view the user list.
 
@@ -130,7 +130,7 @@ You can change a user's status, password, or group membership from the **User De
 
 Groups let you grant multiple users the same set of permissions. Groups make it easier for you to manage permissions of future users - just add them to the relevant groups instead of configuring individual roles.
 
-![Creating a group](resources/create_group.png)
+![Creating a group](resources/create_group_new.png)
 
 To create a group:
 
@@ -153,7 +153,7 @@ You can access all your groups from the **Groups** screen.
 
 You can add or remove members of a group, or delete an existing group. Deleting a group does not delete the users in the group.
 
-![Manage a group](resources/editing_group.png)
+![Manage a group](resources/group_details_new.png)
 To make changes to a group:
 
 1. Select **Groups** from the side menu to view your existing groups.
@@ -179,7 +179,7 @@ To make changes to a group:
 
 Roles are made up of permissions that allow users to perform tasks in CENM. You can create roles by combining the required permissions, and then assigning the role to users and/or groups.
 
-![Create a Role](resources/create_role.png)
+![Create a Role](resources/create_role_new.png)
 To create a new role:
 
 1. Select **Roles** from the side menu.
@@ -201,7 +201,7 @@ You have added a new role. All users and groups assigned this role are granted i
 
 You can assign a role to additional users and groups, remove roles from users and groups, add and remove permissions in a role, and delete roles at any time.
 
-![Manage a Role](resources/edit_role.png)
+![Manage a Role](resources/role_details_new.png)
 To amend the properties of a role:
 
 1. Select **Roles** from the side menu.
