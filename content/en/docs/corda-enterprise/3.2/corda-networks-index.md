@@ -27,10 +27,4 @@ Try [Corda Enterprise 3.3 documentation](/docs/corda-enterprise/3.3/_index.md) i
 * [Network permissioning](permissioning.md)
 * [Network Map](network-map.md)
 * [Versioning](versioning.md)
-* [The Corda Testnet](corda-testnet-intro.md)
-* [Using Azure Resource Manager Templates to deploy a Corda Enterprise node](azure-template-guide.md)
-* [Using the Node Explorer to test a Corda Enterprise node on Corda Testnet](testnet-explorer.md)
 * [Supported cipher suites](cipher-suites.md)
-
-
-

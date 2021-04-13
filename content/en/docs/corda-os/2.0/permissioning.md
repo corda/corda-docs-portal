@@ -21,7 +21,7 @@ keystore will be used if the keystore does not exist. This is to ensure develope
 as possible.
 
 However this is not secure for the real network. This documentation will explain the procedure of obtaining a signed
-certificate for TestNet.
+certificate.
 
 ## Initial Registration
 

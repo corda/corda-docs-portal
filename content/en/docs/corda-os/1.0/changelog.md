@@ -34,7 +34,7 @@ from the previous milestone release.
 `get<constant name>()` were created for the Java API. These can now be referenced by their name directly.
 * `FlowLogic` communication has been extensively rewritten to use functions on `FlowSession` as the base for communication
 between nodes.
-* Calls to `send()`, `receive()` and `sendAndReceive()` on FlowLogic should be replaced with calls> 
+* Calls to `send()`, `receive()` and `sendAndReceive()` on FlowLogic should be replaced with calls>
 to the function of the same name on `FlowSession`. Note that the replacement functions do not take in a destination
 parameter, as this is defined in the session.
 
@@ -44,7 +44,7 @@ counterparty identity, it is in the `counterparty` property of the flow session.
 
 * Added X509EdDSAEngine to intercept and rewrite EdDSA public keys wrapped in X509Key instances. This corrects an issue
 with verifying certificate paths loaded from a Java Keystore where they contain EdDSA keys.
-* 
+*
     * The identity negotiation flow is now called `SwapIdentitiesFlow`, renamed from `TransactionKeyFlow`.
     * generateSpend() now creates a new confidential identity for the change address rather than using the identity of the
 input state owner.
@@ -88,7 +88,7 @@ criteria specifications. State status is overridable. Contract states types are 
 with single query on start-up followed by dynamic updates using vault state observable))
 * Vault Query fix: filter by multiple issuer names in `FungibleAssetQueryCriteria`
 * Following deprecated methods have been removed:
-* In `DataFeed`> 
+* In `DataFeed`>
 
     * `first` and `current`, replaced by `snapshot`
     * `second` and `future`, replaced by `updates`
@@ -106,13 +106,13 @@ with single query on start-up followed by dynamic updates using vault state obse
 `ResolveTransactionsFlow` has been made internal. Instead merge the receipt of the `SignedTransaction` and the subsequent
 sub-flow call to `ResolveTransactionsFlow` with a single call to `ReceiveTransactionFlow`. The flow running on the counterparty
 must use `SendTransactionFlow` at the correct place. There is also `ReceiveStateAndRefFlow` and `SendStateAndRefFlow` for
-dealing with 
+dealing with
 {{< warning >}}``{{< /warning >}}
 
 StateAndRef``s.
 * Vault query soft locking enhancements and deprecations
 * removed original `VaultService` `softLockedStates` query mechanism.
-* introduced improved ``SoftLockingCondition` filterable attribute in `VaultQueryCriteria` to enable specification> 
+* introduced improved ``SoftLockingCondition` filterable attribute in `VaultQueryCriteria` to enable specification>
 of different soft locking retrieval behaviours (exclusive of soft locked states, soft locked states only, specified
 by set of lock ids)
 
@@ -122,7 +122,7 @@ commercial paper but labelling it as if issued by the bank.
 (either type) plus supporting certificate path, and de-anonymisation simply returns the issuing identity where known.
 If you specifically need well known identities, use the network map, which is the authoritative source of current well
 known identities.
-* Currency-related API in `net.corda.core.contracts.ContractsDSL` has moved to 
+* Currency-related API in `net.corda.core.contracts.ContractsDSL` has moved to
 {{< warning >}}``{{< /warning >}}
 
 *net.corda.finance.CurrencyUtils*.
@@ -166,7 +166,7 @@ the `signatureMetadata` as an extra input, in order to support signing both the 
 * To reflect changes in the signing process, the `Crypto` object is now equipped with the:
 `fun doSign(keyPair: KeyPair, signableData: SignableData): TransactionSignature` and
 `fun doVerify(txId: SecureHash, transactionSignature: TransactionSignature): Boolean` functions.
-* 
+*
 {{< warning >}}``{{< /warning >}}
 
 SerializationCustomization.addToWhitelist()` now accepts multiple classes via varargs.
@@ -177,7 +177,7 @@ SerializationCustomization.addToWhitelist()` now accepts multiple classes via va
 directly build a `FilteredTransaction` using provided filtering functions, without first accessing the
 `tx: WireTransaction`.
 * Test type `NodeHandle` now has method `stop(): CordaFuture<Unit>` that terminates the referenced node.
-* 
+*
     * Fixed leg and floating leg notional amounts were not displayed for created deals neither in single nor in list view.
     * Parties were not displayed for created deals in single view.
     * Non-default notional amounts caused the creation of new deals to fail.
@@ -210,7 +210,7 @@ renamed to `rootAndUsedHashes` and is now public, as it is required in the verif
 
 {{< warning >}}``{{< /warning >}}
 
-FilteredComponentGroup(override val groupIndex: Int, override val components: List<OpaqueBytes>,> 
+FilteredComponentGroup(override val groupIndex: Int, override val components: List<OpaqueBytes>,>
 val nonces: List<SecureHash>, val partialMerkleTree: PartialMerkleTree): ComponentGroup(groupIndex, components)``
 have been added, which are properties of the `WireTransaction` and `FilteredTransaction`, respectively.
 * `checkAllComponentsVisible(componentGroupEnum: ComponentGroupEnum)` is added to `FilteredTransaction`, a new
@@ -220,7 +220,7 @@ constructors: `WireTransaction(componentGroups: List<ComponentGroup>, privacySal
 
 {{< warning >}}``{{< /warning >}}
 
-FilteredTransaction private constructor(id: SecureHash,filteredComponentGroups: List<FilteredComponentGroup>,> 
+FilteredTransaction private constructor(id: SecureHash,filteredComponentGroups: List<FilteredComponentGroup>,>
 groupHashes: List<SecureHash>``. `FilteredTransaction` is still built via
 
 {{< warning >}}``{{< /warning >}}
@@ -243,7 +243,7 @@ buildFilteredTransaction(wtx: WireTransaction, filtering: Predicate<Any>).
 ## Milestone 14
 
 
-* Changes in `NodeInfo`:> 
+* Changes in `NodeInfo`:>
 
     * `PhysicalLocation` was renamed to `WorldMapLocation` to emphasise that it doesn’t need to map to a truly physical
 location of the node server.
@@ -277,7 +277,7 @@ sub-properties in existing code.
 `Command` is now parameterised on the `CommandData` field.
 * Kotlin utilities that we deemed useful enough to keep public have been moved out of `net.corda.core.Utils` and into
 `net.corda.core.utilities.KotlinUtils`. The other utilities have been marked as internal.
-* Changes to `Cordformation`/ cordapp building:> 
+* Changes to `Cordformation`/ cordapp building:>
 
     * `Cordformation` modifies the JAR task to make cordapps build as semi fat JARs containing all dependencies
 except other cordapps and Corda core dependencies.
@@ -291,7 +291,7 @@ use to exclude core Corda JARs from being built into Cordapp fat JARs.
 (i.e. services.database.transaction {  code block } ) however a change is required when Database was explicitly declared
 * `DigitalSignature.LegallyIdentifiable`, previously used to identify a signer (e.g. in Oracles), has been removed.
 One can use the public key to derive the corresponding identity.
-* Vault Query improvements and fixes:> 
+* Vault Query improvements and fixes:>
 
     * FIX inconsistent behaviour: Vault Query defaults to UNCONSUMED in all QueryCriteria types
     * FIX serialization error: Vault Query over RPC when using custom attributes using VaultCustomQueryCriteria.
@@ -311,7 +311,7 @@ Internally, we now use the AggregateFunction capability to perform the count.
 
 
 
-* Confidential identities API improvements> 
+* Confidential identities API improvements>
 
     * Registering anonymous identities now takes in AnonymousPartyAndPath
     * AnonymousParty.toString() now uses toStringShort() to match other toString() functions
@@ -336,13 +336,13 @@ Special thank you to [Frederic Dalibard](https://github.com/FredericDalibard), f
 support for more currencies to the DemoBench and Explorer tools.
 
 
-* A new Vault Query service:> 
+* A new Vault Query service:>
 
     * Implemented using JPA and Hibernate, this new service provides the ability to specify advanced queries using
 criteria specification sets for both vault attributes and custom contract specific attributes. In addition, new
 queries provide sorting and pagination capabilities.
 The new API provides two function variants which are exposed for usage within Flows and by RPC clients:
-- `queryBy()` for point-in-time snapshot queries> 
+- `queryBy()` for point-in-time snapshot queries>
 (replaces several existing VaultService functions and a number of Kotlin-only extension functions)
 
         * `trackBy()` for snapshot and streaming updates
@@ -363,7 +363,7 @@ register custom contract state schemas they wish to query using the new Vault Qu
 
 
 
-* Identity and cryptography related changes:> 
+* Identity and cryptography related changes:>
 
     * Enable certificate validation in most scenarios (will be enforced in all cases in an upcoming milestone).
     * Added DER encoded format for CompositeKey so they can be used in X.509 certificates.
@@ -395,7 +395,7 @@ and they should be registered in `resources/META-INF/services/net.corda.webserve
 * Added a flag to the driver that allows the running of started nodes in-process, allowing easier debugging.
 To enable use *driver(startNodesInProcess = true) { .. }*, or *startNode(startInSameProcess = true, ..)*
 to specify for individual nodes.
-* 
+*
     * Upgraded Dokka to v0.9.14.
     * Upgraded Gradle Plugins to 0.12.4.
     * Upgraded Apache ActiveMQ Artemis to v2.1.0.
@@ -410,7 +410,7 @@ to specify for individual nodes.
 ## Milestone 12 (First Public Beta)
 
 
-* Quite a few changes have been made to the flow API which should make things simpler when writing CorDapps:> 
+* Quite a few changes have been made to the flow API which should make things simpler when writing CorDapps:>
 
 
     * `CordaPluginRegistry.requiredFlows` is no longer needed. Instead annotate any flows you wish to start via RPC with
@@ -442,7 +442,7 @@ manage multiple independent message streams with the same party in the same flow
 
 
 
-* There are major changes to the `Party` class as part of confidential identities:> 
+* There are major changes to the `Party` class as part of confidential identities:>
 
     * `Party` has moved to the `net.corda.core.identity` package; there is a deprecated class in its place for
 backwards compatibility, but it will be removed in a future release and developers should move to the new class as soon
@@ -460,9 +460,9 @@ name. As a result all node legal names must now be structured as X.500 distingui
 
 * The identity management service takes an optional network trust root which it will validate certificate paths to, if
 provided. A later release will make this a required parameter.
-* There are major changes to transaction signing in flows:> 
+* There are major changes to transaction signing in flows:>
 
-    * `CollectSignaturesFlow` and corresponding `SignTransactionFlow` which handle most> 
+    * `CollectSignaturesFlow` and corresponding `SignTransactionFlow` which handle most>
 of the details of this for you. They may get more complex in future as signing becomes a more featureful
 operation.
 
@@ -495,7 +495,7 @@ Previous constructors `TimeWindow(fromTime: Instant, untilTime: Instant)` and
 * The Bouncy Castle library `X509CertificateHolder` class is now used in place of `X509Certificate` in order to
 have a consistent class used internally. Conversions to/from `X509Certificate` are done as required, but should
 be avoided where possible.
-* 
+*
     * The corda node will now be issued a restricted client CA for identity/transaction key signing.
     * TLS certificate are now stored in *sslkeystore.jks* and identity keys are stored in *nodekeystore.jks*
 
@@ -521,7 +521,7 @@ The old keystore will need to be removed when upgrading to this version.
 ## Milestone 11.0
 
 
-* 
+*
     * Added extension function `Database.transaction` to replace `databaseTransaction`, which is now deprecated.
     * Starting a flow no longer enables progress tracking by default. To enable it, you must now invoke your flow using
 one of the new `CordaRPCOps.startTrackedFlow` functions. `FlowHandle` is now an interface, and its `progress: Observable`
@@ -532,7 +532,7 @@ on their flows’ unwanted progress-tracking observables.
     * Added `CompositeSignature` and `CompositeSignatureData` as part of enabling `java.security` classes to work
 with composite keys and signatures.
     * `CompositeKey` now implements `java.security.PublicKey` interface, so that keys can be used on standard classes
-such as `Certificate`.> 
+such as `Certificate`.>
 
         * There is no longer a need to transform single keys into composite - `composite` extension was removed, it is
 imposible to create `CompositeKey` with only one leaf.
@@ -610,9 +610,9 @@ processor.
 
 {{< /note >}}
 
-* 
+*
     * DemoBench is a new tool to make it easy to configure and launch local Corda nodes. A very useful tool to demonstrate
-to your colleagues the fundamentals of Corda in real-time. It has the following features:> 
+to your colleagues the fundamentals of Corda in real-time. It has the following features:>
 
         * Clicking “Add node” creates a new tab that lets you edit the most important configuration properties of the node
 before launch, such as its legal name and which CorDapps will be loaded.
@@ -628,7 +628,7 @@ Explorer so it starts out logged in already.
     * You can download Corda DemoBench from [here](https://www.corda.net/downloads/)
 
 
-* 
+*
     * Soft Locking is a new feature implemented in the vault which prevent a node constructing transactions that attempt
 to use the same input(s) simultaneously.
     * Such transactions would result in naturally wasted effort when the notary rejects them as double spend attempts.
@@ -636,7 +636,7 @@ to use the same input(s) simultaneously.
 to spend the same fungible states.
 
 
-* 
+*
     * The shell lets developers and node administrators easily command the node by running flows, RPCs and SQL queries.
     * It provides a variety of commands to monitor the node.
     * The Corda Shell is based on the popular [CRaSH project](http://www.crashub.org/) and new commands can be easily
@@ -644,13 +644,13 @@ added to the node by simply dropping Groovy or Java files into the node’s `she
     * We have many enhancements planned over time including SSH access, more commands and better tab completion.
 
 
-* 
+*
     * The new Jackson module provides JSON/YAML serialisers for common Corda datatypes.
 If you have previously been using the JSON support in the standalone web server,
 please be aware that Amounts are now serialised as strings instead of { quantity, token } pairs as before.
 The old format is still accepted, but the new JSON will be produced using strings like “1000.00 USD” when writing.
 You can use any format supported by `Amount.parseCurrency` as input.
-    * 
+    *
         * `CordaClientRPC` is now in the new `:client:rpc` module.
         * The old `:client` module has been split up into `:client:jfx` and `:client:mock`.
         * We also have a new `:node-api` module (package `net.corda.nodeapi`) which contains the shared code between
@@ -661,23 +661,23 @@ You can use any format supported by `Amount.parseCurrency` as input.
 currency reference data.
 
 
-* 
+*
     * Replace `artemisPort` with `p2pPort` in Gradle configuration.
     * Replace `artemisAddress` with `p2pAddress` in node configuration.
     * Added `rpcAddress` in node configuration for non-ssl RPC connection.
 
 
-* 
+*
     * Pool Kryo instances for efficiency.
 
 
-* 
+*
     * RPC clients can now connect to the node without the need for SSL. This requires a separate port on the Artemis broker,
 SSL must not be used for RPC connection.
     * CordaRPCClient now needs to connect to `rpcAddress` rather than `p2pAddress`.
 
 
-* 
+*
     * Upgraded Kotlin to v1.1.1.
     * Upgraded Gradle to v3.4.1.
     * Upgraded requery to v1.2.1.
@@ -685,14 +685,14 @@ SSL must not be used for RPC connection.
     * Replaced kotlinx-support-jdk8 with kotlin-stdlib-jre8.
 
 
-* 
+*
     * Added `--version` command line flag to print the version of the node.
     * Flows written in Java can now execute a sub-flow inside `UntrustworthyData.unwrap`.
     * Added optional out-of-process transaction verification. Any number of external verifier processes may be attached
 to the node which can handle loadbalanced verification requests.
 
 
-* 
+*
     * `--logging-level` command line flag was previously broken, now correctly sets the logging level.
     * Fixed bug whereby Cash Exit was not taking into account the issuer reference.
 
@@ -714,7 +714,7 @@ notary prototype.
 * Web server is a separate JAR.  This is a breaking change. The new webserver JAR (`corda-webserver.jar`)
 must be invoked separately to node startup, using the command``java -jar corda-webserver.jar`` in the same
 directory as the `node.conf`. Further changes are anticipated in upcoming milestone releases.
-* API:> 
+* API:>
 
     * Pseudonymous `AnonymousParty` class added as a superclass of `Party`.
     * Split `CashFlow` into individual `CashIssueFlow`, `CashPaymentFlow` and `CashExitFlow` flows, so that fine
@@ -729,12 +729,12 @@ types now hide the presence of Kryo.
 
 
 
-* 
+*
     * `extraAdvertisedServiceIds` config is now a list of strings, rather than a comma separated string. For example
 `[ "corda.interest_rates" ]` instead of `"corda.interest_rates"`.
 
 
-* 
+*
     * Split `CashFlow` into separate `CashIssueFlow`, `CashPaymentFlow` and `CashExitFlow` so that permissions can
 be assigned individually.
     * Split single example user into separate “bankUser” and “bigCorpUser” so that permissions for the users make sense
@@ -742,19 +742,19 @@ rather than being a combination of both roles.
     * `ProgressTracker` emits exception thrown by the flow, allowing the ANSI renderer to correctly stop and print the error
 
 
-* Object Serialization:> 
+* Object Serialization:>
 
     * Consolidated Kryo implementations across RPC and P2P messaging with whitelisting of classes via plugins or with
 `@CordaSerializable` for added node security.
 
 
 
-* 
+*
     * Non-validating notary service now takes in a `FilteredTransaction` so that no potentially sensitive transaction
 details are unnecessarily revealed to the notary
 
 
-* 
+*
     * Add vault service persistence using Requery
     * Certificate signing utility output is now more verbose
 
@@ -774,7 +774,7 @@ party anonymisation to work, as each key must identify exactly one party.
 and `FirstComposition`, as this is significantly clearer in intent. `AnyOf` also enforces that at least one subclause
 must match, whereas `AnyComposition` would accept no matches.
 * Explorer: the user can now configure certificate path and keystore/truststore password on the login screen.
-* Documentation:> 
+* Documentation:>
 
     * Key Concepts section revamped with new structure and content.
     * Added more details to [Getting set up](getting-set-up.md) page.
@@ -792,7 +792,7 @@ inside a flow it will propagate to all counterparty flows and subsequently be th
 
 
 * With thanks to [Thomas Schroeter](https://github.com/thschroeter) `NotaryFlow` is now idempotent.
-* Explorer:> 
+* Explorer:>
 
     * The GUI for the explorer now shows other nodes on the network map and the transactions between them.
     * Map resolution increased and allows zooming and panning.
@@ -802,7 +802,7 @@ inside a flow it will propagate to all counterparty flows and subsequently be th
 
 * The CorDapp template now has a Java example that parallels the Kotlin one for developers more comfortable with Java.
 ORM support added to the Kotlin example.
-* Demos:> 
+* Demos:>
 
     * Added the Bank of Corda demo - a demo showing a node (Bank of Corda) acting as an issuer of Cash, and a client
 driver providing both Web and RPC access to request issuance of cash.
@@ -813,7 +813,7 @@ for the splitting of the webserver from the node for milestone 8.
 
 
 
-* Security:> 
+* Security:>
 
     * MQ broker of the node now requires authentication which means that third parties cannot connect to and
 listen to queues on the Node. RPC and P2P between nodes is now authenticated as a result of this change.
@@ -822,7 +822,7 @@ This also means that nodes or RPC users cannot pretend to be other nodes or RPC 
 
 
 
-* Improvements:> 
+* Improvements:>
 
     * Vault updates now contain full `StateAndRef` which allows subscribers to check whether the update contains
 relevant states.
@@ -841,7 +841,7 @@ improves performance.
 * Added the [Corda technical white paper](/en/pdf/corda-technical-whitepaper.pdf). Note that its current version
 is 0.5 to reflect the fact that the Corda design is still evolving. Although we expect only relatively small tweaks
 at this point, when Corda reaches 1.0 so will the white paper.
-* Major documentation restructuring and new content:> 
+* Major documentation restructuring and new content:>
 
     * More details on Corda node internals.
     * New CorDapp tutorial.
@@ -854,7 +854,7 @@ at this point, when Corda reaches 1.0 so will the white paper.
 undergo some significant changes in the coming releases before it is integrated, as the code is finished, as bugs are
 found and fixed, and as the platform subset we choose to expose is finalised. Treat this as an outline of the basic
 approach rather than something usable for production.
-* Developer experience:> 
+* Developer experience:>
 
     * Samples have been merged back into the main repository. All samples can now be run via command line or IntelliJ.
     * Added a Client RPC python example.
@@ -874,7 +874,7 @@ In the future this will also allow parties to use multiple signing keys for thei
 * Decentralised consensus: A prototype RAFT based notary composed of multiple nodes has been added. This implementation
 is optimised for high performance over robustness against malicious cluster members, which may be appropriate for
 some financial situations. See [Notary demo](running-the-demos.md#notary-demo) to try it out. A BFT notary will be added later.
-* Node explorer app:> 
+* Node explorer app:>
 
     * New theme aligned with the Corda branding.
     * The New Transaction screen moved to the Cash View (as it is used solely for cash transactions)
@@ -885,7 +885,7 @@ some financial situations. See [Notary demo](running-the-demos.md#notary-demo) t
 
 
 
-* Client RPC:> 
+* Client RPC:>
 
     * Added a generic `startFlow` method that enables starting of any flow, given sufficient permissions.
     * Added the ability for plugins to register additional classes or custom serialisers with Kryo for use in RPC.
@@ -911,7 +911,7 @@ API changes:
 
 * A simple RPC access control mechanism. Users, passwords and permissions can be defined in a configuration file.
 This mechanism will be extended in future to support standard authentication systems like LDAP.
-* New features in the explorer app and RPC API for working with cash:> 
+* New features in the explorer app and RPC API for working with cash:>
 
     * Cash can now be sent, issued and exited via RPC.
     * Notes can now be associated with transactions.
@@ -925,7 +925,7 @@ the app.
 * A new demo showing shared valuation of derivatives portfolios using the ISDA SIMM has been added. Note that this app
 relies on a proprietary implementation of the ISDA SIMM business logic from OpenGamma. A stub library is provided
 to ensure it compiles but if you want to use the app for real please contact us.
-* Developer experience (we plan to do lots more here in milestone 6):> 
+* Developer experience (we plan to do lots more here in milestone 6):>
 
     * Demos and samples have been split out of the main repository, and the initial developer experience continues to be
 refined. All necessary JARs can now be installed to Maven Local by simply running `gradle install`.
@@ -952,7 +952,7 @@ API changes:
 New features in this release:
 
 
-* Persistence:> 
+* Persistence:>
 
     * States can now be written into a relational database and queried using JDBC. The schemas are defined by the
 smart contracts and schema versioning is supported. It is reasonable to write an app that stores data in a mix
@@ -969,7 +969,7 @@ ensuring messages are only replayed if the RDMS transaction rolled back.
 
 
 
-* Client RPC:> 
+* Client RPC:>
 
     * New RPCs added to subscribe to snapshots and update streams state of the vault, currently executing protocols
 and other important node information.
@@ -977,21 +977,21 @@ and other important node information.
 
 
 
-* Protocol framework:> 
+* Protocol framework:>
 
     * Large simplifications to the API. Session management is now handled automatically. Messages are now routed
 based on identities rather than node IP addresses.
 
 
 
-* Decentralised consensus:> 
+* Decentralised consensus:>
 
     * A standalone one-node notary backed by a JDBC store has been added.
     * A prototype RAFT based notary composed of multiple nodes is available on a branch.
 
 
 
-* Data model:> 
+* Data model:>
 
     * Compound keys have been added as preparation for merging a distributed RAFT based notary. Compound keys
 are trees of public keys in which interior nodes can have validity thresholds attached, thus allowing
@@ -1002,26 +1002,15 @@ key trees in the “[API: Core types](api-core-types.md)” article.
 
 
 
-* Testnet> 
 
-    * Permissioning infrastructure phase one is built out. The node now has a notion of developer mode vs normal
-mode. In developer mode it works like M3 and the SSL certificates used by nodes running on your local
-machine all self-sign using a developer key included in the source tree. When developer mode is not active,
-the node won’t start until it has a signed certificate. Such a certificate can be obtained by simply running
-an included command line utility which generates a CSR and submits it to a permissioning service, then waits
-for the signed certificate to be returned. Note that currently there is no public Corda testnet, so we are
-not currently running a permissioning service.
-
-
-
-* Standalone app development:> 
+* Standalone app development:>
 
     * The Corda libraries that app developers need to link against can now be installed into your local Maven
 repository, where they can then be used like any other JAR. See [Running a node](running-a-node.md).
 
 
 
-* User interfaces:> 
+* User interfaces:>
 
     * Infrastructure work on the node explorer is now complete: it is fully switched to using the MQ based RPC system.
     * A library of additional reactive collections has been added. This API builds on top of Rx and the observable
@@ -1037,7 +1026,7 @@ been merged into the main repository.
 
 
 
-* Documentation> 
+* Documentation>
 
     * New secure coding guidelines. Corda tries to eliminate as many security mistakes as practical via the type
 system and other mechanically checkable processes, but there are still things that one must be aware of.
@@ -1047,7 +1036,7 @@ system and other mechanically checkable processes, but there are still things th
 
 
 
-* Testing> 
+* Testing>
 
     * More integration testing support
     * New micro-DSLs for expressing expected sequences of operations with more or less relaxed ordering constraints.
@@ -1075,14 +1064,12 @@ of the protocol framework tutorial for more details.
 ## Milestone 3
 
 
-* More work on preparing for the testnet:> 
-
-    * Corda is now a standalone app server that loads “CorDapps” into itself as plugins. Whilst the existing IRS
+* Corda is now a standalone app server that loads “CorDapps” into itself as plugins. Whilst the existing IRS
 and trader demos still exist for now, these will soon be removed and there will only be a single Corda node
 program. Note that the node is a single, standalone jar file that is easier to execute than the demos.
-    * Project Vega (shared SIMM modelling for derivative portfolios) has already been converted to be a CorDapp.
-    * Significant work done on making the node persist its wallet data to a SQL backend, with more on the way.
-    * Upgrades and refactorings of the core transaction types in preparation for the incoming sandboxing work.
+* Project Vega (shared SIMM modelling for derivative portfolios) has already been converted to be a CorDapp.
+* Significant work done on making the node persist its wallet data to a SQL backend, with more on the way.
+* Upgrades and refactorings of the core transaction types in preparation for the incoming sandboxing work.
 
 
 
@@ -1090,7 +1077,7 @@ program. Note that the node is a single, standalone jar file that is easier to e
 with the result that clauses are now cleaner and more composable.
 * Improvements to the protocol API for finalising transactions (notarising, transmitting and storing).
 * Lots of work done on an MQ based client API.
-* Improvements to the developer site:> 
+* Improvements to the developer site:>
 
     * The developer site has been re-read from start to finish and refreshed for M3 so there should be no obsolete
 texts or references anywhere.
@@ -1107,7 +1094,7 @@ also provided so if you spot any issues with it, you can send us patches.
 ## Milestone 2
 
 
-* Big improvements to the interest rate swap app:> 
+* Big improvements to the interest rate swap app:>
 
     * A new web app demonstrating the IRS contract has been added. This can be used as an example for how to interact with
 the Corda API from the web.
@@ -1120,13 +1107,13 @@ the Corda API from the web.
 * Smart contracts have been redesigned around reusable components, referred to as “clauses”. The cash, commercial paper
 and obligation contracts now share a common issue clause.
 * New code in the experimental module (note that this module is a place for work-in-progress code which has not yet gone
-through code review and which may, in general, not even function correctly):> 
+through code review and which may, in general, not even function correctly):>
 
     * Thanks to the prolific Sofus Mortensen @ Nordea Bank, an experimental generic contract DSL that is based on the famous
 2001 “Composing contracts” paper has been added. We thank Sofus for this great and promising research, which is so
 relevant in the wake of the DAO hack.
     * The contract code from the recent trade finance demos is now in experimental. This code comes thanks to a
-collaboration of the members; all credit to:> 
+collaboration of the members; all credit to:>
 
         * Mustafa Ozturk @ Natixis
         * David Nee @ US Bank
@@ -1180,7 +1167,7 @@ Highlights of this release:
 
 * Event scheduling. States in the ledger can now request protocols to be invoked at particular times, for states
 considered relevant by the wallet.
-* Upgrades to the notary/consensus service support:> 
+* Upgrades to the notary/consensus service support:>
 
     * There is now a way to change the notary controlling a state.
     * You can pick between validating and non-validating notaries, these let you select your privacy/robustness tradeoff.
@@ -1210,7 +1197,7 @@ We have new documentation on:
 Summary of API changes (not exhaustive):
 
 
-* Notary/consensus service:> 
+* Notary/consensus service:>
 
     * `NotaryService` is now extensible.
     * Every `ContractState` now has to specify a *participants* field, which is a list of parties that are able to
@@ -1231,7 +1218,7 @@ inputs and outputs).
 `Amount`, you should now use `Amount<Currency>`.
 * Refactored the Cash contract to have a new FungibleAsset superclass, to model all countable assets that can be merged
 and split (currency, barrels of oil, etc.)
-* Messaging:> 
+* Messaging:>
 
     * `addMessageHandler` now has a different signature as part of error handling changes.
     * If you want to return nothing to a protocol, use `Ack` instead of `Unit` from now on.
@@ -1258,4 +1245,3 @@ This is the first release, which includes:
 * Some initial support for pluggable consensus mechanisms
 * Tutorials and documentation explaining how it works
 * Much more …
-

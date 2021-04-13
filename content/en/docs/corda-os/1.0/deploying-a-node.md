@@ -24,7 +24,7 @@ CorDapp template. Both a [Java version](https://github.com/corda/cordapp-templat
 a [Kotlin version](https://github.com/corda/cordapp-template-kotlin/blob/master/build.gradle) are available.
 
 Cordform is the local node deployment system for CorDapps. The nodes generated are intended for experimenting,
-debugging, and testing node configurations, but not for production or testnet deployment.
+debugging, and testing node configurations, but not for production deployment.
 
 Here is an example Gradle task called `deployNodes` that uses the Cordform plugin to deploy three nodes, plus a
 notary/network map node:
@@ -120,4 +120,3 @@ Outside of development environments, do not store your node directories in the b
 
 {{< /note >}}
 If you make any changes to your `deployNodes` task, you will need to re-run the task to see the changes take effect.
-
