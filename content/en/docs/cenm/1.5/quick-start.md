@@ -37,8 +37,8 @@ For a full production environment you would need to modify this deployment to ad
 * A [Zone Service](zone-service.md) deployment to manage configuration deployment.
 * [Angel Services](angel-service.md) around the [Identity Manager](identity-manager.md), [Network Map](network-map.md),
   and Signing Services to fetch configurations from the Zone Service.
-* An [Auth Service](auth-service.md) deployment to handle user authentication and authorisation.
-* A [Gateway Service](gateway-service.md) deployment to act as a gateway from the user interface (CLI) to the back-end services.
+* An [Auth Service](../../corda-enterprise/4.7/node/auth-service.md) deployment to handle user authentication and authorisation.
+* A [Gateway Service](../../corda-enterprise/4.7/node/gateway-service.md) deployment to act as a gateway from the user interface (CLI) to the back-end services.
 
 ### Prerequisites
 

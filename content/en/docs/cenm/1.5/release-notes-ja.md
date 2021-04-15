@@ -32,7 +32,7 @@ Corda Enterprise Network Manager (CENM) 1.5では、新しい[CENM管理コン�
 
 #### Azure ADを使ったシングルサインオン
 
-CENM 1.5 では、CENM [Authサービス](auth-service.md)用のシングルサインオン（SSO）として、Azure Active Directory（AAD）のサポートを導入しています。完全なロールベースアクセス制御（RBAC）をサポートし、システム管理者がユーザーグループや権限を作成し、管理できるウェブベースの管理インターフェースを提供します。[この結果](azure-ad-sso.md)、Azure ADとCorda Authサービスで簡単な設定を行うだけで、CordaサービスとAzure AD間でSSO設定を運用できるようになりました。
+CENM 1.5 では、CENM [Authサービス](../../corda-enterprise/4.7/node/auth-service.md)用のシングルサインオン（SSO）として、Azure Active Directory（AAD）のサポートを導入しています。完全なロールベースアクセス制御（RBAC）をサポートし、システム管理者がユーザーグループや権限を作成し、管理できるウェブベースの管理インターフェースを提供します。[この結果](../../corda-enterprise/4.7/node/azure-ad-sso)、Azure ADとCorda Authサービスで簡単な設定を行うだけで、CordaサービスとAzure AD間でSSO設定を運用できるようになりました。
 
 #### 証明書ローテーション：ノード鍵（Legal Identity）とその証明書をローテーションする機能
 

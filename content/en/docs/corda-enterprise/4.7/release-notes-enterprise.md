@@ -78,15 +78,15 @@ Corda Enterprise 4.7 comes with two new management consoles:
 * The **Flow management console** allows you to see the state of the flows running on a node and perform some operations on them. For more information, see [Flow management console](node/node-flow-management-console.md).
 * The **Node management console** allows you to see information about a node and perform some operations on it. For more information, see [Node management console](node/management-console/_index.md).
 
-They both run as part of the CENM [Gateway service](../../cenm/1.5/gateway-service.md).
+They both run as part of the [Gateway Service](node/gateway-service.md).
 
 ### Certificate rotation
 
-Corda Enterprise 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager](../../cenm/1.5/_index.md). For more information about this feature, contact [R3 support](https://www.r3.com/support/).
+Corda Enterprise 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager](../../cenm/1.5/_index.md). For more information about this feature, contact your R3 account manager.
 
 ### Other changes and improvements
 
-* **Single sign-on for Azure AD.** You can now operate a single sign on (SSO) set-up between Corda services and Azure AD, with a [simple configuration](../../cenm/1.5/azure-ad-sso.md) to both your Azure AD and Corda Auth services.
+* **Single sign-on for Azure AD.** You can now operate a single sign-on (SSO) set-up between Corda services and Azure AD, with a [simple configuration](node/azure-ad-sso/) to both your Azure AD and Corda Auth services.
 * **HSM integration support.** Corda Enterprise now supports users to integrate unsupported HSMs with their Corda Enterprise instance. This release includes a sample Java implementation to be used as an example, and a testing suite that can be used to test an implementation before deployment. For guidance on writing an HSM integration, see [HSM documentation](operations/deployment/hsm-integration.md/).
 * **Ability to store confidential identity keys in HSMs.** Corda Enterprise now provides support for storing the keys associated with confidential identities in nCipher, Futurex, and Azure Key Vault HSMs. nCipher and Azure Key Vault HSMs support native use of confidential identity keys, and Futurex HSMs support the wrapped key mode. For more information on configuring these HSMs to store confidential identity keys, see the [HSM documentation](operations/deployment/hsm-deployment-confidential.md#using-an-hsm-with-confidential-identities/).
 * **HSM APIs.** Corda Enterprise 4.7 introduces an HSM library with its own API that external tooling developers can use to expand Corda Enterprise HSM support.

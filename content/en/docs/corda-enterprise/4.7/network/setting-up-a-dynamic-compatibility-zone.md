@@ -54,11 +54,6 @@ members and at the start of each flow, throw a FlowException if the counterparty
 
 In this way you can impose a centrally controlled ACL that all members will collectively enforce.
 
-{{< note >}}
-A production-ready Corda network and a new iteration of the testnet will be available soon.
-
-{{< /note >}}
-
 ## Why create your own zone?
 
 The primary reason to create a zone and provide the associated infrastructure is control over *network parameters*. These
@@ -203,4 +198,3 @@ run a non-validating notary, with BFT fault tolerance, which implies recruiting 
 
 New network parameters will be added over time as Corda evolves. You will need to ensure that when your users upgrade,
 all the new network parameters are being served. You can ask for advice on the [corda-dev mailing list](https://groups.io/g/corda-dev).
-

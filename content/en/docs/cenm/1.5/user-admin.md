@@ -30,18 +30,18 @@ With the User Admin tool, you can:
 
 ### Who can use it
 
-You can only use the User Admin tool if you are registered to use the tool as an Administrator. If you are the first person using the tool in your organisation, you need to request access from your network owner's organization.
+You need administrator access to use the User Admin tool. If you are the first person using the tool in your organisation, you need to request access from your network owner's organisation.
 
-## Access the CENM User Admin tool
+## Access the User Admin tool
 
-You access the User Admin tool from the location of your [Gateway service](gateway-service#manage-your-configuration) instance. Enter the full address of your Gateway service, including the port number, followed by `/admin` into a web browser.
+Access the User Admin tool from your [Gateway Service](gateway-service#manage-your-configuration) instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
 
 For example:
 `http://10.230.41.12:8080/admin`
 
 ### First login
 
-Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](auth-service).
+Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](../../corda-enterprise/4.7/node/auth-service).
 
 If you do not have these, you need to access them from the operator who configured your Auth Service.
 
@@ -60,9 +60,9 @@ When logging into the User Admin tool as an administrator for the first time, yo
 
 To change your password:
 
-1. Login to the User Admin tool. If this is your first use of the tool, or you have requested a new login, use the temporary password you have been given.
+1. Log in to the User Admin tool. If this is your first login or you have requested a new login, use the temporary password you have been given.
 
-2. On the next screen, click on the user profile button in the top right-hand corner.
+2. On the next screen, click *user profile* in the top right-hand corner.
 
 3. On the **User Details** screen, enter and confirm your new password in the **Change user password** fields.
 
@@ -71,166 +71,144 @@ To change your password:
 You have changed your password. You are automatically logged out of the User Admin tool, and can now log back in using your new password.
 
 
-## Add a new user or administrator
+## Create a new user or administrator
 
-Users are able to access network services to perform relevant tasks. When you create a user, you can also assign them a role, and add them to a group.
+Users can access network services to perform tasks. To give a user permissions, you can assign them a role, and/or add them to a group with set permissions.
 
-Administrators can only perform tasks on the User Admin tool - an administrator in this tool *cannot* have any role as a user on your network operation services.
+Administrators *cannot* have any role as a user on your network operation services.
 
-![create_user](resources/create_user.png)
+![create_user](resources/create_user_new.png)
 
 {{< note >}}
-You must be registered as an Administrator to create new users and administrators.
+You must be registered as an administrator to create new users and administrators.
 {{< /note >}}
 
 To add a new user or administrator:
 
-1. From any screen, click **Users** on the left-hand menu.
-    The **Users** screen is displayed. You can see all the users currently managed within the User Admin tool.
+1. Select **Users** from the side menu.
 
-2. Click the **Create** icon in the bottom right-hand corner of the screen.
+2. Click **Create User**.
 
-3. On the **Create new user** screen, enter the user's username, display name, and email details in the fields provided.
+3. Fill in the **New User Form**.
+    a. Enter a username (required).
+    b. Add an optional display name and email.
+    b. If you would like to add the user to any groups, select them from the dropdown menu.
+    c. Enter and confirm a temporary password - the user can change this when they log in for the first time.
 
-4. In the **Groups** section, select any groups you wish this user to be added to when their account is activated.
+4. If you are creating an administrator, set the **Admin** toggle to 'on'.
 
-5. In the **Password** field, choose a temporary password that the new user can change on their first use of the User Admin tool.
+5. Set the **Enabled** toggle to 'on' to activate the user. You can return to this step later if you do not need to activate the user yet.
 
-6. Select **Enabled** for the account to be active immediately. To activate the account later, leave this switched off.
+8. Click **Create User** to complete the registration.
 
-7. To make this user an administrator, set the **Admin** switch to active.
-
-8. Click **Submit**.
-
-You have added a new User.
-
-### Next steps for a new user
-
-New users must change the password you give them using the CENM CLI. You must give new users these instructions when you add them.
+9. Send the user their login details. Remind them to change their password.
 
 ## Manage a user
 
-You can change a user's roles, group membership and active status.
+You can change a user's status, password, or group membership from the **User Details** screen.
 
-![Manage user](resources/edit_user.png)
+![Manage user](resources/user_details_new.png)
 
-To amend a user's active status, roles and group membership:
+1. Select **Users** from the side menu to view the user list.
 
-1. From any screen, click **Users** on the left-hand menu.
-    The **Users** screen is displayed. You can see all the users currently managed within the User Admin tool.
+2. Click the **Username** of the relevant user.
 
-2. Click on the **Username** of the user whose details you wish to amend.
+3. Change a user's status or delete a user from the **User Details** panel:
+    * **Locked** toggle: If a user tries an incorrect password too many times, they will be locked. Click the **Locked** toggle to unlock them and allow additional attempts.
+    * **Admin** toggle: Activate the **Admin** toggle to make a user an administrator.
+    * **Enable** toggle: Deactivate or reactivate a user.
+    * **Delete User** button: Remove the user from the system.
 
-3. On the **User details** screen:
+    Updates save automatically.
 
-    * Deactivate or reactivate a user with the **Active** switch.
-    * Add the member to groups by selecting groups from the **Available groups** box and clicking the **>** chevron move them to the **Existing memberships** box. To remove the user from groups, select and move in the opposite direction.
+4. Reset passwords from the **Change Password** panel. You are required to enter your own password before you can change another user's.
 
-4. All updates are saved automatically. Click **Back to users** in the top left-hand corner of the screen to return to the list of users.
+5. Change a user's group membership from the **Change Groups** panel.
 
-You have managed a user's groups and active status.
 
-## Create a new Group
+## Create a group
 
-You can create Groups to give multiple users common roles and permissions.
+Groups let you grant multiple users the same set of permissions. Groups make it easier for you to manage permissions of future users - just add them to the relevant groups instead of configuring individual roles.
 
-![Creating a group](resources/create_group.png)
+![Creating a group](resources/create_group_new.png)
 
-To create a Group:
+To create a group:
 
-1. From any screen, click **Groups** in the left-hand menu.
-    The **Groups** screen is displayed. You can see your existing groups in a card formation.
+1. Select **Groups** from the side menu. You can see any existing groups.
 
-2. Click the **Create** icon in the bottom right-hand corner of the screen.
+2. Click **Add Group**.
 
-3. In the **Create new group** screen, add a name in the **Group name** field.
+3. Fill in the **New Group Form**.
+    a. Enter a group name (required).
+    b. Add a description (optional).
+    c. Select group members from the dropdown.
+    d. Toggle the **Admin** option on to make all group members administrators.
+    e. Toggle the **Auto-Enroll** option on to assign this group to all new users you create.
 
-4. Add an optional description in the **Description** field - this can be used by other administrators to quickly see the purpose of the group.
+4. Click **Create Group**.
 
-5. Use the **Users list** dropdown menu to select all the users you wish to be members of this group.
+You can access all your groups from the **Groups** screen.
 
-6. Select **Admin** to create a group of administrators for this tool. These users will no longer be able to perform any other CENM tasks outside of this tool.
+## Manage a group
 
-7. Click **Submit**.
+You can add or remove members of a group, or delete an existing group. Deleting a group does not delete the users in the group.
 
-You have created a new group. You can access your newly created group from the **Groups** screen.
-
-## Manage a Group
-
-You can add or remove members of a group, or delete an existing group any time. Deleting a group does not delete the users in the group.
-
-![Manage a group](resources/editing_group.png)
+![Manage a group](resources/group_details_new.png)
 To make changes to a group:
 
-1. From any screen, click **Groups** in the left-hand menu.
-    The **Groups** screen is displayed. You can see your existing groups in a card formation.
+1. Select **Groups** from the side menu to view your existing groups.
 
-2. To make changes to a group, click the cog-shaped settings icon.
+2. Click the relevant group.
 
-3. On the **Group details** screen, click on any of the pencil-shaped edit icons to:
-    * Edit the name and description of the group.
-    * Add new members to the group.
-    * Remove members from the group.
+3. Update your group from the  **Group details** panel:
+    * **Pencil icons**: Edit the name and description of the group.
+    * **Enable** toggle: Activate or deactivate the auto-enrolment of new users into the group.
+    * **Admin** toggle: Set the administrator status of the group.
+    * **Delete button**: Delete the group. This does not delete the users in the group - they are still active, but do not have any permissions that were assigned at the group level.
 
-4. Changes are saved automatically. When you are finished, click **Back to groups**.
+    Changes save automatically.
 
-You have made changes to your group. If you have removed a user from the group, they may lose permissions that they had been given as a group-member. You can check an individual user's roles to confirm this.
+4. Edit the users in a group from the **Edit user assignment** panel.
+    a. Click the drop-down menu to see a list of all users.
+    b. Select the checkbox next to a user to add them to the group.
+    c. Click the **x** next to a user's name to remove them from the group. This will revoke any permissions associated with group membership - you can confirm this by checking the user's individual roles.
+    d. Click **Save**.
 
-### To delete a Group:
 
-1. From any screen, click **Groups** in the left-hand menu.
-    The **Groups** screen is displayed. You can see your existing groups in a card formation.
-
-2. Click the trash icon.
-
-3. In the confirmation dialogue box, click **Yes** to confirm you want to delete the group.
-
-You have deleted a group. The users in the group are still active. Any roles you assigned at group level are no longer applied to the users who were in the group.
-
-## Create a new Role
+## Create a new role
 
 Roles are made up of permissions that allow users to perform tasks in CENM. You can create roles by combining the required permissions, and then assigning the role to users and/or groups.
 
-![Create a Role](resources/create_role.png)
+![Create a Role](resources/create_role_new.png)
 To create a new role:
 
-1. From any screen, click **Roles** in the left-hand menu.
-    The **Roles** screen is displayed. You can see the existing roles in a card formation.
+1. Select **Roles** from the side menu.
 
-2. Click the **Create** icon in the bottom right-hand corner of the screen.
-    The **Create new role** screen is displayed.
+2. Click **Add Role**.
 
-3. In the **Role name** field, enter the name for this role.
+3. Fill in the **New Role Form**:
+    a. Enter a role name (required).
+    b. Add a description (optional).
+    c. Assign permissions: Select a permission from the list, then choose whether you want to *allow* that permission for users with the role or *deny* that permission for all users with the role.
+    d. Assign the role to one or more users. Select the role from the **Assignment** dropdown, then choose the scope of the role from the **Effect** dropdown.
+    e. Assign the role to one or more groups, if required. Select the role from the **Assignment** dropdown, then choose the scope of the role from the **Effect** dropdown.
 
-4. In the **Role description** field, enter a free text description with information about what the role allows users to do.
-
-5. In the **Users** field, select the users you wish to assign the role to. If you want to assign the role to multiple users, you might prefer to to create a group and assign the role to the group.
-
-6. In the **Groups** field, select the groups you wish to assign the role to.
-
-    * In the **Add assignments** dialog box, select the group you require from the **Role assignee** list.
-    * From the **Assignment scope** list, select the areas to which this role applies.
-    * Click **Assign**.
-
-7. In the **Permissions** field, select the permissions granted to a user with this role.
-
-8. Click **Submit**.
+8. Click **Create Role**.
 
 You have added a new role. All users and groups assigned this role are granted its permissions with immediate effect.
 
-## Manage a Role
+## Manage a role
 
 You can assign a role to additional users and groups, remove roles from users and groups, add and remove permissions in a role, and delete roles at any time.
 
-![Manage a Role](resources/edit_role.png)
+![Manage a Role](resources/role_details_new.png)
 To amend the properties of a role:
 
-1. From any screen, click **Roles** in the left-hand menu.
-    The **Roles** screen is displayed. You can see the existing roles in a card formation.
+1. Select **Roles** from the side menu.
 
-2. Click the menu button in the right corner of the card for the role you wish to amend.
+2. Click the relevant role.
 
-3. On the **Role details** screen, add or remove users, groups, or permissions as required using the **Edit** or **Delete** icons in each field.
+3. On the **Role Details** screen, add or remove permissions, users, or groups as required using the **Edit** or **Delete** icons in each field.
 
 4. Click **Save**.
 

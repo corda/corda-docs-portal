@@ -32,7 +32,7 @@ The issued certificates take the form of three keystores in a node’s `<workspa
 * `nodekeystore.jks`, which stores the node’s identity keypairs and certificates
 * `sslkeystore.jks`, which stores the node’s TLS keypairs and certificates
 
-Most users will join an existing network such as the main Corda network or the Corda TestNet. You can also build your
+Most users will join an existing network such as the main Corda network. You can also build your
 own networks. During development, no network is required because you can use the included tools to pre-create
 and pre-distribute the certificates and map files that would normally be provided dynamically by the network. Effectively
 the [bootstrapper tool](network-bootstrapper.md) creates a private semi-static network for you.
@@ -80,7 +80,7 @@ certificates must obey the following restrictions:
 
 * The certificates must follow the [X.509v3 standard](https://tools.ietf.org/html/rfc5280)
 * The TLS certificates must follow the [TLS v1.2 standard](https://tools.ietf.org/html/rfc5246)
-* 
+*
 * ECDSA using the NIST P-256 curve (secp256r1)
 * ECDSA using the Koblitz k1 curve (secp256k1)
 * RSA with 3072-bit key size or higher.
@@ -217,11 +217,6 @@ members and at the start of each flow, throw a FlowException if the counterparty
 
 In this way you can impose a centrally controlled ACL that all members will collectively enforce.
 
-{{< note >}}
-A production-ready Corda network and a new iteration of the testnet will be available soon.
-
-{{< /note >}}
-
 ### Why create your own zone?
 
 The primary reason to create a zone and provide the associated infrastructure is control over *network parameters*. These
@@ -354,4 +349,3 @@ run a non-validating notary, with BFT fault tolerance, which implies recruiting 
 
 New network parameters will be added over time as Corda evolves. You will need to ensure that when your users upgrade,
 all the new network parameters are being served. You can ask for advice on the [corda-dev mailing list](https://groups.io/g/corda-dev).
-

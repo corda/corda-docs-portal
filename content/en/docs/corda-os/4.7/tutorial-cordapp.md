@@ -413,10 +413,10 @@ These ports are defined in `clients/build.gradle`.
 Each Spring Boot server exposes the following endpoints:
 
 
-* `/api/example/me`
-* `/api/example/peers`
-* `/api/example/ious`
-* `/api/example/create-iou` with parameters `iouValue` and `partyName` which is CN name of a node
+* `/me`
+* `/peers`
+* `/ious`
+* `/create-iou` with parameters `iouValue` and `partyName` which is CN name of a node
 
 There is also a web front-end served from the home web page e.g. `localhost:50005`.
 
@@ -431,7 +431,7 @@ anti-XSS, anti-XSRF or other security techniques. Do not use this code in produc
 
 #### Creating an IOU via the endpoint
 
-An IOU can be created by sending a PUT request to the `/api/example/create-iou` endpoint directly, or by using the
+An IOU can be created by sending a PUT request to the `/create-iou` endpoint directly, or by using the
 the web form served from the home directory.
 
 To create an IOU between PartyA and PartyB, run the following command from the command line:
@@ -496,7 +496,7 @@ This will print out the following progress steps:
 We can also issue RPC operations to the node via the interactive shell. Type `run` to see the full list of available
 operations.
 
-You can see the newly-created IOU by running `run vaultQuery contractStateType: com.example.state.IOUState`.
+You can see the newly-created IOU by running `run vaultQuery contractStateType: net.corda.samples.example.states.IOUState`.
 
 
 ### Via the h2 web console
