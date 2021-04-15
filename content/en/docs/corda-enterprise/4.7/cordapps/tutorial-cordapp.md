@@ -78,7 +78,7 @@ The sample CorDapp that we are going to run and deploy is the **Basic** CorDapp 
 
 ## Opening the sample CorDapp in IntelliJ IDEA
 
-To open the sample CorDapp in the IntelliJ IDEA:
+To open the sample CorDapp in IntelliJ IDEA:
 
 1. Open IntelliJ.
 2. From the splash screen, click **Open**, navigate to the `Basic\cordapp-example` sub-folder, and click **OK**. The project containing the sample CorDapp should open.

@@ -340,19 +340,16 @@ in [Building and installing a CorDapp](cordapp-build-systems.md).
 
 ### Launching the sample CorDapp
 
-Start the nodes by running the relevant command below from the root of the `cordapp-example` folder:
-
-To run the sample CorDapp, run the command that corresponds to your operating system:
+To start the nodes and the sample CorDapp, run the command that corresponds to your operating system:
 
 * Unix/Mac OSX: `./nodes/runnodes`
 * Windows: `.\build\nodes\runnodes.bat`
 
 
-Start a Spring Boot server for each node by opening a terminal/command prompt for each node and entering the following command, replacing X with A, B and C:
+Start a Spring Boot server for each node by opening a terminal/command prompt for each node and entering the following command, replacing `X` with `A` and `B`.
 
-
-* Unix/Mac OSX: `./gradlew runPartyXServer`
-* Windows: `gradlew.bat runPartyXServer`
+* Unix/Mac OSX: `./build/nodes/runnodes`
+* Windows: `.\build\nodes\runnodes.bat`
 
 Look for the `Started Server in X seconds` message &mdash; don’t rely on the % indicator.
 
@@ -374,7 +371,7 @@ For each node, the `runnodes` script creates a node tab/window:
 --- Corda Open Source corda-4.4 (4157c25) -----------------------------------------------
 
 
-Logs can be found in                    : /Users/joeldudley/Desktop/cordapp-example/workflows-java/build/nodes/PartyA/logs
+Logs can be found in                    : /Users/cordauser/Desktop/cordapp-example/workflows-java/build/nodes/PartyA/logs
 Database connection url is              : jdbc:h2:tcp://localhost:59472/node
 Incoming connection address             : localhost:10005
 Listening on port                       : 10005
@@ -460,7 +457,7 @@ Type `flow list` in the shell to see a list of the flows that your node can run.
 following list:
 
 ```none
-com.example.flow.ExampleFlow$Initiator
+net.corda.samples.example.flows.ExampleFlow$Initiator
 net.corda.core.flows.ContractUpgradeFlow$Authorise
 net.corda.core.flows.ContractUpgradeFlow$Deauthorise
 net.corda.core.flows.ContractUpgradeFlow$Initiate
