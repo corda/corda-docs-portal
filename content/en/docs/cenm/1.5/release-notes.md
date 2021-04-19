@@ -23,15 +23,24 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
 
 * CENM 1.5.1 now supports [Oracle Database 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html).
 * We have bumped the supported version of the AWS CloudHSM client library from 3.0.0 to 3.2.1.
+* Configuration passwords are now hidden in **FORM VIEW** mode in the [CENM management console](cenm-console.md) **CONFIGURATION**.
 
 ### Fixed issues
 
-* We have fixed an issue where...
+#### CENM management console issues
+
+We have fixed the following issues in the [CENM management console](cenm-console.md):
+
+* We have fixed an issue where removing scheduled times in **FORM VIEW** mode in the **SIGNER** tab of **CONFIGURATION** showed configuration details in **CODE VIEW** mode, which might result is Signing Service configuration failures.
+* We have fixed an issue where the **Remove Edits** option in **CONFIGURATION** did not work for a number of fields for all configuration types.
+* We have fixed an issue where the database properties field **AdditionalProperties** did not show `connectionInitSql` in **FORM VIEW** mode.
+* We have fixed an issue where the SSL dropdown list did not shown in the **IDENTITY MANAGER** tab of **CONFIGURATION** in **FORM VIEW** mode.
+* We have fixed an issue where the UI would freeze indefinitely with a "Deployment failure" error if an invalid configuration was deployed due to incorrect database credentials or missing plug-in details.
+
 
 ### Known issues
 
-* (EG-4714 Passwords in configs are hidden but option to view is available in form view)
-
+* There is still an option to view configuration passwords in **FORM VIEW** mode in the [CENM management console](cenm-console.md) **CONFIGURATION**.
 
 ## Corda Enterprise Network Manager 1.5
 
