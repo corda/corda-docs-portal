@@ -27,16 +27,29 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
 
 ### Fixed issues
 
+* We have fixed an issue where 
+
 #### CENM management console issues
 
-We have fixed the following issues in the [CENM management console](cenm-console.md):
+We have also fixed the following issues specific to the [CENM management console](cenm-console.md):
 
 * We have fixed an issue where removing scheduled times in **FORM VIEW** mode in the **SIGNER** tab of **CONFIGURATION** showed configuration details in **CODE VIEW** mode, which might result is Signing Service configuration failures.
 * We have fixed an issue where the **Remove Edits** option in **CONFIGURATION** did not work for a number of fields for all configuration types.
 * We have fixed an issue where the database properties field **AdditionalProperties** did not show `connectionInitSql` in **FORM VIEW** mode.
 * We have fixed an issue where the SSL dropdown list did not shown in the **IDENTITY MANAGER** tab of **CONFIGURATION** in **FORM VIEW** mode.
 * We have fixed an issue where the UI would freeze indefinitely with a "Deployment failure" error if an invalid configuration was deployed due to incorrect database credentials or missing plug-in details.
-
+* We have fixed an issue where boolean parameters for the **ADMIN LISTENER** were not properly saved or set in **FORM VIEW** mode for Network Map configurations.
+* We have fixed an issue with the `Removing signing key` option in the **SIGNER** tab of **CONFIGURATION** in **FORM VIEW** mode, which might prevent the user from confirming whether the signing key was actually removed or not.
+* We have fixed an issue with setting scheduled signing time in **FORM VIEW** mode.
+* We have fixed an issue where editing or renaming the alias for either issuance or revocation workflow type in the **IDENTITY MANAGER** tab of **CONFIGURATION** would result in complete removal of the workflow in **FORM VIEW** mode.
+* We have fixed an issue where the CENM management console would fail to show a new zone after initial setup.
+* We have fixed an issue where network parameters could not be set and flag day dates would default to the current time.
+* We have fixed an issue where the **Update Config** remained enabled even without a configuration value change.
+* We have fixed an issue where the CENM management console crashed and hanged when attempting to deploy a valid configuration in **CODE VIEW** mode.
+* We have fixed an issue where the `RequestID` and `Certificate Signing Request ID` fields on the **CRR/CRL Status** tab showed the same data.
+* We have fixed an issue where the details for `Auth Service configuration`, which existed in the back-end configuration, were not shown for any of the configuration types in any of the two views - **CODE VIEW** and **FORM VIEW**.
+* We have fixed an issue where removing an HSM Library from the **SIGNER** configuration in **FORM VIEW** mode resulted in a blank screen, which prompted the user to refresh the entire application.
+* We have fixed an issue where the Angel Service did not get restored to the last working configuration and might stop polling when the SSL Keystore/TrustStore files were not found.
 
 ### Known issues
 
