@@ -19,6 +19,25 @@ weight: 9
 
 # Upgrading the notary to a new version of Corda Enterprise
 
+## Version 4.4.6
+
+{{<warning>}}
+This release addresses a security issue in the JPA notary if the Corda database management tool was used during notary backing database setup. Corda implementations that do not use the Corda database management tool during notary setup are unaffected and no action is required.
+{{</warning>}}
+
+Run the ledger health check tool before accepting the Corda Enterprise 4.4.6 patch release to detect whether your notary cluster has been affected.
+
+The ledger health check tool should be run on one of the notary workers in your notary cluster while the notary cluster is running. If the tool is being run in the base directory of the notary worker and your node configuration is named `node.conf` you can run the following command with no arguments:
+
+```
+java -jar tools-ledger-health-check-4.4.6
+```
+
+Otherwise, additional arguments may be required to specify the base directory and/or configuration file name. You can specify `-h` or `--help` for a full set of arguments. These arguments should behave in the same way as the equivalent arguments in the Corda database management tool.
+
+If no issues are found, you may safely proceed with applying the 4.4.6 patch. If issues are found contact R3, who will provide further instruction.
+
+After accepting the 4.4.6 patch, you must re-run the Corda Database Management Tool to apply the security fix.
 
 ## Version 4.4
 

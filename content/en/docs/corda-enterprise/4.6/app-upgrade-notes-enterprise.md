@@ -18,6 +18,10 @@ weight: 20
 
 # Upgrading a CorDapp to Corda Enterprise 4.6
 
+{{<warning>}}
+Corda Enterprise 4.6.3 fixes a key security vulnerability. Before upgrading to Corda Enterprise 4.6.3 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+{{</warning>}}
+
 ## Upgrading from Open Source
 
 
