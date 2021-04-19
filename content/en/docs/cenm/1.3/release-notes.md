@@ -275,7 +275,7 @@ Network Manager version 1.0. The CENM can be used to operate a bespoke Corda net
 for an entity to be in complete control of the consensus rules, identity, and deployment topology exists.
 
 This is the same software used to operate the global Corda Network on behalf of the Corda
-Network Foundation since its launch in 2018 and the R3 TestNet before it.
+Network Foundation since its launch in 2018.
 
 Please note, whilst this is the first public release of the Corda Enterprise Network Manager, these
 release notes and any associated documentation should be read from the perspective of those coming

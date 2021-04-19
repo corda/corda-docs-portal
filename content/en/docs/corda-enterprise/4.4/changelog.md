@@ -1568,19 +1568,6 @@ key trees in the “[API: Core types](api-core-types.md)” article.
     * A new tutorial has been added showing how to use transaction attachments in more detail.
 
 
-
-* Testnet>
-
-    * Permissioning infrastructure phase one is built out. The node now has a notion of development mode vs normal
-mode. In development mode it works like M3 and the SSL certificates used by nodes running on your local
-machine all self-sign using a developer key included in the source tree. When development mode is not active,
-the node won’t start until it has a signed certificate. Such a certificate can be obtained by simply running
-an included command line utility which generates a CSR and submits it to a permissioning service, then waits
-for the signed certificate to be returned. Note that currently there is no public Corda testnet, so we are
-not currently running a permissioning service.
-
-
-
 * Standalone app development:>
 
     * The Corda libraries that app developers need to link against can now be installed into your local Maven
@@ -1642,14 +1629,12 @@ of the protocol framework tutorial for more details.
 ## Milestone 3
 
 
-* More work on preparing for the testnet:>
-
-    * Corda is now a standalone app server that loads “CorDapps” into itself as plugins. Whilst the existing IRS
+* Corda is now a standalone app server that loads “CorDapps” into itself as plugins. Whilst the existing IRS
 and trader demos still exist for now, these will soon be removed and there will only be a single Corda node
 program. Note that the node is a single, standalone jar file that is easier to execute than the demos.
-    * Project Vega (shared SIMM modelling for derivative portfolios) has already been converted to be a CorDapp.
-    * Significant work done on making the node persist its wallet data to a SQL backend, with more on the way.
-    * Upgrades and refactorings of the core transaction types in preparation for the incoming sandboxing work.
+* Project Vega (shared SIMM modelling for derivative portfolios) has already been converted to be a CorDapp.
+* Significant work done on making the node persist its wallet data to a SQL backend, with more on the way.
+* Upgrades and refactorings of the core transaction types in preparation for the incoming sandboxing work.
 
 
 

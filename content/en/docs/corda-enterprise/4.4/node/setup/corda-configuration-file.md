@@ -447,6 +447,18 @@ dataSource.password = ""
 
     *Default* Not present so local file system is used.
 
+  `attachmentClassLoaderCacheSize`
+    This field can be used to configure the attachments class loader cache size - this is the number of attachment class loaders per cache. This cache caches the class loaders used to store the transaction attachments.
+
+    *Default:* The default value is `32` attachment class loaders per cache.
+
+  **IMPORTANT:** The default value must not be changed unless explicitly advised by R3 support!
+
+  `enableURLConnectionCache`
+    Enables URL connection caching. It is set to `false` by default and it is highly recommended to keep it that way.
+    When caching is enabled (set to `true`), `.jar` files will be cached, which can cause leaking of file handles. This is caused by the way the `ServiceLoader` handles `.jar` files that are children of the `URLClassLoader`. For more information, see [here](https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8156014).
+
+    *Default:* `false`
 
 `tuning`
     Performance tuning parameters for Corda Enterprise

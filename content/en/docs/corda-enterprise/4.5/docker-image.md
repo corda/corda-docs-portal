@@ -86,48 +86,6 @@ As the node within the container starts up, it will place it’s own nodeInfo in
 
 It is possible to utilize the image to automatically generate a sensible minimal configuration for joining an existing Corda network.
 
-## Joining TestNet
-
-{{< note >}}
-Requirements: A valid registration for TestNet and a one-time code for joining TestNet. Certificate and configuration folders should be accessible from the container. Docker will create folders using the permissions of it’s daemon if they don’t exist and the container may fail accessing them.
-
-{{< /note >}}
-
-```shell
-docker run -ti \
-        -e MY_PUBLIC_ADDRESS="corda-node.example.com" \
-        -e ONE_TIME_DOWNLOAD_KEY="bbcb189e-9e4f-4b27-96db-134e8f592785" \
-        -e LOCALITY="London" -e COUNTRY="GB" \
-        -v /home/user/docker/config:/etc/corda \
-        -v /home/user/docker/certificates:/opt/corda/certificates \
-        corda/corda-zulu-java1.8-4.5:latest config-generator --testnet
-```
-
-`$MY_PUBLIC_ADDRESS` will be the public address that this node will be advertised on.
-`$ONE_TIME_DOWNLOAD_KEY` is the one-time code provided for joining TestNet.
-`$LOCALITY` and `$COUNTRY` must be set to the values provided when joining TestNet.
-
-When the container has finished executing `config-generator` the following will be true
-
-* A skeleton, but sensible minimum node.conf is present in `/home/user/docker/config`
-* A set of certificates signed by TestNet in `/home/user/docker/certificates`
-
-It is now possible to start the node using the generated config and certificates
-
-```shell
-docker run -ti \
-        --memory=2048m \
-        --cpus=2 \
-        -v /home/user/docker/config:/etc/corda \
-        -v /home/user/docker/certificates:/opt/corda/certificates \
-        -v /home/user/docker/persistence:/opt/corda/persistence \
-        -v /home/user/docker/logs:/opt/corda/logs \
-        -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
-        -p 10200:10200 \
-        -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.5:latest
-```
-
 ## Joining an existing Compatibility Zone
 
 {{< note >}}

@@ -852,7 +852,6 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 * Docs: build the docs page needs updating [[CORDA-2808](https://r3-cev.atlassian.net/browse/CORDA-2808)]
 * Don’t retry database transaction in abstract node start [[CORDA-2807](https://r3-cev.atlassian.net/browse/CORDA-2807)]
 * Upgrade Corda Core to use Java Persistence API 2.2 [[CORDA-2804](https://r3-cev.atlassian.net/browse/CORDA-2804)]
-* Network map stopped updating on Testnet staging notary [[CORDA-2803](https://r3-cev.atlassian.net/browse/CORDA-2803)]
 * Improve test reliability by eliminating fixed-duration Thread.sleeps [[CORDA-2802](https://r3-cev.atlassian.net/browse/CORDA-2802)]
 * Not handled exception when certificates directory is missing [[CORDA-2786](https://r3-cev.atlassian.net/browse/CORDA-2786)]
 * Unable to run FinalityFlow if the initiating app has `targetPlatformVersion=4` and the recipient is using the old version [[CORDA-2784](https://r3-cev.atlassian.net/browse/CORDA-2784)]
@@ -915,7 +914,6 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 * Database connection pools leaking memory on every checkpoint [[CORDA-2646](https://r3-cev.atlassian.net/browse/CORDA-2646)]
 * Exception swallowed when querying vault via RPC with bad page spec [[CORDA-2645](https://r3-cev.atlassian.net/browse/CORDA-2645)]
 * Applying CordFormation and CorDapp Gradle plugins together includes Jolokia into the CorDapp. [[CORDA-2642](https://r3-cev.atlassian.net/browse/CORDA-2642)]
-* Wrong folder ownership while trying to connect to Testnet using  RC* docker image [[CORDA-2641](https://r3-cev.atlassian.net/browse/CORDA-2641)]
 * Provide a better error message on an incompatible implicit contract upgrade [[CORDA-2633](https://r3-cev.atlassian.net/browse/CORDA-2633)]
 * `uploadAttachment` via shell can fail with unhelpful message if the result of the command is unsuccessful [[CORDA-2632](https://r3-cev.atlassian.net/browse/CORDA-2632)]
 * Provide a better error msg when the notary type is misconfigured on the net params [[CORDA-2629](https://r3-cev.atlassian.net/browse/CORDA-2629)]
@@ -990,7 +988,7 @@ it can’t hurt to read the instructions anyway.
 
 Additionally, be aware that the data model improvements are changes to the Corda consensus rules. To use
 apps that benefit from them, *all* nodes in a compatibility zone must be upgraded and the zone must be
-enforcing that upgrade. This may take time in large zones like the testnet. Please take this into
+enforcing that upgrade. This may take time in large zones. Please take this into
 account for your own schedule planning.
 
 

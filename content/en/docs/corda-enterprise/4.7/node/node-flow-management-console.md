@@ -13,7 +13,7 @@ weight: 155
 ---
 # Flow management console
 
-The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway service](../../../cenm/1.5/gateway-service.html).
+The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway Service](gateway-service.md).
 
 It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda Enterprise.
 
@@ -24,7 +24,11 @@ It consists of two `.jar` files:
 
 These files can be downloaded from Artifactory: [`corda-gatewayplugins`](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-gateway-plugins).
 
-`flow-management-plugin-<release>.jar` should be put into the `plugins` directory in the Gateway service, and `auth-baseline-flow-management-<release>.jar` should be put into the `plugins` directory in the Auth service.
+## Installation
+
+1. Put `flow-management-plugin-<release>.jar` into the `plugins` directory in the Gateway Service.
+2. Put `auth-baseline-flow-management-<release>.jar` into the `plugins` directory in the Auth Service.
+3. Restart the Gateway Service and the Auth Service.
 
 ## Configuration
 
@@ -60,10 +64,10 @@ If a flow does **not** have a client ID attached to it, it will not be visible i
 
 The **Dashboard** tab displays two charts:
 
-* A pie chart that shows the breakdown of flows by flow state (`FAILED`, `KILLED`, `HOSPITALIZED`, `PAUSED`, `RUNNABLE`, or `COMPLETED`). 
- * Clicking on a pie chart _section_ redirects to the query flows tab with a filter applied for that flow state. 
- * Clicking on the _name_ of a section in the legend removes matching flow states from the pie chart. 
-* A bar chart which lists flows by suspension duration, starting with the longest duration on the left. Clicking on a flow redirects the user to the query flows page filtered on that specific flow. This chart has options for choosing how many flows to display and to filter out flows that have not been suspended for a specified amount of time (for example, only display flows that have been suspended for at least 20 minutes).
+* A pie chart that shows the breakdown of flows by flow state (`FAILED`, `KILLED`, `HOSPITALIZED`, `PAUSED`, `RUNNABLE`, or `COMPLETED`).
+ * Clicking on a pie chart _section_ redirects you to the query flows tab with a filter applied for that flow state.
+ * Clicking on the _name_ of a section in the legend removes matching flow states from the pie chart.
+* A bar chart which lists flows by suspension duration, starting with the longest duration on the left. Clicking on a flow redirects you to the query flows page filtered on that specific flow. This chart has options for choosing how many flows to display and to filter out flows that have not been suspended for a specified amount of time (for example, only display flows that have been suspended for at least 20 minutes).
 
 ## Query flows tab
 
@@ -82,5 +86,5 @@ The commands panel has three commands: pause flow, retry flow, and kill flow. If
 A user can have either read-only permissions, or admin permissions. Permissions are set using the User Admin tool, `http://<gateway-service-ip>:<port>/admin`.
 
 {{% note %}}
-Unless a tab or other functionality is specifically restricted, it is available to an unprivileged user. 
+Unless a tab or other functionality is specifically restricted, it is available to an unprivileged user.
 {{% /note%}}

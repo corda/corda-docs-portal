@@ -930,7 +930,6 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 * Docs: build the docs page needs updating.
 * Don’t retry database transaction in abstract node start.
 * Upgrade Corda Core to use Java Persistence API 2.2.
-* Network map stopped updating on Testnet staging notary.
 * Improve test reliability by eliminating fixed-duration Thread.sleeps.
 * Not handled exception when certificates directory is missing.
 * Unable to run FinalityFlow if the initiating app has `targetPlatformVersion=4` and the recipient is using the old version.
@@ -993,7 +992,6 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 * Database connection pools leaking memory on every checkpoint.
 * Exception swallowed when querying vault via RPC with bad page spec.
 * Applying CordFormation and CorDapp Gradle plugins together includes Jolokia into the CorDapp.
-* Wrong folder ownership while trying to connect to Testnet using  RC* docker image.
 * Provide a better error message on an incompatible implicit contract upgrade.
 * `uploadAttachment` via shell can fail with unhelpful message if the result of the command is unsuccessful.
 * Provide a better error msg when the notary type is misconfigured on the net params.
@@ -1068,7 +1066,7 @@ it can’t hurt to read the instructions anyway.
 
 Additionally, be aware that the data model improvements are changes to the Corda consensus rules. To use
 apps that benefit from them, *all* nodes in a compatibility zone must be upgraded and the zone must be
-enforcing that upgrade. This may take time in large zones like the testnet. Please take this into
+enforcing that upgrade. This may take time in large zones. Please take this into
 account for your own schedule planning.
 
 

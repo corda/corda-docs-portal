@@ -28,7 +28,7 @@ it can’t hurt to read the instructions anyway.
 
 Additionally, be aware that the data model improvements are changes to the Corda consensus rules. To use
 apps that benefit from them, *all* nodes in a compatibility zone must be upgraded and the zone must be
-enforcing that upgrade. This may take time in large zones like the testnet. Please take this into
+enforcing that upgrade. This may take time in large zones. Please take this into
 account for your own schedule planning.
 
 
@@ -330,4 +330,3 @@ will have no impact on any deployed configurations.
 To learn more about smaller changes, please read the [Changelog](changelog.md).
 
 Finally, we have added some new jokes. Thank you and good night!
-

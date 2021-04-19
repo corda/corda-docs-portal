@@ -43,6 +43,8 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * We have fixed an issue that can cause failure at node startup.
 * The `attachmentPresenceCache` has been removed. The functionality is duplicated in the `attachmentContent` cache in the `NodeAttachmentService`.
 * We have fixed an issue that caused timestamps to change timezone between the start and end times of a flow.
+* We have fixed an issue where `CordaPersistence.transaction` did not flush properly and another flush had to be added in order to complete the transaction.
+* We have fixed several issues that caused memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](node/setup/corda-configuration-fields.md#enterpriseconfiguration) for details.
 
 ## Corda Enterprise 4.6.1
 
@@ -528,7 +530,6 @@ The `initial-registration` command is described in [Node command-line options](n
 * Business Network roles are not displayed when `MembershipState` is queried via the Shell Command-line Interface. It is also not possible to change the participant roles via the Shell Command-line Interface.
 * Filtering flows by `FlowStart` using the constants `Instant.MAX` and `Instant.MIN` returns an exception.
 * The SSH Client returns inconsistent exit codes after `gracefulShutdown` is run, indicating that an error has occurred.
-* The Docker node does not generate configuration and certificates against Testnet.
 * The node rejects the incoming P2P connection from a node with a revoked certificate, with warnings and errors, but does not block any attempts to re-establish it. This leads to a quick accumulation of warnings and errors in the node log files.
 * The error text is repeated in the console when trying to register a node with forbidden characters in the Organisation (`O`) name.
 * The ``<install-shell-extensions>`` sub-command of Corda node creates log files in the home folder, while all other sub-commands create log files the `logs` subfolder.
