@@ -1,6 +1,4 @@
 ---
-aliases:
-- /release-notes.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-5:
@@ -8,6 +6,7 @@ menu:
     parent: cenm-1-5-cenm-releases
     weight: 80
 tags:
+- cenm
 - release
 - notes
 title: Release notes
@@ -15,6 +14,24 @@ title: Release notes
 
 
 # Corda Enterprise Network Manager release notes
+
+## Corda Enterprise Network Manager 1.5.1
+
+CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
+
+### Enhancements
+
+* CENM 1.5.1 now supports [Oracle Database 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html).
+* We have bumped the supported version of the AWS CloudHSM client library from 3.0.0 to 3.2.1.
+
+### Fixed issues
+
+* We have fixed an issue where...
+
+### Known issues
+
+* (EG-4714 Passwords in configs are hidden but option to view is available in form view)
+
 
 ## Corda Enterprise Network Manager 1.5
 

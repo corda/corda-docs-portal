@@ -47,6 +47,7 @@ CENM currently supports the following databases:
 * SQL Server 2017 (Microsoft JDBC Driver 6.4)
 * Oracle 11gR2 (Oracle JDBC 6)
 * Oracle 12cR2 (Oracle JDBC 8)
+* Oracle 19c (Oracle JDBC 8)
 
 The appropriate JDBC driver `.jar` file must be provided and its location should be specified in the service configuration.
 
@@ -549,7 +550,7 @@ Set the `database.schema` value to the username of the admin user (in the exampl
 
 The transaction isolation level is set by CENM to `READ_COMMITTED` - an attempt to set another isolation level in the configuration will result in an error. This is intentional behaviour, as `READ_UNCOMMITTED` results in inconsistent data reads, and `REPEATABLE_READ` and `SERIALIZABLE` are not compatible with Corda.
 
-Use Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c. You can find links to the appropriate drivers on [Oracle's website](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
+Use Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c and Oracle 19c. You can find links to the appropriate drivers on [Oracle's website](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
 The database schema name can be set in a JDBC URL string - for example, `currentSchema=my_schema`.
 
 ### PostgreSQL
