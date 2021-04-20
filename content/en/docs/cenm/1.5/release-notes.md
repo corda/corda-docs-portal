@@ -27,7 +27,12 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
 
 ### Fixed issues
 
-* We have fixed an issue where
+* We have fixed an issue where some certificate revocation reasons supported by the CENM Command-line Interface Tool (CLI) were not supported by the Identity Manager service. All CLI revocation reasons are now supported by the Identity Manager service.
+* We have fixed an issue where service configurations were sometimes recorded in the logs by mistake. This problem was also present in CENM 1.3 and 1.4 and the fix has been ported back to these versions as well.
+
+After a revocation submission request by CRR tool, signing CRL should give more details about revocation instead of having to go to idManager logs
+
+
 
 #### CENM management console issues
 
@@ -54,7 +59,6 @@ We have also fixed the following issues specific to the [CENM management console
 * We have fixed an issue where the theme, language, and font size in the **CONFIGURATION** tab were not saved when the user switched to a different tab.
 * We have fixed an issue where changes in **CODE VIEW** mode were not reflected in **FORM VIEW** mode when the user switched over.
 * We have fixed an issue where clicking **Cancel Flag Day** before the flag day was run would fail to cancel the flag day.
-
 
 ### Known issues
 
