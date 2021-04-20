@@ -34,7 +34,7 @@ Both the Signing Service and the PKI Tool support a variety of HSMs.
 |Gemalto Luna|7.0.3|7.3|Yes (Tested and officially supported)|
 |Securosys PrimusX|2.7.4|1.8.2|No|
 |Azure Key Vault|N/A|1.1.1|No|
-|AWS CloudHSM|N/A|3.0.0|No|
+|AWS CloudHSM|N/A|3.2.1|No|
 
 {{< /table >}}
 
@@ -49,6 +49,7 @@ CENM currently supports the following databases:
 * SQL Server 2017 (Microsoft JDBC Driver 6.4)
 * Oracle 11gR2 (Oracle JDBC 6)
 * Oracle 12cR2 (Oracle JDBC 8)
+* Oracle 19c (Oracle JDBC 8)
 
 
 ## JDK support
