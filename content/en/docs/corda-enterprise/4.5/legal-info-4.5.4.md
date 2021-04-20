@@ -1,41 +1,41 @@
 ---
-date: '2020-01-08T09:59:25Z'
+date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-3:
-    identifier: corda-enterprise-4-3-6-legal-info
-    parent: corda-enterprise-4-3-miscellaneous
-    weight: 560
+  corda-enterprise-4-5:
+    identifier: corda-enterprise-4-5-4-legal-info
+    parent: corda-enterprise-4-5-release-notes
+    weight: 312
 tags:
 - legal
 - info
-title: Third-party software notices and licence information - CE 4.3.6
+title: Third-party software notices and licence information - CE 4.5.4
 ---
 
-# Corda Enterprise 4.3.6 third-party software notices and licence information
+# Corda Enterprise 4.5.4 third-party software notices and licence information
 
 **Do not translate or localise.**
 
 This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by  implication, estoppel or otherwise.
 
 1.	@shore/bootstrap
-2.	amqp-client
-3.	animal-sniffer-annotations
-4.	annotations
-5.	antlr
-6.	artemis-amqp-protocol
-7.	artemis-commons
-8.	artemis-core-client
-9.	artemis-jdbc-store
-10.	artemis-jms-client
-11.	artemis-journal
-12.	artemis-native
-13.	artemis-selector
-14.	artemis-server
-15.	asm
-16.	asm-analysis
-17.	asm-commons
-18.	asm-tree
-19.	asm-util
+2.	animal-sniffer-annotations
+3.	annotations
+4.	antlr
+5.	artemis-amqp-protocol
+6.	artemis-commons
+7.	artemis-core-client
+8.	artemis-jdbc-store
+9.	artemis-jms-client
+10.	artemis-journal
+11.	artemis-native
+12.	artemis-selector
+13.	artemis-server
+14.	asm
+15.	asm-analysis
+16.	asm-commons
+17.	asm-tree
+18.	asm-util
+19.	audience-annotations
 20.	bcpkix-jdk15on
 21.	bcprov-jdk15on
 22.	byte-buddy
@@ -51,125 +51,133 @@ This file is based on or incorporates material from the projects listed below (T
 32.	classmate
 33.	com.perfma.wrapped
 34.	commons-beanutils
-35.	commons-codec
-36.	commons-collections
-37.	commons-io
-38.	commons-lang3
-39.	commonscollections4
-40.	config
-41.	copycat-client
-42.	copycat-protocol
-43.	copycat-server
-44.	crash.cli
-45.	disruptor
-46.	dom4j
-47.	eddsa
-48.	error_prone_annotations
-49.	failureaccess
-50.	FastInfoset
-51.	forms_rt
-52.	geronimo-jms_ 2.0_spec
-53.	geronimo-json_ 1.0_spec
-54.	groovy-all
-55.	guava
-56.	h2
-57.	HdrHistogram
-58.	hibernate-commons-annotations
-59.	hibernate-core
-60.	hibernate-java8
-61.	HikariCP
-62.	istack-commons-runetime
-63.	j2objc-annotations
-64.	jackson-annotations
-65.	jackson-core
-66.	jackson-databind
-67.	jacksondataformat-yaml
-68.	jacksondatatype- jsr310
-69.	jacksonmodule-kotlin
-70.	jandex
-71.	jansi
-72.	javassist
-73.	javax.activation-api
-74.	javax.persistence-api
-75.	jaxb-api
-76.	jaxb-runtime
-77.	jboss-logging
-78.	jboss-transaction- api_1.2_spec
-79.	jcabi-log
-80.	jcabi-manifests
-81.	jcl-over-slf4j
-82.	jgroups
-83.	jimfs
-84.	johnzon-core
-85.	jolokia-core
-86.	jolokia-jvm
-87.	jpam
-88.	jsch
-89.	json-simple
-90.	jsr305
-91.	jul-to-slf4j
-92.	kotlin-reflect
-93.	kotlin-stdlib
-94.	kotlin-stdlib-common
-95.	kotlin-stdlib-jdk7
-96.	kotlin-stdlib-jdk8
-97.	kotlin-stdlib-jre7
-98.	kotlin-stdlib-jre8
-99.	kryo
-100.	kryo-serializers
-101.	LatencyUtils
-102.	liquibase-core
-103.	liquibase-slf4j
-104.	listenablefuture
-105.	log4j-api
-106.	log4j-core
-107.	log4j-slf4j-impl
-108.	log4j-web
-109.	metrics-core
-110.	metrics-graphite
-111.	metrics-jmx
-112.	metrics-new-relic
-113.	mina-core
-114.	minlog
-115.	netty-buffer
-116.	netty-codec
-117.	netty-codec-http
-118.	netty-codec-socks
-119.	netty-common
-120.	netty-handler
-121.	netty-handler-proxy
-122.	netty-resolver
-123.	netty-tcnative-boringssl-static
-124.	netty-transport
-125.	netty-transport-native-epoll
-126.	netty-transport-native-kqueue
-127.	netty-transport-native-unix-common
-128.	newrelic-api
-129.	objenesis
-130.	okhttp
-131.	okio
-132.	picocli
-133.	proton-j
-134.	quasar-core
-135.	reflectasm
-136.	rxjava
-137.	shiro-cache
-138.	shiro-config-core
-139.	shiro-config-ogdl
-140.	shiro-core
-141.	shiro-crypto-cipher
-142.	shiro-crypto-core
-143.	shiro-crypto-hash
-144.	shiro-event
-145.	shiro-lang
-146.	slf4j-api
-147.	snakeyaml
-148.	snappy
-149.	sshd-common
-150.	sshd-core
-151.	sshd-pam
-152.	stax-ex
-153.	txw2
+35.	commons-cli
+36.	commons-codec
+37.	commons-collections
+38.	commons-collections4
+39.	commons-csv
+40.	commons-io
+41.	commons-lang3
+42.	config
+43.	copycat-client
+44.	copycat-protocol
+45.	copycat-server
+46.	crash.cli
+47.	curator-client
+48.	curator-framework
+49.	curator-recipes
+50.	disruptor
+51.	dom4j
+52.	eddsa
+53.	error_prone_annotations
+54.	failureaccess
+55.	FastInfoset
+56.	geronimo-jms_ 2.0_spec
+57.	geronimo-json_ 1.0_spec
+58.	groovy-all
+59.	guava
+60.	h2
+61.	h2
+62.	HdrHistogram
+63.	hibernate-commons-annotations
+64.	hibernate-core
+65.	hibernate-java8
+66.	HikariCP
+67.	istack-commons-runetime
+68.	j2objc-annotations
+69.	jackson-annotations
+70.	jackson-core
+71.	jackson-databind
+72.	jacksondataformat-yaml
+73.	jacksondatatype- jsr310
+74.	jacksonmodule-kotlin
+75.	jandex
+76.	jansi
+77.	javassist
+78.	javax.activation-api
+79.	javax.persistence-api
+80.	jaxb-api
+81.	jaxb-runtime
+82.	jboss-logging
+83.	jboss-transaction- api_1.2_spec
+84.	jcabi-log
+85.	jcabi-manifests
+86.	jcl-over-slf4j
+87.	jgroups
+88.	johnzon-core
+89.	jolokia-core
+90.	jolokia-jvm
+91.	jpam
+92.	jsch
+93.	json-simple
+94.	jsr305
+95.	jul-to-slf4j
+96.	kotlin-reflect
+97.	kotlin-stdlib
+98.	kotlin-stdlib-common
+99.	kotlin-stdlib-jdk7
+100.	kotlin-stdlib-jdk8
+101.	kotlin-stdlib-jre7
+102.	kotlin-stdlib-jre8
+103.	kryo
+104.	kryo-serializers
+105.	LatencyUtils
+106.	liquibase-core
+107.	liquibase-slf4j
+108.	listenablefuture
+109.	log4j-api
+110.	log4j-core
+111.	log4j-over-slf4j
+112.	log4j-slf4j-impl
+113.	log4j-web
+114.	metrics-core
+115.	metrics-graphite
+116.	metrics-jmx
+117.	metrics-new-relic
+118.	mina-core
+119.	minlog
+120.	netty
+121.	netty-buffer
+122.	netty-codec
+123.	netty-codec-http
+124.	netty-codec-socks
+125.	netty-common
+126.	netty-handler
+127.	netty-handler-proxy
+128.	netty-resolver
+129.	netty-tcnative-boringssl-static
+130.	netty-transport
+131.	netty-transport-native-epoll
+132.	netty-transport-native-kqueue
+133.	netty-transport-native-unix-common
+134.	newrelic-api
+135.	objenesis
+136.	okhttp
+137.	okio
+138.	picocli
+139.	proton-j
+140.	quasar-core
+141.	reflectasm
+142.	rxjava
+143.	shiro-cache
+144.	shiro-config-core
+145.	shiro-config-ogdl
+146.	shiro-core
+147.	shiro-crypto-cipher
+148.	shiro-crypto-core
+149.	shiro-crypto-hash
+150.	shiro-event
+151.	shiro-lang
+152.	slf4j-api
+153.	slf4j-nop
+154.	snakeyaml
+155.	snappy
+156.	sshd-common
+157.	sshd-core
+158.	sshd-pam
+159.	stax-ex
+160.	txw2
+161.	zookeeper
 
 ================================================
 ================================================
@@ -184,7 +192,7 @@ jacksondataformat-yaml 2.9.7
 https://github.com/FasterXML/jackson-dataformat-yaml
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
-jackson-datatype- jsr310 2.9.7
+jackson-datatype- jsr310 2.9.8
 https://github.com/FasterXML/jackson-datatype-jsr310
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
@@ -200,7 +208,7 @@ gson 2.8.0
 https://github.com/google/gson
 https://github.com/google/gson/blob/master/LICENSE
 
-error_prone_annotations 2.3.2
+error_prone_annotations 2.3.3
 https://github.com/google/error-prone
 https://github.com/google/error-prone/blob/master/COPYING
 
@@ -241,12 +249,20 @@ commons-beanutils 1.9.3
 https://commons.apache.org/proper/commons-beanutils/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
+commons-cli 1.2
+https://github.com/apache/commons-cli
+https://github.com/apache/commons-cli/blob/master/LICENSE.txt
+
 commons-codec 1.11
 http://commons.apache.org/proper/commons-codec/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
 commons-collections 3.2.2
-http://commons.apache.org/collections/
+http://commons.apache.org/commons-collections/
+http://www.apache.org/licenses/LICENSE-2.0.txt
+
+commons-csv 1.8
+http://commons.apache.org/collections-csv/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
 commons-io 2.6
@@ -309,55 +325,55 @@ metrics-jmx 4.1.0
 https://metrics.dropwizard.io/4.0.0/
 https://github.com/dropwizard/metrics/blob/4.1-development/LICENSE
 
-netty-buffer 4.1.29.Final
+netty 3.10.6.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-codec 4.1.29.Final
+netty-buffer 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-codec-http 4.1.29.Final
+netty-codec 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-natty-codec-socks 4.1.29.Final
+netty-codec-http 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-common 4.1.29.Final
+natty-codec-socks 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-handler 4.1.29.Final
+netty-common 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-handler-proxy 4.1.29.Final
+netty-handler 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-resolver	4.1.29.Final
+netty-handler-proxy 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-tcnative-boringssl-static	2.0.14.Final
+netty-resolver	4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport	4.1.29.Final
+netty-transport	4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport-native-epoll 4.1.29.Final
+netty-transport-native-epoll 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport-native-kqueue 4.1.29.Final
+netty-transport-native-kqueue 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport-native-unix-common 4.1.29.Final
+netty-transport-native-unix-common 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
@@ -409,6 +425,10 @@ artemis-server	2.6.2
 https://github.com/apache/activemq
 https://github.com/apache/activemq/blob/master/LICENSE
 
+audience-annotations 0.50.
+http://www.apache.org/licenses/LICENSE-2.0
+https://github.com/apache/yetus/blob/master/audience-annotations-component/audience-annotations/src/main/assemblies/audience-annotations.xml
+
 commons-lang3 3.9
 http://commons.apache.org/jexl/
 http://www.apache.org/licenses/LICENSE-2.0.txt
@@ -416,6 +436,21 @@ http://www.apache.org/licenses/LICENSE-2.0.txt
 commonscollections4 4.3
 http://commons.apache.org/jexl/
 http://www.apache.org/licenses/LICENSE-2.0.txt
+
+curator-client 4.2.0
+Copyright 2013-2014 The Apache Software Foundation
+https://curator.apache.org/
+https://github.com/apache/curator/blob/master/curator-client/LICENSE
+
+curator-framework 4.2.0
+Copyright 2013-2014 The Apache Software Foundation
+https://curator.apache.org/
+https://github.com/apache/curator/blob/master/curator-framework/LICENSE
+
+curator-recipes 4.2.0
+Copyright 2013-2014 The Apache Software Foundation
+https://curator.apache.org/
+https://github.com/apache/curator/blob/master/curator-recipes/LICENSE
 
 failureaccess 1.0.1
 Copyright (C) 2018 The Guava Authors
@@ -425,11 +460,6 @@ FastInfoset 1.2.15
 https://github.com/javaee/metro-fi/blob/master/code/fastinfoset/src/main/java/com/sun/xml/fastinfoset/algorithm/BASE64EncodingAlgorithm.java
 https://opensource.org/licenses/apache2.0.php
 
-forms_rt 7.0.3
-Copyright © 2008 Jetbrains
-http://www.jetbrains.com/
-https://github.com/JetBrains/intellij-community/blob/master/LICENSE.txt
-
 geronimo-json_ 1.0_spec	1.0-alpha-1
 https://github.com/apache/geronimo-specs
 https://github.com/apache/geronimo-specs/blob/trunk/LICENSE
@@ -437,10 +467,6 @@ https://github.com/apache/geronimo-specs/blob/trunk/LICENSE
 geronimo-jms_ 2.0_spec 1.0-alpha-2
 https://github.com/apache/geronimo-specs
 https://github.com/apache/geronimo-specs/blob/trunk/LICENSE
-
-jimfs 1.1
-https://github.com/google/jimfs
-https://github.com/google/jimfs/blob/master/LICENSE
 
 johnzon-core 0.9.5
 https://github.com/apache/johnzon
@@ -547,6 +573,10 @@ annotations 13.0
 http://www.jetbrains.org/display/IJOS/Home;jsessionid=D8BEE7ABBE9465C870555B5B84556904
 http://www.jetbrains.org/display/IJOS/License+Information
 
+jcl-over-slf4j 1.7.40
+https://github.com/qos-ch/slf4j/tree/master/jcl-over-slf4j
+https://github.com/qos-ch/slf4j/blob/master/jcl-over-slf4j/LICENSE.txt
+
 kotlin-reflect	1.2.71
 Copyright 2010-2018 JetBrains s.r.o.
 https://github.com/JetBrains/kotlin
@@ -605,6 +635,15 @@ http://objenesis.org/license.html
 snakeyaml 1.23
 http://www.snakeyaml.org/
 https://bitbucket.org/asomov/snakeyaml/src/default/LICENSE.txt
+
+zookeeper 3.5.4-beta
+Copyright © 2010-2019 The Apache Software Foundation
+https://zookeeper.apache.org/
+https://www.apache.org/licenses/LICENSE-2.0
+
+netty-tcnative-boringssl-static 2.0.29.Final
+https://netty.io/
+https://github.com/netty/netty-tcnative/blob/master/LICENSE.txt
 
 -----------------------START OF LICENSE TEXT-----------------------------------
 
@@ -820,6 +859,7 @@ https://bitbucket.org/asomov/snakeyaml/src/default/LICENSE.txt
 
 ================================================
 
+
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
 metrics-new-relic 1.1.1
@@ -871,44 +911,12 @@ OF, OR IN CONNECTION WITH THE WORK OR THE USE OF OR OTHER DEALINGS IN THE WORK.
 
 =============END OF NOTICES AND INFORMATION for above components=================
 
-
-================================================
-
-================================================
-
-=========== START OF NOTICES AND INFORMATION for the following components=========
-
-amqp-client 5.5.3
-https://www.rabbitmq.com/
-https://github.com/rabbitmq/rabbitmq-java-client/blob/5.5.x/LICENSE
-
------------------------START OF LICENSE TEXT-----------------------------------
-
-This package, the RabbitMQ Java client library, is triple-licensed under
-the Mozilla Public License 1.1 ("MPL"), the GNU General Public License
-version 2 ("GPL") and the Apache License version 2 ("ASL"). For the MPL,
-please see LICENSE-MPL-RabbitMQ. For the GPL, please see LICENSE-GPL2.
-For the ASL, please see LICENSE-APACHE2.
-
-The RabbitMQ Java client library includes third-party software under the
-ASL. For this license, please see LICENSE-APACHE2. For attribution of
-copyright and other details of provenance, please refer to the source code.
-
-If you have any questions regarding licensing, please contact us at
-info@rabbitmq.com.
-
----------------------END OF LICENSE TEXT-----------------------------------------
-
-=============END OF NOTICES AND INFORMATION for above components=================
-
-
 ================================================
 
 ================================================
 
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
-
 
 jackson-annotations	2.9.0
 https://github.com/FasterXML/jackson-annotations
@@ -2353,13 +2361,13 @@ Also add information on how to contact you by electronic and paper mail.
 If the program is interactive, make it output a short notice like this when it starts in an interactive mode:
 
    Gnomovision version 69, Copyright (C) year name of author
-   Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'. This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details.
+   Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type 'show w'. This is free software, and you are welcome to redistribute it under certain conditions; type 'show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than `show w' and `show c'; they could even be mouse-clicks or menu items--whatever suits your program.
+The hypothetical commands 'show w' and 'show c' should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than 'show w' and 'show c'; they could even be mouse-clicks or menu items--whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your school, if any, to sign a "copyright disclaimer" for the program, if necessary. Here is a sample; alter the names:
 
-   Yoyodyne, Inc., hereby disclaims all copyright interest in the program `Gnomovision' (which makes passes at compilers) written by James Hacker.
+   Yoyodyne, Inc., hereby disclaims all copyright interest in the program 'Gnomovision' (which makes passes at compilers) written by James Hacker.
 
    signature of Ty Coon, 1 April 1989
    Ty Coon, President of Vice
@@ -3076,12 +3084,12 @@ when it starts in an interactive mode:
 
     Gnomovision version 69, Copyright (C) year name of author
     Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type
-    `show w'. This is free software, and you are welcome to redistribute
-    it under certain conditions; type `show c' for details.
+    'show w'. This is free software, and you are welcome to redistribute
+    it under certain conditions; type 'show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the
+The hypothetical commands 'show w' and 'show c' should show the
 appropriate parts of the General Public License. Of course, the commands
-you use may be called something other than `show w' and `show c'; they
+you use may be called something other than 'show w' and 'show c'; they
 could even be mouse-clicks or menu items--whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your
@@ -3089,7 +3097,7 @@ school, if any, to sign a "copyright disclaimer" for the program, if
 necessary. Here is a sample; alter the names:
 
     Yoyodyne, Inc., hereby disclaims all copyright interest in the
-    program `Gnomovision' (which makes passes at compilers) written by
+    program 'Gnomovision' (which makes passes at compilers) written by
     James Hacker.
 
     signature of Ty Coon, 1 April 1989
@@ -3496,7 +3504,7 @@ version(s), and exceptions or additional permissions here}."
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
-h2 1.4.199
+h2 1.2.192, 1.4.197
 http://www.h2database.com/
 http://h2database.com/html/license.html
 
@@ -3744,10 +3752,10 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
 =============END OF NOTICES AND INFORMATION for above components=================
 
-
 ================================================
 
 ================================================
+
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
@@ -4809,18 +4817,23 @@ Copyright (c) 2012-2015 Matt Bertolini
 https://github.com/mattbertolini/liquibase-slf4j
 https://opensource.org/licenses/mit-license.html
 
+log4j-over-slf4j 1.7.30
+Copyright (c) 2004-2017 QOS.ch
+http://www.slf4j.org/
+http://www.slf4j.org/license.html
+
 classgraph 4.8.90
 Copyright (c) 2019 Luke Hutchison
 https://github.com/classgraph/classgraph
-https://github.com/classgraph/classgraph/blob/master/LICENSE
+https://github.com/classgraph/classgraph/blob/master/LICENSE-ClassGraph.txt
 
-bcpkix-jdk15on 1.61
-Copyright (c) 2000-2019 The Legion of the Bouncy Castle Inc.
+bcpkix-jdk15on 1.66
+Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
 http://www.bouncycastle.org/java.html
 http://www.bouncycastle.org/licence.html
 
-bcprov-jdk15on	1.61
-Copyright (c) 2000-2019 The Legion of the Bouncy Castle Inc.
+bcprov-jdk15on	1.66
+Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
 http://www.bouncycastle.org/java.html
 http://www.bouncycastle.org/licence.html
 
@@ -4834,17 +4847,17 @@ animal-sniffer-annotations 1.17
 https://www.mojohaus.org/animal-sniffer/index.html
 https://www.mojohaus.org/animal-sniffer/license.html
 
-jcl-over-slf4j 1.7.26
-Copyright (c) 2004-2017 QOS.ch
-https://github.com/qos-ch/slf4j
-https://github.com/qos-ch/slf4j/blob/master/LICENSE.txt
-
-jul-to-slf4j 1.7.26
+jul-to-slf4j 1.7.30
 Copyright (c) 2004-2017 QOS.ch
 https://github.com/qos-ch/slf4j
 https://github.com/qos-ch/slf4j/blob/master/LICENSE.txt
 
 slf4j-api 1.7.30
+Copyright (c) 2004-2017 QOS.ch
+https://github.com/qos-ch/slf4j
+https://github.com/qos-ch/slf4j/blob/master/LICENSE.txt
+
+Slf4j-nop 1.7.30
 Copyright (c) 2004-2017 QOS.ch
 https://github.com/qos-ch/slf4j
 https://github.com/qos-ch/slf4j/blob/master/LICENSE.txt
@@ -4874,7 +4887,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
 newrelic-api	3.10.0
-Copyright (c) 2010-2014 New Relic, Inc. All rights reserved.
+Copyright (c) 2008-2014 New Relic, Inc.
 https://newrelic.com/
 
 -----------------------START OF LICENSE TEXT-----------------------------------
@@ -4990,7 +5003,7 @@ modification, are permitted provided that the following conditions are met:
   3. The names of the authors may not be used to endorse or promote products
      derived from this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
 INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
 FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
 INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -5003,9 +5016,8 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================
 END OF THIRD PARTY NOTICES FOR
-Corda Enterprise V. 4.3.6
+Corda Enterprise V. 4.5.4
 ================================================
 
 
 ----------------------END OF OPEN SOURCE LICENSES -----------------------
- 

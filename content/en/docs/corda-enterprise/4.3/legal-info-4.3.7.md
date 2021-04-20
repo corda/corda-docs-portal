@@ -1,19 +1,21 @@
 ---
+aliases:
+- /releases/4.3/legal-info.html
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-3:
-    identifier: corda-enterprise-4-3-6-legal-info
+    identifier: corda-enterprise-4-3-7-legal-info
     parent: corda-enterprise-4-3-miscellaneous
-    weight: 560
+    weight: 570
 tags:
 - legal
 - info
-title: Third-party software notices and licence information - CE 4.3.6
+title: Third-party software notices and licence information - CE 4.3.7
 ---
 
-# Corda Enterprise 4.3.6 third-party software notices and licence information
+# Corda Enterprise 4.3.7 third-party software notices and licence information
 
-**Do not translate or localise.**
+**Do Not Translate or Localize**
 
 This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by  implication, estoppel or otherwise.
 
@@ -2353,13 +2355,13 @@ Also add information on how to contact you by electronic and paper mail.
 If the program is interactive, make it output a short notice like this when it starts in an interactive mode:
 
    Gnomovision version 69, Copyright (C) year name of author
-   Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'. This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details.
+   Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type 'show w'. This is free software, and you are welcome to redistribute it under certain conditions; type 'show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than `show w' and `show c'; they could even be mouse-clicks or menu items--whatever suits your program.
+The hypothetical commands 'show w' and 'show c' should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than 'show w' and 'show c'; they could even be mouse-clicks or menu items--whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your school, if any, to sign a "copyright disclaimer" for the program, if necessary. Here is a sample; alter the names:
 
-   Yoyodyne, Inc., hereby disclaims all copyright interest in the program `Gnomovision' (which makes passes at compilers) written by James Hacker.
+   Yoyodyne, Inc., hereby disclaims all copyright interest in the program 'Gnomovision' (which makes passes at compilers) written by James Hacker.
 
    signature of Ty Coon, 1 April 1989
    Ty Coon, President of Vice
@@ -3076,12 +3078,12 @@ when it starts in an interactive mode:
 
     Gnomovision version 69, Copyright (C) year name of author
     Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type
-    `show w'. This is free software, and you are welcome to redistribute
-    it under certain conditions; type `show c' for details.
+    'show w'. This is free software, and you are welcome to redistribute
+    it under certain conditions; type 'show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the
+The hypothetical commands 'show w' and 'show c' should show the
 appropriate parts of the General Public License. Of course, the commands
-you use may be called something other than `show w' and `show c'; they
+you use may be called something other than 'show w' and 'show c'; they
 could even be mouse-clicks or menu items--whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your
@@ -3089,7 +3091,7 @@ school, if any, to sign a "copyright disclaimer" for the program, if
 necessary. Here is a sample; alter the names:
 
     Yoyodyne, Inc., hereby disclaims all copyright interest in the
-    program `Gnomovision' (which makes passes at compilers) written by
+    program 'Gnomovision' (which makes passes at compilers) written by
     James Hacker.
 
     signature of Ty Coon, 1 April 1989
@@ -4815,12 +4817,12 @@ https://github.com/classgraph/classgraph
 https://github.com/classgraph/classgraph/blob/master/LICENSE
 
 bcpkix-jdk15on 1.61
-Copyright (c) 2000-2019 The Legion of the Bouncy Castle Inc.
+Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
 http://www.bouncycastle.org/java.html
 http://www.bouncycastle.org/licence.html
 
 bcprov-jdk15on	1.61
-Copyright (c) 2000-2019 The Legion of the Bouncy Castle Inc.
+Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
 http://www.bouncycastle.org/java.html
 http://www.bouncycastle.org/licence.html
 
@@ -4990,7 +4992,7 @@ modification, are permitted provided that the following conditions are met:
   3. The names of the authors may not be used to endorse or promote products
      derived from this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
 INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
 FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
 INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -5003,9 +5005,8 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================
 END OF THIRD PARTY NOTICES FOR
-Corda Enterprise V. 4.3.6
+Corda Enterprise V. 4.3.7
 ================================================
 
 
 ----------------------END OF OPEN SOURCE LICENSES -----------------------
- 
