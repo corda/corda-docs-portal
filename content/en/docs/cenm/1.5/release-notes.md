@@ -29,10 +29,14 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
 
 * We have fixed an issue where some certificate revocation reasons supported by the CENM Command-line Interface Tool (CLI) were not supported by the Identity Manager service. All CLI revocation reasons are now supported by the Identity Manager service.
 * We have fixed an issue where service configurations were sometimes recorded in the logs by mistake. This problem was also present in CENM 1.3 and 1.4 and the fix has been ported back to these versions as well.
-
-After a revocation submission request by CRR tool, signing CRL should give more details about revocation instead of having to go to idManager logs
-
-
+* We have fixed an issue where the signing CRL did not give sufficient details about the revocation after a revocation submission request was made using the CRR tool, and as a result the user had to inspect the Identity Manager Service logs for more information. The revoking node now shows more details, for example:
+  ```
+  Successfully signed request. The following certificates were added to the CRL:
+  DN: O=PartyB, L=Chicago, C=US, Serial Number: 92919584395295172078852936608980933912
+  ```
+* We have fixed an issue where the signing request status command in the CENM Command-line Interface Tool (CLI) did not work for asynchronous signing.
+* We have fixed an issue where the Network Map Service failed to start with an EC public key used in the `packageOwnership` configuration in the network parameters, and an `Unrecognised algorithm` error was thrown.
+* We have fixed an issue where, if a CSR was rejected with a [rejection code](workflow.md#certificate-signing-request-rejection-reasons) between 1 and 11 via the JIRA workflow, the node notification would be incorrect - the `Additional remark` field output would contain technical data instead of a description of the rejection reason.
 
 #### CENM management console issues
 
@@ -63,6 +67,10 @@ We have also fixed the following issues specific to the [CENM management console
 ### Known issues
 
 * There is still an option to view configuration passwords in **FORM VIEW** mode in the [CENM management console](cenm-console.md) **CONFIGURATION**.
+
+{{< note >}}
+The known issue listed above is specific to CENM 1.5.1. See the release notes for previous CENM releases further down on this page for information about known issues specific to those versions.
+{{< /note >}}
 
 ## Corda Enterprise Network Manager 1.5
 
