@@ -38,7 +38,7 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
 * We have fixed an issue where the Network Map Service failed to start with an EC public key used in the `packageOwnership` configuration in the network parameters, and an `Unrecognised algorithm` error was thrown.
 * We have fixed an issue where, if a CSR was rejected with a [rejection code](workflow.md#certificate-signing-request-rejection-reasons) between 1 and 11 via the JIRA workflow, the node notification would be incorrect - the `Additional remark` field output would contain technical data instead of a description of the rejection reason.
 
-#### CENM management console issues
+#### Fixed issues specific to the CENM management console
 
 We have also fixed the following issues specific to the [CENM management console](cenm-console.md):
 
