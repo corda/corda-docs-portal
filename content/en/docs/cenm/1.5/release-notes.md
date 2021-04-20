@@ -23,11 +23,11 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
 
 * CENM 1.5.1 now supports [Oracle Database 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html).
 * We have bumped the supported version of the AWS CloudHSM client library from 3.0.0 to 3.2.1.
-* Configuration passwords are now hidden in **FORM VIEW** mode in the [CENM management console](cenm-console.md) **CONFIGURATION**.
+* Configuration passwords are now hidden in both **CODE VIEW** and **FORM VIEW** modes in the [CENM management console](cenm-console.md) **CONFIGURATION**.
 
 ### Fixed issues
 
-* We have fixed an issue where 
+* We have fixed an issue where
 
 #### CENM management console issues
 
@@ -50,6 +50,11 @@ We have also fixed the following issues specific to the [CENM management console
 * We have fixed an issue where the details for `Auth Service configuration`, which existed in the back-end configuration, were not shown for any of the configuration types in any of the two views - **CODE VIEW** and **FORM VIEW**.
 * We have fixed an issue where removing an HSM Library from the **SIGNER** configuration in **FORM VIEW** mode resulted in a blank screen, which prompted the user to refresh the entire application.
 * We have fixed an issue where the Angel Service did not get restored to the last working configuration and might stop polling when the SSL Keystore/TrustStore files were not found.
+* We have fixed an issue where there was no indication shown when the user token was expired.
+* We have fixed an issue where the theme, language, and font size in the **CONFIGURATION** tab were not saved when the user switched to a different tab.
+* We have fixed an issue where changes in **CODE VIEW** mode were not reflected in **FORM VIEW** mode when the user switched over.
+* We have fixed an issue where clicking **Cancel Flag Day** before the flag day was run would fail to cancel the flag day.
+
 
 ### Known issues
 
