@@ -54,7 +54,7 @@ We have also fixed the following issues specific to the [CENM management console
 * We have fixed an issue where the CENM management console would fail to show a new zone after initial setup.
 * We have fixed an issue where network parameters could not be set and flag day dates would default to the current time.
 * We have fixed an issue where the **Update Config** remained enabled even without a configuration value change.
-* We have fixed an issue where the CENM management console crashed and hanged when attempting to deploy a valid configuration in **CODE VIEW** mode.
+* We have fixed an issue where the CENM management console crashed and hung when attempting to deploy a valid configuration in **CODE VIEW** mode.
 * We have fixed an issue where the `RequestID` and `Certificate Signing Request ID` fields on the **CRR/CRL Status** tab showed the same data.
 * We have fixed an issue where the details for `Auth Service configuration`, which existed in the back-end configuration, were not shown for any of the configuration types in any of the two views - **CODE VIEW** and **FORM VIEW**.
 * We have fixed an issue where removing an HSM Library from the **SIGNER** configuration in **FORM VIEW** mode resulted in a blank screen, which prompted the user to refresh the entire application.
