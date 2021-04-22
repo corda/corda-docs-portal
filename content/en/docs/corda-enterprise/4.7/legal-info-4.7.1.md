@@ -10,8 +10,9 @@ tags:
 title: Third-party software licence information - CE 4.7.1
 ---
 
-CORDA ENTERPRISE 4.7.1 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
-Do Not Translate or Localize
+# Corda Enterprise 4.7.1 third-party software notices and licence information
+
+**Do not translate or localise.**
 
 This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
