@@ -541,13 +541,6 @@ You can run the CorDapp’s flow tests by running the `Run Flow Tests - Java` ru
 
 You can run the CorDapp’s integration tests by running the `Run Integration Tests - Java` run configuration.
 
-
-
-### Running tests in IntelliJ
-
-See [Running tests in IntelliJ](../testing.md#tutorial-cordapp-alternative-test-runners).
-
-
 ## Debugging the CorDapp
 
 See [Debugging a CorDapp](debugging-a-cordapp.md).

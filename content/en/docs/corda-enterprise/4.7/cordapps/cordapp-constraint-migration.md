@@ -47,7 +47,7 @@ The general recommendation for Corda 4 is to use **implicit** upgrades for the r
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (for example, same state definition, commands and verification code) and
 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-Contract CorDapp please read [Contract and state versioning](../node/operating/cm-updating-cordapp.md#contract-and-state-versioning) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
+Contract CorDapp please read [Contract and state versioning](../upgrading-cordapp.md#contract-and-state-versioning) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
 {{< /warning >}}
 
 
