@@ -30,7 +30,7 @@ Your compatibility zone operator may whitelist a JAR previously used to issue ha
 process described in the paragraph below to migrate these to signature constraints. See [CorDapp constraints migration](cordapp-constraint-migration.md) for more information.
 * CorDapp Contract states generated on ledger using CZ whitelisted constraints are migratable to signature constraints using a manual process
 that requires programmatic code changes. See [CZ whitelisted constraints migration](cordapp-constraint-migration.md#cz-whitelisted-constraint-migration) for more information.
-* Explicit Contract Upgrades are only supported for hash and CZ whitelisted constraint types. See [Performing explicit contract and state upgrades](../node/operating/cm-updating-cordapp.md#explicit-contract-upgrades-ref) for more information.
+* Explicit Contract Upgrades are only supported for hash and CZ whitelisted constraint types. See [Performing explicit contract and state upgrades](../upgrading-cordapp.md#performing-explicit-contract-and-state-upgrades) for more information.
 * CorDapp contract attachments are not trusted from remote peers over the p2p network for the purpose of transaction verification.
 A node operator must locally install *all* versions of a Contract attachment to be able to resolve a chain of contract states from its original version.
 The RPC `uploadAttachment` mechanism can be used to achieve this (as well as conventional loading of a CorDapp by installing it in the nodes /cordapp directory).
