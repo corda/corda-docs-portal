@@ -16,6 +16,10 @@ weight: 10
 
 # Upgrading a node to Corda 4.6
 
+{{< warning >}}
+Corda Enterprise 4.6.3 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.6.3 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+{{< /warning >}}
+
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to applications. Upgrading from 4.x  consists of the following steps:
 
 1. Drain the node.
@@ -312,7 +316,7 @@ Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not cur
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration
 
-## Step 6. Update the database (automatic) 
+## Step 6. Update the database (automatic)
 
 {{< note >}}Do not perform this step if you have already updated the database manually ([Step 3](#step-3-update-the-database-manual)).{{< /note >}}
 

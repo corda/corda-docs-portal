@@ -15,6 +15,12 @@ weight: 9
 
 # Upgrading the notary to a new version of Corda Enterprise
 
+## Version 4.5.4
+
+{{< warning >}}
+This release addresses a security issue in the JPA notary if the Corda database management tool was used during notary backing database setup. Corda implementations that do not use the Corda database management tool during notary setup are unaffected and no action is required. After applying the 4.5.4 patch, you must re-run the Corda Database Management Tool to apply the security fix.
+{{< /warning >}}
+
 ## Version 4.5
 
 We've introduced the `notary_double_spends` table and added an index to the `notary_request_log` table. The `notary_double_spend` table contains information about attempted double-spend transactions.

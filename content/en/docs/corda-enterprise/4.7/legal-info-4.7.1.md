@@ -1,41 +1,40 @@
 ---
-date: '2020-01-08T09:59:25Z'
+date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-3:
-    identifier: corda-enterprise-4-3-6-legal-info
-    parent: corda-enterprise-4-3-miscellaneous
-    weight: 560
+  corda-enterprise-4-7:
+    parent: corda-enterprise-4-7-release-notes
+    weight: 310
 tags:
 - legal
 - info
-title: Third-party software notices and licence information - CE 4.3.6
+title: Third-party software licence information - CE 4.7.1
 ---
 
-# Corda Enterprise 4.3.6 third-party software notices and licence information
+# Corda Enterprise 4.7.1 third-party software notices and licence information
 
 **Do not translate or localise.**
 
-This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by  implication, estoppel or otherwise.
+This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 1.	@shore/bootstrap
-2.	amqp-client
-3.	animal-sniffer-annotations
-4.	annotations
-5.	antlr
-6.	artemis-amqp-protocol
-7.	artemis-commons
-8.	artemis-core-client
-9.	artemis-jdbc-store
-10.	artemis-jms-client
-11.	artemis-journal
-12.	artemis-native
-13.	artemis-selector
-14.	artemis-server
-15.	asm
-16.	asm-analysis
-17.	asm-commons
-18.	asm-tree
-19.	asm-util
+2.	animal-sniffer-annotations
+3.	annotations
+4.	antlr
+5.	artemis-amqp-protocol
+6.	artemis-commons
+7.	artemis-core-client
+8.	artemis-jdbc-store
+9.	artemis-jms-client
+10.	artemis-journal
+11.	artemis-native
+12.	artemis-selector
+13.	artemis-server
+14.	asm
+15.	asm-analysis
+16.	asm-commons
+17.	asm-tree
+18.	asm-util
+19.	audience-annotations
 20.	bcpkix-jdk15on
 21.	bcprov-jdk15on
 22.	byte-buddy
@@ -49,127 +48,135 @@ This file is based on or incorporates material from the projects listed below (T
 30.	checker-qual
 31.	classgraph
 32.	classmate
-33.	com.perfma.wrapped
-34.	commons-beanutils
-35.	commons-codec
-36.	commons-collections
-37.	commons-io
-38.	commons-lang3
-39.	commonscollections4
-40.	config
-41.	copycat-client
-42.	copycat-protocol
-43.	copycat-server
-44.	crash.cli
-45.	disruptor
-46.	dom4j
-47.	eddsa
-48.	error_prone_annotations
-49.	failureaccess
-50.	FastInfoset
-51.	forms_rt
-52.	geronimo-jms_ 2.0_spec
-53.	geronimo-json_ 1.0_spec
-54.	groovy-all
-55.	guava
-56.	h2
-57.	HdrHistogram
-58.	hibernate-commons-annotations
-59.	hibernate-core
-60.	hibernate-java8
-61.	HikariCP
-62.	istack-commons-runetime
-63.	j2objc-annotations
-64.	jackson-annotations
-65.	jackson-core
-66.	jackson-databind
-67.	jacksondataformat-yaml
-68.	jacksondatatype- jsr310
-69.	jacksonmodule-kotlin
-70.	jandex
-71.	jansi
-72.	javassist
-73.	javax.activation-api
-74.	javax.persistence-api
-75.	jaxb-api
-76.	jaxb-runtime
-77.	jboss-logging
-78.	jboss-transaction- api_1.2_spec
-79.	jcabi-log
-80.	jcabi-manifests
-81.	jcl-over-slf4j
-82.	jgroups
-83.	jimfs
-84.	johnzon-core
-85.	jolokia-core
-86.	jolokia-jvm
-87.	jpam
-88.	jsch
-89.	json-simple
-90.	jsr305
-91.	jul-to-slf4j
-92.	kotlin-reflect
-93.	kotlin-stdlib
-94.	kotlin-stdlib-common
-95.	kotlin-stdlib-jdk7
-96.	kotlin-stdlib-jdk8
-97.	kotlin-stdlib-jre7
-98.	kotlin-stdlib-jre8
-99.	kryo
-100.	kryo-serializers
-101.	LatencyUtils
-102.	liquibase-core
-103.	liquibase-slf4j
-104.	listenablefuture
-105.	log4j-api
-106.	log4j-core
-107.	log4j-slf4j-impl
-108.	log4j-web
-109.	metrics-core
-110.	metrics-graphite
-111.	metrics-jmx
-112.	metrics-new-relic
-113.	mina-core
-114.	minlog
-115.	netty-buffer
-116.	netty-codec
-117.	netty-codec-http
-118.	netty-codec-socks
-119.	netty-common
-120.	netty-handler
-121.	netty-handler-proxy
-122.	netty-resolver
-123.	netty-tcnative-boringssl-static
-124.	netty-transport
-125.	netty-transport-native-epoll
-126.	netty-transport-native-kqueue
-127.	netty-transport-native-unix-common
-128.	newrelic-api
-129.	objenesis
-130.	okhttp
-131.	okio
-132.	picocli
-133.	proton-j
-134.	quasar-core
-135.	reflectasm
-136.	rxjava
-137.	shiro-cache
-138.	shiro-config-core
-139.	shiro-config-ogdl
-140.	shiro-core
-141.	shiro-crypto-cipher
-142.	shiro-crypto-core
-143.	shiro-crypto-hash
-144.	shiro-event
-145.	shiro-lang
-146.	slf4j-api
-147.	snakeyaml
-148.	snappy
-149.	sshd-common
-150.	sshd-core
-151.	sshd-pam
-152.	stax-ex
-153.	txw2
+33.	commons-beanutils
+34.	commons-codec
+35.	commons-collections
+36.	commons-collections4
+37.	commons-csv
+38.	commons-io
+39.	commons-lang
+40.	commons-lang3
+41.	config
+42.	copycat-client
+43.	copycat-protocol
+44.	copycat-server
+45.	crash.cli
+46.	curator-client
+47.	curator-framework
+48.	curator-recipes
+49.	disruptor
+50.	dom4j
+51.	eddsa
+52.	error_prone_annotations
+53.	failureaccess
+54.	FastInfoset
+55.	geronimo-jms_ 2.0_spec
+56.	geronimo-json_ 1.0_spec
+57.	groovy-all
+58.	guava
+59.	h2
+60.	h2
+61.	HdrHistogram
+62.	hibernate-commons-annotations
+63.	hibernate-core
+64.	hibernate-java8
+65.	HikariCP
+66.	istack-commons-runetime
+67.	j2objc-annotations
+68.	jackson-annotations
+69.	jackson-core
+70.	jackson-databind
+71.	jacksondataformat-yaml
+72.	jacksondatatype- jsr310
+73.	jacksonmodule-kotlin
+74.	jandex
+75.	jansi
+76.	javassist
+77.	javax.activation-api
+78.	javax.persistence-api
+79.	jaxb-api
+80.	jaxb-runtime
+81.	jboss-logging
+82.	jboss-transaction- api_1.2_spec
+83.	jcabi-log
+84.	jcabi-manifests
+85.	jcl-over-slf4j
+86.	jgroups
+87.	johnzon-core
+88.	jolokia-core
+89.	jolokia-jvm
+90.	jpam
+91.	jsch
+92.	json-simple
+93.	jsr305
+94.	jul-to-slf4j
+95.	kotlin-reflect
+96.	kotlin-stdlib
+97.	kotlin-stdlib-common
+98.	kotlin-stdlib-jdk7
+99.	kotlin-stdlib-jdk8
+100.	kotlin-stdlib-jre7
+101.	kotlin-stdlib-jre8
+102.	kryo
+103.	kryo-serializers
+104.	LatencyUtils
+105.	liquibase-core
+106.	liquibase-slf4j
+107.	listenablefuture
+108.	log4j-api
+109.	log4j-core
+110.	log4j-over-slf4j
+111.	log4j-slf4j-impl
+112.	log4j-web
+113.	metrics-core
+114.	metrics-graphite
+115.	metrics-jmx
+116.	metrics-new-relic
+117.	mina-core
+118.	minlog
+119.	netty-buffer
+120.	netty-codec
+121.	netty-codec-http
+122.	netty-codec-socks
+123.	netty-common
+124.	netty-handler
+125.	netty-handler-proxy
+126.	netty-resolver
+127.	netty-tcnative-boringssl-static
+128.	netty-transport
+129.	netty-transport-native-epoll
+130.	netty-transport-native-kqueue
+131.	netty-transport-native-unix-common
+132.	newrelic-api
+133.	objenesis
+134.	okhttp
+135.	okio
+136.	picocli
+137.	proton-j
+138.	quasar-core
+139.	reflectasm
+140.	rxjava
+141.	shiro-cache
+142.	shiro-config-core
+143.	shiro-config-ogdl
+144.	shiro-core
+145.	shiro-crypto-cipher
+146.	shiro-crypto-core
+147.	shiro-crypto-hash
+148.	shiro-event
+149.	shiro-lang
+150.	slf4j-api
+151.	slf4j-nop
+152.	snakeyaml
+153.	snappy
+154.	sshd-common
+155.	sshd-core
+156.	sshd-pam
+157.	stax-ex
+158.	txw2
+159.	zookeeper
+160.	zookeeper-jute
+
 
 ================================================
 ================================================
@@ -184,7 +191,7 @@ jacksondataformat-yaml 2.9.7
 https://github.com/FasterXML/jackson-dataformat-yaml
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
-jackson-datatype- jsr310 2.9.7
+jackson-datatype- jsr310 2.9.8
 https://github.com/FasterXML/jackson-datatype-jsr310
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
@@ -200,7 +207,7 @@ gson 2.8.0
 https://github.com/google/gson
 https://github.com/google/gson/blob/master/LICENSE
 
-error_prone_annotations 2.3.2
+error_prone_annotations 2.3.3
 https://github.com/google/error-prone
 https://github.com/google/error-prone/blob/master/COPYING
 
@@ -237,19 +244,33 @@ HikariCP 3.3.1
 https://github.com/brettwooldridge/HikariCP
 https://github.com/brettwooldridge/HikariCP/blob/dev/LICENSE
 
-commons-beanutils 1.9.3
+commons-beanutils 1.9.4
+Copyright © 2000–2019 The Apache Software Foundation. All rights reserved.
 https://commons.apache.org/proper/commons-beanutils/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
 commons-codec 1.11
+Copyright © 2000–2019 The Apache Software Foundation. All rights reserved.
 http://commons.apache.org/proper/commons-codec/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
 commons-collections 3.2.2
-http://commons.apache.org/collections/
+Copyright © 2000–2019 The Apache Software Foundation. All rights reserved.
+http://commons.apache.org/commons-collections/
+http://www.apache.org/licenses/LICENSE-2.0.txt
+
+commons-csv 1.8
+Copyright © 2000–2019 The Apache Software Foundation. All rights reserved.
+http://commons.apache.org/collections-csv/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
 commons-io 2.6
+Copyright © 2000–2019 The Apache Software Foundation. All rights reserved.
+http://commons.apache.org/proper/commons-io/
+http://www.apache.org/licenses/LICENSE-2.0.txt
+
+commons-lang
+Copyright © 2000–2019 The Apache Software Foundation. All rights reserved.
 http://commons.apache.org/proper/commons-io/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
@@ -309,55 +330,51 @@ metrics-jmx 4.1.0
 https://metrics.dropwizard.io/4.0.0/
 https://github.com/dropwizard/metrics/blob/4.1-development/LICENSE
 
-netty-buffer 4.1.29.Final
+netty-buffer 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-codec 4.1.29.Final
+netty-codec 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-codec-http 4.1.29.Final
+netty-codec-http 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-natty-codec-socks 4.1.29.Final
+natty-codec-socks 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-common 4.1.29.Final
+netty-common 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-handler 4.1.29.Final
+netty-handler 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-handler-proxy 4.1.29.Final
+netty-handler-proxy 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-resolver	4.1.29.Final
+netty-resolver	4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-tcnative-boringssl-static	2.0.14.Final
+netty-transport	4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport	4.1.29.Final
+netty-transport-native-epoll 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport-native-epoll 4.1.29.Final
+netty-transport-native-kqueue 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
-netty-transport-native-kqueue 4.1.29.Final
-https://netty.io/
-https://github.com/netty/netty/blob/4.1/LICENSE.txt
-
-netty-transport-native-unix-common 4.1.29.Final
+netty-transport-native-unix-common 4.1.46.Final
 https://netty.io/
 https://github.com/netty/netty/blob/4.1/LICENSE.txt
 
@@ -409,13 +426,30 @@ artemis-server	2.6.2
 https://github.com/apache/activemq
 https://github.com/apache/activemq/blob/master/LICENSE
 
+audience-annotations 0.50.
+http://www.apache.org/licenses/LICENSE-2.0
+https://github.com/apache/yetus/blob/master/audience-annotations-component/audience-annotations/src/main/assemblies/audience-annotations.xml
+
 commons-lang3 3.9
+Copyright © 2000–2019 The Apache Software Foundation. All rights reserved.
 http://commons.apache.org/jexl/
 http://www.apache.org/licenses/LICENSE-2.0.txt
 
 commonscollections4 4.3
 http://commons.apache.org/jexl/
 http://www.apache.org/licenses/LICENSE-2.0.txt
+
+curator-client 5.1.0
+https://curator.apache.org/
+https://github.com/apache/curator/blob/master/curator-client/LICENSE
+
+curator-framework 5.1.0
+https://curator.apache.org/
+https://github.com/apache/curator/blob/master/curator-framework/LICENSE
+
+curator-recipes 5.1.0
+https://curator.apache.org/
+https://github.com/apache/curator/blob/master/curator-recipes/LICENSE
 
 failureaccess 1.0.1
 Copyright (C) 2018 The Guava Authors
@@ -425,11 +459,6 @@ FastInfoset 1.2.15
 https://github.com/javaee/metro-fi/blob/master/code/fastinfoset/src/main/java/com/sun/xml/fastinfoset/algorithm/BASE64EncodingAlgorithm.java
 https://opensource.org/licenses/apache2.0.php
 
-forms_rt 7.0.3
-Copyright © 2008 Jetbrains
-http://www.jetbrains.com/
-https://github.com/JetBrains/intellij-community/blob/master/LICENSE.txt
-
 geronimo-json_ 1.0_spec	1.0-alpha-1
 https://github.com/apache/geronimo-specs
 https://github.com/apache/geronimo-specs/blob/trunk/LICENSE
@@ -437,10 +466,6 @@ https://github.com/apache/geronimo-specs/blob/trunk/LICENSE
 geronimo-jms_ 2.0_spec 1.0-alpha-2
 https://github.com/apache/geronimo-specs
 https://github.com/apache/geronimo-specs/blob/trunk/LICENSE
-
-jimfs 1.1
-https://github.com/google/jimfs
-https://github.com/google/jimfs/blob/master/LICENSE
 
 johnzon-core 0.9.5
 https://github.com/apache/johnzon
@@ -450,19 +475,19 @@ listenablefuture 9999.0-empty-to-avoid-conflict-with-guava
 Copyright (C) 2007 The Guava Authors
 https://github.com/google/guava/blob/master/guava/src/com/google/common/util/concurrent/ListenableFuture.java
 
-log4j-api 2.12.1
+log4j-api 2.13.3
 https://github.com/apache/logging-log4j2
 https://github.com/apache/logging-log4j2/blob/master/LICENSE.txt
 
-log4j-core 2.12.1
+log4j-core 2.13.3
 https://github.com/apache/logging-log4j2
 https://github.com/apache/logging-log4j2/blob/master/LICENSE.txt
 
-log4j-slf4j-impl 2.12.1
+log4j-slf4j-impl 2.13.3
 https://github.com/apache/logging-log4j2
 https://github.com/apache/logging-log4j2/blob/master/LICENSE.txt
 
-log4j-web 2.12.1
+log4j-web 2.13.3
 https://github.com/apache/logging-log4j2
 https://github.com/apache/logging-log4j2/blob/master/LICENSE.txt
 
@@ -605,6 +630,19 @@ http://objenesis.org/license.html
 snakeyaml 1.23
 http://www.snakeyaml.org/
 https://bitbucket.org/asomov/snakeyaml/src/default/LICENSE.txt
+
+zookeeper 3.6.0
+Copyright © 2010-2019 The Apache Software Foundation
+https://zookeeper.apache.org/
+https://www.apache.org/licenses/LICENSE-2.0
+
+zookeeper-jute 3.6.0
+https://zookeeper.apache.org/
+https://www.apache.org/licenses/LICENSE-2.0
+
+netty-tcnative-boringssl-static 2.0.29.Final
+https://netty.io/
+https://github.com/netty/netty-tcnative/blob/master/LICENSE.txt
 
 -----------------------START OF LICENSE TEXT-----------------------------------
 
@@ -816,9 +854,11 @@ https://bitbucket.org/asomov/snakeyaml/src/default/LICENSE.txt
 
 =============END OF NOTICES AND INFORMATION for above components=================
 
+
 ================================================
 
 ================================================
+
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
@@ -877,38 +917,6 @@ OF, OR IN CONNECTION WITH THE WORK OR THE USE OF OR OTHER DEALINGS IN THE WORK.
 ================================================
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
-
-amqp-client 5.5.3
-https://www.rabbitmq.com/
-https://github.com/rabbitmq/rabbitmq-java-client/blob/5.5.x/LICENSE
-
------------------------START OF LICENSE TEXT-----------------------------------
-
-This package, the RabbitMQ Java client library, is triple-licensed under
-the Mozilla Public License 1.1 ("MPL"), the GNU General Public License
-version 2 ("GPL") and the Apache License version 2 ("ASL"). For the MPL,
-please see LICENSE-MPL-RabbitMQ. For the GPL, please see LICENSE-GPL2.
-For the ASL, please see LICENSE-APACHE2.
-
-The RabbitMQ Java client library includes third-party software under the
-ASL. For this license, please see LICENSE-APACHE2. For attribution of
-copyright and other details of provenance, please refer to the source code.
-
-If you have any questions regarding licensing, please contact us at
-info@rabbitmq.com.
-
----------------------END OF LICENSE TEXT-----------------------------------------
-
-=============END OF NOTICES AND INFORMATION for above components=================
-
-
-================================================
-
-================================================
-
-
-=========== START OF NOTICES AND INFORMATION for the following components=========
-
 
 jackson-annotations	2.9.0
 https://github.com/FasterXML/jackson-annotations
@@ -2353,13 +2361,13 @@ Also add information on how to contact you by electronic and paper mail.
 If the program is interactive, make it output a short notice like this when it starts in an interactive mode:
 
    Gnomovision version 69, Copyright (C) year name of author
-   Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'. This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details.
+   Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type 'show w'. This is free software, and you are welcome to redistribute it under certain conditions; type 'show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than `show w' and `show c'; they could even be mouse-clicks or menu items--whatever suits your program.
+The hypothetical commands 'show w' and 'show c' should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than 'show w' and 'show c'; they could even be mouse-clicks or menu items--whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your school, if any, to sign a "copyright disclaimer" for the program, if necessary. Here is a sample; alter the names:
 
-   Yoyodyne, Inc., hereby disclaims all copyright interest in the program `Gnomovision' (which makes passes at compilers) written by James Hacker.
+   Yoyodyne, Inc., hereby disclaims all copyright interest in the program 'Gnomovision' (which makes passes at compilers) written by James Hacker.
 
    signature of Ty Coon, 1 April 1989
    Ty Coon, President of Vice
@@ -3076,12 +3084,12 @@ when it starts in an interactive mode:
 
     Gnomovision version 69, Copyright (C) year name of author
     Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type
-    `show w'. This is free software, and you are welcome to redistribute
-    it under certain conditions; type `show c' for details.
+    'show w'. This is free software, and you are welcome to redistribute
+    it under certain conditions; type 'show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the
+The hypothetical commands 'show w' and 'show c' should show the
 appropriate parts of the General Public License. Of course, the commands
-you use may be called something other than `show w' and `show c'; they
+you use may be called something other than 'show w' and 'show c'; they
 could even be mouse-clicks or menu items--whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your
@@ -3089,7 +3097,7 @@ school, if any, to sign a "copyright disclaimer" for the program, if
 necessary. Here is a sample; alter the names:
 
     Yoyodyne, Inc., hereby disclaims all copyright interest in the
-    program `Gnomovision' (which makes passes at compilers) written by
+    program 'Gnomovision' (which makes passes at compilers) written by
     James Hacker.
 
     signature of Ty Coon, 1 April 1989
@@ -3496,7 +3504,11 @@ version(s), and exceptions or additional permissions here}."
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
-h2 1.4.199
+h2 1.4.192
+http://www.h2database.com/
+http://h2database.com/html/license.html
+
+h2 1.4.197
 http://www.h2database.com/
 http://h2database.com/html/license.html
 
@@ -3749,371 +3761,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
 ================================================
 
-=========== START OF NOTICES AND INFORMATION for the following components=========
-
-com.perfma.wrapped 1.8.0_jdk8u275-b01_linux_x64
-Copyright (C) 1989, 1991 Free Software Foundation, Inc.
-https://github.com/PerfMa/wrapped
-https://github.com/PerfMa/wrapped/blob/master/com.sun.tools/LICENSE
-
------------------------START OF LICENSE TEXT-----------------------------------
-
-The GNU General Public License (GPL)
-
-Version 2, June 1991
-
-Copyright (C) 1989, 1991 Free Software Foundation, Inc.
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
-
-Everyone is permitted to copy and distribute verbatim copies of this license
-document, but changing it is not allowed.
-
-Preamble
-
-The licenses for most software are designed to take away your freedom to share
-and change it.  By contrast, the GNU General Public License is intended to
-guarantee your freedom to share and change free software--to make sure the
-software is free for all its users.  This General Public License applies to
-most of the Free Software Foundation's software and to any other program whose
-authors commit to using it.  (Some other Free Software Foundation software is
-covered by the GNU Library General Public License instead.) You can apply it to
-your programs, too.
-
-When we speak of free software, we are referring to freedom, not price.  Our
-General Public Licenses are designed to make sure that you have the freedom to
-distribute copies of free software (and charge for this service if you wish),
-that you receive source code or can get it if you want it, that you can change
-the software or use pieces of it in new free programs; and that you know you
-can do these things.
-
-To protect your rights, we need to make restrictions that forbid anyone to deny
-you these rights or to ask you to surrender the rights.  These restrictions
-translate to certain responsibilities for you if you distribute copies of the
-software, or if you modify it.
-
-For example, if you distribute copies of such a program, whether gratis or for
-a fee, you must give the recipients all the rights that you have.  You must
-make sure that they, too, receive or can get the source code.  And you must
-show them these terms so they know their rights.
-
-We protect your rights with two steps: (1) copyright the software, and (2)
-offer you this license which gives you legal permission to copy, distribute
-and/or modify the software.
-
-Also, for each author's protection and ours, we want to make certain that
-everyone understands that there is no warranty for this free software.  If the
-software is modified by someone else and passed on, we want its recipients to
-know that what they have is not the original, so that any problems introduced
-by others will not reflect on the original authors' reputations.
-
-Finally, any free program is threatened constantly by software patents.  We
-wish to avoid the danger that redistributors of a free program will
-individually obtain patent licenses, in effect making the program proprietary.
-To prevent this, we have made it clear that any patent must be licensed for
-everyone's free use or not licensed at all.
-
-The precise terms and conditions for copying, distribution and modification
-follow.
-
-TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
-0. This License applies to any program or other work which contains a notice
-placed by the copyright holder saying it may be distributed under the terms of
-this General Public License.  The "Program", below, refers to any such program
-or work, and a "work based on the Program" means either the Program or any
-derivative work under copyright law: that is to say, a work containing the
-Program or a portion of it, either verbatim or with modifications and/or
-translated into another language.  (Hereinafter, translation is included
-without limitation in the term "modification".) Each licensee is addressed as
-"you".
-
-Activities other than copying, distribution and modification are not covered by
-this License; they are outside its scope.  The act of running the Program is
-not restricted, and the output from the Program is covered only if its contents
-constitute a work based on the Program (independent of having been made by
-running the Program).  Whether that is true depends on what the Program does.
-
-1. You may copy and distribute verbatim copies of the Program's source code as
-you receive it, in any medium, provided that you conspicuously and
-appropriately publish on each copy an appropriate copyright notice and
-disclaimer of warranty; keep intact all the notices that refer to this License
-and to the absence of any warranty; and give any other recipients of the
-Program a copy of this License along with the Program.
-
-You may charge a fee for the physical act of transferring a copy, and you may
-at your option offer warranty protection in exchange for a fee.
-
-2. You may modify your copy or copies of the Program or any portion of it, thus
-forming a work based on the Program, and copy and distribute such modifications
-or work under the terms of Section 1 above, provided that you also meet all of
-these conditions:
-
-    a) You must cause the modified files to carry prominent notices stating
-    that you changed the files and the date of any change.
-
-    b) You must cause any work that you distribute or publish, that in whole or
-    in part contains or is derived from the Program or any part thereof, to be
-    licensed as a whole at no charge to all third parties under the terms of
-    this License.
-
-    c) If the modified program normally reads commands interactively when run,
-    you must cause it, when started running for such interactive use in the
-    most ordinary way, to print or display an announcement including an
-    appropriate copyright notice and a notice that there is no warranty (or
-    else, saying that you provide a warranty) and that users may redistribute
-    the program under these conditions, and telling the user how to view a copy
-    of this License.  (Exception: if the Program itself is interactive but does
-    not normally print such an announcement, your work based on the Program is
-    not required to print an announcement.)
-
-These requirements apply to the modified work as a whole.  If identifiable
-sections of that work are not derived from the Program, and can be reasonably
-considered independent and separate works in themselves, then this License, and
-its terms, do not apply to those sections when you distribute them as separate
-works.  But when you distribute the same sections as part of a whole which is a
-work based on the Program, the distribution of the whole must be on the terms
-of this License, whose permissions for other licensees extend to the entire
-whole, and thus to each and every part regardless of who wrote it.
-
-Thus, it is not the intent of this section to claim rights or contest your
-rights to work written entirely by you; rather, the intent is to exercise the
-right to control the distribution of derivative or collective works based on
-the Program.
-
-In addition, mere aggregation of another work not based on the Program with the
-Program (or with a work based on the Program) on a volume of a storage or
-distribution medium does not bring the other work under the scope of this
-License.
-
-3. You may copy and distribute the Program (or a work based on it, under
-Section 2) in object code or executable form under the terms of Sections 1 and
-2 above provided that you also do one of the following:
-
-    a) Accompany it with the complete corresponding machine-readable source
-    code, which must be distributed under the terms of Sections 1 and 2 above
-    on a medium customarily used for software interchange; or,
-
-    b) Accompany it with a written offer, valid for at least three years, to
-    give any third party, for a charge no more than your cost of physically
-    performing source distribution, a complete machine-readable copy of the
-    corresponding source code, to be distributed under the terms of Sections 1
-    and 2 above on a medium customarily used for software interchange; or,
-
-    c) Accompany it with the information you received as to the offer to
-    distribute corresponding source code.  (This alternative is allowed only
-    for noncommercial distribution and only if you received the program in
-    object code or executable form with such an offer, in accord with
-    Subsection b above.)
-
-The source code for a work means the preferred form of the work for making
-modifications to it.  For an executable work, complete source code means all
-the source code for all modules it contains, plus any associated interface
-definition files, plus the scripts used to control compilation and installation
-of the executable.  However, as a special exception, the source code
-distributed need not include anything that is normally distributed (in either
-source or binary form) with the major components (compiler, kernel, and so on)
-of the operating system on which the executable runs, unless that component
-itself accompanies the executable.
-
-If distribution of executable or object code is made by offering access to copy
-from a designated place, then offering equivalent access to copy the source
-code from the same place counts as distribution of the source code, even though
-third parties are not compelled to copy the source along with the object code.
-
-4. You may not copy, modify, sublicense, or distribute the Program except as
-expressly provided under this License.  Any attempt otherwise to copy, modify,
-sublicense or distribute the Program is void, and will automatically terminate
-your rights under this License.  However, parties who have received copies, or
-rights, from you under this License will not have their licenses terminated so
-long as such parties remain in full compliance.
-
-5. You are not required to accept this License, since you have not signed it.
-However, nothing else grants you permission to modify or distribute the Program
-or its derivative works.  These actions are prohibited by law if you do not
-accept this License.  Therefore, by modifying or distributing the Program (or
-any work based on the Program), you indicate your acceptance of this License to
-do so, and all its terms and conditions for copying, distributing or modifying
-the Program or works based on it.
-
-6. Each time you redistribute the Program (or any work based on the Program),
-the recipient automatically receives a license from the original licensor to
-copy, distribute or modify the Program subject to these terms and conditions.
-You may not impose any further restrictions on the recipients' exercise of the
-rights granted herein.  You are not responsible for enforcing compliance by
-third parties to this License.
-
-7. If, as a consequence of a court judgment or allegation of patent
-infringement or for any other reason (not limited to patent issues), conditions
-are imposed on you (whether by court order, agreement or otherwise) that
-contradict the conditions of this License, they do not excuse you from the
-conditions of this License.  If you cannot distribute so as to satisfy
-simultaneously your obligations under this License and any other pertinent
-obligations, then as a consequence you may not distribute the Program at all.
-For example, if a patent license would not permit royalty-free redistribution
-of the Program by all those who receive copies directly or indirectly through
-you, then the only way you could satisfy both it and this License would be to
-refrain entirely from distribution of the Program.
-
-If any portion of this section is held invalid or unenforceable under any
-particular circumstance, the balance of the section is intended to apply and
-the section as a whole is intended to apply in other circumstances.
-
-It is not the purpose of this section to induce you to infringe any patents or
-other property right claims or to contest validity of any such claims; this
-section has the sole purpose of protecting the integrity of the free software
-distribution system, which is implemented by public license practices.  Many
-people have made generous contributions to the wide range of software
-distributed through that system in reliance on consistent application of that
-system; it is up to the author/donor to decide if he or she is willing to
-distribute software through any other system and a licensee cannot impose that
-choice.
-
-This section is intended to make thoroughly clear what is believed to be a
-consequence of the rest of this License.
-
-8. If the distribution and/or use of the Program is restricted in certain
-countries either by patents or by copyrighted interfaces, the original
-copyright holder who places the Program under this License may add an explicit
-geographical distribution limitation excluding those countries, so that
-distribution is permitted only in or among countries not thus excluded.  In
-such case, this License incorporates the limitation as if written in the body
-of this License.
-
-9. The Free Software Foundation may publish revised and/or new versions of the
-General Public License from time to time.  Such new versions will be similar in
-spirit to the present version, but may differ in detail to address new problems
-or concerns.
-
-Each version is given a distinguishing version number.  If the Program
-specifies a version number of this License which applies to it and "any later
-version", you have the option of following the terms and conditions either of
-that version or of any later version published by the Free Software Foundation.
-If the Program does not specify a version number of this License, you may
-choose any version ever published by the Free Software Foundation.
-
-10. If you wish to incorporate parts of the Program into other free programs
-whose distribution conditions are different, write to the author to ask for
-permission.  For software which is copyrighted by the Free Software Foundation,
-write to the Free Software Foundation; we sometimes make exceptions for this.
-Our decision will be guided by the two goals of preserving the free status of
-all derivatives of our free software and of promoting the sharing and reuse of
-software generally.
-
-NO WARRANTY
-
-11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR
-THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN OTHERWISE
-STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE
-PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED,
-INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND
-PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE,
-YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
-
-12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL
-ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE
-PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
-GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR
-INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA
-BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
-FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER
-OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-
-END OF TERMS AND CONDITIONS
-
-How to Apply These Terms to Your New Programs
-
-If you develop a new program, and you want it to be of the greatest possible
-use to the public, the best way to achieve this is to make it free software
-which everyone can redistribute and change under these terms.
-
-To do so, attach the following notices to the program.  It is safest to attach
-them to the start of each source file to most effectively convey the exclusion
-of warranty; and each file should have at least the "copyright" line and a
-pointer to where the full notice is found.
-
-    One line to give the program's name and a brief idea of what it does.
-
-    Copyright (C) <year> <name of author>
-
-    This program is free software; you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published by the Free
-    Software Foundation; either version 2 of the License, or (at your option)
-    any later version.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-    more details.
-
-    You should have received a copy of the GNU General Public License along
-    with this program; if not, write to the Free Software Foundation, Inc.,
-    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
-Also add information on how to contact you by electronic and paper mail.
-
-If the program is interactive, make it output a short notice like this when it
-starts in an interactive mode:
-
-    Gnomovision version 69, Copyright (C) year name of author Gnomovision comes
-    with ABSOLUTELY NO WARRANTY; for details type 'show w'.  This is free
-    software, and you are welcome to redistribute it under certain conditions;
-    type 'show c' for details.
-
-The hypothetical commands 'show w' and 'show c' should show the appropriate
-parts of the General Public License.  Of course, the commands you use may be
-called something other than 'show w' and 'show c'; they could even be
-mouse-clicks or menu items--whatever suits your program.
-
-You should also get your employer (if you work as a programmer) or your school,
-if any, to sign a "copyright disclaimer" for the program, if necessary.  Here
-is a sample; alter the names:
-
-    Yoyodyne, Inc., hereby disclaims all copyright interest in the program
-    'Gnomovision' (which makes passes at compilers) written by James Hacker.
-
-    signature of Ty Coon, 1 April 1989
-
-    Ty Coon, President of Vice
-
-This General Public License does not permit incorporating your program into
-proprietary programs.  If your program is a subroutine library, you may
-consider it more useful to permit linking proprietary applications with the
-library.  If this is what you want to do, use the GNU Library General Public
-License instead of this License.
-
-
-"CLASSPATH" EXCEPTION TO THE GPL
-
-Certain source files distributed by Oracle America and/or its affiliates are
-subject to the following clarification and special exception to the GPL, but
-only where Oracle has expressly included in the particular source file's header
-the words "Oracle designates this particular file as subject to the "Classpath"
-exception as provided by Oracle in the LICENSE file that accompanied this code."
-
-    Linking this library statically or dynamically with other modules is making
-    a combined work based on this library.  Thus, the terms and conditions of
-    the GNU General Public License cover the whole combination.
-
-    As a special exception, the copyright holders of this library give you
-    permission to link this library with independent modules to produce an
-    executable, regardless of the license terms of these independent modules,
-    and to copy and distribute the resulting executable under terms of your
-    choice, provided that you also meet, for each linked independent module,
-    the terms and conditions of the license of that module.  An independent
-    module is a module which is not derived from or based on this library.  If
-    you modify this library, you may extend this exception to your version of
-    the library, but you are not obligated to do so.  If you do not wish to do
-    so, delete this exception statement from your version.
-
-
----------------------END OF LICENSE TEXT-----------------------------------------
-
-=============END OF NOTICES AND INFORMATION for above components=================
-
-================================================
-
-================================================
 
 =========== START OF NOTICES AND INFORMATION for the following components=========
 
@@ -4809,18 +4456,23 @@ Copyright (c) 2012-2015 Matt Bertolini
 https://github.com/mattbertolini/liquibase-slf4j
 https://opensource.org/licenses/mit-license.html
 
+log4j-over-slf4j 1.7.26
+Copyright (c) 2004-2017 QOS.ch
+http://www.slf4j.org/
+http://www.slf4j.org/license.html
+
 classgraph 4.8.90
 Copyright (c) 2019 Luke Hutchison
 https://github.com/classgraph/classgraph
-https://github.com/classgraph/classgraph/blob/master/LICENSE
+https://github.com/classgraph/classgraph/blob/master/LICENSE-ClassGraph.txt
 
-bcpkix-jdk15on 1.61
-Copyright (c) 2000-2019 The Legion of the Bouncy Castle Inc.
+bcpkix-jdk15on 1.68
+Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
 http://www.bouncycastle.org/java.html
 http://www.bouncycastle.org/licence.html
 
-bcprov-jdk15on	1.61
-Copyright (c) 2000-2019 The Legion of the Bouncy Castle Inc.
+bcprov-jdk15on	1.68
+Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
 http://www.bouncycastle.org/java.html
 http://www.bouncycastle.org/licence.html
 
@@ -4834,20 +4486,25 @@ animal-sniffer-annotations 1.17
 https://www.mojohaus.org/animal-sniffer/index.html
 https://www.mojohaus.org/animal-sniffer/license.html
 
-jcl-over-slf4j 1.7.26
+jcl-over-slf4j 1.7.30
 Copyright (c) 2004-2017 QOS.ch
-https://github.com/qos-ch/slf4j
-https://github.com/qos-ch/slf4j/blob/master/LICENSE.txt
+http://www.slf4j.org/
+http://www.slf4j.org/license.html
 
 jul-to-slf4j 1.7.26
 Copyright (c) 2004-2017 QOS.ch
-https://github.com/qos-ch/slf4j
-https://github.com/qos-ch/slf4j/blob/master/LICENSE.txt
+http://www.slf4j.org/
+http://www.slf4j.org/license.html
 
 slf4j-api 1.7.30
 Copyright (c) 2004-2017 QOS.ch
-https://github.com/qos-ch/slf4j
-https://github.com/qos-ch/slf4j/blob/master/LICENSE.txt
+http://www.slf4j.org/
+http://www.slf4j.org/license.html
+
+Slf4j-nop 1.7.30
+Copyright (c) 2004-2017 QOS.ch
+http://www.slf4j.org/
+http://www.slf4j.org/license.html
 
 -----------------------START OF LICENSE TEXT-----------------------------------
 
@@ -4889,7 +4546,6 @@ files is strictly prohibited, except as may be set forth in a separate written l
 This License does not grant permission to use the trade names, trademarks, service marks, or product names of New Relic, except as required for reasonable and customary use in describing the origin of this file and reproducing the content of this notice. You may not mark or brand this file with any trade name, trademarks, service marks, or product names other than the original brand (if any) provided by New Relic.
 
 Unless otherwise expressly agreed by New Relic in a separate written license agreement, these files are provided AS IS, WITHOUT WARRANTY OF ANY KIND, including without any implied warranties of MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, or NON-INFRINGEMENT. As a condition to your use of these files, you are solely responsible for such use. New Relic will have no liability to you for direct, indirect, consequential, incidental, special, or punitive damages or for lost profits or data.
-
 
 ---------------------END OF LICENSE TEXT-----------------------------------------
 
@@ -4990,7 +4646,7 @@ modification, are permitted provided that the following conditions are met:
   3. The names of the authors may not be used to endorse or promote products
      derived from this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
 INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
 FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
 INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -5003,9 +4659,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================
 END OF THIRD PARTY NOTICES FOR
-Corda Enterprise V. 4.3.6
+Corda Enterprise V. 4.7.1
 ================================================
 
-
 ----------------------END OF OPEN SOURCE LICENSES -----------------------
- 

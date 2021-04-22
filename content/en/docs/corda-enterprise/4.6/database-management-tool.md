@@ -12,6 +12,10 @@ weight: 60
 
 # Database Management Tool
 
+{{< warning >}}
+Corda Enterprise 4.6.3 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.6.3 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+{{< /warning >}}
+
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
 It is intended to be used by Corda Enterprise node administrators who want more control over database changes made in production
 environments.
@@ -68,7 +72,7 @@ The `outputFile` parameter can be optionally specified determine what file to ou
 
 Additional options:
 
-* `--base-directory`, `-b`: (Required) The node working directory where all the files are kept. This defaults to the current working directory if not set.  
+* `--base-directory`, `-b`: (Required) The node working directory where all the files are kept. This defaults to the current working directory if not set.
 * `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
 * `--mode`: The operating mode. Possible values: NODE, DOORMAN, JPA_NOTARY. Default: NODE.
 * `--doorman-jar-path=<doormanJarPath>`: The path to the doorman (Identity Manager) `.jar` file.

@@ -13,10 +13,11 @@ tags:
 title: Upgrading CorDapps to Corda Enterprise 4.5
 ---
 
-
-
-
 # Upgrading CorDapps to Corda Enterprise 4.5
+
+{{< warning >}}
+Corda Enterprise 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.5.4 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+{{< /warning >}}
 
 ## Upgrading from Open Source
 

@@ -766,11 +766,11 @@ To update the format run:
 
 * `output-format set yaml` to set the output format to YAML.
 
-{{<warning>}}
+{{< warning >}}
 This setting only affects the output of `run ...` commands - for example, `run nodeInfo`.
 
 The format of any other shell output is not affected - the result of a flow invocation is simply printed on the console by calling its own `Any#toString` method.
-{{</warning>}}
+{{< /warning >}}
 
 
 ### Shut down the node
