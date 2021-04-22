@@ -34,6 +34,12 @@ A security issue has been fixed that affects notary systems that use the JPA not
 
 Corda Enterprise 4.5.3 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.5.2.
 
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+
 ### Fixed issues
 
 * We have fixed several issues that caused memory leaks. As a result, we have added two new node configuration fields - `attachmentClassLoaderCacheSize` and `enableURLConnectionCache`. See the [node configuration fields page](node/setup/corda-configuration-fields.md#enterpriseconfiguration) for details.
