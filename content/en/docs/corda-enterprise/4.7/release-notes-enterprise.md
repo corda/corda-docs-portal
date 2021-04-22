@@ -19,6 +19,11 @@ weight: 1
 
 Corda Enterprise 4.7.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.7.
 
+The main new features and enhancements in Corda Enterprise 4.7.1 are listed below:
+
+* [LedgerGraph version 1.2.1](node/operating/ledger-graph.md/).
+* [Archive service version 1.0.1](node/archiving/archiving-setup.md/).
+
 ### Upgrade recommendation
 
 As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
