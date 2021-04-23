@@ -93,8 +93,8 @@ In the `build.gradle` file for your contract module, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 5
-    minimumPlatformVersion 4
+    targetPlatformVersion 7
+    minimumPlatformVersion 6
     contract {
         name "MegaApp Contracts"
         vendor "MegaCorp"
