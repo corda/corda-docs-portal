@@ -29,7 +29,7 @@ The main new features and enhancements in Corda Enterprise 4.8 are listed below:
 * Added support for Azure Managed Identities as authentication when using an [Azure Key Vault HSM](#azure-managed-identities-authentication).
 * Metrics can now be configured to use [time-window reservoirs](#time-window-metrics-gathering) for data collection.
 * Additional metrics have been added for [tracking notary latency](#additional-notary-metrics).
-* Confidential identities now support [Utimaco and Gemalto Luna HSMs](platform-support-matrix.md#hardware-security-modules-hsm).
+* Confidential identities now support [Utimaco and Gemalto Luna HSMs](#confidential-identity-key-on-hsms).
 
 {{< note >}}
 This page only describes functionality specific to Corda Enterprise 4.8. However, as a Corda Enterprise customer, you can also make full use of the entire range of features available as part of Corda open source releases.
@@ -68,10 +68,9 @@ Two new metrics have been added that can be used to help calculate notary latenc
 
 See [Monitoring Notary Latency](notary/faq/notary-latency-monitoring.md) for more information.
 
-### Other changes and improvements
+### Confidential identity key on HSMs
 
 * Confidential identities now support [Utimaco and Gemalto Luna HSMs](platform-support-matrix.md#hardware-security-modules-hsm).
-* One of the [flow management console](node/node-flow-management-console.md) parameters has changed.
 
 ## Platform version change
 
