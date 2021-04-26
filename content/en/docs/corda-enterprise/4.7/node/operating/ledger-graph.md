@@ -137,7 +137,7 @@ You can tune **LedgerGraph**'s behaviour through a small set of configuration pa
 |-|:-:|:-:|-|
 |`transactionReaderPageSize` &dagger; |`100`|`10` to `10,000,000`|The number of transactions to include in the result set when querying the database during graph initialization.|
 |`transactionReaderPoolSize` &Dagger;|`10`|`1` to `1000`|The number of threads to use when deserializing transaction data during graph initialization.|
-|`onDemand`|`true`| `true`, `false`|When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../archiving/archiving-setup.md). This saves heap memory usage.
+|`onDemand`|`true`| `true`, `false`|When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../archiving/archiving-setup.html). This saves heap memory usage.
 {{< /table >}}
 
 **&dagger;** Because there can be an extremely large number of transactions in a node's vault, it is important to select an appropriate page size for your database to optimize retrieval performance. Some amount of experimentation may be required on your part to find/define the best value to be used here, so we don't recommend the default value for most production environments.
