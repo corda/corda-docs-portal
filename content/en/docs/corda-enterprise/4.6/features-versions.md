@@ -65,3 +65,7 @@ of Corda as well as opt in to newer features should they happen to be available 
 |API Update|8|4|4.6|4.6|
 
 {{< /table >}}
+
+{{< note >}}
+We recommend a minimum network platform version of 5 for Corda 4.5 onwards; however, a network mPV of 4 may continue to work in some instances.
+{{< /note >}}
