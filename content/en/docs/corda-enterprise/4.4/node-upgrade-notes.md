@@ -16,8 +16,11 @@ tags:
 title: Upgrading your node to Corda 4.4
 ---
 
-
 # Upgrading your node to Corda 4.4
+
+{{< warning >}}
+Corda Enterprise 4.4.6 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.4.6 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+{{< /warning >}}
 
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to
 applications. It consists of the following steps:

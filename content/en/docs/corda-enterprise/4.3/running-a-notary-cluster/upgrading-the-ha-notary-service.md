@@ -18,6 +18,14 @@ title: Upgrading to a New Version
 
 # Upgrading The Notary to a New Version of Corda Enterprise
 
+## Version 4.3.7
+
+{{< warning >}}
+This release addresses a security issue in the JPA notary if the Corda database management tool was used during notary backing database setup. Corda implementations that do not use the Corda database management tool during notary setup are unaffected and no action is required. After applying the 4.3.7 patch, you must re-run the Corda Database Management Tool to apply the security fix.
+{{< /warning >}}
+
+
+
 ## Version 4.2
 
 Since Corda Enterprise 4.2 the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.

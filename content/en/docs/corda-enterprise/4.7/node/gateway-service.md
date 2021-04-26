@@ -7,8 +7,6 @@ tags:
 - auth
 - gateway
 weight: 160
-aliases: "/docs/cenm/1.5/gateway-service.html"
-
 title: Gateway Service
 ---
 

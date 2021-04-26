@@ -18,6 +18,10 @@ weight: 20
 
 # Upgrading a CorDapp to Corda Enterprise 4.7
 
+{{< warning >}}
+Corda Enterprise 4.7.1 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.7.1 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+{{< /warning >}}
+
 ## Upgrading from Open Source
 
 

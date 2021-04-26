@@ -470,6 +470,22 @@ name = "Operating a Corda Node"
 parent = "corda-enterprise-4-7-corda-nodes"
 weight = 60
 
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-8-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-8-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-8-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-8-corda-nodes"
+weight = 60
+
 [[corda-os-4-0]]
 identifier = "corda-os-4-0-development"
 name = "Development"
@@ -612,5 +628,30 @@ weight = 30
 
 [[corda-os-4-7]]
 identifier = "corda-os-4-7-contributing-index"
+name = "Participate"
+weight = 500
+
+[[corda-os-4-8]]
+identifier = "corda-os-4-8-upgrading"
+name = "Upgrading CorDapps and nodes"
+weight = 15
+
+[[corda-os-4-8]]
+identifier = "corda-os-4-8-corda-api"
+name = "Corda API"
+weight = 17
+
+[[corda-os-4-8]]
+identifier = "corda-os-4-8-development"
+name = "Development"
+weight = 20
+
+[[corda-os-4-8]]
+identifier = "corda-os-4-8-operations"
+name = "Operations"
+weight = 30
+
+[[corda-os-4-8]]
+identifier = "corda-os-4-8-contributing-index"
 name = "Participate"
 weight = 500

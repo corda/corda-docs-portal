@@ -503,6 +503,7 @@ If your test fails, run a Gradle test instead of a unit test.
 5. Delete the unit test driver and click **Apply**.
 6. Return to your test code. You will see the **Gradle icon** (an elephant).
 7. Select the **Gradle icon** to run your test.
+
 ## Debugging the CorDapp
 
 See [Debugging a CorDapp](debugging-a-cordapp.md).

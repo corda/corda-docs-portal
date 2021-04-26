@@ -31,7 +31,7 @@ There are currently four types of CENM database schemas:
     * External addresses of services on the network.
     * Configurations of other services on the network.
 
-*  The **Auth** database schema is used by the [Auth Service](../../corda-enterprise/4.7/node/auth-service.md) to store RBAC data (users, permissions, groups).
+*  The **Auth** database schema is used by the [Auth Service](../../corda-enterprise/4.8/node/auth-service.md) to store RBAC data (users, permissions, groups).
 
 The services **must** use separate database schemas (either in the same database instance or in completely separate instances) due to the way the migrations are defined. If you try and run an Identity Manager Service, a Network Map Service, a Zone Service, or an Auth Service that shares the same database schema, it will result in errors.
 
@@ -47,6 +47,7 @@ CENM currently supports the following databases:
 * SQL Server 2017 (Microsoft JDBC Driver 6.4)
 * Oracle 11gR2 (Oracle JDBC 6)
 * Oracle 12cR2 (Oracle JDBC 8)
+* Oracle 19c (Oracle JDBC 8)
 
 The appropriate JDBC driver `.jar` file must be provided and its location should be specified in the service configuration.
 
@@ -549,7 +550,7 @@ Set the `database.schema` value to the username of the admin user (in the exampl
 
 The transaction isolation level is set by CENM to `READ_COMMITTED` - an attempt to set another isolation level in the configuration will result in an error. This is intentional behaviour, as `READ_UNCOMMITTED` results in inconsistent data reads, and `REPEATABLE_READ` and `SERIALIZABLE` are not compatible with Corda.
 
-Use Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c. You can find links to the appropriate drivers on [Oracle's website](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
+Use Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c and Oracle 19c. You can find links to the appropriate drivers on [Oracle's website](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
 The database schema name can be set in a JDBC URL string - for example, `currentSchema=my_schema`.
 
 ### PostgreSQL

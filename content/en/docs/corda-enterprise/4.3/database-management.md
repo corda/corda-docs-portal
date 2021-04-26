@@ -18,6 +18,10 @@ title: Database management scripts
 
 # Database management scripts
 
+{{< warning >}}
+Corda Enterprise 4.3.7 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.3.7 please read the guidance on [upgrading your notary service](running-a-notary-cluster/upgrading-the-ha-notary-service.md/).
+{{< /warning >}}
+
 Corda - the platform, and the installed CorDapps store their data in a relational database (see [API: Persistence](api-persistence.md)).
 When a new CorDapp is installed, associated tables, indexes, foreign-keys, etc. must be created.
 Similarly, when a new version of a CorDapp is installed, its database schema may have changed,

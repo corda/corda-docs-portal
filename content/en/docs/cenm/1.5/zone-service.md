@@ -62,7 +62,7 @@ The full list of configuration options follows below:
 - `--password`: The password for the Zone Service's database.
 - `--current-schema`: Allows you to alter the session's current schema for the database. Use this configuration option when the schema name differs from the user name. Only valid for Oracle databases.
 - `--admin-listener-port`: The port where Angel Services connect to the Zone Service.
-- `--disable-authentication`: Allows you to disable authentication and authorisation via the [Auth Service](../../corda-enterprise/4.7/node/auth-service.md). Only use this option in development environments. Defaults to `false` if no value is provided.
+- `--disable-authentication`: Allows you to disable authentication and authorisation via the [Auth Service](../../corda-enterprise/4.8/node/auth-service.md). Only use this option in development environments. Defaults to `false` if no value is provided.
 - `--auth-host`: The hostname of the Auth Service. Required unless authentication and authorisation are disabled.
 - `--auth-port`: The port number of the Auth Service. Required unless authentication and authorisation are disabled.
 - `--auth-trust-store-location`: The location of the Auth Service trust root keystore. Required unless authentication and authorisation are disabled.

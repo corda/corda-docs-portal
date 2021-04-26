@@ -470,7 +470,7 @@ the nodes’ databases and if two nodes share the same H2 port, the process will
 
 ## Testing the CorDapp
 
-orda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the hammer icon.  For a general guide, see [[Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners).
+Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the hammer icon.  For a general guide, see [[Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners).
 
 ### Integration tests
 
@@ -495,6 +495,7 @@ You can run the CorDapp’s flow tests by running the `Run Flow Tests - Java` ru
 1. Go to `Workflow` > `src` > `test` > `FlowTests`.
 2. Select the **arrow** next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
+
 ### Debug a test
 
 If your test fails, run a Gradle test instead of a unit test.
@@ -505,6 +506,7 @@ If your test fails, run a Gradle test instead of a unit test.
 5. Delete the unit test driver and click **Apply**.
 6. Return to your test code. You will see the **Gradle icon** (an elephant).
 7. Select the **Gradle icon** to run your test.
+
 
 ## Debugging the CorDapp
 
