@@ -34,14 +34,14 @@ You need administrator access to use the User Admin tool. If you are the first p
 
 ## Access the User Admin tool
 
-Access the User Admin tool from your [Gateway Service](../../corda-enterprise/4.7/node/gateway-service) instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
+Access the User Admin tool from your [Gateway Service](../../corda-enterprise/4.8/node/gateway-service) instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
 
 For example:
 `http://10.230.41.12:8080/admin`
 
 ### First login
 
-Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](../../corda-enterprise/4.7/node/auth-service).
+Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](../../corda-enterprise/4.8/node/auth-service).
 
 If you do not have these, you need to access them from the operator who configured your Auth Service.
 
