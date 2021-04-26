@@ -45,7 +45,7 @@ This section describes how to deploy and run the sample CorDapp on the following
 * **PartyA**
 * **PartyB**
 
-Because data is only propagated on a need-to-know basis, any IOUs agreed between PartyA and PartyB become “shared facts” between PartyA and PartyB only.
+Because data is only propagated on a need-to-know basis, any IOUs agreed between **PartyA** and **PartyB** become “shared facts” between **PartyA** and **PartyB** only.
 
 ## Downloading a sample CorDapp
 
