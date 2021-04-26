@@ -100,7 +100,7 @@ security actions:
 Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
 new parameters. This will not
 activate the new network parameters on the nodes - it will only inform the Network Map Service that the node has agreed to the
-update. See [the Corda node RPC API](../../corda-os/4.7/tutorial-clientrpc-api.md/) for further details.
+update. See [the Corda node RPC API](../../corda-os/4.8/tutorial-clientrpc-api.md/) for further details.
 
 To list network participants that have or have not accepted the new network parameters,
 run the following command:
@@ -124,7 +124,7 @@ parameter hash mismatch. The nodes that did not accept the parameter update will
 will be unable to restart until they accept. The nodes that accepted can be restarted and continue as normal.
 
 {{< note >}}
-Corda 4.7 does not support hotswapping of Network Parameters within a node. As a result, all nodes will shut down in this situation, regardless of whether they have accepted the parameter update or not.
+Corda 4.7 (and above) does not support hotswapping of Network Parameters within a node. As a result, all nodes will shut down in this situation, regardless of whether they have accepted the parameter update or not.
 {{< /note >}}
 
 ## Sign the network map
