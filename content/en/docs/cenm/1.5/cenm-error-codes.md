@@ -92,4 +92,4 @@ These error codes can be accessed by using the `code` property when encountering
 
 ## Corda Enterprise error codes
 
-For a list of node error codes in Corda Enterprise, see [Node error codes](../../corda-enterprise/4.7/node/operating/error-codes.md).
+For a list of node error codes in Corda Enterprise, see [Node error codes](../../corda-enterprise/4.8/node/operating/error-codes.md).

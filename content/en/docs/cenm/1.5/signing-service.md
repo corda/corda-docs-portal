@@ -19,7 +19,7 @@ title: Signing Service
 
 The Signing Service acts as a bridge between the main CENM services and the PKI/HSM infrastructure, enabling a network operator to verify and sign incoming requests and changes to the network.
 
-The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager Service](identity-manager.md) and the [Network Map Service](network-map.md) (and complemented by the [Auth Service](../../corda-enterprise/4.7/node/auth-service), the [Zone Service](zone-service.md), the [Angel Service](angel-service.md), and the [Gateway Service](../../corda-enterprise/4.7/node/gateway-service.md)).
+The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager Service](identity-manager.md) and the [Network Map Service](network-map.md) (and complemented by the [Auth Service](../../corda-enterprise/4.8/node/auth-service), the [Zone Service](zone-service.md), the [Angel Service](angel-service.md), and the [Gateway Service](../../corda-enterprise/4.8/node/gateway-service.md)).
 
 As mentioned in other CENM service documentation ([Identity Manager Service](identity-manager.md) and [Network Map Service](network-map.md)), the main CENM services
 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
@@ -970,7 +970,7 @@ hsmLibraries = [
   },
   {
       type = AMAZON_CLOUD_HSM
-      jars = ["/opt/cloudhsm/java/cloudhsm-3.0.0.jar"]
+      jars = ["/opt/cloudhsm/java/cloudhsm-3.2.1.jar"]
       sharedLibDir = "/opt/cloudhsm/lib"
   }
 ]

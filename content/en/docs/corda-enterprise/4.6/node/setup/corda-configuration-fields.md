@@ -456,7 +456,7 @@ It's advisable to copy any required JAR files to the 'drivers' subdirectory of t
 ## `jmxMonitoringHttpPort`
 
 If set, will enable JMX metrics reporting via the Jolokia HTTP/JSON agent on the corresponding port.
-Default Jolokia access url is <http://127.0.0.1:port/jolokia/>
+Default Jolokia access url is `http://127.0.0.1:port/jolokia/`.
 
 *Default:* not defined
 

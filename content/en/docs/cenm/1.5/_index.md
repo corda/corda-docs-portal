@@ -5,7 +5,7 @@ aliases:
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: -265
+    weight: -630
 project: cenm
 section_menu: cenm-1-5
 title: CENM 1.5
@@ -25,8 +25,8 @@ that are otherwise available from [Corda Network](https://corda.network), which 
 **Release notes**
 
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](release-notes.md) page.
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.7 release notes](../../corda-enterprise/4.7/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
-* For all Corda open source release notes, see the [Corda release notes](../../corda-os/4.7/release-notes.md) page.
+* For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.8 release notes](../../corda-enterprise/4.8/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
+* For all Corda open source release notes, see the [Corda release notes](../../corda-os/4.8/release-notes.md) page.
 
 {{< /note >}}
 
@@ -35,8 +35,8 @@ The Corda Enterprise Network Manager provides the following services:
 * [Identity Manager Service](identity-manager.md) Enables nodes to join the network, and handles revocation of a node certificate.
 * [Network Map Service](network-map.md) Provides a global view of the network.
 * [Signing Service](signing-service.md) Provides a way to sign approved requests to join the network (Certificate Signing Requests - CSRs) or revoke a certificate (Certificate Revocation Requests - CRRs), as well as changes to the network map.
-* [Auth Service](../../corda-enterprise/4.7/node/auth-service.md) The user authentication and authorisation service. Stores and controls secure user-access to network services.
-* [Gateway Service](../../corda-enterprise/4.7/node/gateway-service.md) Provides a transfer layer between front-end Corda Enterprise Network Manager (CENM) interfaces, and the Auth Service that underpins authentication and authorisation in CENM.
+* [Auth Service](../../corda-enterprise/4.8/node/auth-service.md) The user authentication and authorisation service. Stores and controls secure user-access to network services.
+* [Gateway Service](../../corda-enterprise/4.8/node/gateway-service.md) Provides a transfer layer between front-end Corda Enterprise Network Manager (CENM) interfaces, and the Auth Service that underpins authentication and authorisation in CENM.
 * [Zone Service](zone-service.md) A central store of configuration for other CENM services for one or more zones, and optionally for their Sub Zones. Stores relevant configurations for the Identity Manager Service, the Network Map Service, and the Signing Service.
 * [Angel Service](angel-service.md) An adapter, which manages the lifecycle of other services such as the Network Map Service or the Identity Manager Service, to make them more compatible with packaging tools such as Docker.
 
@@ -82,8 +82,8 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [Identity Manager Service](identity-manager.md)
 * [Network Map Service](network-map.md)
 * [Signing Service](signing-service.md)
-* [Auth Service](../../corda-enterprise/4.7/node/auth-service.md)
-* [Gateway Service](../../corda-enterprise/4.7/node/gateway-service.md)
+* [Auth Service](../../corda-enterprise/4.8/node/auth-service.md)
+* [Gateway Service](../../corda-enterprise/4.8/node/gateway-service.md)
 * [CENM Command-line Interface (CLI) tool](cenm-cli-tool.md)
 * [Updating the network parameters](updating-network-parameters.md)
 * [Upgrading Corda Enterprise Network Manager](upgrade-notes.md)

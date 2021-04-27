@@ -1225,7 +1225,7 @@ certificates = {
 ```docker
 hsmLibraries = [{
     type = AMAZON_CLOUD_HSM
-    jars = ["/opt/cloudhsm/java/cloudhsm-3.0.0.jar"]
+    jars = ["/opt/cloudhsm/java/cloudhsm-3.2.1.jar"]
     sharedLibDir = "/opt/cloudhsm/lib"
 }]
 

@@ -604,4 +604,4 @@ The getting started experience is designed to be lightweight and get to code as 
 For operational users, see the following documentation:
 
 * [Deploying a node to a server](../node/deploy/deploying-a-node.md)
-* [Notary documentation](../notary/running-a-notary.md)
+* [Notary documentation](../notary/ha-notary-service-overview.md)

@@ -35,5 +35,5 @@ This tool enables the reissuing of node legal identity keys and certificates, al
 
 ## Other Tools
 
-* [Config Obfuscation Tool](../../corda-enterprise/4.7/tools-config-obfuscator.md)
+* [Config Obfuscation Tool](../../corda-enterprise/4.8/tools-config-obfuscator.md)
 * [CRL Endpoint Check Tool](crl-endpoint-check-tool.md)

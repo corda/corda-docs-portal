@@ -15,7 +15,7 @@ title: LedgerGraph
 weight: 500
 ---
 
-# LedgerGraph V1.2
+# LedgerGraph V1.2.1
 
 **LedgerGraph** is a CorDapp you can use to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, there can actually be multiple components in the graph: each a **directed acyclic graph** (DAG).
 
@@ -24,6 +24,12 @@ weight: 500
 {{< warning >}}
 LedgerGraph is a dependency for the set of Collaborative Recovery CorDapps V1.1 and above. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
 {{< /warning >}}
+
+### New in V1.2.1
+
+**onDemand**: In V1.2.1 you can configure the setting `onDemand` to `true` or `false`. When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../archiving/archiving-setup.md). This saves heap memory usage.
+
+LedgerGraph then deletes a constructed graph when the Archive Service `create-snapshot` task completes. For example, if a `create-snapshot` task is followed by a `list-items` task, the graph will be initialized once more.
 
 ## Installation requirements
 
@@ -83,7 +89,7 @@ If this list is empty, the node has been successfully drained. If the list conta
 
 ### Uninstall Old Versions
 
-There are no earlier versions of this CorDapp. However, if you are upgrading from version 1.0 of **Collaborative Recovery**, then you should replace `ledger-sync-confidential-identities-1.0.jar` with `ledger-graph-1.1.jar`.
+If you are upgrading from version 1.0 of **Collaborative Recovery**, then you should replace `ledger-sync-confidential-identities-1.0.jar` with `ledger-graph-1.2.1.jar`.
 
 ### Install the CorDapps
 
@@ -131,6 +137,7 @@ You can tune **LedgerGraph**'s behaviour through a small set of configuration pa
 |-|:-:|:-:|-|
 |`transactionReaderPageSize` &dagger; |`100`|`10` to `10,000,000`|The number of transactions to include in the result set when querying the database during graph initialization.|
 |`transactionReaderPoolSize` &Dagger;|`10`|`1` to `1000`|The number of threads to use when deserializing transaction data during graph initialization.|
+|`onDemand`|`true`| `true`, `false`|When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../archiving/archiving-setup.html). This saves heap memory usage.
 {{< /table >}}
 
 **&dagger;** Because there can be an extremely large number of transactions in a node's vault, it is important to select an appropriate page size for your database to optimize retrieval performance. Some amount of experimentation may be required on your part to find/define the best value to be used here, so we don't recommend the default value for most production environments.

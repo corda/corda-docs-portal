@@ -18,6 +18,21 @@ weight: 10
 
 # Corda Enterprise Release notes
 
+## Corda Enterprise 4.4.6
+
+Corda Enterprise 4.4.6 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.4.5.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+A security issue has been fixed that affects notary systems that use the JPA notary implementation in an HA configuration, and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda database management tool must be re-run for the fix to take effect.
+
+
 ## Corda Enterprise 4.4.5
 
 Corda Enterprise 4.4.5 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.4.4.

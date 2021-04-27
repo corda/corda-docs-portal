@@ -12,7 +12,7 @@ weight: 60
 
 # CENM Gateway Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [Gateway Service](../../corda-enterprise/4.7/node/gateway-service.md) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [Gateway Service](../../corda-enterprise/4.8/node/gateway-service.md) on Kubernetes.
 
 ## Example usage
 

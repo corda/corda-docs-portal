@@ -41,9 +41,8 @@ This section describes how to deploy and run the sample CorDapp on the following
 * **Notary**, which runs a notary service
 * **PartyA**
 * **PartyB**
-* **PartyC**
 
-Because data is only propagated on a need-to-know basis, any IOUs agreed between PartyA and PartyB become “shared facts” between PartyA and PartyB only. PartyC won’t be aware of these IOUs.
+Because data is only propagated on a need-to-know basis, any IOUs agreed between **PartyA** and **PartyB** become “shared facts” between **PartyA** and **PartyB** only.
 
 ## Downloading a sample CorDapp
 
@@ -79,17 +78,6 @@ To open the sample CorDapp in the IntelliJ IDEA:
 
 1. Open IntelliJ.
 2. From the splash screen, click **Open**, navigate to the `Basic\cordapp-example` sub-folder, and click **OK**. The project containing the sample CorDapp should open.
-3. Specify which JDK you are using. To do this:
-    * Click **File** >  **Project Structure**.
-    * Under **Project Settings**, click the **Project** option (if not displayed by default).
-    * In the **Project SDK** section, click **New…** > **JDK**, then select the home directory of your JDK and click **OK**.
-4. Specify the following additional settings:
-    * Select **Modules**, then click the **+** button located just above the `cordapp-example` folder and select **Import Module**.
-    * On the **Select File or Directory to Import** window, navigate to `samples-java\Basic\cordapp-example` and click **OK**.
-    * On the **Import Module** window, select the **Import module from external model** option, then select **Gradle** from the list of options and click **Next**.
-    * Select the **Use auto-import** checkbox and click **Finish**, then click **OK**.
-
-    Gradle will now download all the project dependencies and perform some indexing. This usually takes a minute or so.
 
 
 ### Project structure
@@ -278,19 +266,13 @@ in [Building and installing a CorDapp](cordapp-build-systems.md).
 
 ### Launching the sample CorDapp
 
-Start the nodes by running the relevant command below from the root of the `cordapp-example` folder:
+To start the nodes and the sample CorDapp, run the command that corresponds to your operating system:
 
-To run the Java sample CorDapp, run the command that corresponds to your operating system:
+* Unix/Mac OSX: `./build/nodes/runnodes`
+* Windows: `.\build\nodes\runnodes.bat`
 
-* Unix/Mac OSX: `workflows-java/build/nodes/runnodes`
-* Windows: `call workflows-java\build\nodes\runnodes.bat`
 
-To run the Kotlin sample CorDapp, run the command that corresponds to your operating system:
-
-* Unix/Mac OSX: `workflows-kotlin/build/nodes/runnodes`
-* Windows: `call workflows-kotlin\build\nodes\runnodes.bat`
-
-Start a Spring Boot server for each node by opening a terminal/command prompt for each node and entering the following command, replacing X with A, B and C:
+Start a Spring Boot server for each node by opening a terminal/command prompt for each node and entering the following command, replacing `X` with `A` and `B`.
 
 
 * Unix/Mac OSX: `./gradlew runPartyXServer`
@@ -316,7 +298,7 @@ For each node, the `runnodes` script creates a node tab/window:
 --- Corda Open Source corda-4.4 (4157c25) -----------------------------------------------
 
 
-Logs can be found in                    : /Users/joeldudley/Desktop/cordapp-example/workflows-java/build/nodes/PartyA/logs
+Logs can be found in                    : /Users/cordauser/Desktop/cordapp-example/workflows-java/build/nodes/PartyA/logs
 Database connection url is              : jdbc:h2:tcp://localhost:59472/node
 Incoming connection address             : localhost:10005
 Listening on port                       : 10005
@@ -349,19 +331,16 @@ The Spring Boot servers run locally on the following ports:
 
 * PartyA: `localhost:50005`
 * PartyB: `localhost:50006`
-* PartyC: `localhost:50007`
 
 These ports are defined in `clients/build.gradle`.
 
 Each Spring Boot server exposes the following endpoints:
 
 
-* `/api/example/me`
-* `/api/example/peers`
-* `/api/example/ious`
-* `/api/example/create-iou` with parameters `iouValue` and `partyName` which is CN name of a node
-
-There is also a web front-end served from the home web page e.g. `localhost:50005`.
+* `/me`
+* `/peers`
+* `/ious`
+* `/create-iou` with parameters `iouValue` and `partyName` which is CN name of a node
 
 
 {{< warning >}}
@@ -374,51 +353,18 @@ anti-XSS, anti-XSRF or other security techniques. Do not use this code in produc
 
 #### Creating an IOU via the endpoint
 
-An IOU can be created by sending a PUT request to the `/api/example/create-iou` endpoint directly, or by using the
+An IOU can be created by sending a PUT request to the `/create-iou` endpoint directly, or by using the
 the web form served from the home directory.
 
 To create an IOU between PartyA and PartyB, run the following command from the command line:
 
 ```bash
-curl -i -X POST 'http://localhost:50005/api/example/create-iou?iouValue=12&partyName=O=PartyB,L=New%20York,C=US' -H 'Content-Type: application/x-www-form-urlencoded'
+curl -i -X POST 'http://localhost:50005/create-iou?iouValue=12&partyName=O=PartyB,L=New%20York,C=US' -H 'Content-Type: application/x-www-form-urlencoded'
 ```
 
 Note that both PartyA’s port number (`50005`) and PartyB are referenced in the PUT request path. This command
 instructs PartyA to agree an IOU with PartyB. Once the process is complete, both nodes will have a signed, notarised
-copy of the IOU. PartyC will not.
-
-
-#### Submitting an IOU via the web front-end
-
-To create an IOU between PartyA and PartyB, navigate to the home directory for the node, click the “create IOU” button at the top-left
-of the page, and enter the IOU details into the web-form. The IOU must have a positive value. For example:
-
-```none
-Counterparty: Select from list
-Value (Int):   5
-```
-
-And click submit. Upon clicking submit, the modal dialogue will close, and the nodes will agree the IOU.
-
-
-#### Checking the output
-
-Assuming all went well, you can view the newly-created IOU by accessing the vault of PartyA or PartyB:
-
-*Via the HTTP API:*
-
-
-* PartyA’s vault: Navigate to [http://localhost:50005/api/example/ious](http://localhost:50005/api/example/ious)
-* PartyB’s vault: Navigate to [http://localhost:50006/api/example/ious](http://localhost:50006/api/example/ious)
-
-*Via home page:*
-
-
-* PartyA: Navigate to [http://localhost:50005](http://localhost:50005) and hit the “refresh” button
-* PartyB: Navigate to [http://localhost:50006](http://localhost:50006) and hit the “refresh” button
-
-The vault and web front-end of PartyC (at `localhost:50007`) will not display any IOUs. This is because PartyC was
-not involved in this transaction.
+copy of the IOU.
 
 
 ### Via the interactive shell (terminal only)
@@ -436,7 +382,7 @@ Type `flow list` in the shell to see a list of the flows that your node can run.
 following list:
 
 ```none
-com.example.flow.ExampleFlow$Initiator
+net.corda.samples.example.flows.ExampleFlow$Initiator
 net.corda.core.flows.ContractUpgradeFlow$Authorise
 net.corda.core.flows.ContractUpgradeFlow$Deauthorise
 net.corda.core.flows.ContractUpgradeFlow$Initiate
@@ -472,9 +418,7 @@ This will print out the following progress steps:
 We can also issue RPC operations to the node via the interactive shell. Type `run` to see the full list of available
 operations.
 
-You can see the newly-created IOU by running `run vaultQuery contractStateType: com.example.state.IOUState`.
-
-As before, the interactive shell of PartyC will not display any IOUs.
+You can see the newly-created IOU by running `run vaultQuery contractStateType: net.corda.samples.example.states.IOUState`.
 
 
 ### Via the h2 web console
@@ -493,16 +437,16 @@ The nodes can be configured to communicate as a network even when distributed ac
     * Windows: `gradlew.bat deployNodes`
 
 
-* Navigate to the build folder (`workflows-java/build/nodes`)
+* Navigate to the build folder (`/build/nodes`)
 * For each node, open its `node.conf` file and change `localhost` in its `p2pAddress` to the IP address of the machine
 where the node will be run (e.g. `p2pAddress="10.18.0.166:10007"`)
 * These changes require new node-info files to be distributed amongst the nodes. Use the network bootstrapper tool
-(see [Network Bootstrapper](network-bootstrapper.md)) to update the files and have them distributed locally:`java -jar network-bootstrapper.jar workflows-java/build/nodes`
+(see [Network Bootstrapper](network-bootstrapper.md)) to update the files and have them distributed locally:`java -jar network-bootstrapper.jar /build/nodes`
 * Move the node folders to their individual machines (for example, using a USB key). It is important that none of the
 nodes - including the notary - end up on more than one machine. Each computer should also have a copy of `runnodes`
 and `runnodes.bat`. For example, you may end up with the following layout:
     * Machine 1: `Notary`, `PartyA`, `runnodes`, `runnodes.bat`
-    * Machine 2: `PartyB`, `PartyC`, `runnodes`, `runnodes.bat`
+    * Machine 2: `PartyB`, `runnodes`, `runnodes.bat`
 
 
 * After starting each node, the nodes will be able to see one another and agree IOUs among themselves
@@ -522,28 +466,41 @@ the nodes’ databases and if two nodes share the same H2 port, the process will
 
 ## Testing the CorDapp
 
-Corda provides several frameworks for writing unit and integration tests for CorDapps.
+Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the hammer icon.  For a general guide, see [[Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners).
 
+### Integration tests
+
+You can run the CorDapp’s integration tests with the `Run Integration Tests - Java` run configuration.
+
+First, run an integration test to calibrate your environment.
+1. Go to `Workflows` > `src` > `IntegrationTest` > `DriverBasedTest`.
+2. Select the **green arrow** next to the test code. This will open the Run Terminal.
 
 ### Contract tests
 
 You can run the CorDapp’s contract tests by running the `Run Contract Tests - Java` run configuration.
+
+1. Go to `Workflow` > `src` > `test` > `ContractTests`.
+2. Select the arrow next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
 
 ### Flow tests
 
 You can run the CorDapp’s flow tests by running the `Run Flow Tests - Java` run configuration.
 
+1. Go to `Workflow` > `src` > `test` > `FlowTests`.
+2. Select the **arrow** next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
-### Integration tests
+### Debug a test
 
-You can run the CorDapp’s integration tests by running the `Run Integration Tests - Java` run configuration.
-
-
-
-### Running tests in IntelliJ
-
-See [Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners).
+If your test fails, run a Gradle test instead of a unit test.
+1. Open the **Gradle** tab on the right-hand side of your IntelliJ window.
+2. Open **Build Tool Settings** (wrench icon) and select **Gradle Settings**.
+3. Set Gradle as the default in your **Build and Run** settings and click **Apply**.
+4. Go to **Run Configurations** (next to the hammer icon) and select **Edit Configurations**.
+5. Delete the unit test driver and click **Apply**.
+6. Return to your test code. You will see the **Gradle icon** (an elephant).
+7. Select the **Gradle icon** to run your test.
 
 
 ## Debugging the CorDapp

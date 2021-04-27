@@ -16,10 +16,11 @@ tags:
 title: Upgrading a CorDapp to a newer platform version
 ---
 
-
-
-
 # Upgrading CorDapps to newer Platform Versions
+
+{{< warning >}}
+Corda Enterprise 4.4.6 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.4.6 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+{{< /warning >}}
 
 These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
 non-experimental APIs that have been committed to. A list can be found in the api-stability-guarantees page.

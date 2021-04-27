@@ -1,6 +1,4 @@
 ---
-aliases:
-- /release-notes.html
 date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-5:
@@ -8,6 +6,7 @@ menu:
     parent: cenm-1-5-cenm-releases
     weight: 80
 tags:
+- cenm
 - release
 - notes
 title: Release notes
@@ -15,6 +14,63 @@ title: Release notes
 
 
 # Corda Enterprise Network Manager release notes
+
+## Corda Enterprise Network Manager 1.5.1
+
+CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
+
+### Enhancements
+
+* CENM 1.5.1 now supports [Oracle Database 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html).
+* We have bumped the supported version of the AWS CloudHSM client library from 3.0.0 to 3.2.1.
+* Configuration passwords are now hidden in both **CODE VIEW** and **FORM VIEW** modes in the [CENM management console](cenm-console.md) **CONFIGURATION**.
+
+### Fixed issues
+
+* We have fixed an issue where some certificate revocation reasons supported by the CENM Command-line Interface Tool (CLI) were not supported by the Identity Manager service. All CLI revocation reasons are now supported by the Identity Manager service.
+* We have fixed an issue where service configurations were sometimes recorded in the logs by mistake. This problem was also present in CENM 1.3 and 1.4 and the fix has been ported back to these versions as well.
+* We have fixed an issue where the signing CRL did not give sufficient details about the revocation after a revocation submission request was made using the CRR tool, and as a result the user had to inspect the Identity Manager Service logs for more information. The revoking node now shows more details, for example:
+  ```
+  Successfully signed request. The following certificates were added to the CRL:
+  DN: O=PartyB, L=Chicago, C=US, Serial Number: 92919584395295172078852936608980933912
+  ```
+* We have fixed an issue where the signing request status command in the CENM Command-line Interface Tool (CLI) did not work for asynchronous signing.
+* We have fixed an issue where the Network Map Service failed to start with an EC public key used in the `packageOwnership` configuration in the network parameters, and an `Unrecognised algorithm` error was thrown.
+* We have fixed an issue where, if a CSR was rejected with a [rejection code](workflow.md#certificate-signing-request-rejection-reasons) between 1 and 11 via the JIRA workflow, the node notification would be incorrect - the `Additional remark` field output would contain technical data instead of a description of the rejection reason.
+
+#### Fixed issues specific to the CENM management console
+
+We have also fixed the following issues specific to the [CENM management console](cenm-console.md):
+
+* We have fixed an issue where removing scheduled times in **FORM VIEW** mode in the **SIGNER** tab of **CONFIGURATION** showed configuration details in **CODE VIEW** mode, which might result is Signing Service configuration failures.
+* We have fixed an issue where the **Remove Edits** option in **CONFIGURATION** did not work for a number of fields for all configuration types.
+* We have fixed an issue where the database properties field **AdditionalProperties** did not show `connectionInitSql` in **FORM VIEW** mode.
+* We have fixed an issue where the SSL dropdown list did not shown in the **IDENTITY MANAGER** tab of **CONFIGURATION** in **FORM VIEW** mode.
+* We have fixed an issue where the UI would freeze indefinitely with a "Deployment failure" error if an invalid configuration was deployed due to incorrect database credentials or missing plug-in details.
+* We have fixed an issue where boolean parameters for the **ADMIN LISTENER** were not properly saved or set in **FORM VIEW** mode for Network Map configurations.
+* We have fixed an issue with the `Removing signing key` option in the **SIGNER** tab of **CONFIGURATION** in **FORM VIEW** mode, which might prevent the user from confirming whether the signing key was actually removed or not.
+* We have fixed an issue with setting scheduled signing time in **FORM VIEW** mode.
+* We have fixed an issue where editing or renaming the alias for either issuance or revocation workflow type in the **IDENTITY MANAGER** tab of **CONFIGURATION** would result in complete removal of the workflow in **FORM VIEW** mode.
+* We have fixed an issue where the CENM management console would fail to show a new zone after initial setup.
+* We have fixed an issue where network parameters could not be set and flag day dates would default to the current time.
+* We have fixed an issue where the **Update Config** remained enabled even without a configuration value change.
+* We have fixed an issue where the CENM management console crashed and hung when attempting to deploy a valid configuration in **CODE VIEW** mode.
+* We have fixed an issue where the `RequestID` and `Certificate Signing Request ID` fields on the **CRR/CRL Status** tab showed the same data.
+* We have fixed an issue where the details for `Auth Service configuration`, which existed in the back-end configuration, were not shown for any of the configuration types in any of the two views - **CODE VIEW** and **FORM VIEW**.
+* We have fixed an issue where removing an HSM Library from the **SIGNER** configuration in **FORM VIEW** mode resulted in a blank screen, which prompted the user to refresh the entire application.
+* We have fixed an issue where the Angel Service did not get restored to the last working configuration and might stop polling when the SSL Keystore/TrustStore files were not found.
+* We have fixed an issue where there was no indication shown when the user token was expired.
+* We have fixed an issue where the theme, language, and font size in the **CONFIGURATION** tab were not saved when the user switched to a different tab.
+* We have fixed an issue where changes in **CODE VIEW** mode were not reflected in **FORM VIEW** mode when the user switched over.
+* We have fixed an issue where clicking **Cancel Flag Day** before the flag day was run would fail to cancel the flag day.
+
+### Known issues
+
+* There is still an option to view configuration passwords in **FORM VIEW** mode in the [CENM management console](cenm-console.md) **CONFIGURATION**.
+
+{{< note >}}
+The known issue listed above is specific to CENM 1.5.1. See the release notes for previous CENM releases further down on this page for information about known issues specific to those versions.
+{{< /note >}}
 
 ## Corda Enterprise Network Manager 1.5
 
