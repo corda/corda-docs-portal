@@ -23,7 +23,7 @@ You can use the Archive Service CLI to interact with the Archive Service.
 CLI help screen:
 
 ```text
-$ java -jar corda-tools-archive-service-1.0.jar --help
+$ java -jar corda-tools-archive-service-1.0.1.jar --help
 archive-service [--config-obfuscation-passphrase[=<cliPassphrase>]]
                 [--config-obfuscation-seed[=<cliSeed>]]
 				[--rpc-password[=<rpcPassword>]]

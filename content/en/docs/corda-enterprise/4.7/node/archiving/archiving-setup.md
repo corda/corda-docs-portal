@@ -14,7 +14,7 @@ tags:
 title: Archive Service
 weight: 150
 ---
-# The Archive Service
+# The Archive Service V1.0.1
 
 The Archive Service allows you to make an archive of transactions and attachments from the Corda vault which can no longer
 be part of an ongoing or new transaction flow. This can reduce pressure on your node's database, and declutter your vault.
@@ -28,6 +28,10 @@ The Archive Service consists of the following:
 * [**Archive Service Command Line Interface**](archiving-cli) - which allows you to perform archiving tasks from the command line.
 
 It also makes use of the [Application Entity Manager](app-entity-manager) - which allows CorDapps to access off-ledger databases using JPA APIs.
+
+## New in V1.0.1
+
+The Archive Service is compatible with [Ledger Graph V1.2.1 On Demand function](#Archiving-and-onDemand-LedgerGraph).
 
 ## What can be archived
 
@@ -75,11 +79,11 @@ The Archive Service requires:
 
 * Node minimum platform version 6.
 * Corda Enterprise minimum version 4.4.
-* [LedgerGraph V1.2](../operating/ledger-graph).
+* [LedgerGraph V1.2.1](../operating/ledger-graph).
 * Collaborative Recovery V 1.2 (if you use Collaborative Recovery).
 
 {{< warning >}}
-Archive Service V1.0 does not support **Accounts** or **Confidential Identities** functionality in Corda.
+Archive Service V1.0.1 does not support **Accounts** or **Confidential Identities** functionality in Corda.
 {{< /warning >}}
 
 ## Installation
@@ -90,8 +94,8 @@ must also be copied to the same directory.
 ```text
 corda@CrimsonSolo:/opt/corda/node$ ls -l cordapps/
 drwxr-xr-x 2 corda corda   4096 Aug 26 06:43 config
--rw-r--r-- 1 corda corda 504538 Aug 26 06:35 archive-service-1.0.jar
--rw-r--r-- 1 corda corda 161260 Jul 30 05:04 ledger-graph-1.2.jar
+-rw-r--r-- 1 corda corda 504538 Aug 26 06:35 archive-service-1.0.1.jar
+-rw-r--r-- 1 corda corda 161260 Jul 30 05:04 ledger-graph-1.2.1.jar
 ```
 
 ## Configuration
@@ -103,7 +107,7 @@ with the `jar` suffix changed to `conf`.
 ```text
 corda@CrimsonSolo:/opt/corda/node$ ls -l cordapps/config
 total 12
--rw-r--r-- 1 corda corda 469 Aug 26 06:43 archive-service-1.0.conf
+-rw-r--r-- 1 corda corda 469 Aug 26 06:43 archive-service-1.0.1.conf
 ```
 
 The Archive Service configuration file provides the database connection details used by the service to
@@ -217,7 +221,7 @@ You need to restart the node:
 The command-line tool is a 'fat-jar' that can be executed directly using the `java -jar` option.
 
 ```text
-$ java -jar corda-tools-archive-service-1.0.jar --help
+$ java -jar corda-tools-archive-service-1.0.1.jar --help
 archive-service [--config-obfuscation-passphrase[=<cliPassphrase>]]
                 [--config-obfuscation-seed[=<cliSeed>]]
 				[--rpc-password[=<rpcPassword>]]
