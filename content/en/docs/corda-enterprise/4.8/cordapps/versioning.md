@@ -98,8 +98,8 @@ In the `build.gradle` file for your contract module, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 5
-    minimumPlatformVersion 4
+    targetPlatformVersion 10
+    minimumPlatformVersion 5
     contract {
         name "MegaApp Contracts"
         vendor "MegaCorp"
@@ -116,8 +116,8 @@ And in the `build.gradle` file for your workflows jar, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 5
-    minimumPlatformVersion 4
+    targetPlatformVersion 10
+    minimumPlatformVersion 5
     workflow {
         name "MegaApp"
         vendor "MegaCorp"

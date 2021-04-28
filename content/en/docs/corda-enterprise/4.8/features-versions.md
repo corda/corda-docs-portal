@@ -60,5 +60,14 @@ of Corda as well as opt in to newer features should they happen to be available 
 |Reference States|4|4|4.0|4.0|
 |Signature Constraints|4|4|4.0|4.0|
 |Underlying Support for Accounts|5|4|4.3|4.3|
+|Prevent CorDapp Hosting Issue|6|4|4.4|4.4|
+|New Flow Framework APIs|7|4|4.5|4.5|
+|API Update|8|4|4.6|4.6|
+|API Update|9|4|4.7|4.7|
+|API Update|10|4|4.8|4.8|
 
 {{< /table >}}
+
+{{< note >}}
+We recommend a minimum network platform version of 5 for Corda 4.5 onwards; however, a network mPV of 4 may continue to work in some instances.
+{{< /note >}}
