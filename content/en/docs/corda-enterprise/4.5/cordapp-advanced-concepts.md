@@ -40,7 +40,7 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in: api-contract-constraints), and the actual code lives in a JAR file that is referenced by the transaction.
+(read more in [Contract Constraints](cordapps/api-contract-constraints)), and the actual code is contained in a `.jar`  file that is referenced by the transaction.
 
 
 ### The basic threat model and security requirement.
