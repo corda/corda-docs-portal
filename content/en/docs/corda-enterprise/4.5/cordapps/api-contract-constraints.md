@@ -139,8 +139,7 @@ Below are two examples of possible scenarios around blacklisting signing keys:
     * `Alice` blacklists `Bob`’s attachment signing key
     * `Bob` transacts with `Alice`
     * `Alice` receives `Contracts CorDapp V2` and stores it
-    * When verifying the attachments loaded in the contract verification code, `Contracts CorDapp V2` is declined because it is signed
-by `Bob`’s blacklisted key
+    * When verifying the attachments loaded in the contract verification code, `Contracts CorDapp V2` is declined because it is signed by `Bob`’s blacklisted key
     * The contract verification code in `Contracts CorDapp V2` is not run and the transaction fails
 
 
