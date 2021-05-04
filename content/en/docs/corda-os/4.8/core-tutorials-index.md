@@ -24,8 +24,8 @@ While these tutorials don’t depend on the code from any of the other tutorials
 {{< table >}}
 | Main steps in basic CorDapp development | Core tutorials |
 |---------|----------|----------|----------|
-| 1. Write the contract and test that it works. | (a) [Writing contracts](tutorial-contract.html/) <br/><br/> (b) [Writing contract tests](tutorial-test-dsl.html/) |
-| 2. Build your transactions. | (a) [Building transactions](tutorial-building-transactions.html/) |
-| 3. Write your flows and test that they work. | (a) [Writing flows](flow-state-machines.html/) <br/><br/> (b) [Writing flow tests](flow-testing.html/) |
-| 4. Check that it all works together. | (a) [Conducting integration testing](tutorial-integration-testing.html/) |
+| 1. Write the contract and test that it works. | (a) [Writing contracts](tutorial-contract.html) <br/><br/> (b) [Writing contract tests](tutorial-test-dsl.html) |
+| 2. Build your transactions. | (a) [Building transactions](tutorial-building-transactions.html) |
+| 3. Write your flows and test that they work. | (a) [Writing flows](flow-state-machines.html) <br/><br/> (b) [Writing flow tests](flow-testing.html) |
+| 4. Check that it all works together. | (a) [Conducting integration testing](tutorial-integration-testing.html) |
 {{< /table >}}

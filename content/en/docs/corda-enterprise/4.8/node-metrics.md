@@ -29,7 +29,7 @@ Alternatively, a node can be configured to use a time window reservoir by adding
 enterpriseConfiguration {
     metricsConfiguration {
         reservoirType = TIME_WINDOW // Can also be EDR, but this is the default if this item is absent
-        timeWindow = \<Duration\> // Optional - will default to 5m if not specified
+        timeWindow = <Duration> // Optional - will default to 5m if not specified
     }
 ```
 
