@@ -1,0 +1,16 @@
+{{/* Based on: :*/}}
+{{/* https://stackoverflow.com/questions/39539812/how-can-another-file-be-included-in-a-hugo-markdown-page */}}
+{{/* https://discourse.gohugo.io/t/replacement-for-mmark-include-file-functionality/23726/4                */}}
+{{ $file    := "undefined" }}
+{{ $lang    := "undefined" }}
+
+{{ if .IsNamedParams }}
+  {{ $file = .Get "file" }}
+{{ else }}
+  {{ $file = .Get 0 }}
+{{end}}
+
+{{/* This is an awful way of getting the last element of an array as a string */}}
+{{ $lang = delimit (last 1 (split $file "." )) "" }}
+
+{{ (print "```" $lang "\n" (readFile $file) "\n```") | markdownify }}

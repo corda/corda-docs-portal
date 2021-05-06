@@ -1,0 +1,27 @@
+notary {
+  [jpa or mysql] {
+      connectionRetries=[NUMBER_OF_REPLICAS]
+      dataSource {
+          autoCommit="false"
+          jdbcUrl="<encrypt{jdbc connection string}>"
+          username=[USER_NAME]
+          password="<encrypt{your-data-source-password}>"
+      }
+  }
+  validating=false
+  serviceLegalName="O=HA Notary, C=GB, L=London"
+}
+
+...
+
+keyStorePassword = "<encrypt{your-key-store-password}>"
+trustStorePassword = "<encrypt{your-trust-store-password}>"
+
+...
+
+dataSourceProperties = {
+    dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
+    dataSource.url = "jdbc:postgresql://[HOST]:[PORT]/postgres"
+    dataSource.user = [USER_NAME]
+    dataSource.password = "<encrypt{your-data-source-password}>"
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html{{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
+    {{ partial "head.html" . }}
+
+    <body>
+        <noscript>You need to enable javascript for this site</noscript>
+        {{- partial "cookie-banner.html" . -}}
+        {{- partial "header.html" . -}}
+        <div class="r3-o-landing r3-o-landing__container">
+            <div class="r3-o-row">
+                <div class="r3-o-cookie-declaration r3-o-col-12">
+                    {{- block "main" . -}}{{- end -}}
+                </div>
+            </div>
+        </div>
+        {{ partial "scripts.html" . }}
+    </body>
+</html>
+
+

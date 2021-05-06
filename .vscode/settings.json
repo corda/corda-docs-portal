@@ -1,0 +1,22 @@
+{
+    "python.pythonPath": ".venv/bin/python3",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./scripts/tests",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": false,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/repos/**": true
+    },
+    "python.testing.promptToConfigure": false
+}

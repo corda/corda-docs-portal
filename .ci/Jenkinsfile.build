@@ -1,0 +1,176 @@
+#!groovy
+class Configuration {
+    String ARTIFACTORY_BUILD_NAME = 'Docsite Docker image'
+    String ARTIFACTORY_SERVER = 'software.r3.com'
+    String getDockerRegistry() {
+        return "${dockerRepo}.${ARTIFACTORY_SERVER}"
+    }
+    String getTargetRepo() {
+        return "${dockerRepo}-local"
+    }
+    String getBuildName() {
+        return "${ARTIFACTORY_BUILD_NAME} (${branch})"
+    }
+    String dockerRepo
+    String deploymentCredentials
+    String docsite
+    boolean defaultPublish
+    String branch
+    String latestTag
+    Configuration(String dockerRepo, String deploymentCredentials, String docsite, boolean defaultPublish, String latestTag) {
+        this.dockerRepo = dockerRepo
+        this.deploymentCredentials = deploymentCredentials
+        this.docsite = docsite
+        this.defaultPublish = defaultPublish
+        this.latestTag = latestTag
+    }
+}
+
+Configuration config
+switch (env.BRANCH_NAME) {
+    case ~/publish-.*$/:
+        config = new Configuration('docsite','docsite-production', 'docs-prod.dev.r3.corda.internal', true, "latest")
+        break
+    case "master":
+        config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.dev.r3.corda.internal', true, "latest")
+        break
+    default:
+        config = new Configuration('docsite-dev', 'docsite-preview', 'docs-preview.dev.r3.corda.internal', false, "preview")
+        break
+}
+if(params.PREVIEW != null) {
+    switch (params.PREVIEW) {
+        case 'default':
+            break
+        case 'tolkien':
+            config = new Configuration('docsite-dev', 'docsite-preview-tolkien', 'docs-preview.dev.r3.corda.internal', false, "tolkien")
+            break
+        case 'borges':
+            config = new Configuration('docsite-dev', 'docsite-preview-borges', 'docs-preview.dev.r3.corda.internal', false, "borges")
+            break
+        case 'seel':
+            config = new Configuration('docsite-dev', 'docsite-preview-seel', 'docs-preview.dev.r3.corda.internal', false, "seel")
+            break
+        case 'baldwin':
+            config = new Configuration('docsite-dev', 'docsite-preview-baldwin', 'docs-preview.dev.r3.corda.internal', false, "baldwin")
+            break
+        case 'rooney':
+            config = new Configuration('docsite-dev', 'docsite-preview-rooney', 'docs-preview.dev.r3.corda.internal', false, "rooney")
+            break
+        case 'banks':
+            config = new Configuration('docsite-dev', 'docsite-preview-banks', 'docs-preview.dev.r3.corda.internal', false, "banks")
+            break
+    }
+}
+
+config.branch = env.BRANCH_NAME
+
+def MAKE_PARAMS = [
+    'PROD_IMAGE="${IMAGE}"',         // do not change the quotes! Variable is for Linux Shell!!
+    'PROD_IMAGE_TAG="${IMAGE_TAG}"', // do not change the quotes! Variable is for Linux Shell!!
+]
+
+def MAKE_BUILD_TARGETS = [
+    'prod-docker-image',
+]
+
+pipeline {
+    agent { label "basic" }
+
+    parameters {
+        booleanParam defaultValue: config.defaultPublish, description: 'Publishing Docsite Docker image?', name: 'DO_PUBLISH'
+        choice(name: 'PREVIEW', choices: 'default\ntolkien\nborges\nseel\nbaldwin\nrooney\nbanks', description: 'Preview site')
+    }
+
+    environment {
+        IMAGE_TAG="${env.GIT_COMMIT[0..5]}"
+        IMAGE="${config.dockerRegistry}/corda-docs-nginx"
+    }
+
+    options {
+        timestamps()
+        timeout(time: 30, unit: 'MINUTES')
+        disableConcurrentBuilds() // this makes killAllExistingBuildsForJob always do nothing
+        buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '7'))
+        ansiColor('xterm')
+    }
+
+    stages {
+        stage('Build Docker image') {
+            steps {
+                sh """
+                    make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
+                """
+                script {
+                    docker.image("${env.IMAGE}:${env.IMAGE_TAG}").tag(config.latestTag)
+                }
+                sh 'docker images'
+            }
+        }
+
+        stage('Publish & Deploy') {
+            when {
+                expression { params.DO_PUBLISH }
+                beforeAgent true
+            }
+            stages {
+                stage('Publish Docker image') {
+                    steps {
+                        echo "Creating Artifactory server"
+                        rtServer (
+                            id: 'R3-Artifactory',
+                            url: 'https://software.r3.com/artifactory',
+                            credentialsId: 'docsite-publisher'
+                        )
+                        rtBuildInfo (
+                            captureEnv: true,
+                            buildName: config.buildName
+                        )
+                        echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry"
+                        rtDockerPush (
+                            serverId: 'R3-Artifactory',
+                            image: "${env.IMAGE}:${env.IMAGE_TAG}",
+                            targetRepo: config.targetRepo,
+                            buildName: config.buildName
+                        )
+                        echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry as 'latest'"
+                        rtDockerPush (
+                            serverId: 'R3-Artifactory',
+                            image: "${env.IMAGE}:${config.latestTag}",
+                            targetRepo: config.targetRepo,
+                            buildName: config.buildName
+                        )
+                        echo 'Publishing build info to Artifactory server'
+                        rtPublishBuildInfo (
+                            serverId: 'R3-Artifactory',
+                            buildName: config.buildName
+                        )
+                    }
+                }
+                stage('Deploy Docker image') {
+                    steps {
+                        sshagent([config.deploymentCredentials]) {
+                            sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@${config.docsite} update-docsite"
+                        }
+                    }
+                }
+                stage('Add Interactive Promotion') {
+                    steps {
+                        rtAddInteractivePromotion (
+                            serverId: 'R3-Artifactory',
+                            buildName: config.buildName,
+                            targetRepo: 'docsite-local',
+                            sourceRepo: config.dockerRepo
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        cleanup {
+            deleteDir() /* clean up our workspace */
+        }
+    }
+}

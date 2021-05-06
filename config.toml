@@ -1,0 +1,96 @@
+# When built, then this is used, but we inject it
+# at build time using Hugo env-vars.
+baseURL = "http://localhost:1313"
+
+# Nice stuff...
+title = "Corda Documentation"
+
+# Of course...
+theme = "hugo-r3-theme"
+
+# i18n
+defaultContentLanguage = "en"
+# ...so that en docs are just in /docs/... rather than /en/docs/...
+defaultContentLanguageInSubdir = false
+contentDir = "content/en"
+
+# so that 'docs' doesn't appear as 'docss' etc.
+pluralizeListTitles = false
+
+# we want old-style a/b/c.html
+uglyurls = true
+
+# Change to error eventually.
+refLinksErrorLevel = "ERROR"
+
+# Don't care about these.
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+# See https://help.farbox.com/pygments.html
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+pygmentsStyle = "emacs"
+
+# https://gohugo.io/variables/git/
+enableGitInfo = true
+
+# GA was added here: /themes/hugo-r3-theme/scripts/vendor/googleanalytics.js
+# We are NOT using the built-in Hugo functionality commented out below
+# https://gohugo.io/templates/internal/#google-analytics
+# googleAnalytics = "UA-87760032-1"
+
+# https://gohugo.io/getting-started/configuration-markup#highlight
+[markup]
+[markup.highlight]
+style = "tango"
+
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+#  We have lots of inline HTML so need to render it.
+#  TODO:  replace with shortcodes.
+unsafe = true
+
+
+#  We're not using this?
+[permalinks]
+blog = "/blog/:section/:year/:month/:day/:slug/"
+
+
+# Any params set in here override the ones above for that particular site (one site = one lang).
+[languages]
+[languages.en]
+description  = "Documentation for Corda, by R3"
+languageName = "English"
+# Weight used for sorting.
+weight = 10
+#
+#[languages.fr]
+#contentDir = "content/fr"
+#languageName = "Français"
+#weight = 20
+#language_alternatives = ["en"]
+#
+#[languages.de]
+#languageName = "Deutsche"
+#weight = 30
+#language_alternatives = ["en"]
+
+
+[params]
+github_repository = "https://github.com/corda/docs-site"
+
+twitter = "cordablockchain"
+slack = "http://slack.corda.net/"
+github = "corda"
+stackoverflow = "corda"
+
+#  Cue bikeshedding
+default_tab = "java"
+
+ogimage = "/images/png/corda.png"
+
+# hack - these values are asigned in global.html
+algolia_appId = "UX2KMUWFAL"
+algolia_apiKey = "1fe3367db02689b4aeebc59efad5abaf"
+algolia_index = "docs.corda.net"
