@@ -28,12 +28,6 @@ class Configuration {
 
 Configuration config
 switch (env.BRANCH_NAME) {
-    case ~/publish-.*$/:
-        config = new Configuration('docsite','docsite-production', 'docs-prod.dev.r3.corda.internal', true, "latest")
-        break
-    case "master":
-        config = new Configuration('docsite-dev', 'docsite-staging', 'docs-staging.dev.r3.corda.internal', true, "latest")
-        break
     default:
         config = new Configuration('docsite-dev', 'docsite-preview', 'docs-preview.dev.r3.corda.internal', false, "preview")
         break
@@ -75,7 +69,7 @@ def MAKE_BUILD_TARGETS = [
 ]
 
 pipeline {
-    agent { label "basic" }
+    agent { label "docs-builder" }
 
     parameters {
         booleanParam defaultValue: config.defaultPublish, description: 'Publishing Docsite Docker image?', name: 'DO_PUBLISH'
