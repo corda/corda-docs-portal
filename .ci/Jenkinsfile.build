@@ -69,7 +69,7 @@ def MAKE_BUILD_TARGETS = [
 ]
 
 pipeline {
-    agent { label "docs-builder" }
+    agent { label "basic" }
 
     parameters {
         booleanParam defaultValue: config.defaultPublish, description: 'Publishing Docsite Docker image?', name: 'DO_PUBLISH'
