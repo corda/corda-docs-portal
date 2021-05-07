@@ -37,22 +37,22 @@ if(params.PREVIEW != null) {
         case 'default':
             break
         case 'tolkien':
-            config = new Configuration('docsite-dev', 'docsite-preview-tolkien', 'docs-preview.dev.r3.corda.internal', false, "tolkien")
+            config = new Configuration('docsite-dev', 'docsite-preview-tolkien', 'docs-preview.dev.r3.corda.internal', true, "tolkien")
             break
         case 'borges':
-            config = new Configuration('docsite-dev', 'docsite-preview-borges', 'docs-preview.dev.r3.corda.internal', false, "borges")
+            config = new Configuration('docsite-dev', 'docsite-preview-borges', 'docs-preview.dev.r3.corda.internal', true, "borges")
             break
         case 'seel':
-            config = new Configuration('docsite-dev', 'docsite-preview-seel', 'docs-preview.dev.r3.corda.internal', false, "seel")
+            config = new Configuration('docsite-dev', 'docsite-preview-seel', 'docs-preview.dev.r3.corda.internal', true, "seel")
             break
         case 'baldwin':
-            config = new Configuration('docsite-dev', 'docsite-preview-baldwin', 'docs-preview.dev.r3.corda.internal', false, "baldwin")
+            config = new Configuration('docsite-dev', 'docsite-preview-baldwin', 'docs-preview.dev.r3.corda.internal', true, "baldwin")
             break
         case 'rooney':
-            config = new Configuration('docsite-dev', 'docsite-preview-rooney', 'docs-preview.dev.r3.corda.internal', false, "rooney")
+            config = new Configuration('docsite-dev', 'docsite-preview-rooney', 'docs-preview.dev.r3.corda.internal', true, "rooney")
             break
         case 'banks':
-            config = new Configuration('docsite-dev', 'docsite-preview-banks', 'docs-preview.dev.r3.corda.internal', false, "banks")
+            config = new Configuration('docsite-dev', 'docsite-preview-banks', 'docs-preview.dev.r3.corda.internal', true, "banks")
             break
     }
 }
@@ -73,7 +73,7 @@ pipeline {
 
     parameters {
         booleanParam defaultValue: config.defaultPublish, description: 'Publishing Docsite Docker image?', name: 'DO_PUBLISH'
-        choice(name: 'PREVIEW', choices: 'default\ntolkien\nborges\nseel\nbaldwin\nrooney\nbanks', description: 'Preview site')
+        choice(name: 'PREVIEW', choices: 'default\ntolkien\nborges\nseel\nbaldwin\nrooney\nbanks', description: 'Preview site. If not default, it automatically publishes there!!!')
     }
 
     environment {
