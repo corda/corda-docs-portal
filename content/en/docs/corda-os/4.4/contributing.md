@@ -167,7 +167,7 @@ the [Community Maintainers](contributing-philosophy.md#community-maintainers) di
 
 ## Developer Certificate of Origin
 
-All contributions to this project are subject to the terms of the [Developer Certificate of Origin] (https://developercertificate.org/) reproduced below:
+All contributions to this project are subject to the terms of the [Developer Certificate of Origin](https://developercertificate.org/) reproduced below:
 
 ```none
 Developer Certificate of Origin
