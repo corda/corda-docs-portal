@@ -23,51 +23,41 @@ title: How to contribute
 There are several ways to identify an area where you can contribute to Corda:
 
 
-* The easiest is just to message one of the [Community Maintainers](contributing-philosophy.md#community-maintainers) saying “I want to help!”. They’ll work
-with you to find an area for you to contribute
-* If you have a specific contribution in mind, confirm whether the contribution is appropriate first by reaching out in the
-`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com) or contacting one of the
-[Community Maintainers](contributing-philosophy.md#community-maintainers) directly
-* If you do not have a specific contribution in mind, you can also browse the issues labelled as `help wanted` on the
-[Corda GitHub issues](https://github.com/corda/corda/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) page
-    * Issues that additionally have the `good first issue` label are considered ideal for first-timers
-
+* If you'd like to contribute, but don't have a specific project in mind:
+    * Message a [Community Maintainer](contributing-philosophy.md#community-maintainers) saying “I want to help!”. They’ll work
+with you to find an area for you to contribute.
+    * Browse the issues labelled `help wanted` on the
+[Corda GitHub issues](https://github.com/corda/corda/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) page. Issues labeled `good first issue` are ideal for first-timers.
+* If you have a specific contribution in mind, message the
+`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly to confirm if it is appropriate before starting development.
 
 
 
 ## Contribution guidelines
 
-We believe one of the things that makes Corda special is its coherent design and we seek to retain this defining characteristic. From the
-outset we defined some guidelines to ensure new contributions only ever enhance the project:
+One of the things that makes Corda special is its coherent design. That's why we have defined some guidelines to ensure new contributions only ever enhance the project:
 
 
-* **Quality**: Code in the Corda project should meet the [Corda coding style guidelines](codestyle.md), with sufficient test-cases,
-descriptive commit messages, evidence that the contribution does not break any compatibility commitments or cause adverse feature
-interactions, and evidence of high-quality peer-review
-* **Size**: The Corda project’s culture is one of small pull-requests, regularly submitted. The larger a pull-request, the more likely it
-is that you will be asked to resubmit as a series of self-contained and individually reviewable smaller PRs
-* **Scope**: We try to ensure the Corda project remains coherent and focused so we ask that the feature’s scope is within the definition
-specified in the [Corda Technical Whitepaper](https://www.r3.com/white-papers/corda-technical-whitepaper/)
-* **Maintainability**: If the feature will require ongoing maintenance (eg support for a particular brand of database), we may ask you to
-accept responsibility for maintaining this feature
-* **Non-duplicative**: If the contribution duplicates features that already exist or are already in progress, you may be asked to work with
-the project maintainers to reconcile this. As the major contributor to Corda, many employees of [R3](https://r3.com) will be working on
-features at any given time. To avoid surprises and foster transparency,
-[our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the
-[Community Maintainers](contributing-philosophy.md#community-maintainers)
+* **Quality**: Code in the Corda project should meet the [Corda coding style guidelines](codestyle.md), with sufficient test cases,
+descriptive commit messages, evidence that the contribution does not break any compatibility commitments or cause adverse feature interactions, and evidence of high-quality peer review.
+* **Size**: The Corda project’s culture is one of small pull requests (PRs) submitted regularly. The larger a PR, the more likely it is that you will be asked to resubmit as a series of self-contained and individually-reviewable smaller PRs.
+* **Scope**: To ensure the Corda project remains coherent and focused, so we ask that the feature’s scope is within the definition specified in the [Corda Technical Whitepaper](/en/pdf/corda-technical-whitepaper.pdf).
+* **Maintainability**: If the feature requires ongoing maintenance (for example, support for a particular brand of database), we may ask you to accept responsibility for maintaining it.
+* **Non-duplicative**: If the contribution duplicates features that already exist or are in progress, you may be asked to work with the project maintainers to reconcile this. As the major contributor to Corda, many employees of [R3](https://r3.com) are working on features at any given time. To avoid surprises and foster transparency,
+[our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the [Community Maintainers](contributing-philosophy.md#community-maintainers).
 
 In addition, there are a number of additional requirements that apply to ["large" contributions](contributing.md#large-contributions).
 
-## Making the required changes
+## Making changes to Corda
 
 You should make your changes as follows:
 
 
-* Create a fork of the [Corda repo](https://github.com/corda/corda)
-* Clone the fork to your local machine
-* Build Corda by following the instructions [here](building-corda.md)
-* Be sure to work from the appropriate branch for your changes, as per the section below.
-* Make the changes, in accordance with the [code style guide](codestyle.md)
+1. Create a fork of the [Corda repo](https://github.com/corda/corda).
+2. Clone the fork to your local machine.
+3. [Build Corda](building-corda.md).
+4. Be sure to work from the appropriate branch for your changes (see below).
+5. Make the changes in accordance with the [code style guide](codestyle.md).
 
 
 ### Selecting a development branch
@@ -77,30 +67,26 @@ according to the release that it represents. The following pattern is used for b
 *release/os/{major version}.{minor version}*
 
 Note that *release* is always part of the name of the branch, even for unreleased versions of Corda. The default
-github branch will always be the current development branch of Corda. Development work should target the default branch
+Github branch is always the current development branch of Corda. Development work should target the default branch
 unless the work is needed in a specific version of Corda. In that case, development work should target the oldest version
-of Corda for which the work would be appropriate. For instance, if a pull request would be applicable to Corda 4.1 and
-Corda 4.3, it would be appropriate to open a pull request for *release/os/4.1*. That work would then be merged forward
-from *release/os/4.1* to *release/os/4.3*. If the work is only applicable to Corda 4.3, a pull request need only be
-opened against release/os/4.3.
+of Corda for which the work would be appropriate. For instance, if a pull request would be applicable to Corda 4.5 and
+Corda 4.7, it would be appropriate to open a pull request for *release/os/4.5*. That work would then be merged forward
+from *release/os/4.5* to *release/os/4.7*. If the work is only applicable to Corda 4.7, a pull request need only be
+opened against release/os/4.7.
 
 
 ### Things to check
 
 
-* **Make sure your error handling is up to scratch:** Errors should not leak to the UI. When writing tools intended for end users, like the
-node or command line tools, remember to add `try`/`catch` blocks. Throw meaningful errors. For example, instead of throwing an
-`OutOfMemoryError`, use the error message to indicate that a file is missing, a network socket was unreachable, etc. Tools should not
-dump stack traces to the end user
-* **Look for API breaks:** We have an automated checker tool that runs as part of our continuous integration pipeline and helps a lot, but
-it can’t catch semantic changes where the behavior of an API changes in ways that might violate app developer expectations
-* **Suppress inevitable compiler warnings:** Compiler warnings should have a `@Suppress` annotation on them if they’re expected and can’t
-be avoided
-* **Remove deprecated functionality:** When deprecating functionality, make sure you remove the deprecated uses in the codebase
-* **Avoid making formatting changes as you work:** In Kotlin 1.2.20, new style guide rules were implemented. The new Kotlin style guide is
-significantly more detailed than before and IntelliJ knows how to implement those rules. Re-formatting the codebase creates a lot of
-diffs that make merging more complicated
-* **Things to consider when writing CLI apps:** Make sure any changes to CLI applications conform to the [CLI UX Guide](cli-ux-guidelines.md)
+* **Use error handling best practices:** Errors should not leak into the UI. Add `try`/`catch` blocks when writing tools intended for end users, like the
+node or command line tools. Write meaningful error messages. For example, instead of throwing an
+`OutOfMemoryError`, indicate that a file is missing, a network socket was unreachable, etc. Tools should not show stack traces to the end user.
+* **Look for API breaks:** We have an automated checker tool that runs as part of our continuous integration pipeline, but
+it can’t catch semantic changes where the behavior of an API changes in ways that might violate app developer expectations.
+* **Suppress inevitable compiler warnings:** Compiler warnings should have a `@Suppress` annotation if they are expected and cannot be avoided.
+* **Remove deprecated functionality:** Make sure you remove deprecated uses in the codebase.
+* **Avoid making formatting changes as you work:** New style guide rules were implemented in Kotlin 1.2.20. The new Kotlin style guide is significantly more detailed and IntelliJ knows how to implement the new rules. Re-formatting the codebase creates a lot of diffs that make merging more complicated.
+* **Things to consider when writing CLI apps:** Make sure any changes to CLI applications conform to the [CLI UX Guide](cli-ux-guidelines.md).
 
 
 ### Extending the flow state machine
@@ -111,80 +97,60 @@ If you are interested in extending the flow state machine, you can find instruct
 
 ## Testing the changes
 
-You should test your changes as follows:
+To test your changes:
 
-
-* **Add tests**: Unit tests and integration tests for external API changes must cover Java and Kotlin. For internal API changes these
-tests can be scaled back to Kotlin only
-* **Run the tests**: Your changes must pass the tests described [here](testing.md)
-* **Perform manual testing**: Before sending that code for review, spend time poking and prodding the tool and thinking, “Would the
-experience of using this feature make my mum proud of me?”. Automated tests are not a substitute for dogfooding
-* **Build against the selected development branch**: You can test your changes against CorDapps defined in other repos by following the instructions
-[here](building-against-non-release.md)
-* **Run the API scanner**: Your changes must also not break compatibility with existing public API. We have an API scanning tool which
-runs as part of the build process which can be used to flag up any accidental changes, which is detailed [here](api-scanner.md)
+1.  **Add tests**: Unit tests and integration tests for external API changes must cover Java and Kotlin. For internal API changes these
+tests can be scaled back to Kotlin only.
+2.  **Run the tests**: Your changes must pass [these tests](testing.md).
+3.  **Perform manual testing**: Before you send code for review, test the user experience manually. Automated tests are not a substitute for dogfooding.
+4.  **Build against the selected development branch**: You can [test your changes against CorDapps defined in other repos](building-against-non-release.md).
+5.  **Run the API scanner**: Your changes must not break compatibility with existing public API. We have an [API scanning tool](api-scanner.md) that
+runs as part of the build process. Use this to flag any accidental changes.
 
 
 ## Updating the docs
 
-You should document any changes to Corda’s public API as follows:
+Document any changes to Corda’s public API:
 
 
-* Add comments and javadocs/kdocs. API functions must have javadoc/kdoc comments and sentences must be terminated
-with a full stop. We also start comments with capital letters, even for inline comments. Where Java APIs have
-synonyms (e.g. `%d` and `%date`), we prefer the longer form for legibility reasons. You can configure your IDE
-to highlight these in bright yellow
-* Update the relevant .rst file(s)
-* Include the change in the [Release Notes](release-notes.md) if the change is external and therefore visible to CorDapp
-developers and/or node operators
-* [Build the docs locally](building-the-docs.md) and check that the resulting .html files (under `docs/build/html`) for the modified
-render correctly
-* If relevant, add a sample. Samples are one of the key ways in which users learn about what the platform can do.
-If you add a new API or feature and don’t update the samples, your work will be much less impactful
+1. Add comments and javadocs/kdocs. API functions must have javadoc/kdoc comments and sentences must be terminated
+with a full stop. We also start comments with capital letters, even for inline comments. Where Java APIs have synonyms (e.g. `%d` and `%date`), we prefer the longer form for legibility reasons. You can configure your IDE
+to highlight these in yellow.
+2. Update the relevant .rst file(s).
+3. Include the change in the [changelog](changelog.md) if the change is external and therefore visible to CorDapp
+developers and/or node operators.
+4. [Build the docs locally](building-the-docs.md) and check that the resulting .html files (under `docs/build/html`) for the modified
+render correctly.
+5. If relevant, add a sample. Samples are one of the key ways users learn what the platform can do.
+If you add a new API or feature and don’t update the samples, your work will have less impact.
 
 
-## Merging the changes back into Corda
+## Merging the changes into Corda
 
 You should merge the changes back into Corda as follows:
 
 
-* Create a pull request from your fork to the equivalent branch of the Corda repo
-* In the PR comments box:
+1. Create a pull request (PR) from your fork to the equivalent branch of the Corda repo.
 
+2. Complete the PR checklist in the **comments box**.
+    * Have you run [unit, integration and smoke tests](https://docs.corda.net/head/testing.html)?
+    * If you added/changed public APIs, did you write/update the JavaDocs?
+    * If the changes are of interest to application developers, have you added them to the changelog and release notes where applicable?
+    * If you are contributing for the first time, please read the contribution guidelines above and indicate your agreement.
 
-
-* Complete the pull-request checklist:
-    * [ ] Have you run the unit, integration and smoke tests as described here? [https://docs.corda.net/testing.html](https://docs.corda.net/testing.html)
-    * [ ] If you added/changed public APIs, did you write/update the JavaDocs?
-    * [ ] If the changes are of interest to application developers, have you added them to the Release Notes?
-    * [ ] If you are contributing for the first time, please read the agreement in CONTRIBUTING.md now and add to this
-Pull Request that you agree to it.
-
-
-* Add a clear description of the purpose of the PR
-* Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in
+3. Add a clear **description** of the purpose of the PR.
+4. Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in
 accordance with the Developer Certificate of Origin ([https://developercertificate.org/](https://developercertificate.org/)).”
 
+5. Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
+the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly. The reviewer will either:
+    * Accept and merge your PR
+    * Leave comments requesting changes via the GitHub PR interface
+
+6. Make the changes by pushing directly to your existing PR branch. The PR updates automatically.
+7. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.4/CONTRIBUTORS.md)>. The format is generally `firstname surname (company)`. You can omit the company name.
 
 
-* Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com) or contacting one of
-the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly
-* The reviewer will either:
-
-
-
-* Accept and merge your PR
-* Leave comments requesting changes via the GitHub PR interface
-    * You should make the changes by pushing directly to your existing PR branch. The PR will be updated automatically
-
-
-
-
-
-* (Optional) Open an additional PR to add yourself to the
-[contributors list](https://github.com/corda/corda/blob/release/os/4.7/CONTRIBUTORS.md)
-
-* The format is generally `firstname surname (company)`, but the company can be omitted if desired
 
 
 ## Large contributions
@@ -224,8 +190,7 @@ The process for contributing a large change to Corda is as follows:
 
 ## Developer Certificate of Origin
 
-All contributions to this project are subject to the terms of the Developer Certificate of Origin, available
-[here](https://developercertificate.org/) and reproduced below:
+All contributions to this project are subject to the terms of the [Developer Certificate of Origin](https://developercertificate.org/) reproduced below:
 
 ```none
 Developer Certificate of Origin
