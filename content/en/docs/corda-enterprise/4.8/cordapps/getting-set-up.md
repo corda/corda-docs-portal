@@ -14,13 +14,13 @@ weight: 10
 
 ---
 
-# Getting set up for CorDapp development
+# Get set up for CorDapp development
 
-There are four pieces of required software for CorDapp development: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle.
+Before you can start developing CorDapps, you need to download four pieces of software: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle.
 
-## Installing the Java 8 JDK
+## Step 1: Install the Java 8 JDK
 
-Install the Java 8 JDK. Corda requires at least version 8u171, but do not currently support Java 9 or higher for this version of Corda.
+Install the Java 8 JDK. Corda requires at least version 8u171, but does not currently support Java 9 or higher.
 
 Corda has been tested against the following Java builds:
 
@@ -35,33 +35,36 @@ Corda has been tested against the following Java builds:
 
 If you are using Windows, you must also add Java to the PATH environment variable by following the instructions in the [Oracle documentation](https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html#path).
 
-## Installing the IntelliJ IDEA
+## Step 2: Install IntelliJ IDEA
 
-IntelliJ is an IDE that offers strong support for Kotlin and Java development.
+IntelliJ IDEA is an integrated development environment (IDE) that offers strong support for Kotlin and Java development.
 
 Install the [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/). Corda supports IntelliJ IDEA versions **2017.x**, **2018.x**, **2019.x**, and **2020.x**; and Kotlin plugin version 1.2.71.
 
 
-To install IntelliJ IDEA in a Ubuntu environment, navigate to the [Jetbrains IntelliJ snap package](https://snapcraft.io/intellij-idea-community).
+To install IntelliJ IDEA in a Ubuntu environment, go to the [Jetbrains IntelliJ snap package](https://snapcraft.io/intellij-idea-community).
 
-## Installing Git
+## Step 3: Install Git
 
 We use Git to host our sample CorDapp and provide version control.
 
-To install Git, navigate to [Git](https://git-scm.com/) and install your preferred version, depending on your OS.
+To install Git, go to [Git](https://git-scm.com/) and install the version for your operating system.
 
-## Installing Gradle
+## Step 4: Install Gradle
 
-If you intend to proceed directly to run a sample CorDapp, as described in [Running a sample CorDapp](tutorial-cordapp.md), the included `gradlew` script should install Gradle automatically when you open the sample CorDapp in IntelliJ.
+Gradle is a build automation tool for multi-language software development. It controls the development process in the tasks of compilation and packaging to testing, deployment, and publishing.
 
-If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.org/releases/) then locate and install Gradle **version 5.6.4**. Corda requires a Gradle version between 5.1 and 5.6.4, and does not support Gradle 6.x.
+* If you [run the sample CorDapp](tutorial-cordapp.md), the included `gradlew` script installs Gradle automatically when you open the sample CorDapp in IntelliJ.
+* If you plan to start developing your own CorDapp straight away, install Gradle manually. Go to [Gradle](https://gradle.org/releases/), then locate and install Gradle **version 5.6.4**. Corda requires a Gradle version between 5.1 and 5.6.4, and does not support Gradle 6.x.
 
-## Next steps
+You now have everything you need to develop CorDapps. If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://slack.corda.net/).
 
-First, run the [sample CorDapp](tutorial-cordapp.md).
+## Step 5 *(opional)*: Run a sample CorDapp
 
-Then, you’ll be ready to start writing your own CorDapps. You may want to refer to the
-API documentation, the [flow cookbook](flow-cookbook.md) and the
-[samples](https://www.corda.net/samples/) along the way.
+We recommend [running a sample CorDapp](tutorial-cordapp.md) to see Corda in action before you start developing.
 
-If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://slack.corda.net/).
+## Resources
+
+* [Sample CorDapps, templates, and community projects](https://www.corda.net/samples/).
+* [Corda API documentation](https://api.corda.net/).
+* [Flow cookbook](flow-cookbook.md).
