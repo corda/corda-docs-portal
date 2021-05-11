@@ -66,21 +66,21 @@ These components work together to let the CorDapp communicate with other nodes a
 ## An example CorDapp
 
 In this example, we’ll examine the components of a CorDapp designed to trade bonds. This CorDapp would be deployed by all
-Node owners wishing to establish a business network to trade bonds.
+node owners wishing to establish a business network to trade bonds.
 
 There are several components required for the minimum implementation of this CorDapp. First are the three required flows:
 
-* An issuance flow, for example `IssueBondFlow`, to allow new bonds to be issued onto the ledger
-* A bond trading flow, `TradeBondFlow`, where bonds already issued can be exchanged between parties
-* An exit flow, `ExitBondFlow` where bonds can be exited from the ledger
+* An *issuance flow*, for example `IssueBondFlow`, to allow new bonds to be issued onto the ledger
+* A *bond trading flow*, `TradeBondFlow`, where bonds already issued can be exchanged between parties
+* An *exit flow*, `ExitBondFlow` where bonds can be exited from the ledger
 
-These three flows allow for a basic lifecycle of bond creation, trading, and exiting between the transacting parties.
-However, there are several more components that are required in order to implement this CorDapp:
+These three flows enable a basic lifecycle of bond creation, trading, and exiting between the transacting parties.
+However, we must create two more components to implement this CorDapp:
 
-* A state must be created to represent the bonds, `BondState`, this state is what will be issued, traded, and exited by the flows
-* A `BondContract` must also be created to define the rules defining valid transactions
+* A *state* to represent the bonds, `BondState`. This state is what will be issued, traded, and exited by the flows.
+* A `BondContract` that defines the rules for valid transactions.
 
-Each node owner will install this CorDapp onto their node, and can then issue, trade, and exit bonds with other node owners.
+Each node owner installs this CorDapp onto their node. They can then issue, trade, and exit bonds with other node owners.
 
 ## Key takeaways
 
