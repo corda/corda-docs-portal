@@ -78,7 +78,7 @@ These three flows enable a basic lifecycle of bond creation, trading, and exitin
 However, we must create two more components to implement this CorDapp:
 
 * A *state* to represent the bonds, `BondState`. This state is what will be issued, traded, and exited by the flows.
-* A `BondContract` that defines the rules for valid transactions.
+* A *bond contract* that defines the rules for valid transactions, `BondContract`. 
 
 Each node owner installs this CorDapp onto their node. They can then issue, trade, and exit bonds with other node owners.
 
