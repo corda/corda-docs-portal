@@ -78,7 +78,7 @@ These three flows enable a basic lifecycle of bond creation, trading, and exitin
 However, we must create two more components to implement this CorDapp:
 
 * A *state* to represent the bonds, `BondState`. This state is what will be issued, traded, and exited by the flows.
-* A *bond contract* that defines the rules for valid transactions, `BondContract`. 
+* A *bond contract* that defines the rules for valid transactions, `BondContract`.
 
 Each node owner installs this CorDapp onto their node. They can then issue, trade, and exit bonds with other node owners.
 
@@ -89,3 +89,10 @@ CorDapps are:
 * Distributed applications that can run on multiple systems simultaneously.
 * A set of `.jar` files containing Java or Kotlin class definitions.
 * Made up of components that work together to let nodes communicate and agree on updates to the shared ledger.
+
+## Next steps
+
+Ready to get started with CorDapps?
+
+* [Get set up for CorDapp development](getting-set-up.md)
+* [Run a sample CorDapp](tutorial-cordapp.md)

@@ -21,7 +21,7 @@ weight: 20
 ---
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try building your own.
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own](quickstart-build.md), modifying a [template](https://www.corda.net/samples/), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](../node/component-topology.md/).
 
@@ -102,27 +102,7 @@ You will see the following output:
       * A `runnodes` shell script for running all the nodes simultaneously on OSX
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-    Each node in the `nodes` folder is structured as follows:
-
-```none
-. nodeName
-├── additional-node-infos  //
-├── certificates
-├── corda.jar              // The Corda node runtime
-├── cordapps               // The node's CorDapps
-│   ├── config
-│   ├── corda-example-contracts-0.1.jar
-│   └── corda-example-workflows-0.1.jar
-├── djvm
-├── drivers
-├── logs
-├── network-parameters
-├── node.conf              // The node's configuration file
-├── nodeInfo-<HASH>        // The hash will be different each time you generate a node
-├── persistence.mv.db      // The node's database
-└── persistence.trace.db   // The node's database
-```
-
+    See **Appendix B** for the node structure.
 
 
 {{< note >}}
@@ -331,14 +311,12 @@ If your test fails, run a Gradle test instead of a unit test.
 7. Select the **Gradle icon** to run your test.
 
 
-
 ##Related Content
 
 * [Debugging a CorDapp](debugging-a-cordapp.md)
 * [Writing a CorDapp](writing-a-cordapp.md)
 * [Quickstart build](quickstart-build.md)
 * [Quickstart deploy](quickstart deploy.md)
-
 
 
 ## Appendix A: Project structure
@@ -476,3 +454,26 @@ The key files and directories are as follows:
 * **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin
 * **gradle** contains the gradle wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required
 * **lib** contains the Quasar jar, which rewrites our CorDapp’s flows to be checkpointable
+
+## Appendix B: Node structure
+
+Each node in the `nodes` folder is structured as follows:
+
+```none
+. nodeName
+├── additional-node-infos  //
+├── certificates
+├── corda.jar              // The Corda node runtime
+├── cordapps               // The node's CorDapps
+│   ├── config
+│   ├── corda-example-contracts-0.1.jar
+│   └── corda-example-workflows-0.1.jar
+├── djvm
+├── drivers
+├── logs
+├── network-parameters
+├── node.conf              // The node's configuration file
+├── nodeInfo-<HASH>        // The hash will be different each time you generate a node
+├── persistence.mv.db      // The node's database
+└── persistence.trace.db   // The node's database
+```

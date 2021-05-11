@@ -16,7 +16,7 @@ weight: 10
 
 # Get set up for CorDapp development
 
-Before you can start developing CorDapps, you need to download four pieces of software: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle.
+Before you start developing CorDapps, you need to download four pieces of software: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle.
 
 ## Step 1: Install the Java 8 JDK
 
