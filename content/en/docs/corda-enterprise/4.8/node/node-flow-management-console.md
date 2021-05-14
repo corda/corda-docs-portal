@@ -1,6 +1,5 @@
 ---
-title: "Flow management console"
-linkTitle: "Flow management console"
+date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-corda-nodes-operating
@@ -11,6 +10,7 @@ tags:
 title: Flow management console
 weight: 155
 ---
+
 # Flow management console
 
 The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway Service](gateway-service.md).
