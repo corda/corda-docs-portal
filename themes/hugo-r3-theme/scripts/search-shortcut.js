@@ -1,6 +1,6 @@
 import { debounce } from "lodash-es";
 export function searchShortcut() {
-    const pressForwardSlash = debounce(function(searchBar) {
+    const pressForwardSlash = debounce(function (searchBar) {
         searchBar.focus();
     }, 400);
 
@@ -8,7 +8,7 @@ export function searchShortcut() {
     const searchBar = document.querySelector("#search-input");
 
     if (searchBar) {
-        body.addEventListener("keydown", e => {
+        body.addEventListener("keydown", (e) => {
             if (e.key === "/" && e.target !== searchBar) {
                 e.preventDefault();
                 pressForwardSlash(searchBar);

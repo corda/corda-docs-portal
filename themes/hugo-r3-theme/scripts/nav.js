@@ -18,7 +18,7 @@ export function activateListeners() {
         );
     }
     if (navTransparent) {
-        navTransparent.addEventListener("click", e => {
+        navTransparent.addEventListener("click", (e) => {
             if (e.target === navTransparent) {
                 nav.classList.toggle("show-nav");
                 navTransparent.classList.remove("show-nav");
@@ -26,13 +26,10 @@ export function activateListeners() {
         });
     }
     if (tocDrop) {
-        tocDrop.addEventListener(
-            "click",
-            e => {
-                if(e.target.hash) {
-                    setTimeout(()=> tocToggle.click(), 500);
-                }
+        tocDrop.addEventListener("click", (e) => {
+            if (e.target.hash) {
+                setTimeout(() => tocToggle.click(), 500);
             }
-        );
+        });
     }
 }

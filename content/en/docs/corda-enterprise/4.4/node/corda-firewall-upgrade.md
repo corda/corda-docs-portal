@@ -166,7 +166,7 @@ outboundConfig {
     artemisBrokerAddress = "nodeserver:11005"
 }
 bridgeInnerConfig {
-    floatAddress = [ "dmzinternal:12005" ]
+    floatAddresses = [ "dmzinternal:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     customSSLConfiguration {
         keyStorePassword = "bridgepass"
@@ -191,7 +191,7 @@ outboundConfig {
     artemisBrokerAddress = "nodeserver:11005"
 }
 bridgeInnerConfig {
-    floatAddress = [ "dmzinternal:12005" ]
+    floatAddresses = [ "dmzinternal:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     tunnelSSLConfiguration {
         keyStorePassword = "bridgepass"
@@ -222,7 +222,7 @@ inboundConfig {
     listeningAddress = "dmzexternal:10005"
 }
 floatOuterConfig {
-    floatAddress = [ "dmzinternal:12005" ]
+    floatAddresses = [ "dmzinternal:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     customSSLConfiguration {
         keyStorePassword = "floatpass"
@@ -243,7 +243,7 @@ inboundConfig {
     listeningAddress = "dmzexternal:10005"
 }
 floatOuterConfig {
-    floatAddress = [ "dmzinternal:12005" ]
+    floatAddresses = [ "dmzinternal:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     tunnelSSLConfiguration {
         keyStorePassword = "floatpass"
@@ -370,7 +370,7 @@ outboundConfig {
     alternateArtemisBrokerAddresses = ["nodeserver2:11005"]
 }
 bridgeInnerConfig {
-    floatAddress = [ "dmzinternal1:12005", "dmzinternal2:12005" ]
+    floatAddresses = [ "dmzinternal1:12005", "dmzinternal2:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     customSSLConfiguration {
         keyStorePassword = "bridgepass"
@@ -400,7 +400,7 @@ outboundConfig {
     alternateArtemisBrokerAddresses = ["nodeserver2:11005"]
 }
 bridgeInnerConfig {
-    floatAddress = [ "dmzinternal1:12005", "dmzinternal2:12005" ]
+    floatAddresses = [ "dmzinternal1:12005", "dmzinternal2:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     tunnelSSLConfiguration {
         keyStorePassword = "bridgepass"
@@ -435,7 +435,7 @@ inboundConfig {
     listeningAddress = "dmzexternal1:10005"
 }
 floatOuterConfig {
-    floatAddress = [ "dmzinternal1:12005" ]
+    floatAddresses = [ "dmzinternal1:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     customSSLConfiguration {
         keyStorePassword = "floatpass"
@@ -456,7 +456,7 @@ inboundConfig {
     listeningAddress = "dmzexternal1:10005"
 }
 floatOuterConfig {
-    floatAddress = [ "dmzinternal1:12005" ]
+    floatAddresses = [ "dmzinternal1:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     tunnelSSLConfiguration {
         keyStorePassword = "floatpass"
@@ -482,7 +482,7 @@ inboundConfig {
     listeningAddress = "dmzexternal2:10005"
 }
 floatOuterConfig {
-    floatAddress = [ "dmzinternal2:12005" ]
+    floatAddresses = [ "dmzinternal2:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     customSSLConfiguration {
         keyStorePassword = "floatpass"
@@ -503,7 +503,7 @@ inboundConfig {
     listeningAddress = "dmzexternal2:10005"
 }
 floatOuterConfig {
-    floatAddress = [ "dmzinternal2:12005" ]
+    floatAddresses = [ "dmzinternal2:12005" ]
     expectedCertificateSubject = "CN=Float Local,O=Local Only,L=London,C=GB"
     tunnelSSLConfiguration {
         keyStorePassword = "floatpass"
