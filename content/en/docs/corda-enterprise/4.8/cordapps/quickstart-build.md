@@ -4,11 +4,11 @@ menu: []
 tags:
 - quickstart
 - build
-title: Building your own CorDapp
+title: Build a CorDapp from a template
 weight: 2
 ---
 
-# Building your own CorDapp
+# Build a CorDapp from a template
 
 After examining a functioning CorDapp, the next challenge is to create one of your own. We’re going to build a simple supply chain CorDapp representing a network between a car dealership, a car manufacturer, and a bank.
 
