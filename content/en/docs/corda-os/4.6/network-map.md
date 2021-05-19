@@ -101,10 +101,10 @@ More information can be found in [Network Bootstrapper](network-bootstrapper.md)
 
 ## Network parameters
 
-Network parameters are a set of values that every node participating in the zone needs to agree on and use to
+*Network parameters* are a set of values that every node participating in the zone needs to agree on and use to
 correctly interoperate with each other. They can be thought of as an encapsulation of all aspects of a Corda deployment
-on which reasonable people may disagree. Whilst other blockchain/DLT systems typically require a source code fork to
-alter various constants (like the total number of coins in a cryptocurrency, port numbers to use etc), in Corda we
+on which reasonable people may disagree. While other blockchain/DLT systems typically require a source code fork to
+alter various constants (like the total number of coins in a cryptocurrency or port numbers to use), in Corda we
 have refactored these sorts of decisions out into a separate file and allow “zone operators” to make decisions about
 them. The operator signs a data structure that contains the values and they are distributed along with the network map.
 Tools are provided to gain user opt-in consent to a new version of the parameters and ensure everyone switches to them
@@ -186,23 +186,23 @@ connectivity is required for zone members, required cryptographic algorithms and
 
 ## Network parameters update process
 
-Network parameters are controlled by the zone operator of the Corda network that you are a member of. Occasionally, they may need to change
-these parameters. There are many reasons that can lead to this decision: adding a notary, setting new fields that were added to enable
-smooth network interoperability, or a change of the existing compatibility constants is required, for example.
+The zone operator of your Corda network controls the network parameters. Occasionally, they may need to change
+these parameters. For example, they may need to add a notary, set new fields to enable
+smooth network interoperability, or change the existing compatibility constants.
 
-Updating of the parameters by the zone operator is done in two phases:
-1. Advertise the proposed network parameter update to the entire network.
-2. Switching the network onto the new parameters - also known as a *flag day*.
+The zone operator updates the parameters by:
+1. Advertising the proposed network parameter update to the entire network.
+2. Switching the network onto the new parameters. This is known as a *flag day*.
 
-The proposed parameter update will include, along with the new parameters, a human-readable description of the changes as well as the
-deadline for accepting the update. The acceptance deadline marks the date and time that the zone operator intends to switch the entire
+The proposed parameter update includes, a human-readable description of the changes and the
+deadline for accepting the update. The acceptance deadline is the date and time that the zone operator intends to switch the entire
 network onto the new parameters. This will be a reasonable amount of time in the future, giving the node operators time to inspect,
-discuss and accept the parameters.
+discuss, and accept the parameters.
 
-The fact a new set of parameters is being advertised shows up in the node logs with the message
-“Downloaded new network parameters”, and programs connected via RPC can receive `ParametersUpdateInfo` by using
-the `CordaRPCOps.networkParametersFeed` method. Typically a zone operator would also email node operators to let them
-know about the details of the impending change, along with the justification, how to object, deadlines and so on.
+When the zone operator advertises a new set of parameters, the proposed update shows up in the node logs with the message
+“Downloaded new network parameters”. Programs connected via RPC can receive `ParametersUpdateInfo` using
+the `CordaRPCOps.networkParametersFeed` method. Typically, a zone operator also emails node operators to let them
+know about the details of the impending change, along with the justification, how to object, and  deadlines.
 
 ```kotlin
 /**
@@ -338,3 +338,11 @@ java -jar corda.jar clear-network-cache
 or call RPC method *clearNetworkMapCache* (it can be invoked through the node’s shell as *run clearNetworkMapCache*, for more information on
 how to log into node’s shell see [Node shell](shell.md)). As we are testing and hardening the implementation this step shouldn’t be required.
 After cleaning the cache, network map data is restored on the next poll from the server or filesystem.
+
+## Add a new notary after the network map is running
+
+If you need to add a new notary after the network map is running:
+1. Register the notary.
+2. Update `network-parameters.conf`.
+3. Set new network parameters.
+4. Sign the new `network-parameter`.
