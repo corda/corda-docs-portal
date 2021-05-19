@@ -234,7 +234,7 @@ The command doesn’t alter any tables itself.
 
 {{< note >}}
 
-If your DDL and DML statements are run separately - DB admin runs DDL and an app user runs DML, you need to manually separate DDL and DML statements into separate scripts.
+If your DDL and DML statements are run separately (for example, if the DB admin runs DDL and an app user runs DML) you need to manually separate the DDL and DML statements into separate scripts.
 
 {{< /note >}}
 
