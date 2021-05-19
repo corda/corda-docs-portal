@@ -269,7 +269,7 @@ An accidental re-run of the scripts will fail (as the tables are already there),
 
 {{< note >}}
 
-You do not need to perform this step for databases other than H2 database.
+You only need to perform this step for the H2 database.
 
 {{< /note >}}
 
