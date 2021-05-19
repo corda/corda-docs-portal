@@ -1,19 +1,20 @@
-import CookiesEuBanner from './vendor/cookies-eu-banner';
-import { googleAnalytics } from './vendor/googleanalytics';
-import { docSearchInit } from './vendor/doc-search';
+import CookiesEuBanner from "./vendor/cookies-eu-banner";
+import { googleAnalytics } from "./vendor/googleanalytics";
+import { docSearchInit } from "./vendor/doc-search";
 
 const docsearchLoad = (resolve, reject) => {
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     document.body.appendChild(script);
     script.onload = resolve;
     script.onerror = reject;
     script.async = true;
-    script.src = "https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js";
+    script.src =
+        "https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js";
 };
 
 export class DocsiteCookies {
     constructor() {
-        this.name = 'corda_cookie';
+        this.name = "corda_cookie";
         this.cookiesAccepted = {
             set: true,
             necessary: true,
@@ -21,7 +22,7 @@ export class DocsiteCookies {
             statistics: false,
             marketing: false
         };
-        this.form = document.querySelector('#cookie-consent-form');
+        this.form = document.querySelector("#cookie-consent-form");
         this.handleAllCookies();
 
         new CookiesEuBanner(() => {
@@ -30,10 +31,12 @@ export class DocsiteCookies {
     }
 
     handleAllCookies() {
-        const acceptButton = document.querySelector('#cookies-eu-accept');
-        const allCookiesButton = document.querySelector('#cookies-eu-accept-all');
+        const acceptButton = document.querySelector("#cookies-eu-accept");
+        const allCookiesButton = document.querySelector(
+            "#cookies-eu-accept-all"
+        );
 
-        allCookiesButton.addEventListener('click', e => {
+        allCookiesButton.addEventListener("click", (e) => {
             e.preventDefault();
             this.allowAllCookies(this.form);
             acceptButton.click();
@@ -50,9 +53,9 @@ export class DocsiteCookies {
     }
 
     allowAllCookies(form) {
-        let cookiePreferences = form.querySelectorAll('.cookies-checkbox');
+        let cookiePreferences = form.querySelectorAll(".cookies-checkbox");
         for (let cookie of cookiePreferences) {
-            cookie.querySelector('input').checked = true;
+            cookie.querySelector("input").checked = true;
         }
     }
 
@@ -66,24 +69,20 @@ export class DocsiteCookies {
         for (var pair of formData.entries()) {
             switch (pair[0]) {
                 case "necessary":
-                    this.cookiesAccepted.necessary = (pair[1] === 'on') ?
-                        true :
-                        false;
+                    this.cookiesAccepted.necessary =
+                        pair[1] === "on" ? true : false;
                     break;
                 case "preferences":
-                    this.cookiesAccepted.preferences = (pair[1] === 'on') ?
-                        true :
-                        false;
+                    this.cookiesAccepted.preferences =
+                        pair[1] === "on" ? true : false;
                     break;
                 case "statistics":
-                    this.cookiesAccepted.statistics = (pair[1] === 'on') ?
-                        true :
-                        false;
+                    this.cookiesAccepted.statistics =
+                        pair[1] === "on" ? true : false;
                     break;
                 case "marketing":
-                    this.cookiesAccepted.marketing = (pair[1] === 'on') ?
-                        true :
-                        false;
+                    this.cookiesAccepted.marketing =
+                        pair[1] === "on" ? true : false;
                     break;
                 default:
                     break;
@@ -128,14 +127,14 @@ export class DocsiteCookies {
     setAdditionalServices() {
         let cookieConsent = this.getCookie(this.name);
         for (let [key, value] of Object.entries(cookieConsent)) {
-            if (key === 'necessary' && value === true) {
+            if (key === "necessary" && value === true) {
                 new Promise(docsearchLoad)
                     .then(() => {
                         docSearchInit();
                     })
-                    .catch(err => console.log(err));
+                    .catch((err) => console.log(err));
             }
-            if (key === 'statistics' && value === true) {
+            if (key === "statistics" && value === true) {
                 googleAnalytics();
             }
         }
@@ -143,12 +142,11 @@ export class DocsiteCookies {
 }
 
 function hasJsonStructure(str) {
-    if (typeof str !== 'string') return false;
+    if (typeof str !== "string") return false;
     try {
         const result = JSON.parse(str);
         const type = Object.prototype.toString.call(result);
-        return type === '[object Object]' ||
-            type === '[object Array]';
+        return type === "[object Object]" || type === "[object Array]";
     } catch (err) {
         return false;
     }

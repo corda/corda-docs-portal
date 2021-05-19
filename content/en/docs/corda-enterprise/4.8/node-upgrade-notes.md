@@ -227,7 +227,7 @@ The option `-b` points to the base directory (which contains a `node.conf` file,
 
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
-A script named `migrationYYYYMMDDHHMMSS.sql` containing DDL and DML will be generated in the current directory.
+A script named `migrationYYYYMMDDHHMMSS.sql` containing DDL and DML statements will be generated in the current directory.
 This script will contain all the statements required to modify and create data structures (for example, tables/indexes),
 and updates the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables itself.
