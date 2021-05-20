@@ -19,7 +19,7 @@ This document:
 
 # What is a CorDapp?
 
-Corda Distributed Applications (CorDapps) are apps that are stored and executed on the Corda platform. This *distributes* the app, allowing it to run on multiple systems simultaneously—unlike traditional apps, which utilize one dedicated system to achieve an assigned task. CorDapps let nodes communicate with each other to reach agreement on updates to the ledger by defining flows that Corda node owners can invoke over RPC:
+Corda Distributed Applications (CorDapps) are apps that are stored on Corda nodes and executed on the Corda network. This *distributes* the app, allowing it to run on multiple systems simultaneously—unlike traditional apps, which utilize one dedicated system to achieve an assigned task. CorDapps let nodes communicate with each other to reach agreement on updates to the ledger by defining flows that Corda node owners can invoke over RPC:
 
 {{< figure alt="node diagram" zoom="../resources/node-diagram.png" >}}
 
