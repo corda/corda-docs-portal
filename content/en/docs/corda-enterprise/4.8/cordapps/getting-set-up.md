@@ -18,7 +18,7 @@ weight: 10
 
 Before you start developing CorDapps, you need to download four pieces of software: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle.
 
-## Step 1: Install the Java 8 JDK
+## Install the Java 8 JDK
 
 Install the Java 8 JDK. Corda requires at least version 8u171, but does not currently support Java 9 or higher.
 
@@ -35,7 +35,7 @@ Corda has been tested against the following Java builds:
 
 If you are using Windows, you must also add Java to the PATH environment variable by following the instructions in the [Oracle documentation](https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html#path).
 
-## Step 2: Install IntelliJ IDEA
+## Install IntelliJ IDEA
 
 IntelliJ IDEA is an integrated development environment (IDE) that offers strong support for Kotlin and Java development.
 
@@ -44,13 +44,13 @@ Install the [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/). 
 
 To install IntelliJ IDEA in a Ubuntu environment, go to the [Jetbrains IntelliJ snap package](https://snapcraft.io/intellij-idea-community).
 
-## Step 3: Install Git
+## Install Git
 
 We use Git to host our sample CorDapp and provide version control.
 
 To install Git, go to [Git](https://git-scm.com/) and install the version for your operating system.
 
-## Step 4: Install Gradle
+## Install Gradle
 
 Gradle is a build automation tool for multi-language software development. It controls the development process in the tasks of compilation and packaging to testing, deployment, and publishing.
 
@@ -59,7 +59,7 @@ Gradle is a build automation tool for multi-language software development. It co
 
 You now have everything you need to develop CorDapps. If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://slack.corda.net/).
 
-## Step 5 *(opional)*: Run a sample CorDapp
+## Run a sample CorDapp *(optional)*
 
 We recommend [running a sample CorDapp](tutorial-cordapp.md) to see Corda in action before you start developing.
 
