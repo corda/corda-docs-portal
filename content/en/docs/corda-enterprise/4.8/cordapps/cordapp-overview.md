@@ -11,13 +11,23 @@ title: What is a CorDapp?
 weight: 20
 ---
 
+# What is a CorDapp?
+
 This document:
 
 * Explains what a CorDapp is and what it does.
 * Defines CorDapp components and their functions.
 * Gives an example of a CorDapp, so you can see how the components work together.
 
-# What is a CorDapp?
+## Summary
+
+CorDapps are:
+
+* Distributed applications that can be distributed on the Corda Network.
+* A set of `.jar` files containing Java or Kotlin class definitions.
+* Made up of components that work together to let nodes communicate and agree on updates to the shared ledger.
+
+## What is a CorDapp?
 
 Corda Distributed Applications (CorDapps) are apps that are stored on Corda nodes and executed on the Corda network. This *distributes* the app, allowing it to run on multiple systems simultaneously—unlike traditional apps, which utilize one dedicated system to achieve an assigned task. CorDapps let nodes communicate with each other to reach agreement on updates to the ledger by defining flows that Corda node owners can invoke over RPC:
 
@@ -81,17 +91,11 @@ However, we must create two more components to implement this CorDapp:
 
 Each node owner installs this CorDapp onto their node. They can then issue, trade, and exit bonds with other node owners.
 
-## Key takeaways
-
-CorDapps are:
-
-* Distributed applications that can run on multiple systems simultaneously.
-* A set of `.jar` files containing Java or Kotlin class definitions.
-* Made up of components that work together to let nodes communicate and agree on updates to the shared ledger.
 
 ## Next steps
 
 Ready to get started with CorDapps?
 
-* [Get set up for CorDapp development](getting-set-up.md)
-* [Run a sample CorDapp](tutorial-cordapp.md)
+* [Get set up for CorDapp development](getting-set-up.md).
+* [Run a sample CorDapp](tutorial-cordapp.md).
+* [Build a CorDapp](cordapp-build-systems.md).
