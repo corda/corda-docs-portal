@@ -13,9 +13,9 @@ weight: 20
 
 This document:
 
-* Explains what a CorDapp is and what it does
-* Defines CorDapp components and their functions
-* Gives an example of a CorDapp, so you can see how the components work together
+* Explains what a CorDapp is and what it does.
+* Defines CorDapp components and their functions.
+* Gives an example of a CorDapp, so you can see how the components work together.
 
 # What is a CorDapp?
 
@@ -26,7 +26,7 @@ Corda Distributed Applications (CorDapps) are apps that are stored and executed 
 ## Glossary
 
 *Flows*
-  FLows are routines for nodes to run. They can perform a variety of tasks, usually involving ledger updates. Flows
+  Flows are routines for nodes to run. They can perform a variety of tasks, usually involving ledger updates. Flows
   subclass `FlowLogic`. For more information on flows, see [Writing CorDapp Flows](api-flows.md).
 
 *States*
@@ -47,7 +47,7 @@ Corda Distributed Applications (CorDapps) are apps that are stored and executed 
 
 ## CorDapp components
 
-CorDapps are a set of `.jar` files containing class definitions written in Java and/or Kotlin. These definitions function as a blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type.
+A CorDapp is a set of `.jar` files containing class definitions written in Java and/or Kotlin. These definitions function as a blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type.
 
 These class definitions usually include:
 
@@ -70,9 +70,9 @@ node owners wishing to establish a business network to trade bonds.
 
 There are several components required for the minimum implementation of this CorDapp. First are the three required flows:
 
-* An *issuance flow*, for example `IssueBondFlow`, to allow new bonds to be issued onto the ledger
-* A *bond trading flow*, `TradeBondFlow`, where bonds already issued can be exchanged between parties
-* An *exit flow*, `ExitBondFlow` where bonds can be exited from the ledger
+* An *issuance flow*, for example `IssueBondFlow`, to allow new bonds to be issued onto the ledger.
+* A *bond trading flow*, `TradeBondFlow`, where bonds already issued can be exchanged between parties.
+* An *exit flow*, `ExitBondFlow` where bonds can be exited from the ledger.
 
 These three flows enable a basic lifecycle of bond creation, trading, and exiting between the transacting parties.
 However, we must create two more components to implement this CorDapp:
