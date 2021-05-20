@@ -21,14 +21,14 @@ weight: 20
 ---
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own](quickstart-build.md), modifying a [template](https://www.corda.net/samples/), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own](https://docs.corda.net/docs/corda-os/4.8/hello-world-introduction.html), modifying a [template](https://www.corda.net/samples/), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](../node/component-topology.md/).
 
-The sample CorDapp allows nodes to agree IOUs with each other, as long as they obey the following contract rules:
+The sample CorDapp allows nodes to reach loan agreements with each other, as long as they obey the following contract rules:
 
-* The IOU’s value is strictly positive
-* A node is not trying to issue an IOU to itself
+* The loan agreement’s value is strictly positive
+* A node is not trying to issue a loan agreement to itself
 
 You will deploy and run the sample CorDapp on the following four test nodes:
 
@@ -106,7 +106,7 @@ You will see the following output:
 
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally](../node/deploy/generating-a-node.md/) instead, and build your CorDapp JARs as described
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally](../node/deploy/generating-a-node.md/) instead, and build your CorDapp `.jar`s as described
 in [Building and installing a CorDapp](cordapp-build-systems.md).
 {{< /note >}}
 
@@ -315,8 +315,7 @@ If your test fails, run a Gradle test instead of a unit test.
 
 * [Debugging a CorDapp](debugging-a-cordapp.md)
 * [Writing a CorDapp](writing-a-cordapp.md)
-* [Quickstart build](quickstart-build.md)
-* [Quickstart deploy](quickstart deploy.md)
+* [Build a CorDapp](cordapp-build-systems.md)
 
 
 ## Appendix A: Project structure
