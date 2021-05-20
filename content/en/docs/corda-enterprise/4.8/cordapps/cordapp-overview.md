@@ -65,8 +65,7 @@ These components work together to let the CorDapp communicate with other nodes a
 
 ## An example CorDapp
 
-In this example, we’ll examine the components of a CorDapp designed to trade bonds. This CorDapp would be deployed by all
-node owners wishing to establish a business network to trade bonds.
+This example examines the components of a CorDapp designed to trade bonds. This CorDapp would be deployed by all node owners wishing to establish a business network to trade bonds.
 
 There are several components required for the minimum implementation of this CorDapp. First are the three required flows:
 
