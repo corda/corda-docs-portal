@@ -209,7 +209,7 @@ When the node management console is reloaded, the node diagnostic info is unavai
 
 {{% note %}}
 If you stop a node from the command line, the node will still appear in the console because Corda does not poll the node to see if it is still connected. Refresh the page to show the correct status.
-{{% /note%}}
+{{% /note %}}
 
 {{% figure zoom="management-console/node-management-console_status.png" alt="Node management console status tab" figcaption="Node management console status tab"%}}
 
