@@ -241,7 +241,6 @@ You can use the shell to:
 * Output information about the flows running on the node.
 * Work with flows.
 * Check if a transaction is recorded on the node.
-* Extract healthcheck information about a running node.
 * View and change `run` command output format.
 * Shut down the node.
 
@@ -635,21 +634,6 @@ If the transaction **is not** recorded on the node, the following will be return
 If the transaction **is** recorded on the node, this will be confirmed as below:
 
 `Found a matching transaction with Id: F69A7626ACC27042FEEAE187E6BFF4CE666E6F318DC2B32BE9FAF87DF687930C`
-
-
-### Extract healthcheck information
-
-Use the `healthcheck` shell command to extract healthcheck information about the running node. This produces the Corda node's JVM runtime information in a JSON format.
-
-#### Command
-
-`healthcheck runtimeInfo`
-
-#### Example output
-
-The output will be similar to the output shown below:
-
-{{< codesample file="/content/en/docs/corda-enterprise/codesamples/healthcheck-runtimeInfo.txt" >}}
 
 
 ### View and update the `run` command output format
