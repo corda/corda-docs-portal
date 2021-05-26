@@ -1,0 +1,28 @@
+/** Search form */
+.search-form {
+  @extend .form-inline !optional;
+}
+
+.search-form label {
+  @extend .form-group;
+
+  font-weight: normal;
+}
+
+.search-form .search-field {
+  @extend .form-control;
+}
+
+.search-form .search-submit {
+  @extend .btn;
+  @extend .btn-secondary;
+}
+
+.light-form {
+
+	.form-control.is-search {
+		background: $gray-300;
+		border-color: $gray-200;
+		color: $gray-700;
+	}
+}

@@ -1,0 +1,85 @@
+{{ define "main" }}
+<section class="section container-fluid">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"><a href="/corda-os/4.8.html"><img src="{{ "images/logo-corda.png" | relURL }}" alt="Corda" width="140" height="48"></a></h3>
+            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Documentation to kick start your CorDapp development.</p>
+
+            {{ partial "sidebar/latest-posts.html" (dict  "project" "corda-os"  "show" "3"  "context" .  "name" "Corda" ) }}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="/corda-enterprise/4.8.html">
+                {{ if .Site.Params.options.darkMode -}}
+                <div id="mode">
+                  <span class="toggle-dark"><img src="{{ "images/logo-corda-enterprise.png" | relURL }}" alt="Corda Enterprise" width="140" height="48"></span>
+                  <span class="toggle-light"><img src="{{ "images/logo-corda-enterprise-alt.png" | relURL }}" alt="Corda Enterprise" width="140" height="48"></span>
+                </div>
+                {{ end -}}
+              </a>
+            </h3>
+            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Learn how to allow business to transact securely and seamlessly.</p>
+            {{ partial "sidebar/latest-posts.html" (dict  "project" "corda-enterprise"  "show" "3"  "context" .  "name" "Corda Enterprise" )  }}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="/conclave">
+                {{ if .Site.Params.options.darkMode -}}
+                <div id="mode">
+                  <span class="toggle-dark"><img src="{{ "images/logo-conclave.png" | relURL }}" alt="Conclave" width="140" height="48"></span>
+                  <span class="toggle-light"><img src="{{ "images/logo-conclave-alt.png" | relURL }}" alt="Conclave" width="140" height="48"></span>
+                </div>
+                {{ end -}}
+              </a>
+            </h3>
+            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->All about the confidential computing platform based on Intel SGX.</p>
+            <ul class="p-0">
+              <li><a href="/">Get Started with Corda</a></li>
+              <li><a href="/">Link Goes Here 2</a></li>
+              <li><a href="/">Link Goes Here 3</a></li>
+            </ul>
+            <a href="/conclave" class="fw-semibold">Explore All Conclave Docs</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"><a href="{{ .Permalink }}">LOGO HERE</a></h3>
+            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --></p>
+            <ul class="p-0">
+              <li><a href="/">Get Started with Corda</a></li>
+              <li><a href="/">Link Goes Here 2</a></li>
+              <li><a href="/">Link Goes Here 3</a></li>
+            </ul>
+            <a href="{{ .Permalink }}" class="fw-semibold">Explore All Corda Docs</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"><a href="{{ .Permalink }}">LOGO HERE</a></h3>
+            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --></p>
+            <ul class="p-0">
+              <li><a href="/">Get Started with Corda</a></li>
+              <li><a href="/">Link Goes Here 2</a></li>
+              <li><a href="/">Link Goes Here 3</a></li>
+            </ul>
+            <a href="{{ .Permalink }}" class="fw-semibold">Explore All Corda Docs</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+{{ end }}
