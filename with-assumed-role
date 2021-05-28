@@ -1,6 +1,14 @@
 #!/usr/bin/env sh
 set -eu
 
+SILENT=true
+
+if [ "x$1" = "x-v" ]
+then
+    SILENT=false
+    shift
+fi
+
 ROLE_ARN="$1"; shift
 aws sts assume-role \
     --role-arn "${ROLE_ARN}" \
@@ -19,7 +27,7 @@ export AWS_ACCESS_KEY_ID
 export AWS_SECRET_ACCESS_KEY
 export AWS_SESSION_TOKEN
 
-echo "Will upload as '$(aws sts get-caller-identity --output text --query 'Arn')'"
+"${SILENT}" || echo "AWS identity is '$(aws sts get-caller-identity --output text --query 'Arn')'"
 
 command="$1"; shift
 exec "${command}" ${1+"$@"}

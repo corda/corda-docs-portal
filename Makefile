@@ -65,7 +65,7 @@ prod-docker-serve: prod-docker-image ## Run the nginx container locally on port 
 #  Main target for CI:
 
 publish: prod-hugo-build ## Build site, and publish it to the S3 bucket - MAIN TARGET
-	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) ./with-assumed-role "${ROLE_ARN}" \
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) ./with-assumed-role -v "${ROLE_ARN}" \
 		s3deploy \
 		-region $(AWS_REGION) \
 		-bucket $(S3_BUCKET) \
