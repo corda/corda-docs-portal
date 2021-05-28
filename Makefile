@@ -105,6 +105,6 @@ linkchecker: prod-docker-image ## Check all links are valid
 	touch $@
 
 .prod-hugo-build: $(shell find assets content layouts static themes -type f -print0 | xargs -0 -I{} echo {} | sed -e 's/ /\\ /g')
-	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm install
-	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm run build
+	$(DOCKER_RUN) --env HOME=/tmp -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm install
+	$(DOCKER_RUN) --env HOME=/tmp -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm run build
 	touch $@

@@ -64,7 +64,7 @@ pipeline {
 
     parameters {
         booleanParam defaultValue: config[0].defaultPublish, description: 'Publishing Corda Docs?', name: 'DO_PUBLISH'
-        choice(name: 'PREVIEW', choices: (previews.keySet() as List).join("\n"), description: 'Preview site')
+        choice(name: 'PREVIEW', choices: "${(previews.keySet() as List).join("\n")}", description: 'Preview site')
     }
 
     options {
