@@ -72,6 +72,12 @@ publish: prod-hugo-build ## Build site, and publish it to the S3 bucket - MAIN T
 		-distribution-id $(DISTRIBUTION_ID) \
 		-source ./public/ \
 		-v
+	@echo The website is available at \
+		https://$(shell $(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) ./with-assumed-role "${ROLE_ARN}" \
+			aws cloudfront get-distribution \
+			--id $(DISTRIBUTION_ID) \
+			--query 'Distribution.AliasICPRecordals[].CNAME' \
+			--output text)
 
 all: help
 	echo ""
