@@ -63,7 +63,7 @@ pipeline {
     agent { label "docs-builder" }
 
     parameters {
-        booleanParam defaultValue: config[0].defaultPublish, description: 'Publishing Corda Docs?', name: 'DO_PUBLISH'
+        booleanParam defaultValue: configs[0].defaultPublish, description: 'Publishing Corda Docs?', name: 'DO_PUBLISH'
         choice(name: 'PREVIEW', choices: "${(previews.keySet() as List).join("\n")}", description: 'Preview site')
     }
 
