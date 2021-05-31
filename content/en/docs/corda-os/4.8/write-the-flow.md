@@ -11,13 +11,13 @@ menu:
     weight: 1030
 tags:
 - flow
-title: Writing the flow
+title: Write the flow
 ---
 
 
 
 
-# Writing the flow
+# Write the flow
 
 A flow encodes a sequence of steps that a node can perform to achieve a specific ledger update. Installing new flows
 on a node allows the node to handle new business processes. The flow that you define will allow a node to issue an

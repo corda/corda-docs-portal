@@ -11,36 +11,38 @@ menu:
     weight: 1010
 tags:
 - introduction
-title: Hello, World!
+title: Writing a CorDapp using a template
 ---
 
 
-# Hello, World!
+# Writing a CorDapp using a template
 
 Ready to write your first CorDapp? You've come to the right place!
-
-## Introduction
 
 CorDapps are applications that are installed on one or more Corda nodes, and that allow the node’s operator to instruct their node to perform some new process - anything from
 issuing a debt instrument to making a restaurant booking.
 
-Writing a CorDapp involves the following steps:
+Writing a CorDapp using a template involves the following steps:
 
-1. [Obtaining the CorDapp Template](hello-world-template.md)
-2. [Writing the state](hello-world-state.md)
-3. [Writing the flow](hello-world-flow.md)
+1. [Obtaining the CorDapp template](hello-world-template.md)
+2. [Modifying the state](hello-world-state.md)
+3. [Modifying the flow](hello-world-flow.md)
 4. [Running your CorDapp](hello-world-running.md)
 
-## Pre-requisites
 
-Before you begin, [your dev environment should be set up](getting-set-up.md), you should have run
-[your first CorDapp](tutorial-cordapp.md), and should be familiar with Corda’s [key concepts](key-concepts.md).
+## Before you start
+
+Before starting the tutorial steps, ensure you meet the following prerequisites:
+
+* [Familiarize yourself with Corda’s key concepts](key-concepts.md)
+* [Get set up for CorDapp development](getting-set-up.md)
+* [Run your first CorDapp](tutorial-cordapp.md)
+
 
 ## Use-case
 
 You will write a CorDapp to model IOUs on the blockchain. Each IOU – short for “I O(we) (yo)U” – will record the fact that one node owes
 another node a certain amount. This simple CorDapp will showcase several key benefits of Corda as a blockchain platform:
-
 
 * **Privacy** - Since IOUs represent sensitive information, we will be taking advantage of Corda’s ability to only share
 ledger updates with other nodes on a need-to-know basis, instead of using a gossip protocol to share this information with every node on
@@ -48,7 +50,7 @@ the network as you would with a traditional blockchain platform.
 * **Well-known identities** - Each Corda node has a well-known identity on the network. This allows us to write code in terms of real
 identities, rather than anonymous public keys.
 * **Re-use of existing, proven technologies** - We will be writing our CorDapp using standard Java. It will run on a Corda node, which is
-simply a Java process and runs on a regular Java machine (e.g. on your local machine or in the cloud). The nodes will store their data in
+simply a Java process and runs on a regular Java machine, for example, on your local machine or in the cloud. The nodes will store their data in
 a standard SQL database.
 
 CorDapps usually define at least three things:
