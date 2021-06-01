@@ -36,7 +36,12 @@ Importing existing keys from the file based keystore into a HSM is not supported
 
 ## Configuration
 
-As mentioned in the description of the configuration file ([Node configuration](corda-configuration-file.md)), the `node.conf` has two relevant fields, `cryptoServiceName` and `cryptoServiceConf`.
+As mentioned in the description of the configuration file ([Node configuration](corda-configuration-file.md)), the `node.conf` has three relevant fields:
+* `cryptoServiceName`
+* `cryptoServiceConf`
+* Optional: `cryptoServiceTimeout`
+
+If you do not add the `cryptoServiceTimeout` parameter, it defaults to 10000 milliseconds. You can increase it to mitigate the time-out error.
 
 
 {{< warning >}}

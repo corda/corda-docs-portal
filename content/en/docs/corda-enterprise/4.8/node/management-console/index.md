@@ -1,4 +1,5 @@
 ---
+date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-corda-nodes
@@ -7,8 +8,8 @@ tags:
 - administration
 title: Node management console
 weight: 76
-
 ---
+
 # Node management console
 
 The Node management console allows you to see information about a node and perform some operations on it. It runs as a plug-in for the [Gateway Service](../gateway-service.md).
