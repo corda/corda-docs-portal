@@ -13,11 +13,11 @@ weight: 20
 
 # What is a CorDapp?
 
-This document:
+In this document, you will find:
 
-* Explains what a CorDapp is and what it does.
-* Defines CorDapp components and their functions.
-* Gives an example of a CorDapp, so you can see how the components work together.
+* A breakdown of what a CorDapp is and what it does.
+* Definitions of CorDapp components and their functions.
+* An example CorDapp, so you can see how the components work together.
 
 ## Summary
 
