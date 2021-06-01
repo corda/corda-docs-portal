@@ -28,9 +28,7 @@ This document explains:
 <!-- Optional - define any terms your target audience may not be familiar with. You can also introduce acronyms here. -->
 These terms are used throughout this document:
 
-*composite key:*
-  Contact constraints
-
+*composite key:* A key that consists of two or more attributes that together uniquely identify an entity occurrence.
 *term 2:*
   description 2
 
@@ -66,7 +64,7 @@ Before signature constraints were released with Corda 4.0, constraints were mana
 * **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of the state created with the original version.
 * **Compatibility zone whitelisted (or CZ whitelisted) constraint**: The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
 
-Learn more about [legacy constraints](https://docs.corda.net/docs/corda-enterprise/3.3/api-contract-constraints.html#how-constraints-work).
+Learn more about [constraints before Corda 4.0](https://docs.corda.net/docs/corda-enterprise/3.3/api-contract-constraints.html#how-constraints-work).
 
 
 ## Signature constraints
