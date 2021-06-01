@@ -1,0 +1,36 @@
+{{/* store the current page scope as '.' changes value */}}
+{{ $currentPage := . }}
+{{/* now get the current project we're in */}}
+{{ $currentProject := "Project" }}
+{{/* Identify whether we're 'within' a section or not and store it  */}}
+{{ $projectMenuForThisPage := .Page.Params.project}}
+{{ if eq .IsHome false}}
+{{ $projectMenuForThisPage = or .Parent.Page.Params.project .Page.Params.project }}
+{{ end }}
+
+{{ range .Site.Menus.projects }}
+  {{ if eq .Page.Params.project $projectMenuForThisPage }}
+    {{$currentProject = .Name}}
+  {{ end }}
+{{ end }}
+{{/* We know know whether we're in 'corda-os-4.4' or not ('Versions') */}}
+
+{{$context:= .}}
+
+
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarProjectMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    {{ $currentProject }}
+  </a>
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarProjectMenuLink">
+    {{ range .Site.Menus.projects.ByWeight }}
+    {{/* set a class against the active entry */}}
+    {{ $active:=false}}
+    {{ if eq .Page.Params.project $projectMenuForThisPage }}{{$active = true}}{{ end }}
+    <li>
+      {{ partial "sidebar/latest-project.html" (dict "context" $context "page" . "active" $active  "project" .Page.Params.project ) }}
+    </li>
+    {{ end }}
+  </ul>
+</li>

@@ -1,0 +1,58 @@
+# Meta Data for SEO
+
+## Homepage
+title = "R3 Documentation"
+titleSeparator = "-"
+titleAddition = "Documentation for R3 Products"
+description = "Use the R3 docs to start developing Corda applications, run a network, and operate enterprise-level tools for your business."
+
+## Open Graph + Twitter Cards
+images = ["r3-docs-open-graph.png"]
+twitterSite = "cordablockchain"
+twitterCreator = "cordablockchain"
+facebookAuthor = "R3blockchain"
+facebookPublisher = "R3blockchain"
+ogLocale = "en_US"
+
+## JSON-LD
+schemaType = "Organization"
+schemaLogo = "logo-r3.png"
+schemaTwitter = "https://twitter.com/cordablockchain"
+schemaLinkedIn = "https://www.linkedin.com/company/r3cev-llc/"
+schemaGitHub = "https://github.com/corda"
+schemaSection = "blog"
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#FCFCFC"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [800, 700, 600, 500]
+lqipWidth = "20x"
+
+# Footer
+footer = "&copy; 2021 R3, All Rights Reserved"
+
+# Alert
+alert = false
+alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/doks/stargazers\">Star on GitHub</a>. Thanks!</a>"
+
+# Edit Page
+docsRepo = "https://github.com/corda/corda-docs"
+editPage = true
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  flexSearch = true
+  darkMode = true
+  bootStrapJs = true
+  breadCrumb = true
+  highLight = true
+  kaTex = false

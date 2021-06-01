@@ -1,0 +1,21 @@
+{{ $project    := .project }}
+
+
+{{ $lastVersion:= "" }}
+{{ $lastUrl:= "" }}
+{{ range .context.Site.Menus.versions.ByWeight }}
+  {{ if eq .Page.Params.Project $project }}
+    {{ if gt .Page.Params.section_menu $lastVersion }}
+      {{$lastVersion = .Page.Params.section_menu}}
+      {{$lastUrl = .Page.Permalink}}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $url:= or $lastUrl .page.URL}}
+
+<a href="{{ $url }}"
+   class="dropdown-item {{if .active}}active{{end}}">
+  {{ .page.Pre }}
+  <span>{{ .page.Name }}</span>
+</a>

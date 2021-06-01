@@ -1,84 +1,70 @@
 #!groovy
 class Configuration {
-    String ARTIFACTORY_BUILD_NAME = 'Docsite Docker image'
-    String ARTIFACTORY_SERVER = 'software.r3.com'
-    String getDockerRegistry() {
-        return "${dockerRepo}.${ARTIFACTORY_SERVER}"
-    }
-    String getTargetRepo() {
-        return "${dockerRepo}-local"
-    }
-    String getBuildName() {
-        return "${ARTIFACTORY_BUILD_NAME} (${branch})"
-    }
-    String dockerRepo
-    String deploymentCredentials
-    String docsite
-    boolean defaultPublish
     String branch
-    String latestTag
-    Configuration(String dockerRepo, String deploymentCredentials, String docsite, boolean defaultPublish, String latestTag) {
-        this.dockerRepo = dockerRepo
-        this.deploymentCredentials = deploymentCredentials
-        this.docsite = docsite
+    String cdn
+    boolean defaultPublish
+    String s3BucketName
+    String roleArn
+    Configuration(String cdn, String s3BucketName, String roleArn, boolean defaultPublish) {
+        this.cdn = cdn
         this.defaultPublish = defaultPublish
-        this.latestTag = latestTag
+        this.s3BucketName = s3BucketName
+        this.roleArn = roleArn
     }
 }
+def previews = [
+    default: [cdn: 'EBTM5ZO4TERSS', s3Bucket: 'website-docs-preview'],
+    baldwin : [cdn: "E1A3IG9C04W1O2", s3Bucket: "website-baldwin-preview"],
+    banks : [cdn:  "E3KOZY3IAZ3X1J", s3Bucket: "website-banks-preview"],
+    borges: [cdn: "E33YOVSRJLVL1R", s3Bucket: "website-borges-preview"],
+    hardy: [cdn: "E2FGJJ58A94497",  s3Bucket: "website-hardy-preview"],
+    lewis: [cdn: "E5R24D2FGGIDU", s3Bucket: "website-lewis-preview"],
+    seel: [cdn: "EWRT1W87C2APH", s3Bucket: "website-seel-preview"],
+    tolkien: [cdn: "E90BP6WLHDAQR", s3Bucket: "website-tolkien-preview"]
+]
 
-Configuration config
+Configuration[] configs
 switch (env.BRANCH_NAME) {
+// TODO: uncomment and update CDN id, once it has been created
+//    case ~/publish-.*$/:
+//        configs = [
+//            new Configuration('E1TWWVXNUWIX3J', 'docs.r3.com-website', 'arn:aws:iam::598547986761:role/DocsiteUploaderFromBltProd', true),
+//        ]
+//        break
+    case "master":
+        configs = [
+            new Configuration('E1VJ08R1FFUVRT', 'docs.staging.docs.r3.com', 'arn:aws:iam::491552082744:role/DocsiteUploaderFromBltProd', true),
+        ]
+        break
     default:
-        config = new Configuration('docsite-dev', 'docsite-preview', 'docs-preview.dev.r3.corda.internal', false, "preview")
+        def selectedPreview = params.PREVIEW ?: 'default'
+        def preview = previews[selectedPreview]
+        configs = [new Configuration(preview.cdn, preview.s3Bucket, 'arn:aws:iam::491552082744:role/DocsiteUploaderFromBltProd', false)]
         break
 }
-if(params.PREVIEW != null) {
-    switch (params.PREVIEW) {
-        case 'default':
-            break
-        case 'tolkien':
-            config = new Configuration('docsite-dev', 'docsite-preview-tolkien', 'docs-preview.dev.r3.corda.internal', false, "tolkien")
-            break
-        case 'borges':
-            config = new Configuration('docsite-dev', 'docsite-preview-borges', 'docs-preview.dev.r3.corda.internal', false, "borges")
-            break
-        case 'seel':
-            config = new Configuration('docsite-dev', 'docsite-preview-seel', 'docs-preview.dev.r3.corda.internal', false, "seel")
-            break
-        case 'baldwin':
-            config = new Configuration('docsite-dev', 'docsite-preview-baldwin', 'docs-preview.dev.r3.corda.internal', false, "baldwin")
-            break
-        case 'rooney':
-            config = new Configuration('docsite-dev', 'docsite-preview-rooney', 'docs-preview.dev.r3.corda.internal', false, "rooney")
-            break
-        case 'banks':
-            config = new Configuration('docsite-dev', 'docsite-preview-banks', 'docs-preview.dev.r3.corda.internal', false, "banks")
-            break
-    }
-}
 
-config.branch = env.BRANCH_NAME
+configs.each {config -> config.branch = env.BRANCH_NAME }
 
 def MAKE_PARAMS = [
-    'PROD_IMAGE="${IMAGE}"',         // do not change the quotes! Variable is for Linux Shell!!
-    'PROD_IMAGE_TAG="${IMAGE_TAG}"', // do not change the quotes! Variable is for Linux Shell!!
+    'S3_BUCKET="${S3_BUCKET}"',             // do not change the quotes! Variable is for Linux Shell!!
+    'DISTRIBUTION_ID="${DISTRIBUTION_ID}"', // do not change the quotes! Variable is for Linux Shell!!
+    'ROLE_ARN="${ROLE_ARN}"',               // do not change the quotes! Variable is for Linux Shell!!
 ]
 
 def MAKE_BUILD_TARGETS = [
-    'prod-docker-image',
+    'prod-hugo-build',
+]
+
+def MAKE_PUBLISH_TARGETS = [
+    'publish',
 ]
 
 pipeline {
-    agent { label "basic" }
+    agent { label "docs-builder" }
 
     parameters {
-        booleanParam defaultValue: config.defaultPublish, description: 'Publishing Docsite Docker image?', name: 'DO_PUBLISH'
-        choice(name: 'PREVIEW', choices: 'default\ntolkien\nborges\nseel\nbaldwin\nrooney\nbanks', description: 'Preview site')
-    }
-
-    environment {
-        IMAGE_TAG="${env.GIT_COMMIT[0..5]}"
-        IMAGE="${config.dockerRegistry}/corda-docs-nginx"
+        booleanParam defaultValue: configs[0].defaultPublish, description: 'Publishing Corda Docs?', name: 'DO_PUBLISH'
+        choice(name: 'PREVIEW', choices: "${(previews.keySet() as List).join("\n")}", description: 'Preview site')
     }
 
     options {
@@ -90,15 +76,21 @@ pipeline {
     }
 
     stages {
-        stage('Build Docker image') {
+        stage('Build') {
             steps {
-                sh """
-                    make ${MAKE_PARAMS.join(' ')} ${MAKE_BUILD_TARGETS.join(' ')}
-                """
                 script {
-                    docker.image("${env.IMAGE}:${env.IMAGE_TAG}").tag(config.latestTag)
+                    def retryAttempt = 0
+                    retry(3) {
+                        if (retryAttempt > 0) {
+                            // progressively longer sleep between tries
+                            sleep(2 * 60 + 2 * 60 * retryAttempt) // in seconds
+                        }
+                        retryAttempt = retryAttempt + 1
+                        sh """
+                            make ${MAKE_BUILD_TARGETS.join(' ')}
+                        """
+                    }
                 }
-                sh 'docker images'
             }
         }
 
@@ -107,55 +99,18 @@ pipeline {
                 expression { params.DO_PUBLISH }
                 beforeAgent true
             }
-            stages {
-                stage('Publish Docker image') {
-                    steps {
-                        echo "Creating Artifactory server"
-                        rtServer (
-                            id: 'R3-Artifactory',
-                            url: 'https://software.r3.com/artifactory',
-                            credentialsId: 'docsite-publisher'
-                        )
-                        rtBuildInfo (
-                            captureEnv: true,
-                            buildName: config.buildName
-                        )
-                        echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry"
-                        rtDockerPush (
-                            serverId: 'R3-Artifactory',
-                            image: "${env.IMAGE}:${env.IMAGE_TAG}",
-                            targetRepo: config.targetRepo,
-                            buildName: config.buildName
-                        )
-                        echo "Pushing '${env.IMAGE}:${env.IMAGE_TAG}' image to Artifactory Docker registry as 'latest'"
-                        rtDockerPush (
-                            serverId: 'R3-Artifactory',
-                            image: "${env.IMAGE}:${config.latestTag}",
-                            targetRepo: config.targetRepo,
-                            buildName: config.buildName
-                        )
-                        echo 'Publishing build info to Artifactory server'
-                        rtPublishBuildInfo (
-                            serverId: 'R3-Artifactory',
-                            buildName: config.buildName
-                        )
-                    }
-                }
-                stage('Deploy Docker image') {
-                    steps {
-                        sshagent([config.deploymentCredentials]) {
-                            sh "ssh -F /dev/null -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docsite@${config.docsite} update-docsite"
+            steps {
+                script {
+                    configs.each { config ->
+                        withEnv([
+                            "DISTRIBUTION_ID=${config.cdn}",
+                            "S3_BUCKET=${config.s3BucketName}",
+                            "ROLE_ARN=${config.roleArn}",
+                        ]) {
+                            sh """\
+                                make ${MAKE_PARAMS.join(' ')} ${MAKE_PUBLISH_TARGETS.join(' ')}
+                            """.stripIndent()
                         }
-                    }
-                }
-                stage('Add Interactive Promotion') {
-                    steps {
-                        rtAddInteractivePromotion (
-                            serverId: 'R3-Artifactory',
-                            buildName: config.buildName,
-                            targetRepo: 'docsite-local',
-                            sourceRepo: config.dockerRepo
-                        )
                     }
                 }
             }
