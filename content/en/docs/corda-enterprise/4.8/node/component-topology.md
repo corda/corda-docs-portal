@@ -2,17 +2,20 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
-    identifier: corda-enterprise-4-8-corda-nodes
-    name: "Corda Nodes"
+    identifier: corda-enterprise-4-8-corda-nodes-components
+    name: "Corda node components"
+    parent: corda-enterprise-4-8-corda-nodes
 tags:
 - component
 - topology
-title: Understanding the node
-weight: 30
+title: Corda node components
+weight: 10
 ---
 
 
-# Understanding the node
+# Corda node components
+
+
 
 It is useful to take a high level perspective of the Corda components, especially the various communication protocols that Corda employs in its operations. The diagram below illustrates the various communication protocols used by the Corda Node communicating with peers on the Corda Network.
 
