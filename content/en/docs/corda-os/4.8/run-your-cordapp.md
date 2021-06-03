@@ -11,23 +11,22 @@ menu:
     weight: 1040
 tags:
 - running
-title: Running your CorDapp
+title: Run your CorDapp
 ---
 
-
-
-
-# Running your CorDapp
+# Run your CorDapp
 
 Now that you've written a CorDapp, it’s time to test it by running it on some real Corda nodes.
 
 
-## Deploying your CorDapp
+## Build your nodes
 
-Let’s take a look at the nodes you're going to deploy. Open the project’s `build.gradle` file and scroll down to the
-`task deployNodes` section. This section defines three nodes. There are two standard nodes (`PartyA` and
-`PartyB`), plus a special network map/notary node that is running the network map service and advertises a validating notary
-service.
+Let’s take a look at the nodes you're going to deploy.
+
+1. Open the project’s `build.gradle` file and scroll down to the `task deployNodes` section.
+
+
+      This section defines three nodes. There are two standard nodes (`PartyA` and `PartyB`), plus a special network map/notary node that is running the network map service and advertises a validating notary service.
 
 ```none
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -70,21 +69,19 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-You can run this `deployNodes` task using Gradle. For each node definition, Gradle will:
+2. Using Gradle, run the `deployNodes` command that corresponds to your operating system from the root of your project:
 
+   * Mac OSX: `./gradlew clean deployNodes`
+   * Windows: `gradlew clean deployNodes`
 
-* Package the project’s source files into a CorDapp jar.
-* Create a new node in `build/nodes` with your CorDapp already installed.
+   For each node definition, Gradle will:
 
-To do this, run the command that corresponds to your operating system from the root of your project:
+   * Package the project’s source files into a CorDapp `.jar`.
+   * Create a new node in `build/nodes` with your CorDapp already installed.
 
-* Mac OSX: `./gradlew clean deployNodes`
-* Windows: `gradlew clean deployNodes`
+## Run the nodes
 
-
-## Running the nodes
-
-Running `deployNodes` will build the nodes under `build/nodes`. If you navigate to one of these folders, you'll see
+Running `deployNodes` builds the nodes under `build/nodes`. If you navigate to one of these folders, you'll see
 the three node folders. Each node folder has the following structure:
 
 
@@ -102,13 +99,13 @@ the three node folders. Each node folder has the following structure:
 |____nodeInfo
 |____persistence.mv.db
 |____persistence.trace.db
+
 ```
 
+* Start the nodes by running the following command from the root of the project:
 
-Start the nodes by running the following command from the root of the project:
-
-* Mac OSX: `build/nodes/runnodes`
-* Windows: `build/nodes/runnodes.bat`
+  * Mac OSX: `build/nodes/runnodes`
+  * Windows: `build/nodes/runnodes.bat`
 
 
 This will start a terminal window for each node. Give each node a moment to start - you’ll know it’s ready when its terminal windows displays
@@ -118,49 +115,50 @@ the message “Welcome to the Corda interactive shell.”.
 {{< figure alt="running node" zoom="/en/images/running_node.png" >}}
 
 
-## Interacting with the nodes
+## Start the IOU flow
 
-Now that our nodes are running, let’s order one of them to create an IOU by kicking off our `IOUFlow`. In a larger
+Now that our nodes are running, order one of them to create an IOU by kicking off our `IOUFlow`. In a larger
 app, you’d generally provide a web API sitting on top of our node. Here, for simplicity, you’ll be interacting with the
 node via its built-in CRaSH shell.
 
-Go to the terminal window displaying the CRaSH shell of `PartyA`. Typing `help` will display a list of the available
-commands.
+1. Go to the terminal window displaying the CRaSH shell of `PartyA`.
 
-{{< note >}}
-Local terminal shell is available only in a development mode. In a production environment SSH server can be enabled.
-More about SSH and how to connect can be found on the [Node shell](shell.md) page.
-{{< /note >}}
+2. Type `help` to display a list of the available commands.
 
-You want to create an IOU of 99 with `PartyB`. To start the `IOUFlow`, type the following syntax:
+   {{< note >}}
+   Local terminal shell is available only in a development mode. In a production environment SSH server can be enabled.
+   More about SSH and how to connect can be found on the [Node shell](shell.md) page.
+   {{< /note >}}
 
-```bash
-start IOUFlow iouMessage: 99, otherParty: "O=PartyB,L=New York,C=US"
-```
+3. You want to create an IOU of 99 with `PartyB`. To start the `IOUFlow`, type the following syntax:
 
-This single command will cause `PartyA` and `PartyB` to automatically agree an IOU. This is one of the great advantages of
-the flow framework - it allows you to reduce complex negotiation and update processes into a single function call.
+   ```bash
+   start IOUFlow iouMessage: 99, otherParty: "O=PartyB,L=New York,C=US"
+   ```
 
-Starting this flow will return the following:
-```bash
-✅   Starting
-         Requesting signature by Notary Service
-             Requesting signature by Notary Service
-             Validating response from Notary Service
-    ✅   Broadcasting transaction to participants
-➡️   Done
-Flow completed with result: null
-```
+   This single command will cause `PartyA` and `PartyB` to automatically agree an IOU. This is one of the great advantages of
+   the flow framework - it allows you to reduce complex negotiation and update processes into a single function call.
 
-If the flow worked, it should have recorded a new IOU in the vaults of both `PartyA` and `PartyB`. Let’s check.
+   Starting this flow will return the following:
+   ```bash
+   ✅   Starting
+          Requesting signature by Notary Service
+              Requesting signature by Notary Service
+              Validating response from Notary Service
+      ✅   Broadcasting transaction to participants
+    ➡️   Done
+    Flow completed with result: null
+    ```
 
-You can check the contents of each node’s vault by running:
+    If the flow worked, it should have recorded a new IOU in the vaults of both `PartyA` and `PartyB`.
 
-```bash
-run vaultQuery contractStateType: com.template.states.IOUState
-```
+4. Check the contents of each node’s vault by running:
 
-The vaults of `PartyA` and `PartyB` should both display the following output:
+   ```bash
+   run vaultQuery contractStateType: com.template.states.IOUState
+   ```
+
+   The vaults of `PartyA` and `PartyB` should both display the following output:
 
 ```bash
 states:
@@ -197,22 +195,22 @@ stateTypes: "UNCONSUMED"
 otherResults: []
 ```
 
-This is the transaction issuing our `IOUState` onto a ledger.
+  This is the transaction issuing our `IOUState` onto a ledger.
 
-However, if you run the same command on the other node (the notary), you will see the following:
+5. If you run the same command on the other node (the notary), you will see the following:
 
-```bash
-{
-  "states" : [ ],
-  "statesMetadata" : [ ],
-  "totalStatesAvailable" : -1,
-  "stateTypes" : "UNCONSUMED",
-  "otherResults" : [ ]
-}
-```
+   ```bash
+   {
+     "states" : [ ],
+     "statesMetadata" : [ ],
+     "totalStatesAvailable" : -1,
+     "stateTypes" : "UNCONSUMED",
+     "otherResults" : [ ]
+   }
+   ```
 
-This is the result of Corda’s privacy model. Because the notary was not involved in the transaction and had no need to see the data, the
-transaction was not distributed to them.
+   This is the result of Corda’s privacy model. Because the notary was not involved in the transaction and had no need to see the data, the
+   transaction was not distributed to them.
 
 
 ## Conclusion

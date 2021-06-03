@@ -20,7 +20,7 @@ In Corda, shared facts on the blockchain are represented as states. Your first t
 represent an IOU.
 
 
-## Implement the ContractState interface
+## The `ContractState` interface
 
 A Corda state is any instance of a class that implements the `ContractState` interface.
 
@@ -71,7 +71,10 @@ interface, your `IOUState` also needs properties to track the relevant features 
 There are many more fields you could include, such as the IOU’s currency, but let’s ignore those for now. Adding them
 later is often as simple as adding an additional property to your class definition.
 
-1. Open `TemplateState.java` (for Java) or `TemplateState.kt` (for Kotlin) from `contracts/src/main/java/com/template/states/TemplateState.{.java or .kt extension}`.
+1. Depending whether you are working with Java or Kotlin template, perform one of the following steps:
+
+   * For Java, open `TemplateState.java` from `contracts/src/main/java/com/template/states/TemplateState.java`.
+   * For Kotlin, open `TemplateState.kt` from `contracts/src/main/kotlin/com/template/states/TemplateState.kt`.
 
 2. Rename the `TemplateState` class to `IOUState`.
 

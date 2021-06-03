@@ -13,13 +13,10 @@ tags:
 - tut
 - party
 - contract
-title: Writing the contract
+title: Write the contract
 ---
 
-
-
-
-# Writing the contract
+# Write the contract
 
 For most CorDapps, you will want to impose some constraints on how their states evolve over time:
 
@@ -64,7 +61,7 @@ From the above example, you can see that `Contract` expresses its constraints th
 * Returns silently if it accepts the transaction proposal.
 
 {{< note >}}
-As mentioned in the [Writing the state](hello-world-state.md) tutorial, the above is Corda source code and is therefore written in Kotlin.
+As mentioned in the [Write the state](write-the-state.md) tutorial, the above is Corda source code and is therefore written in Kotlin.
 {{< /note >}}
 
 ## Controlling IOU evolution
@@ -93,10 +90,9 @@ You can visualise this transaction as follows:
 
 {{< figure alt="simple tutorial transaction 2" zoom="/en/images/simple-tutorial-transaction-2.png" >}}
 
-## Defining the IOUContract
+## Outcome
 
-To write a contract that enforces these constraints, you'll need to modify either `TemplateContract.java` or
-`TemplateContract.kt` by defining an `IOUContract`, as shown in the following code example:
+The following code shows how the updated part of the contract should look like after applying all of the changes described later in this document:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -194,14 +190,24 @@ public class IOUContract implements Contract {
 
 {{< /tabs >}}
 
-{{< note >}}
-Ensure to update the `@BelongsToContract` annotation in the state definition ([Writing the state](hello-world-state.md)) to specify `IOUContract` class.
-{{< /note >}}
 
-Let’s walk through this code step by step.
+## Define the IOUContract
 
+To write a contract that enforces these constraints, you'll need to modify either `TemplateContract.java` or
+`TemplateContract.kt` by defining an `IOUContract`, as shown in the following code example:
 
-### The Create command
+1. Depending whether you are working with Java or Kotlin template, perform one of the following steps:
+
+   * For Java, open `TemplateContract.java` from `contracts/src/main/java/com/template/contracts/TemplateContract.java`.
+   * For Kotlin, open `TemplateContract.kt` from `contracts/src/main/kotlin/com/template/contracts/TemplateContract.kt`.
+
+2. Rename the `TemplateContract` class to `IOUContract`.
+
+3. Update the `@BelongsToContract` annotation in the state definition ([Write the state](write-the-state.md)) to specify `IOUContract` class.
+
+4. Define `IOUState` by making the following changes:
+
+### Add the `Create` command
 
 The first thing you'll add to your contract is a *command*.
 
@@ -213,7 +219,7 @@ to one redeeming an IOU.
 * They allow you to define the required signers for the transaction. For example, IOU creation might require signatures
 from the lender only, whereas the transfer of an IOU might require signatures from both the IOU’s borrower and lender.
 
-Our contract has one command, a `Create` command. All commands must implement the `CommandData` interface.
+Your contract has one command, a `Create` command. All commands must implement the `CommandData` interface.
 
 The `CommandData` interface is a simple marker interface for commands. In fact, its declaration is only two words
 long (Kotlin interfaces do not require a body):
@@ -224,10 +230,9 @@ long (Kotlin interfaces do not require a body):
 interface CommandData
 ```
 {{% /tab %}}
-
 {{< /tabs >}}
 
-### About the `verify` logic
+### Implement the `verify` logic
 
 Your contract also needs to define the actual contract constraints by implementing `verify`. Your goal in writing the
 `verify` function is to write a function that, given a transaction:
@@ -253,9 +258,9 @@ the following are true:
 * The IOU itself is invalid.
 * The transaction doesn’t require the lender’s signature.
 
-#### Command constraints
+#### Define command constraints
 
-Firstly, you will define any constraints around the transaction’s commands.
+You must define any constraints around the transaction’s commands.
 
 Use Corda’s `requireSingleCommand` function to test for the presence of a single `Create` command.
 
@@ -263,23 +268,22 @@ If the `Create` command isn’t present, or if the transaction has multiple `Cre
 thrown and contract verification will fail.
 
 
-#### Transaction constraints
+#### Define transaction constraints
 
-Secondly, you will define any constraints on the transaction. For example, an issuance transaction would require that the transaction can have no inputs and only a single output.
+You must define any constraints on the transaction. For example, an issuance transaction would require that the transaction can have no inputs and only a single output.
 
 In Kotlin, you use Corda’s built-in `requireThat` blockthese to impose these and the subsequent constraints. `requireThat`
 provides a terse way to write the following:
 
-* If the condition on the right-hand side doesn’t evaluate to true…
-* …throw an `IllegalArgumentException` with the message on the left-hand side
+* If the condition on the right-hand side doesn’t evaluate to true, throw an `IllegalArgumentException` with the message on the left-hand side.
 
 As before, the act of throwing this exception causes the transaction to be considered invalid.
 
 In Java, you simply throw an `IllegalArgumentException` manually instead.
 
-#### IOU constraints
+#### Impose IOU constraints
 
-Thirdly, you need to impose two constraints on the `IOUState` itself:
+Impose two constraints on the `IOUState` itself:
 
 1. The value of the `IOUState` must be non-negative.
 2. The lender and the borrower cannot be the same entity.
@@ -287,14 +291,15 @@ Thirdly, you need to impose two constraints on the `IOUState` itself:
 You can see that you are not restricted to only writing constraints inside the `verify` function. You can also write
 other statements - in this case, extracting the transaction’s single `IOUState` and assigning it to a variable.
 
-#### Signer constraints
+#### Apply signer constraints
 
-Finally, you need to require both the lender and the borrower to be required signers on the transaction. A transaction’s
+You must require both the lender and the borrower to be required signers on the transaction. A transaction’s
 required signers is equal to the union of all the signers listed on the commands. You will therefore extract the signers from
 the `Create` command you retrieved earlier.
 
 This is an absolutely essential constraint - it ensures that no `IOUState` can ever be created on the blockchain without
 the express agreement of both the lender and borrower nodes.
+
 
 ## Progress so far
 
@@ -305,4 +310,4 @@ You've now written an `IOUContract` constraining the evolution of each `IOUState
 * The `IOUState` created by the issuance transaction must have a non-negative value, and the lender and borrower must be different entities.
 
 Next, you'll update the `IOUFlow` so that it obeys these contract constraints when issuing an `IOUState` onto the
-ledger. To do this, proceed to [Updating the flow](tut-two-party-flow.md).
+ledger. To do this, proceed to the [Update the flow](tut-two-party-flow.md) tutorial.
