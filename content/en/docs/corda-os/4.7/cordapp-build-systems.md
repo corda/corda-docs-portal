@@ -21,7 +21,7 @@ title: Building and installing a CorDapp
 
 # Building and installing a CorDapp
 
-{{< figure alt="Powered by Corda" zoom="/en/images/powered-by-corda-logo.jpg" >}}
+{{< figure alt="Powered by Corda" width=80% zoom="/en/images/powered-by-corda-logo.jpg" >}}
 
 
 CorDapps run on the Corda platform and integrate with it and each other. This article explains how to build CorDapps.

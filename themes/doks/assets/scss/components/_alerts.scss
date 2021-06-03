@@ -1,0 +1,75 @@
+.alert {
+  border-radius: 4px;
+  padding: 1.5rem 1.5rem 1.5rem 4.375rem;
+
+  code {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+.alert-icon {
+  margin-right: 0.75rem;
+}
+
+.docs .alert {
+  margin: 2rem -1.5rem;
+}
+
+.alert .alert-link {
+  text-decoration: underline;
+}
+
+.alert-dark {
+  color: $white;
+  background-color: $gray-500;
+
+  a,
+  .alert-link {
+    color: $white;
+  }
+}
+
+.alert-warning {
+  background: $beige;
+  color: $yellow;
+
+  a,
+  .alert-link {
+    color: $yellow;
+  }
+
+  .r3-o-icon-warning {
+    position: absolute;
+    left: 1.5rem;
+    top: calc(50% - 12px);
+
+    &::before {
+      content: url("/icons/warning.svg");
+      position: relative;
+      display: block;
+    }
+  }
+}
+
+.alert-primary,
+.alert-info {
+  color: $blue;
+  background-color: $blue-300;
+
+  a,
+  .alert-link {
+    color: $blue;
+  }
+
+  .r3-o-icon-note{
+    position: absolute;
+    left: 1.5rem;
+    top: calc(50% - 12px);
+
+    &::before {
+      content: url("/icons/info.svg");
+      position: relative;
+      display: block;
+    }
+  }
+}

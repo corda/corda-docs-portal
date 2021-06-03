@@ -43,7 +43,7 @@ value of the commercial paper.
 
 This lifecycle for commercial paper is illustrated in the diagram below:
 
-{{< figure alt="contract cp" zoom="/en/images/contract-cp.png" >}}
+{{< figure alt="contract cp" width=80% zoom="/en/images/contract-cp.png" >}}
 
 {{< note >}}
 See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
@@ -93,7 +93,7 @@ piece of issued paper.
 
 A state is a class that stores data that is checked by the contract. A commercial paper state is structured as below:
 
-{{< figure alt="contract cp state" zoom="/en/images/contract-cp-state.png" >}}
+{{< figure alt="contract cp state" width=80% zoom="/en/images/contract-cp-state.png" >}}
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
@@ -923,7 +923,7 @@ being consumed must have its encumbrance consumed in the same transaction, other
 The encumbrance reference is optional in the `ContractState` interface:
 
 {{< note >}}
-If you're using Java, you may want to add this jar to your gradle dependencies for this code example to compile.  
+If you're using Java, you may want to add this jar to your gradle dependencies for this code example to compile.
 {{< /note >}}
 
 ```

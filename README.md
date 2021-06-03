@@ -9,7 +9,7 @@ Please read them!
 You will need:
 
 * [hugo](https://github.com/gohugoio/hugo/releases)  (a single binary on all platforms)
-    * Use the latest version, otherwise at least v0.65
+  * Use the latest version, otherwise at least v0.65
 * a text editor: we strongly recommend [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Quick Start

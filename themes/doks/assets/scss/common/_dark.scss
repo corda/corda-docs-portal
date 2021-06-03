@@ -1,0 +1,276 @@
+/** Theme variables */
+
+// Source: https://material.io/design/color/dark-theme.html
+
+$body-bg-dark: $gray-800;
+$body-overlay-dark: darken($body-bg-dark, 2.5%);
+$border-dark: $gray-700;
+$body-color-dark: $gray-300;
+$dots-dark: darken($body-color-dark, 50%);
+
+$link-color-dark: $gray-300;
+$button-color-dark: lighten($red, 10%);
+
+/** Theme styles */
+
+body.dark {
+  background: $body-bg-dark;
+  color: $body-color-dark;
+
+  a {
+    color: $link-color-dark;
+  }
+
+  a.text-body {
+    color: $body-color-dark !important;
+  }
+
+  .btn-primary {
+    @include button-variant($button-color-dark, $button-color-dark);
+  }
+
+  .btn-outline-dark {
+    @include button-outline-variant($gray-400, $gray-400);
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .nav-link:focus {
+    color: $navbar-dark-hover-color;
+  }
+
+  .navbar-light .navbar-nav .nav-link.disabled {
+    color: $navbar-dark-disabled-color;
+  }
+
+  .navbar-light .navbar-nav .show > .nav-link,
+  .navbar-light .navbar-nav .active > .nav-link,
+  .navbar-light .navbar-nav .nav-link.show,
+  .navbar-light .navbar-nav .nav-link.active {
+    color: $navbar-dark-active-color;
+  }
+
+  .alert-primary a {
+    color: $body-bg-dark;
+  }
+
+  .alert-warning {
+    background: $body-overlay-dark;
+    color: $body-color-dark;
+  }
+
+  .page-links a {
+    color: $body-color-dark;
+  }
+
+  .showcase-meta a {
+    color: $body-color-dark;
+  }
+
+  .showcase-meta a:hover,
+  .showcase-meta a:focus {
+    color: $link-color-dark;
+  }
+
+  .docs-link:hover,
+  .docs-link.active,
+  .page-links a:hover {
+    text-decoration: underline;
+    color: $link-color-dark;
+  }
+
+  .navbar-light .navbar-text a {
+    color: $navbar-dark-active-color;
+  }
+
+  .docs-links h3.sidebar-link a,
+  .page-links h3.sidebar-link a {
+    color: $body-color-dark;
+  }
+
+  .navbar-light .navbar-text a:hover,
+  .navbar-light .navbar-text a:focus {
+    color: $navbar-dark-active-color;
+  }
+
+  .content .btn-link {
+    color: $link-color-dark;
+  }
+
+  .content .btn-link:hover {
+    color: $link-color-dark;
+  }
+
+  .navbar .btn-link:hover {
+    color: $navbar-dark-hover-color;
+  }
+
+  .navbar .btn-link:active {
+    color: $navbar-dark-active-color;
+  }
+
+  @include media-breakpoint-up(lg) {
+    .docs-sidebar {
+      order: 0;
+      background-color: darken($body-bg-dark, 4%);
+    }
+  }
+
+  .docs-navigation {
+    border-top: 1px solid $border-dark;
+    color: $gray-100;
+  }
+
+  pre code::-webkit-scrollbar-thumb {
+    background: $border-dark;
+  }
+
+  code:not(.hljs) {
+    background: $body-overlay-dark;
+    color: $body-color-dark;
+  }
+
+  pre code:hover {
+    scrollbar-width: thin;
+    scrollbar-color: $border-dark transparent;
+  }
+
+  pre code::-webkit-scrollbar-thumb:hover {
+    background: $border-dark;
+  }
+
+  blockquote {
+    border-left: 3px solid $border-dark;
+  }
+
+  .docs-toc .page-links {
+    border-color: $border-dark;
+  }
+
+  .docs-links::-webkit-scrollbar-track,
+  .docs-toc::-webkit-scrollbar-track {
+    background: darken($body-bg-dark, 4%);
+  }
+
+  .docs-links::-webkit-scrollbar-thumb,
+  .docs-toc::-webkit-scrollbar-thumb {
+    background: darken($body-bg-dark, 4%);
+  }
+
+  .docs-links:hover::-webkit-scrollbar-thumb,
+  .docs-toc:hover::-webkit-scrollbar-thumb {
+    background: $body-overlay-dark;
+  }
+
+  .docs-links::-webkit-scrollbar-thumb:hover,
+  .docs-toc::-webkit-scrollbar-thumb:hover {
+    background: $body-overlay-dark;
+  }
+
+  .card {
+    background: $body-overlay-dark;
+    border-color: $border-dark;
+    box-shadow: none;
+
+    svg {
+      stroke: $border-dark;
+    }
+
+    li:before {
+      content: url(icons/file-text-alt.svg);
+    }
+
+    li a {
+      color: $gray-100;
+    }
+
+    .card-title a,
+    .btn-outline-dark {
+      color: $gray-400;
+    }
+
+    a {
+      color: lighten($red, 10%);
+    }
+  }
+
+  .feather {
+    stroke: $border-dark;
+  }
+
+  .support-container {
+    background: $body-overlay-dark;
+    box-shadow: none;
+  }
+
+  .card.bg-light {
+    background: $body-overlay-dark !important;
+  }
+
+  .logo-light {
+    display: none !important;
+  }
+
+  .logo-dark {
+    display: inline-block !important;
+  }
+
+  .bg-light,
+  .bg-light-gray {
+    background: lighten($body-bg-dark, 3%) !important;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient($dots-dark 15%, transparent 15%);
+  }
+
+  .text-muted {
+    color: darken($body-color-dark, 7.5%) !important;
+  }
+
+  .alert-primary {
+    background: $link-color-dark;
+    color: $body-bg-dark;
+  }
+
+  .figure-caption {
+    color: $body-color-dark;
+  }
+
+  table {
+    @extend .table-dark;
+  }
+
+  .copy-status::after {
+    content: "Copy";
+    display: block;
+    color: $body-color-dark;
+  }
+
+  .copy-status:hover::after {
+    content: "Copy";
+    display: block;
+    color: $link-color-dark;
+  }
+
+  .copy-status:focus::after,
+  .copy-status:active::after {
+    content: "Copied";
+    display: block;
+    color: $link-color-dark;
+  }
+
+  .light-form .form-control.is-search {
+    background: $gray-800;
+    border-color: $gray-600;
+    color: $gray-200;
+  }
+
+  footer {
+    background-color: $body-overlay-dark;
+  }
+
+}

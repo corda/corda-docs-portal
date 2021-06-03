@@ -1,18 +1,18 @@
 # When built, then this is used, but we inject it
 # at build time using Hugo env-vars.
-baseURL = "http://localhost:1313"
+baseURL = "/"
 
 # Nice stuff...
 title = "Corda Documentation"
 
 # Of course...
-theme = "hugo-r3-theme"
+theme = "doks"
 
 # i18n
 defaultContentLanguage = "en"
 # ...so that en docs are just in /docs/... rather than /en/docs/...
 defaultContentLanguageInSubdir = false
-contentDir = "content/en"
+contentDir = "content/en/docs"
 
 # so that 'docs' doesn't appear as 'docss' etc.
 pluralizeListTitles = false
@@ -94,3 +94,11 @@ ogimage = "/images/png/corda.png"
 algolia_appId = "UX2KMUWFAL"
 algolia_apiKey = "1fe3367db02689b4aeebc59efad5abaf"
 algolia_index = "docs.corda.net"
+
+[module]
+  [[module.mounts]]
+    source = "node_modules/flexsearch"
+    target = "assets/js/vendor/flexsearch"
+  [[module.mounts]]
+    source = "node_modules/katex"
+    target = "assets/js/vendor/katex"

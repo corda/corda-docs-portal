@@ -662,3 +662,4 @@ repos/**
 
 **/xml/**
 repos/
+/resources/_gen/

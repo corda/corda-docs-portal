@@ -1,0 +1,52 @@
+{{ $project :=  .project }}
+{{ $show := .show }}
+{{ $name:= .name }}
+
+{{ $numberShow := 3 }}
+{{ if gt (len $show) 0 }}
+  {{ $numberShow = int $show }}
+{{ end }}
+
+{{ $lastVersion:= "" }}
+{{ $lastUrl:= "" }}
+
+
+{{ range .context.Site.Menus.versions.ByWeight }}
+  {{ if eq .Page.Params.Project $project }}
+    {{ if gt .Page.Params.section_menu $lastVersion }}
+      {{ $lastVersion = .Page.Params.section_menu }}
+      {{ $lastUrl = .Page.Permalink }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ define "first-menu-item" }}
+{{ $main_menu_name := .main_menu_name }}
+{{ with .entry }}
+  {{ if .HasChildren }}
+    {{ range $index, $child := .Children.ByWeight }}
+      {{ if lt $index 1}}
+        {{ template "first-menu-item" (dict "entry" . "main_menu_name" $main_menu_name) }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    <li>
+      <a href="{{ .URL }}">
+        {{ $main_menu_name }}
+      </a>
+    </li>
+  {{ end }}
+{{ end }}
+{{ end }}
+
+
+{{ $menuEntries := index .context.Site.Menus $lastVersion }}
+<ul class="p-0">
+{{ range $index, $element := $menuEntries.ByWeight }}
+  {{ if lt $index $numberShow}}
+    {{ template "first-menu-item" (dict "entry" . "main_menu_name" $element.Name) }}
+  {{ end }}
+{{ end }}
+</ul>
+
+<a href="{{ $lastUrl }}" class="fw-semibold">Explore All {{ $name }} Docs</a>

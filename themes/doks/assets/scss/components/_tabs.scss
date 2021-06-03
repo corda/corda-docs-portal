@@ -1,0 +1,39 @@
+.nav-tabs {
+  border: transparent;
+  margin-top: 2rem;
+
+  .nav-item {
+    margin-left: 0;
+
+    .nav-link {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: $font-size-sm;
+      border-radius: 4px 4px 0 0;
+      height: 40px;
+      width: 120px;
+      transition: none;
+      background-color: #e6e6ed;
+      margin-right: 3px;
+      color: #5b6b88;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .active {
+      border-top: 4px solid $red;
+      background-color: $gray-800;
+      color: $gray-100;
+    }
+  }
+}
+
+.tab-content {
+  border-radius: 0 4px 4px 4px;
+  padding: 1rem .5rem 1rem 1.5rem;
+  background: #262626;
+  margin-top: 1px;
+  margin-bottom: 2rem;
+}
