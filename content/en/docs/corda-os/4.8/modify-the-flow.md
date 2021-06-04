@@ -11,10 +11,10 @@ menu:
     weight: 1030
 tags:
 - flow
-title: Write the flow
+title: Modify the flow
 ---
 
-# Write the flow
+# Modify the flow
 
 A flow encodes a sequence of steps that a node can perform to achieve a specific ledger update. Installing new flows
 on a node allows the node to handle new business processes. The flow that you define will allow a node to issue an
@@ -58,22 +58,9 @@ to handle these tasks. Flows that are invoked in the context of a larger flow to
 *subflows*.
 
 
-## FlowLogic
+## Output
 
-1. Depending whether you are working with Java or Kotlin template, perform one of the following steps:
-
-   * For Java, open `Initiator.java` from `workflows/src/main/java/com/template/flows/Initiator.java`.
-   * For Kotlin, open `Flows.kt` from `workflows/src/main/kotlin/com/template/flows/Flows.kt`.
-
-2. If you’re following along in Java, rename `Initiator.java` to `IOUFlow.java`.
-
-3. Define your `IOUFlow`.
-
-{{< note >}}
-
-All flows must subclass `FlowLogic`. You then define the steps taken by the flow by overriding `FlowLogic.call`.
-
-{{< /note >}}
+The following code presents how your template should look like after performing all the steps described below:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -131,10 +118,25 @@ class IOUFlow(val iouValue: Int,
 {{% tab name="java" %}}
 ```java
 // Add these imports:
+import co.paralleluniverse.fibers.Suspendable;
+import com.template.contracts.IOUContract;
+import com.template.states.IOUState;
 import net.corda.core.contracts.Command;
+import net.corda.core.flows.*;
 import net.corda.core.identity.Party;
 import net.corda.core.transactions.SignedTransaction;
 import net.corda.core.transactions.TransactionBuilder;
+import net.corda.core.utilities.ProgressTracker;
+import net.corda.core.flows.SignTransactionFlow;
+import net.corda.core.transactions.SignedTransaction;
+import static net.corda.core.contracts.ContractsDSL.requireThat;
+import net.corda.core.contracts.ContractState;
+import net.corda.core.crypto.SecureHash;
+
+
+import java.security.PublicKey;
+import java.util.Arrays;
+import java.util.List;
 
 // Replace Initiator's definition with:
 @InitiatingFlow
@@ -194,6 +196,24 @@ public class IOUFlow extends FlowLogic<Void> {
 {{% /tab %}}
 
 {{< /tabs >}}
+
+
+## Define FlowLogic
+
+1. Depending whether you are working with Java or Kotlin template, perform one of the following steps:
+
+   * For Java, open `Initiator.java` from `workflows/src/main/java/com/template/flows/Initiator.java`.
+   * For Kotlin, open `Flows.kt` from `workflows/src/main/kotlin/com/template/flows/Flows.kt`.
+
+2. If you’re following along in Java, rename `Initiator.java` to `IOUFlow.java`.
+
+3. Define your `IOUFlow`.
+
+{{< note >}}
+
+All flows must subclass `FlowLogic`. You then define the steps taken by the flow by overriding `FlowLogic.call`.
+
+{{< /note >}}
 
 Let’s walk through the above code step-by-step.
 

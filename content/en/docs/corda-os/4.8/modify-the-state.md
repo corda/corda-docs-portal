@@ -11,10 +11,10 @@ menu:
     weight: 1020
 tags:
 - state
-title: Write the state
+title: Modify the state
 ---
 
-# Write the state
+# Modify the state
 
 In Corda, shared facts on the blockchain are represented as states. Your first task is to define a new state type to
 represent an IOU.

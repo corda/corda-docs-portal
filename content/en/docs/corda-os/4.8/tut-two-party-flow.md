@@ -28,7 +28,7 @@ To do this, modify the flow that you created earlier as part of [Write the flow]
 
 ## Outcome
 
-The following code shows how the updated part of the IOUFlow file should look like after applying all the changes described later in this document:
+The following code shows how the updated part of IOUFlow file should look like after applying all the changes described later in this document:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}

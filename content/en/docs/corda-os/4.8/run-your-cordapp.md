@@ -23,7 +23,7 @@ Now that you've written a CorDapp, it’s time to test it by running it on some 
 
 Let’s take a look at the nodes you're going to deploy.
 
-1. Open the project’s `build.gradle` file and scroll down to the `task deployNodes` section.
+1. Open the project’s root directory `build.gradle` file in IntelliJ and scroll down to the `task deployNodes` section.
 
 
       This section defines three nodes. There are two standard nodes (`PartyA` and `PartyB`), plus a special network map/notary node that is running the network map service and advertises a validating notary service.
@@ -69,10 +69,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-2. Using Gradle, run the `deployNodes` command that corresponds to your operating system from the root of your project:
-
-   * Mac OSX: `./gradlew clean deployNodes`
-   * Windows: `gradlew clean deployNodes`
+2. Click the right-hand side **Gradle** tab and open the **cordformation** folder. Double-click **deployNodes**.
 
    For each node definition, Gradle will:
 
@@ -102,11 +99,12 @@ the three node folders. Each node folder has the following structure:
 
 ```
 
-* Start the nodes by running the following command from the root of the project:
+1. In terminal, navigate to `build/nodes` from the root directory.
 
-  * Mac OSX: `build/nodes/runnodes`
-  * Windows: `build/nodes/runnodes.bat`
+2. Start the nodes by running the following command:
 
+  * Mac OSX: `runnodes`
+  * Windows: `runnodes.bat`
 
 This will start a terminal window for each node. Give each node a moment to start - you’ll know it’s ready when its terminal windows displays
 the message “Welcome to the Corda interactive shell.”.
@@ -133,7 +131,7 @@ node via its built-in CRaSH shell.
 3. You want to create an IOU of 99 with `PartyB`. To start the `IOUFlow`, type the following syntax:
 
    ```bash
-   start IOUFlow iouMessage: 99, otherParty: "O=PartyB,L=New York,C=US"
+   start IOUFlow iouValue: 99, otherParty: "O=PartyB,L=New York,C=US"
    ```
 
    This single command will cause `PartyA` and `PartyB` to automatically agree an IOU. This is one of the great advantages of

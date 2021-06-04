@@ -24,10 +24,10 @@ issuing a debt instrument to making a restaurant booking.
 
 Writing a CorDapp using a template involves the following steps:
 
-1. [Obtaining the CorDapp template](hello-world-template.md)
-2. [Modifying the state](hello-world-state.md)
-3. [Modifying the flow](hello-world-flow.md)
-4. [Running your CorDapp](hello-world-running.md)
+1. [Obtain the CorDapp template](obtain-the-cordapp-template)
+2. [Modify the state](modify-the-state.md)
+3. [Modify the flow](modify-the-flow.md)
+4. [Run your CorDapp](run-your-cordapp.md)
 
 
 ## Before you start

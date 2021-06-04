@@ -90,14 +90,18 @@ You can visualise this transaction as follows:
 
 {{< figure alt="simple tutorial transaction 2" zoom="/en/images/simple-tutorial-transaction-2.png" >}}
 
-## Outcome
+## Output
 
-The following code shows how the updated part of the contract should look like after applying all of the changes described later in this document:
+The following code presents how your template should look like after performing all the steps described below:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-// Add this import:
+// Add these imports:
+package com.template.contracts
+
+import com.template.states.TemplateState
+import net.corda.core.transactions.LedgerTransaction
 import net.corda.core.contracts.*
 import com.template.states.IOUState
 
@@ -138,6 +142,12 @@ class IOUContract : Contract {
 {{% tab name="java" %}}
 ```java
 // Add these imports:
+package com.template.contracts;
+
+import com.template.states.IOUState;
+import net.corda.core.contracts.CommandData;
+import net.corda.core.contracts.Contract;
+import net.corda.core.transactions.LedgerTransaction;
 import net.corda.core.contracts.CommandWithParties;
 import net.corda.core.identity.Party;
 
@@ -205,9 +215,11 @@ To write a contract that enforces these constraints, you'll need to modify eithe
 
 3. Update the `@BelongsToContract` annotation in the state definition ([Write the state](write-the-state.md)) to specify `IOUContract` class.
 
-4. Define `IOUState` by making the following changes:
+## Add imports
 
-### Add the `Create` command
+* Ensure that your IOUContract template contains all the imports from the code in the Outcome section.
+
+## Add the `Create` command
 
 The first thing you'll add to your contract is a *command*.
 
@@ -232,7 +244,8 @@ interface CommandData
 {{% /tab %}}
 {{< /tabs >}}
 
-### Implement the `verify` logic
+
+## Implement the `verify` logic
 
 Your contract also needs to define the actual contract constraints by implementing `verify`. Your goal in writing the
 `verify` function is to write a function that, given a transaction:
@@ -258,7 +271,8 @@ the following are true:
 * The IOU itself is invalid.
 * The transaction doesn’t require the lender’s signature.
 
-#### Define command constraints
+
+### Define command constraints
 
 You must define any constraints around the transaction’s commands.
 
@@ -268,7 +282,7 @@ If the `Create` command isn’t present, or if the transaction has multiple `Cre
 thrown and contract verification will fail.
 
 
-#### Define transaction constraints
+### Define transaction constraints
 
 You must define any constraints on the transaction. For example, an issuance transaction would require that the transaction can have no inputs and only a single output.
 
@@ -281,7 +295,7 @@ As before, the act of throwing this exception causes the transaction to be consi
 
 In Java, you simply throw an `IllegalArgumentException` manually instead.
 
-#### Impose IOU constraints
+### Impose IOU constraints
 
 Impose two constraints on the `IOUState` itself:
 
@@ -291,7 +305,8 @@ Impose two constraints on the `IOUState` itself:
 You can see that you are not restricted to only writing constraints inside the `verify` function. You can also write
 other statements - in this case, extracting the transaction’s single `IOUState` and assigning it to a variable.
 
-#### Apply signer constraints
+
+### Apply signer constraints
 
 You must require both the lender and the borrower to be required signers on the transaction. A transaction’s
 required signers is equal to the union of all the signers listed on the commands. You will therefore extract the signers from
