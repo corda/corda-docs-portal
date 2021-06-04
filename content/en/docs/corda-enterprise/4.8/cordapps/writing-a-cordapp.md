@@ -22,7 +22,7 @@ In this document, you will find:
 *module*
     A module is a software component or part of a program that contains one or more routines.
 *class*
-    Classes are written in a defined structure to create a Java or Kotlin object. It defines a set of properties and methods that are common to all objects of one type.
+    A class defines a set of properties and methods that are common to all objects of one type. Classes are written in a defined structure to create a Java or Kotlin object. 
 *dependency*  
     When one object uses another object's function.
 
