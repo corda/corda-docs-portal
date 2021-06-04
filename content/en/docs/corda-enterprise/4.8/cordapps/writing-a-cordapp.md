@@ -13,9 +13,9 @@ weight: 30
 # CorDapp Structure
 
 In this document, you will find:
-* An explanation of how to structure CorDapps and why specific structures work.
-* A guide to the CorDapp templates and how they are structured.
-
+* A description of CorDapp structures and why specific structures work.
+* A guide to R3's CorDapp templates and how they are structured.
+* An explanation of how to alter a CorDapp template for production use.
 
 ## Glossary
 
