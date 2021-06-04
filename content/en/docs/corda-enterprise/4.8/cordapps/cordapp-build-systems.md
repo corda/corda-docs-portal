@@ -7,7 +7,7 @@ tags:
 - cordapp
 - build
 - systems
-title: Building and installing a CorDapp
+title: Build a CorDapp
 weight: 100
 ---
 
@@ -33,8 +33,7 @@ You will need to:
 * Set up your [development environment](getting-set-up.md).
 * Run a [sample CorDapp](cordapp-tutorial.md) to see Corda in action (optional).
 * Install the [CorDapp gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. Copy across
-the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the
-[Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
+the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
 
 * `gradle/`
 * `gradlew`
@@ -246,16 +245,6 @@ once the `.jar` has been deployed on a node. If it does, make sure no one is rel
 flows (see [Versioning](versioning.md)).
 
 
-
-## Install the CorDapp
-
-{{< note >}}
-Before you install a CorDapp `.jar`, you must [create one or more nodes](https://docs.corda.net/docs/corda-enterprise/4.8/operations/deployment/generating-a-node.html) to install it on.
-
-{{< /note >}}
-Nodes load any CorDapps present in their `cordapps` folder at startup. To install a CorDapp on a node, you must add the
-CorDapp `.jar` to the `<node_dir>/cordapps/` folder (where `node_dir` is the folder in which the node’s `.jar`
-and configuration files are stored) and restart the node.
 
 ## Sign the CorDapp
 
@@ -619,3 +608,13 @@ This behaviour protects the node from executing contract code that was not vette
 Deterministic JVM is integrated into Corda whereby execution takes place in a sandboxed environment which protects the node from malicious code.
 
 {{< /note >}}
+
+## Install the CorDapp
+
+{{< note >}}
+Before you install a CorDapp `.jar`, you must [create one or more nodes](https://docs.corda.net/docs/corda-enterprise/4.8/operations/deployment/generating-a-node.html) to install it on.
+
+{{< /note >}}
+Nodes load any CorDapps present in their `cordapps` folder at startup. To install a CorDapp on a node, you must add the
+CorDapp `.jar` to the `<node_dir>/cordapps/` folder (where `node_dir` is the folder in which the node’s `.jar`
+and configuration files are stored) and restart the node.
