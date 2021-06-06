@@ -42,8 +42,8 @@ However, some CorDapp use cases call for a different structure. Common examples 
 
 * Library CorDapps. These only contain contracts and states in a single module.
 * CorDapps with multiple sets of contracts and states that **do not** depend on each other. Place each independent set of
-contracts and states in a its own module to reduce transaction size.
-* CorDapps with multiple sets of contracts and states that **do** depend on each other. Keep them all of the contracts and states in the same module, or create separate modules for each set which depend on each other.
+contracts and states in its own module to reduce transaction size.
+* CorDapps with multiple sets of contracts and states that **do** depend on each other. Keep all of the contracts and states in the same module, or create separate modules for each set which depend on each other.
 
 
 
@@ -96,7 +96,7 @@ The directory only contains two class definitions:
 * `TemplateContract`
 * `TemplateState`
 
-These are definitions for classes that we expect to send over the network. They will be compiled into their own
+These are definitions for classes that you expect to send over the network. They will be compiled into their own
 CorDapp.
 
 
