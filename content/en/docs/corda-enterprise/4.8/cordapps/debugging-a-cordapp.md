@@ -45,7 +45,7 @@ running via the node driver to debug your CorDapp. You can debug the CorDapp:
 5. Interact with your nodes. When the execution hits a breakpoint, execution will pause.
 
 {{< note >}}
-The nodes’ webservers always run in a separate process, and cannot be attached to by the debugger.
+The debugger cannot attach to the node's webservers - they always run in a separate process.
 {{< /note >}}
 
 
