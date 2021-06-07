@@ -42,7 +42,7 @@ running via the node driver to debug your CorDapp. You can debug the CorDapp:
 2. Check your `DriverParameters` and make sure that `startNodesInProcess` is set to `true`.
 3. Run the driver using the debugger.
 4. Set your breakpoints.
-5. Interact with your nodes. When the execution hits a breakpoint, execution will pause.
+5. Interact with your nodes.  If the execution hits a breakpoint, it will pause. 
 
 {{< note >}}
 The debugger cannot attach to the node's webservers - they always run in a separate process.
@@ -69,7 +69,7 @@ The debugger cannot attach to the node's webservers - they always run in a separ
     3. Start the run/debug configuration in debug mode.
 
 5. Set your breakpoints.
-6. Interact with your node. When the execution hits a breakpoint, execution will pause.
+6. Interact with your node. If the execution hits a breakpoint, it will pause.
 
 {{< note >}}
 The debugger cannot attach to the node's webservers - they always run in a separate process.
