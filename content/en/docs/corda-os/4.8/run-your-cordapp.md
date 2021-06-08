@@ -103,8 +103,8 @@ the three node folders. Each node folder has the following structure:
 
 2. Start the nodes by running the following command:
 
-  * Mac OSX: `runnodes`
-  * Windows: `runnodes.bat`
+   * Mac OSX: `runnodes`
+   * Windows: `runnodes.bat`
 
 This will start a terminal window for each node. Give each node a moment to start - you’ll know it’s ready when its terminal windows displays
 the message “Welcome to the Corda interactive shell.”.
@@ -158,42 +158,42 @@ node via its built-in CRaSH shell.
 
    The vaults of `PartyA` and `PartyB` should both display the following output:
 
-```bash
-states:
-- state:
-    data: !<com.template.states.IOUState>
-      value: "99"
-      lender: "O=PartyA, L=London, C=GB"
-      borrower: "O=PartyB, L=New York, C=US"
-    contract: "com.template.contracts.TemplateContract"
-    notary: "O=Notary, L=London, C=GB"
-    encumbrance: null
-    constraint: !<net.corda.core.contracts.SignatureAttachmentConstraint>
-      key: "aSq9DsNNvGhYxYyqA9wd2eduEAZ5AXWgJTbTEw3G5d2maAq8vtLE4kZHgCs5jcB1N31cx1hpsLeqG2ngSysVHqcXhbNts6SkRWDaV7xNcr6MtcbufGUchxredBb6"
-  ref:
-    txhash: "D189448F05D39C32AAAAE7A40A35F4C96529680A41542576D136AEE0D6A80926"
-    index: 0
-statesMetadata:
-- ref:
-    txhash: "D189448F05D39C32AAAAE7A40A35F4C96529680A41542576D136AEE0D6A80926"
-    index: 0
-  contractStateClassName: "com.template.states.IOUState"
-  recordedTime: "2020-10-19T11:09:58.183Z"
-  consumedTime: null
-  status: "UNCONSUMED"
-  notary: "O=Notary, L=London, C=GB"
-  lockId: null
-  lockUpdateTime: null
-  relevancyStatus: "RELEVANT"
-  constraintInfo:
-    constraint:
-      key: "aSq9DsNNvGhYxYyqA9wd2eduEAZ5AXWgJTbTEw3G5d2maAq8vtLE4kZHgCs5jcB1N31cx1hpsLeqG2ngSysVHqcXhbNts6SkRWDaV7xNcr6MtcbufGUchxredBb6"
-totalStatesAvailable: -1
-stateTypes: "UNCONSUMED"
-otherResults: []
-```
+   ```bash
+   states:
+   - state:
+      data: !<com.template.states.IOUState>
+        value: "99"
+        lender: "O=PartyA, L=London, C=GB"
+        borrower: "O=PartyB, L=New York, C=US"
+        contract: "com.template.contracts.TemplateContract"
+        notary: "O=Notary, L=London, C=GB"
+        encumbrance: null
+        constraint: !<net.corda.core.contracts.SignatureAttachmentConstraint>
+         key: "aSq9DsNNvGhYxYyqA9wd2eduEAZ5AXWgJTbTEw3G5d2maAq8vtLE4kZHgCs5jcB1N31cx1hpsLeqG2ngSysVHqcXhbNts6SkRWDaV7xNcr6MtcbufGUchxredBb6"
+     ref:
+      txhash: "D189448F05D39C32AAAAE7A40A35F4C96529680A41542576D136AEE0D6A80926"
+      index: 0
+    statesMetadata:
+    - ref:
+       txhash: "D189448F05D39C32AAAAE7A40A35F4C96529680A41542576D136AEE0D6A80926"
+       index: 0
+      contractStateClassName: "com.template.states.IOUState"
+      recordedTime: "2020-10-19T11:09:58.183Z"
+      consumedTime: null
+      status: "UNCONSUMED"
+      notary: "O=Notary, L=London, C=GB"
+      lockId: null
+      lockUpdateTime: null
+      relevancyStatus: "RELEVANT"
+      constraintInfo:
+        constraint:
+          key: "aSq9DsNNvGhYxYyqA9wd2eduEAZ5AXWgJTbTEw3G5d2maAq8vtLE4kZHgCs5jcB1N31cx1hpsLeqG2ngSysVHqcXhbNts6SkRWDaV7xNcr6MtcbufGUchxredBb6"
+      totalStatesAvailable: -1
+      stateTypes: "UNCONSUMED"
+      otherResults: []
+      ```
 
-  This is the transaction issuing our `IOUState` onto a ledger.
+      This is the transaction issuing our `IOUState` onto a ledger.
 
 5. If you run the same command on the other node (the notary), you will see the following:
 

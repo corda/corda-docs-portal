@@ -18,8 +18,8 @@ title: Obtain the CorDapp Template
 
 When writing a new CorDapp, you’ll generally want to start from one of the following standard templates:
 
-* [Java Cordapp Template](https://github.com/corda/cordapp-template-java)
-* [Kotlin Cordapp Template](https://github.com/corda/cordapp-template-kotlin)
+* [Java CorDapp Template](https://github.com/corda/cordapp-template-java)
+* [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin)
 
 The CorDapp templates provide the boilerplate for developing a new CorDapp. CorDapps can be written in either Java or Kotlin. Sample code is provided in both languages throughout this tutorial.
 
@@ -68,11 +68,9 @@ repository and cached locally.
    {{< /tabs >}}
 
 
-## Open the template in IntelliJ
+3. Once you have successfully cloned the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in IntelliJ IDEA.
 
-* Once you have successfully cloned the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in IntelliJ IDEA.
-
-If you are unsure of how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](tutorial-cordapp.html##opening-the-sample-cordapp-in-intellij-idea).
+   If you are unsure of how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](tutorial-cordapp.html##opening-the-sample-cordapp-in-intellij-idea).
 
 
 ## Template structure

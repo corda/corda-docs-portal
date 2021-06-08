@@ -29,7 +29,7 @@ Your CorDapp was made up of two elements:
 However, the CorDapp as it stands so far does not impose any constraints on the evolution of IOUs on the blockchain over time. Anyone would be free to create IOUs of any value, between any party.
 
 To rectify this, you must next write a contract to impose rules on how an `IOUState` can change over time. In turn, this
-will require some small changes to the flow you defined earlier in [Write the flow](write-the-flow).
+will require some small changes to the flow you defined earlier in [Modify the flow](modify-the-flow).
 
 Start by writing the contract - see [Write the contract](tut-two-party-contract.md).
 

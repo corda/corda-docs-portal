@@ -320,7 +320,7 @@ ledger. Here you use `FinalityFlow` which does all of this for the lender.
 For the borrower to receive the transaction they just need a flow that responds to the seller’s flow.
 
 
-### Create the borrower’s flow
+## Create the borrower’s flow
 
 The borrower has to use `ReceiveFinalityFlow` in order to receive and record the transaction; it needs to respond to
 the lender’s flow.
