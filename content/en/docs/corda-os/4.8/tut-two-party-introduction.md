@@ -19,7 +19,7 @@ title: Applying contract constraints
 
 # Applying contract constraints
 
-In the previous steps of the [Writing a CorDapp using a template](writing-a-cordapp-using-a-template) tutorial, you built a CorDapp which enabled you to model IOUs on ledger.
+Previously in the  [Writing a CorDapp using a template](writing-a-cordapp-using-a-template) tutorial, you built a CorDapp which let you model IOUs on ledger.
 
 Your CorDapp was made up of two elements:
 
