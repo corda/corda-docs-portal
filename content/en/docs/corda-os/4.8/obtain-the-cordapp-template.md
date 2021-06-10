@@ -14,7 +14,7 @@ tags:
 title: Obtain the CorDapp Template
 ---
 
-# Obtain the CorDapp Template
+# Get the CorDapp Template
 
 When writing a new CorDapp, you’ll generally want to start from one of the following standard templates:
 
