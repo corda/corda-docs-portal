@@ -308,7 +308,7 @@ other statements - in this case, extracting the transaction’s single `IOUState
 
 ### Apply signer constraints
 
-You must require both the lender and the borrower to be required signers on the transaction. A transaction’s
+You must ensure that both the lender and the borrower are **required signers** on the transaction. A transaction’s
 required signers is equal to the union of all the signers listed on the commands. You will therefore extract the signers from
 the `Create` command you retrieved earlier.
 
