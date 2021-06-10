@@ -92,7 +92,7 @@ You can visualise this transaction as follows:
 
 ## Output
 
-The following code presents how your template should look like after performing all the steps described below:
+The following code represents what your template should look like after performing all the steps described below:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
