@@ -229,11 +229,11 @@ After completing this tutorial, your CorDapp should look like this:
 
 ## Next steps
 
-There are a number of improvements you could make to this CorDapp:
+You could make several improvements to this CorDapp. You could:
 
-* You could add unit tests, using the contract-test and flow-test frameworks.
-* You could change `IOUState.value` from an integer to a proper amount of a given currency.
-* You could add an API, to make it easier to interact with the CorDapp.
+* Add unit tests, using the contract-test and flow-test frameworks.
+* Change `IOUState.value` from an integer to a proper amount of a given currency.
+* Add an API, to make it easier to interact with the CorDapp.
 
 But for now, the biggest priority is to add an `IOUContract` imposing constraints on the evolution of each
 `IOUState` over time - see [Applying contract constraints](tut-two-party-introduction.md).
