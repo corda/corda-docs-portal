@@ -92,7 +92,7 @@ The IOUs that you issue onto a ledger will simply be instances of this class.
 
 ## Outcome
 
-The code examples below show how your code should look like after doing all of the above:
+The code examples below show what your code should look like after performing the steps above:
 
 
 {{< tabs name="tabs-2" >}}
