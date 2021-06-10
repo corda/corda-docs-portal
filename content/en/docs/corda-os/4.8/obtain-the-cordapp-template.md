@@ -16,7 +16,7 @@ title: Obtain the CorDapp Template
 
 # Get the CorDapp Template
 
-When writing a new CorDapp, you’ll generally want to start from one of the following standard templates:
+When writing a new CorDapp, it is helpful to start from one of the following standard templates:
 
 * [Java CorDapp Template](https://github.com/corda/cordapp-template-java)
 * [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin)
