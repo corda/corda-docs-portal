@@ -35,9 +35,9 @@ You will need to:
 * Install the [CorDapp gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. Copy across
 the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
 
-* `gradle/`
-* `gradlew`
-* `gradlew.bat`
+    * `gradle/`
+    * `gradlew`
+    * `gradlew.bat`
 
 
 {{< note >}}
