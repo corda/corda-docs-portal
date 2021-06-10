@@ -32,7 +32,7 @@ Writing a CorDapp using a template involves the following steps:
 
 ## Before you start
 
-Before starting the tutorial steps, ensure you meet the following prerequisites:
+Before starting the tutorial steps, you should:
 
 * [Familiarize yourself with Corda’s key concepts](key-concepts.md)
 * [Get set up for CorDapp development](getting-set-up.md)
