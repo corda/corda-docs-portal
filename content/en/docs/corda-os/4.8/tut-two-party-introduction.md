@@ -19,7 +19,7 @@ title: Applying contract constraints
 
 # Applying contract constraints
 
-In the previous steps of the Hello, World! tutorial, you built a CorDapp which enabled you to model IOUs on ledger.
+Previously in the  [Writing a CorDapp using a template](writing-a-cordapp-using-a-template) tutorial, you built a CorDapp which let you model IOUs on ledger.
 
 Your CorDapp was made up of two elements:
 
@@ -29,8 +29,8 @@ Your CorDapp was made up of two elements:
 However, the CorDapp as it stands so far does not impose any constraints on the evolution of IOUs on the blockchain over time. Anyone would be free to create IOUs of any value, between any party.
 
 To rectify this, you must next write a contract to impose rules on how an `IOUState` can change over time. In turn, this
-will require some small changes to the flow you defined earlier in [Writing the flow](hello-world-flow.md).
+will require some small changes to the flow you defined earlier in [Modify the flow](modify-the-flow).
 
-Start by writing the contract - see [Writing the contract](tut-two-party-contract.md).
+Start by writing the contract - see [Modify the contract](tut-two-party-contract.md).
 
-Once that's done, you'll need to make the necessary updates to the flow - see [Updating the flow](tut-two-party-flow.md).
+Once that's done, you'll need to make the necessary updates to the flow - see [Update the flow](tut-two-party-flow.md).

@@ -19,7 +19,7 @@ version: '4.8'
 {{< vimeo 205410473 >}}
 
 **Want to start coding on Corda?** Familiarise yourself with the [key concepts](key-concepts.md), then read
-our [Hello, World! tutorial](hello-world-introduction.md).
+our [Writing a CorDapp using a template](writing-a-cordapp-using-a-template.md) tutorial.
 
 **Want background reading material?** The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business
 audience. The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.
