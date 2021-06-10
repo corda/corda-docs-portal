@@ -85,7 +85,7 @@ later is often as simple as adding an additional property to your class definiti
     * `lender` and `borrower` are of type `Party`.
         * `Party` is a built-in Corda type that represents an entity on the network.
 
-   b. Override `participants` to return a list of the `lender` and `borrower`.
+   b. Override `participants` to return a list that shows the `lender` and `borrower`.
     * `participants` is a list of all the parties who should be notified of the creation or consumption of this state.
 
 The IOUs that you issue onto a ledger will simply be instances of this class.
