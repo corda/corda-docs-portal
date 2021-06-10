@@ -71,10 +71,10 @@ interface, your `IOUState` also needs properties to track the relevant features 
 There are many more fields you could include, such as the IOU’s currency, but let’s ignore those for now. Adding them
 later is often as simple as adding an additional property to your class definition.
 
-1. Depending on whether you are working with the Java or Kotlin template, perform one of the following steps:
+1. Open the file for for your language:
 
-   * For Java, open `TemplateState.java` from `contracts/src/main/java/com/template/states/TemplateState.java`.
-   * For Kotlin, open `TemplateState.kt` from `contracts/src/main/kotlin/com/template/states/TemplateState.kt`.
+   * Java: Open `TemplateState.java` from `contracts/src/main/java/com/template/states/TemplateState.java`.
+   * Kotlin: Open `TemplateState.kt` from `contracts/src/main/kotlin/com/template/states/TemplateState.kt`.
 
 2. Rename the `TemplateState` class to `IOUState`.
 
@@ -92,7 +92,7 @@ The IOUs that you issue onto a ledger will simply be instances of this class.
 
 ## Outcome
 
-The code examples below show what your code should look like after performing the steps above:
+Take a look at this code snippet. This is how your IOU state template should look after you have completed all the steps described above.
 
 
 {{< tabs name="tabs-2" >}}

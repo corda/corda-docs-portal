@@ -18,9 +18,9 @@ title: Update the flow
 
 # Update the flow
 
-After you have written the contract and defined any necessary constraints, as described in the [Write the contract](tut-two-party-contract.md) section, you now need to update your flow to achieve three things:
+After you have written the contract and defined any necessary constraints, as described in the [Modify the contract](tut-two-party-contract.md) section, you now need to update your flow to achieve three things:
 
-* Verify that the transaction proposal you build fulfills the `IOUContract` constraints.
+* Verify that the transaction proposal you built fulfills the `IOUContract` constraints.
 * Update the lender’s side of the flow to request the borrower’s signature.
 * Create a response flow for the borrower that responds to the signature request from the lender.
 
@@ -28,7 +28,8 @@ To do this, modify the flow that you created earlier as part of [Write the flow]
 
 ## Outcome
 
-The following code shows how the updated part of `IOUFlow` file should look after applying all changes described later in this document:
+Take a look at this code snippet. This is how the updated part of your IOU flow template should look after you have completed all the steps described below.
+
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}

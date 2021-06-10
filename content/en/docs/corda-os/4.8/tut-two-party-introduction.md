@@ -31,6 +31,6 @@ However, the CorDapp as it stands so far does not impose any constraints on the 
 To rectify this, you must next write a contract to impose rules on how an `IOUState` can change over time. In turn, this
 will require some small changes to the flow you defined earlier in [Modify the flow](modify-the-flow).
 
-Start by writing the contract - see [Write the contract](tut-two-party-contract.md).
+Start by writing the contract - see [Modify the contract](tut-two-party-contract.md).
 
 Once that's done, you'll need to make the necessary updates to the flow - see [Update the flow](tut-two-party-flow.md).

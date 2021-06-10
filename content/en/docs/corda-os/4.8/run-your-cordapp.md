@@ -99,7 +99,7 @@ the three node folders. Each node folder has the following structure:
 
 ```
 
-1. In terminal, navigate to `build/nodes` from the root directory.
+1. In the IntelliJ terminal window, navigate to `build/nodes` from the root directory.
 
 2. Start the nodes by running the following command:
 
@@ -128,7 +128,7 @@ node via its built-in CRaSH shell.
    You can find more about SSH on the [Node shell](shell.md) page.
    {{< /note >}}
 
-3. You want to create an IOU of 99 with `PartyB`. To start the `IOUFlow`, type the following syntax:
+3. Create an IOU of 99 with `PartyB`. To start the `IOUFlow`, type the following syntax:
 
    ```bash
    start IOUFlow iouValue: 99, otherParty: "O=PartyB,L=New York,C=US"
@@ -235,5 +235,5 @@ You could make several improvements to this CorDapp. You could:
 * Change `IOUState.value` from an integer to a proper amount of a given currency.
 * Add an API, to make it easier to interact with the CorDapp.
 
-But for now, the biggest priority is to add an `IOUContract` imposing constraints on the evolution of each
+The biggest priority for your next step is to add an `IOUContract` imposing constraints on the evolution of each
 `IOUState` over time - see [Applying contract constraints](tut-two-party-introduction.md).

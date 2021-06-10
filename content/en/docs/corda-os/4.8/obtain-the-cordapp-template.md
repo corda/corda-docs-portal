@@ -11,7 +11,7 @@ menu:
     weight: 1010
 tags:
 - template
-title: Obtain the CorDapp Template
+title: Get the CorDapp Template
 ---
 
 # Get the CorDapp Template

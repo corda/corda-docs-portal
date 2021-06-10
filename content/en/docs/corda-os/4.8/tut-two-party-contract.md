@@ -13,10 +13,10 @@ tags:
 - tut
 - party
 - contract
-title: Write the contract
+title: Modify the contract
 ---
 
-# Write the contract
+# Modify the contract
 
 For most CorDapps, you will want to impose some constraints on how their states evolve over time:
 
@@ -61,7 +61,7 @@ From the above example, you can see that `Contract` expresses its constraints th
 * Returns silently if it accepts the transaction proposal.
 
 {{< note >}}
-As mentioned in the [Write the state](write-the-state.md) tutorial, the above is Corda source code and is therefore written in Kotlin.
+As mentioned in the [Modify the state](modify-the-state.md) tutorial, the above `ContractState` interface is Corda source code and is therefore written in Kotlin.
 {{< /note >}}
 
 ## Controlling IOU evolution
@@ -92,7 +92,8 @@ You can visualise this transaction as follows:
 
 ## Output
 
-The following code represents what your template should look like after performing all the steps described below:
+Take a look at this code snippet. This is how your IOU contract template should look after you have completed all the steps described below.
+
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -206,10 +207,11 @@ public class IOUContract implements Contract {
 To write a contract that enforces these constraints, you'll need to modify either `TemplateContract.java` or
 `TemplateContract.kt` by defining an `IOUContract`, as shown in the following code example:
 
-1. Depending on whether you are working with the Java or Kotlin template, perform one of the following steps:
 
-   * For Java, open `TemplateContract.java` from `contracts/src/main/java/com/template/contracts/TemplateContract.java`.
-   * For Kotlin, open `TemplateContract.kt` from `contracts/src/main/kotlin/com/template/contracts/TemplateContract.kt`.
+1. Open the file for for your language:
+
+   * Java: Open `TemplateContract.java` from `contracts/src/main/java/com/template/contracts/TemplateContract.java`.
+   * Kotlin: Open `TemplateContract.kt` from `contracts/src/main/kotlin/com/template/contracts/TemplateContract.kt`.
 
 2. Rename the `TemplateContract` class to `IOUContract`.
 
@@ -286,10 +288,10 @@ thrown and contract verification will fail.
 
 You must define any constraints on the transaction. For example, an issuance transaction would require that the transaction can have no inputs and only a single output.
 
-In Kotlin, you use Corda’s built-in `requireThat` blockthese to impose these and the subsequent constraints. `requireThat`
+In Kotlin, you use Corda’s built-in `requireThat` block these to impose these and the subsequent constraints. `requireThat`
 provides a terse way to write the following:
 
-* If the condition on the right-hand side doesn’t evaluate to true, throw an `IllegalArgumentException` with the message on the left-hand side.
+If the condition on the right-hand side doesn’t evaluate to true, throw an `IllegalArgumentException` with the message on the left-hand side.
 
 As before, the act of throwing this exception causes the transaction to be considered invalid.
 
