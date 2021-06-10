@@ -18,7 +18,7 @@ title: Obtain the CorDapp Template
 
 When writing a new CorDapp, it is helpful to start from one of the following standard templates:
 
-* [Java CorDapp Template](https://github.com/corda/cordapp-template-java)
+* [Java CorDapp template](https://github.com/corda/cordapp-template-java)
 * [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin)
 
 The CorDapp templates provide the boilerplate for developing a new CorDapp. CorDapps can be written in either Java or Kotlin. Sample code is provided in both languages throughout this tutorial.
