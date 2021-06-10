@@ -200,7 +200,7 @@ public class IOUFlow extends FlowLogic<Void> {
 
 ## Define FlowLogic
 
-1. Depending whether you are working with Java or Kotlin template, perform one of the following steps:
+1. Depending on whether you are working with the Java or Kotlin template, perform one of the following steps:
 
    * For Java, open `Initiator.java` from `workflows/src/main/java/com/template/flows/Initiator.java`.
    * For Kotlin, open `Flows.kt` from `workflows/src/main/kotlin/com/template/flows/Flows.kt`.
