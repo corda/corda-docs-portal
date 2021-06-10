@@ -106,7 +106,7 @@ the three node folders. Each node folder has the following structure:
    * Mac OSX: `runnodes`
    * Windows: `runnodes.bat`
 
-This will start a terminal window for each node. Give each node a moment to start - you’ll know it’s ready when its terminal windows displays
+This starts a terminal window for each node. Give each node a moment to start - you’ll know it’s ready when its terminal windows displays
 the message “Welcome to the Corda interactive shell.”.
 
 
