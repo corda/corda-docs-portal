@@ -213,7 +213,7 @@ To write a contract that enforces these constraints, you'll need to modify eithe
 
 2. Rename the `TemplateContract` class to `IOUContract`.
 
-3. Update the `@BelongsToContract` annotation in the state definition ([Write the state](write-the-state.md)) to specify `IOUContract` class.
+3. Update the `@BelongsToContract` annotation in the state definition ([Modify the state](modify-the-state.md)) to specify `IOUContract` class.
 
 ## Add imports
 
