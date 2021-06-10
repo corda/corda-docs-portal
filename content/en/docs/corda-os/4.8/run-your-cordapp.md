@@ -124,7 +124,7 @@ node via its built-in CRaSH shell.
 2. Type `help` to display a list of the available commands.
 
    {{< note >}}
-   Local terminal shell is available only in a development mode. In a production environment SSH server can be enabled.
+   The local terminal shell is only available in development mode. In a production environment, you can enable an SSH server.
    More about SSH and how to connect can be found on the [Node shell](shell.md) page.
    {{< /note >}}
 
