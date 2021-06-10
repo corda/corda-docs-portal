@@ -25,7 +25,7 @@ The CorDapp templates provide the boilerplate for developing a new CorDapp. CorD
 
 {{< note >}}
 
-You do not have to download and install Corda itself. The required libraries are automatically downloaded from an online Maven
+You do not have to download and install Corda. The required libraries are automatically downloaded from an online Maven
 repository and cached locally.
 
 {{< /note >}}
