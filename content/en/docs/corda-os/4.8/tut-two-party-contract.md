@@ -217,7 +217,7 @@ To write a contract that enforces these constraints, you'll need to modify eithe
 
 ## Add imports
 
-* Ensure that your IOUContract template contains all the imports from the code in the Outcome section.
+* Ensure that your `IOUContract` template contains all the imports from the code in the Outcome section.
 
 ## Add the `Create` command
 
