@@ -193,7 +193,7 @@ node via its built-in CRaSH shell.
       otherResults: []
       ```
 
-      This is the transaction issuing our `IOUState` onto a ledger.
+      This is the transaction issuing your `IOUState` onto a ledger.
 
 5. If you run the same command on the other node (the notary), you will see the following:
 
