@@ -63,7 +63,7 @@ You can use two types of contract constraints:
 
 Before signature constraints were released with Corda 4.0, constraints were managed with hash and compatibility zone whitelist constraints. These constraints are still available, but make it difficult to upgrade your CorDapp:
 
-* **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of the state created with the original version.
+* **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
 * **Compatibility zone whitelisted (or CZ whitelisted) constraint**: The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
 
 Learn more about [constraints before Corda 4.0](https://docs.corda.net/docs/corda-enterprise/3.3/api-contract-constraints.html#how-constraints-work). You can also [migrate CorDapp contraints](cordapp-constraint-migration.md) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
@@ -77,7 +77,7 @@ You can use signature constraints to specify flexible threshold policies. Howeve
 
 You can create a more complex policy that will release the constraint with fewer signatures than the total number of possible signers. This makes it possible for multiple versions to be valid across the network as long as the designated number of signers agree with the updates.
 
-The `TransactionBuilder` uses signature constraints when adding output states for all signed transactions by default. See [Using Contract Constraints in Transactions](#contract-constraints-in-transactions).
+The `TransactionBuilder` uses signature constraints when adding output states for all signed transactions by default. See [Using Contract Constraints in Transactions](#using-contract-constraints-in-transactions).
 
 ## Signing CorDapps
 
@@ -121,11 +121,11 @@ You can also [blacklist keys](../node/setup/corda-configuration-file.md#corda-co
 
 Below are two examples of scenarios involving blacklisted signing keys. These statements are true for both examples:
 
-* `Alice` has `Contracts CorDapp` installed.
-* `Bob` has an upgraded version of `Contracts CorDapp` (known as `Contracts CorDapp V2`) installed.
-* Both `Alice` and `Bob` have the `Workflows CorDapp`, allowing them to transact with each other.
-* `Contracts CorDapp` is signed by both `Alice` and `Bob`.
-* `Contracts CorDapp V2` is signed by both `Alice` and `Bob`.
+* Alice has `Contracts CorDapp` installed.
+* Bob has an upgraded version of `Contracts CorDapp` (known as `Contracts CorDapp V2`) installed.
+* Both Alice and Bob have the `Workflows CorDapp`, allowing them to transact with each other.
+* `Contracts CorDapp` is signed by both Alice and Bob.
+* `Contracts CorDapp V2` is signed by both Alice and Bob.
 
 
 
@@ -277,7 +277,7 @@ private fun transaction(): TransactionBuilder {
 
 The `TransactionBuilder` API gives developers the option to construct output states with a constraint.
 
-For the ledger to remain consistent, the expected behavior is for output state to inherit the constraints of input states.
+For the ledger to remain consistent, the expected behavior is for output states to inherit the constraints of input states.
 This guarantees that, for example, a transaction cannot output a state with the `AlwaysAcceptAttachmentConstraint` when the
 corresponding input state was the `SignatureAttachmentConstraint`. If the rule is enforced, the output state is spent under similar conditions to the state it was created in.
 
@@ -296,7 +296,7 @@ If the node cannot resolve an attachment constraint it will throw a `MissingCont
 
 ### Not setting CorDapp packages in tests
 
-You must specify which CorDapp package(s) to scan when you run tests. Provide a package containing the contract class in `MockNetworkParameters`. See [API: Testing](api-testing.md).
+You must specify which CorDapp package(s) to scan when you run tests. Provide a package containing the contract class in `MockNetworkParameters`. See [Testing CorDapps](api-testing.md).
 
 You must also specify a package when testing using `DriverDSl`. `DriverParameters` has a property `cordappsForAllNodes` (Kotlin)
 or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp` created by utility method `TestCordapp.findCordapp(String)`.
