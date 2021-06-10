@@ -206,7 +206,7 @@ public class IOUContract implements Contract {
 To write a contract that enforces these constraints, you'll need to modify either `TemplateContract.java` or
 `TemplateContract.kt` by defining an `IOUContract`, as shown in the following code example:
 
-1. Depending whether you are working with Java or Kotlin template, perform one of the following steps:
+1. Depending on whether you are working with the Java or Kotlin template, perform one of the following steps:
 
    * For Java, open `TemplateContract.java` from `contracts/src/main/java/com/template/contracts/TemplateContract.java`.
    * For Kotlin, open `TemplateContract.kt` from `contracts/src/main/kotlin/com/template/contracts/TemplateContract.kt`.
