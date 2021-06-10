@@ -115,7 +115,7 @@ the message “Welcome to the Corda interactive shell.”.
 
 ## Start the IOU flow
 
-Now that our nodes are running, order one of them to create an IOU by kicking off our `IOUFlow`. In a larger
+Once your nodes are running, order one of them to create an IOU by triggering the `IOUFlow`. In a larger
 app, you’d generally provide a web API sitting on top of our node. Here, for simplicity, you’ll be interacting with the
 node via its built-in CRaSH shell.
 
