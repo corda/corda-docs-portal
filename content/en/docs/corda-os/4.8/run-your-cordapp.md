@@ -148,7 +148,7 @@ node via its built-in CRaSH shell.
     Flow completed with result: null
     ```
 
-    If the flow worked, it should have recorded a new IOU in the vaults of both `PartyA` and `PartyB`.
+    If the flow worked, there should be a record of a new IOU in the vaults of both `PartyA` and `PartyB`..
 
 4. Check the contents of each node’s vault by running:
 
