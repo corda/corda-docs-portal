@@ -255,7 +255,7 @@ or the rest of the network - you generally obtain it via the node’s `ServiceHu
 
 ### Build the transaction
 
-Build your transaction proposal in two steps:
+You can build your transaction proposal in two steps:
 
 1. Create the transaction’s components.
 2. Add these components to a transaction builder.
