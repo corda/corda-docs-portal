@@ -24,7 +24,7 @@ represent an IOU.
 
 A Corda state is any instance of a class that implements the `ContractState` interface.
 
-* For your CorDapp, use the following `ContractState` interface:
+For your CorDapp, use the following `ContractState` interface:
 
   {{< tabs name="tabs-1" >}}
   {{% tab name="kotlin" %}}
