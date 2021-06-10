@@ -38,7 +38,7 @@ For your CorDapp, use the following `ContractState` interface:
 
     {{< /tabs >}}
 
-As you can see, the `ContractState` interface has a single field, `participants`. The `participants` field is a list of the
+As you can see, the `ContractState` interface has a single field - `participants`. The `participants` field is a list of the
 entities for which this state is relevant.
 
 Beyond this, your state is free to define any fields, methods, helpers or inner classes that the state requires to accurately
