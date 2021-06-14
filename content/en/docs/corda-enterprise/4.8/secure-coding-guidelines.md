@@ -36,7 +36,9 @@ Your CorDapp is vulnerable at two points:
 
 Counterparties on a network have the ability to run their own code - it's possible that they may not be running the code you provided to take part in the flow. This means it's up to you to validate everything you receive over the network.
 
-The `receive` methods remind you to validate this data by wrapping it in the `UntrustworthyData<T>` marker type. This type does not add any functionality, it is only a reminder. Make sure this data:
+The `receive` methods remind you to validate this data by wrapping it in the `UntrustworthyData<T>` marker type. This type does not add any functionality, it is only a reminder. 
+
+Make sure this type of data:
 
 * Matches any partial transaction built or proposed earlier in the flow. For example, you propose to trade a cash state worth $100 for an asset. When the other side returns your proposal, you must ensure it points to the $100 cash state you indicated. A malicious counterparty could attempt to get you to sign a transaction that results in you spending a higher-value state, if they know that state's ID.
 * Matches the expected transaction type. There are two transaction types: general and notary change. If you are expecting a general transaction type but accidentally authorize notary change, you could transfer your assets to a hostile notary.
