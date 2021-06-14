@@ -8,19 +8,19 @@ menu:
 tags:
 - api
 - contracts
-title: Write a CorDapp Contract
+title: CorDapp Contracts
 weight: 50
 ---
 
 
 
 
-# Write a CorDapp Contract
+# CorDapp Contracts
 
 This article explains:
 
 * How Corda nodes run contracts in CorDapps.
-* What the `contract`class is and how to use it.
+* What the `contract` class is and how to use it.
 * What the `verify` function is and how to validate transactions with it.
 * What the `LedgerTransaction` object is and what it does.
 * How to write effective verification logic.
