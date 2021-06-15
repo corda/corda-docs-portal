@@ -8,81 +8,74 @@ menu:
 tags:
 - debugging
 - cordapp
-title: Debugging a CorDapp
+title: Debug a CorDapp
 weight: 120
 ---
 
-# Debugging a CorDapp
+# Debug a CorDapp
 
-There are several ways to debug your CorDapp.
+There are several ways you can debug your CorDapp.
 
-## Using a `MockNetwork`
+## Method 1: Use a `MockNetwork`
 
 You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to a
-`MockNetwork` to debug your CorDapp:
+`MockNetwork` to debug your CorDapp.
 
 
-* Define your flow tests as per [API: Testing](api-testing.md).
-
-    * In your `MockNetwork`, ensure that `threadPerNode` is set to `false`.
-
-* Set your breakpoints.
-* Run the flow tests using the debugger. When the tests hit a breakpoint, execution will pause.
+1. Define your [flow tests](api-testing.md).
+2. Set `threadPerNode` to `false` in your `MockNetwork`.
+3. Set your breakpoints.
+4. Run the flow tests using the debugger. When the tests hit a breakpoint, execution will pause.
 
 
-## Using the node driver
+## Method 2: Use the node driver
 
-You can also attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to nodes
-running via the node driver to debug your CorDapp.
+Attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to nodes
+running via the node driver to debug your CorDapp. You can debug the CorDapp:
+* While the nodes are in-process
+* Using remote debugging
 
 
-### With the nodes in-process
+### Debug with the nodes in-process
 
-
-* Define a network using the node driver as described in [Conducting integration Testing](../../../corda-os/4.8/tutorial-integration-testing.md).
-
-* In your `DriverParameters`, ensure that `startNodesInProcess` is set to `true`.
-
-* Run the driver using the debugger.
-
-* Set your breakpoints.
-
-* Interact with your nodes. When execution hits a breakpoint, execution will pause.
+1. [Define a network using the node driver](../../../corda-os/4.8/tutorial-integration-testing.md).
+2. Check your `DriverParameters` and make sure that `startNodesInProcess` is set to `true`.
+3. Run the driver using the debugger.
+4. Set your breakpoints.
+5. Interact with your nodes.  If the execution hits a breakpoint, it will pause. 
 
 {{< note >}}
-The nodes’ webservers always run in a separate process, and cannot be attached to by the debugger.
+The debugger cannot attach to the node's webservers - they always run in a separate process.
 {{< /note >}}
 
 
-### With remote debugging
+### Debug remotely
 
-
-* Define a network using the node driver as described in [Conducting integration Testing](../../../corda-os/4.8/tutorial-integration-testing.md).
-* In your `DriverParameters`, ensure that `startNodesInProcess` is set to `false` and `isDebug` is set to
+1. [Define a network using the node driver](../../../corda-os/4.8/tutorial-integration-testing.md).
+2. Check your `DriverParameters` and make sure that `startNodesInProcess` is set to `false` and `isDebug` is set to
 `true`.
-* Run the driver. The remote debug ports for each node will be automatically generated and printed to the terminal.
+3. Run the driver. The remote debug ports for each node are generated automatically and printed to the terminal.
 
-  For example:
+   For example:
 
 ```none
 [INFO ] 11:39:55,471 [driver-pool-thread-0] (DriverDSLImpl.kt:814) internal.DriverDSLImpl.startOutOfProcessNode -
     Starting out-of-process Node PartyA, debug port is 5008, jolokia monitoring port is not enabled {}
 ```
 
-* Attach the debugger to the node of interest on its debug port:
+4. Attach the debugger to the relevant node's debug port:
+    1. In IntelliJ IDEA, create a new run/debug configuration of type `Remote`.
+    2. Set the run/debug configuration’s `Port` to the debug port.
+    3. Start the run/debug configuration in debug mode.
 
-  * In IntelliJ IDEA, create a new run/debug configuration of type `Remote`.
-  * Set the run/debug configuration’s `Port` to the debug port.
-  * Start the run/debug configuration in debug mode.
-
-* Set your breakpoints.
-* Interact with your node. When execution hits a breakpoint, execution will pause.
+5. Set your breakpoints.
+6. Interact with your node. If the execution hits a breakpoint, it will pause.
 
 {{< note >}}
-The nodes’ webservers always run in a separate process, and cannot be attached to by the debugger.
+The debugger cannot attach to the node's webservers - they always run in a separate process.
 {{< /note >}}
 
 
-## By enabling remote debugging on a node
+## Method 3: Enable remote debugging on a node
 
 See [Enabling remote debugging](../node/node-commandline.md#enabling-remote-debugging).
