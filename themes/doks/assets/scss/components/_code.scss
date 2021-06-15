@@ -85,6 +85,19 @@ pre code {
   }
 }
 
+pre code::selection{
+  background-color: $black;
+}
+pre code::-moz-selection{
+  background-color: $black;
+}
+pre code span::selection{
+  background-color: $black;
+}
+pre code span::-moz-selection {
+  background-color: $black;
+}
+
 pre code::-webkit-scrollbar {
   height: 5px;
 }
@@ -100,6 +113,11 @@ pre code:hover {
 
 pre code::-webkit-scrollbar-thumb:hover {
   background: $gray-200;
+}
+
+.language-guess {
+  background: #262626;
+  color: #F7F7FC;
 }
 
 .dark {

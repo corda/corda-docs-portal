@@ -9,6 +9,11 @@ import yaml from 'highlight.js/lib/languages/yaml';
 import markdown from 'highlight.js/lib/languages/markdown';
 import kotlin from 'highlight.js/lib/languages/kotlin';
 import java from 'highlight.js/lib/languages/java';
+import groovy from 'highlight.js/lib/languages/groovy';
+import gradle from 'highlight.js/lib/languages/gradle';
+import shell from 'highlight.js/lib/languages/shell';
+import gauss from 'highlight.js/lib/languages/gauss';
+import docker from 'highlight.js/lib/languages/dockerfile';
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('json', json);
@@ -20,6 +25,11 @@ hljs.registerLanguage('yaml', yaml);
 hljs.registerLanguage('md', markdown);
 hljs.registerLanguage('kotlin', kotlin);
 hljs.registerLanguage('java', java);
+hljs.registerLanguage('groovy', groovy);
+hljs.registerLanguage('gradle', gradle);
+hljs.registerLanguage('shell', shell);
+hljs.registerLanguage('gauss', gauss);
+hljs.registerLanguage('docker', docker);
 
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('pre code').forEach((block) => {
