@@ -3,88 +3,115 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-cordapps-flows
-    name: "Writing CorDapp flows"
+    name: "CorDapp flows"
     parent: corda-enterprise-4-8-cordapps
 tags:
 - api
 - flows
-title: Writing CorDapp Flows
+title: Flows
 weight: 70
 ---
 
 
 
 
-# Writing CorDapp Flows
+# Flows
 
-Before we discuss the details of the flow API, consider what a standard flow may look like.
+Flows allow your CorDapp to communicate with other parties on a network. Before you begin, familiarize yourself with the flow key concepts.
 
-Imagine a flow for agreeing a basic ledger update between Alice and Bob. This flow will have two sides:
+## An example flow
 
-* An `Initiator` side, that will initiate the request to update the ledger
-* A `Responder` side, that will respond to the request to update the ledger
+ For example, if Alice and Bob want to agree a basic ledger update, they would create a flow with two sides, one for each party:
 
-## Initiator
+* An `Initiator` side, a flow class that initiates the request to update the ledger.
+* A `Responder` side, a flow class that responds to the request to update the ledger.
 
-In our flow, the Initiator flow class will be doing the majority of the work, the iniator will, in order:
+### Initiator flow class example
 
-**Part 1 - Building the transaction**
+In this example, the `Initiator` does the majority of the work - they will build, sign, verify, and finalize the transaction.
 
-* Choose a notary for the transaction
-* Create a transaction builder
-* Extract any input states from the vault and add them to the builder
-* Create any output states and add them to the builder
-* Add any commands, attachments and time-window to the builder
+**Step 1: Build the transaction**
 
-**Part 2 - Sign the transaction**
+The `initiator`:
 
-* Sign the transaction builder
-* Convert the builder to a signed transaction
+1. Chooses a notary for the transaction.
+2. Create a transaction builder.
+3. Extracts any input states from the vault and adds them to the builder.
+4. Creates any output states and adds them to the builder.
+5. Adds any commands, attachments or time windows to the builder.
 
-**Part 3 - Verify the transaction**
+**Step 2: Sign the transaction**
 
-* Verify the transaction by running its contracts
+The `initiator`:
 
-**Part 4 - Gather the counterparty’s signature**
+1. Signs the transaction builder.
+2. Converts the builder into a signed transaction.
 
-* Send the transaction to the responding counterparty
-* Wait to receive back the responding counterparty’s signature
-* Add the responding counterparty’s signature to the transaction
-* Verify the transaction’s signatures
+**Step 3: Verify the transaction**
 
-**Part 5 - Finalize the transaction**
+The `initiator`:
 
-* Send the transaction to the notary
-* Wait to receive back the notarised transaction
-* Record the transaction locally
-* Store any relevant states in the vault
-* Send the transaction to the counterparty for recording
+1. Runs the [contracts](contracts-api.md) contained in the CorDapp.
+2. Verifies that the transaction is valid based on the contracts.
 
-We can visualize the work performed by initiator as follows:
+
+**Step 4: Get the counterparty’s signature**
+
+The `initiator`:
+
+1. Sends the transaction to the responding counterparty.
+2. Waits to get the responding counterparty’s signature.
+3. Adds the responding counterparty’s signature to the transaction.
+4. Verifies the transaction’s signatures.
+
+**Step 5: Finalize the transaction**
+
+The `initiator`:
+
+1. Sends the transaction to the notary.
+2. Waits to receive the notarised transaction.
+3. Records the transaction locally.
+4. Stores any relevant states in the vault.
+5. Sends the transaction to the counterparty for recording.
+
+You can visualize the work performed by initiator like this:
 
 {{< figure alt="flow overview" zoom="../resources/flow-overview.png" >}}
 
-## Responder
+## Responder flow class example
 
-To respond to these actions, the responder takes the following steps:
+The `responder` verifies, signs and records the transaction.
 
-**Part 1 - Sign the transaction**
+**Step 1: Verify the transaction**
 
-* Receive the transaction from the counterparty
-* Verify the transaction’s existing signatures
-* Verify the transaction by running its contracts
-* Generate a signature over the transaction
-* Send the signature back to the counterparty
+The `responder`:
 
-**Part 2 - Record the transaction**
+1. Receives the transaction from the counterparty.
+2. Verifies the transaction’s existing signatures.
+3. Runs the [contracts](contracts-api.md) contained in the CorDapp.
+4. Verifies that the transaction is valid based on the contracts.
 
-* Receive the notarised transaction from the initiator
-* Record the transaction locally
-* Store any relevant states in the vault
 
-## Understand the FlowLogic class
+**Step 2: Sign the transaction**
 
-In practice, a flow is implemented as one or more communicating `FlowLogic` subclasses. The `FlowLogic`
+The `responder`:
+
+1. Generates a signature for the transaction.
+2. Sends the signature back to the counterparty.
+
+**Step 3 - Record the transaction**
+
+The `responder`:
+
+1. Receives the notarized transaction from the `initiator`.
+2. Records the transaction locally.
+3. Stores any relevant states in the vault.
+
+The transaction is now part of the ledger.
+
+## The `FlowLogic` class
+
+You can implement flows as one or more communicating `FlowLogic` subclasses. The `FlowLogic`
 subclass’s constructor can take any number of arguments of any type. The generic of `FlowLogic` (e.g.
 `FlowLogic<SignedTransaction>`) indicates the flow’s return type.
 
@@ -124,10 +151,13 @@ public static class Responder extends FlowLogic<Void> { }
 
 {{< /tabs >}}
 
-### FlowLogic annotations
+### `FlowLogic` annotations
 
-Any flow from which you want to initiate other flows must be annotated with the `@InitiatingFlow` annotation.
-Additionally, if you wish to start the flow via RPC, you must annotate it with the `@StartableByRPC` annotation:
+Use annotations to track the interactions between flows.
+
+* `@InitiatingFlow`: If you plan to initiate additional flows from an initial flow, you must annotate the first flow with `@InitiatingFlow`.
+
+* `@StartableByRPC`: If you plan to start the flow via RPC, annotate it with `@StartableByRPC`:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -152,8 +182,7 @@ public static class Initiator extends FlowLogic<Unit> { }
 
 {{< /tabs >}}
 
-Meanwhile, any flow that responds to a message from another flow must be annotated with the `@InitiatedBy` annotation.
-`@InitiatedBy` takes the class of the flow it is responding to as its single parameter:
+`@InitiatedBy`: If a flow responds to any messages from another flow, use `@InitiatedBy`. `@InitiatedBy` takes the class of the flow it is responding to as its single parameter:
 
 {{< tabs name="tabs-3" >}}
 {{% tab name="kotlin" %}}
@@ -176,18 +205,17 @@ public static class Responder extends FlowLogic<Void> { }
 
 {{< /tabs >}}
 
-Additionally, any flow that is started by a `SchedulableState` must be annotated with the `@SchedulableFlow`
-annotation.
+* `@SchedulableFlow`: If a `SchedulableState` starts a flow, annotate the flow with `@SchedulableFlow`.
 
-### Call
+### `FlowLogic` calls
 
 Each `FlowLogic` subclass must override `FlowLogic.call()`, which describes the actions it will take as part of
 the flow. For example, the actions of the initiator’s side of the flow would be defined in `Initiator.call`, and the
 actions of the responder’s side of the flow would be defined in `Responder.call`.
 
-In order for nodes to be able to run multiple flows concurrently, and to allow flows to survive node upgrades and
-restarts, flows need to be checkpointable and serializable to disk. This is achieved by marking `FlowLogic.call()`,
-as well as any function invoked from within `FlowLogic.call()`, with an `@Suspendable` annotation.
+For nodes to run multiple flows concurrently, and survive node upgrades and
+restarts, flows need to be checkpointable and serializable to disk. To do this, mark `FlowLogic.call()`,
+and any function invoked from within `FlowLogic.call()`, with an `@Suspendable` annotation.
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="kotlin" %}}
@@ -222,40 +250,27 @@ public static class InitiatorFlow extends FlowLogic<Void> {
 
 {{< /tabs >}}
 
-### ServiceHub
+### Accessing the node's `ServiceHub`
 
-Within `FlowLogic.call`, the flow developer has access to the node’s `ServiceHub`, which provides access to the
-various services the node provides. We will use the `ServiceHub` extensively in the examples that follow. You can
-also see [Accessing node services](api-service-hub.md) for information about the services the `ServiceHub` offers.
+You can access the node's `ServiceHub` within `FlowLogic.call`. The `ServiceHub` provides access to the
+node's services. See [Accessing node services](api-service-hub.md) for more information.
 
 ### Common flow tasks
 
-There are a number of common tasks that you will need to perform within `FlowLogic.call` in order to agree ledger
-updates. This section details the API for common tasks.
+To agree ledger updates, you need to perform a number of common tasks within `FlowLogic.call`:
 
-## Transaction building
-
-The majority of the work performed during a flow will be to build, verify and sign a transaction. This is covered
-in [Understanding transactions](api-transactions.md).
-
-## Extracting states from the vault
-
-When building a transaction, you’ll often need to extract the states you wish to consume from the vault. This is
-covered in [Writing vault queries](api-vault-query.md).
-
-## Retrieving information about other nodes
-
-We can retrieve information about other nodes on the network and the services they offer using
-`ServiceHub.networkMapCache`.
+* **Transaction building:** The majority of the work performed during a flow is building, verifying and signing a transaction. See [Understanding transactions](api-transactions.md).
+* **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries](api-vault-query.md).
+* **Retrieving information about other nodes:**: You can retrieve information about other nodes on the network and the services they offer using `ServiceHub.networkMapCache`.
 
 ### Notaries
 
-Remember that a transaction generally needs a notary to:
+Transactions generally need a notaries to:
 
-* Prevent double-spends if the transaction has inputs
-* Serve as a timestamping authority if the transaction has a time-window
+* Prevent double-spends if the transaction has inputs.
+* Serve as a timestamping authority if the transaction has a time window.
 
-A notary can be retrieved from the network map as follows:
+You can retreive a notary from the network map:
 
 {{< tabs name="tabs-5" >}}
 {{% tab name="kotlin" %}}
@@ -293,9 +308,9 @@ Party firstNotary = getServiceHub().getNetworkMapCache().getNotaryIdentities().g
 
 {{< /tabs >}}
 
-### Specific counterparties
+### Retrieving specific counterparties
 
-We can also use the network map to retrieve a specific counterparty:
+You can use the network map to retrieve a specific counterparty:
 
 {{< tabs name="tabs-6" >}}
 {{% tab name="kotlin" %}}
@@ -329,10 +344,10 @@ Party keyedCounterparty = getServiceHub().getIdentityService().partyFromKey(dumm
 
 ## Communication between parties
 
-In order to create a communication session between your initiator flow and the receiver flow you must call
-`initiateFlow(party: Party): FlowSession`
+To create a communication session between your `initiator` flow and the `receiver` flow, you must call
+`initiateFlow(party: Party): FlowSession`.
 
-`FlowSession` instances in turn provide three functions:
+`FlowSession` instances provide three functions:
 
 * `send(payload: Any)`
   * Sends the `payload` object
@@ -341,7 +356,7 @@ In order to create a communication session between your initiator flow and the r
 * `sendAndReceive(receiveType: Class<R>, payload: Any): R`
   * Sends the `payload` object and receives an object of type `receiveType` back
 
-In addition ``FlowLogic`` provides functions that can receive messages from multiple sessions and send messages to multiple sessions:
+``FlowLogic`` also provides functions that can receive messages from multiple sessions and send messages to multiple sessions:
 
 * `receiveAllMap(sessions: Map<FlowSession, Class<out Any>>): Map<FlowSession, UntrustworthyData<Any>>`
   * Receives from all `FlowSession` objects specified in the passed in map. The received types may differ.
@@ -353,12 +368,12 @@ In addition ``FlowLogic`` provides functions that can receive messages from mult
   * Sends a potentially different payload to each `FlowSession`, as specified by the provided `payloadsPerSession`.
 
 {{% note %}}
-It's more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It's also more efficient to call `sendAll / receiveAll` instead of multiple `send / receive` respectively.
+It's more efficient to call `sendAndReceive` instead of calling `send` and then `receive`. It's also more efficient to call `sendAll / receiveAll` instead of multiple individual `send` and `receive` calls.
 {{% /note %}}
 
-### InitiateFlow
+### Create communication sessions with `InitiateFlow`
 
-`initiateFlow` creates a communication session with the passed in `Party`.
+`initiateFlow` creates a communication session with the `Party` that you pass in.
 
 {{< tabs name="tabs-7" >}}
 {{% tab name="kotlin" %}}
@@ -381,15 +396,15 @@ FlowSession counterpartySession = initiateFlow(counterparty);
 
 {{< /tabs >}}
 
-Note that at the time of call to this function no actual communication is done, this is deferred to the first
-send/receive, at which point the counterparty will either:
+When you call this function, no communication happens until the first
+`send` or `receive`. At that point the counterparty will either:
 
 * Ignore the message if they are not registered to respond to messages from this flow.
 * Start the flow they have registered to respond to this flow.
 
 ### Send
 
-Once we have a `FlowSession` object we can send arbitrary data to a counterparty:
+Once you have a `FlowSession` object, you can send arbitrary data to a counterparty:
 
 {{< tabs name="tabs-8" >}}
 {{% tab name="kotlin" %}}
@@ -412,23 +427,22 @@ counterpartySession.send(new Object());
 
 {{< /tabs >}}
 
-The flow on the other side must eventually reach a corresponding `receive` call to get this message.
+The flow on the other side must eventually reach a corresponding `receive` call to get the message.
 
-### Receive
+### Receiving data from counterparties
 
-We can also wait to receive arbitrary data of a specific type from a counterparty. Again, this implies a corresponding
+You can choose to wait to receive arbitrary data of a specific type from a counterparty. This implies a corresponding
 `send` call in the counterparty’s flow. A few scenarios:
 
-* We never receive a message back. In the current design, the flow is paused until the node’s owner kills the flow.
+* You never receive a message back. In the current design, the flow is paused until the node’s owner kills the flow.
 * Instead of sending a message back, the counterparty throws a `FlowException`. This exception is propagated back
-to us, and we can use the error message to establish what happened.
-* We receive a message back, but it’s of the wrong type. In this case, a `FlowException` is thrown.
-* We receive back a message of the correct type. All is good.
+to you. You can use the error message to establish what happened.
+* You receive a message back, but it’s of the wrong type. In this case, a `FlowException` is thrown.
+* You receive back a message of the correct type.
 
-Upon calling `receive` (or `sendAndReceive`), the `FlowLogic` is suspended until it receives a response.
+If `FlowLogic` calls `receive` or `sendAndReceive`, `FlowLogic` is suspended until it receives a response.
 
-We receive the data wrapped in an `UntrustworthyData` instance. This is a reminder that the data we receive may not
-be what it appears to be! We must unwrap the `UntrustworthyData` using a lambda:
+If you receive the data wrapped in an `UntrustworthyData` instance. This is a reminder to check that the data what you expect it to be. Unwrap the `UntrustworthyData` using a lambda to examine it:
 
 {{< tabs name="tabs-9" >}}
 {{% tab name="kotlin" %}}
@@ -463,8 +477,8 @@ Integer integer = packet1.unwrap(data -> {
 
 {{< /tabs >}}
 
-We’re not limited to sending to and receiving from a single counterparty. A flow can send messages to as many parties
-as it likes, and each party can invoke a different response flow:
+You're not limited to exchanging data with a single counterparty. You can use flows to send messages to as many parties
+as you need to. Each party can invoke a different response flow:
 
 {{< tabs name="tabs-10" >}}
 {{% tab name="kotlin" %}}
@@ -493,17 +507,17 @@ UntrustworthyData<Object> packet3 = regulatorSession.receive(Object.class);
 
 {{< warning >}}
 If you initiate several flows from the same `@InitiatingFlow` flow then on the receiving side you must be
-prepared to be initiated by any of the corresponding `initiateFlow()` calls! A good way of handling this ambiguity
-is to send as a first message a “role” message to the initiated flow, indicating which part of the initiating flow
-the rest of the counter-flow should conform to. For example send an enum, and on the other side start with a switch
+prepared to be initiated by any of the corresponding `initiateFlow()` calls. A good way of handling this ambiguity
+is to send “role” message as your first message to the initiated flow, indicating which part of the initiating flow
+the rest of the counter-flow should conform to. For example, you could send an enum, and on the other side start with a switch
 statement.
 
 {{< /warning >}}
 
 ### SendAndReceive
 
-We can also use a single call to send data to a counterparty and wait to receive data of a specific type back. The
-type of data sent doesn’t need to match the type of the data received back:
+You can use a single call to send data to a counterparty and wait to receive data of a specific type back. The
+type of data sent doesn’t need to match the type of the data received:
 
 {{< tabs name="tabs-11" >}}
 {{% tab name="kotlin" %}}
@@ -540,12 +554,11 @@ Boolean bool = packet2.unwrap(data -> {
 
 ### Counterparty response
 
-Suppose we’re now on the `Responder` side of the flow. We just received the following series of messages from the
-`Initiator`:
+Imagine you are now on the `Responder` side of the flow. You had this exchange with the `Initiator`:
 
-* They sent us an `Any` instance
-* They waited to receive an `Integer` instance back
-* They sent a `String` instance and waited to receive a `Boolean` instance back
+* The `Initiator` sent you an `Any` instance.
+* You responded with an `Integer` instance.
+* The `Initiator` sent you a `String` instance and is waiting to receive a `Boolean` instance from you.
 
 Our side of the flow must mirror these calls. We could do this as follows:
 
@@ -576,24 +589,22 @@ counterpartySession.send(true);
 
 ## Subflows
 
-Subflows are pieces of reusable flows that may be run by calling `FlowLogic.subFlow`. There are two broad categories
-of subflows, inlined and initiating ones. The main difference lies in the counter-flow’s starting method, initiating
-ones initiate counter-flows automatically, while inlined ones expect some parent counter-flow to run the inlined
+Subflows are pieces of reusable flows that you can run by calling `FlowLogic.subFlow`. There are two broad categories
+of subflows: inlined and initiating. Initiating flows initiate counter-flows automatically, while inlined ones expect a parent counter-flow to run the inlined
 counterpart.
 
 ### Inlined subflows
 
-Inlined subflows inherit their calling flow’s type when initiating a new session with a counterparty. For example, say
-we have flow A calling an inlined subflow B, which in turn initiates a session with a party. The FlowLogic type used to
-determine which counter-flow should be kicked off will be A, not B. Note that this means that the other side of this
-inlined flow must therefore be implemented explicitly in the kicked off flow as well. This may be done by calling a
-matching inlined counter-flow, or by implementing the other side explicitly in the kicked off parent flow.
+Inlined subflows inherit their calling flow’s type when they initiate a new session with a counterparty. For example, flow A calls an inlined subflow B, which in turn initiates a session with a party. The `FlowLogic` type used to
+determine which counter-flow should be kicked off is be A, not B. This means that the other side of this
+inlined flow must be implemented explicitly in the kicked-off flow. You can do this by calling a
+matching inlined counter-flow, or by implementing the other side explicitly in the kicked-off parent flow.
 
-An example of such a flow is `CollectSignaturesFlow`. It has a counter-flow `SignTransactionFlow` that isn’t
-annotated with `InitiatedBy`. This is because both of these flows are inlined; the kick-off relationship will be
-defined by the parent flows calling `CollectSignaturesFlow` and `SignTransactionFlow`.
+An example of this type of flow is `CollectSignaturesFlow`. It has a counter-flow, `SignTransactionFlow`, which isn’t
+annotated with `InitiatedBy`. This is because both of these flows are inlined. The kick-off relationship is
+defined when by the parent flows call `CollectSignaturesFlow` and `SignTransactionFlow`.
 
-In the code inlined subflows appear as regular `FlowLogic` instances, *without* either of the `@InitiatingFlow` or
+In the code, inlined subflows appear as regular `FlowLogic` instances, *without* either of the `@InitiatingFlow` or
 `@InitiatedBy` annotation.
 
 {{< note >}}
@@ -603,8 +614,8 @@ Inlined flows aren’t versioned; they inherit their parent flow’s version.
 
 ### Initiating subflows
 
-Initiating subflows are ones annotated with the `@InitiatingFlow` annotation. When such a flow initiates a session its
-type will be used to determine which `@InitiatedBy` flow to kick off on the counterparty.
+Initiating subflows annotated with the `@InitiatingFlow` annotation. When this type of flow initiates a session, its
+type is used to determine which `@InitiatedBy` flow to kick off on the counterparty.
 
 An example is the `@InitiatingFlow InitiatorFlow`/`@InitiatedBy ResponderFlow` flow pair in the `FlowCookbook`.
 
@@ -613,49 +624,46 @@ Initiating flows are versioned separately from their parents.
 
 {{< /note >}}
 {{< note >}}
-The only exception to this rule is `FinalityFlow` which is annotated with `@InitiatingFlow` but is an inlined flow. This flow
-was previously initiating and the annotation exists to maintain backwards compatibility with old code.
+The only exception to this rule is `FinalityFlow` which is annotated with `@InitiatingFlow` but is an inlined flow. `FinalityFlow` was previously initiating, and the annotation exists to maintain backwards compatibility.
 
 {{< /note >}}
 
 #### Core initiating subflows
 
-Corda-provided initiating subflows are a little different to standard ones as they are versioned together with the
-platform, and their initiated counter-flows are registered explicitly, so there is no need for the `InitiatedBy`
+Corda-provided initiating subflows are a little different to standard ones. They are versioned together with the
+platform, and their initiated counter-flows are registered explicitly. This eliminates the need for the `InitiatedBy`
 annotation.
 
 ### Library flows
 
 Corda installs four initiating subflow pairs on each node by default:
 
-* `NotaryChangeFlow`/`NotaryChangeHandler`, which should be used to change a state’s notary
-* `ContractUpgradeFlow.Initiate`/`ContractUpgradeHandler`, which should be used to change a state’s contract
-* `SwapIdentitiesFlow`/`SwapIdentitiesHandler`, which is used to exchange confidential identities with a
-counterparty
+* `NotaryChangeFlow`/`NotaryChangeHandler`, used to change a state’s notary.
+* `ContractUpgradeFlow.Initiate`/`ContractUpgradeHandler`, used to change a state’s contract.
+* `SwapIdentitiesFlow`/`SwapIdentitiesHandler`, used to exchange confidential identities with a
+counterparty.
 
 {{< warning >}}
-`SwapIdentitiesFlow`/`SwapIdentitiesHandler` are only installed if the `confidential-identities` module
-is included. The `confidential-identities` module  is still not stabilised, so the
+`SwapIdentitiesFlow` and `SwapIdentitiesHandler` are only installed if you include the `confidential-identities` module. The `confidential-identities` module is not yet stabilized, so the
 `SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees](api-stability-guarantees.md).
 
 {{< /warning >}}
 
-Corda also provides a number of built-in inlined subflows that should be used for handling common tasks. The most
+Corda provides a number of built-in inlined subflows that you can use to handle common tasks. The most
 important are:
 
-* `FinalityFlow` which is used to notarise, record locally and then broadcast a signed transaction to its participants
+* `FinalityFlow`, used to notarize, locally record, and broadcast a signed transaction to its participants
 and any extra parties.
-* `ReceiveFinalityFlow` to receive these notarised transactions from the `FinalityFlow` sender and record locally.
-* `CollectSignaturesFlow` , which should be used to collect a transaction’s required signatures
-* `SendTransactionFlow` , which should be used to send a signed transaction if it needed to be resolved on
+* `ReceiveFinalityFlow`, used to receive these notarized transactions from the `FinalityFlow` sender and record them locally.
+* `CollectSignaturesFlow`, used to collect a transaction’s required signatures.
+* `SendTransactionFlow` , used to send a signed transaction if it needs to be resolved on
 the other side.
-* `ReceiveTransactionFlow`, which should be used receive a signed transaction
+* `ReceiveTransactionFlow`, used receive a signed transaction.
 
-Let’s look at some of these flows in more detail.
 
 ### FinalityFlow
 
-`FinalityFlow` allows us to notarise the transaction and get it recorded in the vault of the participants of all
+`FinalityFlow` lets us notarize the transaction and recorded it in the vault of the participants of all
 the transaction’s states:
 
 {{< tabs name="tabs-13" >}}
