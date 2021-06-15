@@ -19,9 +19,23 @@ weight: 70
 
 Flows allow your CorDapp to communicate with other parties on a network. Before you begin, familiarize yourself with the flow key concepts.
 
+In this document, you will:
+* See an example flow for a basic ledger update, demonstrating the `Initiator` and `Responder` sides of a flow.
+* Get an explanation of `Flowlogic`, including annotations and calls.
+* Learn how to build transactions and extract states from the vault.
+* Explore how nodes communicate and share data.
+* Learn how to use subflows.
+* Discover flow exceptions and how they are resolved.
+* Find out how to visually track the progress of a flow.
+* Learn how you can expand the reach of your flows by calling external systems.
+* Uncover the best practices for concurrency, locking, and waiting.
+* Discover how to gracefully end a flow by killing it.
+
+Each concept is illustrated with sample code.
+
 ## An example flow
 
- For example, if Alice and Bob want to agree a basic ledger update, they would create a flow with two sides, one for each party:
+For example, if Alice and Bob want to agree a basic ledger update, they would create a flow with two sides, one for each party:
 
 * An `Initiator` side, a flow class that initiates the request to update the ledger.
 * A `Responder` side, a flow class that responds to the request to update the ledger.
@@ -630,7 +644,7 @@ The only exception to this rule is `FinalityFlow` which is annotated with `@Init
 
 #### Core initiating subflows
 
-Corda-provided initiating subflows are a little different to standard ones. They are versioned together with the
+Corda-provided initiating subflows are a little different from standard ones. They are versioned together with the
 platform, and their initiated counter-flows are registered explicitly. This eliminates the need for the `InitiatedBy`
 annotation.
 
@@ -663,7 +677,7 @@ the other side.
 
 ### FinalityFlow
 
-`FinalityFlow` lets us notarize the transaction and recorded it in the vault of the participants of all
+`FinalityFlow` lets you notarize the transaction and recorded it in the vault of the participants of all
 the transaction’s states:
 
 {{< tabs name="tabs-13" >}}
@@ -687,7 +701,7 @@ SignedTransaction notarisedTx1 = subFlow(new FinalityFlow(fullySignedTx, singlet
 
 {{< /tabs >}}
 
-We can also choose to send the transaction to additional parties who aren’t one of the state’s participants:
+You can choose to send the transaction to additional parties who aren’t one of the state’s participants:
 
 {{< tabs name="tabs-14" >}}
 {{% tab name="kotlin" %}}
@@ -712,8 +726,10 @@ SignedTransaction notarisedTx2 = subFlow(new FinalityFlow(fullySignedTx, partySe
 
 {{< /tabs >}}
 
-Only one party has to call `FinalityFlow` for a given transaction to be recorded by all participants. It **must not**
-be called by every participant. Instead, every other particpant **must** call `ReceiveFinalityFlow` in their responder
+To record a transaction for all parties:
+
+1. **Only one** party calls `FinalityFlow`.
+2. All other parties  **must** call `ReceiveFinalityFlow` in their responder
 flow to receive the transaction:
 
 {{< tabs name="tabs-15" >}}
@@ -737,36 +753,32 @@ subFlow(new ReceiveFinalityFlow(counterpartySession, idOfTxWeSigned));
 
 {{< /tabs >}}
 
-`idOfTxWeSigned` is an optional parameter used to confirm that we got the right transaction. It comes from using `SignTransactionFlow`
+`idOfTxWeSigned` is an optional parameter used to confirm that you have received the right transaction. It comes from `SignTransactionFlow`
 which is described in the error handling behaviour section.
 
-In some cases, transactions will only have one participant, the initiator. In these instances, there are no other
-parties to send the transactions to during `FinalityFlow`. In these cases the `counterpartySession` list must exist,
-but be empty.
+Some transactions only have one participant: the initiator. That means there are no other
+parties to send transactions to during `FinalityFlow`. In this case, use an empty `counterpartySession` list.
 
-Once a transaction has been notarised and its input states consumed by the flow initiator (eg. sender), should the participant(s) receiving the
-transaction fail to verify it, or the receiving flow (the finality handler) fails due to some other error, we then have a scenario where not
-all parties have the correct up to date view of the ledger (a condition where eventual consistency between participants takes longer than is
-normally the case under Corda’s [eventual consistency model](https://en.wikipedia.org/wiki/Eventual_consistency)). To recover from this scenario,
-the receiver’s finality handler will automatically be sent to the node-flow-hospital where it’s suspended and retried from its last checkpoint
-upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](../node/node-flow-hospital.md#flow-hospital-runtime).
-This gives the node operator the opportunity to recover from the error. Until the issue is resolved the node will continue to retry the flow
-on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent once again.
+Once a transaction is notarized and its input states consumed by the flow initiator, if the participant(s) receiving the
+transaction fail to verify it, or the receiving flow (the finality handler) fails due to some other error, then
+all parties will not have the up-to-date view of the ledger.
+
+To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint
+upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](../node/node-flow-hospital.md#flow-hospital-runtime).
+This gives the node operator the opportunity to recover from the error. Until the issue is resolved, the node will continue to retry the flow
+on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
 
 {{< warning >}}
-It’s possible to forcibly terminate the erroring finality handler using the `killFlow` RPC but at the risk of an inconsistent view of the ledger.
+It’s possible to forcibly terminate the erroring finality handler using the `killFlow` RPC. However, this risks an inconsistent view of the ledger.
 
 {{< /warning >}}
 
-{{< note >}}
-A future release will allow retrying hospitalised flows without restarting the node, i.e. via RPC.
 
-{{< /note >}}
 
 ### CollectSignaturesFlow/SignTransactionFlow
 
-The list of parties who need to sign a transaction is dictated by the transaction’s commands. Once we’ve signed a
-transaction ourselves, we can automatically gather the signatures of the other required signers using
+The transaction's commands dictate the parties who need to sign a transaction. After you sign a
+transaction, you can automatically gather the signatures of the other required signers using
 `CollectSignaturesFlow`:
 
 {{< tabs name="tabs-16" >}}
@@ -838,19 +850,19 @@ SecureHash idOfTxWeSigned = subFlow(new SignTxFlow(counterpartySession, SignTran
 
 {{< /tabs >}}
 
-Types of things to check include:
+Check that:
 
-* Ensuring that the transaction received is the expected type, i.e. has the expected type of inputs and outputs
-* Checking that the properties of the outputs are expected, this is in the absence of integrating reference
-data sources to facilitate this
-* Checking that the transaction is not incorrectly spending (perhaps maliciously) asset states, as potentially
-the transaction creator has access to some of signer’s state references
+* The transaction received is the expected type, and has the expected types of inputs and outputs.
+* The properties of the outputs are expected, unless you have integrated reference
+data sources to facilitate this.
+* The transaction is not incorrectly spending asset states (perhaps maliciously). The transaction creator could have access to some of signer’s state references.
 
-### SendTransactionFlow/ReceiveTransactionFlow
 
-Verifying a transaction received from a counterparty also requires verification of every transaction in its
-dependency chain. This means the receiving party needs to be able to ask the sender all the details of the chain.
-The sender will use `SendTransactionFlow` for sending the transaction and then for processing all subsequent
+### `SendTransactionFlow` and `ReceiveTransactionFlow`
+
+When you verify a transaction you've received from a counterparty, you must also verify every transaction in its
+dependency chain. This means the receiving party needs to be able to ask the sender for all the details of the chain.
+The sender sends the transaction using `SendTransactionFlow`. To process all subsequent
 transaction data vending requests as the receiver walks the dependency chain using `ReceiveTransactionFlow`:
 
 {{< tabs name="tabs-18" >}}
@@ -913,7 +925,7 @@ SignedTransaction verifiedTransaction = subFlow(new ReceiveTransactionFlow(count
 
 {{< /tabs >}}
 
-We can also send and receive a `StateAndRef` dependency chain and automatically resolve its dependencies:
+You can send and receive a `StateAndRef` dependency chain and automatically resolve its dependencies:
 
 {{< tabs name="tabs-20" >}}
 {{% tab name="kotlin" %}}
@@ -942,36 +954,36 @@ List<StateAndRef<DummyState>> resolvedStateAndRef = subFlow(new ReceiveStateAndR
 
 {{< /tabs >}}
 
-#### Why inlined subflows
+#### Why inlined subflows?
 
-Inlined subflows provide a way to share commonly used flow code *while forcing users to create a parent flow*. Take for
-example `CollectSignaturesFlow`. Say we made it an initiating flow that automatically kicks off
-`SignTransactionFlow` that signs the transaction. This would mean malicious nodes can just send any old transaction to
-us using `CollectSignaturesFlow` and we would automatically sign it!
+Inlined subflows provide a way to share commonly used flow code *while forcing users to create a parent flow*. Without inlined flows, flow users could create insecure chains of events. For
+example, if a user could make `CollectSignaturesFlow` an initiating flow that automatically kicks off
+`SignTransactionFlow`, which signs the transaction. A malicious node could send any transaction to
+them using `CollectSignaturesFlow`, and they would automatically sign it.
 
-By making this pair of flows inlined we provide control to the user over whether to sign the transaction or not by
+If you make this pair of flows inlined, you can make sure the user actively chooses to either sign the transaction or not by
 forcing them to nest it in their own parent flows.
 
-In general if you’re writing a subflow the decision of whether you should make it initiating should depend on whether
+If you’re writing a subflow, the decision of whether you should make it initiating should depend on whether
 the counter-flow needs broader context to achieve its goal.
 
 ## FlowException
 
 Suppose a node throws an exception while running a flow. Any counterparty flows waiting for a message from the node
-(i.e. as part of a call to `receive` or `sendAndReceive`) will be notified that the flow has unexpectedly
-ended and will themselves end. However, the exception thrown will not be propagated back to the counterparties.
+(as part of a call to `receive` or `sendAndReceive`) are notified that the flow has ended unexpectedly
+and that the related counterparty flows will be terminated. However, the counterparties are not told what the exception is.
 
-If you wish to notify any waiting counterparties of the cause of the exception, you can do so by throwing a
+If you wish to notify any waiting counterparties of the exception cause, throw a
 `FlowException`:
 
-The flow framework will automatically propagate the `FlowException` back to the waiting counterparties.
+The flow framework automatically propagates the `FlowException` back to the waiting counterparties.
 
 There are many scenarios in which throwing a `FlowException` would be appropriate:
 
-* A transaction doesn’t `verify()`
-* A transaction’s signatures are invalid
-* The transaction does not match the parameters of the deal as discussed
-* You are reneging on a deal
+* A transaction doesn’t `verify()`.
+* A transaction’s signatures are invalid.
+* The transaction does not match the parameters of the deal as discussed.
+* You are reneging on a deal.
 
 Below is an example using `FlowException`:
 
@@ -1008,7 +1020,7 @@ class WrongCurrencyException(message: String) : CordaRuntimeException(message)
 
 ## HospitalizeFlowException
 
-Some operations can fail intermittently and will succeed if they are tried again at a later time. Flows have the ability to halt their
+Some operations can fail intermittently, and will succeed if they are tried again later. Flows can halt their
 execution in such situations. By throwing a `HospitalizeFlowException` a flow will stop and retry at a later time (on the next node restart).
 
 A `HospitalizeFlowException` can be defined in various ways:
@@ -1019,7 +1031,7 @@ could instantly retry or terminate if a critical error occurred.
 
 {{< /note >}}
 {{< note >}}
-`HospitalizeFlowException` can be extended for customized exceptions. These exceptions will be treated in the same way when thrown.
+`HospitalizeFlowException` can be extended for customized exceptions. These exceptions are treated in the same way when thrown.
 
 {{< /note >}}
 Below is an example of a flow that should retry again in the future if an error occurs:
@@ -1039,9 +1051,9 @@ class TryAccessServiceFlow(): FlowLogic<Unit>() {
 
 ## ProgressTracker
 
-We can give our flow a progress tracker. This allows us to see the flow’s progress visually in our node’s CRaSH shell.
+You can give your flow a progress tracker. This lets you track the flow’s progress visually in your node’s CRaSH shell.
 
-To provide a progress tracker, we have to override `FlowLogic.progressTracker` in our flow:
+To provide a progress tracker, override the flow's `FlowLogic.progressTracker`:
 
 {{< tabs name="tabs-21" >}}
 {{% tab name="kotlin" %}}
@@ -1128,7 +1140,7 @@ private final ProgressTracker progressTracker = new ProgressTracker(
 
 {{< /tabs >}}
 
-We then update the progress tracker’s current step as we progress through the flow as follows:
+Then, update the progress tracker’s current step as you progress through the flow:
 
 {{< tabs name="tabs-22" >}}
 {{% tab name="kotlin" %}}
@@ -1153,34 +1165,32 @@ progressTracker.setCurrentStep(ID_OTHER_NODES);
 
 ## Calling external systems inside of flows
 
-Flows provide the ability to await the result of an external operation running outside of the context of a flow. A flow will suspend while
-awaiting a result. This frees up a flow worker thread to continuing processing other flows.
+You can wait for the result of an external operation running outside of the context of a flow - flows suspend when
+waiting for a result. This frees up flow worker threads to continueprocessing other flows.
 
 {{< note >}}
 Flow worker threads belong to the thread pool that executes flows.
 
 {{< /note >}}
-Examples of where this functionality is useful include:
+You could use this functionality to:
 
-* Triggering a long running process on an external system
-* Retrieving information from a external service that might go down
+* Trigger a long running process on an external system.
+* Retrieve information from a external service that might go down.
 
-`FlowLogic` provides two `await` functions that allow custom operations to be defined and executed outside of the context of a flow.
-Below are the interfaces that must be implemented and passed into `await`, along with brief descriptions of what they do:
+`FlowLogic` provides two `await` functions that allow custom operations to be defined and executed outside of the context of a flow:
 
-* `FlowExternalOperation` - An operation that returns a result which should be run using a thread from one of the node’s
+* `FlowExternalOperation`: Returns a result which should be run using a thread from one of the node’s
 thread pools.
-* `FlowExternalAsyncOperation` - An operation that returns a future which should be run on a thread provided to its implementation.
+* `FlowExternalAsyncOperation`: Returns a future which should be run on a thread provided to its implementation.
 Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`.
-
-`FlowExternalOperation` allows developers to write an operation that will run on a thread provided by the node’s flow external operation
+* `FlowExternalOperation`: Allows developers to write an operation that runs on a thread provided by the node’s flow external operation
 thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured, see [the node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size).
+The size of the external operation thread pool can be configured. See [the node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size).
 
 {{< /note >}}
-Below is an example of how `FlowExternalOperation` can be called from a flow to run an operation on a new thread, allowing the flow to suspend:
+You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:
 
 {{< tabs name="tabs-23" >}}
 {{% tab name="kotlin" %}}
@@ -1334,36 +1344,33 @@ public class Data {
 
 {{< /tabs >}}
 
-In summary, the following steps are taken in the code above:
+In the code above:
 
-* `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example).
-* `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the
-external system. The external system, in this example, will handle deduplication and return the previous result if it was already
+1. `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example). `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the external system. The external system, in this example,handles deduplication and returns the previous result if it was already
 computed.
-* An implementation of `FlowExternalOperation` (`RetrieveDataFromExternalSystem`) is created that calls `ExternalService.retrieveDataFromExternalSystem`.
-* `RetrieveDataFromExternalSystem` is then passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
-* The result of `RetrieveDataFromExternalSystem.execute` is then returned to the flow once its execution finishes.
+2. An implementation of `FlowExternalOperation` (`RetrieveDataFromExternalSystem`) is created that calls `ExternalService.retrieveDataFromExternalSystem`.
+3. `RetrieveDataFromExternalSystem` is passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
+4. The result of `RetrieveDataFromExternalSystem.execute` is returned to the flow once its execution finishes.
 
-`FlowExternalAsyncOperation` allows developers to write an operation that returns a future whose threading is handled within the CorDapp.
+`FlowExternalAsyncOperation` allows developers to write an operation that returns a future with threading handled within the CorDapp.
 
 {{< warning >}}
-Threading must be explicitly controlled when using `FlowExternalAsyncOperation`. A future will be run on its current flow worker
-thread if a new thread is not spawned or provided by a thread pool. This prevents the flow worker thread from freeing up and allowing
-another flow to take control and run.
+Threading must be explicitly controlled when using `FlowExternalAsyncOperation`. If a new thread is not spawned or provided by a thread pool, then a future run on its current flow worker
+thread. This prevents the flow worker thread from freeing up and allowing another flow to take control and run.
 
 {{< /warning >}}
 
-Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. How this future is created is up to the developer.
-It is recommended to use `CompletableFuture.supplyAsync` and supply an executor to run the future on. Other libraries can be used to
-generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. An example of creating a future
-using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) is given in a following section.
+Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. The developer decides how to create this future.
+The best practice is to use `CompletableFuture.supplyAsync` and supply an executor to run the future. You can use other libraries to
+generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future
+using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) Below.
 
 {{< note >}}
-The future can be chained to execute further operations that continue using the same thread the future started on. For example,
+You can chain the future to execute further operations that continue using the same thread the future started on. For example,
 `CompletableFuture`’s `whenComplete`, `exceptionally` or `thenApply` could be used (their async versions are also valid).
 
 {{< /note >}}
-Below is an example of how `FlowExternalAsyncOperation` can be called from a flow:
+Below is an example of how you can call `FlowExternalAsyncOperation`:
 
 {{< tabs name="tabs-24" >}}
 {{% tab name="kotlin" %}}
@@ -1543,21 +1550,16 @@ public class Data {
 
 {{< /tabs >}}
 
-In summary, the following steps are taken in the code above:
+In the code above:
 
-* `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example).
-* `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the
-external system. The external system, in this example, will handle deduplication and return the previous result if it was already
-computed.
-* A `CompletableFuture` is created that contacts the external system. `CompletableFuture.supplyAsync` takes in a reference to the
-`ExecutorService` which will provide a thread for the external operation to run on.
-* An implementation of `FlowExternalAsyncOperation` (`RetrieveDataFromExternalSystem`) is created that calls the `ExternalService.retrieveDataFromExternalSystem`.
-* `RetrieveDataFromExternalSystem` is then passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
-* The result of `RetrieveDataFromExternalSystem.execute` is then returned to the flow once its execution finishes.
+1. `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example). `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId`, which is included as part of the request to the external system. The external system, in this example, handles deduplication and returns the previous result if it was already computed.
+2. A `CompletableFuture` is created that contacts the external system. `CompletableFuture.supplyAsync` takes in a reference to the
+`ExecutorService`, which provides a thread for the external operation to run on.
+3. An implementation of `FlowExternalAsyncOperation` (`RetrieveDataFromExternalSystem`) is created that calls the `ExternalService.retrieveDataFromExternalSystem`.
+4. `RetrieveDataFromExternalSystem` is passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
+5. The result of `RetrieveDataFromExternalSystem.execute` is then returned to the flow once its execution finishes.
 
-A Flow has the ability to rerun from any point where it suspends. Due to this, a flow can execute code multiple times depending on where it
-retries. For context contained inside a flow, values will be reset to their state recorded at the last suspension point. This makes most
-properties existing inside a flow safe when retrying. External operations do not have the same guarantees as they are executed outside of
+A flow can rerun from any point where it suspends. That means a flow can execute code multiple times depending on the retry point. For context contained inside a flow, values are reset to the state recorded at the last suspension point. This means that most properties inside are flow safe when retrying. External operations are at greater risk becuase they are executed outside of
 the context of flows.
 
 External operations are provided with a `deduplicationId` to allow CorDapps to decide whether to run the operation again or return a
@@ -1580,12 +1582,12 @@ Any external operations that did not finish processing (or were kept in the flow
 restart.
 
 {{< /note >}}
-Below are examples of how deduplication could be handled:
+Some examples of how you could handle deduplication:
 
 * The external system records successful computations and returns previous results if requested again.
-* The external system is idempotent, meaning the computation can be made multiple times without altering any state (similar to the point above).
+* The external system is idempotent, meaning the computation can be made multiple times without altering any state.
 * An extra external service maintains a record of deduplication IDs.
-* Recorded inside of the node’s database.
+* Deduplication is recorded inside of the node’s database.
 
 {{< note >}}
 Handling deduplication on the external system’s side is preferred compared to handling it inside of the node.
@@ -1593,7 +1595,7 @@ Handling deduplication on the external system’s side is preferred compared to 
 {{< /note >}}
 
 {{< warning >}}
-In-memory data structures should not be used for handling deduplication as their state will not survive node restarts.
+You shouldn't use in-memory data structures to handling deduplication as their state will not survive node restarts.
 
 {{< /warning >}}
 
@@ -1731,39 +1733,38 @@ public class ExternalService extends SingletonSerializeAsToken {
 
 In the code above:
 
-* A `ListenableFuture` is created and receives a thread from the `ListeningExecutorService`. This future does all the processing.
-* A `CompletableFuture` is created, so that it can be returned to and executed by a `FlowExternalAsyncOperation`.
-* A `FutureCallback` is registered to the `ListenableFuture`, which will complete the `CompletableFuture` (either successfully or
+1. A `ListenableFuture` is created and receives a thread from the `ListeningExecutorService`. This future does all the processing.
+2. A `CompletableFuture` is created, so that it can be returned to and executed by a `FlowExternalAsyncOperation`.
+3. A `FutureCallback` is registered to the `ListenableFuture`, which will complete the `CompletableFuture` (either successfully or
 exceptionally) depending on the outcome of the `ListenableFuture`.
-* `CompletableFuture.cancel` is overridden to propagate its cancellation down to the underlying `ListenableFuture`.
+4. `CompletableFuture.cancel` is overridden to propagate its cancellation down to the underlying `ListenableFuture`.
 
-## Concurrency, Locking and Waiting
+## Concurrency, locking and waiting
 
 Corda is designed to:
 
-* run many flows in parallel
-* persist flows to storage and resurrect those flows much later
-* (in the future) migrate flows between JVMs
+* Run many flows in parallel.
+* Persist flows to storage and resurrect those flows later.
 
-Because of this, care must be taken when performing locking or waiting operations.
+This means you should take care when performing locking or waiting operations.
 
 Flows should avoid using locks or interacting with objects that are shared between flows (except for `ServiceHub` and other
-carefully crafted services such as Oracles.  See oracles). Locks will significantly reduce the scalability of the
-node, and can cause the node to deadlock if they remain locked across flow context switch boundaries (such as when sending
-and receiving from peers, as discussed above, or sleeping, as discussed below).
+carefully crafted services such as Oracles). Locks significantly reduce the scalability of the
+node, and can cause the node to deadlock if they remain locked across flow context-switch boundaries (such as when sending
+and receiving from peers or sleeping).
 
 A flow can wait until a specific transaction has been received and verified by the node using *FlowLogic.waitForLedgerCommit*.
-Outside of this, scheduling an activity to occur at some future time should be achieved using `SchedulableState`.
+Otherwise, schedule activities for future times using `SchedulableState`.
 
-However, if there is a need for brief pauses in flows, you have the option of using `FlowLogic.sleep` in place of where you
-might have used `Thread.sleep`. Flows should expressly not use `Thread.sleep`, since this will prevent the node from
+If you need to create brief pauses in flows, you have the option of using `FlowLogic.sleep` where you
+might have used `Thread.sleep`. Flows should **not** use `Thread.sleep`, since this will prevent the node from
 processing other flows in the meantime, significantly impairing the performance of the node.
 
-Even `FlowLogic.sleep` should not be used to create long running flows or as a substitute to using the `SchedulableState`
-scheduler, since the Corda ethos is for short-lived flows (long-lived flows make upgrading nodes or CorDapps much more
-complicated).
+Corda is optimized for short-lived flows. Long-lived flows make upgrading nodes or CorDapps much more
+complicated. You should not use `FlowLogic.sleep` to create long-running flows or as a substitute for the `SchedulableState`
+scheduler.
 
-For example, the `finance` package currently uses `FlowLogic.sleep` to make several attempts at coin selection when
+For example, the `finance` package uses `FlowLogic.sleep` to make several attempts at coin selection when
 many states are soft locked, to wait for states to become unlocked:
 
 ```kotlin
@@ -1786,40 +1787,38 @@ for (retryCount in 1..maxRetries) {
 
 ## Killing flows
 
-A flow becomes unusable and problematic in the following cases:
+A flow becomes unusable and problematic when it is:
 
-- Blocked due to a never-ending or long-running loop.
-- Waiting indefinitely for another node to respond.
-- Started accidentally.
+* Blocked due to a never-ending or long-running loop.
+* Waiting indefinitely for another node to respond.
+*Started accidentally.
 
-To resolve such issues, you can kill a flow - this will effectively "cancel" that flow.
+To resolve these issues, you can kill a flow. This effectively "cancels" that flow.
 
 ### Overview
 
-Killing a flow will gracefully terminate the flow. When you kill a flow, the following sequence of events occurs:
+Killing a flow gracefully terminates the flow. When you kill a flow:
 
 1. An `UnexpectedFlowEndException` is propagated to any nodes the flow is interacting with.
 2. The flow releases its resources and any soft locks that it reserved.
 3. An exception is returned to the calling client (as a `FlowKilledException` unless another exception is specified).
 
-A flow can be killed through the following means:
+You can kill a flow using:
 
-- `flow kill` shell command.
-- `CordaRPCOps.killFlow` when writing a RPC client.
+* The `flow kill` shell command.
+* The `CordaRPCOps.killFlow` command, when writing an RPC client.
 
 #### Exceptions
 
 Exceptions are only propagated between flows (either from a flow initiator to its responder, or vice versa) when there is an active session established between them. A session is considered active if there are further calls to functions that interact with it within the flow's execution, such as `send`, `receive`, and `sendAndReceive`. If a flow’s counter party flow is killed, it only receives an `UnexceptedFlowEndException` once it interacts with the failed session again.
 
-A `FlowKilledException` is propagated to client that started the initiating flow. The `KilledFlowException` cannot be caught unless manually thrown as documented below in [Cooperating with a killed flow](#cooperating-with-a-killed-flow).
+A `FlowKilledException` is propagated to the client that started the initiating flow. You cannot catch the `KilledFlowException` unless it is thrown manually - see [cooperating with a killed flow](#cooperating-with-a-killed-flow).
 
 ### Cooperating with a killed flow
 
-To allow for a killed flow to terminate when the kill flow command has been executed, at the time of writing the flow you must ensure that the flow includes exit points.
+To allow a killed flow to terminate when you execute the kill flow command, make sure your flow includes exit points.
 
-All suspendable functions (functions annotated with `@Suspendable`) already take this into account and check if a flow has been killed. This allows a killed flow to terminate when reaching a suspendable function. The flow will also exit if it is currently suspended.
-
-An example of this is shown below:
+All suspendable functions (functions annotated with `@Suspendable`) already take this into account and check if a flow has been killed. This allows a killed flow to terminate when reaching a suspendable function. The flow will also exit if it is currently suspended:
 
 {{< tabs name="tabs-26" >}}
 {{% tab name="kotlin" %}}
@@ -1849,11 +1848,9 @@ public Void call() {
 {{% /tab %}}
 {{< /tabs >}}
 
-A killed flow running the code above, will exit either when it reaches the next `sendAndReceive` or straight away if the flow is already suspended due to the `sendAndReceive` call.
+A killed flow running this code will exit when it reaches the next `sendAndReceive`, or immediately if the flow is already suspended by the `sendAndReceive` call.
 
-If your flow has functions that are not marked as `@suspendable`, you may need to check the status of the flow manually to cooperate with the kill flow request.
-
-To do so, add a check on the `isKilled` flag of the flow. Use the example below to see how this is done:
+If your flow has functions that are not marked as `@suspendable`, you may need to check the status of the flow manually to cooperate with the kill flow request - add a check on the `isKilled` flag of the flow:
 
 
 {{< tabs name="tabs-27" >}}
@@ -1888,7 +1885,7 @@ public Void call() {
 
 The function in the example above exits the loop by checking the `isKilled` flag and throwing an exception if the flow has been killed.
 
-There are also two overloads of `checkFlowIsNotKilled` that simplify the code above:
+There are two overloads of `checkFlowIsNotKilled` that simplify the code above:
 
 {{< tabs name="tabs-28" >}}
 {{% tab name="kotlin" %}}
