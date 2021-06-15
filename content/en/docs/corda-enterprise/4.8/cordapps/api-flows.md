@@ -20,6 +20,7 @@ weight: 70
 Flows allow your CorDapp to communicate with other parties on a network. Before you begin, familiarize yourself with the flow key concepts.
 
 In this document, you will:
+
 * See an example flow for a basic ledger update, demonstrating the `Initiator` and `Responder` sides of a flow.
 * Get an explanation of `Flowlogic`, including annotations and calls.
 * Learn how to build transactions and extract states from the vault.
