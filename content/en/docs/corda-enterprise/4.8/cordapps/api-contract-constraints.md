@@ -13,7 +13,7 @@ weight: 10
 
 
 # Contract constraints
-*Contract constraints* let users know which versions of a CorDapp they can use to provide the contract for a transaction. The constraints property is stored in each state.
+**Contract constraints** let users know which versions of a CorDapp they can use to provide the contract for a transaction. The constraints property is stored in each state.
 
 Contract constraints also solve upgrade-related security problems. If an attacker were to force an upgrade to the CorDapp, they could add security vulnerabilities and create or edit states. You can protect states from this type of attack by only allowing states to be affected by contracts in known versions of a CorDapp.
 
@@ -30,12 +30,11 @@ This document explains:
 
 
 ## Glossary
-<!-- Optional - define any terms your target audience may not be familiar with. You can also introduce acronyms here. -->
 These terms are used throughout this document:
 
 *contract constraints* Instructions in a CorDapp's attachments that determine which versions of a CorDapp parties in a transaction can use to provide contracts.
 
-*composite key* A key that consists of two or more attributes that together uniquely identify an entity occurrence.
+**composite key** A key that consists of two or more attributes that together uniquely identify an entity occurrence.
 
 *signature constraint* A constraint that lets participants use any version of the CorDapp signed by the `CompositeKey`.
 
@@ -48,7 +47,7 @@ These terms are used throughout this document:
 You can upgrade smart contracts via:
 
 * **Implicit upgrade**. Pre-authorise multiple implementations of the contract ahead of time using constraints. This lets you upgrade contracts without needing to upgrade transactions for every state on the ledger. However, with implicit upgrade, you place more faith in third parties, who could change the CorDapp in ways you do not expect or agree with.
-* **Explicit upgrade**. Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. However, it is a much more complex method which requires all participants to sign and manually authorise the upgrade, and consumes notary and ledger resources.
+* **Explicit upgrade**. Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorise the upgrade, and consumes notary and ledger resources.
 
 This article focuses on implicit contract upgrades. To learn about the explicit upgrades see [Release new CorDapp versions](upgrading-cordapps.md).
 
@@ -71,7 +70,7 @@ Learn more about [constraints before Corda 4.0](https://docs.corda.net/docs/cord
 
 ## Signature constraints
 
-*Signature constraints* let you express complex social and business relationships while allowing smooth migration of existing data to new versions of your CorDapp.
+**Signature constraints** let you express complex social and business relationships while allowing smooth migration of existing data to new versions of your CorDapp.
 
 You can use signature constraints to specify flexible threshold policies. However, if you use the automatic support, then a state requires that the attached CorDapp is signed by every key that signed first attachment. For example, if Alice and Bob signed a CorDapp that was used to issue some states, every transaction must include an attachment signed by Alice and Bob. This allows the CorDapp to be upgraded and changed while still remaining valid for use with the previously issued states.
 
@@ -291,7 +290,7 @@ possible constraints, the `TransactionBuilder` will throw an exception.
 
 ## Troubleshooting
 
-If the node cannot resolve an attachment constraint it will throw a `MissingContractAttachments` exception is thrown. There are three common sources of`MissingContractAttachments` exceptions:
+If the node cannot resolve an attachment constraint it will throw a `MissingContractAttachments` exception. There are three common sources of`MissingContractAttachments` exceptions:
 
 
 ### Not setting CorDapp packages in tests
