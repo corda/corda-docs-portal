@@ -25,7 +25,7 @@ This document explains:
 ## Why write secure CorDapps when I trust the other party?
 If you trust the counterparties you are currently doing business with, it may be tempting to skip security measures. However, you may want to add additional counterparties in the future. Building secure CorDapps from the start lets you add additional counterparties quickly without extensive vetting.
 
-Once you have provided your signature over a transaction to a counterparty, there is nothing you can do to prevent them from committing it to the ledger. Make sure you know what you are signing and that the counterparty has not changed any details in the course of the transaction.
+Once you have signed a transaction, there is nothing you can do to prevent the transaction's counterparty from committing it to the ledger. Make sure you know what you are signing and that the counterparty has not changed any details in the course of the transaction.
 
 ## Entry points for attacks
 Your CorDapp is vulnerable at two points:
@@ -34,12 +34,13 @@ Your CorDapp is vulnerable at two points:
 
 ### Secure flows
 
-The counterparty in any transaction may *not* be running the code you provided to take part in the flow. They have the ability to run their own code. It is up to you to validate everything you receive over the network.
+Counterparties on a network have the ability to run their own code - it's possible that they may not be running the code you provided to take part in the flow. This means it's up to you to validate everything you receive over the network.
 
-The `receive` methods remind you to validate this data by wrapping it in the `UntrustworthyData<T>` marker type. This type does not add
-any functionality, it is only a reminder. Make sure this data:
+The `receive` methods remind you to validate this data by wrapping it in the `UntrustworthyData<T>` marker type. This type does not add any functionality, it is only a reminder. 
 
-* Matches any partial transaction built or proposed earlier in the flow. For example, You propose to trade a cash state worth $100 for an asset. When the other side returns your proposal, you must check that it points to the state you requested. A malicious counterparty could attempt to get you to sign a transaction that results in you spending a larger state, if they know the larger state's ID.
+Make sure this type of data:
+
+* Matches any partial transaction built or proposed earlier in the flow. For example, you propose to trade a cash state worth $100 for an asset. When the other side returns your proposal, you must ensure it points to the $100 cash state you indicated. A malicious counterparty could attempt to get you to sign a transaction that results in you spending a higher-value state, if they know that state's ID.
 * Matches the expected transaction type. There are two transaction types: general and notary change. If you are expecting a general transaction type but accidentally authorize notary change, you could transfer your assets to a hostile notary.
 * Does not contain any unexpected changes to the states in a transaction. The best way to check this is to re-run the builder logic and compare the resulting states to make sure the result is as expected. For example, if both parties have the data required to construct the next state, they can share the function to calculate the transaction they want to mutually agree between the classes implementing both sides of the flow.
 
@@ -57,4 +58,4 @@ Make sure your contracts are secure. Check that:
 ## Related Content
 Learn more about:
 * [Writing flows](flow-state-machines.md)
-* Contracts
+* [Contracts](https://docs.corda.net/docs/corda-enterprise/4.8/cordapps/api-contracts.html)
