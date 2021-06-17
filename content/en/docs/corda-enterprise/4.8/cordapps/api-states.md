@@ -8,19 +8,21 @@ menu:
 tags:
 - api
 - states
-title: Writing CorDapp States
+title: CorDapp states
 weight: 60
 ---
 
-# Writing CorDapp States
+# CorDapp states
 
-In Corda, a contract state (or just ‘state’) contains data used by a CorDapp. It can be thought of as a disk file that
-the CorDapp can use to persist data across transactions. States are immutable: once created they are never updated,
-instead, any changes must generate a new successor state. States can be updated (consumed) only once: the notary is
-responsible for ensuring there is no “double spending” by only signing a transaction if the input states are all free.
+Before you read this article, make sure you understand the [state key concepts](https://docs.corda.net/docs/corda-os/4.8/key-concepts-states.html).
 
-In Corda, states are instances of classes that implement `ContractState`. The `ContractState` interface is defined
-as follows:
+In Corda, a contract state (or just ‘state’) stores data that the CorDapp needs to move from one transaction to another.
+
+States are:
+* Immutable. That means they can never be updated - any change to a state generates a new successor state. This is called **consuming** the state.  
+* Single-use. You can only consume a state once - this prevents double-spending. The notary only signs transactions if the input states are all free.
+
+States are instances of classes that implement `ContractState`:
 
 ```kotlin
 @KeepForDJVM
@@ -31,22 +33,21 @@ interface ContractState {
 ```
 
 `ContractState` has a single field, `participants`. `participants` is a `List` of the `AbstractParty` that
-are considered to have a stake in the state. A `participant` is any party that should be notified when the state is
+has a stake in the state. A `participant` is any party that should be notified if the state is
 created or consumed.
 
-The list of participants is required for certain types of transactions. For example, when changing the notary for this
-state, every participant has to be involved and approve the transaction so that they receive the updated state, and
-don’t end up in a situation where they can no longer use a state they possess, since someone consumed that state during
+Certain types of transactions require a list of participants. For example, when changing the notary for a
+state, every participant must approve the transaction. They then receive the updated state, and
+avoid a situation where they can no longer use a state they possess because someone consumed that state during
 the notary change process.
 
-The participants list should normally be derived from the contents of the state.
+Derive the participants list from the contents of the state.
 
-Among other things, the `participants` will:
+The `participants` in a state:
 
-
-* Usually store the state in their vault (see below)
-* Need to sign any notary change and contract upgrade transactions involving this state
-* Receive any finalised transactions involving this state as part of `FinalityFlow` / `ReceiveFinalityFlow`
+* Store the state in their vault (in most instances).
+* Sign any notary change and contract upgrade transactions.
+* Receive any finalised transactions as part of `FinalityFlow` / `ReceiveFinalityFlow`.
 
 {{< note >}}
 See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
@@ -54,16 +55,14 @@ See [Reissuing states](reissuing-states.md) for information about reissuing stat
 
 ## ContractState sub-interfaces
 
-The behaviour of the state can be further customised by implementing sub-interfaces of `ContractState`. The two most
+You can customize the behavior of the state by implementing sub-interfaces of `ContractState`. The two most
 common sub-interfaces are `LinearState` and `OwnableState`.
 
-`LinearState` models shared facts for which there is only one current version at any point in time. `LinearState`
-states evolve in a straight line by superseding themselves. On the other hand, `OwnableState` is meant to represent
-assets that can be freely split and merged over time. Cash is a good example of an `OwnableState` - two existing $5
-cash states can be combined into a single $10 cash state, or split into five $1 cash states. With `OwnableState`, its
-the total amount held that is important, rather than the actual units held.
+* `LinearState`: If there is only one version of facts for any point in time, use a `LinearState`. `LinearState`
+states evolve in a straight line by superseding themselves.
+* `OwnableState`: If you are representing assets that can be freely split and merged over time, use `OwnableState`. Cash is a good example of an `OwnableState` - two existing $5 cash states can be combined into a single $10 cash state, or split into five $1 cash states. With `OwnableState`, it is the total amount held that is important, rather than the individual units.
 
-We can picture the hierarchy as follows:
+You can visualize the hierarchy like this:
 
 {{< figure alt="state hierarchy" zoom="/en/images/state-hierarchy.png" >}}
 
@@ -88,31 +87,29 @@ interface LinearState : ContractState {
 }
 ```
 
-Remember that in Corda states are immutable and can’t be updated directly. Instead, we represent an evolving fact as a
-sequence of `LinearState` states that share the same `linearId` and represent an audit trail for the lifecycle of
+States are immutable and can’t be updated directly. Instead, represent an evolving fact as a
+sequence of `LinearState` states that share the same `linearId` and create an audit trail for the lifecycle of
 the fact over time.
 
-When we want to extend a `LinearState` chain (i.e. a sequence of states sharing a `linearId`), we:
+To extend a `LinearState` chain (a sequence of states sharing a `linearId`):
 
-
-* Use the `linearId` to extract the latest state in the chain from the vault
-* Create a new state that has the same `linearId`
+* Use the `linearId` to extract the latest state in the chain from the vault.
+* Create a new state that has the same `linearId`.
 * Create a transaction with:
-* The current latest state in the chain as an input
-* The newly-created state as an output
+    * The current latest state in the chain as an input.
+    * The newly-created state as an output.
 
-The new state will now become the latest state in the chain, representing the new current state of the agreement.
+The new state is now latest state in the chain, representing the new current state of the agreement.
 
 `linearId` is of type `UniqueIdentifier`, which is a combination of:
 
-
-* A Java `UUID` representing a globally unique 128 bit random number
-* An optional external-reference string for referencing the state in external systems
+* A Java `UUID` representing a globally unique 128 bit random number.
+* An optional external-reference string for referencing the state in external systems.
 
 
 ### OwnableState
 
-The `OwnableState` interface is defined as follows:
+The `OwnableState` interface is:
 
 ```kotlin
 /**
@@ -136,23 +133,21 @@ interface OwnableState : ContractState {
 
 Where:
 
-
-* `owner` is the `PublicKey` of the asset’s owner
-* `withNewOwner(newOwner: AbstractParty)` creates an copy of the state with a new owner
+* `owner` is the `PublicKey` of the asset’s owner.
+* `withNewOwner(newOwner: AbstractParty)` creates a copy of the state with a new owner.
 
 Because `OwnableState` models fungible assets that can be merged and split over time, `OwnableState` instances do
-not have a `linearId`. $5 of cash created by one transaction is considered to be identical to $5 of cash produced by
+not have a `linearId`. $5 of cash created by one transaction is considered identical to $5 of cash produced by
 another transaction.
 
 
 ### FungibleState
 
-`FungibleState<T>` is an interface to represent things which are fungible, this means that there is an expectation that
-these things can be split and merged. That’s the only assumption made by this interface. This interface should be
-implemented if you want to represent fractional ownership in a thing, or if you have many things. Examples:
+`FungibleState<T>` is an interface that represents fungible items - items that can be split and merged. That’s the only assumption made by this interface. Implement this interface if you want to represent fractional ownership of one item, or if you have many items.
 
+For example:
 
-* There is only one Mona Lisa which you wish to issue 100 tokens, each representing a 1% interest in the Mona Lisa
+* There is only one Mona Lisa. You represent it by issuing 100 tokens, each representing a 1% interest in the Mona Lisa.
 * A company issues 1000 shares with a nominal value of 1, in one batch of 1000. This means the single batch of 1000
 shares could be split up into 1000 units of 1 share.
 
@@ -169,7 +164,7 @@ interface FungibleState<T : Any> : ContractState {
 }
 ```
 
-As seen, the interface takes a type parameter `T` that represents the fungible thing in question. This should describe
+The interface takes a type parameter `T`, which represents the fungible item. This should describe
 the basic type of the asset e.g. GBP, USD, oil, shares in company <X>, etc. and any additional metadata (issuer, grade,
 class, etc.). An upper-bound is not specified for `T` to ensure flexibility. Typically, a class would be provided that
 implements *TokenizableAssetInfo* so the thing can be easily added and subtracted using the `Amount` class.
@@ -183,15 +178,14 @@ fungible things are issued by a single well known party but this is not always t
 * `FungibleAsset` implements `OwnableState`, as such there is an assumption that all fungible things are ownable.
 
 
-### Other interfaces
+### The `QueryableState` and `SchedulableState` interfaces
 
-You can also customize your state by implementing the following interfaces:
-
+You can customize your state by implementing the following interfaces:
 
 * `QueryableState`, which allows the state to be queried in the node’s database using custom attributes (see
-api-persistence)
+api-persistence).
 * `SchedulableState`, which allows us to schedule future actions for the state (e.g. a coupon payment on a bond) (see
-event-scheduling)
+event-scheduling).
 
 
 ## User-defined fields
@@ -250,16 +244,11 @@ data class State(
 ## The vault
 
 Whenever a node records a new transaction, it also decides whether it should store each of the transaction’s output
-states in its vault. The default vault implementation makes the decision based on the following rules:
+states in its vault. The default vault implementation makes the decision based on whether the state is an `OwnableState`:
 
-
-
-* If the state is an `OwnableState`, the vault will store the state if the node is the state’s `owner`
-* Otherwise, the vault will store the state if it is one of the `participants`
-
-
-States that are not considered relevant are not stored in the node’s vault. However, the node will still store the
-transactions that created the states in its transaction storage.
+* If it is, the vault stores the state if the node is the state’s `owner`.
+* If it is not, the vault stores the state if it is one of the `participants`.
+* If the node is neither an `owner` or a `participant` in a transaction, it will not store the state in the vault. Instead, the node stores the transaction that created the states in its transaction storage.
 
 
 
@@ -352,89 +341,55 @@ Where:
 * `data` is the state to be stored on-ledger
 * `contract` is the contract governing evolutions of this state
 * `notary` is the notary service for this state
-* `encumbrance` points to another state that must also appear as an input to any transaction consuming this
-state
+* `encumbrance` points to another state that must also appear as an input to any transaction consuming this state
 * `constraint` is a constraint on which contract-code attachments can be used with this state
 
 
 
-## Reference States
+## Reference states
 
-A reference input state is a `ContractState` which can be referred to in a transaction by the contracts of input and
-output states but whose contract is not executed as part of the transaction verification process. Furthermore,
-reference states are not consumed when the transaction is committed to the ledger but they are checked for
-“current-ness”. In other words, the contract logic isn’t run for the referencing transaction only. It’s still a normal
-state when it occurs in an input or output position.
+If you need to use reference data across multiple transactions, you can use a reference state. Reference states are `ContractState`s with unique properties:
 
-Reference data states enable many parties to reuse the same state in their transactions as reference data whilst
-still allowing the reference data state owner the capability to update the state. A standard example would be the
-creation of financial instrument reference data and the use of such reference data by parties holding the related
-financial instruments.
+* Input and output state contracts can refer to them, but their contracts are not executed during the transaction verification process.
+* They are not consumed when the transaction is committed to the ledger. Instead, they are checked to make sure they are up-to-date.  The contract logic doesn't run for the referencing transaction.
+* They behave as standard states when they are in an input or output position.
 
-Just like regular input states, the chain of provenance for reference states is resolved and all dependency transactions
-verified. This is because users of reference data must be satisfied that the data they are referring to is valid as per
-the rules of the contract which governs it and that all previous participants of the state assented to updates of it.
+This enables multiple parties to reuse a state, and the state owner to update the state. For example, parties holding related financial instruments could create a reference state for the financial instrument reference data.  
+
+The node resolves the chain of provenance for reference states and verifies all dependency transactions the same way it would for a standard state. This ensures the data is valid according to
+the contract governing it, and that all previous participants in the state approved prior updates.
 
 **Known limitations:**
 
-*Notary change:* It is likely the case that users of reference states do not have permission to change the notary
-assigned to a reference state. Even if users *did* have this permission the result would likely be a bunch of
-notary change races. As such, if a reference state is added to a transaction which is assigned to a
-different notary to the input and output states then all those inputs and outputs must be moved to the
-notary which the reference state uses.
+*Notary change:* Reference state users usually do not have permission to change the notary assigned to a reference state. If you add a reference state to a transaction that is assigned to a different notary than the input and output states, you must move the inputs and outputs to the notary used by the reference state.
 
-If two or more reference states assigned to different notaries are added to a transaction then it follows that this
-transaction cannot be committed to the ledger. This would also be the case for transactions not containing reference
-states. There is an additional complication for transactions including reference states; it is however, unlikely that the
-party using the reference states has the authority to change the notary for the state (in other words, the party using the
-reference state would not be listed as a participant on it). Therefore, it is likely that a transaction containing
-reference states with two different notaries cannot be committed to the ledger.
-
-As such, if reference states assigned to multiple different notaries are added to a transaction builder
+You cannot commit a transaction to a ledger if you add two or more reference states that are assigned to different notaries. If you add reference states assigned to multiple different notaries to a transaction builder,
 then the check below will fail.
 
 
 {{< warning >}}
-Currently, encumbrances should not be used with reference states. In the case where a state is
-encumbered by an encumbrance state, the encumbrance state should also be referenced in the same
-transaction that references the encumbered state. This is because the data contained within the
-encumbered state may take on a different meaning, and likely would do, once the encumbrance state
-is taken into account.
+Do not use encumberances with reference states. The data in the encumbered state is likely to take on a different meaning once the encumbrance state is taken into account. If a state is encumbered by an encumbrance state, reference the encumbrance state in the same transaction.
 
 {{< /warning >}}
 
 
 
 
-## State Pointers
+## State pointers
 
-A `StatePointer` contains a pointer to a `ContractState`. The `StatePointer` can be included in a `ContractState` as a
-property, or included in an off-ledger data structure. `StatePointer` s can be resolved to a `StateAndRef` by performing
-a look-up. There are two types of pointers; linear and static.
+A `StatePointer` contains a pointer to a `ContractState`. You can include a `StatePointer` in a `ContractState` as a property, or include it in an off-ledger data structure. Perform a lookup to resolve a `StatePointer` to a `StateAndRef`. `StatePointers` do not enable a feature in Corda which was previously unavailable - they use reference states to formalize development patterns that were already possible.
 
+There are two types of pointers:
 
-* `StaticPointer` s are for use with any type of `ContractState`. The `StaticPointer` does as it suggests, it always
-points to the same `ContractState`.
-* The `LinearPointer` is for use with LinearStates. They are particularly useful because due to the way LinearStates
-work, the pointer will automatically point you to the latest version of a LinearState that the node performing `resolve`
-is aware of. In effect, the pointer “moves” as the LinearState is updated.
+* **`StaticPointer`s**: You can use `StaticPointer`s with any type of `ContractState`. `StaticPointer`s always point to the same `ContractState`. Use `StaticPointers` to refer to a specific state from another transaction.
+* **`LinearPointer`s**: You can use `LinearPointer`s with `LinearStates`. `LinearPointer`s automatically point you to the latest version of a `LinearState` that the node performing `resolve`
+is aware of. In effect, the pointer “moves” as the `LinearState` is updated. Use `LinearState` to refer to a particular lineage of states.
 
-State pointers use `Reference States` to enable the functionality described above. They can be conceptualized as a mechanism to
-formalise a development pattern where one needs to refer to a specific state from another transaction (StaticPointer) or a particular lineage
-of states (LinearPointer). In other words, `StatePointers` do not enable a feature in Corda which was previously unavailable.
-Rather, they help to formalise a pattern which was already possible. In that light, it is worth noting some issues which you may encounter
-in its application:
+If the node calling `resolve` has not seen any transactions containing a `ContractState` which the `StatePointer`
+points to, then `resolve` will throw an exception. In this case, the node calling `resolve` might be missing some crucial data.
 
-
-* If the node calling `resolve` has not seen any transactions containing a `ContractState` which the `StatePointer`
-points to, then `resolve` will throw an exception. Here, the node calling `resolve` might be missing some crucial data.
-* The node calling `resolve` for a `LinearPointer` may have seen and stored transactions containing a `LinearState` with
+The node calling `resolve` for a `LinearPointer` may have seen and stored transactions containing a `LinearState` with
 the specified `linearId`. However, there is no guarantee the `StateAndRef<T>` returned by `resolve` is the most recent
-version of the `LinearState`. The node only returns the most recent version that _it_ is aware of.
+version of the `LinearState`. The node only returns the most recent version that it is aware of.
 
-**Resolving state pointers in TransactionBuilder**
-
-When building transactions, any `StatePointer` s contained within inputs or outputs added to a `TransactionBuilder` can
-be optionally resolved to reference states using the `resolveStatePointers` method. The effect is that the pointed to
-data is carried along with the transaction. This may or may not be appropriate in all circumstances, which is why
-calling the method is optional.
+You can choose to use the `resolveStatePointers` method to resolve any `StatePointer`s contained within inputs or outputs added to a `TransactionBuilder` to reference states. Any data you point to is carried along with the transaction.
