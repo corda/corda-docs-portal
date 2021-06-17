@@ -8,20 +8,37 @@ menu:
 tags:
 - api
 - contracts
-title: Writing CorDapp Contracts
+title: CorDapp Contracts
 weight: 50
 ---
 
 
 
 
-# Writing CorDapp Contracts
+# CorDapp Contracts
 
-In the context of a CorDapp, contracts define rules that are used to verify transaction inputs and outputs. A CorDapp
+This article explains:
+
+* How Corda nodes run contracts in CorDapps.
+* What the `contract` class is and how to use it.
+* What the `verify` function is and how to validate transactions with it.
+* What the `LedgerTransaction` object is and what it does.
+* How to write effective verification logic.
+
+## Glossary
+
+_Contract_
+    A file which defines the rules for verifying transaction inputs and outputs.
+_Verify function_
+    A function containing all the requirements a Corda node needs to verify a transaction.
+_LedgerTransaction object_
+    An object that contains information describing the transaction being evaluated.
+
+In the context of a CorDapp, contracts define rules for verifying transaction inputs and outputs. A CorDapp
 can have one more contracts, and each contract defines rules for one or more states. The goal of a contract is to ensure
 that input and output states in transactions are valid and to prevent invalid transactions.
 
-Contact files implement the `Contract` interface, containing the `verify` method. The `verify` method takes
+Contract files implement the `Contract` interface, containing the `verify` method. The `verify` method takes
 transactions as input and evaluates them against rules defined as a `requireThat` element.
 
 Here is an example contract. This contract accepts transactions and verifies them based on verification logic defined for
@@ -50,16 +67,15 @@ class XContract : Contract {
 ```
 
 {{< note >}}
-See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which lets you break transaction backchains.
 {{< /note >}}
 
-## Understanding the `Contract` class
+## The `Contract` class
 
-As a contract is a part of a CorDapp, all parties wishing to transact in a network must have copy of the CorDapp running
-on their Node. All parties will run the contract for any transaction they’re a party to, verifying that the transaction
-is valid.
+Contracts are contained in CorDapps. All parties wishing to transact in a network must have copy of the CorDapp running
+on their Corda node. All parties run the contract for any transaction they’re a party to, verifying the transaction.
 
-The contract interface is defined as follows:
+The contract interface is:
 
 ```kotlin
 @KeepForDJVM
@@ -69,31 +85,31 @@ interface Contract {
     fun verify(tx: LedgerTransaction)
 ```
 
+When a node needs to verify a transaction using a contract, it uses the `verify` function. This function contains all of the rules and requirements that are
+applied to the transaction to test whether the proposal is valid.
+
 The `Contract` interface has a single method, `verify`, which takes a `LedgerTransaction` as input and returns
-nothing. This function is used to check whether a transaction proposal is valid, as follows:
+nothing.
+
+The function:
+
+1. Gathers all contracts relevant to the transaction. Many contracts may pertain to a single transaction.
+2. Runs `verify` function of each contract is run, using the transaction as the `LedgerTransaction` input.
+3. Deems the transaction valid if no exceptions are thrown.
 
 
-* All contracts relevant to the transaction are gathered. Remember that there may be many contracts pertaining to a single transaction.
-* The `verify` function of each contract is run, using the transaction as the `LedgerTransaction` input.
-* If no exceptions are thrown, the transaction is deemed valid.
+### The `verify` function
 
+The `verify` function can only access:
 
-### Understanding the `verify` function
+* The properties defined in the specific transaction being evaluated.
+* Limited libraries.
 
-When a contract is used to verify a transaction, the verify function contains all of the rules and requirements that are
-applied to the transaction to test whether it is valid.
+These restrictions prevent the function from accessing information outside the transaction, including any sources of randomness such as the current time or random number generation.
 
-There are several important factors to consider when writing a `verify` function:
+The two simplest `verify` functions:
 
-
-* The `verify` function does not have access to information outside of the transaction
-* The `verify` function can only access limited libraries. This disallows access to sources of information outside the transaction, as well as source of randomness like current time, and random number generation.
-
-This means that `verify` only has access to the properties defined in the specific transaction that is being evaluated.
-
-Here are the two simplest `verify` functions:
-
-A `verify` that **accepts** all possible transactions:
+* **Accept** all possible transactions:
 
 ```kotlin
 override fun verify(tx: LedgerTransaction) {
@@ -101,7 +117,7 @@ override fun verify(tx: LedgerTransaction) {
 }
 ```
 
-A `verify` that **rejects** all possible transactions:
+* **Reject** all possible transactions:
 
 ```kotlin
 override fun verify(tx: LedgerTransaction) {
@@ -110,51 +126,50 @@ override fun verify(tx: LedgerTransaction) {
 ```
 
 
-### Understanding the `LedgerTransaction` object
+### The `LedgerTransaction` object
 
-The `LedgerTransaction` object contains a variety of information describing the transaction that is being evaluated.
-This information is expressed as properties, and can be accessed using utility methods. The information contained in the
+The `LedgerTransaction` object contains information describing the transaction being evaluated.
+This information is expressed as properties. You can access it using utility methods. The information contained in the
 `LedgerTransaction` object is the only information that can be used within the `verify` function.
 
-The `LedgerTransaction` object passed into `verify` has the following properties:
+The `LedgerTransaction` object passed into `verify` has these properties:
 
 
-* `inputs` are the transaction’s input states as `List<StateAndRef<ContractState>>`
-* `outputs` are the transaction’s output states as `List<TransactionState<ContractState>>`
-* `commands` are the transaction’s commands and associated signers, as `List<CommandWithParties<CommandData>>`
-* `attachments` are the transaction’s attachments as `List<Attachment>`
-* `id` is the hash of the original serialized WireTransaction as `SecureHash`
-* `notary` is the transaction’s notary. This must match the notary of all the inputs
-* `timeWindow` defines the window during which the transaction can be notarised
-* `privacySalt` is random data used for salting the transaction id hash
-* `networkParameters` are the network parameters that were in force when the transaction was constructed. This is nullable for backwards compatibility for serialized transactions. In reality this will always be set in expected use.
-* `references` are referenced states that are required by the transaction, but not consumed by it, as `List<StateAndRed<ContractState>>`
+* `inputs`: The transaction’s input states as `List<StateAndRef<ContractState>>`.
+* `outputs`: The transaction’s output states as `List<TransactionState<ContractState>>`.
+* `commands`: The transaction’s commands and associated signers, as `List<CommandWithParties<CommandData>>`.
+* `attachments`: The transaction’s attachments as `List<Attachment>`.
+* `id`: The hash of the original serialized WireTransaction as `SecureHash`.
+* `notary`: The transaction’s notary. All inputs must also use this notary.
+* `timeWindow`: Defines when the transaction can be notarized.
+* `privacySalt`: Random data used for salting the transaction ID hash.
+* `networkParameters`: The network parameters that were in force when the transaction was constructed. This is nullable for backwards compatibility for serialized transactions. In reality this will always be set in expected use.
+* `references`: Referenced states required by the transaction, but not consumed by it, as `List<StateAndRed<ContractState>>`.
 
 The `LedgerTransaction` object also exposes a large number of utility methods to access the transaction’s contents:
 
 
-* `inputStates` extracts the input `ContractState` objects from the list of `StateAndRef`
-* `getInput`/`getOutput`/`getCommand`/`getAttachment` extracts a component by index
-* `getAttachment` extracts an attachment by ID
-* `inputsOfType`/`inRefsOfType`/`outputsOfType`/`outRefsOfType`/`commandsOfType` extracts components based on
-their generic type
-* `filterInputs`/`filterInRefs`/`filterOutputs`/`filterOutRefs`/`filterCommands` extracts components based on
-a predicate
-* `findInput`/`findInRef`/`findOutput`/`findOutRef`/`findCommand` extracts the single component that matches
-a predicate, or throws an exception if there are multiple matches
+* `inputStates`: Extracts the input `ContractState` objects from the list of `StateAndRef`.
+* `getInput`/`getOutput`/`getCommand`/`getAttachment`: Extracts a component by index.
+* `getAttachment`: Extracts an attachment by ID.
+* `inputsOfType`/`inRefsOfType`/`outputsOfType`/`outRefsOfType`/`commandsOfType`: Extracts components based on
+their generic type.
+* `filterInputs`/`filterInRefs`/`filterOutputs`/`filterOutRefs`/`filterCommands`: Extracts components based on
+a predicate.
+* `findInput`/`findInRef`/`findOutput`/`findOutRef`/`findCommand`: Extracts the single component that matches
+a predicate, or throws an exception if there are multiple matches.
 
 
 ## Writing verification logic
 
-In most cases, there are many requirements or verification statements that must be true for a given transaction to be
-deemed valid. For example, in a state issuance transaction the following verification might apply:
+To be deemed valid, most transactions have many requirements or verification statements that must be true. For example, in a state issuance transaction, the following verification might apply:
 
 
-* There should be no input states
-* There should only be one output state
+* There should be no input states.
+* There should only be one output state.
 
-While verification can be written to throw an error for each of these verification requirements, it is often easier to
-use a `requireThat` function to list a series of requirements as string/boolean pairs.
+You could write verification logic that throws an error for each of these requirements. However, it would be more efficient to
+use a `requireThat` function to list a series of requirements as string/boolean pairs:
 
 ```kotlin
 requireThat {
@@ -167,8 +182,8 @@ requireThat {
 }
 ```
 
-For each string and boolean pair within `requireThat`, if the boolean condition is false, an `IllegalArgumentException`
-is thrown with the corresponding string as the exception message. This exception causes the transaction to be rejected.
+The function checks each string and boolean pair within the `requireThat` function. If the boolean condition is false, the function throws an `IllegalArgumentException`
+with the corresponding string as the exception message. This exception causes the transaction to be rejected.
 
 
 ### Customising verification by command
@@ -187,14 +202,14 @@ data class CommandWithParties<out T : CommandData>(
 ```
 
 
-* `signers` is the list of each signer’s `PublicKey`
-* `signingParties` is the list of the signer’s identities, if known, although note that this field is deprecated
-* `value` is the object being signed (a command, in this case)
+* `signers`: The list of each signer’s `PublicKey`.
+* `signingParties` (deprecated): The list of the signer’s identities, if known.
+* `value`: The object being signed.
 
-In almost all circumstances, different commands will require different verification requirements. An issue command may
+Usually, different commands require different verification requirements. An issue command may
 very different verification than a transfer command.
 
-Verification can be tailored to the commands by specifying the command type as shown below:
+You can tailor verification to the command by specifying the command type:
 
 ```kotlin
 class XContract : Contract {
@@ -219,7 +234,8 @@ class XContract : Contract {
 ```
 
 
-## What next?
+## Further reading
 
-After learning about writing contracts, we suggest you either learn more about how contract constraints can be used in
-[Contract Constraints](api-contract-constraints.md), or learn about [Writing CorDapp States](api-states.md), or [Writing CorDapp Flows](api-flows.md).
+* [Contract Constraints](api-contract-constraints.md)
+* [Write CorDapp States](api-states.md)
+* [Writing CorDapp Flows](api-flows.md)
