@@ -33,7 +33,7 @@ This document explains:
 <!-- Optional - define any terms your target audience may not be familiar with. You can also introduce acronyms here. -->
 These terms are used throughout this document:
 
-*contract constraints* Instructions in a CorDapp's attachments that determine which versions of a CorDapp parties in a transaction can use to provide contracts.
+*contract constraints*: Instructions in a CorDapp's attachments that determine which versions of a CorDapp parties in a transaction can use to provide contracts.
 
 *composite key* A key that consists of two or more attributes that together uniquely identify an entity occurrence.
 
