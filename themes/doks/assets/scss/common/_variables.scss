@@ -2,6 +2,7 @@
 
 $white:    #fff;
 $gray-100: #FCFCFC;
+$gray-150: #e7e7e7;
 $gray-200: #D9DBE9;
 $gray-300: #F1F2F4;
 $gray-400: #F7F7FC;
@@ -19,13 +20,14 @@ $red:      #EC1D24;
 $purple:   #5d2f86;
 $brown:    #aa9c84;
 
-$blue-300: #DEF9FF;
+$blue-300: #def9ff;
 $green-300: #52bf6e;
 $red-300: #ffdfed;
 
 $red-700: #a01418;
 
 $primary: $red;
+$text-alert: #6d4e12;
 
 $enable-caret:                true;
 $enable-rounded:              true;
@@ -89,6 +91,7 @@ $grid-row-columns:            6;
 // Define common padding and border radius sizes and more.
 
 $border-color:                $gray-200;
+$submenu-bar-color: #dadbe3;
 
 // Typography
 //

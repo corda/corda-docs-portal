@@ -52,7 +52,7 @@
 
 {{/* Now use the template */}}
 {{ $sectionMenuForThisPage := or .Page.Params.section_menu .Parent.Page.Params.section_menu }}
-{{ $currentURL := .Page.URL }}
+{{ $currentURL := .Page.RelPermalink }}
 {{ if $sectionMenuForThisPage }}
   {{ $menuEntries := index .Site.Menus $sectionMenuForThisPage}}
   <ul class="nav flex-column">
