@@ -3,7 +3,7 @@ aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.html
-date: '2021-06-28T12:00:00Z'
+date: '2021-06-29'
 menu:
   corda-os-4-8:
     identifier: corda-os-4-8-release-notes
@@ -17,7 +17,7 @@ title: Release notes
 
 # Corda 4.8 release notes
 
-This release introduces several fixes and improvements.
+Corda 4.8, released on 21 April 2021, includes several fixes and improvements.
 
 {{< note >}}
 States and CorDapps valid in Corda 3.0 and above, are usable in Corda 4.8.
@@ -26,7 +26,7 @@ States and CorDapps valid in Corda 3.0 and above, are usable in Corda 4.8.
 For the commitment Corda makes to wire and API stability, see [API stability guarantees](api-stability-guarantees.md).
 {{< /note >}}
 
-## Long-term support (LTS) release
+## Long-term support release
 
 As part of our first major Corda release for 2021, Corda 4.8 and [Corda Enterprise 4.8](../../corda-enterprise/4.8/release-notes-enterprise.md) are our long-term support (LTS) platform versions, which bring improvements and stability fixes that continue to enhance the maturity of the platform as a whole.
 
