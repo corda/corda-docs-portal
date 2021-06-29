@@ -19,7 +19,7 @@ title: Release notes
 
 ## Corda 4.8 release notes
 
-Corda 4.8, released on 21 April 2021, includes several fixes and improvements.
+Corda 4.8, released on April 21st 2021, includes several fixes and improvements.
 
 {{< note >}}
 You can use states and CorDapps valid in Corda 3.0 and above with Corda 4.8.
@@ -32,7 +32,7 @@ For the commitment Corda makes to wire and API stability, see [API stability gua
 
 Corda 4.8 and [Corda Enterprise 4.8](../../corda-enterprise/4.8/release-notes-enterprise.md) are our long-term support (LTS) platform versions.
 
-LTS for this release will be provided for 30 months from 21 April 2021, 6 months more than our previous support period, giving Corda customers extra time to plan for the next upgrade.
+R3 provides LTS for this release for 30 months starting April 21st 2021. This is 6 months longer than the support periods for previous releases, giving Corda customers extra time to plan for the next upgrade.
 
 ## Platform version change
 
