@@ -22,7 +22,7 @@ title: Release notes
 Corda 4.8, released on 21 April 2021, includes several fixes and improvements.
 
 {{< note >}}
-States and CorDapps valid in Corda 3.0 and above, are usable in Corda 4.8.
+You can use states and CorDapps valid in Corda 3.0 and above with Corda 4.8.
 
 
 For the commitment Corda makes to wire and API stability, see [API stability guarantees](api-stability-guarantees.md).
@@ -30,7 +30,7 @@ For the commitment Corda makes to wire and API stability, see [API stability gua
 
 ## Long-term support release
 
-As part of our first major Corda release for 2021, Corda 4.8 and [Corda Enterprise 4.8](../../corda-enterprise/4.8/release-notes-enterprise.md) are our long-term support (LTS) platform versions, which bring improvements and stability fixes that continue to enhance the maturity of the platform as a whole.
+Corda 4.8 and [Corda Enterprise 4.8](../../corda-enterprise/4.8/release-notes-enterprise.md) are our long-term support (LTS) platform versions.
 
 LTS for this release will be provided for 30 months from 21 April 2021, 6 months more than our previous support period, giving Corda customers extra time to plan for the next upgrade.
 
@@ -42,12 +42,14 @@ For more information about platform versions, see [Versioning](versioning.md).
 
 ## Fixed issues
 
-* We have fixed an issue that caused transaction verification to be performed outside of the attachments class loader.
-* We have clarified some inconsistencies in source code comments.
-* We have fixed an issue where flows could disable validation, leading to privileges escalation.
-* We have fixed an issue where the attachment presence cache contained the attachment contents.
-* We have fixed an issue where permissions were failing for `StartFlowWithClientId`.
-* We have fixed an issue where the service loader could leak `jar_cache` handles.
-* We have addressed a security issue in a Corda dependency.
-* We have fixed an issue that caused `CordaPersistence.transaction` to fail to flush correctly.
+Corda 4.8 fixes:
+
+* Transaction verification being performed outside of the attachments class loader.
+* Inconsistencies in source code comments.
+* Privileges escalation caused by flows disabling validation.
+* Attachment presence cache containing the attachment contents.
+* Permissions failing for `StartFlowWithClientId`.
+* Service loader leaking `jar_cache` handles.
+* A security issue in a Corda dependency.
+* `CordaPersistence.transaction` failing to flush correctly.
 
