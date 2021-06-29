@@ -15,7 +15,9 @@ title: Release notes
 ---
 
 
-# Corda 4.8 release notes
+# Corda release notes
+
+## Corda 4.8 release notes
 
 Corda 4.8, released on 21 April 2021, includes several fixes and improvements.
 
