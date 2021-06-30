@@ -68,7 +68,7 @@ git clone https://github.com/corda/samples-kotlin
 
 The sample project folders will appear in your chosen directory.
 {{< note >}}
-The `samples-java` and `samples-kotlin` repositories each contain a number of sample CorDapps. For details of all the sample CorDapps and their features and usage, see the `README` file in the `samples-java` or `samples-kotlin` folder. The sample CorDapp that you are going to run and deploy is the **Basic** CorDapp in the `Basic\cordapp-example` sub-folder.
+The `samples-java` and `samples-kotlin` repositories each contain a number of sample CorDapps. For details of all the sample CorDapps and their features and usage, see the README file in the `samples-java` or `samples-kotlin` folder. The sample CorDapp that you are going to run and deploy is the **Basic** CorDapp in the `Basic\cordapp-example` sub-folder.
 
 You can see the project structure in Appendix A.
 {{< /note >}}
@@ -125,7 +125,7 @@ To start the nodes and the sample CorDapp:
 
 Look for the `Started Server in X seconds` message &mdash; don’t rely on the % indicator.
 
-3. Repeat the command for to create the server for Party B:
+3. Repeat the command to start the server for Party B:
 * Unix/Mac OSX: `./gradlew runPartyBServer`
 * Windows: `gradlew.bat runPartyBServer`
 
@@ -198,7 +198,7 @@ anti-XSS, anti-XSRF or other security techniques. Do not use this code in produc
 
 #### Create an IOU via the endpoint
 
-You can create an IOU by sending a PUT request to the `/create-iou` endpoint directly, or by using the
+You can create an IOU by sending a `PUT` request to the `/create-iou` endpoint directly, or by using the
 the web form served from the home directory.
 
 To create an IOU between PartyA and PartyB, run the following command:
@@ -267,7 +267,7 @@ You can see the newly-created IOU by running `run vaultQuery contractStateType: 
 
 ### Via the h2 web console
 
-You can connect directly to your node’s database to see its stored states, transactions and attachments. Follow the instructions in [Node database](../node/operating/node-database.md/).
+You can connect directly to your node’s database to see its stored states, transactions, and attachments. Follow the instructions in [Node database](../node/operating/node-database.md/).
 
 
 ## Step 6: Test the CorDapp
@@ -276,7 +276,6 @@ Corda provides several frameworks for writing unit and integration tests for Cor
 
 ### Integration tests
 
-First, run an integration test to make sure the CorDapp is set up properly. Use the `Run Integration Tests - Java` run configuration.
 
 First, run an integration test to calibrate your environment.
 1. Go to `Workflows` > `src` > `IntegrationTest` > `DriverBasedTest`.
@@ -444,13 +443,13 @@ The `cordapp-example` folder is structured as follows:
 
 The key files and directories are as follows:
 
-* The **root directory** contains some gradle files, a README, a LICENSE and a TRADEMARK statement
-* **clients** contains the source code for Spring Boot integration
-* **config** contains the log4j2 configuration
-* **contracts-java** and **workflows-java** contain the source code for the sample CorDapp written in Java
+* The **root directory** contains some gradle files, a `README`, a `LICENSE`, and a `TRADEMARK` statement.
+* **clients** contains the source code for Spring Boot integration.
+* **config** contains the Log4j 2 configuration.
+* **contracts-java** and **workflows-java** contain the source code for the sample CorDapp written in Java.
 * **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin
-* **gradle** contains the gradle wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required
-* **lib** contains the Quasar jar, which rewrites our CorDapp’s flows to be checkpointable
+* **gradle** contains the Gradle Wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required.
+* **lib** contains the Quasar jar, which rewrites your CorDapp’s flows to be checkpointable.
 
 ## Appendix B: Node structure
 
