@@ -11,36 +11,34 @@ menu:
     weight: 1020
 tags:
 - state
-title: Writing the state
+title: Modify the state
 ---
 
+# Modify the state
 
-
-
-# Writing the state
-
-In Corda, shared facts on the blockchain are represented as states. Our first task will be to define a new state type to
+In Corda, shared facts on the blockchain are represented as states. Your first task is to define a new state type to
 represent an IOU.
 
 
-## Implementing the ContractState interface
+## The `ContractState` interface
 
-A Corda state is any instance of a class that implements the `ContractState` interface. The `ContractState`
-interface is defined as follows:
+A Corda state is any instance of a class that implements the `ContractState` interface.
 
-{{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
-```kotlin
-interface ContractState {
-    // The list of entities considered to have a stake in this state.
-    val participants: List<AbstractParty>
-}
-```
-{{% /tab %}}
+For your CorDapp, use the following `ContractState` interface:
 
-{{< /tabs >}}
+  {{< tabs name="tabs-1" >}}
+  {{% tab name="kotlin" %}}
+  ```kotlin
+  interface ContractState {
+      // The list of entities considered to have a stake in this state.
+      val participants: List<AbstractParty>
+    }
+    ```
+    {{% /tab %}}
 
-As you can see, the `ContractState` interface has a single field, `participants`. `participants` is a list of the
+    {{< /tabs >}}
+
+As you can see, the `ContractState` interface has a single field - `participants`. The `participants` field is a list of the
 entities for which this state is relevant.
 
 Beyond this, your state is free to define any fields, methods, helpers or inner classes that the state requires to accurately
@@ -61,11 +59,10 @@ If you do want to dive into Kotlin, see the official
 
 {{< /note >}}
 
-## Modelling IOUs
+## Define IOUState
 
 How should you define the `IOUState` representing IOUs on the blockchain? Beyond implementing the `ContractState`
-interface, your `IOUState` will also need properties to track the relevant features of the IOU:
-
+interface, your `IOUState` also needs properties to track the relevant features of the IOU:
 
 * The value of the IOU.
 * The lender of the IOU.
@@ -74,31 +71,28 @@ interface, your `IOUState` will also need properties to track the relevant featu
 There are many more fields you could include, such as the IOU’s currency, but let’s ignore those for now. Adding them
 later is often as simple as adding an additional property to your class definition.
 
+1. Open the file for for your language:
 
-## Defining IOUState
+   * Java: Open `TemplateState.java` from `contracts/src/main/java/com/template/states/TemplateState.java`.
+   * Kotlin: Open `TemplateState.kt` from `contracts/src/main/kotlin/com/template/states/TemplateState.kt`.
 
-Let’s get started by opening `TemplateState.java` (for Java) or `TemplateState.kt` (for Kotlin).
+2. Rename the `TemplateState` class to `IOUState`.
 
-If you’re following along in Kotlin, you'll need to begin by updating `TemplateState` to define an `IOUState`, as shown in the following code example.
+3. Define `IOUState` by making the following changes:
 
-If you’re following along in Java, you’ll need to first rename `TemplateState.java` to `IOUState.java`.
-
-To define `IOUState`, you'll also need to make the following changes:
-
-
-* You'll need to rename the `TemplateState` class to `IOUState`.
-* You'll need to add properties for `value`, `lender` and `borrower`, along with the required getters and setters in.
-Java:
+   a. Add properties for `value`, `lender` and `borrower`, along with the required getters and setters in Java:
     * `value` is of type `int` (in Java)/`Int` (in Kotlin).
     * `lender` and `borrower` are of type `Party`.
         * `Party` is a built-in Corda type that represents an entity on the network.
 
-* You'll need to override `participants` to return a list of the `lender` and `borrower`.
+   b. Override `participants` to return a list that shows the `lender` and `borrower`.
     * `participants` is a list of all the parties who should be notified of the creation or consumption of this state.
 
 The IOUs that you issue onto a ledger will simply be instances of this class.
 
-The code examples below show how your code should be looking after doing all of the above:
+## Outcome
+
+Take a look at this code snippet. This is how your IOU state template should look after you have completed all the steps described above.
 
 
 {{< tabs name="tabs-2" >}}
@@ -173,7 +167,7 @@ on the blockchain, while only sharing information on a need-to-know basis.
 
 ## What about the contract?
 
-If you’ve read the white paper or Key Concepts section, you’ll know that each state has an associated contract that
+If you’ve read the white paper or the [key concepts](key-concepts.md) section, you’ll know that each state has an associated contract that
 imposes invariants on how the state evolves over time. Including a contract isn’t crucial for our first CorDapp, so
 you’ll just use the empty `TemplateContract` and `TemplateContract.Commands.Action` command defined by the template
 for now.

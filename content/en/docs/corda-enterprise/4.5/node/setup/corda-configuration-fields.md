@@ -518,18 +518,20 @@ specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` conf
   * *Default:* not defined
 * `extraConfig`
   * Configuration for the single-node notary only. For HA notaries use either the `mysql` (deprecated) or `jpa` configuration.
-* `batchSize`
-  * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches;       however, larger batches may worsen latency.
-  * *Default:* 32
-* `maxInputStates`
-  * The maximum combined number of input states processed in a single batch when finding conflicts.
-  * *Default:* 2 000
-* `maxDBTransactionRetryCount`
-  * The maximum number of retries of database operations before throwing an exception.
-  * *Default:* 10
-* `backOffBaseMs`
-  * The duration to wait before retrying failing DB operations. Doubled with every retry.
-  * *Default:* 20
+  * `batchSize`
+    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches;       however, larger batches may worsen latency.
+    * *Default:* 32
+  * `maxInputStates`
+    * The maximum combined number of input states processed in a single batch when finding conflicts.
+    * *Default:* 2 000
+  * `maxDBTransactionRetryCount`
+    * The maximum number of retries of database operations before throwing an exception.
+    * *Default:* 10
+  * `backOffBaseMs`
+    * The duration to wait before retrying failing DB operations. Doubled with every retry.
+    * *Default:* 20
+  * `batchTimeoutMs`
+    * Configures the amount of time that the notary will wait before processing a batch, even if the batch is not full. Smaller values can lead to lower latency but potentially worse throughput as smaller batches might be processed.
 * `mysql`
   * If using the MySQL notary (deprecated), specify this configuration section with the settings below.
   * `connectionRetries`

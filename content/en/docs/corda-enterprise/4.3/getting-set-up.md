@@ -56,7 +56,7 @@ others to provide support. However, if you do use other tools, we’d be interes
 
 The instructions below will allow you to set up your development environment for running Corda and writing CorDapps. If
 you have any issues, please reach out on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via
-[our Slack channels](http://slack.corda.net/).
+[our Slack channels](https://slack.corda.net/).
 
 The set-up instructions are available for the following platforms:
 
@@ -469,4 +469,4 @@ API documentation in the sidebar, the [flow cookbook](flow-cookbook.md) and the
 [samples](https://www.corda.net/samples/) along the way.
 
 If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via
-[our Slack channels](http://slack.corda.net/).
+[our Slack channels](https://slack.corda.net/).

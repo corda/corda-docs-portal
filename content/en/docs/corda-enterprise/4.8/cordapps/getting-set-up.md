@@ -64,4 +64,4 @@ Then, you’ll be ready to start writing your own CorDapps. You may want to refe
 API documentation, the [flow cookbook](flow-cookbook.md) and the
 [samples](https://www.corda.net/samples/) along the way.
 
-If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](http://slack.corda.net/).
+If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](https://slack.corda.net/).

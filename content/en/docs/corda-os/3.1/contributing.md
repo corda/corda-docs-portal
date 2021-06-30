@@ -36,7 +36,7 @@ doesn’t mean your contribution isn’t welcome. Please reach out on the Corda 
 contribution. Someone else may already be working on it, or it may be blocked by an on-going piece of work
 
 
-* Ask in the [Corda Slack channel](http://slack.corda.net/)
+* Ask in the [Corda Slack channel](https://slack.corda.net/)
 
 
 ## Making the required changes
@@ -76,7 +76,7 @@ instructions [here](building-against-master.md).
 
 
 
-* Request a review from a member of the Corda platform team via the [Corda Slack channel](http://slack.corda.net/)
+* Request a review from a member of the Corda platform team via the [Corda Slack channel](https://slack.corda.net/)
 * Wait for your PR to pass all four types of continuous integration tests (integration, API stability, build and unit)
 * Currently, external contributors cannot see the output of these tests. If your PR fails a test that passed
 locally, ask the reviewer for further details
