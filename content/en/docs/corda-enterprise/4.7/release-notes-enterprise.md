@@ -37,7 +37,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * We have fixed an issue where the HA utilities tool does not write the correct log file.
 * We have fixed an issue that prevented the HA utilities tool loading third-party HSM `.jar` files from the `drivers` directory when the `generate-internal-tunnel-ssl-keystores` command is run.
 * The `startFlowWithClientId` now uses the same permissioning as the `startFlow` method.
-* Corda Enterprise 4.6.2 now supports version 3.2.1 of the AWS CloudHSM client library.
+* Corda Enterprise 4.7.1 now supports version 3.2.1 of the AWS CloudHSM client library.
 * We have fixed an issue that could cause flow execution to hang.
 * We have fixed an issue that caused the Corda Firewall to throw an error when version information was requested.
 * We have fixed an issue where migrating from Corda Enterprise 4.5 to Corda Enterprise 4.6 could cause some flows to experience a retry loop.
@@ -141,7 +141,6 @@ For more information about platform versions, see [Versioning](cordapps/versioni
 
 ## Known issues
 
-* The Corda 4.6 RPC Client cannot execute the method `NodeFlowStatusRpcOps::getFlowsMatching` against a Corda 4.7 node as it fails to deserialise some enums when querying the node states.
 * In some cases the RPC Client may fail to connect to the node. This error is more likely to occur when using a lower-spec machine.
 * The HA Utilities tool does not log information about the used `freshIdentitiesConfiguration` as it is implemented for Legal Identities and TLS keys.
 * The HA Utilities tool does not log a message stating that the master key is not needed when using `NATIVE` mode. Such a message is only recorded in the node log when the node is registered using the `initial-registration` command.
