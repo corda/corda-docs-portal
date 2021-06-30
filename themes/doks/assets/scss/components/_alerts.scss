@@ -1,6 +1,7 @@
 .alert {
   border-radius: 4px;
   padding: 1.5rem 1.5rem 1.5rem 4.375rem;
+  margin-bottom: 1.5rem;
 
   code {
     background-color: rgba(0, 0, 0, 0.08);
@@ -31,7 +32,7 @@
 
 .alert-warning {
   background: $beige;
-  color: $yellow;
+  color: $text-alert;
 
   a,
   .alert-link {
@@ -47,11 +48,30 @@
       content: url("/icons/warning.svg");
       position: relative;
       display: block;
+      height: 24px;
     }
   }
 }
 
-.alert-primary,
+.alert-primary {
+  color: $red-700;
+  background-color: $red-300;
+
+  .r3-o-icon-important {
+    position: absolute;
+    left: 1.5rem;
+    top: calc(50% - 12px);
+
+    &::before {
+      content: url("/icons/important.svg");
+      position: relative;
+      display: block;
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
+
 .alert-info {
   color: $blue;
   background-color: $blue-300;
@@ -64,12 +84,13 @@
   .r3-o-icon-note{
     position: absolute;
     left: 1.5rem;
-    top: calc(50% - 12px);
+    top: calc(50% - 10px);
 
     &::before {
       content: url("/icons/info.svg");
       position: relative;
       display: block;
+      height: 24px;
     }
   }
 }

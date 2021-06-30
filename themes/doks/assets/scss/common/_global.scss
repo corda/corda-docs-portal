@@ -171,6 +171,10 @@ body {
     color: $gray-900;
     text-decoration: underline;
   }
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .docs-navigation {
