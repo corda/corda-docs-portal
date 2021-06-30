@@ -81,7 +81,7 @@ weight = 10
 github_repository = "https://github.com/corda/docs-site"
 
 twitter = "cordablockchain"
-slack = "http://slack.corda.net/"
+slack = "https://slack.corda.net/"
 github = "corda"
 stackoverflow = "corda"
 
