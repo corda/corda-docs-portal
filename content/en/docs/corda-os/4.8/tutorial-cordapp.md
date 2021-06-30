@@ -25,10 +25,10 @@ The local Corda network in the sample includes one notary and two nodes, each re
 
 The sample CorDapp allows nodes to reach loan agreements with each other, as long as they obey the following contract rules:
 
-* The loan agreement’s value is strictly positive
-* A node is not trying to issue a loan agreement to itself
+* The loan agreement’s value is strictly positive.
+* A node is not trying to issue a loan agreement to itself.
 
-You will deploy and run the sample CorDapp on the following four test nodes:
+You will deploy and run the sample CorDapp on the following test nodes:
 
 * **Notary**, which runs a notary service
 * **PartyA**
@@ -68,7 +68,7 @@ git clone https://github.com/corda/samples-kotlin
 
 The sample project folders will appear in your chosen directory.
 {{< note >}}
-The `samples-java` and `samples-kotlin` repositories each contain a number of sample CorDapps. For details of all the sample CorDapps and their features and usage, see the Readme file in the `samples-java` or `samples-kotlin` folder. The sample CorDapp that we are going to run and deploy is the **Basic** CorDapp in the `Basic\cordapp-example` sub-folder.
+The `samples-java` and `samples-kotlin` repositories each contain a number of sample CorDapps. For details of all the sample CorDapps and their features and usage, see the `README` file in the `samples-java` or `samples-kotlin` folder. The sample CorDapp that you are going to run and deploy is the **Basic** CorDapp in the `Basic\cordapp-example` sub-folder.
 
 You can see the project structure in Appendix A.
 {{< /note >}}
