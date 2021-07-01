@@ -37,9 +37,7 @@ has a stake in the state. A `participant` is any party that should be notified i
 created or consumed.
 
 Certain types of transactions require a list of participants. For example, when changing the notary of a
-state, every participant must approve the transaction. They then receive the updated state, and
-avoid a situation where they can no longer use a state they possess because someone consumed that state during
-the notary change process.
+state, every participant must approve the transaction. They then receive the updated, post-notary-change state. This prevents a situation where participants in a transaction end up holding a spent state, because another participant consumed that state while performing a notary change.
 
 Derive the participants list from the contents of the state.
 
@@ -98,7 +96,7 @@ To extend a `LinearState` chain (a sequence of states sharing a `linearId`):
     * The current latest state in the chain as an input.
     * The newly-created state as an output.
 
-The new state is now latest state in the chain, representing the new current state of the agreement.
+The new state is now the latest state in the chain, representing the current state of the agreement.
 
 `linearId` is of type `UniqueIdentifier`, which is a combination of:
 
@@ -337,11 +335,11 @@ data class TransactionState<out T : ContractState> @JvmOverloads constructor(
 Where:
 
 
-* `data` is the state to be stored on-ledger
-* `contract` is the contract governing evolutions of this state
-* `notary` is the notary service for this state
-* `encumbrance` points to another state that must also appear as an input to any transaction consuming this state
-* `constraint` is a constraint on which contract-code attachments can be used with this state
+* `data` is the state to be stored on-ledger.
+* `contract` is the contract governing evolutions of this state.
+* `notary` is the notary service for this state.
+* `encumbrance` points to another state that must also appear as an input to any transaction consuming this state.
+* `constraint` is a constraint on which contract-code attachments can be used with this state.
 
 
 
@@ -380,7 +378,7 @@ A `StatePointer` contains a pointer to a `ContractState`. You can include a `Sta
 
 There are two types of pointers:
 
-* **`StaticPointer`s**: You can use `StaticPointer`s with any type of `ContractState`. `StaticPointer`s always point to the same `ContractState`. Use `StaticPointers` to refer to a specific state from another transaction.
+* **`StaticPointer`s**: You can use `StaticPointer`s with any type of `ContractState`. `StaticPointer`s always point to the same `ContractState`. Use `StaticPointer`s to refer to a specific state from another transaction.
 * **`LinearPointer`s**: You can use `LinearPointer`s with `LinearStates`. `LinearPointer`s automatically point you to the latest version of a `LinearState` that the node performing `resolve`.
 is aware of. In effect, the pointer “moves” as the `LinearState` is updated. Use `LinearState` to refer to a particular lineage of states.
 
