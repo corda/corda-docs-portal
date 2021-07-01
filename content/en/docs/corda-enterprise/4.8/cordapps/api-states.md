@@ -36,7 +36,7 @@ interface ContractState {
 has a stake in the state. A `participant` is any party that should be notified if the state is
 created or consumed.
 
-Certain types of transactions require a list of participants. For example, when changing the notary for a
+Certain types of transactions require a list of participants. For example, when changing the notary of a
 state, every participant must approve the transaction. They then receive the updated state, and
 avoid a situation where they can no longer use a state they possess because someone consumed that state during
 the notary change process.
@@ -47,7 +47,7 @@ The `participants` in a state:
 
 * Store the state in their vault (in most instances).
 * Sign any notary change and contract upgrade transactions.
-* Receive any finalised transactions as part of `FinalityFlow` / `ReceiveFinalityFlow`.
+* Receive any finalized transactions as part of `FinalityFlow` / `ReceiveFinalityFlow`.
 
 {{< note >}}
 See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
@@ -87,8 +87,7 @@ interface LinearState : ContractState {
 }
 ```
 
-States are immutable and can’t be updated directly. Instead, represent an evolving fact as a
-sequence of `LinearState` states that share the same `linearId` and create an audit trail for the lifecycle of
+States are immutable and can’t be updated directly. Instead, an evolving fact is represented by a sequence of `LinearState` states that share the same `linearId`, and create an audit trail for the lifecycle of
 the fact over time.
 
 To extend a `LinearState` chain (a sequence of states sharing a `linearId`):
@@ -175,7 +174,7 @@ This interface has been added in addition to `FungibleAsset` to provide some add
 
 * `FungibleAsset` defines an amount property of type `Amount<Issued<T>>`, therefore there is an assumption that all
 fungible things are issued by a single well known party but this is not always the case.
-* `FungibleAsset` implements `OwnableState`, as such there is an assumption that all fungible things are ownable.
+* `FungibleAsset` implements `OwnableState`, as such there is an assumption that all fungible items are ownable.
 
 
 ### The `QueryableState` and `SchedulableState` interfaces
@@ -363,7 +362,7 @@ the contract governing it, and that all previous participants in the state appro
 
 *Notary change:* Reference state users usually do not have permission to change the notary assigned to a reference state. If you add a reference state to a transaction that is assigned to a different notary than the input and output states, you must move the inputs and outputs to the notary used by the reference state.
 
-You cannot commit a transaction to a ledger if you add two or more reference states that are assigned to different notaries. If you add reference states assigned to multiple different notaries to a transaction builder,
+You cannot commit a transaction to a ledger if you add two or more reference states that are assigned to different notaries. If you add reference states assigned to multiple notaries to a transaction builder,
 then the check below will fail.
 
 
@@ -382,7 +381,7 @@ A `StatePointer` contains a pointer to a `ContractState`. You can include a `Sta
 There are two types of pointers:
 
 * **`StaticPointer`s**: You can use `StaticPointer`s with any type of `ContractState`. `StaticPointer`s always point to the same `ContractState`. Use `StaticPointers` to refer to a specific state from another transaction.
-* **`LinearPointer`s**: You can use `LinearPointer`s with `LinearStates`. `LinearPointer`s automatically point you to the latest version of a `LinearState` that the node performing `resolve`
+* **`LinearPointer`s**: You can use `LinearPointer`s with `LinearStates`. `LinearPointer`s automatically point you to the latest version of a `LinearState` that the node performing `resolve`.
 is aware of. In effect, the pointer “moves” as the `LinearState` is updated. Use `LinearState` to refer to a particular lineage of states.
 
 If the node calling `resolve` has not seen any transactions containing a `ContractState` which the `StatePointer`
