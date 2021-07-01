@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-01T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-cordapps-flows
@@ -12,59 +12,26 @@ weight: 2
 ---
 
 
-# Accessing node services
+# Access node services
 
-Within `FlowLogic.call`, the flow developer has access to the node’s `ServiceHub`, which provides access to the
-various services the node provides. The services offered by the `ServiceHub` are split into the following categories:
-
-
-* `ServiceHub.networkMapCache`
-    * Provides information on other nodes on the network (e.g. notaries…)
+You can access a node's `ServiceHub` within `FlowLogic.call`. This gives you access to all the node's services:
 
 
-* `ServiceHub.identityService`
-    * Allows you to resolve anonymous identities to well-known identities if you have the required certificates
+* `ServiceHub.networkMapCache` provides information on other nodes on the network (for example, notaries).
+* `ServiceHub.identityService` lets you resolve anonymous identities into well-known identities if you have the required certificates.
+* `ServiceHub.attachments` gives you access to the node’s attachments.
+* `ServiceHub.validatedTransactions` gives you access to the transactions stored in the node.
+* `ServiceHub.vaultService` stores the node’s current and historic states.
+* `ServiceHub.keyManagementService` manages transaction signing and the generation of fresh public keys.
+* `ServiceHub.myInfo` includes additional information about the node.
+* `ServiceHub.clock` provides access to the node’s internal time and date.
+* `ServiceHub.diagnosticsService` provides diagnostic information about the node, including the node version and currently running apps. This data should **only** be used for diagnostic purposes.
+* `ServiceHub.contractUpgradeService` provides functionality for secure contract upgrades.
 
 
-* `ServiceHub.attachments`
-    * Gives you access to the node’s attachments
-
-
-* `ServiceHub.validatedTransactions`
-    * Gives you access to the transactions stored in the node
-
-
-* `ServiceHub.vaultService`
-    * Stores the node’s current and historic states
-
-
-* `ServiceHub.keyManagementService`
-    * Manages signing transactions and generating fresh public keys
-
-
-* `ServiceHub.myInfo`
-    * Other information about the node
-
-
-* `ServiceHub.clock`
-    * Provides access to the node’s internal time and date
-
-
-* `ServiceHub.diagnosticsService`
-    * Provides diagnostic information about the node, including the node version and currently running apps. Note that this data should be
-used for diagnostic purposes ONLY
-
-
-* `ServiceHub.contractUpgradeService`
-    * Provides functionality for secure contract upgrades
-
-
-
-Additional, `ServiceHub` exposes the following properties:
-
+`ServiceHub` also exposes these properties:
 
 * `ServiceHub.loadState` and `ServiceHub.toStateAndRef` to resolve a `StateRef` into a `TransactionState` or
-a `StateAndRef`
-* `ServiceHub.signInitialTransaction` to sign a `TransactionBuilder` and convert it into a `SignedTransaction`
-* `ServiceHub.createSignature` and `ServiceHub.addSignature` to create and add signatures to a `SignedTransaction`
-
+a `StateAndRef`.
+* `ServiceHub.signInitialTransaction` to sign a `TransactionBuilder` and convert it into a `SignedTransaction`.
+* `ServiceHub.createSignature` and `ServiceHub.addSignature` to create and add signatures to a `SignedTransaction`.
