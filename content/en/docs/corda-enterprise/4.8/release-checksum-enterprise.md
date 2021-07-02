@@ -1,6 +1,6 @@
 ---
-title: Release files and checksums
-date: '2021-04-22T09:00:11Z'
+title: Checksums of release files
+date: '2021-07-02'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-release-notes
@@ -12,13 +12,13 @@ tags:
 - enterprise
 ---
 
-# Corda Enterprise release files and checksums
+# Checksums of Corda Enterprise release files
 
-Customers who have access to the Corda repositories can download the release files from the repositories.
+Customers who have access to the Corda Enterprise repositories can download the release files.
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 
-## Corda Enterprise 4.8 release files and checksums
+## Checksums of Corda Enterprise 4.8 release files
 
 * corda-4.8-javadoc.jar (19 Kb / 19540 bytes)
   * `448a427825351f2ad3a290b01a8be0c0b76440ea` (sha1)
