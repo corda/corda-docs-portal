@@ -36,7 +36,7 @@ R3 provides LTS for this release for 30 months starting April 21st 2021. This is
 
 ## Platform version change
 
-The platform version of Corda 4.8 is 10.
+Corda 4.8 uses platform version 10.
 
 For more information about platform versions, see [Versioning](versioning.md).
 
