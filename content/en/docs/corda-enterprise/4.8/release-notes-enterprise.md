@@ -17,13 +17,13 @@ weight: 1
 
 ## Corda Enterprise 4.8 release overview
 
-Corda Enterprise 4.8, released on April 21st 2021, includes several new features, enhancements, and fixes including:
+Corda Enterprise 4.8, released on April 21st 2021, includes several new features, enhancements, and fixes.
 
-* [Notary database supports Oracle database version 19c](#notary-database-support-update).
-* Azure managed identities can be used as authentication when using an [Azure Key Vault HSM](#azure-managed-identities-authentication).
-* Metrics can be configured to use [time-window reservoirs](#time-window-metrics-gathering) for data collection.
-* Additional metrics added for [tracking notary latency](#additional-notary-metrics).
-* Confidential identities support [Utimaco and Gemalto Luna HSMs](platform-support-matrix.md#hardware-security-modules-hsm).
+* The [notary database now supports Oracle database version 19c](#notary-database-support-update).
+* You can use Azure-managed identities to authenticate [Azure Key Vault HSM](#azure-managed-identities-authentication)s.
+* You can configure metrics to use [time-window reservoirs](#time-window-metrics-gathering) for data collection.
+* Additional metrics have been added for [tracking notary latency](#additional-notary-metrics).
+* Confidential identities support has been added via [Utimaco and Gemalto Luna HSMs](platform-support-matrix.md#hardware-security-modules-hsm).
 
 {{< note >}}
 This page only describes functionality specific to Corda Enterprise 4.8. However, as a Corda Enterprise customer, you can also make full use of the features available as part of the Corda open source releases.
@@ -46,7 +46,7 @@ R3 provides LTS for this release for 30 months starting April 21st 2021. This is
 
 ## Platform version change
 
-The platform version of Corda 4.8 is 10.
+Corda 4.8 uses platform version 10.
 
 For more information about platform versions, see [Versioning](cordapps/versioning.md).
 
@@ -58,7 +58,7 @@ The [JPA notary](notary/installing-jpa.md) now supports [Oracle DB version 19c](
 
 ### Azure managed identities authentication
 
-When using an Azure Key Vault HSM with Corda Enterprise, you can now use an existing Azure Managed Identities service as authentication. 
+If you use an Azure Key Vault HSM with Corda Enterprise, you can now use an existing Azure Managed Identities service as authentication. 
 
 See [Using an HSM with Corda Enterprise](node/operating/cryptoservice-configuration.md#azure-keyvault) for more information.
 
@@ -92,12 +92,12 @@ Corda Enterprise 4.8 fixes:
 * Log messages incorrectly stating that a confidential identity key has been created.
 * An issue that causes the node to hang if shut down using `SIGTERM`.
 * Attachment presence cache containing the attachment contents.
-* The Corda Firewall threwing an error when retrieving version information.
+* The Corda Firewall throwing an error when retrieving version information.
 * HA utilities creating erroneous logs when using confidential identities.
 
 ## Known issues
 
-* When using the Oracle 12c database, the JDBC driver may hang if it is blocked by an empty entropy pool.
+* An issue with the Oracle 12c database that causes the JDBC driver to hang if blocked by an empty entropy pool.
 
 {{< note >}}
 This issue is specific to Corda Enterprise 4.8. Known issues relating to other versions of Corda Enterprise are listed in the release notes for each version.  
