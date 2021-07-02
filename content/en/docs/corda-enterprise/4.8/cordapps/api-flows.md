@@ -856,7 +856,7 @@ Check that:
 * The transaction received is the expected type, and has the expected types of inputs and outputs.
 * The properties of the outputs are expected, unless you have integrated reference
 data sources to facilitate this.
-* The transaction is not incorrectly spending asset states (perhaps maliciously). The transaction creator could have access to some of signer’s state references.
+* The transaction is correctly spending asset states and is not spending them maliciously. The transaction creator could have access to some of signer’s state references.
 
 
 ### `SendTransactionFlow` and `ReceiveTransactionFlow`
