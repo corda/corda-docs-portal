@@ -704,7 +704,7 @@ Suspendable flow operations cannot be used within the lambda function passed to 
 
 ### Restricted control of entity managers
 
-Corda restricts the functions available by the `EntityManager` returned by `withEntityManager`. This prevents a flow's underlying database transaction from being tampered with, which would likely lead to errors within the flow.
+Corda restricts the functions available using the `EntityManager`, which is returned by `withEntityManager`. This prevents a flow's underlying database transaction from being tampered with, which would likely lead to errors within the flow.
 
 The `withEntityManager` function provides an object that adheres to the `EntityManager` interface but with two differences:
 
