@@ -415,7 +415,7 @@ When you call this function, no communication happens until the first
 `send` or `receive`. At that point the counterparty will either:
 
 * Ignore the message if they are not registered to respond to messages from this flow.
-* Start the flow they have registered to respond to this flow.
+* Start a flow they have registered to respond to your flow.
 
 ### Send
 
@@ -863,8 +863,8 @@ data sources to facilitate this.
 
 When you verify a transaction you've received from a counterparty, you must also verify every transaction in its
 dependency chain. This means the receiving party needs to be able to ask the sender for all the details of the chain.
-The sender sends the transaction using `SendTransactionFlow`. To process all subsequent
-transaction data vending requests as the receiver walks the dependency chain using `ReceiveTransactionFlow`:
+The sender sends the transaction using `SendTransactionFlow` to process all subsequent
+transaction data vending requests while the receiver walks the dependency chain using `ReceiveTransactionFlow`:
 
 {{< tabs name="tabs-18" >}}
 {{% tab name="kotlin" %}}
@@ -1182,7 +1182,7 @@ You could use this functionality to:
 
 * `FlowExternalOperation`: Returns a result which should be run using a thread from one of the node’s
 thread pools.
-* `FlowExternalAsyncOperation`: Returns a future which should be run on a thread provided to its implementation.
+* `FlowExternalAsyncOperation`: Returns a future, which you should run on a thread provided for its implementation.
 Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`.
 * `FlowExternalOperation`: Allows developers to write an operation that runs on a thread provided by the node’s flow external operation
 thread pool.
@@ -1356,8 +1356,7 @@ computed.
 `FlowExternalAsyncOperation` allows developers to write an operation that returns a future with threading handled within the CorDapp.
 
 {{< warning >}}
-Threading must be explicitly controlled when using `FlowExternalAsyncOperation`. If a new thread is not spawned or provided by a thread pool, then a future run on its current flow worker
-thread. This prevents the flow worker thread from freeing up and allowing another flow to take control and run.
+Threading must be explicitly controlled when using `FlowExternalAsyncOperation`. If a new thread is not spawned or provided by a thread pool, then a future runs on its current flow worker thread. This prevents the flow worker thread from freeing up and allowing another flow to take control and run.
 
 {{< /warning >}}
 
