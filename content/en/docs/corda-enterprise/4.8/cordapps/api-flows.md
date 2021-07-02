@@ -36,10 +36,10 @@ Each concept is illustrated with sample code.
 
 ## An example flow
 
-For example, if Alice and Bob want to agree a basic ledger update, they would create a flow with two sides, one for each party:
+If Alice and Bob want to agree a basic ledger update, they would create a flow with two sides, one for each party:
 
-* An `Initiator` side, a flow class that initiates the request to update the ledger.
-* A `Responder` side, a flow class that responds to the request to update the ledger.
+* An `Initiator` side: A flow class that initiates the request to update the ledger.
+* A `Responder` side: A flow class that responds to the request to update the ledger.
 
 ### Initiator flow class example
 
@@ -127,7 +127,7 @@ The transaction is now part of the ledger.
 ## The `FlowLogic` class
 
 You can implement flows as one or more communicating `FlowLogic` subclasses. The `FlowLogic`
-subclass’s constructor can take any number of arguments of any type. The generic of `FlowLogic` (e.g.
+subclass’s constructor can take any number of arguments of any type. The generic `FlowLogic` (e.g.
 `FlowLogic<SignedTransaction>`) indicates the flow’s return type.
 
 {{< tabs name="tabs-1" >}}
@@ -280,7 +280,7 @@ To agree ledger updates, you need to perform a number of common tasks within `Fl
 
 ### Notaries
 
-Transactions generally need a notaries to:
+Transactions generally need a notary to:
 
 * Prevent double-spends if the transaction has inputs.
 * Serve as a timestamping authority if the transaction has a time window.
@@ -457,7 +457,7 @@ to you. You can use the error message to establish what happened.
 
 If `FlowLogic` calls `receive` or `sendAndReceive`, `FlowLogic` is suspended until it receives a response.
 
-If you receive the data wrapped in an `UntrustworthyData` instance. This is a reminder to check that the data what you expect it to be. Unwrap the `UntrustworthyData` using a lambda to examine it:
+If you receive the data wrapped in an `UntrustworthyData` instance. This is a reminder to check that the data is as expected. Unwrap the `UntrustworthyData` using a lambda to examine it:
 
 {{< tabs name="tabs-9" >}}
 {{% tab name="kotlin" %}}
@@ -521,7 +521,7 @@ UntrustworthyData<Object> packet3 = regulatorSession.receive(Object.class);
 {{< /tabs >}}
 
 {{< warning >}}
-If you initiate several flows from the same `@InitiatingFlow` flow then on the receiving side you must be
+If you initiate several flows from the same `@InitiatingFlow` flow, then on the receiving side you must be
 prepared to be initiated by any of the corresponding `initiateFlow()` calls. A good way of handling this ambiguity
 is to send “role” message as your first message to the initiated flow, indicating which part of the initiating flow
 the rest of the counter-flow should conform to. For example, you could send an enum, and on the other side start with a switch
@@ -611,13 +611,13 @@ counterpart.
 ### Inlined subflows
 
 Inlined subflows inherit their calling flow’s type when they initiate a new session with a counterparty. For example, flow A calls an inlined subflow B, which in turn initiates a session with a party. The `FlowLogic` type used to
-determine which counter-flow should be kicked off is be A, not B. This means that the other side of this
+determine which counter-flow should be kicked off is A, not B. This means that the other side of this
 inlined flow must be implemented explicitly in the kicked-off flow. You can do this by calling a
 matching inlined counter-flow, or by implementing the other side explicitly in the kicked-off parent flow.
 
 An example of this type of flow is `CollectSignaturesFlow`. It has a counter-flow, `SignTransactionFlow`, which isn’t
 annotated with `InitiatedBy`. This is because both of these flows are inlined. The kick-off relationship is
-defined when by the parent flows call `CollectSignaturesFlow` and `SignTransactionFlow`.
+defined when the parent flows call `CollectSignaturesFlow` and `SignTransactionFlow`.
 
 In the code, inlined subflows appear as regular `FlowLogic` instances, *without* either of the `@InitiatingFlow` or
 `@InitiatedBy` annotation.
@@ -639,7 +639,7 @@ Initiating flows are versioned separately from their parents.
 
 {{< /note >}}
 {{< note >}}
-The only exception to this rule is `FinalityFlow` which is annotated with `@InitiatingFlow` but is an inlined flow. `FinalityFlow` was previously initiating, and the annotation exists to maintain backwards compatibility.
+The only exception to this rule is `FinalityFlow`, which is annotated with `@InitiatingFlow` but is an inlined flow. `FinalityFlow` was previously initiating, and the annotation exists to maintain backwards compatibility.
 
 {{< /note >}}
 
@@ -671,14 +671,14 @@ important are:
 and any extra parties.
 * `ReceiveFinalityFlow`, used to receive these notarized transactions from the `FinalityFlow` sender and record them locally.
 * `CollectSignaturesFlow`, used to collect a transaction’s required signatures.
-* `SendTransactionFlow` , used to send a signed transaction if it needs to be resolved on
+* `SendTransactionFlow`, used to send a signed transaction if it needs to be resolved on
 the other side.
 * `ReceiveTransactionFlow`, used receive a signed transaction.
 
 
 ### FinalityFlow
 
-`FinalityFlow` lets you notarize the transaction and recorded it in the vault of the participants of all
+`FinalityFlow` lets you notarize the transaction and record it in the vault of the participants of all
 the transaction’s states:
 
 {{< tabs name="tabs-13" >}}
@@ -958,7 +958,7 @@ List<StateAndRef<DummyState>> resolvedStateAndRef = subFlow(new ReceiveStateAndR
 #### Why inlined subflows?
 
 Inlined subflows provide a way to share commonly used flow code *while forcing users to create a parent flow*. Without inlined flows, flow users could create insecure chains of events. For
-example, if a user could make `CollectSignaturesFlow` an initiating flow that automatically kicks off
+example, a user could make `CollectSignaturesFlow` an initiating flow that automatically kicks off
 `SignTransactionFlow`, which signs the transaction. A malicious node could send any transaction to
 them using `CollectSignaturesFlow`, and they would automatically sign it.
 
@@ -1022,7 +1022,7 @@ class WrongCurrencyException(message: String) : CordaRuntimeException(message)
 ## HospitalizeFlowException
 
 Some operations can fail intermittently, and will succeed if they are tried again later. Flows can halt their
-execution in such situations. By throwing a `HospitalizeFlowException` a flow will stop and retry at a later time (on the next node restart).
+execution in such situations. By throwing a `HospitalizeFlowException`, a flow will stop and retry at a later time (on the next node restart).
 
 A `HospitalizeFlowException` can be defined in various ways:
 
@@ -1167,7 +1167,7 @@ progressTracker.setCurrentStep(ID_OTHER_NODES);
 ## Calling external systems inside of flows
 
 You can wait for the result of an external operation running outside of the context of a flow - flows suspend when
-waiting for a result. This frees up flow worker threads to continueprocessing other flows.
+waiting for a result. This frees up flow worker threads to continue processing other flows.
 
 {{< note >}}
 Flow worker threads belong to the thread pool that executes flows.
@@ -1347,7 +1347,7 @@ public class Data {
 
 In the code above:
 
-1. `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example). `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the external system. The external system, in this example,handles deduplication and returns the previous result if it was already
+1. `ExternalService` is a Corda service that provides a way to contact an external system (by HTTP in this example). `ExternalService.retrieveDataFromExternalSystem` is passed a `deduplicationId` which is included as part of the request to the external system. The external system, in this example, handles deduplication and returns the previous result if it was already
 computed.
 2. An implementation of `FlowExternalOperation` (`RetrieveDataFromExternalSystem`) is created that calls `ExternalService.retrieveDataFromExternalSystem`.
 3. `RetrieveDataFromExternalSystem` is passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
@@ -1560,7 +1560,7 @@ In the code above:
 4. `RetrieveDataFromExternalSystem` is passed into `await` to execute the code contained in `RetrieveDataFromExternalSystem.execute`.
 5. The result of `RetrieveDataFromExternalSystem.execute` is then returned to the flow once its execution finishes.
 
-A flow can rerun from any point where it suspends. That means a flow can execute code multiple times depending on the retry point. For context contained inside a flow, values are reset to the state recorded at the last suspension point. This means that most properties inside are flow safe when retrying. External operations are at greater risk becuase they are executed outside of
+A flow can rerun from any point where it suspends. That means a flow can execute code multiple times depending on the retry point. For context contained inside a flow, values are reset to the state recorded at the last suspension point. This means that most properties inside are flow safe when retrying. External operations are at greater risk because they are executed outside of
 the context of flows.
 
 External operations are provided with a `deduplicationId` to allow CorDapps to decide whether to run the operation again or return a
@@ -1596,7 +1596,7 @@ Handling deduplication on the external system’s side is preferred compared to 
 {{< /note >}}
 
 {{< warning >}}
-You shouldn't use in-memory data structures to handling deduplication as their state will not survive node restarts.
+You shouldn't use in-memory data structures to handle deduplication as their state will not survive node restarts.
 
 {{< /warning >}}
 
@@ -1811,7 +1811,7 @@ You can kill a flow using:
 
 #### Exceptions
 
-Exceptions are only propagated between flows (either from a flow initiator to its responder, or vice versa) when there is an active session established between them. A session is considered active if there are further calls to functions that interact with it within the flow's execution, such as `send`, `receive`, and `sendAndReceive`. If a flow’s counter party flow is killed, it only receives an `UnexceptedFlowEndException` once it interacts with the failed session again.
+Exceptions are only propagated between flows (either from a flow initiator to its responder, or vice versa) when there is an active session established between them. A session is considered active if there are further calls to functions that interact with it within the flow's execution, such as `send`, `receive`, and `sendAndReceive`. If a flow’s counterparty flow is killed, it only receives an `UnexceptedFlowEndException` once it interacts with the failed session again.
 
 A `FlowKilledException` is propagated to the client that started the initiating flow. You cannot catch the `KilledFlowException` unless it is thrown manually - see [cooperating with a killed flow](#cooperating-with-a-killed-flow).
 
@@ -1819,7 +1819,7 @@ A `FlowKilledException` is propagated to the client that started the initiating 
 
 To allow a killed flow to terminate when you execute the kill flow command, make sure your flow includes exit points.
 
-All suspendable functions (functions annotated with `@Suspendable`) already take this into account and check if a flow has been killed. This allows a killed flow to terminate when reaching a suspendable function. The flow will also exit if it is currently suspended:
+All suspendable functions (functions annotated with `@Suspendable`) already take this into account, and check if a flow has been killed. This allows a killed flow to terminate when reaching a suspendable function. The flow will also exit if it is currently suspended:
 
 {{< tabs name="tabs-26" >}}
 {{% tab name="kotlin" %}}
@@ -1851,7 +1851,7 @@ public Void call() {
 
 A killed flow running this code will exit when it reaches the next `sendAndReceive`, or immediately if the flow is already suspended by the `sendAndReceive` call.
 
-If your flow has functions that are not marked as `@suspendable`, you may need to check the status of the flow manually to cooperate with the kill flow request - add a check on the `isKilled` flag of the flow:
+If your flow has functions that are not marked as `@Suspendable`, you may need to check the status of the flow manually to cooperate with the kill flow request - add a check on the `isKilled` flag of the flow:
 
 
 {{< tabs name="tabs-27" >}}
@@ -1884,7 +1884,7 @@ public Void call() {
 {{% /tab %}}
 {{< /tabs >}}
 
-The function in the example above exits the loop by checking the `isKilled` flag and throwing an exception if the flow has been killed.
+The function in the example above exits the loop by checking the `isKilled` flag and throws an exception if the flow has been killed.
 
 There are two overloads of `checkFlowIsNotKilled` that simplify the code above:
 
