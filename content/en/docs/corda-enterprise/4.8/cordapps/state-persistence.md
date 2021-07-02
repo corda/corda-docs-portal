@@ -134,7 +134,7 @@ With this framework, the relational view of ledger states can evolve in a contro
 
 Multiple contract state implementations might provide mappings within a single schema.
 For example, an Interest Rate Swap contract and an Equity OTC Option contract might both provide a mapping to
-a Derivative contract within the same schema. The schemas should typically not be part of the contract itself and should exist independently to encourage reuse of a common set within a particular business area or CorDapp.
+a derivative contract within the same schema. The schemas should typically not be part of the contract itself and should exist independently to encourage reuse of a common set within a particular business area or CorDapp.
 
 {{< note >}}
 Avoid cross-references between different schemas as this may cause issues when evolving `MappedSchema`
@@ -167,7 +167,7 @@ Tests using the *DriverDSL* will automatically register your custom schemas if t
 
 ## Object relational mapping
 
-To facilitate the ORM, the persisted representation of a `QueryableState` should be an instance of a `PersistentState` subclass,constructed either by the state itself or a plugin to the `SchemaService`. This allows the ORM layer to always
+To facilitate the object relational mapping (ORM), the persisted representation of a `QueryableState` should be an instance of a `PersistentState` subclass,constructed either by the state itself or a plugin to the `SchemaService`. This allows the ORM layer to always
 associate a `StateRef` with a persisted representation of a `ContractState` and allows joining with the set of
 unconsumed states in the vault.
 
@@ -450,7 +450,7 @@ object SchemaV1 : MappedSchema(schemaFamily = Schema::class.java, version = 1, m
 Schema entity attributes defined by identity types (`AbstractParty`, `Party`, `AnonymousParty`) are automatically
 processed to ensure only the `X500Name` of the identity is persisted where an identity is well known. Otherwise a null
 value is stored in the associated column. To preserve privacy, identity keys are never persisted. Developers should use
-the `IdentityService` to resolve keys from well known X500 identity names.
+the `IdentityService` to resolve keys from well-known X500 identity names.
 
 
 ## JDBC session
@@ -586,7 +586,7 @@ method. This method can be used to persist and query entities which inherit from
 useful if you need to maintain off-ledger data in conjunction with on-ledger state data.
 
 {{< note >}}
-To be added to Hibernate as a custom schema, you must include your entity as a `mappedType` as part of a `MappedSchema`. If not, no corresponding table will be created. See the examples below.
+To be added to Hibernate as a custom schema, you must include your entity as a `mappedType` as part of a `MappedSchema`. If you do not, no corresponding table will be created. See the examples below.
 
 {{< /note >}}
 
@@ -709,7 +709,7 @@ Corda restricts the functions available by the `EntityManager` returned by `with
 The `withEntityManager` function provides an object that adheres to the `EntityManager` interface but with two differences:
 
 * `getTransaction` returns a `RestrictedEntityTransaction`.
-* All other restricted functions will `UnsupportedOperationException` exceptions.
+* All other restricted functions will produce `UnsupportedOperationException` exceptions.
 
 The restricted functions are:
 
