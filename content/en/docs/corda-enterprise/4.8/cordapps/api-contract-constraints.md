@@ -84,7 +84,7 @@ The `TransactionBuilder` uses signature constraints when adding output states fo
 CorDapps that use signature constraints must be signed by a `CompositeKey` or a simpler `PublicKey`. CorDapps can be signed by a single organisation or multiple organisations. After the CorDapp is signed, it can be distributed to the relevant Corda nodes. Signed CorDapps require a [version number](versioning.md).
 
 {{< note >}}
-The platform currently supports `CompositeKey`s with up to 20 keys maximum.
+The platform currently supports `CompositeKey`s, up to a maximum of 20 keys.
 This maximum limit assumes keys that are either 2048-bit `RSA` keys or 256-bit elliptic curve (`EC`) keys.
 {{< /note >}}
 
