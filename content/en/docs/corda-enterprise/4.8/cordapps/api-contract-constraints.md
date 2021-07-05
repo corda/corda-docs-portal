@@ -36,7 +36,7 @@ These terms are used throughout this document:
 
 **composite key** A key that consists of two or more attributes that together uniquely identify an entity occurrence.
 
-*signature constraint*: A constraint that lets participants use any version of the CorDapp signed by the `CompositeKey`.
+*signature constraint* A constraint that lets participants use any version of the CorDapp signed by the `CompositeKey`.
 
 *blacklisting* A process that prevents a transaction signer from processing transactions.
 
