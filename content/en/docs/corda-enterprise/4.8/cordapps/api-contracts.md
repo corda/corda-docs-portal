@@ -205,7 +205,7 @@ data class CommandWithParties<out T : CommandData>(
 * `signingParties` (deprecated): The list of the signer’s identities, if known.
 * `value`: The object being signed.
 
-Usually, different commands require different verification requirements. An issue command may
+Usually, different commands require different verification requirements. An issue command may require
 very different verification than a transfer command.
 
 You can tailor verification to the command by specifying the command type:
