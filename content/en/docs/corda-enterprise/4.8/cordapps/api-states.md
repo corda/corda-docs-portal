@@ -171,7 +171,7 @@ This interface has been added in addition to `FungibleAsset` to provide some add
 
 
 * `FungibleAsset` defines an amount property of type `Amount<Issued<T>>`, therefore there is an assumption that all
-fungible things are issued by a single well known party but this is not always the case.
+fungible items are issued by a single well known party but this is not always the case.
 * `FungibleAsset` implements `OwnableState`, as such there is an assumption that all fungible items are ownable.
 
 
