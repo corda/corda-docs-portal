@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-01T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-cordapps-flows
@@ -7,29 +7,29 @@ tags:
 - api
 - vault
 - query
-title: Writing vault queries
+title: Vault queries
 weight: 3
 ---
 
 
 
-# Writing vault queries
+# Vault queries
 
 
 
 ## Overview
 
-Corda has been designed from the ground up to encourage the use of industry standard, proven query frameworks and libraries for accessing RDBMS backed transactional stores (including the Vault).
+The vault contains data extracted from the ledger that is considered relevant to the node’s owner, stored in a relational model that you can query easily. The vault keeps track of both **unconsumed** and **consumed** states.
 
-Corda provides a number of flexible query mechanisms for accessing the Vault:
+You can use several flexible query mechanisms to access the vault, including:
 
 
-* Vault Query API
-* Using a JDBC session (as described in [State Persistence](state-persistence.md))
-* Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries
-* Custom 3rd party Data Access frameworks such as [Spring Data](http://projects.spring.io/spring-data)
+* The vault query API.
+* A JDBC session (see [State Persistence](state-persistence.md)).
+* Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries.
+* Custom 3rd party data access frameworks such as [Spring Data](http://projects.spring.io/spring-data).
 
-The majority of query requirements can be satisfied by using the Vault Query API, which is exposed via the
+You can satisfy the majority of query requirements using the vault query API, which is exposed via the
 `VaultService` for use directly by flows:
 
 ```kotlin
@@ -139,21 +139,21 @@ The API provides both static (snapshot) and dynamic (snapshot with streaming upd
 filter criteria:
 
 
-* Use `queryBy` to obtain a current snapshot of data (for a given `QueryCriteria`)
-* Use `trackBy` to obtain both a current snapshot and a future stream of updates (for a given `QueryCriteria`)
+* Use `queryBy` to obtain a current snapshot of data (for a given `QueryCriteria`).
+* Use `trackBy` to obtain both a current snapshot and a future stream of updates (for a given `QueryCriteria`).
 
 {{< note >}}
 Streaming updates are only filtered based on contract type and state status (`UNCONSUMED`, `CONSUMED`, `ALL`).
 They will not respect any other criteria that the initial query has been filtered by.
 
 {{< /note >}}
-Simple pagination (page number and size) and sorting (directional ordering using standard or custom property
-attributes) is also specifiable. Defaults are defined for paging (`pageNumber` = 1, `pageSize` = 200) and sorting (`direction` = ASC).
+You can specify simple pagination (page number and size) and sorting (directional ordering using standard or custom property
+attributes). Defaults are defined for paging (`pageNumber` = 1, `pageSize` = 200) and sorting (`direction` = ASC).
 
 ## `QueryCriteria` interface
 
 The `QueryCriteria` interface provides a flexible mechanism for specifying different filtering criteria, including
-and/or composition and a rich set of operators to include:
+and/or composition and a rich set of operators, including:
 
 
 * Binary logical (`AND`, `OR`)
@@ -164,7 +164,7 @@ and/or composition and a rich set of operators to include:
 * Collection based (`IN`, `NOT_IN`)
 * Standard SQL-92 aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`, `COUNT`)
 
-There are four implementations of this interface which can be chained together to define advanced filters:
+There are four implementations of this interface. You can chain them together to define advanced filters.
 
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the **VAULT_STATES** table. Filterable attributes include one or more of the following: status (`UNCONSUMED`,
@@ -193,10 +193,10 @@ interfaces' common state attributes to the **VAULT_LINEAR_STATES** table.{{< /no
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
 by a custom contract state that implements its own schema as described in the [State Persistence](state-persistence.md)
-documentation and associated examples. Custom criteria expressions are expressed using one of the following type-safe forms of
+documentation. You can express custom criteria using one of these type-safe forms of
 `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The
 `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator
-types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (`SUM`, `AVG`, `MAX`, `MIN`, `COUNT`) with optional grouping and sorting. Furthermore, a rich DSL is provided to enable simple
+types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (`SUM`, `AVG`, `MAX`, `MIN`, `COUNT`) with optional grouping and sorting. You can also use the rich DSL provided to enable the simple
 construction of custom criteria using any combination of `ColumnPredicate`. See the `Builder` object in
 `QueryCriteriaUtils` for a complete specification of the DSL.
 {{< note >}}
@@ -206,14 +206,12 @@ purposes.{{< /note >}}
 
 
 
-All `QueryCriteria` implementations are composable using `AND` and `OR` operators.
-
-All `QueryCriteria` implementations provide an explicitly specifiable set of common attributes:
+You can compose all `QueryCriteria` implementations using `AND` and `OR` operators. All `QueryCriteria` implementations provide an explicitly specifiable set of common attributes:
 
 
 * A state status attribute (`Vault.StateStatus`), which defaults to filtering on `UNCONSUMED` states.
-When chaining several criteria using `AND` or `OR`, the last value of this attribute will override any previous value.
-* Contract state types (`<Set<Class<out ContractState>>`), which will contain at minimum one type (by default,  this will be `ContractState` which resolves to all state types). When chaining several criteria using `AND` and `OR` operators, all specified contract state types are combined into a single set.
+When chaining several criteria using `AND` or `OR`, the last value of this attribute overrides any previous value.
+* Contract state types (`<Set<Class<out ContractState>>`), which contain at minimum one type (the default is `ContractState`, which resolves to all state types). When chaining several criteria using `AND` and `OR` operators, all specified contract state types are combined into a single set.
 
 ### Custom queries in Kotlin
 
