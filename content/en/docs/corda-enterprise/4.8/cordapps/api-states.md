@@ -164,7 +164,7 @@ interface FungibleState<T : Any> : ContractState {
 The interface takes a type parameter `T`, which represents the fungible item. This should describe
 the basic type of the asset e.g. GBP, USD, oil, shares in company <X>, etc. and any additional metadata (issuer, grade,
 class, etc.). An upper-bound is not specified for `T` to ensure flexibility. Typically, a class would be provided that
-implements *TokenizableAssetInfo* so the thing can be easily added and subtracted using the `Amount` class.
+implements *TokenizableAssetInfo* so the item can be easily added and subtracted using the `Amount` class.
 
 This interface has been added in addition to `FungibleAsset` to provide some additional flexibility which
 `FungibleAsset` lacks, in particular:
