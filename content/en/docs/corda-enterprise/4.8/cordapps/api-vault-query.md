@@ -289,7 +289,7 @@ Custom queries can be either case sensitive or case insensitive. They are define
 
 #### Case-sensitive custom query operators in Kotlin
 
-An example of a case-sensitive custom query operator in Kotlin is provided below:
+An example of a case-sensitive custom query operator in Kotlin:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -306,7 +306,7 @@ The `Boolean` input of `true` in this example could be removed since the functio
 
 #### Case-insensitive custom query operators in Kotlin
 
-An example of a case-insensitive custom query operator in Kotlin is provided below:
+An example of a case-insensitive custom query operator in Kotlin:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -319,7 +319,7 @@ val currencyIndex = PersistentCashState::currency.equal(USD.currencyCode, false)
 
 #### Case-sensitive custom query operators in Java
 
-An example of a case-sensitive custom query operator in Java is provided below:
+An example of a case-sensitive custom query operator in Java:
 
 {{< tabs name="tabs-3" >}}
 {{% tab name="java" %}}
@@ -333,7 +333,7 @@ CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", true)
 
 #### Case-insensitive custom query operators in Java
 
-An example of a case-insensitive custom query operator in Java is provided below:
+An example of a case-insensitive custom query operator in Java:
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="java" %}}
@@ -348,12 +348,9 @@ CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", false
 
 ## Pagination
 
-The API provides support for paging where large numbers of results are expected (by default, a page size is set to 200
-results). Defining a sensible default page size enables efficient checkpointing within flows, and frees the developer
-from worrying about pagination where result sets are expected to be constrained to 200 or fewer entries. Where large
-result sets are expected (such as using the RPC API for reporting and/or UI display), it is strongly recommended to
-define a `PageSpecification` to correctly process results with efficient memory utilisation. A fail-fast mode is in
-place to alert API users to the need for pagination where a single query returns more than 200 results and no
+The API supports paging if you expect many results. The default page size shows 200
+results. This enables efficient checkpointing within flows, and means you don't have to worry about pagination if you expect fewer than 200 results. If you expect more than 200 results (for example, if you are using the RPC API for reporting and/or UI display),
+define a `PageSpecification` to process results correctly with efficient memory utilisation. A fail-fast mode alerts you to the need for pagination if a single query returns more than 200 results and no
 `PageSpecification` has been supplied.
 
 Here’s a query that extracts every unconsumed `ContractState` from the vault in pages of size 200, starting from the
@@ -371,13 +368,13 @@ val vaultSnapshot = proxy.vaultQueryBy<ContractState>(
 {{< /tabs >}}
 
 {{< note >}}
-A page's maximum size `MAX_PAGE_SIZE` is defined as `Int.MAX_VALUE` and should be used with extreme
-caution as results returned may exceed your JVM’s memory footprint.
+A page's maximum size `MAX_PAGE_SIZE` is defined as `Int.MAX_VALUE`. Use this with extreme
+caution - results returned may exceed your JVM’s memory footprint.
 
 {{< /note >}}
 
 {{< note >}}
-To obtain reliable results when using paging, always specify the sort option. With no sort, RDBMS is free to return results in any order.
+To obtain reliable results when using paging, always specify the sort option. Without sorting, RDBMS returns results in any order.
 
 {{< /note >}}
 
@@ -736,7 +733,7 @@ val results = vaultService.queryBy<FungibleAsset<*>>(VaultCustomQueryCriteria(su
 [VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.8/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
 {{< note >}}
-`otherResults` will contain 12 items sorted from largest summed cash amount to smallest, one result per calculated aggregate function per issuer party and currency (grouping attributes are returned per aggregate result).
+`otherResults` contains 12 items sorted from largest summed cash amount to smallest. It contains one result per calculated aggregate function for each issuer party and currency. Grouping attributes are returned per aggregate result.
 {{< /note >}}
 
 Dynamic queries (also using `VaultQueryCriteria`) are an extension to the snapshot queries by returning an additional `QueryResults` return type in the form of an `Observable<Vault.Update>`. Refer to
@@ -1009,12 +1006,12 @@ fun freshKeyForExternalId(externalId: UUID, services: ServiceHub): AnonymousPart
 
 {{< /tabs >}}
 
-As can be seen in the code snippet above, the `PublicKeyHashToExternalId` entity has been added to `PersistentKeyManagementService`, which allows you to associate your public keys with external IDs.
+In the code snippet above, the `PublicKeyHashToExternalId` entity has been added to `PersistentKeyManagementService`, which allows you to associate your public keys with external IDs.
 
 {{< note >}}
-Here, it is worth noting that we must map **owning keys** to external IDs, as opposed to **state objects**. This is because it might be the case that a `LinearState` is owned by two public keys generated by the same node.
+You must map **owning keys** to external IDs, as opposed to **state objects**. This is because it might be the case that a `LinearState` is owned by two public keys generated by the same node.
 {{< /note >}}
 
-The logic here is that when these public keys are used to own or participate in a state object, it is trivial to then associate those states with a particular external ID. Behind the scenes, when states are persisted to the vault, the owning keys for each state are persisted to a `PersistentParty` table. The `PersistentParty` table can be joined with the `PublicKeyHashToExternalId` table to create a view which maps each state to one or more external IDs. The [entity relationship diagram](/en/images/state-to-external-id.png "state to external id") illustrates how this works.
+When these public keys are used to own or participate in a state object, it is trivial to then associate those states with a particular external ID. Behind the scenes, when states are persisted to the vault, the owning keys for each state are persisted to a `PersistentParty` table. You can join the `PersistentParty` table with the `PublicKeyHashToExternalId` table to create a view that maps each state to one or more external IDs. The [entity relationship diagram](/en/images/state-to-external-id.png "state to external id") illustrates how this works.
 
-When performing a vault query, it is now possible to query for states by external ID using the `externalIds` parameter in `VaultQueryCriteria`.
+You can query the vault for states by external ID using the `externalIds` parameter in `VaultQueryCriteria`.
