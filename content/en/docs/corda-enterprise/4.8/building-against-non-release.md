@@ -37,8 +37,8 @@ To work against a non-release branch:
 
 
 {{< warning >}}
-If you do modify your local Corda repository after having published it to Maven local, then you must
-re-publish it to Maven local for the local installation to reflect the changes you have made.
+If you modify your local Corda repository after publishing it to Maven local, then you must
+re-publish it to Maven local for your local installation to reflect the changes you have made.
 
 {{< /warning >}}
 
