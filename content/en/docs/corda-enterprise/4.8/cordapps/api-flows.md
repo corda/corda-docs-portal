@@ -415,7 +415,7 @@ When you call this function, no communication happens until the first
 `send` or `receive`. At that point the counterparty will either:
 
 * Ignore the message, if they are not registered to respond to messages from your flow.
-* Start a flow they have registered to respond to your flow.
+* Start a flow, if they have one registered to respond to your flow.
 
 ### Send
 
