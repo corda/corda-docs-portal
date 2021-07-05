@@ -7,40 +7,69 @@ samp {
   border-radius: $border-radius;
 }
 
+.highlight {
+  pre,
+  code,
+  kbd,
+  samp {
+    border-radius: $border-radius;
+  }
+
+  pre {
+    background: none !important;
+  }
+}
+
 code {
-  background: $beige;
+  background: $gray-150;
   color: $black;
   padding: 0.25rem 0.5rem;
 }
 
 pre {
   margin: 2rem 0;
-}
 
-pre code {
-  display: block;
-  overflow-x: auto;
-  line-height: $line-height-base;
-  padding: 1.25rem 1.5rem;
-  tab-size: 4;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
+  code {
+    display: block;
+    overflow-x: auto;
+    line-height: $line-height-base;
+    padding: 1.25rem 1.5rem;
+    tab-size: 4;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
 }
 
 .r3-o-tabs {
   .tab-content {
-    padding: 1rem 0 0;
+    padding: 0;
     position: relative;
 
     pre {
       margin: 0;
     }
+
+    pre,
+    code,
+    kbd,
+    samp {
+      border-radius: 0 $border-radius $border-radius $border-radius;
+    }
   }
+}
+
+.highlight {
+  position: relative;
 
   .copy-code {
     position: absolute;
     right: 0.5rem;
     top: 0.4rem;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
 
     button {
       border: none;
@@ -85,6 +114,20 @@ pre code {
   }
 }
 
+
+pre code::selection{
+  background-color: $black;
+}
+pre code::-moz-selection{
+  background-color: $black;
+}
+pre code span::selection{
+  background-color: $black;
+}
+pre code span::-moz-selection {
+  background-color: $black;
+}
+
 pre code::-webkit-scrollbar {
   height: 5px;
 }
@@ -100,6 +143,40 @@ pre code:hover {
 
 pre code::-webkit-scrollbar-thumb:hover {
   background: $gray-200;
+}
+
+.hljs-type,
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #3593E7;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #3593E7;
+  font-weight: bold;
+}
+
+.hljs-literal {
+  color: #78A960;
+}
+
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color: #78A960;
+}
+
+
+.language-guess {
+  background: #262626;
+  color: #F7F7FC;
 }
 
 .dark {

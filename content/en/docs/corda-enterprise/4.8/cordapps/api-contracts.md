@@ -8,14 +8,14 @@ menu:
 tags:
 - api
 - contracts
-title: CorDapp Contracts
+title: CorDapp contracts
 weight: 50
 ---
 
 
 
 
-# CorDapp Contracts
+# CorDapp contracts
 
 This article explains:
 
@@ -28,14 +28,14 @@ This article explains:
 ## Glossary
 
 _Contract_
-    A file which defines the rules for verifying transaction inputs and outputs.
+    A file that defines the rules for verifying transaction inputs and outputs.
 _Verify function_
     A function containing all the requirements a Corda node needs to verify a transaction.
 _LedgerTransaction object_
     An object that contains information describing the transaction being evaluated.
 
 In the context of a CorDapp, contracts define rules for verifying transaction inputs and outputs. A CorDapp
-can have one more contracts, and each contract defines rules for one or more states. The goal of a contract is to ensure
+can have more than one contract, and each contract defines the rules for one or more states. The goal of a contract is to ensure
 that input and output states in transactions are valid and to prevent invalid transactions.
 
 Contract files implement the `Contract` interface, containing the `verify` method. The `verify` method takes
@@ -72,7 +72,7 @@ See [Reissuing states](reissuing-states.md) for information about reissuing stat
 
 ## The `Contract` class
 
-Contracts are contained in CorDapps. All parties wishing to transact in a network must have copy of the CorDapp running
+Contracts are contained in CorDapps. All parties wishing to transact in a network must have a copy of the CorDapp running
 on their Corda node. All parties run the contract for any transaction they’re a party to, verifying the transaction.
 
 The contract interface is:
@@ -94,7 +94,7 @@ nothing.
 The function:
 
 1. Gathers all contracts relevant to the transaction. Many contracts may pertain to a single transaction.
-2. Runs `verify` function of each contract is run, using the transaction as the `LedgerTransaction` input.
+2. Runs the `verify` function of each contract, using the transaction as the `LedgerTransaction` input.
 3. Deems the transaction valid if no exceptions are thrown.
 
 
@@ -105,7 +105,7 @@ The `verify` function can only access:
 * The properties defined in the specific transaction being evaluated.
 * Limited libraries.
 
-These restrictions prevent the function from accessing information outside the transaction, including any sources of randomness such as the current time or random number generation.
+These restrictions prevent the function from accessing information outside the transaction, including any sources of randomness, such as the current time or a random number generation.
 
 The two simplest `verify` functions:
 
@@ -199,14 +199,13 @@ data class CommandWithParties<out T : CommandData>(
         val signingParties: List<Party>,
         val value: T
 )
-```
 
 
 * `signers`: The list of each signer’s `PublicKey`.
 * `signingParties` (deprecated): The list of the signer’s identities, if known.
 * `value`: The object being signed.
 
-Usually, different commands require different verification requirements. An issue command may
+Usually, different commands require different verification requirements. An issue command may require
 very different verification than a transfer command.
 
 You can tailor verification to the command by specifying the command type:

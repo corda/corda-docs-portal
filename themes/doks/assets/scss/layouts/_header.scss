@@ -283,8 +283,12 @@ header {
     border-bottom: 0;
   }
 
-  .main-nav {
-    display: none;
+  .navbar-collapse {
+    justify-content: flex-end;
+
+    .main-nav {
+      display: none;
+    }
   }
 }
 
@@ -324,15 +328,23 @@ header {
 }
 
 .form-control.is-search {
-  padding-right: 2.5rem;
+  padding: 0.313rem 4rem 0.313rem 2rem;
   background: $gray-800;
   border: solid 1px $gray-600;
   color: $gray-200;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right calc(0.375em + 0.1875rem) center;
-  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
+.btn_search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border: none;
+  border-radius: 0 50rem 50rem 0;
+  width: 56px;
+  padding: 1px;
+  background-color: #53585F;
+}
+
 
 .form-control:focus {
   box-shadow: none;

@@ -49,6 +49,7 @@ You can upgrade smart contracts via:
 * **Implicit upgrade**. Pre-authorise multiple implementations of the contract ahead of time using constraints. This lets you upgrade contracts without needing to upgrade transactions for every state on the ledger. However, with implicit upgrade, you place more faith in third parties, who could change the CorDapp in ways you do not expect or agree with.
 * **Explicit upgrade**. Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorise the upgrade, and consumes notary and ledger resources.
 
+
 This article focuses on implicit contract upgrades. To learn about the explicit upgrades see [Release new CorDapp versions](upgrading-cordapps.md).
 
 
@@ -70,9 +71,10 @@ Learn more about [constraints before Corda 4.0](https://docs.corda.net/docs/cord
 
 ## Signature constraints
 
+
 **Signature constraints** let you express complex social and business relationships while allowing smooth migration of existing data to new versions of your CorDapp.
 
-You can use signature constraints to specify flexible threshold policies. However, if you use the automatic support, then a state requires that the attached CorDapp is signed by every key that signed first attachment. For example, if Alice and Bob signed a CorDapp that was used to issue some states, every transaction must include an attachment signed by Alice and Bob. This allows the CorDapp to be upgraded and changed while still remaining valid for use with the previously issued states.
+You can use signature constraints to specify flexible threshold policies. However, if you use the automatic support, then a state requires that the attached CorDapp is signed by every key that signed the first attachment. For example, if Alice and Bob signed a CorDapp that was used to issue some states, every transaction must include an attachment signed by Alice and Bob. This allows the CorDapp to be upgraded and changed while still remaining valid for use with the previously issued states.
 
 You can create a more complex policy that will release the constraint with fewer signatures than the total number of possible signers. This makes it possible for multiple versions to be valid across the network as long as the designated number of signers agree with the updates.
 
@@ -83,8 +85,8 @@ The `TransactionBuilder` uses signature constraints when adding output states fo
 CorDapps that use signature constraints must be signed by a `CompositeKey` or a simpler `PublicKey`. CorDapps can be signed by a single organisation or multiple organisations. After the CorDapp is signed, it can be distributed to the relevant Corda nodes. Signed CorDapps require a [version number](versioning.md).
 
 {{< note >}}
-The platform currently supports `CompositeKey`s with up to 20 keys maximum.
-This maximum limit assumes keys that are either 2048-bit `RSA` keys or  256-bit elliptic curve (`EC`) keys.
+The platform currently supports `CompositeKey`s, up to a maximum of 20 keys.
+This maximum limit assumes keys that are either 2048-bit `RSA` keys or 256-bit elliptic curve (`EC`) keys.
 {{< /note >}}
 
 When a node receives a transaction, it verifies that the CorDapps attached to it have the signatures required by the transaction's signature constraints. This ensures that the versions of each CorDapp are acceptable to the transaction’s input states.
@@ -290,6 +292,7 @@ possible constraints, the `TransactionBuilder` will throw an exception.
 
 ## Troubleshooting
 
+
 If the node cannot resolve an attachment constraint it will throw a `MissingContractAttachments` exception. There are three common sources of`MissingContractAttachments` exceptions:
 
 
@@ -338,7 +341,7 @@ Driver.driver(
 
 ### Starting a node that is missing CorDapp(s)
 
-Make sure you place all CorDapp `.jar`s in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all `.jar`s by default if you have specified CorDapps to deploy. See [Creating nodes locally](https://docs.corda.net/docs/corda-enterprise/4.8/node/deploy/generating-a-node.html#creating-nodes-locally) for detailed instructions.
+Make sure you place all CorDapp `.jar`s in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all `.jar`s by default, if you have specified CorDapps to deploy. See [Creating nodes locally](https://docs.corda.net/docs/corda-enterprise/4.8/node/deploy/generating-a-node.html#creating-nodes-locally) for detailed instructions.
 
 
 ### Including an incorrect fully-qualified contract name

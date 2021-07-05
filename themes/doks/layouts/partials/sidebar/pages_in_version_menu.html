@@ -11,23 +11,28 @@
 
 {{ define "menu-item" }}
   {{ $page := .page }}
+  {{ $currentURL := .currentURL }}
   {{ $sectionMenuForThisPage := or $page.Parent.Page.Params.section_menu $page.Params.section_menu}}
 
   {{ with .entry }}
     {{ if .HasChildren }}
       <li class="nav-item ms-0 {{ if $page.HasMenuCurrent $sectionMenuForThisPage . }}active{{ end }}">
+
+
         <button class="px-0 border-0 d-block {{ if $page.HasMenuCurrent $sectionMenuForThisPage . }}active{{ end }}"
                 data-bs-toggle="collapse"
                 data-bs-target='#{{ .Identifier }}'
                 aria-expanded="false"
                 aria-controls='{{ .Identifier }}'>
-          {{ .Pre }} {{ .Name }}
+          <span {{ if .URL }} onclick="window.location.href = {{ .URL }}" {{end}}>{{ .Pre }} {{ .Name }}</span>
         </button>
-        <div class="collapse {{ if $page.HasMenuCurrent $sectionMenuForThisPage . }}show{{ end }} " id='{{ .Identifier }}'>
+
+
+        <div class="collapse {{ if $page.HasMenuCurrent $sectionMenuForThisPage . }}show{{ end }} {{ if eq $currentURL .URL }}show{{ end }}" id='{{ .Identifier }}'>
           <div class="sub-menu">
             <ul class="nav flex-column {{ if $page.HasMenuCurrent $sectionMenuForThisPage . }}active{{ end }}">
               {{ range .Children.ByWeight }}
-              {{ template "menu-item" (dict "entry" . "page" $page) }}
+              {{ template "menu-item" (dict "entry" . "page" $page "currentURL" $currentURL) }}
               {{ end }}
             </ul>
           </div>
@@ -47,13 +52,13 @@
 
 {{/* Now use the template */}}
 {{ $sectionMenuForThisPage := or .Page.Params.section_menu .Parent.Page.Params.section_menu }}
-
+{{ $currentURL := .Page.RelPermalink }}
 {{ if $sectionMenuForThisPage }}
   {{ $menuEntries := index .Site.Menus $sectionMenuForThisPage}}
   <ul class="nav flex-column">
     {{ $page := . }}
     {{ range $index, $element := $menuEntries.ByWeight }}
-      {{ template "menu-item" (dict "entry" $element "page" $page) }}
+      {{ template "menu-item" (dict "entry" $element "page" $page "currentURL" $currentURL) }}
     {{ end }}
   </ul>
 {{ end }}

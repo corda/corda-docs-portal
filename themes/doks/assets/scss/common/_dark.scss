@@ -53,13 +53,19 @@ body.dark {
     color: $navbar-dark-active-color;
   }
 
+  .alert-info {
+    a,
+    .alert-link {
+      color: $blue;
+    }
+  }
+
   .alert-primary a {
     color: $body-bg-dark;
   }
 
   .alert-warning {
-    background: $body-overlay-dark;
-    color: $body-color-dark;
+    //background: $body-overlay-dark;
   }
 
   .page-links a {
@@ -129,7 +135,7 @@ body.dark {
   }
 
   code:not(.hljs) {
-    background: $body-overlay-dark;
+    background: $gray-500;
     color: $body-color-dark;
   }
 
@@ -198,7 +204,7 @@ body.dark {
   }
 
   .feather {
-    stroke: $border-dark;
+    stroke: $gray-100;
   }
 
   .support-container {
@@ -229,11 +235,6 @@ body.dark {
 
   .text-muted {
     color: darken($body-color-dark, 7.5%) !important;
-  }
-
-  .alert-primary {
-    background: $link-color-dark;
-    color: $body-bg-dark;
   }
 
   .figure-caption {
