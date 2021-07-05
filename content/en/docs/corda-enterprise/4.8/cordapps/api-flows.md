@@ -84,7 +84,7 @@ The `initiator`:
 The `initiator`:
 
 1. Sends the transaction to the notary.
-2. Waits to receive the notarised transaction.
+2. Waits to receive the notarized transaction.
 3. Records the transaction locally.
 4. Stores any relevant states in the vault.
 5. Sends the transaction to the counterparty for recording.
@@ -95,7 +95,7 @@ You can visualize the work performed by initiator like this:
 
 ## Responder flow class example
 
-The `responder` verifies, signs and records the transaction.
+The `responder` verifies, signs, and records the transaction.
 
 **Step 1: Verify the transaction**
 
@@ -274,7 +274,7 @@ node's services. See [Accessing node services](api-service-hub.md) for more info
 
 To agree ledger updates, you need to perform a number of common tasks within `FlowLogic.call`:
 
-* **Transaction building:** The majority of the work performed during a flow is building, verifying and signing a transaction. See [Understanding transactions](api-transactions.md).
+* **Transaction building:** The majority of the work performed during a flow is building, verifying, and signing a transaction. See [Understanding transactions](api-transactions.md).
 * **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries](api-vault-query.md).
 * **Retrieving information about other nodes:**: You can retrieve information about other nodes on the network and the services they offer using `ServiceHub.networkMapCache`.
 
@@ -414,7 +414,7 @@ FlowSession counterpartySession = initiateFlow(counterparty);
 When you call this function, no communication happens until the first
 `send` or `receive`. At that point the counterparty will either:
 
-* Ignore the message if they are not registered to respond to messages from this flow.
+* Ignore the message, if they are not registered to respond to messages from your flow.
 * Start a flow they have registered to respond to your flow.
 
 ### Send
@@ -673,7 +673,7 @@ and any extra parties.
 * `CollectSignaturesFlow`, used to collect a transaction’s required signatures.
 * `SendTransactionFlow`, used to send a signed transaction if it needs to be resolved on
 the other side.
-* `ReceiveTransactionFlow`, used receive a signed transaction.
+* `ReceiveTransactionFlow`, used to receive a signed transaction.
 
 
 ### FinalityFlow
