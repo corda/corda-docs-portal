@@ -1,0 +1,60 @@
+{{/* store the current page scope as '.' changes value */}}
+{{ $currentPage := . }}
+{{/* now get the current section version we're in */}}
+{{ $currentVersion := "Versions" }}
+{{/* Identify whether we're 'within' a section or not and store it  */}}
+{{ $sectionMenuForThisPage := .Page.Params.section_menu}}
+{{ $projectMenuForThisPage := .Page.Params.project}}
+{{ if eq .IsHome false}}
+{{ $sectionMenuForThisPage = or .Page.Params.section_menu .Parent.Page.Params.section_menu }}
+{{ $projectMenuForThisPage = or .Parent.Page.Params.project .Page.Params.project}}
+{{ end }}
+
+{{ range .Site.Menus.versions }}
+{{ if eq .Page.Params.section_menu $sectionMenuForThisPage }}
+{{$currentVersion = .Page.Params.Version}}
+{{ end }}
+{{ end }}
+
+{{ $totalVersions := 0 }}
+{{ range .Site.Menus.versions }}
+{{ if eq .Page.Params.Project $projectMenuForThisPage }}
+  {{ $totalVersions = add $totalVersions 1 }}
+{{ end }}
+{{ end }}
+
+{{$currentUrl := .RelPermalink}}
+
+{{ if and (ne $currentVersion "Versions") (gt $totalVersions 1)}}
+  {{/* We know know whether we're in 'corda-os-4.4' or not ('Versions') */}}
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarVersionMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Version {{ $currentVersion }}
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarVersionMenuLink">
+      {{ range .Site.Menus.versions.ByWeight }}
+        {{/* set a class against the active entry */}}
+        {{ if eq .Page.Params.Project $projectMenuForThisPage }}
+          {{ $active:=false}}
+
+          {{ if eq .Page.Params.section_menu $sectionMenuForThisPage }}{{$active = true}}{{ end }}
+          {{ $pageUrl := replace $currentUrl $currentVersion .Page.Params.Version }}
+          {{ $similarPage := $currentPage.GetPage $pageUrl }}
+          <li>
+            {{ if eq $similarPage.Permalink "" }}
+              <a href="{{ .Page.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
+                <span>Version {{ .Page.Params.Version }}</span>
+              </a>
+            {{else}}
+              <a href="{{ $similarPage.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
+                <span>Version {{ .Page.Params.Version }}</span>
+              </a>
+            {{end}}
+          </li>
+
+        {{ end }}
+      {{ end }}
+    </ul>
+  </li>
+{{ end }}

@@ -149,14 +149,14 @@ The `LedgerTransaction` object passed into `verify` has these properties:
 The `LedgerTransaction` object also exposes a large number of utility methods to access the transaction’s contents:
 
 
-* `inputStates`: extracts the input `ContractState` objects from the list of `StateAndRef`.
-* `getInput`/`getOutput`/`getCommand`/`getAttachment`: extracts a component by index.
-* `getAttachment`: extracts an attachment by ID.
-* `inputsOfType`/`inRefsOfType`/`outputsOfType`/`outRefsOfType`/`commandsOfType`: extracts components based on
+* `inputStates`: Extracts the input `ContractState` objects from the list of `StateAndRef`.
+* `getInput`/`getOutput`/`getCommand`/`getAttachment`: Extracts a component by index.
+* `getAttachment`: Extracts an attachment by ID.
+* `inputsOfType`/`inRefsOfType`/`outputsOfType`/`outRefsOfType`/`commandsOfType`: Extracts components based on
 their generic type.
-* `filterInputs`/`filterInRefs`/`filterOutputs`/`filterOutRefs`/`filterCommands`: extracts components based on
+* `filterInputs`/`filterInRefs`/`filterOutputs`/`filterOutRefs`/`filterCommands`: Extracts components based on
 a predicate.
-* `findInput`/`findInRef`/`findOutput`/`findOutRef`/`findCommand`: extracts the single component that matches
+* `findInput`/`findInRef`/`findOutput`/`findOutRef`/`findCommand`: Extracts the single component that matches
 a predicate, or throws an exception if there are multiple matches.
 
 

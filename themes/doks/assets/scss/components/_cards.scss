@@ -1,0 +1,48 @@
+.card {
+  border: none;
+  border-top: solid 4px $gray-900;
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 8px 16px $gray-200;
+
+  &:hover {
+    box-shadow: 0px 8px 24px $gray-200;
+  }
+
+  .card-body {
+    padding: 1rem 2rem 2rem 2rem;
+  }
+
+  h3 {
+    font-size: $font-size-lg; 
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  li {
+    padding: .25rem 0;
+    list-style: none;
+
+    &:before {
+      content: url(icons/file-text.svg);
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      position: relative;
+      top: 2px;
+      margin-right: 10px;
+    }
+
+    a {
+      font-weight: $semibold-font-weight;
+      color: $gray-900;
+    }
+  }
+
+}
+
+.support-container {
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 8px 16px $gray-200;
+}

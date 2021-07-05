@@ -4,13 +4,14 @@ aliases:
 - /docs/apps/index.html
 date: '2020-12-23T09:59:25Z'
 menu:
-  versions:
+  projects:
     weight: -265
 project: apps
 section_menu: apps
-title: Apps
+title: Featured Apps
 version: 'apps'
 ---
+
 # Featured Apps
 
 These new and early-version apps allow you to explore new possibilities on Corda. You can use them to carry out trial development work, and refine your vision for developing on Corda.

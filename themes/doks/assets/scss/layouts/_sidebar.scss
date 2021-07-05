@@ -1,0 +1,234 @@
+.docs-links,
+.docs-toc {
+  scrollbar-width: thin;
+  scrollbar-color: $gray-300 $gray-300;
+}
+
+.docs-links::-webkit-scrollbar,
+.docs-toc::-webkit-scrollbar {
+  width: 5px;
+}
+
+.docs-links::-webkit-scrollbar-track,
+.docs-toc::-webkit-scrollbar-track {
+  background: $gray-300;
+}
+
+.docs-links::-webkit-scrollbar-thumb,
+.docs-toc::-webkit-scrollbar-thumb {
+  background: $gray-300;
+}
+
+.docs-links:hover,
+.docs-toc:hover {
+  scrollbar-width: thin;
+  scrollbar-color: $gray-200 $gray-300;
+}
+
+.docs-links:hover::-webkit-scrollbar-thumb,
+.docs-toc:hover::-webkit-scrollbar-thumb {
+  background: $gray-200;
+}
+
+.docs-links::-webkit-scrollbar-thumb:hover,
+.docs-toc::-webkit-scrollbar-thumb:hover {
+  background: $gray-600;
+}
+
+.docs-links h3,
+.page-links h3 {
+  font-size: $font-size-base;
+  margin: 1.25rem 0 0.5rem 0;
+  padding: 1.5rem 0 0 0;
+}
+
+@include media-breakpoint-up(lg) {
+  .docs-links h3 {
+    margin: 1.125rem 1.5rem 0.5rem 0;
+    padding: 0.2rem 0 0 0;
+  }
+
+  .page-links h3 {
+    margin: 1.125rem 1.5rem 0.5rem 0;
+    padding: 1.375rem 0 0 0;
+  }
+}
+
+a.docs-link {
+  color: $black;
+  display: block;
+  padding: 0.125rem 0;
+  font-size: $font-size-sm;
+}
+
+.page-links li ul li {
+  border-top: none;
+  padding-left: 1rem;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.page-links a {
+  color: $body-color;
+  display: block;
+  padding: 0.125rem 0;
+  font-size: $font-size-base * 0.9375;
+}
+
+.docs-link:hover,
+.docs-link.active,
+.page-links a:hover {
+  text-decoration: none;
+  color: $link-color;
+}
+
+.docs-link.active {
+  font-weight: 600;
+}
+
+.docs-links h3.sidebar-link,
+.page-links h3.sidebar-link {
+  text-transform: none;
+  font-size: $font-size-md;
+  font-weight: normal;
+}
+
+.docs-links h3.sidebar-link a,
+.page-links h3.sidebar-link a {
+  color: $body-color;
+}
+
+.docs-links h3.sidebar-link a:hover,
+.page-links h3.sidebar-link a:hover {
+  text-decoration: underline;
+}
+
+.docs-links {
+  .nav-item{
+    display: contents;
+
+  }
+
+  button {
+    margin: 0.2rem 1.5rem 0.2rem 0;
+    font-size: $font-size-base * 0.9375;
+    font-weight: 500;
+    color: $black;
+    text-align: left;
+    width: calc(100% - 2.3rem);
+    background: none;
+
+    &.active {
+      font-weight: 600;
+    }
+
+    &::after {
+      width: 10px;
+      line-height: 0;
+      float: right;
+      margin-top: 0.7rem;
+      margin-right: -10px;
+      content: url("/icons/icon-arrow-down.svg");
+      transition: transform 0.35s ease;
+    }
+
+    &[aria-expanded="true"]::after {
+      transform: rotate(-180deg);
+    }
+  }
+
+  div {
+    &.sub-menu {
+      padding-left: 0.5rem;
+
+      li {
+        a {
+          &.docs-link {
+            font-size: $font-size-base * 0.9375;
+          }
+        }
+      }
+
+      .sub-menu {
+        padding-left: 1rem;
+        border-left: 1px solid $submenu-bar-color;
+        margin-top: 0.125rem;
+        margin-bottom: 0.125rem;
+
+        li {
+          a {
+            &.docs-link {
+              font-size: $font-size-sm;
+            }
+
+            &:nth-child(1) {
+              margin-top: 0;
+              padding-top: 0;
+            }
+
+            &:nth-last-child {
+              margin-bottom: 0;
+              padding-bottom: 0;
+            }
+          }
+        }
+      }
+
+      button {
+        &::after {
+          margin-top: 0.6rem;
+        }
+      }
+    }
+  }
+
+  & > ul {
+    & > li {
+      & > button {
+        margin: 0.8rem 1.5rem 0.2rem 0 !important;
+        font-size: $font-size-base;
+        font-weight: 600 !important;
+        color: $body-color;
+      }
+    }
+  }
+
+  a {
+    &.docs-link {
+      margin: 0.125rem 0;
+    }
+
+    &:hover,
+    &.active,
+    &:hover {
+      text-decoration: none;
+      color: $link-color;
+    }
+  }
+}
+
+body.dark {
+  .docs-links {
+    button {
+      color: $white;
+
+      &::after {
+        content: url("/icons/icon-arrow-down-white.svg");
+      }
+    }
+
+    a {
+      &.docs-link {
+        text-decoration: none !important;
+        color: $gray-100;
+
+        &:hover,
+        &.active,
+        &:hover {
+          text-decoration: none;
+          color: $link-color;
+        }
+      }
+    }
+  }
+}
