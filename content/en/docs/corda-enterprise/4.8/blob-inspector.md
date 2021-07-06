@@ -37,7 +37,7 @@ hex decoding 636f726461 using the [online hex decoder tool](https://convertstrin
 to see for yourself.
 
 **Output data** can be in either a slightly extended form of YAML or JSON. YAML (Yet another Markup Language) is
-easier for humand to read, and is the default. JSON can be parsed by any JSON library in any language.
+easier for humans to read, and is the default. JSON can be parsed by any JSON library in any language.
 
 {{< note >}}
 The binary blob may contain embedded `SerializedBytes` objects. Rather than printing these
