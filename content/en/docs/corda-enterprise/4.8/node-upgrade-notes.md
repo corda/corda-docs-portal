@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-06'
 menu:
   corda-enterprise-4-8:
     identifier: "corda-enterprise-4-8-node-upgrade"
@@ -9,84 +9,85 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading a node to Corda 4.8
+title: Upgrade a node to Corda 4.8
 aliases: /docs/corda-enterprise/4.8/node/operating/cm-upgrading-node.html
 weight: 10
 ---
 
-# Upgrading a node to Corda 4.8
+# Upgrade a node to Corda 4.8
 
 {{< warning >}}
-Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
 {{< /warning >}}
 
-Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to applications. Upgrading from 4.x  consists of the following steps:
+Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and shouldn't require changes to CorDapps. Upgrading from 4.x consists of the following steps.
 
 1. Drain the node.
-1. Make a backup of your node directories and database.
-1. Update the database (manual).
-1. Replace the `corda.jar` file with the new version.
+1. Make a backup of your node's directories and database.
+1. Update the database manually.
+1. Replace the `corda.jar` file with the new version's.
 1. Update configuration.
-1. Update the database (automatic) .
+1. Update the database automatically.
 1. Start the node in the normal way.
 1. Undrain the node.
 
 {{< note >}}
-The protocol is designed to tolerate node outages. During the upgrade process, peers on the network will wait for your node to come back.
+The protocol is designed to tolerate node outages. During the upgrade process, peers on the network will wait for your node to become available.
 {{< /note >}}
 
 {{< warning >}}
-If upgrading from Corda Enterprise 3.x:
-* First ensure your node has been upgraded to the latest point release of that distribution. See [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node) for information on upgrading Corda 3.x versions.
-* Then, upgrade to 4.5.
-* Finally, upgrade to 4.8.
+If you are upgrading from Corda Enterprise 3.x:
+1. Ensure your node has been upgraded to the latest point release of that distribution. See [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node) for information on upgrading Corda 3.x versions.
+1. Upgrade to Corda Enterprise 4.5.
+1. Upgrade to Corda Enterprise 4.8.
 {{< /warning >}}
 
 ## Step 1. Drain the node
 
-Before a node, or an application on a node, can be upgraded, the node must be put in draining-mode. This brings the currently running
-[Flows](cordapps/api-flows.md/) to a smooth halt (existing work is finished, and new work is queued rather than being processed).
-
-Draining flows is a key task for node administrators to perform. It exists to simplify applications by ensuring apps don’t have to be
-able to migrate workflows from any arbitrary point to other arbitrary points, a task that would rapidly become unfeasible as workflow
+Before a node (or a CorDapp on a node) can be upgraded, the node must be drained by the node operator. This brings all [Flows](cordapps/api-flows.md/) that are currenty running to a smooth halt, where existing work is finished and new work is queued rather than processed. By draining a node, CorDapps don’t have to be
+able to migrate workflows from an arbitrary point to another arbitrary point(s) - a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
-To drain the node, run the `gracefulShutdown` command. This will wait for the node to drain and then shut it down once the drain
+You drain a node by running `gracefulShutdown`. This waits for the node to drain and then shuts it down once the drain
 is complete.
 
 
 {{< warning >}}
-The length of time a node takes to drain depends both on how your applications are designed, and whether any apps are currently
-talking to network peers that are offline or slow to respond. It is, therefore, difficult to give guidance on how long a drain should take. In
-an environment with well written apps and in which your counterparties are online, it is possible that drains may only need a few seconds.
+The length of time a node takes to drain depends on how your CorDapps are designed and whether any CorDapps are currently
+talking to network peers that are offline or slow to respond. Therefore, it is difficult to give an indication of how long a drain should take. In
+an environment with well written CorDapps and counterparties who are online and quick to respond, drains may only take a few seconds.
 
 {{< /warning >}}
 
 
 
-## Step 2. Make a backup of your node directories and database
+## Step 2. Make a backup of your node's directories and database
 
-It’s always a good idea to back up your data before upgrading any server. This will make it easy to roll back if there’s a problem.
-You can simply make a copy of the node’s data directory to enable this. If you use an external non-H2 database, consult your database
-user guide to learn how to make backups.
+You should back up your data before upgrading any server as this will make it easier to roll back if there’s a problem. You can simply make a copy of the node’s data directory. 
+
+If you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
 For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](node/operating/node-administration.md#backup-recommendations).
 
 
 
-## Step 3. Update the database (manual)
+## Step 3. Update the database
 
 The database update can be performed automatically or manually.
 
 You can perform an automatic database update when:
 
-* A database setup is for testing/development purposes and a Corda node connects with *administrative permissions* (it can modify database schema).
-* You are upgrading a production system and your policy allows a Corda node to auto-update its database and a Corda node connects with *administrative permissions*.
+* Your database setup is for testing/development purposes and your node connects with **administrative permissions** (it can modify database schema).
+* You are upgrading a production system, your policy allows a node to auto-update its database, and your node connects with **administrative permissions**.
 
-If you cannot perform an automatic update, you must perform a manual update.
+To perform an automatic update, skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). The automatic update will be performed later in the update process ([Step 6](#step-6-update-database-automatic)).
 
-* To perform a manual update, follow the instructions in [3.1](#31-configure-the-database-management-tool), [3.2](#32-extract-ddl-script-using-database-management-tool), [3.3](#33-apply-ddl-scripts-on-a-database), and [3.4](#34-apply-data-updates-on-a-database) (below). Then go on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
-* To perform an automatic update, skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). The automatic update will be performed later in the update process ([Step 6](#step-6-update-database-automatic)).
+
+If you can't perform an automatic update, you must perform a manual update.
+
+
+To perform a manual update, follow the instructions in [3.1](#31-configure-the-database-management-tool), [3.2](#32-extract-ddl-script-using-database-management-tool), [3.3](#33-apply-ddl-scripts-on-a-database), and [3.4](#34-apply-data-updates-on-a-database) (below). Then go on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
+
 
 
 ### 3.1. Configure the Database Management Tool
@@ -350,7 +351,7 @@ Start the node in the normal way.
 
 ## Step 8. Undrain the node
 
-You may now do any checks that you wish to perform, read the logs, and so on. When you are ready, use this command at the shell:
+You may now do any checks that you wish to perform, for example read the logs. When you are ready, use this command at the shell:
 
 `run setFlowsDrainingModeEnabled enabled: false`
 
@@ -359,5 +360,5 @@ Your upgrade is complete.
 ## Notes
 
 {{< warning >}}
-The Multi RPC Client version must be aligned with the node version, meaning that both must be running the same Corda Enterprise version. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
+The multi RPC client version must be aligned with the node version, meaning that both must be running the same Corda Enterprise version. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
 {{< /warning >}}
