@@ -36,7 +36,7 @@ You may find it useful to know that Corda’s format always starts with the word
 hex decoding 636f726461 using the [online hex decoder tool](https://convertstring.com/EncodeDecode/HexDecode)
 to see for yourself.
 
-**Output data** can be in either a slightly extended form of YaML or JSON. YaML (Yet another Markup Language) is
+**Output data** can be in either a slightly extended form of YAML or JSON. YAML (Yet another Markup Language) is
 easier for humand to read, and is the default. JSON can be parsed by any JSON library in any language.
 
 {{< note >}}
