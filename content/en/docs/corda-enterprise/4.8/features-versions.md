@@ -1,5 +1,5 @@
 ---
-date: '2021-07-05'
+date: '2021-07-06'
 menu:
   corda-enterprise-4-8:
     identifier: "corda-enterprise-4-8-features-versions"
@@ -19,22 +19,27 @@ weight: 70
 Each version of Corda introduces new features. Features fall into one of three categories, and each category has different implications for node operators, CorDapp developers, and business network operators. There are:
 
 * Changes that don't impact CorDapp developers or the Corda network protocol, but will be of interest to a node's operator. For example, introducing support for a new HSM or database system.
-* New or changed APIs that will affect CorDapp developers. When a release of Corda ships such features, the Corda platform version (PV) of that node is incremented so that a CorDapp that relies on such a new or changed feature can detect this. It prevents CorDapps from running on a node without the feature or to trigger an alternative optimised codepath if the feature is present). The CorDapp developer sets the CorDapp’s minimumPlatformVersion parameter to signal the minimum Platform Version against which the app can run or has been tested. If the application has also been tested against a greater platform version and can exploit it if present, the node can also set the targetPlatformVersion field.
-* Changes that affect the operation of a Corda network. For example, changes to the serialisation format or flow/wire protocol, or the introduction of a new transaction component.  These are changes to the core data model and these features have the property that it is not safe for any node or application to take advantage of until all nodes on the network are capable of understanding them. Such features are thus only enabled in a node if the network to which it is connected has published a minimumPlatformVersion in its network parameters that is greater than or equal to the Corda Platform Version that introduced the feature. For example, Corda 4.0 nodes, which implement Corda Platform Version 4, can only take advantage of the Corda Reference States feature when connected to a network with mPV 4.
+* New or updated APIs that will affect CorDapp developers. 
+* Changes that affect the operation of a Corda network. For example, changes to the serialization format, flow/wire protocol, or the introduction of a new transaction component.  These are changes to the core data model and therefore should only be taken advantage of if all nodes on the network can support them. Such features are only enabled in a node if the network to which it is connected has published a `minimumPlatformVersion` in its network parameters that is greater than or equal to the Corda platform version that introduced the feature. For example, Corda 4.0 nodes, which implement Corda Platform Version 4, can only take advantage of the Corda reference states feature when connected to a network with mPV 4. 
 
-You can use the `CorDapp.mPV` element to identify the oldest PV with which your CorDapp is compatible. This prevents nodes that use an older PV from running your CorDapp. Nodes that support newer PVs may also use this field to trigger code paths that emulate behaviours that were in force on older PVs to maximise compatibility. 
+When a release includes features that fall into the last two categories, the Corda platform version of that node is incremented so that a CorDapp that relies on a new or changed feature can detect this. It prevents CorDapps from running on a node without the feature or triggers an alternative optimized code path if the feature is present. 
 
-If you have tested your CorDapp against newer versions of Corda and found it to be compatible, to take advantage of the new PV's behaviours, you can show this in `CorDapp.targetPV`.  field to declare the latest Platform Version against which the app has been tested
-and is known to work. In this way, it is possible to ship CorDapps that can both run on all nodes supporting some minimum Platform Version
-of Corda as well as opt in to newer features should they happen to be available on any given node.
+You can use `CorDapp.mPV` to identify the oldest PV with which your CorDapp is compatible. This prevents nodes that use an older PV from running your CorDapp. Nodes that support newer PVs may also use this field to trigger code paths that emulate behaviours that were in force on older PVs to maximise compatibility. If you have tested your CorDapp against newer versions of Corda and found it to be compatible, you can show this in `CorDapp.targetPV`. This means it's possible to ship CorDapps that can run on all nodes supporting a minimum PV of Corda, as well as take advantage of a newer PV's behaviours and features should they happen to be available on any given node.
 
+You can use `minimumPlatformVersion` to identify the oldest PV with which your CorDapp is compatible. This prevents nodes that use an older PV from running your CorDapp. Nodes that support newer PVs may also use this field to trigger code paths that emulate behaviours that were in force on older PVs to maximise compatibility. If you have tested your CorDapp against newer versions of Corda and found it to be compatible, you can show this in `CorDapp.targetPV`. This means it's possible to ship CorDapps that can run on all nodes supporting a minimum PV of Corda, as well as take advantage of a newer PV's behaviours and features should they happen to be available on any given node.
+
+The CorDapp's developer can set the CorDapp’s `minimumPlatformVersion` parameter to signal the minimum Platform Version (mPV) against which the CorDapp can run or has been tested. If the CorDapp has been tested against a newer PV, the CorDapp's developer can set the `targetPlatformVersion` parameter.
+
+<!--
+CorDapp.mPV and CorDapp.targetPV - have these been replaced by `minimumPlatformVersion` and `targetPlatformVersion`?
+-->
 
 {{< table >}}
 
 
-# Corda features
+## Corda features
 
-**The table below highlights key features** 
+The table below highlights key features and the corresponding version numbers. 
 
 |Feature|Corda platform version (PV)|Minimum network platform version (network mPV)|Introduced in OS version|Introduced in Enterprise version|
 |--------------------|--------------------|--------------------|--------------------|--------------------|
