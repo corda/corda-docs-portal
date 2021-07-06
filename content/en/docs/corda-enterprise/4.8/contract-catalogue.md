@@ -16,7 +16,7 @@ weight: 10
 # Contract catalogue
 
 Corda comes with several sample contracts, which cover both core functionality (such as cash on ledger) and
-demonstrate how to model complex contracts (such as interest rate swaps). You can use the provided `Dummy` contract for testing.
+demonstrates how to model complex contracts (such as interest rate swaps). You can use the provided `Dummy` contract for testing.
 
 
 ## Cash
@@ -29,11 +29,11 @@ Cash state objects implement the `FungibleAsset` interface, and can be used by t
 contracts as part of settlement of an outstanding debt. The contracts’ verification functions require that cash state
 objects of the correct value are received by the beneficiary as part of the settlement transaction.
 
-The cash contract supports issuing, moving and exiting (destroying) states. Issuance cannot be part
+The cash contract supports issuing, moving, and exiting (destroying) states. Issuance cannot be part
 of the same transaction as other cash commands, to minimise complexity in balance verification.
 
 Cash shares a common superclass, `OnLedgerAsset`, with the Commodity contract. This implements common behaviour of
-assets which can be issued, moved and exited on chain, with the subclasses handling asset-specific data types and
+assets which can be issued, moved, and exited on chain, with the subclasses handling asset-specific data types and
 behaviour.
 
 {{< note >}}
@@ -53,9 +53,9 @@ interface. This is used as a proof of concept for non-cash obligations.
 ## Commercial paper
 
 `CommercialPaper` is a simple obligation to pay an amount of cash at a future point in time (the maturity
-date), and exists primarily as a simplified contract for use in tutorials. Commercial paper supports issuing, moving
-and redeeming (settling) states. Unlike the full obligation contract it does not support locking the state so it cannot
-be settled if the obligor defaults on payment, or netting of state objects. All commands are exclusive of the other
+date), and exists primarily as a simplified contract for use in tutorials. Commercial paper supports issuing, moving,
+and redeeming (settling) states. Unlike the full obligation contract, it does not support locking the state so it cannot
+be settled if the obligor defaults on payment or netting of state objects. All commands are exclusive of the other
 commercial paper commands. Use the `Obligation` contract for more advanced functionality.
 
 
@@ -63,7 +63,7 @@ commercial paper commands. Use the `Obligation` contract for more advanced funct
 
 The Interest Rate Swap (IRS) contract is a bilateral contract to implement a vanilla fixed / floating same currency
 interest rate swap. In general, an IRS allows two counterparties to modify their exposure from changes in the underlying
-interest rate. Interest rate swaps can be used as hedging instruments or to convert loan types (for example, converting a fixed rate loan to a floating rate loan or vice versa.)
+interest rate. Interest rate swaps can be used as hedging instruments or to convert loan types, for example, converting a fixed rate loan to a floating rate loan or vice versa.
 
 See “[Interest rate swaps](contract-irs.md)” for full details on the IRS contract.
 
