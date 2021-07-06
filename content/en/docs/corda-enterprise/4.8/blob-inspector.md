@@ -96,7 +96,7 @@ This property is materialized into `NodeInfo` and is output under the `deseriali
 
 ## Classpath
 
-If you run the blob inspector without any `.jar` files on the classpath, then it will deserialize objects using the Class Carpenter (see [Object serialization](serialization.md)).
+If you run the blob inspector without any `.jar` files on the classpath, then it will deserialize objects using the class carpenter, (see [Object serialization](serialization.md)).
 This happens because the types are not available, so the serialization framework has to synthesize them.
 
 {{< note >}}
