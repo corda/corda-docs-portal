@@ -24,11 +24,15 @@ Corda releases strive to be backwards compatible, so upgrading a node is fairly 
 
 1. Drain the node.
 1. Make a backup of your node's directories and database.
-1. Update the database manually.
-1. Replace the `corda.jar` file with the new version's.
+1. Update the database (manual).
+   - Configure the Database Management Tool.
+   - Extract the DDL and DML scripts using the Database Management Tool.
+   - Apply DDL scripts on a database.
+   - Apply data updates on the H2 database (optional).
+1. Replace the `corda.jar` file with the new version.
 1. Update configuration.
-1. Update the database automatically.
-1. Start the node in the normal way.
+1. Update the database (automatic).
+1. Start the node.
 1. Undrain the node.
 
 {{< note >}}
@@ -36,7 +40,7 @@ The protocol is designed to tolerate node outages. During the upgrade process, p
 {{< /note >}}
 
 {{< warning >}}
-If you are upgrading from Corda Enterprise 3.x:
+If you are upgrading from Corda Enterprise 3.x follow these steps.
 1. Ensure your node has been upgraded to the latest point release of that distribution. See [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node) for information on upgrading Corda 3.x versions.
 1. Upgrade to Corda Enterprise 4.5.
 1. Upgrade to Corda Enterprise 4.8.
@@ -45,7 +49,7 @@ If you are upgrading from Corda Enterprise 3.x:
 ## Step 1. Drain the node
 
 Before a node (or a CorDapp on a node) can be upgraded, the node must be drained by the node operator. This brings all [Flows](cordapps/api-flows.md/) that are currenty running to a smooth halt, where existing work is finished and new work is queued rather than processed. By draining a node, CorDapps don’t have to be
-able to migrate workflows from an arbitrary point to another arbitrary point(s) - a task that would rapidly become unfeasible as workflow
+able to migrate workflows from an arbitrary point to another arbitrary point - a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
 You drain a node by running `gracefulShutdown`. This waits for the node to drain and then shuts it down once the drain
@@ -55,7 +59,7 @@ is complete.
 {{< warning >}}
 The length of time a node takes to drain depends on how your CorDapps are designed and whether any CorDapps are currently
 talking to network peers that are offline or slow to respond. Therefore, it is difficult to give an indication of how long a drain should take. In
-an environment with well written CorDapps and counterparties who are online and quick to respond, drains may only take a few seconds.
+an environment with well written CorDapps and counterparties who are online, drains may only take a few seconds.
 
 {{< /warning >}}
 
@@ -63,9 +67,7 @@ an environment with well written CorDapps and counterparties who are online and 
 
 ## Step 2. Make a backup of your node's directories and database
 
-You should back up your data before upgrading any server as this will make it easier to roll back if there’s a problem. You can simply make a copy of the node’s data directory. 
-
-If you use an external non-H2 database, consult your database user guide to learn how to make backups.
+You should back up your data before upgrading any server as this will make it easier to roll back if there’s a problem. You can simply make a copy of the node’s data directory. If you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
 For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](node/operating/node-administration.md#backup-recommendations).
 
@@ -80,28 +82,23 @@ You can perform an automatic database update when:
 * Your database setup is for testing/development purposes and your node connects with **administrative permissions** (it can modify database schema).
 * You are upgrading a production system, your policy allows a node to auto-update its database, and your node connects with **administrative permissions**.
 
-To perform an automatic update, skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). The automatic update will be performed later in the update process ([Step 6](#step-6-update-database-automatic)).
+If you met the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-update-database-automatic).
 
 
-If you can't perform an automatic update, you must perform a manual update.
-
-
-To perform a manual update, follow the instructions in [3.1](#31-configure-the-database-management-tool), [3.2](#32-extract-ddl-script-using-database-management-tool), [3.3](#33-apply-ddl-scripts-on-a-database), and [3.4](#34-apply-data-updates-on-a-database) (below). Then go on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
-
+If you can't perform an automatic update, then you must perform a manual update by following steps 3.1 to 3.4 below, before moving on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
 
 
 ### 3.1. Configure the Database Management Tool
 
 The Corda Database Management Tool needs access to a running database.
 The tool is configured in a similar manner to the Corda node.
-A base directory needs to be provided with the following content:
+You need to provide a base directory with the following content.
 
 
 * A `node.conf` file with database connection settings.
 * A `drivers` directory (where the JDBC driver will be placed).
 
-Create a `node.conf` with the properties for your database.
-`node.conf` templates for each database vendor are shown below.
+You need to create a `node.conf` file with the properties for your database. `node.conf` template files and details on where to find the JDBC driver for each database vendor are shown below.
 
 
 #### Azure SQL
@@ -122,17 +119,15 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
+Complete the template as follows.
 
+* Replace the placeholders `<server>`, `<login>`, `<password>`, and `<database>` with appropriate values.
+* `<database>` is a user database and `<schema>` is a schema namespace.
+* Ensure `<login>` and `<password>` are for a database user with visibility of the `<schema>`.
+* The `myLegalName` field is obligatory, however, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
-Replace placeholders `<server>`, `<login>`, `<password>`, and `<database>` with appropriate values.
-`<database>` should be a user database and `<schema>` a schema namespace.
-Ensure `<login>` and `<password>` are for a database user with visibility of the `<schema>`.
-The `myLegalName` field is obligatory, however, it is used in Step 3.4 only
-(the tool doesn’t understand the context of the run and always requires the field to be present).
-For this step you can use any valid dummy name - for example, `O=Dummy,L=London,C=GB` for `<node_legal_name>`.
-
-The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-Extract the archive, and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
+You can download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
+Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
 #### SQL Server
@@ -152,15 +147,15 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Replace placeholders `<server>`, `<login>`, `<password>`, `<database>` with appropriate values.
-`<database>` is a database name and `<schema>` is a schema namespace.
-Ensure `<login>` and `<password>` are for a database user with visibility of the `<schema>`.
-The `myLegalName` field is obligatory however it is used in Step 3.4 only
-(the tool doesn’t understand the context of the run and always requires the field to be present).
-For this step you can use any valid dummy name - for example, `O=Dummy,L=London,C=GB` for `<node_legal_name>`.
+Complete the template as follows.
 
-The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-Extract the archive, and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
+* Replace placeholders `<server>`, `<login>`, `<password>`, and `<database>` with appropriate values.
+* `<database>` is a database name and `<schema>` is a schema namespace.
+* Ensure `<login>` and `<password>` are for a database user with visibility of the `<schema>`.
+* The `myLegalName` field is obligatory, however, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
+
+You can download the Microsoft JDBC 6.4 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
+Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
 #### Oracle
@@ -180,11 +175,11 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Replace placeholders `<host>`, `<port>` and `<sid>`, `<user>`, `<password>` and `<schema>` with appropriate values.
-`<schema>` is a database schema namespace, for a basic setup the schema name equals `<user>`.
-The `myLegalName` field is obligatory however it is used in Step 3.4 only
-(the tool doesn’t understand the context of the run and always requires the field to be present).
-For this step you can use any valid dummy name - for example, `O=Dummy,L=London,C=GB` for `<node_legal_name>`.
+Complete the template as follows.
+
+* Replace placeholders `<host>`, `<port>`, `<sid>`, `<user>`, `<password>`, and `<schema>` with appropriate values.
+* `<schema>` is a database schema namespace, for a basic setup the schema name equals `<user>`.
+* The `myLegalName` field is obligatory, however, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
 Copy the Oracle JDBC driver `ojdbc6.jar` for 11g RC2 or `ojdbc8.jar` for Oracle 12c into the `drivers` directory.
 
@@ -206,25 +201,25 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Replace placeholders `<host>`, `<port>`, `<database>`, `<user>`, `<password>` and `<schema>` with appropriate values.
-`<schema>` is the database schema name assigned to the user,
+Complete the template as follows.
+
+* Replace placeholders `<host>`, `<port>`, `<database>`, `<user>`, `<password>`, and `<schema>` with appropriate values.
+* `<schema>` is the database schema name assigned to the user,
 the value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
-The `myLegalName` field is obligatory however it is used in Step 3.4 only
-(the tool doesn’t understand the context of the run and always requires the field to be present).
-For this step you can use any valid dummy name - for example, `O=Dummy,L=London,C=GB` for `<node_legal_name>`.
+* The `myLegalName` field is obligatory, however, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
 Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
 
 
 ### 3.2. Extract the DDL and DML scripts using the Database Management Tool
 
-To run the tool, use the following command:
+You run the tool by using the following command:
 
 ```shell
 java -jar tools-database-manager-<release number>.jar dry-run -b path_to_configuration_directory --core-schemas --app-schemas
 ```
 
-The option `-b` points to the base directory (which contains a `node.conf` file, and `drivers` and `cordapps` subdirectories).
+The option `-b` points to the base directory, which contains a `node.conf` file, and `drivers` and `cordapps` subdirectories.
 
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
@@ -345,7 +340,7 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 The node will perform any automatic data migrations required, which may take some
 time. If the migration process is interrupted it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete.
 
-## Step 7. Start the node in the normal way
+## Step 7. Start the node
 
 Start the node in the normal way.
 
