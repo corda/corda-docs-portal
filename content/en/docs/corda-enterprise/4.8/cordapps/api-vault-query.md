@@ -156,7 +156,7 @@ The `QueryCriteria` interface provides a flexible mechanism for specifying diffe
 and/or composition and a rich set of operators, including:
 
 
-* Binary logical (`AND`, `OR`)
+* Binary logical (`AND`, `OR`).
 * Comparison (`LESS_THAN`, `LESS_THAN_OR_EQUAL`, `GREATER_THAN`, `GREATER_THAN_OR_EQUAL`)
 * Equality (`EQUAL`, `NOT_EQUAL`)
 * Likeness (`LIKE`, `NOT_LIKE`)
