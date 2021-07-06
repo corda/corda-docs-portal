@@ -30,9 +30,9 @@ The serialization framework can synthesize any classes found in the blob that ar
 
 ## Supported formats
 
-The inspector can read **input data** in three formats: raw binary, hex encoded text and Base64 encoded text. The tool will try each format until one works.
+The inspector can read **input data** in three formats: raw binary, hex encoded text, and Base64 encoded text. The tool will try each format until one works.
 
-Something that’s useful to know about Corda’s format is that it always starts with the word “corda” in binary. Try
+You may find it useful to know that Corda’s format always starts with the word “corda” in binary. Try
 hex decoding 636f726461 using the [online hex decoder tool](https://convertstring.com/EncodeDecode/HexDecode)
 to see for yourself.
 
