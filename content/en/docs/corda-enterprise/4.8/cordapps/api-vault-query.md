@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-01T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-cordapps-flows
@@ -7,29 +7,29 @@ tags:
 - api
 - vault
 - query
-title: Writing vault queries
+title: Vault queries
 weight: 3
 ---
 
 
 
-# Writing vault queries
+# Vault queries
 
 
 
 ## Overview
 
-Corda has been designed from the ground up to encourage the use of industry standard, proven query frameworks and libraries for accessing RDBMS backed transactional stores (including the Vault).
+The vault contains data extracted from the ledger that is considered relevant to the node’s owner, stored in a relational model that you can query easily. The vault keeps track of both **unconsumed** and **consumed** states.
 
-Corda provides a number of flexible query mechanisms for accessing the Vault:
+You can use several flexible query mechanisms to access the vault, including:
 
 
-* Vault Query API
-* Using a JDBC session (as described in [State Persistence](state-persistence.md))
-* Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries
-* Custom 3rd party Data Access frameworks such as [Spring Data](http://projects.spring.io/spring-data)
+* The vault query API.
+* A JDBC session (see [State Persistence](state-persistence.md)).
+* Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries.
+* Custom third-party data access frameworks such as [Spring Data](http://projects.spring.io/spring-data).
 
-The majority of query requirements can be satisfied by using the Vault Query API, which is exposed via the
+You can satisfy the majority of query requirements using the vault query API, which is exposed via the
 `VaultService` for use directly by flows:
 
 ```kotlin
@@ -139,32 +139,32 @@ The API provides both static (snapshot) and dynamic (snapshot with streaming upd
 filter criteria:
 
 
-* Use `queryBy` to obtain a current snapshot of data (for a given `QueryCriteria`)
-* Use `trackBy` to obtain both a current snapshot and a future stream of updates (for a given `QueryCriteria`)
+* Use `queryBy` to obtain a current snapshot of data (for a given `QueryCriteria`).
+* Use `trackBy` to obtain both a current snapshot and a future stream of updates (for a given `QueryCriteria`).
 
 {{< note >}}
 Streaming updates are only filtered based on contract type and state status (`UNCONSUMED`, `CONSUMED`, `ALL`).
 They will not respect any other criteria that the initial query has been filtered by.
 
 {{< /note >}}
-Simple pagination (page number and size) and sorting (directional ordering using standard or custom property
-attributes) is also specifiable. Defaults are defined for paging (`pageNumber` = 1, `pageSize` = 200) and sorting (`direction` = ASC).
+You can specify simple pagination (page number and size) and sorting (directional ordering using standard or custom property
+attributes). Defaults are defined for paging (`pageNumber` = 1, `pageSize` = 200) and sorting (`direction` = ASC).
 
 ## `QueryCriteria` interface
 
 The `QueryCriteria` interface provides a flexible mechanism for specifying different filtering criteria, including
-and/or composition and a rich set of operators to include:
+and/or composition and a rich set of operators, including:
 
 
-* Binary logical (`AND`, `OR`)
-* Comparison (`LESS_THAN`, `LESS_THAN_OR_EQUAL`, `GREATER_THAN`, `GREATER_THAN_OR_EQUAL`)
-* Equality (`EQUAL`, `NOT_EQUAL`)
-* Likeness (`LIKE`, `NOT_LIKE`)
-* Nullability (`IS_NULL`, `NOT_NULL`)
-* Collection based (`IN`, `NOT_IN`)
-* Standard SQL-92 aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`, `COUNT`)
+* Binary logical (`AND`, `OR`).
+* Comparison (`LESS_THAN`, `LESS_THAN_OR_EQUAL`, `GREATER_THAN`, `GREATER_THAN_OR_EQUAL`).
+* Equality (`EQUAL`, `NOT_EQUAL`).
+* Likeness (`LIKE`, `NOT_LIKE`).
+* Nullability (`IS_NULL`, `NOT_NULL`).
+* Collection based (`IN`, `NOT_IN`).
+* Standard SQL-92 aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`, `COUNT`).
 
-There are four implementations of this interface which can be chained together to define advanced filters:
+There are four implementations of this interface. You can chain them together to define advanced filters.
 
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the **VAULT_STATES** table. Filterable attributes include one or more of the following: status (`UNCONSUMED`,
@@ -193,10 +193,10 @@ interfaces' common state attributes to the **VAULT_LINEAR_STATES** table.{{< /no
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
 by a custom contract state that implements its own schema as described in the [State Persistence](state-persistence.md)
-documentation and associated examples. Custom criteria expressions are expressed using one of the following type-safe forms of
+documentation. You can express custom criteria using one of these type-safe forms of
 `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The
 `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator
-types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (`SUM`, `AVG`, `MAX`, `MIN`, `COUNT`) with optional grouping and sorting. Furthermore, a rich DSL is provided to enable simple
+types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (`SUM`, `AVG`, `MAX`, `MIN`, `COUNT`) with optional grouping and sorting. You can also use the rich DSL provided to enable the simple
 construction of custom criteria using any combination of `ColumnPredicate`. See the `Builder` object in
 `QueryCriteriaUtils` for a complete specification of the DSL.
 {{< note >}}
@@ -206,14 +206,12 @@ purposes.{{< /note >}}
 
 
 
-All `QueryCriteria` implementations are composable using `AND` and `OR` operators.
-
-All `QueryCriteria` implementations provide an explicitly specifiable set of common attributes:
+You can compose all `QueryCriteria` implementations using `AND` and `OR` operators. All `QueryCriteria` implementations provide an explicitly specifiable set of common attributes:
 
 
 * A state status attribute (`Vault.StateStatus`), which defaults to filtering on `UNCONSUMED` states.
-When chaining several criteria using `AND` or `OR`, the last value of this attribute will override any previous value.
-* Contract state types (`<Set<Class<out ContractState>>`), which will contain at minimum one type (by default,  this will be `ContractState` which resolves to all state types). When chaining several criteria using `AND` and `OR` operators, all specified contract state types are combined into a single set.
+When chaining several criteria using `AND` or `OR`, the last value of this attribute overrides any previous value.
+* Contract state types (`<Set<Class<out ContractState>>`), which contain at minimum one type (the default is `ContractState`, which resolves to all state types). When chaining several criteria using `AND` and `OR` operators, all specified contract state types are combined into a single set.
 
 ### Custom queries in Kotlin
 
@@ -291,7 +289,7 @@ Custom queries can be either case sensitive or case insensitive. They are define
 
 #### Case-sensitive custom query operators in Kotlin
 
-An example of a case-sensitive custom query operator in Kotlin is provided below:
+An example of a case-sensitive custom query operator in Kotlin:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -308,7 +306,7 @@ The `Boolean` input of `true` in this example could be removed since the functio
 
 #### Case-insensitive custom query operators in Kotlin
 
-An example of a case-insensitive custom query operator in Kotlin is provided below:
+An example of a case-insensitive custom query operator in Kotlin:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -321,7 +319,7 @@ val currencyIndex = PersistentCashState::currency.equal(USD.currencyCode, false)
 
 #### Case-sensitive custom query operators in Java
 
-An example of a case-sensitive custom query operator in Java is provided below:
+An example of a case-sensitive custom query operator in Java:
 
 {{< tabs name="tabs-3" >}}
 {{% tab name="java" %}}
@@ -335,7 +333,7 @@ CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", true)
 
 #### Case-insensitive custom query operators in Java
 
-An example of a case-insensitive custom query operator in Java is provided below:
+An example of a case-insensitive custom query operator in Java:
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="java" %}}
@@ -350,12 +348,9 @@ CriteriaExpression currencyIndex = Builder.equal(attributeCurrency, "USD", false
 
 ## Pagination
 
-The API provides support for paging where large numbers of results are expected (by default, a page size is set to 200
-results). Defining a sensible default page size enables efficient checkpointing within flows, and frees the developer
-from worrying about pagination where result sets are expected to be constrained to 200 or fewer entries. Where large
-result sets are expected (such as using the RPC API for reporting and/or UI display), it is strongly recommended to
-define a `PageSpecification` to correctly process results with efficient memory utilisation. A fail-fast mode is in
-place to alert API users to the need for pagination where a single query returns more than 200 results and no
+The API supports paging if you expect many results. The default page size shows 200
+results. This enables efficient checkpointing within flows, and means you don't have to worry about pagination if you expect fewer than 200 results. If you expect more than 200 results (for example, if you are using the RPC API for reporting and/or UI display),
+define a `PageSpecification` to process results correctly with efficient memory utilisation. A fail-fast mode alerts you to the need for pagination if a single query returns more than 200 results and no
 `PageSpecification` has been supplied.
 
 Here’s a query that extracts every unconsumed `ContractState` from the vault in pages of size 200, starting from the
@@ -373,13 +368,13 @@ val vaultSnapshot = proxy.vaultQueryBy<ContractState>(
 {{< /tabs >}}
 
 {{< note >}}
-A page's maximum size `MAX_PAGE_SIZE` is defined as `Int.MAX_VALUE` and should be used with extreme
-caution as results returned may exceed your JVM’s memory footprint.
+A page's maximum size `MAX_PAGE_SIZE` is defined as `Int.MAX_VALUE`. Use this with extreme
+caution - results returned may exceed your JVM’s memory footprint.
 
 {{< /note >}}
 
 {{< note >}}
-To obtain reliable results when using paging, always specify the sort option. With no sort, RDBMS is free to return results in any order.
+To obtain reliable results when using paging, always specify the sort option. Without sorting, RDBMS returns results in any order.
 
 {{< /note >}}
 
@@ -738,7 +733,7 @@ val results = vaultService.queryBy<FungibleAsset<*>>(VaultCustomQueryCriteria(su
 [VaultQueryTests.kt](https://github.com/corda/corda/blob/release/os/4.8/node/src/test/kotlin/net/corda/node/services/vault/VaultQueryTests.kt)
 
 {{< note >}}
-`otherResults` will contain 12 items sorted from largest summed cash amount to smallest, one result per calculated aggregate function per issuer party and currency (grouping attributes are returned per aggregate result).
+`otherResults` contains 12 items sorted from largest summed cash amount to smallest. It contains one result per calculated aggregate function for each issuer party and currency. Grouping attributes are returned per aggregate result.
 {{< /note >}}
 
 Dynamic queries (also using `VaultQueryCriteria`) are an extension to the snapshot queries by returning an additional `QueryResults` return type in the form of an `Observable<Vault.Update>`. Refer to
@@ -1011,12 +1006,12 @@ fun freshKeyForExternalId(externalId: UUID, services: ServiceHub): AnonymousPart
 
 {{< /tabs >}}
 
-As can be seen in the code snippet above, the `PublicKeyHashToExternalId` entity has been added to `PersistentKeyManagementService`, which allows you to associate your public keys with external IDs.
+In the code snippet above, the `PublicKeyHashToExternalId` entity has been added to `PersistentKeyManagementService`, which allows you to associate your public keys with external IDs.
 
 {{< note >}}
-Here, it is worth noting that we must map **owning keys** to external IDs, as opposed to **state objects**. This is because it might be the case that a `LinearState` is owned by two public keys generated by the same node.
+You must map **owning keys** to external IDs, as opposed to **state objects**. This is because it might be the case that a `LinearState` is owned by two public keys generated by the same node.
 {{< /note >}}
 
-The logic here is that when these public keys are used to own or participate in a state object, it is trivial to then associate those states with a particular external ID. Behind the scenes, when states are persisted to the vault, the owning keys for each state are persisted to a `PersistentParty` table. The `PersistentParty` table can be joined with the `PublicKeyHashToExternalId` table to create a view which maps each state to one or more external IDs. The [entity relationship diagram](/en/images/state-to-external-id.png "state to external id") illustrates how this works.
+When these public keys are used to own or participate in a state object, it is trivial to then associate those states with a particular external ID. When states are persisted to the vault, the owning keys for each state are persisted to a `PersistentParty` table. You can join the `PersistentParty` table with the `PublicKeyHashToExternalId` table to create a view that maps each state to one or more external IDs. The [entity relationship diagram](/en/images/state-to-external-id.png "state to external id") illustrates how this works.
 
-When performing a vault query, it is now possible to query for states by external ID using the `externalIds` parameter in `VaultQueryCriteria`.
+You can query the vault for states by external ID using the `externalIds` parameter in `VaultQueryCriteria`.
