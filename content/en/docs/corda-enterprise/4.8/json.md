@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-node-serialization
@@ -14,18 +14,20 @@ weight: 9
 
 # JSON
 
-Corda provides a module that extends the popular Jackson serialisation engine. Jackson is often used to serialise
-to and from JSON, but also supports other formats such as YaML and XML. Jackson is itself very modular and has
-a variety of plugins that extend its functionality. You can learn more at the [Jackson home page](https://github.com/FasterXML/jackson).
+Corda provides a module that extends the popular Jackson serialisation engine. Jackson can serialize
+to and from JSON, and formats such as YAML and XML. Jackson is very modular - you can use
+several plugins to extend its functionality. See the [Jackson home page](https://github.com/FasterXML/jackson).
 
-To gain support for JSON serialisation of common Corda data types, include a dependency on `net.corda:jackson:XXX`
-in your Gradle or Maven build file, where XXX is of course the Corda version you are targeting (0.9 for M9, for instance).
-Then you can obtain a Jackson `ObjectMapper` instance configured for use using the `JacksonSupport.createNonRpcMapper()`
-method. There are variants of this method for obtaining Jackson’s configured in other ways: if you have an RPC
+To gain support for JSON serialization of common Corda data types:
+
+1. Include a dependency on `net.corda:jackson:XXX` in your Gradle or Maven build file, where XXX is the Corda version you are targeting (0.9 for M9, for instance).
+2. Obtain a Jackson `ObjectMapper` instance configured for use using the `JacksonSupport.createNonRpcMapper()`
+method.
+
+You can use variations of this method to get alternative Jacksons configurations. For example, if you have an RPC
 connection to the node (see “clientrpc”) then your JSON mapper can resolve identities found in objects.
 
-The API is described in detail here:
-
+For the full API details, see the:
 
 * [Kotlin API docs](https://api.corda.net/api/corda-enterprise/4.8/html/api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
 * [JavaDoc](https://api.corda.net/api/corda-enterprise/4.8/html/api/javadoc/net/corda/client/jackson/package-summary.html)
