@@ -14,7 +14,7 @@ weight: 9
 
 # JSON serialization
 
-Corda provides a module that extends the popular Jackson serialisation engine. Jackson can serialize
+Corda provides a module that extends the popular Jackson serialization engine. Jackson can serialize
 to and from JSON, and formats such as YAML and XML. Jackson is very modular - you can use
 several plugins to extend its functionality. See the [Jackson home page](https://github.com/FasterXML/jackson).
 
