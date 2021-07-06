@@ -107,7 +107,7 @@ To solve this known issue, add the `.jar` file that contains the `enum` to the c
 
 ## Command-line options
 
-You can start the blob inspector can be started with the following command-line options:
+You can start the blob inspector with the following command-line options:
 
 ```shell
 blob-inspector [-hvV] [--full-parties] [--schema] [--format=type]
