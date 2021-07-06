@@ -161,8 +161,8 @@ and/or composition and a rich set of operators, including:
 * Equality (`EQUAL`, `NOT_EQUAL`)
 * Likeness (`LIKE`, `NOT_LIKE`)
 * Nullability (`IS_NULL`, `NOT_NULL`)
-* Collection based (`IN`, `NOT_IN`)
-* Standard SQL-92 aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`, `COUNT`)
+* Collection based (`IN`, `NOT_IN`).
+* Standard SQL-92 aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`, `COUNT`).
 
 There are four implementations of this interface. You can chain them together to define advanced filters.
 
