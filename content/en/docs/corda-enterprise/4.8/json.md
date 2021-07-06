@@ -21,7 +21,7 @@ several plugins to extend its functionality. See the [Jackson home page](https:/
 To gain support for JSON serialization of common Corda data types:
 
 1. Include a dependency on `net.corda:jackson:XXX` in your Gradle or Maven build file, where XXX is the Corda version you are targeting (0.9 for M9, for instance).
-2. Obtain a Jackson `ObjectMapper` instance configured for use using the `JacksonSupport.createNonRpcMapper()`
+2. Obtain a Jackson `ObjectMapper` instance configured using the `JacksonSupport.createNonRpcMapper()`
 method.
 
 You can use variations of this method to get alternative Jacksons configurations. For example, if you have an RPC
