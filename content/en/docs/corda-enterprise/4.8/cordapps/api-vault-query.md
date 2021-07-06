@@ -27,7 +27,7 @@ You can use several flexible query mechanisms to access the vault, including:
 * The vault query API.
 * A JDBC session (see [State Persistence](state-persistence.md)).
 * Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries.
-* Custom 3rd party data access frameworks such as [Spring Data](http://projects.spring.io/spring-data).
+* Custom third-party data access frameworks such as [Spring Data](http://projects.spring.io/spring-data).
 
 You can satisfy the majority of query requirements using the vault query API, which is exposed via the
 `VaultService` for use directly by flows:
