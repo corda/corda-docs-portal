@@ -34,7 +34,7 @@ A type used to define the underlying financial product in a transaction.
 ## Amount
 
 The [Amount](https://api.corda.net/api/corda-os/4.8/html/api/kotlin/corda/net.corda.core.contracts/-amount/index.html) class represents an amount of
-a fungible asset. It is a generic class which wraps around the tokenf. For example, the `Amount` could be:
+a fungible asset. It is a generic class which wraps around the token. For example, the `Amount` could be:
 * The standard JDK type `Currency`.
 * An `Issued` instance.
 * A more complex asset type, such as an obligation contract issuance definition—which in turn contains a token definition
@@ -58,10 +58,10 @@ Amount<Obligation.Terms<P>>
 
 {{< /tabs >}}
 
-`Amount` represents quantities as integers. You cannot use `Amount` to represent negative quantities,
+`Amount` represents quantities as integers. You cannot use `Amount` to represent negative quantities
 or fractional quantities—use a different type, typically `BigDecimal`.
-For currencies, the quantity represents the smallest integer amount for that currency, such a cents.
-Other assets are more flexible—the quantity could be 1000 tons of coal, or kilowatt hours. You define the precise conversion ratio
+For currencies, the quantity represents the smallest integer amount for that currency, such as cents.
+Other assets are more flexible—the quantity could be 1,000 tons of coal or kilowatt hours. You define the precise conversion ratio
 to displayable amounts using the `displayTokenSize` property, which is the `BigDecimal` numeric representation of
 a single token. `Amount` also defines methods to perform overflow/underflow-checked addition and subtraction.
 These are operator overloads in Kotlin - you can use them as regular methods from Java). Perform more complex calculations in `BigDecimal`, then and convert them back to `Amount` to make sure the rounding and token conservation works as expected.
