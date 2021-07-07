@@ -9,12 +9,19 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrade a node to Corda 4.8
+title: Upgrade a node to Corda Enterprise 4.8
 aliases: /docs/corda-enterprise/4.8/node/operating/cm-upgrading-node.html
 weight: 10
 ---
 
-# Upgrade a node to Corda 4.8
+# Upgrade a node to Corda Enterprise 4.8
+
+Follow the steps on this page if you want to upgrade a node from Corda Enterprise 4.x to Corda Enterprise 4.8.
+
+If you are upgrading from Corda Enterprise 3.x you must first:
+1. Ensure your node has been upgraded to the latest point release of that distribution. See [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node) for information on upgrading Corda 3.x versions.
+1. Upgrade to Corda Enterprise 4.5.
+1. Upgrade to Corda Enterprise 4.8.
 
 {{< warning >}}
 Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
@@ -24,27 +31,16 @@ Corda releases strive to be backwards compatible, so upgrading a node is fairly 
 
 1. Drain the node.
 1. Make a backup of your node's directories and database.
-1. Update the database (manual).
-   - Configure the Database Management Tool.
-   - Extract the DDL and DML scripts using the Database Management Tool.
-   - Apply DDL scripts on a database.
-   - Apply data updates on the H2 database.
+1. Update the database (manually).
 1. Replace the `corda.jar` file with the new version.
 1. Update configuration.
-1. Update the database (automatic).
+1. Update the database (automatically).
 1. Start the node.
 1. Undrain the node.
 
 {{< note >}}
-The protocol has been designed to tolerate node outages. During the upgrade process, peers on the network will wait for your node to become available.
+We've designed the protocol to tolerate node outages. During the upgrade process, peers on the network will wait for your node to become available.
 {{< /note >}}
-
-{{< warning >}}
-If you are upgrading from Corda Enterprise 3.x you must:
-1. Ensure your node has been upgraded to the latest point release of that distribution. See [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node) for information on upgrading Corda 3.x versions.
-1. Upgrade to Corda Enterprise 4.5.
-1. Upgrade to Corda Enterprise 4.8.
-{{< /warning >}}
 
 ## Step 1. Drain the node
 
@@ -56,8 +52,8 @@ is complete.
 
 
 {{< warning >}}
-The length of time a node takes to drain depends on how your CorDapps are designed and whether any CorDapps are currently
-talking to network peers that are offline or slow to respond. Therefore, it is difficult to give an indication of how long a drain should take. In
+The length of time a node takes to drain varies. It depends on how your CorDapps are designed and whether any CorDapps are currently
+talking to network peers that are offline or slow to respond. In
 an environment with well written CorDapps and counterparties who are online, drains may only take a few seconds.
 
 {{< /warning >}}
@@ -89,14 +85,14 @@ If you can't perform an automatic update, then you must perform a manual update 
 
 ### 3.1. Configure the Database Management Tool
 
-The Corda Database Management Tool needs access to a running database and is configured in a similar manner to the node.
+The Corda Database Management Tool needs access to a running database and is configured in a way to the node.
 To configure the tool, you need to provide a base directory with the following content.
 
 
 * A `node.conf` file with database connection settings.
-* A `drivers` directory (where the JDBC driver will be placed).
+* A `drivers` directory where the JDBC driver will be placed.
 
-`node.conf` template files and details on where to find the JDBC driver for each database vendor are shown below.
+`node.conf` template files and details on where to find the JDBC driver for each database vendor can be found below.
 
 
 #### Azure SQL
@@ -202,8 +198,8 @@ myLegalName = <node_legal_name>
 Complete the template as follows.
 
 * Replace placeholders `<host>`, `<port>`, `<database>`, `<user>`, `<password>`, and `<schema>` with appropriate values.
-* `<schema>` is the database schema name assigned to the user,
-the value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
+* `<schema>` is the database schema name assigned to the user.
+The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
 * The `myLegalName` field is obligatory, however, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
 Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
@@ -222,14 +218,14 @@ Option `-b` points to the base directory, which contains a `node.conf` file, and
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
 A script named `migrationYYYYMMDDHHMMSS.sql` containing DDL and DML statements will be generated in the current directory.
-This script will contain all the statements required to modify and create data structures, for example tables/indexes,
+This script contains all the statements required to modify and create data structures, for example tables/indexes,
 and updates the Liquibase management table **DATABASECHANGELOG**.
 The command doesn't alter any tables itself.
 
 
 {{< note >}}
 
-If your DDL and DML statements are run separately, for example, if the DB admin runs DDL and an CorDapp user runs DML, you need to manually separate the DDL and DML statements into separate scripts.
+If you run the DDL and DML statements separately, for example, if the DB admin runs DDL, and a CorDapp user runs DML, you need to manually separate the DDL and DML statements into separate scripts.
 
 {{< /note >}}
 
@@ -239,14 +235,12 @@ For more information about the Database Management Tool, including available opt
 ### 3.3. Apply DDL scripts on a database
 
 The database administrator applies the generated DDL script using their tooling of choice.
-The script is run by a database user with *administrative permissions*,
-who's default schema matches `<schema>` and the schema used by the node.
+A database user with *administrative permissions*, and whose default schema matches `<schema>` and the schema used by the node, runs the script.
 For example, for Azure SQL or SQL Server, you should not use the default database administrator account.
 
 {{< note >}}
-You can connect as a different user to the one used on the node, for example when a node connects via
-a user with *restricted permissions*, as long as your user has the same default schema as the node.
-The generated DDL script adds the schema prefix to most of the statements, but not to all of them.
+You can connect as a different user to the one used on the node, for example, a user with *restricted permissions*, as long as your user has the same default schema as the node.
+The generated DDL script adds the schema prefix to most of the statements, but not all of them.
 
 {{< /note >}}
 
@@ -272,8 +266,8 @@ You only need to perform this step for the H2 database.
 The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x, for example, upgrading from 4.5 to 4.8.
 
 The Database Management Tool can execute the remaining data upgrade.
-As the schema structure is already created in the third step, the tool can connect with *restricted* database permissions.
-The only activities in this step are inserts/upgrades data rows, and no alterations to the schema are applied.
+As the schema structure has already been created in the third step, the tool can connect with *restricted* database permissions.
+The only activities in this step are inserting/upgrading data rows, and does not apply any alterations to the schema.
 
 You can modify the tool configuration directory created in Step 3.1, or you can run the tool
 accessing the base directory of a node for which the data update is being performed.
@@ -285,8 +279,8 @@ If you are reusing the tool configuration directory:
 1. Ensure `myLegalName` setting in `node.conf` is set with a node name for which the data update will be run. For example, while upgrading the database schema used by a node `O=PartyA,L=London,C=GB`, assign the same value to `myLegalName`.
 
 {{< warning >}}
-Any `node.conf` misconfiguration may cause data row migration to be wrongly applied. This may happen silently, without throwing an error.
-The value of `myLegalName` must exactly match the node name that is used in the database schema.
+The value of `myLegalName` must exactly match the node name that is used in the database schema. Any `node.conf` misconfiguration may cause data row migration to be wrongly applied. This may happen silently, without throwing an error.
+
 {{< /warning >}}
 
 2. Create a `cordapps` subdirectory and copy the CorDapps used by the node.
