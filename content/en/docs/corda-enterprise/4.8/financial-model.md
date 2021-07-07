@@ -62,7 +62,7 @@ or fractional quantities—use a different type, typically `BigDecimal`.
 For currencies, the quantity represents the smallest integer amount for that currency, such as cents.
 Other assets are more flexible—the quantity could be 1,000 tons of coal or kilowatt hours. You define how the amounts display using the precise conversion ratio in the `displayTokenSize` property, which is the `BigDecimal` numeric representation of
 a single token. `Amount` also defines methods to perform overflow/underflow-checked addition and subtraction.
-These are operator overloads in Kotlin—you can use them as regular methods from Java). Perform more complex calculations in `BigDecimal`, then and convert them back to `Amount` to make sure the rounding and token conservation works as expected.
+These are operator overloads in Kotlin—you can use them as regular methods from Java). Perform more complex calculations in `BigDecimal`, then convert them back to `Amount` to make sure the rounding and token conservation works as expected.
 
 `Issued` refers to any countable product—for example, cash, a cash-like item, or assets—and an associated `PartyAndReference` that describes the issuer of that product.
 An issued product typically follows a lifecycle which includes issuance, movement, and an exit from the ledger (for example,
