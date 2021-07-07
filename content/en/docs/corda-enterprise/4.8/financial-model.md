@@ -70,7 +70,7 @@ An issued product typically follows a lifecycle which includes issuance, movemen
 see the `Cash` contract and its associated *state* and *commands*).
 
 To represent movements of `Amount` tokens use the `AmountTransfer` type, which records the quantity and perspective
-of a transfer. Positive values will indicate a movement of tokens from a `source` e.g. a `Party`, or `CompositeKey`
+of a transfer. Positive values will indicate a movement of tokens from a `source`, for example, a `Party` or `CompositeKey`
 to a `destination`. Negative values can be used to indicate a retrograde motion of tokens from `destination`
 to `source`. `AmountTransfer` supports addition (as a Kotlin operator, or Java method) to provide netting
 and aggregation of flows. The `apply` method can be used to process a list of attributed `Amount` objects in a
@@ -86,7 +86,7 @@ In addition to the common state types, several interfaces extend `ContractState`
 split, like an airplane.
 * `DealState`: A `LinearState` representing an agreement between two or more parties. Intended to simplify implementing generic
 protocols that manipulate many agreement types.
-* `FungibleAsset`: Use `FungibleAsset`s for contract states that represent countable, fungible assets issued by a
+* `FungibleAsset`: Used for contract states that represent countable, fungible assets issued by a
 specific party. States contain assets which are equivalent (such as cash of the same currency), so records of their existence
 can be merged or split as needed where the issuer is the same. For example, US dollars issued by the Federal Reserve are fungible and
 countable (in cents), barrels of oil are fungible and countable (oil from two small containers can be poured into one large
