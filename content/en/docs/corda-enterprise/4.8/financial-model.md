@@ -60,10 +60,9 @@ Amount<Obligation.Terms<P>>
 `Amount` represents quantities as integers. You cannot use `Amount` to represent negative quantities
 or fractional quantities—use a different type, typically `BigDecimal`.
 For currencies, the quantity represents the smallest integer amount for that currency, such as cents.
-Other assets are more flexible—the quantity could be 1,000 tons of coal or kilowatt hours. You define the precise conversion ratio
-to displayable amounts using the `displayTokenSize` property, which is the `BigDecimal` numeric representation of
+Other assets are more flexible—the quantity could be 1,000 tons of coal or kilowatt hours. You define how the amounts display using the precise conversion ratio in the `displayTokenSize` property, which is the `BigDecimal` numeric representation of
 a single token. `Amount` also defines methods to perform overflow/underflow-checked addition and subtraction.
-These are operator overloads in Kotlin - you can use them as regular methods from Java). Perform more complex calculations in `BigDecimal`, then and convert them back to `Amount` to make sure the rounding and token conservation works as expected.
+These are operator overloads in Kotlin—you can use them as regular methods from Java). Perform more complex calculations in `BigDecimal`, then and convert them back to `Amount` to make sure the rounding and token conservation works as expected.
 
 `Issued` refers to any countable product—for example, cash, a cash-like item, or assets—and an associated `PartyAndReference` that describes the issuer of that product.
 An issued product typically follows a lifecycle which includes issuance, movement, and an exit from the ledger (for example,
@@ -81,7 +80,7 @@ and aggregation of flows. The `apply` method can be used to process a list of at
 
 In addition to the common state types, several interfaces extend `ContractState` to model financial states such as:
 
-* `LinearState`: A state that has a unique identifier beyond its `StateRef`, which it carries it through state transitions.
+* `LinearState`: A state that has a unique identifier beyond its `StateRef`, which it carries through state transitions.
 `LinearState`s cannot be duplicated, merged, or split in a transaction: only continued or deleted. Use `LinearState`s to model non-fungible items like a specific deal, or an asset that can’t be
 split, like an airplane.
 * `DealState`: A `LinearState` representing an agreement between two or more parties. Intended to simplify implementing generic
