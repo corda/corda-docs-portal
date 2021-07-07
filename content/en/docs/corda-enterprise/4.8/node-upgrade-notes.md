@@ -1,5 +1,5 @@
 ---
-date: '2021-07-06'
+date: '2021-07-07'
 menu:
   corda-enterprise-4-8:
     identifier: "corda-enterprise-4-8-node-upgrade"
@@ -36,7 +36,7 @@ Corda releases strive to be backwards compatible, so upgrading a node is fairly 
 1. Undrain the node.
 
 {{< note >}}
-The protocol is designed to tolerate node outages. During the upgrade process, peers on the network will wait for your node to become available.
+The protocol has been designed to tolerate node outages. During the upgrade process, peers on the network will wait for your node to become available.
 {{< /note >}}
 
 {{< warning >}}
@@ -48,8 +48,7 @@ If you are upgrading from Corda Enterprise 3.x you must:
 
 ## Step 1. Drain the node
 
-Before a node (or a CorDapp on a node) can be upgraded, it must be drained by the node operator. This brings all [Flows](cordapps/api-flows.md/) that are currenty running to a smooth halt, where existing work is finished and new work is queued rather than processed. By draining a node, CorDapps don’t have to be
-able to migrate workflows from an arbitrary point to another arbitrary point - a task that would rapidly become unfeasible as workflow
+Before a node (or a CorDapp on a node) can be upgraded, it must be drained by the node operator. This brings all [flows](cordapps/api-flows.md/) that are currently running to a smooth halt, where existing work is finished and new work is queued rather than processed. By draining a node, CorDapps aren't required to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
 You can drain a node by running `gracefulShutdown`. This waits for the node to drain and then shuts it down once the drain
@@ -79,7 +78,7 @@ The database update can be performed automatically or manually.
 
 You can perform an automatic database update when:
 
-* Your database setup is for testing/development purposes and your node connects with *administrative permissions* (it can modify database schema).
+* Your database setup is for testing/development purposes, and your node connects with *administrative permissions* (it can modify database schema).
 * You are upgrading a production system, your policy allows a node to auto-update its database, and your node connects with *administrative permissions*.
 
 If you met the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-update-database-automatic).
@@ -218,14 +217,14 @@ Run the tool by using the following command:
 java -jar tools-database-manager-<release number>.jar dry-run -b path_to_configuration_directory --core-schemas --app-schemas
 ```
 
-Option `-b` points to the base directory, which contains a `node.conf` file, and `drivers` and `cordapps` subdirectories. 
+Option `-b` points to the base directory, which contains a `node.conf` file, and `drivers` and `cordapps` subdirectories.
 
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
 A script named `migrationYYYYMMDDHHMMSS.sql` containing DDL and DML statements will be generated in the current directory.
 This script will contain all the statements required to modify and create data structures, for example tables/indexes,
 and updates the Liquibase management table **DATABASECHANGELOG**.
-The command doesn’t alter any tables itself.
+The command doesn't alter any tables itself.
 
 
 {{< note >}}
@@ -287,12 +286,12 @@ If you are reusing the tool configuration directory:
 
 {{< warning >}}
 Any `node.conf` misconfiguration may cause data row migration to be wrongly applied. This may happen silently, without throwing an error.
-The value of `myLegalName` must exactly match the node name that is used in the given database schema.
+The value of `myLegalName` must exactly match the node name that is used in the database schema.
 {{< /warning >}}
 
 2. Create a `cordapps` subdirectory and copy the CorDapps used by the node.
 
-3. Change the database user to one with *restricted permissions*. This ensures the database cannot be alterated. To run the remaining data migration, run:
+3. Change the database user to one with *restricted permissions*. This ensures the database cannot be altered. To run the remaining data migration, run:
 
 ```shell
 java -jar tools-database-manager-4.0-RC03.jar execute-migration -b . --core-schemas --app-schemas
@@ -341,7 +340,7 @@ Do not perform this step if you have already updated the database manually in [S
 
 {{< /note >}}
 
-Start your node using the following command. 
+Start your node using the following command.
 
 ```bash
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
