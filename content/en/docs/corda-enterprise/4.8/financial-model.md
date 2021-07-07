@@ -37,8 +37,7 @@ The [Amount](https://api.corda.net/api/corda-os/4.8/html/api/kotlin/corda/net.co
 a fungible asset. It is a generic class which wraps around the token. For example, the `Amount` could be:
 * The standard JDK type `Currency`.
 * An `Issued` instance.
-* A more complex asset type, such as an obligation contract issuance definition—which in turn contains a token definition
-for the obligation is to be settled in. Custom token types should implement `TokenizableAssetInfo` to allow the
+* A more complex asset type, such as an obligation contract issuance definition. The issuance definition contains a token definition, which defines the currency the obligation must be settled in. Custom token types should implement `TokenizableAssetInfo` to allow the
 `Amount` conversion helpers `fromDecimal` and `toDecimal` to calculate the correct `displayTokenSize`.
 
 
