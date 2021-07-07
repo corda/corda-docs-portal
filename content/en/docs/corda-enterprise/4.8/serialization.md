@@ -16,57 +16,51 @@ weight: 1
 
 
 
-## Introduction
+Serialization converts objects into a stream of bytes. Deserialization, the reverse
+process, creates objects from a stream of bytes. These two processes take place every time nodes pass objects to each other as
+messages, when the node sends objects to or from RPC clients, and when you store transactions in the database.
 
-Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse
-process of creating objects from a stream of bytes.  It takes place every time nodes pass objects to each other as
-messages, when objects are sent to or from RPC clients from the node, and when we store transactions in the database.
+## Corda's custom type-safe binary serialization
 
-Corda pervasively uses a custom form of type safe binary serialisation. This stands in contrast to some other systems that use
-weakly or untyped string-based serialisation schemes like JSON or XML. The primary drivers for this were:
-
-
-* A desire to have a schema describing what has been serialized alongside the actual data:
-
-* To assist with versioning, both in terms of being able to interpret data archived long ago (e.g. trades from
-a decade ago, long after the code has changed) and between differing code versions.
-* To make it easier to write generic code e.g. user interfaces that can navigate the serialized form of data.
-* To support cross platform (non-JVM) interaction, where the format of a class file is not so easily interpreted.
+Corda uses a custom form of type-safe binary serialization, which is more secure than systems that use
+weakly or untyped string-based serialization schemes such as JSON or XML. The benefits of Corda's system include:
 
 
+* A schema describing what has been serialized is included with the data. This allows:
+    * Improved versioning, enabling easier interpretation of archived data (for example, trades from
+a decade ago, long after the code has changed) and differing code versions.
+    * Ease of writing generic code - for example, user interfaces that can navigate the serialized form of data.
+    * Support for cross-platform (non-JVM) interaction, where the format of a class file can be difficult to interpret.
 
-* A desire to use a documented and static wire format that is platform independent, and is not subject to change with
-3rd party library upgrades, etc.
-* A desire to support open-ended polymorphism, where the number of subclasses of a superclass can expand over time
-and the subclasses do not need to be defined in the schema *upfront*. This is key to many Corda concepts, such as states.
-* Increased security by constructing deserialized objects through supported constructors, rather than having
+* A platform-independent, documented, and static wire format that is not subject to change with third-party library upgrades.
+* Support for open-ended polymorphism, where the number of subclasses of a superclass can expand over time,
+and subclasses do not need to be defined in the schema upfront. This is key to many Corda concepts, such as states.
+* Increased security. Deserialized objects go through supported constructors, rather than having
 data inserted directly into their fields without an opportunity to validate consistency or intercept attempts to manipulate
 supposed invariants.
-* Binary formats work better with digital signatures than text based formats, as there’s much less scope for
+* Improved digital signature handling. Binary formats work better with digital signatures than text based-formats, because it reduces the scope for
 changes that modify syntax but not semantics.
 
 
 ## Whitelisting
 
-In classic Java serialization, any class on the JVM classpath can be deserialized. This is a source of exploits and
-vulnerabilities that exploit the large set of third-party libraries that are added to the classpath as part of a JVM
-application’s dependencies and carefully craft a malicious stream of bytes to be deserialized. In Corda, we strictly
-control which classes can be deserialized (and, pro-actively, serialized) by insisting that each (de)serializable class
-is part of a whitelist of allowed classes.
+In classic Java serialization, any class on the JVM classpath can be deserialized. This can be exploited by adding a stream of malicious bytes to the large set of third-party libraries that are added to the classpath as part of a JVM
+application’s dependencies. Corda strictly
+controls which classes can be deserialized (and, pro-actively, serialized) by insisting that each (de)serializable class
+is on a whitelist of allowed classes.
 
-To add a class to the whitelist, you must use either of the following mechanisms:
+To add a class to the whitelist, you must either:
 
 
 * Add the `@CordaSerializable` annotation to the class. This annotation can be present on the
-class itself, on any super class of the class, on any interface implemented by the class or its super classes, or any
-interface extended by an interface implemented by the class or its super classes.
+class itself, on any super-class of the class, on any interface implemented by the class or its super-classes, or on any
+interface extended by an interface implemented by the class or its super-classes. This is the preferred method.
 * Implement the `SerializationWhitelist` interface and specify a list of whitelisted classes.
 
-There is also a built-in Corda whitelist (see the `DefaultWhitelist` class) that whitelists common JDK classes for
-convenience. This whitelist is not user-editable.
+The built-in default whitelist (see the `DefaultWhitelist` class) allows common JDK classes for
+convenience. You cannot edit the default whitelist.
 
-The annotation is the preferred method for whitelisting. An example is shown in tutorial-clientrpc-api.
-It’s reproduced here as an example of both ways you can do this for a couple of example classes.
+You can see both methods in action in the [client RPC tutorial](https://docs.corda.net/docs/corda-os/4.8/tutorial-clientrpc-api.html). Here's a sample:
 
 ```kotlin
 // Not annotated, so need to whitelist manually.
@@ -84,8 +78,8 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 ```
 
 {{< note >}}
-Several of the core interfaces at the heart of Corda are already annotated and so any classes that implement
-them will automatically be whitelisted.  This includes `Contract`, `ContractState` and `CommandData`.
+Several of the core interfaces at the heart of Corda are already annotated, so any classes that implement
+them are whitelisted automatically.  This includes `Contract`, `ContractState` and `CommandData`.
 
 {{< /note >}}
 
@@ -104,22 +98,18 @@ expression that will work with Corda is `Runnable r = (Runnable & Serializable) 
 Corda uses an extended form of AMQP 1.0 as its binary wire protocol. You can learn more about the [Wire format](wire-format.md) Corda
 uses if you intend to parse Corda messages from non-JVM platforms.
 
-Corda serialisation is currently used for:
-
-
+Corda serialization is used for:
 
 * Peer-to-peer networking.
-* Persisted messages, like signed transactions and states.
+* Persisted messages, such as signed transactions and states.
 
 
-For the checkpointing of flows Corda uses a private scheme that is subject to change. It is currently based on the Kryo
-framework, but this may not be true in future.
+Corda checkpoints flows using a private scheme based on the Kryo framework.
 
-This separation of serialization schemes into different contexts allows us to use the most suitable framework for that context rather than
+This separation of serialization schemes into different contexts lets Corda use the most suitable framework for a context, rather than
 attempting to force a one-size-fits-all approach. Kryo is more suited to the serialization of a program’s stack frames, as it is more flexible
-than our AMQP framework in what it can construct and serialize. However, that flexibility makes it exceptionally difficult to make secure. Conversely,
-our AMQP framework allows us to concentrate on a secure framework that can be reasoned about and thus made safer, with far fewer
-security holes.
+than Corda's AMQP framework in what it can construct and serialize. However, that flexibility makes it difficult to secure. Conversely,
+Corda's AMQP framework lets users concentrate on creating a secure framework that can be reasoned about and made safer.
 
 Selection of serialization context should, for the most part, be opaque to CorDapp developers, the Corda framework selecting
 the correct context as configured.
@@ -136,13 +126,13 @@ This section describes the classes and interfaces that the AMQP serialization fo
 
 ### Collection Types
 
-The following collection types are supported.  Any implementation of the following will be mapped to *an* implementation
+Corda supports the collection types listed below. Any implementation of these types will be mapped to *an* implementation
 of the interface or class on the other end. For example, if you use a Guava implementation of a collection, it will
 deserialize as the primitive collection type.
 
-The declared types of properties should only use these types, and not any concrete implementation types (e.g.
-Guava implementations). Collections must specify their generic type, the generic type parameters will be included in
-the schema, and the element’s type will be checked against the generic parameters when deserialized.
+The declared types of properties should only use these types, and not any concrete implementation types (for example,
+Guava implementations). Collections must specify their generic type. The generic type parameters are included in
+the schema, and the element’s type is checked against the generic parameters when deserialized.
 
 ```kotlin
 java.util.Collection
@@ -156,7 +146,7 @@ java.util.SortedMap
 java.util.NavigableMap
 ```
 
-However, as a convenience, we explicitly support the concrete implementation types below, and they can be used as the
+Corda explicitly supports the concrete implementation types below. You can use them as the
 declared types of properties.
 
 ```kotlin
@@ -169,7 +159,7 @@ java.util.EnumMap (but only if there is at least one entry)
 
 ### JVM primitives
 
-All the primitive types are supported.
+All the primitive types are supported:
 
 ```kotlin
 boolean
@@ -185,12 +175,12 @@ short
 
 ### Arrays
 
-Arrays of any type are supported, primitive or otherwise.
+Corda supports all arrays.
 
 
 ### JDK Types
 
-The following JDK library types are supported:
+Corda supports these JDK library types:
 
 ```kotlin
 java.io.InputStream
@@ -237,7 +227,7 @@ java.util.UUID
 
 ### Third-Party Types
 
-The following 3rd-party types are supported:
+Corda supports these third-party types:
 
 ```kotlin
 kotlin.Unit
@@ -249,18 +239,18 @@ org.apache.activemq.artemis.api.core.SimpleString
 
 ### Corda Types
 
-Any classes and interfaces in the Corda codebase annotated with `@CordaSerializable` are supported.
+Corda supports all classes and interfaces in the codebase that are annotated with `@CordaSerializable`.
 
-All Corda exceptions that are expected to be serialized inherit from `CordaThrowable` via either `CordaException` (for
+All Corda exceptions that are expected to be serialized inherit from `CordaThrowable`, either via `CordaException` (for
 checked exceptions) or `CordaRuntimeException` (for unchecked exceptions).  Any `Throwable` that is serialized but does
-not conform to `CordaThrowable` will be converted to a `CordaRuntimeException`, with the original exception type
+not conform to `CordaThrowable` is converted to a `CordaRuntimeException`, with the original exception type
 and other properties retained within it.
 
 
 
 ## Custom Types
 
-You own types must adhere to the following rules to be supported:
+Your own types must adhere to the following rules to be supported.
 
 
 ### Classes
@@ -268,21 +258,18 @@ You own types must adhere to the following rules to be supported:
 
 #### General Rules
 
+For all classes, you must:
 
-
-* The class must be compiled with parameter names included in the `.class` file.  This is the default in Kotlin
-but must be turned on in Java using the `-parameters` command line option to `javac`{{< note >}}
-In circumstances where classes cannot be recompiled, such as when using a third-party library, a
-proxy serializer can be used to avoid this problem. Details on creating such an object can be found on the
-[Pluggable Serializers for CorDapps](cordapp-custom-serializers.md) page.{{< /note >}}
-
-* The class must be annotated with `@CordaSerializable`
-* The declared types of constructor arguments, getters, and setters must be supported, and where generics are used, the
-generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard which is currently
-widened to an open wildcard
-* Any superclass must adhere to the same rules, but can be abstract
+* Include the parameter names in the `.class` file when compliling a class.  This is the default in Kotlin.
+In Java, turn it on using the `-parameters` command line option to `javac`. If you cannot recompile classes, such as when using a third-party library, you can use a
+proxy serializer. See [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md).
+* Annotate the class with `@CordaSerializable`.
+* Ensure the declared types of constructor arguments, getters, and setters are supported. If you use generics, the
+generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard which is
+widened to an open wildcard.
 * Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
 
+Super-classes must adhere the same rules, but can be abstract.
 
 
 #### Constructor Instantiation
@@ -516,21 +503,10 @@ class ConfirmRequest(statesToConsume: List<StateRef>, val transactionId: SecureH
 {{< /tabs >}}
 
 
-### Mutable Containers
+### Mutable containers
 
-Because Java fundamentally provides no mechanism by which the mutability of a class can be determined this presents a
-problem for the serialization framework. When reconstituting objects with container properties (lists, maps, etc) we
-must chose whether to create mutable or immutable objects. Given the restrictions, we have decided it is better to
-preserve the immutability of immutable objects rather than force mutability on presumed immutable objects.
+Java does not provide a mechanism for determining the mutability of a class. Corda preserves the immutability of immutable objects rather than forcing mutability on presumed-immutable objects.  However, you can make an object immutable when you reconstruct it, as shown in these examples:
 
-{{< note >}}
-Whilst we could potentially infer mutability empirically, doing so exhaustively is impossible as it’s a design
-decision rather than something intrinsic to the JVM. At present, we defer to simply making things immutable on reconstruction
-with the following workarounds provided for those who use them. In future, this may change, but for now use the following
-examples as a guide.
-
-{{< /note >}}
-For example, consider the following:
 
 ```kotlin
 data class C(val l : MutableList<String>)
@@ -541,10 +517,11 @@ val newC = bytes.deserialize()
 newC.l.add("d")
 ```
 
-The call to `newC.l.add` will throw an `UnsupportedOperationException`.
+The call to `newC.l.add` throws an `UnsupportedOperationException`.
 
-There are several workarounds that can be used to preserve mutability on reconstituted objects. Firstly, if the class
-isn’t a Kotlin data class and thus isn’t restricted by having to have a primary constructor.
+You can use several workarounds to preserve the mutability of reconstituted objects.
+
+If the class *is not* a Kotlin data class, then it doesn't require a primary constructor:
 
 ```kotlin
 class C {
@@ -563,7 +540,7 @@ val newC = bytes.deserialize()
 newC.l.add("d")
 ```
 
-Secondly, if the class is a Kotlin data class, a secondary constructor can be used.
+If the class *is* a Kotlin data class, you can use a secondary constructor:
 
 ```kotlin
 data class C (val l : MutableList<String>){
@@ -579,9 +556,8 @@ val newC = bytes.deserialize()
 newC.l.add("d")
 ```
 
-Thirdly, to preserve immutability of objects (a recommend design principle - Copy on Write semantics) then mutating the
-contents of the class can be done by creating a new copy of the data class with the altered list passed (in this example)
-passed in as the Constructor parameter.
+To preserve immutability of objects, mutate the
+contents of the class by creating a new copy of the data class with the altered list passed in as the Constructor parameter:
 
 ```kotlin
 data class C(val l : List<String>)
@@ -593,17 +569,15 @@ val newC2 = newC.copy (l = (newC.l + "d"))
 ```
 
 {{< note >}}
-If mutability isn’t an issue at all then in the case of data classes a single constructor can
-be used by making the property var instead of val and in the `init` block reassigning the property
-to a mutable instance
+If mutability isn’t an issue, you can use a single constructor for data classes. Make the property `var` instead of `val`, then reassign the property to a mutable instance in the `init` block.
 
 {{< /note >}}
 
 ### Enums
 
-All enums are supported, provided they are annotated with `@CordaSerializable`. Corda supports interoperability of
-enumerated type versions. This allows such types to be changed over time without breaking backward (or forward)
-compatibility. The rules and mechanisms for doing this are discussed in [Enum Evolution](serialization-enum-evolution.md).
+Corda supports all enums (provided they are annotated with `@CordaSerializable`) and the interoperability of
+enumerated type versions. That means you can change these types over time without affecting backward (or forward)
+compatibility. See [Enum Evolution](serialization-enum-evolution.md).
 
 
 ### Exceptions
@@ -633,24 +607,22 @@ and will not serialize correctly. They need to be re-written as an explicit clas
 ## Class synthesis
 
 Corda serialization supports dynamically synthesising classes from the supplied schema when deserializing,
-without the supporting classes being present on the classpath.  This can be useful where generic code might expect to
-be able to use reflection over the deserialized data, for scripting languages that run on the JVM, and also for
-ensuring classes not on the classpath can be deserialized without loading potentially malicious code.
+without requiring the supporting classes to be present on the classpath.  This can be useful for:
+* Generic code that might expect to use reflection over the deserialized data.
+* Scripting languages that run on the JVM.
+* Ensuring classes that are not on the classpath can be deserialized without loading potentially malicious code.
 
-If the original class implements some interfaces then the carpenter will make sure that all of the interface methods are
-backed by fields. If that’s not the case then an exception will be thrown during deserialization. This check can
-be turned off with `SerializationContext.withLenientCarpenter`. This can be useful if only the field getters are needed,
-say in an object viewer.
+If the original class implements interfaces, the carpenter makes sure that all of the interface methods are
+backed by fields. If that’s not the case, then an exception is thrown during deserialization. You can disable this check with `SerializationContext.withLenientCarpenter`. This can be useful if you only need the field getters, for example in an object viewer.
 
 
 ### Calculated values
 
-In some cases, for example the *exitKeys* field in `FungibleState`, a property in an interface may normally be implemented
-as a *calculated* value, with a “getter” method for reading it but neither a corresponding constructor parameter nor a
-“setter” method for writing it. In this case, it will not automatically be included among the properties to be serialized,
-since the receiving class would ordinarily be able to re-calculate it on demand. However, a synthesized class will not
-have the method implementation which knows how to calculate the value, and a cast to the interface will fail because the
-property is not serialized and so the “getter” method present in the interface will not be synthesized.
+In some cases, a property in an interface may normally be implemented
+as a *calculated* value, with a “getter” method for reading it but without a corresponding constructor parameter or a
+“setter” method for writing it. An example is the *exitKeys* field in `FungibleState`. In this case, it is not automatically included in the properties to be serialized because the receiving class can re-calculate it on demand. However, a synthesized class will not
+have that method implementation, so a cast to the interface will fail because the
+property is not serialized. The lack of serialization means the “getter” method present in the interface will not be synthesized.
 
 The solution is to annotate the method with the `SerializableCalculatedProperty` annotation, which will cause the value
 exposed by the method to be read and transmitted during serialization, but discarded during normal deserialization. The
@@ -663,24 +635,10 @@ class where the value is calculated and there is no backing field. If the field 
 should be targeted at its getter method, e.g. `@get:SerializableCalculatedProperty`.
 
 
-### Future enhancements
-
-Possible future enhancements include:
-
-
-
-* Java singleton support.  We will add support for identifying classes which are singletons and identifying the
-static method responsible for returning the singleton instance
-* Instance internalizing support.  We will add support for identifying classes that should be resolved against an instances map to avoid
-creating many duplicate instances that are equal (similar to `String.intern()`)
-
-
-
-
 ## Type Evolution
 
-Type evolution is the mechanism by which classes can be altered over time yet still remain serializable and deserializable across
-all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized
+Type evolution lets you alter classes over time, while keeping them serializable and deserializable across
+all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized,
 and a version of the current state of the class instantiated.
 
 More detail can be found in [Default Class Evolution](serialization-default-evolution.md).
