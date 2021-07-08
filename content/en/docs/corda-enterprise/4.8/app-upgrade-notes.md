@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-08T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     identifier: "corda-enterprise-4-8-cordapp-upgrade"
@@ -8,30 +8,29 @@ tags:
 - app
 - upgrade
 - notes
-title: Upgrading a CorDapp to a newer platform version
+title: Upgrade a CorDapp to a newer platform version
 weight: 30
 ---
 
-# Upgrading a CorDapp to a newer platform version
+# Upgrade a CorDapp to a newer platform version
 
 {{< warning >}}
-Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
 {{< /warning >}}
 
-These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
-non-experimental APIs that have been committed to. A list can be found in [API stability guarantees](cordapps/api-stability-guarantees.md).
+These notes provide instructions for upgrading your CorDapps from previous platform versions.
 
-This means that you can upgrade your node across versions *without recompiling or adjusting your CorDapps*. You just have to upgrade
+Corda commits to providing backwards compatibility for public, non-experimental APIs. You can find the list of APIs in [API stability guarantees](cordapps/api-stability-guarantees.md). This means that you can upgrade your node across versions *without recompiling or adjusting your CorDapps*. You just have to upgrade
 your node and restart.
 
-However, there are usually new features and other opt-in changes that may improve the security, performance or usability of your
-application that are worth considering for any actively maintained software. This guide shows you how to upgrade your app to benefit
+However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
+CorDapp that are worth considering for any actively maintained software. This guide shows you how to upgrade your app to benefit
 from the new features in the latest release.
 
 
 {{< warning >}}
-The sample apps found in the Corda repository and the Corda samples repository are not intended to be used in production.
-If you are using them you should re-namespace them to a package namespace you control, and sign/version them yourself.
+The sample apps found in the Corda repository, and the Corda samples repository are not intended to be used in production.
+If you are using them, you should re-namespace them to a package namespace you control, and sign/version them yourself.
 
 {{< /warning >}}
 
@@ -52,58 +51,65 @@ If you are using them you should re-namespace them to a package namespace you co
 | 3.3 | 3 |
 {{< /table >}}
 
-## Upgrading apps to Platform Version 10
+## Upgrade CorDapps to platform version 10
 
-No manual upgrade steps are required.
+You don't need to perform a manual upgrade when upgrading to this platform version.
 
-## Upgrading apps to Platform Version 9
+## Upgrade CorDapps to platform version 9
 
-No manual upgrade steps are required.
+You don't need to perform a manual upgrade when upgrading to this platform version.
 
-## Upgrading apps to Platform Version 8
+## Upgrade CorDapps to platform version 8
 
-### Required actions relating to database optimisation in Corda 4.6
+To upgrade your CorDapps to platform version 8, you need to:
+* Upgrade existing nodes to version 4.6.
+* Check you're using Corda Gradle plugins version 5.0.12.
 
-The operational improvements around [database schema harmonisation](release-notes-enterprise.md#database-schema-harmonisation) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
+Instructions on how you do this are detailed below.
 
-The required steps for each upgrade path are described below.
+### Upgrade existing nodes to version 4.6
 
-#### Upgrading an existing node from Corda 4.5 (or earlier 4.x version) to version 4.6
+When upgrading to Corda 4.6 from a previous version, you need to upgrade existing nodes because of the operational improvements around [database schema harmonization](release-notes-enterprise.md#database-schema-harmonization) that were introduced in Corda 4.6.
+
+The steps you need to follow for each upgrade path are described below.
+
+#### Upgrade a node from Corda 4.5 (or earlier 4.x version)
 
 1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](node/setup/corda-configuration-file.md).
 2. Update any missing core schema changes by either running the [Database Management Tool](database-management-tool.md) (recommended), or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
 
-#### Upgrading from Corda 3.x or Corda Enterprise 3.x
+#### Upgrade a node from Corda 3.x or Corda Enterprise 3.x
 
-Corda 4.6 drops the support for retro-fitting the database changelog when migrating from Corda versions older than 4.0. Thus it is required to migrate to a previous 4.x version before
-migrating to Corda 4.6 - for example, 3.3 to 4.5, and then 4.5 to 4.6.
+Version 4.6 doesn't support retro-fitting the database changelog when upgrading from versions older than 4.0. Therefore, you need to upgrade to a previous 4.x version before upgrading to 4.6. For example, 3.3 to 4.5, and then 4.5 to 4.6.
 
-### Corda Gradle Plugins version `5.0.12`
+### Check you're using Corda Gradle plugins version 5.0.12
 
-To successfully build a CorDapp against Platform Version 8 and Corda 4.6, you need to use version `5.0.12` of the Corda Gradle Plugins:
+You need to use version 5.0.12 of the Corda Gradle plugins to successfully build a CorDapp against platform version 8 and Corda 4.6.
 
 ```
 ext.corda_gradle_plugins_version = '5.0.12'
 ```
 
-## Upgrading apps to Platform Versions 6 and 7
+## Upgrade CorDapps to platform versions 7
 
-No manual upgrade steps are required.
+You don't need to perform a manual upgrade when upgrading to this platform version.
 
 
-## Upgrading apps to Platform Version 5
+## Upgrade CorDapps to platform versions 6
 
-This section provides instructions for upgrading your CorDapps from previous versions to take advantage of features and enhancements introduced
-in platform version 5.
+You don't need to perform a manual upgrade when upgrading to this platform version.
 
-{{< note >}}
-If you are upgrading from a platform version older than 4, then the upgrade notes for upgrading to Corda 4 (below) also apply.
+## Upgrade CorDapps to platform version 5
 
-{{< /note >}}
+To upgrade your CorDapps to platform version 5, you need to:
+* Handle any source compatibility breaks.
+* Update Gradle version and associated dependencies.
 
-### Step 1. Handle any source compatibility breaks (if using Kotlin)
+Instructions on how you do this are detailed below.
 
-The following code, which compiled in Platform Version 4, will not compile in Platform Version 5:
+### Handle any source compatibility breaks (if you're using Kotlin)
+
+The following code, which compiled in platform version 4, will not compile in platform version 5:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -123,21 +129,26 @@ val obligation = Obligation(100.dollars, lenderId, borrowerId)
 
 {{< /tabs >}}
 
-Compiling this code against Platform Version 5 will result in the following error:
+If you try to compile this code in platform version 5, you'll get the following error.
 
 `Type mismatch: inferred type is Any but AbstractParty was expected`
 
-The issue here is that a new `Destination` interface introduced in Platform Version 5 can cause type inference failures when a variable is
-used as an `AbstractParty` but has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
+This is because a new `Destination` interface introduced in platform version 5 can cause type inference failures when a variable is
+used as an `AbstractParty`, but has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
-ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not a valid type for use as an `AbstractParty` later.
-(For more information on `Destination`, see the [Changelog](https://docs.corda.net/docs/corda-os/4.4/changelog.html) for Platform Version 5, or the KDocs for the interface
-[here](https://docs.corda.net/head/api/kotlin/corda/net.corda.core.flows/-destination.html))
+ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not subsequently a valid type for use as an `AbstractParty`.
+For more information on `Destination`, see the [Changelog](https://docs.corda.net/docs/corda-os/4.4/changelog.html) for platform version 5, or the KDocs for the interface
+[here](https://docs.corda.net/head/api/kotlin/corda/net.corda.core.flows/-destination.html).
 
-Note that this is a Kotlin-specific issue. Java can instead choose `? extends AbstractParty & Destination` here, which can later be used
+
+{{< note >}}
+This is a Kotlin-specific issue. Java can choose `? extends AbstractParty & Destination`, which can subsequently be used
 as `AbstractParty`.
 
-To fix this, an explicit type hint must be provided to the compiler:
+{{< /note >}}
+
+
+To fix the issue, you provide an explicit type hint to the compiler.
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -162,9 +173,9 @@ This stops type inference from occurring and forces the variable to be of type `
 
 
 
-### Step 2. Update Gradle version and associated dependencies
+### Update Gradle version and associated dependencies
 
-Platform Version 5 requires Gradle 5.4 to build. If you use the Gradle wrapper, you can upgrade by running:
+Platform version 5 requires Gradle 5.4 to build. If you use the Gradle wrapper, you can upgrade by running:
 
 
 ```shell
@@ -173,32 +184,35 @@ Platform Version 5 requires Gradle 5.4 to build. If you use the Gradle wrapper, 
 
 
 
-Otherwise, upgrade your installed copy in the usual manner for your operating system.
+Otherwise, upgrade your installed copy in the usual way for your operating system.
 
-Additionally, you’ll need to add [https://repo.gradle.org/gradle/libs-releases](https://repo.gradle.org/gradle/libs-releases) as a repository to your project, in order to pick up the
-*gradle-api-tooling* dependency. You can do this by adding the following to the repositories in your Gradle file:
+Additionally, you’ll need to add [https://repo.gradle.org/gradle/libs-releases](https://repo.gradle.org/gradle/libs-releases) as a repository to your project, to pick up the
+*gradle-api-tooling* dependency. You do this by adding the following to the repositories in your Gradle file:
 
 ```groovy
 maven { url 'https://repo.gradle.org/gradle/libs-releases' }
 ```
 
 
-## Upgrading apps to Platform Version 4
+## Upgrade CorDapps to platform version 4
 
-This section provides instructions for upgrading your CorDapps from previous versions to platform version 4.
+To upgrade your CorDapps to platform version 4, you need to:
+* xx
+
+Instructions on how you do this are detailed below.
 
 
 ### Step 1. Switch any RPC clients to use the new RPC library
 
-Although the RPC API is backwards compatible with Corda 3, the RPC wire protocol isn’t. Therefore RPC clients like web servers need to be
-updated in lockstep with the node to use the new version of the RPC library. Corda 4 delivers RPC wire stability and therefore in future you
-will be able to update the node and apps without updating RPC clients.
+Although the RPC API is backwards compatible with Corda 3, the RPC wire protocol isn’t. Therefore, to use the new version of the RPC library, RPC clients, such as web servers, need to be
+updated in lockstep with the node. As Corda 4 delivers RPC wire stability, in future you
+will be able to update the node and CorDapps without the need to update RPC clients.
 
 
 
 ### Step 2. Adjust the version numbers in your Gradle build files
 
-Alter the versions you depend on in your Gradle file like so:
+Alter the versions in your Gradle file as follows.
 
 ```groovy
 ext.corda_release_version = '4.4'
@@ -207,7 +221,7 @@ ext.kotlin_version = '1.2.71'
 ext.quasar_version = '0.7.12_r3'
 ```
 
-You also need a add `corda-dependencies` to the list of repositories to make the custom built version of Quasar available:
+You also need to add `corda-dependencies` to your list of repositories to make the custom-built version of Quasar available.
 
 ```groovy
 repositories {
@@ -219,22 +233,21 @@ repositories {
 ```
 
 {{< note >}}
-You may wish to update your kotlinOptions to use language level 1.2, to benefit from the new features. Apps targeting Corda 4
-may not at this time use Kotlin 1.3, as it was released too late in the development cycle
-for us to risk an upgrade. Sorry! Future work on app isolation will make it easier for apps to use newer Kotlin versions than
-the node itself uses.
+To benefit from the new features, you may want to update your kotlinOptions to use language level 1.2. CorDapps targeting Corda 4
+may not at this time use Kotlin 1.3.
 
 {{< /note >}}
-You should also ensure you’re using Gradle 4.10 (but not 5). If you use the Gradle wrapper, run:
+
+You also need to check you’re using Gradle 4.10 (but not 5). If you use the Gradle wrapper, run:
 
 ```shell
 ./gradlew wrapper --gradle-version 4.10.3
 ```
 
-Otherwise just upgrade your installed copy in the usual manner for your operating system.
+Otherwise, upgrade your installed copy in the usual way for your operating system.
 
 {{< note >}}
-Platform Version 5 requires a different version of Gradle, so if you’re intending to upgrade past Platform Version 4 you may wish
+Platform version 5 requires a different version of Gradle, so if you’re intending to upgrade past platform version 4 you may wish
 to skip updating Gradle here and upgrade directly to the version required by Platform Version 5. You’ll still need to alter the version
 numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#platform-version-5-gradle-changes)
 
@@ -887,7 +900,7 @@ been removed.
 You have some choices here:
 
 
-* Upgrade your `quasar.jar` to `0.7.12_r3`
-* Delete your `lib` directory and switch to using the Gradle test runner
+* Upgrade your `quasar.jar` to `0.7.12_r3`.
+* Delete your `lib` directory and switch to using the Gradle test runner.
 
 Instructions for both options can be found in Running tests in Intellij.
