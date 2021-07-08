@@ -264,37 +264,32 @@ For all classes, you must:
 In Java, turn it on using the `-parameters` command line option to `javac`. If you cannot recompile classes, such as when using a third-party library, you can use a
 proxy serializer. See [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md).
 * Annotate the class with `@CordaSerializable`.
-* Ensure the declared types of constructor arguments, getters, and setters are supported. If you use generics, the
-generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard which is
+* Make sure Corda supports the declared types of constructor arguments, getters, and setters. If you use generics, the
+generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard that has been
 widened to an open wildcard.
-* Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
+* Design your objects so that they **do not** refer to themselves, directly or indirectly. Object graph cycles are not supported.
 
 Super-classes must adhere the same rules, but can be abstract.
 
 
-#### Constructor Instantiation
+#### Constructor instantiation
 
-The primary way Corda’s AMQP serialization framework instantiates objects is via a specified constructor. This is
-used to first determine which properties of an object are to be serialised, then, on deserialization, it is used to
-instantiate the object with the serialized values.
+Corda’s AMQP serialization framework primarily instantiates objects is via a specified constructor. First, the constructor determines which properties of an object to serialize. Then, on deserialization, it
+instantiates the object with the serialized values.
 
-It is recommended that serializable objects in Corda adhere to the following rules, as they allow immutable state
-objects to be deserialised:
-
-
+For immutable state objects to be deserializable, serializable objects must have:
 
 * A Java Bean getter for each of the properties in the constructor, with a name of the form `getX`.  For example, for a constructor
 parameter `foo`, there must be a getter called `getFoo()`.  If `foo` is a boolean, the getter may
-optionally be called `isFoo()` (this is why the class must be compiled with parameter names turned on)
-* A constructor which takes all of the properties that you wish to record in the serialized form.  This is required in
-order for the serialization framework to reconstruct an instance of your class
+optionally be called `isFoo()`. This is why the class must be compiled with parameter names turned on.
+* A constructor that takes all the properties you wish to record in the serialized form.  This is required for the serialization framework to reconstruct an instance of your class.
 * If more than one constructor is provided, the serialization framework needs to know which one to use.  The `@ConstructorForDeserialization`
-annotation can be used to indicate which one.  For a Kotlin class, without the `@ConstructorForDeserialization` annotation, the
-*primary constructor* will be selected
+You can use annotation to indicate which one. For example, if you use a Kotlin class without the `@ConstructorForDeserialization` annotation, the
+*primary constructor* will be selected.
 
 
-In Kotlin, this maps cleanly to a data class where there getters are synthesized automatically. For example, suppose we
-have the following data class:
+In Kotlin, this maps cleanly to a data class where there getters are synthesized automatically. For example, suppose you
+have this data class:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -305,10 +300,10 @@ data class Example (val a: Int, val b: String)
 
 {{< /tabs >}}
 
-Properties `a` and `b` will be included in the serialised form.
+Properties `a` and `b` are included in the serialized form.
 
-However, properties not mentioned in the constructor will not be serialised. For example, in the following code,
-property `c` will not be considered part of the serialised form:
+However, properties not mentioned in the constructor will not be serialized. For example, in the following code,
+property `c` will not be considered part of the serialized form:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -327,15 +322,19 @@ val e2 = e.serialize().deserialize() // e2.c will be 20, not 100!!!
 {{< /tabs >}}
 
 
-#### Setter Instantiation
+#### Setter instantiation
 
-As an alternative to constructor-based initialisation, Corda can also determine the important elements of an
-object by inspecting the getter and setter methods present on the class. If a class has **only** a default
-constructor **and** properties then the serializable properties will be determined by the presence of
-both a getter and setter for that property that are both publicly visible (i.e. the class adheres to
-the classic *idiom* of mutable JavaBeans).
+{{< warning >}}
+Corda uses immutable data structures by default. If you rely heavily on mutable JavaBean style objects, the API may behave unintuitively.
+{{< /warning >}}
 
-On deserialization, a default instance will first be created, and then the setters will be invoked on that object to
+Constructor-based initialization works best with the API. However, if you require an alternative, Corda can also determine the important elements of an
+object by inspecting the getter and setter methods present on the class. If a class **only** has a default
+constructor **and** properties, then the serializable properties are determined by the presence of
+both a getter and setter for that property, which are both publicly visible. In essence, the class adheres to
+the classic idiom of mutable JavaBeans.
+
+On deserialization, a default instance is created first. Then, the setters are invoked on that object to
 populate it with the correct values.
 
 For example:
@@ -368,20 +367,14 @@ class Example {
 {{< /tabs >}}
 
 
-{{< warning >}}
-We do not recommend this pattern! Corda tries to use immutable data structures throughout, and if you
-rely heavily on mutable JavaBean style objects then you may sometimes find the API behaves in unintuitive ways.
-
-{{< /warning >}}
 
 
+### Inaccessible private properties
 
-### Inaccessible Private Properties
+The Corda AMQP serialization framework supports private object properties without publicly
+accessible getter methods, but using this development idiom is strongly discouraged because it can create conflict between
+the semantics of the object as written and the semantics required to serialize it normally.
 
-Whilst the Corda AMQP serialization framework supports private object properties without publicly
-accessible getter methods, this development idiom is strongly discouraged.
-
-For example.
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="kotlin" %}}
@@ -406,14 +399,12 @@ class C {
 
 {{< /tabs >}}
 
-When designing Corda states, it should be remembered that they are not, despite appearances, traditional
-OOP style objects. They are signed over, transformed, serialised, and relationally mapped. As such,
+Corda states are **not** traditional OOP-style objects. They are signed over, transformed, serialized, and relationally mapped. As such,
 all elements should be publicly accessible by design.
 
 
 {{< warning >}}
-IDEs will indicate erroneously that properties can be given something other than public visibility. Ignore
-this, as whilst it will work, as discussed above there are many reasons why this isn’t a good idea.
+Make sure your properties have public visibility, even if your IDE indicates that other settings are possible.
 
 {{< /warning >}}
 
@@ -451,11 +442,11 @@ class C {
 {{< /tabs >}}
 
 
-### Mismatched Class Properties / Constructor Parameters
+### Mismatched class properties/constructor parameters
 
-Consider an example where you wish to ensure that a property of class whose type is some form of container is always sorted using some specific criteria yet you wish to maintain the immutability of the class.
+Consider an example where you wish to ensure that a property of a class, whose type is some form of container, is always sorted using a specific criteria. However, you want to maintain the immutability of the class.
 
-This could be codified as follows:
+You could codify this as:
 
 {{< tabs name="tabs-6" >}}
 {{% tab name="kotlin" %}}
@@ -473,14 +464,14 @@ class ConfirmRequest(statesToConsume: List<StateRef>, val transactionId: SecureH
 
 {{< /tabs >}}
 
-The intention in the example is to always ensure that the states are stored in a specific order regardless of the ordering
-of the list used to initialise instances of the class. This is achieved by using the first constructor parameter as the
+The intention in the example is to ensure that the states are stored in a specific order, regardless of the ordering
+of the list used to initialize instances of the class. This is achieved by using the first constructor parameter as the
 basis for a private member. However, because that member is not mentioned in the constructor (whose parameters determine
-what is serializable as discussed above) it would not be serialized. In addition, as there is no provided mechanism to retrieve
-a value for `statesToConsume` we would fail to build a serializer for this Class.
+what is serializable as discussed above) it would not be serialized. Because no mechanism provided to retrieve
+a value for `statesToConsume`, the constructor would fail to build a serializer for this class.
 
-In this case a secondary constructor annotated with `@ConstructorForDeserialization` would not be a valid solution as the
-two signatures would be the same. Best practice is thus to provide a getter for the constructor parameter which explicitly
+In this case, a secondary constructor annotated with `@ConstructorForDeserialization` would not be a valid solution as the
+two signatures would be the same. The best practice is to provide a getter for the constructor parameter which explicitly
 associates it with the actual member variable.
 
 {{< tabs name="tabs-7" >}}
