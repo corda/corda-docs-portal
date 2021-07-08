@@ -15,7 +15,7 @@ weight: 30
 # Upgrade a CorDapp to a newer platform version
 
 {{< warning >}}
-Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 These notes provide instructions for upgrading your CorDapps from previous platform versions.
@@ -62,8 +62,8 @@ You don't need to perform a manual upgrade when upgrading to this platform versi
 ## Upgrade CorDapps to platform version 8
 
 To upgrade your CorDapps to platform version 8, you need to:
-* Upgrade existing nodes to version 4.6.
-* Check you're using Corda Gradle plugins version 5.0.12.
+* [Upgrade existing nodes to version 4.6](#upgrade-existing-nodes-to-version-46).
+* [Check you're using Corda Gradle plugins version 5.0.12](#check-youre-using-corda-gradle-plugins-version-5012).
 
 Instructions on how you do this are detailed below.
 
@@ -102,8 +102,8 @@ You don't need to perform a manual upgrade when upgrading to this platform versi
 ## Upgrade CorDapps to platform version 5
 
 To upgrade your CorDapps to platform version 5, you need to:
-* Handle any source compatibility breaks.
-* Update Gradle version and associated dependencies.
+* [Handle any source compatibility breaks](#handle-any-source-compatibility-breaks-if-youre-using-kotlin).
+* [Update Gradle version and associated dependencies](#update-gradle-version-and-associated-dependencies).
 
 Instructions on how you do this are detailed below.
 
@@ -137,8 +137,7 @@ This is because a new `Destination` interface introduced in platform version 5 c
 used as an `AbstractParty`, but has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not subsequently a valid type for use as an `AbstractParty`.
-For more information on `Destination`, see the [Changelog](https://docs.corda.net/docs/corda-os/4.4/changelog.html) for platform version 5, or the KDocs for the interface
-[here](https://docs.corda.net/head/api/kotlin/corda/net.corda.core.flows/-destination.html).
+For more information on `Destination`, see the [Changelog](https://docs.corda.net/docs/corda-os/4.4/changelog.html) for platform version 5, or the [KDocs](https://docs.corda.net/head/api/kotlin/corda/net.corda.core.flows/-destination.html) for the interface.
 
 
 {{< note >}}
@@ -392,7 +391,7 @@ The upgrade is a three step process:
 
 * Change the flow that calls `FinalityFlow`.
 * Change or create the flow that will receive the finalised transaction.
-* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#cordapp-upgrade-version-numbers-ref)).
+* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#Step-2.-Adjust-the-version-numbers-in-your-Gradle-build-files)).
 
 
 #### Upgrading a non-initiating flow
@@ -885,8 +884,8 @@ Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
 * The [new withEntityManager API](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
-* [Reference States](cordapps/api-states.md#reference-states), that let you use an input state without consuming it.
-* [State Pointers](cordapps/api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
+* [Reference states](cordapps/api-states.md#reference-states), which let you use an input state without consuming it.
+* [State pointers](cordapps/api-states.md#state-pointers), which make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 
 Please also read the CorDapp Upgradeability Guarantees associated with CorDapp upgrading.
 
