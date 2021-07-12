@@ -114,7 +114,7 @@ described by a string or symbolic descriptor that references a schema entry.
 
 ## High level format
 
-Every Corda message is, at the top level, an *ENVELOPE* record containing three elements:
+Every Corda message is, at the top level, an `ENVELOPE` record containing three elements:
 
 
 * The top-level message, described using a string (symbolic) descriptor.
