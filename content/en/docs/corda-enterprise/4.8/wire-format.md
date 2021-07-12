@@ -20,13 +20,14 @@ Qpid Proton and Microsoft AMQP.NET Lite.
 
 ## Header
 
-All messages start with the 5 byte sequence `corda` followed by three versioning bytes: major, minor and encoding.
+All messages start with the 5-byte sequence `corda` followed by three versioning bytes: major, minor, and encoding.
 That means you can’t directly feed a Corda message into an AMQP library. You must check the header string and
 then skip it. This is deliberate, to enable other message formats in the future.
 
 The first version byte is set to 1 by default. This indicates the major version of the format. Any other version byte indicates a serialization format that isn't backwards compatible, and you should abort.
 The second byte is the minor version. Your code will tolerate this incrementing if it is robust
-to unknown data (for example, new schema elements). The third byte is an encoding byte. This indicates that new features, such as
+to unknown data (for example, new schema elements). 
+The third byte is an encoding byte. This indicates that new features, such as
 compression, are active. You should abort if this isn’t zero.
 
 
@@ -36,12 +37,12 @@ AMQP/1.0 is a protocol that contains a standardized binary encoding scheme. The 
 more advanced than, Google protocol buffers. See the [AMQP specification](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-types-v1.0-os.html)
 for a full description of this protocol and encoded examples you can use to understand each byte of a message.
 
-The format specifies encodings for several ‘primitive’ types: numbers, strings, UUIDs, timestamps
+The format specifies encodings for several "primitive" types: numbers, strings, UUIDs, timestamps,
 and symbols. You can think of these as enum entries. It also defines the process to encode maps, lists, and arrays. Arrays always contain a single type of element, while lists can contain multiple element types.
 An AMQP byte stream is a repeated series of elements.
 
 AMQP goes further than most tagged binary encodings by including the concept of
-*described types*. Lets you impose an application-level type system on top of the basic groups of elements
+*described types*. This lets you impose an application-level type system on top of the basic groups of elements
 that low-level AMQP gives you. Any element in the stream can be prefixed with a *descriptor*, which is either a string
 or a 64-bit value. Both types of label have a defined namespacing mechanism. This labeling scheme allows sophisticated
 layering on top of the simple, interoperable core.
@@ -58,7 +59,7 @@ You can also define a *restricted type*. These define a type that is a specializ
 an existing one. For enumerations, you can list the choices in the schema.
 
 You can interpret a serialized message at several levels of detail. If you parse it using the basic AMQP type system, you will get nested lists and maps containing a few basic
-types (similar to JSON). If you use descriptors and map those containers to higher level, you will get more strongly-typed structures.
+types (similar to JSON). If you use descriptors and map those containers to a higher level, you will get more strongly-typed structures.
 
 
 ## Extended AMQP
@@ -74,7 +75,7 @@ AMQP’s type system can solve this. However, it has two problems:
 It is not best practice to embed XML inside binary formats designed to be digitally signed, so Corda defines a
 mapping from the schema notation directly to the AMQP encoding. This makes AMQP messages on Corda self-describing by embedding a
 schema for each application or platform-level type that is serialized. The schema provides information such as field names,
-annotations, and variables for generic types. You can ignore the schema in many interoperability cases. It's primary function is
+annotations, and variables for generic types. You can ignore the schema in many interoperability cases. Its primary function is
 to enable version evolution of persisted data structures over time.
 
 ## Descriptors
@@ -151,12 +152,12 @@ derived from any other kind of schema. Any class annotated as `@CordaSerializabl
 You don’t need access to the original class files to decode the typed structure of a Corda message, because of the embedded AMQP
 schema. You may find it more convenient to work with the original structures using JVM reflection. This is useful for code generators.
 
-Optionally, you can parse the Java .class file format using a variety of libraries. It uses a tagged
+Optionally, you can parse the Java `.class` file format using a variety of libraries. It uses a tagged
 union-style format and [can be parsed in about 300 lines of C](https://github.com/atcol/cfr/blob/master/src/class.c). The only
 part of the class file that is relevant for type information is the parameters for the constructor. Those parameters define which fields
 are stored to the wire.
 
-Source code does not have a deterministic field ordering. Developers may re-arrange fields in their classes as they refactor
+The source code does not have a deterministic field ordering. Developers may re-arrange fields in their classes as they refactor
 their code, which in a conventional serialization scheme would break the wire format. When mapping classes to AMQP schemas,
 fields are sorted alphabetically. If a new field is added, it will not necessarily appear at the end of the list.
 
