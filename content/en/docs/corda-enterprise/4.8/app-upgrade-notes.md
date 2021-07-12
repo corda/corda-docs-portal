@@ -190,7 +190,7 @@ maven { url 'https://repo.gradle.org/gradle/libs-releases' }
 ## Upgrade CorDapps to platform version 4
 
 To upgrade your CorDapps to platform version 4, you need to:
-1. [Switch any RPC clients to use the new RPC library](#1-switch-any-rpc-clients-to-use-the-new-rpc-library).
+1. [Update RPC clients to use the new RPC library](#1-update-rpc-clients-to-use-the-new-rpc-library).
 1. [Change the version numbers in your Gradle build file](#2-change-the-version-numbers-in-your-gradle-build-file).
 1. [Update your Gradle build file](#3-update-your-gradle-build-file).
 1.
@@ -208,7 +208,7 @@ To upgrade your CorDapps to platform version 4, you need to:
 
 
 
-### 1. Switch any RPC clients to use the new RPC library
+### 1. Update RPC clients to use the new RPC library
 
 Although the RPC API is backwards compatible with Corda 3, the RPC wire protocol isn’t. Therefore, to use the new version of the RPC library, RPC clients, such as web servers, need to be
 updated in lockstep with the node. As Corda 4 delivers RPC wire stability, you
@@ -238,11 +238,11 @@ repositories {
 
 {{< note >}}
 To benefit from the new features, you may want to update your kotlinOptions to use language level 1.2. CorDapps targeting Corda 4
-may not at this time use Kotlin 1.3.
+may not (at this time) use Kotlin 1.3.
 
 {{< /note >}}
 
-You also need to check you’re using Gradle 4.10—but not 5. If you use the Gradle wrapper, run:
+You also need to check you’re using Gradle 4.10—not 5. If you use the Gradle wrapper, run:
 
 ```shell
 ./gradlew wrapper --gradle-version 4.10.3
@@ -259,10 +259,11 @@ numbers in your Gradle build file as shown in this section.
 
 ### 3. Update your Gradle build file
 
-There are several adjustments that are beneficial to make to your Gradle build file, beyond simply incrementing the versions
+You can make several beneficial adjustments to your Gradle build file, beyond simply incrementing the versions
 as described in the step above.
 
-**CorDapp metadata** is used by the Corda Gradle build plugin to populate your CorDapp's `.jar` file with useful information.
+#### CorDapp metadata
+CorDapp metadata is used by the Corda Gradle build plugin to populate your CorDapp's `.jar` file with useful information.
 It should look like this:
 
 ```groovy
@@ -293,52 +294,45 @@ Watch out for the UK spelling of the word licence (with a c).
 
 You can set `name`, `vendor`, and `licence` to any string, they don’t have to be Corda identities.
 
-Target versioning is a new concept introduced in Corda 4. Learn more by reading versioning.
-Setting a target version of 4 opts in to changes that might not be 100% backwards compatible, such as
-API semantics changes or disabling workarounds for bugs that may be in your apps, so by doing this you
-are promising that you have thoroughly tested your app on the new version. Using a high target version is
-a good idea because some features and improvements are only available to apps that opt in.
+Target versioning is a new concept introduced in Corda 4. Before you set values for `targetPlatformVersion` and `minimumPlatformVersion`, read our guide on [Versioning](cordapps/versioning.md).
 
-The minimum platform version is the platform version of the node that you require, so if you
-start using new APIs and features in Corda 4, you should set this to 4. Unfortunately Corda 3 and below
-do not know about this metadata and don’t check it, so your app will still be loaded in such nodes and
-may exhibit undefined behaviour at runtime. However it’s good to get in the habit of setting this
-properly for future releases.
+CorDapps running Corda 3 or older, don't support CorDapp metadata. This means that your CorDapp may exhibit undefined behaviour at runtime when loaded in nodes that use a newer version.
+Even so, it's best practice to complete this metadata ready for upgrades to future versions.
+
 
 {{< note >}}
-Whilst it’s currently a convention that Corda releases have the platform version number as their
-major version i.e. Corda 3.4 implements platform version 3, this is not actually required and may in
-future not hold true. You should know the platform version of the node releases you want to target.
-
+Corda versions and platform versions don't aligned, especially in later versions. For example Corda version 4.8 is platform version 10. See the [platform version matrix](#platform-version-matrix) for further information.
 {{< /note >}}
-The new `versionId` number is a version code for **your** app, and is unrelated to Corda’s own versions.
-It is currently used for informative purposes only.
 
-**Split your app into contract and workflow `.jar` files.** The duplication between `contract` and `workflow` blocks exists because you should split your app into
-two separate `.jar` files/modules, one that contains on-ledger validation code like states and contracts, and one
-for the rest (called by convention the “workflows” module although it can contain a lot more than just flows:
-services would also go here, for instance). For simplicity, here we use one `.jar` file for both, but this is in
-general an anti-pattern and can result in your flow logic code being sent over the network to arbitrary
-third party peers, even though they don’t need it.
+`versionId` is a version code for **your** CorDapp, and is unrelated to Corda’s own versions.
+It is used for informative purposes only.
 
-In future, the version ID attached to the workflow `.jar` file will also be used to help implement smoother upgrade
-and migration features. You may directly reference the gradle version number of your app when setting the
-CorDapp specific versionId identifiers if this follows the convention of always being a whole number
+
+#### Split your CorDapp into contract and workflow `.jar` files
+The duplication between `contract` and `workflow` blocks exists because you should split your CorDapp into
+two separate `.jar` files/modules. One should contain on-ledger validation code, like states and contracts. The other should contain workflows and anything else, such as services.
+
+Historically one `.jar` file has been used for both, but this can result in sending your flow logic code over the network to arbitrary
+third-party peers, even though they don’t need it.
+
+For later versions, the `versionId` parameter attached to the workflow `.jar` file will also help with smoother upgrades
+and migration features. You may directly reference the Gradle version number of your CorDapp when setting the
+CorDapp specific `versionId` identifiers, if this follows the convention of always being a whole number
 starting from 1.
 
-If you use the finance demo app, you should adjust your dependencies so you depend on the finance-contracts
+If you use the finance demo CorDapp, adjust your dependencies to the finance-contracts
 and finance-workflows artifacts from your own contract and workflow `.jar` file respectively.
 
 
-### 4. Remove custom configuration from the node.conf file
+### 4. Remove custom configuration from your node.conf file
 
 CorDapps can no longer access custom configuration items in the `node.conf` file. Any custom CorDapp configuration should be added to a
-CorDapp configuration file. The Node’s configuration will not be accessible. CorDapp configuration files should be placed in the
-*config* subdirectory of the Node’s *cordapps* folder. The name of the file should match the name of the `.jar` file of the CorDapp (eg; if your
-CorDapp is called `hello-0.1.jar` the configuration file needed would be `cordapps/config/hello-0.1.conf`).
+CorDapp configuration file. The node’s configuration will not be accessible. CorDapp configuration files should be placed in the
+*config* subdirectory of the node’s *cordapps* folder. The name of the file should match the name of the `.jar` file of the CorDapp. For example, if your
+CorDapp is called `hello-0.1.jar`, you'll need a configuration file called `cordapps/config/hello-0.1.conf`).
 
 If you are using the `extraConfig` of a `node` in the `deployNodes` Gradle task to populate custom configuration for testing, you will need
-to make the following change so that:
+to change:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -350,7 +344,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-Would become:
+To:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -364,43 +358,47 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](cordapps/cordapp-build-systems.md#cordapp-configuration-files-ref) for more information.
+See [CorDapp configuration files](cordapps/cordapp-build-systems.md#cordapp-configuration-files) for more information.
 
 
 
-### 5. Improve security by upgrading your use of FinalityFlow
+### 5. Improve security by upgrading how you use FinalityFlow
 
-The previous `FinalityFlow` API is insecure. It doesn’t have a receive flow, so requires counterparty nodes to accept any and
-all signed transactions that are sent to it, without checks. It is **highly** recommended that existing CorDapps migrate to the new API, as otherwise things like business network membership checks won’t be reliably enforced.
+The previous `FinalityFlow` API is insecure. It doesn't have a receive flow, so requires counterparty nodes to accept any and
+all signed transactions that are sent to it, without performing any checks. Therefore, we **highly** recommend that existing CorDapps migrate to the new API to reliably enforce business network membership checks, for example.
 
-The flows that make use of `FinalityFlow` in a CorDapp can be classified in the following 2 basic categories:
+The flows that make use of `FinalityFlow` in a CorDapp can be classified into two basic categories:
 
 
-* **non-initiating flows**: these are flows that finalise a transaction without the involvement of a counterpart flow at all.
-* **initiating flows**: these are flows that initiate a counterpart (responder) flow.
+* **non-initiating flows** finalise a transaction without the involvement of a counterpart flow.
+* **initiating flows** initiate a counterpart (responder) flow.
 
-There is a main difference between these 2 different categories, which is relevant to how the CorDapp can be upgraded.
-The second category of flows can be upgraded to use the new `FinalityFlow` in a backwards compatible way, which means the upgraded CorDapp can be deployed at the various nodes using a *rolling deployment*.
-On the other hand, the first category of flows cannot be upgraded to the new `FinalityFlow` in a backwards compatible way, so the changes to these flows need to be deployed simultaneously at all the nodes, using a *lockstep deployment*.
+The main difference between these two types of flow relate to how the CorDapp can be upgraded.
+
+Non-initiating flows cen't be upgraded to the new `FinalityFlow` in a backwards compatible way. Changes to these flows need to be deployed simultaneously to all the nodes, using a *lockstep deployment*.
+
+Initiating flows can be upgraded to use the new `FinalityFlow` in a backwards compatible way. This means the upgraded CorDapp can be deployed to the various nodes using a *rolling deployment*.
+
 
 {{< note >}}
-A *lockstep deployment* is one, where all the involved nodes are stopped, upgraded to the new version of the CorDapp and then re-started.
-As a result, there can’t be any nodes running different versions of the CorDapp at any time.
-A *rolling deployment* is one, where every node can be stopped, upgraded to the new version of the CorDapp and re-started independently and on its own pace.
-As a result, there can be nodes running different versions of the CorDapp and transact with each other successfully.
+A *lockstep deployment* is where all involved nodes are stopped, upgraded to the new version of the CorDapp, and then re-started.
+As a result, nodes can't run different versions of the CorDapp at the same time.
+A *rolling deployment* is where every node can be stopped, upgraded to the new version of the CorDapp, and re-started independently—at different times if needed.
+As a result, nodes can be running different versions of the CorDapp and still transact with each other successfully.
 
 {{< /note >}}
-The upgrade is a three step process:
+
+To upgrade your `FinalityFlow`, you need to:
 
 
 * Change the flow that calls `FinalityFlow`.
 * Change or create the flow that will receive the finalised transaction.
-* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#Step-2.-Adjust-the-version-numbers-in-your-Gradle-build-files)).
+* Make sure your CorDapp’s `targetPlatformVersion` and `minimumPlatformVersion` are set to 4, see [2. Change the version numbers in your Gradle build file](#2-change-the-version-numbers-in-your-gradle-build-file).
 
 
 #### Upgrading a non-initiating flow
 
-As an example, let’s take a very simple flow that finalises a transaction without the involvement of a counterpart flow:
+This example takes a simple flow that finalizes a transaction without the involvement of a counterpart flow:
 
 {{< tabs name="tabs-3" >}}
 {{% tab name="kotlin" %}}
@@ -437,19 +435,19 @@ public static class SimpleFlowUsingOldApi extends FlowLogic<SignedTransaction> {
 
 {{< /tabs >}}
 
-To use the new API, this flow needs to be annotated with `InitiatingFlow` and a `FlowSession` to the participant(s) of the transaction must be
+To use the new API, the flow needs to be annotated with `InitiatingFlow` and a `FlowSession` to the participant(s) of the transaction must be
 passed to `FinalityFlow` :
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-// Notice how the flow *must* now be an initiating flow even when it wasn't before.
+// Notice how the flow *must* now be an initiating flow.
 @InitiatingFlow
 class SimpleFlowUsingNewApi(private val counterparty: Party) : FlowLogic<SignedTransaction>() {
     @Suspendable
     override fun call(): SignedTransaction {
         val stx = dummyTransactionWithParticipant(counterparty)
-        // For each non-local participant in the transaction we must initiate a flow session with them.
+        // We must initiate a flow session with each non-local participant in the transaction.
         val session = initiateFlow(counterparty)
         return subFlow(FinalityFlow(stx, session))
     }
@@ -462,7 +460,7 @@ class SimpleFlowUsingNewApi(private val counterparty: Party) : FlowLogic<SignedT
 
 {{% tab name="java" %}}
 ```java
-// Notice how the flow *must* now be an initiating flow even when it wasn't before.
+// Notice how the flow *must* now be an initiating flow.
 @InitiatingFlow
 public static class SimpleFlowUsingNewApi extends FlowLogic<SignedTransaction> {
     private final Party counterparty;
@@ -471,7 +469,7 @@ public static class SimpleFlowUsingNewApi extends FlowLogic<SignedTransaction> {
     @Override
     public SignedTransaction call() throws FlowException {
         SignedTransaction stx = dummyTransactionWithParticipant(counterparty);
-        // For each non-local participant in the transaction we must initiate a flow session with them.
+        // We must initiate a flow session with each non-local participant in the transaction.
         FlowSession session = initiateFlow(counterparty);
         return subFlow(new FinalityFlow(stx, session));
     }
@@ -482,7 +480,7 @@ public static class SimpleFlowUsingNewApi extends FlowLogic<SignedTransaction> {
 
 {{< /tabs >}}
 
-If there are more than one transaction participants then a session to each one must be initiated, excluding the local party
+If there is more than one transaction participants, then a session must be initiated with each one, excluding the local party
 and the notary.
 
 A responder flow has to be introduced, which will automatically run on the other participants’ nodes, which will call `ReceiveFinalityFlow`
@@ -491,7 +489,7 @@ to record the finalised transaction:
 {{< tabs name="tabs-5" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-// All participants will run this flow to receive and record the finalised transaction into their vault.
+// All participants will run this flow to receive and record the finalized transaction into their vault.
 @InitiatedBy(SimpleFlowUsingNewApi::class)
 class SimpleNewResponderFlow(private val otherSide: FlowSession) : FlowLogic<Unit>() {
     @Suspendable
@@ -507,7 +505,7 @@ class SimpleNewResponderFlow(private val otherSide: FlowSession) : FlowLogic<Uni
 
 {{% tab name="java" %}}
 ```java
-// All participants will run this flow to receive and record the finalised transaction into their vault.
+// All participants will run this flow to receive and record the finalized transaction into their vault.
 @InitiatedBy(SimpleFlowUsingNewApi.class)
 public static class SimpleNewResponderFlow extends FlowLogic<Void> {
     private final FlowSession otherSide;
@@ -526,26 +524,25 @@ public static class SimpleNewResponderFlow extends FlowLogic<Void> {
 {{< /tabs >}}
 
 {{< note >}}
-As described above, all the nodes in your business network will need the new CorDapp, otherwise they won’t know how to receive the transaction. **This
-includes nodes which previously didn’t have the old CorDapp.** If a node is sent a transaction and it doesn’t have the new CorDapp loaded
-then simply restart it with the CorDapp and the transaction will be recorded.
+As described above, all the nodes in your business network will need the new CorDapp, otherwise they won’t know how to receive the transaction. *This
+includes those nodes that didn’t have the old CorDapp.* If a node is sent a transaction and it doesn’t have the new CorDapp, then restart it with the CorDapp, and the transaction will be recorded.
 
 {{< /note >}}
 
 #### Upgrading an initiating flow
 
-For flows which are already initiating counterpart flows then it’s a matter of using the existing flow session.
-Note however, the new `FinalityFlow` is inlined and so the sequence of sends and receives between the two flows will
+Use the existing flow session for flows that already initiate counterpart flows.
+However, the new `FinalityFlow` is inlined and so the sequence of sends and receives between the two flows will
 change and will be incompatible with your current flows. You can use the flow version API to write your flows in a
 backwards compatible manner.
 
-Here’s what an upgraded initiating flow may look like:
+Here’s what an upgraded initiating flow may look like.
 
 {{< tabs name="tabs-6" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
 // Assuming the previous version of the flow was 1 (the default if none is specified), we increment the version number to 2
-// to allow for backwards compatibility with nodes running the old CorDapp.
+// To allow for backwards compatibility with nodes running the old CorDapp.
 @InitiatingFlow(version = 2)
 class ExistingInitiatingFlow(private val counterparty: Party) : FlowLogic<SignedTransaction>() {
     @Suspendable
@@ -553,12 +550,12 @@ class ExistingInitiatingFlow(private val counterparty: Party) : FlowLogic<Signed
         val partiallySignedTx = dummyTransactionWithParticipant(counterparty)
         val session = initiateFlow(counterparty)
         val fullySignedTx = subFlow(CollectSignaturesFlow(partiallySignedTx, listOf(session)))
-        // Determine which version of the flow that other side is using.
+        // Determine which version of the flow the counterparty is using.
         return if (session.getCounterpartyFlowInfo().flowVersion == 1) {
-            // Use the old API if the other side is using the previous version of the flow.
+            // Use the old API if the counterparty is using the previous version of the flow.
             subFlow(FinalityFlow(fullySignedTx))
         } else {
-            // Otherwise they're at least on version 2 and so we can send the finalised transaction on the existing session.
+            // Otherwise they're at least on version 2 and so we can send the finalized transaction on the existing session.
             subFlow(FinalityFlow(fullySignedTx, session))
         }
     }
@@ -572,24 +569,24 @@ class ExistingInitiatingFlow(private val counterparty: Party) : FlowLogic<Signed
 {{% tab name="java" %}}
 ```java
 // Assuming the previous version of the flow was 1 (the default if none is specified), we increment the version number to 2
-// to allow for backwards compatibility with nodes running the old CorDapp.
+// To allow for backwards compatibility with nodes running the old CorDapp.
 @InitiatingFlow(version = 2)
 public static class ExistingInitiatingFlow extends FlowLogic<SignedTransaction> {
     private final Party counterparty;
 
     @Suspendable
     @Override
-    @SuppressWarnings("deprecation")    // deprecated usage of Finality flow API without session parameter.
+    @SuppressWarnings("deprecation")    // Deprecated usage of Finality flow API without session parameter.
     public SignedTransaction call() throws FlowException {
         SignedTransaction partiallySignedTx = dummyTransactionWithParticipant(counterparty);
         FlowSession session = initiateFlow(counterparty);
         SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(partiallySignedTx, singletonList(session)));
-        // Determine which version of the flow that other side is using.
+        // Determine which version of the flow that the counterparty is using.
         if (session.getCounterpartyFlowInfo().getFlowVersion() == 1) {
-            // Use the old API if the other side is using the previous version of the flow.
+            // Use the old API if the counterparty is using the previous version of the flow.
             return subFlow(new FinalityFlow(fullySignedTx));
         } else {
-            // Otherwise they're at least on version 2 and so we can send the finalised transaction on the existing session.
+            // Otherwise they're at least on version 2 and so we can send the finalized transaction on the existing session.
             return subFlow(new FinalityFlow(fullySignedTx, session));
         }
     }
@@ -601,27 +598,27 @@ public static class ExistingInitiatingFlow extends FlowLogic<SignedTransaction> 
 {{< /tabs >}}
 
 For the responder flow, insert a call to `ReceiveFinalityFlow` at the location where it’s expecting to receive the
-finalised transaction. If the initiator is written in a backwards compatible way then so must the responder.
+finalized transaction. If the initiator is written in a backwards compatible way then so must the responder.
 
 {{< tabs name="tabs-7" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-// First we have to run the SignTransactionFlow, which will return a SignedTransaction.
+// First you have to run the SignTransactionFlow, which will return a SignedTransaction.
 val txWeJustSigned = subFlow(object : SignTransactionFlow(otherSide) {
     @Suspendable
     override fun checkTransaction(stx: SignedTransaction) {
-        // Implement responder flow transaction checks here
+        // Implement responder flow transaction checks here.
     }
 })
 
 if (otherSide.getCounterpartyFlowInfo().flowVersion >= 2) {
-    // The other side is not using the old CorDapp so call ReceiveFinalityFlow to record the finalised transaction.
-    // If SignTransactionFlow is used then we can verify the tranaction we receive for recording is the same one
+    // The counterparty is not using the old CorDapp, so call ReceiveFinalityFlow to record the finalized transaction.
+    // If SignTransactionFlow is used, then you can verify the transaction received for recording is the same one
     // that was just signed.
     subFlow(ReceiveFinalityFlow(otherSide, expectedTxId = txWeJustSigned.id))
 } else {
-    // Otherwise the other side is running the old CorDapp and so we don't need to do anything further. The node
-    // will automatically record the finalised transaction using the old insecure mechanism.
+    // Otherwise the counterparty is running the old CorDapp and so you don't need to do anything further. The node
+    // will automatically record the finalized transaction using the old insecure mechanism.
 }
 
 ```
@@ -631,23 +628,23 @@ if (otherSide.getCounterpartyFlowInfo().flowVersion >= 2) {
 
 {{% tab name="java" %}}
 ```java
-// First we have to run the SignTransactionFlow, which will return a SignedTransaction.
+// First you have to run the SignTransactionFlow, which will return a SignedTransaction.
 SignedTransaction txWeJustSigned = subFlow(new SignTransactionFlow(otherSide) {
     @Suspendable
     @Override
     protected void checkTransaction(@NotNull SignedTransaction stx) throws FlowException {
-        // Implement responder flow transaction checks here
+        // Implement responder flow transaction checks here.
     }
 });
 
 if (otherSide.getCounterpartyFlowInfo().getFlowVersion() >= 2) {
-    // The other side is not using the old CorDapp so call ReceiveFinalityFlow to record the finalised transaction.
-    // If SignTransactionFlow is used then we can verify the tranaction we receive for recording is the same one
+    // The counterparty is not using the old CorDapp, so call ReceiveFinalityFlow to record the finalized transaction.
+    // If SignTransactionFlow is used, then you can verify the transaction received for recording is the same one
     // that was just signed by passing the transaction id to ReceiveFinalityFlow.
     subFlow(new ReceiveFinalityFlow(otherSide, txWeJustSigned.getId()));
 } else {
-    // Otherwise the other side is running the old CorDapp and so we don't need to do anything further. The node
-    // will automatically record the finalised transaction using the old insecure mechanism.
+    // Otherwise the counterparty is running the old CorDapp, and so you don't need to do anything further. The node
+    // will automatically record the finalized transaction using the old insecure mechanism.
 }
 
 ```
@@ -656,9 +653,7 @@ if (otherSide.getCounterpartyFlowInfo().getFlowVersion() >= 2) {
 
 {{< /tabs >}}
 
-You may already be using `waitForLedgerCommit` in your responder flow for the finalised transaction to appear in the local node’s vault.
-Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same thing, this is no longer necessary. The call to
-`waitForLedgerCommit` should be removed.
+You no longer need to use `waitForLedgerCommit` in your responder flow. `ReceiveFinalityFlow` effectively does the same thing as it checks the finalized transaction has appeared in the local node's vault.
 
 
 ### 6. Improve security by upgrading your use of SwapIdentitiesFlow
