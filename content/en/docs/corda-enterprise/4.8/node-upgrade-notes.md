@@ -16,7 +16,7 @@ weight: 10
 
 # Upgrade a node to Corda Enterprise 4.8
 
-Follow the steps on this page if you want to upgrade a node from Corda Enterprise 4.x to Corda Enterprise 4.8.
+Follow these steps to upgrade a node from Corda Enterprise 4.x to Corda Enterprise 4.8.
 
 If you are upgrading from Corda Enterprise 3.x you must first:
 1. Ensure your node has been upgraded to the latest point release of that distribution. See [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node) for information on upgrading Corda 3.x versions.
