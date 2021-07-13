@@ -42,7 +42,7 @@ Serializers inheriting from `SerializationCustomSerializer` must implement two m
 
 ## Custom serializer example
 
-In the example below, imagine that you must serialize this class, but are constrained from making the contructor public. That means you can't use a public constructor to initialize all the properties, and therefore can't serialize the class.
+In the example below, imagine that you must serialize this class, but are constrained from making the constructor public. That means you can't use a public constructor to initialize all the properties, and therefore can't serialize the class.
 
 ```java
 public final class Example {
@@ -233,4 +233,3 @@ into the serialized byte stream.
 ## Whitelisting
 
 Classes with custom serializers are added to the CorDapp's whitelist automatically.
-
