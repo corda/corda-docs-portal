@@ -47,7 +47,7 @@ others to provide support. However, if you do use other tools, we’d be interes
 ## Set-up instructions
 
 The instructions below will allow you to set up a Corda development environment and run a basic CorDapp. If you have
-any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](http://slack.corda.net/), or
+any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](https://slack.corda.net/), or
 [Stack Overflow](https://stackoverflow.com/questions/tagged/corda)
 
 The set-up instructions are available for the following platforms:
@@ -228,5 +228,5 @@ By then, you’ll be ready to start writing your own CorDapps. Learn how to do t
 [Hello, World tutorial](hello-world-introduction.md). You may want to refer to the API docs, the
 [flow cookbook](flow-cookbook.md) and the [samples](https://www.corda.net/samples/) along the way.
 
-If you encounter any issues, please see the [Troubleshooting](troubleshooting.md) page, or get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [slack](http://slack.corda.net/).
+If you encounter any issues, please see the [Troubleshooting](troubleshooting.md) page, or get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [slack](https://slack.corda.net/).
 

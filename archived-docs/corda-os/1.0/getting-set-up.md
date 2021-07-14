@@ -51,7 +51,7 @@ others to provide support. However, if you do use other tools, we’d be interes
 ## Set-up instructions
 
 The instructions below will allow you to set up a Corda development environment and run a basic CorDapp. If you have
-any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](http://slack.corda.net/) or 
+any issues, please consult the [Troubleshooting](troubleshooting.md) page, or reach out on [Slack](https://slack.corda.net/) or 
 [Stack Overflow](https://stackoverflow.com/questions/tagged/corda).
 
 The set-up instructions are available for the following platforms:
@@ -233,5 +233,5 @@ By then, you’ll be ready to start writing your own CorDapps. Learn how to do t
 way.
 
 If you encounter any issues, please see the [Troubleshooting](troubleshooting.md) page, or get in touch with us on
-[Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [slack](http://slack.corda.net/).
+[Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [slack](https://slack.corda.net/).
 

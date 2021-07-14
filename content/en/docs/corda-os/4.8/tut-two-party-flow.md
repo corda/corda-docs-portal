@@ -13,80 +13,23 @@ tags:
 - tut
 - party
 - flow
-title: Updating the flow
+title: Update the flow
 ---
 
+# Update the flow
 
+After you have written the contract and defined any necessary constraints, as described in the [Modify the contract](tut-two-party-contract.md) section, you now need to update your flow to achieve three things:
 
-
-# Updating the flow
-
-After you have written the contract and defined any necessary constraints, as described in [Writing the contract](tut-two-party-contract.md), you now need to update your flow to achieve three things:
-
-* Verify that the transaction proposal you build fulfills the `IOUContract` constraints.
+* Verify that the transaction proposal you built fulfills the `IOUContract` constraints.
 * Update the lender’s side of the flow to request the borrower’s signature.
 * Create a response flow for the borrower that responds to the signature request from the lender.
 
-To do this, modify the flow that you created earlier as part of [Writing the flow](hello-world-flow.md).
+To do this, modify the flow that you created earlier as part of [Write the flow](write-the-flow.md).
 
-## Verifying the transaction
+## Outcome
 
-In `IOUFlow.java`/`Flows.kt`, change the imports block to the following:
+Take a look at this code snippet. This is how the updated part of your IOU flow template should look after you have completed all the steps described below.
 
-{{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
-```kotlin
-import co.paralleluniverse.fibers.Suspendable
-import net.corda.core.contracts.Command
-import net.corda.core.flows.CollectSignaturesFlow
-import net.corda.core.flows.FinalityFlow
-import net.corda.core.flows.FlowLogic
-import net.corda.core.flows.InitiatingFlow
-import net.corda.core.flows.StartableByRPC
-import net.corda.core.identity.Party
-import net.corda.core.transactions.TransactionBuilder
-import net.corda.core.utilities.ProgressTracker
-import com.template.IOUContract
-import com.template.states.IOUState
-import net.corda.core.flows.InitiatedBy
-import net.corda.core.flows.ReceiveFinalityFlow
-import net.corda.core.flows.FlowSession
-import net.corda.core.contracts.requireThat
-import net.corda.core.flows.SignTransactionFlow
-import net.corda.core.transactions.SignedTransaction
-
-
-```
-{{% /tab %}}
-
-
-
-{{% tab name="java" %}}
-```java
-import co.paralleluniverse.fibers.Suspendable;
-import net.corda.core.contracts.Command;
-import net.corda.core.flows.*;
-import net.corda.core.identity.Party;
-import net.corda.core.transactions.SignedTransaction;
-import net.corda.core.transactions.TransactionBuilder;
-import net.corda.core.utilities.ProgressTracker;
-import net.corda.core.flows.SignTransactionFlow;
-import net.corda.core.transactions.SignedTransaction;
-import static net.corda.core.contracts.ContractsDSL.requireThat;
-import net.corda.core.contracts.ContractState;
-import net.corda.core.crypto.SecureHash;
-
-
-import java.security.PublicKey;
-import java.util.Arrays;
-import java.util.List;
-
-```
-{{% /tab %}}
-
-{{< /tabs >}}
-
-Next, update `IOUFlow.call` to the following:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -161,37 +104,90 @@ return null;
 
 {{< /tabs >}}
 
-In the original CorDapp, you automated the process of notarising a transaction and recording it in every party’s vault
-by invoking a built-in flow called `FinalityFlow` as a subflow. Now, you're going to use another pre-defined flow,
-`CollectSignaturesFlow`, to gather the borrower’s signature.
+## Update the IOUFlow
 
-First, you need to update the command to use `IOUContract.Create`, rather than `TemplateContract.Commands.Action`. You'll also want to make the borrower a required signer, as per the contract
+1. In `IOUFlow.java`/`Flows.kt`, change the imports block to the following:
+
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+import co.paralleluniverse.fibers.Suspendable
+import net.corda.core.contracts.Command
+import net.corda.core.flows.CollectSignaturesFlow
+import net.corda.core.flows.FinalityFlow
+import net.corda.core.flows.FlowLogic
+import net.corda.core.flows.InitiatingFlow
+import net.corda.core.flows.StartableByRPC
+import net.corda.core.identity.Party
+import net.corda.core.transactions.TransactionBuilder
+import net.corda.core.utilities.ProgressTracker
+import com.template.IOUContract
+import com.template.states.IOUState
+import net.corda.core.flows.InitiatedBy
+import net.corda.core.flows.ReceiveFinalityFlow
+import net.corda.core.flows.FlowSession
+import net.corda.core.contracts.requireThat
+import net.corda.core.flows.SignTransactionFlow
+import net.corda.core.transactions.SignedTransaction
+
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+import co.paralleluniverse.fibers.Suspendable;
+import net.corda.core.contracts.Command;
+import net.corda.core.flows.*;
+import net.corda.core.identity.Party;
+import net.corda.core.transactions.SignedTransaction;
+import net.corda.core.transactions.TransactionBuilder;
+import net.corda.core.utilities.ProgressTracker;
+import net.corda.core.flows.SignTransactionFlow;
+import net.corda.core.transactions.SignedTransaction;
+import static net.corda.core.contracts.ContractsDSL.requireThat;
+import net.corda.core.contracts.ContractState;
+import net.corda.core.crypto.SecureHash;
+
+
+import java.security.PublicKey;
+import java.util.Arrays;
+import java.util.List;
+
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
+2. Update the command to use `IOUContract.Create`, rather than `TemplateContract.Commands.Action`. You'll also want to make the borrower a required signer, as per the contract
 constraints. To do this, simply add the borrower’s public key to the transaction’s command.
 
-You'll also need to add the output state to the transaction using a reference to the `IOUContract`, instead of to the old
+3. Add the output state to the transaction using a reference to the `IOUContract`, instead of to the old
 `TemplateContract`.
 
-Now that the output state is governed by a real contract, you'll want to check that your transaction proposal satisfies these
+4. Now that the output state is governed by a real contract, you'll want to check that your transaction proposal satisfies these
 requirements before kicking off the signing process. To do this, you'll call `TransactionBuilder.verify` on your
 transaction proposal before finalising it by adding the signature.
 
-## Requesting the borrower’s signature
+5. Request the borrower’s signature.
 
-In the flow that you created earlier, you wrote a responder flow for the borrower in order to receive the finalised transaction from the lender.
+   In the original CorDapp, you automated the process of notarising a transaction and recording it in every party’s vault
+   by invoking a built-in flow called `FinalityFlow` as a subflow. Now, you're going to use another pre-defined flow,
+   `CollectSignaturesFlow`, to gather the borrower’s signature.
 
-You'll now use this same flow to first request their signature over the transaction.
+   To gather the borrower’s signature, you'll use `CollectSignaturesFlow`, which takes:
 
-To gather the borrower’s signature, you'll use `CollectSignaturesFlow`, which takes:
+   * A transaction signed by the flow initiator.
+   * A list of flow-sessions between the flow initiator and the required signers.
 
-* A transaction signed by the flow initiator.
-* A list of flow-sessions between the flow initiator and the required signers.
+   It then returns a transaction signed by all the required signers.
 
-It then returns a transaction signed by all the required signers.
-
-You can pass this fully-signed transaction into `FinalityFlow`.
+   You can pass this fully-signed transaction into `FinalityFlow`.
 
 
-## Updating the borrower’s flow
+## Update the borrower’s flow
 
 On the lender’s side, you used `CollectSignaturesFlow` to automate the collection of signatures. To allow the borrower
 to respond, you need to update its responder flow to first receive the partially signed transaction for signing.
@@ -278,8 +274,8 @@ to ensure you are recording the correct notarised transaction from the lender.
 ## Conclusion
 
 You have now updated your flow to verify the transaction and gather the lender’s signature, in line with the constraints
-defined in `IOUContract`. You can now re-run your updated CorDapp, as described in
-[Running your CorDapp](hello-world-running.md).
+defined in `IOUContract`. You can now re-run your updated CorDapp, as described in the
+[Run your CorDapp](run-your-cordapp.md) section.
 
 Your CorDapp now imposes restrictions on the issuance of IOUs. Most importantly, IOU issuance now requires agreement from both the lender and the borrower before an IOU can be created on the blockchain. This prevents either the lender or the borrower from unilaterally updating the ledger in a way that only benefits themselves.
 

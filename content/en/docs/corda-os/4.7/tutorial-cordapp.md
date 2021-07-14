@@ -342,14 +342,14 @@ in [Building and installing a CorDapp](cordapp-build-systems.md).
 
 To start the nodes and the sample CorDapp, run the command that corresponds to your operating system:
 
-* Unix/Mac OSX: `./nodes/runnodes`
+* Unix/Mac OSX: `./build/nodes/runnodes`
 * Windows: `.\build\nodes\runnodes.bat`
 
 
 Start a Spring Boot server for each node by opening a terminal/command prompt for each node and entering the following command, replacing `X` with `A` and `B`.
 
-* Unix/Mac OSX: `./build/nodes/runnodes`
-* Windows: `.\build\nodes\runnodes.bat`
+* Unix/Mac OSX: `./gradlew runPartyXServer`
+* Windows: `gradlew.bat runPartyXServer`
 
 Look for the `Started Server in X seconds` message &mdash; don’t rely on the % indicator.
 
