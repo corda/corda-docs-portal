@@ -5,13 +5,23 @@
 	{{ with $pages.Next . -}}
 		<div>
 			Previous<br />
-			<a href="{{ .Permalink }}"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EC1D24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> {{ .Title }}</a>
+			<a href="{{ .Permalink }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
+          <path stroke="#ec1d24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.668 2.917L1.75 7l3.918 4.083"/>
+          <path stroke="#ec1d24" stroke-linecap="round" stroke-width="2" d="M1 -1L9.344 -1" transform="matrix(1 0 0 -1 1.90576 6.43518)"/>
+        </svg>
+        {{ .Title }}</a>
 		</div>
 	{{ end -}}
 	{{ with $pages.Prev . -}}
 		<div class="ms-auto text-end">
 			Next<br />
-			<a href="{{ .Permalink }}">{{ .Title }} <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EC1D24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+			<a href="{{ .Permalink }}">{{ .Title }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
+          <path stroke="#ec1d24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.332 11.083L12.25 7 8.332 2.917"/>
+          <path stroke="#ec1d24" stroke-linecap="round" stroke-width="2" d="M1 -1L9.344 -1" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 12.0942 7.56482)"/>
+        </svg>
+      </a>
 		</div>
 	{{ end -}}
 	</div>
