@@ -12,7 +12,7 @@ menu:
 tags:
 - tutorial
 - cordapp
-title: Running a sample CorDapp
+title: Run a sample CorDapp
 ---
 
 

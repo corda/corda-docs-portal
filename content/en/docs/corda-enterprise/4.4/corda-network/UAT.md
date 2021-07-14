@@ -40,13 +40,13 @@ The environment is therefore more aligned to the testing of the operational char
 * Access to the appropriate environment has been agreed with your project representative with sufficient advance notice (4 weeks is standard but may be longer if you have special service requirements) to ensure appropriate SLAs can be in place. Your project representative will be able to supply the booking template.
 
 {{< note >}}
-Corda Network Pre-Production is governed by an [independent Foundation](https://corda.network/governance/index.html).
+Corda Network Pre-Production is governed by an [independent Foundation](https://corda.network/corda-network-foundation/about-the-foundation).
 {{< /note >}}
 
 ##  Joining the Pre-Production environment
 
 *The below joining steps assume the potential participant is joining the Pre-Production environment directly, and as such is not "sponsoring" or onboarding other participants. If this is the case, please contact your Corda representative for how to "sponsor" end-participants.*
 
-Steps to join are outlined on the [Corda Network site](https://corda.network/participation/index.html).
+Steps to join are outlined on the [Corda Network site](https://corda.network/joining-corda-network/onboarding-workflow).
 
 For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network) or at [info@corda.network](mailto:info@corda.network)
