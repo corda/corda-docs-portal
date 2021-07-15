@@ -349,7 +349,7 @@ Start your node in the normal way.
 
 ## Step 8. Undrain the node
 
-You may now do any checks such as read the logs. When you are ready, use this command at the shell.
+You may now do any checks, such as reading the logs. When you are ready, use this command at the shell.
 
 `run setFlowsDrainingModeEnabled enabled: false`
 
