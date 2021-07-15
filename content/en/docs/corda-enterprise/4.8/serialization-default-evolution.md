@@ -200,32 +200,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 
 Removing non-nullable properties is impossible. If a node receives a message containing a serialized form of an object that has fewer properties than it requires for construction, it can't determine sensible defaults.
 
-It is technically possible to remove nullable properties. The framework sets them to `null`.
-
-{{< warning >}}
-Removing properties often has unintended consequences. Consider an alternative solution if possible.
-{{< /warning >}}
-
-
-Property removal mirrors the process of adding properties. When the serialization framework detects this state, properties
-that don’t have matching parameters in the main constructor are omitted from object construction:
-
-{{< tabs name="tabs-10" >}}
-{{% tab name="kotlin" %}}
-```kotlin
-// Initial instance of the class
-data class Example4 (val a: Int?, val b: String?, val c: Int?) // (Version A)
-
-
-// Class post removal of property 'a'
-data class Example4 (val b: String?, c: Int?) // (Version B)
-```
-{{% /tab %}}
-
-{{< /tabs >}}
-
-You can *only* remove nullable properties. The framework simply sets them to `null`. Removing non-nullable properties is impossible. If
-a node receives a message containing a serialized form of an object that has fewer properties than it requires for construction, it can't determine sensible defaults.
+It is technically possible to [remove nullable properties](https://medium.com/corda/a-developers-primer-on-cordapp-upgrades-3806c2e7f81e) in some circumstances, but it often has unintended consequences. Deprecate the field instead.
 
 
 ## Reordering constructor parameter order
