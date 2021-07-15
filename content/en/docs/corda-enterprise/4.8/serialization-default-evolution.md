@@ -198,6 +198,15 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 
 ## Removing properties
 
+Removing non-nullable properties is impossible. If a node receives a message containing a serialized form of an object that has fewer properties than it requires for construction, it can't determine sensible defaults.
+
+It is technically possible to remove nullable properties. The framework sets them to `null`.
+
+{{< warning >}}
+Removing properties often has unintended consequences. Consider an alternative solution if possible.
+{{< /warning >}}
+
+
 Property removal mirrors the process of adding properties. When the serialization framework detects this state, properties
 that don’t have matching parameters in the main constructor are omitted from object construction:
 
