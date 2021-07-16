@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-2021'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-cordapps-states
@@ -12,32 +12,26 @@ weight: 30
 
 # Database management scripts
 
-Corda - the platform, and the installed CorDapps store their data in a relational database (see api-persistence).
-When a new CorDapp is installed, associated tables, indexes, foreign-keys, etc. must be created.
-Similarly, when a new version of a CorDapp is installed, its database schema may have changed,
+Corda and your installed CorDapps store their data in a relational database. When you install new CorDapp, the associated tables, indexes, foreign-keys, etc. must be created. If you install a new version of a CorDapp, its database schema may have changed,
 but the existing data needs to be preserved or changed accordingly.
 
 In Corda Enteprise, CorDapps’ custom tables are created or upgraded automatically based on
-Database Management Scripts written in [Liquibase](../node/operating/node-database.md#liquibase-ref) format and embedded in CorDapp JARs.
-For Corda Enterpise, any CorDapp having custom tables (`MappedSchema`)  needs to contain a matching Database Management Script, the script should be created during CorDapp development.
+database management scripts written in [Liquibase](../node/operating/node-database.md#liquibase-ref) format and embedded in CorDapp `.jar`s.
+Any CorDapp with custom tables (`MappedSchema`)  must contain a matching database management script.
 
 
-## Scripts structure
+## Script structure
 
-The `MappedSchema` class should have a matching Liquibase script defining a table creation.
-Liquibase scripts use declarative set of XML tags and attributes to express DDL in a cross database vendor way.
-The script can also be written in SQL, however this doesn’t guarantee compatibility across different database vendors.
-Liquibase script code is grouped in a units called `changeSet`s,
-a single `changeSet` should contain instructions to create/update/delete a single table.
+The `MappedSchema` class requires a matching Liquibase script defining table creation. Liquibase scripts use a declarative set of XML tags and attributes to express DDL across database vendors.
+Liquibase script code is grouped in a units called `changeSet`s. A single `changeSet` contains instructions to create/update/delete a single table.
 
 
 ### Database table creation
 
-For initial table creation use tags like `createTable` and `addPrimaryKey`,
-see [Liquibase documentation](https://www.liquibase.org/documentation/index.html) for examples and the complete Liquibase instruction list.
+To create your initial tables, you can use tags such as `createTable` and `addPrimaryKey`.
+See the [Liquibase documentation](https://www.liquibase.org/documentation/index.html) for examples and the complete Liquibase instruction list.
 
-To illustrate how to write an example Liquibase script, we will follow a simple `MappedSchema` `MySchemaV1`.
-The schema has a single JPA entity called `PersistentIOU` with the following fields:
+Below, you will find an example Liquibase script. It follows a simple `MappedSchema`, `MySchemaV1`.  The schema has a single JPA entity called `PersistentIOU` with the following fields:
 
 ```kotlin
 import net.corda.core.identity.AbstractParty
@@ -99,39 +93,38 @@ The corresponding Liquibase `changeSet` for the JPA entity is:
 ```
 
 Each `changeSet` tag is uniquely identified by the combination of the `author` tag, the `id` tag, and the file classpath name.
-The first entry `createTable` defines a new table.
-The table and the columns names match the relevant names defined in JPA annotations of `PersistentIOU` class.
-The columns `output_index` and `transaction_id` are mapped from `PersistentState` superclass fields.
-A compound primary key is added via `addPrimaryKey` tag.
-In order to achieve compatibility with supported databases,
-the mapping of `linearId` field is a custom `uuid-char` type, this type can be mapped to a `VARCHAR(255)` column.
-Corda contains a built-in custom JPA converter for the `AbstractParty` type to a varchar column type defined as `NVARCHAR(255)` in the script.
+The first entry `createTable` defines a new table. The table and the column names match the relevant names defined in JPA annotations of `PersistentIOU` class.
+The columns `output_index` and `transaction_id` are mapped from the `PersistentState` superclass fields. The `addPrimaryKey` tag adds the compound primary key.
+To achieve compatibility with supported databases, the mapping of `linearId` field is a custom `uuid-char` type. This type can be mapped to a `VARCHAR(255)` column.
+Corda contains a built-in custom JPA converter for the `AbstractParty` type to a varchar column type, defined as `NVARCHAR(255)`.
 
 
 ### Database table modification
 
-For any subsequent changes to a table driven by changes in a CorDapp, a new `changeSet` needs to be created.
-The existing `changeSet` cannot be modified, as Liquibase needs to track the what was exactly created.
+For any subsequent changes to a table, a create a new `changeSet`. The existing `changeSet` cannot be modified, as Liquibase needs to track what was created.
 
-Continuing our example from the previous paragraph, let’s suppose that at some point (maybe for security reasons)
+Building on the previous example, suppose that, for security reasons,
 the `owner_name` column of the `PersistentIOU` entity needs to be stored as a hash instead of the X500 name of the owning party.
 
-The `PersistentIOU` field `owner`
+Replace the `PersistentIOU` field `owner`:
 
 ```kotlin
 @Column(name = "owner_name")
 var owner: AbstractParty?,
 ```
 
-is replaced with:
+with:
 
 ```kotlin
 @Column(name = "owner_name_hash", length = MAX_HASH_HEX_SIZE)
 ```
 
-To change the database table following steps are needed: a new column addition,
-population of the hash value of the old column to the new column for existing rows, and the old column removal.
-These activities can be express in a new `changeSet` as:
+To change the database table:
+1. Add a new column.
+2. Populate the hash value of the old column to the new column for existing rows.
+3. Remove the old column.
+
+You can do this in a new `changeSet`:
 
 ```xml
 <changeSet author="My_Company" id="replace owner_name with owner_name_hash">
@@ -145,25 +138,22 @@ These activities can be express in a new `changeSet` as:
 </changeSet>
 ```
 
-The column name change allowed us to have a simplified migration steps, avoiding in-place column modification.
+The column name change simplifies the migration steps, avoiding in-place column modification.
 
 
 ## Distributing scripts with CorDapps
 
-By default Corda expects a Liquibase script file name to be a hyphenated version of the `MappedSchema` name
-(upper case letters changed to lowercase and be prefixed with hyphen, except the beginning of file).
-For example, for a `MappedSchema` named *MySchema*, Corda searches for a *my-schema.changelog-master.xml* file
-(*json* and *sql* extensions are also allowed) under *migration* package in CorDapp JARs.
+By default, Corda expects a Liquibase script file name to be a hyphenated version of the `MappedSchema` name.
+Change uppercase letters to lowercase, and be prefix the name with hyphen (except at the beginning of file).
+For example, for a `MappedSchema` named `MySchema`, Corda searches for a `my-schema.changelog-master.xml` file.
+You can use `.json` and `.sql` extensions under the `migration` package in CorDapp `.jar`s.
 
-You can also set the name and the location in the `MappedSchema` code by overriding a field `val migrationResource: String`.
-The value should be a namespace and a file name without an extension.
+You can also set the name and the location in the `MappedSchema` code by overriding the field `val migrationResource: String`.
+Set the value as a `namespace` and a file name without an extension.
 
-The files need to be on classpath which means they should be located in the resources folder of your CorDapp source code.
+The files must be on classpath, so put them in the resources folder of your CorDapp source code. To follow Corda convention for structuring the change-logs, create one master changelog file per `MappedSchema` . Each will only include release changelogs.
 
-To follow Corda convention for structuring the change-logs is to have a *“master”* changelog file per `MappedSchem`
-that will only include release change-logs.
-
-Continuing the *MySchema* example, the initial CorDapp release should contain two files, the “master” file *my-schema-v1.changelog-master.xml*:
+Continuing the `MySchema` example, the initial CorDapp release contains two files. The first one is the master file `my-schema-v1.changelog-master.xml`:
 
 ```xml
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
@@ -174,9 +164,8 @@ Continuing the *MySchema* example, the initial CorDapp release should contain tw
 </databaseChangeLog>
 ```
 
-The “master” file contains one entry pointing to other file.
-The *my-schema.changelog-init.xml* file contains instruction to create table and primary key
-(for brevity a file encoding and XML schemas in the top level entry are omitted):
+The master file contains one entry, which points to the second file. The `my-schema.changelog-init.xml` file contains an instruction to create a table and primary key.
+For brevity, file encoding and XML schemas in the top-level entry are omitted from this example.
 
 ```xml
 <databaseChangeLog>
@@ -202,11 +191,10 @@ The *my-schema.changelog-init.xml* file contains instruction to create table and
 </databaseChangeLog>
 ```
 
-The content of the file is described in the former paragraph.
-For a subsequent CorDapp releases, if there is any database schema change, a new file is created and added to a “master” changelog file.
-In our example, the next release changes a name and type of the *owner_name* column.
+If the database schema changes with a subsequent CorDapp release, a new file is created and added to a “master” changelog file.
+In the example below, the release changes a name and type of the *owner_name* column.
 
-The “master” changelog file *my-schema-v1.changelog-master.xml* will have an additional entry:
+The master changelog file `my-schema-v1.changelog-master.xml` will have an additional entry:
 
 ```xml
 <databaseChangeLog>
@@ -215,7 +203,7 @@ The “master” changelog file *my-schema-v1.changelog-master.xml* will have an
 </databaseChangeLog>
 ```
 
-The actual column change is defined in a new *my-schema.changelog-v2.xml* file:
+The actual column change is defined in a new `my-schema.changelog-v2.xml` file:
 
 ```xml
 <databaseChangeLog>
@@ -231,21 +219,20 @@ The actual column change is defined in a new *my-schema.changelog-v2.xml* file:
 </databaseChangeLog>
 ```
 
-Also the CorDapp should contain the initial script *my-schema.changelog-init.xml* with unchanged content.
+The CorDapp retains the initial script `my-schema.changelog-init.xml` with unchanged content.
 
 
-## Creating script for initial table creation using Corda Database Management Tool
+## Creating script for initial table creation using the Corda database management tool
 
-The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_release_version}.jar`.
-It is intended to be used by Corda Enterprise node administrators but it can help to develop an Liquibase script for a CorDapp.
-A generated script has instruction in SQL format (DDL statements), which may be not portable across different databases.
-Because of that, the script in SQL format should be used for development purposes only, or when a CorDapp doesn’t need to be portable across
-different databases (e.g. the CorDapp will be deployed on Corda nodes running against PostgreSQL),
-or as a help to create the portable Liquibase script in XML format.
-The tool allows to create a Liquibase script for the initial database object creation only, and cannot generate a table alteration or deletion.
+The database management tool is a standalone .`jar` file named `tools-database-manager-${corda_release_version}.jar`.
+Enterprise customers can use it to develop Liquibase scripts for CorDapps.
 
-The `create-migration-sql-for-cordapp` sub-command can be used to create initial database management scripts for each `MappedSchema` in a CorDapp.
-Usage:
+A generated script contains an instruction in SQL format (DDL statements), which may be not portable across different databases.
+Only use the SQL format script development purposes, or when a CorDapp doesn’t need to be portable across
+different databases (for example, if the CorDapp is deployed on nodes running against PostgreSQL),
+You can use this script to create a portable Liquibase script in XML format. The tool only lets you create a Liquibase script for the initial database object. You cannot alter or delete tables.
+
+You can use the `create-migration-sql-for-cordapp` sub-command to create initial database management scripts for each `MappedSchema` in a CorDapp:
 
 ```shell
 java -jar tools-database-manager-|version|.jar \
@@ -257,37 +244,34 @@ java -jar tools-database-manager-|version|.jar \
                                              [<schemaClass>]
 ```
 
-The `schemaClass` parameter can be optionally set to create migrations for a particular class, otherwise migration
-schemas will be created for all classes found.
+Optionally, you can set the `schemaClass` parameter to create migrations for a particular class. Otherwise, it creates migration
+schemas for every class it finds.
 
 Additional options:
 
-
 * `--base-directory`, `-b`: (Required) The node working directory where all the files are kept (default: `.`).
 * `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
-* `--jar`: Place generated migration scripts into a jar.
-* `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
-* `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
-* `--help`, `-h`: Show this help message and exit.
-* `--version`, `-V`: Print version information and exit.
+* `--jar`: Places generated migration scripts into a jar.
+* `--verbose`, `--log-to-console`, `-v`: If set, this prints logging to the console and to a file.
+* `--logging-level=<loggingLevel>`: Enables logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
+* `--help`, `-h`: Shows a help message and exits.
+* `--version`, `-V`: Prints version information and exits.
 
 
 {{< warning >}}
-A very important aspect to be remembered is that the CorDapp will have to work on all supported Corda databases.
-It is the responsibility of the developers to test the migration scripts and the CorDapp against all the databases.
-In the future we will provide additional tooling to assist with this aspect.
+The CorDapp must work on all supported Corda databases. It is the developer's responsibility to test the CorDapp and migration scripts against all databases.
 
 {{< /warning >}}
 
 
-Continuing our `MySchemaV1` class example, assume that you have a running MS SQL database,
-the *nodeA* directory contains Corda node configuration to connect to the database,
-the *drivers* sub-directory contains a CorDapp with `MySchemaV1`.
-To obtain Liquibase script in SQL format run:
+Continuing the `MySchemaV1` class example, assume that you have a running MS SQL database. The *nodeA* directory contains Corda node configuration to connect to the database.
+The *drivers* sub-directory contains a CorDapp with `MySchemaV1`.
+
+To obtain Liquibase script in SQL format, run:
 
 `java -jar tools-database-manager-${corda_release_version}.jar create-migration-sql-for-cordapp -b=my_cordapp/build/nodes/nodeA`
 
-This will generate *migration/my-schema-v1.changelog-master.sql* script with the content:
+This will generate the `migration/my-schema-v1.changelog-master.sql` script with the content:
 
 ```sql
 --liquibase formatted sql
@@ -307,58 +291,56 @@ create table iou_states (
 
 The second comment has the format `--changeset author:change_set_id` with default values *R3.Corda.Generated* for the script author
 and *initial_schema_for_<schema_class_name>* for the `changeSet` id.
-For development purposes the default values are sufficient however for distributing your CorDapp you should replace the generic
+For development purposes, the default values are sufficient. However, when you distribute the CorDapp, replace the generic
 *R3.Corda.Generated* author name.
 
-As stated before, in most cases the generated script in SQL format contains DDL compatible with the database which was used for creating it only.
-In the above example, the script would fail on an Oracle database due to the invalid *nvarchar* type, the correct Oracle database type is *nvarchar2*.
+In most cases, the generated script in SQL format contains DDL that is only compatible with the database that created it.
+In the above example, the script would fail on an Oracle database, due to the invalid *nvarchar* type. The correct Oracle database type is *nvarchar2*.
 
 
 
 ## Adding scripts retrospectively to an existing CorDapp
 
-If a CorDapp does not include the required migration scripts for each `MappedSchema`, these can be generated and inspected before
-being applied as follows:
+If a CorDapp does not include the required migration scripts for each `MappedSchema`, you can generate and inspect them before they are applied:
 
 
-* Deploy the CorDapp on your node (copy the JAR into the `cordapps` folder)
-* Find out the name of the `MappedSchema` object containing the new contract state entities
-* Call the database management tool:
+1. Deploy the CorDapp on your node (copy the `.jar` into the `cordapps` folder).
+2. Locate the name of the `MappedSchema` object containing the new contract state entities.
+3. Call the database management tool:
 `java -jar corda-tools-database-manager-${corda_version}.jar --base-directory /path/to/node --create-migration-sql-for-cordapp com.example.MyMappedSchema`.
-This will generate a file called `my-mapped-schema.changelog-master.sql` in a folder called `migration` in the `base-directory`.
-If no `MappedSchema` object is specified, the tool will generate one SQL file for each schema defined in the CorDapp
-* Inspect the file(s) to make sure it is correct. This is a standard SQL file with some Liquibase metadata as comments
-* Create a JAR with the `migration` folder (by convention it could be named: `originalCorDappName-migration.jar`),
-and deploy this JAR in the node’s `cordapps` folder together with the CorDapp (e.g. run the following command in the node’s base directory
-`jar cvf /path/to/node/cordapps/MyCordapp-migration.jar migration`)
-* To make sure that the new migration will be used, do a dry run with the database management tool and inspect the output file
+This generates a file called `my-mapped-schema.changelog-master.sql` in a folder called `migration` in the `base-directory`.
+If no `MappedSchema` object is specified, the tool generates one SQL file for each schema defined in the CorDapp.
+4. Inspect the file(s) to ensure correctness. This is a standard SQL file with some Liquibase metadata as comments.
+5. Create a `.jar` containing the `migration` folder (`originalCorDappName-migration.jar`).
+6. Deploy the `.jar` in the node’s `cordapps` folder with the CorDapp by running `jar cvf /path/to/node/cordapps/MyCordapp-migration.jar migration` in the node’s base directory.
+
+Test the migration by running with the database management tool and inspecting the output file.
 
 
-## Considerations for migrating Open Source CorDapps to Corda Enterprise
+## Considerations for migrating open source CorDapps to Corda Enterprise
 
-If a Corda Node is upgraded from Open Source to Enterprise, then any CorDapps need to contain Liquibase scripts.
-Any custom tables, which are required by CorDapps, were created manually or by Hibernate upon node startup.
-Because of that the database doesn’t contain an entry in the *DATABASECHANGELOG* table which is created by the Liquibase runner.
-You would need to create such entries and provide them to a node operator, in order to run them manually.
+If you upgrade a node to Enterprise, then any CorDapps running on the node must contain Liquibase scripts.
+Any custom tables (which are required by CorDapps) were created manually or by Hibernate upon node startup.
+Therefore, the database doesn’t contain an entry in the *DATABASECHANGELOG* table, which is created by the Liquibase runner.
+You need to create the entries and provide them to a node operator to run them manually.
 
-See the Corda node upgrade procedure details steps how to obtain SQL statements.
-Also see [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html).
-
-
-## Notes on Liquibase specifics
-
-When writing data migrations, certain databases may have particular limitations which mean that database specific migration code is required. For example, in Oracle:
+See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure](https://docs.corda.net/docs/corda-enterprise/4.8/node-operations-upgrading-os-to-ent.html#upgrade-from-corda-open-source-to-corda-enterprise) to learn how to obtain SQL statements.
 
 
-* 30 byte names - Prior to version 12c the maximum length of table/column names was around 30 bytes and post 12c the limit is 128 bytes. There is no way to reconfigure the limit or make a Liquibase workaround without also specialising the CorDapp code.
-* VARCHAR longer than 2000 bytes - Liquibase does not automatically resolve the issue and will create a broken SQL statement. The solution is to migrate to LOB types (CLOB, BLOB, NCLOB) or extend the length limit. Versions after 12c can use [extended data types](https://oracle-base.com/articles/12c/extended-data-types-12cR1) to do the latter.
+
+## Liquibase specifics
+
+When writing data migrations, certain databases may have particular limitations. These may require database-specific migration code. For example, in Oracle:
+
+* 30 byte names - Prior to version 12c the maximum length of table/column names was around 30 bytes. After 12c, the limit is 128 bytes. There is no way to reconfigure the limit or make a Liquibase workaround without also specializing the CorDapp code.
+* VARCHAR longer than 2000 bytes - Liquibase does not automatically resolve the issue, and will create a broken SQL statement. The solution is to migrate to LOB types (CLOB, BLOB, NCLOB) or extend the length limit. Versions after 12c can use [extended data types](https://oracle-base.com/articles/12c/extended-data-types-12cR1).
 
 
 ## Example Liquibase with specialised logic
 
 When using Liquibase to work around the issue of VARCHAR length, you could create a changeset
-specific to Oracle using the <changeset … dbms=”oracle”> with the supported Oracle value type, as Liquibase
-itself does not do the conversion automatically.
+specific to Oracle using the <changeset … dbms=”oracle”> with the supported Oracle value type. Liquibase
+does not do the conversion automatically.
 
 ```xml
 <!--This is only executed for Oracle-->
@@ -376,6 +358,5 @@ itself does not do the conversion automatically.
 </changeSet>
 ```
 
-As we can see, we have one changeset for Oracle and one for the other database types. The dbms check will ensure the proper changeset is executed.
-Each database has it’s own specifics, so when creating scripts for a CorDapp, it is recommended that you test your scripts against each supported
-database.
+You will see one changeset for Oracle, and one for the other database types. The dbms check ensures the correct changeset is executed.
+Test your scripts against each supported database.
