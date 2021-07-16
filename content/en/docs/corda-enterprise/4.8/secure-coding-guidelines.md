@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-15'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-cordapps
@@ -36,7 +36,7 @@ Your CorDapp is vulnerable at two points:
 
 Counterparties on a network have the ability to run their own code - it's possible that they may not be running the code you provided to take part in the flow. This means it's up to you to validate everything you receive over the network.
 
-The `receive` methods remind you to validate this data by wrapping it in the `UntrustworthyData<T>` marker type. This type does not add any functionality, it is only a reminder. 
+The `receive` methods remind you to validate this data by wrapping it in the `UntrustworthyData<T>` marker type. This type does not add any functionality, it is only a reminder.
 
 Make sure this type of data:
 
