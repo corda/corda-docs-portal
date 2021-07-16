@@ -9,7 +9,7 @@ title: Corda Enterprise
 version: 'corda-enterprise'
 ---
 
-# Introduction to Bananas
+# Introduction to Corda
 
 A Corda Network is a peer-to-peer network of [Nodes](./node/component-topology.html), each representing a party on the network.
 These Nodes run Corda applications [(CorDapps)](./cordapps/cordapp-overview.html), and transact between Nodes using public or
