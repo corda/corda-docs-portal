@@ -9,6 +9,11 @@ import yaml from 'highlight.js/lib/languages/yaml';
 import markdown from 'highlight.js/lib/languages/markdown';
 import kotlin from 'highlight.js/lib/languages/kotlin';
 import java from 'highlight.js/lib/languages/java';
+import groovy from 'highlight.js/lib/languages/groovy';
+import gradle from 'highlight.js/lib/languages/gradle';
+import shell from 'highlight.js/lib/languages/shell';
+import gauss from 'highlight.js/lib/languages/gauss';
+import docker from 'highlight.js/lib/languages/dockerfile';
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('json', json);
@@ -20,21 +25,40 @@ hljs.registerLanguage('yaml', yaml);
 hljs.registerLanguage('md', markdown);
 hljs.registerLanguage('kotlin', kotlin);
 hljs.registerLanguage('java', java);
+hljs.registerLanguage('groovy', groovy);
+hljs.registerLanguage('gradle', gradle);
+hljs.registerLanguage('shell', shell);
+hljs.registerLanguage('gauss', gauss);
+hljs.registerLanguage('docker', docker);
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightElement(block);
+  document.querySelectorAll('pre code').forEach((element) => {
+    if (element.classList.contains('language-none') || element.classList.length === 0){
+      element.classList.add('hljs');
+      var parent = element.parentElement.parentElement;
+      var div = document.createElement('div');
+      div.classList.add('highlight');
 
-    let parent = block.parentElement.parentElement;
+      var pre = element.parentElement;
+      parent.insertBefore(div, pre.nextSibling);
 
-    if (parent.classList.contains('tab-pane')) {
+      div.append(pre);
+    }
+  });
+
+  document.querySelectorAll('.highlight').forEach((parent) => {
+    var blocks = parent.getElementsByTagName('code');
+    if (blocks.length > 0) {
+      var block = blocks[0];
+      hljs.highlightElement(block);
+
       var divButton = document.createElement('div');
       divButton.classList.add('copy-code');
 
       var button = document.createElement('button');
       button.innerText = 'Copy';
       button.onclick = function () {
-        CopyCode(this.parentElement);
+        CopyCode(block, button);
       };
 
       divButton.append(button);
@@ -42,50 +66,44 @@ document.addEventListener('DOMContentLoaded', () => {
       parent.prepend(divButton);
     }
   });
-
+  
   document.querySelectorAll('.highlight span').forEach((span) => {
     if (span.style.color == 'rgb(0, 0, 0)'){
       span.style.color = '#fff';
     }
+    else if (span.style.color == 'rgb(0, 0, 207)' || span.style.color == 'rgb(32, 74, 135)'){
+      span.style.color = '#3593E7';
+    }
   });
 });
 
-function CopyCode(element){
-  var success = false;
-  var pre = element.nextElementSibling;
-  if (pre.tagName.toLowerCase() === 'pre'){
-    var code = pre.childNodes[0];
-    if (code.tagName.toLowerCase() === 'code'){
-      var text = code.textContent || code.innerText;
+function CopyCode(code, button) {
+  console.log(code);
+  if (code.tagName.toLowerCase() === 'code') {
+    var text = code.textContent || code.innerText;
 
-      // Create a textblock and assign the text and add to document
-      var el = document.createElement('textarea');
-      el.value = text.trim();
-      document.body.appendChild(el);
-      el.style.display = 'block';
+    // Create a textblock and assign the text and add to document
+    var el = document.createElement('textarea');
+    el.value = text.trim();
+    document.body.appendChild(el);
+    el.style.display = 'block';
 
-      // select the entire textblock
-      if (window.document.documentMode)
-        el.setSelectionRange(0, el.value.length);
-      else
-        el.select();
+    // select the entire textblock
+    if (window.document.documentMode)
+      el.setSelectionRange(0, el.value.length);
+    else
+      el.select();
 
-      // copy to clipboard
-      document.execCommand('copy');
+    // copy to clipboard
+    document.execCommand('copy');
 
-      // clean up element
-      document.body.removeChild(el);
+    // clean up element
+    document.body.removeChild(el);
 
-      element.childNodes[0].innerText = 'Copied';
+    button.innerText = 'Copied';
 
-      setTimeout(function(){
-        element.childNodes[0].innerText = 'Copy';
-      }, 5000, element);
-      success = true;
-    }
-  }
-
-  if (success === false){
-    element.childNodes[0].innerText = 'Error';
+    setTimeout(function () {
+      button.innerText = 'Copy';
+    }, 5000, button);
   }
 }

@@ -31,7 +31,7 @@ switch (env.BRANCH_NAME) {
 //            new Configuration('E1TWWVXNUWIX3J', 'docs.r3.com-website', 'arn:aws:iam::598547986761:role/DocsiteUploaderFromBltProd', true),
 //        ]
 //        break
-    case "master":
+    case "main":
         configs = [
             new Configuration('E1VJ08R1FFUVRT', 'docs.staging.docs.r3.com', 'arn:aws:iam::491552082744:role/DocsiteUploaderFromBltProd', true),
         ]

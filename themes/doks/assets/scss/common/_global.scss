@@ -22,6 +22,7 @@ h6,
 .h5,
 .h6 {
   margin: 2rem 0 1rem;
+  font-weight: 600;
 }
 
 .fw-semibold {
@@ -171,6 +172,10 @@ body {
     color: $gray-900;
     text-decoration: underline;
   }
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .docs-navigation {
@@ -185,6 +190,118 @@ body {
   }
 }
 
+.docs-feedback {
+  text-align: center;
+  border-top: 2px solid $gray-200;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    background-color: $white;
+    padding: 0 1rem;
+    margin: -0.75rem auto 1rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    margin: 0.25rem auto 2.25rem;
+    font-weight: 400;
+  }
+
+  .opinion {
+    margin-bottom: 1rem;
+
+    button {
+      border: none;
+      background: none;
+      width: 3.25rem;
+      height: 3.25rem;
+      margin: 0.75rem;
+      padding: 0;
+
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      &:hover {
+
+        img {
+          width: 3.25rem;
+          height: 3.25rem;
+        }
+      }
+    }
+  }
+
+  #opinion-dislike {
+    .card {
+      border-top: none;
+      align-items: center;
+      gap: 16px;
+      border-radius: 4px;
+      box-shadow: 0 8px 16px 0 rgba(17, 17, 17, 0.06);
+      background-color: $white;
+
+      .card-body {
+        padding: 1rem 2.5rem 0;
+      }
+
+      h5 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .card-footer {
+        background: none;
+        border: none;
+        border-radius: unset;
+        padding: 0 0 2.5rem;
+
+        a {
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+        }
+
+        .btn {
+          border-radius: 40px;
+          border: solid 2px $gray-900;
+          padding: 8px 24px;
+          height: 40px;
+
+          &::after {
+            content: " ";
+            background: url(/icons/icon-external.svg) no-repeat center center;
+            width: 1rem;
+            height: 1rem;
+            display: inline-block;
+            position: relative;
+            top: -1px;
+            left: 5px;
+          }
+
+          &:focus {
+            box-shadow: none;
+          }
+
+          &:hover {
+            background: $gray-900;
+            color: $white;
+
+            &::after {
+              background: url(/icons/icon-external-white.svg) no-repeat center center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .navbar a:hover,
 .navbar a:focus {
   text-decoration: none;
@@ -196,7 +313,7 @@ body {
 }
 
 ::selection {
-  background: $gray-300;
+  background: $submenu-bar-color;
 }
 
 .bg-dots {

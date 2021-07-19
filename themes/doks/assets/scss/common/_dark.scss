@@ -5,17 +5,29 @@
 $body-bg-dark: $gray-800;
 $body-overlay-dark: darken($body-bg-dark, 2.5%);
 $border-dark: $gray-700;
-$body-color-dark: $gray-300;
+$body-color-dark: #efeff3;
 $dots-dark: darken($body-color-dark, 50%);
 
 $link-color-dark: $gray-300;
 $button-color-dark: lighten($red, 10%);
+
+$alert-info-dark: #6f7a7d;
+$alert-primary-dark: #7d7075;
+$alert-warning-dark: #7d7870;
+
+$navigate-dark: #88909b;
+$navigate-link-dark: #ef7175;
+$feedback-background-dark: #202020;
 
 /** Theme styles */
 
 body.dark {
   background: $body-bg-dark;
   color: $body-color-dark;
+
+  ::selection {
+    background: #5a5a5a;
+  }
 
   a {
     color: $link-color-dark;
@@ -53,13 +65,52 @@ body.dark {
     color: $navbar-dark-active-color;
   }
 
-  .alert-primary a {
-    color: $body-bg-dark;
+  .alert-info {
+    color: $white;
+    background-color: $alert-info-dark;
+
+    a,
+    .alert-link {
+      color: $white;
+    }
+
+    .r3-o-icon-note {
+      &::before {
+        content: url("/icons/info-white.svg");
+      }
+    }
   }
 
   .alert-warning {
-    background: $body-overlay-dark;
-    color: $body-color-dark;
+    background: $alert-warning-dark;
+    color: $white;
+
+    a,
+    .alert-link {
+      color: $white;
+    }
+
+    .r3-o-icon-warning {
+      &::before {
+        content: url("/icons/warning-white.svg");
+      }
+    }
+  }
+
+  .alert-primary {
+    color: $white;
+    background-color: $alert-primary-dark;
+
+    a,
+    .alert-link {
+      color: $white;
+    }
+
+    .r3-o-icon-important {
+      &::before {
+        content: url("/icons/important-white.svg");
+      }
+    }
   }
 
   .page-links a {
@@ -91,6 +142,38 @@ body.dark {
     color: $body-color-dark;
   }
 
+  .docs-links {
+    button {
+      color: $body-color-dark;
+
+      &::after {
+        content: url("/icons/icon-arrow-down-white.svg");
+      }
+    }
+
+    a {
+      &.docs-link {
+        text-decoration: none !important;
+        color: $body-color-dark;
+
+        &:hover,
+        &.active,
+        &:hover {
+          text-decoration: none;
+          color: $navigate-link-dark;
+        }
+      }
+    }
+
+    div {
+      &.sub-menu {
+        .sub-menu {
+          border-left: 1px solid $gray-600;
+        }
+      }
+    }
+  }
+
   .navbar-light .navbar-text a:hover,
   .navbar-light .navbar-text a:focus {
     color: $navbar-dark-active-color;
@@ -120,8 +203,57 @@ body.dark {
   }
 
   .docs-navigation {
-    border-top: 1px solid $border-dark;
-    color: $gray-100;
+    border-top: 2px solid $gray-600;
+    color: $navigate-dark;
+
+    a {
+      color: $navigate-link-dark;
+    }
+
+    svg {
+      stroke: $navigate-link-dark;
+
+      path {
+        stroke: $navigate-link-dark;
+      }
+    }
+  }
+
+  .docs-feedback {
+    border-top: 2px solid $gray-600;
+
+    h3 {
+      background-color: $body-bg-dark;
+    }
+
+    #opinion-dislike {
+      .card {
+        background-color: $feedback-background-dark;
+
+        .card-footer {
+          a {
+           color: $body-color-dark;
+          }
+
+          .btn {
+            border: solid 2px $body-color-dark;
+
+            &::after {
+              background: url(/icons/icon-external-white.svg) no-repeat center center;
+            }
+
+            &:hover {
+              background: $body-color-dark;
+              color: $body-bg-dark;
+
+              &::after {
+                background: url(/icons/icon-external.svg) no-repeat center center;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   pre code::-webkit-scrollbar-thumb {
@@ -129,7 +261,7 @@ body.dark {
   }
 
   code:not(.hljs) {
-    background: $body-overlay-dark;
+    background: $gray-500;
     color: $body-color-dark;
   }
 
@@ -142,12 +274,26 @@ body.dark {
     background: $border-dark;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    pre,
+    code,
+    kbd,
+    samp {
+      font-size: inherit;
+    }
+  }
+
   blockquote {
     border-left: 3px solid $border-dark;
   }
 
   .docs-toc .page-links {
-    border-color: $border-dark;
+    border-color: $gray-600;
   }
 
   .docs-links::-webkit-scrollbar-track,
@@ -198,7 +344,7 @@ body.dark {
   }
 
   .feather {
-    stroke: $border-dark;
+    stroke: $gray-100;
   }
 
   .support-container {
@@ -229,11 +375,6 @@ body.dark {
 
   .text-muted {
     color: darken($body-color-dark, 7.5%) !important;
-  }
-
-  .alert-primary {
-    background: $link-color-dark;
-    color: $body-bg-dark;
   }
 
   .figure-caption {

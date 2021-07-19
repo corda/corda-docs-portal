@@ -29,7 +29,7 @@ that doesn’t mean your contribution isn’t welcome. Please reach out on the `
 below)
 
 
-* Ask in the `#design` channel of the [Corda Slack](http://slack.corda.net/)
+* Ask in the `#design` channel of the [Corda Slack](https://slack.corda.net/)
 
 
 ## Making the required changes
@@ -162,7 +162,7 @@ Pull Request that you agree to it.
 
 
 
-* Request a review from a member of the Corda platform team via the [#design channel](http://slack.corda.net/)
+* Request a review from a member of the Corda platform team via the [#design channel](https://slack.corda.net/)
 * The reviewer will either:
 
 

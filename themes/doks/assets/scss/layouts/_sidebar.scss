@@ -82,7 +82,8 @@ a.docs-link {
   color: $link-color;
 }
 
-.docs-link.active {
+.docs-link.active,
+.page-links a.active{
   font-weight: 600;
 }
 
@@ -151,7 +152,7 @@ a.docs-link {
 
       .sub-menu {
         padding-left: 1rem;
-        border-left: 1px solid;
+        border-left: 1px solid $submenu-bar-color;
         margin-top: 0.125rem;
         margin-bottom: 0.125rem;
 
@@ -207,28 +208,3 @@ a.docs-link {
   }
 }
 
-body.dark {
-  .docs-links {
-    button {
-      color: $white;
-
-      &::after {
-        content: url("/icons/icon-arrow-down-white.svg");
-      }
-    }
-
-    a {
-      &.docs-link {
-        text-decoration: none !important;
-        color: $gray-100;
-
-        &:hover,
-        &.active,
-        &:hover {
-          text-decoration: none;
-          color: $link-color;
-        }
-      }
-    }
-  }
-}

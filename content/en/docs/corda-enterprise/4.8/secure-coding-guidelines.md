@@ -7,57 +7,55 @@ tags:
 - secure
 - coding
 - guidelines
-title: Secure coding guidelines
+title: Security best practices
 weight: 40
 ---
 
 
-# Secure coding guidelines
+# Security best practices
 
-The platform does what it can to be secure by default and safe by design. Unfortunately the platform cannot
-prevent every kind of security mistake. This document describes what to think about when writing applications
-to block various kinds of attack. Whilst it may be tempting to just assume no reasonable counterparty would
-attempt to subvert your trades using flow level attacks, relying on trust for software security makes it
-harder to scale up your operations later when you might want to add counterparties quickly and without
-extensive vetting.
+Corda is designed to be secure by default. However, the platform cannot create a secure environment on its own - you need to follow security best practices when developing CorDapps and using the Corda Network.
 
-
-## Flows
-
-[Writing flows](flow-state-machines.md) are how your app communicates with other parties on the network. Therefore they
-are the typical entry point for malicious data into your app and must be treated with care.
-
-The `receive` methods return data wrapped in the `UntrustworthyData<T>` marker type. This type doesn’t add
-any functionality, it’s only there to remind you to properly validate everything that you get from the network.
-Remember that the other side may *not* be running the code you provide to take part in the flow: they are
-allowed to do anything! Things to watch out for:
+This document explains:
+* Why you should write secure CorDapps, even if you trust the counterparties you transact with.
+* Where and how security issues can be introduced to your transaction.
+* Security best practices.
 
 
-* A transaction that doesn’t match a partial transaction built or proposed earlier in the flow, for instance,
-if you propose to trade a cash state worth $100 for an asset, and the transaction to sign comes back from the
-other side, you must check that it points to the state you actually requested. Otherwise the attacker could
-get you to sign a transaction that spends a much larger state to you, if they know the ID of one!
-* A transaction that isn’t of the right type. There are two transaction types: general and notary change. If you
-are expecting one type but get the other you may find yourself signing a transaction that transfers your assets
-to the control of a hostile notary.
-* Unexpected changes in any part of the states in a transaction. If you have access to all the needed data, you
-could re-run the builder logic and do a comparison of the resulting states to ensure that it’s what you expected.
-For instance if the data needed to construct the next state is available to both parties, the function to
-calculate the transaction you want to mutually agree could be shared between both classes implementing both
-sides of the flow.
+## Why write secure CorDapps when I trust the other party?
+If you trust the counterparties you are currently doing business with, it may be tempting to skip security measures. However, you may want to add additional counterparties in the future. Building secure CorDapps from the start lets you add additional counterparties quickly without extensive vetting.
 
-The theme should be clear: signing is a very sensitive operation, so you need to be sure you know what it is you
-are about to sign, and that nothing has changed in the small print! Once you have provided your signature over a
-transaction to a counterparty, there is no longer anything you can do to prevent them from committing it to the ledger.
+Once you have signed a transaction, there is nothing you can do to prevent the transaction's counterparty from committing it to the ledger. Make sure you know what you are signing and that the counterparty has not changed any details in the course of the transaction.
+
+## Entry points for attacks
+Your CorDapp is vulnerable at two points:
+* **Flows**. Flows let your CorDapp communicate with other parties on the network. That means insecure flows can be an entry point for malicious data.
+* **Contracts**. Contracts are arbitrary functions inside a JVM sandbox, so it is important make sure they behave as expected.
+
+### Secure flows
+
+Counterparties on a network have the ability to run their own code - it's possible that they may not be running the code you provided to take part in the flow. This means it's up to you to validate everything you receive over the network.
+
+The `receive` methods remind you to validate this data by wrapping it in the `UntrustworthyData<T>` marker type. This type does not add any functionality, it is only a reminder. 
+
+Make sure this type of data:
+
+* Matches any partial transaction built or proposed earlier in the flow. For example, you propose to trade a cash state worth $100 for an asset. When the other side returns your proposal, you must ensure it points to the $100 cash state you indicated. A malicious counterparty could attempt to get you to sign a transaction that results in you spending a higher-value state, if they know that state's ID.
+* Matches the expected transaction type. There are two transaction types: general and notary change. If you are expecting a general transaction type but accidentally authorize notary change, you could transfer your assets to a hostile notary.
+* Does not contain any unexpected changes to the states in a transaction. The best way to check this is to re-run the builder logic and compare the resulting states to make sure the result is as expected. For example, if both parties have the data required to construct the next state, they can share the function to calculate the transaction they want to mutually agree between the classes implementing both sides of the flow.
 
 
-## Contracts
 
-Contracts are arbitrary functions inside a JVM sandbox and therefore they have a lot of leeway to shoot themselves
-in the foot. Things to watch out for:
+### Secure contracts
+Make sure your contracts are secure. Check that:
+
+* All changes in states are allowed by the current state transition. Check each field to make sure any changes are intentional.
+* You do not accidentally catch and discard any exceptions thrown by the validation logic.
+* If you call into any other contracts virtually, you know what those contracts are and what they do.
 
 
-* Changes in states that should not be allowed by the current state transition. You will want to check that no
-fields are changing except the intended fields!
-* Accidentally catching and discarding exceptions that might be thrown by validation logic.
-* Calling into other contracts via virtual methods if you don’t know what those other contracts are or might do.
+
+## Related Content
+Learn more about:
+* [Writing flows](flow-state-machines.md)
+* [Contracts](https://docs.corda.net/docs/corda-enterprise/4.8/cordapps/api-contracts.html)
