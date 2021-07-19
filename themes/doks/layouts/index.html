@@ -33,6 +33,24 @@
         <div class="card">
           <div class="card-body">
             <h3 class="card-title">
+              <a href="/corda-5/dev-preview.html">
+                {{ if .Site.Params.options.darkMode -}}
+                <div id="mode">
+                  <span class="toggle-dark"><img src="{{ "images/logo-corda5.png" | relURL }}" alt="Corda 5" width="140" height="48"></span>
+                  <span class="toggle-light"><img src="{{ "images/logo-corda5-alt.png" | relURL }}" alt="Corda 5" width="140" height="48"></span>
+                </div>
+                {{ end -}}
+              </a>
+            </h3>
+            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Grab the new hotness with Corda 5!</p>
+            {{ partial "sidebar/latest-posts.html" (dict  "project" "corda-5"  "show" "3"  "context" .  "name" "Corda 5" )  }}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">
               <a href="/conclave">
                 {{ if .Site.Params.options.darkMode -}}
                 <div id="mode">

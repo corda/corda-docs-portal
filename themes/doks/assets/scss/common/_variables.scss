@@ -93,6 +93,7 @@ $grid-row-columns:            6;
 $border-color:                $gray-200;
 $submenu-bar-color: #dadbe3;
 
+
 // Typography
 //
 // Font, line-height, and color for body text, headings, and more.
@@ -109,6 +110,13 @@ $font-size-lg:                $font-size-base * 1.25;
 $font-size-md:                $font-size-base * 1.125;
 $font-size-sm:                $font-size-base * 0.875;
 $font-size-xs:                $font-size-base * 0.775;
+
+$h1-font-size:                $font-size-base * 2.25 !default;
+$h2-font-size:                $font-size-base * 1.75 !default;
+$h3-font-size:                $font-size-base * 1.5 !default;
+$h4-font-size:                $font-size-base * 1.25 !default;
+$h5-font-size:                $font-size-base * 1.125 !default;
+$h6-font-size:                $font-size-base !default;
 
 $line-height-base:            1.8;
 

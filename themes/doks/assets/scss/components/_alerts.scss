@@ -36,7 +36,7 @@
 
   a,
   .alert-link {
-    color: $yellow;
+    color: $text-alert;
   }
 
   .r3-o-icon-warning {
@@ -56,6 +56,11 @@
 .alert-primary {
   color: $red-700;
   background-color: $red-300;
+
+  a,
+  .alert-link {
+    color: $red-700;
+  }
 
   .r3-o-icon-important {
     position: absolute;

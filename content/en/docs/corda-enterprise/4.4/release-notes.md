@@ -168,7 +168,7 @@ This is advantageous for several reasons:
 
 This new functionality allows hosts to take a custodial role over their nodes, supporting a broader range of use-cases.
 
-Please find more information on Accounts functionality in the [documentatation](https://github.com/corda/accounts/blob/master/docs.md)
+Please find more information on Accounts functionality in the [documentation](https://github.com/corda/accounts/blob/master/docs.md).
 
 
 #### Confidential Identities

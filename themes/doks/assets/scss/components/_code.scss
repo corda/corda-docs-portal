@@ -7,6 +7,21 @@ samp {
   border-radius: $border-radius;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  pre,
+  code,
+  kbd,
+  samp {
+    font-size: inherit;
+  }
+}
+
+
 .highlight {
   pre,
   code,
@@ -65,17 +80,12 @@ pre {
     position: absolute;
     right: 0.5rem;
     top: 0.4rem;
-    opacity: 0.6;
-
-    &:hover {
-      opacity: 1;
-    }
 
     button {
       border: none;
       font-size: $font-size-xs;
       border-radius: 5px;
-      background-color: $gray-600;
+      background-color: #7A7A7A;
       padding-left: 0.6rem;
 
       &::before {
