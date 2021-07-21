@@ -333,7 +333,6 @@ and deploy this JAR in the node’s `cordapps` folder together with the CorDapp 
 `jar cvf /path/to/node/cordapps/MyCordapp-migration.jar migration`)
 * To make sure that the new migration will be used, do a dry run with the database management tool and inspect the output file
 
-
 ## Considerations for migrating Open Source CorDapps to Corda Enterprise
 
 If a Corda Node is upgraded from Open Source to Enterprise, then any CorDapps need to contain Liquibase scripts.
