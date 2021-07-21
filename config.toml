@@ -1,6 +1,6 @@
 # When built, then this is used, but we inject it
 # at build time using Hugo env-vars.
-baseURL = /
+baseURL = "/"
 
 # Nice stuff...
 title = "Corda Documentation"
