@@ -17,6 +17,7 @@ def previews = [
     baldwin : [cdn: "E1A3IG9C04W1O2", s3Bucket: "website-baldwin-preview"],
     banks : [cdn:  "E3KOZY3IAZ3X1J", s3Bucket: "website-banks-preview"],
     borges: [cdn: "E33YOVSRJLVL1R", s3Bucket: "website-borges-preview"],
+    dickens: [cdn: "E248NFWPQCMJCN", s3Bucket: "website-dickens-preview"],
     hardy: [cdn: "E2FGJJ58A94497",  s3Bucket: "website-hardy-preview"],
     lewis: [cdn: "E5R24D2FGGIDU", s3Bucket: "website-lewis-preview"],
     seel: [cdn: "EWRT1W87C2APH", s3Bucket: "website-seel-preview"],
@@ -31,7 +32,7 @@ switch (env.BRANCH_NAME) {
 //            new Configuration('E1TWWVXNUWIX3J', 'docs.r3.com-website', 'arn:aws:iam::598547986761:role/DocsiteUploaderFromBltProd', true),
 //        ]
 //        break
-    case "master":
+    case "main":
         configs = [
             new Configuration('E1VJ08R1FFUVRT', 'docs.staging.docs.r3.com', 'arn:aws:iam::491552082744:role/DocsiteUploaderFromBltProd', true),
         ]
