@@ -16,9 +16,9 @@ A Corda node is an entity in a Corda network that usually represents one party i
 
 In this document you will find:
 
-* What makes up a node
-* Node communication protocols
-* An example of typical node deployment architecture
+* What makes up a node.
+* Node communication protocols.
+* An example of typical node deployment architecture.
 
 ## What makes up a node?
 
@@ -61,6 +61,8 @@ The node database has a wide variety of tables including a range of information.
 ### Node services
 
 Nodes contain a number of services that support the operation of Corda business networks. These services are accessed either through the `ServiceHub` API or are core node functions. Certain node services are available to CorDapps via flows. Understanding node services is important when designing a CorDapp.
+
+The key node services are:
 
 * Key management and identity services
 * Messaging and network management services
@@ -106,6 +108,8 @@ The diagram highlights that:
 
 ## Related content
 
-* [Learn more about the Corda firewall](corda-firewall-component.md/)
-* [Learn more about the node database](operating/node-database.md/)
-* [Learn about node configuration](setup/corda-configuration-fields.md)
+Learn more about:
+
+* [The Corda firewall](corda-firewall-component.md/)
+* [The node database](operating/node-database.md/)
+* [Node configuration](setup/corda-configuration-fields.md)
