@@ -85,3 +85,4 @@ The prefix should clearly indicate the node where the metrics are coming from, a
 in the graphite metric hierarchy.
 The graphite server must be running with python pickle transport enabled. Please refer to the documentation on
 [https://graphiteapp.org](https://graphiteapp.org) on how to install and run a graphite server.
+
