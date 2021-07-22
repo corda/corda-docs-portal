@@ -12,7 +12,7 @@ title: What is a Corda node
 weight: 30
 ---
 
-A Corda node is an entity in a Corda network that usually represents one party in a business network. Corda nodes are operated by one party and contain the CorDapps that the party uses to interact with other peers on the network.
+A Corda node is an entity in a Corda network that usually represents one party in a business network. One party operates the node, which contains the CorDapps that the party uses to interact with other peers on the network.
 
 In this document you will find:
 
@@ -22,7 +22,7 @@ In this document you will find:
 
 ## What makes up a node?
 
-Nodes are represent parties in a network, hosting and managing the operation of all CorDapps the party uses to interact with other nodes. Each node runs within a Java Virtual Machine (JVM) and has a unique identifier and a public address that serves as an endpoint for communication with other nodes in the network. Nodes are identified by an X.509 name called `myLegalName` and a key pair. The node legal name can be used to look up the node's information in the network map.
+Nodes represent parties in a network. They host and manage the operation of all the CorDapps the party uses to interact with other nodes. Each node runs within a Java Virtual Machine (JVM). Nodes have a public address, which serves as an endpoint for communication with other nodes in the network. To find a node's information on the network map, you can look up its X.509 name (called `myLegalName`) and key pair.
 
 The key node components and services are:
 
@@ -45,22 +45,22 @@ CorDapps are installed on a node as `.jar` files located in the `cordapps` direc
 
 The node configuration file is a single Human-Optimized Config Object Notation (HOCON) file that controls many aspects of a node. Node configuration files are hosted in the root node directory, and must be configured before the node can be started. Correctly configuring your node is an important part of optimizing the performance of your Corda solution.
 
-An exhaustive list of node configuration options and defaults can be found in the [Node configuration reference](setup/corda-configuration-fields.md/) documentation, and an example configuration file can be found in the [Node configuration](setup/corda-configuration-file.md/) documentation.
+You can find an exhaustive list of node configuration options and defaults in the [Node configuration reference](setup/corda-configuration-fields.md/) documentation, and an example configuration file in the [Node configuration](setup/corda-configuration-file.md/) documentation.
 
 ### Node database
 
-All nodes require a relational SQL database to store operational data and the Corda vault. Corda supports a variety of node databases, for specific information about which databases are supported, see the [Platform support matrix](../platform-support-matrix.md/).
+All nodes require a relational SQL database to store operational data and the Corda vault. Corda supports a variety of node databases. See the [Platform support matrix](../platform-support-matrix.md/) for a full list.
 
-The node database has a wide variety of tables including a range of information. Some of the most important database tables are:
+You can find a range of information in the tables on the node database. Some of the most important database tables are:
 
-* Flow checkpoints: Checkpoints allow flows to be recovered if a problem is encountered during a flow.
+* Flow checkpoints. If the node encounters a problem during a flow, it can recover it from a checkpoint.
 * Network parameters: Network parameters are the configuration settings of a business network, and are common to all parties on the network.
 * States: States are outputs of transactions, and are stored in tables within the Corda Vault.
 * Transactions: The node database stores all transactions that the node has created or used in transaction resolution.
 
 ### Node services
 
-Nodes contain a number of services that support the operation of Corda business networks. These services are accessed either through the `ServiceHub` API or are core node functions. Certain node services are available to CorDapps via flows. Understanding node services is important when designing a CorDapp.
+Nodes contain services that support the operation of Corda business networks. Some services are core node functions; others you can access through the `ServiceHub` API. CorDapps can access some node services using flows.
 
 The key node services are:
 
@@ -71,9 +71,9 @@ The key node services are:
 
 ### Corda firewall
 
-The primary function of the firewall is to act as an application-level firewall and protocol break on all internet-facing endpoints. The firewall is made up of two components, the float and the bridge. The float handles inbound connections, while the bridge handles outbound connections.
+The Corda firewall is a CorDapp-level firewall and protocol break on all internet-facing endpoints. The firewall is made up of two components: the float and the bridge. The float handles inbound connections, while the bridge handles outbound connections.
 
-The float safeguards the node by acting as the point of contact for all other parties. The float exposes a port and an address that can be connected to by other parties on the network. When other parties connect to the float, the messages are bundled in the float and transmitted to the bridge across an internal firewall.
+The float safeguards the node by acting as the point of contact for all other parties. The float exposes a port and an address that can be connected to by other parties on the network. When other parties connect to the float, the float bundles their messages and transmits them to the bridge across an internal firewall.
 
 The bridge is the internal component of the firewall. It initiates all connections to the float, and runs health checks on the message bundles it receives before adding them to the node's Artemis queue.
 
@@ -81,18 +81,18 @@ The bridge is the internal component of the firewall. It initiates all connectio
 
 Nodes communicate with other nodes using asynchronous AMQP/TLS 1.2 protocols. HTTP communication is used for the initial registration of a node on a network, and for sharing the node address locations via the network map. JDBC is used for communications between the node and the vault.
 
-RPC calls are used to communicate between a client application and a node.
+Nodes communicate with client applications using RPC calls.
 
 {{< figure alt="overview" width=80% zoom="../resources/overview.png" >}}
 
 
 ## Typical node deployments
 
-In most cases, nodes are deployed with the following architecture:
+In most cases, nodes are deployed with this architecture:
 
 {{< figure alt="nodebridgefloat nbrs" width=80% zoom="../resources/nodebridgefloat_nbrs.png" figcaption="A typical node deployment.">}}
 
-In any given production deployment of Corda Enterprise, the most common components are the Corda node, vault, and firewall.
+Most production deployments of Corda Enterprise include nodes, vaults, and firewalls.
 
 The diagram highlights that:
 
