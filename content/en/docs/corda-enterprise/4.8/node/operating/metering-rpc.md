@@ -2,12 +2,12 @@
 date: '2020-07-15T12:00:00Z'
 menu:
   corda-enterprise-4-8:
-    parent: corda-enterprise-4-8-corda-nodes-operating
+    parent: corda-enterprise-4-8-metering-collection
 tags:
 - node
 - administration
 title: "Metering client"
-weight: 135
+weight: 500
 ---
 
 # Metering client for the Metering Collection Tool

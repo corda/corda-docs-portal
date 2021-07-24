@@ -2,12 +2,13 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
-    parent: corda-enterprise-4-8-corda-nodes-operating
+    identifier: corda-enterprise-4-8-metering-collection
+    parent: corda-enterprise-4-8-monitoring-logging
 tags:
 - metering
 - collector
 title: Metering Collection Tool
-weight: 130
+weight: 400
 ---
 
 

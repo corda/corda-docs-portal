@@ -8,7 +8,7 @@ tags:
 - deployment
 - planning
 title: Metrics data and monitoring
-weight: 20
+weight: 100
 ---
 # Metrics data and monitoring scenarios
 
