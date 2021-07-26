@@ -1,85 +1,219 @@
 {{ define "main" }}
 <section class="section container-fluid">
   <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title"><a href="/corda/4.8.html"><img src="{{ "images/logo-corda.png" | relURL }}" alt="Corda" width="140" height="48"></a></h3>
-            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Documentation to kick start your CorDapp development.</p>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Discover Corda 5</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Discover the latest and greatest Corda release! You'll remain beautiful for all time, but your Corda implementation will become increasingly complex and arcane.</p>
+          <ul class="p-0">
+            <li><a href="/">Get started with Corda 5</a></li>
+            <li><a href="/">Corda 5 tutorials</a></li>
+            <li><a href="/">Corda 5 docs</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Get started with Corda 5</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Getting started</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Get started learning about Corda and what our platform can offer you.</p>
+            <ul class="p-0">
+              <li><a href="/">What is Corda?</a></li>
+              <li><a href="/">Corda concepts</a></li>
+              <li><a href="/">Getting started with Corda 5</a></li>
+              <li><a href="/">Getting started with Corda 4</a></li>
+              <li><a href="/">Corda Releases</a></li>
+              <li><a href="/">Contribute <-- I don't think people at this stage need this</a></li>
+            </ul>
+            <a href="{{ .Permalink }}" class="fw-semibold">Read more about how Corda works</a>
+          </div>
+        </div>
+      </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Tutorials</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Learn how to create your Corda solution!</p>
+          <ul class="p-0">
+            <li><a href="/">Learning guide</a></li>
+            <li><a href="/">Hello, World!</a></li>
+            <li><a href="/">Other tutorial</a></li>
+            <li><a href="/">Other tutorial</a></li>
+            <li><a href="/">Other tutorial</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Explore all Corda tutorials</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Corda Platform Docs</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Explore core documentation for releases of the Corda platform.</p>
+          <ul class="p-0">
+            <li><a href="/">Corda 5</a></li>
+            <ul><li><a href="/">Developer preview 1</a></li>
+            <li><a href="/">Developer preview 2</a></li>
+            <li><a href="/">Corda 5.0</a></li></ul>
+            <li><a href="/">Corda 4</a></li>
+            <ul><li><a href="/">Corda Enterprise 4.8</a></li>
+            <li><a href="/">Corda OS 4.8</a></li>
+            <li><a href="/">Corda Enterprise Network Manager</a></li></ul>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Explore all Corda platform documentation</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Apps and add-ons</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Things that you can take and use with your implementation of Corda.</p>
+          <ul class="p-0">
+            <li><a href="/">Bank in a box</a></li>
+            <li><a href="/">Collaborative Recovery</a></li>
+            <li><a href="/">Ledgergraph</a></li>
+            <li><a href="/">Archiving Service</a></li>
+            <li><a href="/">Payments</a></li>
+            <li><a href="/">Reissuance</a></li>
+            <li><a href="/">Notary CorDapp</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Explore all Corda add-ons</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Tools and utilities</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --> </p>
+          <ul class="p-0">
+            <li><a href="/">Tokens SDK</a></li>
+            <li><a href="/">CDL</a></li>
+            <li><a href="/">Node Management Console</a></li>
+            <li><a href="/">Flow Management Console</a></li>
+            <li><a href="/">Business Network Extension</a></li>
+            <li><a href="/">Accounts</a></li>
+            <li><a href="/">Gateway Services</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Explore Corda tools and utilities</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">API reference</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --> </p>
+          <ul class="p-0">
+            <li><a href="/">Corda 5 APIs</a></li>
+            <li><a href="/">Corda 4.8 APIs</a></li>
+            <li><a href="/">Other Corda 4 APIs</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Explore All Corda Docs</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Examples and best practices</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --> </p>
+          <ul class="p-0">
+            <li><a href="/">Some example code</a></li>
+            <li><a href="/">Some other example code</a></li>
+            <li><a href="/">Corda code car</a></li>
+            <li><a href="/">Corda diamonds</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">All Corda code samples</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Release notes <-- ed hates this one too</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --> </p>
+          <ul class="p-0">
+            <li><a href="/">Corda 5 dev preview</a></li>
+            <li><a href="/">Corda Enterprise 4.8</a></li>
+            <li><a href="/">Corda OS 4.8</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Read all of our release notes</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Documentation Archive</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --> </p>
+          <ul class="p-0">
+            <li><a href="/">Content uncertain</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Click here to download lies</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Managed Services</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->These services are so managed that even we have forgotten how they work.</p>
+          <ul class="p-0">
+            <li><a href="/">Managed node</a></li>
+            <li><a href="/">Managed notary</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Explore all managed services documentation</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Conclave</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --></p>
+          <ul class="p-0">
+            <li><a href="/">Managed node</a></li>
+            <li><a href="/">Managed notary</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Explore all managed services documentation</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Troubleshooting & FAQ</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --></p>
+          <ul class="p-0">
+            <li><a href="/">Where is my data</a></li>
+            <li><a href="/">Why doesn't my node work</a></li>
+            <li><a href="/">What is going on</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Explore all managed services documentation</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ .Permalink }}">Multimedia Library <- ed also hates this one</a></h3>
+          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --></p>
+          <ul class="p-0">
+            <li><a href="/">Videos</a></li>
+            <li><a href="/">Life in the Fast Chain</a></li>
+            <li><a href="/">I dunno like twitter or something</a></li>
+          </ul>
+          <a href="{{ .Permalink }}" class="fw-semibold">Explore all managed services documentation</a>
+        </div>
+      </div>
+    </div>
 
-            {{ partial "sidebar/latest-posts.html" (dict  "project" "corda-os"  "show" "3"  "context" .  "name" "Corda" ) }}
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">
-              <a href="/corda-enterprise/4.8.html">
-                {{ if .Site.Params.options.darkMode -}}
-                <div id="mode">
-                  <span class="toggle-dark"><img src="{{ "images/logo-corda-enterprise.png" | relURL }}" alt="Corda Enterprise" width="140" height="48"></span>
-                  <span class="toggle-light"><img src="{{ "images/logo-corda-enterprise-alt.png" | relURL }}" alt="Corda Enterprise" width="140" height="48"></span>
-                </div>
-                {{ end -}}
-              </a>
-            </h3>
-            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Learn how to allow business to transact securely and seamlessly.</p>
-            {{ partial "sidebar/latest-posts.html" (dict  "project" "corda-enterprise"  "show" "3"  "context" .  "name" "Corda Enterprise" )  }}
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">
-              <a href="/conclave">
-                {{ if .Site.Params.options.darkMode -}}
-                <div id="mode">
-                  <span class="toggle-dark"><img src="{{ "images/logo-conclave.png" | relURL }}" alt="Conclave" width="140" height="48"></span>
-                  <span class="toggle-light"><img src="{{ "images/logo-conclave-alt.png" | relURL }}" alt="Conclave" width="140" height="48"></span>
-                </div>
-                {{ end -}}
-              </a>
-            </h3>
-            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->All about the confidential computing platform based on Intel SGX.</p>
-            <ul class="p-0">
-              <li><a href="/">Get Started with Corda</a></li>
-              <li><a href="/">Link Goes Here 2</a></li>
-              <li><a href="/">Link Goes Here 3</a></li>
-            </ul>
-            <a href="/conclave" class="fw-semibold">Explore All Conclave Docs</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title"><a href="{{ .Permalink }}">LOGO HERE</a></h3>
-            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --></p>
-            <ul class="p-0">
-              <li><a href="/">Get Started with Corda</a></li>
-              <li><a href="/">Link Goes Here 2</a></li>
-              <li><a href="/">Link Goes Here 3</a></li>
-            </ul>
-            <a href="{{ .Permalink }}" class="fw-semibold">Explore All Corda Docs</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title"><a href="{{ .Permalink }}">LOGO HERE</a></h3>
-            <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --></p>
-            <ul class="p-0">
-              <li><a href="/">Get Started with Corda</a></li>
-              <li><a href="/">Link Goes Here 2</a></li>
-              <li><a href="/">Link Goes Here 3</a></li>
-            </ul>
-            <a href="{{ .Permalink }}" class="fw-semibold">Explore All Corda Docs</a>
-          </div>
-        </div>
-      </div>
+
   </div>
 </section>
 {{ end }}
