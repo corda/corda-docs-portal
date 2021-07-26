@@ -52,6 +52,8 @@ Next Peter goes to the orchard to pick up his apples and redeems his voucher, tr
 
 The `BasketofApples` state is transferred to Peter when the `AppleStamp` state is consumed and Farmer Bob gives Peter his apples.
 
+All of these transactions are initiated by [flows](key-concepts-flows.md).
+
 ## Next steps
 
 Follow these tutorials in sequential order to build your CorDapp:
