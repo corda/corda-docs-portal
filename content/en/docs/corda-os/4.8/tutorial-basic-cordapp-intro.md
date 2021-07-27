@@ -18,12 +18,13 @@ Follow this learning path to build your first CorDapp with a step-by-step guide 
 Before you continue on this learning path:
 
 - Read about [Corda key concepts](key-concepts.md).
-- Run the [sample CorDapp](cordapp-tutorial.md).
-- Modify a [CorDapp template](writing-a-cordapp-using-a-template.md).
+- [Get set up for CorDapp development](getting-set-up.md).
+- [Run the sample CorDapp](cordapp-tutorial.md).
+- [Modify a CorDapp template](writing-a-cordapp-using-a-template.md).
 
 ## The story
 
-This example showcases a DvP scenario. You are building a CorDapp for an apple orchard that wants to offer a way for customers to purchase a voucher that they will later redeem for a bushel of apples.
+This example showcases a delivery versus payment (DvP) scenario. You are building a CorDapp for an apple orchard that wants to offer a way for customers to purchase a voucher that they will later redeem for a bushel of apples.
 
 There are two parties involved in this transaction:
 
@@ -48,7 +49,7 @@ In the first step of the process, Farmer Bob issues a voucher to Peter. In your 
 
 When Farmer Bob prepares the apples Peter requested, he self-issues a bushel of apples. This represents another state on the ledger - `BasketofApples`.
 
-Next Peter goes to the orchard to pick up his apples and redeems his voucher, triggering a transaction on the ledger that consumes the `AppleStamp` state.
+Next, Peter goes to the orchard to pick up his apples and redeems his voucher, triggering a transaction on the ledger that consumes the `AppleStamp` state.
 
 The `BasketofApples` state is transferred to Peter when the `AppleStamp` state is consumed and Farmer Bob gives Peter his apples.
 
