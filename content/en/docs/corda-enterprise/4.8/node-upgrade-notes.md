@@ -86,7 +86,7 @@ If you can't perform an automatic update, then you must perform a manual update 
 ### 3.1. Configure the Database Management Tool
 
 The Corda Database Management Tool needs access to a running database. You can set up the tool using a similar process to configuring a node.
-To configure the tool, you need to provide a base directory with the following content.
+You must provide a base directory that includes:
 
 
 * A `node.conf` file with database connection settings.
