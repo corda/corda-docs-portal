@@ -1,14 +1,15 @@
 ---
+date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-7:
-    parent: corda-enterprise-4-7-corda-nodes
+  corda-enterprise-4-8:
+    parent: corda-enterprise-4-8-corda-nodes
 tags:
 - node
 - administration
 title: Node management console
 weight: 76
-
 ---
+
 # Node management console
 
 The Node management console allows you to see information about a node and perform some operations on it. It runs as a plug-in for the [Gateway Service](../gateway-service.md).
@@ -156,7 +157,7 @@ If you do not have permission to perform this action and you click the tab, a me
 ### Further information
 
 * The CorDapp fields are retrieved as a `CordappInfo` object from the Corda API.
-    * View the [API documentation](https://api.corda.net/api/corda-os/4.7/html/api/kotlin/corda/net.corda.core.cordapp/-cordapp-info/index.html).
+    * View the [API documentation](https://api.corda.net/api/corda-os/4.8/html/api/kotlin/corda/net.corda.core.cordapp/-cordapp-info/index.html).
 
 ## Viewing available drivers
 
@@ -206,6 +207,10 @@ When the node management console is reloaded, the node diagnostic info is unavai
 * The buttons and toggle do not display.
 * The unavailable node information shows as `---`.
 
+{{% note %}}
+If you stop a node from the command line, the node will still appear in the console because Corda does not poll the node to see if it is still connected. Refresh the page to show the correct status. 
+{{% /note %}}
+
 {{% figure zoom="management-console/node-management-console_status.png" alt="Node management console status tab" figcaption="Node management console status tab"%}}
 
 ### Permission
@@ -217,7 +222,7 @@ If you do not have permission to perform these actions:
 
 ### Further information
 * The Status fields are retrieved as a `NodeDiagnosticInfo` object from the Corda API.
-    * View the [API documentation](https://api.corda.net/api/corda-os/4.7/html/api/kotlin/corda/net.corda.core.node/-node-diagnostic-info/index.html)
+    * View the [API documentation](https://api.corda.net/api/corda-os/4.8/html/api/kotlin/corda/net.corda.core.node/-node-diagnostic-info/index.html)
 * The calls to gracefully stop or kill a node, or to toggle drainage mode:
     * Make a REST call to the Node Management REST service.
     * The REST service connects to the node via a `CordaRPCService` connection to execute the command.

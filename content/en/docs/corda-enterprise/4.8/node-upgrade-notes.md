@@ -215,22 +215,29 @@ For this step you can use any valid dummy name - for example, `O=Dummy,L=London,
 Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
 
 
-### 3.2. Extract DDL script using Database Management Tool
+### 3.2. Extract the DDL and DML scripts using Database Management Tool
 
 To run the tool, use the following command:
 
 ```shell
-java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory --core-schemas --app-schemas
+java -jar tools-database-manager-<release number>.jar dry-run -b path_to_configuration_directory --core-schemas --app-schemas
 ```
 
 The option `-b` points to the base directory (which contains a `node.conf` file, and `drivers` and `cordapps` subdirectories).
 
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
-A script named `migrationYYYYMMDDHHMMSS.sql` will be generated in the current directory.
+A script named `migrationYYYYMMDDHHMMSS.sql` containing DDL and DML statements will be generated in the current directory.
 This script will contain all the statements required to modify and create data structures (for example, tables/indexes),
 and updates the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables itself.
+
+{{< note >}}
+
+If your DDL and DML statements are run separately (for example, if the DB admin runs DDL and an app user runs DML) you need to manually separate the DDL and DML statements into separate scripts.
+
+{{< /note >}}
+
 For descriptions of the options, refer to the [Corda Database Management Tool](database-management-tool.md) manual.
 
 
@@ -258,7 +265,13 @@ An accidental re-run of the scripts will fail (as the tables are already there),
 
 
 
-### 3.4. Apply data updates on a database
+### 3.4. Optional: Apply data updates on the H2 database
+
+{{< note >}}
+
+You only need to perform this step for the H2 database.
+
+{{< /note >}}
 
 The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration (for example, node legal name). Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool (or a Corda node). These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x - for example, upgrading from 4.5 to 4.8.
 

@@ -11,13 +11,10 @@ menu:
     weight: 1030
 tags:
 - flow
-title: Writing the flow
+title: Modify the flow
 ---
 
-
-
-
-# Writing the flow
+# Modify the flow
 
 A flow encodes a sequence of steps that a node can perform to achieve a specific ledger update. Installing new flows
 on a node allows the node to handle new business processes. The flow that you define will allow a node to issue an
@@ -26,7 +23,7 @@ on a node allows the node to handle new business processes. The flow that you de
 
 ## Flow outline
 
-The goal of your flow will be to orchestrate an IOU issuance transaction. Transactions in Corda are the atomic units of
+Your goal is to create a flow that orchestrates an IOU issuance transaction. Transactions in Corda are the atomic units of
 change that update the ledger. Each transaction is a proposal to mark zero or more existing states as historic (the
 inputs), while creating zero or more new states (the outputs).
 
@@ -61,11 +58,9 @@ to handle these tasks. Flows that are invoked in the context of a larger flow to
 *subflows*.
 
 
-## FlowLogic
+## Output
 
-All flows must subclass `FlowLogic`. You then define the steps taken by the flow by overriding `FlowLogic.call`.
-
-Let’s define your `IOUFlow`. Replace the definition of `Initiator` with the following:
+Take a look at this code snippet. This is how your IOU flow template should look after you have completed all the steps described below.
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -123,10 +118,25 @@ class IOUFlow(val iouValue: Int,
 {{% tab name="java" %}}
 ```java
 // Add these imports:
+import co.paralleluniverse.fibers.Suspendable;
+import com.template.contracts.IOUContract;
+import com.template.states.IOUState;
 import net.corda.core.contracts.Command;
+import net.corda.core.flows.*;
 import net.corda.core.identity.Party;
 import net.corda.core.transactions.SignedTransaction;
 import net.corda.core.transactions.TransactionBuilder;
+import net.corda.core.utilities.ProgressTracker;
+import net.corda.core.flows.SignTransactionFlow;
+import net.corda.core.transactions.SignedTransaction;
+import static net.corda.core.contracts.ContractsDSL.requireThat;
+import net.corda.core.contracts.ContractState;
+import net.corda.core.crypto.SecureHash;
+
+
+import java.security.PublicKey;
+import java.util.Arrays;
+import java.util.List;
 
 // Replace Initiator's definition with:
 @InitiatingFlow
@@ -187,18 +197,33 @@ public class IOUFlow extends FlowLogic<Void> {
 
 {{< /tabs >}}
 
-If you’re following along in Java, you’ll also need to rename `Initiator.java` to `IOUFlow.java`.
 
-Let’s walk through this code step-by-step.
+## Define FlowLogic
+
+1. Open the file for for your language:
+
+   * Java: Open `Initiator.java` from `workflows/src/main/java/com/template/flows/Initiator.java`.
+   * Kotlin: Open `Flows.kt` from `workflows/src/main/kotlin/com/template/flows/Flows.kt`.
+
+2. If you’re following along in Java, rename `Initiator.java` to `IOUFlow.java`.
+
+3. Define your `IOUFlow`.
+
+{{< note >}}
+
+All flows must subclass `FlowLogic`. You then define the steps taken by the flow by overriding `FlowLogic.call`.
+
+{{< /note >}}
+
+Let’s walk through the above IOU flow code step-by-step.
 
 You’ve defined your own `FlowLogic` subclass that overrides `FlowLogic.call`. `FlowLogic.call` has a return type
 that must match the type parameter passed to `FlowLogic` - this type is returned by running the flow.
 
 `FlowLogic` subclasses can optionally have constructor parameters, which can be used as arguments to
-`FlowLogic.call`. In our case, we have two:
+`FlowLogic.call`. In your case, you have two:
 
-
-* `iouValue`, which is the value of the IOU being issued.
+* `iouValue`, the value of the IOU being issued.
 * `otherParty`, the IOU’s borrower (the node running the flow is the lender).
 
 `FlowLogic.call` is annotated `@Suspendable` - this allows the flow to be check-pointed and serialised to disk when
@@ -216,24 +241,24 @@ Let’s walk through the steps of `FlowLogic.call` itself. This is where we actu
 issuing the `IOUState` onto a ledger.
 
 
-### Choosing a notary
+### Choose a notary
 
 Every transaction requires a notary to prevent double spends and serve as a timestamping authority. The first thing you must
-do in your flow is retrieve the notary from the node’s `ServiceHub`. `ServiceHub.networkMapCache` provides
-information about the other nodes on the network and the services that they offer.
+do in your flow is retrieve the notary from the node’s `ServiceHub`.
+
+* Use `ServiceHub.networkMapCache` to get information about the other nodes on the network and the services that they offer.
 
 {{< note >}}
 Whenever you need information within a flow - whether it’s about your own node’s identity, the node’s local storage,
 or the rest of the network - you generally obtain it via the node’s `ServiceHub`.
 {{< /note >}}
 
-### Building the transaction
+### Build the transaction
 
-You’ll build your transaction proposal in two steps:
+You can build your transaction proposal in two steps:
 
-
-* Creating the transaction’s components.
-* Adding these components to a transaction builder.
+1. Create the transaction’s components.
+2. Add these components to a transaction builder.
 
 
 #### Transaction items
@@ -257,15 +282,20 @@ discuss contracts in the next tutorial.
 from the lender only, whereas the transfer of an IOU might require signatures from both the IOU’s borrower and lender.
 
 Each `Command` contains a command type plus a list of public keys. For now, you will use the pre-defined
-`TemplateContract.Action` as your command type, and you'll list the lender as the only public key. This means that for
+`TemplateContract.Action` as your command type, and you'll list the lender as the only public key. This means that for your
 the transaction to be valid, the lender is required to sign the transaction.
 
 
-#### Creating a transaction builder
+#### Create a transaction builder
 
-To actually build the proposed transaction, you need a `TransactionBuilder`. This is a mutable transaction class to
-which you can add inputs, outputs, commands, and any other items the transaction needs. You create a
-`TransactionBuilder` that uses the notary retrieved earlier.
+To build the proposed transaction, you need a `TransactionBuilder`. This is a mutable transaction class to
+which you can add:
+* Inputs
+* Outputs
+* Commands
+* Any other items the transaction needs
+
+You create a `TransactionBuilder` that uses the notary retrieved earlier.
 
 Once you have the `TransactionBuilder`, you add your components:
 
@@ -277,7 +307,7 @@ passing in a reference to the `TemplateContract`, which imposes no constraints. 
 real constraints in the next tutorial.
 
 
-### Signing the transaction
+### Sign the transaction
 
 Now that you have a valid transaction proposal, you need to sign it. Once the transaction is signed, no one will be able
 to modify the transaction without invalidating this signature. This effectively makes the transaction immutable.
@@ -286,19 +316,25 @@ You sign the transaction using `ServiceHub.signInitialTransaction`, which return
 `SignedTransaction` is an object that pairs a transaction with a list of signatures over that transaction.
 
 
-### Finalising the transaction
+### Finalise the transaction
 
-You now have a valid signed transaction. All that’s left to do is to have the notary sign it, have that recorded
-locally, and then send it to all the relevant parties. Once that happens the transaction will become a permanent part of the
+You now have a valid signed transaction. All that’s left to do is have the notary sign it, record that
+locally, and then send it to all the relevant parties. The transaction then becomes a permanent part of the
 ledger. Here you use `FinalityFlow` which does all of this for the lender.
 
 For the borrower to receive the transaction they just need a flow that responds to the seller’s flow.
 
 
-### Creating the borrower’s flow
+## Create the borrower’s flow
 
 The borrower has to use `ReceiveFinalityFlow` in order to receive and record the transaction; it needs to respond to
-the lender’s flow. Change the `Responder` flow file name to `IOUFlowResponder` and replace the template definition with the following:
+the lender’s flow.
+
+1. Open the `Responder` file.
+
+2. Change the `Responder` flow file name to `IOUFlowResponder`.
+
+3. Replace the template definition with the following:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -345,7 +381,7 @@ public class IOUFlowResponder extends FlowLogic<Void> {
 
 {{< /tabs >}}
 
-As with the `IOUFlow`, our `IOUFlowResponder` flow is a `FlowLogic` subclass where we’ve overridden `FlowLogic.call`.
+As with the `IOUFlow`, your `IOUFlowResponder` flow is a `FlowLogic` subclass where we’ve overridden `FlowLogic.call`.
 
 The flow is annotated with `InitiatedBy(IOUFlow.class)`, which means that your node will invoke
 `IOUFlowResponder.call` when it receives a message from a instance of `IOUFlow` running on another node. This message
@@ -355,4 +391,4 @@ will be the finalised transaction which will be recorded in the borrower’s vau
 ## Progress so far
 
 Your flow, and your CorDapp, are now ready! We have now defined a flow that we can start on our node to completely
-automate the process of issuing an IOU onto the ledger. All that’s left is to spin up some nodes and test our CorDapp.
+automate the process of issuing an IOU onto the ledger. All that’s left is to spin up some nodes and [test your CorDapp](run-your-cordapp).

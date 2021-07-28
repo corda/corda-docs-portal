@@ -30,6 +30,11 @@ The following sections document the available subcommands suitable for a node op
 The database management tool is for production databases only. H2 databases cannot be upgraded using the Database Management tool.
 {{< /note >}}
 
+{{% note %}}
+Please note that notary-related database objects are not included when using the `--core-schemas` option.
+{{% /note %}}
+
+
 ## Executing a dry run of the SQL migration scripts
 
 The `dry-run` subcommand can be used to output the database migration to the specified output file or to the console.
