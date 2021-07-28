@@ -244,7 +244,7 @@ The generated DDL script adds the schema prefix to most of the statements, but n
 
 {{< /note >}}
 
-The whole script needs to be run. Partially running the script causes the database schema content to be inconsistently versioned.
+You need to run the whole script. Partially running the script causes the database schema content to be inconsistently versioned.
 
 
 {{< warning >}}
