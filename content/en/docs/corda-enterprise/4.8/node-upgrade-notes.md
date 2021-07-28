@@ -279,7 +279,7 @@ If you are reusing the tool configuration directory:
 1. Ensure `myLegalName` setting in `node.conf` is set with a node name for which the data update will be run. For example, while upgrading the database schema used by a node `O=PartyA,L=London,C=GB`, assign the same value to `myLegalName`.
 
 {{< warning >}}
-The value of `myLegalName` must exactly match the node name that is used in the database schema. Any `node.conf` misconfiguration may cause data row migration to be wrongly applied. This may happen silently, without throwing an error.
+The value of `myLegalName` must exactly match the node name used in the database schema. Any `node.conf` misconfiguration may cause data row migration to be wrongly applied. This may happen silently, without throwing an error.
 
 {{< /warning >}}
 
