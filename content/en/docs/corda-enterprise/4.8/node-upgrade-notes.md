@@ -234,8 +234,8 @@ For more information about the Database Management Tool, including available opt
 
 ### 3.3. Apply DDL scripts on a database
 
-The database administrator applies the generated DDL script using their tooling of choice.
-A database user with *administrative permissions*, and whose default schema matches `<schema>` and the schema used by the node, runs the script.
+To apply DDL scripts to a database, the database administrator must apply a DDL script. They can generate the script with the tool of their choice. 
+Then, any database user with *administrative permissions*, and whose default schema matches `<schema>` and the schema used by the node, can run the script.
 For example, for Azure SQL or SQL Server, you should not use the default database administrator account.
 
 {{< note >}}
