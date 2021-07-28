@@ -213,7 +213,7 @@ To run the tool, use the command:
 java -jar tools-database-manager-<release number>.jar dry-run -b path_to_configuration_directory --core-schemas --app-schemas
 ```
 
-Option `-b` points to the base directory, which contains a `node.conf` file, and `drivers` and `cordapps` subdirectories.
+Option `-b` points to the base directory. The directory contains a `node.conf` file and the `drivers` and `cordapps` subdirectories.
 
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
