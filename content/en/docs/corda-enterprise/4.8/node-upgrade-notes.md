@@ -341,7 +341,7 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 ```
 
 The node will perform any automatic data migrations required, which may take some
-time. If the migration process is interrupted, it can be continued simply by starting the node again. The node will stop automatically when migration is complete.
+time. If the migration process is interrupted, restart the node to continue. The node stops automatically when migration is complete.
 
 ## Step 7. Start the node
 
