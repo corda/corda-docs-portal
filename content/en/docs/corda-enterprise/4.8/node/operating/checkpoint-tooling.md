@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
-    parent: corda-enterprise-4-8-corda-nodes-operating
+    parent: corda-enterprise-4-8-monitoring-logging
 tags:
 - checkpoint
 - tooling
@@ -10,68 +10,39 @@ title: Checkpoint Tooling
 weight: 110
 ---
 
+This page contains information about the checkpoint dumper and the checkpoint agent tools. Use these tools to debut stuck flows.
 
-# Checkpoint Tooling
+Ensure that you understand the mechanics of [flows](../../cordapps/api-flows.md/) and [Node flow hospital](../node-flow-hospital.md/).
 
-This page contains information about checkpoint tooling. These tools can be used to debug the causes of stuck flows.
+A checkpoint is a serialised snapshot of the stack frames associated with the flow and any objects reachable from the stack. Checkpoints are saved to the node database automatically whenever a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts, increasing flow durability.
 
-Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading key-concepts-flows and [Writing flows](flow-state-machines.md).
-It is also recommended that you understand the purpose and behaviour of the node-flow-hospital in relation to *checkpoints* and flow recovery.
-An advanced explanation of *checkpoints* within the flow state machine can be found here: contributing-flow-internals.
-
-{{< note >}}
-As a recap,
-
-A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to
-the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed
-from the last checkpoint if the node restarts. Automatic checkpointing is an unusual feature of Corda and significantly helps developers write
-reliable code that can survive node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed
-from memory.
-
-{{< /note >}}
-The checkpoint tools available are:
+Use these tools to debug stuck flows.
 
 
-* [Checkpoint dumper](#checkpoint-dumper)
-* [Checkpoint agent](#checkpoint-agent)
+## Use the checkpoint dumper
 
+The checkpoint dumper outputs information about flows running on a node. You can use this information to diagnose the causes of stuck flows. Using the generated output, corrective actions can be taken to resolve the issues flows are facing. <!--One possible solution, is ending a flow using the `flow kill` command.-->
 
+To use the checkpoint dumper:
 
-## Checkpoint dumper
+1. Open the node shell.
+2. Run the `checkpoints dump` command.
+3. Open the `logs` directory of the node. There will be a `.zip` file named `checkpoint_dump-<date-and-time.zip`.
 
-The checkpoint dumper outputs information about flows running on a node. This is useful for diagnosing the causes of stuck flows. Using the generated output,
-corrective actions can be taken to resolve the issues flows are facing. One possible solution, is ending a flow using the `flow kill` command.
+Inside the `.zip` checkpoint dump file there will be a `.json` file for each flow that was running when the checkpoint dump happened. Each `.json`  file follows the naming format `<flow name>-<flow id>.json`. Each `.json` flow file contains the checkpoints of
 
+The most important fields in the output are:
 
-{{< warning >}}
-Deleting checkpoints manually or via `flow kill`/`killFlow` can lead to an inconsistent ledger among transacting parties. Great care
-and coordination with a flow’s counterparties must be taken to ensure that a initiating flow and flows responding to it are correctly
-removed. This experience will be improved in the future. Making it easier to kill flows while notifying their counterparties.
-
-{{< /warning >}}
-
-
-To retrieve this information, execute `checkpoints dump` in the node’s shell. The command creates a zip and generates a JSON file for each flow.
-
-
-* Each file follows the naming format `<flow name>-<flow id>.json` (for example, `CashIssueAndPaymentFlow-90613d6f-be78-41bd-98e1-33a756c28808.json`).
-* The zip is placed into the `logs` directory of the node and is named `checkpoints_dump-<date and time>.zip` (for example, `checkpoints_dump-20190812-153847`).
-
-Below are some of the more important fields included in the output:
-
-
-* `flowId`: The id of the flow.
-* `topLevelFlowClass`: The name of the original flow that was invoked (by RPC or a service).
-* `topLevelFlowLogic`: Detailed view of the top level flow.
-* `flowCallStackSummary`: A summarised list of the current stack of sub flows along with any progress tracker information.
-* `suspendedOn`: The command that the flow is suspended on (for example, `SendAndReceive`), which includes the `suspendedTimestamp`.
-* `flowCallStack` A detailed view of the of the current stack of sub flows.
-
-
+* The id of the flow, `flowId`.
+* The name of the original flow that was invoked (by RPC or a service), `topLevelFlowClass`.
+* A detailed view of the top level flow, `topLevelFlowLogic`.
+* A summarised list of the current stack of sub flows along with any progress tracker information, `flowCallStackSummary`.
+* The command that the flow is suspended on (for example, `SendAndReceive`), which includes the `suspendedTimestamp`, `suspendedOn`.
+* A detailed view of the of the current stack of sub flows, `flowCallStack`.
 
 ### Sample output
 
-Below is an example of the JSON output:
+Below is an example of the `.json` output:
 
 ```json
 {
@@ -162,86 +133,27 @@ Below is an example of the JSON output:
 }
 ```
 
+## Use the checkpoint agent
 
+The checkpoint agent is a diagnostics tool that outputs the type, size, and content of flow checkpoints at node runtime. You should use the checkpoint agent when developing and testing flows.
 
-## Checkpoint Agent
+For a given flow checkpoint, the agent outputs:
 
-The Checkpoint Agent is a very low level diagnostics tool that can be used to output the type, size and content of flow *checkpoints* at node runtime.
-It is primarily targeted at users developing and testing code that may exhibit flow mis-behaviour (preferably before going into production).
+* Information about the checkpoint such as its `flowId`.
+* A nested hierarchical view of its reachable objects and their associated sizes, including the state of any flows held within the checkpoint.
 
-For a given flow *checkpoint*, the agent outputs:
+The checkpoint agent writes information to standard Log4j2 log files in the node's `log` directory.
 
-
-
-* Information about the checkpoint such as its `id` (also called a `flow id`) that can be used to correlate with that flows lifecycle details in the main Corda logs.
-* A nested hierarchical view of its reachable objects (indented and tagged with depth and size) and their associated sizes, including the state
-of any flows held within the checkpoint.
-
-
-Diagnostics information is written to standard log files (eg. log4j2 configured logger).
-
-This tool is particularly useful when used in conjunction with the `checkpoints dump` CRaSH shell command to troubleshoot and identify potential
-problems associated with checkpoints for flows that appear to not be completing.
+This tool is particularly useful when used in conjunction with the `checkpoints dump` CRaSH shell command to identify and troubleshoot problems associated with flows not completing.
 
 The checkpoint agent can be downloaded from [here](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-checkpoint-agent/).
 
-To run simply pass in the following jar to the JVM used to start a Corda node: `-Dcapsule.jvm.args=-javaagent:<PATH>/checkpoint-agent.jar[=arg=value,...]`
+To run the checkpoint agent add `-Dcapsule.jvm.args=-javaagent:<PATH>/checkpoint-agent.jar[=arg=value,...]` to the command starting the Corda node.
+
+The checkpoint agent increases the memory requirement of the node. You should set a minimum memory heap size of 1 GB for nodes running the checkpoint agent.
 
 {{< note >}}
-As above also ensure to use the jar when using corda gradle plugin configuration tasks: e.g. `cordformation deployNodes` task.
-See [https://docs.corda.net/head/generating-a-node.html#the-cordform-task](https://docs.corda.net/head/generating-a-node.html#the-cordform-task)
-
-{{< /note >}}
-
-{{< warning >}}
-This tool requires additional memory footprint and we recommended a minimal heap size of at least 1Gb.
-
-{{< /warning >}}
-
-
-The agent can be customised with a number of optional parameters described below.
-
-
-### Configuration
-
-The checkpoint agent can be started with the following optional parameters:
-
-```shell
-checkpoint-agent.jar=[instrumentType=<read|write>],[instrumentClassname=<CLASSNAME>],[minimumSize=<MIN_SIZE>],[maximumSize=<MAX_SIZE>, [graphDepth=<DEPTH>], [printOnce=<true|false>]
-```
-
-
-* `instrumentType`: whether to output checkpoints on read or write. Possible values: [read, write]. Default: read.
-* `instrumentClassname`: specify the base type of objects to log. The default setting is to process all *Flow* object types. Default: net.corda.node.services.statemachine.FlowStateMachineImpl.
-* `minimumSize`: specifies the minimum size (in bytes) of objects to log. Default: 8192 bytes (8K)
-* `maximumSize`: specifies the maximum size (in bytes) of objects to log. Default: 20000000 bytes (20Mb)
-* `graphDepth`: specifies how many levels deep to display the graph output. Default: unlimited
-* `printOnce`: if true, will display a full object reference (and its sub-graph) only once. Otherwise an object will be displayed repeatedly as referenced. Default: true
-
-These arguments are passed to the JVM along with the agent specification. For example:
-
-```shell
--javaagent:<PATH>/checkpoint-agent.jar=instrumentClassname=net.corda.vega.flows.SimmFlow,instrumentType=read,minimumSize=10240,maximumSize=512000,graphDepth=6,printOnce=false
-```
-
-{{< note >}}
-Arguments may be passed into the agent in any order and should **not** contain spaces between them.
-
-{{< /note >}}
-
-### Checkpoint Dump support
-
-When used in combination with the `checkpoints dump` shell command (see [Checkpoint Dumper](#checkpoint-dumper)),
-the checkpoint agent will automatically output additional diagnostic information for all checkpoints dumped by the aforementioned tool.
-
-You should therefore see two different output files upon invoking the checkpoint dumper command:
-
-
-* `<NODE_BASE>\logs\checkpoints_dump-<date>.zip` contains zipped JSON representation of checkpoints (from `checkpoints dump` shell command)
-* `<NODE_BASE>\logs\checkpoints_agent-<date>.log` contains output from this agent tool (types and sizes of a checkpoint stack)
-
-{{< note >}}
-A checkpoint agent log is created by default even when no specific configuration is provided for checkpoint  agent. Every time a node starts up, an empty checkpoint agent log is created.
+A checkpoint agent log is created by default even when no specific configuration is provided for checkpoint agent. Every time a node starts, an empty checkpoint agent log is created.
 {{< /note >}}
 
 If you **only** wish to log checkpoint data for failing flows, start the checkpoint agent with the following arguments:
@@ -250,7 +162,39 @@ If you **only** wish to log checkpoint data for failing flows, start the checkpo
 checkpoint-agent.jar=instrumentType=read,instrumentClassname=NONE
 ```
 
-and use the `checkpoints dump` shell command to trigger diagnostics collection.
+{{< note >}}
+If you are using the Corda gradle plugin configuration tasks, ensure that you alter the task to include the checkpoint agent. See [the cordform task](../deploy/generating-a-node.md/) for information on updating the cordform task.
+{{< /note >}}
+
+
+### Configure the checkpoint agent
+
+The checkpoint agent can be started with the following optional parameters:
+
+```shell
+checkpoint-agent.jar=[instrumentType=<read|write>],[instrumentClassname=<CLASSNAME>],[minimumSize=<MIN_SIZE>],[maximumSize=<MAX_SIZE>, [graphDepth=<DEPTH>], [printOnce=<true|false>]
+```
+
+| Option | Description |
+|--------|-------------|
+| `instrumentType` | String. Specifies whether `read` or `write` checkpoints are logged. Default: read |
+| `instrumentClassname` | String. Specifies the base type of objects to log, as a class name. Defaults to all flow objects. Default: net.corda.node.services.statemachine.FlowStateMachineImpl |
+| `minimumSize` | Integer. Specifies the minimum size of objects to log, in bytes. Default: 8192 bytes (8 KB) |
+| `maximumSize` | Integer. Specifies the maximum size of objects to log, in bytes. Default: 20000000 bytes (20 MB) |
+| `graphDepth` | Integer. Specifies the depth of the graph output, 0 is unlimited. Default: unlimited |
+| `printOnce` | Boolean. If true, displays each full object reference and sub-graph only once. Default: true |
+
+These arguments are passed to the JVM along with the agent specification. For example:
+
+```shell
+-javaagent:<PATH>/checkpoint-agent.jar=instrumentClassname=net.corda.vega.flows.SimmFlow,instrumentType=read,minimumSize=10240,maximumSize=512000,graphDepth=6,printOnce=false
+```
+
+### Combining the checkpoint agent and the checkpoint dumper
+
+If you are using the checkpoint agent, the `checkpoints dump` shell command will output an additional diagnostic log file.
+
+The checkpoint dumper will create a log file called `<NODE_BASE>\logs\checkpoints_dump-<date>.zip`, and an additional `<NODE_BASE>\logs\checkpoints_agent-<date>.log` file will be created. The additional log file contains the types and sizes of the checkpoint stack.
 
 {{< warning >}}
 The checkpoint agent JAR file must be called “checkpoint-agent.jar” as the checkpoint dump support code uses Java reflection to
@@ -258,12 +202,11 @@ determine whether the VM has been instrumented or not at runtime.
 {{< /warning >}}
 
 
-
 ### Logging configuration
 
-The agent will log output to a log4j2 configured logger.
+The agent will log output to a Log4j2 configured logger.
 
-It is recommended to configure a separate log file to capture this information by configuring an appender as follows:
+Configure a separate log file to capture this information by configuring an appender as follows:
 
 ```xml
 <Logger name="CheckpointAgent" level="info" additivity="false">
