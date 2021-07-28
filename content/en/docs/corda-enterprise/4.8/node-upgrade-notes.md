@@ -267,7 +267,7 @@ The schema structure changes in Corda 4.0 require data to be propagated to new t
 
 The Database Management Tool can execute the remaining data upgrade.
 As the schema structure has already been created in the third step, the tool can connect with *restricted* database permissions.
-The only activities in this step are inserting/upgrading data rows, and does not apply any alterations to the schema.
+In this step, you will insert and upgrade the data rows. This process does not alter the schema.
 
 You can modify and reuse the tool configuration directory you created in Step 3.1, or you can run the tool
 by accessing the base directory of the node you are updating.
