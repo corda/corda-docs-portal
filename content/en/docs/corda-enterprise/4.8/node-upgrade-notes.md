@@ -44,7 +44,7 @@ The protocol tolerates node outages. Peers on the network wait for your node to 
 
 ## Step 1. Drain the node
 
-Before a node (or a CorDapp on a node) can be upgraded, it must be drained by the node operator. This brings all [flows](cordapps/api-flows.md/) that are currently running to a smooth halt, where existing work is finished and new work is queued rather than processed. By draining a node, CorDapps aren't required to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
+Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md/) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
 You can drain a node by running `gracefulShutdown`. This waits for the node to drain and then shuts it down once the drain
