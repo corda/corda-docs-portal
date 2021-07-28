@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('corda-shared-build-pipeline-steps@notick/cordaDocsPipeline') _
+@Library('corda-shared-build-pipeline-steps@cordaDocsPipeline') _
 
 /*
  * List arguments in alphabetical order
