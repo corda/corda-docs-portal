@@ -17,9 +17,11 @@ weight: 20
 
 ## Introduction
 
-This deployment guide provides a set of simple steps for deploying Corda Enterprise Network Manager (CENM)
+This deployment guide provides a set of simple steps for a test deployment of Corda Enterprise Network Manager (CENM)
 on a Kubernetes cluster in Azure Cloud.
 The deployment uses Bash scripts and Helm templates provided with CENM Docker images.
+
+{{<note>}}You may find it useful to use [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) to visualise the deployment.{{</note>}}
 
 ### Who is this deployment guide for?
 
