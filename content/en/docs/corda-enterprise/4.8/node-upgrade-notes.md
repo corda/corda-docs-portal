@@ -74,7 +74,7 @@ The database update can be performed automatically or manually.
 
 You can perform an automatic database update when:
 
-* Your database setup is for testing/development purposes, and your node connects with *administrative permissions* (it can modify database schema).
+* Your database setup is for testing/development purposes and your node connects with *administrative permissions* (in essence, it can modify database schema).
 * You are upgrading a production system, your policy allows a node to auto-update its database, and your node connects with *administrative permissions*.
 
 If you met the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-update-database-automatic).
