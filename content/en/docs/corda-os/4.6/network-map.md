@@ -194,7 +194,7 @@ The zone operator updates the parameters by:
 1. Advertising the proposed network parameter update to the entire network.
 2. Switching the network onto the new parameters. This is known as a *flag day*.
 
-The proposed parameter update includes, a human-readable description of the changes and the
+The proposed parameter update includes a human-readable description of the changes and the
 deadline for accepting the update. The acceptance deadline is the date and time that the zone operator intends to switch the entire
 network onto the new parameters. This will be a reasonable amount of time in the future, giving the node operators time to inspect,
 discuss, and accept the parameters.
