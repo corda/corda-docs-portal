@@ -62,7 +62,7 @@ an environment with well written CorDapps and counterparties who are online, dra
 
 ## Step 2. Make a backup of your node's directories and database
 
-You should back up your data before upgrading any server as this will make it easier to roll back if there’s a problem. Simply make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
+Back up your data before upgrading, in case you need to roll back if there’s a problem. Make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
 For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](node/operating/node-administration.md#backup-recommendations).
 
