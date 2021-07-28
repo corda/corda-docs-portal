@@ -53,7 +53,7 @@ is complete.
 
 {{< warning >}}
 The length of time a node takes to drain varies. It depends on how your CorDapps are designed and whether any CorDapps are
-talking to network peers that are offline or slow to respond. In
+communicating with network peers that are offline or slow to respond. In
 an environment with well written CorDapps and counterparties who are online, drains may only take a few seconds.
 
 {{< /warning >}}
