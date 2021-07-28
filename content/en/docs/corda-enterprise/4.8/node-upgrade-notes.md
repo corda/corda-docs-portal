@@ -269,7 +269,7 @@ The Database Management Tool can execute the remaining data upgrade.
 As the schema structure has already been created in the third step, the tool can connect with *restricted* database permissions.
 The only activities in this step are inserting/upgrading data rows, and does not apply any alterations to the schema.
 
-You can modify the tool configuration directory created in Step 3.1, or you can run the tool
+You can modify and reuse the tool configuration directory you created in Step 3.1, or you can run the tool
 by accessing the base directory of the node you are updating.
 If you choose to update the data by accessing the base directory, you do not need to modify the tool configuration. However, you must run the tool from the same machine the node is running on.
 
