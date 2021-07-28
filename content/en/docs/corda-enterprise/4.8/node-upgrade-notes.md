@@ -68,7 +68,7 @@ For a detailed explanation of Corda backup and recovery guarantees, see [Backup 
 
 
 
-## Step 3. Update the database
+## Step 3: Update the database
 
 The database update can be performed automatically or manually.
 
