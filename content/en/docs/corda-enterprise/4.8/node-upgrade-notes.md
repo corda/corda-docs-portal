@@ -220,7 +220,7 @@ Option `-b` points to the base directory. The directory contains a `node.conf` f
 A script named `migrationYYYYMMDDHHMMSS.sql` containing DDL and DML statements will be generated in the current directory.
 This script contains all the statements required to modify and create data structures, for example tables/indexes,
 and updates the Liquibase management table **DATABASECHANGELOG**.
-The command doesn't alter any tables itself.
+The command doesn't alter any tables.
 
 
 {{< note >}}
