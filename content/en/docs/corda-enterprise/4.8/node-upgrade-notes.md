@@ -169,7 +169,7 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Complete the template as follows.
+Complete the template:
 
 * Replace placeholders `<host>`, `<port>`, `<sid>`, `<user>`, `<password>`, and `<schema>` with appropriate values.
 * `<schema>` is a database schema namespace, for a basic setup the schema name equals `<user>`.
