@@ -285,7 +285,7 @@ The value of `myLegalName` must exactly match the node name that is used in the 
 
 2. Create a `cordapps` subdirectory and copy the CorDapps used by the node.
 
-3. Change the database user to one with *restricted permissions*. This ensures the database cannot be altered. To run the remaining data migration, run:
+3. Change the database user to one with *restricted permissions*. This ensures the database cannot be altered. To complete the data migration, run:
 
 ```shell
 java -jar tools-database-manager-4.8-RC03.jar execute-migration -b . --core-schemas --app-schemas
@@ -316,7 +316,7 @@ Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not cur
 {{< /important >}}
 
 
-## Step 5. Update configuration
+## Step 5: Update configuration
 
 {{< note >}}
 
@@ -326,7 +326,7 @@ You only need to perform this step if you are updating from version 4.5 or older
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 
-## Step 6. Update the database (automatic)
+## Step 6: Update the database (automatic)
 
 {{< note >}}
 
@@ -343,11 +343,11 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 The node will perform any automatic data migrations required, which may take some
 time. If the migration process is interrupted, restart the node to continue. The node stops automatically when migration is complete.
 
-## Step 7. Start the node
+## Step 7: Start the node
 
 Start your node in the normal way.
 
-## Step 8. Undrain the node
+## Step 8: Undrain the node
 
 You may now do any checks, such as reading the logs. When you are ready, use this command at the shell.
 
