@@ -60,7 +60,7 @@ an environment with well written CorDapps and counterparties who are online, dra
 
 
 
-## Step 2. Make a backup of your node's directories and database
+## Step 2: Make a backup of your node's directories and database
 
 Back up your data before upgrading, in case you need to roll back if there’s a problem. Make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
