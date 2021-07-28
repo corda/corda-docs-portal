@@ -14,9 +14,9 @@ weight: 30
 
 A Corda node is an entity in a Corda network that usually represents one party in a business network. One party operates the node, which contains the CorDapps that the party uses to interact with other peers on the network.
 
-In this document you will find:
+This document contains:
 
-* What makes up a node.
+* A description of node components.
 * Node communication protocols.
 * An example of typical node deployment architecture.
 
@@ -53,7 +53,7 @@ All nodes require a relational SQL database to store operational data and the Co
 
 You can find a range of information in the tables on the node database. Some of the most important database tables are:
 
-* Flow checkpoints. If the node encounters a problem during a flow, it can recover it from a checkpoint.
+* Flow checkpoints: If the node encounters a problem during a flow, it can recover it from a checkpoint.
 * Network parameters: Network parameters are the configuration settings of a business network, and are common to all parties on the network.
 * States: States are outputs of transactions, and are stored in tables within the Corda Vault.
 * Transactions: The node database stores all transactions that the node has created or used in transaction resolution.
@@ -73,7 +73,7 @@ The key node services are:
 
 The Corda firewall is a CorDapp-level firewall and protocol break on all internet-facing endpoints. The firewall is made up of two components: the float and the bridge. The float handles inbound connections, while the bridge handles outbound connections.
 
-The float safeguards the node by acting as the point of contact for all other parties. The float exposes a port and an address that can be connected to by other parties on the network. When other parties connect to the float, the float bundles their messages and transmits them to the bridge across an internal firewall.
+The float safeguards the node by acting as the point of contact for all other parties. The float exposes a port and an address, which other parties on the network can connect to. When other parties connect to the float, the float bundles their messages and transmits them to the bridge across an internal firewall.
 
 The bridge is the internal component of the firewall. It initiates all connections to the float, and runs health checks on the message bundles it receives before adding them to the node's Artemis queue.
 
