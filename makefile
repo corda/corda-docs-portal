@@ -10,10 +10,11 @@ PROD_IMAGE         = corda-docs-nginx
 ALGOLIA_IMAGE      = corda-docs-algolia
 PROD_IMAGE_TAG     = latest
 
-AWS_REGION         = eu-west-1
-S3_BUCKET          = docs.staging.docs.r3.com
-DISTRIBUTION_ID    = E1VJ08R1FFUVRT
-ROLE_ARN           = arn:aws:iam::491552082744:role/DocsiteUploaderFromBltProd
+# Set these variables when publishing to an AWS S3 bucket
+AWS_REGION         =
+S3_BUCKET          =
+DISTRIBUTION_ID    =
+ROLE_ARN           =
 
 .PHONY: all local-build local-build-preview help serve hugo-build prod-hugo-build prod-docker-image serve
 
