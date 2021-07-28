@@ -14,8 +14,8 @@ weight: 40
 
 # Node identity
 
-A node’s name must be a valid X.500 distinguished name. In order to be compatible with other implementations
-(particularly TLS implementations), we constrain the allowed X.500 name attribute types to a subset of the minimum
+A node’s name must be a valid X.509 distinguished name. In order to be compatible with other implementations
+(particularly TLS implementations), we constrain the allowed X.509 name attribute types to a subset of the minimum
 supported set for X.509 certificates (specified in RFC 3280), plus the locality attribute:
 
 
