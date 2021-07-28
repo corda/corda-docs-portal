@@ -207,7 +207,7 @@ Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` d
 
 ### 3.2. Extract the DDL and DML scripts using the Database Management Tool
 
-Run the tool by using the following command:
+To run the tool, use the command:
 
 ```shell
 java -jar tools-database-manager-<release number>.jar dry-run -b path_to_configuration_directory --core-schemas --app-schemas
