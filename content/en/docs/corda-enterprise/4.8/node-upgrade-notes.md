@@ -90,7 +90,7 @@ You must provide a base directory that includes:
 
 
 * A `node.conf` file with database connection settings.
-* A `drivers` directory where the JDBC driver will be placed.
+* A `drivers` directory. You will place the JDBC driver here.
 
 `node.conf` template files and details on where to find the JDBC driver for each database vendor can be found below.
 
