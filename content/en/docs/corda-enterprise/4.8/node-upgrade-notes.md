@@ -27,7 +27,7 @@ If you are upgrading from Corda Enterprise 3.x, you must first:
 Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
 {{< /warning >}}
 
-Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and shouldn't require changes to CorDapps. Upgrading from 4.x consists of the following steps.
+Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](https://docs.corda.net/docs/corda-os/4.8/api-stability-guarantees.html). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
 
 1. Drain the node.
 1. Make a backup of your node's directories and database.
