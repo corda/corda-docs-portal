@@ -358,5 +358,5 @@ Your upgrade is complete.
 ## Notes
 
 {{< warning >}}
-The multi RPC client version must be aligned with the node version, meaning that both must be running the same Corda Enterprise version. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
+You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda Enterprise. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
 {{< /warning >}}
