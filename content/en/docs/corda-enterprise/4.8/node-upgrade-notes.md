@@ -39,7 +39,7 @@ Most of Corda's public, non-experimental APIs are backwards compatible. See the 
 1. Undrain the node.
 
 {{< note >}}
-We've designed the protocol to tolerate node outages. During the upgrade process, peers on the network will wait for your node to become available.
+The protocol tolerates node outages. Peers on the network wait for your node to become available after upgrading.
 {{< /note >}}
 
 ## Step 1. Drain the node
