@@ -270,7 +270,7 @@ As the schema structure has already been created in the third step, the tool can
 The only activities in this step are inserting/upgrading data rows, and does not apply any alterations to the schema.
 
 You can modify the tool configuration directory created in Step 3.1, or you can run the tool
-accessing the base directory of a node for which the data update is being performed.
+by accessing the base directory of the node you are updating.
 If you choose to update the data by accessing the base directory, you do not need to modify the tool configuration. However, you must run the tool from the same machine the node is running on.
 
 If you are reusing the tool configuration directory:
