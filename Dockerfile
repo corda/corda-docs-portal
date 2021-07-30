@@ -1,4 +1,5 @@
-FROM ubuntu:latest
+ARG REGISTRY=library
+FROM ${REGISTRY}/ubuntu:latest
 
 RUN apt-get update && \
     apt-get install curl git tar gzip unzip jq -y
