@@ -4,6 +4,7 @@ DOCKER             = docker
 DOCKER_RUN         = $(DOCKER) run --rm --volume $(ROOT_DIR):/src $(DOCKER_BUILD_ARGS)
 HUGO_VERSION       = 0.74.3
 S3DEPLOY_VERSION   = 2.3.5
+REGISTRY           = library
 
 HUGO_DOCKER_IMAGE  = corda-docs-hugo
 PROD_IMAGE         = corda-docs-nginx
@@ -108,7 +109,10 @@ linkchecker: prod-docker-image ## Check all links are valid
 
 # actual tasks
 .hugo-docker-image: Dockerfile
-	$(DOCKER) build . --tag $(HUGO_DOCKER_IMAGE) --build-arg HUGO_VERSION=$(HUGO_VERSION) --build-arg S3DEPLOY_VERSION=$(S3DEPLOY_VERSION)
+	$(DOCKER) build . --tag $(HUGO_DOCKER_IMAGE) \
+		--build-arg HUGO_VERSION=$(HUGO_VERSION) \
+		--build-arg REGISTRY=$(REGISTRY) \
+		--build-arg S3DEPLOY_VERSION=$(S3DEPLOY_VERSION)
 	touch $@
 
 .prod-hugo-build: $(shell find assets content layouts static themes -type f -print0 | xargs -0 -I{} echo {} | sed -e 's/ /\\ /g')
