@@ -5,8 +5,8 @@ dev-preview 5.0:
 tags:
 - glossary
 - terms
-  title: Glossary
-  weight: 20
+title: Glossary
+weight: 20
 ---
 
 # Glossary
@@ -44,7 +44,6 @@ A Corda identity deployed in notary mode and granted permission to a membership 
 **Membership group**
 
 A logical grouping of multiple Corda identites, which communicate and transact with each other with a specific set of CorDapps.
-
 
 
 
