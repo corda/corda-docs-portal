@@ -585,9 +585,9 @@ Use this command to display all flows currently running on the node with result 
 The output will show results listed with flow `Id`, `Flow name`, `Initiator`, and `Status`.
 
 ```
-Id                                Flow name                                                          Initiator                        Status                                                             
+Id                                Flow name                                                          Initiator                        Status
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-27fc3a53-5fc3-4c30-a872-a2f282291 Cash Payment Receiver                                              O=BankOfCorda, L=London, C=GB    No return value                                                    
+27fc3a53-5fc3-4c30-a872-a2f282291 Cash Payment Receiver                                              O=BankOfCorda, L=London, C=GB    No return value
 Waiting for completion or Ctrl-C ...
 ```
 
@@ -646,9 +646,9 @@ Use the `healthcheck` shell command to extract healthcheck information about the
 #### Example output
 
 The output will be similar to the output shown below:
-
-{{< codesample file="/content/en/docs/corda-enterprise/codesamples/healthcheck-runtimeInfo.txt" >}}
-
+<!--
+{{< codesample file="/content/en/docs/platform/corda-enterprise/codesamples/healthcheck-runtimeInfo.txt" >}}
+-->
 
 ### View and update the `run` command output format
 

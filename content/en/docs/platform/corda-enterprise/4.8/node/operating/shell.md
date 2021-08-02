@@ -745,7 +745,7 @@ Use the `healthcheck` shell command to extract healthcheck information about the
 
 The output will be similar to the output shown below:
 
-{{< codesample file="/content/en/docs/corda-enterprise/codesamples/healthcheck-runtimeInfo.txt" >}}
+{{< codesample file="/content/en/docs/platform/corda-enterprise/codesamples/healthcheck-runtimeInfo.txt" >}}
 
 
 ### View and update the `run` command output format

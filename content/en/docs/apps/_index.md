@@ -1,13 +1,6 @@
 ---
-aliases:
-- /docs/apps/head/index.html
-- /docs/apps/index.html
 date: '2020-12-23T09:59:25Z'
-menu:
-  projects:
-    weight: -265
-project: apps
-section_menu: apps
+section_menu: homepage
 title: Featured Apps
 version: 'apps'
 ---

@@ -51,7 +51,7 @@ The documentation for all released versions of Corda OS, Corda Enterprise, and C
 
 For example:
 
-`../corda-docs/content/en/docs/corda-os/4.8`
+`../corda-docs/content/en/docs/platform/corda-os/4.8`
 
 ## Edit web pages directly in Visual Studio Code
 
