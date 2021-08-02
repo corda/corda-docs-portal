@@ -708,21 +708,15 @@ name = "Participate"
 weight = 500
 
 [[homepage]]
-identifier = "homepage-discover"
-name = "Discover Corda 5"
-url = "/discover.html"
-weight = 10
-
-[[homepage]]
-identifier = "homepage-platform"
-name = "The Corda Platform"
-url = "/platform.html"
-weight = 20
-
-[[homepage]]
 identifier = "homepage-getting-started"
 name = "Getting Started with Corda"
 url = "/getting-started.html"
+weight = 20
+
+[[homepage]]
+identifier = "homepage-platform"
+name = "The Corda platform documentation"
+url = "/platform.html"
 weight = 30
 
 [[homepage]]
@@ -746,21 +740,39 @@ weight = 100
 
 [[homepage]]
 identifier = "c4"
-name = "Corda Enterprise 4.8"
+name = "Corda Enterprise"
 parent = "homepage-platform"
 url = "/platform/corda-enterprise/4.8.html"
-weight = 200
+weight = 300
 
 [[homepage]]
 identifier = "c4-os"
-name = "Corda OS 4.8"
+name = "Corda open source"
 parent = "homepage-platform"
 url = "/platform/corda-os/4.8.html"
-weight = 300
+weight = 200
 
 [[homepage]]
 identifier = "cenm"
 name = "Corda Enterprise Network Manager"
-parent = "homepage-platform"
+parent = "c4"
 url = "/platform/cenm/1.5.html"
 weight = 400
+
+[[homepage]]
+parent = "discover-index"
+name = "Corda 5 overview"
+url = "/platform/corda-5/dev-preview/overview.html"
+weight = 100
+
+[[homepage]]
+parent = "discover-index"
+name = "Corda 5 tutorials"
+url = "/tutorials/corda-5.html"
+weight = 200
+
+[[homepage]]
+parent = "discover-index"
+name = "All Corda 5 documentation"
+url = "/platform/corda-5/dev-preview.html"
+weight = 300

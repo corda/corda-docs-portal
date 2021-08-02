@@ -1,13 +1,12 @@
 ---
 date: '2020-07-15T12:00:00Z'
 menu:
-  get-started:
-    identifier: corda-get-started-corda-4
+  homepage:
+    parent: homepage-getting-started
+    identifier: get-started-concepts
     name: Corda concepts
-title: Getting started with Corda 4
+title: Corda concepts
 weight: 200
 ---
-
-# Get started with Corda 4
 
 Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words.

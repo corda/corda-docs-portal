@@ -3,12 +3,10 @@ date: '2020-07-15T12:00:00Z'
 menu:
   homepage:
     parent: homepage-getting-started
-    identifier: corda-get-started
-    name: What is Corda?
-title: What is Corda?
-weight: 100
+    identifier: get-started-corda-4
+    name: Getting started with Corda 4
+title: Getting started with Corda 4
+weight: 400
 ---
-
-# What is Corda?
 
 Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words. Words.
