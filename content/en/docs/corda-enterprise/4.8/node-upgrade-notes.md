@@ -1,5 +1,5 @@
 ---
-date: '2021-07-07'
+date: '2021-08-02'
 menu:
   corda-enterprise-4-8:
     identifier: "corda-enterprise-4-8-node-upgrade"
@@ -30,13 +30,12 @@ Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before up
 Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](https://docs.corda.net/docs/corda-os/4.8/api-stability-guarantees.html). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
 
 1. Drain the node.
-1. Make a backup of your node's directories and database.
-1. Update the database (manually).
-1. Replace the `corda.jar` file with the new version.
-1. Update configuration.
-1. Update the database (automatically).
-1. Start the node.
-1. Undrain the node.
+2. Make a backup of your node's directories and database.
+3. Update the database.
+4. Replace the `corda.jar` file with the new version.
+5. Update the configuration.
+6. Start the node.
+7. Undrain the node.
 
 {{< note >}}
 The protocol tolerates node outages. Peers on the network wait for your node to become available after upgrading.
@@ -95,7 +94,7 @@ You must provide a base directory that includes:
 `node.conf` template files and details on where to find the JDBC driver for each database vendor can be found below.
 
 
-#### Azure SQL
+#### Azure SQL: template file and JDBC driver
 
 The required `node.conf` settings for the Database Management Tool using Azure SQL:
 
@@ -124,7 +123,7 @@ You can download the Microsoft SQL JDBC driver from [Microsoft Download Center](
 Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
-#### SQL Server
+#### SQL Server: template file and JDBC driver
 
 The required `node.conf` settings for the Database Management Tool using SQL Server:
 
@@ -152,7 +151,7 @@ You can download the Microsoft JDBC 6.4 driver from [Microsoft Download Center](
 Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
-#### Oracle
+#### Oracle: template file and JDBC driver
 
 The required `node.conf` settings for the Database Management Tool using Oracle:
 
@@ -178,7 +177,7 @@ Complete the template:
 Copy the Oracle JDBC driver `ojdbc6.jar` for 11g RC2 or `ojdbc8.jar` for Oracle 12c into the `drivers` directory.
 
 
-#### PostgreSQL
+#### PostgreSQL: template file and JDBC driver
 
 The required `node.conf` settings for the Database Management Tool using PostgreSQL:
 
@@ -234,7 +233,7 @@ For more information about the Database Management Tool, including available opt
 
 ### 3.3. Apply DDL scripts on a database
 
-To apply DDL scripts to a database, the database administrator must apply a DDL script. They can generate the script with the tool of their choice. 
+To apply DDL scripts to a database, the database administrator must apply a DDL script. They can generate the script with the tool of their choice.
 Then, any database user with *administrative permissions*, and whose default schema matches `<schema>` and the schema used by the node, can run the script.
 For example, for Azure SQL or SQL Server, you should not use the default database administrator account.
 
@@ -299,7 +298,7 @@ Option `-b` points to the base directory, which contains a `node.conf` file, and
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
 
-## Step 4. Replace `corda.jar` with the new version
+## Step 4: Replace `corda.jar` with the new version
 
 Replace the `corda.jar` with the latest version of Corda.
 
@@ -325,7 +324,7 @@ You only need to perform this step if you are updating from version 4.5 or older
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 
-## Step 6: Update the database (automatic)
+## Step 6: Update the database (automatic) -----------
 
 {{< note >}}
 
@@ -342,11 +341,11 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 The node will perform any automatic data migrations required, which may take some
 time. If the migration process is interrupted, restart the node to continue. The node stops automatically when migration is complete.
 
-## Step 7: Start the node
+## Step 6: Start the node
 
 Start your node in the normal way.
 
-## Step 8: Undrain the node
+## Step 7: Undrain the node
 
 You may now do any checks, such as reading the logs. When you are ready, use this command at the shell.
 
