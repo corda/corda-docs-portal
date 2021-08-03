@@ -45,9 +45,9 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 ## How will it work on Corda?
 
-In the first step of the process, Farmer Bob issues a voucher to Peter. In your CorDapp this voucher is called `AppleStamp` and it represents a [state](key-concepts-states.md) on the [ledger](key-concepts-ledger.md).
+In the first step of the process, Farmer Bob issues a voucher to Peter via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state](key-concepts-states.md) on the [ledger](key-concepts-ledger.md).
 
-When Farmer Bob prepares the apples Peter requested, he self-issues a bushel of apples. This represents another state on the ledger - `BasketofApples`.
+When Farmer Bob prepares the apples Peter requested, he self-issues a bushel of apples via a self-issue transaction. This is another state on the ledger - `BasketofApples`.
 
 Next, Peter goes to the orchard to pick up his apples and redeems his voucher, triggering a transaction on the ledger that consumes the `AppleStamp` state.
 
