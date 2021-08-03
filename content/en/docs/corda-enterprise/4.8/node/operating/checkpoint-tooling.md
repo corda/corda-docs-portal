@@ -19,7 +19,7 @@ A checkpoint is a serialised snapshot of the stack frames associated with the fl
 
 ## Use the checkpoint dumper
 
-The checkpoint dumper outputs information about flows running on a node. You can use this information to diagnose the causes of stuck flows. Using the generated output, corrective actions can be taken to resolve the issues flows are facing. <!--One possible solution, is ending a flow using the `flow kill` command.-->
+The checkpoint dumper outputs information about flows running on a node. You can use this information to diagnose the causes of stuck flows. Using the generated output, corrective actions can be taken to resolve the issues flows are facing.
 
 To use the checkpoint dumper:
 
@@ -263,53 +263,11 @@ The checkpoint agent JAR file must be called `checkpoint-agent.jar` as the check
 
 ## Automatic detection of unrestorable checkpoints
 
-This is a new functionality introduced in Corda 4.6, which enables you to detect unrestorable checkpoints when developing CorDapps and thus reduces the risk of writing flows that cannot be retried gracefully.
-
-It allows you to address the following common problems:
-
-* Create objects or leveraging data structures that cannot be serialized/deserialized correctly by Kryo (the checkpoint serialization library Corda uses).
-* Write flows that are not idempotent or do not deduplicate behaviour (such as calls to an external system).
-
-The feature provides a way for flows to reload from checkpoints, even if no errors occur. As a result, as a developer you can be more confident your flows will work correctly, without needing a way to inject recoverable errors throughout the flows.
-
-### How to use this feature
-
-Add the `reloadCheckpointAfterSuspend` [node configuration option](node/setup/corda-configuration-fields.md#reloadCheckpointAfterSuspend) and set it to `true`, as shown below:
-
-```
-reloadCheckpointAfterSuspend = true
-```
-
-{{< note >}}
-This option is disabled by default and is independent from `devMode`.
-{{< /note >}}
-
-There are no further steps that you need to take either as a node operator or as a developer testing your application.
-
-#### How to use from a driver test
-
-To use this feature from a driver test:
-
-```kotlin
-driver {
-    startNode(
-        providedName = ALICE_NAME,
-        customOverrides = mapOf(NodeConfiguration::reloadCheckpointAfterSuspend.name to true)
-    ).getOrThrow()
-}
-```
-
-The feature can also be enabled by setting the system property `reloadCheckpointAfterSuspend` to `true`, which enables it for all driver tests as long as the property value remains as `true`.
-
-### How it works
-
-Enabling the configuration option will cause all flows to reload their current checkpoint whenever they suspend.
-
-More precisely, any calls to a suspending function execute the following steps:
+You can detect flows with unrestorable checkpoints during development and testing by enabling the `reloadCheckpointAfterSuspend` configuration option. When enabled, this configuration option causes any calls to a suspending function to execute the following steps:
 
 1. Save a new checkpoint.
 2. Reload the checkpoint from the database and recreate the flow from it.
-3. Continue executing the called suspending function.
+3. If no errors occurred, continue executing the called suspending function.
 
 An example (with comments to highlight where the reloads occur) follows below:
 
@@ -331,16 +289,44 @@ class MyFlow(private val party: Party) : FlowLogic<Unit>() {
 }
 ```
 
-If no errors occur from reloading the flow from the newly created checkpoint, then the flow will continue as normal.
+This causes the execution of a flow to test that each checkpoint can be used to restore the flow successfully. By using this feature you can address the following common problems:
 
-#### Deserialization errors
+* Flows containing objects or leveraging data structures that cannot be serialized/deserialized correctly by Kryo (the checkpoint serialization library Corda uses).
+* Flows that are not idempotent or do not deduplicate behaviour (such as calls to an external system).
 
-When a failure occurs, you can see an error in the node's logs. The stack trace indicates what object it attempted to serialize, which allows you to determine the source of the error.
+If a failure occurs, you can find the stack trace in the node's log files. The stack trace indicates the object that was being serialized when the error occurred. Flows can be written to deliberately avoid checkpointing when calling a suspending function. In this case, the flow will reload from an earlier checkpoint.
 
-#### Skipping checkpoints
+Idempotent and timed flows always retry from their initial checkpoint. When an idempotent or timed flow is reloaded after reaching a suspending function it will load the initial checkpoint and start from the beginning.
 
-A flow can decide to skip persisting a checkpoint when calling a suspending function. Even if this is done, the flow will still be reloaded. However, in this scenario the checkpoint that the flow loads from is an earlier checkpoint instead of the current checkpoint (since it was not saved). This is not useful for detecting deserialization errors but it checks that the flow generally handles retries correctly.
+### Enable automatic detection of unrestorable checkpoints
 
-#### Idempotent/timed flows
+The detection of unrestorable checkpoints can be enabled either by a node configuration option or as an inclusion in driver tests.
 
-Idempotent/timed flows always retry from their initial checkpoint when a retry is needed. Therefore, when one of these flows is reloaded when reaching a suspending function, it will load the initial checkpoint and start from the beginning. This is not useful for detecting deserialization errors but checks that the flow generally handles retries correctly.
+To enable this feature in the node configuration:
+
+1. Open the `node.conf` node configuration file.
+2. Add the `reloadCheckpointAfterSuspend` [option](../setup/corda-configuration-fields.html#reloadCheckpointAfterSuspend) to your node configuration, set to true:
+    ```
+    reloadCheckpointAfterSuspend = true
+    ```
+3. Save and close the node configuration file.
+4. Start or restart your node.
+
+To use this feature from a driver test, add the following code to your driver test:
+
+```kotlin
+driver {
+    startNode(
+        providedName = ALICE_NAME,
+        customOverrides = mapOf(NodeConfiguration::reloadCheckpointAfterSuspend.name to true)
+    ).getOrThrow()
+}
+```
+
+The feature can also be enabled by setting the system property `reloadCheckpointAfterSuspend` to `true`, which enables it for all driver tests as long as the property value remains as `true`.
+
+## Related content
+
+* [Troubleshooting stuck flows](diagnosing-stuck-flows.md/)
+* two
+* three
