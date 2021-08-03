@@ -114,10 +114,11 @@ myLegalName = <node_legal_name>
 
 Complete the template:
 
-* Replace the placeholders `<server>`, `<login>`, `<password>`, and `<database>` with appropriate values.
-* `<database>` is a user database and `<schema>` is a schema namespace.
-* Ensure `<login>` and `<password>` are for a database user with visibility of the `<schema>`.
-* The `myLegalName` field is obligatory, however, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
+Replace the placeholders `<server>`, `<database>`, `<login>`, `<password>`, `<schema>`, and `<node_legal_name>`' with appropriate values:
+* `<database>` is the user database.
+* `<login>` and `<password>` must be for a database user with visibility of the `<schema>`.
+* `<schema>` is the schema namespace.
+* `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
 You can download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
 Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
@@ -142,10 +143,11 @@ myLegalName = <node_legal_name>
 
 Complete the template:
 
-* Replace placeholders `<server>`, `<login>`, `<password>`, and `<database>` with appropriate values.
-* `<database>` is a database name and `<schema>` is a schema namespace.
-* Ensure `<login>` and `<password>` are for a database user with visibility of the `<schema>`.
-* The `myLegalName` field is obligatory, however, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
+Replace the placeholders `<host>`, `<database>`, `<login>`, `<password>`, `<schema>`, and `<node_legal_name>`' with appropriate values:
+* `<database>` is the user database.
+* `<login>` and `<password>` must be for a database user with visibility of the `<schema>`.
+* `<schema>` is the schema namespace.
+* `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
 You can download the Microsoft JDBC 6.4 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
 Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
@@ -170,9 +172,9 @@ myLegalName = <node_legal_name>
 
 Complete the template:
 
-* Replace placeholders `<host>`, `<port>`, `<sid>`, `<user>`, `<password>`, and `<schema>` with appropriate values.
-* `<schema>` is a database schema namespace, for a basic setup the schema name equals `<user>`.
-* The `myLegalName` field is obligatory, however, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
+Replace the placeholders `<host>`, `<port>`, `<sid>`, `<user>`, `<password>`, `<schema>`, and `<node_legal_name>`' with appropriate values:
+* `<schema>` is the database schema namespace. For a basic setup, the schema name equals `<user>`.
+* `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
 Copy the Oracle JDBC driver `ojdbc6.jar` for 11g RC2 or `ojdbc8.jar` for Oracle 12c into the `drivers` directory.
 
@@ -196,10 +198,10 @@ myLegalName = <node_legal_name>
 
 Complete the template:
 
-* Replace placeholders `<host>`, `<port>`, `<database>`, `<user>`, `<password>`, and `<schema>` with appropriate values.
+Replace the placeholders `<host>`, `<port>`, `<database>`, `<user>`, `<password>`, and `<schema>`, and `<node_legal_name>`' with appropriate values:
 * `<schema>` is the database schema name assigned to the user.
-The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
-* The `myLegalName` field is obligatory, however, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
+* The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
+* `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
 Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
 
@@ -224,7 +226,7 @@ The command doesn't alter any tables.
 
 {{< note >}}
 
-If you run the DDL and DML statements separately, for example, if the DB admin runs DDL, and a CorDapp user runs DML, you need to manually separate the DDL and DML statements into separate scripts.
+If you run the DDL and DML statements separately (for example, if the DB admin runs DDL and a CorDapp user runs DML) you need to manually separate the DDL and DML statements into separate scripts.
 
 {{< /note >}}
 
@@ -233,12 +235,12 @@ For more information about the Database Management Tool, including available opt
 
 ### 3.3. Apply DDL scripts on a database
 
-To apply DDL scripts to a database, the database administrator must apply a DDL script. They can generate the script with the tool of their choice.
+The database administrator can apply the DDL scripts to the database using their tooling of choice.
 Then, any database user with *administrative permissions*, and whose default schema matches `<schema>` and the schema used by the node, can run the script.
 For example, for Azure SQL or SQL Server, you should not use the default database administrator account.
 
 {{< note >}}
-You can connect as a different user to the one used on the node, for example, a user with *restricted permissions*, as long as your user has the same default schema as the node.
+You can connect to the server as a different user than the one you use to connect to the node. For example, you could connect as a user with *restricted permissions*, as long as that user has the same default schema as the node.
 The generated DDL script adds the schema prefix to most of the statements, but not all of them.
 
 {{< /note >}}
@@ -248,7 +250,7 @@ You need to run the whole script. Partially running the script causes the databa
 
 {{< warning >}}
 The DDL scripts don’t contain any checks to prevent them from running twice.
-An accidental re-run of the scripts will fail (as the tables are already there), but may leave some old, orphan tables.
+If the scripts run a second time, they will fail because the tables are already there. However, this may generate orphan tables.
 
 {{< /warning >}}
 
@@ -265,7 +267,7 @@ You only need to perform this step for the H2 database.
 The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x, for example, upgrading from 4.5 to 4.8.
 
 The Database Management Tool can execute the remaining data upgrade.
-As the schema structure has already been created in the third step, the tool can connect with *restricted* database permissions.
+The tool can connect with *restricted* database permissions as the schema structure was created in step three.
 In this step, you will insert and upgrade the data rows. This process does not alter the schema.
 
 You can modify and reuse the tool configuration directory you created in Step 3.1, or you can run the tool
@@ -293,7 +295,7 @@ java -jar tools-database-manager-4.8-RC03.jar execute-migration -b . --core-sche
 
 
 
-Option `-b` points to the base directory, which contains a `node.conf` file, and `drivers` and `cordapps` subdirectories.
+Option `-b` points to the base directory which contains a `node.conf` file and `drivers` and `cordapps` subdirectories.
 
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
