@@ -1,6 +1,11 @@
 ---
 date: '2020-12-23T09:59:25Z'
 section_menu: homepage
+menu:
+    homepage:
+        identifier: homepage-apps
+        weight: 700
+        name: Apps & add-ons
 title: Featured Apps
 version: 'apps'
 ---
@@ -15,3 +20,4 @@ Explore:
 
 * [Bank in a Box](./bankinabox/getting-started) - a complete retail banking concept that can be hosted on a Corda network.
 * [Corda Payments Alpha](./payments/payments-index) - early sight of the possibilities of making payments in and out of a Corda network.
+
