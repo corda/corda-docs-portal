@@ -1,5 +1,5 @@
 ---
-date: '2021-07-09'
+date: '2021-08-03'
 menu:
   corda-enterprise-4-8:
     identifier: "corda-enterprise-4-8-cordapp-upgrade"
@@ -18,16 +18,16 @@ weight: 30
 Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
-These notes provide instructions for upgrading your CorDapps from previous platform versions.
-
-Corda commits to providing backwards compatibility for public, non-experimental APIs. You can find a list of these APIs in [API stability guarantees](cordapps/api-stability-guarantees.md). This means that you can upgrade your node across versions *without* recompiling or adjusting your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
-CorDapp that are worth considering for any actively maintained software. This guide shows you how to upgrade your CorDapp to benefit
+This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
 from the new features in the latest release.
+
+Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](https://docs.corda.net/docs/corda-os/4.8/api-stability-guarantees.html). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
+CorDapp that are worth considering for any actively maintained software.
 
 
 {{< warning >}}
-The sample apps found in the Corda repository, and the Corda samples repository are not intended to be used in production.
-If you are using them, you should re-namespace them to a package namespace you control, and sign/version them yourself.
+The sample CorDapps found in the Corda repository and the Corda samples repository are not intended to be used in production.
+If you do use them, re-namespace them to a package namespace you control and sign/version them.
 
 {{< /warning >}}
 
@@ -59,20 +59,20 @@ You don't need to perform a manual upgrade for this platform version.
 ## Upgrade CorDapps to platform version 8
 
 To upgrade your CorDapps to platform version 8, you need to:
-* [Upgrade existing nodes to version 4.6](#upgrade-existing-nodes-to-version-46).
-* [Check you're using Corda Gradle plugins version 5.0.12](#check-youre-using-corda-gradle-plugins-version-5012).
+1. [Upgrade existing nodes to version 4.6](#upgrade-existing-nodes-to-version-46).
+2. [Check you're using Corda Gradle plugins version 5.0.12](#check-youre-using-corda-gradle-plugins-version-5012).
 
 
 ### Upgrade existing nodes to version 4.6
 
-When upgrading to Corda 4.6 from a previous version, you need to upgrade your existing nodes because of the operational improvements for [database schema harmonization](release-notes-enterprise.md#database-schema-harmonization) that were introduced as part of this release.
+When upgrading to Corda 4.6 from a previous version, you need to upgrade your nodes because of the operational improvements for [database schema harmonization](release-notes-enterprise.md#database-schema-harmonization) that were introduced as part of this release.
 
 The steps you need to follow for each upgrade path are described below.
 
 #### Upgrade a node from Corda 4.5 (or earlier 4.x version)
 
 1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](node/setup/corda-configuration-file.md).
-2. Update any missing core schema changes by either running the [Database Management Tool](database-management-tool.md) (recommended), or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
+2. Update any missing core schema changes by either running the [Database Management Tool](database-management-tool.md) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
 
 #### Upgrade a node from Corda 3.x or Corda Enterprise 3.x
 
@@ -98,13 +98,13 @@ You don't need to perform a manual upgrade for this platform version.
 ## Upgrade CorDapps to platform version 5
 
 To upgrade your CorDapps to platform version 5, you need to:
-* [Handle any source compatibility breaks](#handle-any-source-compatibility-breaks-if-youre-using-kotlin).
-* [Update Gradle version and associated dependencies](#update-gradle-version-and-associated-dependencies).
+1. [Handle any source compatibility breaks](#handle-any-source-compatibility-breaks-if-youre-using-kotlin).
+2. [Update Gradle version and associated dependencies](#update-gradle-version-and-associated-dependencies).
 
 
 ### Handle any source compatibility breaks (if you're using Kotlin)
 
-The following code, which compiled in platform version 4, will not compile in platform version 5:
+The following code (which compiled in platform version 4) will not compile in platform version 5:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -128,7 +128,7 @@ If you try to compile this code in platform version 5, you'll get the following 
 
 `Type mismatch: inferred type is Any but AbstractParty was expected`
 
-This is because a new `Destination` interface, introduced in platform version 5, can cause type inference failures when using a variable as an `AbstractParty` but has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
+This is because a new `Destination` interface (introduced in platform version 5) can cause type inference failures when using a variable as an `AbstractParty` but has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not subsequently a valid type for `AbstractParty`.
 For more information on `Destination`, see the [Changelog](https://docs.corda.net/docs/corda-os/4.4/changelog.html) for platform version 5, or the [KDocs](https://docs.corda.net/head/api/kotlin/corda/net.corda.core.flows/-destination.html) for the interface.
@@ -141,7 +141,7 @@ as `AbstractParty`.
 {{< /note >}}
 
 
-To fix the issue, you provide an explicit type hint to the compiler.
+To fix the issue, you must provide an explicit type hint to the compiler.
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -191,26 +191,26 @@ maven { url 'https://repo.gradle.org/gradle/libs-releases' }
 
 To upgrade your CorDapps to platform version 4, you need to:
 1. [Update RPC clients to use the new RPC library](#1-update-rpc-clients-to-use-the-new-rpc-library).
-1. [Change the version numbers in your Gradle build file](#2-change-the-version-numbers-in-your-gradle-build-file).
-1. [Update your Gradle build file](#3-update-your-gradle-build-file).
-1.
-1.
-1.
-1.
-1.
-1.
-1.
-1.
-1.
-1.
-1.
+2. [Change the version numbers in your Gradle build file](#2-change-the-version-numbers-in-your-gradle-build-file).
+3. [Update your Gradle build file](#3-update-your-gradle-build-file).
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+13.
+14.
 
 
 
 
 ### 1. Update RPC clients to use the new RPC library
 
-Although the RPC API is backwards compatible with Corda 3, the RPC wire protocol isn’t. Therefore, to use the new version of the RPC library, RPC clients, such as web servers, need to be
+Although the RPC API is backwards compatible with Corda 3, the RPC wire protocol isn’t. Therefore, to use the new version of the RPC library, RPC clients (such as web servers) need to be
 updated in lockstep with the node. As Corda 4 delivers RPC wire stability, you
 will be able to update the node and CorDapps without the need to update RPC clients for future upgrades.
 
@@ -237,7 +237,7 @@ repositories {
 ```
 
 {{< note >}}
-To benefit from the new features, you may want to update your kotlinOptions to use language level 1.2. CorDapps targeting Corda 4
+To benefit from new features, you may want to update your kotlinOptions to use language level 1.2. CorDapps targeting Corda 4
 may not (at this time) use Kotlin 1.3.
 
 {{< /note >}}
@@ -251,7 +251,7 @@ You also need to check you’re using Gradle 4.10—not 5. If you use the Gradle
 Otherwise, upgrade your installed copy in the usual way.
 
 {{< note >}}
-Platform version 5 requires a newer version of Gradle, so if you intend to upgrade past platform version 4 at this time, you may wish
+Platform version 5 requires a newer version of Gradle. If you intend to upgrade past platform version 4 at this time, you may want
 to skip directly to the [version required by platform version 5](#update-gradle-version-and-associated-dependencies). You’ll still need to change the version
 numbers in your Gradle build file as shown in this section.
 
@@ -259,11 +259,11 @@ numbers in your Gradle build file as shown in this section.
 
 ### 3. Update your Gradle build file
 
-You can make several beneficial adjustments to your Gradle build file, beyond simply incrementing the versions
+You can make several beneficial adjustments to your Gradle build file beyond simply incrementing the versions
 as described in the step above.
 
-#### CorDapp metadata
-CorDapp metadata is used by the Corda Gradle build plugin to populate your CorDapp's `.jar` file with useful information.
+#### Add CorDapp metadata
+The Corda Gradle build plugin uses CorDapp metadata to populate your CorDapp's `.jar` file with useful information.
 It should look like this:
 
 ```groovy
@@ -294,7 +294,7 @@ Watch out for the UK spelling of the word licence (with a c).
 
 You can set `name`, `vendor`, and `licence` to any string, they don’t have to be Corda identities.
 
-Target versioning is a new concept introduced in Corda 4. Before you set values for `targetPlatformVersion` and `minimumPlatformVersion`, read our guide on [Versioning](cordapps/versioning.md).
+Target versioning is a new concept introduced in Corda 4. Before you set values for `targetPlatformVersion` and `minimumPlatformVersion`, read our guide on [versioning](cordapps/versioning.md).
 
 CorDapps running Corda 3 or older, don't support CorDapp metadata. This means that your CorDapp may exhibit undefined behaviour at runtime when loaded in nodes that use a newer version.
 Even so, it's best practice to complete this metadata ready for upgrades to future versions.
@@ -313,11 +313,11 @@ The duplication between `contract` and `workflow` blocks exists because you shou
 two separate `.jar` files/modules. One should contain on-ledger validation code, like states and contracts. The other should contain workflows and anything else, such as services.
 
 Historically one `.jar` file has been used for both, but this can result in sending your flow logic code over the network to arbitrary
-third-party peers, even though they don’t need it.
+third-party peers even though they don’t need it.
 
 For later versions, the `versionId` parameter attached to the workflow `.jar` file will also help with smoother upgrades
 and migration features. You may directly reference the Gradle version number of your CorDapp when setting the
-CorDapp specific `versionId` identifiers, if this follows the convention of always being a whole number
+CorDapp specific `versionId` identifiers if this follows the convention of always being a whole number
 starting from 1.
 
 If you use the finance demo CorDapp, adjust your dependencies to the finance-contracts
@@ -326,10 +326,9 @@ and finance-workflows artifacts from your own contract and workflow `.jar` file 
 
 ### 4. Remove custom configuration from your node.conf file
 
-CorDapps can no longer access custom configuration items in the `node.conf` file. Any custom CorDapp configuration should be added to a
-CorDapp configuration file. The node’s configuration will not be accessible. CorDapp configuration files should be placed in the
-*config* subdirectory of the node’s *cordapps* folder. The name of the file should match the name of the `.jar` file of the CorDapp. For example, if your
-CorDapp is called `hello-0.1.jar`, you'll need a configuration file called `cordapps/config/hello-0.1.conf`).
+CorDapps can no longer access custom configuration items in the `node.conf` file, as the node’s configuration is not accessible. You can create a CorDapp configuration file for any custom CorDapp configuration. Save your CorDapp configuration file in the
+*config* subdirectory of the node’s *cordapps* folder. The name of the file must match the name of the `.jar` file of the CorDapp. For example, if your
+CorDapp is called `hello-0.1.jar`, you'll need a configuration file called `cordapps/config/hello-0.1.conf`.
 
 If you are using the `extraConfig` of a `node` in the `deployNodes` Gradle task to populate custom configuration for testing, you will need
 to change:
@@ -362,10 +361,10 @@ See [CorDapp configuration files](cordapps/cordapp-build-systems.md#cordapp-conf
 
 
 
-### 5. Improve security by upgrading how you use FinalityFlow
+### 5. Improve the security of your CorDapp by upgrading how you use FinalityFlow
 
 The previous `FinalityFlow` API is insecure. It doesn't have a receive flow, so requires counterparty nodes to accept any and
-all signed transactions that are sent to it, without performing any checks. Therefore, we **highly** recommend that existing CorDapps migrate to the new API to reliably enforce business network membership checks, for example.
+all signed transactions that are sent to it without performing any checks. Therefore, we **highly** recommend that existing CorDapps migrate to the new API to reliably enforce business network membership checks, for example.
 
 The flows that make use of `FinalityFlow` in a CorDapp can be classified into two basic categories:
 
@@ -375,9 +374,9 @@ The flows that make use of `FinalityFlow` in a CorDapp can be classified into tw
 
 The main difference between these two types of flow relate to how the CorDapp can be upgraded.
 
-Non-initiating flows cen't be upgraded to the new `FinalityFlow` in a backwards compatible way. Changes to these flows need to be deployed simultaneously to all the nodes, using a *lockstep deployment*.
+Non-initiating flows can't be upgraded to the new `FinalityFlow` in a backwards compatible way. Changes to these flows need to be deployed simultaneously to all the nodes, using a *lockstep deployment*.
 
-Initiating flows can be upgraded to use the new `FinalityFlow` in a backwards compatible way. This means the upgraded CorDapp can be deployed to the various nodes using a *rolling deployment*.
+Initiating flows can be upgraded to use the new `FinalityFlow` in a backwards compatible way. This means you can deploy the upgraded CorDapp to the nodes using a *rolling deployment*.
 
 
 {{< note >}}
@@ -391,9 +390,9 @@ As a result, nodes can be running different versions of the CorDapp and still tr
 To upgrade your `FinalityFlow`, you need to:
 
 
-* Change the flow that calls `FinalityFlow`.
-* Change or create the flow that will receive the finalised transaction.
-* Make sure your CorDapp’s `targetPlatformVersion` and `minimumPlatformVersion` are set to 4, see [2. Change the version numbers in your Gradle build file](#2-change-the-version-numbers-in-your-gradle-build-file).
+1. Change the flow that calls `FinalityFlow`.
+2. Change or create the flow that will receive the finalised transaction.
+3. Make sure your CorDapp’s `targetPlatformVersion` and `minimumPlatformVersion` are set to 4, see [2. Change the version numbers in your Gradle build file](#2-change-the-version-numbers-in-your-gradle-build-file).
 
 
 #### Upgrading a non-initiating flow
@@ -480,11 +479,11 @@ public static class SimpleFlowUsingNewApi extends FlowLogic<SignedTransaction> {
 
 {{< /tabs >}}
 
-If there is more than one transaction participants, then a session must be initiated with each one, excluding the local party
+If there is more than one transaction participant, then a session must be initiated with each one, excluding the local party
 and the notary.
 
-A responder flow has to be introduced, which will automatically run on the other participants’ nodes, which will call `ReceiveFinalityFlow`
-to record the finalised transaction:
+A responder flow automatically runs on the other participants’ nodes, which calls `ReceiveFinalityFlow`
+to record the finalized transaction:
 
 {{< tabs name="tabs-5" >}}
 {{% tab name="kotlin" %}}
@@ -524,15 +523,15 @@ public static class SimpleNewResponderFlow extends FlowLogic<Void> {
 {{< /tabs >}}
 
 {{< note >}}
-As described above, all the nodes in your business network will need the new CorDapp, otherwise they won’t know how to receive the transaction. *This
-includes those nodes that didn’t have the old CorDapp.* If a node is sent a transaction and it doesn’t have the new CorDapp, then restart it with the CorDapp, and the transaction will be recorded.
+All the nodes in your business network will need the new CorDapp, otherwise they won’t know how to receive the transaction. *This
+includes those nodes that didn’t have the CorDapp originally.* If a node receives a transaction but doesn’t have the new CorDapp, install the CorDapp and restart the node. The transaction will then be recorded.
 
 {{< /note >}}
 
 #### Upgrading an initiating flow
 
 Use the existing flow session for flows that already initiate counterpart flows.
-However, the new `FinalityFlow` is inlined and so the sequence of sends and receives between the two flows will
+The new `FinalityFlow` is inlined and so the sequence of sends and receives between the two flows will
 change and will be incompatible with your current flows. You can use the flow version API to write your flows in a
 backwards compatible manner.
 
@@ -555,7 +554,7 @@ class ExistingInitiatingFlow(private val counterparty: Party) : FlowLogic<Signed
             // Use the old API if the counterparty is using the previous version of the flow.
             subFlow(FinalityFlow(fullySignedTx))
         } else {
-            // Otherwise they're at least on version 2 and so we can send the finalized transaction on the existing session.
+            // Otherwise they're on at least version 2 and so we can send the finalized transaction on the existing session.
             subFlow(FinalityFlow(fullySignedTx, session))
         }
     }
@@ -581,12 +580,12 @@ public static class ExistingInitiatingFlow extends FlowLogic<SignedTransaction> 
         SignedTransaction partiallySignedTx = dummyTransactionWithParticipant(counterparty);
         FlowSession session = initiateFlow(counterparty);
         SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(partiallySignedTx, singletonList(session)));
-        // Determine which version of the flow that the counterparty is using.
+        // Determine which version of the flow the counterparty is using.
         if (session.getCounterpartyFlowInfo().getFlowVersion() == 1) {
             // Use the old API if the counterparty is using the previous version of the flow.
             return subFlow(new FinalityFlow(fullySignedTx));
         } else {
-            // Otherwise they're at least on version 2 and so we can send the finalized transaction on the existing session.
+            // Otherwise they're on at least version 2 and so we can send the finalized transaction on the existing session.
             return subFlow(new FinalityFlow(fullySignedTx, session));
         }
     }
@@ -656,9 +655,9 @@ if (otherSide.getCounterpartyFlowInfo().getFlowVersion() >= 2) {
 You no longer need to use `waitForLedgerCommit` in your responder flow. `ReceiveFinalityFlow` effectively does the same thing as it checks the finalized transaction has appeared in the local node's vault.
 
 
-### 6. Improve security by upgrading your use of SwapIdentitiesFlow
+### 6. Improve the security of your CorDapp by upgrading your use of SwapIdentitiesFlow
 
-The [Confidential identities](cordapps/api-confidential-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [confidential identities](cordapps/api-confidential-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
@@ -666,14 +665,13 @@ the `SwapIdentitiesFlow`.
 
 ### 7. Adjust your test code
 
-`MockNodeParameters` and functions creating it no longer use a lambda expecting a `NodeConfiguration` object.
-Use a `MockNetworkConfigOverrides` object instead. This is an API change we regret, but unfortunately in Corda 3 we accidentally exposed
-large amounts of the node internal code through this one API entry point. We have now insulated the test API from node internals and
-reduced the exposure.
+`MockNodeParameters` and the functions that create it no longer use a lambda expecting a `NodeConfiguration` object.
+Use a `MockNetworkConfigOverrides` object instead.
 
-If you are constructing a MockServices for testing contracts, and your contract uses the Cash contract from the finance app, you
-now need to explicitly add `net.corda.finance.contracts` to the list of `cordappPackages`. This is a part of the work to disentangle
-the finance app (which is really a demo app) from the Corda internals. Example:
+If you are constructing a `MockServices` for testing contracts, and your contract uses the `Cash` contract from the finance CorDapp, you
+now need to explicitly add `net.corda.finance.contracts` to the list of `cordappPackages`.
+
+Example:
 
 {{< tabs name="tabs-8" >}}
 {{% tab name="kotlin" %}}
@@ -723,11 +721,11 @@ MockServices ledgerServices = new MockServices(
 
 {{< /tabs >}}
 
-You may need to use the new `TestCordapp` API when testing with the node driver or mock network, especially if you decide to stick with the
+You may need to use the new `TestCordapp` API when testing with the node driver or mock network, especially if you decide to keep using the
 pre-Corda 4 `FinalityFlow` API. The previous way of pulling in CorDapps into your tests (i.e. via using the `cordappPackages` parameter) does not honour CorDapp versioning.
 The new API `TestCordapp.findCordapp()` discovers the CorDapps that contain the provided packages scanning the classpath, so you have to ensure that the classpath the tests are running under contains either the CorDapp `.jar` or (if using Gradle) the relevant Gradle sub-project.
 In the first case, the versioning information in the CorDapp `.jar` file will be maintained. In the second case, the versioning information will be retrieved from the Gradle `cordapp` task.
-For example, if you are using `MockNetwork` for your tests, the following code:
+For example, if you are using `MockNetwork` for your tests, change the following code:
 
 {{< tabs name="tabs-10" >}}
 {{% tab name="kotlin" %}}
@@ -750,7 +748,7 @@ MockNetwork mockNetwork = new MockNetwork(
 
 {{< /tabs >}}
 
-would need to be transformed into:
+To:
 
 {{< tabs name="tabs-11" >}}
 {{% tab name="kotlin" %}}
@@ -782,39 +780,40 @@ MockNetwork mockNetwork = new MockNetwork(
 
 {{< /tabs >}}
 
-Note that every package should exist in only one CorDapp, otherwise the discovery process won’t be able to determine which one to use and you will most probably see an exception telling you `There is more than one CorDapp containing the package`.
-For instance, if you have 2 CorDapps containing the packages `net.corda.examples.obligation.contracts` and `net.corda.examples.obligation.flows`, you will get this error if you specify the package `net.corda.examples.obligation`.
+Every package should exist in only one CorDapp. If this is not the case, the discovery process is unable to determine which CorDapp to use and you are likely to see the exception: `There is more than one CorDapp containing the package`.
+For instance, if you have two CorDapps containing the packages `net.corda.examples.obligation.contracts` and `net.corda.examples.obligation.flows`, you will get this error if you specify the package `net.corda.examples.obligation`.
 
 {{< note >}}
-If you have any CorDapp code (e.g. flows/contracts/states) that is only used by the tests and located in the same test module, it won’t be discovered now.
-You will need to move them in the main module of one of your CorDapps or create a new, separate CorDapp for them, in case you don’t want this code to live inside your production CorDapps.
+If you have any CorDapp code (such as flows, contracts, or states) that is only used by the tests and located in the same test module, it now won’t be discovered.
+You need to move them to the main module of one of your CorDapps or create a new, separate CorDapp (if you don't want a production CorDapp to contain this code).
 
 {{< /note >}}
 
-### 8. Improve security by adding BelongsToContract annotations
+### 8. Improve the security of your CorDapp by adding BelongsToContract annotations
 
-In versions of the platform prior to v4, it was the responsibility of contract and flow logic to ensure that `TransactionState` objects
-contained the correct class name of the expected contract class. If these checks were omitted, it would be possible for a malicious counterparty
-to construct a transaction containing e.g. a cash state governed by a commercial paper contract. The contract would see that there were no
-commercial paper states in a transaction and do nothing, i.e. accept.
+Before platform version 4, the contract and flow logic ensured that the `TransactionState` objects
+contained the correct class name of the expected contract class. If these checks are omitted, it's possible for a malicious counterparty
+to construct a transaction containing. For example, a cash state governed by a commercial paper contract. The contract would see that there were no
+commercial paper states in a transaction and do nothing (accept the transaction).
 
-In Corda 4 the platform takes over this responsibility from the app, if the app has a target version of 4 or higher. A state is expected
+In Corda 4, if the CorDapp has a target platform version of 4 or higher, the platform takes over this responsibility.
+ A state is expected
 to be governed by a contract that is either:
 
 
 * The outer class of the state class, if the state is an inner class of a contract. This is a common design pattern.
 * Annotated with `@BelongsToContract` which specifies the contract class explicitly.
 
-Learn more by reading [Contract/State Agreement](cordapps/api-contract-constraints.md#contract-state-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
+You can learn more by reading [contract/state agreement](cordapps/api-contract-constraints.md#contract-state-agreement).
+
+If a CorDapp targets Corda 3 or lower (does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
 
 
 ### 9. Learn about signature constraints and signing `.jar` files
 
-[Signature Constraints](cordapps/api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
-deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
-the act of upgrading your app to use the version 4 Gradle plugins will result in your app being automatically signed, and new states
-automatically using new signature constraints selected automatically based on these signing keys.
+[Signature constraints](cordapps/api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to smoothly
+deploy application upgrades and in a decentralised manner. Signature constraints are the new default mode for CorDapps. Upgrading your CorDapp to use version 4 Gradle plugins will mean your CorDapp is automatically signed, and new states will use new signature constraints selected automatically based on these signing keys.
 
 
 {{< important >}}
@@ -825,8 +824,8 @@ You will be able to use this feature if the compatibility zone you plan to deplo
 
 
 {{< note >}}
-Please read the cordapp-constraint-migration guide to understand how to upgrade CorDapps to use Corda 4 signature constraints and consume
-existing states on ledger issued with older constraint types (e.g. Corda 3.x states issued with **hash** or **CZ whitelisted** constraints).
+You can find out how to upgrade CorDapps to use Corda 4 signature constraints and consume
+existing states on ledger issued with older constraint types (such as Corda 3.x states issued with **hash** or **CZ whitelisted** constraints) by reading the [CorDapp constraints migration](cordapps/cordapp-constraint-migration) guide.
 
 {{< /note >}}
 
