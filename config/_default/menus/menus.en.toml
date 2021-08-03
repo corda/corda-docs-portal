@@ -710,6 +710,7 @@ weight = 500
 [[homepage]]
 identifier = "platform-preview-1"
 parent = "platform-corda-5"
+url = "platform/corda/5.0-dev-preview-1.html"
 name = "Developer Preview 1"
 weight = 100
 
@@ -722,21 +723,21 @@ weight = 200
 [[homepage]]
 identifier = "platform-corda-os"
 parent = "platform-corda-4"
-url = "platform/corda-os/4.8.html"
+url = "platform/corda/4.8/os.html"
 name = "Corda open source"
 weight = 100
 
 [[homepage]]
 identifier = "platform-corda-ent"
 parent = "platform-corda-4"
-url = "platform/corda-enterprise/4.8.html"
+url = "platform/corda/4.8/ent.html"
 name = "Corda Enterprise"
 weight = 200
 
 [[homepage]]
 identifier = "platform-corda-cenm"
 parent = "platform-corda-4"
-url = "platform/cenm/1.5.html"
+url = "platform/corda/1.5/cenm.html"
 name = "Corda Enterprise Network Manager"
 weight = 300
 
@@ -776,12 +777,13 @@ url = "apps/payments/payments-index.html"
 weight = 200
 
 [[homepage]]
-identifier = "conclave-version-1"
-parent = "homepage-conclave"
-name = "Conclave version X"
-weight = 100
+identifier = "platform-corda-4"
+parent = "homepage-corda"
+name = "Corda 4"
+weight = 200
 
 [[homepage]]
-identifier = "discover-something"
-name = "Discover something"
-weight = -1
+identifier = "platform-corda-5"
+parent = "homepage-corda"
+name = "Corda 5"
+weight = 100

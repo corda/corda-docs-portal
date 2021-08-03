@@ -4,7 +4,7 @@ section_menu: homepage
 menu:
     homepage:
         identifier: homepage-getting-started
-        weight: 200
+        weight: 100
 title: Getting started
 ---
 

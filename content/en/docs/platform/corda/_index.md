@@ -2,10 +2,9 @@
 date: '2021-04-24T00:00:00Z'
 section_menu: homepage
 menu:
-    homepage:
-        identifier: homepage-platform
-        weight: 500
-        name: Corda
+  homepage:
+    identifier: homepage-corda
+    weight: 400
 title: Corda
 ---
 

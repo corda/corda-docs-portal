@@ -3,7 +3,7 @@ date: '2021-04-24T00:00:00Z'
 section_menu: homepage
 menu:
     homepage:
-        weight: 400
+        weight: 300
         identifier: homepage-samples
 title: Samples and templates
 ---

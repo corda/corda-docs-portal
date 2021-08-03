@@ -4,7 +4,7 @@ section_menu: homepage
 menu:
     homepage:
         name: Tutorials
-        weight: 300
+        weight: 200
         identifier: homepage-tutorials
 title: Tutorials
 ---
