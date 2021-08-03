@@ -26,7 +26,7 @@ CorDapp that are worth considering for any actively maintained software.
 
 
 {{< warning >}}
-The sample CorDapps found in the Corda repository and the Corda samples repository are not intended to be used in production.
+Sample CorDapps found in the Corda and Corda samples repositories are not intended to be used in production.
 If you do use them, re-namespace them to a package namespace you control and sign/version them.
 
 {{< /warning >}}
@@ -67,7 +67,7 @@ To upgrade your CorDapps to platform version 8, you need to:
 
 When upgrading to Corda 4.6 from a previous version, you need to upgrade your nodes because of the operational improvements for [database schema harmonization](release-notes-enterprise.md#database-schema-harmonization) that were introduced as part of this release.
 
-The steps you need to follow for each upgrade path are described below.
+Follow the steps below for each upgrade path.
 
 #### Upgrade a node from Corda 4.5 (or earlier 4.x version)
 
@@ -380,7 +380,7 @@ Initiating flows can be upgraded to use the new `FinalityFlow` in a backwards co
 
 
 {{< note >}}
-A *lockstep deployment* is where all involved nodes are stopped, upgraded to the new version of the CorDapp, and then re-started.
+A *lockstep deployment* involves stopping all nodes, upgrading to the new version of the CorDapp, and then re-starting them.
 As a result, nodes can't run different versions of the CorDapp at the same time.
 A *rolling deployment* is where every node can be stopped, upgraded to the new version of the CorDapp, and re-started independently—at different times if needed.
 As a result, nodes can be running different versions of the CorDapp and still transact with each other successfully.
@@ -597,7 +597,7 @@ public static class ExistingInitiatingFlow extends FlowLogic<SignedTransaction> 
 {{< /tabs >}}
 
 For the responder flow, insert a call to `ReceiveFinalityFlow` at the location where it’s expecting to receive the
-finalized transaction. If the initiator is written in a backwards compatible way then so must the responder.
+finalized transaction. If the initiator has been written in a backwards compatible way, then so must the responder.
 
 {{< tabs name="tabs-7" >}}
 {{% tab name="kotlin" %}}
