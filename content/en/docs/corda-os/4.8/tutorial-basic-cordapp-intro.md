@@ -13,6 +13,8 @@ title: Building your first basic CorDapp
 
 Follow this learning path to build your first CorDapp with a step-by-step guide to show you the way. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running. It reinforces best practices for building CorDapps.
 
+Code samples for this tutorial will be provided in both Kotlin and Java.
+
 ## Before you start
 
 Before you continue on this learning path:

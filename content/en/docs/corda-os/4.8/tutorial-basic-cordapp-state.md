@@ -15,10 +15,30 @@ This tutorial guides you through writing the two states you need in your CorDapp
 
 ## Learning objectives
 
+Once you have completed this tutorial, you will know how to create and implement states in a CorDapp.
+
 ## Before you start
 
-## 1.
+Before you start following this tutorial, check out:
+
+* [Key concepts: States](key-concepts-states.md)
+
+## 1. Add the state files to the contract jar
+
+
+
+
 
 ## 2.
 
 ## 3.
+
+## Next steps
+
+Follow the [Write the contract](tutorial-basic-cordapp-contract.md) tutorial to continue on this learning path.
+
+## Related content
+
+* [API: States](api-states.md#api-states)
+* [Reissuing states](reissuing-states.md)
+
