@@ -23,7 +23,7 @@ weight: 20
 
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own](https://docs.corda.net/docs/corda-os/4.8/hello-world-introduction.html), modifying a [template](https://www.corda.net/samples/), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [CorDapp template](https://www.corda.net/samples/), [building your own CorDapp](https://docs.corda.net/docs/corda-os/4.8/core-tutorials-index.html), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](../node/component-topology.md/).
 
