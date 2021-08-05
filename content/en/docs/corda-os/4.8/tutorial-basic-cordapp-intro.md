@@ -22,7 +22,7 @@ Before you continue on this learning path:
 - Read about [Corda key concepts](key-concepts.md).
 - [Get set up for CorDapp development](getting-set-up.md).
 - [Run the sample CorDapp](cordapp-tutorial.md).
-- [Modify a CorDapp template](writing-a-cordapp-using-a-template.md).
+- [Writing a CorDapp using a template](writing-a-cordapp-using-a-template.md).
 
 ## The story
 
