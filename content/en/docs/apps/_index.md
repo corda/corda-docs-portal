@@ -7,10 +7,9 @@ menu:
         weight: 700
         name: Apps & add-ons
 title: Featured Apps
-version: 'apps'
 ---
 
-# Featured Apps
+# Featured apps
 
 These new and early-version apps allow you to explore new possibilities on Corda. You can use them to carry out trial development work, and refine your vision for developing on Corda.
 

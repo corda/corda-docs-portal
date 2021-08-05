@@ -1,23 +1,15 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: homepage
+section_menu: tutorials
 menu:
-    homepage:
-        weight: 300
-        identifier: homepage-samples
-title: Samples and templates
+  tutorials:
+    name: Corda 4 tutorials
+    weight: 200
+    identifier: tutorials-corda-4
+title: Corda 4 tutorials
 ---
 
-# Samples and templates
-
-This is the homepage for talking about all our dope samples and templates. It contains a list of our sample repos and descriptions of what you'll find on each page.
-
-Summary of repos:
-
-- [Title](https://github.com "This has a title")
-- [No title](http://github.com)
-- [Internal Link](../platform.html)
-- [Repo text](#repo-link)
+# Tutorials for Corda 4
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et consequat elit, sed mollis lacus. Vivamus neque nisl, tincidunt pretium ullamcorper sed, hendrerit vitae risus. Fusce tristique luctus lectus vel tincidunt. Integer tempus mauris sed lacus auctor, sit amet ullamcorper libero pharetra. Morbi imperdiet, eros sit amet sollicitudin congue, urna enim mattis orci, ac porttitor enim felis vel nulla. Aliquam quis ultrices metus. Pellentesque vestibulum maximus velit vitae congue. Praesent sodales quis libero eu ultrices. Mauris vulputate ante in purus pulvinar rutrum. Nulla quis urna facilisis, tempor mi at, tempus elit.
 

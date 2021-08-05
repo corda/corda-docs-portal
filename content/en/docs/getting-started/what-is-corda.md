@@ -1,16 +1,17 @@
 ---
 date: '2020-07-15T12:00:00Z'
-section_menu: homepage
 menu:
   homepage:
-    parent: homepage-conclave
-    identifier: conclave-1-0
-    name: Conclave 1.0
-title: What is Conclave?
+    parent: homepage-getting-started
+    identifier: corda-get-started
+    name: What is Corda?
+title: What is Corda?
 weight: 100
 ---
 
-This is the beginning of the technical documentation for Conclave properly. This is version specific, and will be grouped with other technical content. This page should outline the features of this version of Conclave and its capabilities.
+# What is Corda?
+
+This page has a rigorous non-technical explanation of what Corda is for people getting started with the platform. The content is this and all pages is subject to change as we continue to iterate upon our designs, but most especially visual elements may change as the writer of this document has no idea what the page design looks like.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium dignissim egestas. Donec facilisis est ut libero feugiat, vitae venenatis sem ullamcorper. Quisque eu vulputate dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi dui neque, rutrum vitae sapien vel, tincidunt rhoncus eros. Suspendisse in metus auctor, consectetur urna at, consequat arcu. Curabitur viverra nunc sapien, ac semper sem venenatis ut. Morbi id tortor vel ante sollicitudin faucibus.
 

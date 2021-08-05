@@ -1,16 +1,15 @@
 ---
 date: '2020-07-15T12:00:00Z'
-section_menu: homepage
 menu:
   homepage:
-    parent: homepage-conclave
-    identifier: conclave-1-0
-    name: Conclave 1.0
-title: What is Conclave?
-weight: 100
+    parent: homepage-getting-started
+    identifier: get-started-corda-4
+    name: Getting started with Corda 4
+title: Getting started with Corda 4
+weight: 400
 ---
 
-This is the beginning of the technical documentation for Conclave properly. This is version specific, and will be grouped with other technical content. This page should outline the features of this version of Conclave and its capabilities.
+This pge will instruct users on how to begin to get up and running with Corda 4. What are your options? It might go over tutorials/bootcamps/professional services. This section is primarily focused on learning about Corda rather than actually actively working with it.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium dignissim egestas. Donec facilisis est ut libero feugiat, vitae venenatis sem ullamcorper. Quisque eu vulputate dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi dui neque, rutrum vitae sapien vel, tincidunt rhoncus eros. Suspendisse in metus auctor, consectetur urna at, consequat arcu. Curabitur viverra nunc sapien, ac semper sem venenatis ut. Morbi id tortor vel ante sollicitudin faucibus.
 

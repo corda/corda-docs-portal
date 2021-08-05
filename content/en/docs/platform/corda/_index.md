@@ -5,6 +5,7 @@ menu:
   homepage:
     identifier: homepage-corda
     weight: 400
+    name: Corda
 title: Corda
 ---
 
