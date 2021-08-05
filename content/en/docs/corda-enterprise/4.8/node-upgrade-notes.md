@@ -19,23 +19,23 @@ weight: 10
 Follow these steps to upgrade a node from Corda Enterprise 4.x to Corda Enterprise 4.8.
 
 If you are upgrading from Corda Enterprise 3.x, you must first:
-1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node).
+1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in [Upgrade a Corda 3.X Enterprise Node](https://docs.corda.net/docs/corda-enterprise/3.3/node-operations-upgrading-enterprise.md).
 2. Upgrade from Corda Enterprise 3.3 to Corda Enterprise 4.5.
 3. Upgrade from Corda 4.5 to Corda Enterprise 4.8.
 
 {{< warning >}}
-Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](https://docs.corda.net/docs/corda-os/4.8/api-stability-guarantees.html). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
 
-1. Drain the node.
-2. Make a backup of your node's directories and database.
-3. Update the database.
-4. Replace the `corda.jar` file with the new version.
-5. Update the configuration.
-6. Start the node.
-7. Undrain the node.
+1. [Drain the node](#step-1-drain-the-node).
+2. [Make a backup of your node's directories and database](#step-2-make-a-backup-of-your-nodes-directories-and-database).
+3. [Update the database](#step-3-update-the-database).
+4. [Replace the `corda.jar` file with the new version](#step-4-replace-cordajar-with-the-new-version).
+5. [Update the configuration](#step-5-update-the-configuration).
+6. [Start the node](#step-6-start-the-node).
+7. [Undrain the node](#step-7-undrain-the-node).
 
 {{< note >}}
 The protocol tolerates node outages. Peers on the network wait for your node to become available after upgrading.
@@ -43,10 +43,10 @@ The protocol tolerates node outages. Peers on the network wait for your node to 
 
 ## Step 1: Drain the node
 
-Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md/) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
+Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
-You can drain a node by running `gracefulShutdown`. This waits for the node to drain and then shuts it down once the drain
+You drain a node by running `gracefulShutdown`. This waits for the node to drain and then shuts it down once the drain
 is complete.
 
 
@@ -76,15 +76,15 @@ You can perform an automatic database update when:
 * Your database setup is for testing/development purposes and your node connects with *administrative permissions* (in essence, it can modify database schema).
 * You are upgrading a production system, your policy allows a node to auto-update its database, and your node connects with *administrative permissions*.
 
-If you met the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-update-database-automatic).
+If you met the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-start-the-node).
 
 
-If you can't perform an automatic update, then you must perform a manual update by following steps 3.1 to 3.4 below, before moving on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
+If you can't perform an automatic update, then you must perform a manual update by following steps 3.1 to 3.4 below. You can then move on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
 
 
 ### 3.1. Configure the Database Management Tool
 
-The Corda Database Management Tool needs access to a running database. You can set up the tool using a similar process to configuring a node.
+The Corda Database Management Tool needs access to a running database. You set the tool up using a similar process to how you configure a node.
 You must provide a base directory that includes:
 
 
@@ -120,7 +120,7 @@ Replace the placeholders `<server>`, `<database>`, `<login>`, `<password>`, `<sc
 * `<schema>` is the schema namespace.
 * `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
-You can download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
+Download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
 Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
@@ -149,7 +149,7 @@ Replace the placeholders `<host>`, `<database>`, `<login>`, `<password>`, `<sche
 * `<schema>` is the schema namespace.
 * `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
-You can download the Microsoft JDBC 6.4 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
+Download the Microsoft JDBC 6.4 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
 Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
@@ -226,21 +226,21 @@ The command doesn't alter any tables.
 
 {{< note >}}
 
-If you run the DDL and DML statements separately (for example, if the DB admin runs DDL and a CorDapp user runs DML) you need to manually separate the DDL and DML statements into separate scripts.
+If you run the DDL and DML statements separately (for example, if the database administrator runs the DDL statements and a CorDapp user runs the DML statements) you need to manually separate the DDL and DML statements into separate scripts.
 
 {{< /note >}}
 
-For more information about the Database Management Tool, including available options and commands, see [Corda Database Management Tool](database-management-tool.md).
+For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool](database-management-tool.md).
 
 
-### 3.3. Apply DDL scripts on a database
+### 3.3. Apply DDL scripts to a database
 
 The database administrator can apply the DDL scripts to the database using their tooling of choice.
 Then, any database user with *administrative permissions*, and whose default schema matches `<schema>` and the schema used by the node, can run the script.
-For example, for Azure SQL or SQL Server, you should not use the default database administrator account.
+For example, for Azure SQL or SQL Server you should not use the default database administrator account.
 
 {{< note >}}
-You can connect to the server as a different user than the one you use to connect to the node. For example, you could connect as a user with *restricted permissions*, as long as that user has the same default schema as the node.
+You can use a different user to connect to the server than the one you use to connect to the node. For example, you could connect as a user with *restricted permissions*, as long as that user has the same default schema as the node.
 The generated DDL script adds the schema prefix to most of the statements, but not all of them.
 
 {{< /note >}}
@@ -264,7 +264,7 @@ You only need to perform this step for the H2 database.
 
 {{< /note >}}
 
-The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x, for example, upgrading from 4.5 to 4.8.
+The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.8.
 
 The Database Management Tool can execute the remaining data upgrade.
 The tool can connect with *restricted* database permissions as the schema structure was created in step three.
@@ -316,7 +316,7 @@ Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not cur
 {{< /important >}}
 
 
-## Step 5: Update configuration
+## Step 5: Update the configuration
 
 {{< note >}}
 
@@ -326,15 +326,13 @@ You only need to perform this step if you are updating from version 4.5 or older
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 
-## Step 6: Update the database (automatic) -----------
 
-{{< note >}}
+## Step 6: Start the node
 
-Do not perform this step if you have already updated the database manually in [Step 3](#step-3-update-the-database-manual).
+If you manually updated the database in [Step 3](#step-3-update-the-database), then you start the node in the normal way.
 
-{{< /note >}}
+However, if you need to automatically update the database as described in [Step 3](#step-3-update-the-database), then you need to start your node using the following command:
 
-Start your node using the following command.
 
 ```bash
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
@@ -342,10 +340,6 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 
 The node will perform any automatic data migrations required, which may take some
 time. If the migration process is interrupted, restart the node to continue. The node stops automatically when migration is complete.
-
-## Step 6: Start the node
-
-Start your node in the normal way.
 
 ## Step 7: Undrain the node
 
