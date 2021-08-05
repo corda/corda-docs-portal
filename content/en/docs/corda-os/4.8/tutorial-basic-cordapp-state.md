@@ -70,6 +70,10 @@ As you did in [Writing a CorDapp using a template](writing-a-cordapp-using-a-tem
 
 First create the `AppleStamp` state. This state is the voucher issued to customers.
 
+1. Create a file called `AppleStamp.java` in the `states` directory.
+
+2. Open the file.
+
 ### Add annotations
 
 The first thing you should do when writing a state is add the `@BelongsToContract` annotation. This annotation establishes the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
