@@ -237,6 +237,7 @@ If you're using IntelliJ, you can generate the constructor with a shortcut.
 
 
 
+
 ## Next steps
 
 Follow the [Write the contract](tutorial-basic-cordapp-contract.md) tutorial to continue on this learning path.
