@@ -3,11 +3,19 @@ ROOT_DIR          := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 DOCKER             = docker
 DOCKER_RUN         = $(DOCKER) run --rm --volume $(ROOT_DIR):/src $(DOCKER_BUILD_ARGS)
 HUGO_VERSION       = 0.65.3
+S3DEPLOY_VERSION   = 2.3.5
+REGISTRY           = library
 
 HUGO_DOCKER_IMAGE  = corda-docs-hugo
 PROD_IMAGE         = corda-docs-nginx
 ALGOLIA_IMAGE      = corda-docs-algolia
 PROD_IMAGE_TAG     = latest
+
+# Set these variables when publishing to an AWS S3 bucket
+AWS_REGION         =
+S3_BUCKET          =
+DISTRIBUTION_ID    =
+ROLE_ARN           =
 
 .PHONY: all local-build local-build-preview help serve hugo-build prod-hugo-build prod-docker-image
 
@@ -31,8 +39,8 @@ local-serve-and-edit:  ## Build and serve hugo with a click-to-edit link using t
 #######################################################################################################################
 # Docker tasks - run hugo in docker
 
-hugo-docker-image: ## Build hugo docker image
-	$(DOCKER) build . --tag $(HUGO_DOCKER_IMAGE) --build-arg HUGO_VERSION=$(HUGO_VERSION)
+hugo-docker-image: .hugo-docker-image ## Build hugo docker image
+	@: # NULL
 
 hugo-build: hugo-docker-image ## Run hugo build in docker (once only, into public/)
 	$(DOCKER_RUN)  $(HUGO_DOCKER_IMAGE)  hugo $(HUGO_ARGS) --minify
@@ -46,8 +54,8 @@ hugo-serve-and-edit: hugo-docker-image ## Serve site from docker with a click-to
 #######################################################################################################################
 # Docker tasks - build the prod nginx image
 
-prod-hugo-build: hugo-docker-image ## Prod build, minimal size
-	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE)  hugo $(HUGO_ARGS) --minify
+prod-hugo-build: hugo-docker-image .prod-hugo-build ## Prod build, minimal size
+	@: # NULL
 
 prod-docker-image: prod-hugo-build ## Create the prod docker image
 	$(DOCKER) build . --tag $(PROD_IMAGE):$(PROD_IMAGE_TAG) -f prod/Dockerfile
@@ -63,11 +71,28 @@ publish: prod-docker-image ## Build site, and publish docker image to registry -
 	$(DOCKER) tag $(PROD_IMAGE):$(PROD_IMAGE_TAG) $(PROD_IMAGE):latest
 	$(DOCKER) push $(PROD_IMAGE):latest
 
+publishS3: prod-hugo-build ## Build site, and publish it to the S3 bucket - MAIN TARGET
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) ./with-assumed-role -v "${ROLE_ARN}" \
+		s3deploy \
+		-region $(AWS_REGION) \
+		-bucket $(S3_BUCKET) \
+		-distribution-id $(DISTRIBUTION_ID) \
+		-source ./public/ \
+		-v
+	@echo The website is available at \
+		https://$(shell $(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) ./with-assumed-role "${ROLE_ARN}" \
+			aws cloudfront get-distribution \
+			--id $(DISTRIBUTION_ID) \
+			--query 'Distribution.AliasICPRecordals[].CNAME' \
+			--output text)
+
 all: help
 	echo ""
 
 clean: ## Remove (temp) repos
-	rm -rf $(ROOT_DIR)/repos $(ROOT_DIR)/public
+	rm -rf $(ROOT_DIR)/repos \
+	       $(ROOT_DIR)/public \
+	       .hugo-docker-image .prod-hugo-build
 
 #######################################################################################################################
 # Searching - Site crawling
@@ -84,3 +109,15 @@ crawl: build-algolia-image ## Start a crawl of docs.corda.net and upload to algo
 
 linkchecker: prod-docker-image ## Check all links are valid
 	.ci/checks/linkchecker.sh $(PROD_IMAGE)
+
+# actual tasks
+.hugo-docker-image: Dockerfile
+	$(DOCKER) build . --tag $(HUGO_DOCKER_IMAGE) \
+		--build-arg HUGO_VERSION=$(HUGO_VERSION) \
+		--build-arg REGISTRY=$(REGISTRY) \
+		--build-arg S3DEPLOY_VERSION=$(S3DEPLOY_VERSION)
+	touch $@
+
+.prod-hugo-build: $(shell find content layouts static themes -type f -print0 | xargs -0 -I{} echo {} | sed -e 's/ /\\ /g')
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) hugo $(HUGO_ARGS) --minify
+	touch $@
