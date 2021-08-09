@@ -25,9 +25,9 @@ the `release-version` header property for debugging purposes.
 
 The **platform version** is an incrementing integer which represents the API version of the Corda platform.
 It is similar to Android’s [API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html).
-It starts at 1 and increments by 1 for each release which changes any of the publicly exposed APIs in the platform.
+It starts at 1 and increments by 1 for each release that changes any of the publicly exposed APIs in the platform.
 This includes public APIs on the node itself, the RPC system, messaging, and serialization. API backwards
-compatibility will always be maintained, with the use of deprecation to suggest migration away from old APIs. In very rare
+compatibility will always be maintained, using deprecation to migrate away from old APIs. In very rare
 situations APIs may have to be changed, for example due to security issues.
 
 There is no relationship between the platform version
@@ -72,6 +72,8 @@ This allows the node to activate or deactivate backwards compatibility code path
 For example, if a CorDapp uses features introduced in Corda 4.5 and has passed regression testing on Corda 4.6. It will have a `minimumPlatformVersion` of 7 and a `targetPlatformVersion` of 8.
 If this CorDapp is then loaded into a node running Corda 4.7 (platform version 9), that node may implement backwards compatibility workarounds,
 potentially making the CorDapp slower, less secure, or less featureful.
+
+Specifying a higher `targetPlatformVersion` allows your CorDapp
 
 You can opt-in to getting the full benefits of the upgrade by changing your target version to 6. By doing
 this, you promise that you understood all the changes in Corda 6 and have thoroughly tested your app to prove it works. This testing should
