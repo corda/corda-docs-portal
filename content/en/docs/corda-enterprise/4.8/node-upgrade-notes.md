@@ -46,14 +46,14 @@ The protocol tolerates node outages. Peers on the network wait for your node to 
 Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
-You drain a node by running `gracefulShutdown`. This waits for the node to drain and then shuts it down once the drain
+To drain a node, run `gracefulShutdown`. This waits for the node to drain and then shuts it down once the drain
 is complete.
 
 
 {{< warning >}}
 The length of time a node takes to drain varies. It depends on how your CorDapps are designed and whether any CorDapps are
-communicating with network peers that are offline or slow to respond. In
-an environment with well written CorDapps and counterparties who are online, drains may only take a few seconds.
+communicating with network peers that are offline or slow to respond. If
+the CorDapps are well-written and the required counterparties are online, drains may only take a few seconds.
 
 {{< /warning >}}
 
@@ -76,7 +76,7 @@ You can perform an automatic database update when:
 * Your database setup is for testing/development purposes and your node connects with *administrative permissions* (in essence, it can modify database schema).
 * You are upgrading a production system, your policy allows a node to auto-update its database, and your node connects with *administrative permissions*.
 
-If you met the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-start-the-node).
+If you meet the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-start-the-node).
 
 
 If you can't perform an automatic update, then you must perform a manual update by following steps 3.1 to 3.4 below. You can then move on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
@@ -96,7 +96,7 @@ You must provide a base directory that includes:
 
 #### Azure SQL: template file and JDBC driver
 
-The required `node.conf` settings for the Database Management Tool using Azure SQL:
+The required `node.conf` settings for the Database Management Tool using Azure SQL are:
 
 
 ```groovy
@@ -112,7 +112,7 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Complete the template:
+1. Complete the template:
 
 Replace the placeholders `<server>`, `<database>`, `<login>`, `<password>`, `<schema>`, and `<node_legal_name>`' with appropriate values:
 * `<database>` is the user database.
@@ -120,13 +120,13 @@ Replace the placeholders `<server>`, `<database>`, `<login>`, `<password>`, `<sc
 * `<schema>` is the schema namespace.
 * `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
-Download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
+2. Download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
+3. Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
 #### SQL Server: template file and JDBC driver
 
-The required `node.conf` settings for the Database Management Tool using SQL Server:
+The required `node.conf` settings for the Database Management Tool using SQL Server are:
 
 ```groovy
 dataSourceProperties = {
@@ -141,7 +141,7 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Complete the template:
+1. Complete the template:
 
 Replace the placeholders `<host>`, `<database>`, `<login>`, `<password>`, `<schema>`, and `<node_legal_name>`' with appropriate values:
 * `<database>` is the user database.
@@ -149,13 +149,13 @@ Replace the placeholders `<host>`, `<database>`, `<login>`, `<password>`, `<sche
 * `<schema>` is the schema namespace.
 * `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
-Download the Microsoft JDBC 6.4 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
-Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
+2. Download the Microsoft JDBC 6.4 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
+3. Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
 
 #### Oracle: template file and JDBC driver
 
-The required `node.conf` settings for the Database Management Tool using Oracle:
+The required `node.conf` settings for the Database Management Tool using Oracle are:
 
 ```groovy
 dataSourceProperties = {
@@ -170,18 +170,18 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Complete the template:
+1. Complete the template:
 
 Replace the placeholders `<host>`, `<port>`, `<sid>`, `<user>`, `<password>`, `<schema>`, and `<node_legal_name>`' with appropriate values:
 * `<schema>` is the database schema namespace. For a basic setup, the schema name equals `<user>`.
 * `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
-Copy the Oracle JDBC driver `ojdbc6.jar` for 11g RC2 or `ojdbc8.jar` for Oracle 12c into the `drivers` directory.
+2. Copy the Oracle JDBC driver `ojdbc6.jar` for 11g RC2 or `ojdbc8.jar` for Oracle 12c into the `drivers` directory.
 
 
 #### PostgreSQL: template file and JDBC driver
 
-The required `node.conf` settings for the Database Management Tool using PostgreSQL:
+The required `node.conf` settings for the Database Management Tool using PostgreSQL are:
 
 ```groovy
 dataSourceProperties = {
@@ -196,14 +196,14 @@ database = {
 myLegalName = <node_legal_name>
 ```
 
-Complete the template:
+1. Complete the template:
 
 Replace the placeholders `<host>`, `<port>`, `<database>`, `<user>`, `<password>`, and `<schema>`, and `<node_legal_name>`' with appropriate values:
 * `<schema>` is the database schema name assigned to the user.
 * The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
 * `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
-Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
+2. Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
 
 
 ### 3.2. Extract the DDL and DML scripts using the Database Management Tool
@@ -329,9 +329,9 @@ Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSch
 
 ## Step 6: Start the node
 
-If you manually updated the database in [Step 3](#step-3-update-the-database), then you start the node in the normal way.
+If you manually updated the database in [Step 3](#step-3-update-the-database), start the node in the normal way.
 
-However, if you need to automatically update the database as described in [Step 3](#step-3-update-the-database), then you need to start your node using the following command:
+However, if you need to automatically update the database as described in [Step 3](#step-3-update-the-database), then you need to start your node using the command:
 
 
 ```bash
@@ -343,7 +343,7 @@ time. If the migration process is interrupted, restart the node to continue. The
 
 ## Step 7: Undrain the node
 
-You may now do any checks, such as reading the logs. When you are ready, use this command at the shell.
+You may now perform checks, such as log reading. When you are ready, run this command in the shell:
 
 `run setFlowsDrainingModeEnabled enabled: false`
 
