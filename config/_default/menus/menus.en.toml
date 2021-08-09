@@ -709,10 +709,10 @@ weight = 500
 
 #new platform section here
 #the homepage menu creates a left hand side menu inside all the landing pages
-#if an entry has a URL it is a link directly to another document that is already in menu structure
-#this is quite hacky but it works
+#if an entry has a URL property, it is to artificially add the document into a second menu
 
-#
+
+#this entry is required so that we have a link to the dev preview docs in the homepage menu
 [[homepage]]
 identifier = "platform-preview-1"
 parent = "platform-corda-5"
@@ -720,12 +720,14 @@ url = "/platform/corda/5.0-dev-preview-1.html"
 name = "Developer Preview 1"
 weight = 100
 
+#this entry is a dummy entry for dev preview 2, and can be removed, it's entirely visual
 [[homepage]]
 identifier = "platform-preview-2"
 parent = "platform-corda-5"
 name = "Developer Preview 2"
 weight = 200
 
+#this entry is required to create a link to the corda docs in the homepage menu
 [[homepage]]
 identifier = "platform-corda-os"
 parent = "platform-corda-4"
@@ -733,6 +735,7 @@ url = "/platform/corda/4.8/os.html"
 name = "Corda open source"
 weight = 100
 
+#this entry is required to create a link to the corda ent docs in the homepage menu
 [[homepage]]
 identifier = "platform-corda-ent"
 parent = "platform-corda-4"
@@ -740,6 +743,7 @@ url = "/platform/corda/4.8/ent.html"
 name = "Corda Enterprise"
 weight = 200
 
+#this entry is required to create a link to the cenm docs in the homepage menu
 [[homepage]]
 identifier = "platform-corda-cenm"
 parent = "platform-corda-4"
@@ -747,6 +751,7 @@ url = "/platform/corda/1.5/cenm.html"
 name = "Corda Enterprise Network Manager"
 weight = 300
 
+#the following samples entries are for visual/demo purposes only and serve as links to github samples in the homepage menu
 [[homepage]]
 identifier = "sample-1"
 parent = "homepage-samples"
@@ -768,6 +773,7 @@ name = "Sample 3"
 url = "https://github.com/"
 weight = 300
 
+#the following apps links are a little redundant but they create menu entries for homepage that also link to the apps docs menu
 [[homepage]]
 identifier = "apps-biab"
 parent = "homepage-apps"
@@ -782,6 +788,7 @@ name = "Corda Payments"
 url = "/apps/payments/payments-index.html"
 weight = 200
 
+#the following platform entries are non-document menu entries, they could be replaced with documents but new content would have to be created
 [[homepage]]
 identifier = "platform-corda-4"
 parent = "homepage-corda"
@@ -794,6 +801,7 @@ parent = "homepage-corda"
 name = "Corda 5"
 weight = 100
 
+#the following tutorials entries create menu entries in homepage that link to the corda tutorials menus
 [[homepage]]
 name = "Corda 4 tutorials"
 parent = "homepage-tutorials"
