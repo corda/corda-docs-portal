@@ -193,11 +193,11 @@ To upgrade your CorDapps to platform version 4, you need to:
 1. [Update RPC clients to use the new RPC library](#1-update-rpc-clients-to-use-the-new-rpc-library).
 2. [Change the version numbers in your Gradle build file](#2-change-the-version-numbers-in-your-gradle-build-file).
 3. [Update your Gradle build file](#3-update-your-gradle-build-file).
-4. [Remove custom configuration from your node.conf file](#4-remove-custom-configuration-from-your-nodeconf-file).
-5. [Improve the security of your CorDapp by upgrading how you use FinalityFlow](#5-improve-the-security-of-your-cordapp-by-upgrading-how-you-use-finalityflow).
-6. [Improve the security of your CorDapp by upgrading your use of SwapIdentitiesFlow](#6-improve-the-security-of-your-cordapp-by-upgrading-your-use-of-swapidentitiesflow).
+4. [Remove custom configuration from your `node.conf` file](#4-remove-custom-configuration-from-your-nodeconf-file).
+5. [Improve the security of your CorDapp by upgrading how you use `FinalityFlow`](#5-improve-the-security-of-your-cordapp-by-upgrading-how-you-use-finalityflow).
+6. [Improve the security of your CorDapp by upgrading your use of `SwapIdentitiesFlow`](#6-improve-the-security-of-your-cordapp-by-upgrading-your-use-of-swapidentitiesflow).
 7. [Adjust your test code](#7-adjust-your-test-code).
-8. [Improve the security of your CorDapp by adding BelongsToContract annotations](#8-improve-the-security-of-your-cordapp-by-adding-belongstocontract-annotations).
+8. [Improve the security of your CorDapp by adding `BelongsToContract` annotations](#8-improve-the-security-of-your-cordapp-by-adding-belongstocontract-annotations).
 9. [Learn about signature constraints and signing `.jar` files](#9-learn-about-signature-constraints-and-signing-jar-files).
 10. [Improve the security of your CorDapp: Package namespace handling](#10-improve-the-security-of-your-cordapp-package-namespace-handling).
 11. [Consider adding extension points to your flows](#11-consider-adding-extension-points-to-your-flows).
@@ -293,7 +293,7 @@ You can set `name`, `vendor`, and `licence` to any string, they don’t have to 
 
 Target versioning is a new concept introduced in Corda 4. Before you set values for `targetPlatformVersion` and `minimumPlatformVersion`, read our guide on [versioning](cordapps/versioning.md).
 
-CorDapps running Corda 3 or older, don't support CorDapp metadata. This means that your CorDapp may exhibit undefined behaviour at runtime when loaded in nodes that use a newer version.
+CorDapps running Corda 3 or older don't support CorDapp metadata. This means that your CorDapp may exhibit undefined behaviour at runtime when loaded in nodes that use a newer version.
 Even so, it's best practice to complete this metadata ready for upgrades to future versions.
 
 
@@ -317,11 +317,11 @@ and migration features. You may directly reference the Gradle version number of 
 CorDapp specific `versionId` identifiers if this follows the convention of always being a whole number
 starting from 1.
 
-If you use the finance demo CorDapp, adjust your dependencies to the finance-contracts
-and finance-workflows artifacts from your own contract and workflow `.jar` file respectively.
+If you use the finance demo CorDapp, adjust your dependencies to the `finance-contracts`
+and `finance-workflows` artifacts from your own contract and workflow `.jar` file respectively.
 
 
-### 4. Remove custom configuration from your node.conf file
+### 4. Remove custom configuration from your `node.conf` file
 
 CorDapps can no longer access custom configuration items in the `node.conf` file, as the node’s configuration is not accessible. You can create a CorDapp configuration file for any custom CorDapp configuration. Save your CorDapp configuration file in the
 *config* subdirectory of the node’s *cordapps* folder. The name of the file must match the name of the `.jar` file of the CorDapp. For example, if your
@@ -358,7 +358,7 @@ See [CorDapp configuration files](cordapps/cordapp-build-systems.md#cordapp-conf
 
 
 
-### 5. Improve the security of your CorDapp by upgrading how you use FinalityFlow
+### 5. Improve the security of your CorDapp by upgrading how you use `FinalityFlow`
 
 The previous `FinalityFlow` API is insecure. It doesn't have a receive flow, so requires counterparty nodes to accept any and
 all signed transactions that are sent to it without performing any checks. Therefore, we *highly* recommend that existing CorDapps migrate to the new API to reliably enforce business network membership checks (for example).
@@ -366,8 +366,8 @@ all signed transactions that are sent to it without performing any checks. There
 The flows that make use of `FinalityFlow` in a CorDapp fall into two basic categories:
 
 
-* **non-initiating flows** finalise a transaction without the involvement of a counterpart flow.
-* **initiating flows** initiate a counterpart (responder) flow.
+* **Non-initiating flows** finalise a transaction without the involvement of a counterpart flow.
+* **Initiating flows** initiate a counterpart (responder) flow.
 
 The main difference between these two types of flow is how the CorDapp can be upgraded.
 
@@ -594,7 +594,7 @@ public static class ExistingInitiatingFlow extends FlowLogic<SignedTransaction> 
 {{< /tabs >}}
 
 For the responder flow, insert a call to `ReceiveFinalityFlow` at the location where it’s expecting to receive the
-finalized transaction. If the initiator has been written in a backwards compatible way, then so must the responder.
+finalized transaction. If the initiator has been written in a backwards compatible way, then the responder must be as well.
 
 {{< tabs name="tabs-7" >}}
 {{% tab name="kotlin" %}}
@@ -652,7 +652,7 @@ if (otherSide.getCounterpartyFlowInfo().getFlowVersion() >= 2) {
 You no longer need to use `waitForLedgerCommit` in your responder flow. `ReceiveFinalityFlow` effectively does the same thing as it checks the finalized transaction has appeared in the local node's vault.
 
 
-### 6. Improve the security of your CorDapp by upgrading your use of SwapIdentitiesFlow
+### 6. Improve the security of your CorDapp by upgrading your use of `SwapIdentitiesFlow`
 
 The [confidential identities](cordapps/api-confidential-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as the `FinalityFlow` (above). This is to resolve problems with confidential identities being injectable into a node
