@@ -12,13 +12,42 @@ weight: 2
 
 # Versioning
 
-As the Corda platform evolves and new features are added it is important to have a versioning system which allows
-its users to easily compare versions and know what features are available to them. Each Corda release uses the standard
-semantic versioning scheme of `major.minor`. This is useful when referring to releases in the public domain, but is not
-a practical platform versioning system for a developer.
+As the Corda platform evolves and new features are added,
+it is important to have a versioning system that allows users to easily compare versions and know what features are available.
 
-The release version is still useful as every MQ message the node sends includes
-the `release-version` header property for debugging purposes.
+Each Corda release uses the standard semantic versioning scheme of `major.minor`.
+This is useful when referring to releases in the public domain, but is not a practical platform versioning system for a developer.
+
+{{< note >}}
+
+The public release versions are still useful as every MQ message the node sends includes the `release-version` header property for debugging purposes.
+
+{{< /note >}}
+
+Each version of Corda introduces new features. Features fall into one of three categories and each category has different implications for node operators, CorDapp developers, and business network operators. There are:
+
+* Changes that may affect node operators, but don't impact CorDapp developers or the Corda network protocol. For example, introducing support for a new HSM or database system.
+* New or updated APIs.
+* Changes that affect the operation of a Corda network. For example, changes to the serialization format, flow/wire protocol, or the introduction of a new transaction component. These are changes to the core data model and should only be taken advantage of if they can be supported by all nodes on a network. Such features are only enabled in a node if the network it connects to has published a `minimumPlatformVersion` in its network parameters that is greater than or equal to the Corda platform version that introduced the feature. For example, Corda 4.0 nodes can only take advantage of the Corda reference states feature when connected to a network with a `minimumPlatformVersion` of 4 (Corda 4.0 is equivalent to Corda platform version 4).
+
+When a release includes features from either of the last two categories, the [Corda platform version](#platform-versioning) is incremented by one.
+
+
+
+
+
+
+
+
+For a node to run on a network, the node's platform version must be greater than or equal to the `minimumPlatformVersion` network parameter. For example, if the `minimumPlatformVersion` of a network is 5, then nodes must be running Corda 4.3 or above to run on the network.
+
+Use your CorDapp's `minimumPlatformVersion` parameter to indicate the oldest platform version your CorDapp is compatible with. This prevents nodes that use an older platform version from running your CorDapp. Nodes that support newer platform versions may also use this field to trigger code paths that emulate behaviors that were in force on older platform versions to maximise compatibility.
+
+If you have tested your CorDapp against newer versions of Corda and found it to be compatible, you can indicate this in `targetPlatformVersion`. This means it's possible to ship CorDapps that can run on all nodes supporting a minimum platform version of Corda, as well as take advantage of a newer platform version's behaviors and features should they happen to be available on any given node.
+
+
+
+
 
 
 ## Platform versioning
@@ -39,20 +68,31 @@ registers with a network map it will check its own version against the network's
 
 ### Platform version matrix
 
+The table below highlights key features and the corresponding version numbers.
+
 {{< table >}}
-| Corda release  | Platform version |
-| :------------- | :------------- |
-| 4.8 | 10 |
-| 4.7 | 9 |
-| 4.6 | 8 |
-| 4.5 | 7 |
-| 4.4 | 6 |
-| 4.3 | 5 |
-| 4.2 | 4 |
-| 4.1 | 4 |
-| 4.0 | 4 |
-| 3.3 | 3 |
+
+|Feature|Corda platform version |Minimum network platform version (network mPV)|Introduced in OS version|Introduced in Enterprise version|
+|--------------------|--------------------|--------------------|--------------------|--------------------|
+|API update|10|4|4.8|4.8|
+|API update|9|4|4.7|4.7|
+|API update|8|4|4.6|4.6|
+|New flow framework APIs|7|4|4.5|4.5|
+|Prevent CorDapp hosting issue|6|4|4.4|4.4|
+|Underlying support for accounts|5|4|4.3|4.3|
+|Signature constraints|4|4|4.0|4.0|
+|Reference states|4|4|4.0|4.0|
+|Inline finality flow|4|3|4.0|4.0|
+|Whitelist constraints|3|3|3.0|3.0|
+|Corda serialization framework|3|3|3.0|3.0|
+|Observer nodes|2|2|2.0|n/a|
+|Hash constraints|1|1|1.0|1.0|
+
 {{< /table >}}
+
+{{< note >}}
+We recommend a network mPV of 5 for Corda 4.5 onwards.
+{{< /note >}}
 
 
 ## Minimum platform version
