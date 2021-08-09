@@ -58,10 +58,10 @@ You need to set the following values in the Gateway Service configuration file:
 * RPC port, which can be specified either as a literal string or by the `NODE_PORT` environment variable.
 * The host name or IP address of the node you wish to monitor, which can be specified either as a literal string or by the `NODE_HOST` environment variable.
 
-These are set in `node.admin.middleware` as shown below.
+These are set in `node.management.plugin.middleware` as shown below.
 
 ```
-node.admin.middleware {
+node.management.plugin.middleware {
      rpcUsername ="u"
      rpcPassword ="p"
      rpcHost = ${NODE_HOST}
@@ -208,7 +208,7 @@ When the node management console is reloaded, the node diagnostic info is unavai
 * The unavailable node information shows as `---`.
 
 {{% note %}}
-If you stop a node from the command line, the node will still appear in the console because Corda does not poll the node to see if it is still connected. Refresh the page to show the correct status. 
+If you stop a node from the command line, the node will still appear in the console because Corda does not poll the node to see if it is still connected. Refresh the page to show the correct status.
 {{% /note %}}
 
 {{% figure zoom="management-console/node-management-console_status.png" alt="Node management console status tab" figcaption="Node management console status tab"%}}
