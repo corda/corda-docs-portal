@@ -20,15 +20,18 @@ Each version of Corda introduces new features. Features fall into one of three c
 
 * Changes that may affect node operators, but don't impact CorDapp developers or the Corda network protocol. For example, introducing support for a new HSM or database system.
 * New or updated APIs.
-* Changes that affect the operation of a Corda network. For example, changes to the serialization format, flow/wire protocol, or the introduction of a new transaction component. These are changes to the core data model and should only be taken advantage of if they can be supported by all nodes on a network. Such features are only enabled in a node if the network it connects to has published a `minimumPlatformVersion` in its network parameters that is greater than or equal to the Corda platform version that introduced the feature. For example, Corda 4.0 nodes which implement Corda platform version 4, can only take advantage of the Corda reference states feature when connected to a network with a `minimumPlatformVersion` of 4.
+* Changes that affect the operation of a Corda network. For example, changes to the serialization format, flow/wire protocol, or the introduction of a new transaction component. These are changes to the core data model and should only be taken advantage of if they can be supported by all nodes on a network. Such features are only enabled in a node if the network it connects to has published a `minimumPlatformVersion` in its network parameters that is greater than or equal to the Corda platform version that introduced the feature. For example, Corda 4.0 nodes can only take advantage of the Corda reference states feature when connected to a network with a `minimumPlatformVersion` of 4 (Corda 4.0 is equivalent to Corda platform version 4).
 
 When a release includes features from either of the last two categories, the [Corda platform version](#corda-features) is incremented by one.
 
-Use `minimumPlatformVersion` to indicate the oldest platform version your CorDapp is compatible with. This prevents nodes that use an older platform version from running your CorDapp. Nodes that support newer platform versions may also use this field to trigger code paths that emulate behaviors that were in force on older platform versions to maximise compatibility.
+For a node to run on a network, the node's platform version must be greater than or equal to the `minimumPlatformVersion` network parameter. For example, if the `minimumPlatformVersion` of a network is 5, then nodes must be running Corda 4.3 or above to run on the network.
+
+Use your CorDapp's `minimumPlatformVersion` parameter to indicate the oldest platform version your CorDapp is compatible with. This prevents nodes that use an older platform version from running your CorDapp. Nodes that support newer platform versions may also use this field to trigger code paths that emulate behaviors that were in force on older platform versions to maximise compatibility.
 
 If you have tested your CorDapp against newer versions of Corda and found it to be compatible, you can indicate this in `targetPlatformVersion`. This means it's possible to ship CorDapps that can run on all nodes supporting a minimum platform version of Corda, as well as take advantage of a newer platform version's behaviors and features should they happen to be available on any given node.
 
 See [versioning](cordapps/versioning.md) for more information on how to set your CorDapp's `minimumPlatformVersion` and `targetPlatformVersion`.
+
 
 {{< table >}}
 
