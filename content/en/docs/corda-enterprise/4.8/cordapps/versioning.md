@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2020-08-09'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-cordapps-versioning
@@ -12,28 +12,30 @@ weight: 2
 
 # Versioning
 
-As the Corda platform evolves and new features are added it becomes important to have a versioning system which allows
-its users to easily compare versions and know what feature are available to them. Each Corda release uses the standard
-semantic versioning scheme of `major.minor`. This is useful when making releases in the public domain but is not
-friendly for a developer working on the platform. It first has to be parsed and then they have three separate segments on
-which to determine API differences. The release version is still useful and every MQ message the node sends attaches it
-to the `release-version` header property for debugging purposes.
+As the Corda platform evolves and new features are added it is important to have a versioning system which allows
+its users to easily compare versions and know what features are available to them. Each Corda release uses the standard
+semantic versioning scheme of `major.minor`. This is useful when referring to releases in the public domain, but is not
+a practical platform versioning system for a developer.
+
+The release version is still useful as every MQ message the node sends includes
+the `release-version` header property for debugging purposes.
 
 
-## Platform version
+## Platform versioning
 
-It is much easier to use a single incrementing integer value to represent the API version of the Corda platform, which
-is called the *platform version*. It is similar to Android’s [API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html).
-It starts at 1 and will increment by exactly 1 for each release which changes any of the publicly exposed APIs in the
-entire platform. This includes public APIs on the node itself, the RPC system, messaging, serialisation, etc. API backwards
+The **platform version** is an incrementing integer which represents the API version of the Corda platform.
+It is similar to Android’s [API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html).
+It starts at 1 and increments by 1 for each release which changes any of the publicly exposed APIs in the platform.
+This includes public APIs on the node itself, the RPC system, messaging, and serialization. API backwards
 compatibility will always be maintained, with the use of deprecation to suggest migration away from old APIs. In very rare
-situations APIs may have to be changed, for example due to security issues. There is no relationship between the platform version
-and the release version - a change in the major or minor values may or may not increase the platform version. However
-we do endeavour to keep them synchronised for now, as a convenience.
+situations APIs may have to be changed, for example due to security issues.
 
-The platform version is part of the node’s `NodeInfo` object, which is available from the `ServiceHub`. This enables
-a CorDapp to find out which version it’s running on and determine whether a desired feature is available. When a node
-registers with the network map it will check its own version against the minimum version requirement for the network.
+There is no relationship between the platform version
+and the release version - a change in the major or minor values may or may not increase the platform version.
+
+The platform version is part of the node’s `NodeInfo` object, which is available from the `ServiceHub`. This is used by
+CorDapps to find out which version a node is running and to determine whether a desired feature is available. When a node
+registers with a network map it will check its own version against the network's `minimumPlatformVersion` parameter.
 
 ### Platform version matrix
 
@@ -55,23 +57,23 @@ registers with the network map it will check its own version against the minimum
 
 ## Minimum platform version
 
-Applications can advertise a *minimum platform version* they require. If your app uses new APIs that were added in (for example) Corda 5,
-you should specify a minimum version of 5. This will ensure the app won’t be loaded by older nodes. If you can *optionally* use the new
-APIs, you can keep the minimum set to a lower number. Attempting to use new APIs on older nodes can cause `NoSuchMethodError` exceptions
-and similar problems, so you’d want to check the node version using `ServiceHub.myInfo`.
+Your CorDapp's `minimumPlatformVersion` indicates the oldest platform version your CorDapp is compatible with.
+For example, if your CorDapp uses APIs that were added in Corda 4.3, you should specify a `minimumPlatformVersion` of 5.
+This prevents nodes that use an older platform version from running your CorDapp.
+If your CorDapp can use the new APIs as well as older ones, you can set your CorDapp's `minimumPlatformVersion` to an older version.
+Attempting to use new APIs on older nodes can cause `NoSuchMethodError` exceptions and similar problems, so you’d want to check the node version using `ServiceHub.myInfo`.
 
 
-## Target version
+## Target platform version
 
-Applications can also advertise a *target version*. This is similar to the concept of the same name in Android and iOS.
-Apps should advertise the highest version of the platform they have been tested against. This allows the node to activate or deactivate
-backwards compatibility codepaths depending on whether they’re necessary or not, as workarounds for apps designed for earlier versions.
+If you have tested your CorDapp against newer versions of Corda and found it to be compatible, you can indicate this in `targetPlatformVersion`.
+This allows the node to activate or deactivate backwards compatibility code paths depending on whether they’re necessary or not, as workarounds for CorDapps designed for earlier versions.
 
-For example, consider an app that uses new features introduced in Corda 4, but which has passed regression testing on Corda 5. It will
-advertise a minimum platform version of 4 and a target version of 5. These numbers are published in the JAR manifest file.
+For example, if a CorDapp uses features introduced in Corda 4.5 and has passed regression testing on Corda 4.6. It will have a `minimumPlatformVersion` of 7 and a `targetPlatformVersion` of 8.
+If this CorDapp is then loaded into a node running Corda 4.7 (platform version 9), that node may implement backwards compatibility workarounds,
+potentially making the CorDapp slower, less secure, or less featureful.
 
-If this app is loaded into a Corda 6 node, that node may implement backwards compatibility workarounds for your app that make it slower,
-less secure, or less featureful. You can opt-in to getting the full benefits of the upgrade by changing your target version to 6. By doing
+You can opt-in to getting the full benefits of the upgrade by changing your target version to 6. By doing
 this, you promise that you understood all the changes in Corda 6 and have thoroughly tested your app to prove it works. This testing should
 include ensuring that the app exhibits the correct behaviour on a node running at the new target version, and that the app functions
 correctly in a network of nodes running at the same target version.
@@ -82,6 +84,8 @@ can be disabled.
 
 
 ## Publishing versions in your JAR manifests
+
+These numbers are published in the JAR manifest file.
 
 A well structured CorDapp should be split into two separate modules:
 
