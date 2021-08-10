@@ -16,7 +16,7 @@ weight: 20
 # Upgrading contracts
 
 You may need to upgrade your contract code to fix bugs (in either
-design or implementation). You can substitute of one version of the contract code for another, or
+design or implementation). You can substitute one version of the contract code for another, or
 change to a contract that can migrate the existing state objects. When state objects are
 added as outputs to transactions, they are linked to the revelant contract code using the
 `StateAndContract` type. To change a state's contract, substitute one `ContractClassName` for another.
