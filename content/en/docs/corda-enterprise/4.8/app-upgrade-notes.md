@@ -8,11 +8,11 @@ tags:
 - app
 - upgrade
 - notes
-title: Upgrade a CorDapp to a newer platform version
+title: Upgrading a CorDapp to a newer platform version
 weight: 30
 ---
 
-# Upgrade a CorDapp to a newer platform version
+# Upgrading a CorDapp to a newer platform version
 
 {{< warning >}}
 Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
