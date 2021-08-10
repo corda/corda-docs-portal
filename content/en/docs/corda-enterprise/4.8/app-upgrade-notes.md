@@ -309,7 +309,7 @@ It is used for informative purposes only.
 The duplication between `contract` and `workflow` blocks exists because your CorDapp should be split into
 two separate `.jar` files/modules. One should contain on-ledger validation code, like states and contracts. The other should contain workflows and anything else, such as services.
 
-Historically one `.jar` file has been used for both, but this can result in sending your flow logic code over the network to arbitrary
+Historically one `.jar` file has been used for both, but this can result in sending your flow logic code over the network to 
 third-party peers even though they don’t need it.
 
 For later versions, the `versionId` parameter attached to the workflow `.jar` file will also help with smoother upgrades
