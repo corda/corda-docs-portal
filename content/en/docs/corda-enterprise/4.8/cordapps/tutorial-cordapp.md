@@ -6,7 +6,7 @@ aliases:
 - /releases/release-V4.4/tutorial-cordapp.html
 - /docs/corda-os/head/tutorial-cordapp.html
 - /docs/corda-os/tutorial-cordapp.html
-date: '2020-01-08T09:59:25Z'
+date: '2021-07-15'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-cordapps
