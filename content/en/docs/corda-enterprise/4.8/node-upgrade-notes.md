@@ -9,12 +9,12 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrade a node to Corda Enterprise 4.8
+title: Upgrading a node to Corda Enterprise 4.8
 aliases: /docs/corda-enterprise/4.8/node/operating/cm-upgrading-node.html
 weight: 10
 ---
 
-# Upgrade a node to Corda Enterprise 4.8
+# Upgrading a node to Corda Enterprise 4.8
 
 Follow these steps to upgrade a node from Corda Enterprise 4.x to Corda Enterprise 4.8.
 
