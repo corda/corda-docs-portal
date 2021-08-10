@@ -31,7 +31,7 @@ To upgrade a contract:
 issuing further states with contract X.
 3. The parties that signed the existing contract review the new contract, and identify the contract states they
 agree to upgrade. They may decide not to upgrade some contract states.
-4. The signing parties instruct their Corda nodes (via RPC) to be willing to upgrade state objects with contract X to state
+4. The signing parties instruct their Corda nodes (via RPC) to upgrade state objects with contract X to state
 objects with contract Y, using the agreed upgrade path.
 5. One of the parties (the `Initiator`) initiates a flow to replace state objects referring to contract X with new
 state objects referring to contract Y.
