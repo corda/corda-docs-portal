@@ -27,7 +27,7 @@ added as outputs to transactions, they are linked to the revelant contract code 
 To upgrade a contract:
 
 1. The contract developer develops a new version (Y) of an existing contract (X).
-2. The developer notify all existing users (for example, via a mailing list or CorDapp store) to stop their nodes from
+2. The developer notifies all existing users (for example, via a mailing list or CorDapp store) to stop their nodes from
 issuing further states with contract X.
 3. The parties that signed the existing contract review the new contract, and identify the contract states they
 agree to upgrade. They may decide not to upgrade some contract states.
@@ -39,7 +39,7 @@ state objects referring to contract Y.
 created and signed with the node’s private key.
 7. The `Initiator` node sends the proposed transaction, along with details of the new contract upgrade path that it
 is proposing, to all participants of the state object.
-8. Each counterparty (the `Acceptor` s) verifies the proposal, signs or rejects the state reissuance accordingly, and
+8. Each counterparty (the `Acceptor`s) verifies the proposal, signs or rejects the state reissuance accordingly, and
 sends a signature or rejection notification back to the initiating node.
 9. If the `Initiator` receives signatures from all parties, it assembles the complete signed transaction and sends
 it to the notary.
