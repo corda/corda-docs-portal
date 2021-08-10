@@ -1,0 +1,115 @@
+---
+date: '2021-08-10'
+menu:
+  corda-os-4-8:
+    identifier: corda-os-4-8-tutorial-basic-cordapp-contract
+    parent: corda-os-4-8-tutorial-basic-cordapp-intro
+    weight: 1040
+tags:
+- tutorial
+- cordapp
+title: Write the contracts
+---
+
+This tutorial guides you through writing the two contracts you need in your CorDapp: AppleStampContract and BasketOfApplesContract. Both contracts will be linked to the states that you created when performing the steps from the [Write the states](tutorial-basic-cordapp-state.md) tutorial.
+
+You will be editing the contracts/src/main/java/com/template/states/TemplateContract.java file in this tutorial.
+
+
+## Learning objectives
+
+Once you have completed this tutorial, you will know how to create and implement contracts in a CorDapp in order to restrict how your transaction flows are performed.
+
+
+## Create the `AppleStampContract` contract
+
+First create the `AppleStampContract`.
+
+1. Go to the cloned `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+
+2. Right-click the **contracts** folder, select **New > Java Class** and create a file called `AppleStampContract`.
+
+   {{< note >}}
+   When naming contracts, it’s best practice to match your contract and state names. In this case the contract is called AppleStampContract, and the state that links to it is called AppleStamp. Follow this naming convention when you write an original CorDapp to avoid confusion.
+   {{< /note >}}
+
+3. Open the file.
+
+
+### Add a domain-specific language (DSL) helper method
+
+Add a domain-specific language (DSL) helper method for writing contracts to your imports. This is a Corda-specific helper method used for contracts only.
+
+
+### Declare the public class
+
+Add a short intro here.
+
+1. Add the public class `AppleStampContract` that implements the `Contract` class.
+
+2. Identify your contract by adding its ID.
+
+   {{< note >}}
+   This ID is not used in the production environment but is used in the testing scenarios. It is a good practice to add it to the contract.
+   {{< /note >}}
+
+This is what your code should look like now:
+
+```java
+package com.template.contracts;
+
+public class AppleStampContract implements Contract {
+
+    // This is used to identify our contract when building a transaction.
+    public static final String ID = "com.tutorial.contracts.AppleStampContract";
+}
+```
+
+
+### Add the `verify` method Re-start 20:00
+
+The `verify` method is automatically triggered when your transaction is executed. It verifies:
+
+* The intention of the transaction - the command that you are using for that specific transaction.
+* That the transaction components are following the restrictions implemented inside the `verify` method within the contract.
+
+
+If you're using IntelliJ, you can generate the `verify` method with a shortcut.
+
+1. On MacOS, press **Option** + **Enter**.
+
+   On Windows, press **Alt** + **Enter**. - didn't work for me. not sure how to do it.
+
+2. From the drop-down menu, select **Implement methods > verify**.
+
+   The `verify` method preceded by the `@Override` annotation appears.
+
+
+
+
+### Add commands
+
+Commands indicate the transaction's intent - what type of actions performed by the state the contract can verify. In this tutorial, you will add two commands: one for issuing the bushel of apples and one for redeeming it.
+
+1. Add the `Commands` interface declaration.
+
+2. Inside the interface, add the `Issue` and `Redeem` classes that implement `AppleStampContract.Commands`.
+
+
+This is what your code should look like now:
+
+```java
+package com.template.contracts;
+
+public class AppleStampContract implements Contract {
+
+    // This is used to identify our contract when building a transaction.
+    public static final String ID = "com.tutorial.contracts.AppleStampContract";
+
+    // Used to indicate the transaction's intent.
+public interface Commands extends CommandData {
+    //In our hello-world app, We will have two commands.
+    class Issue implements AppleStampContract.Commands {}
+    }
+}
+```
