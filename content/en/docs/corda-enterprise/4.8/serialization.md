@@ -329,7 +329,7 @@ Corda uses immutable data structures by default. If you rely heavily on mutable 
 {{< /warning >}}
 
 Constructor-based initialization works best with the API. However, if you require an alternative, Corda can also determine the important elements of an
-object by inspecting the getter and setter methods present on the class. If a class **only** has a default
+object by inspecting the getter and setter methods present on the class. If a class *only* has a default
 constructor **and** properties, then the serializable properties are determined by the presence of
 both a getter and setter for that property, which are both publicly visible. In essence, the class adheres to
 the classic idiom of mutable JavaBeans.
