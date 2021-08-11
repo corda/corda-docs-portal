@@ -36,11 +36,6 @@ First create the `AppleStampContract`.
 3. Open the file.
 
 
-### Add a domain-specific language (DSL) helper method
-
-Add a domain-specific language (DSL) helper method for writing contracts to your imports. This is a Corda-specific helper method used for contracts only.
-
-
 ### Declare the public class
 
 Add a short intro here.
@@ -66,12 +61,12 @@ public class AppleStampContract implements Contract {
 ```
 
 
-### Add the `verify` method Re-start 20:00
+### Add the `verify` method
 
 The `verify` method is automatically triggered when your transaction is executed. It verifies:
 
 * The intention of the transaction - the command that you are using for that specific transaction.
-* That the transaction components are following the restrictions implemented inside the `verify` method within the contract.
+* That the transaction components are following the restrictions implemented inside the contract's `verify` method.
 
 
 If you're using IntelliJ, you can generate the `verify` method with a shortcut.
@@ -84,8 +79,63 @@ If you're using IntelliJ, you can generate the `verify` method with a shortcut.
 
    The `verify` method preceded by the `@Override` annotation appears.
 
+3. Extract the command from the transaction.
+
+4. Verify the intention of the transaction (Issue or Redeem) using the `if-then-else` loop. - was the Redeem code not updated in repo? different code used during the tutorial. No requireThat helper method.
+
+5. Add the following domain-specific language (DSL) `requireThat` helper method to the Issue verification code:
+
+   ```java
+   requireThat(require -> {
+       require.using("This transaction should only output one AppleStamp state", tx.getOutputs().size() == 1);
+       require.using("The output AppleStamp state should have clear description of the type of redeemable goods", !output.getStampDesc().equals(""));
+       return null;
+   });
+   ```
+
+   {{< note >}}
+
+   This is a Corda-specific helper method used for writing contracts only.
+
+   {{< /note >}}
+
+6. Use `else` to throw an error when the intention of the transaction is not recognized by the `verify` method.
+
+This is what your code should look like now:
+
+```java
+package com.template.contracts;
+
+public class AppleStampContract implements Contract {
 
 
+    // This is used to identify our contract when building a transaction.
+    public static final String ID = "com.tutorial.contracts.AppleStampContract";
+
+    @Override
+    public void verify(@NotNull LedgerTransaction tx) throws IllegalArgumentException {
+
+        //Extract the command from the transaction.
+        final CommandData commandData = tx.getCommands().get(0).getValue();
+
+        //Verify the transaction according to the intention of the transaction.
+        if (commandData instanceof AppleStampContract.Commands.Issue){
+            AppleStamp output = tx.outputsOfType(AppleStamp.class).get(0);
+            requireThat(require -> {
+                require.using("This transaction should only output one AppleStamp state", tx.getOutputs().size() == 1);
+                require.using("The output AppleStamp state should have clear description of the type of redeemable goods", !output.getStampDesc().equals(""));
+                return null;
+            });
+        }else if(commandData instanceof BasketOfAppleContract.Commands.Redeem){
+            //Transaction verification will happen in BasketOfApple Contract.
+        }
+        else{
+            //Unrecognized Command type
+            throw new IllegalArgumentException("Incorrect type of AppleStamp Commands");
+        }
+    }
+}
+```
 
 ### Add commands
 
@@ -103,13 +153,37 @@ package com.template.contracts;
 
 public class AppleStampContract implements Contract {
 
+
     // This is used to identify our contract when building a transaction.
     public static final String ID = "com.tutorial.contracts.AppleStampContract";
 
+    @Override
+    public void verify(@NotNull LedgerTransaction tx) throws IllegalArgumentException {
+
+        //Extract the command from the transaction.
+        final CommandData commandData = tx.getCommands().get(0).getValue();
+
+        //Verify the transaction according to the intention of the transaction
+        if (commandData instanceof AppleStampContract.Commands.Issue){
+            AppleStamp output = tx.outputsOfType(AppleStamp.class).get(0);
+            requireThat(require -> {
+                require.using("This transaction should only output one AppleStamp state", tx.getOutputs().size() == 1);
+                require.using("The output AppleStamp state should have clear description of the type of redeemable goods", !output.getStampDesc().equals(""));
+                return null;
+            });
+        }else if(commandData instanceof BasketOfAppleContract.Commands.Redeem){
+            //Transaction verification will happen in BasketOfApple Contract
+        }
+        else{
+            //Unrecognized Command type
+            throw new IllegalArgumentException("Incorrect type of AppleStamp Commands");
+        }
+    }
+
     // Used to indicate the transaction's intent.
-public interface Commands extends CommandData {
-    //In our hello-world app, We will have two commands.
-    class Issue implements AppleStampContract.Commands {}
+    public interface Commands extends CommandData {
+        //In our hello-world app, We will have two commands.
+        class Issue implements AppleStampContract.Commands {}
     }
 }
 ```
