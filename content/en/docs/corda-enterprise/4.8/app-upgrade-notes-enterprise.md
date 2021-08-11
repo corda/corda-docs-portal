@@ -19,7 +19,7 @@ weight: 20
 Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
-## Upgrading from open source
+## Upgrading from Corda open source
 
 Before upgrading to Corda Enterprise 4.8, upgrade your CorDapp to Corda open source 4.8. See [upgrading CorDapps to newer platform versions](app-upgrade-notes.md) for detailed instructions.
 
@@ -80,7 +80,7 @@ repositories {
 }
 ```
 
-You can do either of the following.
+You can do either of the following:
 
 * Upgrade your `quasar.jar` file to the version consistent with your Corda version.
 * Delete your `lib` directory and switch to using the Gradle test runner.
@@ -114,11 +114,14 @@ of all Corda Enterprise artifacts and their dependencies) from your R3 support c
 
 {{< warning >}}
 
-Version 4 of the finance CorDapp is split into two signed `.jar` files, `corda-finance-contracts.jar`, `corda-finance-workflows.jar`.
-As there should only be one unique hashed version of `corda-finance-contracts.jar` (the hash of a contract `.jar` file undergoes strict
-security checking upon transaction resolution), we only publish a single instance of `corda-finance-contracts.jar` and this is from the open source repository.
+Version 4 of the finance CorDapp is split into the following two signed `.jar` files:
 
-Please ensure any CorDapps that depend on `corda-finance-contracts.jar` reference this open source dependency as follows.
+ * `corda-finance-contracts.jar`
+ * `corda-finance-workflows.jar`
+As there should only be one unique hashed version of `corda-finance-contracts.jar` (the hash of a contract `.jar` file undergoes strict
+security checking upon transaction resolution), only a single instance of `corda-finance-contracts.jar` is published, and this is from the open source repository.
+
+Please ensure any CorDapps that depend on `corda-finance-contracts.jar` reference this open source dependency as follows:
 
 ```shell
 cordapp "$os_corda_release_distribution:corda-finance-contracts:$os_corda_release_version"
@@ -141,7 +144,7 @@ Corda Enterprise 4.4 moves towards an open core strategy. Therefore, the common 
 open source, and Corda Enterprise has a binary dependency on the matching open source version. As a result, any CorDapps written against
 Corda Enterprise 4.4 or later will have to depend on the open source version of `corda-core`.
 
-Therefore, you have to add the following variables to your build configuration.
+Therefore, you have to add the following variables to your build configuration:
 
 ```shell
 ext.corda_core_release_distribution = 'net.corda'
@@ -149,7 +152,7 @@ ext.corda_core_release_version = '4.8'
 ```
 
 Any dependency on `corda-core` (or `corda-serialization`) has to use these new variables to depend on the open source version of those
-libraries.
+libraries, as follows:
 
 ```shell
 cordaCompile "$corda_release_distribution:corda-core:$corda_release_version"
