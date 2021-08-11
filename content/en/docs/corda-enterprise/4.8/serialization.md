@@ -548,7 +548,7 @@ newC.l.add("d")
 ```
 
 To preserve immutability of objects, mutate the
-contents of the class by creating a new copy of the data class with the altered list passed in as the Constructor parameter:
+contents of the class by creating a new copy of the data class with the altered list passed in as the constructor parameter:
 
 ```kotlin
 data class C(val l : List<String>)
