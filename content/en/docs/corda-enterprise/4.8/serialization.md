@@ -124,7 +124,7 @@ continue to apply the whitelisting functionality that is already in place and de
 This section describes the classes and interfaces that the AMQP serialization format supports.
 
 
-### Collection Types
+### Collection types
 
 Corda supports the collection types listed below. Any implementation of these types will be mapped to *an* implementation
 of the interface or class on the other end. For example, if you use a Guava implementation of a collection, it will
