@@ -623,7 +623,7 @@ remain compatible with the interface.
 If the annotation is added to the method in the *interface*, then all implementing classes must calculate the value and
 none may have a corresponding backing field; alternatively, it can be added to the overriding method on each implementing
 class where the value is calculated and there is no backing field. If the field is a Kotlin `val`, then the annotation
-should be targeted at its getter method, e.g. `@get:SerializableCalculatedProperty`.
+should be targeted at its getter method - for example, `@get:SerializableCalculatedProperty`.
 
 
 ## Type evolution
