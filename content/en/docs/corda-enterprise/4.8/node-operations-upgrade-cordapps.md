@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-08-11'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-upgrading-menu
@@ -15,34 +15,37 @@ weight: 50
 
 # Upgrading deployed CorDapps
 
-In order to upgrade a CorDapp on a node to a new version, it needs to be determined whether any backwards compatible
-changes have been made. These could range from database changes, to changes in the protocol.
+For developer information on upgrading CorDapps, see [release new CorDapp versions](cordapps/upgrading-cordapps.md).
 
-For developer information on upgrading CorDapps, see [Release new CorDapp versions](cordapps/upgrading-cordapps.md).
+{{< warning >}}
 
-To be compatible with Corda Enterprise, CorDapps need to bundle database migaration scripts (see [Database management scripts](cordapps/database-management.md)).
+To be compatible with Corda Enterprise, CorDapps need to bundle database migration scripts. See [database management scripts](cordapps/database-management.md) for more information.
 
+{{< /warning >}}
 
-## Flow upgrades
+## Check for backwards compatible changes
 
-If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](cordapps/upgrading-cordapps.md#what-constitutes-a-non-backwards-compatible-flow-change)
-for more information), the upgrade method detailed below will need to be followed. Otherwise the CorDapp JAR can just
+Before you upgrade a CorDapp on a node, you need to determine if any backwards compatible
+changes have been made. Changes can range from database changes, to changes in the protocol.
+
+If any backwards-incompatible changes have been made (see [what constitutes a non-backwards compatible flow change?](cordapps/upgrading-cordapps.md#what-constitutes-a-non-backwards-compatible-flow-change)
+for more information), you need to follow the upgrade method detailed below. Otherwise, the CorDapp `.jar` can just
 be replaced with the new version.
 
 
-## Contract and State upgrades
+## Contract and state upgrades
 
-There are two types of contract/state upgrade:
+There are two types of contract and state upgrade that you can perform.
 
 
-* *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See
-api-contract-constraints to learn more.
-* *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
+1. *Implicit* upgrades allow multiple implementations of the contract ahead of time, using constraints. See
+[contract constraints](cordapps/api-contract-constraints.md) to learn more.
+2. *Explicit* upgrades create a special *contract upgrade transaction* and gets all participants of a state to sign it using the
 contract upgrade flows.
 
-This documentation only considers the *explicit* type of upgrade, as implicit contract upgrades are handled by the application.
+This guide covers the *explicit* type of upgrade, as implicit contract upgrades are handled by the CorDapp.
 
-In an explicit upgrade contracts and states can be changed in arbitrary ways, if and only if all of the state’s participants
+In an explicit upgrade, contracts and states can be changed in arbitrary ways if all of the state’s participants
 agree to the proposed upgrade. The following combinations of upgrades are possible:
 
 
@@ -51,38 +54,35 @@ agree to the proposed upgrade. The following combinations of upgrades are possib
 * The state and the contract are updated simultaneously.
 
 
-## Running the upgrade
+## Performing the upgrade
 
-If a contract or state requires an explicit upgrade then all states will need updating to the new contract at a time agreed
-by all participants. The updated CorDapp JAR needs to be distributed to all relevant parties in advance of the changeover
+If a contract or state requires an explicit upgrade, then all states need updating to the new contract at a time agreed
+by all participants. The updated CorDapp `.jar` needs to be distributed to all relevant parties in advance of the changeover
 time.
 
-In order to perform the upgrade, follow the following steps:
+To perform the upgrade, follow these steps:
 
 
-* If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains](cordapps/upgrading-cordapps.md#flow-drains) for more information)
-    * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `true`
-    * Via the shell by issuing the following command `run setFlowsDrainingModeEnabled enabled: true`
+1. Drain the node to avoid the definition of states or contracts changing whilst a flow is in progress. See [flow drains](cordapps/upgrading-cordapps.md#flow-drains) for more information. There are two ways you can drain the node:
+    * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `true`.
+    * Via the shell by issuing the command `run setFlowsDrainingModeEnabled enabled: true`.
 
+2. Check all flows have completed. There are two ways you can check this:
+    * By RPC using the `stateMachinesSnapshot` method and checking that there are no results.
+    * Via the shell by issuing the command `run stateMachinesSnapshot`.
 
-* Check that all the flows have completed
-    * By RPC using the `stateMachinesSnapshot` method and checking that there are no results
-    * Via the shell by issuing the following command `run stateMachinesSnapshot`
+3. Once all flows have completed, stop the node.
 
+4. Replace the existing `.jar` with the new version.
 
-* Once all flows have completed, stop the node
-* Replace the existing JAR with the new one
-* Make any database changes required to any custom vault tables for the upgraded CorDapp,
-following the database upgrade steps in [Deploying CorDapps on a node](node/operating/node-operations-cordapp-deployment.md).
-The database update for a CorDapp upgrade follows the same steps as database setup for a new CorDapp.
-* Restart the node
-* If you drained the node prior to upgrading, switch off flow draining mode to allow the node to continue to receive requests
-    * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `false`
-    * Via the shell by issuing the following command `run setFlowsDrainingModeEnabled enabled: false`
+5. Make required database changes to any custom vault tables for the upgraded CorDapp by following the database upgrade steps in [deploying CorDapps on a node](node/operating/node-operations-cordapp-deployment.md). Database changes required for a CorDapp upgrade follow the same steps as those to set up a database for a new CorDapp.
 
+6. Restart the node.
 
-* Run the contract upgrade authorisation flow (`ContractUpgradeFlow$Initiate`) for each state that requires updating on every node.
-    * You can do this manually via RPC but for anything more than a couple of states it is assumed that a script will be
-provided by the CorDapp developer to query the vault and run this for all states
-    * The contract upgrade initiate flow only needs to be run on one of the participants for each state. The flow will
-automatically upgrade the state on all participants.
+7. If you drained the node prior to upgrading, switch off flow draining mode. This allows the node to continue to receive requests. There are two ways you can switch off flow draining mode:
+    * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `false`.
+    * Via the shell by issuing the command `run setFlowsDrainingModeEnabled enabled: false`.
+
+8. Run the contract upgrade authorisation flow `ContractUpgradeFlow$Initiate` for each state that requires updating.
+You can do this manually via RPC, but if there are more than a couple of states, the CorDapp developer should provide a script which queries the vault and runs this flow for all states.
+  Only one participant for each state need run `ContractUpgradeFlow$Initiate`. The flow automatically upgrades the state for all participants.
