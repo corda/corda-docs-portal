@@ -28,7 +28,7 @@ The public release version numbers are still useful as every MQ message the node
 The **platform version** is an integer which represents the API version of the Corda platform.
 It is similar to Android’s [API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html).
 It starts at 1 and increments by 1 for each release which changes any of the publicly exposed APIs in the platform.
-This includes public APIs on the node itself, the RPC system, messaging, and serialization. API are backwards
+This includes public APIs on the node itself, the RPC system, messaging, and serialization. APIs are backwards
 compatible and deprecation mechanisms are used to migrate away from old APIs. In very rare
 situations APIs may have to be changed, for example due to security issues.
 
@@ -87,14 +87,14 @@ Attempting to use new APIs on older nodes can cause `NoSuchMethodError` exceptio
 
 ## Target platform version
 
-If you have tested your CorDapp against newer versions of Corda and found it to be compatible, you can indicate this in `targetPlatformVersion`.
+If you have tested your CorDapp against newer versions of Corda and found it to be compatible, you can indicate this in the `targetPlatformVersion` field.
 This allows the node to activate or deactivate backwards compatibility code paths depending on whether they’re necessary or not, as workarounds for CorDapps designed for earlier versions.
 
 For example, if a CorDapp uses features introduced in Corda 4.5 and has passed regression testing on Corda 4.6. It will have a `minimumPlatformVersion` of 7 and a `targetPlatformVersion` of 8.
 If the CorDapp is then loaded onto a node running Corda 4.7 (platform version 9), that node may implement backwards compatibility workarounds,
-potentially making the CorDapp slower, less secure, or less featureful.
+potentially making the CorDapp slower, less secure, with fewer features.
 
-Specifying a higher `targetPlatformVersion` allows your CorDapp to take advantage of a newer platform version's behaviors and features if they are available on any given node. However, before doing this you need to thoroughly test your CorDapp against the new platform version. For example, you should ensure your CorDapp exhibits the correct behaviour on a node running the new target version, and that it functions
+Specifying a higher `targetPlatformVersion` allows your CorDapp to take advantage of a newer platform version's behaviors and features if they are available on any given node. However, before doing this you need to thoroughly test your CorDapp against the new platform version. For example, you should ensure your CorDapp exhibits the correct behavior on a node running the new target version, and that it functions
 correctly across a network of nodes running the same target version.
 
 We use target versioning as one of the mechanisms to keep evolving and improving the platform, without being permanently constrained to
@@ -109,9 +109,9 @@ The `minimumPlatformVersion` and `targetPlatformVersion` are published in your C
 A well-structured CorDapp should be split into:
 
 * A contracts `.jar` that contains your states and contract logic.
-* A workflows `.jar` that contains your flows, services and other support libraries.
+* A workflows `.jar` that contains your flows, services, and other support libraries.
 
-The contract `.jar` defines the data structures and smart contract logic and is attached to each transaction. Nodes on a network then use the contract `.jar` to validate received transaction. Therefore, you need to split your CorDapp across two `jar`s to avoid sending your flow logic code over the network to third-party peers that don’t need it.
+The contract `.jar` defines the data structures and smart contract logic and is attached to each transaction. Nodes on a network then use the contract `.jar` to validate received transactions. Therefore, you need to split your CorDapp across two `.jar`s to avoid sending your flow logic code over the network to third-party peers that don’t need it.
 
 In the `build.gradle` file for your contract `.jar`, add a block like this:
 
