@@ -87,7 +87,7 @@ You can do either of the following.
 
 You can find instructions for both options in [running tests in Intellij](testing.md#running-tests-in-intellij).
 
-4. Check you're using Corda Gradle plugins version xxxxx, and that Corda Enterprise dependencies are referenced with the right distribution.
+4. Check you're using Corda Gradle plugins version 5.0.12, and that Corda Enterprise dependencies are referenced with the right distribution.
 
 For example:
 
@@ -108,7 +108,7 @@ Corda Enterprise 4.8 binaries are not publicly available. To make the dependenci
 create a mirror repository and upload them there, or add them to your local Maven repository.
 
 You can request a copy of the Corda Enterprise Developer Pack (contains a Maven repository mirror
-of all Corda Enterprise artifacts and their dependencies) through your R3 support contact.
+of all Corda Enterprise artifacts and their dependencies) from your R3 support contact.
 
 {{< /note >}}
 
@@ -124,7 +124,7 @@ Please ensure any CorDapps that depend on `corda-finance-contracts.jar` referenc
 cordapp "$os_corda_release_distribution:corda-finance-contracts:$os_corda_release_version"
 ```
 
-where
+Where:
 
 ```shell
 ext.os_corda_release_distribution = 'net.corda'
@@ -137,7 +137,7 @@ ext.os_corda_release_version = '4.0'
 
 ## Upgrading from Enterprise 4.3 or earlier
 
-As of Corda Enterprise 4.4 we have moved towards an open core strategy. Therefore, the common APIs are only available in Corda
+Corda Enterprise 4.4 moves towards an open core strategy. Therefore, the common APIs are only available in Corda
 open source, and Corda Enterprise has a binary dependency on the matching open source version. As a result, any CorDapps written against
 Corda Enterprise 4.4 or later will have to depend on the open source version of `corda-core`.
 
@@ -149,7 +149,7 @@ ext.corda_core_release_version = '4.8'
 ```
 
 Any dependency on `corda-core` (or `corda-serialization`) has to use these new variables to depend on the open source version of those
-libraries, so:
+libraries.
 
 ```shell
 cordaCompile "$corda_release_distribution:corda-core:$corda_release_version"
