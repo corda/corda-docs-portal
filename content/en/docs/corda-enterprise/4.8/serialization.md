@@ -399,7 +399,7 @@ class C {
 
 {{< /tabs >}}
 
-Corda states are **not** traditional OOP-style objects. They are signed over, transformed, serialized, and relationally mapped. As such,
+Corda states are *not* traditional OOP-style objects. They are signed over, transformed, serialized, and relationally mapped. As such,
 all elements should be publicly accessible by design.
 
 
