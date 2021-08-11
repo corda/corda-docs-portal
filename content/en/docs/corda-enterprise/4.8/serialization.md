@@ -111,7 +111,7 @@ attempting to force a one-size-fits-all approach. Kryo is more suited to the ser
 than Corda's AMQP framework in what it can construct and serialize. However, that flexibility makes it difficult to secure. Conversely,
 Corda's AMQP framework lets users concentrate on creating a secure framework that can be reasoned about and made safer.
 
-Selection of serialization context should, for the most part, be opaque to CorDapp developers, the Corda framework selecting
+Selection of serialization context is usually opaque to CorDapp developers. The Corda framework selects
 the correct context as configured.
 
 This document describes what is currently and what will be supported in the Corda AMQP format from the perspective
