@@ -267,7 +267,7 @@ proxy serializer. See [Pluggable Serializers for CorDapps](cordapp-custom-serial
 * Make sure Corda supports the declared types of constructor arguments, getters, and setters. If you use generics, the
 generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard that has been
 widened to an open wildcard.
-* Design your objects so that they **do not** refer to themselves, directly or indirectly. Object graph cycles are not supported.
+* Design your objects so that they *do not* refer to themselves, directly or indirectly. Object graph cycles are not supported.
 
 Super-classes must adhere the same rules, but can be abstract.
 
