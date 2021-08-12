@@ -3,7 +3,7 @@ aliases:
 - /head/blob-inspector.html
 - /HEAD/blob-inspector.html
 - /blob-inspector.html
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-15'
 menu:
   corda-os-4-8:
     identifier: corda-os-4-8-blob-inspector
@@ -16,56 +16,37 @@ title: Blob Inspector
 ---
 
 
-# Blob Inspector
+# Blob inspector
 
-There are many benefits to having a custom binary serialisation format (see [Object serialization](serialization.md) for details) but one
-disadvantage is the inability to view the contents in a human-friendly manner. The Corda Blob Inspector tool alleviates
-this issue by allowing the contents of a binary blob file (or URL end-point) to be output in either YAML or JSON. It
-uses `JacksonSupport` to do this (see [JSON](json.md)).
+The Corda blob inspector tool gives you a human-readable view of content stored in a [custom binary serialization format](serialization.md).
+The blob inspector shows you the output of binary blob files (or URL end-points) in YAML or JSON using `JacksonSupport` (see [JSON](json.md) for more on Jackson serialization).
 
-The tool is distributed as part of Corda OS 4.8 in the form of runnable `.jar.` file - `corda-tools-blob-inspector-4.8.jar`.
-
-To run simply pass in the file or URL as the first parameter:
+The tool is distributed as a `.jar.` file - `corda-tools-blob-inspector-4.8.jar`. To run it, pass in the file or URL as the first parameter:
 
 ```kotlin
-java -jar blob-inspector.jar <file or URL>
+java -jar corda-tools-blob-inspector-4.8.jar <file or URL>
 ```
+
 
 Use the `--help` flag for a full list of command line options.
 
-When inspecting your custom data structures, there’s no need to include the jars containing the class definitions for them
-in the classpath. The blob inspector (or rather the serialization framework) is able to synthesize any classes found in the
-blob that aren’t on the classpath.
+The serialization framework can synthesize any classes found in the blob that are not on the classpath. That means you don't need to include the `.jar`s containing the class definitions when inspecting your custom data structures.
 
 
 ## Supported formats
 
-The inspector can read **input data** in three formats: raw binary, hex encoded text and base64 encoded text. For instance
-if you have retrieved your binary data and it looks like this:
+The inspector can read **input data** in three formats: raw binary, hex encoded text, and Base64 encoded text. The tool will try each format until one works.
 
-```kotlin
-636f7264610100000080c562000000000001d0000030720000000300a3226e65742e636f7264613a38674f537471464b414a5055...
-```
-
-then you have hex encoded data. If it looks like this it’s base64 encoded:
-
-```kotlin
-Y29yZGEBAAAAgMViAAAAAAAB0AAAMHIAAAADAKMibmV0LmNvcmRhOjhnT1N0cUZLQUpQVWVvY2Z2M1NlU1E9PdAAACc1AAAAAgCjIm5l...
-```
-
-And if it looks like something vomited over your screen it’s raw binary. You don’t normally need to care about these
-differences because the tool will try every format until it works.
-
-Something that’s useful to know about Corda’s format is that it always starts with the word “corda” in binary. Try
-hex decoding 636f726461 using the [online hex decoder tool here](https://convertstring.com/EncodeDecode/HexDecode)
+You may find it useful to know that Corda’s format always starts with the word “corda” in binary. Try
+hex decoding 636f726461 using the [online hex decoder tool](https://convertstring.com/EncodeDecode/HexDecode)
 to see for yourself.
 
-**Output data** can be in either a slightly extended form of YaML or JSON. YaML (Yet another markup language) is a bit
-easier to read for humans and is the default. JSON can of course be parsed by any JSON library in any language.
+**Output data** can be in either a slightly extended form of YAML or JSON. YAML (Yet another Markup Language) is
+easier for humans to read, and is the default. JSON can be parsed by any JSON library in any language.
 
 {{< note >}}
-One thing to note is that the binary blob may contain embedded `SerializedBytes` objects. Rather than printing these
-out as a Base64 string, the blob inspector will first materialise them into Java objects and then output those. You will
+The binary blob may contain embedded `SerializedBytes` objects. Rather than printing these
+out as a Base64 string, the blob inspector first materializes them into Java objects, then outputs those. You will
 see this when dealing with classes such as `SignedData` or other structures that attach a signature, such as the
 `nodeInfo-*` files or the `network-parameters` file in the node’s directory.
 
@@ -73,7 +54,7 @@ see this when dealing with classes such as `SignedData` or other structures that
 
 ## Example
 
-Here’s what a node-info file from the node’s data directory may look like:
+Here’s what a `node-info` file from the node’s data directory may look like:
 
 
 * YAML:
@@ -114,25 +95,24 @@ net.corda.nodeapi.internal.SignedNodeInfo
 }
 ```
 
-Notice the file is actually a serialised `SignedNodeInfo` object, which has a `raw` property of type `SerializedBytes<NodeInfo>`.
-This property is materialised into a `NodeInfo` and is output under the `deserialized` field.
+Notice the file is actually a serialized `SignedNodeInfo` object, which has a `raw` property of type `SerializedBytes<NodeInfo>`.
+This property is materialized into `NodeInfo` and is output under the `deserialized` field.
 
 
 ## Classpath
 
-If you run the blob inspector without any JAR files on the classpath, then it will deserialize objects using the Class Carpenter (see [Object serialization](serialization.md) for details).
-The reason for this is that the types are not available, so the serialization framework has to synthesise them.
+If you run the blob inspector without any `.jar` files on the classpath, then it will deserialize objects using the class carpenter, (see [Object serialization](serialization.md)).
+This happens because the types are not available, so the serialization framework has to synthesize them.
 
 {{< note >}}
-This mechanism works fine in most situations, but there is one known issue when the serialized blob contains an `enum`.
-In this case you will get this exception `java.lang.NoClassDefFoundError: Could not initialize class _YourEnum_`.
-To solve this problem, you must add the JAR file that contains the `enum` to the classpath of the blob inspector.
+If the serialized blob contains an `enum`, you will get this exception `java.lang.NoClassDefFoundError: Could not initialize class _YourEnum_`.
+To solve this known issue, add the `.jar` file that contains the `enum` to the classpath of the blob inspector.
 
 {{< /note >}}
 
 ## Command-line options
 
-The blob inspector can be started with the following command-line options:
+You can start the blob inspector with the following command line options:
 
 ```shell
 blob-inspector [-hvV] [--full-parties] [--schema] [--format=type]
@@ -143,7 +123,7 @@ blob-inspector [-hvV] [--full-parties] [--schema] [--format=type]
 
 * `--format=type`: Output format. Possible values: [YAML, JSON]. Default: YAML.
 * `--input-format=type`: Input format. If the file can’t be decoded with the given value it’s auto-detected, so you should
-never normally need to specify this. Possible values [BINARY, HEX, BASE64]. Default: BINARY.
+  never normally need to specify this. Possible values [BINARY, HEX, BASE64]. Default: BINARY.
 * `--full-parties`: Display the owningKey and certPath properties of Party and PartyAndReference objects respectively.
 * `--schema`: Print the blob’s schema first.
 * `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
@@ -154,4 +134,4 @@ never normally need to specify this. Possible values [BINARY, HEX, BASE64]. Defa
 
 ### Sub-commands
 
-`install-shell-extensions`: Install `blob-inspector` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
+`install-shell-extensions`: Install `blob-inspector` alias and auto-completion for bash and zsh. See [Shell extensions for CLI Applications](https://docs.corda.net/docs/corda-os/4.8/cli-application-shell-extensions.html).
