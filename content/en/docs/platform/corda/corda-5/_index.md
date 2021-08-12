@@ -8,5 +8,3 @@ section_menu: corda-5
 title: Corda 5
 version: 'corda-5'
 ---
-
-# Introduction to Corda
