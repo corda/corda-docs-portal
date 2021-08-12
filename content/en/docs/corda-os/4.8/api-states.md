@@ -3,7 +3,7 @@ aliases:
 - /head/api-states.html
 - /HEAD/api-states.html
 - /api-states.html
-date: '2020-04-07T12:00:00Z'
+date: '2021-08-12'
 menu:
   corda-os-4-8:
     identifier: corda-os-4-8-api-states
