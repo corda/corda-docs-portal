@@ -128,11 +128,9 @@ cordapp "$os_corda_release_distribution:corda-finance-contracts:$os_corda_releas
 ```
 
 Where:
+* ext.os_corda_release_distribution = 'net.corda'.
+* ext.os_corda_release_version = '4.0'.
 
-```shell
-ext.os_corda_release_distribution = 'net.corda'
-ext.os_corda_release_version = '4.0'
-```
 
 {{< /warning >}}
 
