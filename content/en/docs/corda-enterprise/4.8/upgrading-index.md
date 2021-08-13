@@ -21,7 +21,6 @@ weight: 2
 
 ## Features, versions, and compatibility
 
-* [Corda features and versions](features-versions.md)
 * [Corda and Corda Enterprise compatibility](version-compatibility.md)
 * [Platform support matrix](platform-support-matrix.md)
 
