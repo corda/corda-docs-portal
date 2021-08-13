@@ -2,7 +2,7 @@
 aliases:
 - /docs/corda-enterprise/head/cordapps/getting-set-up.html
 - /docs/corda-enterprise/cordapps/getting-set-up.html
-date: '2020-01-08T09:59:25Z'
+date: '2021-07-15'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-cordapps
