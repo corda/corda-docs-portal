@@ -15,6 +15,31 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.8.1
+
+Corda Enterprise 4.8.1 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.8.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+In this patch release:
+
+* Support for Oracle 19C database has been validated.
+* A fix has been introduced to reduce memory consumption during batched transaction resolution of large backchains.
+* Support has been introduced for RedHat Enterprise Linux 8.x in Corda 4.8.1.
+* Performance verification of the HA Notary with CockroachDB 20.2.8 has been carried out - performance is not worse in comparison to the HA Notary configured on CockroachDB 20.1.6.
+* Support for PostgreSQL 13.3 for node databases has been added.
+* Hibernate ORM has been updated to version to 5.4.32 to remove a security concern.
+* The [Node management console](https://docs.corda.net/docs/corda-enterprise/4.8/node/management-console.html#node-management-console) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
+The [Flow management console](https://docs.corda.net/docs/corda-enterprise/4.8/node/node-flow-management-console.html#flow-management-console) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
+
+
+
 ## Corda Enterprise 4.8 release overview
 
 This release introduces a number of new features and enhancements, and fixes for known issues from previous releases.
