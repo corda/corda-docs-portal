@@ -12,14 +12,14 @@ weight: 2
 
 # Versioning
 
-As the Corda platform evolves and new features are added, it's important our versioning system allows users to easily compare versions and know what features are available.
+As the Corda platform evolves and new features are added, it's important the versioning system allows users to easily compare versions and know what features are available.
 
 Each Corda release uses the standard semantic versioning scheme of `major.minor`.
 This is useful when referring to releases in the public domain, but is not a practical platform versioning system for a developer.
 
 {{< note >}}
 
-The public release version numbers are still useful as every MQ message the node sends includes the `release-version` header property for debugging purposes.
+The public release version numbers are still useful as every MQ message the node sends includes the `release-version` header property for debugging.
 
 {{< /note >}}
 
@@ -91,8 +91,8 @@ If you have tested your CorDapp against newer versions of Corda and found it to 
 This allows the node to activate or deactivate backwards compatibility code paths depending on whether they’re necessary or not, as workarounds for CorDapps designed for earlier versions.
 
 For example, if a CorDapp uses features introduced in Corda 4.5 and has passed regression testing on Corda 4.6. It will have a `minimumPlatformVersion` of 7 and a `targetPlatformVersion` of 8.
-If the CorDapp is then loaded onto a node running Corda 4.7 (platform version 9), that node may implement backwards compatibility workarounds,
-potentially making the CorDapp slower, less secure, with fewer features.
+If the CorDapp is then loaded onto a node running Corda 4.7 (platform version 9), that node may implement backwards compatibility workarounds.
+This may impact the CorDapp's performance, security, and features. 
 
 Specifying a higher `targetPlatformVersion` allows your CorDapp to take advantage of a newer platform version's behaviors and features if they are available on any given node. However, before doing this you need to thoroughly test your CorDapp against the new platform version. For example, you should ensure your CorDapp exhibits the correct behavior on a node running the new target version, and that it functions
 correctly across a network of nodes running the same target version.
