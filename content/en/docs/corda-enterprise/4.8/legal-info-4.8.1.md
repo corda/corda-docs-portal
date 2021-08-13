@@ -2,18 +2,187 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
+    identifier: corda-enterprise-4-8-1-legal-info
     parent: corda-enterprise-4-8-release-notes
-    weight: 300
+    weight: 305
 tags:
 - legal
 - info
-title: Third-party software licence information
-
+title: Third-party software licence information - CE 4.8.1
 ---
 
 # Corda Enterprise 4.8.1 third-party software notices and licence information
 
 **Do not translate or localise.**
+
+This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Enterprise software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+
+1.	@shore/bootstrap
+2.	animal-sniffer-annotations
+3.	annotations
+4.	antlr
+5.	artemis-amqp-protocol
+6.	artemis-commons
+7.	artemis-core-client
+8.	artemis-jdbc-store
+9.	artemis-jms-client
+10.	artemis-journal
+11.	artemis-native
+12.	artemis-selector
+13.	artemis-server
+14.	asm
+15.	asm-analysis
+16.	asm-commons
+17.	asm-tree
+18.	asm-util
+19.	audience-annotations
+20.	bcpkix-jdk15on
+21.	bcprov-jdk15on
+22.	byte-buddy
+23.	caffeine
+24.	catalyst-buffer
+25.	catalyst-common
+26.	catalyst-concurrent
+27.	catalyst-netty
+28.	catalyst-serializer
+29.	catalyst-transport
+30.	checker-qual
+31.	classgraph
+32.	classmate
+33.	commons-beanutils
+34.	commons-codec
+35.	commons-collections
+36.	commons-collections4
+37.	commons-csv
+38.	commons-io
+39.	commons-lang
+40.	commons-lang3
+41.	config
+42.	copycat-client
+43.	copycat-protocol
+44.	copycat-server
+45.	crash.cli
+46.	curator-client
+47.	curator-framework
+48.	curator-recipes
+49.	disruptor
+50.	dom4j
+51.	eddsa
+52.	error_prone_annotations
+53.	failureaccess
+54.	FastInfoset
+55.	geronimo-jms_ 2.0_spec
+56.	geronimo-json_ 1.0_spec
+57.	groovy-all
+58.	guava
+59.	h2
+60.	h2
+61.	HdrHistogram
+62.	hibernate-commons-annotations
+63.	hibernate-core
+64.	hibernate-java8
+65.	HikariCP
+66.	istack-commons-runetime
+67.	j2objc-annotations
+68.	jackson-annotations
+69.	jackson-core
+70.	jackson-databind
+71.	jacksondataformat-yaml
+72.	jacksondatatype- jsr310
+73.	jacksonmodule-kotlin
+74.	jandex
+75.	jansi
+76.	javassist
+77.	javax.activation-api
+78.	javax.persistence-api
+79.	jaxb-api
+80.	jaxb-runtime
+81.	jboss-logging
+82.	jboss-transaction- api_1.2_spec
+83.	jcabi-log
+84.	jcabi-manifests
+85.	jcl-over-slf4j
+86.	jgroups
+87.	johnzon-core
+88.	jolokia-core
+89.	jolokia-jvm
+90.	jpam
+91.	jsch
+92.	json-simple
+93.	jsr305
+94.	jul-to-slf4j
+95.	kotlin-reflect
+96.	kotlin-stdlib
+97.	kotlin-stdlib-common
+98.	kotlin-stdlib-jdk7
+99.	kotlin-stdlib-jdk8
+100.	kotlin-stdlib-jre7
+101.	kotlin-stdlib-jre8
+102.	kryo
+103.	kryo-serializers
+104.	LatencyUtils
+105.	liquibase-core
+106.	liquibase-slf4j
+107.	listenablefuture
+108.	log4j-api
+109.	log4j-core
+110.	log4j-over-slf4j
+111.	log4j-slf4j-impl
+112.	log4j-web
+113.	metrics-core
+114.	metrics-graphite
+115.	metrics-jmx
+116.	metrics-new-relic
+117.	mina-core
+118.	minlog
+119.	netty-buffer
+120.	netty-codec
+121.	netty-codec-http
+122.	netty-codec-socks
+123.	netty-common
+124.	netty-handler
+125.	netty-handler-proxy
+126.	netty-resolver
+127.	netty-tcnative-boringssl-static
+128.	netty-transport
+129.	netty-transport-native-epoll
+130.	netty-transport-native-kqueue
+131.	netty-transport-native-unix-common
+132.	newrelic-api
+133.	objenesis
+134.	okhttp
+135.	okio
+136.	picocli
+137.	proton-j
+138.	quasar-core
+139.	reflectasm
+140.	rxjava
+141.	shiro-cache
+142.	shiro-config-core
+143.	shiro-config-ogdl
+144.	shiro-core
+145.	shiro-crypto-cipher
+146.	shiro-crypto-core
+147.	shiro-crypto-hash
+148.	shiro-event
+149.	shiro-lang
+150.	slf4j-api
+151.	slf4j-nop
+152.	snakeyaml
+153.	snappy
+154.	sshd-common
+155.	sshd-core
+156.	sshd-pam
+157.	stax-ex
+158.	txw2
+159.	zookeeper
+160.	zookeeper-jute
+
+
+================================================
+================================================
+
+=========== START OF NOTICES AND INFORMATION for the following components=========
 
 ## org.apache.commons : commons-lang3 : 3.9
 
