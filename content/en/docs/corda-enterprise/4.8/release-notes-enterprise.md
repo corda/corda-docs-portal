@@ -37,6 +37,7 @@ In this patch release:
 * Hibernate ORM has been updated to version to 5.4.32 to remove a security concern.
 * The [Node management console](https://docs.corda.net/docs/corda-enterprise/4.8/node/management-console.html#node-management-console) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
 The [Flow management console](https://docs.corda.net/docs/corda-enterprise/4.8/node/node-flow-management-console.html#flow-management-console) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
+* LedgerGraph has been updated to version 1.2.2. This upgrade minimizes memory footprint, and is not a functional change. 
 
 
 
