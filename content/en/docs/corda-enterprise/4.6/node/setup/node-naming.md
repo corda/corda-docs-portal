@@ -41,7 +41,7 @@ The name must also obey the following constraints:
 
 * The `organisation`, `locality`, and `country` attributes are present.
 * The `state`, `organisational-unit`, and `common name` attributes are optional.
-* The maximum number of characters in the whole x500 name string is 128 characters
+* The maximum number of characters in the whole x500 name string is 128 characters.
 * The fields of the name have character lengths **less** than the following maximum values:
 
     * Common name: 64
