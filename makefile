@@ -78,7 +78,7 @@ publish: prod-hugo-build ## Build site, and publish it to the S3 bucket - MAIN T
 		https://$(shell $(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) ./with-assumed-role "${ROLE_ARN}" \
 			aws cloudfront get-distribution \
 			--id $(DISTRIBUTION_ID) \
-			--query 'Distribution.AliasICPRecordals[].CNAME' \
+			--query 'not_null(Distribution.AliasICPRecordals[].CNAME, Distribution.DomainName)' \
 			--output text)
 
 all: help
