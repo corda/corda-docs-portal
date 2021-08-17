@@ -14,16 +14,16 @@ weight: 1
 
 # API stability guarantees
 
-Corda makes certain commitments to provide stable APIs. APIs are categorized as:
+Corda maintains the stability of specific APIs. APIs are categorized as:
 
 * **Public APIs**, which are APIs/[ABIs](https://en.wikipedia.org/wiki/Application_binary_interface) that are backwards compatible. See [public API](#public-api) for more information.
-* **Non-public APIs**, where backwards compatibility guarantees are not provided. See [non-public API (experimental)](#non-public-api) for more information.
+* **Non-public APIs**. These APIs are not guaranteed to be backwards compatible. See [non-public API (experimental)](#non-public-api) for more information.
 
 ## Public API
 
 The following modules form part of Corda’s public API. These will be backwards compatible for future releases, unless an incompatible change is required for security reasons:
 
-* **Core (net.corda.core)**: Core Corda libraries such as crypto functions, types for Corda’s building blocks (for example, states, contracts, transactions, attachments), and some interfaces for nodes and protocols.
+* **Core (net.corda.core)**: Core Corda libraries such as crypto functions, types for Corda’s building blocks (such as states, contracts, transactions, and attachments), and some interfaces for nodes and protocols.
 * **Client RPC (net.corda.client.rpc)**.
 * **Client Jackson (net.corda.client.jackson)**: JavaScript Object Notation (JSON) support for client applications.
 * **DSL Test Utils (net.corda.testing.dsl)**: a simple domain-specific language (DSL) for building pseudo-transactions (this is not the same as the wire protocol) for testing purposes.
@@ -38,14 +38,14 @@ also has a stable API.
 
 ## Non-public API (experimental)
 
-The following are not part of the Corda’s public API and backwards compatibility guarantees are not provided:
+Corda does *not* guarantee  backwards compatibility for:
 
-* Incubating modules (where possible, disruption to developers will be minimised). See [corda incubating modules](#corda-incubating-modules) for more information.
-* **finance module**: a legacy module. Use the tokens SDK (com.r3.corda.lib.tokens) available in the [Tokens GitHub repository](https://github.com/corda/token-sdk) instead.
+* Incubating modules (where possible, disruption to developers will be minimized). See [Corda incubating modules](#corda-incubating-modules) for more information.
+* **The finance module**: a legacy module. Use the Tokens SDK `com.r3.corda.lib.tokens` (available in the [Tokens GitHub repository](https://github.com/corda/token-sdk) instead.
 
 {{< warning >}}
 
-You should not use the following APIs as these may change or be deleted without notice.
+Do not use the following as they may be changed or deleted without notice.
 * Internal modules.
 * Package and/or sub-package containing `.internal` (for example, `net.corda.core.internal`).
 * Any interfaces, classes or methods whose name contains the word `internal` or `Internal`.
