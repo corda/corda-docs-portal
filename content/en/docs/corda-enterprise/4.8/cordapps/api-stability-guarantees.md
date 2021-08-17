@@ -16,7 +16,7 @@ weight: 1
 
 Corda maintains the stability of specific APIs. APIs are categorized as:
 
-* **Public APIs**, which are APIs/[ABIs](https://en.wikipedia.org/wiki/Application_binary_interface) that are backwards compatible. See [public API](#public-api) for more information.
+* **Public APIs**, which are APIs/application binary interfaces (ABIs) that are backwards compatible. See [public API](#public-api) for more information.
 * **Non-public APIs**. These APIs are not guaranteed to be backwards compatible. See [non-public API (experimental)](#non-public-api) for more information.
 
 ## Public API
