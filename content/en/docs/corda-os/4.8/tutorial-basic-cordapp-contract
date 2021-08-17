@@ -250,6 +250,7 @@ public class AppleStampContract implements Contract {
     public interface Commands extends CommandData {
         //In our hello-world app, We will have two commands.
         class Issue implements AppleStampContract.Commands {}
+        class Redeem implements AppleStampContract.Commands {}
     }
 }
 ```
