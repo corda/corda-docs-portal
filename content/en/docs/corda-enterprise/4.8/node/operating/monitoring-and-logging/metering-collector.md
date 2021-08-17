@@ -16,6 +16,62 @@ All Corda Enterprise nodes record metering data, the metering collection tool is
 
 The metering collection tool provides a mechanism for collecting metering data from nodes and notaries running Corda Enterprise. The metering collection tool is a CorDapp that includes a number of flows which return data from the node.
 
+## Corda metering data
+
+The Corda Enterprise metering process is based on the signing of transactions.
+
+Once a transaction is signed, it cannot be modified without invalidating this signature. Each transaction signature is a _signing event_. The node records a small piece of data whenever a signing event occurs. This data describes which entity signed the transaction, what CorDapps and commands were involved, and the time when the signing event occurred.
+
+{{< note >}}
+Signing events are recorded on a "per node" basis, so transaction signatures applied by a remote node will only have metering data recorded for those signatures on that node.
+The time when a transaction is signed is not exposed outside of the node.
+{{< /note >}}
+
+Notaries running on Corda Enterprise are also metered. The data recorded for notaries indicates what notarisation requests were made and who made them.
+
+### How metering data is shared
+
+The metering collection tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where the respective CorDapp is installed. This feature must be enabled by the node operator deploying a [CorDapp configuration file](/docs/corda-os/4.8/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
+
+If no configuration file is deployed, metering data will not be shared with any other network party. An example configuration file that enables metering data sharing is shown below:
+
+```json
+"access_configuration" : {
+    "network_collectors" : ["O=PartyA,L=New York,C=US", "O=PartyB,L=Zurich,C=CH"],
+    "cordapp_collectors" : {
+        "by_name" : {
+            "Corda Finance Demo" : ["O=PartyB,L=Zurich,C=CH"]
+        },
+        "by_hash" : {
+          "FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5" :
+            ["O=PartyC,L=London,C=GB"],
+          "44489E8918D7D8F7A3227FE56EC34BFDDF15BD413FF92F23E72DD5D543BD6194" :
+            ["O=PartyC,L=London,C=GB"]
+        },
+        "by_signature" : {
+          "AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B" :
+            ["O=PartyD,L=Dublin,C=IE"]
+        }
+    }
+}
+```
+
+Based on the example configuration above:
+* Nodes `PartyA` and `PartyB` collect [aggregated metering data](#using-AggregatedMeteringCollectionFlow) from the node. This means that only the total number of signing events, which have happened within the specified time period, are shared.
+* Node `PartyB` node collects detailed metering data related to all installed CorDapps called *Corda Finance Demo* (the name must be an exact match).
+* Node `PartyC` collects detailed metering data related to CorDapps with a `.jar` hash either `FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5` or `44489E8918D7D8F7A3227FE56EC34BFDDF15BD413FF92F23E72DD5D543BD6194`.
+* Node `PartyD` collects detailed metering data related to all CorDapps that have had their `.jar` files signed with the key `AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B`.
+
+To create the configuration file correctly, use the [`RetrieveCordappDataFlow`](#using-RetrieveCordappDataFlow) flow to get detailed information about the CorDapps deployed on your node.
+
+{{< warning >}}
+It is very important that you create the configuration file correctly. To do so, you must follow the configuration process described below exactly, otherwise the collection of metering data will fail and the node could even fail to start.
+{{< /warning >}}
+
+* Use the [`RetrieveCordappDataFlow`](#using-RetrieveCordappDataFlow) flow to get detailed information about the CorDapps deployed on your node.
+* Ensure you configure the correct values for the configuration file static keys (`access_configuration`, `network_collectors`, `by_hash`, and so on). Any errors, like a typo, will mean your configuration is ignored and the default applied. As a result, no metering data will be shared.
+* Ensure that every `.jar` hash, `.jar` signature, and CorDapp name in the configuration matches at least one of the deployed CorDapps. This means that you must not whitelist a CorDapp that does not exist. This step is essential in order to pass the configuration validation step that runs at node start-up, which checks that the X.500 names used in the configuration file are valid. If the configuration validation step fails for any reason, the node will fail to start.
+
 ## Install the metering collection tool
 
 The metering collection tool is distributed as part of Corda Enterprise 4.8 under the name `corda-tools-metering-collector-4.8.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
@@ -319,12 +375,155 @@ Use the `MultiFilteredCollectionFlow` flow to collect metering data from multipl
 
 You can use this flow only from the node shell. You can use the dedicated method `FilteredMeteringCollectionFlow#multiCollect` to collect metering data from multiple nodes in parallel by using an RPC client to connect to the initiating flow - the collection process then uses the flow framework to collect metering data from the other nodes on the network.
 
+{{< tabs name="tabs-FilteredMeteringCollectionFlow.multicollect" >}}
+{{% tab name="java" %}}
+```java
+Instant now = Instant.now();
+Instant sevenDaysAgo = now.minus(7, ChronoUnit.DAYS);
+Filter filter = new Filter.And(
+        Filter.ByTimeStamp.between(sevenDaysAgo, now),
+        new Filter.Or(
+                new Filter.ByCordapp.ByName("myCorDapp1"),
+                new Filter.ByCordapp.ByName("myCorDapp2")
+        )
+);
+CordaRPCOps rpcOps = conn.getProxy();
+List<Pair<Party, Filter>> destinations =
+        Stream.of("O=PartyA,L=New York,C=US", "O=PartyB,L=New York,C=US")
+                .map(CordaX500Name::parse)
+                .map(rpcOps::wellKnownPartyFromX500Name)
+                .map(party -> new Pair<>(party, filter))
+                .collect(Collectors.toList());
+
+FilteredMeteringCollectionFlow.FilteredResultConsumer consumer = (
+        Party destination,
+        Filter f,
+        Future<FilteredNodeMeteringData> result
+) -> {
+    try {
+        FilteredNodeMeteringData data = result.get();
+        //do something with the data
+    } catch (ExecutionException | InterruptedException e) {
+        throw new RuntimeException(e);
+    }
+};
+FilteredMeteringCollectionFlow.multiCollect(
+        rpcOps,
+        destinations,
+        consumer,
+        Duration.of(30, ChronoUnit.SECONDS));
+```
+
+{{% /tab %}}
+
+{{% tab name="kotlin" %}}
+```kotlin
+val now = Instant.now()
+val sevenDaysAgo = now.minus(7, ChronoUnit.DAYS)
+val filter = Filter.And(
+        Filter.ByTimeStamp.between(sevenDaysAgo, now),
+        Filter.Or(
+                Filter.ByCordapp.ByName("myCorDapp1"),
+                Filter.ByCordapp.ByName("myCorDapp2")
+        )
+)
+val destinations = sequenceOf("O=PartyA,L=New York,C=US", "O=PartyB,L=New York,C=US")
+        .map { CordaX500Name.parse(it) }
+        .map { rpcOps.wellKnownPartyFromX500Name(it)!! }
+        .map { it to filter }
+        .toList()
+val consumer = {
+    destination: Party,
+    filter : Filter,
+    result: Future<FilteredNodeMeteringData> ->
+    try {
+        val data = result.get()
+        //do something with the data
+    } catch (e: ExecutionException) {
+        throw e.cause ?: e
+    }
+}
+FilteredMeteringCollectionFlow.multiCollect(
+        rpcOps,
+        destinations,
+        consumer,
+        Duration.of(30, ChronoUnit.SECONDS))
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 ### `MultiAggregatedCollectionFlow`
 
 Use the `MultiAggregatedCollectionFlow` flow to collect aggregated metering data from multiple nodes on the network sequentially in a single flow. The `MultiAggregatedCollectionFlow` flow is identical to the `AggregatedMeteringCollectionFlow` flow except that `MultiAggregatedCollectionFlow` collects data from multiple nodes on the network sequentially in a single flow, and returns the result as a `JSON` string.
 
 You can use this flow only from the node shell.
+
+{{< tabs name="tabs-AggregatedMeteringCollectionFlow.multicollect" >}}
+{{% tab name="java" %}}
+```java
+CordaRPCOps rpcOps = conn.getProxy();
+Instant now = Instant.now();
+Instant sevenDaysAgo = now.minus(7, ChronoUnit.DAYS);
+List<Pair<Party, Filter>> destinations =
+        Stream.of("O=PartyA,L=New York,C=US", "O=PartyB,L=New York,C=US")
+                .map(CordaX500Name::parse)
+                .map(rpcOps::wellKnownPartyFromX500Name)
+                .map(party -> new Pair<>(party, Filter.ByTimeStamp.between(sevenDaysAgo, now)))
+                .collect(Collectors.toList());
+
+AggregatedMeteringCollectionFlow.AggregatedResultConsumer consumer = (
+        Party destination,
+        Filter f,
+        Future<AggregatedNodeMeteringData> result
+) -> {
+    try {
+        AggregatedNodeMeteringData data = result.get();
+        //do something with the data
+    } catch (ExecutionException | InterruptedException e) {
+        throw new RuntimeException(e);
+    }
+};
+AggregatedMeteringCollectionFlow.multiCollect(
+        rpcOps,
+        destinations,
+        consumer,
+        Duration.of(30, ChronoUnit.SECONDS));
+```
+
+{{% /tab %}}
+
+{{% tab name="kotlin" %}}
+```kotlin
+val now = Instant.now()
+val sevenDaysAgo = now.minus(7, ChronoUnit.DAYS)
+val filter = Filter.ByTimeStamp.between(sevenDaysAgo, now)
+val destinations = sequenceOf("O=PartyA,L=New York,C=US", "O=PartyB,L=New York,C=US")
+        .map { CordaX500Name.parse(it) }
+        .map { rpcOps.wellKnownPartyFromX500Name(it)!! }
+        .map { it to filter }
+        .toList()
+val consumer = {
+    _ : Party,
+    _ : Filter,
+    result: Future<AggregatedNodeMeteringData> ->
+    try {
+        val data = result.get()
+        //do something with the data
+    } catch (e: ExecutionException) {
+        throw e.cause ?: e
+    }
+}
+AggregatedMeteringCollectionFlow.multiCollect(
+        rpcOps,
+        destinations,
+        consumer,
+        Duration.of(30, ChronoUnit.SECONDS))
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### `NotaryCollectionFlow`
 
@@ -414,101 +613,15 @@ val corDappData =
 
 {{< /tabs >}}
 
-## Corda metering data
 
-The Corda Enterprise metering process is based on the signing of transactions.
-
-Once a transaction is signed, it cannot be modified without invalidating this signature. Each transaction signature is a _signing event_. The node records a small piece of data whenever a signing event occurs. This data describes which entity signed the transaction, what CorDapps and commands were involved, and the time when the signing event occurred.
-
-{{< note >}}
-Signing events are recorded on a "per node" basis, so transaction signatures applied by a remote node will only have metering data recorded for those signatures on that node.
-The time when a transaction is signed is not exposed outside of the node.
-{{< /note >}}
-
-Notaries running on Corda Enterprise are also metered. The data recorded for notaries indicates what notarisation requests were made and who made them.
-
-### How metering data is shared
-
-The metering collection tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where the respective CorDapp is installed. This feature must be enabled by the node operator deploying a [CorDapp configuration file](/docs/corda-os/4.8/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
-
-If no configuration file is deployed, metering data will not be shared with any other network party. An example configuration file that enables metering data sharing is shown below:
-
-```json
-"access_configuration" : {
-    "network_collectors" : ["O=PartyA,L=New York,C=US", "O=PartyB,L=Zurich,C=CH"],
-    "cordapp_collectors" : {
-        "by_name" : {
-            "Corda Finance Demo" : ["O=PartyB,L=Zurich,C=CH"]
-        },
-        "by_hash" : {
-          "FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5" :
-            ["O=PartyC,L=London,C=GB"],
-          "44489E8918D7D8F7A3227FE56EC34BFDDF15BD413FF92F23E72DD5D543BD6194" :
-            ["O=PartyC,L=London,C=GB"]
-        },
-        "by_signature" : {
-          "AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B" :
-            ["O=PartyD,L=Dublin,C=IE"]
-        }
-    }
-}
-```
-
-Based on the example configuration above:
-* Nodes `PartyA` and `PartyB` collect [aggregated metering data](#using-AggregatedMeteringCollectionFlow) from the node. This means that only the total number of signing events, which have happened within the specified time period, are shared.
-* Node `PartyB` node collects detailed metering data related to all installed CorDapps called *Corda Finance Demo* (the name must be an exact match).
-* Node `PartyC` collects detailed metering data related to CorDapps with a `.jar` hash either `FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5` or `44489E8918D7D8F7A3227FE56EC34BFDDF15BD413FF92F23E72DD5D543BD6194`.
-* Node `PartyD` collects detailed metering data related to all CorDapps that have had their `.jar` files signed with the key `AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B`.
-
-To create the configuration file correctly, use the [`RetrieveCordappDataFlow`](#using-RetrieveCordappDataFlow) flow to get detailed information about the CorDapps deployed on your node.
-
-{{< warning >}}
-It is very important that you create the configuration file correctly. To do so, you must follow the configuration process described below exactly, otherwise the collection of metering data will fail and the node could even fail to start.
-{{< /warning >}}
-
-* Use the [`RetrieveCordappDataFlow`](#using-RetrieveCordappDataFlow) flow to get detailed information about the CorDapps deployed on your node.
-* Ensure you configure the correct values for the configuration file static keys (`access_configuration`, `network_collectors`, `by_hash`, and so on). Any errors, like a typo, will mean your configuration is ignored and the default applied. As a result, no metering data will be shared.
-* Ensure that every `.jar` hash, `.jar` signature, and CorDapp name in the configuration matches at least one of the deployed CorDapps. This means that you must not whitelist a CorDapp that does not exist. This step is essential in order to pass the configuration validation step that runs at node start-up, which checks that the X.500 names used in the configuration file are valid. If the configuration validation step fails for any reason, the node will fail to start.
-
-## Collect metering data
-
-This section provides instructions on how to use each of the metering collection tool flows.
-
-{{< note >}}
-In the list of flows below:
-* The `FilteredMeteringCollectionFlow` flow and the `AggregatedMeteringCollectionFlow` flow gather data from a node or nodes on the network different from the node where the respective flow was initiated.
-* The `NodeMeteringCollectionFlow` flow and the `MeteringCollectionFlow` flow collect metering data from the "current" node - the node where each of the flows was initiated.
-{{< /note >}}
-
-### Using `MeteringCollectionFlow`
-
-
-
-### Using `NodeMeteringCollectionFlow`
-
-
-
-### Using `AggregatedMeteringCollectionFlow`
-
-
-### Using `FilteredMeteringCollectionFlow`
-
-
-
-
-### Using `RetrieveCordappDataFlow`
-
-
-
-
-### Collecting metering data from multiple nodes
+## Collect metering data from multiple nodes
 
 There are two mechanisms you can use to collect metering data from multiple nodes on the network - by connecting to the node via:
 
 * the [Corda RPC API](api-rpc.md)
 * the [node shell](node/operating/shell.md)
 
-#### Collecting metering data from multiple nodes using the Corda RPC API
+### Collect data using the RPC API
 
 You can use the following two methods:
 - `FilteredMeteringCollectionFlow.multiCollect`
@@ -525,154 +638,7 @@ You can specify a callback as an argument. The callback is invoked once for each
 
 If the flow invocation resulted in an exception, the exception is thrown again inside the callback when calling `Future.get` and it is expected that the callback is able to handle it. In case this fails, the execution is interrupted, and all the created sub-flows are cancelled.
 
-The example below shows filtered metering collection from two nodes:
-
-{{< tabs name="tabs-FilteredMeteringCollectionFlow.multicollect" >}}
-{{% tab name="java" %}}
-```java
-Instant now = Instant.now();
-Instant sevenDaysAgo = now.minus(7, ChronoUnit.DAYS);
-Filter filter = new Filter.And(
-        Filter.ByTimeStamp.between(sevenDaysAgo, now),
-        new Filter.Or(
-                new Filter.ByCordapp.ByName("myCorDapp1"),
-                new Filter.ByCordapp.ByName("myCorDapp2")
-        )
-);
-CordaRPCOps rpcOps = conn.getProxy();
-List<Pair<Party, Filter>> destinations =
-        Stream.of("O=PartyA,L=New York,C=US", "O=PartyB,L=New York,C=US")
-                .map(CordaX500Name::parse)
-                .map(rpcOps::wellKnownPartyFromX500Name)
-                .map(party -> new Pair<>(party, filter))
-                .collect(Collectors.toList());
-
-FilteredMeteringCollectionFlow.FilteredResultConsumer consumer = (
-        Party destination,
-        Filter f,
-        Future<FilteredNodeMeteringData> result
-) -> {
-    try {
-        FilteredNodeMeteringData data = result.get();
-        //do something with the data
-    } catch (ExecutionException | InterruptedException e) {
-        throw new RuntimeException(e);
-    }
-};
-FilteredMeteringCollectionFlow.multiCollect(
-        rpcOps,
-        destinations,
-        consumer,
-        Duration.of(30, ChronoUnit.SECONDS));
-```
-
-{{% /tab %}}
-
-{{% tab name="kotlin" %}}
-```kotlin
-val now = Instant.now()
-val sevenDaysAgo = now.minus(7, ChronoUnit.DAYS)
-val filter = Filter.And(
-        Filter.ByTimeStamp.between(sevenDaysAgo, now),
-        Filter.Or(
-                Filter.ByCordapp.ByName("myCorDapp1"),
-                Filter.ByCordapp.ByName("myCorDapp2")
-        )
-)
-val destinations = sequenceOf("O=PartyA,L=New York,C=US", "O=PartyB,L=New York,C=US")
-        .map { CordaX500Name.parse(it) }
-        .map { rpcOps.wellKnownPartyFromX500Name(it)!! }
-        .map { it to filter }
-        .toList()
-val consumer = {
-    destination: Party,
-    filter : Filter,
-    result: Future<FilteredNodeMeteringData> ->
-    try {
-        val data = result.get()
-        //do something with the data
-    } catch (e: ExecutionException) {
-        throw e.cause ?: e
-    }
-}
-FilteredMeteringCollectionFlow.multiCollect(
-        rpcOps,
-        destinations,
-        consumer,
-        Duration.of(30, ChronoUnit.SECONDS))
-```
-{{% /tab %}}
-
-{{< /tabs >}}
-
-The example below shows aggregated metering collection from two nodes:
-
-{{< tabs name="tabs-AggregatedMeteringCollectionFlow.multicollect" >}}
-{{% tab name="java" %}}
-```java
-CordaRPCOps rpcOps = conn.getProxy();
-Instant now = Instant.now();
-Instant sevenDaysAgo = now.minus(7, ChronoUnit.DAYS);
-List<Pair<Party, Filter>> destinations =
-        Stream.of("O=PartyA,L=New York,C=US", "O=PartyB,L=New York,C=US")
-                .map(CordaX500Name::parse)
-                .map(rpcOps::wellKnownPartyFromX500Name)
-                .map(party -> new Pair<>(party, Filter.ByTimeStamp.between(sevenDaysAgo, now)))
-                .collect(Collectors.toList());
-
-AggregatedMeteringCollectionFlow.AggregatedResultConsumer consumer = (
-        Party destination,
-        Filter f,
-        Future<AggregatedNodeMeteringData> result
-) -> {
-    try {
-        AggregatedNodeMeteringData data = result.get();
-        //do something with the data
-    } catch (ExecutionException | InterruptedException e) {
-        throw new RuntimeException(e);
-    }
-};
-AggregatedMeteringCollectionFlow.multiCollect(
-        rpcOps,
-        destinations,
-        consumer,
-        Duration.of(30, ChronoUnit.SECONDS));
-```
-
-{{% /tab %}}
-
-{{% tab name="kotlin" %}}
-```kotlin
-val now = Instant.now()
-val sevenDaysAgo = now.minus(7, ChronoUnit.DAYS)
-val filter = Filter.ByTimeStamp.between(sevenDaysAgo, now)
-val destinations = sequenceOf("O=PartyA,L=New York,C=US", "O=PartyB,L=New York,C=US")
-        .map { CordaX500Name.parse(it) }
-        .map { rpcOps.wellKnownPartyFromX500Name(it)!! }
-        .map { it to filter }
-        .toList()
-val consumer = {
-    _ : Party,
-    _ : Filter,
-    result: Future<AggregatedNodeMeteringData> ->
-    try {
-        val data = result.get()
-        //do something with the data
-    } catch (e: ExecutionException) {
-        throw e.cause ?: e
-    }
-}
-AggregatedMeteringCollectionFlow.multiCollect(
-        rpcOps,
-        destinations,
-        consumer,
-        Duration.of(30, ChronoUnit.SECONDS))
-```
-{{% /tab %}}
-
-{{< /tabs >}}
-
-#### Multiple nodes collection using the node shell
+### Collect data using the node shell
 
 You can use the following two flows:
 - `MultiAggregatedCollectionFlow`
@@ -818,8 +784,7 @@ flow start com.r3.corda.metering.MultiFilteredCollectionFlow dateFormat: {value:
 flow start com.r3.corda.metering.MultiFilteredCollectionFlow dateFormat: {value: "yyyy-MM-dd"},  start: {value: "2020-04-06"}, end : {value: "2020-05-06"}, destinations: [PartyA, PartyB], filter: {filterBy: CORDAPP_NAMES, values: [Finance]}, txTypes: [NORMAL]
 ```
 
-### Data filtering using the node shell
-<a name="data-filtering-shell"></a>
+## Filter data using the node shell
 
 When you use the node shell to filter metering data, you can only filter by:
 
@@ -827,7 +792,7 @@ When you use the node shell to filter metering data, you can only filter by:
 * transaction type
 * timestamp
 
-#### Filtering by CorDapp
+### Filter by CorDapps
 
 To filter metering data by CorDapp, use the `filter` parameter in the `MeteringCollectionFlow`, `MultiAggregatedMeteringCollectionFlow`, and `MultiFilteredMeteringCollectionFlow` flows.
 
@@ -848,7 +813,7 @@ This parameter requires an object created by the `filterBy` parameter that speci
 The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](node/operating/node-database-admin.md#sql-server-3)
 {{% /note %}}
 
-#### Filtering by transaction type
+### Filter by transaction type
 
 To filter metering data by transaction type, use the `txTypes` parameter in the `MultiAggregatedMeteringCollectionFlow` and `MultiFilteredMeteringCollectionFlow` flows.
 
@@ -865,8 +830,7 @@ The available transaction types are as follows:
 The transaction types `NORMAL`, `CONTRACT_UPGRADE`, and `NOTARY_CHANGE` correspond to transactions that cause a ledger update, while the `UNKNOWN` transaction type corresponds to transactions that do not cause a ledger update.
 {{< /note >}}
 
-### Data filtering using the RPC API
-<a name="data-filtering-rpc"></a>
+## Filter data using the RPC API
 
 You can use data filtering via the RPC API for the `NodeMeteringCollectionFlow`, `AggregatedMeteringCollectionFlow`, and `FilteredMeteringCollectionFlow` flows.
 
