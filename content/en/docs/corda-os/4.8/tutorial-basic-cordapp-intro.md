@@ -65,20 +65,18 @@ Follow these tutorials in sequential order to build your CorDapp:
 
 1. Write the states
 
-2. Write the contract
+2. Write the contracts
 
   1. Build transactions
 
-  2. Write contract tests
-
 3. Write flows
 
-  1. Write flow tests
+4. Conduct unit testing
 
-4. Conduct integration testing
+5. Conduct integration testing
 
-5. Run your CorDapp
+6. Run your CorDapp
 
-6. Debug and test your CorDapp
+7. Debug and test your CorDapp
 
-7. Use the CordaRPCClient to run your CorDapp
+8. Use the CordaRPCClient to run your CorDapp

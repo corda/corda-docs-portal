@@ -11,7 +11,7 @@ tags:
 title: Write the states
 ---
 
-This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`. You will be editing the `contracts/src/main/java/com/template/states/TemplateState.java` file in this tutorial.
+This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`. You will be creating these states in the `contracts/src/main/java/com/template/states/` directory in this tutorial. Refer to the `TemplateState.java` file in this directory for guidance.
 
 ## Learning objectives
 
@@ -62,7 +62,7 @@ As you did in [Writing a CorDapp using a template](writing-a-cordapp-using-a-tem
    {{< /tabs >}}
 
 
-3. Once you have successfully cloned the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/.
+3. Once you have successfully cloned the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
    If you are unsure of how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](tutorial-cordapp.html##opening-the-sample-cordapp-in-intellij-idea).
 
@@ -70,7 +70,7 @@ As you did in [Writing a CorDapp using a template](writing-a-cordapp-using-a-tem
 
 First create the `AppleStamp` state. This state is the voucher issued to customers.
 
-1. Create a file called `AppleStamp.java` in the `states` directory.
+1. Right-click the **states** folder, select **New > Java Class** and create a file called `AppleStamp`.
 
 2. Open the file.
 
@@ -111,7 +111,7 @@ public class AppleStamp implements LinearState {
 
 ### Add private variables
 
-Next add the private variables for the stamp description (`stampDesc`), the issuer of the stamp (`issuer`), and the current owner of the stamp (`holder`).
+Next, add the private variables for the stamp description (`stampDesc`), the issuer of the stamp (`issuer`), and the current owner of the stamp (`holder`).
 
 After adding these variables, your code should look like this:
 
@@ -123,17 +123,18 @@ public class AppleStamp implements LinearState {
     private String stampDesc; //For example: "One stamp can be exchanged for a basket of Gala apples."
     private Party issuer; //The person who issued the stamp.
     private Party holder; //The person who currently owns the stamp.
+  }
 ```
 
 ### Add required variables and parameters
 
-All `LinearState`s must have a variable for the state's linear ID. Add this variable under the private variables:
+1. All `LinearState`s must have a variable for the state's linear ID. Add this variable under the private variables:
 
 ```java
 private UniqueIdentifier linearID;
 ```
 
-All Corda states must include a parameter to indicate the parties that store the states. Add this parameter below the `LinearStare` variable:
+2. All Corda states must include a parameter to indicate the parties that store the states. Add this parameter below the `LinearStare` variable:
 
 ```java
 private List<AbstractParty> participants;
@@ -155,6 +156,8 @@ public class AppleStamp implements LinearState {
 
     //Parameter required by all Corda states to indicate storing parties
     private List<AbstractParty> participants;
+
+  }
 ```
 
 ### Add the constructor
@@ -165,7 +168,7 @@ If you're using IntelliJ, you can generate the constructor with a shortcut.
 
 1. On MacOS, press **Command** + **N**.
 
-    On Windows, press **Control** + **N**.
+    On Windows, press **Alt** + **Insert**.
 
 2. Select **Constructors** in the **Generate** menu.
 
@@ -191,7 +194,7 @@ public class AppleStamp implements LinearState {
     //LinearState required variable.
     private UniqueIdentifier linearID;
 
-    //ALL Corda State required parameter to indicate storing parties
+    //ALL Corda States must have this parameter to indicate storing parties.
     private List<AbstractParty> participants;
 
     //Constructor Tips: Command + N in IntelliJ can auto generate constructor.
@@ -280,9 +283,7 @@ IntelliJ indicates that an import is missing with red text. To add the import:
 
 2. On MacOS, press **Option** + **Enter** to automatically import that variable.
 
-<!---I can't find the Windows shortcut for this. I'll keep looking and add later.
-    On Windows,
-    --->
+    On Windows, press **Alt** + **Enter** to automatically import that variable.
 
 3. Repeat this process with all missing imports.
 
@@ -453,7 +454,7 @@ public class BasketOfApple implements ContractState {
 
 ## Next steps
 
-Follow the [Write the contract](tutorial-basic-cordapp-contract.md) tutorial to continue on this learning path.
+Follow the [Write the contracts](tutorial-basic-cordapp-contract.md) tutorial to continue on this learning path.
 
 ## Related content
 
