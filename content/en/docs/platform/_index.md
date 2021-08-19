@@ -1,3 +1,7 @@
+---
+section_menu: homepage
+---
+
 # R3 documentation
 
 ## Corda
@@ -86,7 +90,7 @@
 
 ## Conclave
 
-* [Conclave](conclave.html)
+* [Conclave](platform/conclave.html)
 
 
 ## Known issue
