@@ -75,7 +75,7 @@ The project containing the sample CorDapp opens.
 1. Navigate to the root directory of the project from the command line.
 2. Build the app with this command:
   `gradlew build`
-3. Build the CorDapp with the `cordapp-builder` CLU util:
+3. Build the CorDapp with the `cordapp-builder` CLI util:
   `cordapp-builder create --cpk contracts\build\libs\corda5-solar-system-contracts-cordapp.cpk --cpk workflows\build\libs\corda5-solar-system-workflows-cordapp.cpk -o corda5-hello-solarsystem.cpb`
 4. Build the network deployment Dockerfile using Corda CLI:
   `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose`
@@ -124,6 +124,6 @@ When you are ready to test the CorDapp, you have two options for doing so. You c
 }
 ```
 
-4. Check the status of the flow using the ___ API. 
+4. Check the status of the flow using the ___ API.
 
 ### Test using Node CLI
