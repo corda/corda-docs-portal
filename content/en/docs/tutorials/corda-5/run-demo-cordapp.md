@@ -10,7 +10,7 @@ menu:
 title: Run a sample CorDapp
 ---
 
-Get started with the Corda 5 developer preview by running a sample CorDapp. Learn how to deploy and test a CorDapp before you modify the CorDapp template to write your own.
+Get started with the Corda 5 Developer Preview by running a sample CorDapp. Learn how to deploy and test a CorDapp before you modify the CorDapp template to write your own.
 
 This sample CorDapp allows you to launch probes between celestial bodies to send short messages. In this scenario, the solar system represents your local network. The celestial bodies are the nodes on your network. To learn more about nodes, see the [node documentation]().
 
