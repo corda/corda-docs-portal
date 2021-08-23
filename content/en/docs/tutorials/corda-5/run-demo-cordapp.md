@@ -33,12 +33,15 @@ The flow takes in three parameters:
 
 ## Before you start
 
-Before you can run the sample CorDapp, set up the following tools:
+Before you can run the sample CorDapp, set up the following:
 
+* A local network
 * Corda CLI
 * CorDapp Builder
 * Node CLI
 * Docker
+
+<!-- Add links to documentation for these tools once it is in place. -->
 
 If you're new to Corda, check out the [CorDapp documentation]() for some background knowledge.
 
@@ -73,30 +76,62 @@ The project containing the sample CorDapp opens.
 ## Deploy the CorDapp using Corda CLI
 
 1. Navigate to the root directory of the project from the command line.
-2. Build the app with this command:
-  `gradlew build`
-3. Build the CorDapp with the `cordapp-builder` CLI util:
-  `cordapp-builder create --cpk contracts\build\libs\corda5-solar-system-contracts-cordapp.cpk --cpk workflows\build\libs\corda5-solar-system-workflows-cordapp.cpk -o corda5-hello-solarsystem.cpb`
-4. Build the network deployment Dockerfile using Corda CLI:
+
+2. Deploy your network by building the network deployment Dockerfile using Corda CLI:
   `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose`
-5. Deploy the network using `docker-compose`:
-  `docker-compose -f solar-system-compose up -d`
-6. Once the CorDapp is deployed, check the status with Corda CLI:
+
+    The `-n` here is the name of the network. The `-f` is the network definition file.
+
+    After running this command, you can see a new `docker-compose.yaml` file in your project. This contains all of the details for your network, which is now ready to go.
+
+2. Run a Gradle command to build the CorDapp and generate the `.cpk` files:
+
+  `gradlew build`
+
+3. Use the `cordapp-builder` CLI utility to bundle the `.cpk` files into an easy-to-use `.cpb` file:
+
+  `cordapp-builder create --cpk contracts\build\libs\corda5-solar-system-contracts-cordapp.cpk --cpk workflows\build\libs\corda5-solar-system-workflows-cordapp.cpk -o corda5-hello-solarsystem.cpb`
+
+  In this command, you specify the `.cpk` files of your CorDapp. Most CorDapps will have two files: a contracts file and a workflows file.
+
+  You also specify the output file. Here the output file is `corda5-hello-solarsystem.cpb`.
+
+  If the command is successful, there is no output.
+
+  If you have an error in your command, the segment with the error is returned in red.
+
+4. Deploy the network using `docker-compose`:
+  `docker-compose -f docker-compose.yaml up`
+
+  Here you are specifying the name of the `docker-compose` file generated in step 2.
+
+5. Once the CorDapp is deployed with the Docker network, check the status with Corda CLI:
   `corda-cli network status -n solar-system`
 
+  You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
+
   {{< note >}}
-  Take note of the mapped web ports. You will use these later when you [test the CorDapp using Swagger UI](#test-using-swagger-ui).
+  Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-using-swagger-ui).
   {{< /note >}}
-7. Install the application on the network using Corda CLI:
+7. Install the application on the network using Corda CLI. In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
+
   `corda-cli package install -n solar-system cordaSolarSystem.cpb`
+
+  In this command, you must specify the network and the `.cpb` file.
+
+  After running this command, your CorDapp is up and running.
+
+8. If you want to double check that everything is working properly, open up Docker and go to **Containers/Apps**. Select the project and a drop down opens, displaying each node, its status, and its port.
 
 ## Test the CorDapp
 
-When you are ready to test the CorDapp, you have two options for doing so. You can use [Swagger UI](https://swagger.io/tools/swagger-ui/) to visualize and interact with the API. Alternatively, perhaps if you have additional security requirements, you can test the CorDapp using Corda's Node CLI.
+The Corda 5 Developer Preview provides two options for testing your CorDapp. You can use [Swagger UI](https://swagger.io/tools/swagger-ui/) to visualize and interact with the API. Alternatively, you can test the CorDapp using Corda's Node CLI.
 
 ### Test using Swagger UI
 
-1. Using the ports you noted when deploying the CorDapp, visit each node's Swagger UI:
+In Corda 4, testing your own CorDapp with Swagger UI added a significant amount of work to your project as you'd have to build your own Spring application to use this tool. However, the Corda 5 Developer Preview comes with built-in HTTP-RPC. This allows you to quickly get Swagger UI up and running, which helps you to test and interact with your APIs visually. Follow these steps to start testing:
+
+1. Using the ports you noted when deploying the CorDapp, visit each node's Swagger UI URL:
 
 `https://localhost:<port>/api/v1/swagger`
 
@@ -110,7 +145,11 @@ When you are ready to test the CorDapp, you have two options for doing so. You c
 | Pluto  | `plutonian` | `password` |
 {{< /table >}}
 
-3. Start the `LaunchProbeFlow` using the Start Flow API. Pass parameters such as the following:
+These usernames and passwords are specified in the `solar-system.yaml` file.
+
+3. It's a good idea to check which flows are on your CorDapp before running any. Go to the **FlowStarterRPCOps** heading and run the GET request for registered flows (`GET /flowstarter/registeredFlows`). This flow takes in no parameters, simply click **Execute** to run it. This returns the `LaunchProbeFlow`.
+
+4. Also under the **FlowStarterRPCOps** heading, start the `LaunchProbeFlow` by sending a POST request (`POST /flowstarter/startFlow`). Pass parameters such as the following:
 
 ```
 {
