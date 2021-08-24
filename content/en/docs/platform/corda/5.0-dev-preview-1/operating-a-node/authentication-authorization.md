@@ -1,13 +1,15 @@
 ---
 title: "Configure authorization and authentication"
-linkTitle: "Authorization and authentication"
-weight: 1000
-type: "docs"
-lastmod: 2021-08-24
-author: "Michele Marsden"
-description: How to configure authentication and authorization for HTTP-RPC.
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-operate-node
+    identifier: corda-5-dev-preview-1-operate-node-authentication-authorization
+    weight: 500
+project: corda-5
+section_menu: corda-5-dev-preview
+description: >
+  Instructions on how to configure authentication and authorization for HTTP-RPC.
 ---
-
 
 ## Authorization
 

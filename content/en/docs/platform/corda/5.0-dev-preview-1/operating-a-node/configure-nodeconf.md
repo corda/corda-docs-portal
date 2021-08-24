@@ -1,9 +1,9 @@
 ---
-title: "Configure `node.conf`"
-linkTitle: "`node.conf` configuration"
+title: "Configure node.conf"
 menu:
   corda-5-dev-preview:
-    parent: operating-a-node
+    parent: corda-5-dev-preview-1-operate-node
+    identifier: corda-5-dev-preview-1-operate-node-nodeconf
     weight: 300
 project: corda-5
 section_menu: corda-5-dev-preview

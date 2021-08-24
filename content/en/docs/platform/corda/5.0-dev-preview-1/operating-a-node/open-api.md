@@ -1,17 +1,19 @@
 ---
-title: "OpenAPI"
-linkTitle: "OpenAPI"
-weight: 500
-type: "docs"
-lastmod: 2021-06-10
-author: "Istvan Farmosi"
+title: "xxxxxxxxxxxxxxxxxxxx"
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-operate-node
+    identifier: corda-5-dev-preview-1-operate-node-xxxxxxxxxxxxxxxxxxxxxx
+    weight: 900
+project: corda-5
+section_menu: corda-5-dev-preview
 description: >
-    OpenAPI
+  Instructions on how to xxxxxxx.
 ---
 
-[comment]: <NOT DONE!!> 
+[comment]: <NOT DONE!!>
 
-The OpenAPI specification (formerly known as the Swagger specification) is for machine-readable interface files for describing, producing, consuming, and visualizing RESTful web services. See the [OpenAPI overview](../../overview/open-api/) section for more information. 
+The OpenAPI specification (formerly known as the Swagger specification) is for machine-readable interface files for describing, producing, consuming, and visualizing RESTful web services. See the [OpenAPI overview](../../overview/open-api/) section for more information.
 
 ## OpenAPI for HTTP-RPC
 

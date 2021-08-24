@@ -1,12 +1,14 @@
 ---
 title: "Set up SSL encryption"
-linkTitle: "SSL encryption"
-weight: 1000
-type: "docs"
-lastmod: 2021-08-23
-author: Michele Marsden
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-operate-node
+    identifier: corda-5-dev-preview-1-operate-node-ssl-encryption
+    weight: 400
+project: corda-5
+section_menu: corda-5-dev-preview
 description: >
-  How to configure a node to use SSL encryption for HTTP-RPC.
+  Instructions on how to configure a node to use SSL encryption for HTTP-RPC.
 ---
 
 {{< note >}}
@@ -105,4 +107,4 @@ Once you have obtained a certificate, place it into a directory that the node ca
 }
 ```
 
-For more information, see the guide on [configuring `node.conf` for HTTP-RPC](configure-node-conf.md).
+For more information, see the guide on [configuring `node.conf` for HTTP-RPC](configure-nodeconf.md).
