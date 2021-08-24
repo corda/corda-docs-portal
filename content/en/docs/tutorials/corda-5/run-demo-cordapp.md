@@ -113,9 +113,9 @@ The project containing the sample CorDapp opens.
   You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
 
   {{< note >}}
-  Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-using-swagger-ui) or [Corda Node CLI](#test-using-corda-node-cli).
+  Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-the-sample-cordapp-using-swagger-ui) or [Corda Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
   {{< /note >}}
-6. Install the application on the network using Corda CLI. 
+6. Install the application on the network using Corda CLI.
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
 
@@ -209,7 +209,7 @@ The flow returns a `200` response, including the `flowId` (a `uuid`) and the `cl
 
 The flow returns a `200` response but this time the flow has failed because Pluto is not a planet. The `message` indicates `Contract verification failed: Failed requirement: Planetary Probes must only visit planets` and includes the contract name and transaction ID.
 
-### Test using Corda Node CLI
+### Test the sample CorDapp using Corda Node CLI
 
 You can also use Corda Node CLI to test your CorDapp. This tool allows you to perform the same tests as Swagger UI, but you do not need a web browser to run it.
 
