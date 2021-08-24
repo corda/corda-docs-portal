@@ -1,0 +1,88 @@
+---
+title: "Configure `node.conf`"
+linkTitle: "`node.conf` configuration"
+menu:
+  corda-5-dev-preview:
+    parent: operating-a-node
+    weight: 300
+project: corda-5
+section_menu: corda-5-dev-preview
+description: >
+  Instructions on how to configure a node's `node.conf` file for HTTP-RPC.
+---
+
+
+When a node starts up, the `corda.jar` file defaults to reading the node's configuration from a `node.conf` file.
+To use HTTP-RPC, you need to configure your node's `node.conf` by:
+
+1. [Adding `httpRpcSettings` fields and configuration](#add-httprpcsettings-fields-and-configuration).
+2. [Verifying HTTP-RPC setup](#verify-http-rpc-setup)
+
+## Add `httpRpcSettings` fields and configuration
+`httpRpcSettings` is a top-level object that you need to include in the `node.conf` file. Here is a template that you can adapt:
+```
+{
+    ...
+    "httpRpcSettings": {
+        "address": "mynode:8888",
+        "context": {
+            "description": "Exposing RPCOps interfaces as webservices",
+            "title": "HTTP RPC demo",
+        },
+        "ssl": {
+            "keyStorePath": "/home/corda/certificates/https.keystore",
+            "keyStorePassword": "password"
+        },
+        maxContentLength=100000
+    },
+    ...
+}
+```
+
+Configuration options available in the `httpRpcSettings` object:
+
+| Field     | Required? | Value |
+| ------- | --------- | ----- |
+| `address` | Required  | The endpoint the node is going to be listening on, in "host:port" format (this is only a local setting, if you're using a hostname rather than "localhost" or "0.0.0.0", you need to make sure that hostname resolves to the host the node is running on). The API will be available at `http[s]://{address}/api/v1/` |
+| `context` | Required  | See [API configuration](#api-configuration). |
+| `ssl`     | Required (unless node is in developer mode)  | See [SSL configuration](#ssl-configuration). |
+| `sso`     | Optional | See [single sign-on (SSO) configuration](<!---TODO ADD IN LINK TO NODE CONFIG TITLE OF AZURE AD)--->. |
+| `maxContentLength`     | Optional | The maximum content length accepted for POST requests (in bytes). The default value is 1 MiB.|
+
+### API configuration
+
+| Field         | Required? | Value |
+| ----------- | --------- | ----- |
+| `title`       | Required  | Name of the exposed API. |
+| `description` | Required  | Human-friendly description of the API.|
+
+<!---TODO FURTHER INFO, SEE API CONFIG PAGE.--->
+
+### SSL configuration
+
+| Field              | Required? | Value |
+| ---------------- | --------- | ----- |
+| `keyStorePath`     | Required | Path to the key store, relative to the current working directory. |
+| `keyStorePassword` | Required | Password to the key store.|
+
+To configure your node to use SSL encryption for HTTP-RPC, see the [SSL setup](setup-ssl-encryption.md) guide.
+
+## Verify HTTP-RPC setup
+To verify that you have set up HTTP-RPC correctly, you should see the following when you start the node:
+
+```
+[INFO] 2021-05-28T16:20:25,572Z [net.corda.node.OSGiNodeActivator.start] BasicInfo.printBasicNodeInfo - HTTP RPC address                        : https://mynode:8888 {}
+[INFO] 2021-05-28T16:20:25,573Z [net.corda.node.OSGiNodeActivator.start] BasicInfo.printBasicNodeInfo - Swagger UI available at                 : https://mynode:8888/api/v1/swagger
+[...]
+[INFO] 2021-05-28T16:20:27,907Z [NodeLifecycleEventsDistributor-0] rpc.CordaRPCOpsImpl.update - After start {}
+[INFO] 2021-05-28T16:20:27,931Z [NodeLifecycleEventsDistributor-0] flow.StartableFlowsRetriever.get - Rpc startable flows: {}
+[INFO] 2021-05-28T16:20:27,931Z [NodeLifecycleEventsDistributor-0] flow.StartableFlowsRetriever.get - net.corda.httprpcdemo.workflows.MessageStateIssue {}
+```
+
+Included in the output is an address to Swagger UI, which you can use to test the various endpoints. As a simple smoke test, you can use any of the `getprotocolversion` calls. If the test is successful and HTTP-RPC is configured correctly, it will return a `200 OK` status and an integer in the response body (the actual value depends on which Corda version the node is running).
+
+### Common errors
+
+* SSL configuration. If the specified SSL certificate isn't accepted by the computer you're using to access the Swagger UI, the browser will treat the connection as insecure. However, this may not be an issue if the API is used from other sources that validate the certificate in a different way compared to the browser.
+
+* Docker port mapping. When running a node in Docker the port specified in `node.conf` may not be exposed, making the API inaccessible. To make sure the port is available from outside the container, check the Dockerfile and command you're using to start the container.
