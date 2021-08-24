@@ -7,14 +7,14 @@ menu:
       name: Corda 5 tutorials
       weight: 100
       identifier: run-demo-cordapp
-title: Run a sample CorDapp
+title: Running a sample CorDapp
 ---
 
 Get started with the Corda 5 Developer Preview by running a sample CorDapp. Learn how to deploy and test a CorDapp before you modify the CorDapp template to write your own.
 
-This sample CorDapp allows you to launch probes between celestial bodies to send short messages. In this scenario, the solar system represents your local network. The celestial bodies are the nodes on your network. To learn more about nodes, see the [node documentation]().
+This sample CorDapp allows you to launch probes between celestial bodies to send short messages. In this scenario, the Solar System represents your local network. The celestial bodies are the nodes on your network. To learn more about nodes, see the [node documentation]().
 
-The solar system CorDapp has an optional smart contract implemented that lets you control if all celestial bodies can receive probes or if only planets can receive them.
+The Solar System CorDapp has an optional smart contract implemented that lets you control if all celestial bodies can receive probes or if only planets can receive them.
 
 The sample CorDapp contains the following nodes:
 
@@ -63,7 +63,7 @@ You can write a CorDapp in any language targeting the JVM. Source files for this
 git clone git@github.com:corda/Corda5-SolarSystem.git
 ```
 
-The sample project will appear in your chosen directory.
+The sample project appears in your chosen directory.
 
 ## Open the sample CorDapp in IntelliJ IDEA
 
@@ -79,7 +79,7 @@ The project containing the sample CorDapp opens.
 
 1. Navigate to the root directory of the project from the command line.
 
-2. Deploy your network by building the network deployment Dockerfile using Corda CLI:
+2. Deploy your network by building the network deployment Docker file using Corda CLI:
   `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose`
 
     The `-n` here is the name of the network. The `-f` is the network definition file.
@@ -115,7 +115,9 @@ The project containing the sample CorDapp opens.
   {{< note >}}
   Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-using-swagger-ui) or [Corda Node CLI](#test-using-corda-node-cli).
   {{< /note >}}
-7. Install the application on the network using Corda CLI. In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
+6. Install the application on the network using Corda CLI. 
+
+In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
 
   `corda-cli package install -n solar-system cordaSolarSystem.cpb`
 
@@ -123,13 +125,15 @@ The project containing the sample CorDapp opens.
 
   After running this command, your CorDapp is up and running.
 
-8. If you want to double check that everything is working properly, open up Docker and go to **Containers/Apps**. Select the project and a drop down opens, displaying each node, its status, and its port.
+7. If you want to double check that everything is working properly, open up Docker, go to **Containers/Apps** and select the project.
+
+A drop down opens, displaying each node, its status, and its port.
 
 ## Test the CorDapp
 
 The Corda 5 Developer Preview provides two options for testing your CorDapp. You can use [Swagger UI](https://swagger.io/tools/swagger-ui/) to visualize and interact with the API. Alternatively, you can test the CorDapp using Corda's Node CLI.
 
-### Test using Swagger UI
+### Test the sample CorDapp using Swagger UI
 
 In Corda 4, testing your own CorDapp with Swagger UI added a significant amount of work to your project as you'd have to build your own Spring application to use this tool. However, the Corda 5 Developer Preview comes with built-in HTTP-RPC. This allows you to quickly get Swagger UI up and running, which helps you to test and interact with your APIs visually. Follow these steps to start testing:
 
@@ -137,7 +141,7 @@ In Corda 4, testing your own CorDapp with Swagger UI added a significant amount 
 
 `https://localhost:<port>/api/v1/swagger`
 
-2. Click on the button in the top right corner to log in. Use the following usernames and passwords for each node:
+2. Click the button in the top-right corner to log in. Use the following usernames and passwords for each node:
 
 {{< table >}}
 | Planet | Username    | Password   |
@@ -165,7 +169,7 @@ These usernames and passwords are specified in the `solar-system.yaml` file.
 }
 ```
 
-In Corda 4, this process was more complicated as you needed a Java or Kotlin application to run the RPCClient. The Corda 5 Developer Preview simplifies the process as you can run the RPCClient easily with Javascript.
+In Corda 4, this process was more complicated as you needed a Java or Kotlin application to run the RPCClient. The Corda 5 Developer Preview simplifies the process as you can run the RPCClient easily with JavaScript.
 
 The `parametersInJson` field includes all parameters that the flow takes in. You must create a JSON string with another JSON inside it, then escape all the characters that matter. For each parameter and its value, insert `\` before the each `"`.
 
@@ -173,7 +177,7 @@ The X500 name of each node can be found in the `solar-system.yaml` file.
 
 The flow returns a `200` response, including the `flowId` (a `uuid`) and the `clientId`.
 
-4. Take the `flowId` from the previous step to check the flow's status. Again under the **FlowStarterRPCOps** heading, run the GET request for flow outcomes (`GET /flowstarter/flowoutcome/{flowid}`). Enter the `flowId` from the response in step 4.
+5. Take the `flowId` from the previous step to check the flow's status. Again under the **FlowStarterRPCOps** heading, run the GET request for flow outcomes (`GET /flowstarter/flowoutcome/{flowid}`). Enter the `flowId` from the response in step 4.
 
 The flow returns a `200` response and includes these items in the response body:
 
@@ -181,7 +185,7 @@ The flow returns a `200` response and includes these items in the response body:
 * Signatures of both parties
 * ID of the state
 
-5. Now let's test the contract code. This time, try to send a probe to Pluto with `planetaryOnly` set to `true`.
+6. Now let's test the contract code. This time, try to send a probe to Pluto with `planetaryOnly` set to `true`.
 
 ```
 {
@@ -201,7 +205,7 @@ Remember the `clientId` must be assigned to a launchpad that isn't already runni
 
 The flow returns a `200` response, including the `flowId` (a `uuid`) and the `clientId`.
 
-6. Take the `flowId` from step 5 and run the GET request for flow outcomes again (`GET /flowstarter/flowoutcome/{flowid}`).
+7. Take the `flowId` from step 6 and run the GET request for flow outcomes again (`GET /flowstarter/flowoutcome/{flowid}`).
 
 The flow returns a `200` response but this time the flow has failed because Pluto is not a planet. The `message` indicates `Contract verification failed: Failed requirement: Planetary Probes must only visit planets` and includes the contract name and transaction ID.
 
