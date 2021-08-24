@@ -177,7 +177,7 @@ The flow returns a `200` response, including the `flowId` (a `uuid`) and the `cl
 
 The flow returns a `200` response and includes these items in the response body:
 
-* flow status
+* Flow status
 * Signatures of both parties
 * ID of the state
 
@@ -243,7 +243,7 @@ corda-node-cli.cmd flow status -s <flow ID> -u earthling -P password
 
 This returns the same output as checking the flow status on Swagger UI. You see:
 
-* flow status
+* Flow status
 * Signatures of both parties
 * ID of the state
 
