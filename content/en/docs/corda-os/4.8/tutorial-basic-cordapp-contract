@@ -160,7 +160,7 @@ public class AppleStampContract implements Contract {
         //Extract the command from the transaction.
         final CommandData commandData = tx.getCommands().get(0).getValue();
 
-        //Verify the transaction according to the intention of the transaction
+        //Verify the transaction according to the intention of the transaction.
         if (commandData instanceof AppleStampContract.Commands.Issue){
             AppleStamp output = tx.outputsOfType(AppleStamp.class).get(0);
             requireThat(require -> {
