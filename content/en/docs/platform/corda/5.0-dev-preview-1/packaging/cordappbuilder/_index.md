@@ -3,7 +3,7 @@ title: "CorDapp Builder CLI"
 linkTitle: "CorDapp Builder CLI"
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-node-packaging
+    parent: corda-5-dev-preview-1-packaging
     weight: 400
 project: corda-5
 section_menu: corda-5-dev-preview
