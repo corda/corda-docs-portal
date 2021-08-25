@@ -1,5 +1,6 @@
 ---
 title: "Set up SSL encryption"
+date: '2021-08-25'
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-operate-node
@@ -89,7 +90,7 @@ Is CN=Sample Node, OU=Production Operations, O=Contoso LLC, L=Paris, ST=Unknown,
   [no]:  y
 ```
 
-To create your own self-signed certificate, you need to adapt the following arguments in the command used in the example:
+To create your own self-signed certificate, you need to adapt the following arguments in the command used in the above example:
 * `keyalg` specifies which cryptographic algorithm to use. If you don't have a preference, `RSA` is a good option.
 * `keysize` specifies the size of the cryptographic keys that will be generated. The recommended baseline option is `2048`.
 * `keystore` specifies the path to the output file, including file name. You need to include this in `node.conf`.

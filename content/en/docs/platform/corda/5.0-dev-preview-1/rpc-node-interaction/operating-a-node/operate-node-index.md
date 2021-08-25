@@ -1,7 +1,9 @@
 ---
 title: "Operating a node"
+date: '2021-08-25'
 menu:
   corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-rpc-node-interaction
     identifier: corda-5-dev-preview-1-operate-node
     weight: 100
 project: corda-5

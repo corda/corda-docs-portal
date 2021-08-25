@@ -1,5 +1,6 @@
 ---
 title: "Configure node.conf"
+date: '2021-08-25'
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-operate-node
@@ -46,7 +47,7 @@ Configuration options available in the `httpRpcSettings` object:
 | `address` | Required  | The endpoint the node is going to be listening on, in "host:port" format (this is only a local setting, if you're using a hostname rather than "localhost" or "0.0.0.0", you need to make sure that hostname resolves to the host the node is running on). The API will be available at `http[s]://{address}/api/v1/` |
 | `context` | Required  | See [API configuration](#api-configuration). |
 | `ssl`     | Required (unless node is in developer mode)  | See [SSL configuration](#ssl-configuration). |
-| `sso`     | Optional | See [single sign-on (SSO) configuration](<!---TODO ADD IN LINK TO NODE CONFIG TITLE OF AZURE AD)--->. |
+| `sso`     | Optional | See [single sign-on (SSO) configuration]<!---TODO ADD IN LINK TO NODE CONFIG TITLE OF AZURE AD)--->. |
 | `maxContentLength`     | Optional | The maximum content length accepted for POST requests (in bytes). The default value is 1 MiB.|
 
 ### API configuration
@@ -83,6 +84,6 @@ Included in the output is an address to Swagger UI, which you can use to test th
 
 ### Common errors
 
-* SSL configuration. If the specified SSL certificate isn't accepted by the computer you're using to access the Swagger UI, the browser will treat the connection as insecure. However, this may not be an issue if the API is used from other sources that validate the certificate in a different way compared to the browser.
+* If the specified SSL certificate isn't accepted by the computer you're using to access the Swagger UI, the browser will treat the connection as insecure. However, this may not be an issue if the API is used from other sources that validate the certificate in a different way compared to the browser.
 
-* Docker port mapping. When running a node in Docker the port specified in `node.conf` may not be exposed, making the API inaccessible. To make sure the port is available from outside the container, check the Dockerfile and command you're using to start the container.
+* When running a node in Docker, the port specified in `node.conf` may not be exposed making the API inaccessible. To make sure the port is available from outside the container, check the Dockerfile and command you're using to start the container.
