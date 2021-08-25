@@ -46,3 +46,7 @@ The Corda Security Manager leverages the OSGi security layer to deny the followi
 Any attempt by CPK code to perform one of the operations above will cause an `AccessControlException` to be thrown.
 
 Note that these permission restrictions are in addition to any permission restrictions that the bundle imposes on itself via the local permissions mechanism described in section 50.11 of the [OSGi specification](http://docs.osgi.org/download/r8/osgi.core-8.0.0.pdf).
+
+## Deploying a Corda Packages
+
+To deploy a Corda Package, see XXX.
