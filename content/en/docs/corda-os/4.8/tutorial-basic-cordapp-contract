@@ -267,7 +267,7 @@ The rules inside the `verify` method in the `requireThat` Corda DSL helper metho
 * For the `packToBasket` command:
 
   * This transaction should only output one `BasketOfApple` state.
-  * The output of the `BasketOfApple` state should have clear description of the apple product.
+  * The output of the `BasketOfApple` state should have a clear description of the apple product.
   * The output of the `BasketOfApple` state should have a non-zero weight.
 
 * For the `Redeem` command:
