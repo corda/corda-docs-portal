@@ -4,7 +4,7 @@ section_menu: tutorials
 menu:
   tutorials:
     parent: tutorials-corda-5
-    name: Building a CorDapp from a template
+    name: Building a CorDapp using a template
     weight: 200
     identifier: corda-5-building-template-cordapp-intro
 title: Building a CorDapp using a template
