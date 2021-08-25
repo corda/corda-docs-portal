@@ -169,7 +169,7 @@ public class AppleStampContract implements Contract {
                 return null;
             });
         }else if(commandData instanceof BasketOfAppleContract.Commands.Redeem){
-            //Transaction verification will happen in BasketOfApple Contract
+            //Transaction verification will happen in BasketOfApple Contract.
         }
         else{
             //Unrecognized Command type
