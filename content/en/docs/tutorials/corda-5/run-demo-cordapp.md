@@ -40,7 +40,7 @@ Before you can run the sample CorDapp, set up:
 * A local network
 * Corda CLI
 * CorDapp Builder
-* Node CLI
+* Corda Node CLI
 * Docker
 
 <!-- Add links to documentation for these tools once it is in place. -->
@@ -105,9 +105,9 @@ This command also specifies the output file. In this case, the output file is `c
 4. Deploy the network using `docker-compose`:
   `docker-compose -f docker-compose.yaml up`
 
-  Here you are specifying the name of the `docker-compose` file generated in step 2.
+  This command references the name of the `docker-compose` file generated in step 2.
 
-5. Once the CorDapp is deployed with the Docker network, check the status with Corda CLI:
+5. Check the CorDapp's status with Corda CLI:
   `corda-cli network status -n solar-system`
 
   You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
@@ -125,7 +125,7 @@ In Corda 4, this process was much more involved. Now you can install the applica
 
   After running this command, your CorDapp is up and running.
 
-7. Double-check that everything is working properly: 
+7. Double-check that everything is working properly:
     1. Open Docker
     2. Go to **Containers/Apps**
     3. Select the project
@@ -139,9 +139,9 @@ The Corda 5 Developer Preview provides two options for testing your CorDapp. You
 
 ### Test the sample CorDapp using Swagger UI
 
-In Corda 4, you needed to build your own Spring application to test a CorDapp with Swagger UI. The Corda 5 Developer Preview comes with built-in HTTP-RPC. This lets you get Swagger UI up and running quickly, so you can test and interact with your APIs visually. 
+In Corda 4, you needed to build your own Spring application to test a CorDapp with Swagger UI. The Corda 5 Developer Preview comes with built-in HTTP-RPC. This lets you get Swagger UI up and running quickly, so you can test and interact with your APIs visually.
 
-1. Using the ports you noted when deploying the CorDapp, visit each node's Swagger UI URL:
+1. Visit each node's Swagger UI URL. You'll need the ports you noted when [deploying the CorDapp](#deploy-the-cordapp-using-corda-cli):
 
 `https://localhost:<port>/api/v1/swagger`
 
@@ -157,7 +157,12 @@ In Corda 4, you needed to build your own Spring application to test a CorDapp wi
 
 These usernames and passwords are specified in the `solar-system.yaml` file.
 
-3. It's a good idea to check which flows are on your CorDapp before running any. Go to the **FlowStarterRPCOps** heading and run the GET request for registered flows (`GET /flowstarter/registeredFlows`). This flow takes in no parameters, simply click **Execute** to run it. This returns the `LaunchProbeFlow`.
+3. Check which flows are on your CorDapp.
+  1. Go to the **FlowStarterRPCOps** heading.
+  2. Run the GET request for registered flows (`GET /flowstarter/registeredFlows`).
+  3. Select **Execute** to run the flow. This flow does not take in any parameters.
+
+  This returns the `LaunchProbeFlow`.
 
 4. Start the `LaunchProbeFlow` by sending a POST request (`POST /flowstarter/startFlow`). Pass the following parameters:
 
@@ -175,9 +180,9 @@ These usernames and passwords are specified in the `solar-system.yaml` file.
 
 In Corda 4, this process was more complicated because you needed a Java or Kotlin application to run the RPCClient. In the Corda 5 Developer Preview, you can run the RPCClient easily with JavaScript.
 
-The `parametersInJson` field includes all parameters that the flow takes in. You must create a JSON string with another JSON inside it, then escape all the characters that matter. For each parameter and its value, insert `\` before the each `"`.
+The `parametersInJson` field includes all parameters that the flow takes in. You must create a JSON string with another JSON inside it, then escape all the characters that matter. To escape the characters, insert `\` before each `"` for each parameter and its value.
 
-The X500 name of each node can be found in the `solar-system.yaml` file.
+The X500 name of the receiving node must be included in the `target` field. The X500 names of all nodes can be found in the `solar-system.yaml` file.
 
 The flow returns a `200` response, including the `flowId` (a `uuid`) and the `clientId`.
 
@@ -217,7 +222,7 @@ The flow returns a `200` response—but this time the flow has failed because Pl
 
 You can also use Corda Node CLI to test your CorDapp. This tool lets you perform the same tests as Swagger UI, but you do not need a web browser to run it.
 
-1. Add a node to Corda Node CLI so you can use the endpoint to run flows. Use the HTTP RPC port you noted earlier:
+1. Add a node to Corda Node CLI so you can use the endpoint to run flows. Use the HTTP RPC port you noted when [deploying the CorDapp](#deploy-the-cordapp-using-corda-cli):
 
 ```
 corda-node-cli endpoint add -n earth --basic-auth -u earthling -P password https://localhost:<port>/api/v1/
@@ -256,3 +261,9 @@ This returns the same output as checking the flow status on Swagger UI. You see:
 * ID of the state
 
 If you have any questions about the Corda Node CLI commands, run the `--help` command for more information.
+
+<!--
+## Next steps
+
+Now that you've run the Solar System demo CorDapp, try [building your own CorDapp using a template](XXX). 
+-->
