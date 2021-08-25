@@ -274,7 +274,7 @@ The rules inside the `verify` method in the `requireThat` Corda DSL helper metho
 
   * The transaction should consume two states.
   * The issuer of the `AppleStamp` should be the producing farm of this basket of apples.
-  * The basket of apples has to weight more than zero.
+  * The basket of apples must weigh more than zero.
 
 
 ### Check your work
