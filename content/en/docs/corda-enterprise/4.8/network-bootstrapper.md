@@ -100,7 +100,7 @@ added to the [contract whitelist](###whitelist-contracts).
 
 
 ### Create a contracts whitelist
-If you provide a CorDapp, the boostrapper will hash it scan it for the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](https://docs.corda.net/docs/corda-enterprise/4.8/cordapps/api-contract-constraints.html) for the network.
+If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](https://docs.corda.net/docs/corda-enterprise/4.8/cordapps/api-contract-constraints.html) for the network.
 
 {{< note >}}
 If you want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
@@ -113,7 +113,7 @@ of the whitelisted contracts in the network parameters. For each contract class,
 By default, the bootstrapper whitelists all the contracts it finds in the unsigned CorDapp `.jar`s (`.jar` files not signed by `jarSigner` tool).
 It checks whitelisted contracts using compatibility zone constraints, and contract classes from signed `.jar`s using signature constraints.
 
-If you would like to prevent specific contracts from unsigned `.jar`s from being whitelisted, add their fully-qualified class name in the `exclude_whitelist.txt` file. Contracts in this file will use the more restrictive `HashAttachmentConstraint`, which only allows one version of a CorDapp to be used with a specific state.
+If you want to prevent specific contracts from unsigned `.jar`s from being whitelisted, add their fully-qualified class name in the `exclude_whitelist.txt` file. Contracts in this file will use the more restrictive `HashAttachmentConstraint`, which only allows one version of a CorDapp to be used with a specific state.
 
 To add specific contracts from signed `.jar`s to the whitelist, add their fully-qualified class name to the `include_whitelist.txt` file.
 
