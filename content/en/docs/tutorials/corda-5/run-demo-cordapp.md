@@ -3,10 +3,10 @@ date: 2021-08-20
 section_menu: tutorials
 menu:
   tutorials:
-    corda-5:
-      name: Corda 5 tutorials
-      weight: 100
-      identifier: run-demo-cordapp
+    parent: tutorials-corda-5
+    name: Running a sample CorDapp
+    weight: 100
+    identifier: run-demo-cordapp
 title: Running a sample CorDapp
 ---
 
