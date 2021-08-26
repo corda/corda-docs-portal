@@ -12,7 +12,7 @@ tags:
 
 
 # Network Bootstrapper
-The * Corda Network Bootstrapper* is a tool you can use to quickly create a group of nodes that can see each other and communicate. You can use these simple networks for development and testing.
+You can use the **Corda Network Bootstrapper** tool to quickly create a group of nodes that can see and communicate with each other. You can use these simple networks for development and testing.
 
 Each node on the network must:
 * Operate using the same set of constants, called *network parameters*. This guarantees that the nodes can interoperate.
@@ -21,7 +21,7 @@ Each node on the network must:
 The network bootstrapper automates the processes of creating and distributing the network parameters and `node-info` files.
 
 
-##Glossary
+## Glossary
 
 | Term                          | Definition                                                                                               |
 |-------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -36,7 +36,7 @@ The network bootstrapper automates the processes of creating and distributing th
 
 Nodes within a network see each other using the [network map](network/network-map.md). This is a collection of statically-signed `node-info` files, one for each node. Most production deployments use a highly-available, secure distribution of the network map via HTTP.
 
-If you are creating a test deployment that stores the nodes on the same filesystem, you can place the `node-info` files directly in the node’s `additional-node-infos` directory. The node picks them up and stores them in its local network map cache, then generates its own `node-info` file on startup.
+If you are creating a test deployment that stores the nodes on the same filesystem, place the `node-info` files into the node’s `additional-node-infos` directory. The node picks them up and stores them in its local network map cache, then generates its own `node-info` file on startup.
 
 All the nodes must use the same set of network parameters. These are a set of constants
 that guarantee interoperability between the nodes. Typically, the HTTP network map distributes the network parameters to the nodes, which download them automatically. You can also generate network parameters locally.
@@ -46,11 +46,11 @@ You can use the network bootstrapper to scan all the node configurations in a co
 
 ## Bootstrap a test network
 
-To boostrap a test network:
+To bootstrap a test network:
 
 1. Download the [Corda Network Boostrapper](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-bootstrapper) for the version of Corda you want the nodes to run.
 2. Create a directory containing a node config file (ending in “_node.conf”) for each node you want to create.
-3. Set “devMode” to set to `true`.
+3. Set “devMode” to `true`.
 4. Run the command `java -jar network-bootstrapper-4.8.jar --dir <nodes-root-dir>`.
 
 If you were to run this command on a directory containing these files:
@@ -62,7 +62,7 @@ If you were to run this command on a directory containing these files:
 └── partyb_node.conf             // Party B's node.conf file
 ```
 
-Then the bootstrapper will generate directories containing three nodes: `notary`, `partya` and `partyb`. Each node will use the `corda.jar`
+Then the bootstrapper will generate directories containing three nodes: `notary`, `partya`, and `partyb`. Each node will use the `corda.jar`
 provided by the network bootstrapper you chose. If you need to change the version, put the relevant `corda.jar` file with the configuration files in the directory.
 
 Alternatively, you can have the node directories containing the `node.conf` files already laid out. The previous example would be:
@@ -95,7 +95,7 @@ alongside the configuration files. For example, for a directory with this struct
 ```
 
 The `cordapp-a.jar` and `cordapp-b.jar` will be installed in each node directory, and any contracts within them will be
-added to the [contract whitelist](###Whitelist contracts).
+added to the [contract whitelist](###whitelist-contracts).
 
 
 
@@ -103,7 +103,7 @@ added to the [contract whitelist](###Whitelist contracts).
 If you provide a CorDapp, the boostrapper will hash it scan it for the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](https://docs.corda.net/docs/corda-enterprise/4.8/cordapps/api-contract-constraints.html) for the network.
 
 {{< note >}}
-If want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
+If you want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
 
 {{< /note >}}
 
@@ -143,7 +143,7 @@ the nodes on different machines:
 1. Copy the node directories from each machine into one directory, on one machine.
 2. Add any new files required to the root directory.
 3. Run the network bootstrapper from the root directory.
-4. Copy each individual node’s directory back to the original machine.
+4. Copy each individual node’s directory back to the original machines.
 
 The Network Bootstrapper cannot dynamically update the network if an existing node has changed something in their `node-info`,
 such as their P2P address. You will need to place the updated `node-info` in the other nodes’ `additional-node-infos` directory.
@@ -155,9 +155,9 @@ so the nodes can share `node-info`.
 
 You can add a new node and distribute its `node-info` to the existing nodes on the network by running the network bootstrapper twice.
 
-In this example, you have an existing bootstrapped network. It consists of a notary and Party A, and you'd like to add a Party B.
+In this example, you have an existing bootstrapped network. It consists of a notary and Party A, and you'd like to add Party B.
 
-First, run the network boostrapper as usual. Your network structure will look like this:
+First, run the network bootstrapper as usual. Your network structure will look like this:
 
 ```none
 .
@@ -212,13 +212,13 @@ You will produce this result:
         └── node-info-partyb
 ```
 
-The Bootstrapper generates a directory and the `node-info` file for Party B. It also places copy of each
+The bootstrapper generates a directory and the `node-info` file for Party B. It also places a copy of each
 nodes’ `node-info` file in the `additional-node-info` directory of every node. Any other files in the existing nodes,
 such a generated keys, will be unaffected.
 
 {{< note >}}
 The network bootstrapper is intended for test deployments, and can only generate information for nodes collected on
-the same machine. If you need to update a network using the Bootstrapper after you deploy it, you will need to collect the nodes on one machine again. t
+the same machine. If you need to update a network using the bootstrapper after you deploy it, you will need to collect the nodes on one machine again. 
 
 {{< /note >}}
 
@@ -250,7 +250,7 @@ For example, you could take this pre-generated network:
 └── cordapp-b.jar               // The new cordapp to add to the existing nodes
 ```
 
-Then run the network nootstrapper again from the root directory:
+Then run the network bootstrapper again from the root directory:
 
 `java -jar network-bootstrapper-4.8.jar --dir <nodes-root-dir>`
 
@@ -286,7 +286,7 @@ You can only add to the whitelist. Once added, you can't remove a contract imple
 ## Modify the network parameters
 
 The network bootstrapper creates a default `network-parameters` file. However, if you require specific parameters for testing, you can modify the default:
-* Using a command line argument
+* Using a command line argument.
 * By supplying a configuration file.
 
 If the same parameter is overridden both by a command line argument and in the configuration file, the command line value
@@ -295,12 +295,12 @@ will take precedence.
 
 ### Override network parameters via command line
 
-You can use the `--minimum-platform-version`, `--max-message-size`, `--max-transaction-size` and `--event-horizon` command line parameters can to override the default network parameters. See [Command line options](#command-line-options) for more information.
+You can use the `--minimum-platform-version`, `--max-message-size`, `--max-transaction-size`, and `--event-horizon` command line parameters to override the default network parameters. See [Command line options](#command-line-options) for more information.
 
 
 ### Overriding network parameters via a file
 
-You can provide a file to override the network parameters using this syntax:
+You can provide a file to override the network parameters using:
 
 `java -jar network-bootstrapper-4.8.jar --network-parameter-overrides=<path_to_file>`
 
@@ -308,11 +308,11 @@ Or the short form version:
 
 `java -jar network-bootstrapper-4.8.jar -n=<path_to_file>`
 
-The network parameter overrides file is a HOCON file with the several configuration fields, all of which are optional. If you don't provide a field, it will be ignored. If a field is not provided and you are bootstrapping a new network, a sensible default value will be used. If a field is not provided and you
+The network parameter overrides file is a HOCON file with several configuration fields, all of which are optional. If you don't provide a field, it will be ignored. If a field is not provided and you are bootstrapping a new network, a sensible default value will be used. If a field is not provided 
 when you are updating an existing network, the value in the existing network parameters file will be used.
 
 {{< note >}}
-All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
+All fields can contain placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
 variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.md#hiding-sensitive-data).
 
 {{< /note >}}
@@ -343,7 +343,7 @@ The available configuration fields are:
 
 
 * **packageName**:
-  Java package name (e.g *com.my_company* ).
+  Java package name (for example, *com.my_company*).
 
 
 * **keystore**:
@@ -389,7 +389,7 @@ operator. A typical approach would be to accept an SSL certificate with the doma
 A Java package namespace is case-insensitive and cannot be a sub-package of an existing registered namespace.
 See Oracle's guidelines for [naming a package](https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html) and [naming conventions](https://www.oracle.com/technetwork/java/javase/documentation/codeconventions-135099.html#28840forguidelinesandconventions).
 
-To register a Java package namespace, you will need a signed certificate generated by the
+To register a Java package namespace, you need a signed certificate generated by the
 [Java keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html).
 
 You can register the package by supplying a network parameters override configuration file via the command line, using the `--network-parameter-overrides` command.
@@ -398,7 +398,7 @@ To register a package, you need to provide the:
 
 
 * **packageName**:
-  Java package name (for example, *com.my_company* ).
+  Java package name (for example, *com.my_company*).
 
 
 * **keystore**:
