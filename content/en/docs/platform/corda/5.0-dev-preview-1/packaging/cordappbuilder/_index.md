@@ -13,69 +13,75 @@ description: >
 
 # CorDapp Builder CLI
 
+CorDapp Builder CLI is a command-line utility that assembles Corda Package Bundles (`.cpb` files) from Corda Packages (`.cpk` files).
+
+{{% note %}}
+In future releases, it will be integrated into the `corda-cli` utility.
+{{% /note %}}
+
 ## Installation
 
-CorDapp Builder CLI is a command line interface utility used to assemble `.cpb` files from `.cpks`. Its functionality is going to be extended and it is going to be also integrated with Corda CLI.
+CorDapp Builder CLI can be installed from source, installed manually, or installed automatically. It can also be run from the source directory without installation.
 
-### From source
+### Source installation
 
-1. Clone the Corda 5 repository using `git clone https://github.com/corda/corda5.git`
-2. Run `./gradlew tools:cordapp-builder:installDist` in root directory of the corda5 repo.
+1. Clone the Corda 5 repository using `git clone https://github.com/corda/corda5.git`.
+2. In the root directory of the `corda5` repo, run `./gradlew tools:cordapp-builder:installDist`.
 3. Add `tools/cordapp-builder/build/install/cordapp-builder/bin` to your path.
 
 ### Manual installation
 
-1. Download the latest package (either `.tar` or `.zip`) from [Artifactory](https://software.r3.com/artifactory/corda-os-maven-stable/net/corda/cordapp-builder/)
+1. Download the latest package (either `.tar` or `.zip`) from [Artifactory](https://software.r3.com/artifactory/corda-os-maven-stable/net/corda/cordapp-builder/).
 2. Extract it.
-3. Add the `bin/` folder to the path.
+3. Add the `bin/` folder to your path.
 
 ### Automatic installation
 
-1. Download the universal installer from [Artifactory](https://software.r3.com/artifactory/corda-os-maven-stable/net/corda/cordapp-builder/%5BRELEASE%5D/cordapp-builder-%5BRELEASE%5D-installer.jar)
-2. Run the command:
+1. Download the universal installer from [Artifactory](https://software.r3.com/artifactory/corda-os-maven-stable/net/corda/cordapp-builder/%5BRELEASE%5D/cordapp-builder-%5BRELEASE%5D-installer.jar).
+2. Run the following command.
     ```bash
     java -jar cordapp-builder-installer-*.jar
     ```
 3. Start a new shell.
-4. Test the program with:
+4. Test the program with the following command.
     ```bash
     cordapp-builder --version
     ```
 
-### To run the tool from the source directory
+### Run the tool from the source directory
 
-To run the tool from the source directory without installing it, run the following command:
+Follow these steps to run the tool from the source directory without installing it.
 
-```bash
-./gradlew tools:cordapp-builder:installDist
-./tools/cordapp-builder/build/install/cordapp-builder/bin/cordapp-builder
-```
+1. Run the following commands.
+    ```bash
+    ./gradlew tools:cordapp-builder:installDist
+    ./tools/cordapp-builder/build/install/cordapp-builder/bin/cordapp-builder
+    ```
 
-Add `./tools/cordapp-builder/build/install/cordapp-builder/bin` to your path or link `./build/install/cordapp-builder/bin/cordapp-builder` to somewhere in your path.
-On Mac OS, for example, you can link the runner (on Windows this is a `.bat` file):
+2. Add `./tools/cordapp-builder/build/install/cordapp-builder/bin` to your path or link `./build/install/cordapp-builder/bin/cordapp-builder` to somewhere in your path.
 
-```bash
-ln -s $(pwd)/build/install/cordapp-builder/bin/cordapp-builder /usr/local/bin/cordapp-builder
-```
+   On Mac OS, for example, you can link the runner (on Windows this is a `.bat` file):
+
+   ```bash
+   ln -s $(pwd)/build/install/cordapp-builder/bin/cordapp-builder /usr/local/bin/cordapp-builder
+    ```
 
 ## Usage
 
 
-### Assemble a `.cpb` file
+### Assemble a Corda Package Bundle (`.cpb` file)
 
-To assemble a `.cpb` file from a set of `.cpk` files use:
+To assemble a `.cpb` file from a set of `.cpk` files use the following command.
 
 ```bash
 cordapp-builder create --cpk file1.cpk --cpk file2.cpk -o result.cpb
 ```
 
-{{< note >}}
+Where:
+* `-o` specifies the output file.
+* `-cpk` specifies a `.cpk` file to include in the bundle. You can use this option as many times as you want in order to specify as many `.cpk` files as you want
 
-You can specify as many `.cpk` files as you want.
-
-{{< /note >}}
-
-If you have a `.cpk` file and all of its `.cpk` dependencies are located in a single folder `cpk-repository`, you can use:
+If you have a `.cpk` file and all of its `.cpk` dependencies are located in a single folder `cpk-repository`, you can use the following command.
 
 ```bash
 cordapp-builder create --cpk cpk-repository/root.cpk -A cpk-repository -o result.cpb
@@ -103,20 +109,50 @@ net.corda.packaging.DependencyResolutionException: Detected two CPKs with the sa
 
 ### Sign the generated `.cpb` file
 
-You can sign the generated `.cpb` file with:
+You can sign the generated `.cpb` file with the following command.
 
 ```bash
 cordapp-builder create --cpk file1.cpk --cpk file2.cpk -k keystore.jks -a key-alias -p KEYSTORE_PASSWORD -P KEY_PASSWORD -o file.cpb
 ```
 
-For for enhanced security, you can also provide an environmental variable or a password file. Instead of typing `KEYSTORE_PASSWORD` and `KEY_PASSWORD` directly, to read secrets from environmental variables `STORE_PASS` and `KEY_PASS`use:
+For for enhanced security, you can also provide an environmental variable or a password file. Instead of typing `KEYSTORE_PASSWORD` and `KEY_PASSWORD` directly, to read secrets from environmental variables `STORE_PASS` and `KEY_PASS`use the following command.
 
 ```bash
 cordapp-builder create --cpk file1.cpk --cpk file2.cpk -k keystore.jks -a key-alias -p:env STORE_PASS -P:env KEY_PASS -o file.cpb
 ```
 
-To read secrets from files `keystore_password_file.txt` and `key_password_file.txt` (the whole file content will be used as a password, included any trailing newline/whitespace), use:
+To read secrets from files `keystore_password_file.txt` and `key_password_file.txt` use the following command.
 
 ```bash
 cordapp-builder create --cpk file1.cpk --cpk file2.cpk -k keystore.jks -a key-alias -p:file keystore_password_file.txt -P:file key_password_file.txt -o file.cpb
 ```
+
+{{% note %}}
+The entire contents of the file will be used as a password, including any trailing newlines or whitespace.
+{{% /note %}}
+
+## Deleting CorDapp Builder CLI
+
+To delete CorDapp Builder CLI tool, perform the following steps:
+
+1. Delete the application's folder.
+
+   {{< note >}}
+
+   If you performed [automatic installation](#automatic-installation), the installation directory is platform specific.
+
+   {{< /note >}}
+
+2. Remove the application's folder from the `PATH`.
+
+   {{< note >}}
+
+   How you remove the entry from the `PATH` depends on which shell you are using. For example:
+
+* For `fish`, delete `$HOME/.config/fish/conf.d/cordapp-builder.fish`.
+* For `bash`, edit`$HOME/.bashrc`.
+* For `zsh`, edit `$HOME/.zshrc`.
+
+   {{< /note >}}
+
+3. **Optional for Unix and Mac OS only**: Remove the symbolic link to the application launcher created in `$HOME/.local/bin/cordapp-builder`.
