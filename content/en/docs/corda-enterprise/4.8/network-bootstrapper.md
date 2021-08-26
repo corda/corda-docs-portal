@@ -12,7 +12,7 @@ tags:
 
 
 # Network Bootstrapper
-You can use the Corda Network Bootstrapper tool to quickly create a group of nodes that can see and communicate with each other. You can use these simple networks for development and testing.
+Corda's Network Bootstrapper tool lets you quickly create a group of nodes that can see and communicate with each other. You can use these simple networks for development and testing.
 
 Each node on the network must:
 * Operate using the same set of constants, called **network parameters**. This guarantees that the nodes can interoperate.
