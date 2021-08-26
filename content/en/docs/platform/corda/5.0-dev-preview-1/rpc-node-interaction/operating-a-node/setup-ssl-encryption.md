@@ -29,7 +29,7 @@ Never run a node that is exposed to the internet without configuring SSL encrypt
 {{< /warning >}}
 
 If you don't configure SSL encryption for your node, its RPC API is vulnerable to attacks inherent to the HTTP protocol,
-even if [authentication](authentication.md) is properly configured. For example, motivated actors with access to
+even if [authentication](authentication/authentication.md) is properly configured. For example, motivated actors with access to
 network traffic will be able to:
 * Obtain legitimate users' credentials (when basic authentication is in place).
 * Impersonate a legitimate user by stealing their authentication tokens (though their actual credentials are not exposed)(when Azure Active Directory is in place).

@@ -1,15 +1,15 @@
 ---
-title: "Configure authentication"
+title: "Configure authentication and authorization"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-rpc-node-interaction-operate-node
-    identifier: corda-5-dev-preview-1-rpc-node-interaction-authentication
+    identifier: corda-5-dev-preview-1-rpc-node-interaction-authentication-authorization
     weight: 500
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Instructions on how to configure authentication for HTTP-RPC.
+  Instructions on how to configure authentication and authorization for HTTP-RPC.
 ---
 
 Most of the endpoints exposed via HTTP-RPC require authentication.
@@ -17,7 +17,7 @@ However, there is one internal endpoint which doesn't, `getProtocolVersion`.
 
 You can test this functionality using Swagger UI (if enabled):
 
-![alt text](swagger-auth.png "Authenticate on Swagger UI")
+![Authenticate on Swagger UI](swagger-auth.png "Authenticate on Swagger UI")
 
 {{< note >}}
 
@@ -25,7 +25,7 @@ Unauthorized responses will return the configured authentication types and their
 
 {{< /note >}}
 
-[Basic authentication](#basic-authentication) and authentication using [Azure Active Directory (AD) single sign-on (SSO)](#azure-ad-sso-setup) are both supported.
+Corda 5 nodes support [Basic authentication](#basic-authentication) and [Azure Active Directory (AD) single sign-on (SSO)](#set-up-azure-ad-sso).
 
 ## Set up basic authentication
 
@@ -33,17 +33,21 @@ You can use authenticated HTTP-RPC endpoints with [basic HTTP authentication](ht
 
 This feature is enabled by default and cannot be disabled.
 
-### Test basic authentication
+### Configure authorization for basic authentication
 
-You can test this functionality using Swagger UI:
+Authorization in Corda 5 uses the same Apache Shiro-based solution that was available in Corda 4. For details on how to configure this, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
 
-![alt text](swagger_basic.png "Basic authentication on SwaggerUI")
+### Test your configuration for basic authentication
 
-## Azure AD SSO setup
+You can test your configuration using Swagger UI:
 
-You can set up your Corda 5 node to use Azure Active Directory (Azure AD) for single sign-on (SSO). Authorized users who can access HTTP-RPC functions on the node can use their Azure AD credentials to stay logged in to any applications that use the HTTP-RPC API.
+![Basic authentication on Swagger UI](swagger_basic.png "Basic authentication on Swagger UI")
 
-You need to configure the Azure AD tenant serving as an identity provider and the node to enable HTTP-RPC endpoints to support Azure AD-based authentication.
+## Set up Azure AD SSO
+
+You can set up your Corda 5 node to use Azure Active Directory (AD) for single sign-on (SSO). Authorized users who can access HTTP-RPC functions on the node can use their Azure AD credentials to stay logged in to any applications that use the HTTP-RPC API.
+
+You need to configure the Azure AD tenant that serves as an identity provider and the node to enable HTTP-RPC endpoints to support Azure AD-based authentication.
 
 This authentication type requires an Azure AD **ID token** or **access token** to be passed with the HTTP-RPC requests as a [Bearer Token](https://datatracker.ietf.org/doc/html/rfc6750). The node verifies the following properties/claims of the token:
 
@@ -53,17 +57,15 @@ This authentication type requires an Azure AD **ID token** or **access token** t
 
 You can test this functionality using Swagger UI. The data flow should look like this:
 
-![Example flow](example_flow.png "Example flow")
+![Example data flow](example_flow.png "Example data flow")
 
-{{< attention >}}
-You can generate tokens using any method that is supported by the Microsoft Identity Platform, as long as it can be verified using the parameters above. This may mean different flows are used than those shown in the diagram above.
-{{< /attention >}}
+{{< note >}}
+You can generate tokens using any method that is supported by the Microsoft Identity Platform, as long as it can be verified using the parameters above. This may mean different flows are used than those shown in the diagram.
+{{< /note >}}
 
-### Configuring Azure
+### Configure Azure
 
-{{< attention >}}
-This describes a basic setup. Configuring a production setup may include further steps, such as for user access management and permission sets (scopes).
-{{< /attention >}}
+This describes a basic setup. Configuring a production setup may include addition steps, such as those for user access management and permission sets (scopes).
 
 To complete the configuration of your node using the [Azure Portal](https://portal.azure.com/):
 
@@ -71,11 +73,11 @@ To complete the configuration of your node using the [Azure Portal](https://port
 
 2. Complete the online form to represent your node:
 
-![Add new app registration](step2.png "Add new app registration")
+![Register a new application](step2.png "Register a new application")
 
 3. Make a note of the "Application (client) ID" and "Directory (tenant) ID". You need these to configure your node.
 
-![Record app details](step3.png "Record app details")
+![Record application details](step3.png "Record application details")
 
 4. Set authentication to ensure only accounts in this directory can use the app:
 
@@ -83,15 +85,15 @@ To complete the configuration of your node using the [Azure Portal](https://port
 
 5. Make the following menu selections: Manage > Authentication, Platform configuration > Add a platform, Configure platforms > Single-page application.
 
-{{< attention >}}
+{{< note >}}
 
-You may need to use different configuration depending on the types of application that need to access the HTTP-RPC. This setup is for testing with the Swagger UI.
+You may need to use different configuration depending on the types of application that need to access the HTTP-RPC. This setup is for testing with Swagger UI.
 
-Applications accessing the HTTP-RPC should use a different app registration and the [On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+Applications accessing the HTTP-RPC should use a different application registration and the [On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
 
 You can register an application without implicit flows. You'll need to create a [**client secret**](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) and include it in the application authenticating. If you're using the Swagger UI, it can be entered there.
 
-{{< /attention >}}
+{{< /note >}}
 
 6. Set the **redirect URI** to `http(s)://<host>:<port>/webjars/swagger-ui/3.44.0/oauth2-redirect.html`, and select implicit grant as `ìd_tokens`.
 
@@ -101,7 +103,7 @@ You can register an application without implicit flows. You'll need to create a 
 
 You have finished configuring Azure.
 
-### Node configuration
+### Configure your node for Azure AD SSO
 
 Azure AD SSO is configured via a top-level object named `httpRpcSettings` in `node.conf`:
 
@@ -123,12 +125,13 @@ Configuration options include:
 
 | Field              | Required? | Value |
 | ---------------- | --------- | ----- |
-| `clientSecret`     | Optional | Autofills the client-secret field on the Swagger UI authentication page when a non-public client flow is configured on Azure. *This field will be exposed on the Swagger UI*. |
+| `clientSecret`     | Optional | Autofills the client-secret field on the Swagger UI authentication page when a non-public client flow is configured on Azure. *This field will be exposed on Swagger UI*. |
 | `principalNameClaims` | Optional | A prioritized list of [**claims**](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims) that the node retrieves from the Azure AD-generated JSON web token (JWT) to then identify the user and fetch their permissions. Defaults to `["upn", "preferred_username", "email", "appid", "azp"]`.|
 
-### Authorization
+### Configure authorization for Azure AD SSO
 
-Permissions are retrieved using the Apache Shiro solution, the same as for basic authentication. This means permissions can be set up in the same way. However, the actual name of the user will be derived from Azure `claims`. For Azure AD SSO authentication, JWT tokens are used to verify a user's identity. Therefore, users listed in the Shiro database should *not* specify a password:
+Permissions are retrieved using the same Apache Shiro-based solution as for [basic authentication](#configure-authorization-for-basic-authentication). Therefore, permissions can be set up in the same way. However, the actual name
+of the user will be derived from Azure `claims`. For Azure AD SSO authentication, **JWT tokens** are used to verify a user's identity. Therefore, users listed in the Shiro database should *not* specify a password:
 
 ```
 "rpcUsers": [
@@ -141,10 +144,14 @@ Permissions are retrieved using the Apache Shiro solution, the same as for basic
 ]
 ```
 
+{{< note >}}
+
 Username matching uses the extracted principal name claim, which can change depending on the type of JWT provided and the `principalNameClaims` configuration item.
 
-### Testing the configuration
+{{< /note >}}
 
-You can test this functionality using the Swagger UI:
+### Test your configuration for Azure AD SSO
 
-![AzureAD authentication on Swagger UI](swagger_azure.PNG "AzureAD authentication on SwaggerUI")
+You can test your setup using the Swagger UI:
+
+![Azure AD authentication on Swagger UI](azure-testing.png "Azure AD authentication on Swagger UI")
