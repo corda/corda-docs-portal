@@ -420,7 +420,7 @@ We've created a sample CorDapp (available in [Java](https://github.com/corda/sam
 1. Check the sample CorDapp out, then follow the [instructions to build it](../../corda-os/4.8/tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
-You can point to any existing bootstrapped Corda network. This will update the associated network parameters file for that network).
+You can point to any existing bootstrapped network on Corda. This will update the associated network parameters file for that network).
 
 {{< /note >}}
 
