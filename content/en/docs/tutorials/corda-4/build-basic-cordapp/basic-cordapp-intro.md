@@ -75,7 +75,3 @@ Follow these tutorials in sequential order to build your CorDapp:
 5. Conduct integration testing
 
 6. Run your CorDapp
-
-7. Debug and test your CorDapp
-
-8. Use the CordaRPCClient to run your CorDapp
