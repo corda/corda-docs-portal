@@ -1,52 +1,45 @@
 ---
-title: "Configure authorization and authentication"
+title: "Configure authentication"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-operate-node
-    identifier: corda-5-dev-preview-1-operate-node-authentication-authorization
+    parent: corda-5-dev-preview-1-rpc-node-interaction-operate-node
+    identifier: corda-5-dev-preview-1-rpc-node-interaction-authentication
     weight: 500
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Instructions on how to configure authentication and authorization for HTTP-RPC.
+  Instructions on how to configure authentication for HTTP-RPC.
 ---
 
-## Authorization
-
-Authorization in Corda 5 uses the same Apache Shiro-based solution that was available in Corda 4. For details on how to configure this, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
-
-## Authentication
-
-Most endpoints exposed via HTTP-RPC require authentication.
-There is one internal endpoint which does not require authentication: `getProtocolVersion`.
+Most of the endpoints exposed via HTTP-RPC require authentication.
+However, there is one internal endpoint which doesn't, `getProtocolVersion`.
 
 You can test this functionality using Swagger UI (if enabled):
 
-![Authenticate on Swagger UI](swagger_auth.PNG "Authenticate on SwaggerUI")
+![alt text](swagger-auth.png "Authenticate on Swagger UI")
 
-{{< attention >}}
+{{< note >}}
 
-Unauthorized responses will return the configured authentication types and their parameters via [WWW-Authenticate](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate) headers.
+Unauthorized responses will return the configured authentication types and their parameters via [WWW-Authenticate](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate) response headers.
 
-{{< /attention >}}
+{{< /note >}}
 
-### Supported authentication types
-Basic authentication.
----
+[Basic authentication](#basic-authentication) and authentication using [Azure Active Directory (AD) single sign-on (SSO)](#azure-ad-sso-setup) are both supported.
 
-As in Corda 4, you can use authenticated HTTP-RPC endpoints with [basic HTTP authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) using the username/password combinations set up for RPC use. To configure user credentials in the `node.conf` file or through the use of an external database, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
+## Set up basic authentication
+
+You can use authenticated HTTP-RPC endpoints with [basic HTTP authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) using the username/password combinations set up for RPC use. To configure user credentials in the `node.conf` file or through the use of an external database, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
 
 This feature is enabled by default and cannot be disabled.
 
-## Testing basic authentication
+### Test basic authentication
 
 You can test this functionality using Swagger UI:
 
-![Basic authentication on Swagger UI](swagger_basic.PNG "Basic authentication on SwaggerUI")
+![alt text](swagger_basic.png "Basic authentication on SwaggerUI")
 
-AzureAD SSO setup.
----
+## Azure AD SSO setup
 
 You can set up your Corda 5 node to use Azure Active Directory (Azure AD) for single sign-on (SSO). Authorized users who can access HTTP-RPC functions on the node can use their Azure AD credentials to stay logged in to any applications that use the HTTP-RPC API.
 
@@ -66,7 +59,7 @@ You can test this functionality using Swagger UI. The data flow should look like
 You can generate tokens using any method that is supported by the Microsoft Identity Platform, as long as it can be verified using the parameters above. This may mean different flows are used than those shown in the diagram above.
 {{< /attention >}}
 
-## Configuring Azure
+### Configuring Azure
 
 {{< attention >}}
 This describes a basic setup. Configuring a production setup may include further steps, such as for user access management and permission sets (scopes).
@@ -108,7 +101,7 @@ You can register an application without implicit flows. You'll need to create a 
 
 You have finished configuring Azure.
 
-## Node configuration
+### Node configuration
 
 Azure AD SSO is configured via a top-level object named `httpRpcSettings` in `node.conf`:
 
@@ -150,7 +143,7 @@ Permissions are retrieved using the Apache Shiro solution, the same as for basic
 
 Username matching uses the extracted principal name claim, which can change depending on the type of JWT provided and the `principalNameClaims` configuration item.
 
-## Testing the configuration
+### Testing the configuration
 
 You can test this functionality using the Swagger UI:
 

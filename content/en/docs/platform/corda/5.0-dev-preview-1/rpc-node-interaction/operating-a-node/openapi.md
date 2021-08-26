@@ -3,8 +3,8 @@ title: "xxxxxxxxxxxxxxxxxxxx"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-operate-node
-    identifier: corda-5-dev-preview-1-operate-node-xxxxxxxxxxxxxxxxxxxxxx
+    parent: corda-5-dev-preview-1-rpc-node-interaction-operate-node
+    identifier: corda-5-dev-preview-1-rpc-node-interaction-xxxxxxxxxxxxxxxxxxxxxx
     weight: 900
 project: corda-5
 section_menu: corda-5-dev-preview
