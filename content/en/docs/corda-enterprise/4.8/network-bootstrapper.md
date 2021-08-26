@@ -15,7 +15,7 @@ tags:
 You can use the Corda Network Bootstrapper tool to quickly create a group of nodes that can see and communicate with each other. You can use these simple networks for development and testing.
 
 Each node on the network must:
-* Operate using the same set of constants, called *network parameters*. This guarantees that the nodes can interoperate.
+* Operate using the same set of constants, called **network parameters**. This guarantees that the nodes can interoperate.
 * Have a copy of the `node-info` file for every other node on the network. This is what makes them visible to each other.
 
 The Network Bootstrapper automates the processes of creating and distributing the network parameters and `node-info` files.
