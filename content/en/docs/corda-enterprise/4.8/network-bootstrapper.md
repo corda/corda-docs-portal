@@ -77,7 +77,7 @@ Alternatively, you can have the node directories containing the `node.conf` file
     └── node.conf
 ```
 
-Similarly, each node directory may contain its own `corda.jar`. In this case, the bootstrapper will use the `corda.jar` file in the node directory.
+It's possible for each node directory to contain its own `corda.jar`. In this case, the bootstrapper will use the `corda.jar` file in the node directory.
 
 
 ## Include CorDapps in a generated node
@@ -124,7 +124,7 @@ net.corda.finance.contracts.asset.Cash
 net.corda.finance.contracts.asset.CommercialPaper
 ```
 
-Refer to [contract constraints](https://docs.corda.net/docs/corda-enterprise/4.8/cordapps/api-contract-constraints.html) to understand the implication of different constraint types before adding `exclude_whitelist.txt` or `include_whitelist.txt` files.
+Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](https://docs.corda.net/docs/corda-enterprise/4.8/cordapps/api-contract-constraints.html) to understand different constraint types.
 
 
 
@@ -155,8 +155,9 @@ so the nodes can share `node-info`.
 
 You can add a new node and distribute its `node-info` to the existing nodes on the network by running the network bootstrapper twice.
 
-In this example, you have an existing bootstrapped network. It consists of a notary and Party A, and you'd like to add a Party B. You
-can use the network bootstrapper on the following network structure:
+In this example, you have an existing bootstrapped network. It consists of a notary and Party A, and you'd like to add a Party B.
+
+First, run the network boostrapper as usual. Your network structure will look like this:
 
 ```none
 .
@@ -177,11 +178,11 @@ can use the network bootstrapper on the following network structure:
 └── partyb_node.conf            // the node.conf for the node to be added
 ```
 
-Then run the network bootstrapper again from the root directory:
+Then, run the network bootstrapper again from the root directory:
 
 `java -jar network-bootstrapper-4.8.jar --dir <nodes-root-dir>`
 
-This produces this result:
+You will produce this result:
 
 ```none
 .
@@ -412,25 +413,26 @@ To register a package, you need to provide the:
 * **keystoreAlias**:
   The alias for the name associated with the certificate to be associated with the package namespace.
 
+### Register a namespace with a sample CorDapp
 
+We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/master/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
 
-You can use this sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/master/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/cordapp-example)) as an example. The sample walks you through initializing a simple network and registering and unregistering a package namespace.
-Check the sample CorDapp out, then follow the [instructions to build it](../../corda-os/4.8/tutorial-cordapp.html#building-the-example-cordapp).
+1. Check the sample CorDapp out, then follow the [instructions to build it](../../corda-os/4.8/tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
 You can point to any existing bootstrapped Corda network. This will update the associated network parameters file for that network).
 
 {{< /note >}}
 
-Create a new public key to use for signing the Java package namespace we wish to register:
+2. Create a new public key. You will use this to sign the Java package namespace you want to register:
 ```shell
 $JAVA_HOME/bin/keytool -genkeypair -keystore _teststore -storepass MyStorePassword -keyalg RSA -alias MyKeyAlias -keypass MyKeyPassword -dname "O=Alice Corp, L=Madrid, C=ES"
 ```
 
 
-This will generate a key store file called `_teststore` in the current directory.
+This generates a keystore file called `_teststore` in the current directory.
 
-* Create a `network-parameters.conf` file in the same directory, with the following information:
+3. Create a `network-parameters.conf` file in the same directory. Include this information:
 ```kotlin
 packageOwnership=[
     {
@@ -445,7 +447,7 @@ packageOwnership=[
 
 
 
-* Register the package namespace to be claimed by the public key generated above:
+4. Register the package namespace to be claimed by the public key generated earlier:
 ```shell
 # Register the Java package namespace using the Network Bootstrapper
 java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
@@ -454,7 +456,7 @@ java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrid
 
 
 
-* To unregister the package namespace, edit the `network-parameters.conf` file to remove the package:
+5. To unregister the package namespace, edit the `network-parameters.conf` file to remove the package:
 ```kotlin
 packageOwnership=[]
 ```
@@ -462,7 +464,7 @@ packageOwnership=[]
 
 
 
-* Unregister the package namespace:
+6. Unregister the package namespace:
 ```shell
 # Unregister the Java package namespace using the Network Bootstrapper
 java -jar network-bootstrapper.jar --dir build/nodes --network-parameter-overrides=network-parameters.conf
