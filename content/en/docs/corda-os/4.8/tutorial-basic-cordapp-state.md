@@ -11,7 +11,7 @@ tags:
 title: Write the states
 ---
 
-This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`. You will be creating these states in the `contracts/src/main/java/com/template/states/` directory in this tutorial. Refer to the `TemplateState.java` file in this directory for guidance.
+This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`. You will be creating these states in the `contracts/src/main/java/com/applestamp/states/` directory in this tutorial. Refer to the `TemplateState.java` file in this directory for guidance.
 
 ## Learning objectives
 
@@ -66,6 +66,8 @@ As you did in [Writing a CorDapp using a template](writing-a-cordapp-using-a-tem
 
    If you are unsure of how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](tutorial-cordapp.html##opening-the-sample-cordapp-in-intellij-idea).
 
+4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `applestamp`. This will change all instances of `template` in the project to `applestamp`
+
 ## Create the `AppleStamp` state
 
 First create the `AppleStamp` state. This state is the voucher issued to customers.
@@ -78,7 +80,7 @@ First create the `AppleStamp` state. This state is the voucher issued to custome
 
 The first thing you should do when writing a state is add the `@BelongsToContract` annotation. This annotation establishes the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
 
-1. If you've copied in the template state, remove any pre-existing annotations in the template.
+1. If you've copied in the template state, change the `TemplateContract.class` to `AppleStampContract.class`.
 
 2. Add the annotation `@BelongsToContract(AppleStampContract.class)` to your state.
 
@@ -88,13 +90,17 @@ This what your code should look like so far:
 @BelongsToContract(AppleStampContract.class)
 ```
 
-When naming states, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
+{{< note >}}
+Adding this annotation will trigger an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract](XXX) tutorial.
+{{< /note >}}
+
+When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
 
 {{< note >}}
 You've probably noticed that the state template includes imports at the top of the file. Don't worry, we'll get back to these in a little while.
 {{< /note >}}
 
-### Implement the contract state
+### Implement the state
 
 The next line of code you add defines the type of [`ContractState`](api-states.html#contractstate) you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
 
@@ -175,6 +181,10 @@ If you're using IntelliJ, you can generate the constructor with a shortcut.
 3. Select all the constructors that appear and click **OK**.
 
 4. Add the following annotation before the constructor to ensure that all variables appear: `@ConstructorForDeserialization`
+
+    This annotation:
+    * Indicates which constructor will be used for serialization when there are multiple constructors in a state class.
+    * Is usually annotated at the constructor that has the most parameters fields.
 
 {{< note >}}
 When building a CorDapp, your constructor parameters must have the same name as the private variables you declared earlier.
@@ -367,6 +377,10 @@ Private variables:
 * `farm` - The origin of the apples. Use type `Party`.
 * `owner` - The person exchanging the basket of apples for the voucher (Farmer Bob). Use type `Party`.
 * `weight` - The weight of the basket of apples. Use type `int`.
+
+Keep in mind that the `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`. The `Farm` party will then fill both the `owner` and `farm` fields of the transaction, so the constructor could be compacted and carry less parameters: `public BasketOfApple(String description, Party farm, int weight) {}`
+
+However, when you have multiple constructors in one state class (in Java only), you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. In the constructor we just mentioned (`public BasketOfApple(String description, Party farm, int weight) {}`), there is no `owner` field. So you will need to create another constructor that has all fields and annotate this constructor with `@ConstructorForDeserialization`. 
 
 ### Check your work
 
