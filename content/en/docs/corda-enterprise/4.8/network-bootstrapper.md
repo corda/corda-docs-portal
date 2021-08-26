@@ -495,7 +495,7 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
   `FirstRunOnly`, `Yes`, `No`. Default: `FirstRunOnly`.
 * `--verbose`, `--log-to-console`, `-v`: If set, this prints logging to the console and to a file.
 * `--logging-level=<loggingLevel>`: Enables logging at this level and higher. Possible values: `ERROR`, `WARN`, `INFO`, `DEBUG`, and `TRACE`. Default: `INFO`.
-* `--help`, `-h`: Shows this help message and exit.
+* `--help`, `-h`: Shows the list of available commands, and the exit option.
 * `--version`, `-V`: Prints version information and exit.
 * `--minimum-platform-version`: The minimum platform version to use in the `network-parameters`.
 * `--max-message-size`: The maximum message size to use in the `network-parameters`, in bytes.
@@ -507,4 +507,4 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
 
 ### Sub-commands
 
-`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See cli-application-shell-extensions for more info.
+`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications](https://docs.corda.net/docs/corda-os/4.8/cli-application-shell-extensions.html#shell-extensions-for-cli-applications).
