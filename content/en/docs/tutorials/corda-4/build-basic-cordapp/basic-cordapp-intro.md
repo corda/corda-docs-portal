@@ -64,7 +64,7 @@ Follow these tutorials in sequential order to build your CorDapp:
 
 1. [Write the states](basic-cordapp-state.md)
 
-2. Write the contracts
+2. [Write the contracts](basic-cordapp-contract.md)
 
   1. Build transactions
 
