@@ -47,7 +47,7 @@ Configuration options available in the `httpRpcSettings` object:
 | `address` | Required  | The endpoint the node is listening to (`host:port` format). This is a local setting, so if you're using a hostname rather than `localhost` or `0.0.0.0`, you need to make sure the hostname resolves to the host the node is running on). The API will be available at `http[s]://{address}/api/v1/` |
 | `context` | Required  | See [API configuration](#api-configuration). |
 | `ssl`     | Required (unless node is in developer mode)  | See [SSL configuration](#ssl-configuration). |
-| `sso`     | Optional | See [single sign-on (SSO) configuration](authentication/authentication.md#azure-ad-sso-setup). |
+| `sso`     | Optional | See [single sign-on (SSO) configuration](authentication/authentication.md#set-up-azure-ad-sso). |
 | `maxContentLength`     | Optional | The maximum content length accepted for POST requests (in bytes). The default value is 1 MiB.|
 
 ### API configuration

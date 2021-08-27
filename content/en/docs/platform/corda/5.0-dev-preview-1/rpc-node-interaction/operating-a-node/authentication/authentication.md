@@ -1,10 +1,10 @@
 ---
-title: "Configure authentication and authorization"
+title: "Configure authentication"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-rpc-node-interaction-operate-node
-    identifier: corda-5-dev-preview-1-rpc-node-interaction-authentication-authorization
+    identifier: corda-5-dev-preview-1-rpc-node-interaction-authentication
     weight: 500
 project: corda-5
 section_menu: corda-5-dev-preview
@@ -25,7 +25,7 @@ Unauthorized responses will return the configured authentication types and their
 
 {{< /note >}}
 
-Corda 5 nodes support [Basic authentication](#basic-authentication) and [Azure Active Directory (AD) single sign-on (SSO)](#set-up-azure-ad-sso).
+Corda 5 nodes support [Basic authentication](#set-up-basic-authentication) and [Azure Active Directory (AD) single sign-on (SSO)](#set-up-azure-ad-sso).
 
 ## Set up basic authentication
 
@@ -125,7 +125,7 @@ Configuration options include:
 
 | Field              | Required? | Value |
 | ---------------- | --------- | ----- |
-| `clientSecret`     | Optional | Autofills the client-secret field on the Swagger UI authentication page when a non-public client flow is configured on Azure. *This field will be exposed on Swagger UI*. |
+| `clientSecret`     | Optional | Auto fills the client-secret field on the Swagger UI authentication page when a non-public client flow is configured on Azure. *This field will be exposed on Swagger UI*. |
 | `principalNameClaims` | Optional | A prioritized list of [**claims**](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims) that the node retrieves from the Azure AD-generated JSON web token (JWT) to then identify the user and fetch their permissions. Defaults to `["upn", "preferred_username", "email", "appid", "azp"]`.|
 
 ### Configure authorization for Azure AD SSO
