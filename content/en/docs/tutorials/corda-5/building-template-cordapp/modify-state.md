@@ -21,4 +21,28 @@ Before you start modifying the template state, familiarize yourself with:
 
 <!-- In some places I'm adding full links to 4.8 docs. These must be replaced with relative links before release, but I wanted to note the pages for now.  -->
 
-## Define the 
+## Define the `ProbeState`
+
+<!-- Explain in small chunks, with code snippets in each section, how to define the state. I'm following the general steps from 4.8, but this may be different in C5/for this CorDapp. -->
+
+### Add annotations
+
+`@BelongsToContract(ProbeContract::class)`
+
+### Implement the state
+
+### Add private variables
+
+### Add required variables and parameters
+
+### Add the constructor
+
+### Add getters
+
+### Add imports
+
+## Outcome
+
+
+
+## Next steps
