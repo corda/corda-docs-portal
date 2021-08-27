@@ -106,7 +106,7 @@ The next line of code you add defines the type of [`ContractState`](api-states.h
 
 In this case, use a `LinearState` to tie the `AppleStamp` to a `LinearID`.
 
-1. Add the public class `AppleStamp` implementing a `LinearState`.
+Add the public class `AppleStamp` implementing a `LinearState`.
 
 This is what your code should look like now:
 
@@ -114,6 +114,7 @@ This is what your code should look like now:
 @BelongsToContract(AppleStampContract.class)
 public class AppleStamp implements LinearState {
 ```
+}
 
 ### Add private variables
 
@@ -380,7 +381,7 @@ Private variables:
 
 Keep in mind that the `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`. The `Farm` party will then fill both the `owner` and `farm` fields of the transaction, so the constructor could be compacted and carry less parameters: `public BasketOfApple(String description, Party farm, int weight) {}`
 
-However, when you have multiple constructors in one state class (in Java only), you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. In the constructor we just mentioned (`public BasketOfApple(String description, Party farm, int weight) {}`), there is no `owner` field. So you will need to create another constructor that has all fields and annotate this constructor with `@ConstructorForDeserialization`. 
+However, when you have multiple constructors in one state class (in Java only), you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. In the constructor we just mentioned (`public BasketOfApple(String description, Party farm, int weight) {}`), there is no `owner` field. So you will need to create another constructor that has all fields and annotate this constructor with `@ConstructorForDeserialization`.
 
 ### Check your work
 
