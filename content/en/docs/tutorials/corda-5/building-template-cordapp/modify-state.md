@@ -9,3 +9,16 @@ menu:
     identifier: corda-5-template-cordapp-modify-state
 title: Modify the state
 ---
+
+In Corda, facts on the blockchain are represented as states. States are instances of classes that implement [`ContractState`](https://docs.corda.net/docs/corda-os/4.8/api-states.html#contractstate).  This tutorial shows you how to modify the template state to define a new state type that records probes being sent between two parties.
+
+## Before you start
+
+Before you start modifying the template state, familiarize yourself with:
+
+* [Key concepts: States](XXX)
+* [API: States](https://docs.corda.net/docs/corda-os/4.8/api-states.html#contractstate)
+
+<!-- In some places I'm adding full links to 4.8 docs. These must be replaced with relative links before release, but I wanted to note the pages for now.  -->
+
+## Define the 
