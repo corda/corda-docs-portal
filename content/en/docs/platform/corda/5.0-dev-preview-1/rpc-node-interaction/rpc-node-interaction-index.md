@@ -9,4 +9,4 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-For instructions on how to interact with nodes using HTTP-RPC, see the guide on [operating a node](operating-a-node).
+

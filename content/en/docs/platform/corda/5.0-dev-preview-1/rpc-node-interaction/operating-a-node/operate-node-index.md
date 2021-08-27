@@ -10,5 +10,5 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-This section shows you how to configure and operate a node using HTTP-RPC.
+
 
