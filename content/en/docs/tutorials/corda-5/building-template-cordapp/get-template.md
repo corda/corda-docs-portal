@@ -18,7 +18,7 @@ Anytime you want to create a new CorDapp, it's helpful to start from one of R3's
 The template is your boilerplate for developing new CorDapps. You can write a CorDapp in any language targeting the JVM. Templates and sample code snippets are provided in Kotlin and Java.
 
 {{< note >}}
-You do not have to install Corda Open Source. The required Corda 5 Developer Preview libraries are automatically downloaded from  an online Maven repository and cached locally.
+You do not have to install Corda. The required Corda 5 Developer Preview libraries are automatically downloaded from  an online Maven repository and cached locally.
 {{< /note >}}
 
 <!-- The details for how Corda 5 dev preview is included in the template repo need to be confirmed with Product and SMEs. -->
@@ -67,6 +67,6 @@ cd cordapp-template-java
 
 5. [Open the CorDapp in IntelliJ IDEA](../run-demo-cordapp.md#open-the-sample-cordapp-in-intellij-idea).
 
-## Progress so far
+## Next steps
 
 You've now cloned the template project that you will build upon to define your CorDapp. Continue on this learning path by [defining the state](modify-state.md).

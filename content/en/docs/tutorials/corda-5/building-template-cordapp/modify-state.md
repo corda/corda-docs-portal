@@ -10,7 +10,9 @@ menu:
 title: Modify the state
 ---
 
-In Corda, facts on the blockchain are represented as states. States are instances of classes that implement [`ContractState`](https://docs.corda.net/docs/corda-os/4.8/api-states.html#contractstate).  This tutorial shows you how to modify the template state to define a new state type that records probes being sent between two parties.
+In Corda, facts on the blockchain are represented as states. States are instances of classes that implement [`ContractState`](https://docs.corda.net/docs/corda-os/4.8/api-states.html#contractstate).  
+
+This tutorial shows you how to modify the template state to define a new state type that records probes being sent between two parties.
 
 ## Before you start
 
@@ -23,7 +25,7 @@ Before you start modifying the template state, familiarize yourself with:
 
 ## Define the `ProbeState`
 
-<!-- Explain in small chunks, with code snippets in each section, how to define the state. I'm following the general steps from 4.8, but this may be different in C5/for this CorDapp. -->
+<!-- Explain in small chunks, with code snippets in each section, how to define the state. I'm following the general steps from 4.8, but I don't think all of these things are present in the `ProbeState`. -->
 
 ### Add annotations
 
@@ -43,6 +45,10 @@ Before you start modifying the template state, familiarize yourself with:
 
 ## Outcome
 
+You have now created the `ProbeState`. Your code should look something like this:
 
+<!-- Insert code sample.-->
 
 ## Next steps
+
+Follow the [Modify the contract](modify-contract.md) tutorial to continue on this learning path.

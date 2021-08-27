@@ -30,7 +30,6 @@ If you've previously built CorDapps on Corda 4, there are a few differences you 
 * [Flow interface](XXX) - The flow interface changes the way you call flows in your CorDapp.
 * Flexibility building the client - You can create your client in any language you like. You are no longer limited to creating the client in a language targeting the JVM. We've also removed dependencies on Corda libraries.
 * Corda Services - You now use the `@CordaInject` annotation to add any Corda Service to your CorDapp. This replaces everything that was in `FlowLogic`, `ServiceHub`, and all custom Corda Services.
-* `@Suspendable` annotation - This is now an annotation defined in Corda. You don't need to include Quasar in your `build.gradle` file anymore as it's no longer a dependency.
 * RPCClient - RPC is now HTTP and JSON-based. You must pass JSON parameters and return types must be JSON representables if you want them to be returned over RPC.
 * [Corda package files](XXX) and [Corda package bundles](XXX) (`.cpk` and `.cpb`) - Corda package files are the standard way to distribute CorDapps for Corda 5 Developer Preview. Corda package bundles are composed of multiple Corda package files. They bundled in preparation for deployment.
 
@@ -76,11 +75,7 @@ This flow lets two celestial bodies (the `launcher` and the `target`) send a mes
 
 ### `ProbeContract`
 
-`ProbeContract` is a basic smart contract you will implement in the CorDapp. It enforces rules regarding the the creation of a valid `ProbeState`. For a new `ProbeState` to be issued onto the ledger, a transaction with the following details is required:
-
-* No input states
-* 1 output state - the new `ProbeState`
-* A `Create()` command with the public keys of both parties
+`ProbeContract` is a basic smart contract you will implement in the CorDapp. It enforces rules regarding the the creation of a valid `ProbeState`.
 
 The `ProbeState` contract checks that:
 
