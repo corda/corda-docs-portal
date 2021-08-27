@@ -1,5 +1,5 @@
 ---
-title: "Interact"
+title: "Using Corda Node CLI and curl"
 date: '2021-08-26'
 menu:
   corda-5-dev-preview:
@@ -144,7 +144,7 @@ To delete the Corda Node CLI tool, simply delete the application's folder at its
 
 ## Invoke HTTP-RPC using `curl`
 
-You can invoke any method inside a [@HttpRpcResource](../../developer/exposing-rpcops-functionality/annotations#httprpcresource) annotated interface if the method itself is also annotated with [@HttpRpcGET](../../developer/exposing-rpcops-functionality/annotations#httprpcget) or [@HttpRpcPOST](../../developer/exposing-rpcops-functionality/annotations#httprpcpost).
+You can invoke any method inside a [@HttpRpcResource](../../developer/exposing-rpcops-functionality/annotations#httprpcresource) annotated interface if the method itself is also annotated with [@HttpRpcGET](xxxx../../developer/exposing-rpcops-functionality/annotations#httprpcget) or [@HttpRpcPOST](xxxxxx../../developer/exposing-rpcops-functionality/annotations#httprpcpost).
 
 If you haven't specified the `path` in the annotation, the generated URL will contain the name of the interface and the name of the method (converted to lowercase).
 You can override this by providing a value for the `path` parameter in the annotation.

@@ -1,5 +1,5 @@
 ---
-title: "Set up SSL encryption"
+title: "Setting up SSL encryption"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:

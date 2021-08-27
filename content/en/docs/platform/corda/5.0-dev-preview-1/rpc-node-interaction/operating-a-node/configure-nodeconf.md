@@ -1,5 +1,5 @@
 ---
-title: "Configure node.conf"
+title: "Configuring node.conf"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:
@@ -57,7 +57,6 @@ Configuration options available in the `httpRpcSettings` object:
 | `title`       | Required  | Name of the exposed API. |
 | `description` | Required  | Human-friendly description of the API.|
 
-<!---TODO FURTHER INFO, SEE API CONFIG PAGE?--->
 
 ### SSL configuration
 

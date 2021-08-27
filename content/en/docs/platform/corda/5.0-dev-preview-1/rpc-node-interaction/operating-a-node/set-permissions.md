@@ -1,5 +1,5 @@
 ---
-title: "Configure user permissions"
+title: "Managing user permissions"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:
@@ -18,9 +18,9 @@ Corda 5 uses [Apache Shiro](https://shiro.apache.org/) libraries and databases t
 When expressing grants for users, you can still use extended syntax for individual users, as described in Corda 4's guide on
 [defining RPC users and permissions](https://docs.corda.net/docs/corda-enterprise/4.8/node/operating/clientrpc.html#defining-rpc-users-and-permissions-1).
 
-## Expressing permissions in case of single sign-on (SSO) authentication
+## Express permissions in case of SSO authentication
 
-For username/password authentication for SSO, the password is no longer known and should not be
+For username/password authentication for single sign-on (SSO), the password is no longer known and should not be
 included in the `node.conf` file or Shiro database.
 
 SSO permissions for a user are specified using an email address that is associated with an SSO-authenticated user.

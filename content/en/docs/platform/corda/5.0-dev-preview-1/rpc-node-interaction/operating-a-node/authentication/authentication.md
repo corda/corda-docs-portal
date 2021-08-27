@@ -1,5 +1,5 @@
 ---
-title: "Configure authentication"
+title: "Configuring authentication"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:
@@ -33,11 +33,11 @@ You can use authenticated HTTP-RPC endpoints with [basic HTTP authentication](ht
 
 This feature is enabled by default and cannot be disabled.
 
-### Configure authorization for basic authentication
+### Configure authorization
 
 Authorization in Corda 5 uses the same Apache Shiro-based solution that was available in Corda 4. For details on how to configure this, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
 
-### Test your configuration for basic authentication
+### Test your configuration
 
 You can test your configuration using Swagger UI:
 
@@ -103,7 +103,7 @@ You can register an application without implicit flows. You'll need to create a 
 
 You have finished configuring Azure.
 
-### Configure your node for Azure AD SSO
+### Configure your node
 
 Azure AD SSO is configured via a top-level object named `httpRpcSettings` in `node.conf`:
 
@@ -128,7 +128,7 @@ Configuration options include:
 | `clientSecret`     | Optional | Auto fills the client-secret field on the Swagger UI authentication page when a non-public client flow is configured on Azure. *This field will be exposed on Swagger UI*. |
 | `principalNameClaims` | Optional | A prioritized list of [**claims**](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims) that the node retrieves from the Azure AD-generated JSON web token (JWT) to then identify the user and fetch their permissions. Defaults to `["upn", "preferred_username", "email", "appid", "azp"]`.|
 
-### Configure authorization for Azure AD SSO
+### Configure authorization
 
 Permissions are retrieved using the same Apache Shiro-based solution as for [basic authentication](#configure-authorization-for-basic-authentication). Therefore, permissions can be set up in the same way. However, the actual name
 of the user will be derived from Azure `claims`. For Azure AD SSO authentication, **JWT tokens** are used to verify a user's identity. Therefore, users listed in the Shiro database should *not* specify a password:
@@ -150,7 +150,7 @@ Username matching uses the extracted principal name claim, which can change depe
 
 {{< /note >}}
 
-### Test your configuration for Azure AD SSO
+### Test your configuration
 
 You can test your setup using the Swagger UI:
 
