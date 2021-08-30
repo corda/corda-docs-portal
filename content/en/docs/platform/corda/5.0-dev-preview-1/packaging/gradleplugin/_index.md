@@ -1,5 +1,5 @@
 ---
-title: "CorDapp CPK Gradle plugin"
+title: "CorDapp CPK and CPB Gradle plugins"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-packaging
@@ -8,11 +8,12 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Documentation for the CordDapp CPK Gradle plugin
+  Documentation for the CordDapp CPK and Cordap CPD Gradle plugins
 ---
 
-# CorDapp CPK Gradle plugin
+# CorDapp Gradle plugins
 
+## CorDapp CPK Gradle plugin
 
 Applying the CorDapp CPK Gradle plugin to a Gradle project declares that the project should create a Corda package file (a `.cpk` file).
 
@@ -32,7 +33,7 @@ Corda package files are the Corda 5 equivalent of Corda 4's "semi-fat" CorDapp `
 If your project requires access to private artifacts, always use tokens in preference to passwords, whenever your credentials need to be stored in the clear. Never store or write down your password. For more information, see [Add Artifactory credentials locally to your build](/library/developer-tips/add-artifactory-cred-local/).
 {{% /note %}}
 
-## Apply the plugin
+### Apply the plugin
 
 Follow these steps to apply the plugin to your Gradle project.
 
@@ -55,9 +56,14 @@ Follow these steps to apply the plugin to your Gradle project.
             }
         }
 
-    {{% note %}}
-The beta release URL is https://software.r3.com/artifactory/corda-dev. The dev preview artifacts will be available from a different URL.
-    {{% /note %}}
+    Where `cpkPluginVersion` and `cordaReleaseVersion` are both Gradle properties, for example:
+
+    ```gradle
+    cpkPluginVersion = '6.0.0'
+    cordaReleaseVersion = '5.0.0'
+    ```
+
+    The beta release URL is https://software.r3.com/artifactory/corda-dev. The dev preview artifacts will be available from a different URL.
 
 2. Make sure the `build.gradle` file for the root project applies the `cordapp-configuration` plugin.
 
@@ -71,16 +77,14 @@ The beta release URL is https://software.r3.com/artifactory/corda-dev. The dev p
             id 'net.corda.plugins.cordapp-cpk'
         }
 
-    {{% note %}}
-If you just have a single project that builds a `.cpk` file, then you will only have one `build.gradle` file, and the lines from these two steps should be combined.
+    If you just have a single project that builds a `.cpk` file, then you will only have one `build.gradle` file, and the lines from these two steps should be combined.
 
-````
-plugins {
-    id 'net.corda.cordapp.cordapp-configuration'
-    id 'net.corda.plugins.cordapp-cpk'
-}
-````
-    {{% /note %}}  
+    ````
+    plugins {
+        id 'net.corda.cordapp.cordapp-configuration'
+        id 'net.corda.plugins.cordapp-cpk'
+    }
+    ````
 
 4. Add a `cordapp` block to the sub-project's `build.gradle`. For example,
 
@@ -96,7 +100,7 @@ plugins {
 
     The CorDapp block is [described below](#the-cordapp-block). For an example, see the [DSL section](https://github.com/corda/corda-gradle-plugins/tree/master/cordapp-cpk#dsl) of the [`cordapp-cpk` README](https://github.com/corda/corda-gradle-plugins/tree/master/cordapp-cpk).
 
-### The `cordapp` block
+#### The `cordapp` block
 
 The `cordapp` block _must_ contain a `targetPlatformVersion` field, and either a `workflow` or `contract` block. It may also contain a `signing` block as well as `minimumPlatformVersion`, `sealing`, and `hashAlgorithm` fields.
 
@@ -123,7 +127,7 @@ You can also configure a signing key by setting these Java system properties on 
 * `signing.sigfile`
 
 
-#### The `workflow` and `contract` blocks
+##### The `workflow` and `contract` blocks
 
 The `workflow` and `contract` blocks should contain the following fields.
 
@@ -173,15 +177,48 @@ The `options` block contains the following fields, which mirror Ant's `signJar` 
 * `digestAlgorithm`
 * `tsaDigestAlgorithm`
 
-### Tuning the OSGi Metadata
-
-In most circumstances, the `cordapp-cpk` plugin correctly generates the OSGi metadata. However, the `cordapp-cpk` plugin also extends Gradle's `jar` task with an `osgi` block. This can be used to tune the OSGi metadata. For more information, see [Tuning OSGi metadata](tuningosgimetadata.md)
-
-## Generate the CPK file
+### Generate the package file
 
 To generate the `.cpk` file, run `./gradlew build`. The `.cpk` file will be generated alongside the `.jar` file.
 
-## Further reading
-* [The Proposed Packaging Model](/engineering-central/teams/architecture/cordapp-packaging-and-isolation/#the-proposed-packaging-model)
-* [Cordapp CPK Gradle Plugin Readme](https://github.com/corda/corda-gradle-plugins/tree/master/cordapp-cpk)
-* [Corda CPK Metadata Format](https://github.com/corda/platform-eng-design/blob/996d0e31a9991b509b41db29f528fac208b91ba8/core/corda-5/corda-5.0/cpk/cpk-metadata-format.md)
+## Tuning the OSGi Metadata
+
+In most circumstances, the `cordapp-cpk` plugin correctly generates the OSGi metadata. However, the `cordapp-cpk` plugin also extends Gradle's `jar` task with an `osgi` block. This can be used to tune the OSGi metadata. For more information, see [Tuning OSGi metadata](gradleplugin/tuningosgimetadata.md).
+
+## CorDapp CPB Gradle plugin
+
+Applying the CorDapp CPB Gradle plugin to a Gradle project declares that the project should create a Corda package bundle (a `.cpb` file).
+
+The point of the CPB is to contain all of the CPKs that are expected to be deployed together as a single application. So in a typical example, you would apply `net.corda.plugins.cordapp-cpk` for the contract CPK project, and `net.corda.plugins.cordapp-cpb` in the workflows CPK project. The CPB file would then contain both your contracts and your workflows CPKs.
+
+### Apply the plugin
+
+The CorDapp CPB Gralde plugin automatically applies the CorDapp CPK plugin, so before appling the CPB plugin, you should make sure the CPK plugin is configured as described above.
+
+1. In `settings.gradle` for the root Gradle project, make sure the `cordapp-cpb` plugin is declared.
+
+        pluginManagement {
+            plugins {
+                // Other plugins will also be declared here
+                id 'net.corda.plugins.cordapp-cpb' version gradlePluginsVersion
+            }
+        }
+
+2. Add the following lines to the top of the sub-project's `build.gradle` file.
+
+        plugins {
+            id 'net.corda.plugins.cordapp-cpb'
+        }
+
+The plugin will normally determine all of the CorDapp's transient CPK dependencies, although it is the your responsibility to ensure that this set is complete. See XXX for details of how to inspect the contents of the bundle.  
+
+Any extra package references can be added to the bundle using the `cpb` Gradle configuration. For example:
+
+        dependencies {
+            cpb "com.example.foo:some-cpk:1.0.0"
+            cpb "com.example.bar:other-cpk:2.0.0"
+        }
+
+### Generate the package file
+
+To generate the `.cpb` file, run `./gradlew build`. The `.cpk` file will be generated in the normal Gradle output directory.

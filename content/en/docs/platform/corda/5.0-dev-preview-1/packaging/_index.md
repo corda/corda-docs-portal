@@ -28,6 +28,9 @@ A Corda Package Bundle (`.cpb` file) contain `.cpk` files, plus a `MANIFEST.MF` 
 
 They can be created with the CorDapp Builder CLI tool or with the XXX[CorDapp CPB gradle plugin](packaging/gradleplugin.html).
 
+The point of the CPB is to contain all of the CPKs that are expected to be deployed together as a single application. So in a typical example, you would apply `net.corda.plugins.cordapp-cpk` for the contract CPK project, and `net.corda.plugins.cordapp-cpb` in the workflows CPK project. The CPB file would then contain both your contracts and your workflows CPKs.
+
+
 ## Inspecting package files
 
 You can use the `package` command in the `corda-cli` command-line utility to inspect the contents of Corda package files. For more information, see XXX.
