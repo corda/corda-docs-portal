@@ -21,13 +21,7 @@ In future releases, it will be integrated into the `corda-cli` utility.
 
 ## Installation
 
-CorDapp Builder CLI can be installed from source, installed manually, or installed automatically. It can also be run from the source directory without installation.
-
-### Source installation
-
-1. Clone the Corda 5 repository using `git clone https://github.com/corda/corda5.git`.
-2. In the root directory of the `corda5` repo, run `./gradlew tools:cordapp-builder:installDist`.
-3. Add `tools/cordapp-builder/build/install/cordapp-builder/bin` to your path.
+CorDapp Builder CLI can be installed installed manually, or installed automatically.
 
 ### Manual installation
 
@@ -48,26 +42,7 @@ CorDapp Builder CLI can be installed from source, installed manually, or install
     cordapp-builder --version
     ```
 
-### Run the tool from the source directory
-
-Follow these steps to run the tool from the source directory without installing it.
-
-1. Run the following commands.
-    ```bash
-    ./gradlew tools:cordapp-builder:installDist
-    ./tools/cordapp-builder/build/install/cordapp-builder/bin/cordapp-builder
-    ```
-
-2. Add `./tools/cordapp-builder/build/install/cordapp-builder/bin` to your path or link `./build/install/cordapp-builder/bin/cordapp-builder` to somewhere in your path.
-
-   On Mac OS, for example, you can link the runner (on Windows this is a `.bat` file):
-
-   ```bash
-   ln -s $(pwd)/build/install/cordapp-builder/bin/cordapp-builder /usr/local/bin/cordapp-builder
-    ```
-
 ## Usage
-
 
 ### Assemble a Corda Package Bundle (`.cpb` file)
 
