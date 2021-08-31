@@ -9,14 +9,12 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Instructions on how to configure a node to use SSL encryption for HTTP-RPC.
+  Instructions on how to set up SSL encryption for HTTP-RPC.
 ---
 
-{{< note >}}
-
-Before configuring a production environment, you should consult your organization's security division.
-
-{{< /note >}}
+This guide explains how to set up SSL encryption for HTTP-RPC by:
+1. [Obtaining an SSL certificate](#obtain-an-ssl-certificate).
+2. [Adding SSL configuration to `node.conf`](#add-ssl-configuration-to-nodeconf).
 
 Corda's HTTP-RPC API supports HTTP and HTTPS. Use HTTPS wherever possible as it's more secure—the connection between the
 server and client is encrypted using Transport Layer Security (TLS). An exception to this may be in a dev environment where
@@ -28,7 +26,7 @@ Never run a node that is exposed to the internet without configuring SSL encrypt
 
 {{< /warning >}}
 
-If you don't configure SSL encryption for your node, its RPC API is vulnerable to attacks inherent to the HTTP protocol,
+You should configure SSL encryption for your node to ensure secure communication between the server and client. If you don't, its RPC API is vulnerable to attacks inherent to the HTTP protocol,
 even if [authentication](authentication/authentication.md) is properly configured. For example, motivated actors with access to
 network traffic will be able to:
 * Obtain legitimate users' credentials (when basic authentication is in place).
@@ -37,7 +35,6 @@ network traffic will be able to:
 Even nodes used in a dev environment can potentially expose users' credentials. For example, if employees don't use a dedicated password for the API when accessing their node via the public internet.
 
 Due to the security implications, Corda requires a valid SSL configuration when `devMode` is set to `false` in `node.conf`.
-
 
 ## Obtain an SSL certificate
 
@@ -68,7 +65,7 @@ There may, however, be scenarios where a self-signed certificate is useful:
 
 Consult your organization's security division for further guidance.
 
-Assuming Java is installed on your machine (either JRE or JDK, runtime or developer kit), you can use `keytool` to create a self-signed certificate. `keytool` will prompt you to provide information about the **subject** of the certificate (the node you are configuring). Make sure to enter the name of your node when prompted: `What is your first and last name?`.
+Assuming Java is installed on your machine (either JRE or JDK, runtime or developer kit), you can use [`keytool`](https://docs.oracle.com/cd/E54932_01/doc.705/e54936/cssg_create_ssl_cert.htm#CSVSG178) to create a self-signed certificate. `keytool` will prompt you to provide information about the **subject** of the certificate (the node you are configuring). Make sure to enter the name of your node when prompted: `What is your first and last name?`.
 
 The following example shows the creation of a self-signed certification using `keytool`:
 

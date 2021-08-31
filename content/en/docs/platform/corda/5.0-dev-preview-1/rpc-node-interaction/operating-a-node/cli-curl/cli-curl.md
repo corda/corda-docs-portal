@@ -12,6 +12,8 @@ description: >
   Instructions on how to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.
 ---
 
+This guide explains how to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.
+
 ## Use Corda Node CLI to interact with nodes via HTTP-RPC
 
 The Corda Node command-line interface (CLI) allows you to interact with nodes using the new HTTP-RPC API. It offers a convenient way of calling HTTP-RPC methods, and formats their results so that they are easy to understand.
@@ -97,7 +99,7 @@ If a given endpoint supports both authentication methods, then it will check for
 
 Where possible, you should use OAuth2. Basic authentication is not a secure login method because:
 * Passwords are exposed in client-server communication (if you aren't using HTTPS).
-* Node administrator provisions account credentials in `node.conf`.
+* Node administrators will need to populate `node.conf` with account credentials for other users.
 
 {{< /warning >}}
 
@@ -114,7 +116,9 @@ When using basic authentication, the tool doesn't save your credentials locally 
 
 #### Connect to nodes using OAuth2 with Azure AD
 
-To connect to a node using Azure AD, use:
+To connect to a node using Azure AD:
+
+1. Run:
 
 ```
 corda-node-cli endpoint add -n azure-node --azure-ad -- [address]/api/v1
@@ -122,7 +126,7 @@ corda-node-cli endpoint add -n azure-node --azure-ad -- [address]/api/v1
 The HTTP RPC at https://[address]/api/v1 has a X.509 key fingerprint:
 ```
 
-Then, respond to the prompt and login via the link provided:
+2. Respond to the prompt and login via the link provided.
 ```
 Do you trust this host? (Y/N)
 y

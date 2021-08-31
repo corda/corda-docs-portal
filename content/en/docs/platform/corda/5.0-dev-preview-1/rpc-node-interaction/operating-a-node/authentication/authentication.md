@@ -12,6 +12,8 @@ description: >
   Instructions on how to configure authentication and authorization for HTTP-RPC.
 ---
 
+This guide explains how to configure authentication and authorization for HTTP-RPC, using basic authentication or Azure Active Directory (AD) single sign-on (SSO).
+
 Most of the endpoints exposed via HTTP-RPC require authentication.
 However, there is one internal endpoint which doesn't, `getProtocolVersion`.
 
@@ -21,7 +23,7 @@ You can test this functionality using Swagger UI (if enabled):
 
 {{< note >}}
 
-Unauthorized responses will return the configured authentication types and their parameters via [WWW-Authenticate](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate) response headers.
+When a client response is unauthorized, the node uses [WWW-Authenticate](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate) response headers to provide details on supported authentication types and their parameters.
 
 {{< /note >}}
 
@@ -47,15 +49,15 @@ You can test your configuration using Swagger UI:
 
 You can set up your Corda 5 node to use Azure Active Directory (AD) for single sign-on (SSO). Authorized users who can access HTTP-RPC functions on the node can use their Azure AD credentials to stay logged in to any applications that use the HTTP-RPC API.
 
-You need to configure the Azure AD tenant that serves as an identity provider and the node to enable HTTP-RPC endpoints to support Azure AD-based authentication.
+1. Configure the Azure AD tenant that serves as an identity provider and the node to enable HTTP-RPC endpoints to support Azure AD-based authentication.
 
-This authentication type requires an Azure AD **ID token** or **access token** to be passed with the HTTP-RPC requests as a [Bearer Token](https://datatracker.ietf.org/doc/html/rfc6750). The node verifies the following properties/claims of the token:
+2. Pass an Azure AD **ID token** or **access token** as a [Bearer Token](https://datatracker.ietf.org/doc/html/rfc6750) with the HTTP-RPC requests. The node verifies the following properties/claims of the token:
 
 * Expiration date.
 * Issuer (should be a valid Microsoft Identity Platform value).
 * Audience (should be the `clientId` of the node).
 
-You can test this functionality using Swagger UI. The data flow should look like this:
+3. Test this functionality using Swagger UI. The data flow should look like this:
 
 ![Example data flow](example_flow.png "Example data flow")
 
@@ -91,7 +93,7 @@ You may need to use different configuration depending on the types of applicatio
 
 Applications accessing the HTTP-RPC should use a different application registration and the [On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
 
-You can register an application without implicit flows. You'll need to create a [**client secret**](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) and include it in the application authenticating. If you're using the Swagger UI, it can be entered there.
+You can register an application without implicit flows. You'll need to create a [**client secret**](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) and include it in the node's `node.conf` file. If you're using the Swagger UI, it can be entered there.
 
 {{< /note >}}
 
@@ -130,8 +132,10 @@ Configuration options include:
 
 ### Configure authorization
 
-Permissions are retrieved using the same Apache Shiro-based solution as for [basic authentication](#configure-authorization-for-basic-authentication). Therefore, permissions can be set up in the same way. However, the actual name
-of the user will be derived from Azure `claims`. For Azure AD SSO authentication, **JWT tokens** are used to verify a user's identity. Therefore, users listed in the Shiro database should *not* specify a password:
+Permissions are retrieved using the same Apache Shiro-based solution as for [basic authentication](#configure-authorization-for-basic-authentication). However, the actual name
+of the user is derived from Azure `claims`.
+
+To specify SSO permissions, add the email address that is associated with their SSO-authenticated user profile to the `node.conf` file.
 
 ```
 "rpcUsers": [
@@ -143,6 +147,8 @@ of the user will be derived from Azure `claims`. For Azure AD SSO authentication
     }
 ]
 ```
+
+For Azure AD SSO authentication, **JWT tokens** are used to verify a user's identity. Therefore, users listed in the Shiro database should *not* specify a password in the `node.conf` file.
 
 {{< note >}}
 

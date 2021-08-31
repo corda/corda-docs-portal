@@ -12,19 +12,14 @@ description: >
   Instructions on how to configure permissions for HTTP-RPC operations.
 ---
 
+This guide explains how to configure permissions for HTTP-RPC operations.
+
 Corda 5 uses [Apache Shiro](https://shiro.apache.org/) libraries and databases to hold permissions data at runtime, as described in Corda 4's guide on
 [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security).
 
 When expressing grants for users, you can still use extended syntax for individual users, as described in Corda 4's guide on
 [defining RPC users and permissions](https://docs.corda.net/docs/corda-enterprise/4.8/node/operating/clientrpc.html#defining-rpc-users-and-permissions-1).
 
-## Express permissions in case of SSO authentication
-
-For username/password authentication for single sign-on (SSO), the password is no longer known and should not be
-included in the `node.conf` file or Shiro database.
-
-Specify SSO permissions for a user using an email address that is associated with an SSO-authenticated user.
-See the section on [authorization](authentication/authentication.md#configure-authorization-for-azure-ad-sso) in the Azure AD SSO setup section for more information.
 
 ## Configure user permissions: flow initiation
 

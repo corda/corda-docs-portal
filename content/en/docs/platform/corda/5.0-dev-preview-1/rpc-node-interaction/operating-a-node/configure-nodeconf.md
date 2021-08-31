@@ -12,6 +12,7 @@ description: >
   Instructions on how to configure a node's `node.conf` file for HTTP-RPC.
 ---
 
+This guide explains how to configure a node's `node.conf` file for HTTP-RPC.
 
 When a node starts up, the `corda.jar` file defaults to reading the node's configuration from a `node.conf` file.
 To use HTTP-RPC, you need to configure your node's `node.conf` by:
@@ -48,7 +49,7 @@ Configuration options available in the `httpRpcSettings` object:
 | `context` | Required  | See [API configuration](#api-configuration). |
 | `ssl`     | Required (unless node is in developer mode)  | See [SSL configuration](#ssl-configuration). |
 | `sso`     | Optional | See [single sign-on (SSO) configuration](authentication/authentication.md#set-up-azure-ad-sso). |
-| `maxContentLength`     | Optional | The maximum content length accepted for POST requests (in bytes). The default value is 1 MiB.|
+| `maxContentLength`     | Optional | The maximum content length accepted for `POST` requests (in bytes). The default value is 1 MiB.|
 
 ### API configuration
 
@@ -85,4 +86,4 @@ A Swagger UI address is included in the output. Use this address to test the var
 
 * If the specified SSL certificate isn't accepted by the computer you're using to access the Swagger UI, the browser will treat the connection as insecure. However, this may not be an issue if the API is used from other sources that validate the certificate in a different way compared to the browser.
 
-* When running a node in Docker, the port specified in `node.conf` may not be exposed making the API inaccessible. To make sure the port is available from outside the container, check the Dockerfile and command you're using to start the container.
+* When running a node in Docker you may get the error `HTTP Error 404 - site not accessible`. If the port specified in `node.conf` is not exposed, the API will be inaccessible. To make sure the port is available from outside the container, check the Dockerfile and command you're using to start the container.
