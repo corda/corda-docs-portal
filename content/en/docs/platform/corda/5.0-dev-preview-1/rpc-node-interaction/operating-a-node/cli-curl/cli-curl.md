@@ -20,14 +20,14 @@ The Corda Node CLI `.jar` file is available for download from Artifactory.
 
 {{< note >}}
 
-The Corda Node CLI `.jar` file needs to be saved locally to your computer (you don't need to run an installation process). How you achieve this will depend on your organisation's software distribution policies. For the purpose of this guide, it's assumed you have downloaded the file, and saved it locally as `corda-node-cli.jar`.
+You must save the Corda Node CLI `.jar` file locally to your computer (you don't need to run an installation process). How you achieve this will depend on your organisation's software distribution policies. For the purpose of this guide, it's assumed you have downloaded the file, and saved it locally as `corda-node-cli.jar`.
 
 {{< /note >}}
 
 
 ### Explore Corda Node CLI
 
-The Corda Node CLI is built to be discoverable. You can start by invoking it without any arguments:
+The Corda Node CLI is built to be discoverable. Start by invoking it without any arguments:
 
 ```
 java -jar corda-node-cli.jar --help
@@ -175,7 +175,7 @@ These become visible once you have sent a request in the `Try it out` section of
 
 A flow can be started by invoking `/flowstarter/startflow` with the correct request parameters.
 
-For example, the `MessageStateIssue` flow can be started via HTTP by passing in the following body parameter to the
+For example, the `MessageStateIssue` flow can be started via HTTP-RPC by passing in the following body parameter to the
 `startflow` endpoint:
 
 ```json
@@ -196,7 +196,7 @@ When storing the above data in `startflow-req.json`, use the `curl` command:
 curl --user default -X POST "https://0.0.0.0:9090/api/v1/flowstarter/startflow" -d "@startflow-req.json"
 ```
 
-Or if you aren't using a file to store the requested data:
+Or, if you aren't using a file to store the requested data, use:
 ```shell
 curl --user default -X POST "https://0.0.0.0:9090/api/v1/flowstarter/startflow" -d "{\"rpcStartFlowRequest\":{\"clientId\":\"client\",\"flowName\":\"net.corda.httprpcdemo.workflows.MessageStateIssue\",\"parameters\":{\"parametersInJson\":\"{\\\"message\\\":\\\"hello\\\"}\"}}}"
 ```

@@ -42,7 +42,7 @@ Due to the security implications, Corda requires a valid SSL configuration when 
 ## Obtain an SSL certificate
 
 There are several ways you can obtain an SSL certificate:
-* From a public Certificate Authority (CA), such as IdenTrust, DigiCert, and GoDaddy.
+* From a public Certificate Authority (CA), such as [IdenTrust](https://www.identrust.com/), [DigiCert](https://www.digicert.com/, and [GoDaddy](https://www.godaddy.com/.
 * From your organization's internal CA.
 * By [creating a self-signed certificate](#create-a-self-signed-certificate-for-development) (not for use in a production environment).
 

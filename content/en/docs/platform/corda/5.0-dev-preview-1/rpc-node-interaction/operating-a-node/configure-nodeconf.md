@@ -68,7 +68,7 @@ Configuration options available in the `httpRpcSettings` object:
 To configure your node to use SSL encryption for HTTP-RPC, see the [SSL setup](setup-ssl-encryption.md) guide.
 
 ## Verify HTTP-RPC setup
-To verify that you have set up HTTP-RPC correctly, you should see the following when you start the node:
+Start the node to verify that you have set up HTTP-RPC correctly. You should see:
 
 ```
 [INFO] 2021-05-28T16:20:25,572Z [net.corda.node.OSGiNodeActivator.start] BasicInfo.printBasicNodeInfo - HTTP RPC address                        : https://mynode:8888 {}
@@ -79,7 +79,7 @@ To verify that you have set up HTTP-RPC correctly, you should see the following 
 [INFO] 2021-05-28T16:20:27,931Z [NodeLifecycleEventsDistributor-0] flow.StartableFlowsRetriever.get - net.corda.httprpcdemo.workflows.MessageStateIssue {}
 ```
 
-Included in the output is an address to Swagger UI, which you can use to test the various endpoints. As a simple smoke test, you can use any of the `getprotocolversion` calls. If the test is successful and HTTP-RPC is configured correctly, it will return a `200 OK` status and an integer in the response body (the actual value depends on which Corda version the node is running).
+A Swagger UI address is included in the output. Use this address to test the various endpoints. As a simple smoke test, you can use any of the `getprotocolversion` calls. If the test is successful and HTTP-RPC is configured correctly, it will return a `200 OK` status and an integer in the response body (the actual value depends on which Corda version the node is running).
 
 ### Common errors
 

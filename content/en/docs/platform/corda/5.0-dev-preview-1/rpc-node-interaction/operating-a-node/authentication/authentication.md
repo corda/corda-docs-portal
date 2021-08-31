@@ -65,7 +65,7 @@ You can generate tokens using any method that is supported by the Microsoft Iden
 
 ### Configure Azure
 
-This describes a basic setup. Configuring a production setup may include addition steps, such as those for user access management and permission sets (scopes).
+This describes a basic setup. Configuring a production setup may include additional steps, such as those for user access management and permission sets (scopes).
 
 To complete the configuration of your node using the [Azure Portal](https://portal.azure.com/):
 

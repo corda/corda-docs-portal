@@ -23,7 +23,7 @@ When expressing grants for users, you can still use extended syntax for individu
 For username/password authentication for single sign-on (SSO), the password is no longer known and should not be
 included in the `node.conf` file or Shiro database.
 
-SSO permissions for a user are specified using an email address that is associated with an SSO-authenticated user.
+Specify SSO permissions for a user using an email address that is associated with an SSO-authenticated user.
 See the section on [authorization](authentication/authentication.md#configure-authorization-for-azure-ad-sso) in the Azure AD SSO setup section for more information.
 
 ## Configure user permissions: flow initiation
