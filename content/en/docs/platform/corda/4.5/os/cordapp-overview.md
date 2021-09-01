@@ -18,8 +18,6 @@ title: What is a CorDapp?
 
 # What is a CorDapp?
 
-![Powered by Corda](/en/images/powered-by-corda-logo.jpg)
-
 CorDapps (Corda Distributed Applications) are distributed applications that run on the Corda platform. The goal of a
 CorDapp is to allow nodes to reach agreement on updates to the ledger. They achieve this goal by defining flows that
 Corda node owners can invoke over RPC:

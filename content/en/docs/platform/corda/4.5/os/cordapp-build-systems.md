@@ -21,9 +21,6 @@ title: Building and installing a CorDapp
 
 # Building and installing a CorDapp
 
-![Powered by Corda](/en/images/powered-by-corda-logo.jpg)
-
-
 CorDapps run on the Corda platform and integrate with it and each other. This article explains how to build CorDapps.
 
 Applications on Corda (CorDapps) can be written in any language targeting the JVM. However, Corda itself and most of the samples are written in Kotlin. Kotlin is an [official Android language](https://developer.android.com/kotlin/index.html), and you can read more about why Kotlin is a strong successor to Java [here](https://medium.com/@octskyward/why-kotlin-is-my-next-programming-language-c25c001e26e3). If you’re unfamiliar with Kotlin, there is an official [getting started guide](https://kotlinlang.org/docs/tutorials/), and a series of [Kotlin Koans](https://kotlinlang.org/docs/tutorials/koans.html)
