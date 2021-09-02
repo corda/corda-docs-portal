@@ -68,7 +68,7 @@ Follow these tutorials in sequential order to build your CorDapp:
 
   1. Build transactions
 
-3. Write flows
+3. [Write flows](basic-cordapp-flows.md)
 
 4. Conduct unit testing
 
