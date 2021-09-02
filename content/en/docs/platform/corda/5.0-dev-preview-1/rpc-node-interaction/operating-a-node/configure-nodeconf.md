@@ -12,7 +12,7 @@ description: >
   Instructions on how to configure a node's `node.conf` file for HTTP-RPC.
 ---
 
-This guide explains how to configure a node's `node.conf` file for HTTP-RPC.
+Use this guide to configure a node's `node.conf` file for HTTP-RPC.
 
 When a node starts up, the `corda.jar` file defaults to reading the node's configuration from a `node.conf` file.
 To use HTTP-RPC, you need to configure your node's `node.conf` by:

@@ -12,7 +12,7 @@ description: >
   Instructions on how to set up SSL encryption for HTTP-RPC.
 ---
 
-This guide explains how to set up SSL encryption for HTTP-RPC by:
+Use this guide to set up SSL encryption for HTTP-RPC by:
 1. [Obtaining an SSL certificate](#obtain-an-ssl-certificate).
 2. [Adding SSL configuration to `node.conf`](#add-ssl-configuration-to-nodeconf).
 

@@ -12,12 +12,12 @@ description: >
   Instructions on how to configure authentication and authorization for HTTP-RPC.
 ---
 
-This guide explains how to configure authentication and authorization for HTTP-RPC, using basic authentication or Azure Active Directory (AD) single sign-on (SSO).
+Use this guide to configure authentication and authorization for HTTP-RPC, using basic authentication or Azure Active Directory (AD) single sign-on (SSO).
 
 Most of the endpoints exposed via HTTP-RPC require authentication.
 However, there is one internal endpoint which doesn't, `getProtocolVersion`.
 
-You can test this functionality using Swagger UI (if enabled):
+You can test the authentication functionality using Swagger UI (if enabled):
 
 ![Authenticate on Swagger UI](swagger-auth.png "Authenticate on Swagger UI")
 
@@ -27,7 +27,7 @@ When a client response is unauthorized, the node uses [WWW-Authenticate](https:/
 
 {{< /note >}}
 
-Corda 5 nodes support [Basic authentication](#set-up-basic-authentication) and [Azure Active Directory (AD) single sign-on (SSO)](#set-up-azure-ad-sso).
+Nodes support [Basic authentication](#set-up-basic-authentication) and [Azure Active Directory (AD) single sign-on (SSO)](#set-up-azure-ad-sso).
 
 ## Set up basic authentication
 
@@ -37,7 +37,7 @@ This feature is enabled by default and cannot be disabled.
 
 ### Configure authorization
 
-Authorization in Corda 5 uses the same Apache Shiro-based solution that was available in Corda 4. For details on how to configure this, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
+Authorization in this dev preview uses the same Apache Shiro-based solution that was available in Corda 4. For details on how to configure this, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
 
 ### Test your configuration
 
@@ -47,15 +47,15 @@ You can test your configuration using Swagger UI:
 
 ## Set up Azure AD SSO
 
-You can set up your Corda 5 node to use Azure Active Directory (AD) for single sign-on (SSO). Authorized users who can access HTTP-RPC functions on the node can use their Azure AD credentials to stay logged in to any applications that use the HTTP-RPC API.
+You can set up your node to use Azure Active Directory (AD) for single sign-on (SSO). Authorized users who access HTTP-RPC functions on the node can use their Azure AD credentials to stay logged in to any applications that use the HTTP-RPC API.
 
 1. Configure the Azure AD tenant that serves as an identity provider and the node to enable HTTP-RPC endpoints to support Azure AD-based authentication.
 
 2. Pass an Azure AD **ID token** or **access token** as a [Bearer Token](https://datatracker.ietf.org/doc/html/rfc6750) with the HTTP-RPC requests. The node verifies the following properties/claims of the token:
 
-* Expiration date.
-* Issuer (should be a valid Microsoft Identity Platform value).
-* Audience (should be the `clientId` of the node).
+    * Expiration date.
+    * Issuer (should be a valid Microsoft Identity Platform value).
+    * Audience (should be the `clientId` of the node).
 
 3. Test this functionality using Swagger UI. The data flow should look like this:
 
@@ -67,7 +67,7 @@ You can generate tokens using any method that is supported by the Microsoft Iden
 
 ### Configure Azure
 
-This describes a basic setup. Configuring a production setup may include additional steps, such as those for user access management and permission sets (scopes).
+The following steps describe a basic setup. Configuring a production setup may include additional steps, such as those for user access management and permission sets (scopes).
 
 To complete the configuration of your node using the [Azure Portal](https://portal.azure.com/):
 

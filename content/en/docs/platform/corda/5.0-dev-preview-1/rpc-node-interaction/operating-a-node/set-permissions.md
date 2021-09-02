@@ -12,9 +12,9 @@ description: >
   Instructions on how to configure permissions for HTTP-RPC operations.
 ---
 
-This guide explains how to configure permissions for HTTP-RPC operations.
+Use this guide to configure permissions for HTTP-RPC operations.
 
-Corda 5 uses [Apache Shiro](https://shiro.apache.org/) libraries and databases to hold permissions data at runtime, as described in Corda 4's guide on
+This dev preview uses [Apache Shiro](https://shiro.apache.org/) libraries and databases to hold permissions data at runtime, as described in Corda 4's guide on
 [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security).
 
 When expressing grants for users, you can still use extended syntax for individual users, as described in Corda 4's guide on
@@ -55,5 +55,5 @@ security {
 
 {{< note >}}
 Double dollar signs (`$$`) are necessary as `$` is a special character in the [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md)
-format, which is used in Corda 5's configuration files.
+format, which is used in Corda's configuration files.
 {{< /note >}}

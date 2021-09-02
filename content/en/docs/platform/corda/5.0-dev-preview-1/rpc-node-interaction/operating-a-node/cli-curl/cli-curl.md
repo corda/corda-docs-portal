@@ -12,7 +12,7 @@ description: >
   Instructions on how to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.
 ---
 
-This guide explains how to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.
+Use this guide to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.
 
 ## Use Corda Node CLI to interact with nodes via HTTP-RPC
 
@@ -22,7 +22,7 @@ The Corda Node CLI `.jar` file is available for download from Artifactory.
 
 {{< note >}}
 
-You must save the Corda Node CLI `.jar` file locally to your computer (you don't need to run an installation process). How you achieve this will depend on your organisation's software distribution policies. For the purpose of this guide, it's assumed you have downloaded the file, and saved it locally as `corda-node-cli.jar`.
+You must save the Corda Node CLI `.jar` file locally to your computer (you don't need to run an installation process). How you achieve this will depend on your organisation's software distribution policies. For the following, it's assumed you have downloaded the file, and saved it locally as `corda-node-cli.jar`.
 
 {{< /note >}}
 
