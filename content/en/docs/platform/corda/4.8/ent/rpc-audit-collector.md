@@ -2,13 +2,13 @@
 date: '2020-04-22T12:00:00Z'
 menu:
   corda-enterprise-4-8:
-    parent: corda-enterprise-4-8-corda-nodes-operating
+    parent: corda-enterprise-4-8-monitoring-logging
 tags:
 - rpc
 - audit
 - collector
 title: RPC Audit Data Collection Tool
-weight: 200
+weight: 300
 ---
 
 # RPC Audit Data Collection Tool

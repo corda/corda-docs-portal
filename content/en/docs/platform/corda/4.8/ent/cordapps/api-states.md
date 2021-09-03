@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2021-07-15'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-cordapps-states
@@ -19,7 +19,7 @@ Before you read this article, make sure you understand the [state key concepts](
 In Corda, a contract state (or just ‘state’) stores data that the CorDapp needs to move from one transaction to another.
 
 States are:
-* Immutable. That means they can never be updated - any change to a state generates a new successor state. This is called **consuming** the state.  
+* Immutable. That means they can never be updated - any change to a state generates a new successor state. This is called **consuming** the state.
 * Single-use. You can only consume a state once - this prevents double-spending. The notary only signs transactions if the input states are all free.
 
 States are instances of classes that implement `ContractState`:
@@ -351,7 +351,7 @@ If you need to use reference data across multiple transactions, you can use a re
 * They are not consumed when the transaction is committed to the ledger. Instead, they are checked to make sure they are up-to-date.  The contract logic doesn't run for the referencing transaction.
 * They behave as standard states when they are in an input or output position.
 
-This enables multiple parties to reuse a state, and the state owner to update the state. For example, parties holding related financial instruments could create a reference state for the financial instrument reference data.  
+This enables multiple parties to reuse a state, and the state owner to update the state. For example, parties holding related financial instruments could create a reference state for the financial instrument reference data.
 
 The node resolves the chain of provenance for reference states and verifies all dependency transactions the same way it would for a standard state. This ensures the data is valid according to
 the contract governing it, and that all previous participants in the state approved prior updates.
