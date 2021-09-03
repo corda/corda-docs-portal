@@ -6,8 +6,8 @@ parent: corda-enterprise-4-8-cordapps-debugging
 tags:
 - network
 - bootstrapper
-  title: Network Bootstrapper
-  weight: 40
+title: Network Bootstrapper
+weight: 40
 ---
 
 
