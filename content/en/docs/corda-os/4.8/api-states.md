@@ -64,7 +64,7 @@ common sub-interfaces are `LinearState` and `OwnableState`.
 
 * `LinearState`: If there is only one version of facts for any point in time, use a `LinearState`. `LinearState`
   states evolve in a straight line by superseding themselves.
-* `OwnableState`: If you are representing assets that can be freely split and merged over time, use `OwnableState`. Cash is a good example of an `OwnableState` - two existing $5 cash states can be combined into a single $10 cash state, or split into five $1 cash states. With `OwnableState`, it is the total amount held that is important, rather than the individual units.
+* `OwnableState`: If you are representing assets that can be freely split and merged over time, use `OwnableState`. Cash is a good example of an `OwnableState` - two existing $5 cash states can be combined into a single $10 cash state, or split into ten $1 cash states. With `OwnableState`, it is the total amount held that is important, rather than the individual units.
 
 You can visualize the hierarchy like this:
 
