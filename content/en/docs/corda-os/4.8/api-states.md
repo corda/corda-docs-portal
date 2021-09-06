@@ -96,9 +96,9 @@ the fact over time.
 
 To extend a `LinearState` chain (a sequence of states sharing a `linearId`):
 
-* Use the `linearId` to extract the latest state in the chain from the vault.
-* Create a new state that has the same `linearId`.
-* Create a transaction with:
+1. Use the `linearId` to extract the latest state in the chain from the vault.
+2. Create a new state that has the same `linearId`.
+3. Create a transaction with:
   * The current latest state in the chain as an input.
   * The newly-created state as an output.
 
