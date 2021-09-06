@@ -110,9 +110,9 @@ To connect to a node that does not use single sign-on (SSO), you can use basic u
 Enter value for --password (Password for password based authentication.):
 ```
 
-Don't supply an argument for -P. The double dash tells the tool that the subsequent string is the address of the node (rather than the password). Although you can supply the password inline, this approach is discouraged as you run the risk of having your credentials stored in your command line history, which can persist even after you disconnect from the current terminal session.
+Don't supply an argument for -P. The double dash tells Corda Node CLI that the subsequent string is the address of the node (rather than the password). Although you can supply the password inline, this approach is discouraged as you run the risk of having your credentials stored in your command line history, which can persist even after you disconnect from the current terminal session.
 
-When using basic authentication, the tool doesn't save your credentials locally as that would expose them. To avoid having to set `-u` and `-P` for every command, you can set the `CORDA_NODE_CLI_USERNAME` and `CORDA_NODE_CLI_PASSWORD` environment variables in your current session.
+When using basic authentication, Corda Node CLI doesn't save your credentials locally as that would expose them. To avoid having to set `-u` and `-P` for every command, you can set the `CORDA_NODE_CLI_USERNAME` and `CORDA_NODE_CLI_PASSWORD` environment variables in your current session.
 
 #### Connect to nodes using OAuth2 with Azure AD
 
@@ -144,7 +144,7 @@ Network ready: Ready
 
 ### Delete Corda Node CLI
 
-To delete the Corda Node CLI tool, simply delete the application's folder at its location.
+To delete Corda Node CLI, simply delete the application's folder at its location.
 
 ## Invoke HTTP-RPC using `curl`
 
