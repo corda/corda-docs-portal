@@ -14,8 +14,8 @@ description: >
 
 Use this guide to locate your node's OpenAPI specification.
 
-As part of this developer preview, a dynamic [OpenAPI specification](https://swagger.io/docs/specification/about/)
-(formerly known as the Swagger specification) is generated which details your node's RPC functionality that is exposed
+As part of the Corda 5 Developer Preview, a dynamic [OpenAPI specification](https://swagger.io/docs/specification/about/)
+(formerly known as the Swagger specification) is generated which details your node's RPC functionality, which is exposed
 via a secure HTTP API. It describes:
 * Endpoints, including operations and operation parameters (input and output).
 * Authentication methods.
@@ -26,8 +26,7 @@ You need to [enable HTTP-RPC](configure-nodeconf.md) before you can use the Open
 
 {{< /note >}}
 
-You can find your node's OpenAPI specification on `/api/v1/swagger.json`. For example, if your node's HTTP-RPC address
-is `mynode:8888`, the OpenAPI JSON is available on `http[s]://mynode:8888/api/v1/swagger.json`.
+Your node's OpenAPI JSON is available on a URL. If your node's HTTP-RPC address is  `mynode:8888`, you would find it on `http[s]://mynode:8888/api/v1/swagger.json`.
 
 Below is an excerpt of a node's OpenAPI JSON:
 
