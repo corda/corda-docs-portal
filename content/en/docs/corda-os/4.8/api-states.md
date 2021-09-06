@@ -91,7 +91,7 @@ interface LinearState : ContractState {
 }
 ```
 
-States are immutable and can’t be updated directly. Instead, an evolving fact is represented by a sequence of `LinearState` states that share the same `linearId`, and create an audit trail for the lifecycle of
+States are immutable and can’t be updated directly. Instead, an evolving fact is represented by a sequence of `LinearState`s that share the same `linearId`, and create an audit trail for the lifecycle of
 the fact over time.
 
 To extend a `LinearState` chain (a sequence of states sharing a `linearId`):
