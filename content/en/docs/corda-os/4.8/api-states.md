@@ -144,7 +144,7 @@ not have a `linearId`. $5 of cash created by one transaction is considered ident
 another transaction.
 
 
-### FungibleState
+### `FungibleState`
 
 `FungibleState<T>` is an interface that represents fungible items - items that can be split and merged. That’s the only assumption made by this interface. Implement this interface if you want to represent fractional ownership of one item, or if you have many items.
 
@@ -168,7 +168,7 @@ interface FungibleState<T : Any> : ContractState {
 ```
 
 The interface takes a type parameter `T`, which represents the fungible item. This should describe
-the basic type of the asset e.g. GBP, USD, oil, shares in company <X>, etc. and any additional metadata (issuer, grade,
+the basic type of the asset - for example, GBP, USD, oil, or shares in company <X>, and any additional metadata (issuer, grade,
 class, etc.). An upper-bound is not specified for `T` to ensure flexibility. Typically, a class would be provided that
 implements *TokenizableAssetInfo* so the item can be easily added and subtracted using the `Amount` class.
 
@@ -177,7 +177,7 @@ This interface has been added in addition to `FungibleAsset` to provide some add
 
 
 * `FungibleAsset` defines an amount property of type `Amount<Issued<T>>`, therefore there is an assumption that all
-  fungible items are issued by a single well known party but this is not always the case.
+  fungible items are issued by a single well-known party but this is not always the case.
 * `FungibleAsset` implements `OwnableState`, as such there is an assumption that all fungible items are ownable.
 
 
@@ -371,7 +371,7 @@ then the check below will fail.
 
 
 {{< warning >}}
-Do not use encumberances with reference states. The data in the encumbered state is likely to take on a different meaning once the encumbrance state is taken into account. If a state is encumbered by an encumbrance state, reference the encumbrance state in the same transaction.
+Do not use encumbrances with reference states. The data in the encumbered state is likely to take on a different meaning once the encumbrance state is taken into account. If a state is encumbered by an encumbrance state, reference the encumbrance state in the same transaction.
 
 {{< /warning >}}
 
