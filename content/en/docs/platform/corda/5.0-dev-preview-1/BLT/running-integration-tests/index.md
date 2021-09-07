@@ -238,7 +238,7 @@ For the purpose of this article, we will assume your CorDapp has been deployed t
 
 ## Create integration tests
 
-The integrations tests run against a "real" Corda network, and you can use the `corda-dev-network-lib` library to create tests against this network.
+The integrations tests run against a "real" Corda network. You can use the `corda-dev-network-lib` library to create tests against this network.
 
 {{< note >}}
 
