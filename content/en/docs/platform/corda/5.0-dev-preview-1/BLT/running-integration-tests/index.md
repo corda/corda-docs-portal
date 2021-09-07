@@ -410,7 +410,7 @@ To create an integration test:
 
 `TestNetwork.forNetwork("sample-network")` creates a connection to the `sample-network` network created by the Corda CLI. Behind the scenes, conventions discover the containers that make up the network. The `use` method returns an abstraction of the network. This lets you connect to a node.
 
-`getNode("alice")` where `alice` is the name of the node as configured when creating the network using Corda CLI. This will return an abstraction of a Corda node, which will allow you to connect to the node and start a flow, for example.
+Use `getNode("alice")` where `alice` is the name of the node you configured when you created the test network. This returns an abstraction of a Corda node. You can use this to connect to the node and start a flow.
 
 
 ## Run your tests
