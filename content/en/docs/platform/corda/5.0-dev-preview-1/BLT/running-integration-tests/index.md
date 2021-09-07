@@ -21,7 +21,7 @@ Before you can deploy your sample CorDapp and perform Corda 5 network integratio
 
 ## Create your CorDapp
 
-When creating a CorDapp, you can create integration tests to test your app against a local network.
+You can add integration tests to your CorDapp to test it against a local network.
 For the purpose of this article, let's assume flow and contract code look like this:
 
 ### Flow  code
