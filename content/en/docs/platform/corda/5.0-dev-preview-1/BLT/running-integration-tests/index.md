@@ -246,7 +246,7 @@ The test _does not_ create or configure the network. It assumes that the network
 
 {{< /note >}}
 
-Create an integration test by performing the following steps:
+To create an integration test:
 
 1. Create an `integrationTest` subdirectory in your workflow project.
 
