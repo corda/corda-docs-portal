@@ -11,7 +11,7 @@ title: Corda 5 local network troubleshooting
 
 ## ERROR: The Compose file is invalid
 
-If you see the below error while trying to use `docker-compose` with your generated `.yaml` config file, it is likely you have an old version of Docker.
+If you see this error while trying to use `docker-compose` with your generated `.yaml` config file, you may have an old version of Docker.
 Try to upgrade.
 
 ```
