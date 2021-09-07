@@ -415,7 +415,7 @@ Use `getNode("alice")` where `alice` is the name of the node you configured when
 
 ## Run your tests
 
-Now simply run your tests from the IDE as you usually would, or from Gradle by running `gradle integrationTest`.
+Run your tests from the IDE as you usually would, or from Gradle by running `gradle integrationTest`.
 
 ## Re-using the network
 
