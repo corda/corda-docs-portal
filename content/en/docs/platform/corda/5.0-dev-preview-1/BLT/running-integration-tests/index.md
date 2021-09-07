@@ -17,7 +17,7 @@ This guide provides code to create a sample CorDapp. You'll create and deploy yo
 
 ## Before you start
 
-Before you can deploy your sample CorDapp and perform Corda 5 network integration tests, you must set up a Corda 5 network locally. See [Setting up a local Corda 5 development network](XXX).
+Before you can deploy your sample CorDapp and perform Corda 5 network integration tests, you must [set up a Corda 5 network locally](XXX).
 
 ## Create your CorDapp
 
