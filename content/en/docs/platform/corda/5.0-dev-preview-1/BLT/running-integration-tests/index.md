@@ -13,7 +13,7 @@ Integration testing lets you combine different CorDapp elements and test them as
 
 Corda 5 introduces the `corda-dev-network-lib` test library, which you can use to run integration tests on your CorDapp. It connects your test code with the specified test network and its nodes. Do not use `corda-dev-network-lib` in production code. 
 
-This guide provides you with a code you need to use to create a sample CorDapp. After creating and deploying your sample CorDapp to a local network, you will then create and run a Corda 5 network integration test for this app.
+This guide provides code to create a sample CorDapp. You'll create and deploy your sample CorDapp to a local network, then create and run a Corda 5 network integration test for the CorDapp.
 
 ## Before you start
 
