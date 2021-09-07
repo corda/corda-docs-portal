@@ -419,7 +419,7 @@ Run your tests from the IDE as you usually would, or from Gradle by running `gra
 
 ## Re-using the network
 
-The integration test library does not create or configure the network. This means that many tests can run against the same network and node, which speeds up the tests, but does mean that tests should tolerate existing state.
+The integration test library does not create or configure the network. This means that many tests can run against the same network and node, which speeds up the tests. Tests should tolerate existing states. 
 
 In order to re-run your tests, after making a change to your CorDapp, re-deploy your app using `corda-cli` before running the tests.
 
