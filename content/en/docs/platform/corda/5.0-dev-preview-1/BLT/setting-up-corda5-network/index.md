@@ -124,3 +124,8 @@ nodes:
    `corda-cli network wait -n <network-name>`
 
    This command inspects the logs every few seconds until all the nodes are ready.
+
+
+## Troubleshooting
+
+If you encounter any issues while deploying your local Corda 5 network, see [Corda 5 local network troubleshooting](XXX).
