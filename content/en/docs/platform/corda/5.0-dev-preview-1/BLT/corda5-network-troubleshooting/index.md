@@ -26,7 +26,7 @@ You can increase this in the Docker Desktop: go to **Preferences** and configure
 
 ## Windows Docker daemon
 
-If you are using Docker on Windows, you may get the error shown below when executing the end-to-end tests:
+If you are using Docker on Windows, you may get this error when executing the end-to-end tests:
 
 ```bash
 org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:2375 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
