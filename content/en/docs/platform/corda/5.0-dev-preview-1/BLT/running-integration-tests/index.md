@@ -24,7 +24,7 @@ Before you can deploy your sample CorDapp and perform Corda 5 network integratio
 You can add integration tests to your CorDapp to test it against a local network.
 In this example, your flow and contract code look like this:
 
-### Flow  code
+### Flow code
 
 ```kotlin
 package net.corda.samples.iou.flows
