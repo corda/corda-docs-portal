@@ -425,7 +425,7 @@ In order to re-run your tests, after making a change to your CorDapp, re-deploy 
 
 ## Debugging
 
-Integration tests can be debugged in the usual way, from the IDE. However, often it is useful to debug the node as well as the test. Because the node _does not_ run in the same process as the test, and is in fact, running on a remote process (in a Docker container), you need to attach a remote debugger to the node(s) you would like to debug.
+You can debug Integration tests from the IDE. However, often it is useful to debug the node, too. The node runs on a remote process in a Docker container, and _not_ in the same process as the test, so you need to attach a remote debugger to any node you would like to debug.
 
 For more information on how to debug a node in the Corda 5 development network, see [Debugging CorDapps](../debugging-cordapps).
 
