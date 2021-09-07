@@ -233,7 +233,7 @@ class IOUContract : Contract {
 
 Now, [deploy your sample CorDapp to a local Corda 5 development network](XXX).
 
-For the purpose of this article, we will assume your CorDapp has been deployed to a local network called `sample-network`: `corda-cli network deploy -n sample-network | docker-compose -f - up`
+In this example, your CorDapp has been deployed to a local network called `sample-network`: `corda-cli network deploy -n sample-network | docker-compose -f - up`
 
 
 ## Create integration tests
