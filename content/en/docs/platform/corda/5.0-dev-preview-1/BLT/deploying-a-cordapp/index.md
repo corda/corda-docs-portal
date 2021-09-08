@@ -25,7 +25,7 @@ To deploy anything to a Corda 5 Developer Preview network, you must use a Corda 
 
       `corda-cli pkg install -n network-example-name  */build/libs/*.cpb`
 
-   * To deploy your CorDapp to only one of the nodes in the network, use:
+   * Deploy your CorDapp to only one of the nodes in the network using this command:
 
       `corda-cli pkg install -n <network-name> -m <node-name> <cpb-file-location>`
 
@@ -52,7 +52,7 @@ To deploy anything to a Corda 5 Developer Preview network, you must use a Corda 
    **Step result:** The **Deployed apps** section appears in the command's output.
 
    {{< note >}}
-   Restarting the node retains the deployed apps. To replace the apps, run the deploy with a new version of the `.cpb`. To remove a deployed app, remove the `.cpb` from the container and restart the node.
+   Restarting the node retains the deployed apps. To replace the apps, run the `deploy` command with a new version of the `.cpb`. To remove a deployed app, remove the `.cpb` from the container and restart the node.
 
    Use the `corda-cli pgk remove` command to uninstall a previously installed `.cpb` or `.cpk`.
 
