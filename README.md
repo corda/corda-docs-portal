@@ -7,10 +7,10 @@
 
 ## Quickstart
 
-1. Install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+1. Install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 1. Clone the `corda/corda-docs-portal` repository.
 2. From the root directory of the repository, run `npm install`.
-3. Open a new branch and edit the markdown in the `content` directory.
+3. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
 4. Run `npm run start` to preview your changes locally.
 5. Push your changes to GitHub and open a pull request.
 
