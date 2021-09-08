@@ -13,7 +13,7 @@ To deploy anything to a Corda 5 Developer Preview network, you must use a Corda 
 
 1. Apply the CorDapp CPK Gradle plugin to a Gradle project and generate the `.cpk` files. See [CorDapp CPK Gradle plugin](XXX).
 
-2. Assemble your `.cpk` files into a single `.cpb` file using CorDapp Builder CLI. See [CorDapp Builder CLI](XXX).
+2. Assemble your `.cpk` files into a single `.cpb` file using the CorDapp Builder CLI. See [CorDapp Builder CLI](XXX).
 
 3. To deploy your CorDapp, perform one of the following steps:
 
