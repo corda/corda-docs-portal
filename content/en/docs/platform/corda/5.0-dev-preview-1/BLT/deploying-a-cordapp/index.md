@@ -38,7 +38,7 @@ To deploy anything to a Corda 5 Developer Preview network, you must use a Corda 
 
    {{< note >}}
 
-   You cannot install multiple `.cpb` files or use both `.cpb` and `.cpk` files simultaneously:
+   You cannot install multiple `.cpb` files or use both `.cpb` and `.cpk` files simultaneously. This is because:
 
    * If there are both `.cpb` and `.cpk` files in the CorDapps directory, the node will pick only the `.cpb` and ignore the `.cpk` files.
    * If there are multiple `.cpb` files, the node will not start. You can only have a single `.cpb` in the CorDapps directory.
