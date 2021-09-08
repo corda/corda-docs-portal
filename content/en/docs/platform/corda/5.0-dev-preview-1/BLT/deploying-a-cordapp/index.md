@@ -17,7 +17,7 @@ To deploy anything to a Corda 5 Developer Preview network, you must use a Corda 
 
 3. To deploy your CorDapp, perform one of the following steps:
 
-   * To deploy your CorDapp to all nodes in the running network, use the following command:
+   * Deploy your CorDapp to all nodes in the running network using this command:
 
       `corda-cli pkg install -n <network-name> <cpb-file-location>`
 
