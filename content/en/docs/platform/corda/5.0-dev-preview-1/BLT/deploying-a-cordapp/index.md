@@ -9,7 +9,7 @@ section_menu: corda-5-dev-preview
 title: Deploying a CorDapp
 ---
 
-To deploy anything to Corda 5 network, you must use a Corda package bundle file (a `.cpb` file) which contains both workflows and contracts packages.
+To deploy anything to a Corda 5 Developer Preview network, you must use a Corda package bundle file (a `.cpb` file) which contains both workflows and contracts packages.
 
 1. Apply the CorDapp CPK Gradle plugin to a Gradle project and generate the `.cpk` files. See [CorDapp CPK Gradle plugin](XXX).
 
