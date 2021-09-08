@@ -18,6 +18,20 @@ weight: 10
 
 # Corda Enterprise Release notes
 
+## Corda Enterprise 4.4.7
+
+Corda Enterprise 4.4.7 is a patch release of Corda Enterprise that fixes a memory issue in Corda Enterprise 4.4.6.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issue listed below is relevant to your work.
+
+### Fixed issue
+
+* We have fixed an issue that caused unbounded memory consumption for batched transaction resolution.
+
 ## Corda Enterprise 4.4.6
 
 Corda Enterprise 4.4.6 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.4.5.

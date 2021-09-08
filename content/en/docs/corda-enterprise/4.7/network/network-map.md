@@ -312,3 +312,13 @@ java -jar corda.jar clear-network-cache
 or call RPC method *clearNetworkMapCache* (it can be invoked through the node’s shell as *run clearNetworkMapCache*, for more information on
 how to log into node’s shell see shell). As we are testing and hardening the implementation this step shouldn’t be required.
 After cleaning the cache, network map data is restored on the next poll from the server or filesystem.
+
+## Add a new notary after the network map is running
+
+If you need to add a new notary after the network map is running:
+1. Register the notary.
+2. Update `network-parameters.conf`.
+3. Set new network parameters.
+4. Sign the new `network-parameter`.
+
+You can also [Set up a notary in a segregated network](setup-segregated-notary.html).
