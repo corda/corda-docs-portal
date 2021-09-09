@@ -196,7 +196,7 @@ For example, `FlowIdentity` has a default mock which returns the `ourIdentity` m
 
 # `FlowMockUtils` class
 
-The `FlowMockUtils` class is the class that the test author should be mainly be interacting with to write a flow unit test. It provides functions which accepts test Lambda functions to be run in the context of an instance of `FlowMockHelper` which it creates.
+The `FlowMockUtils` class is the main class that you should be interacting with to write a flow unit test. It provides functions which accept test Lambda functions to be run in the context of an instance of `FlowMockHelper` which it creates.
 
 Different functions exist to assist writing tests in either Kotlin or Java. Both cases are detailed below.
 
