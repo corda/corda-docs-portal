@@ -48,7 +48,7 @@ For example, to configure the `smoke-tests-network`, use:
 
    The network definition `.yaml` file is a template for the network you want to deploy. This template allows you to configure how the nodes will be set up.
 
-2. Add parameters to your newly created `<network-name>.yaml` file.
+2. Add parameters to your newly-created `<network-name>.yaml` file.
 
    This is an example of a `.yaml` file with its parameters:
 
