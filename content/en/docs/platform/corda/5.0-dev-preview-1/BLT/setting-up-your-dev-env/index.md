@@ -17,9 +17,11 @@ Before you deploy a local network and start working with Corda 5 developer previ
 
    If you do not have Zulu OpenJDK installed or your version is lower than 11, install Zulu OpenJDK 11.
 
-3. Install Docker Compose. You will use it to run a local Corda network.
+3. Install Docker. You will use it to run a local Corda network.
 
-   After installing Docker Compose, open Docker Desktop and perform one of the following steps:
+   After installing Docker, open Docker Desktop and perform one of the following steps:
 
-    * If you are a Mac user, go to **Preferences** and configure Docker Desktop to have at least six GB of RAM and use six cores.
+    * If you are a Mac user, go to **Preferences** and configure Docker Desktop to have at least 6GB of RAM and use 6 cores.
     * If you are a Windows user, go to **Settings > General** and select the following options: **Expose daemon on tcp://localhost:2375 without TLS** and **Use the WSL 2 based engine**.
+   
+4. Install docker-compose using a shell such as bash, or git bash for windows.
