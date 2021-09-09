@@ -20,7 +20,7 @@ In previous versions of Corda, such as Corda 4, flows were required to extend th
 
 ## How to include flow test utilities
 
-If this flow mock tooling is required within the Corda repo, a test dependency can be added to your build file for module `:testing:flow-mock-utils`:
+If this flow mock tooling is required within the Corda repo, you can add a test dependency to your build file for module `:testing:flow-mock-utils`:
 
 ``` gradle
 dependencies {
