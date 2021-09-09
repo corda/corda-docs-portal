@@ -106,7 +106,7 @@ fmh.overrideDefaultInjectableMock(
 
 ## `flow` property
 
-When `createFlow` is called, it returns the instantiated flow, but it also stores the flow in a `flow` property within the `FlowMockHelper`. The test author can refer directly to this property instead of storing the result of `creatFlow` themselves if they wish.
+When `createFlow` is called, it returns the instantiated flow, but it also stores the flow in a `flow` property within the `FlowMockHelper`. You can refer directly to this property instead of storing the result of `createFlow` yourself if you wish.
 
 ``` Kotlin
 /**
