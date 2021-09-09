@@ -104,7 +104,7 @@ nodes:
    This command inspects the logs every few seconds until all the nodes are ready.
 
 
-3. To monitor logs, use the following Corda CLI command:
+3. To monitor logs, run this Corda CLI command:
 
    `corda-cli network deploy -n <network-name> | docker-compose -f - logs -f`
 
