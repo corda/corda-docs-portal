@@ -281,7 +281,7 @@ fun Flow<*>.mockInjectables(
 fun Flow<*>.mockInjectables() = mockInjectables(emptyMap())
 ```
 
-For a given flow, this function iterates over all dependencies annotated with @CordaInject and mocks an implementation. Optionally, a map of interfaces to implementations can be provided and this map will be given priority when setting mock implementations. Any injectable service the test author requires specific mock behaviour for can be passed in as a parameter in this map. If no implementation is present in the map for a injectable service which a flow depends on, then a basic mock is created.
+For a given flow, this function iterates over all dependencies annotated with `@CordaInject` and mocks an implementation. Optionally, a map of interfaces to implementations can be provided and this map will be given priority when setting mock implementations. You can pass in a parameter in this map for any injectable service that requires specific mock behavior. If no implementation is present in the map for a injectable service which a flow depends on, then a basic mock is created.
 
 This function has been kept separate to `FlowMockHelper` since it gives the test author the option to just mock a flow's dependencies without using `FlowMockHelper` and all the mock objects it brings with it to allow for more lightweight testing if required.
 
