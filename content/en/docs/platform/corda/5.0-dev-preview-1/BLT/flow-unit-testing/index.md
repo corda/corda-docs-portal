@@ -200,7 +200,7 @@ The `FlowMockUtils` class is the main class that you should be interacting with 
 
 Different functions exist to assist writing tests in either Kotlin or Java. Both cases are detailed below.
 
-This class also provides access to the `mockInjectables` function used to mock the injectable services of a flow if the test author decides they don't need all of `FlowMockHelper` but instead only need a helper to set up the injectable mocks.
+This class also provides access to the `mockInjectables` function used to mock the injectable services of a flow if you decide you don't need all of `FlowMockHelper` but instead only need a helper to set up the injectable mocks.
 
 
 ## Kotlin `flowTest` function
