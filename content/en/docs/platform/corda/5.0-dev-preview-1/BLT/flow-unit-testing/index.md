@@ -49,7 +49,7 @@ This helper class currently uses the following mocking libraries:
 
 ## `createFlow()` function
 
-The `createFlow` function takes as input a function which produces a flow. When called, the `createFlow` function invokes the input function to instantiate the flow and then iterates over all of the flows injectables and sets up mocking for each service.
+The `createFlow` function takes as input a function which produces a flow. When called, the `createFlow` function invokes the input function to instantiate the flow and then iterates over all of the flow's injectables and sets up mocking for each service.
 
 ``` Kotlin
 /**
