@@ -245,7 +245,7 @@ fun <T : Flow<*>> flowTest(
 ) = flowTest(null, testCode)
 ```
 
-You must specify the type of flow being tested to be able to directly access flow properties and functions within the test code, and to run any assertions and the result of calling a flow. When the compiler cannot infer the flow type, the flow class can be passed in as a parameter to the test function.
+You must specify the type of flow being tested to be able to directly access flow properties and functions within the test code, and to run any assertions on the result of calling a flow. When the compiler cannot infer the flow type, the flow class can be passed in as a parameter to the test function.
 
 Sample usage of the first function:
 ``` Java
