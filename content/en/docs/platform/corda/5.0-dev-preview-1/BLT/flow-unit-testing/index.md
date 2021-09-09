@@ -90,7 +90,7 @@ The `overrideDefaultInjectableMock` function allows you to provide your own mock
 fun <U, V : U> overrideDefaultInjectableMock(interfaceClass: Class<U>, implementation: V)
 ```
 
-One limitation of this is that any mock overrides specified using this function _must_ be specified before calling the `createFlow` function. This is because `createFlow` injects the dependencies so it's too late to try override them after the flow has been created.
+One limitation of this is that any mock overrides specified using this function _must_ be specified before calling the `createFlow` function. This is because `createFlow` injects the dependencies, so it's too late to try overriding them after the flow has been created.
 
 Sample usage:
 ``` Kotlin
