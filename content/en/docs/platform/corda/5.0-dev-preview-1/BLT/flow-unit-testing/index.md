@@ -67,7 +67,7 @@ By default, the injectables are configured as basic mocks without any special be
 If a you want to customize mocks, you have two options:
 
 * Access the service mock via the flow produced by the `createFlow` function and add your custom mocking to the mock object.
-* Create their own mock object and replace the default mocks created by the `FlowMockHelper` class. This option is achieved by using the `overrideDefaultInjectableMock` function described in the next section.
+* Create your own mock object and replace the default mocks created by the `FlowMockHelper` class. You can do this by using the `overrideDefaultInjectableMock` function described in the next section.
 
 Sample usage:
 ``` Kotlin
