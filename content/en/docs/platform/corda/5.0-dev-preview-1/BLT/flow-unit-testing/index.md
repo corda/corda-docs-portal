@@ -38,7 +38,7 @@ dependencies {
 
 ## `FlowMockHelper` class
 
-The `FlowMockHelper` class is the main class provided as part of the flow test tooling. The largest benefit that this class adds to tests is that it provides a function to instantiate flows with all injectable interfaces mocked without the test author needing to deal with mocking every service. This greatly reduces the amount of boilerplate code required to instantiate a flow so tests are faster to write and they can focus on the actual code testing.
+The `FlowMockHelper` class is the main class provided as part of the flow test tooling. The largest benefit that this class adds to tests is that it provides a function to instantiate flows with all injectable interfaces mocked without making you manage mocking every service. This greatly reduces the amount of boilerplate code required to instantiate a flow, so tests are faster to write and the test author can focus on the actual code testing.
 
 This class also provides access to commonly used mock objects, and a method of overriding default service mocks. Following sections go into more details around this functionality.
 
