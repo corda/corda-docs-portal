@@ -189,7 +189,7 @@ For example, for the mocks listed above relating to `ourIdentity`:
 
 Similar wiring has been configured for the other party mocks, and for the transaction mocks.
 
-The implementation class also has some helpful default wiring of certain services. The list of mock wiring again isn't extensive but it does help with some commonly used services within flows.
+The implementation class also has some helpful default wiring of certain services. The list of mock wiring isn't extensive, but it does help with some commonly-used services within flows.
 
 For example, `FlowIdentity` has a default mock which returns the `ourIdentity` mock object when `FlowIdentity.ourIdentity` is called. Similarily, `FlowMessaging` returns the `otherSideSession` when `FlowMessaging.initiateSession` is called using the `otherSide` mock object.
 
