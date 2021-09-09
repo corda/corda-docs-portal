@@ -182,7 +182,10 @@ val attachmentMock: Attachment
 
 The implementation of the `FlowMockHelper` provides some commonly-required wiring of mocks. This may not be obvious from looking at the mock definitions on the `FlowMockHelper` interface class.
 
-For example, for the mocks listed above relating to `ourIdentity`, `ourIdentity.owningKey` will return `ourPublicKey`, `ourIdentity.name` will return `ourName`, and `ourTransactionSignature.by` will return `ourPublicKey`.
+For example, for the mocks listed above relating to `ourIdentity`: 
+* `ourIdentity.owningKey` returns `ourPublicKey`.
+* `ourIdentity.name` returns `ourName`.
+* `ourTransactionSignature.by` returns `ourPublicKey`.
 
 Similar wiring has been configured for the other party mocks, and for the transaction mocks.
 
