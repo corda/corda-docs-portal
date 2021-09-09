@@ -15,7 +15,7 @@ Use this procedure if you are developing a CorDapp but not deploying it to a pro
 
 {{< note >}}
 
-In the Corda 5 Developer Preview release, the notaries support the non-validating mode only. The validating mode is not supported.
+In the Corda 5 Developer Preview release, the notaries support non-validating mode only. Validating mode is not supported.
 
 {{< /note >}}
 
