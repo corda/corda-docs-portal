@@ -184,7 +184,7 @@ The implementation of the `FlowMockHelper` provides some commonly required wirin
 
 For example, for the mocks listed above relating to `ourIdentity`, `ourIdentity.owningKey` will return `ourPublicKey`, `ourIdentity.name` will return `ourName`, and `ourTransactionSignature.by` will return `ourPublicKey`.
 
-Similar wiring has ben configured for the other party mocks, and for the transaction mocks.
+Similar wiring has been configured for the other party mocks, and for the transaction mocks.
 
 The implementation class also has some helpful default wiring of certain services. The list of mock wiring again isn't extensive but it does help with some commonly used services within flows.
 
