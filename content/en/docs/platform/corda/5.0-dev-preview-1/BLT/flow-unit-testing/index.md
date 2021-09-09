@@ -87,7 +87,7 @@ The `overrideDefaultInjectableMock` function allows a test author to provide the
  * @param interfaceClass interface which is injectable into flows.
  * @param implementation an implementation of [interfaceClass] which will be injected into the flow.
  */
-fun <U : CordaInjectable, V : U> overrideDefaultInjectableMock(interfaceClass: Class<U>, implementation: V)
+fun <U, V : U> overrideDefaultInjectableMock(interfaceClass: Class<U>, implementation: V)
 ```
 
 One limitation of this is that any mock overrides specified using this function _must_ be specified before calling the `createFlow` function. This is because `createFlow` injects the dependencies so it's too late to try override them after the flow has been created.
