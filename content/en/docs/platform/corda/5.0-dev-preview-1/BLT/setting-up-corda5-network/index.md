@@ -90,7 +90,7 @@ nodes:
 
    {{< note >}}
 
-   When using docker-compose, it's recommended to use the detached mode (`-d`).
+   When using docker-compose `up` command, it's recommended to use it in detached mode (`-d`).
 
    {{< /note >}}
 
