@@ -10,8 +10,8 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-As part of the Corda 5 Developer Preview, developers have the opportunity to expose Remote Procedure Call (RPC)
-functionality via a secure HTTP API. This allows you to operate your node without the need to use the internal RPC
+In the Corda 5 Developer Preview, you can expose Remote Procedure Call (RPC)
+functionality via a secure HTTP API. This lets you operate nodes without the internal RPC
 interface.
 
 Before you can operate your node using HTTP-RPC, you must:
