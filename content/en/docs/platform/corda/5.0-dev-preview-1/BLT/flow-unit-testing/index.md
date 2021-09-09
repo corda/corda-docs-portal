@@ -77,7 +77,7 @@ fmh.createFlow { CollectSignaturesFlow(signedTransactionMock, listOf(otherSideSe
 
 
 ## `overrideDefaultInjectableMock()` function
-The `overrideDefaultInjectableMock` function allows a test author to provide their own mocks for injectable services. This is required for when specific mock behaviour is needed rather than what is provided by default.
+The `overrideDefaultInjectableMock` function allows you to provide your own mocks for injectable services. This is required for when specific mock behaviour is needed rather than what is provided by default.
 
 ``` Kotlin
 /**
