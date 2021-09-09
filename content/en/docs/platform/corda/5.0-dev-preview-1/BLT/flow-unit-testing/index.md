@@ -60,7 +60,7 @@ The `createFlow` function takes as input a function which produces a flow. When 
  *
  * @return the initialized flow with mocked properties.
  */
-fun createFlow(flowInitializer: () -> T): T
+fun createFlow(flowInitializer: FlowMockHelper<T>.() -> T): T
 ```
 
 By default the injectables are configured as basic mocks without any special behaviour. However, in some cases where certain service functionality is often mocked-up in a common way, these mocks are added as part of the default mocking.
