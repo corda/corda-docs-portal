@@ -11,7 +11,7 @@ title: Setting up your development environment
 
 Before you deploy a local network and start working with Corda 5 developer preview, you must perform all the following steps to set up your development environment:
 
-1.	Install Corda CLI tool by following the steps from the [Installing Corda CLI](XXX) procedure.
+1.	Install the Corda CLI tool by following the steps from the [Installing Corda CLI](XXX) procedure.
 
 2. You need Zulu OpenJDK 11 to compile CorDapps. Use the `java -version` command from a shell to verify if you have Zulu OpenJDK and which version.
 
