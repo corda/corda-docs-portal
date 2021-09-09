@@ -115,7 +115,7 @@ When `createFlow` is called, it returns the instantiated flow, but it also store
 val flow: T
 ```
 
-Attempting to access `flow` before calling `createFlow` is not allow and in that case an `IllegalAccessError` will be thrown.
+You cannot access `flow` before calling `createFlow`. If you attempt this, an `IllegalAccessError` will be thrown.
 
 
 Sample usage:
