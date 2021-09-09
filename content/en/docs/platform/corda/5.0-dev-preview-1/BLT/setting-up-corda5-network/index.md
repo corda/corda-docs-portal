@@ -89,7 +89,7 @@ nodes:
 
    `corda-cli network deploy -n <network-name> -f <network-name.yaml file location> | docker-compose -f - up -d`
 
-   The `corda-cli network deploy` command will look for the type of network and a network definition file (by default in the local directory) with the name `<network-name>.yaml`. Also, it will create a `.yaml` file that the Docker Compose can use to create a collections of containers and a network.
+   The `corda-cli network deploy` command will look for the type of network and a network definition file (by default in the local directory) with the name `<network-name>.yaml`. It will output a `.yaml` file to stdout that Docker Compose can use to create your local test network.
 
    {{< note >}}
 
