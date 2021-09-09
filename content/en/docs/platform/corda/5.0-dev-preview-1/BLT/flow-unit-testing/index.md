@@ -180,7 +180,7 @@ val attachmentMock: Attachment
 
 ## Implementation of `FlowMockHelper`
 
-The implementation of the `FlowMockHelper` provides some commonly required wiring of mocks. This may not be obvious from looking at the mock definitions on the `FlowMockHelper` interface class.
+The implementation of the `FlowMockHelper` provides some commonly-required wiring of mocks. This may not be obvious from looking at the mock definitions on the `FlowMockHelper` interface class.
 
 For example, for the mocks listed above relating to `ourIdentity`, `ourIdentity.owningKey` will return `ourPublicKey`, `ourIdentity.name` will return `ourName`, and `ourTransactionSignature.by` will return `ourPublicKey`.
 
