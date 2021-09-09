@@ -32,7 +32,7 @@ Configure your network by running the following Corda CLI command:
 `corda-cli network config <network-type> <network-name>`
 
 Where:
-* `network-type` is the type of the network - currently only docker-compose is supported.
+* `network-type` is the type of the network - currently only `docker-compose` is supported.
 * `network-name` is the name of the network.
 
 For example, to configure the smoke-tests-network, use:
