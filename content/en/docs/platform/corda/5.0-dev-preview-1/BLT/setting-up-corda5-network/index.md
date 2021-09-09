@@ -39,7 +39,7 @@ For example, to configure the `smoke-tests-network`, use:
 
 `corda-cli network config docker-compose smoke-tests-network`
 
-**Step result:** The smoke-tests-network has been configured for Docker Compose, and is ready to be deployed.
+**Step result:** The `smoke-tests-network` has been configured for Docker Compose, and is ready to be deployed.
 
 
 ## Create network definitions file
