@@ -272,7 +272,7 @@ The `FlowMockUtils` class also provides a `mockInjectables` function. This is th
  * @param mock Overrides a map from interface to implementation to use when mocking the injectable services.
  */
 fun Flow<*>.mockInjectables(
-    mockOverrides: Map<Class<out CordaInjectable>, CordaInjectable>
+    mockOverrides: Map<Class<out Any>, Any>
 )
 
 fun Flow<*>.mockInjectables() = mockInjectables(emptyMap())
