@@ -223,7 +223,7 @@ flowTest<CollectSignatureFlow> {
 
 ## Java `flowTest` function
 
-The Java-compatible helper function for writing flow unit tests is also called `flowTest`. It accepts as an input parameter a implementation of a functional interface call `FlowTest`. This interface has a single `run` function which takes a `FlowMockHelper` instance as an input parameter. The implementation of this interface is the test code. Since this interface is a functional interface with a single method, this can be written as a Lambda.
+The Java-compatible helper function for writing flow unit tests is also called `flowTest`. It accepts as an input parameter an implementation of a functional interface called `FlowTest`. This interface has a single `run` function which takes a `FlowMockHelper` instance as an input parameter. The implementation of this interface is the test code. Since this interface is a functional interface with a single method, this can be written as a Lambda.
 
 ``` Kotlin
 /**
