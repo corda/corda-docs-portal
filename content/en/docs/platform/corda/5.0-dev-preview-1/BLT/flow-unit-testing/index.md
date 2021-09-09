@@ -168,7 +168,6 @@ val networkParametersMock: NetworkParameters
 val signedTransactionHashMock: SecureHash
 val signedTransactionMock: SignedTransaction
 val wireTransactionMock: WireTransaction
-val contractUpgradeWireTransactionMock: ContractUpgradeWireTransaction
 val ledgerTransactionMock: LedgerTransaction
 val transactionBuilderMock: TransactionBuilder
 
