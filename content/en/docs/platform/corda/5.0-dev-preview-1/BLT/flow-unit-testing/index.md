@@ -64,7 +64,7 @@ fun createFlow(flowInitializer: FlowMockHelper<T>.() -> T): T
 ```
 
 By default, the injectables are configured as basic mocks without any special behavior. However, in some cases where certain service functionality is often mocked-up in a common way, these mocks are added as part of the default mocking.
-If a test author wants to customize mocks, they have two options:
+If a you want to customize mocks, you have two options:
 
 * Access the service mock via the flow produced by the `createFlow` function and add their custom mocking to the mock object.
 * Create their own mock object and replace the default mocks created by the `FlowMockHelper` class. This option is achieved by using the `overrideDefaultInjectableMock` function described in the next section.
