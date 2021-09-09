@@ -15,7 +15,7 @@ To help with unit testing flows, and to avoid boilerplate code for mocking servi
 
 ## How this is different to Corda 4
 
-In previous versions of Corda, such as Corda 4, flows were required to extend the `FlowLogic` abstract class which was a large class providing a lot of functionality, and a lot of services via `ServiceHub`. This abstract class made it very difficult to write unit tests focused on the flow behaviour since a lot of mock wiring was necessary before being able to write even basic tests.
+In previous versions of Corda, such as Corda 4, flows were required to extend the `FlowLogic` abstract class which was a large class providing a lot of functionality, and many services via `ServiceHub`. This abstract class made it very difficult to write unit tests focused on the flow behavior since a lot of mock wiring was necessary before being able to write even basic tests.
 
 
 ## How to include flow test utilities
