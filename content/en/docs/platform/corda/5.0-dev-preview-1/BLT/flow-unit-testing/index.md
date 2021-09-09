@@ -28,7 +28,7 @@ dependencies {
 }
 ```
 
-If working in a separate repo, you can pull in the publish artifact named `corda-flow-test-utils`:
+If working in a separate repo, you can pull in the published artifact `corda-flow-test-utils`:
 
 ``` gradle
 dependencies {
