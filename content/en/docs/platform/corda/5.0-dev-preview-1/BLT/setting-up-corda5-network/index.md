@@ -35,7 +35,7 @@ Where:
 * `network-type` is the type of the network - currently only docker-compose is supported.
 * `network-name` is the name of the network.
 
-For example, to run the smoke-tests-network, use:
+For example, to configure the smoke-tests-network, use:
 
 `corda-cli network config docker-compose smoke-tests-network`
 
