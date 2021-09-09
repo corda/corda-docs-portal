@@ -9,7 +9,7 @@ section_menu: corda-5-dev-preview
 title: Flow unit testing
 ---
 
-Since the `Flow` interface has been introduced in Corda 5, it is now easier than before to create unit tests for your flows. It allows flow authors to rely less on bringing up a whole network just to run tests against flows. From Corda 5, flows use injection to retrieve required services, and these services can easily be mocked in order to focus unit testing on functionality within a flow. The one issue that comes with this is that mocking injected services can introduce a lot of boilerplate code among tests. Especially in cases where flows require a high number of services to be injected.
+With the introduction of the `Flow` interface in Corda 5, it is now easier to create unit tests for your flows. It allows you to rely less on bringing up a whole network just to run tests against flows. From Corda 5, flows use injection to retrieve required services, and these services can easily be mocked in order to focus unit testing on functionality within a flow. The one issue that comes with this is that mocking injected services can introduce a lot of boilerplate code among tests. Especially in cases where flows require a high number of services to be injected.
 
 To help with unit testing flows, and to avoid boilerplate code for mocking services, we've introduced tooling to simplify unit testing flows.
 
