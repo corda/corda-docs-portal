@@ -1,50 +1,55 @@
-# R3 Documentation
+# R3 Product Documentation
 
-- Quickstart
-- Prerequisites
-- Publishing the docs
-- Builds and build status
+The documentation source files are under the `../content` directory in the `corda-docs-portal` repository, and is written in markdown.
 
-## Quickstart
+The HTML documentation output is generated using Hugo. You can build and edit the docs locally using npm and a markdown editor.
+
+## Build and edit the docs locally
 
 1. Install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-1. Clone the `corda/corda-docs-portal` repository.
-2. From the root directory of the repository, run `npm install`.
-3. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
-4. Run `npm run start` to preview your changes locally.
-5. Push your changes to GitHub and open a pull request.
+2. Install a markdown editor of your choice.
+3. Fork the `corda/corda-docs-portal` repository, and clone your fork.
+4. From the root directory of the repository, run `npm install`. This installs all the required modules to build the documentation locally.
+5. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
+6. Run `npm run start` to build the documentation locally.
+7. Navigate to `https://localhost:1313` to view the locally built documentation.
+8. Push your changes to GitHub and open a pull request.
 
-## Prerequisites
+## Keep your fork in sync with the documentation
 
-Before you can build the documentation locally, you must install node.js and npm.
+To best way to keep your fork in sync with the main documentation repository is to add it an `upstream` remote after you create your fork.
 
-### Install node.js and npm on OSX or Linux
+### Add the upstream remote
 
-Install `nvm` locally using the instructions [here](https://github.com/nvm-sh/nvm#git-install).
+To add an upstream remote:
 
-### Install node.js and npm on Windows
-
-Install the `nodist` installer from the nodist releases page [here](https://github.com/nullivex/nodist/releases).
-
-## Publishing the docs
-
-The documentation is published using Git tags.
-
-When a tag of the correct format is created and pushed to the repository, the publishing build begins. The format for publishing tags is:
-
-```
-publish-yyyy-mm-dd-hhmm
+```bash
+git remote add upstream https://github.com/corda/corda-docs-portal.git
 ```
 
-To publish the documentation, run the following commands:
+The URL of a remote can be changed using the `git remote set-url` command.
 
+### View your remotes
+
+To view your remotes:
+
+```bash
+git remote -v
 ```
-git tag publish-yyyy-mm-dd-hhmm
-git push --tags
+
+### Remove a remote
+
+If you need to remove a remote:
+
+```bash
+git remote rm remote-name
 ```
 
-## Builds and build status
+### Get the latest updates from the upstream remote
 
-The documentation builds are collected in a Jenkins interface [here](https://ci01.dev.r3.com/job/Docs-Builders/).
+To update your current branch, rebase on the latest changes from the upstream remote. This will protect any unmerged commits from being overwritten:
 
-Builds run against pull requests, branches, and tags. Builds can be set to build to any of the documentation preview environments by using the **Build with parameters** option. For more information, see the process documentation in the [knowledge base](https://engineering.r3.com/engineering-central/how-we-work/documentation-guidelines/documentation-builds/).
+```bash
+git rebase upstream/main
+```
+
