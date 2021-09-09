@@ -42,7 +42,7 @@ For example, to run the iou-sample network, use:
 
 `corda-cli network config docker-compose iou-sample`
 
-**Step result:** An entry is added to `~/.corda/network.yaml` with the name and the type of the network.
+**Step result:** The iou-sample network has been configured for docker compose, and is ready to be deployed
 
 
 ## Create network definitions file
