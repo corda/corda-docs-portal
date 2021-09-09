@@ -97,7 +97,7 @@ nodes:
 
    {{< /note >}}
 
-2. Wait for the nodes to run. You can monitor nodes starting by using the following command:
+2. Wait for the nodes to run. You can monitor nodes starting up by running this command:
 
    `corda-cli network wait -n <network-name>`
 
