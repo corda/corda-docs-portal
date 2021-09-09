@@ -23,5 +23,5 @@ Before you deploy a local network and start working with Corda 5 developer previ
 
     * If you are a Mac user, go to **Preferences** and configure Docker Desktop to have at least 6GB of RAM and use 6 cores.
     * If you are a Windows user, go to **Settings > General** and select the following options: **Expose daemon on tcp://localhost:2375 without TLS** and **Use the WSL 2 based engine**.
-   
-4. Install docker-compose using a shell such as bash, or git bash for windows.
+
+4. Install Docker Compose using a shell such as Bash, or Git Bash for Windows.
