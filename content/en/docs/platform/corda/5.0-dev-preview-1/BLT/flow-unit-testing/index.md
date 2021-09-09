@@ -63,7 +63,7 @@ The `createFlow` function takes as input a function which produces a flow. When 
 fun createFlow(flowInitializer: FlowMockHelper<T>.() -> T): T
 ```
 
-By default the injectables are configured as basic mocks without any special behaviour. However, in some cases where certain service functionality is often mocked-up in a common way, these mocks are added as part of the default mocking.
+By default, the injectables are configured as basic mocks without any special behavior. However, in some cases where certain service functionality is often mocked-up in a common way, these mocks are added as part of the default mocking.
 If a test author wants to customize mocks, they have two options:
 
 * Access the service mock via the flow produced by the `createFlow` function and add their custom mocking to the mock object.
