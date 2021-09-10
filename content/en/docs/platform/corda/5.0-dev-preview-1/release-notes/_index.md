@@ -9,7 +9,7 @@ section_menu: release-notes
 title: Release notes
 ---
 
-The Corda 5 Developer Preview, released on 27 September 2021, showcases the core features of the upcoming Corda 5.0 release to invite feedback:
+The Corda 5 Developer Preview, released on 27 September 2021, showcases the core features of the upcoming Corda 5.0 release to invite feedback. These include:
 
 - A [Modular API](xxx). Corda's core API module has been split into packages and versioned. You can experiment with this using [updated code samples](xxx).
 
