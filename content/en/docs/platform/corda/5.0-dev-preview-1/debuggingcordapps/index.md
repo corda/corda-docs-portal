@@ -23,6 +23,6 @@ To debug your CorDapp in a local network using IntelliJ:
 
 5. In the **Run/Debug Configurations** window, click the plus (+) symbol and select **Remote JVM Debug**.
 
-6. Provide a name for your **Remote JVM Debug** and paste the port number in the **Port** window. Cick **OK**.
+6. Provide a name for your **Remote JVM Debug** and paste the port number in the **Port** window. Click **OK**.
 
 7. Attach the debug to the node and specify the flow's break points.
