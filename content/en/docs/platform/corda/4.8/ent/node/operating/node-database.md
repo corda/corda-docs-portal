@@ -3,17 +3,16 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-corda-nodes-operating-db
-    name: "Understanding the node database"
+    name: "Corda node database"
     parent: corda-enterprise-4-8-corda-nodes-operating
 tags:
 - node
 - database
-title: Understanding the node database
+title: Corda node database
 weight: 1
 ---
 
 
-# Understanding the node database
 
 The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence]({{% ref "../../cordapps/state-persistence.md" %}})).
 
