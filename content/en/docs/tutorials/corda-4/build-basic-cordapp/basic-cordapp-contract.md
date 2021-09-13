@@ -8,12 +8,12 @@ menu:
 tags:
 - tutorial
 - cordapp
-title: Write the contracts
+title: Write contracts
 ---
 
-This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfAppleContract`. Both contracts will be linked to the states that you created when performing the steps from the [Write the states](tutorial-basic-cordapp-state.md) tutorial.
+This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfAppleContract`. You will link these contracts to the states that you created in the [Write the states](basic-cordapp-state.md) tutorial.
 
-You will be creating these contracts in the `contracts/src/main/java/com/template/contracts/` directory in this tutorial. Refer to the `TemplateContract.java` file in this directory for guidance.
+You will create these contracts in the `contracts/src/main/java/com/template/contracts/` directory in this tutorial. Refer to the `TemplateContract.java` file in this directory to see a template contract.
 
 
 ## Learning objectives
@@ -23,27 +23,29 @@ Once you have completed this tutorial, you will know how to create and implement
 
 ## Create the `AppleStampContract` contract
 
-First create the `AppleStampContract`. This contract verifies actions performed by the `AppleStamp` state.
+First, create the `AppleStampContract`. This contract verifies actions performed by the `AppleStamp` state.
 
-1. Right-click the **contracts** folder, select **New > Java Class** and create a file called `AppleStampContract`.
+1. Right-click the **contracts** folder.
+2. Select **New > Java Class**.
+3. Create a file called `AppleStampContract`.
 
    {{< note >}}
    When naming contracts, it’s best practice to match your contract and state names. In this case the contract is called `AppleStampContract`, and the state that links to it is called `AppleStamp`. Follow this naming convention when you write an original CorDapp to avoid confusion.
    {{< /note >}}
 
-2. Open the file.
+4. Open the file.
 
 
 ### Declare the public class
 
-A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a transaction. Declare the contract class by performing the following steps:
+A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
 
 1. Add the public class `AppleStampContract` that implements the `Contract` class.
 
 2. Identify your contract by adding its ID.
 
    {{< note >}}
-   This ID is not used in the production environment but it is used in the testing scenarios. It is a good practice to add it to the contract.
+   This ID is not used in the production environment, but it is used in the testing scenarios. It's best practice to add it to the contract.
    {{< /note >}}
 
 This is what your code should look like now:
@@ -60,7 +62,7 @@ public class AppleStampContract implements Contract {
 
 ### Add commands
 
-Commands indicate the transaction's intent - what type of actions performed by the state the contract can verify. In this tutorial, you will add two commands: one for issuing the bushel of apples and one for redeeming it.
+Commands indicate the transaction's intent—what type of actions performed by the state the contract can verify. In this tutorial, you will add two commands: one for issuing the bushel of apples, and one for redeeming it.
 
 1. Add the `Commands` public interface declaration.
 
@@ -94,13 +96,13 @@ The `verify` method is automatically triggered when your transaction is executed
 * The intention of the transaction - the commands that you are using for that specific transaction.
 * That the transaction components are following the restrictions implemented inside the contract's `verify` method.
 
-1. If you're using IntelliJ, after writing the class name and implementation, you should see a curly red line under it indicating that the class is missing the required method. Put the mouse cursor over the curly red line under the class definition:
+1. If you're using IntelliJ, you will see an error indicator under the class name and implementation. This indicates that the class is missing the required method. Hover over the class definition, then:
 
-   * On MacOS, press **Option** + **Enter**.
+   * On MacOS: press **Option** + **Enter**.
 
-   * On Windows, press **Alt** + **Enter**.
+   * On Windows: press **Alt** + **Enter**.
 
-2. From the drop-down menu, select **Implement methods > verify**.
+2. Select **Implement methods > verify** from the dropdown menu.
 
    The `verify` method preceded by the `@Override` annotation appears.
 
@@ -108,7 +110,7 @@ The `verify` method is automatically triggered when your transaction is executed
 
 4. Verify the intention of the transaction (Issue or Redeem) using the `if-then-else` loop.
 
-5. Add the following domain-specific language (DSL) `requireThat` helper method to the Issue verification code:
+5. Add this domain-specific language (DSL) `requireThat` helper method to the issue verification code:
 
    ```java
    requireThat(require -> {
@@ -124,7 +126,7 @@ The `verify` method is automatically triggered when your transaction is executed
 
    {{< /note >}}
 
-6. Use `else` to throw an error when the intention of the transaction is not recognized by the `verify` method.
+6. When the intention of the transaction is not recognized by the `verify` method, use `else` to throw an error.
 
 This is what your code should look like now:
 
@@ -178,14 +180,14 @@ IntelliJ indicates that an import is missing with red text. To add the import:
 
    A pop-up that says "Unresolvable reference: {name of the missing input}" appears.
 
-2. Depending on your OS, to automatically import the missing variable:
+2. Automatically import the missing variable:
 
-   * On MacOS, press **Option** + **Enter**.
-   * On Windows, press **Alt** + **Enter**.
+   * On MacOS: press **Option** + **Enter**.
+   * On Windows: press **Alt** + **Enter**.
 
-3. Repeat this process with all missing imports.
+3. Repeat this process for all missing imports.
 
-Once you have added all imports, your code should look like this and you have finished writing the `AppleStampContract`:
+When you have added all the missing imports, you have finished writing the `AppleStampContract`. Your code should now look like this:
 
 ```java
 package com.tutorial.contracts;
@@ -240,10 +242,10 @@ public class AppleStampContract implements Contract {
 
 The `BasketOfAppleContract` has two intentions:
 
-* The farmer Bob creates the basket of apples. This intention is expressed by the `packToBasket` command.
+* Farmer Bob creates the basket of apples. This intention is expressed by the `packToBasket` command.
 * Peter redeems the `BasketOfApple` state. This intention is expressed by the `Redeem` command.
 
-The rules inside the `verify` method in the `requireThat` Corda DSL helper method should be the following:
+The rules inside the `verify` method in the `requireThat` Corda DSL helper method are:
 
 * For the `packToBasket` command:
 
@@ -255,12 +257,12 @@ The rules inside the `verify` method in the `requireThat` Corda DSL helper metho
 
   * The transaction should consume two states.
   * The issuer of the `AppleStamp` should be the producing farm of this basket of apples.
-  * The basket of apples must weigh more than zero.
+  * The weight of the basket of apples must be greater than zero.
 
 
 ### Check your work
 
-Once you've written the `BasketOfAppleContract`, check your code against the sample below. Your code should look something like this:
+Once you've written the `BasketOfAppleContract`, check your code against the sample below. Your code should look like this:
 
 ```java
 package com.tutorial.contracts;
@@ -324,4 +326,4 @@ public class BasketOfAppleContract implements Contract {
 
 ## Next steps
 
-Follow the [Write the flows](tutorial-basic-cordapp-flows.md) tutorial to continue on this learning path.
+Follow the [Write flows](tutorial-basic-cordapp-flows.md) tutorial to continue on this learning path.

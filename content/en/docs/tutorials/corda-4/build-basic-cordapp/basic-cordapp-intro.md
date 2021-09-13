@@ -10,13 +10,13 @@ menu:
 title: Building your first basic CorDapp
 ---
 
-Follow this learning path to build your first CorDapp with a step-by-step guide to show you the way. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running. It reinforces best practices for building CorDapps.
+Follow this learning path to build your first CorDapp with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running. It reinforces [best practices for building CorDapps](xxx).
 
-Code samples for this tutorial will be provided in both Kotlin and Java.
+Code samples for this tutorial are provided in Kotlin and Java.
 
 ## Before you start
 
-Before you continue on this learning path:
+Before you start building your first CorDapp:
 
 - Read about [Corda key concepts](key-concepts.md).
 - [Get set up for CorDapp development](getting-set-up.md).
@@ -29,8 +29,8 @@ This example showcases a delivery versus payment (DvP) scenario. You are buildin
 
 There are two parties involved in this transaction:
 
-- The owner of the orchard - Farmer Bob
-- A customer - let's call him Peter
+- The owner of the orchard - Farmer Bob.
+- A customer - let's call him Peter.
 
 Your CorDapp must follow this process:
 
@@ -62,11 +62,9 @@ Follow these tutorials in sequential order to build your CorDapp:
 
 <!---These will all link to the new tutorials when they are added.--->
 
-1. [Write the states](basic-cordapp-state.md)
+1. [Write states](basic-cordapp-state.md)
 
-2. [Write the contracts](basic-cordapp-contract.md)
-
-  1. Build transactions
+2. [Write contracts](basic-cordapp-contract.md)
 
 3. [Write flows](basic-cordapp-flows.md)
 

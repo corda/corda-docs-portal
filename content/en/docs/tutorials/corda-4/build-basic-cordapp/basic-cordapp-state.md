@@ -8,26 +8,30 @@ menu:
 tags:
 - tutorial
 - cordapp
-title: Write the states
+title: Write states
 ---
 
-This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`. You will be creating these states in the `contracts/src/main/java/com/applestamp/states/` directory in this tutorial. Refer to the `TemplateState.java` file in this directory for guidance.
+This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`. You will be creating these states in the `contracts/src/main/java/com/applestamp/states/` directory in this tutorial. Refer to the `TemplateState.java` file in this directory to see a template state.
 
 ## Learning objectives
 
-Once you have completed this tutorial, you will know how to create and implement states in a CorDapp.
+After you have completed this tutorial, you will know how to create and implement states in a CorDapp.
 
 ## Before you start
 
-Before you start following this tutorial, check out:
-
-* [Key concepts: States](key-concepts-states.md)
+Before you start building states, read [Key concepts: States](key-concepts-states.md).
 
 ## Clone the CorDapp template repo
 
-As you did in [Writing a CorDapp using a template](writing-a-cordapp-using-a-template.md), it's a good idea to start writing any CorDapp from a template. This ensures that you have the correct files in place to begin building.
+The easiest way to write any CorDapp is to start from a template. This ensures that you have the correct files to begin building.
 
-1. Open a terminal window in the directory where you want to download the CorDapp template, and run the following command:
+1. Navigate to the Kotlin and Java template repsitories and decide which you'd like to clone:
+  * https://github.com/corda/cordapp-template-kotlin
+  * https://github.com/corda/cordapp-template-java
+
+2. Open a terminal window in the directory where you want to download the CorDapp template.
+
+3. Run the following command:
 
    {{< tabs name="tabs-1" >}}
    {{% tab name="kotlin" %}}
@@ -44,7 +48,7 @@ As you did in [Writing a CorDapp using a template](writing-a-cordapp-using-a-tem
 
    {{< /tabs >}}
 
-2. Once you have cloned the repository you wish to use, navigate to the correct subdirectory:
+3. After you have cloned the repository you wish to use, navigate to the correct subdirectory:
 
    {{< tabs name="tabs-2" >}}
    {{% tab name="kotlin" %}}
@@ -62,11 +66,11 @@ As you did in [Writing a CorDapp using a template](writing-a-cordapp-using-a-tem
    {{< /tabs >}}
 
 
-3. Once you have successfully cloned the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+3. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
-   If you are unsure of how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](tutorial-cordapp.html##opening-the-sample-cordapp-in-intellij-idea).
+   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](tutorial-cordapp.html##opening-the-sample-cordapp-in-intellij-idea).
 
-4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `applestamp`. This will change all instances of `template` in the project to `applestamp`
+4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `AppleStamp`. This changes all instances of `template` in the project to `applestamp`
 
 ## Create the `AppleStamp` state
 
@@ -91,7 +95,7 @@ This what your code should look like so far:
 ```
 
 {{< note >}}
-Adding this annotation will trigger an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract](XXX) tutorial.
+Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract](XXX) tutorial.
 {{< /note >}}
 
 When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
@@ -181,10 +185,10 @@ If you're using IntelliJ, you can generate the constructor with a shortcut.
 
 3. Select all the constructors that appear and click **OK**.
 
-4. Add the following annotation before the constructor to ensure that all variables appear: `@ConstructorForDeserialization`
+4. Add the `@ConstructorForDeserialization` annotation before the constructor to ensure that all variables appear.
 
     This annotation:
-    * Indicates which constructor will be used for serialization when there are multiple constructors in a state class.
+    * Indicates which constructor is used for serialization when there are multiple constructors in a state class.
     * Is usually annotated at the constructor that has the most parameters fields.
 
 {{< note >}}
@@ -225,9 +229,7 @@ public class AppleStamp implements LinearState {
 
 To access a private variable outside of its class in Java, you must use a getter. If you do not use getters, your Corda node cannot pick up the variables.
 
-1. Add a getter for each variable.
-
-After you've added the getters, your code should look like this:
+Add a getter for each variable. After you've added the getters, your code should look like this:
 
 ```java
 @BelongsToContract(AppleStampContract.class)
@@ -286,11 +288,11 @@ public class AppleStamp implements LinearState {
 
 ### Add imports
 
-If you're using IntelliJ or another IDE, the IDE will automatically add the imports you need.
+If you're using IntelliJ or another IDE, the IDE automatically adds the imports you need.
 
 IntelliJ indicates that an import is missing with red text. To add the import:
 
-1. Click the red text. You will see a pop-up that says "Unresolvable reference: {name of the missing input}".
+1. Click the red text. A message appears: "Unresolvable reference: {name of the missing input}".
 
 2. On MacOS, press **Option** + **Enter** to automatically import that variable.
 
@@ -298,7 +300,7 @@ IntelliJ indicates that an import is missing with red text. To add the import:
 
 3. Repeat this process with all missing imports.
 
-Once you have added all imports, your code should look like this and you have finished writing the `AppleStamp` state:
+Once you have added all imports, your code should look like this:
 
 ```java
 package com.tutorial.states;
@@ -379,9 +381,9 @@ Private variables:
 * `owner` - The person exchanging the basket of apples for the voucher (Farmer Bob). Use type `Party`.
 * `weight` - The weight of the basket of apples. Use type `int`.
 
-Keep in mind that the `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`. The `Farm` party will then fill both the `owner` and `farm` fields of the transaction, so the constructor could be compacted and carry less parameters: `public BasketOfApple(String description, Party farm, int weight) {}`
+The `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`. The `Farm` party then fills both the `owner` and `farm` fields of the transaction. You could compact the transaction to carry only these parameters: `public BasketOfApple(String description, Party farm, int weight) {}`
 
-However, when you have multiple constructors in one state class (in Java only), you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. In the constructor we just mentioned (`public BasketOfApple(String description, Party farm, int weight) {}`), there is no `owner` field. So you will need to create another constructor that has all fields and annotate this constructor with `@ConstructorForDeserialization`.
+If you are writing in Java, when you have multiple constructors in one state class, you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. For example, the constructor `public BasketOfApple(String description, Party farm, int weight) {}`), does not have an `owner` field. You must create another constructor that has all fields, and annotate this constructor with `@ConstructorForDeserialization`.
 
 ### Check your work
 
