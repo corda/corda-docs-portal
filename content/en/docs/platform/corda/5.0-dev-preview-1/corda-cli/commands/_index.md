@@ -1,9 +1,12 @@
 ---
+date: '2021-09-01'
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordacli
+    weight: 100
+project: corda-5
+section_menu: corda-5-dev-preview
 title: "Corda CLI commands"
-linkTitle: "Corda CLI commands"
-weight: 300
-type: "docs"
-lastmod: 2021-08-26
 author: "Anna Kaludzinska"
 description: >
   Corda CLI commands used for managing Corda network and Corda package files.
@@ -596,4 +599,3 @@ alice: Node smoke-tests-network/alice was deployed with [solar-system.cpb]
 bob: Node smoke-tests-network/bob was deployed with [solar-system.cpb]
 Network smoke-tests-network was deployed with [solar-system.cpb]
 ````
-

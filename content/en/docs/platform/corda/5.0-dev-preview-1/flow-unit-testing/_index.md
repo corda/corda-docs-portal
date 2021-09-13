@@ -1,12 +1,12 @@
 ---
-date: '2021-09-07'
+date: '2020-09-08T12:00:00Z'
+title: "Flow unit testing"
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-network
-    weight: 200
+    identifier: corda-5-dev-preview-1-flowunittesting
+    weight: 1000
 project: corda-5
 section_menu: corda-5-dev-preview
-title: Flow unit testing
 ---
 
 With the introduction of the `Flow` interface in Corda 5, it is now easier to create unit tests for your flows. It allows you to rely less on bringing up a whole network just to run tests against flows. From Corda 5, flows use injection to retrieve required services, and these services can easily be mocked in order to focus unit testing on functionality within a flow. The one issue that comes with this is that mocking injected services can introduce a lot of boilerplate code among tests, especially in cases where flows require a high number of services to be injected.
@@ -182,7 +182,7 @@ val attachmentMock: Attachment
 
 The implementation of the `FlowMockHelper` provides some commonly-required wiring of mocks. This may not be obvious from looking at the mock definitions on the `FlowMockHelper` interface class.
 
-For example, for the mocks listed above relating to `ourIdentity`: 
+For example, for the mocks listed above relating to `ourIdentity`:
 * `ourIdentity.owningKey` returns `ourPublicKey`.
 * `ourIdentity.name` returns `ourName`.
 * `ourTransactionSignature.by` returns `ourPublicKey`.
