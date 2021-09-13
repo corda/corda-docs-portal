@@ -1,5 +1,5 @@
 ---
-title: "Operating a node"
+title: "Operating nodes"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:

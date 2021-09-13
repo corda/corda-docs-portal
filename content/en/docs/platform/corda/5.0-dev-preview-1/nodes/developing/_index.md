@@ -1,5 +1,5 @@
 ---
-title: "Developing a node"
+title: "Developing nodes"
 date: '2021-08-25'
 menu:
   corda-5-dev-preview:
