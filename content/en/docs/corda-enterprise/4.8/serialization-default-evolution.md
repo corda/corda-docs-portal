@@ -17,7 +17,7 @@ weight: 2
 # Default class evolution
 
 
-Corda’s serialization framework supports minor modifications to these classes without requiring external modification or annotation. You can:
+Corda’s serialization framework supports minor modifications to default classes without requiring external modification or annotation. You can:
 
 * Add nullable properties.
 * Add non-nullable properties *if* you also provide an annotated constructor.
@@ -61,7 +61,7 @@ data class Example1 (val a: Int, b: String, c: Int) { // (Version B)
 }
 ```
 
-For this example to work, it adds a new constructor. The constructor allows nodes that have the class at version B to create an
+For this example to work, you must add a new constructor. The constructor allows nodes that have the class at version B to create an
 instance from the serialized form of that class in an older version (version A). The example provides A sensible default for the missing value is provided for instantiation of the non-null property.
 
 {{< note >}}
@@ -180,7 +180,7 @@ It is technically possible to [remove nullable properties](https://medium.com/co
 ## Reordering constructor parameter order
 
 You can reorder properties (in Kotlin, this corresponds to constructor parameters) freely. The evolution serializer maps the class's serialization to its current constructor parameter order. This is important to our AMQP framework as it
-constructs objects using their primary (or annotated) constructor. The ordering of that constructor's parameters determined the way
+constructs objects using their primary (or annotated) constructor. The ordering of that constructor's parameters determine the way
 an object’s properties were serialized into the byte stream.
 
 For an illustrative example, consider a simple class:
