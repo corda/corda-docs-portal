@@ -1,9 +1,12 @@
 <footer class="footer mt-auto">
-    <div class="footer-cnt py-5">
+    <div class="footer-cnt">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                  <a href="https://developer.r3.com" target="_blank" title="R3 Developers"><img src="{{ "images/logo-r3-developers.png" | absURL }}" alt="R3 Developers" width="183" height="40"></a>
+            <div class="row d-flex">
+                <div class="footer-logo">
+                  <a href="/" target="_blank" title="R3 Docs">
+                    <img src="{{ "images/r3.svg" | absURL }}" alt="R3 Developers" width="74" height="56">
+                    <span class="badge bg-secondary docs">Docs</span>
+                  </a>
                   <ul class="list-inline mt-4">
                     {{ range .Site.Menus.social -}}
                       <li class="list-inline-item">
@@ -12,17 +15,16 @@
                     {{ end -}}
                   </ul>
                 </div>
-                <div class="col">
+                <div class="footer-urls">
                     <ul class="footer-links mb-0">
-                      <li><a href="https://www.developer.r3.com/" target="_blank">Developer Portal</a></li>
-                      <li><a href="https://www.developer.r3.com/developer-program" target="_blank">Developer Program</a></li>
-                      <li><a href="https://www.developer.r3.com/case-studies" target="_blank">Case Studies</a></li>
-                      <li><a href="https://www.developer.r3.com/community" target="_blank">Community</a></li>
-                      <li><a href="https://www.developer.r3.com/events" target="_blank">Events</a></li>
-                      <li><a href="https://www.developer.r3.com/blog" target="_blank">Blog</a></li>
-                      <li><a href="https://www.developer.r3.com/videos" target="_blank">Videos</a></li>
-                      <li><a href="https://www.developer.r3.com/resources" target="_blank">Resources</a></li>
-                      <li><a href="https://www.developer.r3.com/support" target="_blank">Support</a></li>
+                      <li><a href="https://developer.r3.com/" target="_blank">Developer platform</a></li>
+                      <li><a href="https://developer.r3.com/developer-program" target="_blank">Developer program</a></li>
+                      <li><a href="https://community.r3.com/" target="_blank">Community forum</a></li>
+                      <li><a href="https://developer.r3.com/events" target="_blank">Events</a></li>
+                      <li><a href="https://developer.r3.com/blog" target="_blank">Blog</a></li>
+                      <li><a href="https://developer.r3.com/videos" target="_blank">Videos</a></li>
+                      <li><a href="https://developer.r3.com/resources" target="_blank">Resources</a></li>
+                      <li><a href="https://developer.r3.com/support" target="_blank">Support</a></li>
                       <li><a href="https://www.r3.com/careers/" target="_blank" rel="noopener noopener">Careers</a></li>
                       <li><a href="https://www.r3.com/" target="_blank" rel="noopener noopener">About R3</a></li>
                     </ul>
@@ -33,12 +35,12 @@
     <div class="copyright">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-8 order-last order-lg-first">
+          <div class="col-lg-6 text-lg-start mt-2 mt-lg-0">
             <ul class="list-inline">
               <li class="list-inline-item">{{ .Site.Params.footer | safeHTML }}</li>
             </ul>
           </div>
-          <div class="col-lg-8 order-first order-lg-last text-lg-end">
+          <div class="col-lg-10 text-lg-end my-2 my-lg-0">
             <ul class="list-inline">
               {{ range .Site.Menus.footer -}}
                 <li class="list-inline-item"><a href="{{ .URL | absURL }}" target="_blank">{{ .Name }}</a></li>

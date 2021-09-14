@@ -44,7 +44,7 @@ alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/
 
 # Edit Page
 docsRepo = "https://github.com/corda/corda-docs"
-editPage = true
+editPage = false
 
 # Google
 googleAnalyticID = "UA-87760032"

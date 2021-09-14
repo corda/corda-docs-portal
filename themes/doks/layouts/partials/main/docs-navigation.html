@@ -1,8 +1,87 @@
-{{ if or .Prev .Next -}}
-	<div class="docs-navigation d-flex justify-content-between my-4 pt-4">
+{{/* This file is here because the code is roughly the same as the */}}
+{{/* 'pages-in-current.html' menu partial */}}
+
+{{/* Either this page has a 'section_menu' in its front_matter, or the section */}}
+{{/* that the page belongs to should a 'section_menu' parameter */}}
+{{/* Generally, only the _index.md page of a section needs a 'section_menu' param */}}
+{{/* and the 'section_menu' matches its menu entry in menus.LANG.toml */}}
+
+
+{{/* We don't render this component if we don't have a 'section_menu' as we can't */}}
+{{/* correctly identify the menu we should be using for this page - see bottom */}}
+
+{{/* Define a template that we use recursively - https://discourse.gohugo.io/t/how-to-create-multilevel-dropdown-menu-in-hugo/18373/5 */}}
+
+{{/* NB. We use '.Scratch' because templates don't support outer-scoped variables */}}
+
+{{ define "iterate-menu-item" }}
+{{ $page := .page }}
+
+{{ $sectionMenuForThisPage := or $page.Parent.Page.Params.section_menu $page.Params.section_menu}}
+
+{{ with .entry }}
+
+{{/* simulates global/outer scope variables */}}
+
+{{ $page_current := $page.Scratch.Get "page_current" }}
+{{ $page_next := $page.Scratch.Get "page_next" }}
+{{ $page_prev := $page.Scratch.Get "page_prev" }}
+
+{{ if .HasChildren }}
+
+{{/* if we've already set the current page and next isn't set, set it now */}}
+{{ if and $page_current (not $page_next) }}
+{{/* but only set it if it's a menu entry that's a page and not a caption */}}
+{{ with .Page }}{{ $page.Scratch.Set "page_next" . }}{{ end }}
+{{ end }}
+
+{{ if $page.IsMenuCurrent $sectionMenuForThisPage . }}
+{{$page.Scratch.Set "page_current" $page}}
+{{$page.Scratch.Set "page_prev" ($page.Scratch.Get "temp_prev")}}
+{{ end }}
+
+{{/* only set it if it's a menu entry that's a page and not a caption */}}
+{{ with .Page }}{{ $page.Scratch.Set "temp_prev" . }}{{ end }}
+
+{{ range .Children.ByWeight }}
+{{ template "iterate-menu-item" (dict "entry" . "page" $page) }}
+{{ end }}
+
+{{ else }}
+
+{{ if and $page_current (not $page_next) }}
+{{/* but only set it if it's a menu entry that's a page and not a caption */}}
+{{ with .Page }}{{ $page.Scratch.Set "page_next" . }}{{ end }}
+{{ end }}
+
+{{ if $page.IsMenuCurrent $sectionMenuForThisPage . }}
+{{$page.Scratch.Set "page_current" $page}}
+{{$page.Scratch.Set "page_prev" ($page.Scratch.Get "temp_prev")}}
+{{ end }}
+
+{{/* but only set it if it's a menu entry that's a page and not a caption */}}
+{{ with .Page }}{{ $page.Scratch.Set "temp_prev" . }}{{ end }}
+
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{/* Iterate the menu using the template */}}
+
+{{ $sectionMenuForThisPage := or .Parent.Page.Params.section_menu .Page.Params.section_menu}}
+{{ if $sectionMenuForThisPage }}
+{{ $menuEntries := index .Site.Menus $sectionMenuForThisPage}}
+{{ $page := . }}
+{{ range $index, $element := $menuEntries.ByWeight }}
+{{ template "iterate-menu-item" (dict "entry" $element "page" $page) }}
+{{ end }}
+{{ end }}
+
+{{/* Now render the results */}}
+
+<div class="docs-navigation d-flex justify-content-between my-4 pt-4">
 	<!-- https://www.feliciano.tech/blog/custom-sort-hugo-single-pages/ -->
-	{{ $pages := where site.RegularPages "Section" .Section -}}
-	{{ with $pages.Next . -}}
+  {{ with .Scratch.Get "page_prev" }}
 		<div>
 			Previous<br />
 			<a href="{{ .Permalink }}">
@@ -12,8 +91,9 @@
         </svg>
         {{ .Title }}</a>
 		</div>
-	{{ end -}}
-	{{ with $pages.Prev . -}}
+  {{ end -}}
+
+  {{ with .Scratch.Get "page_next" }}
 		<div class="ms-auto text-end">
 			Next<br />
 			<a href="{{ .Permalink }}">{{ .Title }}
@@ -23,6 +103,5 @@
         </svg>
       </a>
 		</div>
-	{{ end -}}
-	</div>
-{{ end -}}
+  {{ end -}}
+</div>
