@@ -3,11 +3,14 @@ aliases:
 - /head/flow-testing.html
 - /HEAD/flow-testing.html
 - /flow-testing.html
+- /docs/corda-os/4.8/flow-testing.html
+- /docs/platform/corda/4.8/os/flow-testing.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-flow-testing
-    parent: corda-os-4-8-core-tutorials-index
+    parent: corda-os-4-8-supplementary-tutorials-index
     weight: 1140
 tags:
 - flow

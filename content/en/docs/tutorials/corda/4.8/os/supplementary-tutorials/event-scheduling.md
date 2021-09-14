@@ -3,9 +3,12 @@ aliases:
 - /head/event-scheduling.html
 - /HEAD/event-scheduling.html
 - /event-scheduling.html
+- /docs/corda-os/4.8/event-scheduling.html
+- /docs/platform/corda/4.8/os/event-scheduling.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-event-scheduling
     parent: corda-os-4-8-supplementary-tutorials-index
     weight: 1060

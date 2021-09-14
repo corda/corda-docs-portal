@@ -3,9 +3,12 @@ aliases:
 - /head/hello-world-template.html
 - /HEAD/hello-world-template.html
 - /hello-world-template.html
+- /docs/corda-os/4.8/obtain-the-cordapp-template.html
+- /docs/platform/corda/4.8/os/obtain-the-cordapp-template.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-hello-world-template
     parent: corda-os-4-8-hello-world-introduction
     weight: 1010

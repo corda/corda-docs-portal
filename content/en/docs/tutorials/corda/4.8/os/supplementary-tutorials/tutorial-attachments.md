@@ -3,9 +3,12 @@ aliases:
 - /head/tutorial-attachments.html
 - /HEAD/tutorial-attachments.html
 - /tutorial-attachments.html
+- /docs/corda-os/4.8/tutorial-attachments.html
+- /docs/platform/corda/4.8/os/tutorial-attachments.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-tutorial-attachments
     parent: corda-os-4-8-supplementary-tutorials-index
     weight: 1080

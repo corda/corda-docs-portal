@@ -1,11 +1,15 @@
 ---
+aliases:
+- /docs/corda-os/4.8/core-tutorials-index.html
+- /docs/platform/corda/4.8/os/core-tutorials-index.html
 date: 2021-08-26
+section_menu: tutorials
 section_menu: tutorials
 menu:
   tutorials:
     parent: tutorials-corda-4
     name: Building your first basic CorDapp
-    weight: 100
+    weight: 1010
     identifier: corda-os-4-8-tutorial-basic-cordapp-intro
 title: Building your first basic CorDapp
 ---

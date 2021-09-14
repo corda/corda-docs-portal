@@ -3,9 +3,12 @@ aliases:
 - /head/hello-world-flow.html
 - /HEAD/hello-world-flow.html
 - /hello-world-flow.html
+- /docs/corda-os/4.8/modify-the-flow.html
+- /docs/platform/corda/4.8/os/modify-the-flow.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-hello-world-flow
     parent: corda-os-4-8-hello-world-introduction
     weight: 1030

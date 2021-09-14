@@ -3,9 +3,12 @@ aliases:
 - /head/contract-upgrade.html
 - /HEAD/contract-upgrade.html
 - /contract-upgrade.html
+- /docs/corda-os/4.8/contract-upgrade.html
+- /docs/platform/corda/4.8/os/contract-upgrade.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-contract-upgrade
     parent: corda-os-4-8-supplementary-tutorials-index
     weight: 1070

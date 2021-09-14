@@ -3,9 +3,12 @@ aliases:
 - /head/tutorial-tear-offs.html
 - /HEAD/tutorial-tear-offs.html
 - /tutorial-tear-offs.html
+- /docs/corda-os/4.8/tutorial-tear-offs.html
+- /docs/platform/corda/4.8/os/tutorial-tear-offs.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-tutorial-tear-offs
     parent: corda-os-4-8-supplementary-tutorials-index
     weight: 1090

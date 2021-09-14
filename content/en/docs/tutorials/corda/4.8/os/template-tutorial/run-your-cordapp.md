@@ -3,9 +3,12 @@ aliases:
 - /head/hello-world-running.html
 - /HEAD/hello-world-running.html
 - /hello-world-running.html
+- /docs/corda-os/4.8/run-your-cordapp.html
+- /docs/platform/corda/4.8/os/run-your-cordapp.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-hello-world-running
     parent: corda-os-4-8-hello-world-introduction
     weight: 1040

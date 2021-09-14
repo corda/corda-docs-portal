@@ -3,11 +3,14 @@ aliases:
 - /head/tutorial-test-dsl.html
 - /HEAD/tutorial-test-dsl.html
 - /tutorial-test-dsl.html
+- /docs/corda-os/4.8/tutorial-test-dsl.html
+- /docs/platform/corda/4.8/os/tutorial-test-dsl.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-tutorial-test-dsl
-    parent: corda-os-4-8-core-tutorials-index
+    parent: corda-os-4-8-supplementary-tutorials-index
     weight: 1050
 tags:
 - tutorial

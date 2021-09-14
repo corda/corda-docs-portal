@@ -3,11 +3,14 @@ aliases:
 - /head/tutorial-building-transactions.html
 - /HEAD/tutorial-building-transactions.html
 - /tutorial-building-transactions.html
+- /docs/corda-os/4.8/tutorial-building-transactions.html
+- /docs/platform/corda/4.8/os/tutorial-building-transactions.html
 date: '2020-04-07T12:00:00Z'
+section_menu: tutorials
 menu:
-  corda-os-4-8:
+  tutorials:
     identifier: corda-os-4-8-tutorial-building-transactions
-    parent: corda-os-4-8-core-tutorials-index
+    parent: corda-os-4-8-supplementary-tutorials-index
     weight: 1080
 tags:
 - tutorial
