@@ -11,7 +11,7 @@ tags:
 title: Write contracts
 ---
 
-This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfAppleContract`. You will link these contracts to the states that you created in the [Write the states](basic-cordapp-state.md) tutorial.
+This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfApplesContract`. You will link these contracts to the states that you created in the [Write the states](basic-cordapp-state.md) tutorial.
 
 You will create these contracts in the `contracts/src/main/java/com/template/contracts/` directory in this tutorial. Refer to the `TemplateContract.java` file in this directory to see a template contract.
 
@@ -153,8 +153,8 @@ public class AppleStampContract implements Contract {
                 require.using("The output AppleStamp state should have clear description of the type of redeemable goods", !output.getStampDesc().equals(""));
                 return null;
             });
-        }else if(commandData instanceof BasketOfAppleContract.Commands.Redeem){
-            //Transaction verification will happen in BasketOfApple Contract
+        }else if(commandData instanceof BasketOfApplesContract.Commands.Redeem){
+            //Transaction verification will happen in BasketOfApples Contract
         }
         else{
             //Unrecognized Command type
@@ -193,7 +193,7 @@ When you have added all the missing imports, you have finished writing the `Appl
 package com.tutorial.contracts;
 
 import com.tutorial.states.AppleStamp;
-import com.tutorial.states.BasketOfApple;
+import com.tutorial.states.BasketOfApples;
 import net.corda.core.contracts.CommandData;
 import net.corda.core.contracts.Contract;
 import net.corda.core.transactions.LedgerTransaction;
@@ -221,7 +221,7 @@ public class AppleStampContract implements Contract {
                 require.using("The output AppleStamp state should have clear description of the type of redeemable goods", !output.getStampDesc().equals(""));
                 return null;
             });
-        }else if(commandData instanceof BasketOfAppleContract.Commands.Redeem){
+        }else if(commandData instanceof BasketOfApplesContract.Commands.Redeem){
             //Transaction verification will happen in BasketOfApple Contract
         }
         else{
@@ -238,20 +238,20 @@ public class AppleStampContract implements Contract {
 }
 ```
 
-## Create the `BasketOfAppleContract`
+## Create the `BasketOfApplesContract`
 
-The `BasketOfAppleContract` has two intentions:
+The `BasketOfApplesContract` has two intentions:
 
-* Farmer Bob creates the basket of apples. This intention is expressed by the `packToBasket` command.
-* Peter redeems the `BasketOfApple` state. This intention is expressed by the `Redeem` command.
+* Farmer Bob creates the basket of apples. This intention is expressed by the `packBasket` command.
+* Peter redeems the `BasketOfApples` state. This intention is expressed by the `Redeem` command.
 
 The rules inside the `verify` method in the `requireThat` Corda DSL helper method are:
 
-* For the `packToBasket` command:
+* For the `packBasket` command:
 
-  * This transaction should only output one `BasketOfApple` state.
-  * The output of the `BasketOfApple` state should have a clear description of the apple product.
-  * The output of the `BasketOfApple` state should have a non-zero weight.
+  * This transaction should only output one `BasketOfApples` state.
+  * The output of the `BasketOfApples` state should have a clear description of the apple product.
+  * The output of the `BasketOfApples` state should have a non-zero weight.
 
 * For the `Redeem` command:
 
@@ -262,13 +262,13 @@ The rules inside the `verify` method in the `requireThat` Corda DSL helper metho
 
 ### Check your work
 
-Once you've written the `BasketOfAppleContract`, check your code against the sample below. Your code should look like this:
+Once you've written the `BasketOfApplesContract`, check your code against the sample below. Your code should look like this:
 
 ```java
 package com.tutorial.contracts;
 
 import com.tutorial.states.AppleStamp;
-import com.tutorial.states.BasketOfApple;
+import com.tutorial.states.BasketOfApples;
 import net.corda.core.contracts.CommandData;
 import net.corda.core.contracts.Contract;
 import net.corda.core.transactions.LedgerTransaction;
@@ -276,10 +276,10 @@ import org.jetbrains.annotations.NotNull;
 
 import static net.corda.core.contracts.ContractsDSL.requireThat;
 
-public class BasketOfAppleContract implements Contract {
+public class BasketOfApplesContract implements Contract {
 
     // This is used to identify our contract when building a transaction.
-    public static final String ID = "com.tutorial.contracts.BasketOfAppleContract";
+    public static final String ID = "com.tutorial.contracts.BasketOfApplesContract";
 
 
     @Override
@@ -287,19 +287,19 @@ public class BasketOfAppleContract implements Contract {
         //Extract the command from the transaction.
         final CommandData commandData = tx.getCommands().get(0).getValue();
 
-        if (commandData instanceof BasketOfAppleContract.Commands.packToBasket){
-            BasketOfApple output = tx.outputsOfType(BasketOfApple.class).get(0);
+        if (commandData instanceof BasketOfApplesContract.Commands.packBasket){
+            BasketOfApples output = tx.outputsOfType(BasketOfApples.class).get(0);
             requireThat(require -> {
-                require.using("This transaction should only output one BasketOfApple state", tx.getOutputs().size() == 1);
-                require.using("The output BasketOfApple state should have clear description of Apple product", !output.getDescription().equals(""));
-                require.using("The output BasketOfApple state should have non zero weight", output.getWeight() > 0);
+                require.using("This transaction should only output one BasketOfApples state", tx.getOutputs().size() == 1);
+                require.using("The output BasketOfApples state should have clear description of Apple product", !output.getDescription().equals(""));
+                require.using("The output BasketOfApples state should have non zero weight", output.getWeight() > 0);
                 return null;
             });
         }
-        else if (commandData instanceof BasketOfAppleContract.Commands.Redeem) {
+        else if (commandData instanceof BasketOfApplesContract.Commands.Redeem) {
             //Retrieve the output state of the transaction
             AppleStamp input = tx.inputsOfType(AppleStamp.class).get(0);
-            BasketOfApple output = tx.outputsOfType(BasketOfApple.class).get(0);
+            BasketOfApples output = tx.outputsOfType(BasketOfApples.class).get(0);
 
             //Using Corda DSL function requireThat to replicate conditions-checks
             requireThat(require -> {
@@ -311,14 +311,14 @@ public class BasketOfAppleContract implements Contract {
         }
         else{
             //Unrecognized Command type
-            throw new IllegalArgumentException("Incorrect type of BasketOfApple Commands");
+            throw new IllegalArgumentException("Incorrect type of BasketOfApples Commands");
         }
     }
 
     // Used to indicate the transaction's intent.
     public interface Commands extends CommandData {
-        class packToBasket implements BasketOfAppleContract.Commands {}
-        class Redeem implements BasketOfAppleContract.Commands {}
+        class packBasket implements BasketOfApplesContract.Commands {}
+        class Redeem implements BasketOfApplesContract.Commands {}
 
     }
 }
