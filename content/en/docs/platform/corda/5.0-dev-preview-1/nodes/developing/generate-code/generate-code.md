@@ -20,7 +20,7 @@ The HTTP-RPC module exposes web service endpoints and also generates an OpenAPI 
 specification) is for machine-readable interface files for describing, producing, consuming, and visualizing RESTful
 web services.
 
-## Generating client code using Swagger Editor
+## Generate client code using Swagger Editor
 
 You can use online tools such as [Swagger Editor](https://editor.swagger.io) or
 [Swagger Codegen](https://swagger.io/tools/swagger-codegen/) to generate client code in various programming languages
@@ -48,17 +48,17 @@ Now follow the instructions to generate client code in:
 
 ### Generate client code in C#
 
-Once you have extracted the files, open the solution in Visual Studio (or your preferred alternative IDE). It contains two projects: `IO.Swagger` and
-`IO.Swagger.Test`.
+Once you have extracted the files, open the solution in Visual Studio (or your preferred IDE). It contains two
+projects: `IO.Swagger` and `IO.Swagger.Test`.
 
 `IO.Swagger` contains three folders:
-* `Api` contains the generated APIs from your web service endpoints, organized into dedicated classes for each web service resource.
-* `Client` contains the necessary files for configuring and establishing a connection to your web service.
-* `Model` contains the model classes, generated based on the OpenAPI schemas used and defined in the web services.
+* `Api` for the generated APIs from your web service endpoints, organized into dedicated classes for each web service resource.
+* `Client` for the necessary files for configuring and establishing a connection to your web service.
+* `Model` for the model classes, generated based on the OpenAPI schemas used and defined in the web services.
 
 ![Generated client code in Solution](3.png "Generated client code in C#")
 
-The following example shows you how to:
+This example shows you how to:
 * Set up the connection to your web service.
 * Use the generated APIs and models to start a flow and query the vault.
 * Reference the `IO.Swagger` project in your tester application.
@@ -105,13 +105,13 @@ Once you have extracted the files, open the folder in your preferred IDE. It con
 `test`, `docs`, and `.swagger_codegen`.
 
 `swagger_client` contains:
-* `api` contains the generated APIs from your web service endpoints, organized into dedicated classes for each web service resource.
-* `models` contains the model classes, generated based on the OpenAPI schemas used and defined in the web services.
+* `api` for the generated APIs from your web service endpoints, organized into dedicated classes for each web service resource.
+* `models` for the model classes, generated based on the OpenAPI schemas used and defined in the web services.
 * Additional files for configuring and establishing the connection to your web service.
 
 ![Client code generated in Python](5.png "Client code generated in Python")
 
-The following example shows you how to:
+This example shows you how to:
 * Set up the connection to your web service.
 * Use the generated APIs and models to start a flow.
 * Import the required classes from the `swagger_client` module in your tester application.
@@ -149,7 +149,7 @@ The `main` module contains four packages:
 
 ![Client code generated in Java](9.png "Client code generated in Java")
 
-The following example shows you how to:
+This example shows you how to:
 * Set up the connection to your web service.
 * Use the generated APIs and models to start a flow.
 * Add a tester `main` class to your project or build a `.jar` from the generated client code and import it into a separate tester application.
@@ -198,7 +198,7 @@ The project's source folder contains a `main` module, which contains three packa
 
 ![Client code generated in Kotlin](7.png "Client code generated in Kotlin")
 
-The following example shows you how to:
+This example shows you how to:
 * Set up the connection to your web service.
 * Use the generated APIs and models to start a flow.
 * Add a tester `main` class to your project or build a `.jar` from the generated client code and import it into a separate tester application.
