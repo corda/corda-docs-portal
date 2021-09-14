@@ -86,12 +86,7 @@ Consider this example:
 // The original version of the class
 data class Example3 (val a: Int, val b: Int)
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
-
-{{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{
 ```kotlin
 // The first alteration, property c added
 data class Example3 (val a: Int, val b: Int, val c: Int)
