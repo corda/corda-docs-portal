@@ -43,7 +43,7 @@ Options:
 
 Commands:
 
-  endpoint  Performs operations on HTTP RPC endpoints. HTTP RPC endpoints
+  endpoint  Performs operations on HTTP-RPC endpoints. HTTP-RPC endpoints
               should be created first before any subsequent commands executed
               on them.
   flow      Allows you to start and kill flows, list the ones available and to
@@ -65,12 +65,12 @@ corda endpoint add [-hvV] [--logging-level=<loggingLevel>] [-n=<name>]
 
 Description:
 
-Allows to add HTTP RPC endpoint of the Corda with necessary credentials to the
+Allows to add HTTP-RPC endpoint of the Corda with necessary credentials to the
 local cache. After endpoint is added other commands can be executed against it.
 
 Parameters:
 
-      <url>           HTTP RPC endpoint URL in the form: https://<host>:
+      <url>           HTTP-RPC endpoint URL in the form: https://<host>:
                         port/api/v1
 
 Options:
@@ -165,7 +165,7 @@ See `ListNodesCommand`as a simple example:
 
 ```kotlin
 @CommandLine.Command(name = "list", description = [
-    "Lists previously created HTTP RPC endpoints along with their aliases."])
+    "Lists previously created HTTP-RPC endpoints along with their aliases."])
 internal class ListNodesCommand(private val storageService: StorageService) : ValidatedCommand() {
     override fun execute(): Int {
         storageService.getContexts().forEach {
@@ -190,8 +190,8 @@ internal abstract class EndpointOrAliasCommand : ValidatedCommand() {
 #### `HttpRpcCommand`
 
 `HttpRpcCommand` extends `EndpointOrAliasCommand`.
-It adds the capability of getting a proxy for an `RPCOps` interface.
-A command would typically extend `HttpRpcCommand` if its business logic needs to expose services via HTTP RPC.
+It adds the capability to get a proxy for an `RPCOps` interface.
+A command would typically extend `HttpRpcCommand` if its business logic needs to expose services via HTTP-RPC.
 
 ### 3. Annotate fields to receive command argument and parameter values
 
@@ -202,9 +202,9 @@ Picocli will initialize properly annotated fields with the matching arguments/po
 See `AddNodeCommand` as an example:
 
 ```kotlin
-    @CommandLine.Option(names = ["-n", "--name"], description = ["Human readable name which will be used to identify HTTP RPC endpoint"])
+    @CommandLine.Option(names = ["-n", "--name"], description = ["Human readable name which will be used to identify HTTP-RPC endpoint"])
     var name: String? = null
 
-    @CommandLine.Parameters(index = "0", description = ["HTTP RPC endpoint URL in the form: https://<host>:port/api/v1"])
+    @CommandLine.Parameters(index = "0", description = ["HTTP-RPC endpoint URL in the form: https://<host>:port/api/v1"])
     lateinit var url: URL
 ```
