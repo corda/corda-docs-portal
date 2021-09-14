@@ -37,7 +37,6 @@ contain the response object serialized to JSON.
 
 If your request is unsuccessful, you may see one of these error codes:
 
-
 {{< table >}}
 
 | HTTP response status          | Description                                                                  |
