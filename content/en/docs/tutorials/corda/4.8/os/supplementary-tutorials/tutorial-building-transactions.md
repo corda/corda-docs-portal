@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-building-transactions
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1080
+    weight: 1030
 tags:
 - tutorial
 - building

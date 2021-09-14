@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-event-scheduling
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1060
+    weight: 1000
 tags:
 - event
 - scheduling

@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-oracles
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1160
+    weight: 1070
 tags:
 - oracles
 title: Writing oracle services

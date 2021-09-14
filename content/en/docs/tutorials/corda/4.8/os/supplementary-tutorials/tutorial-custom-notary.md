@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-custom-notary
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1170
+    weight: 1080
 tags:
 - tutorial
 - custom

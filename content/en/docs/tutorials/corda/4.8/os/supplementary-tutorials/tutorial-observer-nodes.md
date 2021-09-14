@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-observer-nodes
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1100
+    weight: 1060
 tags:
 - tutorial
 - observer

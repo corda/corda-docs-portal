@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-integration-testing
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1150
+    weight: 1120
 tags:
 - tutorial
 - integration

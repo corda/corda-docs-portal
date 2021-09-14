@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-tear-offs
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1090
+    weight: 1050
 tags:
 - tutorial
 - tear

@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-attachments
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1080
+    weight: 1040
 tags:
 - tutorial
 - attachments

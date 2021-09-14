@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-test-dsl
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1050
+    weight: 1100
 tags:
 - tutorial
 - test

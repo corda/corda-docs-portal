@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-flow-testing
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1140
+    weight: 1110
 tags:
 - flow
 - testing

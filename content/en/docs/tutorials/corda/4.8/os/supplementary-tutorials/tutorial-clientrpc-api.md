@@ -11,7 +11,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-clientrpc-api
     parent: corda-os-4-8-supplementary-tutorials-index
-    weight: 1180
+    weight: 1090
 tags:
 - tutorial
 - clientrpc
