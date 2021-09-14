@@ -1,6 +1,6 @@
 ---
 date: '2020-09-08T12:00:00Z'
-title: Developing and operating nodes
+title: Nodes
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-nodes
