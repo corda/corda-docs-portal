@@ -29,8 +29,7 @@ Corda’s serialization framework supports minor modifications to these classes 
 
 You can add nullable properties without any additional code. For example:
 
-{{< tabs name="tabs-1" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 // Initial instance of the class
 data class Example1 (val a: Int, b: String) // (Version A)
@@ -38,9 +37,7 @@ data class Example1 (val a: Int, b: String) // (Version A)
 // Class post addition of property c
 data class Example1 (val a: Int, b: String, c: Int?) // (Version B)
 ```
-{{% /tab %}}
 
-{{< /tabs >}}
 
 If a node has version A of class `Example1`, it can deserialize a blob that has been serialized by a node with version B of `Example1`. The framework treats it as a removed property.
 
@@ -52,8 +49,7 @@ any modification. The property is nullable, so it provides `null` to the constru
 
 If you add a non-nullable property, you need to add some additional code:
 
-{{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 // Initial instance of the class
 data class Example2 (val a: Int, b: String) // (Version A)
@@ -64,9 +60,6 @@ data class Example1 (val a: Int, b: String, c: Int) { // (Version B)
      constructor (a: Int, b: String) : this(a, b, 0) // 0 has been determined as a sensible default
 }
 ```
-{{% /tab %}}
-
-{{< /tabs >}}
 
 For this example to work, it adds a new constructor. The constructor allows nodes that have the class at version B to create an
 instance from the serialized form of that class in an older version (version A). The example provides A sensible default for the missing value is provided for instantiation of the non-null property.
@@ -78,8 +71,7 @@ object when evolution is required. If the annotation indicates an order of prece
 
 
 {{< /note >}}
-As with nullable properties, instances of the class at version A can deserialize serialized forms of `example B`. It
-treats them as if the property has been removed.
+As with nullable properties, if a node has version A of class `Example1`, it can deserialize a blob that has been serialized by a node with version B of `Example1`.  It treats them as if the property has been removed.
 
 
 ### Constructor versioning
@@ -89,8 +81,7 @@ to deserialize several forms of the class. Select the correct constructor to max
 
 Consider this example:
 
-{{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 // The original version of the class
 data class Example3 (val a: Int, val b: Int)
@@ -105,22 +96,16 @@ data class Example3 (val a: Int, val b: Int)
 // The first alteration, property c added
 data class Example3 (val a: Int, val b: Int, val c: Int)
 ```
-{{% /tab %}}
 
-{{< /tabs >}}
 
-{{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 // The second alteration, property d added
 data class Example3 (val a: Int, val b: Int, val c: Int, val d: Int)
 ```
-{{% /tab %}}
 
-{{< /tabs >}}
 
-{{< tabs name="tabs-6" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 // The third alteration, and how it currently exists, property e added
 data class Example3 (val a: Int, val b: Int, val c: Int, val d: Int, val: Int e) {
@@ -133,23 +118,18 @@ data class Example3 (val a: Int, val b: Int, val c: Int, val d: Int, val: Int e)
     constructor (a: Int, b: Int, c: Int, d) : this(a, b, c, d, -1) // alt constructor 3
 }
 ```
-{{% /tab %}}
 
-{{< /tabs >}}
 
 In this case, the deserializer must deserialize instances of class `Example3` that were serialized as:
 
-{{< tabs name="tabs-7" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 Example3 (1, 2)             // example I
 Example3 (1, 2, 3)          // example II
 Example3 (1, 2, 3, 4)       // example III
 Example3 (1, 2, 3, 4, 5)    // example IV
 ```
-{{% /tab %}}
 
-{{< /tabs >}}
 
 Examples I, II, and III require evolution, so you need to select a constructor for them. Here, it's difficult to tell which constructor to use because there is no versioning. For example, example II could use ‘alt constructor 2’ which matches
 its arguments most tightly. It could also use ‘alt constructor 1’ and not instantiate parameter c:
@@ -163,8 +143,7 @@ or
 You can remove this ambiguity by adding version numbers to the constructor
 annotation. This gives a strict precedence order to the constructor selection:
 
-{{< tabs name="tabs-8" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 // The third alteration, and how it currently exists, property e added
 data class Example3 (val a: Int, val b: Int, val c: Int, val d: Int, val: Int e) {
@@ -176,24 +155,19 @@ data class Example3 (val a: Int, val b: Int, val c: Int, val d: Int, val: Int e)
     constructor (a: Int, b: Int, c: Int, d) : this(a, b, c, d, -1) // alt constructor 3
 }
 ```
-{{% /tab %}}
 
-{{< /tabs >}}
 
 The framework selects constructors in descending order, until one enables construction. Deserializing examples I to IV would
 result in:
 
-{{< tabs name="tabs-9" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 Example3 (1, 2, -1, -1, -1) // example I
 Example3 (1, 2, 3, -1, -1)  // example II
 Example3 (1, 2, 3, 4, -1)   // example III
 Example3 (1, 2, 3, 4, 5)    // example IV
 ```
-{{% /tab %}}
 
-{{< /tabs >}}
 
 
 ## Removing properties
@@ -211,16 +185,13 @@ an object’s properties were serialized into the byte stream.
 
 For an illustrative example, consider a simple class:
 
-{{< tabs name="tabs-11" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 data class Example5 (val a: Int, val b: String)
 
 val e = Example5(999, "hello")
 ```
-{{% /tab %}}
 
-{{< /tabs >}}
 
 When you serialize `e`, its properties are encoded in the order of its primary constructor's parameters:
 
@@ -229,15 +200,14 @@ When you serialize `e`, its properties are encoded in the order of its primary c
 If you reorder those parameters post-serialization, then deserializing without evolution will fail with a basic
 type error. This is because the framework would attempt to create the new value of `Example5` with the values provided in the wrong order:
 
-{{< tabs name="tabs-12" >}}
-{{% tab name="kotlin" %}}
+
 ```kotlin
 // changed post serialisation
 data class Example5 (val b: String, val a: Int)
 ```
-{{% /tab %}}
 
-{{% tab name="shell" %}}
+
+
 ```shell
 | 999 | hello |  <--- Extract properties to pass to constructor from byte stream
    |      |
@@ -251,9 +221,7 @@ deserializedValue = Example5(999, "hello")  <--- Resulting attempt at constructi
                               |        \         string and hello is not an integer
 data class Example5 (val b: String, val a: Int)
 ```
-{{% /tab %}}
 
-{{< /tabs >}}
 
 ## Related content
 
