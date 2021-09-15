@@ -1,6 +1,6 @@
 # When built, then this is used, but we inject it
 # at build time using Hugo env-vars.
-baseURL = "http://localhost:1313"
+baseURL = "/"
 
 # Nice stuff...
 title = "Corda Documentation"
@@ -81,7 +81,7 @@ weight = 10
 github_repository = "https://github.com/corda/docs-site"
 
 twitter = "cordablockchain"
-slack = "http://slack.corda.net/"
+slack = "https://slack.corda.net/"
 github = "corda"
 stackoverflow = "corda"
 
