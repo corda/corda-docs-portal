@@ -4,7 +4,7 @@ section_menu: tutorials
 menu:
   tutorials:
     identifier: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-state
-    parent: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
+    parent: corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
     weight: 1030
 tags:
 - tutorial
@@ -12,7 +12,12 @@ tags:
 title: Write states
 ---
 
-This tutorial guides you through writing the two states you need in your CorDapp: `AppleStamp` and `BasketofApples`. You will be creating these states in the `contracts/src/main/java/com/applestamp/states/` directory in this tutorial. Refer to the `TemplateState.java` file in this directory to see a template state.
+
+This tutorial guides you through writing the two states you need in your CorDapp: `MarsVoucher` and `BoardingTicket`. You will be creating these states in the `contracts/src/main/kotlin/com/marsvoucher/states/` directory in this tutorial. Refer to the `TemplateState.kt` file in this directory to see a template state.
+
+States in the Corda 5 Developer Preview are largely the same as states in Corda 4. A state still must implement `ContractState` or one of its dependents.
+
+The main difference in writing states in the Developer Preview is that you must [add a `JsonRepresentable`](#add-the-json-representable). This ensures that the output can be returned over RPC.
 
 ## Learning objectives
 
@@ -20,64 +25,42 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before you start
 
-Before you start building states, read [Key concepts: States](key-concepts-states.md).
+Before you start building states, read [Key concepts: States](../../../../../platform/corda/4.8/os/key-concepts.md).
 
 ## Clone the CorDapp template repo
 
 The easiest way to write any CorDapp is to start from a template. This ensures that you have the correct files to begin building.
 
-1. Navigate to the Kotlin and Java template repsitories and decide which you'd like to clone:
+1. Navigate to the Kotlin template repository.
   * https://github.com/corda/cordapp-template-kotlin
-  * https://github.com/corda/cordapp-template-java
+<!--Update with correct link for dev preview. XXX -->
 
 2. Open a terminal window in the directory where you want to download the CorDapp template.
 
 3. Run the following command:
 
-   {{< tabs name="tabs-1" >}}
-   {{% tab name="kotlin" %}}
    ```kotlin
    git clone https://github.com/corda/cordapp-template-kotlin.git
    ```
-   {{% /tab %}}
+<!--Update with correct link for dev preview. XXX -->
 
-   {{% tab name="java" %}}
-   ```java
-   git clone https://github.com/corda/cordapp-template-java.git
-   ```
-   {{% /tab %}}
+4. After you have cloned the repository you wish to use, navigate to the correct subdirectory:
 
-   {{< /tabs >}}
-
-3. After you have cloned the repository you wish to use, navigate to the correct subdirectory:
-
-   {{< tabs name="tabs-2" >}}
-   {{% tab name="kotlin" %}}
    ```kotlin
    cd cordapp-template-kotlin
    ```
-   {{% /tab %}}
 
-   {{% tab name="java" %}}
-   ```java
-   cd cordapp-template-java
-   ```
-   {{% /tab %}}
+5. After you clone the CorDapp template, open the `cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
-   {{< /tabs >}}
+   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
+6. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionmars`. This changes all instances of `template` in the project to `missionmars`
 
-3. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+## Create the `MarsVoucher` state
 
-   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](tutorial-cordapp.html##opening-the-sample-cordapp-in-intellij-idea).
+First create the `MarsVoucher` state. This state is the voucher issued to customers.
 
-4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `AppleStamp`. This changes all instances of `template` in the project to `applestamp`
-
-## Create the `AppleStamp` state
-
-First create the `AppleStamp` state. This state is the voucher issued to customers.
-
-1. Right-click the **states** folder, select **New > Java Class** and create a file called `AppleStamp`.
+1. Right-click the **states** folder, select **New > Java Class** and create a file called `MarsVoucher`.
 
 2. Open the file.
 
@@ -85,21 +68,21 @@ First create the `AppleStamp` state. This state is the voucher issued to custome
 
 The first thing you should do when writing a state is add the `@BelongsToContract` annotation. This annotation establishes the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
 
-1. If you've copied in the template state, change the `TemplateContract.class` to `AppleStampContract.class`.
+1. If you've copied in the template state, change the `TemplateContract.class` to `MarsVoucherContract.class`.
 
-2. Add the annotation `@BelongsToContract(AppleStampContract.class)` to your state.
+2. Add the annotation `@BelongsToContract(MarsVoucherContract.class)` to your state.
 
 This what your code should look like so far:
 
 ```java
-@BelongsToContract(AppleStampContract.class)
+@BelongsToContract(MarsVoucherContract.class)
 ```
 
 {{< note >}}
-Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract](XXX) tutorial.
+Adding this annotation triggers an error in IntelliJ because you haven't created the `MarsVoucherContract` yet. Ignore this error for now - you will add the contract class in the [Write contracts](XXX) tutorial.
 {{< /note >}}
 
-When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
+When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `MarsVoucher`, so the contract is called `MarsVoucherContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
 
 {{< note >}}
 You've probably noticed that the state template includes imports at the top of the file. Don't worry, we'll get back to these in a little while.
@@ -107,184 +90,116 @@ You've probably noticed that the state template includes imports at the top of t
 
 ### Implement the state
 
-The next line of code you add defines the type of [`ContractState`](api-states.html#contractstate) you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
+The next line of code you add defines the type of [`ContractState`](../../../../../platform/corda/4.8/os/api-states.html#contractstate) you implement with the `MarsVoucher` data class. Add this line to ensure that Corda recognizes the `MarsVoucher` as a state.
 
-In this case, use a `LinearState` to tie the `AppleStamp` to a `LinearID`.
+In this case, use a `LinearState` to tie the `MarsVoucher` to a `LinearID`. You will also need to add a `@ConstructorForDeserialization` and a `JsonRepresentable`. You will add the details to this `JsonRepresentable` [later](#add-the-json-representable-data-class).
 
-Add the public class `AppleStamp` implementing a `LinearState`.
+1. Add the public class `MarsVoucher` implementing a `LinearState`.
+2. Add the `@ConstructorForDeserialization`.
+3. Add the empty `JsonRepresentable`.
 
 This is what your code should look like now:
 
-```java
-@BelongsToContract(AppleStampContract.class)
-public class AppleStamp implements LinearState {
-```
+```kotlin
+@BelongsToContract(MarsVoucherContract::class)
+data class MarsVoucher @ConstructorForDeserialization constructor (
+) : LinearState, JsonRepresentable{
+
 }
+```
 
 ### Add private variables
 
-Next, add the private variables for the stamp description (`stampDesc`), the issuer of the stamp (`issuer`), and the current owner of the stamp (`holder`).
+Next, add these private variables:
+
+* `voucherDesc` - voucher description
+* `issuer` - the issuer of the voucher
+* `holder` - the current owner of the voucher
 
 After adding these variables, your code should look like this:
 
-```java
-@BelongsToContract(AppleStampContract.class)
-public class AppleStamp implements LinearState {
-
-    //Private Variables
-    private String stampDesc; //For example: "One stamp can be exchanged for a basket of Gala apples."
-    private Party issuer; //The person who issued the stamp.
-    private Party holder; //The person who currently owns the stamp.
-  }
-```
-
-### Add required variables and parameters
-
-1. All `LinearState`s must have a variable for the state's linear ID. Add this variable under the private variables:
-
-```java
-private UniqueIdentifier linearID;
-```
-
-2. All Corda states must include a parameter to indicate the parties that store the states. Add this parameter below the `LinearStare` variable:
-
-```java
-private List<AbstractParty> participants;
-```
-
-After adding these sections, your code should look like this:
-
-```java
-@BelongsToContract(AppleStampContract.class)
-public class AppleStamp implements LinearState {
-
-    //Private Variables
-    private String stampDesc; //For example: "One stamp can exchange for a basket of HoneyCrispy Apple"
-    private Party issuer; //The person who issued the stamp
-    private Party holder; //The person who currently owns the stamp
-
-    //LinearState required variable.
-    private UniqueIdentifier linearID;
-
-    //Parameter required by all Corda states to indicate storing parties
-    private List<AbstractParty> participants;
-
-  }
-```
-
-### Add the constructor
-
-Add a constructor to initalize the objects in the `AppleStamp` state.
-
-If you're using IntelliJ, you can generate the constructor with a shortcut.
-
-1. On MacOS, press **Command** + **N**.
-
-    On Windows, press **Alt** + **Insert**.
-
-2. Select **Constructors** in the **Generate** menu.
-
-3. Select all the constructors that appear and click **OK**.
-
-4. Add the `@ConstructorForDeserialization` annotation before the constructor to ensure that all variables appear.
-
-    This annotation:
-    * Indicates which constructor is used for serialization when there are multiple constructors in a state class.
-    * Is usually annotated at the constructor that has the most parameters fields.
-
-{{< note >}}
-When building a CorDapp, your constructor parameters must have the same name as the private variables you declared earlier.
-{{< /note >}}
-
-After adding the constructor, your code should look like this:
-
-```java
-@BelongsToContract(AppleStampContract.class)
-public class AppleStamp implements LinearState {
-
-    //Private Variables
-    private String stampDesc; //For example: "One stamp can exchange for a basket of HoneyCrispy Apple"
-    private Party issuer; //The person who issued the stamp
-    private Party holder; //The person who currently owns the stamp
-
-    //LinearState required variable.
-    private UniqueIdentifier linearID;
-
-    //ALL Corda States must have this parameter to indicate storing parties.
-    private List<AbstractParty> participants;
-
-    //Constructor Tips: Command + N in IntelliJ can auto generate constructor.
-    @ConstructorForDeserialization
-    public AppleStamp(String stampDesc, Party issuer, Party holder, UniqueIdentifier linearID) {
-        this.stampDesc = stampDesc;
-        this.issuer = issuer;
-        this.holder = holder;
-        this.linearID = linearID;
-        this.participants = new ArrayList<AbstractParty>();
-        this.participants.add(issuer);
-        this.participants.add(holder);
-    }
-```
-
-### Add getters
-
-To access a private variable outside of its class in Java, you must use a getter. If you do not use getters, your Corda node cannot pick up the variables.
-
-Add a getter for each variable. After you've added the getters, your code should look like this:
-
-```java
-@BelongsToContract(AppleStampContract.class)
-public class AppleStamp implements LinearState {
-
-    //Private Variables
-    private String stampDesc; //For example: "One stamp can exchange for a basket of HoneyCrispy Apple"
-    private Party issuer; //The person who issued the stamp
-    private Party holder; //The person who currently owns the stamp
-
-    //LinearState required variable.
-    private UniqueIdentifier linearID;
-
-    //ALL Corda State required parameter to indicate storing parties
-    private List<AbstractParty> participants;
-
-    //Constructor Tips: Command + N in IntelliJ can auto generate constructor.
-    @ConstructorForDeserialization
-    public AppleStamp(String stampDesc, Party issuer, Party holder, UniqueIdentifier linearID) {
-        this.stampDesc = stampDesc;
-        this.issuer = issuer;
-        this.holder = holder;
-        this.linearID = linearID;
-        this.participants = new ArrayList<AbstractParty>();
-        this.participants.add(issuer);
-        this.participants.add(holder);
-    }
-
-    @NotNull
-    @Override
-    public List<AbstractParty> getParticipants() {
-        return this.participants;
-    }
-
-    @NotNull
-    @Override
-    public UniqueIdentifier getLinearId() {
-        return this.linearID;
-    }
-
-    //Getters
-    public String getStampDesc() {
-        return stampDesc;
-    }
-
-    public Party getIssuer() {
-        return issuer;
-    }
-
-    public Party getHolder() {
-        return holder;
-    }
+```kotlin
+@BelongsToContract(MarsVoucherContract::class)
+data class MarsVoucher @ConstructorForDeserialization constructor (
+        val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
+        val issuer: Party, //The party who issued the voucher
+        val holder: Party, //The party who currently owns the voucher
+        override val linearId: UniqueIdentifier,//LinearState required variable
+) : LinearState, JsonRepresentable{
 
 }
+```
+
+### Add the JSON representable data class
+
+Place the private variables you just defined in a JSON representable data class outside of the `MarsVoucher` class. This sets up a template that the node uses to send this data class to external parties.
+
+After you've added this data class, your code should look like this:
+
+```kotlin
+@BelongsToContract(MarsVoucherContract::class)
+data class MarsVoucher @ConstructorForDeserialization constructor (
+        val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
+        val issuer: Party, //The party who issued the voucher
+        val holder: Party, //The party who currently owns the voucher
+        override val linearId: UniqueIdentifier,//LinearState required variable
+) : LinearState, JsonRepresentable{
+
+}
+
+data class MarsVoucherDto(
+        val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
+        val issuer: String, //The party who issued the voucher
+        val holder: String, //The party who currently owns the voucher
+        val linearId: String,//LinearState required variable
+)
+```
+
+### Add the JSON representable
+
+As noted in the [introduction](basic-cordapp-intro-c5.md), you must pass JSON parameters if you want the output to be returned over RPC. All of your CorDapp's external interactions are now performed via HTTP-RPC REST APIs, so you can no longer pass objects to the RPC, you must parse a JSON-formatted object. You must pass information to the node using a `JsonRepresentable`. The node will return information in the same way.
+
+You must also add `participants` here. In Corda 4, you could add `participants` to the class directly. In the Corda 5 Developer Preview, however, you must add the `participants` separately.
+
+1. Add a JSON representable with your variables. All of your variables must be strings.
+
+2. Add `participants` inside the JSON representable.
+
+3. Add a helper method that fills out the template for the node. The output contains all private variables in string format and their associated data.
+
+After you've added these items, your code should look like this:
+
+```kotlin
+@BelongsToContract(MarsVoucherContract::class)
+data class MarsVoucher @ConstructorForDeserialization constructor (
+        val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
+        val issuer: Party, //The party who issued the voucher
+        val holder: Party, //The party who currently owns the voucher
+        override val linearId: UniqueIdentifier,//LinearState required variable
+) : LinearState, JsonRepresentable{
+
+    override val participants: List<AbstractParty> get() = listOf<AbstractParty>(issuer,holder)
+
+    fun toDto(): MarsVoucherDto {
+        return MarsVoucherDto(
+                voucherDesc,
+                issuer.name.toString(),
+                holder.name.toString(),
+                linearId.toString()
+        )
+    }
+
+    override fun toJsonString(): String {
+        return Gson().toJson(this.toDto())
+    }
+}
+
+data class MarsVoucherDto(
+      val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
+      val issuer: String, //The party who issued the voucher
+      val holder: String, //The party who currently owns the voucher
+      val linearId: String,//LinearState required variable
+)
 ```
 
 ### Add imports
@@ -295,179 +210,131 @@ IntelliJ indicates that an import is missing with red text. To add the import:
 
 1. Click the red text. A message appears: "Unresolvable reference: {name of the missing input}".
 
-2. On MacOS, press **Option** + **Enter** to automatically import that variable.
+2. On MacOS: press **Option** + **Enter** to automatically import that variable.
 
-    On Windows, press **Alt** + **Enter** to automatically import that variable.
+    On Windows: press **Alt** + **Enter** to automatically import that variable.
 
 3. Repeat this process with all missing imports.
 
 Once you have added all imports, your code should look like this:
 
-```java
-package com.tutorial.states;
+```kotlin
+package net.corda.missionMars.states
 
-import com.tutorial.contracts.AppleStampContract;
-import net.corda.core.contracts.BelongsToContract;
-import net.corda.core.contracts.LinearState;
-import net.corda.core.contracts.UniqueIdentifier;
-import net.corda.core.identity.AbstractParty;
-import net.corda.core.identity.Party;
-import net.corda.core.serialization.ConstructorForDeserialization;
-import org.jetbrains.annotations.NotNull;
+import com.google.gson.Gson
+import net.corda.missionMars.contracts.MarsVoucherContract
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.UniqueIdentifier
+import net.corda.v5.ledger.contracts.BelongsToContract
+import net.corda.v5.ledger.contracts.LinearState
 
-import java.util.ArrayList;
-import java.util.List;
+@BelongsToContract(MarsVoucherContract::class)
+data class MarsVoucher @ConstructorForDeserialization constructor (
+  val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
+  val issuer: Party, //The party who issued the voucher
+  val holder: Party, //The party who currently owns the voucher
+  override val linearId: UniqueIdentifier,//LinearState required variable
+) : LinearState, JsonRepresentable{
 
-@BelongsToContract(AppleStampContract.class)
-public class AppleStamp implements LinearState {
+    override val participants: List<AbstractParty> get() = listOf<AbstractParty>(issuer,holder)
 
-    //Private Variables
-    private String stampDesc; //For example: "One stamp can exchange for a basket of HoneyCrispy Apple"
-    private Party issuer; //The person who issued the stamp
-    private Party holder; //The person who currently owns the stamp
-
-    //LinearState required variable.
-    private UniqueIdentifier linearID;
-
-    //ALL Corda State required parameter to indicate storing parties
-    private List<AbstractParty> participants;
-
-    //Constructor Tips: Command + N in IntelliJ can auto generate constructor.
-    @ConstructorForDeserialization
-    public AppleStamp(String stampDesc, Party issuer, Party holder, UniqueIdentifier linearID) {
-        this.stampDesc = stampDesc;
-        this.issuer = issuer;
-        this.holder = holder;
-        this.linearID = linearID;
-        this.participants = new ArrayList<AbstractParty>();
-        this.participants.add(issuer);
-        this.participants.add(holder);
+    fun toDto(): MarsVoucherDto {
+        return MarsVoucherDto(
+                voucherDesc,
+                issuer.name.toString(),
+                holder.name.toString(),
+                linearId.toString()
+        )
     }
 
-    @NotNull
-    @Override
-    public List<AbstractParty> getParticipants() {
-        return this.participants;
+    override fun toJsonString(): String {
+        return Gson().toJson(this.toDto())
     }
-
-    @NotNull
-    @Override
-    public UniqueIdentifier getLinearId() {
-        return this.linearID;
-    }
-
-    //Getters
-    public String getStampDesc() {
-        return stampDesc;
-    }
-
-    public Party getIssuer() {
-        return issuer;
-    }
-
-    public Party getHolder() {
-        return holder;
-    }
-
 }
+
+data class MarsVoucherDto(
+      val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
+      val issuer: String, //The party who issued the voucher
+      val holder: String, //The party who currently owns the voucher
+      val linearId: String,//LinearState required variable
+)
+
 ```
 
-## Create the `BasketOfApples` state
+## Create the `BoardingTicket` state
 
-The `BasketOfApples` state is the basket of apples that Farmer Bob self-issues to prepare the apples for Peter. Now that you've written your first state, try writing the `BasketOfApples` state using the following information.
+The `BoardingTicket` state is the ticket that Mars Express self-issues to later give to Peter. Now that you've written your first state, try writing the `BoardingTicket` state using the following information.
 
 Private variables:
-* `description` - The brand or type of apple. Use type `String`.
-* `farm` - The origin of the apples. Use type `Party`.
-* `owner` - The person exchanging the basket of apples for the voucher (Farmer Bob). Use type `Party`.
-* `weight` - The weight of the basket of apples. Use type `int`.
+* `description` - Trip information. Use type `String`.
+* `marsExpress` - The space travel company issuing the ticket. Use type `Party`.
+* `owner` - The party exchanging the ticket for the voucher. Use type `Party`.
+* `date` - The launch date of the trip. Use type `Date`.
 
-The `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`. The `Farm` party then fills both the `owner` and `farm` fields of the transaction. You could compact the transaction to carry only these parameters: `public BasketOfApple(String description, Party farm, int weight) {}`
+The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. You could compact the transaction to carry only these parameters: `public BasketOfApple(String description, Party farm, int weight) {}`
 
 If you are writing in Java, when you have multiple constructors in one state class, you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. For example, the constructor `public BasketOfApple(String description, Party farm, int weight) {}`), does not have an `owner` field. You must create another constructor that has all fields, and annotate this constructor with `@ConstructorForDeserialization`.
 
 ### Check your work
 
-Once you've written the `BasketOfApples` state, check your code against the sample below. Your code should look something like this:
+Once you've written the `BoardingTicket` state, check your code against the sample below. Your code should look like this:
 
-```java
-package com.tutorial.states;
+```kotlin
+package net.corda.missionMars.states
 
-import com.tutorial.contracts.BasketOfApplesContract;
-import net.corda.core.contracts.BelongsToContract;
-import net.corda.core.contracts.ContractState;
-import net.corda.core.identity.AbstractParty;
-import net.corda.core.identity.Party;
-import net.corda.core.serialization.ConstructorForDeserialization;
-import org.jetbrains.annotations.NotNull;
+import com.google.gson.Gson
+import net.corda.missionMars.contracts.BoardingTicketContract
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.contracts.BelongsToContract
+import net.corda.v5.ledger.contracts.ContractState
+import java.util.*
 
-import java.util.ArrayList;
-import java.util.List;
+@BelongsToContract(BoardingTicketContract::class)
+data class BoardingTicket(
+        var description : String, //Trip information
+        var marsExpress : Party, //Party selling the ticket
+        var owner: Party, //The party who exchanges the ticket for the voucher
+        var date: Date)
+    : ContractState, JsonRepresentable {
 
-@BelongsToContract(BasketOfApplesContract.class)
-public class BasketOfApples implements ContractState {
+    //Secondary Constructor
+    constructor(description: String, spaceCompany: Party, date: Date) : this(
+            description = description,
+            spaceCompany = spaceCompany,
+            owner = spaceCompany,
+            date = date
+    )
 
-    //Private Variables
-    private String description; //Brand or type
-    private Party farm; //Origin of the apple
-    private Party owner; //The person who exchange the basket of apple with the stamp.
-    private int weight;
-
-    //ALL Corda State required parameter to indicate storing parties
-    private List<AbstractParty> participants;
-
-    //Constructors
-    //Basket of Apple creation. Only farm name is stored.
-    public BasketOfApples(String description, Party farm, int weight) {
-        this.description = description;
-        this.farm = farm;
-        this.owner=farm;
-        this.weight = weight;
-        this.participants = new ArrayList<AbstractParty>();
-        this.participants.add(farm);
+    fun changeOwner(buyer: Party): BoardingTicket {
+        return BoardingTicket(description, spaceCompany, buyer, date)
     }
 
-    //Constructor for object creation during transaction
-    @ConstructorForDeserialization
-    public BasketOfApples(String description, Party farm, Party owner, int weight) {
-        this.description = description;
-        this.farm = farm;
-        this.owner = owner;
-        this.weight = weight;
-        this.participants = new ArrayList<AbstractParty>();
-        this.participants.add(farm);
-        this.participants.add(owner);
+    override val participants: List<AbstractParty> get() = listOf<AbstractParty>(spaceCompany,owner)
+
+    fun toDto(): BoardingTicketDto {
+        return BoardingTicketDto(
+                description,
+                spaceCompany.name.toString(),
+                owner.name.toString(),
+                date.toString()
+        )
     }
 
-    @NotNull
-    @Override
-    public List<AbstractParty> getParticipants() {
-        return participants;
+    override fun toJsonString(): String {
+        return Gson().toJson(this.toDto())
     }
-
-    //getters
-    public String getDescription() {
-        return description;
-    }
-
-    public Party getFarm() {
-        return farm;
-    }
-
-    public Party getOwner() {
-        return owner;
-    }
-
-    public int getweight() {
-        return weight;
-    }
-
-    public BasketOfApples changeOwner(Party buyer){
-        BasketOfApples newOwnerState = new BasketOfApples(this.description,this.farm,buyer,this.weight);
-        return newOwnerState;
-    }
-
 }
+
+data class BoardingTicketDto(
+        var description : String, //Brand or type
+        var spaceshipCompany : String, //Origin of the apple
+        var owner: String, //The person who exchange the basket of apple with the stamp.
+        var date: String
+)
 ```
 
 ## Next steps
