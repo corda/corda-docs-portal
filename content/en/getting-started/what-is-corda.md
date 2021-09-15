@@ -1,8 +1,7 @@
 ---
 date: '2020-07-15T12:00:00Z'
 menu:
-  homepage:
-    parent: homepage-getting-started
+  getting-started:
     identifier: corda-get-started
     name: What is Corda?
 title: What is Corda?

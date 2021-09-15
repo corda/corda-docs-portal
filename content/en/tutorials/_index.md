@@ -1,11 +1,12 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: homepage
+section_menu: tutorials
 menu:
-  homepage:
+  projects:
     name: Tutorials
     weight: 200
     identifier: homepage-tutorials
+project: tutorials
 title: Tutorials
 ---
 
@@ -21,12 +22,12 @@ This is a landing page to talk about tutorials, the links below this in the ToC 
   * Tutorials intro page
     * Explanation of what a CorDapp is, what you can do with it
     * Links to pages with best practices/CorDapp architecture design principles
-    * General learning objectives  
+    * General learning objectives
   * Writing a CorDapp using a template
     * Get the CorDapp template
     * Modify the state
     * Modify the flow
-    * Run your CorDapp  
+    * Run your CorDapp
   * Building your first CorDapp
     * Write states
     * Write contracts
@@ -37,5 +38,5 @@ This is a landing page to talk about tutorials, the links below this in the ToC 
     * Conduct integration testing
     * Run your CorDapp
     * Debug and test your CorDapp
-    * Use the CordaRPCClient API 
+    * Use the CordaRPCClient API
 * Adding advanced features to your CorDapp

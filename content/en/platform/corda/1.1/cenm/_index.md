@@ -6,10 +6,11 @@ date: '2020-01-08T09:59:25Z'
 menu:
   versions:
     weight: 330
-project: cenm
+project: corda
 section_menu: cenm-1-1
 title: CENM 1.1
 version: '1.1'
+cordaType: 'CENM'
 ---
 
 

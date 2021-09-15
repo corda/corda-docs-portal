@@ -1,5 +1,9 @@
 ---
-section_menu: homepage
+menu:
+    projects:
+        weight: 700
+project: api
+title: API documentation
 ---
 
 # Corda API documentation

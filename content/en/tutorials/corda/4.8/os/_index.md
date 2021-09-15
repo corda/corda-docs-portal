@@ -6,6 +6,7 @@ menu:
     name: Corda 4 tutorials
     weight: 200
     identifier: tutorials-corda-4
+project: tutorials
 title: Corda 4.8 tutorials
 ---
 

@@ -1,10 +1,11 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: homepage
+section_menu: getting-started
 menu:
-    homepage:
-        identifier: homepage-getting-started
+    projects:
         weight: 100
+identifier: getting-started
+project: getting-started
 title: Getting started
 ---
 

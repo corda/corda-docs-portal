@@ -1,11 +1,10 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: homepage
 menu:
-  homepage:
-    identifier: homepage-corda
-    weight: 400
+  projects:
+    weight: 500
     name: Corda
+project: corda
 title: Corda
 ---
 
@@ -16,15 +15,15 @@ The Corda platform contains several pieces of complicated software.
 ## Corda
 
 * [Corda 5 Dev Preview](corda/5.0-dev-preview-1.html)
-* Corda 4.8 [Open Source](corda/4.8/os.html) | [Enterprise](corda/4.8/ent.html)
-* Corda 4.7 [Open Source](corda/4.7/os.html) | [Enterprise](corda/4.7/ent.html)
-* Corda 4.6 [Open Source](corda/4.6/os.html) | [Enterprise](corda/4.6/ent.html)
-* Corda 4.5 [Open Source](corda/4.5/os.html) | [Enterprise](corda/4.5/ent.html)
-* Corda 4.4 [Open Source](corda/4.4/os.html) | [Enterprise](corda/4.4/ent.html)
-* Corda 4.3 [Open Source](corda/4.3/os.html) | [Enterprise](corda/4.3/ent.html)
-* Corda 4.2 Open Source                      | [Enterprise](corda/4.2/ent.html)
-* Corda 4.1 [Open Source](corda/4.1/os.html) | [Enterprise](corda/4.1/ent.html)
-* Corda 4.0 [Open Source](corda/4.0/os.html) | [Enterprise](corda/4.0/ent.html)
+* Corda 4.8 [Open Source](corda/4.8/open-source.html) | [Enterprise](corda/4.8/enterprise.html)
+* Corda 4.7 [Open Source](corda/4.7/open-source.html) | [Enterprise](corda/4.7/enterprise.html)
+* Corda 4.6 [Open Source](corda/4.6/open-source.html) | [Enterprise](corda/4.6/enterprise.html)
+* Corda 4.5 [Open Source](corda/4.5/open-source.html) | [Enterprise](corda/4.5/enterprise.html)
+* Corda 4.4 [Open Source](corda/4.4/open-source.html) | [Enterprise](corda/4.4/enterprise.html)
+* Corda 4.3 [Open Source](corda/4.3/open-source.html) | [Enterprise](corda/4.3/enterprise.html)
+* Corda 4.2 Open Source                               | [Enterprise](corda/4.2/enterprise.html)
+* Corda 4.1 [Open Source](corda/4.1/open-source.html) | [Enterprise](corda/4.1/enterprise.html)
+* Corda 4.0 [Open Source](corda/4.0/open-source.html) | [Enterprise](corda/4.0/enterprise.html)
 
 ## Corda Enterprise Network Manager (CENM)
 

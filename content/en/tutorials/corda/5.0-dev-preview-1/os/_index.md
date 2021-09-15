@@ -6,6 +6,7 @@ menu:
     name: Corda 5 tutorials
     weight: 100
     identifier: tutorials-corda-5
+project: tutorials
 title: Corda 5 tutorials
 ---
 

@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   versions:
     weight: 120
-project: corda-os
+project: corda
 section_menu: corda-os-4-4
 title: Corda OS 4.4
 version: '4.4'

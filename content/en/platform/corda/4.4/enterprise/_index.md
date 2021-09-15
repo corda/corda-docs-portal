@@ -5,7 +5,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   versions:
     weight: 20
-project: corda-enterprise
+project: corda
 section_menu: corda-enterprise-4-4
 title: Corda Enterprise 4.4
 version: '4.4'
