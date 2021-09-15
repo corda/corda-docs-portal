@@ -805,11 +805,11 @@ weight = 100
 [[homepage]]
 name = "Corda 4 tutorials"
 parent = "homepage-tutorials"
-url = "/tutorials/corda-4.html"
+url = "/tutorials/corda/4.8/os.html"
 weight = 200
 
 [[homepage]]
 name = "Corda 5 tutorials"
 parent = "homepage-tutorials"
-url = "/tutorials/corda-5.html"
+url = "/tutorials/corda/5.0-dev-preview-1/os.html"
 weight = 100
