@@ -28,19 +28,19 @@ from the OpenAPI specification.
 
 {{< note >}}
 
-Other tools are available, however, [Swagger](https://swagger.io/solutions/getting-started-with-oas/) is easy to use
+Other tools are available; however, [Swagger](https://swagger.io/solutions/getting-started-with-oas/) is easy to use
 and takes full advantage of the OpenAPI Specification's capabilities.
 
 {{< /note >}}
 
 To generate client code:
 1. Open [Swagger Editor](https://editor.swagger.io) in your web browser.
-2. Paste your `swagger.json` content into the editor section (left side of the screen).
-3. Swagger Editor generates a Swagger UI on the right side of the screen.
-4. Click **Generate Client** at the top of the screen and select your preferred programming language.
+2. Paste your `swagger.json` content into the **editor section**. 
+3. Swagger Editor generates a **Swagger UI**.
+4. Click **Generate Client** and select your preferred programming language.
 5. Once the code has been generated, download the `.zip` file and extract the files.
 
-Now follow the instructions to generate client code in:
+Follow the instructions to generate client code in:
 * [C#](#generate-client-code-in-c)
 * [Python](#generate-client-code-in-python)
 * [Java](#generate-client-code-in-java)
