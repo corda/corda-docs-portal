@@ -9,7 +9,7 @@
 
 /** Import highlight.js */
 @import "highlight.js/scss/default";
-@import "highlight.js/scss/dracula";
+@import "highlight.js/styles/base16/dracula";
 
 /** Import KaTeX */
 @import "katex/dist/katex";
@@ -35,3 +35,5 @@
 @import "layouts/pages";
 @import "layouts/posts";
 @import "layouts/sidebar";
+
+@import "layouts/home";

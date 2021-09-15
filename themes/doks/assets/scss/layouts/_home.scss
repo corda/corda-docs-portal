@@ -1,0 +1,255 @@
+body.home {
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    max-width: 1488px;
+    padding-right: var(--bs-gutter-x, 24px);
+    padding-left: var(--bs-gutter-x, 24px);
+  }
+
+  header {
+    .navbar {
+      #header-links {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .navbar-brand {
+        margin-left: 0;
+      }
+
+      #mode {
+        margin-right: 0;
+      }
+
+      #top-search {
+        display: none !important;
+      }
+
+      #top-search-btn {
+        visibility: hidden;
+      }
+    }
+  }
+
+  #home-introduce {
+    display: block;
+    text-align: center;
+    color: $gray-100;
+    margin-top: 4rem;
+    margin-bottom: 4.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+    }
+
+    #home-search {
+      padding-top: 0.5rem;
+
+      form {
+        margin: 0 auto;
+        max-width: 54rem;
+
+        input {
+          padding: 0.563rem 4rem 0.563rem 2rem;
+        }
+
+        #suggestions {
+          left: 0;
+          right: auto;
+        }
+      }
+    }
+
+    &::after {
+      width: 100%;
+      content: "";
+      background: url("images/bg-dark.jpg") no-repeat top center;
+      background-size: cover;
+      background-attachment: fixed;
+      opacity: 0.96;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+      overflow-y: hidden;
+      height: 434px;
+    }
+
+    @include media-breakpoint-up(md) {
+      form {
+        .btn_search {
+          width: 15%;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-top: 3rem;
+      .subtitle {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .card {
+    h3.card-title {
+      text-align: center;
+
+      a {
+        display: block;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .card-body {
+      text-align: center;
+
+      p {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  #home-carousel {
+    background-color: $gray-300;
+    border-radius: 4px;
+    color: $gray-800;
+    margin-top: 3.75rem;
+    margin-bottom: 3.75rem;
+
+    .carousel-inner {
+      padding: 2rem 2rem 3.5rem;
+
+      .carousel-item {
+        .slide {
+          display: flex;
+          flex-wrap: wrap;
+
+          img {
+            border-radius: 4px;
+            border: solid 1px $submenu-bar-color;
+            background-color: #fff;
+            padding: 0.5rem;
+            object-fit: contain;
+            width: 132px;
+            height: 132px;
+            margin: 0 auto 2rem;
+          }
+
+          h5 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-top: 0;
+          }
+
+          a {
+            font-weight: 600;
+          }
+        }
+      }
+
+    }
+
+    .carousel-indicators {
+      button {
+        background: none;
+        margin: 0;
+        text-indent: unset;
+        border: none;
+        width: 28px;
+        height: 28px;
+
+        &:after {
+          content: url("icons/dot-active.svg");
+        }
+      }
+    }
+
+    .carousel-control-prev {
+      display: none;
+      width: 40px;
+      margin-left: 2.5rem;
+    }
+
+    .carousel-control-next {
+      display: none;
+      width: 40px;
+      margin-right: 2.5rem;
+    }
+
+    @include media-breakpoint-up(md) {
+      .carousel-inner {
+        padding: 2.5rem 7.5rem 4.5rem;
+
+        .carousel-item {
+          .slide {
+            flex-wrap: nowrap;
+
+            img {
+              margin-right: 3rem;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        display: block;
+      }
+    }
+  }
+
+  a.btn{
+    line-height: 1.2;
+
+    &.external {
+      &::after {
+        top: 2px;
+      }
+    }
+  }
+
+  footer {
+    .container-fluid {
+      padding-right: var(--bs-gutter-x, 24px);
+      padding-left: var(--bs-gutter-x, 24px);
+    }
+  }
+
+  &.dark{
+    .card {
+      a {
+        color: $gray-100;
+      }
+    }
+
+    #home-carousel {
+      background-color: darken($gray-800, 2.5%);
+    }
+
+    .carousel-inner {
+      padding: 2rem 2rem 3.5rem;
+
+      .carousel-item {
+        .slide {
+          color: $gray-100;
+        }
+      }
+    }
+  }
+}
+
