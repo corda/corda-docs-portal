@@ -6,7 +6,7 @@ baseURL = "/"
 title = "Corda Documentation"
 
 # Of course...
-theme = "doks"
+theme = ['doks']
 
 # i18n
 defaultContentLanguage = "en"
