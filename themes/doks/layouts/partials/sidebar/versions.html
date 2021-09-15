@@ -30,7 +30,7 @@
 
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarVersionMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Version {{ $currentVersion }}
+      {{ .Page.Params.CordaType }} {{ $currentVersion }}
     </a>
     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarVersionMenuLink">
       {{ range .Site.Menus.versions.ByWeight }}
@@ -44,11 +44,11 @@
           <li>
             {{ if eq $similarPage.Permalink "" }}
               <a href="{{ .Page.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
-                <span>Version {{ .Page.Params.Version }}</span>
+                <span>{{ .Page.Params.CordaType }} {{ .Page.Params.Version }}</span>
               </a>
             {{else}}
               <a href="{{ $similarPage.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
-                <span>Version {{ .Page.Params.Version }}</span>
+                <span>{{ .Page.Params.CordaType }} {{ .Page.Params.Version }}</span>
               </a>
             {{end}}
           </li>
