@@ -1,10 +1,9 @@
 ---
 date: 2021-09-15
 section_menu: tutorials
-section_menu: tutorials
 menu:
   tutorials:
-    parent: 5.0-dev-preview-1
+    parent: build-demo-cordapp-index
     name: Building your first basic CorDapp
     weight: 1010
     identifier: corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
