@@ -12,12 +12,13 @@ tags:
 title: Write states
 ---
 
+In Corda, states are immutable objects on the ledger that represent a fact known by one or more Corda nodes at a specific point in time. They can represent facts of any kind - for example, stocks, bonds, loans, and so on. States relevant to a specific node are stored in that node's vault. For a state to evolve, the current state must be marked as historic and a new, updated state must be created.
+
+When you create a state, you include the relevant information about the fact you are storing. You also include a reference to the contract that governs how the states should evolve over time.
+
+States in the Corda 5 Developer Preview are largely the same as states in Corda 4. A state still must implement `ContractState` or one of its dependents. The main difference when writing states with the Developer Preview is that you must add a <a href="#add-the-json-representable">`JsonRepresentable`</a>. This ensures that the output can be returned over RPC.
 
 This tutorial guides you through writing the two states you need in your CorDapp: `MarsVoucher` and `BoardingTicket`. You will be creating these states in the `contracts/src/main/kotlin/com/marsvoucher/states/` directory in this tutorial. Refer to the `TemplateState.kt` file in this directory to see a template state.
-
-States in the Corda 5 Developer Preview are largely the same as states in Corda 4. A state still must implement `ContractState` or one of its dependents.
-
-The main difference in writing states in the Developer Preview is that you must [add a `JsonRepresentable`](#add-the-json-representable). This ensures that the output can be returned over RPC.
 
 ## Learning objectives
 
@@ -25,7 +26,7 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before you start
 
-Before you start building states, read [Key concepts: States](../../../../../platform/corda/4.8/os/key-concepts.md).
+Before you start building states, read [Key concepts: States](../../../../../platform/corda/4.8/open-source/key-concepts.md).
 
 ## Clone the CorDapp template repo
 
@@ -90,7 +91,7 @@ You've probably noticed that the state template includes imports at the top of t
 
 ### Implement the state
 
-The next line of code you add defines the type of [`ContractState`](../../../../../platform/corda/4.8/os/api-states.html#contractstate) you implement with the `MarsVoucher` data class. Add this line to ensure that Corda recognizes the `MarsVoucher` as a state.
+The next line of code you add defines the type of <a href="../../../../../platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a> you implement with the `MarsVoucher` data class. Add this line to ensure that Corda recognizes the `MarsVoucher` as a state.
 
 In this case, use a `LinearState` to tie the `MarsVoucher` to a `LinearID`. You will also need to add a `@ConstructorForDeserialization` and a `JsonRepresentable`. You will add the details to this `JsonRepresentable` [later](#add-the-json-representable-data-class).
 
@@ -157,7 +158,7 @@ data class MarsVoucherDto(
 
 ### Add the JSON representable
 
-As noted in the [introduction](basic-cordapp-intro-c5.md), you must pass JSON parameters if you want the output to be returned over RPC. All of your CorDapp's external interactions are now performed via HTTP-RPC REST APIs, so you can no longer pass objects to the RPC, you must parse a JSON-formatted object. You must pass information to the node using a `JsonRepresentable`. The node will return information in the same way.
+As noted in the [introduction](c5-basic-cordapp-intro.md), you must pass JSON parameters if you want the output to be returned over RPC. All of your CorDapp's external interactions are now performed via HTTP-RPC REST APIs, so you can no longer pass objects to the RPC, you must parse a JSON-formatted object. You must pass information to the node using a `JsonRepresentable`. The node will return information in the same way.
 
 You must also add `participants` here. In Corda 4, you could add `participants` to the class directly. In the Corda 5 Developer Preview, however, you must add the `participants` separately.
 
@@ -273,9 +274,11 @@ Private variables:
 * `owner` - The party exchanging the ticket for the voucher. Use type `Party`.
 * `date` - The launch date of the trip. Use type `Date`.
 
-The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. You could compact the transaction to carry only these parameters: `public BasketOfApple(String description, Party farm, int weight) {}`
+The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. You could compact the transaction to carry only these parameters: `public BoardingTicket(String description, Party marsExpress, Date date) {}`
 
+<!---
 If you are writing in Java, when you have multiple constructors in one state class, you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. For example, the constructor `public BasketOfApple(String description, Party farm, int weight) {}`), does not have an `owner` field. You must create another constructor that has all fields, and annotate this constructor with `@ConstructorForDeserialization`.
+Commenting this out as we don't yet have the Java version.--->
 
 ### Check your work
 
@@ -339,9 +342,9 @@ data class BoardingTicketDto(
 
 ## Next steps
 
-Follow the [Write the contracts](tutorial-basic-cordapp-contract.md) tutorial to continue on this learning path.
+Follow the [Write contracts](c5-basic-cordapp-contract.md) tutorial to continue on this learning path.
 
 ## Related content
 
-* [API: States](api-states.md#api-states)
-* [Reissuing states](reissuing-states.md)
+* [API: States](../../../../../platform/corda/4.8/open-source/api-states.md#api-states)
+* [Reissuing states](../../../../../platform/corda/4.8/open-source/reissuing-states.md)
