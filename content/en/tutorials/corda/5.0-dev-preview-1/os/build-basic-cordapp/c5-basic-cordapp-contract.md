@@ -4,7 +4,7 @@ section_menu: tutorials
 menu:
   tutorials:
     identifier: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-contract
-    parent: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
+    parent: corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
     weight: 1040
 tags:
 - tutorial
@@ -12,9 +12,11 @@ tags:
 title: Write contracts
 ---
 
-This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfApplesContract`. You will link these contracts to the states that you created in the [Write the states](basic-cordapp-state.md) tutorial.
+Contracts are the Java or Kotlin interfaces used to mark the define class where a transaction `verify` method is implemented. They are linked to respective states and restrict how transaction flows are performed.
 
-You will create these contracts in the `contracts/src/main/java/com/template/contracts/` directory in this tutorial. Refer to the `TemplateContract.java` file in this directory to see a template contract.
+This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [Write the states](c5-basic-cordapp-state.md) tutorial.
+
+You will create these contracts in the `contracts/src/main/<kotlin or java>/net/corda/missionMars/contracts/` directory in this tutorial. Refer to the `TemplateContract.kt` or `TemplateContract.java` file in this directory to see a template contract.
 
 
 ## Learning objectives
@@ -22,71 +24,62 @@ You will create these contracts in the `contracts/src/main/java/com/template/con
 Once you have completed this tutorial, you will know how to create and implement contracts in a CorDapp to restrict how your transaction flows are performed.
 
 
-## Create the `AppleStampContract` contract
+## Create the `MarsVoucherContract` contract
 
-First, create the `AppleStampContract`. This contract verifies actions performed by the `AppleStamp` state.
+First, create the `MarsVoucherContract`. This contract verifies actions performed by the `MarsVoucher` state.
 
 1. Right-click the **contracts** folder.
-2. Select **New > Java Class**.
-3. Create a file called `AppleStampContract`.
 
-   {{< note >}}
-   When naming contracts, it’s best practice to match your contract and state names. In this case the contract is called `AppleStampContract`, and the state that links to it is called `AppleStamp`. Follow this naming convention when you write an original CorDapp to avoid confusion.
-   {{< /note >}}
+2. Select **New > Kotlin Class/File**.
+
+3. In the **New Kotlin Class/File** window, select **Class** and name the file `MarsVoucherContract`.
+
+{{< note >}}
+When naming contracts, it’s best practice to match your contract and state names. In this case the contract is called `MarsVoucherContract`, and the state that links to it is called `MarsVoucher`. Follow this naming convention when you write an original CorDapp to avoid confusion.
+{{< /note >}}
 
 4. Open the file.
 
 
-### Declare the public class
+### Add the class name declaration
 
 A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
 
-1. Add the public class `AppleStampContract` that implements the `Contract` class.
-
-2. Identify your contract by adding its ID.
-
-   {{< note >}}
-   This ID is not used in the production environment, but it is used in the testing scenarios. It's best practice to add it to the contract.
-   {{< /note >}}
+Add the class name `MarsVoucherContract` that implements the `Contract` class.
 
 This is what your code should look like now:
 
-```java
-package com.tutorial.contracts;
+```kotlin
+package net.corda.missionMars.contracts;
 
-public class AppleStampContract implements Contract {
+//Domain Specific Language
+class MarsVoucherContract : Contract {
 
-    // This is used to identify our contract when building a transaction.
-    public static final String ID = "com.tutorial.contracts.AppleStampContract";
 }
 ```
 
 ### Add commands
 
-Commands indicate the transaction's intent—what type of actions performed by the state the contract can verify. In this tutorial, you will add two commands: one for issuing the bushel of apples, and one for redeeming it.
+Commands indicate the transaction's intent — what type of actions performed by the state the contract can verify. Follow the below steps to add the command for issuing the Mars voucher.
 
-1. Add the `Commands` public interface declaration.
+1. Add the `Commands : CommandData` interface declaration.
 
-2. Inside the interface, add the `Issue` and `Redeem` classes that implement `AppleStampContract.Commands`.
-
+2. Inside the interface, add the `Issue` class that implements `Commands`.
 
 This is what your code should look like now:
 
-```java
-package com.tutorial.contracts;
+```kotlin
+package net.corda.missionMars.contracts;
 
-public class AppleStampContract implements Contract {
+//Domain Specific Language
+class MarsVoucherContract : Contract {
 
+}
 
-    // This is used to identify our contract when building a transaction.
-    public static final String ID = "com.tutorial.contracts.AppleStampContract";
-
-
-    // Used to indicate the transaction's intent.
-    public interface Commands extends CommandData {
-        //In our hello-world app, We will have two commands.
-        class Issue implements AppleStampContract.Commands {}
-    }
+// Used to indicate the transaction's intent.
+interface Commands : CommandData {
+    //In our hello-world app, We will have two commands.
+    class Issue : Commands
 }
 ```
 
@@ -103,70 +96,115 @@ The `verify` method is automatically triggered when your transaction is executed
 
    * On Windows: press **Alt** + **Enter**.
 
-2. Select **Implement methods > verify** from the dropdown menu.
+2. Click **Implement members**.
 
-   The `verify` method preceded by the `@Override` annotation appears.
+   The **Implement Members** window appears.
 
-3. Extract the command from the transaction.
+3. In the **Implement Members** window, select **verify(tx: LedgerTransaction): Unit**. Click **OK**.
 
-4. Verify the intention of the transaction (Issue or Redeem) using the `if-then-else` loop.
+4. Extract the command from the transaction.
 
-5. Add this domain-specific language (DSL) `requireThat` helper method to the issue verification code:
+5. Verify the transaction according to its intention using the `when` expression and implementing domain-specific language (DSL) `requireThat` helper method to the issue verification code:
 
-   ```java
-   requireThat(require -> {
-       require.using("This transaction should only output one AppleStamp state", tx.getOutputs().size() == 1);
-       require.using("The output AppleStamp state should have clear description of the type of redeemable goods", !output.getStampDesc().equals(""));
-       return null;
-   });
-   ```
+{{< note >}}
 
-   {{< note >}}
+This is a Corda-specific helper method used for writing contracts only.
 
-   This is a Corda-specific helper method used for writing contracts only.
+{{< /note >}}
 
-   {{< /note >}}
-
-6. When the intention of the transaction is not recognized by the `verify` method, use `else` to throw an error.
+```kotlin
+    when (commandData) {
+        is Commands.Issue -> requireThat {
+            val output = tx.outputsOfType(MarsVoucher::class.java)[0]
+            "This transaction should only have one MarsVoucher state as output".using(tx.outputs.size == 1)
+            "The output MarsVoucher state should have clear description of the type of Space trip information".using(output.voucherDesc != "")
+            null
+        }
+        is BoardingTicketContract.Commands.RedeemTicket-> requireThat {
+            //Transaction verification will happen in BoardingTicket Contract
+        }
+    }
+```
 
 This is what your code should look like now:
 
-```java
-package com.tutorial.contracts;
+```kotlin
+package net.corda.missionMars.contracts;
 
-public class AppleStampContract implements Contract {
+//Domain Specific Language
+class MarsVoucherContract : Contract {
 
-
-    // This is used to identify our contract when building a transaction.
-    public static final String ID = "com.tutorial.contracts.AppleStampContract";
-
-    @Override
-    public void verify(@NotNull LedgerTransaction tx) throws IllegalArgumentException {
+    override fun verify(tx: LedgerTransaction) {
 
         //Extract the command from the transaction.
-        final CommandData commandData = tx.getCommands().get(0).getValue();
+        val commandData = tx.commands[0].value
 
         //Verify the transaction according to the intention of the transaction
-        if (commandData instanceof AppleStampContract.Commands.Issue){
-            AppleStamp output = tx.outputsOfType(AppleStamp.class).get(0);
-            requireThat(require -> {
-                require.using("This transaction should only have one AppleStamp state as output", tx.getOutputs().size() == 1);
-                require.using("The output AppleStamp state should have clear description of the type of redeemable goods", !output.getStampDesc().equals(""));
-                return null;
-            });
-        }else if(commandData instanceof BasketOfApplesContract.Commands.Redeem){
-            //Transaction verification will happen in BasketOfApples Contract
-        }
-        else{
-            //Unrecognized Command type
-            throw new IllegalArgumentException("Incorrect type of AppleStamp Commands");
+        when (commandData) {
+            is Commands.Issue -> requireThat {
+                val output = tx.outputsOfType(MarsVoucher::class.java)[0]
+                "This transaction should only have one MarsVoucher state as output".using(tx.outputs.size == 1)
+                "The output MarsVoucher state should have clear description of the type of Space trip information".using(output.voucherDesc != "")
+                null
+            }
+            is BoardingTicketContract.Commands.RedeemTicket-> requireThat {
+                //Transaction verification will happen in BoardingTicket Contract
+            }
         }
     }
 
     // Used to indicate the transaction's intent.
-    public interface Commands extends CommandData {
+    interface Commands : CommandData {
         //In our hello-world app, We will have two commands.
-        class Issue implements AppleStampContract.Commands {}
+        class Issue : Commands
+    }
+}
+```
+
+### Add the contract's ID
+
+To identify your contract when building transactions, add its ID.
+
+{{< note >}}
+This ID is not used in the production environment, but it is used in the testing scenarios. It's best practice to add it to the contract.
+{{< /note >}}
+
+This is what your code should look like now:
+
+```kotlin
+package net.corda.missionMars.contracts;
+
+//Domain Specific Language
+class MarsVoucherContract : Contract {
+
+    override fun verify(tx: LedgerTransaction) {
+
+        //Extract the command from the transaction.
+        val commandData = tx.commands[0].value
+
+        //Verify the transaction according to the intention of the transaction
+        when (commandData) {
+            is Commands.Issue -> requireThat {
+                val output = tx.outputsOfType(MarsVoucher::class.java)[0]
+                "This transaction should only have one MarsVoucher state as output".using(tx.outputs.size == 1)
+                "The output MarsVoucher state should have clear description of the type of Space trip information".using(output.voucherDesc != "")
+                null
+            }
+            is BoardingTicketContract.Commands.RedeemTicket-> requireThat {
+                //Transaction verification will happen in BoardingTicket Contract
+            }
+        }
+    }
+
+    // Used to indicate the transaction's intent.
+    interface Commands : CommandData {
+        //In our hello-world app, We will have two commands.
+        class Issue : Commands
+    }
+
+    companion object {
+        // This is used to identify our contract when building a transaction.
+        const val ID = "com.tutorial.contracts.MarsVoucherContract"
     }
 }
 ```
@@ -179,8 +217,6 @@ IntelliJ indicates that an import is missing with red text. To add the import:
 
 1. Click the red text.
 
-   A pop-up that says "Unresolvable reference: {name of the missing input}" appears.
-
 2. Automatically import the missing variable:
 
    * On MacOS: press **Option** + **Enter**.
@@ -188,143 +224,132 @@ IntelliJ indicates that an import is missing with red text. To add the import:
 
 3. Repeat this process for all missing imports.
 
-When you have added all the missing imports, you have finished writing the `AppleStampContract`. Your code should now look like this:
+{{< note >}}
 
-```java
-package com.tutorial.contracts;
+When adding imports, omit `BoardingTicketContract` that's also in red. You must create `BoardingTicketContract` before you can resolve this conflict. See the *Create the `BoardingTicketContract`* section.
 
-import com.tutorial.states.AppleStamp;
-import com.tutorial.states.BasketOfApples;
-import net.corda.core.contracts.CommandData;
-import net.corda.core.contracts.Contract;
-import net.corda.core.transactions.LedgerTransaction;
-import org.jetbrains.annotations.NotNull;
+{{< /note >}}
 
-import static net.corda.core.contracts.ContractsDSL.requireThat; //Domain Specific Language
+When you have added all the missing imports, you have finished writing the `MarsVoucherContract`. Your code should now look like this:
 
 
-public class AppleStampContract implements Contract {
+```kotlin
+package net.corda.missionMars.contracts;
 
-    // This is used to identify our contract when building a transaction.
-    public static final String ID = "com.tutorial.contracts.AppleStampContract";
+import net.corda.missionMars.states.MarsVoucher
+import net.corda.v5.ledger.contracts.CommandData
+import net.corda.v5.ledger.contracts.Contract
+import net.corda.v5.ledger.contracts.requireThat
+import net.corda.v5.ledger.transactions.LedgerTransaction
 
-    @Override
-    public void verify(@NotNull LedgerTransaction tx) throws IllegalArgumentException {
+//Domain Specific Language
+class MarsVoucherContract : Contract {
+
+    override fun verify(tx: LedgerTransaction) {
 
         //Extract the command from the transaction.
-        final CommandData commandData = tx.getCommands().get(0).getValue();
+        val commandData = tx.commands[0].value
 
         //Verify the transaction according to the intention of the transaction
-        if (commandData instanceof AppleStampContract.Commands.Issue){
-            AppleStamp output = tx.outputsOfType(AppleStamp.class).get(0);
-            requireThat(require -> {
-                require.using("This transaction should only have one AppleStamp state as output", tx.getOutputs().size() == 1);
-                require.using("The output AppleStamp state should have clear description of the type of redeemable goods", !output.getStampDesc().equals(""));
-                return null;
-            });
-        }else if(commandData instanceof BasketOfApplesContract.Commands.Redeem){
-            //Transaction verification will happen in BasketOfApple Contract
-        }
-        else{
-            //Unrecognized Command type
-            throw new IllegalArgumentException("Incorrect type of AppleStamp Commands");
+        when (commandData) {
+            is Commands.Issue -> requireThat {
+                val output = tx.outputsOfType(MarsVoucher::class.java)[0]
+                "This transaction should only have one MarsVoucher state as output".using(tx.outputs.size == 1)
+                "The output MarsVoucher state should have clear description of the type of Space trip information".using(output.voucherDesc != "")
+                null
+            }
+            is BoardingTicketContract.Commands.RedeemTicket-> requireThat {
+                //Transaction verification will happen in BoardingTicket Contract
+            }
         }
     }
 
     // Used to indicate the transaction's intent.
-    public interface Commands extends CommandData {
+    interface Commands : CommandData {
         //In our hello-world app, We will have two commands.
-        class Issue implements AppleStampContract.Commands {}
+        class Issue : Commands
+    }
+
+    companion object {
+        // This is used to identify our contract when building a transaction.
+        const val ID = "com.tutorial.contracts.MarsVoucherContract"
     }
 }
 ```
 
-## Create the `BasketOfApplesContract`
+## Create the `BoardingTicketContract`
 
-The `BasketOfApplesContract` has two intentions:
+The `BoardingTicketContract` has two intentions:
 
-* Farmer Bob creates the basket of apples. This intention is expressed by the `packBasket` command.
-* Peter redeems the `BasketOfApples` state. This intention is expressed by the `Redeem` command.
+* Mars Express creates the ticket to go to Mars. This intention is expressed by the `CreateTicket` command.
+* Peter redeems the `BoardingTicket` state. This intention is expressed by the `RedeemTicket` command.
 
 The rules inside the `verify` method in the `requireThat` Corda DSL helper method are:
 
-* For the `packBasket` command:
+* For the `CreateTicket` command:
 
-  * This transaction should only output one `BasketOfApples` state.
-  * The output of the `BasketOfApples` state should have a clear description of the apple product.
-  * The output of the `BasketOfApples` state should have a non-zero weight.
+  * The transaction should only output one BoardingTicket state.
+  * The output BoardingTicket state should have clear description of the space trip.
+  * The output BoardingTicket state should have a launching date later then the creation time.
 
-* For the `Redeem` command:
+* For the `RedeemTicket` command:
 
   * The transaction should consume two states.
-  * The issuer of the `AppleStamp` should be the producing farm of this basket of apples.
-  * The weight of the basket of apples must be greater than zero.
+  * The issuer of the BoardingTicket should be the space company which created the boarding ticket.
+  * The output BoardingTicket state should have a launching date later then the creation time.
 
 
 ### Check your work
 
-Once you've written the `BasketOfApplesContract`, check your code against the sample below. Your code should look like this:
+Once you've written the `BoardingTicketContract`, check your code against the sample below. Your code should look like this:
 
-```java
-package com.tutorial.contracts;
+```kotlin
+package net.corda.missionMars.contracts
 
-import com.tutorial.states.AppleStamp;
-import com.tutorial.states.BasketOfApples;
-import net.corda.core.contracts.CommandData;
-import net.corda.core.contracts.Contract;
-import net.corda.core.transactions.LedgerTransaction;
-import org.jetbrains.annotations.NotNull;
+import net.corda.missionMars.states.BoardingTicket
+import net.corda.missionMars.states.MarsVoucher
+import net.corda.v5.ledger.contracts.CommandData
+import net.corda.v5.ledger.contracts.Contract
+import net.corda.v5.ledger.contracts.requireThat
+import net.corda.v5.ledger.transactions.LedgerTransaction
+import java.util.*
 
-import static net.corda.core.contracts.ContractsDSL.requireThat;
-
-public class BasketOfApplesContract implements Contract {
-
-    // This is used to identify our contract when building a transaction.
-    public static final String ID = "com.tutorial.contracts.BasketOfApplesContract";
-
-
-    @Override
-    public void verify(@NotNull LedgerTransaction tx) throws IllegalArgumentException {
+class BoardingTicketContract : Contract {
+    override fun verify(tx: LedgerTransaction) {
         //Extract the command from the transaction.
-        final CommandData commandData = tx.getCommands().get(0).getValue();
+        val commandData = tx.commands[0].value
+        val output = tx.outputsOfType(BoardingTicket::class.java)[0]
 
-        if (commandData instanceof BasketOfApplesContract.Commands.packBasket){
-            BasketOfApples output = tx.outputsOfType(BasketOfApples.class).get(0);
-            requireThat(require -> {
-                require.using("This transaction should only output one BasketOfApples state", tx.getOutputs().size() == 1);
-                require.using("The output BasketOfApples state should have clear description of Apple product", !output.getDescription().equals(""));
-                require.using("The output BasketOfApples state should have non zero weight", output.getWeight() > 0);
-                return null;
-            });
-        }
-        else if (commandData instanceof BasketOfApplesContract.Commands.Redeem) {
-            //Retrieve the output state of the transaction
-            AppleStamp input = tx.inputsOfType(AppleStamp.class).get(0);
-            BasketOfApples output = tx.outputsOfType(BasketOfApples.class).get(0);
-
-            //Using Corda DSL function requireThat to replicate conditions-checks
-            requireThat(require -> {
-                require.using("This transaction should consume two states", tx.getInputStates().size() == 2);
-                require.using("The issuer of the Apple stamp should be the producing farm of this basket of apple", input.getIssuer().equals(output.getFarm()));
-                require.using("The basket of apple has to weight more than 0", output.getWeight() > 0);
-                return null;
-            });
-        }
-        else{
-            //Unrecognized Command type
-            throw new IllegalArgumentException("Incorrect type of BasketOfApples Commands");
+        when (commandData) {
+            is Commands.CreateTicket -> requireThat {
+                "This transaction should only output one BoardingTicket state".using(tx.outputs.size == 1)
+                "The output BoardingTicket state should have clear description of space trip information".using(output.description != "")
+                "The output BoardingTicket state should have a launching date later then the creation time".using(output.date > Calendar.getInstance().time)
+                null
+            }
+            is Commands.RedeemTicket -> requireThat {
+                val input = tx.inputsOfType(MarsVoucher::class.java)[0]
+                "This transaction should consume two states".using(tx.inputStates.size == 2)
+                "The issuer of the BoardingTicket should be the space company which creates the boarding ticket".using(input.issuer == output.spaceCompany)
+                "The output BoardingTicket state should have a launching date later then the creation time".using(output.date > Calendar.getInstance().time)
+                null
+            }
         }
     }
 
     // Used to indicate the transaction's intent.
-    public interface Commands extends CommandData {
-        class packBasket implements BasketOfApplesContract.Commands {}
-        class Redeem implements BasketOfApplesContract.Commands {}
+    interface Commands : CommandData {
+        class CreateTicket : Commands
+        class RedeemTicket : Commands
+    }
 
+    companion object {
+        // This is used to identify our contract when building a transaction.
+        const val ID = "com.tutorial.contracts.BoardingTicketContract"
     }
 }
 ```
 
 ## Next steps
 
-Follow the [Write flows](tutorial-basic-cordapp-flows.md) tutorial to continue on this learning path.
+Follow the [Write flows](c5-basic-cordapp-flows.md) tutorial to continue on this learning path.
