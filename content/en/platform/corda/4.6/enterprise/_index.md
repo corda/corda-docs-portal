@@ -10,6 +10,7 @@ project: corda
 section_menu: corda-enterprise-4-6
 title: Corda Enterprise 4.6
 version: '4.6'
+cordaType: 'Enterprise'
 ---
 
 # Introduction to Corda

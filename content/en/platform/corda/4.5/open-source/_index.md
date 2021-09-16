@@ -10,6 +10,7 @@ project: corda
 section_menu: corda-os-4-5
 title: Corda OS 4.5
 version: '4.5'
+cordaType: 'Open Source'
 ---
 
 # Welcome to Corda

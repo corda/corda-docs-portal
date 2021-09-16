@@ -1,7 +1,4 @@
 ---
-aliases:
-- /docs/corda-os/head/index.html
-- /docs/corda-os/index.html
 date: '2020-04-07T12:00:00Z'
 menu:
   versions:

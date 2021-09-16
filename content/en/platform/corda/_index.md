@@ -3,7 +3,6 @@ date: '2021-04-24T00:00:00Z'
 menu:
   projects:
     weight: 500
-    name: Corda
 project: corda
 title: Corda
 ---

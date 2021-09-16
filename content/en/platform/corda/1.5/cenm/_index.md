@@ -10,6 +10,7 @@ project: corda
 section_menu: cenm-1-5
 title: CENM 1.5
 version: '1.5'
+cordaType: 'CENM'
 ---
 
 
