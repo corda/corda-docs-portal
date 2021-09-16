@@ -12,7 +12,7 @@ tags:
 title: Write contracts
 ---
 
-Contracts are the Java or Kotlin interfaces used to mark the define class where a transaction `verify` method is implemented. They are linked to respective states and restrict how transaction flows are performed.
+In Corda, contracts govern how the states should evolve over time by restricting how transaction flows are performed. They are the Java or Kotlin interfaces used to mark the define class where a transaction `verify` method is implemented.
 
 This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [Write the states](c5-basic-cordapp-state.md) tutorial.
 
@@ -104,7 +104,9 @@ The `verify` method is automatically triggered when your transaction is executed
 
 4. Extract the command from the transaction.
 
-5. Verify the transaction according to its intention using the `when` expression and implementing domain-specific language (DSL) `requireThat` helper method to the issue verification code:
+5. Verify the transaction according to its intention using the Lambda `when-is` expression.
+
+6. Implement domain-specific language (DSL) `requireThat` helper method to the `Issue` verification code.
 
 {{< note >}}
 
@@ -112,19 +114,6 @@ This is a Corda-specific helper method used for writing contracts only.
 
 {{< /note >}}
 
-```kotlin
-    when (commandData) {
-        is Commands.Issue -> requireThat {
-            val output = tx.outputsOfType(MarsVoucher::class.java)[0]
-            "This transaction should only have one MarsVoucher state as output".using(tx.outputs.size == 1)
-            "The output MarsVoucher state should have clear description of the type of Space trip information".using(output.voucherDesc != "")
-            null
-        }
-        is BoardingTicketContract.Commands.RedeemTicket-> requireThat {
-            //Transaction verification will happen in BoardingTicket Contract
-        }
-    }
-```
 
 This is what your code should look like now:
 
@@ -226,11 +215,11 @@ IntelliJ indicates that an import is missing with red text. To add the import:
 
 {{< note >}}
 
-When adding imports, omit `BoardingTicketContract` that's also in red. You must create `BoardingTicketContract` before you can resolve this conflict. See the *Create the `BoardingTicketContract`* section.
+When adding imports, ignore `BoardingTicketContract` that is also in red - you will add it in the *Create the `BoardingTicketContract`* section.
 
 {{< /note >}}
 
-When you have added all the missing imports, you have finished writing the `MarsVoucherContract`. Your code should now look like this:
+After adding all the missing imports, you have finished writing the `MarsVoucherContract`. Your code should now look like this:
 
 
 ```kotlin
@@ -279,12 +268,14 @@ class MarsVoucherContract : Contract {
 
 ## Create the `BoardingTicketContract`
 
+Now that you've written your first contract, try writing the `BoardingTicketContract` using the following information.
+
 The `BoardingTicketContract` has two intentions:
 
 * Mars Express creates the ticket to go to Mars. This intention is expressed by the `CreateTicket` command.
 * Peter redeems the `BoardingTicket` state. This intention is expressed by the `RedeemTicket` command.
 
-The rules inside the `verify` method in the `requireThat` Corda DSL helper method are:
+The rules inside the `requireThat` Corda DSL helper method are:
 
 * For the `CreateTicket` command:
 
