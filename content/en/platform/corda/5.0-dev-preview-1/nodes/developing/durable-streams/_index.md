@@ -112,4 +112,4 @@ parameters. The position from which the client is interested to receive streamin
 can retain the latest position they successfully processed as an in-memory variable, in the file
 on the file system, or in the database (if they have one to use).
 
-For native Java/Kotlin HTTP-RPC clients, you can use the interface [`PositionManager`](java/index.md#positionmanager).
+For native Java/Kotlin HTTP-RPC clients, you can use the interface [PositionManager](java/index.md#positionmanager).
