@@ -19,7 +19,7 @@ the actual code changes. These are:
 
 
 * Adding nullable properties
-* Adding non nullable properties if, and only if, an annotated constructor is provided
+* Adding non-nullable properties if, and only if, an annotated constructor is provided
 * Removing properties
 * Reordering constructor parameters
 
@@ -49,9 +49,9 @@ A node with the class at version B will be able to deserialize a serialized vers
 any modification as the property is nullable and will thus provide null to the constructor.
 
 
-## Adding Non Nullable Properties
+## Adding Non-Nullable Properties
 
-If a non null property is added, unlike nullable properties, some additional code is required for
+If a non-null property is added, unlike nullable properties, some additional code is required for
 this to work. Consider a similar example to our nullable example above:
 
 {{< tabs name="tabs-2" >}}
@@ -72,7 +72,7 @@ data class Example1 (val a: Int, b: String, c: Int) { // (Version B)
 
 For this to work we have had to add a new constructor that allows nodes with the class at version B to create an
 instance from serialised form of that class from an older version, in this case version A as per our example
-above. A sensible default for the missing value is provided for instantiation of the non null property.
+above. A sensible default for the missing value is provided for instantiation of the non-null property.
 
 {{< note >}}
 The `@DeprecatedConstructorForDeserialization` annotation is important. It signifies to the
@@ -159,7 +159,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 
 Examples I, II, and III would require evolution and thus selection of constructor. Now, with no versioning applied there
 is ambiguity as to which constructor should be used. For example, example II could use ‘alt constructor 2’ which matches
-it’s arguments most tightly or ‘alt constructor 1’ and not instantiate parameter c.
+its arguments most tightly or ‘alt constructor 1’ and not instantiate parameter c.
 
 `constructor (a: Int, b: Int, c: Int) : this(a, b, c, -1, -1)`
 
@@ -206,7 +206,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 
 ## Removing Properties
 
-Property removal is effectively a mirror of adding properties (both nullable and non nullable) given that this functionality
+Property removal is effectively a mirror of adding properties (both nullable and non-nullable) given that this functionality
 is required to facilitate the addition of properties. When this state is detected by the serialization framework, properties
 that don’t have matching parameters in the main constructor are simply omitted from object construction.
 
@@ -226,7 +226,7 @@ data class Example4 (val b: String?, c: Int?) // (Version B)
 
 In practice, what this means is removing nullable properties is possible. However, removing non-nullable properties isn’t because
 a node receiving a message containing a serialized form of an object with fewer properties than it requires for construction has
-no capacity to guess at what values should or could be used as sensible defaults. When those properties are nullable it simply sets
+no capacity to guess which values should or could be used as sensible defaults. When those properties are nullable, it simply sets
 them to null.
 
 

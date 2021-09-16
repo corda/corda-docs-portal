@@ -23,8 +23,9 @@ from this proxy object being handled by the supplied serializer.
 
 ## Serializer Location
 
-Custom serializer classes should follow the rules for including classes found in Corda 4.8 documentation in
-[Building and installing a CorDapp](../../4.8/enterprise/cordapps/cordapp-build-systems.md)
+Custom serializer classes can be made available through user installed artifacts and should follow the rules mentioned in
+the section below.
+
 
 ## Writing a Custom Serializer
 
@@ -195,7 +196,7 @@ In the above examples
 
 
 * `ExampleSerializer` is the actual serializer that will be loaded by the framework to serialize instances of the `Example` type.
-* `ExampleSerializer.Proxy`, in the Kotlin example, and `ExampleProxy` in the Java example, is the intermediate representation used by the framework to represent instances of `Example` within the wire format.
+* `ExampleSerializer.Proxy` in the Kotlin example, and `ExampleProxy` in the Java example, is the intermediate representation used by the framework to represent instances of `Example` within the wire format.
 
 
 ## The Proxy Object
@@ -205,7 +206,7 @@ can reason about. One is being written for a class because, for some reason, tha
 introspected successfully but that framework. It is therefore important to note that the proxy class must
 only contain elements that the framework can reason about.
 
-The proxy class itself is distinct from the proxy serializer. The serializer must refer to the unserializable
+The proxy class itself is distinct from the proxy serializer. The serializer must refer to the un-serializable
 type in the `toProxy` and `fromProxy` methods.
 
 For example, the first thought a developer may have when implementing a proxy class is to simply *wrap* an

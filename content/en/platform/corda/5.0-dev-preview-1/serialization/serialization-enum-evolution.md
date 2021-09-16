@@ -17,7 +17,7 @@ run the risk of being unable to be deserialized in the future or older versions 
 within a compatibility zone may fail to deserialize a message.
 
 To facilitate backward and forward support for alterations to enumerated types Corda’s serialization
-framework supports the evolution of such types through a well defined framework that allows different
+framework supports the evolution of such types through a well-defined framework that allows different
 versions to interoperate with serialized versions of an enumeration of differing versions.
 
 This is achieved through the use of certain annotations. Whenever a change is made, an annotation
@@ -34,21 +34,21 @@ forward.
 
 The biggest hurdle to allowing enum constants to be changed is that there will exist instances of those
 classes, either serialized in a vault or on nodes with the old, unmodified, version of the class that we
-must be able to inter-operate with. Thus if a received data structure references an enum assigned a constant
-value that doesn’t exist on the running JVM, a solution is needed.
+must be able to inter-operate with. Thus, if a received data structure references an enum assigned a constant
+value that does not exist on the running JVM, a solution is needed.
 
 For this, we use the annotations to allow developers to express their backward compatible intentions.
 
 In the case of renaming constants this is somewhat obvious, the deserializing node will simply treat any
-constants it doesn’t understand as their “old” values, i.e. those values that it currently knows about.
+constants it does not understand as their “old” values, i.e., those values that it currently knows about.
 
-In the case of adding new constants the developer must chose which constant (that existed *before* adding
+In the case of adding new constants the developer must choose which constant (that existed *before* adding
 the new one) a deserializing system should treat any instances of the new one as.
 
 {{< note >}}
 Ultimately, this may mean some design compromises are required. If an enumeration is
 planned as being often extended and no sensible defaults will exist then including a constant
-in the original version of the class that all new additions can default to may make sense.
+in the original version of the class that all new additions can default to, may make sense.
 {{< /note >}}
 
 ## Evolution Transmission
@@ -67,16 +67,16 @@ the same and no further steps are required save the deserialization of the seria
 of the class.
 
 If, however, the fingerprints differ then we know that the class we are attempting to deserialize is different
-than the version we will be deserializing it into. What we cannot know is which version is newer, at least
-not by examining the fingerprint
+from the version we will be deserializing it into. What we cannot know is which version is newer, at least
+not by examining the fingerprint.
 
 {{< note >}}
-Corda’s AMQP fingerprinting for enumerated types include the type name and the enum constants
+Corda’s AMQP fingerprinting for enumerated types include the type name and the enum constants.
 {{< /note >}}
 
 Newer vs older is important as the deserializer needs to use the more recent set of transforms to ensure it
 can transform the serialised object into the form as it exists in the deserializer. Newness is determined simply
-by length of the list of all transforms. This is sufficient as transform annotations should only ever be added
+by length of the list of all transforms. This is sufficient as transform annotations should only ever be added.
 
 
 {{< warning >}}
@@ -88,7 +88,7 @@ within vaults.
 
 Thus, on deserialization, there will be two options to chose from in terms of transformation rules:
 
-* Determined from the local class and the annotations applied to it (the local copy)
+* Determined from the local class, and the annotations applied to it (the local copy)
 * Parsed from the AMQP header (the remote copy)
 
 Which set is used will simply be the largest.
@@ -161,7 +161,7 @@ so is serialized. However, in some circumstances, it could be at the point of de
 Enumeration constants can be added with the `@CordaSerializationTransformEnumDefaults` meta annotation that
 wraps a list of `CordaSerializationTransformEnumDefault` annotations. For each constant added an annotation
 must be included that signifies, on deserialization, which constant value should be used in place of the
-serialised property if that value doesn’t exist on the version of the class as it exists on the deserializing
+serialised property if that value does not exist on the version of the class as it exists on the deserializing
 node.
 
 ```kotlin
@@ -170,7 +170,7 @@ enum class Example {
 }
 ```
 
-If we were to add the constant D
+If we were to add the constant D:
 
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
@@ -292,7 +292,7 @@ in turn be renamed and everything will continue to be deserializeable. For examp
 enum class OngoingExample { A, B, C }
 ```
 
-For the first evolution, two constants are added, D and E, both of which are set to default to C when not present
+For the first evolution, two constants are added, D and E, both of which are set to default to C when not present.
 
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
@@ -302,7 +302,7 @@ For the first evolution, two constants are added, D and E, both of which are set
 enum class OngoingExample { A, B, C, D, E }
 ```
 
-Then lets assume constant C is renamed to CAT
+Then lets assume constant C is renamed to CAT.
 
 ```kotlin
 @CordaSerializationTransformEnumDefaults (

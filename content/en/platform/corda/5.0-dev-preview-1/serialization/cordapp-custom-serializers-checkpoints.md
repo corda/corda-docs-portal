@@ -33,7 +33,7 @@ Please read [Pluggable serializers for CorDapps](cordapp-custom-serializers.md) 
 
 Checkpoint serializers follow the same rules as [normal pluggable serializers](cordapp-custom-serializers.md).
 
-In addition they need to implement `net.corda.core.serialization.CheckpointCustomSerializer`.
+In addition, they need to implement `net.corda.core.serialization.CheckpointCustomSerializer`.
 
 ## Example
 
@@ -49,7 +49,7 @@ public final class BrokenMapImpl<K,V> extends HashMap<K,V> {
 }
 ```
 
-This class will not checkpoint correctly because the `put` method is broken.
+The class will not checkpoint correctly because the `put` method is broken.
 
 Here is a flow for testing the behaviour of this map:
 

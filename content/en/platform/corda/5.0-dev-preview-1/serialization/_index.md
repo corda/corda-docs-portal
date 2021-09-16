@@ -100,10 +100,10 @@ The syntax to declare a serializable Lambda expression that will work with Corda
 
 ## AMQP
 
-Corda uses an extended form of AMQP 1.0 as its binary wire protocol. You can learn more about the [[Wire format](serialization/wire-format.md) Corda
+Corda uses an extended form of AMQP 1.0 as its binary wire protocol. You can learn more about the [Wire format](serialization/wire-format.md) Corda
 uses if you intend to parse Corda messages from non-JVM platforms.
 
-Corda serialisation is currently used for:
+Corda serialization is currently used for:
 
 
 
@@ -285,18 +285,18 @@ Your own types must adhere to the following rules to be supported:
 #### Constructor Instantiation
 
 The primary way Corda’s AMQP serialization framework instantiates objects is via a specified constructor. This is
-used to first determine which properties of an object are to be serialised, then, on deserialization, it is used to
+used to first determine which properties of an object are to be serialized, then, on deserialization, it is used to
 instantiate the object with the serialized values.
 
 It is recommended that serializable objects in Corda adhere to the following rules, as they allow immutable state
-objects to be deserialised:
+objects to be deserialized:
 
 
 
 * A Java Bean getter for each of the properties in the constructor, with a name of the form `getX`.  For example, for a constructor
   parameter `foo`, there must be a getter called `getFoo()`.  If `foo` is a boolean, the getter may
   optionally be called `isFoo()` (this is why the class must be compiled with parameter names turned on).
-* A constructor which takes all of the properties that you wish to record in the serialized form.  This is required in
+* A constructor which takes all the properties that you wish to record in the serialized form.  This is required in
   order for the serialization framework to reconstruct an instance of your class.
 * If more than one constructor is provided, the serialization framework needs to know which one to use.  The `@ConstructorForDeserialization`
   annotation can be used to indicate which one.  For a Kotlin class, without the `@ConstructorForDeserialization` annotation, the
@@ -315,10 +315,10 @@ data class Example (val a: Int, val b: String)
 
 {{< /tabs >}}
 
-Properties `a` and `b` will be included in the serialised form.
+Properties `a` and `b` will be included in the serialized form.
 
-However, properties not mentioned in the constructor will not be serialised. For example, in the following code,
-property `c` will not be considered part of the serialised form:
+However, properties not mentioned in the constructor will not be serialized. For example, in the following code,
+property `c` will not be considered part of the serialized form:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -463,7 +463,8 @@ class C {
 
 ### Mismatched Class Properties / Constructor Parameters
 
-Consider an example where you wish to ensure that a property of class whose type is some form of container is always sorted using some specific criteria yet you wish to maintain the immutability of the class.
+Consider an example where you wish to ensure that a property of class whose type is some form of container is always sorted
+using some specific criteria, yet you wish to maintain the immutability of the class.
 
 This can be implemented as follows:
 
@@ -523,7 +524,7 @@ preserve the immutability of immutable objects rather than force mutability on p
 {{< note >}}
 Whilst we could potentially infer mutability empirically, doing so exhaustively is impossible as it’s a design
 decision rather than something intrinsic to the JVM. At present, we defer to simply making things immutable on reconstruction
-with the following workarounds provided for those who use them. In future, this may change, but for now use the following
+with the following workarounds provided for those who use them. In the future, this may change, but for now use the following
 examples as a guide.
 
 {{< /note >}}
@@ -540,8 +541,9 @@ newC.l.add("d")
 
 The call to `newC.l.add` will throw an `UnsupportedOperationException`.
 
-There are several workarounds that can be used to preserve mutability on reconstituted objects. Firstly, if the class
-isn’t a Kotlin data class, it isn’t restricted by having to have a primary constructor.
+There are several workarounds that can be used to preserve mutability on reconstituted objects.
+
+Firstly, if the class isn’t a Kotlin data class, it isn’t restricted by having to have a primary constructor.
 
 ```kotlin
 class C {
@@ -609,9 +611,9 @@ The following rules apply to supported `Throwable` implementations.
 
 
 * If you wish for your exception to be serializable and transported type safely it should inherit from either
-  `CordaException` or `CordaRuntimeException`
+  `CordaException` or `CordaRuntimeException`.
 * If not, the `Throwable` will deserialize to a `CordaRuntimeException` with the details of the original
-  `Throwable` contained within it, including the class name of the original `Throwable`
+  `Throwable` contained within it, including the class name of the original `Throwable`.
 
 
 
@@ -675,7 +677,6 @@ Possible future enhancements include:
 ## Type Evolution
 
 Type evolution is the mechanism by which classes can be altered over time yet still remain serializable and deserializable across
-all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized
-and a version of the current state of the class instantiated.
+all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized, and a version of the current state of the class instantiated.
 
 More detail can be found in [Default Class Evolution](serialization/serialization-default-evolution.md).
