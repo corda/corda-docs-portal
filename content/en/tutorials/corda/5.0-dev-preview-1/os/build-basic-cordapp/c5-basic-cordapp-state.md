@@ -18,7 +18,7 @@ When you create a state, you include the relevant information about the fact you
 
 States in the Corda 5 Developer Preview are largely the same as states in Corda 4. A state still must implement `ContractState` or one of its dependents. The main difference when writing states with the Developer Preview is that you must add a <a href="#add-the-json-representable">`JsonRepresentable`</a>. This ensures that the output can be returned over RPC.
 
-This tutorial guides you through writing the two states you need in your CorDapp: `MarsVoucher` and `BoardingTicket`. You will be creating these states in the `contracts/src/main/kotlin/com/marsvoucher/states/` directory in this tutorial. Refer to the `TemplateState.kt` file in this directory to see a template state.
+This tutorial guides you through writing the two states you need in your CorDapp: `MarsVoucher` and `BoardingTicket`. You will be creating these states in the `contracts/src/main/kotlin/net/corda/missionMars/states/` directory in this tutorial. Refer to the `TemplateState.kt` file in this directory to see a template state.
 
 ## Learning objectives
 
@@ -55,15 +55,17 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
    If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
-6. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionmars`. This changes all instances of `template` in the project to `missionmars`
+6. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`
 
 ## Create the `MarsVoucher` state
 
 First create the `MarsVoucher` state. This state is the voucher issued to customers.
 
-1. Right-click the **states** folder, select **New > Java Class** and create a file called `MarsVoucher`.
+1. Right-click the **states** folder, select **New > Kotlin Class/File**.
 
-2. Open the file.
+2. In the **New Kotlin Class/File** window, select **Class** and create a file called `MarsVoucher`.
+
+3. Open the file.
 
 ### Add annotations
 
@@ -75,8 +77,12 @@ The first thing you should do when writing a state is add the `@BelongsToContrac
 
 This what your code should look like so far:
 
-```java
+```kotlin
+package net.corda.missionMars.states
+
 @BelongsToContract(MarsVoucherContract.class)
+class MarsVoucher {
+}
 ```
 
 {{< note >}}
@@ -102,6 +108,8 @@ In this case, use a `LinearState` to tie the `MarsVoucher` to a `LinearID`. You 
 This is what your code should look like now:
 
 ```kotlin
+package net.corda.missionMars.states
+
 @BelongsToContract(MarsVoucherContract::class)
 data class MarsVoucher @ConstructorForDeserialization constructor (
 ) : LinearState, JsonRepresentable{
@@ -120,6 +128,7 @@ Next, add these private variables:
 After adding these variables, your code should look like this:
 
 ```kotlin
+package net.corda.missionMars.states
 @BelongsToContract(MarsVoucherContract::class)
 data class MarsVoucher @ConstructorForDeserialization constructor (
         val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
@@ -138,6 +147,8 @@ Place the private variables you just defined in a JSON representable data class 
 After you've added this data class, your code should look like this:
 
 ```kotlin
+package net.corda.missionMars.states
+
 @BelongsToContract(MarsVoucherContract::class)
 data class MarsVoucher @ConstructorForDeserialization constructor (
         val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
@@ -171,6 +182,8 @@ You must also add `participants` here. In Corda 4, you could add `participants` 
 After you've added these items, your code should look like this:
 
 ```kotlin
+package net.corda.missionMars.states
+
 @BelongsToContract(MarsVoucherContract::class)
 data class MarsVoucher @ConstructorForDeserialization constructor (
         val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
@@ -209,7 +222,7 @@ If you're using IntelliJ or another IDE, the IDE automatically adds the imports 
 
 IntelliJ indicates that an import is missing with red text. To add the import:
 
-1. Click the red text. A message appears: "Unresolvable reference: {name of the missing input}".
+1. Click the red text.
 
 2. On MacOS: press **Option** + **Enter** to automatically import that variable.
 
