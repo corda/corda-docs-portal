@@ -4,7 +4,7 @@ section_menu: tutorials
 menu:
   tutorials:
     identifier: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-state
-    parent: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
+    parent: corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
     weight: 1030
 tags:
 - tutorial
