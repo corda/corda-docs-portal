@@ -41,7 +41,14 @@ element. However, there are a few rules:
 * The value can only increase from one element to the next.
 * Once a position has been created, it cannot be changed.
 
-![Transactional elements with positions](1.png "Transactional elements with positions")
+{{<
+figure
+src="durable-streams/1.png"
+zoom="durable-streams/1.png"
+width=80%
+figcaption="Transactional elements with positions"
+alt="Transactional elements with positions"
+>}}
 
 ## Polling requests
 
@@ -50,7 +57,14 @@ An HTTP-RPC client can make durable query polling requests to retrieve a sub-set
 * Position where it left off or `-1` (if this is the first polling request for a set of parameters).
 * Maximum number of elements it is prepared to consume in the server response. `3` has been used in this example.
 
-![First durable query polling request](2.png "First durable query polling request")
+{{<
+figure
+src="durable-streams/2.png"
+zoom="durable-streams/2.png"
+width=80%
+figcaption="First durable query polling request"
+alt="First durable query polling request"
+>}}
 
 The server identifies the requested transactional data and includes it in the response.
 
@@ -60,7 +74,14 @@ and processing server side responses at varying speeds.
 A second client could make a separate polling request to the server using different parameters, resulting in a
 different set of transactional elements:
 
-![Second client durable query polling request](3.png "Second client durable query polling request")
+{{<
+figure
+src="durable-streams/3.png"
+zoom="durable-streams/3.png"
+width=80%
+figcaption="Second client durable query polling request"
+alt="Second client durable query polling request"
+>}}
 
 {{< note >}}
 A client can supply exactly the same parameters as another as each client has an independent streaming session with the
@@ -69,7 +90,14 @@ server. Clients progress through the elements of the stream at their own pace.
 
 Once the first client has processed the server's reply, it can make a second polling request:
 
-![First client, second poll](4.png "First client, second poll")
+{{<
+figure
+src="durable-streams/4.png"
+zoom="durable-streams/4.png"
+width=80%
+figcaption="First client, second poll"
+alt="First client, second poll"
+>}}
 
 The first client's second polling request is processed independently of the second client, who might still be processing the
 result of its first polling request.
@@ -112,4 +140,4 @@ parameters. The position from which the client is interested to receive streamin
 can retain the latest position they successfully processed as an in-memory variable, in the file
 on the file system, or in the database (if they have one to use).
 
-For native Java/Kotlin HTTP-RPC clients, you can use the interface [PositionManager](java/index.md#positionmanager).
+For native Java/Kotlin HTTP-RPC clients, you can use the interface [PositionManager](java-client/java-client.md#positionmanager).

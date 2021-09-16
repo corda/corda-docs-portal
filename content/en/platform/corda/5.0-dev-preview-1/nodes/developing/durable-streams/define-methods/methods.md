@@ -195,7 +195,7 @@ The OpenAPI definition of `NumberseqRetrieveRequest` includes `DurableStreamCont
 `DurableStreamContext` is not specific to this method. It is a mandatory, complex parameter which HTTP-RPC clients
 **must** pass with every call.
 
-Read [how to implement durable streams on the server](../server/index.md) for more information on using `DurableStreamContext`.
+Read [how to implement durable streams on the server](../implement-server/implement-server.md) for more information on using `DurableStreamContext`.
 {{< /note >}}
 
 If the request is successful, the HTTP-RPC server will reply with `DurableReturnResult_of_String`,

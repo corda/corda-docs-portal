@@ -12,7 +12,7 @@ description: >
   How to use the native HTTP-RPC client, `HttpRpcClient`, in polling requests.
 ---
 
-In the Corda 5 Developer Preview, you can use the [native HTTP-RPC client](../../java-client), `HttpRpcClient`, in your
+In the Corda 5 Developer Preview, you can use the [native HTTP-RPC client](../../http-rpc-client.md), `HttpRpcClient`, in your
 Java/Kotlin code.
 
 `HttpRpcClient` simplifies Java/Kotlin calls to the HTTP-RPC service.
