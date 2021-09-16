@@ -274,9 +274,11 @@ Private variables:
 * `owner` - The party exchanging the ticket for the voucher. Use type `Party`.
 * `date` - The launch date of the trip. Use type `Date`.
 
-The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. You could compact the transaction to carry only these parameters: `public BoardingTicket(String description, Party marsExpress, Date date) {}`
+The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction.
 
-<!---
+<!---You could compact the transaction to carry only these parameters: `public BoardingTicket(String description, Party marsExpress, Date date) {}`
+
+
 If you are writing in Java, when you have multiple constructors in one state class, you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. For example, the constructor `public BasketOfApple(String description, Party farm, int weight) {}`), does not have an `owner` field. You must create another constructor that has all fields, and annotate this constructor with `@ConstructorForDeserialization`.
 Commenting this out as we don't yet have the Java version.--->
 
