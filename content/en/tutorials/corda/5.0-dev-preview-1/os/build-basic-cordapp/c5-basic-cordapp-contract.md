@@ -287,7 +287,7 @@ The rules inside the `requireThat` Corda DSL helper method are:
 
   * The transaction should consume two states.
   * The issuer of the `BoardingTicket` should be the space company that created the boarding ticket.
-  * The output BoardingTicket state should have a launching date later then the creation time.
+  * The output `BoardingTicket` state should have a launch date later than the creation time.
 
 
 ### Check your work
