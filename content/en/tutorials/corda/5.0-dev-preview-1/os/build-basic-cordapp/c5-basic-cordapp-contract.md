@@ -286,7 +286,7 @@ The rules inside the `requireThat` Corda DSL helper method are:
 * For the `RedeemTicket` command:
 
   * The transaction should consume two states.
-  * The issuer of the BoardingTicket should be the space company which created the boarding ticket.
+  * The issuer of the `BoardingTicket` should be the space company that created the boarding ticket.
   * The output BoardingTicket state should have a launching date later then the creation time.
 
 
