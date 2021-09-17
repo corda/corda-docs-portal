@@ -16,8 +16,374 @@ In Corda, flows automate the process of agreeing ledger updates. They are a sequ
 
 Built-in flows are provided in Corda to automate common tasks, such as gathering signatures from counterparty nodes or notarising and recording a transaction. You can also write your own flows to handle unique use cases.
 
-Flow implementation in the Corda 5 Developer Preview has changed significantly from Corda 4. `FlowLogic` has been split into smaller interfaces. The `Flow` interface is now used to implement a flow. When you use this interface, it defines the `call` method where the business logic goes. Flows access the Corda 5 API through injectable services using the `@CordaInject` tag. All methods previously included in `FlowLogic` are now injectable services.
+Flow implementation in the Corda 5 Developer Preview has changed significantly from Corda 4. `FlowLogic` has been split into smaller interfaces. The `Flow` interface is now used to implement a flow. When you use this interface, it defines the `call` method where the business logic goes. Flows access the Corda 5 API through injectable services using the `@CordaInject` tag. All methods previously included in `FlowLogic` and the `ServiceHub` are now injectable services.
 
 This new implementation lets you add the services you need, and leave out those that you don't. This makes your CorDapp much more lightweight, allowing your nodes to run faster.
 
-This tutorial walks you through writing the flows you need in your CorDapp: 
+This tutorial walks you through writing the three flows you need in your CorDapp:
+
+* <a href="#write-the-createandissuemarsvoucher-flow">`CreateAndIssueMarsVoucher`</a>
+* <a href="#write-the-createboardingticket-flow">`CreateBoardingTicket`</a>
+* <a href="#write-the-redeemboardingticketwithvoucher-flow">`RedeemBoardingTicketWithVoucher`</a>
+
+You will be creating these states in the `workflows/src/main/kotlin/net/corda/missionMars/flows` directory. Refer to the `TemplateFlow.kt` file in this directory to see a template state.
+
+## Learning objectives
+
+After you have completed this tutorial, you will know how to create and implement flows in a CorDapp.
+
+## Before you start
+
+Before you start building flows, read:
+
+* [Key concepts: Flows](../../../../../platform/corda/4.8/open-source/key-concepts-flows.md)
+* [Flow interface documentation](XXX)
+* [Injectable services documentation](XXX)
+
+## Write the `CreateAndIssueMarsVoucher` flow
+
+The `CreateAndIssueMarsVoucher` flow is used to create a voucher for a trip to Mars then issue that voucher to a designated party.
+
+### Write the initiating flow
+
+As in Corda 4, flows in the Corda 5 Developer Preview must have an initiating flow and a responder flow. Follow these steps to write the initiating flow:
+
+#### Add annotations
+
+1. Add an `@InitiatingFlow` annotation. This indicates that this flow is the initiating flow.
+2. Add the `@StartableByRPC` annotation. This annotation allows the flow to be started by RPC. You **must** use this annotation if you want to run the flow with the RPC Client.
+
+So far, your code should look like this:
+
+```kotlin
+package net.corda.missionMars.flows
+
+@InitiatingFlow
+@StartableByRPC
+```
+
+#### Define the `CreateAndIssueMarsVoucherInitiator` class
+
+Define the `CreateAndIssueMarsVoucherInitiator` class to begin writing your flow. If you plan to use the RPC Client, you must add a `@JsonConstructor` to the class. This tells the RPC Client two things:
+
+* The RPC Client must call this constructor.
+* The flow can pass in JSON parameters.
+
+As noted in the [Write states](c5-basic-cordapp-state.md) tutorial, parameters must be passed in JSON format to return the output over RPC. The flow must take the `RpcStartFlowRequestParameters` parameter to be callable by RPC.
+
+To ensure that values are returned in JSON format, use the new return type `SignedTransactionDigest`. This is a new type that returns transaction IDs, signatures, and states in a JSON format, allowing you to send the type over RPC.
+
+1. Add the class `CreateAndIssueMarsVoucherInitiator`.
+2. Add the `@JsonConstructor`.
+3. Add the `RpcStartFlowRequestParameters` parameter.
+4. Add a `SignedTransactionDigest` return type.
+
+After adding these elements, your code should look like this:
+
+```kotlin
+package net.corda.missionMars.flows
+
+@InitiatingFlow
+@StartableByRPC
+class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters)
+```
+
+### Inject services
+
+When writing flows with the Developer Preview, you can inject whichever services you need, and exclude those you don't. This makes your CorDapp lighter, allowing your nodes to run faster.
+
+Use the `@CordaInject` tag to define a field to be set by Corda before the call method is called. See this [list of services](XXX) to find out what services you can add to a CorDapp.
+
+In this sample CorDapp, add these services:
+
+* `FlowEngine`
+* `FlowIdentity`
+* `FlowMessaging`
+* `TransactionBuilderFactory`
+* `IdentityService`
+* `NotaryLookupService`
+* `JsonMarshallingService`
+
+After you've added the services, your code should look like this:
+
+```kotlin
+package net.corda.missionMars.flows
+
+@InitiatingFlow
+@StartableByRPC
+class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<SignedTransactionDigest> {
+
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+    @CordaInject
+    lateinit var flowIdentity: FlowIdentity
+    @CordaInject
+    lateinit var flowMessaging: FlowMessaging
+    @CordaInject
+    lateinit var transactionBuilderFactory: TransactionBuilderFactory
+    @CordaInject
+    lateinit var identityService: IdentityService
+    @CordaInject
+    lateinit var notaryLookup: NotaryLookupService
+    @CordaInject
+    lateinit var jsonMarshallingService: JsonMarshallingService
+```
+
+#### Add the flow logic
+
+Next you must add the flow logic to the initiating flow by encapsulating it within the `call` method.
+
+Here you will use the new Corda `@Suspendable` annotation. In Corda 4, the `@Suspendable` annotation used was a Quasar annotation. In the Developer Preview however, the Quasar dependency has been removed and a new Corda `@Suspendable` annotation has been created. All methods called within the `FlowLogic` subclass must be annotated with `@Suspendable`.
+
+Another new thing you will see here is the parsing of parameters. Since the parameters the flow will use come in JSON format, the JSON object must be parsed to extract the parameters so the flow can run. This happened under the hood in Corda 4.
+
+1. Add the `@Suspendable` annotation.
+2. Add the `call` method with the return type `SignedTransactionDigest`.
+3. Parse your parameters using the `mapOfParams` value.
+4. Add exceptions for when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
+5. Insert a step for finding the notary.
+6. Build the output `MarsVoucher` state with a `UniqueIdentifier`.
+7. Build the transaction using a `txCommand` and the `transactionBuilderFactory` service you added when injecting services.
+8. Verify that the transaction is valid using the `txBuilder.verify` method.
+9. Sign the transaction using the `txBuilder.sign` method.
+10. Send the state to the counterparty and receive it back with their signature. Use the `flowMessaging` service to send the state to the `recipientParty`. Use the `flowEngine` service with the subflow `CollectSignaturesFlow` to get the signature of the counterparty.
+11. Notarize and record the transaction in both parties' vaults using `FinalityFlow` with a `fullySignedTx`.
+12. Return a `SignedTransactionDigest`. Use the `jsonMarshallingService` to parse the transaction's output. Include the transaction's output states, ID, and signatures.
+
+After adding these elements, your code should look like this:
+
+```kotlin
+package net.corda.missionMars.flows
+
+@InitiatingFlow
+@StartableByRPC
+class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<SignedTransactionDigest> {
+
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+    @CordaInject
+    lateinit var flowIdentity: FlowIdentity
+    @CordaInject
+    lateinit var flowMessaging: FlowMessaging
+    @CordaInject
+    lateinit var transactionBuilderFactory: TransactionBuilderFactory
+    @CordaInject
+    lateinit var identityService: IdentityService
+    @CordaInject
+    lateinit var notaryLookup: NotaryLookupService
+    @CordaInject
+    lateinit var jsonMarshallingService: JsonMarshallingService
+
+    @Suspendable
+    override fun call(): SignedTransactionDigest {
+
+        // parse parameters
+        val mapOfParams: Map<String, String> = jsonMarshallingService.parseJson(params.parametersInJson)
+        val voucherDesc = with(mapOfParams["voucherDesc"] ?: throw BadRpcStartFlowRequestException("MarsVoucher State Parameter \"voucherDesc\" missing.")) {
+            this
+        }
+        val target = with(mapOfParams["holder"] ?: throw BadRpcStartFlowRequestException("MarsVoucher State Parameter \"holder\" missing.")) {
+            CordaX500Name.parse(this)
+        }
+        val recipientParty = identityService.partyFromName(target) ?: throw NoSuchElementException("No party found for X500 name $target")
+
+        //Find the notary
+        val notary = notaryLookup.notaryIdentities.first()
+
+        //Building the output MarsVoucher state
+        val uniqueID = UniqueIdentifier()
+        val newVoucher = MarsVoucher(voucherDesc, flowIdentity.ourIdentity, recipientParty, uniqueID)
+
+        //Build transaction
+        val txCommand = Command(MarsVoucherContract.Commands.Issue(), listOf(flowIdentity.ourIdentity.owningKey,recipientParty.owningKey))
+        val txBuilder = transactionBuilderFactory.create()
+                .setNotary(notary)
+                .addOutputState(newVoucher, MarsVoucherContract.ID)
+                .addCommand(txCommand)
+
+        // Verify that the transaction is valid.
+        txBuilder.verify()
+
+        // Sign the transaction.
+        val partSignedTx = txBuilder.sign()
+
+        // Send the state to the counterparty, and receive it back with their signature.
+        val otherPartySession = flowMessaging.initiateFlow(recipientParty)
+        val fullySignedTx = flowEngine.subFlow(CollectSignaturesFlow(partSignedTx, setOf(otherPartySession)))
+
+        // Notarise and record the transaction in both parties' vaults.
+        val notarisedTx = flowEngine.subFlow(FinalityFlow(fullySignedTx, setOf(otherPartySession)))
+
+        return SignedTransactionDigest(
+                notarisedTx.id,
+                notarisedTx.tx.outputStates.map { output -> jsonMarshallingService.formatJson(output) },
+                notarisedTx.sigs
+        )
+    }
+}
+```
+
+### Write the responder flow
+
+Now that you've written the initiating flow, write the responder flow. The responder flow in the `CreateAndIssueMarsVoucher` flow is very simple, as you don't need to verify anything.
+
+1. Add the `@InitiatedBy` annotation. This indicates that this is the responder flow.
+
+2. Add in an empty responder flow:
+
+```kotlin
+@InitiatedBy(CreateAndIssueMarsVoucherInitiator::class)
+class CreateAndIssueMarsVoucherResponder(val otherPartySession: FlowSession) : Flow<SignedTransaction> {
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+
+    @Suspendable
+    override fun call(): SignedTransaction {
+        val signTransactionFlow = object : SignTransactionFlow(otherPartySession) {
+            override fun checkTransaction(stx: SignedTransaction) {
+
+            }
+        }
+        val txId = flowEngine.subFlow(signTransactionFlow).id
+        return flowEngine.subFlow(ReceiveFinalityFlow(otherPartySession, expectedTxId = txId))
+    }
+}
+```
+
+### Add imports
+
+As you've seen in the [Write states](c5-basic-cordapp-state.md) and [Write contracts](c5-basic-cordapp-contract.md) tutorials, you can add imports automatically if you're using IntelliJ.
+
+IntelliJ indicates that an import is missing with red text. To add the import:
+
+1. Click the red text.
+
+2. On MacOS: press **Option** + **Enter** to automatically import that variable.
+
+    On Windows: press **Alt** + **Enter** to automatically import that variable.
+
+3. Repeat this process with all missing imports.
+
+Once you have added all imports, your code should look like this and your `CreateAndIssueMarsVoucher` flow is complete:
+
+```kotlin
+package net.corda.missionMars.flows
+
+import net.corda.missionMars.contracts.MarsVoucherContract
+import net.corda.missionMars.states.MarsVoucher
+import net.corda.missionMars.states.TemplateState
+import net.corda.systemflows.CollectSignaturesFlow
+import net.corda.systemflows.FinalityFlow
+import net.corda.systemflows.ReceiveFinalityFlow
+import net.corda.systemflows.SignTransactionFlow
+import net.corda.v5.application.flows.*
+import net.corda.v5.application.flows.flowservices.FlowEngine
+import net.corda.v5.application.flows.flowservices.FlowIdentity
+import net.corda.v5.application.flows.flowservices.FlowMessaging
+import net.corda.v5.application.identity.CordaX500Name
+import net.corda.v5.application.injection.CordaInject
+import net.corda.v5.application.services.IdentityService
+import net.corda.v5.application.services.json.JsonMarshallingService
+import net.corda.v5.application.services.json.parseJson
+import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.ledger.UniqueIdentifier
+import net.corda.v5.ledger.contracts.Command
+import net.corda.v5.ledger.contracts.requireThat
+import net.corda.v5.ledger.services.NotaryLookupService
+import net.corda.v5.ledger.transactions.SignedTransaction
+import net.corda.v5.ledger.transactions.SignedTransactionDigest
+import net.corda.v5.ledger.transactions.TransactionBuilderFactory
+
+@InitiatingFlow
+@StartableByRPC
+class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<SignedTransactionDigest> {
+
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+    @CordaInject
+    lateinit var flowIdentity: FlowIdentity
+    @CordaInject
+    lateinit var flowMessaging: FlowMessaging
+    @CordaInject
+    lateinit var transactionBuilderFactory: TransactionBuilderFactory
+    @CordaInject
+    lateinit var identityService: IdentityService
+    @CordaInject
+    lateinit var notaryLookup: NotaryLookupService
+    @CordaInject
+    lateinit var jsonMarshallingService: JsonMarshallingService
+
+    @Suspendable
+    override fun call(): SignedTransactionDigest {
+
+        // parse parameters
+        val mapOfParams: Map<String, String> = jsonMarshallingService.parseJson(params.parametersInJson)
+        val voucherDesc = with(mapOfParams["voucherDesc"] ?: throw BadRpcStartFlowRequestException("MarsVoucher State Parameter \"voucherDesc\" missing.")) {
+            this
+        }
+        val target = with(mapOfParams["holder"] ?: throw BadRpcStartFlowRequestException("MarsVoucher State Parameter \"holder\" missing.")) {
+            CordaX500Name.parse(this)
+        }
+        val recipientParty = identityService.partyFromName(target) ?: throw NoSuchElementException("No party found for X500 name $target")
+
+        //Find the notary
+        val notary = notaryLookup.notaryIdentities.first()
+
+        //Building the output MarsVoucher state
+        val uniqueID = UniqueIdentifier()
+        val newVoucher = MarsVoucher(voucherDesc, flowIdentity.ourIdentity, recipientParty, uniqueID)
+
+        //Build transaction
+        val txCommand = Command(MarsVoucherContract.Commands.Issue(), listOf(flowIdentity.ourIdentity.owningKey,recipientParty.owningKey))
+        val txBuilder = transactionBuilderFactory.create()
+                .setNotary(notary)
+                .addOutputState(newVoucher, MarsVoucherContract.ID)
+                .addCommand(txCommand)
+
+        // Verify that the transaction is valid.
+        txBuilder.verify()
+
+        // Sign the transaction.
+        val partSignedTx = txBuilder.sign()
+
+        // Send the state to the counterparty, and receive it back with their signature.
+        val otherPartySession = flowMessaging.initiateFlow(recipientParty)
+        val fullySignedTx = flowEngine.subFlow(CollectSignaturesFlow(partSignedTx, setOf(otherPartySession)))
+
+        // Notarise and record the transaction in both parties' vaults.
+        val notarisedTx = flowEngine.subFlow(FinalityFlow(fullySignedTx, setOf(otherPartySession)))
+
+        return SignedTransactionDigest(
+                notarisedTx.id,
+                notarisedTx.tx.outputStates.map { output -> jsonMarshallingService.formatJson(output) },
+                notarisedTx.sigs
+        )
+    }
+}
+
+
+@InitiatedBy(CreateAndIssueMarsVoucherInitiator::class)
+class CreateAndIssueMarsVoucherResponder(val otherPartySession: FlowSession) : Flow<SignedTransaction> {
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+
+    @Suspendable
+    override fun call(): SignedTransaction {
+        val signTransactionFlow = object : SignTransactionFlow(otherPartySession) {
+            override fun checkTransaction(stx: SignedTransaction) {
+
+            }
+        }
+        val txId = flowEngine.subFlow(signTransactionFlow).id
+        return flowEngine.subFlow(ReceiveFinalityFlow(otherPartySession, expectedTxId = txId))
+    }
+}
+```
+
+## Write the `CreateBoardingTicket` flow
+
+Now that you've written the `CreateAndIssueMarsVoucher` flow, try writing the `CreateBoardingTicket` flow on your own using this information:
+
+*
+
+## Write the `RedeemBoardingTicketWithVoucher` flow
