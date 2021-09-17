@@ -14,9 +14,9 @@ title: Write contracts
 
 In Corda, contracts govern how states should evolve over time by restricting how transaction flows are performed. They are the Java or Kotlin interfaces used to mark the defined class where a transaction `verify` method is implemented.
 
-This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [Write the states](c5-basic-cordapp-state.md) tutorial.
+Contracts in the Corda 5 Developer Preview work in the same way as they did in Corda 4. This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [Write the states](c5-basic-cordapp-state.md) tutorial.
 
-You will create these contracts in the `contracts/src/main/<kotlin or java>/net/corda/missionMars/contracts/` directory in this tutorial. Refer to the `TemplateContract.kt` or `TemplateContract.java` file in this directory to see a template contract.
+You will create these contracts in the `contracts/src/main/<kotlin>/net/corda/missionMars/contracts/` directory in this tutorial. Refer to the `TemplateContract.kt` file in this directory to see a template contract.
 
 
 ## Learning objectives
@@ -280,7 +280,7 @@ The rules inside the `requireThat` Corda DSL helper method are:
 * For the `CreateTicket` command:
 
   * The transaction should only output one `BoardingTicket` state.
-  * The output `BoardingTicket` state should have clear description of the space trip.
+  * The output `BoardingTicket` state should have a clear description of the space trip.
   * The output `BoardingTicket` state should have a launching date later then the creation time.
 
 * For the `RedeemTicket` command:
@@ -303,6 +303,8 @@ import net.corda.v5.ledger.contracts.CommandData
 import net.corda.v5.ledger.contracts.Contract
 import net.corda.v5.ledger.contracts.requireThat
 import net.corda.v5.ledger.transactions.LedgerTransaction
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class BoardingTicketContract : Contract {
@@ -315,14 +317,14 @@ class BoardingTicketContract : Contract {
             is Commands.CreateTicket -> requireThat {
                 "This transaction should only output one BoardingTicket state".using(tx.outputs.size == 1)
                 "The output BoardingTicket state should have clear description of space trip information".using(output.description != "")
-                "The output BoardingTicket state should have a launching date later then the creation time".using(output.date > Calendar.getInstance().time)
+                "The output BoardingTicket state should have a launching date later then the creation time".using(output.daysTillLaunch > 0)
                 null
             }
             is Commands.RedeemTicket -> requireThat {
                 val input = tx.inputsOfType(MarsVoucher::class.java)[0]
                 "This transaction should consume two states".using(tx.inputStates.size == 2)
-                "The issuer of the BoardingTicket should be the space company which creates the boarding ticket".using(input.issuer == output.spaceCompany)
-                "The output BoardingTicket state should have a launching date later then the creation time".using(output.date > Calendar.getInstance().time)
+                "The issuer of the BoardingTicket should be the space company which creates the boarding ticket".using(input.issuer == output.marsExpress)
+                "The output BoardingTicket state should have a launching date later then the creation time".using(output.daysTillLaunch > 0)
                 null
             }
         }
