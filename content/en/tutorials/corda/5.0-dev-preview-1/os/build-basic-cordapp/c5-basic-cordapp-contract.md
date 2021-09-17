@@ -60,7 +60,7 @@ class MarsVoucherContract : Contract {
 
 ### Add commands
 
-Commands indicate the transaction's intent — what type of actions performed by the state the contract can verify. Follow the below steps to add the command for issuing the Mars voucher.
+Commands indicate the transaction's intent — what type of actions performed by the state the contract can verify. Follow the steps below to add the command for issuing the Mars voucher.
 
 1. Add the `Commands : CommandData` interface declaration.
 
