@@ -12,7 +12,7 @@ tags:
 title: Write contracts
 ---
 
-In Corda, contracts govern how the states should evolve over time by restricting how transaction flows are performed. They are the Java or Kotlin interfaces used to mark the define class where a transaction `verify` method is implemented.
+In Corda, contracts govern how states should evolve over time by restricting how transaction flows are performed. They are the Java or Kotlin interfaces used to mark the defined class where a transaction `verify` method is implemented.
 
 This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [Write the states](c5-basic-cordapp-state.md) tutorial.
 
