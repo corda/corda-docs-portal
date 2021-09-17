@@ -280,7 +280,7 @@ The rules inside the `requireThat` Corda DSL helper method are:
 * For the `CreateTicket` command:
 
   * The transaction should only output one `BoardingTicket` state.
-  * The output BoardingTicket state should have clear description of the space trip.
+  * The output `BoardingTicket` state should have clear description of the space trip.
   * The output BoardingTicket state should have a launching date later then the creation time.
 
 * For the `RedeemTicket` command:
