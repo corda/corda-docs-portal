@@ -59,6 +59,8 @@ For this reason, we strongly advise you to use the [Configuration Obfuscator](..
 
 {{< /warning >}}
 
+Available configuration options for HSM usage are given below with information about storage and purpose of the keys:
+
 {{< table >}}
 |node.conf section |Certificate store |Stored keys |
 |-------------------------|-------------------------|-------------------------|
