@@ -103,6 +103,12 @@ nodes:
 
    This command inspects the logs every few seconds until all the nodes are ready.
 
+   {{< note >}}
+
+   During network deployment, the nodes' keys, key stores, and certificates are generated automatically.
+
+   {{< /note >}}
+
 
 3. To monitor logs, run this Corda CLI command:
 
