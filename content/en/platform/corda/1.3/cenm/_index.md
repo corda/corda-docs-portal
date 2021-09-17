@@ -10,8 +10,8 @@ project: corda
 section_menu: cenm-1-3
 title: CENM 1.3
 version: '1.3'
+cordaType: 'CENM'
 ---
-
 
 # Welcome to the Corda Enterprise Network Manager
 

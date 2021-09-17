@@ -9,6 +9,7 @@ project: corda
 section_menu: corda-enterprise-4-3
 title: Corda Enterprise 4.3
 version: 4.3
+cordaType: 'Enterprise'
 ---
 
 
