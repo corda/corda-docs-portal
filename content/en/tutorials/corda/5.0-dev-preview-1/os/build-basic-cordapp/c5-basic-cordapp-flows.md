@@ -141,7 +141,7 @@ Another new thing you will see here is the parsing of parameters. Since the para
 2. Add the `call` method with the return type `SignedTransactionDigest`.
 3. Parse your parameters using the `mapOfParams` value.
 4. Add exceptions for when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
-5. Insert a step for finding the notary.
+5. Insert a method for finding the notary.
 6. Build the output `MarsVoucher` state with a `UniqueIdentifier`.
 7. Build the transaction using a `txCommand` and the `transactionBuilderFactory` service you added when injecting services.
 8. Verify that the transaction is valid using the `txBuilder.verify` method.
@@ -487,3 +487,235 @@ data class CreateBoardingTicketInitiator @JsonConstructor constructor(private va
 ```
 
 ## Write the `RedeemBoardingTicketWithVoucher` flow
+
+The `RedeemBoardingTicketWithVoucher` flow lets Peter redeem his `MarsVoucher` for a `BoardingTicket` and take his trip to Mars.
+
+Since this flow is performing a redemption, you must have both an initiating flow and a responder flow.
+
+### Write the initiating flow
+
+Start writing your initiating flow following the same process used when writing the <a href="#write-the-createandissuemarsvoucher-flow">`CreateAndIssueMarsVoucher`</a> flow.
+
+1. Add these annotations: `@InitiatingFlow`, `@StartableByRPC`
+2. Define the `RedeemBoardingTicketWithVoucherInitiator` class with a `@JsonConstructor`, `RpcStartFlowRequestParameters`, and returning a `SignedTransactionDigest`.
+3. Inject these services:
+  * `FlowEngine`
+  * `FlowIdentity`
+  * `FlowMessaging`
+  * `TransactionBuilderFactory`
+  * `IdentityService`
+  * `NotaryLookupService`
+  * `JsonMarshallingService`
+  * `PersistenceService`
+4. Add the `@Suspendable` annotation.
+5. Encapsulate the `FlowLogic` into a call method that returns the `SignedTransactionDigest`.
+6. Parse these parameters and add exceptions for when these parameters are incorrect or not present:
+  * `voucherID`
+  * `holder`
+  * `recipientParty`
+7.Insert a method for finding the notary.
+
+Up until this point, you've been able to follow the same process you used when writing your first flows for this app. Now you'll learn how to do something new: implement queries.
+
+#### Implement queries
+
+In the `FlowLogic` for this initiating flow, you must query the `MarsVoucher` and the `BoardingTicket`. You can use the `PersistenceService` to perform these queries.
+
+##### Add a query for the `MarsVoucher`
+
+1. Use a `cursor` to point to a specific line in the query results.
+2. Add a `persistenceService.query` to get the `StateAndRef` of the `MarsVoucher`.
+3. Use the [predefined query](XXX) `findByUuidAndStateStatus` to find the `MarsVoucher` you need by the state's unique identifier and status.
+4. Because you need to return a `StateAndRef`, use Corda's built-in `IdentityContractStatePostProcessor`.
+5. Use the `poll` function to set a maximum poll size and timeout duration for the query.
+
+##### Add a query for the `BoardingTicket`
+
+1. Use an additional cursor (`cursor2`) to point to a specific line in the query results.
+2. Add a `persistenceService.query` to get the `StateAndRef` of the `BoardingTicket`.
+3. Use the [predefined query](XXX) `findByStateStatusAndContractStateClassName` to find the `BoardingTicket` you need by the state's status and contract state class name.
+4. Because you need to return a `StateAndRef`, use Corda's built-in `IdentityContractStatePostProcessor`.
+5. Use the `poll` function to set a maximum poll size and timeout duration for the query.
+
+After you have followed all steps above, including adding these queries, your code should look like this:
+
+```kotlin
+@InitiatingFlow
+@StartableByRPC
+class RedeemBoardingTicketWithVoucherInitiator @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<SignedTransactionDigest> {
+
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+    @CordaInject
+    lateinit var flowIdentity: FlowIdentity
+    @CordaInject
+    lateinit var flowMessaging: FlowMessaging
+    @CordaInject
+    lateinit var transactionBuilderFactory: TransactionBuilderFactory
+    @CordaInject
+    lateinit var identityService: IdentityService
+    @CordaInject
+    lateinit var notaryLookup: NotaryLookupService
+    @CordaInject
+    lateinit var jsonMarshallingService: JsonMarshallingService
+    @CordaInject
+    lateinit var persistenceService: PersistenceService
+
+
+    @Suspendable
+    override fun call(): SignedTransactionDigest {
+
+        // parse parameters
+        val mapOfParams: Map<String, String> = jsonMarshallingService.parseJson(params.parametersInJson)
+        val voucherID = with(mapOfParams["voucherID"] ?: throw BadRpcStartFlowRequestException("MarsVoucher State Parameter \"voucherID\" missing.")) {
+            this
+        }
+        val holder = with(mapOfParams["holder"] ?: throw BadRpcStartFlowRequestException("BoardingTicket State Parameter \"holder\" missing.")) {
+            CordaX500Name.parse(this)
+        }
+        val recipientParty = identityService.partyFromName(holder) ?: throw NoSuchElementException("No party found for X500 name $holder")
+
+        //Find notary
+        val notary = notaryLookup.notaryIdentities.first()
+
+        //Query the MarsVoucher & the boardingTicket
+        val cursor = persistenceService.query<StateAndRef<MarsVoucher>>(
+                "LinearState.findByUuidAndStateStatus",
+                mapOf(
+                        "uuid" to UUID.fromString(voucherID),
+                        "stateStatus" to StateStatus.UNCONSUMED
+                ),
+                "Corda.IdentityStateAndRefPostProcessor"
+        )
+        val marsVoucherStateAndRef = cursor.poll(100, 20.seconds).values.first()
+
+        val cursor2 = persistenceService.query<StateAndRef<BoardingTicket>>(
+                "VaultState.findByStateStatusAndContractStateClassName",
+                mapOf(
+                        "contractStateClassName" to BoardingTicket::class.java.name,
+                        "stateStatus" to StateStatus.UNCONSUMED
+                ),
+                IdentityContractStatePostProcessor.POST_PROCESSOR_NAME
+        )
+        val boardingTicketStateAndRef= cursor2.poll(100, 20.seconds).values.first()
+        val originalBoardingTicketState= boardingTicketStateAndRef.state.data
+```
+
+#### Finish the initiating flow
+
+Finish the initiating flow by continuing with the same steps you followed when creating the first two flows.
+
+8. Build the transaction's output. Output the `BoardingTicket` and change the owner.
+9. Build the transaction using the `TransactionBuilderFactory` service.
+10. Verify that the transaction is valid with the `txBuilder.verify` method.
+11. Sign the transaction using the `txBuilder.sign` method.
+12. Send the state to the counterparty using the `flowMessaging` service then receive it using the `FlowEngine` and the subflow `CollectSignaturesFlow`.
+13. Notarize and record the transaction in both parties' vaults using the `FlowEngine` service and the subflow `FinalityFlow`.
+14. Return a `SignedTransactionDigest`.
+
+You've now written your initiating flow. It should look like this:
+
+```kotlin
+@InitiatingFlow
+@StartableByRPC
+class RedeemBoardingTicketWithVoucherInitiator @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<SignedTransactionDigest> {
+
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+    @CordaInject
+    lateinit var flowIdentity: FlowIdentity
+    @CordaInject
+    lateinit var flowMessaging: FlowMessaging
+    @CordaInject
+    lateinit var transactionBuilderFactory: TransactionBuilderFactory
+    @CordaInject
+    lateinit var identityService: IdentityService
+    @CordaInject
+    lateinit var notaryLookup: NotaryLookupService
+    @CordaInject
+    lateinit var jsonMarshallingService: JsonMarshallingService
+    @CordaInject
+    lateinit var persistenceService: PersistenceService
+
+
+    @Suspendable
+    override fun call(): SignedTransactionDigest {
+
+        // parse parameters
+        val mapOfParams: Map<String, String> = jsonMarshallingService.parseJson(params.parametersInJson)
+        val voucherID = with(mapOfParams["voucherID"] ?: throw BadRpcStartFlowRequestException("MarsVoucher State Parameter \"voucherID\" missing.")) {
+            this
+        }
+        val holder = with(mapOfParams["holder"] ?: throw BadRpcStartFlowRequestException("BoardingTicket State Parameter \"holder\" missing.")) {
+            CordaX500Name.parse(this)
+        }
+        val recipientParty = identityService.partyFromName(holder) ?: throw NoSuchElementException("No party found for X500 name $holder")
+
+        //Find notary
+        val notary = notaryLookup.notaryIdentities.first()
+
+        //Query the MarsVoucher & the boardingTicket
+        val cursor = persistenceService.query<StateAndRef<MarsVoucher>>(
+                "LinearState.findByUuidAndStateStatus",
+                mapOf(
+                        "uuid" to UUID.fromString(voucherID),
+                        "stateStatus" to StateStatus.UNCONSUMED
+                ),
+                "Corda.IdentityStateAndRefPostProcessor"
+        )
+        val marsVoucherStateAndRef = cursor.poll(100, 20.seconds).values.first()
+
+        val cursor2 = persistenceService.query<StateAndRef<BoardingTicket>>(
+                "VaultState.findByStateStatusAndContractStateClassName",
+                mapOf(
+                        "contractStateClassName" to BoardingTicket::class.java.name,
+                        "stateStatus" to StateStatus.UNCONSUMED
+                ),
+                IdentityContractStatePostProcessor.POST_PROCESSOR_NAME
+        )
+        val boardingTicketStateAndRef= cursor2.poll(100, 20.seconds).values.first()
+        val originalBoardingTicketState= boardingTicketStateAndRef.state.data
+
+        //Building the output
+        val outputBoardingTicket = originalBoardingTicketState.changeOwner(recipientParty)
+
+        //Building the transaction
+        val txCommand = Command(BoardingTicketContract.Commands.RedeemTicket(), listOf(flowIdentity.ourIdentity.owningKey,recipientParty.owningKey))
+        val txBuilder = transactionBuilderFactory.create()
+                .setNotary(notary)
+                .addInputState(marsVoucherStateAndRef)
+                .addInputState(boardingTicketStateAndRef)
+                .addOutputState(outputBoardingTicket, BoardingTicketContract.ID)
+                .addCommand(txCommand)
+
+        // Verify that the transaction is valid.
+        txBuilder.verify()
+
+        // Sign the transaction.
+        val partSignedTx = txBuilder.sign()
+
+        // Send the state to the counterparty, and receive it back with their signature.
+        val otherPartySession = flowMessaging.initiateFlow(recipientParty)
+        val fullySignedTx = flowEngine.subFlow(
+                CollectSignaturesFlow(
+                        partSignedTx, setOf(otherPartySession),
+                )
+        )
+
+        // Notarise and record the transaction in both parties' vaults.
+        val notarisedTx = flowEngine.subFlow(
+                FinalityFlow(
+                        fullySignedTx, setOf(otherPartySession),
+                )
+        )
+
+        return SignedTransactionDigest(
+                notarisedTx.id,
+                notarisedTx.tx.outputStates.map { it -> jsonMarshallingService.formatJson(it) },
+                notarisedTx.sigs
+        )
+    }
+}
+```
+
+### Write the responder flow
