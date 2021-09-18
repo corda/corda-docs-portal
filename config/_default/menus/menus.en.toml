@@ -801,15 +801,3 @@ parent = "homepage-corda"
 name = "Corda 5"
 weight = 100
 
-#the following tutorials entries create menu entries in homepage that link to the corda tutorials menus
-[[homepage]]
-name = "Corda 4 tutorials"
-parent = "homepage-tutorials"
-url = "/tutorials/corda-4.html"
-weight = 200
-
-[[homepage]]
-name = "Corda 5 tutorials"
-parent = "homepage-tutorials"
-url = "/tutorials/corda-5.html"
-weight = 100

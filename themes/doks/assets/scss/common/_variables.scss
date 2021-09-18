@@ -56,12 +56,14 @@ $navbar-light-toggler-icon-bg: none;
 
 $body-bg:                   $gray-100;
 $body-color:                $gray-900;
+$background-shadow:  rgba(0, 0, 0, 0.56);
+$background-menu: rgba(38, 38, 38, 0.96);
 
 // Links
 //
 // Style anchor elements.
 
-$link-color:                              $primary;
+$link-color:                              $black;
 $link-decoration:                         none;
 
 // Grid containers
@@ -109,7 +111,7 @@ $font-size-xl:                $font-size-base * 1.375;
 $font-size-lg:                $font-size-base * 1.25;
 $font-size-md:                $font-size-base * 1.125;
 $font-size-sm:                $font-size-base * 0.875;
-$font-size-xs:                $font-size-base * 0.775;
+$font-size-xs:                $font-size-base * 0.75;
 
 $h1-font-size:                $font-size-base * 2.25 !default;
 $h2-font-size:                $font-size-base * 1.75 !default;
@@ -146,7 +148,7 @@ $navbar-light-active-color:         $primary;
 
 // Cards
 
-$card-border-color:                 $gray-200;
+$card-border-color:                 #88909b;
 
 // Alerts
 //

@@ -1,9 +1,11 @@
 {{ define "main" }}
 	<div class="row flex-xl-nowrap">
-		<div class="col-lg-5 col-xl-4 docs-sidebar">
-			<nav class="docs-links  ms-0 px-0" aria-label="Main navigation">
-				{{ partial "sidebar/pages_in_version_menu.html" . }}
-			</nav>
+		<div class="col-lg-5 col-xl-4 docs-sidebar collapse d-lg-block">
+      <div class="docs-sidebar-content">
+        <nav class="docs-links" aria-label="Main navigation">
+          {{ partial "sidebar/pages_in_version_menu.html" . }}
+        </nav>
+      </div>
 		</div>
 		{{ if ne .Params.toc false -}}
 		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">

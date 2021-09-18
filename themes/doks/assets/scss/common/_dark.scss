@@ -16,7 +16,8 @@ $alert-primary-dark: #7d7075;
 $alert-warning-dark: #7d7870;
 
 $navigate-dark: #88909b;
-$navigate-link-dark: #ef7175;
+$navigate-link-dark: #dadbe3;
+$navigate-link-dark-active: #dadbe3;
 $feedback-background-dark: #202020;
 
 /** Theme styles */
@@ -31,6 +32,14 @@ body.dark {
 
   a {
     color: $link-color-dark;
+  }
+
+  .light-only {
+    display: none;
+  }
+
+  .dark-only {
+    display: unset;
   }
 
   a.text-body {
@@ -49,6 +58,87 @@ body.dark {
     }
   }
 
+  .btn {
+    &:hover {
+      color: $body-bg-dark !important;
+    }
+
+    &:active {
+      border: none;
+      outline: none;
+    }
+
+    &.rounded {
+      border: solid 2px $body-color-dark;
+
+      &:hover {
+        background: $body-color-dark !important;
+      }
+    }
+
+    &.external {
+      &::after {
+        background: url(/icons/icon-external-white.svg) no-repeat center center;
+      }
+
+      &:hover {
+        &::after {
+          background: url(/icons/icon-external.svg) no-repeat center center;
+        }
+      }
+    }
+
+
+  }
+
+  header {
+    .navbar {
+      #top-menu {
+        background-color: $black;
+
+        .navbar-nav {
+          ul {
+            &.dropdown-menu {
+              background-color: $black;
+              border: solid 1px $gray-700;
+
+              li {
+                &:hover {
+                  background-color: $gray-600;
+                }
+
+                a {
+                  &.dropdown-item {
+                    color: $white;
+
+                    &:hover {
+                      background-color: rgba(255, 255, 255, 0);
+                    }
+
+                    &:active {
+                      background-color: $gray-600;
+                    }
+
+                    &.active {
+                      background-color: $gray-600;
+
+                      &::after {
+                        content: url("/icons/check2.svg");
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        @include media-breakpoint-up(sm) {
+          background: none;
+        }
+      }
+    }
+  }
   .navbar-light .navbar-nav .nav-link:hover,
   .navbar-light .navbar-nav .nav-link:focus {
     color: $navbar-dark-hover-color;
@@ -117,6 +207,12 @@ body.dark {
     color: $body-color-dark;
   }
 
+  .docs-toc {
+    .page-links a {
+      color: $navigate-link-dark;
+    }
+  }
+
   .showcase-meta a {
     color: $body-color-dark;
   }
@@ -143,24 +239,28 @@ body.dark {
   }
 
   .docs-links {
-    button {
-      color: $body-color-dark;
+    li {
+      button {
+        color: $body-color-dark;
 
-      &::after {
-        content: url("/icons/icon-arrow-down-white.svg");
+        &::before {
+          content: url("/icons/icon-arrow-down-white.svg");
+        }
+      }
+
+      &.active-page > button {
+        color: $navigate-link-dark-active;
       }
     }
 
     a {
       &.docs-link {
-        text-decoration: none !important;
         color: $body-color-dark;
 
         &:hover,
         &.active,
         &:hover {
-          text-decoration: none;
-          color: $navigate-link-dark;
+          color: $navigate-link-dark-active;
         }
       }
     }
@@ -195,10 +295,16 @@ body.dark {
     color: $navbar-dark-active-color;
   }
 
-  @include media-breakpoint-up(lg) {
-    .docs-sidebar {
-      order: 0;
-      background-color: darken($body-bg-dark, 4%);
+  .docs-sidebar {
+    order: 0;
+    background-color: darken($body-bg-dark, 4%);
+
+    &.show {
+      background-color: $background-shadow;
+
+      .docs-sidebar-content {
+        background-color: darken($body-bg-dark, 4%);
+      }
     }
   }
 
@@ -208,15 +314,30 @@ body.dark {
 
     a {
       color: $navigate-link-dark;
-    }
 
-    svg {
-      stroke: $navigate-link-dark;
-
-      path {
+      svg {
         stroke: $navigate-link-dark;
+
+        path {
+          stroke: $navigate-link-dark;
+        }
+      }
+
+      &:hover,
+      &:active {
+        color: $navigate-link-dark-active;
+
+        svg {
+          path {
+            stroke: $navigate-link-dark-active;
+          }
+        }
       }
     }
+  }
+
+  pre code::-webkit-scrollbar-thumb:hover {
+    background: $border-dark;
   }
 
   .docs-feedback {
@@ -226,30 +347,14 @@ body.dark {
       background-color: $body-bg-dark;
     }
 
+    #opinion-like,
     #opinion-dislike {
       .card {
         background-color: $feedback-background-dark;
 
         .card-footer {
           a {
-           color: $body-color-dark;
-          }
-
-          .btn {
-            border: solid 2px $body-color-dark;
-
-            &::after {
-              background: url(/icons/icon-external-white.svg) no-repeat center center;
-            }
-
-            &:hover {
-              background: $body-color-dark;
-              color: $body-bg-dark;
-
-              &::after {
-                background: url(/icons/icon-external.svg) no-repeat center center;
-              }
-            }
+            color: $body-color-dark;
           }
         }
       }
@@ -325,7 +430,7 @@ body.dark {
       stroke: $border-dark;
     }
 
-    li:before {
+    li::before {
       content: url(icons/file-text-alt.svg);
     }
 
@@ -339,7 +444,7 @@ body.dark {
     }
 
     a {
-      color: lighten($red, 10%);
+      color: lighten($gray-600, 10%);
     }
   }
 
@@ -381,9 +486,30 @@ body.dark {
     color: $body-color-dark;
   }
 
-  table {
+  table,
+  .table {
     @extend .table-dark;
+
+    > :not(caption) > * > * {
+      background-color: unset;
+      border-bottom: 1px solid $gray-600;
+    }
+
+    thead {
+      tr {
+        border-bottom: 2px solid $gray-600;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(2n+1) {
+          background-color: $gray-500;
+        }
+      }
+    }
   }
+
 
   .copy-status::after {
     content: "Copy";
@@ -410,8 +536,23 @@ body.dark {
     color: $gray-200;
   }
 
+  #suggestions {
+    background-color: $black;
+
+    a {
+      color: white;
+
+      span {
+        color: white;
+      }
+
+      &:hover {
+        background-color: $gray-700;
+      }
+    }
+  }
+
   footer {
     background-color: $body-overlay-dark;
   }
-
 }

@@ -18,51 +18,77 @@
     <div class="col-16">
       <h4>Thanks for your feedback!</h4>
     </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Chat with us</h5>
+          <p class="card-text">
+            Join several channels and have access to 1-on-1 communication with members of R3's team and online community.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="http://slack.corda.net/" target="_blank" class="btn rounded external" >Chat with us</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Contribute to docs</h5>
+          <p class="card-text">
+            Noticed any outdated snippets or some code which doesn't reflect the latest code? Help us update the docs.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="{{ .Site.Params.docsRepo }}/blob/master/content/en/docs/{{ .File.Path }}" target="_blank" class="btn rounded external" >Propose updates</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="row collapse" id="opinion-dislike">
     <div class="col-16">
       <h4>We're sorry this page wasn't helpful. Let us know how we can make it better!</h4>
     </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Chat with us</h5>
-            <p class="card-text">
-              Join several channels and have access to 1-on-1 communication with members of R3's team and online community.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="http://slack.corda.net/" target="_blank" class="btn">Chat with us</a>
-          </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Chat with us</h5>
+          <p class="card-text">
+            Join several channels and have access to 1-on-1 communication with members of R3's team and online community.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="http://slack.corda.net/" target="_blank" class="btn rounded external" >Chat with us</a>
         </div>
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Create an issue</h5>
-            <p class="card-text">
-              Submit technical feedback, raise attention for a possible bug, or share feedback using GitHub issues.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="https://github.com/corda/corda-docs/issues/new" target="_blank" class="btn">Create issue</a>
-          </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Create an issue</h5>
+          <p class="card-text">
+            Submit technical feedback, raise attention for a possible bug, or share feedback using GitHub issues.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/corda/corda-docs/issues/new" target="_blank" class="btn rounded external" >Create issue</a>
         </div>
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Contribute to docs</h5>
-            <p class="card-text">
-              Noticed any outdated snippets or some code which doesn't reflect the latest code? Help us update the docs.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="{{ .Site.Params.docsRepo }}/blob/master/content/en/docs/{{ .File.Path }}" target="_blank" class="btn">Propose updates</a>
-          </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Contribute to docs</h5>
+          <p class="card-text">
+            Noticed any outdated snippets or some code which doesn't reflect the latest code? Help us update the docs.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="{{ .Site.Params.docsRepo }}/blob/master/content/en/docs/{{ .File.Path }}" target="_blank" class="btn rounded external" >Propose updates</a>
         </div>
       </div>
+    </div>
   </div>
 
 

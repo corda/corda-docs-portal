@@ -1,196 +1,181 @@
 {{ define "main" }}
-<section class="section container-fluid">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="/discover.html">Discover Corda 5</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Discover the latest and greatest Corda release! You'll remain beautiful for all time, but your Corda implementation will become increasingly complex and arcane.</p>
-          <ul class="p-0">
-            <li><a href="/">Corda 5 overview</a></li>
-            <li><a href="/">Corda 5 tutorials</a></li>
-            <li><a href="platform/corda/5.0-dev-preview-1.html/">All Corda 5 platform docs</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">Get started with Corda 5</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="/getting-started.html">Getting started</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Get started learning about Corda and what our platform can offer you.</p>
-            <ul class="p-0">
-              <li><a href="/">What is Corda?</a></li>
-              <li><a href="/">Corda concepts</a></li>
-              <li><a href="/">Getting started with Corda 5</a></li>
-              <li><a href="/">Getting started with Corda 4</a></li>
-            </ul>
-            <a href="{{ .Permalink }}" class="fw-semibold">Read more about how Corda works</a>
+{{ if eq .Kind "home" -}}
+<section class="section" id="home-introduce">
+  <h1>
+    Welcome to R3 docs
+  </h1>
+  <p class="subtitle">Discover the power of R3. Get documentation, sample codes, tutorials, and more.</p>
+
+  <div id="home-search">
+    <form class="navbar-form order-lg-4 order-0">
+      <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
+      <button class="btn_search">
+        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+      </button>
+      <div id="suggestions" class="shadow rounded"></div>
+    </form>
+  </div>
+</section>
+{{ end }}
+
+<section class="section">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-5">
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="/#">
+                <img src='{{ "icons/agenda-bookmark.svg" | relURL }}' alt="Get started"  height="68" class="light-only">
+                <img src='{{ "icons/agenda-bookmark-white.svg" | relURL }}' alt="Get started"  height="68" class="dark-only">
+              </a>
+              <span>Get Start</span></h3>
+            <p>Ipsum dolor sit amet, dole consectetur do eiusmod tempor lorem siamet.</p>
+            <a href="/corda-os/4.7.html" class="fw-semibold">Link here 1</a>
           </div>
         </div>
       </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="/tutorials.html">Tutorials</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Learn how to create your Corda solution!</p>
-          <ul class="p-0">
-            <li><a href="/">Corda 5 Learning guide</a></li>
-            <li><a href="/">Corda 5: Hello, World!</a></li>
-            <li><a href="/">Corda 5: Setting up a local network</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">Explore all Corda tutorials</a>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="/#">
+                <img src='{{ "icons/document.svg" | relURL }}' alt="Tutorials"  height="68" class="light-only">
+                <img src='{{ "icons/document-white.svg" | relURL }}' alt="Tutorials"  height="68" class="dark-only">
+              </a>
+              <span>Tutorials</span></h3>
+            <p>Ipsum dolor sit amet, dole consectetur do eiusmod tempor lorem siamet.</p>
+            <a href="/corda-enterprise/4.7.html" class="fw-semibold">Link here 2</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="/platform/corda.html">Corda Platform Docs</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Explore core documentation for releases of the Corda platform.</p>
-          <ul class="p-0">
-            <li><a href="/platform/corda/5.0-dev-preview-1.html">Corda 5</a></li>
-            <ul><li><a href="/platform/corda/5.0-dev-preview-1.html">Developer preview 1</a></li>
-            <li><a href="/">Developer preview 2</a></li>
-            <li><a href="/">Corda 5.0</a></li></ul>
-            <li><a href="/platform/corda/4.8/ent.html">Corda 4</a></li>
-            <ul><li><a href="/platform/corda/4.8/ent.html">Corda Enterprise 4.8</a></li>
-            <li><a href="/platform/corda/4.8/os.html">Corda OS 4.8</a></li>
-            <li><a href="/platform/corda/1.5/cenm.html">Corda Enterprise Network Manager</a></li></ul>
-          </ul>
-          <a href="/platform/corda.html" class="fw-semibold">Explore all Corda platform documentation</a>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="/#">
+                <img src='{{ "icons/bullet-list.svg" | relURL }}' alt="Samples and templates"  height="68" class="light-only">
+                <img src='{{ "icons/bullet-list-white.svg" | relURL }}' alt="Samples and templates"  height="68" class="dark-only">
+              </a>
+              <span>Samples and templates</span></h3>
+            <p>Ipsum dolor sit amet, dole consectetur do eiusmod tempor lorem siamet.</p>
+            <a href="/cenm/1.5.html" class="fw-semibold">Link here 3</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="/apps.html">Apps and add-ons</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} -->Things that you can take and use with your implementation of Corda.</p>
-          <ul class="p-0">
-            <li><a href="/">Corda 4: Bank in a box</a></li>
-            <li><a href="/">Corda 4: Collaborative Recovery</a></li>
-            <li><a href="/">Corda 4: Ledgergraph</a></li>
-            <li><a href="/">Corda 4: Archiving Service</a></li>
-            <li><a href="/">Corda 4: Reissuance</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">Explore all Corda add-ons</a>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="/#">
+                <img src='{{ "icons/grammar-check.svg" | relURL }}' alt="Releases"  height="68" class="light-only">
+                <img src='{{ "icons/grammar-check-white.svg" | relURL }}' alt="Releases"  height="68" class="dark-only">
+              </a>
+              <span>Releases</span></h3>
+            <p>Ipsum dolor sit amet, dole consectetur do eiusmod tempor lorem siamet.</p>
+            <a href="/#" class="fw-semibold">Link here 4</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="/tools.html">Tools and utilities</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --> </p>
-          <ul class="p-0">
-            <li><a href="/">Tokens SDK</a></li>
-            <li><a href="/">CDL</a></li>
-            <li><a href="/">Node Management Console</a></li>
-            <li><a href="/">Flow Management Console</a></li>
-            <li><a href="/">Business Network Extension</a></li>
-            <li><a href="/">Accounts</a></li>
-            <li><a href="/">Gateway Services</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">Explore Corda tools and utilities</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="{{ .Permalink }}">API reference</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --> </p>
-          <ul class="p-0">
-            <li><a href="/">Corda 5 APIs</a></li>
-            <li><a href="/">Corda 4.8 APIs</a></li>
-            <li><a href="/">Other Corda 4 APIs</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">Explore All Corda APIs</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="{{ .Permalink }}">Examples and best practices</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --> </p>
-          <ul class="p-0">
-            <li><a href="/">Some example code</a></li>
-            <li><a href="/">Some other example code</a></li>
-            <li><a href="/">Corda code car</a></li>
-            <li><a href="/">Corda diamonds</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">All Corda code samples</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="/release-notes.html">Release notes</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} --> </p>
-          <ul class="p-0">
-            <li><a href="/">Corda 5 dev preview</a></li>
-            <li><a href="/">Corda Enterprise 4.8</a></li>
-            <li><a href="/">Corda OS 4.8</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">Read all of our release notes</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="{{ .Permalink }}">Documentation Archive</a></h3>
-
-        </div>
-      </div>
-    </div>
-<!--
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="{{ .Permalink }}">Managed Services</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} These services are so managed that even we have forgotten how they work.</p>
-          <ul class="p-0">
-            <li><a href="/">Managed node</a></li>
-            <li><a href="/">Managed notary</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">Explore all managed services documentation</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="{{ .Permalink }}">Conclave</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }}</p>
-          <ul class="p-0">
-            <li><a href="/">Managed node</a></li>
-            <li><a href="/">Managed notary</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">Explore all managed services documentation</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title"><a href="{{ .Permalink }}">Troubleshooting & FAQ</a></h3>
-          <p class="card-text mt-3"><!-- {{ .Params.lead | safeHTML }} </p>
-          <ul class="p-0">
-            <li><a href="/">Where is my data</a></li>
-            <li><a href="/">Why doesn't my node work</a></li>
-            <li><a href="/">What is going on</a></li>
-          </ul>
-          <a href="{{ .Permalink }}" class="fw-semibold">Explore all managed services documentation</a>
-        </div>
-      </div>
-    </div>
--->
-
   </div>
+  <div class="row">
+    <div class="col">
+      <div id="home-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="slide">
+              <img src='{{ "images/logo-corda.png" }}' alt="Corda">
+              <div class="d-inline-block">
+                <h5>Developer preview documentation</h5>
+                <p>Lorem eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
+                <a href="#">Announcement link goes here</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="carousel-item">
+            <div class="slide">
+              <img src='{{ "images/logo-corda-enterprise.png" }}' alt="Corda">
+              <div class="d-inline-block">
+                <h5>Developer preview documentation</h5>
+                <p>Lorem eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
+                <a href="#">Announcement link goes here</a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide">
+              <img src='{{ "images/logo-conclave.png" }}' alt="Corda">
+              <div class="d-inline-block">
+                <h5>Developer preview documentation</h5>
+                <p>Lorem eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
+                <a href="#">Announcement link goes here</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#home-carousel" data-bs-slide="prev">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.1953 31.6667L5.00019 20L16.1953 8.33335" stroke="#5B6B88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="6.44531" y1="20.6138" x2="34.0004" y2="20.6138" stroke="#5B6B88" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#home-carousel" data-bs-slide="next">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.8044 8.33331L34.9996 20L23.8044 31.6666" stroke="#5B6B88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="33.5549" y1="19.3862" x2="5.99982" y2="19.3862" stroke="#5B6B88" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span class="visually-hidden">Next</span>
+        </button>
+  </div>
+    </div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-5">
+    <div class="col">
+      <div class="card no-border h-100">
+        <div class="card-body">
+          <h3 class="card-title">Corda 5 and 4</h3>
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+          <a href="/corda-os/4.7.html" class="btn rounded">Learn Corda</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card no-border h-100">
+        <div class="card-body">
+          <h3 class="card-title">Add-ons</h3>
+          <p>Molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
+          <a href="/corda-enterprise/4.7.html" class="btn rounded">Explore all tools</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card no-border h-100">
+        <div class="card-body">
+          <h3 class="card-title">API reference</h3>
+          <p>Molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
+          <a href="/cenm/1.5.html" class="btn rounded external">View Corda API</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card no-border h-100">
+        <div class="card-body">
+          <h3 class="card-title">Developer platform</h3>
+          <p>Join the most powerful blockchain & confidential
+            computing community for developers.</p>
+          <a href="https://developer.r3.com/" target="_blank" class="btn rounded external">Join R3 Developers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 {{ end }}
