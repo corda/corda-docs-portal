@@ -4,17 +4,17 @@ date: '2021-08-25'
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-nodes-operating
-    identifier: corda-5-dev-preview-1-nodes-operating-sslencryption
+    identifier: corda-5-dev-preview-1-nodes-operating-ssl-encryption
     weight: 4200
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Instructions on how to set up SSL encryption for HTTP-RPC.
+  How to set up SSL encryption for HTTP-RPC.
 ---
 
 Use this guide to set up SSL encryption for HTTP-RPC by:
 1. [Obtaining an SSL certificate](#obtain-an-ssl-certificate).
-2. [Adding SSL configuration to `node.conf`](#add-ssl-configuration-to-nodeconf).
+2. <a href="#add-ssl-configuration-to-nodeconf">Adding SSL configuration to `node.conf`</a>.
 
 Corda's HTTP-RPC API supports HTTP and HTTPS. Use HTTPS wherever possible as it's more secure—the connection between the
 server and client is encrypted using Transport Layer Security (TLS). An exception to this may be in a dev environment where
@@ -65,9 +65,9 @@ There may, however, be scenarios where a self-signed certificate is useful:
 
 Consult your organization's security division for further guidance.
 
-Assuming Java is installed on your machine (either JRE or JDK, runtime or developer kit), you can use [`keytool`](https://docs.oracle.com/cd/E54932_01/doc.705/e54936/cssg_create_ssl_cert.htm#CSVSG178) to create a self-signed certificate. `keytool` will prompt you to provide information about the **subject** of the certificate (the node you are configuring). Make sure to enter the name of your node when prompted: `What is your first and last name?`.
+Assuming Java is installed on your machine (either JRE or JDK, runtime or developer kit), you can use <a href="https://docs.oracle.com/cd/E54932_01/doc.705/e54936/cssg_create_ssl_cert.htm#CSVSG178">`keytool`</a> to create a self-signed certificate. `keytool` will prompt you to provide information about the **subject** of the certificate (the node you are configuring). Make sure to enter the name of your node when prompted: `What is your first and last name?`.
 
-The following example shows the creation of a self-signed certification using `keytool`:
+In this example, a self-signed certification is created using `keytool`:
 
 ```
 farm@JUGGERNAUT:~/git/engineering-kb$ keytool -genkey -keyalg RSA -keysize 2048 -keystore keystore.jks -storepass ThisIsntSecure -validity 360
@@ -87,7 +87,7 @@ Is CN=Sample Node, OU=Production Operations, O=Contoso LLC, L=Paris, ST=Unknown,
   [no]:  y
 ```
 
-To create your own self-signed certificate, you need to adapt the following arguments in the command used in the above example:
+To create your own self-signed certificate, you need to adapt these arguments in the command from the previous example:
 * `keyalg` specifies which cryptographic algorithm to use. If you don't have a preference, `RSA` is a good option.
 * `keysize` specifies the size of the cryptographic keys that will be generated. The recommended baseline option is `2048`.
 * `keystore` specifies the path to the output file, including file name. You need to include this in `node.conf`.
@@ -96,7 +96,7 @@ To create your own self-signed certificate, you need to adapt the following argu
 
 ## Add SSL configuration to `node.conf`
 
-Once you have obtained a certificate, place it into a directory that the node can access. Then add the following section to your node's `node.conf` file, under `httpRpcSettings`.
+Once you have obtained a certificate, place it into a directory that the node can access. Then add this section to your node's `node.conf` file, under `httpRpcSettings`:
 
 ```
 "ssl": {
@@ -105,4 +105,4 @@ Once you have obtained a certificate, place it into a directory that the node ca
 }
 ```
 
-For more information, see the guide on [configuring `node.conf` for HTTP-RPC](configure-nodeconf.md).
+For more information, read <a href="configure-nodeconf.md">how to configure `node.conf` for HTTP-RPC</a>.
