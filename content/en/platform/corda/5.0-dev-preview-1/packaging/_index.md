@@ -3,7 +3,7 @@ title: "Packaging"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-packaging
-    weight: 100
+    weight: 500
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
@@ -20,20 +20,20 @@ The `.cpk` file also contains the main CorDapp `.jar` file and its dependencies,
 
 The main `.jar` file contains enough OSGi metadata to be a valid OSGi bundle.
 
-Corda packages are created using the [CorDapp CPK gradle plugin](packaging/gradleplugin.html).
+Corda packages are created using the [CorDapp CPK gradle plugin](packaging/gradle-plugin.md).
 
 ## Corda Package Bundles
 
 A Corda Package Bundle (`.cpb` file) contain `.cpk` files, plus a `MANIFEST.MF` and other Corda-related information.
 
-They can be created with the CorDapp Builder CLI tool or with the XXX[CorDapp CPB gradle plugin](packaging/gradleplugin.html).
+They can be created with the CorDapp Builder CLI tool or with the [CorDapp CPB gradle plugin](packaging/gradle-plugin.html#cordapp-cpb-gradle-plugin).
 
 The point of the CPB is to contain all of the CPKs that are expected to be deployed together as a single application. So in a typical example, you would apply `net.corda.plugins.cordapp-cpk` for the contract CPK project, and `net.corda.plugins.cordapp-cpb` in the workflows CPK project. The CPB file would then contain both your contracts and your workflows CPKs.
 
 
 ## Inspecting package files
 
-You can use the `package` command in the `corda-cli` command-line utility to inspect the contents of Corda package files. For more information, see XXX.
+You can use the `package` command in the `corda-cli` command-line utility to inspect the contents of Corda package files. For more information, see [CPK inspection tool](corda-cli/commands.html#cpk-inspection-tool).
 
 ## Corda Security Manager
 
@@ -50,6 +50,6 @@ Any attempt by CPK code to perform one of the operations above will cause an `Ac
 
 Note that these permission restrictions are in addition to any permission restrictions that the bundle requests via the local permissions mechanism described in section 50.11 of the [OSGi specification](http://docs.osgi.org/download/r8/osgi.core-8.0.0.pdf).
 
-## Deploying a Corda Packages
+## Installing a Corda Packages
 
-To deploy a Corda Package, see XXX.
+To install a Corda Package, see [the corda-cli install command](corda-cli/commands.html#install).
