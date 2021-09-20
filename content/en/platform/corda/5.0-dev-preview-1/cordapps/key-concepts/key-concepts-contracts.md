@@ -10,15 +10,21 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-Contracts are used to verify a proposed transaction, and include constraints on how states can evolve.
+
+A **contract** governs the evolution of a <a href="key-concepts-states.md">**state**</a> over time and is used to
+verify proposed <a href="key-concepts-transactions.md">**transactions**</a>.
 
 ## Transaction verification
 
 A transaction is only valid if:
 * It is digitally signed by all required signers.
 * Each transaction state specifies a *contract* type.
-* A contract takes a transaction as input and validates it based on the contract’s rules.
+* A contract takes a transaction as input and validates it based on its constraints.
 * The contract of *every input state* and *every output state* considers it to be valid.
+
+If a transaction does not meet these criteria, then it is not a valid proposal to update the ledger, and it will not be
+committed to the ledger. Contracts impose rules on the evolution of states that are independent of the willingness of
+the required signers to sign a given transactions.
 
 The contract code has the ability to:
 
@@ -29,11 +35,7 @@ The contract code has the ability to:
 * Group similar states to validate them as a group; for example, to impose a rule on the combined value of all the cash
 states.
 
-A transaction that is not contractually valid is not a valid proposal to update the ledger, and thus can never be
-committed to the ledger. In this way, contracts impose rules on the evolution of states over time that are
-independent of the willingness of the required signers to sign a given transaction.
-
-Transaction verification must be *deterministic*. A contract should either **always accept** or **always reject** a
+Transaction verification must be *deterministic*. A contract should either *always accept* or *always reject* a
 given transaction. For example, transaction validity cannot depend on the time at which validation is conducted or
 the amount of information the peer running the contract holds. This is a necessary condition to ensure that all peers
 on the network reach consensus regarding the validity of a given ledger update.
@@ -52,7 +54,7 @@ is too large, or may disagree on the amount of cash offered for an asset.
 ## Oracles
 
 Sometimes, transaction validity may depend on external information, such as an exchange rate. In
-these cases, an Oracle is required.
+these cases, an **Oracle** is required.
 
 ## Legal prose
 
