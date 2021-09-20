@@ -10,7 +10,7 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Documentation for the CordDapp CPK and Cordap CPD Gradle plugins
+  Documentation for the CorDapp CPK and CorDapp CPB Gradle plugins
 ---
 
 # CorDapp CPK and CPB Gradle plugins
@@ -109,7 +109,7 @@ The `cordapp` block _must_ contain a `targetPlatformVersion` field, and either a
 |`hashAlgorithm`         | The hash algorithm, such as `'SHA-256'` |
 {{% /table %}}
 
-For develeopment purposes, it is usually safe to use the defaults for  `signing`, `sealing`, `minimumPlatformVersion` and `hashAlgorithm`.
+For development purposes, it is usually safe to use the defaults for  `signing`, `sealing`, `minimumPlatformVersion` and `hashAlgorithm`.
 
 The `cordapp-cpk` plugin signs with a development key by default. When generating a `.cpk` file for production, you will need to provide a key of your own.
 
@@ -137,7 +137,7 @@ Remember, you should only use a `workflow` block _or_ a `contract` block, not bo
 |------------|-------------------------------------------------------------------------|
 |`name`      | The CorDapp's name. Maps to `Bundle-Name` OSGi manifest tag.            |
 |`versionID` | The CorDapp's version.                                                  |
-|`licence`   | The Cordapp's license name. Maps to `Bundle-License` OSGi manifest tag. |
+|`licence`   | The CorDapp's license name. Maps to `Bundle-License` OSGi manifest tag. |
 |`vendor`    | The vendor's name. Maps tp `Bundle-Vendor` OSGi manifest tag.           |
 {{% /table %}}
 

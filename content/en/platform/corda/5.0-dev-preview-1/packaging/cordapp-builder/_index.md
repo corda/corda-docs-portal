@@ -101,7 +101,7 @@ To read secrets from files `keystore_password_file.txt` and `key_password_file.t
 cordapp-builder create --cpk file1.cpk --cpk file2.cpk -k keystore.jks -a key-alias -p:file keystore_password_file.txt -P:file key_password_file.txt -o file.cpb
 ```
 
-{{% note %}}
+{{< note >}}
 The entire contents of the file will be used as a password, including any trailing new lines or white spaces.
 {{< /note >}}
 

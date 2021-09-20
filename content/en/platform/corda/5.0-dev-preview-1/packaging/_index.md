@@ -11,7 +11,7 @@ section_menu: corda-5-dev-preview
 
 # CorDapp packaging
 
-In Corda 5 Development Preview, CordDaps are distributed as Corda package files (`.cpk` files), and Corda package bundles (`.cpb` files).
+In Corda 5 Development Preview, CorDapps are distributed as Corda package files (`.cpk` files), and Corda package bundles (`.cpb` files).
 
 ## Corda package files
 
