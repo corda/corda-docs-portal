@@ -66,7 +66,7 @@ public class AppleStampContract implements Contract {
 
 ### Add commands
 
-Commands indicate the transaction's intent—what type of actions performed by the state the contract can verify. In this tutorial, you will add two commands: one for issuing the bushel of apples, and one for redeeming it.
+Commands indicate the transaction's intent — what type of actions performed by the state the contract can verify. In this tutorial, you will add two commands: one for issuing the bushel of apples, and one for redeeming it.
 
 1. Add the `Commands` public interface declaration.
 
@@ -95,10 +95,10 @@ public class AppleStampContract implements Contract {
 
 ### Add the `verify` method
 
-The `verify` method is automatically triggered when your transaction is executed. It verifies:
+The `verify` method is automatically triggered when your transaction is executed. It works in the following way:
 
-* The intention of the transaction - the commands that you are using for that specific transaction.
-* That the transaction components are following the restrictions implemented inside the contract's `verify` method.
+* It uses the transaction's command to get information which rules must be verified.
+* It verifies that the transaction components are following the restrictions implemented inside the contract's `verify` method.
 
 1. If you're using IntelliJ, you will see an error indicator under the class name and implementation. This indicates that the class is missing the required method. Hover over the class definition, then:
 

@@ -12,16 +12,20 @@ tags:
 title: Write contracts
 ---
 
-In Corda, contracts govern how states should evolve over time by restricting how transaction flows are performed. They are the Java or Kotlin interfaces used to mark the defined class where a transaction `verify` method is implemented.
+Contracts in the Corda 5 Developer Preview work in the same way as they did in Corda 4. In the context of a CorDapp, contracts define rules that are used to verify transaction inputs and outputs. A CorDapp can have one more contracts, and each contract defines rules for one or more states. The goal of a contract is to ensure that input and output states in transactions are valid and to prevent invalid transactions. All parties wishing to transact in a network must run the contract for any transaction they’re a party to, verifying that the transaction is valid.
 
-Contracts in the Corda 5 Developer Preview work in the same way as they did in Corda 4. This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [Write the states](c5-basic-cordapp-state.md) tutorial.
+Contract files implement the contract interface, containing the `verify` method. The `verify` method takes transactions as input and evaluates them against rules defined as a `requireThat` element. Contract execution is deterministic, and transaction acceptance is based on the transaction’s contents alone.
+
+A transaction that is not contractually valid is not a valid proposal to update the ledger, and thus can never be committed to the ledger. In this way, contracts impose rules on the evolution of states over time that are independent of the willingness of the required signers to sign a given transaction.
+
+This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [Write the states](c5-basic-cordapp-state.md) tutorial.
 
 You will create these contracts in the `contracts/src/main/<kotlin>/net/corda/missionMars/contracts/` directory in this tutorial. Refer to the `TemplateContract.kt` file in this directory to see a template contract.
 
 
 ## Learning objectives
 
-Once you have completed this tutorial, you will know how to create and implement contracts in a CorDapp to restrict how your transaction flows are performed.
+Once you have completed this tutorial, you will know how to create and implement contracts in a Corda 5 Developer Preview CorDapp to restrict how your transaction flows are performed.
 
 
 ## Create the `MarsVoucherContract` contract
@@ -60,11 +64,13 @@ class MarsVoucherContract : Contract {
 
 ### Add commands
 
-Commands indicate the transaction's intent — what type of actions performed by the state the contract can verify. Follow the steps below to add the command for issuing the Mars voucher.
+Commands indicate the transaction's intent — what type of actions performed by the state the contract can verify.
 
 1. Add the `Commands : CommandData` interface declaration.
 
 2. Inside the interface, add the `Issue` class that implements `Commands`.
+
+   The `Issue` command is used to create the Mars voucher.
 
 This is what your code should look like now:
 
@@ -83,12 +89,43 @@ interface Commands : CommandData {
 }
 ```
 
+### Add the contract's ID
+
+To identify your contract when building transactions, add its ID.
+
+{{< note >}}
+This ID is not used in the production environment, but it is used in the testing scenarios. It's best practice to add it to the contract.
+{{< /note >}}
+
+This is what your code should look like now:
+
+```kotlin
+package net.corda.missionMars.contracts;
+
+//Domain Specific Language
+class MarsVoucherContract : Contract {
+
+}
+
+// Used to indicate the transaction's intent.
+interface Commands : CommandData {
+    //In our hello-world app, We will have two commands.
+    class Issue : Commands
+}
+
+companion object {
+    // This is used to identify our contract when building a transaction.
+    const val ID = "com.tutorial.contracts.MarsVoucherContract"
+  }
+}
+```
+
 ### Add the `verify` method
 
-The `verify` method is automatically triggered when your transaction is executed. It verifies:
+The `verify` method is automatically triggered when your transaction is executed. It works in the following way:
 
-* The intention of the transaction - the commands that you are using for that specific transaction.
-* That the transaction components are following the restrictions implemented inside the contract's `verify` method.
+* It uses the transaction's command to get information which rules must be verified.
+* It verifies that the transaction components are following the restrictions implemented inside the contract's `verify` method.
 
 1. If you're using IntelliJ, you will see an error indicator under the class name and implementation. This indicates that the class is missing the required method. Hover over the class definition, then:
 
@@ -147,49 +184,6 @@ class MarsVoucherContract : Contract {
         //In our hello-world app, We will have two commands.
         class Issue : Commands
     }
-}
-```
-
-### Add the contract's ID
-
-To identify your contract when building transactions, add its ID.
-
-{{< note >}}
-This ID is not used in the production environment, but it is used in the testing scenarios. It's best practice to add it to the contract.
-{{< /note >}}
-
-This is what your code should look like now:
-
-```kotlin
-package net.corda.missionMars.contracts;
-
-//Domain Specific Language
-class MarsVoucherContract : Contract {
-
-    override fun verify(tx: LedgerTransaction) {
-
-        //Extract the command from the transaction.
-        val commandData = tx.commands[0].value
-
-        //Verify the transaction according to the intention of the transaction
-        when (commandData) {
-            is Commands.Issue -> requireThat {
-                val output = tx.outputsOfType(MarsVoucher::class.java)[0]
-                "This transaction should only have one MarsVoucher state as output".using(tx.outputs.size == 1)
-                "The output MarsVoucher state should have clear description of the type of Space trip information".using(output.voucherDesc != "")
-                null
-            }
-            is BoardingTicketContract.Commands.RedeemTicket-> requireThat {
-                //Transaction verification will happen in BoardingTicket Contract
-            }
-        }
-    }
-
-    // Used to indicate the transaction's intent.
-    interface Commands : CommandData {
-        //In our hello-world app, We will have two commands.
-        class Issue : Commands
-    }
 
     companion object {
         // This is used to identify our contract when building a transaction.
@@ -197,6 +191,7 @@ class MarsVoucherContract : Contract {
     }
 }
 ```
+
 
 ### Add imports
 
@@ -270,7 +265,7 @@ class MarsVoucherContract : Contract {
 
 Now that you've written your first contract, try writing the `BoardingTicketContract` using the following information.
 
-The `BoardingTicketContract` has two intentions:
+The `BoardingTicketState` will be used in two occasions, which means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract's two intentions:
 
 * Mars Express creates the ticket to go to Mars. This intention is expressed by the `CreateTicket` command.
 * Peter redeems the `BoardingTicket` state. This intention is expressed by the `RedeemTicket` command.
