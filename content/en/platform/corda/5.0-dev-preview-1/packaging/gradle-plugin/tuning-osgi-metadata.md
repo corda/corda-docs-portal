@@ -70,7 +70,7 @@ tasks.named('jar', Jar) {
         importPackage 'com.example.cordapp'
 
         // Declares that this CorDapp uses the 'com.example.cordapp.foo' package.
-        // However, Corda will not complain if no-one provides it at runtime. This
+        // However, Corda will not complain if no one provides it at runtime. This
         // assumes that the missing package isn't really required at all.
         optionalImport 'com.example.cordapp.foo'
 
@@ -90,7 +90,7 @@ to ensure that the bundle respects OSGi's [Service Loader Mediator Specification
 
 ## Corda metadata
 
-The plugin will generate the following tags in the "main" jar's `MANIFEST.MF` by default:
+The plugin will generate the following tags in the "main" `.jar`'s `MANIFEST.MF` by default:
 - `Corda-Contract-Classes`
 - `Corda-Flow-Classes`
 - `Corda-MappedSchema-Classes`
@@ -110,16 +110,16 @@ Gradle plugin, and then developers can apply this new plugin to the CorDapps's r
 `cordapp-configuration` plugin is part of the Corda repository, and new versions of it
 will be released as part of Corda, of course.)
 Any property key inside this file that matches `Corda-*-Classes` defines a filter to
-generate a new manifest tag (or replace an existing tag). E.g.
+generate a new manifest tag (or replace an existing tag). For example:
 ```
 Corda-Contract-Classes=IMPLEMENTS;net.corda.v10.ledger.contracts.Contract
 ```
 The `cordapp-cpk` plugin will append additional clauses to each filter to ensure that it still
 only selects public static non-abstract classes, since we don't expect this requirement to change.
 
-### Dynamic Imports
+### Dynamic imports
 
-The CPK needs to declare imports for these packages so that OSGi can create lazy proxies
+The `.cpk` needs to declare imports for these packages so that OSGi can create lazy proxies
 for any JPA entities the bundle may contain:
 - `org.hibernate.proxy`
 - `javaassist.util.proxy`
@@ -127,7 +127,7 @@ for any JPA entities the bundle may contain:
 R3 must also allow the bundle to import this package, which contains Hibernate-specific annotations:
 - `org.hibernate.annotations`
 
-R3 declares all these packages as dynamic imports to avoid binding the CPK to a specific
+R3 declares all these packages as dynamic imports to avoid binding the `.cpk` to a specific
 version of Hibernate, which should make it easier for Corda itself to evolve without breaking
 everyone's CorDapps. (Future versions of Hibernate are also likely not to use Javassist.)
 
@@ -139,4 +139,8 @@ file by adding a comma-separated list to the `Required-Packages` key:
 Required-Packages=org.foo,org.bar
 ```
 
-Note that doing this will completely override the plugin's hard-coded list of packages.
+{{< note >}}
+
+Doing this will completely override the plugin's hard-coded list of packages.
+
+{{< /note >}}

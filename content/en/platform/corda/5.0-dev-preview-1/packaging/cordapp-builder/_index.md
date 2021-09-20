@@ -12,7 +12,7 @@ section_menu: corda-5-dev-preview
 
 # CorDapp Builder CLI
 
-CorDapp Builder CLI is a command-line utility that assembles Corda Package Bundles (`.cpb` files) from Corda Packages (`.cpk` files).
+CorDapp Builder CLI is a command-line utility that assembles Corda package bundles (`.cpb` files) from Corda package files (`.cpk` files).
 
 {{% note %}}
 In future releases, it will be integrated into the `corda-cli` utility.
@@ -43,7 +43,7 @@ CorDapp Builder CLI can be installed manually, or installed automatically.
 
 ## Usage
 
-### Assemble a Corda Package Bundle (`.cpb` file)
+### Assemble a Corda package bundle
 
 To assemble a `.cpb` file from a set of `.cpk` files use the following command.
 
@@ -53,7 +53,7 @@ cordapp-builder create --cpk file1.cpk --cpk file2.cpk -o result.cpb
 
 Where:
 * `-o` specifies the output file.
-* `-cpk` specifies a `.cpk` file to include in the bundle. You can use this option as many times as you want in order to specify as many `.cpk` files as you want
+* `--cpk` specifies a `.cpk` file to include in the bundle. You can use this option as many times as you want to specify as many `.cpk` files as you want.
 
 If you have a `.cpk` file and all of its `.cpk` dependencies are located in a single folder `cpk-repository`, you can use the following command.
 
@@ -89,7 +89,7 @@ You can sign the generated `.cpb` file with the following command.
 cordapp-builder create --cpk file1.cpk --cpk file2.cpk -k keystore.jks -a key-alias -p KEYSTORE_PASSWORD -P KEY_PASSWORD -o file.cpb
 ```
 
-For for enhanced security, you can also use either environment variables or a password file. Instead of typing `KEYSTORE_PASSWORD` and `KEY_PASSWORD` directly, to read secrets from environment variables `STORE_PASS` and `KEY_PASS` use, the following command.
+For enhanced security, you can also use either environment variables or a password file. Instead of typing `KEYSTORE_PASSWORD` and `KEY_PASSWORD` directly, to read secrets from environment variables `STORE_PASS` and `KEY_PASS` use, the following command.
 
 ```bash
 cordapp-builder create --cpk file1.cpk --cpk file2.cpk -k keystore.jks -a key-alias -p:env STORE_PASS -P:env KEY_PASS -o file.cpb
@@ -102,12 +102,12 @@ cordapp-builder create --cpk file1.cpk --cpk file2.cpk -k keystore.jks -a key-al
 ```
 
 {{% note %}}
-The entire contents of the file will be used as a password, including any trailing newlines or whitespace.
-{{% /note %}}
+The entire contents of the file will be used as a password, including any trailing new lines or white spaces.
+{{< /note >}}
 
-{{% note %}}
-In this release, although you can sign a `.cpb` file, Corda does not check the validity of the signature.
-{{% /note %}}
+{{< note >}}
+In Corda 5 Developer Preview, although you can sign a `.cpb` file, Corda does not check the validity of the signature.
+{{< /note >}}
 
 ## Uninstalling CorDapp Builder CLI
 

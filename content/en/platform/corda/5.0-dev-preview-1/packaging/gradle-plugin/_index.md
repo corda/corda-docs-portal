@@ -25,9 +25,9 @@ The `.cpk` file also contains the main CorDapp `.jar` file and its dependencies,
 
 The main `.jar` file contains enough OSGi metadata to be a valid OSGi bundle.
 
-{{% note %}}
+{{< note >}}
 Corda package files are the Corda 5 equivalent of Corda 4's "semi-fat" CorDapp `.jar` files.
-{{% /note %}}
+{{< /note >}}
 
 ### Apply the plugin
 
@@ -128,7 +128,7 @@ You can also configure a signing key by setting these Java system properties on 
 The `workflow` and `contract` blocks should contain the following fields.
 
 {{% note %}}
-Remember, you should only use a `workflow` block _or_ a `contract` block, not both. The plugin does not enforce this; however, a `contract` CPK will be added to the ledger and so you R3 strongly advises you to keep the contracts and the workflows separate!
+Remember, you should only use a `workflow` block _or_ a `contract` block, not both. The plugin does not enforce this; however, a `contract` `.cpk` will be added to the ledger and so R3 strongly advises you to keep the contracts and the workflows separate!
 {{% /note %}}
 
 {{% table %}}
@@ -172,7 +172,7 @@ The `options` block contains the following fields, which mirror Ant's `signJar` 
 * `digestAlgorithm`
 * `tsaDigestAlgorithm`
 
-### Generate the package file
+### Generate the Corda package file
 
 To generate the `.cpk` file, run `./gradlew build`. The `.cpk` file will be generated alongside the `.jar` file.
 
@@ -184,7 +184,7 @@ In most circumstances, the `cordapp-cpk` plugin correctly generates the OSGi met
 
 Applying the CorDapp CPB Gradle plugin to a Gradle project declares that the project should create a Corda package bundle (a `.cpb` file).
 
-The point of the CPB is to contain all of the CPKs that are expected to be deployed together as a single application. So in a typical example, you would apply `net.corda.plugins.cordapp-cpk` for the contract CPK project, and `net.corda.plugins.cordapp-cpb` in the workflows CPK project. The CPB file would then contain both your contracts and your workflows CPKs.
+The point of the `.cpb` is to contain all of the `.cpk`s that are expected to be deployed together as a single application. So in a typical example, you would apply `net.corda.plugins.cordapp-cpk` for the contract CPK project, and `net.corda.plugins.cordapp-cpb` in the workflows CPB project. The `.cpb` file would then contain both your contracts and your workflows' `.cpk`s.
 
 ### Apply the plugin
 
@@ -205,7 +205,7 @@ The CorDapp CPB Gralde plugin automatically applies the CorDapp CPK plugin, so b
             id 'net.corda.plugins.cordapp-cpb'
         }
 
-The plugin will normally determine all of the CorDapp's transient CPK dependencies, although it is your responsibility to ensure that this set is complete. See [CPK inspection tool](../corda-cli/commands.html#cpk-inspection-tool) for details of how to inspect the contents of the bundle.  
+The plugin will normally determine all of the CorDapp's transient `.cpk` dependencies, although it is your responsibility to ensure that this set is complete. See [CPK inspection tool](../corda-cli/commands.html#cpk-inspection-tool) for details of how to inspect the contents of the bundle.  
 
 Any extra package references can be added to the bundle using the `cpb` Gradle configuration. For example:
 
@@ -214,6 +214,6 @@ Any extra package references can be added to the bundle using the `cpb` Gradle c
             cpb "com.example.bar:other-cpk:2.0.0"
         }
 
-### Generate the package file
+### Generate the Corda package bundle
 
 To generate the `.cpb` file, run `./gradlew build`. The `.cpk` file will be generated in the normal Gradle output directory.
