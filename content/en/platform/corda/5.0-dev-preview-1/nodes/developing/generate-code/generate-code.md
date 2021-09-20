@@ -40,7 +40,7 @@ To generate client code:
 4. Click **Generate Client** and select your preferred programming language.
 5. Once the code has been generated, download the `.zip` file and extract the files.
 
-Follow the instructions to generate client code in:
+Follow these instructions to generate client code in:
 * [C#](#generate-client-code-in-c)
 * [Python](#generate-client-code-in-python)
 * [Java](#generate-client-code-in-java)

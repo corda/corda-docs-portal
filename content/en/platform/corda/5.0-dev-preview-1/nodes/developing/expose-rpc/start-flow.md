@@ -90,7 +90,7 @@ To start a flow via HTTP-RPC, a user needs:
 1. Permission to invoke the `startFlow` method `InvokeRpc:net.corda.client.rpc.flow.FlowStarterRPCOps#startFlow`.
 2. Permission to execute the flow(s) that the user wants to start. For example `startflow.net.corda.finance.flows.ExampleFlowClass`.
 
-This is an example of a `node.conf` section that allows the user `demouser` to execute the flow `MessageStateIssue` via HTTP-RPC:
+Here is an example of a `node.conf` section that allows the user `demouser` to execute the flow `MessageStateIssue` via HTTP-RPC:
 
  ```shell
 security {

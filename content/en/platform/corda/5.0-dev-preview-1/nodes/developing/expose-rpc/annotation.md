@@ -23,10 +23,12 @@ interface, the HTTP-RPC module also generates an OpenAPI schema that clients can
 
 ## Glossary
 
+{{< table >}}
 | Term        | Definition                                    |
 |-------------|-----------------------------------------------|
 | `Endpoints` | `RPCOps` interface methods that are semantically similar to `REST` resource actions. |
 | `Resources` | `RPCOps` interface classes that are semantically similar to `REST` resources. |
+{{< /table >}}
 
 ## Annotate RPC endpoints and resources
 
@@ -37,7 +39,7 @@ When annotating custom RPC endpoints and resources, you must:
 * Specify the type of endpoint (only `GET` and `POST` are allowed).
 * Provide a unique path for each resource and endpoint to avoid ambiguity on the mapping API.
 * Map parameters for each endpoint to a type of `REST` call argument (query, path, or body). If no type is specified for a `POST` endpoint, it defaults to `body`. `body` parameters are not permitted for `GET` endpoints and will cause the annotation parser to throw an exception.
-* [Extend and implement the `RPCOps` interface](../extending-rpc.md) so that it includes any custom endpoints. If an endpoint is not included, the annotation parser throws an exception when generating the structure. Multiple preconditions must be satisfied for the parsing to be successful. Such errors are expected to be non-recoverable in the scope of the server. As such, the HTTP server would shut down and provide a detailed message in the log output, while maintaining the rest of the node operational.
+* <a href="../extending-rpc.md">Extend and implement the `RPCOps` interface</a> so that it includes any custom endpoints. If an endpoint is not included, the annotation parser throws an exception when generating the structure. Multiple preconditions must be satisfied for the parsing to be successful. Such errors are expected to be non-recoverable in the scope of the server. As such, the HTTP server would shut down and provide a detailed message in the log output, while maintaining the rest of the node operational.
 
 The annotation parser checks that each resource and endpoint has a unique path. However:
 * Where more than one resource shares the same path, a warning is displayed.
@@ -176,7 +178,7 @@ parameters are validated against these rules:
     }
     ```
 
-* When using classes as body parameters, annotate them with `@CordaSerializable`. Nested custom types do not need to have this annotation. This is not necessary for primitive types, primitive type wrappers, and strings. This is a *valid* example:
+* When using classes as body parameters, annotate them with `@CordaSerializable`. Nested custom types do not need to have this annotation. This is not necessary for primitive types, primitive type wrappers, and strings. Here is a *valid* example:
     ```kotlin
     data class CustomNestedClass(
         val s: String
@@ -197,7 +199,7 @@ parameters are validated against these rules:
      }
     ```
 
-  And this is an *invalid* example:
+  And here is an *invalid* example:
     ```kotlin
     data class CustomClass(
         val s: String
@@ -236,7 +238,7 @@ endpoint name clash), and are accessible through the OpenAPI specification.
 
 {{< /note >}}
 
-## OpenAPI
+## OpenAPI generation
 
 The annotation parser also generates a complete OpenAPI schema.
 

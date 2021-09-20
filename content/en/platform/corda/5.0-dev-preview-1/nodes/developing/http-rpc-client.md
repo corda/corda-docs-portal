@@ -14,7 +14,7 @@ description: >
 
 In the Corda 5 Developer Preview, you can send requests and retrieve their responses via the
 HTTP API in two ways:
-* [Generate client code from the OpenAPI Specification](../generating-client/index.md)
+* [Generate client code from the OpenAPI Specification](generate-code/generate-code.md)
 * Use the native HTTP-RPC client, `HttpRpcClient`, in your Java/Kotlin code.
 
 `HttpRpcClient` simplifies Java/Kotlin calls to the HTTP-RPC service.
@@ -31,7 +31,7 @@ have any special provisions.
 `HttpRpcClient` translates a standard interface call on the HTTP-RPC client side JVM into an HTTP remote communication.
 It then waits for the server to respond. The interface call is completed when the server responds with a result.
 
-This is an example of an `RPCOps` interface from the HTTP client side:
+Here is an example of an `RPCOps` interface from the HTTP client side:
 
 ```kotlin
 @HttpRpcResource(
