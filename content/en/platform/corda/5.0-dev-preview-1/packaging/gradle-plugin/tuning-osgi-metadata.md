@@ -1,8 +1,9 @@
 ---
+date: '2021-09-2012:00:00Z'
 title: "Tuning OSGi metadata"
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-packaging-gradle
+    parent: corda-5-dev-preview-1-packaging-gradle-plugin
     weight: 200
 project: corda-5
 section_menu: corda-5-dev-preview

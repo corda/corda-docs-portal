@@ -1,9 +1,10 @@
 ---
+date: '2021-09-2012:00:00Z'
 title: "CorDapp CPK and CPB Gradle plugins"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-packaging
-    identifier: corda-5-dev-preview-1-packaging-gradle
+    identifier: corda-5-dev-preview-1-packaging-gradle-plugin
     weight: 100
 project: corda-5
 section_menu: corda-5-dev-preview
@@ -11,7 +12,7 @@ description: >
   Documentation for the CordDapp CPK and Cordap CPD Gradle plugins
 ---
 
-# CorDapp Gradle plugins
+# CorDapp CPK and CPB Gradle plugins
 
 ## CorDapp CPK Gradle plugin
 

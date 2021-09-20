@@ -1,14 +1,13 @@
 ---
+date: '2021-09-2012:00:00Z'
 title: "CorDapp Builder CLI"
-linkTitle: "CorDapp Builder CLI"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-packaging
-    weight: 400
+    identifier: corda-5-dev-preview-1-packaging-cordapp-builder
+    weight: 200
 project: corda-5
 section_menu: corda-5-dev-preview
-description: >
-  Instructions on how to install and use CorDapp Builder CLI.
 ---
 
 # CorDapp Builder CLI

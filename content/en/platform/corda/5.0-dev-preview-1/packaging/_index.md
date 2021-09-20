@@ -1,5 +1,6 @@
 ---
-title: "Packaging"
+date: '2021-09-2012:00:00Z'
+title: "CorDapp Packaging"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-packaging
@@ -8,7 +9,7 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-# Packaging
+# CorDapp Packaging
 
 In Corda 5 Development Preview, CordDaps are distributed as Corda package files (`.cpk` files), and Corda package bundles (`.cpb` files).
 
