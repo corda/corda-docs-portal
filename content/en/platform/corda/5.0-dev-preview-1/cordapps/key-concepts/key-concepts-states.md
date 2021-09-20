@@ -26,7 +26,7 @@ the <a href="key-concepts-contracts.md">**contract**</a> that governs the evolut
 
 As states are immutable, they cannot be modified directly to reflect a change to a shared fact. Instead, the lifecycle
 of a shared fact over time is represented by a **state sequence**. When a shared fact changes, you must create a new
-version of the state which represents the updated fact, and mark the existing state as historic.
+version of the state which represents the updated fact and mark the existing state as historic.
 
 This sequence of state replacements gives you a full view of the evolution of the shared fact over time:
 

@@ -10,7 +10,6 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-
 A **contract** governs the evolution of a <a href="key-concepts-states.md">**state**</a> over time and is used to
 verify proposed <a href="key-concepts-transactions.md">**transactions**</a>.
 
