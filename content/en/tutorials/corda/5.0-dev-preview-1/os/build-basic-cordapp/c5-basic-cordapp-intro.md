@@ -62,15 +62,13 @@ All of these transactions are initiated by [flows](../../../../../platform/corda
 
 If you’ve previously built CorDapps on Corda 4, you will notice some differences when building CorDapps with the Corda 5 Developer Preview:
 
-* Modular APIs - The new APIs are modular, which lets you include or exclude the modules you need to build your CorDapp. For example, maybe your CorDapp doesn’t require smart contracts - then you can feel free to leave this module out.
-* Flow interface - The flow interface changes the way you call flows in your CorDapp.
-* Flexibility building the client - You can create your client in any language you like. You are no longer limited to creating the client in a language targeting the JVM. We’ve also removed dependencies on Corda libraries.
+* Modular APIs - The new APIs are modular, which lets you include or exclude the modules you need to build your CorDapp.
+* Flexibility building the client - You can create your client in any language you like. You are no longer limited to creating the client in a language targeting the JVM. We’ve also removed dependencies on Corda libraries. Additionally, RPC is now HTTP and JSON-based. You must pass JSON parameters and return types must be JSON representables if you want them to be returned over RPC.
 * Corda Services - You now use the `@CordaInject` annotation to add any Corda Service to your CorDapp. This replaces everything that was in `FlowLogic`, `ServiceHub`, and all custom Corda Services.
-* RPCClient - RPC is now HTTP and JSON-based. You must pass JSON parameters and return types must be JSON representables if you want them to be returned over RPC.
-Corda package files and Corda package bundles (`.cpk` and `.cpb`) - Corda package files are the standard way to distribute CorDapps for Corda 5 Developer Preview. Corda package bundles are composed of multiple Corda package files. They are bundled in preparation for deployment.
+* Corda package files and Corda package bundles (`.cpk` and `.cpb`) - Corda package files are the standard way to distribute CorDapps for Corda 5 Developer Preview. Corda package bundles are composed of multiple Corda package files. They are bundled in preparation for deployment.
 * Testing changes - Integration and unit testing your CorDapp is now easier.
 
-These changes will be covered in more detail in the tutorial for each topic.
+These changes will be covered in more detail in the tutorial for each topic. Contracts in the Corda 5 Developer Preview are implemented in the same way as in Corda 4.
 
 ## Next steps
 
