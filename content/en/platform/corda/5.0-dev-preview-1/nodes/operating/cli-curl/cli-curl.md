@@ -1,5 +1,5 @@
 ---
-title: "Using Corda Node CLI and curl"
+title: "Using the Corda Node CLI and curl"
 date: '2021-08-26'
 menu:
   corda-5-dev-preview:
@@ -9,12 +9,12 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Instructions on how to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.
+  How to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.
 ---
 
 Use this guide to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.
 
-## Use Corda Node CLI to interact with nodes via HTTP-RPC
+## Use the Corda Node CLI to interact with nodes via HTTP-RPC
 
 The Corda Node command-line interface (CLI) allows you to interact with nodes using the new HTTP-RPC API. It offers a convenient way of calling HTTP-RPC methods, and formats their results so that they are easy to understand.
 
@@ -22,12 +22,12 @@ The Corda Node CLI `.jar` file is available for download from Artifactory.
 
 {{< note >}}
 
-You must save the Corda Node CLI `.jar` file locally to your computer (you don't need to run an installation process). How you achieve this will depend on your organisation's software distribution policies. For the following, it's assumed you have downloaded the file, and saved it locally as `corda-node-cli.jar`.
+You must save the Corda Node CLI `.jar` file locally to your computer (you don't need to run an installation process). How you achieve this will depend on your organisation's software distribution policies. This guide assumes you have downloaded the file, and saved it locally as `corda-node-cli.jar`.
 
 {{< /note >}}
 
 
-### Explore Corda Node CLI
+### Explore the Corda Node CLI
 
 The Corda Node CLI is built to be discoverable. Start by invoking it without any arguments:
 
@@ -110,9 +110,9 @@ To connect to a node that does not use single sign-on (SSO), you can use basic u
 Enter value for --password (Password for password based authentication.):
 ```
 
-Don't supply an argument for -P. The double dash tells Corda Node CLI that the subsequent string is the address of the node (rather than the password). Although you can supply the password inline, this approach is discouraged as you run the risk of having your credentials stored in your command line history, which can persist even after you disconnect from the current terminal session.
+Don't supply an argument for -P. The double dash tells the Corda Node CLI that the subsequent string is the address of the node (rather than the password). Although you can supply the password inline, this approach is discouraged as you run the risk of having your credentials stored in your command line history, which can persist even after you disconnect from the current terminal session.
 
-When using basic authentication, Corda Node CLI doesn't save your credentials locally as that would expose them. To avoid having to set `-u` and `-P` for every command, you can set the `CORDA_NODE_CLI_USERNAME` and `CORDA_NODE_CLI_PASSWORD` environment variables in your current session.
+When using basic authentication, the Corda Node CLI doesn't save your credentials locally as that would expose them. To avoid having to set `-u` and `-P` for every command, you can set the `CORDA_NODE_CLI_USERNAME` and `CORDA_NODE_CLI_PASSWORD` environment variables in your current session.
 
 #### Connect to nodes using OAuth2 with Azure AD
 
@@ -133,22 +133,25 @@ y
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code [code] to authenticate.
 ```
 
-### Verify Corda Node CLI functionality
+### Verify the Corda Node CLI functionality
 
-There are also commands to verify Corda Node CLI functionality. For example, to verify a node's network membership registration, run:
+There are also commands to verify the Corda Node CLI functionality. For example, to verify a node's network membership registration, run:
 
 ```
 > corda-node-cli healthCheck group
 Network ready: Ready
 ```
 
-### Delete Corda Node CLI
+### Delete the Corda Node CLI
 
-To delete Corda Node CLI, simply delete the application's folder at its location.
+To delete the Corda Node CLI, simply delete the application's folder at its location.
 
 ## Invoke HTTP-RPC using `curl`
 
-You can invoke any method inside a [@HttpRpcResource](../../developer/exposing-rpcops-functionality/annotations#httprpcresource) annotated interface if the method itself is also annotated with [@HttpRpcGET](xxxx../../developer/exposing-rpcops-functionality/annotations#httprpcget) or [@HttpRpcPOST](xxxxxx../../developer/exposing-rpcops-functionality/annotations#httprpcpost).
+You can invoke any method inside a [@HttpRpcResource](../../developing/expose-rpc/annotation.html#annotations-and-meta-annotation-fields)
+annotated interface if the method itself is also annotated with
+[@HttpRpcGET](../../developing/expose-rpc/annotation.html#annotations-and-meta-annotation-fields) or
+[@HttpRpcPOST](../../developing/expose-rpc/annotation.html#annotations-and-meta-annotation-fields).
 
 If you haven't specified the `path` in the annotation, the generated URL will contain the name of the interface and the name of the method (converted to lowercase).
 You can override this by providing a value for the `path` parameter in the annotation.
@@ -157,18 +160,20 @@ If you have configured HTTP-RPC to run locally on `localhost:9090`, you can use 
 
 ### Execute an ordinary method call
 
-The following example shows a `curl` command that executes the method `dumpCheckpoints` inside the `FlowManagerRPCOps` interface (assuming the username is `default`):
+This example shows a `curl` command that executes the method `dumpCheckpoints` inside the `FlowManagerRPCOps` interface (assuming the username is `default`):
 
 ```shell
 curl -u default -X GET "https://0.0.0.0:9090/api/v1/flowmanagerrpcops/dumpcheckpoints"
 ```
 
+{{<table>}}
 | Options    | Description                  |
 |------------|------------------------------|
 | `-u`       | Specifies the username. You can also include the password after a colon, otherwise a prompt will appear. |
 | `-X`       | `GET` or `POST`.                 |
 | `-d`       | Specifies the data to be sent. |
 | `--insecure` | For testing purposes only. Used to ignore certificate errors.  |
+{{</table>}}
 
 You may find it useful to look at the `curl` commands generated by Swagger UI.
 These become visible once you have sent a request in the `Try it out` section of an operation.
@@ -179,7 +184,7 @@ These become visible once you have sent a request in the `Try it out` section of
 
 A flow can be started by invoking `/flowstarter/startflow` with the correct request parameters.
 
-For example, the `MessageStateIssue` flow can be started via HTTP-RPC by passing in the following body parameter to the
+For example, the `MessageStateIssue` flow can be started via HTTP-RPC by passing in this body parameter to the
 `startflow` endpoint:
 
 ```json

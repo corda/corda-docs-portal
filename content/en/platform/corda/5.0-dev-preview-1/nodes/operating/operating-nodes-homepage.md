@@ -20,8 +20,8 @@ Before you can operate your node using the HTTP API for RPC (HTTP-RPC), you must
 4. [Manage user permissions](set-permissions.md).
 
 HTTP-RPC will run on node startup if you have configured the `node.conf` file. You can interact with your node using:
-* [The Corda Node CLI](cli-curl/cli-curl.md).
-* <a href="cli-curl/cli-curl.md">`curl` commands</a>.
+* [The Corda Node CLI](cli-curl/cli-curl.html#use-the-corda-node-cli-to-interact-with-nodes-via-http-rpc).
+* <a href="cli-curl/cli-curl.html#invoke-http-rpc-using-curl">`curl` commands</a>.
 
 You also have access to a dynamic [OpenAPI specification](https://swagger.io/docs/specification/about/)
 (formerly known as the Swagger specification). For more information, read <a href="openapi.md">how to

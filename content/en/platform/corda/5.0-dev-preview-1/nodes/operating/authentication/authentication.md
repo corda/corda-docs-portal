@@ -9,7 +9,7 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Instructions on how to configure authentication and authorization for HTTP-RPC.
+  How to configure authentication and authorization for HTTP-RPC.
 ---
 
 Use this guide to configure authentication and authorization for HTTP-RPC, using basic authentication or Azure Active Directory (AD) single sign-on (SSO).
@@ -34,9 +34,9 @@ You can use authenticated HTTP-RPC endpoints with [basic HTTP authentication](ht
 
 This feature is enabled by default and cannot be disabled.
 
-### Configure authorization
+### Configure authorization for basic authentication
 
-Authorization in this dev preview uses the same Apache Shiro-based solution that was available in Corda 4. For details on how to configure this, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
+Authorization in the Corda 5 Developer Preview uses the same Apache Shiro-based solution that was available in Corda 4. For details on how to configure this, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
 
 ### Test your configuration
 
@@ -50,7 +50,7 @@ You can set up your node to use Azure Active Directory (AD) for single sign-on (
 
 1. Configure the Azure AD tenant that serves as an identity provider and the node to enable HTTP-RPC endpoints to support Azure AD-based authentication.
 
-2. Pass an Azure AD **ID token** or **access token** as a [Bearer Token](https://datatracker.ietf.org/doc/html/rfc6750) with the HTTP-RPC requests. The node verifies the following properties/claims of the token:
+2. Pass an Azure AD **ID token** or **access token** as a [Bearer Token](https://datatracker.ietf.org/doc/html/rfc6750) with the HTTP-RPC requests. The node verifies these properties/claims of the token:
 
     * Expiration date.
     * Issuer (should be a valid Microsoft Identity Platform value).
@@ -66,17 +66,21 @@ You can generate tokens using any method that is supported by the Microsoft Iden
 
 ### Configure Azure
 
-The following steps describe a basic setup. Configuring a production setup may include additional steps, such as those for user access management and permission sets (scopes).
+These steps describe a basic setup. Configuring a production setup may include additional steps, such as those for user access management and permission sets (scopes).
 
 To complete the configuration of your node using the [Azure Portal](https://portal.azure.com/):
 
-1. Navigate to the *register an application* screen (Manage > App registration > New registration).
+{{< note >}}
+To register a new application, you must be an Azure **application administrator**.
+{{< /note >}}
+
+1. Navigate to the **register an application** screen (Manage > App registration > New registration).
 
 2. Complete the online form to represent your node:
 
 ![Register a new application](step2.png "Register a new application")
 
-3. Make a note of the "Application (client) ID" and "Directory (tenant) ID". You need these to configure your node.
+3. Make a note of the `Application (client) ID` and `Directory (tenant) ID`. You need these to configure your node.
 
 ![Record application details](step3.png "Record application details")
 
@@ -84,7 +88,7 @@ To complete the configuration of your node using the [Azure Portal](https://port
 
 ![Set authentication](step4.png "Set authentication")
 
-5. Make the following menu selections: Manage > Authentication, Platform configuration > Add a platform, Configure platforms > Single-page application.
+5. Make the menu selection: Manage > Authentication, Platform configuration > Add a platform, Configure platforms > Single-page application.
 
 {{< note >}}
 
@@ -96,7 +100,7 @@ You can register an application without implicit flows. You'll need to create a 
 
 {{< /note >}}
 
-6. Set the **redirect URI** to `http(s)://<host>:<port>/webjars/swagger-ui/3.44.0/oauth2-redirect.html`, and select implicit grant as `ìd_tokens`.
+6. Set the **redirect URL** to `http(s)://<host>:<port>/webjars/swagger-ui/3.44.0/oauth2-redirect.html`, and select implicit grant as `ìd_tokens`.
 
 7. Under **Manage**, select **API permissions**, and add user permissions. You must apply `User.Read` as a minimum, but you can select scopes with wider permissions to suit your requirements.
 
@@ -124,12 +128,15 @@ Azure AD SSO is configured via a top-level object named `httpRpcSettings` in `no
 
 Configuration options include:
 
+{{<table>}}
 | Field              | Required? | Value |
 | ---------------- | --------- | ----- |
 | `clientSecret`     | Optional | Auto fills the client-secret field on the Swagger UI authentication page when a non-public client flow is configured on Azure. *This field will be exposed on Swagger UI*. |
-| `principalNameClaims` | Optional | A prioritized list of [**claims**](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims) that the node retrieves from the Azure AD-generated JSON web token (JWT) to then identify the user and fetch their permissions. Defaults to `["upn", "preferred_username", "email", "appid", "azp"]`.|
+| `principalNameClaims` | Optional | A prioritized list of <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims">**claims**</a> that the node retrieves from the Azure AD-generated JSON web token (JWT) to then identify the user and fetch their permissions. Defaults to `["upn", "preferred_username", "email", "appid", "azp"]`.|
 
-### Configure authorization
+{{</table>}}
+
+### Configure authorization for Azure AD SSO
 
 Permissions are retrieved using the same Apache Shiro-based solution as for [basic authentication](#configure-authorization-for-basic-authentication). However, the actual name
 of the user is derived from Azure `claims`.

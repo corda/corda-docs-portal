@@ -54,6 +54,7 @@ The annotation parser collects information about:
 * Method name, signature (input parameters and output type), and containing class.
 * Method meta-annotations provided via pre-defined, applicable annotation fields.
 
+### Annotations and meta-annotation fields
 Available meta-annotation fields for each annotation:
 
 {{< table >}}

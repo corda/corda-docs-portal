@@ -14,7 +14,7 @@ description: >
 
 Use this guide to configure permissions for HTTP-RPC operations.
 
-The Corda 5 developer preview uses [Apache Shiro](https://shiro.apache.org/) libraries and databases to hold permissions data at runtime,
+The Corda 5 Developer Preview uses [Apache Shiro](https://shiro.apache.org/) libraries and databases to hold permissions data at runtime,
 as described in Corda 4's guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security).
 
 When expressing grants for users, you can still use extended syntax for individual users, as described in Corda 4's guide on
