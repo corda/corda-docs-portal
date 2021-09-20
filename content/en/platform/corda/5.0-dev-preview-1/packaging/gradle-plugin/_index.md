@@ -1,6 +1,7 @@
 ---
 date: '2021-09-2012:00:00Z'
 title: "CorDapp CPK and CPB Gradle plugins"
+linktitle: "Gradle plugins"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-packaging
