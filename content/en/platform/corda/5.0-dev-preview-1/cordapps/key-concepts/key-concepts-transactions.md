@@ -10,9 +10,7 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-## Overview
-
-Corda uses a *UTXO* (unspent transaction output) model where every state on the ledger is immutable. The ledger
+The Corda 5 Developer Preview uses a *UTXO* (unspent transaction output) model, where every state on the ledger is immutable. The ledger
 evolves over time by applying *transactions*. Transactions update the ledger by marking zero or more existing ledger states
 as historic (the *inputs*), and producing zero or more new ledger states (the *outputs*). Transactions represent a
 single link in the state sequences seen in [States](key-concepts-states.md).
