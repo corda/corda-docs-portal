@@ -22,7 +22,7 @@ This tutorial guides you through writing the two states you need in your CorDapp
 
 ## Learning objectives
 
-After you have completed this tutorial, you will know how to create and implement states in a CorDapp.
+After you have completed this tutorial, you will know how to create and implement states in a Corda 5 Developer Preview CorDapp.
 
 ## Before you start
 
@@ -53,7 +53,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
 5. After you clone the CorDapp template, open the `cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
-   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
+   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
 6. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`
 
@@ -71,14 +71,23 @@ First create the `MarsVoucher` state. This state is the voucher issued to custom
 
 The first thing you should do when writing a state is add the `@BelongsToContract` annotation. This annotation establishes the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
 
-1. If you've copied in the template state, change the `TemplateContract.class` to `MarsVoucherContract.class`.
+1. Add the `MarsVoucherContract.class`.
 
-2. Add the annotation `@BelongsToContract(MarsVoucherContract.class)` to your state.
+2. Add the annotation `@BelongsToContract` to your state.
 
 This what your code should look like so far:
 
 ```kotlin
 package net.corda.missionMars.states
+
+import com.google.gson.Gson
+import net.corda.missionMars.contracts.MarsVoucherContract
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.UniqueIdentifier
+import net.corda.v5.ledger.contracts.BelongsToContract
+import net.corda.v5.ledger.contracts.LinearState
 
 @BelongsToContract(MarsVoucherContract.class)
 class MarsVoucher {
@@ -91,13 +100,9 @@ Adding this annotation triggers an error in IntelliJ because you haven't created
 
 When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `MarsVoucher`, so the contract is called `MarsVoucherContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
 
-{{< note >}}
-You've probably noticed that the state template includes imports at the top of the file. Don't worry, we'll get back to these in a little while.
-{{< /note >}}
-
 ### Implement the state
 
-The next line of code you add defines the type of <a href="../../../../../platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a> you implement with the `MarsVoucher` data class. Add this line to ensure that Corda recognizes the `MarsVoucher` as a state.
+The next step of implementing the state is to complete the class declaration by adding the <a href="../../../../../platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a>. This step ensures that Corda recognizes the `MarsVoucher` as a state.
 
 In this case, use a `LinearState` to tie the `MarsVoucher` to a `LinearID`. You will also need to add a `@ConstructorForDeserialization` and a `JsonRepresentable`. You will add the details to this `JsonRepresentable` [later](#add-the-json-representable-data-class).
 
@@ -110,6 +115,15 @@ This is what your code should look like now:
 ```kotlin
 package net.corda.missionMars.states
 
+import com.google.gson.Gson
+import net.corda.missionMars.contracts.MarsVoucherContract
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.UniqueIdentifier
+import net.corda.v5.ledger.contracts.BelongsToContract
+import net.corda.v5.ledger.contracts.LinearState
+
 @BelongsToContract(MarsVoucherContract::class)
 data class MarsVoucher @ConstructorForDeserialization constructor (
 ) : LinearState, JsonRepresentable{
@@ -117,9 +131,9 @@ data class MarsVoucher @ConstructorForDeserialization constructor (
 }
 ```
 
-### Add private variables
+### Add constructor parameters
 
-Next, add these private variables:
+Next, add these constructor parameters:
 
 * `voucherDesc` - voucher description
 * `issuer` - the issuer of the voucher
@@ -129,6 +143,16 @@ After adding these variables, your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.states
+
+import com.google.gson.Gson
+import net.corda.missionMars.contracts.MarsVoucherContract
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.UniqueIdentifier
+import net.corda.v5.ledger.contracts.BelongsToContract
+import net.corda.v5.ledger.contracts.LinearState
+
 @BelongsToContract(MarsVoucherContract::class)
 data class MarsVoucher @ConstructorForDeserialization constructor (
         val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
@@ -142,12 +166,21 @@ data class MarsVoucher @ConstructorForDeserialization constructor (
 
 ### Add the JSON representable data class
 
-Place the private variables you just defined in a JSON representable data class outside of the `MarsVoucher` class. This sets up a template that the node uses to send this data class to external parties.
+Place the private variables you just defined in a JSON representable data class outside of the `MarsVoucher` class. This sets up a template that the node uses to send this data class to the RPCClient.
 
 After you've added this data class, your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.states
+
+import com.google.gson.Gson
+import net.corda.missionMars.contracts.MarsVoucherContract
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.UniqueIdentifier
+import net.corda.v5.ledger.contracts.BelongsToContract
+import net.corda.v5.ledger.contracts.LinearState
 
 @BelongsToContract(MarsVoucherContract::class)
 data class MarsVoucher @ConstructorForDeserialization constructor (
@@ -169,20 +202,31 @@ data class MarsVoucherDto(
 
 ### Add the JSON representable
 
-As noted in the [introduction](c5-basic-cordapp-intro.md), you must pass JSON parameters if you want the output to be returned over RPC. All of your CorDapp's external interactions are now performed via HTTP-RPC REST APIs, so you can no longer pass objects to the RPC, you must parse a JSON-formatted object. You must pass information to the node using a `JsonRepresentable`. The node will return information in the same way.
+As noted in the [introduction](c5-basic-cordapp-intro.md), you must pass JSON parameters if you want the output to be returned over RPC. All of your CorDapp's external interactions are now performed via HTTP-RPC REST APIs. The node will return information in the same way.
 
-You must also add `participants` here. In Corda 4, you could add `participants` to the class directly. In the Corda 5 Developer Preview, however, you must add the `participants` separately.
+You must add these parameters in the form of a `JsonRepresentable` with these components:
 
-1. Add a JSON representable with your variables. All of your variables must be strings.
+* A required method that is annotated with `@OverRide`. This is what the node will return each time the node is asked for a JSON representation of the state.
+* A `Dto` class that will be used as the template of the returned JSON file. This class marks all variable types as String.
+* A helper method that populates the template with the actual variables of the class.
 
-2. Add `participants` inside the JSON representable.
+1. Add the JSON representable with your variables. All of your variables must be strings.
 
-3. Add a helper method that fills out the template for the node. The output contains all private variables in string format and their associated data.
+2. Add the helper method that fills out the template for the node. The output contains all private variables in string format and their associated data.
 
 After you've added these items, your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.states
+
+import com.google.gson.Gson
+import net.corda.missionMars.contracts.MarsVoucherContract
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.UniqueIdentifier
+import net.corda.v5.ledger.contracts.BelongsToContract
+import net.corda.v5.ledger.contracts.LinearState
 
 @BelongsToContract(MarsVoucherContract::class)
 data class MarsVoucher @ConstructorForDeserialization constructor (
@@ -216,67 +260,6 @@ data class MarsVoucherDto(
 )
 ```
 
-### Add imports
-
-If you're using IntelliJ or another IDE, the IDE automatically adds the imports you need.
-
-IntelliJ indicates that an import is missing with red text. To add the import:
-
-1. Click the red text.
-
-2. On MacOS: press **Option** + **Enter** to automatically import that variable.
-
-    On Windows: press **Alt** + **Enter** to automatically import that variable.
-
-3. Repeat this process with all missing imports.
-
-Once you have added all imports, your code should look like this:
-
-```kotlin
-package net.corda.missionMars.states
-
-import com.google.gson.Gson
-import net.corda.missionMars.contracts.MarsVoucherContract
-import net.corda.v5.application.identity.AbstractParty
-import net.corda.v5.application.identity.Party
-import net.corda.v5.application.utilities.JsonRepresentable
-import net.corda.v5.ledger.UniqueIdentifier
-import net.corda.v5.ledger.contracts.BelongsToContract
-import net.corda.v5.ledger.contracts.LinearState
-
-@BelongsToContract(MarsVoucherContract::class)
-data class MarsVoucher @ConstructorForDeserialization constructor (
-  val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
-  val issuer: Party, //The party who issued the voucher
-  val holder: Party, //The party who currently owns the voucher
-  override val linearId: UniqueIdentifier,//LinearState required variable
-) : LinearState, JsonRepresentable{
-
-    override val participants: List<AbstractParty> get() = listOf<AbstractParty>(issuer,holder)
-
-    fun toDto(): MarsVoucherDto {
-        return MarsVoucherDto(
-                voucherDesc,
-                issuer.name.toString(),
-                holder.name.toString(),
-                linearId.toString()
-        )
-    }
-
-    override fun toJsonString(): String {
-        return Gson().toJson(this.toDto())
-    }
-}
-
-data class MarsVoucherDto(
-      val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
-      val issuer: String, //The party who issued the voucher
-      val holder: String, //The party who currently owns the voucher
-      val linearId: String,//LinearState required variable
-)
-
-```
-
 ## Create the `BoardingTicket` state
 
 The `BoardingTicket` state is the ticket that Mars Express self-issues to later give to Peter. Now that you've written your first state, try writing the `BoardingTicket` state using the following information.
@@ -285,19 +268,15 @@ Private variables:
 * `description` - Trip information. Use type `String`.
 * `marsExpress` - The space travel company issuing the ticket. Use type `Party`.
 * `owner` - The party exchanging the ticket for the voucher. Use type `Party`.
-* `date` - The launch date of the trip. Use type `Date`.
+* `daysUntilLaunch` - The numbers of days until the launch date. Use type `int`.
 
 The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction.
 
-<!---You could compact the transaction to carry only these parameters: `public BoardingTicket(String description, Party marsExpress, Date date) {}`
-
-
-If you are writing in Java, when you have multiple constructors in one state class, you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. For example, the constructor `public BasketOfApple(String description, Party farm, int weight) {}`), does not have an `owner` field. You must create another constructor that has all fields, and annotate this constructor with `@ConstructorForDeserialization`.
-Commenting this out as we don't yet have the Java version.--->
+In the second transaction, an ownership transfer occurs. This means you must implement a helper method to perform the change of ownership.
 
 ### Check your work
 
-Once you've written the `BoardingTicket` state, check your code against the sample below. Your code should look like this:
+After you have written the `BoardingTicket` state, check your code against the sample below. Your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.states
@@ -316,19 +295,19 @@ data class BoardingTicket(
         var description : String, //Trip information
         var marsExpress : Party, //Party selling the ticket
         var owner: Party, //The party who exchanges the ticket for the voucher
-        var date: Date)
+        var daysUntilLaunch: Int)
     : ContractState, JsonRepresentable {
 
     //Secondary Constructor
-    constructor(description: String, spaceCompany: Party, date: Date) : this(
+    constructor(description: String, marsExpress: Party, daysUntilLaunch: Int) : this(
             description = description,
-            spaceCompany = spaceCompany,
-            owner = spaceCompany,
-            date = date
+            marsExpress = marsExpress,
+            owner = marsExpress,
+            daysUntilLaunch = daysUntilLaunch
     )
 
     fun changeOwner(buyer: Party): BoardingTicket {
-        return BoardingTicket(description, spaceCompany, buyer, date)
+        return BoardingTicket(description, marsExpress, buyer, daysUntilLaunch)
     }
 
     override val participants: List<AbstractParty> get() = listOf<AbstractParty>(spaceCompany,owner)
@@ -336,9 +315,9 @@ data class BoardingTicket(
     fun toDto(): BoardingTicketDto {
         return BoardingTicketDto(
                 description,
-                spaceCompany.name.toString(),
+                marsExpress.name.toString(),
                 owner.name.toString(),
-                date.toString()
+                daysUntilLaunch.toString()
         )
     }
 
@@ -349,9 +328,9 @@ data class BoardingTicket(
 
 data class BoardingTicketDto(
         var description : String, //Brand or type
-        var spaceshipCompany : String, //Origin of the apple
-        var owner: String, //The person who exchange the basket of apple with the stamp.
-        var date: String
+        var marsExpress : String, //Origin of the ticket
+        var owner: String, //The party who exchanges the ticket for the voucher.
+        var daysUntilLaunch: String
 )
 ```
 
