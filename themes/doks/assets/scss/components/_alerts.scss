@@ -42,7 +42,7 @@
   .r3-o-icon-warning {
     position: absolute;
     left: 1.5rem;
-    top: calc(50% - 12px);
+    top: 1.65rem;
 
     &::before {
       content: url("/icons/warning.svg");
@@ -65,7 +65,7 @@
   .r3-o-icon-important {
     position: absolute;
     left: 1.5rem;
-    top: calc(50% - 12px);
+    top: 1.625rem;
 
     &::before {
       content: url("/icons/important.svg");
@@ -89,7 +89,7 @@
   .r3-o-icon-note{
     position: absolute;
     left: 1.5rem;
-    top: calc(50% - 10px);
+    top: 1.675rem;
 
     &::before {
       content: url("/icons/info.svg");

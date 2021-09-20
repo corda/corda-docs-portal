@@ -64,21 +64,26 @@ Source:
 
 (function(){
 
-  var index = new FlexSearch({
+  var index = new FlexSearch.Document({
     preset: 'score',
     cache: true,
-    doc: {
+    optimize: true,
+    resolution: 9,
+    document: {
         id: 'id',
-        field: [
-          'title',
-          'description',
-          'content',
-        ],
-        store: [
-          'href',
-          'title',
-          'description',
-        ],
+        index: [
+          {
+            field: "title",
+            tokenize: "forward"
+          },{
+            field: "content",
+            minlength: 3,
+            context: {
+              depth: 1,
+              resolution: 3
+            }
+          }
+        ]
     },
   });
 
@@ -94,7 +99,11 @@ Source:
     {{ end -}}
   ];
 
-  index.add(docs);
+  docs.forEach((element)=> {
+    index.add(element);
+  });
+
+  window.index = index;
 
   userinput.addEventListener('input', show_results, true);
   suggestions.addEventListener('click', accept_suggestion, true);
@@ -108,22 +117,32 @@ Source:
 
     suggestions.classList.remove('d-none');
 
-    results.forEach(function(page) {
+    results.forEach(function(field){
+      field.result.forEach(function(id) {
+        page = null;
+        for (var i = 0; i < docs.length; i++){
+          if (docs[i].id === id){
+            page = docs[i];
+            break;
+          }
+        }
 
-      entry = document.createElement('div');
+        if (page !== null){
+          entry = document.createElement('div');
 
-      entry.innerHTML = '<a href><span></span><span></span></a>';
+          entry.innerHTML = '<a href><span></span><span></span></a>';
 
-      a = entry.querySelector('a'),
-      t = entry.querySelector('span:first-child'),
-      d = entry.querySelector('span:nth-child(2)');
+          a = entry.querySelector('a'),
+            t = entry.querySelector('span:first-child'),
+            d = entry.querySelector('span:nth-child(2)');
 
-      a.href = page.href;
-      t.textContent = page.title;
-      d.textContent = page.description;
+          a.href = page.href;
+          t.textContent = page.title;
+          d.textContent = page.description;
 
-      suggestions.appendChild(entry);
-
+          suggestions.appendChild(entry);
+        }
+      })
     });
 
     while(childs.length > len){

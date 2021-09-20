@@ -32,7 +32,6 @@ h6,
 @include media-breakpoint-up(md) {
   body {
     font-size: 16px;
-    padding-top: 4rem !important;
   }
 
   h1,
@@ -66,6 +65,14 @@ a.btn:focus {
   text-decoration: none;
 }
 
+.light-only {
+  display: unset;
+}
+
+.dark-only {
+  display: none;
+}
+
 .section {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -81,6 +88,10 @@ a.btn:focus {
   padding-bottom: 1rem;
 }
 
+.nav-link {
+  outline: none;
+}
+
 /*
 .section svg {
   display: inline-block;
@@ -91,46 +102,63 @@ a.btn:focus {
 */
 
 body {
-  padding-top: 3.5625rem;
+
 }
 
 .docs-sidebar {
-  order: 2;
+  position: absolute;
+  left: 0;
+  width: 100%;
   background-color: $gray-300;
-  padding: 0 2rem;
-}
+  padding: 0 0 0 2rem;
 
-@include media-breakpoint-up(lg) {
-  .docs-sidebar {
-    order: 0;
-  }
+  &.show {
+    position: fixed;
+    z-index: 900;
+    height: calc(100vh - 4rem);
+    background-color: $background-shadow;
+    width: 100%;
+    padding: 0;
 
-  @supports ((position:-webkit-sticky) or (position:sticky)) {
-    .docs-sidebar {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 4rem;
-      z-index: 1000;
-      height: calc(100vh - 4rem);
+    .docs-sidebar-content {
+      background-color: $gray-300;
+      width: 313px;
+      padding-left: 2rem;
+      height: 100%;
+    }
+
+    .docs-links {
+      height: 100%;
+      overflow: auto;
+    }
+
+    & ~ main {
+      position: relative;
     }
   }
-}
 
-@include media-breakpoint-up(xl) {
-  .docs-sidebar {
-    flex: 0 1 333px;
+  @include media-breakpoint-up(lg) {
+    flex: 0 1 30%;
+    position: initial;
+  }
+
+  @include media-breakpoint-up(xl) {
+    flex: 0 1 313px;
   }
 }
 
 .docs-links {
-  padding-bottom: 5rem;
+  padding-top: 1rem;
+  padding-bottom: 7rem;
+  padding-right: calc(2rem - 5px);
 }
 
 @include media-breakpoint-up(lg) {
   @supports ((position: -webkit-sticky) or (position: sticky)) {
     .docs-links {
+      padding-bottom: 4rem;
       max-height: calc(100vh - 4rem);
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 }
@@ -139,9 +167,6 @@ body {
   .docs-links {
     display: block;
     width: auto;
-    margin-right: -2rem;
-    padding-top: 1rem;
-    padding-bottom: 4rem;
   }
 }
 
@@ -151,6 +176,8 @@ body {
   .page-links {
     border-left: solid 1px $gray-200;
     padding-left: 2rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
   }
 }
 
@@ -167,6 +194,7 @@ body {
 .docs-content {
   padding-bottom: 4rem;
   order: 1;
+  word-break: break-word;
 
   a {
     color: $gray-900;
@@ -175,6 +203,10 @@ body {
 
   img {
     max-width: 100%;
+    background: $white;
+    padding: 0.5rem;
+    border: solid 1px $gray-200;
+    border-radius: 0.25rem;
   }
 }
 
@@ -186,7 +218,24 @@ body {
 
   a {
     text-decoration: none;
-    color: $red;
+    color: $gray-800;
+
+    svg {
+      path {
+        stroke: $gray-800;
+      }
+    }
+
+    &:hover,
+    &:active {
+      color: $red;
+
+      svg {
+        path {
+          stroke: $red;
+        }
+      }
+    }
   }
 }
 
@@ -224,6 +273,10 @@ body {
       img {
         width: 3rem;
         height: 3rem;
+        background: none;
+        padding: 0;
+        border: none;
+        border-radius: 0;
       }
 
       &:hover {
@@ -236,6 +289,7 @@ body {
     }
   }
 
+  #opinion-like,
   #opinion-dislike {
     .card {
       border-top: none;
@@ -266,37 +320,6 @@ body {
           display: flex;
           align-items: center;
         }
-
-        .btn {
-          border-radius: 40px;
-          border: solid 2px $gray-900;
-          padding: 8px 24px;
-          height: 40px;
-
-          &::after {
-            content: " ";
-            background: url(/icons/icon-external.svg) no-repeat center center;
-            width: 1rem;
-            height: 1rem;
-            display: inline-block;
-            position: relative;
-            top: -1px;
-            left: 5px;
-          }
-
-          &:focus {
-            box-shadow: none;
-          }
-
-          &:hover {
-            background: $gray-900;
-            color: $white;
-
-            &::after {
-              background: url(/icons/icon-external-white.svg) no-repeat center center;
-            }
-          }
-        }
       }
     }
   }
@@ -310,6 +333,10 @@ body {
 #TableOfContents ul {
   padding-left: 0;
   list-style: none;
+
+  li {
+    margin-bottom: 0.25rem;
+  }
 }
 
 ::selection {
@@ -339,6 +366,18 @@ body {
 .badge {
   font-weight: 400;
   font-size: $font-size-xs;
+
+  &.docs {
+    font-size: $font-size-sm;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: 0.25px;
+    text-align: left;
+    color: #efeff3;
+    padding: 0.25rem 0.5rem;
+  }
 }
 
 .bg-light-gray {

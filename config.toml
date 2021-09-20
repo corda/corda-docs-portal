@@ -6,13 +6,13 @@ baseURL = "/"
 title = "Corda Documentation"
 
 # Of course...
-theme = "doks"
+theme = ['doks']
 
 # i18n
 defaultContentLanguage = "en"
 # ...so that en docs are just in /docs/... rather than /en/docs/...
 defaultContentLanguageInSubdir = false
-contentDir = "content/en/docs"
+contentDir = "content/"
 
 # so that 'docs' doesn't appear as 'docss' etc.
 pluralizeListTitles = false

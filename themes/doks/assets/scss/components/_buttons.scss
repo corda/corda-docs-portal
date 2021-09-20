@@ -2,7 +2,7 @@
 .btn {
   border-radius: 4rem;
   font-weight: 600;
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   font-size: $font-size-base;
   padding: 0.375rem 1.5rem;
 
@@ -19,6 +19,56 @@
       background-color: $black;
     }
   }
+
+  &:active:focus {
+    box-shadow: none;
+  }
+
+  &.rounded {
+    border-radius: 40px !important;
+    border: solid 2px $gray-900;
+    padding: 8px 24px;
+    min-height: 40px;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      background: $gray-900;
+      color: $white;
+    }
+  }
+
+  &.external {
+    &::after {
+      content: " ";
+      background: url(/icons/icon-external.svg) no-repeat center center;
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
+      position: relative;
+      top: -1px;
+      left: 5px;
+    }
+
+    &:hover {
+      &::after {
+        background: url(/icons/icon-external-white.svg) no-repeat center center;
+      }
+    }
+
+  }
+}
+
+a.btn{
+  line-height: 1.2;
+
+  &.external {
+    &::after {
+      top: 0;
+    }
+  }
 }
 
 .navbar .btn-link {
@@ -26,8 +76,14 @@
   padding: 0.4375rem 0;
 }
 
+#mode,
+#top-search-btn {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
 #mode {
-  margin-right: 1.25rem;
+  margin-right: 0;
 }
 
 .btn-link:focus {
@@ -49,13 +105,13 @@
   }
 }
 
-.navbar .btn-link:hover {
-  color: $navbar-light-hover-color;
-}
-
-.navbar .btn-link:active {
-  color: $navbar-light-active-color;
-}
+//.navbar .btn-link:hover {
+//  color: $navbar-light-hover-color;
+//}
+//
+//.navbar .btn-link:active {
+//  color: $navbar-light-active-color;
+//}
 
 body .toggle-dark {
   display: block;
