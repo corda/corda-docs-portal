@@ -106,6 +106,10 @@ cordapp-builder create --cpk file1.cpk --cpk file2.cpk -k keystore.jks -a key-al
 The entire contents of the file will be used as a password, including any trailing newlines or whitespace.
 {{% /note %}}
 
+{{% note %}}
+In this release, although you can sign a `.cpb` file, Corda does not check the validity of the signature.
+{{% /note %}}
+
 ## Uninstalling CorDapp Builder CLI
 
 To uninstall CorDapp Builder CLI tool, perform the following steps:
