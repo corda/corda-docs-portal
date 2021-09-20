@@ -155,7 +155,6 @@ The `options` block contains the following fields, which mirror Ant's `signJar` 
 * `storeType`
 * `keyPassword`
 * `signatureFileName`
-* `signedJar`
 * `verbose`
 * `strict`
 * `internalSF`
