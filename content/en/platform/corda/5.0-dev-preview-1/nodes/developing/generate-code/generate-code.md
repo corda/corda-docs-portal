@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-nodes-developing
     identifier: corda-5-dev-preview-1-nodes-developing-generate-code
-    weight: 500
+    weight: 2400
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
@@ -35,7 +35,7 @@ and takes full advantage of the OpenAPI Specification's capabilities.
 
 To generate client code:
 1. Open [Swagger Editor](https://editor.swagger.io) in your web browser.
-2. Paste your `swagger.json` content into the **editor section**. 
+2. Paste your `swagger.json` content into the **editor section**.
 3. Swagger Editor generates a **Swagger UI**.
 4. Click **Generate Client** and select your preferred programming language.
 5. Once the code has been generated, download the `.zip` file and extract the files.

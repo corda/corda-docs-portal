@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-nodes-developing-durable-streams
     identifier: corda-5-dev-preview-1-nodes-developing-durable-streams-server
-    weight: 500
+    weight: 3600
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
