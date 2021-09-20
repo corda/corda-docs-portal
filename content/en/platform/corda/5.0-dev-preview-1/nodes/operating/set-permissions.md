@@ -9,13 +9,13 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Instructions on how to configure permissions for HTTP-RPC operations.
+  How to configure permissions for HTTP-RPC operations.
 ---
 
 Use this guide to configure permissions for HTTP-RPC operations.
 
-This dev preview uses [Apache Shiro](https://shiro.apache.org/) libraries and databases to hold permissions data at runtime, as described in Corda 4's guide on
-[managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security).
+The Corda 5 developer preview uses [Apache Shiro](https://shiro.apache.org/) libraries and databases to hold permissions data at runtime,
+as described in Corda 4's guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security).
 
 When expressing grants for users, you can still use extended syntax for individual users, as described in Corda 4's guide on
 [defining RPC users and permissions](https://docs.corda.net/docs/corda-enterprise/4.8/node/operating/clientrpc.html#defining-rpc-users-and-permissions-1).
@@ -31,7 +31,7 @@ or `InvokeRpc:net.corda.client.rpc.flow.FlowStarterRPCOps#ALL`.
 Here's an example of how to configure permissions in the `node.conf` file:
 
 For user `user1` with password `password1` to start the flow
-`net.corda.sample.datapersistence.flows.RecordFlow$Initiator` (where `Initiator` is an inner class of `RecordFlow`), the `node.conf` section must include the following:
+`net.corda.sample.datapersistence.flows.RecordFlow$Initiator` (where `Initiator` is an inner class of `RecordFlow`), the `node.conf` section must include:
 
 ```shell
 security {
