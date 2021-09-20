@@ -16,7 +16,7 @@ The durable stream method is a special type of `RPCOps` method and returns eithe
 * `DurableCursorBuilder` for infinite streams (streams that have no end).
 * `FiniteDurableCursorBuilder` for finite streams (streams which end). For example, a chronologically ordered set of transactions for a given business day in the past.
 
-## Defining infinite durable streams
+## Define infinite durable streams
 
 Use `NumberSequencesRPCOps` in your durable query polling requests for infinite streams.
 
@@ -205,11 +205,11 @@ is coupled with its `int64` position value.
 The server also provides `remainingElementsCountEstimate`, which tells the client if it should continue polling and how
 frequently.
 
-## Defining finite durable streams
+## Define finite durable streams
 
-Finite durable streams have all the characteristics of [infinite durable streams](#defining-infinite-durable-streams), however,
-they have an extended ability to tell the HTTP-RPC client that the end of the stream has been reached, and it can stop
-[polling](../_index.md#polling-requests).
+Finite durable streams have all the characteristics of [infinite durable streams](#define-infinite-durable-streams), however,
+they have an extended ability to tell the HTTP-RPC client that the end of the stream has been reached and it can stop
+[polling](../durable-streams-homepage.html#polling-requests).
 
 Here is an `RPCOps` interface definition for a finite durable stream:
 
@@ -227,7 +227,7 @@ interface CalendarRPCOps : RPCOps {
 
 In this example, the value for `dayOfYear` could be `29-Jul-2021`.
 
-The OpenAPI definition generated from this method is very similar to that for an [infinite durable stream method](#defining-infinite-durable-streams).
+The OpenAPI definition generated from this method is very similar to that for an [infinite durable stream method](#define-infinite-durable-streams).
 However, `isLastResult` is now present for `FiniteDurableReturnResult_of_CalendarDay`:
 
 ```json

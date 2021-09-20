@@ -81,7 +81,7 @@ to translate interface calls into remote calls to the HTTP-RPC server side.
 
 ## `PositionManager`
 
-The HTTP-RPC client is responsible for [tracking positions/sequence](../_index.md#tracking-positions).
+The HTTP-RPC client is responsible for [tracking positions/sequence](../durable-streams-homepage.html#tracking-positions).
 
 If you're using Java, you can track positions using the interface `PositionManager`:
 
@@ -91,6 +91,8 @@ interface PositionManager : Supplier<Long>, Consumer<Long>
 
 `PositionManager` can `get` and `set` position value as a `Long` value.
 
-You can have a custom implementation of the `PositionManager` interface. `DurableCursorBuilder` can use this custom implementation which you can assign to a build before the first durable query polling request is made using the `poll` method. After the `poll` method has been called, changes can't be made to the `PositionManager`.
+You can have a custom implementation of the `PositionManager` interface. `DurableCursorBuilder` can use this custom
+implementation which you can assign to a build before the first durable query is made using the `poll`
+method. After the `poll` method has been called, changes can't be made to the `PositionManager`.
 
 By default `PositionManager` is initialized with `InMemoryPositionManager` which retains position value inside `AtomicLong`.

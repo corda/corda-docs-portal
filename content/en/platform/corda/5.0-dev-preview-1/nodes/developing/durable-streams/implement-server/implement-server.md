@@ -22,7 +22,7 @@ When [defining durable stream methods](../define-methods/methods.md), you must i
 * How many elements the client should receive.
 * How long the call may wait (block) on the server side for elements to become available.
 
-Therefore, you must use these parameters when creating the HTTP-RPC server side implementation.
+You must use these parameters when creating the HTTP-RPC server side implementation.
 
 For this client side interface:
 ```kotlin
