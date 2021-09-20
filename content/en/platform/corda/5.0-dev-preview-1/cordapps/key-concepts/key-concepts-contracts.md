@@ -10,12 +10,14 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
+Contracts are used to verify a proposed transaction, and include constraints on how states can evolve.
+
 ## Transaction verification
 
 A transaction is only valid if:
 * It is digitally signed by all required signers.
 * Each transaction state specifies a *contract* type.
-* A **contract** takes a transaction as input and validates it based on the contract’s rules.
+* A contract takes a transaction as input and validates it based on the contract’s rules.
 * The contract of *every input state* and *every output state* considers it to be valid.
 
 The contract code has the ability to:
@@ -38,7 +40,7 @@ on the network reach consensus regarding the validity of a given ledger update.
 
 ## Contract limitations
 
-Since a contract has no access to external information, it can only check the transaction for internal
+Since a contract only has access to the information provided in a transaction, it can only check the transaction for internal
 validity. It cannot check, for example, that the transaction is in accordance with what was originally agreed with the
 counterparties.
 
