@@ -11,8 +11,8 @@ section_menu: corda-5-dev-preview
 ---
 
 The Corda 5 Developer Preview uses a *UTXO* (unspent transaction output) model, where every state on the ledger is immutable. The ledger
-evolves over time by applying **transactions**. Transactions update the ledger by marking none or more existing ledger states
-as historic (the *inputs*), and producing none or more new ledger states (the *outputs*). Transactions represent a
+evolves over time by applying **transactions**. Transactions update the ledger by marking zero or more existing ledger states
+as historic (the *inputs*), and producing zero or more new ledger states (the *outputs*). Transactions represent a
 single link in the state sequences as described in **[states](key-concepts-states.md)**.
 
 Here's an example of a transaction, with two inputs and two outputs:
@@ -35,14 +35,14 @@ There are two basic types of transactions:
 ## Transaction chains
 
 When you create a new transaction, you need to propose output states as these don't yet exist. Input
-states already exist as they are outputs of previous transactions. Use a reference to include them in proposed transactions.
+states are outputs of previous transactions, include them by adding their reference.
 
 Input state references are a combination of:
 
 * The hash of the transaction that created the input.
 * The input’s index in the outputs of the previous transaction.
 
-These input state references link transactions together over time, forming what is known as a *transaction chain*:
+These input state references link transactions together, forming a *transaction chain*:
 
 {{< figure alt="tx chain" width=80% zoom="/en/images/tx-chain.png" >}}
 
@@ -52,17 +52,21 @@ Initially, a transaction is just a **proposal** to update the ledger. It represe
 that is desired by the transaction builders:
 
 {{< figure alt="uncommitted tx" width=80% zoom="/en/images/uncommitted_tx.png" >}}
-To become reality, the transaction must receive signatures from all of the *required signers* (see **Commands**, below). Each
-required signer appends their signature to the transaction to indicate that they approve the proposal:
+
+To become reality, the transaction must receive signatures from all *required signers*
+(see **[commands](#commands)**). Each required signer appends their signature to the transaction to indicate that
+they accept the proposal:
 
 {{< figure alt="tx with sigs" width=80% zoom="/en/images/tx_with_sigs.png" >}}
-If all of the required signatures are gathered, the transaction becomes committed:
+
+If all required signatures are gathered, the transaction becomes committed:
 
 {{< figure alt="committed tx" width=80% zoom="/en/images/committed_tx.png" >}}
-This means that:
 
-* The transaction’s inputs are marked as historic, and cannot be used in any future transactions
-* The transaction’s outputs become part of the current state of the ledger
+This means that the transaction's:
+
+* Inputs are marked as historic, and cannot be used in any future transactions.
+* Outputs become part of the current state of the ledger.
 
 ## Transaction validity
 
@@ -97,7 +101,7 @@ As well as input states and output states, transactions contain:
 
 * Commands
 * Attachments
-* Time-Window
+* Time-window
 * Notary
 
 For example, suppose we have a transaction where Alice uses a £5 cash payment to pay off £5 of an IOU with Bob.
@@ -109,13 +113,11 @@ receives it within the specified time-window. This transaction would look as fol
 
 ### Commands
 
-{{% vimeo 213881538 %}}
-
-Suppose we have a transaction with a cash state and a bond state as inputs, and a cash state and a bond state as
+Suppose a transaction has a cash state and a bond state as inputs, and a cash state and a bond state as
 outputs. This transaction could represent two different scenarios:
 
-* A bond purchase
-* A coupon payment on a bond
+* A bond purchase.
+* A coupon payment on a bond.
 
 We can imagine that we’d want to impose different rules on what constitutes a valid transaction depending on whether
 this is a purchase or a coupon payment. For example, in the case of a purchase, we would require a change in the bond’s
@@ -137,27 +139,25 @@ We can visualize this situation as follows:
 
 ### Attachments
 
-{{% vimeo 213879328 %}}
+A large piece of data may need to be reused across multiple transactions. For example:
 
-Sometimes, we have a large piece of data that can be reused across many different transactions. Some examples:
+* A calendar of public holidays.
+* Supporting legal documentation.
+* A table of currency codes.
 
-* A calendar of public holidays
-* Supporting legal documentation
-* A table of currency codes
-
-For this use case, we have *attachments*. Each transaction can refer to zero or more attachments by hash. These
-attachments are ZIP/JAR files containing arbitrary content. The information in these files can then be
+In these instances, use an **attachment**. Each transaction can refer to zero or more attachments by hash. These
+attachments are `.zip`/`.jar` files containing arbitrary content. The information in these files can then be
 used when checking the transaction’s validity.
 
 ### Time-window
 
-In some cases, we want a proposed transaction to only be approved during a certain time-window. For example:
+In some cases, proposed transaction must be approved during a certain time-window. For example:
 
-* An option can only be exercised after a certain date
-* A bond may only be redeemed before its expiry date
+* An option can only be exercised after a certain date.
+* A bond may only be redeemed before its expiry date.
 
-In such cases, we can add a *time-window* to the transaction. Time-windows specify the time period during which the
-transaction can be committed. The notary pool enforces time-window validity. We discuss time-windows in the section on [Time-windows](key-concepts-time-windows.md).
+In such cases, you can add a *time-window* to the transaction. Time-windows specify the time period during which the
+transaction can be committed. The notary pool enforces time-window validity.
 
 ### Notary
 
@@ -165,6 +165,5 @@ A notary pool is a network service that provides uniqueness consensus by attesti
 it has not already signed other transactions that consume any of the proposed transaction’s input states.
 The notary pool provides the point of finality in the system.
 
-Note that if the notary entity is absent then the transaction is not notarised at all. This is intended for
-issuance/genesis transactions that don’t consume any other states and thus can’t double spend anything.
-For more information on the notary services, see [Notaries](key-concepts-notaries.md).
+If the notary entity is absent, then the transaction is not notarised at all. This is intended for
+issuance/genesis transactions that don’t consume any other states, where there is no possibility of double spend.
