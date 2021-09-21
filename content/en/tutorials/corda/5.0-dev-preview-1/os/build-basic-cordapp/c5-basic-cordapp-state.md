@@ -37,7 +37,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
 2. Open a terminal window in the directory where you want to download the CorDapp template.
 
-3. Run the following command:
+3. Run the command:
 
    ```kotlin
    git clone https://github.com/corda/corda5-cordapp-template-kotlin.git
@@ -77,7 +77,7 @@ The first thing you should do when writing a state is add the `@BelongsToContrac
 As you are writing the state, you will notice that IntelliJ prompts you to add imports that correspond to elements you've added. In this case, `@BelongsToContract` and `MarsVoucherContract` are underlined by IntelliJ. Click the underlined item and press **Enter** to add the relevant import. Repeat this process for all suggested imports.
 {{< /note >}}
 
-This what your code should look like so far:
+This is what your code should look like so far:
 
 ```kotlin
 package net.corda.missionMars.states
@@ -129,9 +129,9 @@ data class MarsVoucher @ConstructorForDeserialization constructor (
 
 Next, add these constructor parameters:
 
-* `voucherDesc` - voucher description
-* `issuer` - the issuer of the voucher
-* `holder` - the current owner of the voucher
+* `voucherDesc` - voucher description.
+* `issuer` - the issuer of the voucher.
+* `holder` - the current owner of the voucher.
 
 In the class, you need to implement a method to populate the `participants` list of the state. This indicates the participant who will store the state.  
 
@@ -164,7 +164,7 @@ data class MarsVoucher @ConstructorForDeserialization constructor (
 
 ### Add the JSON representable data class
 
-Place the private variables you just defined in a JSON representable data class outside of the `MarsVoucher` class. This sets up a template that the node uses to send this data class to the RPCClient.
+Place the private variables you just defined in a JSON representable data class outside of the `MarsVoucher` class. This sets up a template that the node uses to send this data class to the RPC client.
 
 After you've added this data class, your code should look like this:
 
@@ -205,7 +205,7 @@ As noted in the [introduction](c5-basic-cordapp-intro.md), you must pass JSON pa
 You must add these parameters in the form of a `JsonRepresentable` with these components:
 
 * A required method that is annotated with `@OverRide`. This is what the node will return each time the node is asked for a JSON representation of the state.
-* A `Dto` class that will be used as the template of the returned JSON file. This class marks all variable types as String.
+* A `Dto` class that will be used as the template of the returned JSON file. This class marks all variable types as `String`.
 * A helper method that populates the template with the actual variables of the class.
 
 1. Add the JSON representable with your variables. All of your variables must be strings.
@@ -260,13 +260,13 @@ data class MarsVoucherDto(
 
 ## Create the `BoardingTicket` state
 
-The `BoardingTicket` state is the ticket that Mars Express self-issues to later give to Peter. Now that you've written your first state, try writing the `BoardingTicket` state using the following information.
+The `BoardingTicket` state is the ticket that Mars Express self-issues to give to Peter. Now that you've written your first state, try writing the `BoardingTicket` state using this information.
 
 Private variables:
 * `description` - Trip information. Use type `String`.
 * `marsExpress` - The space travel company issuing the ticket. Use type `Party`.
 * `owner` - The party exchanging the ticket for the voucher. Use type `Party`.
-* `daysUntilLaunch` - The numbers of days until the launch date. Use type `int`.
+* `daysUntilLaunch` - The number of days until the launch date. Use type `int`.
 
 The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction.
 
@@ -274,7 +274,7 @@ In the second transaction, an ownership transfer occurs. This means you must imp
 
 ### Check your work
 
-After you have written the `BoardingTicket` state, check your code against the sample below. Your code should look like this:
+After you have written the `BoardingTicket` state, your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.states
