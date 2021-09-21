@@ -1,9 +1,9 @@
 ---
 date: 2021-08-20
-section_menu: tutorials
+section_menu: corda-5-dev-preview
 menu:
-  tutorials:
-    parent: tutorials-corda-5
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-tutorials
     name: Running a sample CorDapp
     weight: 100
     identifier: run-demo-cordapp
