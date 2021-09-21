@@ -18,9 +18,9 @@ Built-in flows are provided in Corda to automate common tasks, such as gathering
 
 The `Flow` interface is used to implement a flow. When you use this interface, it defines the `call` method where the business logic goes. Flows access the Corda 5 API through injectable services using the `@CordaInject` tag. See the [services documentation](XXX) for a list of all services available in the Corda 5 Developer Preview.
 
-This new method of implementation lets you add the services you need, and leave out those that you don't. This makes your CorDapp much more lightweight, allowing your nodes to run faster.
+Using the `Flow` interface allows you to add the services you need, and leave out those that you don't. This makes your CorDapp much more lightweight, and will lead to reduced development time in future production-ready versions of Corda 5.
 
-This tutorial walks you through writing the three flows you need in your CorDapp:
+This tutorial walks you through writing the three flows you need in your sample CorDapp:
 
 * <a href="#write-the-createandissuemarsvoucher-flow">`CreateAndIssueMarsVoucher`</a>
 * <a href="#write-the-createboardingticket-flow">`CreateBoardingTicket`</a>
