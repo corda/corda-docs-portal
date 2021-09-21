@@ -223,7 +223,7 @@ The rules inside the `requireThat` Corda DSL helper method are:
 
 ### Check your work
 
-Once you've written the `BoardingTicketContract`, check your code against the sample below. Your code should look like this:
+Once you've written the `BoardingTicketContract`, your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.contracts
