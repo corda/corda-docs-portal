@@ -13,44 +13,38 @@ section_menu: corda-5-dev-preview
 The Corda 5 Developer Preview uses a *UTXO* (unspent transaction output) model, where every state on the ledger is immutable. The ledger
 evolves over time by applying **transactions**. Transactions update the ledger by marking none or more existing ledger states
 as historic (the *inputs*), and producing none or more new ledger states (the *outputs*). Transactions represent a
-single link in the state sequences described in **[states](key-concepts-states.md)**.
+single link in the state sequences as described in **[states](key-concepts-states.md)**.
 
 Here's an example of a transaction, with two inputs and two outputs:
 
 {{< figure alt="basic tx" width=80% zoom="/en/images/basic-tx.png" >}}
 
-A transaction can contain any number of inputs, outputs and references of any type:
+A transaction can contain any number of inputs, outputs, and references. They can:
 
-* They can include many different state types (states may represent cash or bonds, for example)
-* They can be issuances (have zero inputs) or exits (have zero outputs)
-* They can merge or split fungible assets (for example, they may combine a $2 state and a $5 state into a $7 cash state)
+* Include different state types. States may represent cash or bonds, for example.
+* Be issuances (have no inputs) or exits (have no outputs).
+* Merge or split fungible assets. For example, they may combine a $2 state and a $5 state into a $7 state.
 
 Transactions are *atomic*; either all of the transaction’s proposed changes are accepted, or none are.
 
 There are two basic types of transactions:
 
-* Notary-change transactions (used to change a state’s notary - see [Notaries](key-concepts-notaries.md))
-* General transactions (used for everything else)
+* Notary-change transactions, which are used to change a state’s **Notary**.
+* General transactions, which are used for everything else.
 
 ## Transaction chains
 
-When creating a new transaction, the output states that the transaction proposes do not exist yet, and must
-therefore be created by the proposer or proposers of the transaction. However, the input states already exist as the outputs of
-previous transactions. We therefore include them in the proposed transaction by reference.
+When you create a new transaction, you need to propose output states as these don't yet exist. Input
+states already exist as they are outputs of previous transactions. Use a reference to include them in proposed transactions.
 
-These input states references are a combination of:
+Input state references are a combination of:
 
-* The hash of the transaction that created the input
-* The input’s index in the outputs of the previous transaction
+* The hash of the transaction that created the input.
+* The input’s index in the outputs of the previous transaction.
 
-This situation can be illustrated as follows:
+These input state references link transactions together over time, forming what is known as a *transaction chain*:
 
 {{< figure alt="tx chain" width=80% zoom="/en/images/tx-chain.png" >}}
-These input state references link transactions together over time, forming what is known as a *transaction chain*.
-
-{{< note >}}
-See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
-{{< /note >}}
 
 ## Committing transactions
 
