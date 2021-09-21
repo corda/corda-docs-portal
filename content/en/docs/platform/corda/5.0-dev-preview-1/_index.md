@@ -9,28 +9,28 @@ title: Corda 5 Dev Preview
 version: 'dev-preview'
 ---
 
-# Introducing to Corda 5 Developer Preview
+# Introducing Corda 5 Developer Preview
 
-Corda is a trust technology platform on which you can build verified blockchain networks, create applications that represent your business on the network, and interact in a completely secure ecosystem.
+Corda is a trust technology platform. You can use it to build verified blockchain networks, create applications that represent your business on the network, and interact in a completely secure ecosystem.
 
-In this developer preview of the forthcoming Corda 5, you can experiment with two key aspects of the future of Corda:
+This is a developer preview of Corda's next major iteration: Corda 5. You can experiment with two key aspects of the future of Corda:
 
-* A modular API structure, which allows you to build applications to use on Corda (CorDaps) and test them efficiently.
-* A HTTPS API, based on RESTful principles that allows you to control your node - your presence on a Corda network - remotely.
+* A modular API structure. This lets you build applications to use on Corda (CorDapps) and test them efficiently.
+* A HTTPS API, based on RESTful principles. This lets you control your node—your presence on a Corda network—remotely.
 
 In this preview, you can:
 
 * Deploy a local Corda 5 developer network for building and testing CorDapps.
 * Trial a new Corda 5 sample CorDapp, using HTTPS node operations via a new RESTful API.
-* Follow a step by step guide to create a Corda 5 CorDapp.
-* Try the new CorDapp packaging plugin to convert your code to the Corda 5 `.cpk` file - the new extension for Corda 5 CorDapps.
+* Follow a step-by-step guide to create a Corda 5 CorDapp.
+* Try the new CorDapp packaging plugin to convert your code to the Corda 5 `.cpk` file—the new extension for Corda 5 CorDapps.
 * Experiment with the discovery and identity API for network memberships.
 
 ## New concepts in Corda 5 Dev Preview
 
-If you are experienced in working with Corda 4, you will start to see major advances from the first steps of development in the Corda 5 dev preview. Just as Corda 4 and earlier iterations were focused on building an eco-system of networks, Corda 5 is now centred around your applications - making it easier for you to build and distribute CorDapps that your end-users can easily access by connecting to multiple application networks.
+If you have worked with Corda before, you will see major advances when you start developing in the Corda 5 Developer Preview. Previous versions of Corda focused on building an ecosystem of networks. Corda 5 is  application-focused: your end users can access CorDapps through multiple application networks, making it easier to build and distribute CorDapps.
 
-To remove complexity from the CorDapp development process, Corda 5 breaks the operational and developmental power of Corda into layers, allowing you to make use of the technologies that matter to you.
+To simplify the CorDapp development process, Corda 5 breaks the operational and developmental power of Corda into layers. You choose the technologies that matter to you.
 
 ### CorDapp Development changes
 
