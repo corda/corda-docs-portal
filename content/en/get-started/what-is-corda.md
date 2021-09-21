@@ -1,14 +1,16 @@
 ---
 date: '2020-07-15T12:00:00Z'
 menu:
-  getting-started:
-    identifier: get-started-corda-4
-    name: Getting started with Corda 4
-title: Getting started with Corda 4
-weight: 400
+  get-started:
+    identifier: corda-get-started
+    name: What is Corda?
+title: What is Corda?
+weight: 100
 ---
 
-This pge will instruct users on how to begin to get up and running with Corda 4. What are your options? It might go over tutorials/bootcamps/professional services. This section is primarily focused on learning about Corda rather than actually actively working with it.
+# What is Corda?
+
+This page has a rigorous non-technical explanation of what Corda is for people getting started with the platform. The content is this and all pages is subject to change as we continue to iterate upon our designs, but most especially visual elements may change as the writer of this document has no idea what the page design looks like.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium dignissim egestas. Donec facilisis est ut libero feugiat, vitae venenatis sem ullamcorper. Quisque eu vulputate dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi dui neque, rutrum vitae sapien vel, tincidunt rhoncus eros. Suspendisse in metus auctor, consectetur urna at, consequat arcu. Curabitur viverra nunc sapien, ac semper sem venenatis ut. Morbi id tortor vel ante sollicitudin faucibus.
 
