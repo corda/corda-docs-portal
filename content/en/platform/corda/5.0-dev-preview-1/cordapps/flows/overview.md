@@ -1,188 +1,109 @@
 ---
-date: '2020-07-15T12:00:00Z'
-title: "Flows in Corda 5 Dev Preview"
+date: '2020-09-08'
+title: Flows
 menu:
-corda-5-dev-preview:
-  parent: corda-5-dev-preview-1-cordapps-flows
-  weight: 100
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordapps
+    identifier: corda-5-dev-preview-1-cordapps-flows
+    weight: 1000
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
-A Flow is where you put the business logic of your CorDapp. It is where you build states, sign them and send them to others for signing.
 
-Flows are written as sequential code. Where you would normally see blocking or async code, Corda will pause and resume the flow transparently. A running flow can survive restarting the Corda Node.
+Corda networks use point-to-point messaging instead of a global broadcast. This means that coordinating a ledger update requires network participants to specify exactly what information needs to be sent, to which counterparties, and in what order. Rather than having to specify these steps manually, Corda automates the process using flows. A flow is a sequence of steps that tells a node how to achieve a specific ledger update, such as issuing an asset or settling a trade.
 
-## A simple flow
+Once a given business process has been encapsulated in a flow and installed on the node as part of a CorDapp, a member of a network can instruct the node to kick off this business process at any time via their node.
 
-Here is a simple flow that returns true as a result:
+All activity on the node occurs in the context of these flows. Unlike contracts, flows do not execute in a sandbox, meaning that nodes can perform actions such as networking, I/O and use sources of randomness within the execution of a flow.
 
-```java
-import net.corda.v5.application.flows.Flow;
-import net.corda.v5.application.flows.StartableByRPC;
-import net.corda.v5.base.annotations.Suspendable;
+## Flows in Corda 5 Developer Preview
 
-@StartableByRPC
-public class SimpleFlow implements Flow<Boolean> {
-    @Override
+In Corda 5 Developer Preview, the `Flow` interface is used to implement a flow. Implementing this interface will define the `call` method where business logic goes. Corda 5 API is provided to the flow by injectable services, accessible by defining a field and flagging with `@CordaInject`.
+
+## Changes from Corda 4
+
+The `FlowLogic` abstract class has been broken up into a set of smaller interfaces.  In place of `FlowLogic`, you should now implement the `Flow` interface which holds the `call` method. The `progressTracker` has been removed. Use logging instead.
+
+All methods that used to exist on the `FlowLogic` abstract class are now available as injectable services using property injection. An implementation of `FlowLogic` still exists to ease migration to the new system. It implements the `Flow` interface.
+
+This move away from an abstract class to injectable services allows you as a CorDapp developer to use only what you need. Features that you don't use do not need to be present on your flow classes.
+
+## Flow interface
+
+The `Flow` interface defines the `call` method that contains the flows business logic. Implementing `Flow` is the minimum  required to
+implement a flow in Corda 5 Dev Preview.
+
+{{< note >}}
+The `@Suspendable` annotation needs to be present on the `call` method when implementing this interface.
+{{< /note >}}
+
+```kotlin
+package net.corda.v5.application.flows
+
+import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.base.exceptions.CordaRuntimeException
+
+interface Flow<out T> {
+    /**
+     * This is where you fill out your business logic.
+     *
+     * @throws FlowException It can be thrown at any point of a [Flow] logic to bring it to a permanent end. The exception will be
+     * propagated to all counterparty flows.
+     * @throws CordaRuntimeException General type of exception thrown by most Corda APIs.
+     * @throws UnexpectedFlowEndException Thrown when a flow session ends unexpectedly.
+     */
     @Suspendable
-    public Boolean call() {
-        return true;
-    }
+    fun call(): T
 }
 ```
 
-Some details about this flow:
+## Service Injection
 
-- `@StartableByRPC` - Allows the flow to be started by RPC
-- `implements Flow<Boolean>` - The interface to implement when writing a flow. The type parameter is the return value of the flow.
-- `@Suspendable` - The `call` method must always have this annotation, it allows the flow to be suspended by Corda
-- `call()` - This method is called by Corda when the flow is started
+The methods that previously existed on `FlowLogic` have been extracted
+into injectable services (see Service Documentation).
 
-## Using injected services
+To use these services, define a field annotated with the
+`@CordaInject` annotation. The system will set the field before the
+`call` method is called.
 
-Corda Services are classes that can be injected into Flows or other Corda Services. They contain methods for specific actions to be performed. This flow makes use of an injected service:
+> You cannot use the injected services before the `call` method has
+> been called.  They will not be available to the constructor.
 
-```java
-import net.corda.v5.application.flows.Flow;
-import net.corda.v5.application.flows.StartableByRPC;
-import net.corda.v5.application.flows.StateMachineRunId;
-import net.corda.v5.application.flows.flowservices.FlowEngine;
-import net.corda.v5.application.flows.flowservices.dependencies.CordaInject;
-import net.corda.v5.base.annotations.Suspendable;
+## Flow examples
 
-@StartableByRPC
-public class UsingAnInjectedService implements Flow<StateMachineRunId> {
+In the following examples, the `FlowEngine` service is injected before
+the `call` method is called and used within the `call` method.
 
-    @CordaInject
-    public FlowEngine flowEngine;
-
-    @Override
-    @Suspendable
-    public StateMachineRunId call() {
-        return flowEngine.getRunId();
-    }
-}
-```
-
-Some details about this flow:
-
-- `@CordaInject` - Defines a field to be set by Corda before the `call` method is called.
-
-  _The injected field will not be ready to use in the constructor. A flow should avoid accessing the field in constructors._
-
-## Communication example
-
-This flow demonstrates communication between two flows:
+#### Java example
 
 ```java
-import net.corda.systemflows.FinalityFlow;
-import net.corda.v5.application.flows.Flow;
-import net.corda.v5.application.flows.FlowSession;
-import net.corda.v5.application.flows.InitiatingFlow;
-import net.corda.v5.application.flows.StartableByRPC;
-import net.corda.v5.application.flows.flowservices.FlowEngine;
-import net.corda.v5.application.flows.flowservices.FlowIdentity;
-import net.corda.v5.application.flows.flowservices.FlowMessaging;
-import net.corda.v5.application.flows.flowservices.dependencies.CordaInject;
-import net.corda.v5.application.identity.Party;
-import net.corda.v5.base.annotations.Suspendable;
-import net.corda.v5.ledger.contracts.Command;
-import net.corda.v5.ledger.services.NotaryLookupService;
-import net.corda.v5.ledger.transactions.SignedTransaction;
-import net.corda.v5.ledger.transactions.TransactionBuilder;
-import net.corda.v5.ledger.transactions.TransactionBuilderFactory;
-
 @InitiatingFlow
 @StartableByRPC
-public class IOUFlow implements Flow<Void> {
-
-    @CordaInject
-    public NotaryLookupService notaryLookupService;
+public class FlowInjectionInJavaFlow implements Flow<Boolean> {
 
     @CordaInject
     public FlowEngine flowEngine;
 
-    @CordaInject
-    public FlowMessaging flowMessaging;
-
-    @CordaInject
-    public FlowIdentity flowIdentity;
-
-    @CordaInject
-    public TransactionBuilderFactory transactionBuilderFactory;
-
-    private final Integer iouValue;
-    private final Party otherParty;
-
-    public IOUFlow(Integer iouValue, Party otherParty) {
-        this.iouValue = iouValue;
-        this.otherParty = otherParty;
-    }
-
     @Override
-    @Suspendable
-    public Void call() {
-
-        Party notary = notaryLookupService.getNotaryIdentities().get(0);
-        IOUState outputState = new IOUState(iouValue, flowIdentity.getOurIdentity(), otherParty);
-        Command command = new Command<>(new TemplateContract.Commands.Send(), flowIdentity.getOurIdentity().getOwningKey());
-
-        // We create a transaction builder and add the components.
-        TransactionBuilder txBuilder = transactionBuilderFactory
-                .create()
-                .setNotary(notary)
-                .addOutputState(outputState, TemplateContract.ID)
-                .addCommand(command);
-
-        // Signing the transaction.
-        SignedTransaction signedTx = txBuilder.sign();
-
-        // Creating a session with the other party.
-        FlowSession otherPartySession = flowMessaging.initiateFlow(otherParty);
-
-        // We finalise the transaction and then send it to the counterparty.
-        flowEngine.subFlow(new FinalityFlow(signedTx, otherPartySession));
-        return null;
+    public Boolean call() {
+        return flowEngine.isKilled();
     }
 }
 ```
 
-Some details about this flow:
+#### Kotlin example
 
-- `@InitiatingFlow` - This flow starts flows on other parties by communicating with other parties
-- `public IOUFlow(Integer iouValue, Party otherParty)` - The flow constructor parameters are still used for flow parameters
-
-```java
-import net.corda.systemflows.ReceiveFinalityFlow;
-import net.corda.v5.application.flows.Flow;
-import net.corda.v5.application.flows.FlowSession;
-import net.corda.v5.application.flows.InitiatedBy;
-import net.corda.v5.application.flows.flowservices.FlowEngine;
-import net.corda.v5.application.flows.flowservices.dependencies.CordaInject;
-import net.corda.v5.base.annotations.Suspendable;
-
-@SuppressWarnings("unused")
-@InitiatedBy(IOUFlow.class)
-public class IOUFlowResponder implements Flow<Void> {
+```kotlin
+@InitiatingFlow
+@StartableByRPC
+class FlowInjectionInKotlinFlow : Flow<Boolean> {
 
     @CordaInject
-    public FlowEngine flowEngine;
+    lateinit var flowEngine: FlowEngine
 
-    private final FlowSession otherPartySession;
-
-    public IOUFlowResponder(FlowSession otherPartySession) {
-        this.otherPartySession = otherPartySession;
-    }
-
-    @Override
     @Suspendable
-    public Void call() {
-        flowEngine.subFlow(new ReceiveFinalityFlow(otherPartySession));
-        return null;
+    override fun call(): Boolean {
+        return flowEngine.isKilled
     }
 }
 ```
-
-Some details about this flow:
-
-- `@InitiatedBy` - This flow is started by communication from another flow

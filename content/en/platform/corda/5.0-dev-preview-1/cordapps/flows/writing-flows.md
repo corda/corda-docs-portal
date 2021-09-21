@@ -1,13 +1,13 @@
 ---
-title: "How to write a flow"
-date: 2021-04-28T17:24:21+01:00
-linkTitle: "How to write a flow"
-weight: 200
-type: "docs"
-author: "Joseph Zuniga-Daly"
-lastmod: 2021-04-28
-description: >
-  How to write a Flow
+date: '2020-09-08'
+title: Writing flows
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordapps-flows
+    identifier: corda-5-dev-preview-1-cordapps-flows-writing-flows
+    weight: 1000
+project: corda-5
+section_menu: corda-5-dev-preview
 ---
 
 A Flow is where you put your business logic. It is where you build states, sign them and send them to others for signing.

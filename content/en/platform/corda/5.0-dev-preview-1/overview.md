@@ -2,7 +2,7 @@
 date: '2020-07-15T12:00:00Z'
 menu:
   versions:
-    weight: -700
+    weight: 100
 project: corda
 section_menu: corda-5-dev-preview
 title: Corda 5 Developer Preview
@@ -12,10 +12,11 @@ cordaType: 'Corda Developer Preview'
 
 Corda is a trust technology platform. You can use it to build verified blockchain networks, create applications that represent your business on the network, and interact in a completely secure ecosystem.
 
-This is a developer preview of Corda's next major iteration, Corda 5. Here, you can experiment with two key aspects of the future of Corda:
+This is a developer preview of Corda's next major iteration, Corda 5. Here, you can experiment with three key aspects of Corda 5:
 
 * A modular API structure. This lets you [build applications to use on Corda (CorDapps) and test them efficiently](tutorials/overview.html).
 * A HTTPS API, based on Open API principles, that allows you [control nodes, and initiate flows remotely](nodes/overview.html).
+* Package your CordApps with a new Gradle plugin that allows for multi-tenancy applications in future releases.
 
 In this preview, you can:
 

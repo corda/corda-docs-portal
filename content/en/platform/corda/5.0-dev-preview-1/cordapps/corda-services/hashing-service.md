@@ -1,20 +1,20 @@
 ---
 title: "Hashing Service"
-linkTitle: "Hashing Service"
-weight: 400
-type: "docs"
-lastmod: 2021-06-07
-author: "Ben Pester"
+date: '2021-09-13'
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordapps-corda-services
+    identifier: corda-5-dev-preview-1-cordapps-corda-services-hashing-service
+    weight: 3000
+project: corda-5
+section_menu: corda-5-dev-preview
 description: >
-  Hashing within flows, services and internally
+  Hashing within flows, services and internally.
 ---
 
 `SecureHash` is the data class used to hold digests in Corda. This class is a wrapper around the digest's value in bytes along with the digest algorithm name used to produce the digest. `SecureHash` instances are returned by the Corda Hashing API.
 
-
-
 Digest values in Corda are stored as byte arrays or strings. String representations must conform to the following format: [algorithm]:[digest value as a hexadecimal string]. This includes passing digests through the wire or storing them in a storage system.
-
 
 `DigestAlgorithmName` is the class used in Corda Hashing API to indicate which digest algorithm is to be used for hashing.
 

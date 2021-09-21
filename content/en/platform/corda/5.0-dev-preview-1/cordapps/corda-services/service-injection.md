@@ -1,10 +1,12 @@
 ---
 title: "Injecting Corda Services"
-linkTitle: "Injecting Corda Services"
-weight: 200
-type: "docs"
-lastmod: 2021-06-29
-author: "Dan Newton"
+date: '2021-09-13'
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordapps-corda-services
+    weight: 1050
+project: corda-5
+section_menu: corda-5-dev-preview
 description: >
   Injection of Corda Services into flows and other Corda Services
 ---

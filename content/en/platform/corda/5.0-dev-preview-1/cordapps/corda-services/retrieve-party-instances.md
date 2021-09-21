@@ -1,10 +1,13 @@
 ---
-title: "IdentityService"
-linkTitle: "IdentityServices"
-weight: 2500
-type: "docs"
-lastmod: 2021-04-27
-author: "Conal Smith"
+title: "Identity Service"
+date: '2021-09-13'
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordapps-corda-services
+    identifier: corda-5-dev-preview-1-cordapps-corda-services-identity-service
+    weight: 4000
+project: corda-5
+section_menu: corda-5-dev-preview
 description: >
   Retrieving `Party` and `AnonymousParty` instances with the IdentityService
 ---

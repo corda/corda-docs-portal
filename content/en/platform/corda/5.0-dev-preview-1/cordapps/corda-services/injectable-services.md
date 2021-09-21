@@ -1,12 +1,15 @@
 ---
 title: "Injectable Corda Services"
-linkTitle: "Injectable Corda Services"
-weight: 200
-type: "docs"
-lastmod: 2021-06-29
-author: "Dan Newton"
+date: '2021-09-13'
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordapps-corda-services
+    identifier: corda-5-dev-preview-1-cordapps-corda-services-injectable-services
+    weight: 1100
+project: corda-5
+section_menu: corda-5-dev-preview
 description: >
-  Reference of the available platform Corda Services
+  A list of injectable platform Corda Services.
 ---
 
 The following services are available for injection into flows and other Corda Services. In addition to these, you can also create custom Corda Services for injection.

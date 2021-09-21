@@ -1,14 +1,16 @@
 ---
-date: '2020-09-08T12:00:00Z'
 title: "Flowstarter Service"
+date: '2021-09-13'
 menu:
   corda-5-dev-preview:
-    weight: 100
+    parent: corda-5-dev-preview-1-cordapps-corda-services
+    identifier: corda-5-dev-preview-1-cordapps-corda-services-flowstarter-service
+    weight: 2000
 project: corda-5
-section_menu: corda-services
+section_menu: corda-5-dev-preview
+description: >
+  An overview of FlowStarterService.
 ---
-
-# FlowStarterService
 
 The `FlowStarterService` is used to start flows from Corda Services.
 
