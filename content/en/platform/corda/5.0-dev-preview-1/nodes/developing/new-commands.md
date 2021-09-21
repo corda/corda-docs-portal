@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-nodes-developing
     identifier: corda-5-dev-preview-1-nodes-developing-new-cli-commands
-    weight: 700
+    weight: 2800
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
@@ -14,7 +14,7 @@ description: >
 
 Use this guide to learn about commands in the Corda Node CLI and how you can add new ones.
 
-## Existing commands in the Corda Node CLI
+## Existing Corda Node CLI commands
 
 Commands implemented in the Corda Node CLI are `endpoint`, `flow`, and `vault`. Each of these commands can have
 one or more subcommands, and each subcommand can have further subcommands.
@@ -33,7 +33,7 @@ Description:
 
 Options:
 
-  -h, --help      Show this help message and exit.
+  -h, --help      Shows this help message and exit.
       --logging-level=<loggingLevel>
                   Enable logging at this level and higher. Possible values:
                     ERROR, WARN, INFO, DEBUG, TRACE
@@ -48,7 +48,7 @@ Commands:
               on them.
   flow      Allows you to start and kill flows, list the ones available and to
               watch flows currently running on the node.
-  vault     Allows to query Corda Node's vault and retrieve various types of
+  vault     Allows you to query Corda node's vault and retrieve various types of
               persistent objects from it.
 ```
 
@@ -75,7 +75,7 @@ Parameters:
 
 Options:
 
-  -h, --help          Show this help message and exit.
+  -h, --help          Shows this help message and exit.
       --logging-level=<loggingLevel>
                       Enable logging at this level and higher. Possible values:
                         ERROR, WARN, INFO, DEBUG, TRACE
@@ -104,7 +104,9 @@ To add a new command:
 
 {{< note >}}
 
-If you need access to HTTP-RPC services, create the subcommands of your new command as a child of [`ValidatedCommand`](#2-implement-business-logic-and-validation) or [`HttpRpcCommand`](#httprpccommand).
+If you need access to HTTP-RPC services, create the subcommands of your new command as a child
+of <a href="#2-implement-business-logic-and-validation">`ValidatedCommand`</a>
+or <a href="#httprpccommand">`HttpRpcCommand`</a>.
 
 {{< /note >}}
 
@@ -161,20 +163,20 @@ implement the business logic in the `execute` method.
    ```
 * the `output` method which you can use to print out results.
 
-See `ListNodesCommand`as a simple example:
+  See `ListNodesCommand`as a simple example:
 
-```kotlin
-@CommandLine.Command(name = "list", description = [
-    "Lists previously created HTTP-RPC endpoints along with their aliases."])
-internal class ListNodesCommand(private val storageService: StorageService) : ValidatedCommand() {
-    override fun execute(): Int {
-        storageService.getContexts().forEach {
-            output("${it.name}: ${it.baseAddress}")
-        }
-        return ExitCodes.SUCCESS
-    }
-}
-```
+  ```kotlin
+  @CommandLine.Command(name = "list", description = [
+      "Lists previously created HTTP-RPC endpoints along with their aliases."])
+  internal class ListNodesCommand(private val storageService: StorageService) : ValidatedCommand() {
+      override fun execute(): Int {
+          storageService.getContexts().forEach {
+              output("${it.name}: ${it.baseAddress}")
+          }
+          return ExitCodes.SUCCESS
+      }
+  }
+  ```
 
 #### `EndpointOrAliasCommand`
 
@@ -196,8 +198,8 @@ A command would typically extend `HttpRpcCommand` if its business logic needs to
 ### 3. Annotate fields to receive command argument and parameter values
 
 Picocli will initialize properly annotated fields with the matching arguments/positional parameters provided via the command line.
-* Fields annotated with `@CommandLine.Parameters` will be initialized with positional parameters.
 * Fields annotated with `@CommandLine.Option` will be initialized with matching arguments.
+* Fields annotated with `@CommandLine.Parameters` will be initialized with positional parameters.
 
 See `AddNodeCommand` as an example:
 
