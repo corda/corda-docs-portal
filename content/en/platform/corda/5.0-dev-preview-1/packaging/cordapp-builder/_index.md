@@ -20,13 +20,53 @@ In future releases, it will be integrated into the `corda-cli` utility.
 
 ## Installation
 
-CorDapp Builder CLI can be installed manually, or installed automatically.
+CorDapp Builder CLI can be installed automatically or manually.
 
 ### Manual installation
 
-1. Download the latest package (either `.tar` or `.zip`) from [Artifactory](https://software.r3.com/artifactory/corda-os-maven-stable/net/corda/cordapp-builder/).
-2. Extract it.
-3. Add its `bin/` folder to your path.
+#### Before you start
+
+If a previous installation of CorDapp Builder CLI exists, remove it. See [Uninstalling CorDapp Builder CLI](#deleting-cordapp-builder-cli).
+
+#### Steps
+
+1. Download the latest stable [`.tar` ](https://download.corda.net/cordapp-builder/5.0.0-DevPreview/cordapp-builder.tar) or [`.zip`](https://download.corda.net/cordapp-builder/5.0.0-DevPreview/cordapp-builder.zip) file.
+
+2. Create a new `bin/cordapp-builder` directory under the current users home directory.
+
+3. Extract the previously-downloaded archive into this new directory.
+
+   Once extracted, your folder structure should be as follows:
+
+     ```text
+     bin/cordapp-builder
+      ├───bin
+      └───lib
+      ```
+4. **Windows:** Add CorDapp Builder CLI to PATH:
+
+   a. Go to the **Edit the system environment variables** Control Panel setting.
+
+   b. Edit the **Path** user variable and add the cordapp-builder bin directory extracted in the previous step as a new entry. For example, `C:\Users\username\bin\cordapp-builder\bin`.
+
+   c. If you are using Git Bash on Windows, update your home directory `username/.bashrc` file with the following code:
+
+   ```shell
+      # cordapp-builder default path
+      export PATH="$HOME/bin/cordapp-builder/bin:$PATH"
+   ```
+
+5. **Linux or Mac OS**: Add CorDapp Builder CLI to PATH by adding the following code to the `~/.bashrc` (Linux) or `~/.zshrc` file (Mac OS):
+
+    ```shell
+      # cordapp-builder default path
+      export PATH="$HOME/bin/cordapp-builder/bin:$PATH"
+    ```
+
+6. Verify installation by opening a new terminal session and running `cordapp-builder --version`.
+
+   **Step result:** If successful, this will output details of the installed CorDapp Builder CLI version.
+
 
 ### Automatic installation
 
