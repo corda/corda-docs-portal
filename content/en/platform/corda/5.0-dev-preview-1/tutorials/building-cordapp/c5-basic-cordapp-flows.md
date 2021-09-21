@@ -1,10 +1,10 @@
 ---
 date: '2021-09-16'
-section_menu: tutorials
+section_menu: corda-5-dev-preview
 menu:
-  tutorials:
+  corda-5-dev-preview:
     identifier: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-flows
-    parent: corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
+    parent: corda-5-dev-preview-1-tutorials-buildingcordapp
     weight: 1040
 tags:
 - tutorial
@@ -20,4 +20,4 @@ Flow implementation in the Corda 5 Developer Preview has changed significantly f
 
 This new implementation lets you add the services you need, and leave out those that you don't. This makes your CorDapp much more lightweight, allowing your nodes to run faster.
 
-This tutorial walks you through writing the flows you need in your CorDapp: 
+This tutorial walks you through writing the flows you need in your CorDapp:

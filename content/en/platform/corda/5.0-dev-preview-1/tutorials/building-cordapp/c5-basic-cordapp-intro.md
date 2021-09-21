@@ -1,14 +1,13 @@
 ---
-date: 2021-09-15
-section_menu: tutorials
-section_menu: tutorials
+date: '2021-09-21'
+title: "Building your first CorDapp"
 menu:
-  tutorials:
-    parent: tutorials-corda-5
-    name: Building your first basic CorDapp
-    weight: 1010
-    identifier: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
-title: Building your first basic CorDapp
+  corda-5-dev-preview:
+    identifier: corda-5-dev-preview-1-tutorials-buildingcordapp
+    parent: corda-5-dev-preview-1-tutorials
+    weight: 200
+project: corda-5
+section_menu: corda-5-dev-preview
 ---
 
 Follow this learning path to build your first CorDapp using step-by-step tutorials. You will learn how to implement the functionality and features needed to get any CorDapp up and running with the Corda 5 Developer Preview. It reinforces [best practices for building CorDapps](xxx).
@@ -54,7 +53,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 3. Next, Peter goes to Mars Express to redeem his voucher and pick up his ticket, triggering a transaction on the ledger that consumes the `MarsVoucher` state. Three transactions have now been performed.
 
-4. The `BoardingTicket` state is transferred to Peter when the `MarsVoucher` state is consumed and Mars Express gives Peter his ticket. This is the fourth and final transaction. 
+4. The `BoardingTicket` state is transferred to Peter when the `MarsVoucher` state is consumed and Mars Express gives Peter his ticket. This is the fourth and final transaction.
 
 All of these transactions are initiated by [flows](XXX).
 

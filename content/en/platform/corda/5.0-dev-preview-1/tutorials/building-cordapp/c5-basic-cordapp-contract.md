@@ -1,10 +1,10 @@
 ---
 date: '2021-09-15'
-section_menu: tutorials
+section_menu: corda-5-dev-preview
 menu:
-  tutorials:
+  corda-5-dev-preview:
     identifier: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-contract
-    parent: corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
+    parent: corda-5-dev-preview-1-tutorials-buildingcordapp
     weight: 1040
 tags:
 - tutorial
