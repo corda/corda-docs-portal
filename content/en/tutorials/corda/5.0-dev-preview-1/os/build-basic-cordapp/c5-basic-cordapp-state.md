@@ -26,24 +26,22 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before you start
 
-Before you start building states, read [Key concepts: States](../../../../../platform/corda/4.8/open-source/key-concepts.md).
+Before you start building states, read [Key concepts: States](XXX).
 
 ## Clone the CorDapp template repo
 
 The easiest way to write any CorDapp is to start from a template. This ensures that you have the correct files to begin building.
 
 1. Navigate to the Kotlin template repository.
-  * https://github.com/corda/cordapp-template-kotlin
-<!--Update with correct link for dev preview. XXX -->
+  * https://github.com/corda/corda5-cordapp-template-kotlin
 
 2. Open a terminal window in the directory where you want to download the CorDapp template.
 
 3. Run the following command:
 
    ```kotlin
-   git clone https://github.com/corda/cordapp-template-kotlin.git
+   git clone https://github.com/corda/corda5-cordapp-template-kotlin.git
    ```
-<!--Update with correct link for dev preview. XXX -->
 
 4. After you have cloned the repository you wish to use, navigate to the correct subdirectory:
 
@@ -51,7 +49,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
    cd cordapp-template-kotlin
    ```
 
-5. After you clone the CorDapp template, open the `cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+5. After you clone the CorDapp template, open the `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
    If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
@@ -75,19 +73,17 @@ The first thing you should do when writing a state is add the `@BelongsToContrac
 
 2. Add the annotation `@BelongsToContract` to your state.
 
+{{< note >}}
+As you are writing the state, you will notice that IntelliJ prompts you to add imports that correspond to elements you've added. In this case, `@BelongsToContract` and `MarsVoucherContract` are underlined by IntelliJ. Click the underlined item and press **Enter** to add the relevant import. Repeat this process for all suggested imports.
+{{< /note >}}
+
 This what your code should look like so far:
 
 ```kotlin
 package net.corda.missionMars.states
 
-import com.google.gson.Gson
 import net.corda.missionMars.contracts.MarsVoucherContract
-import net.corda.v5.application.identity.AbstractParty
-import net.corda.v5.application.identity.Party
-import net.corda.v5.application.utilities.JsonRepresentable
-import net.corda.v5.ledger.UniqueIdentifier
 import net.corda.v5.ledger.contracts.BelongsToContract
-import net.corda.v5.ledger.contracts.LinearState
 
 @BelongsToContract(MarsVoucherContract.class)
 class MarsVoucher {
@@ -117,8 +113,6 @@ package net.corda.missionMars.states
 
 import com.google.gson.Gson
 import net.corda.missionMars.contracts.MarsVoucherContract
-import net.corda.v5.application.identity.AbstractParty
-import net.corda.v5.application.identity.Party
 import net.corda.v5.application.utilities.JsonRepresentable
 import net.corda.v5.ledger.UniqueIdentifier
 import net.corda.v5.ledger.contracts.BelongsToContract
@@ -131,7 +125,7 @@ data class MarsVoucher @ConstructorForDeserialization constructor (
 }
 ```
 
-### Add constructor parameters
+### Add constructor parameters and `participants`
 
 Next, add these constructor parameters:
 
@@ -139,7 +133,9 @@ Next, add these constructor parameters:
 * `issuer` - the issuer of the voucher
 * `holder` - the current owner of the voucher
 
-After adding these variables, your code should look like this:
+In the class, you need to implement a method to populate the `participants` list of the state. This indicates the participant who will store the state.  
+
+After adding these features, your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.states
@@ -160,6 +156,8 @@ data class MarsVoucher @ConstructorForDeserialization constructor (
         val holder: Party, //The party who currently owns the voucher
         override val linearId: UniqueIdentifier,//LinearState required variable
 ) : LinearState, JsonRepresentable{
+
+  override val participants: List<AbstractParty> get() = listOf<AbstractParty>(issuer,holder)
 
 }
 ```
