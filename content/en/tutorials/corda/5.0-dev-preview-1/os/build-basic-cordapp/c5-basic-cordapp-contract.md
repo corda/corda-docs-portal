@@ -51,12 +51,16 @@ A Corda state typically has a corresponding contract class to document the rules
 
 Add the class name `MarsVoucherContract` that implements the `Contract` class.
 
+{{< note >}}
+As you are writing the contract, you will notice that IntelliJ prompts you to add imports that correspond to elements you've added. Add the relevant imports to all suggested elements.
+When adding imports, ignore `BoardingTicketContract` that is in red - you will add it in the *Create the `BoardingTicketContract`* section.
+{{< /note >}}
+
 This is what your code should look like now:
 
 ```kotlin
 package net.corda.missionMars.contracts;
 
-//Domain Specific Language
 class MarsVoucherContract : Contract {
 
 }
@@ -77,15 +81,14 @@ This is what your code should look like now:
 ```kotlin
 package net.corda.missionMars.contracts;
 
-//Domain Specific Language
 class MarsVoucherContract : Contract {
 
-}
+  // Used to indicate the transaction's intent.
+  interface Commands : CommandData {
+      //In our hello-world app, We will have two commands.
+      class Issue : Commands
+  }
 
-// Used to indicate the transaction's intent.
-interface Commands : CommandData {
-    //In our hello-world app, We will have two commands.
-    class Issue : Commands
 }
 ```
 
@@ -102,16 +105,13 @@ This is what your code should look like now:
 ```kotlin
 package net.corda.missionMars.contracts;
 
-//Domain Specific Language
 class MarsVoucherContract : Contract {
 
-}
-
-// Used to indicate the transaction's intent.
-interface Commands : CommandData {
-    //In our hello-world app, We will have two commands.
-    class Issue : Commands
-}
+  // Used to indicate the transaction's intent.
+  interface Commands : CommandData {
+      //In our hello-world app, We will have two commands.
+      class Issue : Commands
+  }
 
 companion object {
     // This is used to identify our contract when building a transaction.
@@ -152,70 +152,7 @@ This is a Corda-specific helper method used for writing contracts only.
 {{< /note >}}
 
 
-This is what your code should look like now:
-
-```kotlin
-package net.corda.missionMars.contracts;
-
-//Domain Specific Language
-class MarsVoucherContract : Contract {
-
-    override fun verify(tx: LedgerTransaction) {
-
-        //Extract the command from the transaction.
-        val commandData = tx.commands[0].value
-
-        //Verify the transaction according to the intention of the transaction
-        when (commandData) {
-            is Commands.Issue -> requireThat {
-                val output = tx.outputsOfType(MarsVoucher::class.java)[0]
-                "This transaction should only have one MarsVoucher state as output".using(tx.outputs.size == 1)
-                "The output MarsVoucher state should have clear description of the type of Space trip information".using(output.voucherDesc != "")
-                null
-            }
-            is BoardingTicketContract.Commands.RedeemTicket-> requireThat {
-                //Transaction verification will happen in BoardingTicket Contract
-            }
-        }
-    }
-
-    // Used to indicate the transaction's intent.
-    interface Commands : CommandData {
-        //In our hello-world app, We will have two commands.
-        class Issue : Commands
-    }
-
-    companion object {
-        // This is used to identify our contract when building a transaction.
-        const val ID = "com.tutorial.contracts.MarsVoucherContract"
-    }
-}
-```
-
-
-### Add imports
-
-If you're using IntelliJ or another IDE, the IDE will automatically add the imports you need.
-
-IntelliJ indicates that an import is missing with red text. To add the import:
-
-1. Click the red text.
-
-2. Automatically import the missing variable:
-
-   * On MacOS: press **Option** + **Enter**.
-   * On Windows: press **Alt** + **Enter**.
-
-3. Repeat this process for all missing imports.
-
-{{< note >}}
-
-When adding imports, ignore `BoardingTicketContract` that is also in red - you will add it in the *Create the `BoardingTicketContract`* section.
-
-{{< /note >}}
-
-After adding all the missing imports, you have finished writing the `MarsVoucherContract`. Your code should now look like this:
-
+You have now finished writing the `MarsVoucherContract`. Your code should now look like this:
 
 ```kotlin
 package net.corda.missionMars.contracts;
@@ -226,7 +163,6 @@ import net.corda.v5.ledger.contracts.Contract
 import net.corda.v5.ledger.contracts.requireThat
 import net.corda.v5.ledger.transactions.LedgerTransaction
 
-//Domain Specific Language
 class MarsVoucherContract : Contract {
 
     override fun verify(tx: LedgerTransaction) {
