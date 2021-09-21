@@ -1,41 +1,39 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: "Technology overview"
+title: "Third-party software prerequisites"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-1-technology
+    identifier: corda-5-dev-preview-1-tech-prerequisites
     weight: 100
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-# Technology overview
+# Third-party software prerequisites
 
-This page outlines the technologies required to run Corda 5 Developer Preview.
+The following third-party software is required to build and run Corda 5 Developer Preview systems.
 
 ## Operating systems
 
-Corda 5 Developer Preview can be run on the following operating systems.
-
-* MacOS 10.15 and above (Intel processors only)
-* Windows 10
-* Ubuntu 20.04
+Corda 5 Developer Preview requires an operating system based on x86 architecture.
 
 ## Java
 
-Corda 5 Developer Preview can be run with the following Java versions.
+Corda 5 Developer Preview requires [Azul11.0.12](https://www.azul.com/downloads/?package=jdk) as Java runtime environment.
+
+As a CorDapp developer, you can compile and test your Corda 5 Developer Preview CorDapps against these JDKs:
 
 * [Azul11.0.12](https://www.azul.com/downloads/?package=jdk)
 * [AdoptOpenJDK-J9](https://adoptopenjdk.net/releases.html?variant=openjdk11&jvmVariant=openj9)
 
 ## Deployment
 
-Deployment can be performed using the [corda-cli](XXX) tool and Docker Desktop 3.5.
+You can deploy the Developer Preview locally using the [corda-cli](XXX) tool and a docker daemon, such as a command-line tool or Docker Desktop 3.5.
 
-## Packaging
+## Packaging CorDapps
 
-CorDapps can be packaged and bundled with the [Corda CPK and CPB plugins](XXX), which require Gradel 6.6 or above. [CorDapp Builder](XXX) can also be used to create bundles.
+You can package and bundle CorDapps with the Corda CPK (Corda package file - `.cpk`) and CPB (Corda package bundle - `.cpb`) [plugins](XXX), which require Gradle 6.0 or above. Alternatively, you can create CorDapp package bundles (`.cpb` files) with the [CorDapp Builder](XXX).
 
 ## Node databases
 
-H2 and Postgres13 (driver version 42.2.22 JDBC 42 for Postgress) can be used for node databases in Corda 5 Developer Preview.
+You can use H2 and Postgres13 (driver version 42.2.22 JDBC 42) for node databases in Corda 5 Developer Preview.
