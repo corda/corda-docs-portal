@@ -20,4 +20,4 @@ available authentication features that you can use to test the web service metho
 To interact with your node, the Corda Node CLI and `curl` commands allow you to start and kill flows, query the node's
 vault, and perform operations on HTTP-RPC endpoints.
 
-For more information, read about [developing nodes](developing/_index.md) and [operating nodes](operating/_index.md).
+For more information, read about [developing nodes](developing/developing-nodes-homepage.md) and [operating nodes](operating/operating-nodes-homepage.md).
