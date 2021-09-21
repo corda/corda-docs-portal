@@ -28,16 +28,14 @@ This injection is for use within custom CorDapp classes instantiated by Corda us
 
 _Note: Another injection annotation exists called `@CordaInjectPreStart`. This is specifically used for injection in Corda services to support the Corda service lifecycle and will be described in more detail in a later section of this document._
 
-## Making a service injectable
+## Making a custom Corda service injectable
 
-In order to make a service injectable, you must first make it implement one or both of the injection interfaces:
+In order to make service injectable, you must first make it implement one or both of the injection interfaces:
 
 * `CordaFlowInjectable`
 * `CordaServiceInjectable`
 
 These are empty interfaces used to indicate that a service can be injected, and where it can be injected. Implementing `CordaFlowInjectable` will allow for injection into a Flow, and `CordaServiceInjectable` will allow for injection in to a Corda service or notary service.
-
-The injectable services must then be registered for injection using the injection context class, `DependencyInjectionService`.
 
 ### Signature of singleton injection registration
 
@@ -90,7 +88,7 @@ IdentityService identityService;
 
 ### Signature of dynamic service injection registration:
 
-When registering service implementations which need a new instance to be instantiated each time they are injected, use dynamic service injection. For example, you should use ths for services which require a reference to the state machine, or the flow/service which the implementation is injected in to.
+When registering service implementations which need a new instance to be instantiated each time they are injected, use dynamic service injection. For example, you should use this for services which require a reference to the state machine, or the flow/service which the implementation is injected into.
 
 In Corda 4, you could use this to inject functionality that would formerly have been in the `FlowLogic` class.
 
@@ -280,7 +278,9 @@ public class InjectIntoServiceFlow implements Flow<Void> {
 
 ## Corda Service Injection
 
-By default, all Corda services are not injectable. They must implement one or more of the injection interfaces to be injectable. All Corda services are registered for injection regardless of what interfaces they implement. The `CordaServiceInstaller` service is responsible for instantiating all Corda services. When this installer loads a service, it also registers the service for injection automatically, and once all services are loaded it then injects all dependencies. Services are registered as injectable based on the service implementation class name. So in order to inject a Corda service, the implementation class must be used as opposed to the internal service injection which is done based on interface name.
+By default, all Corda services are not injectable. They must implement one or more of the injection interfaces to be injectable. All Corda services are registered for injection regardless of what interfaces they implement.
+
+The `CordaServiceInstaller` service is responsible for instantiating all Corda services. When this installer loads a service, it also registers the service for injection automatically, and once all services are loaded it then injects all dependencies. Services are registered as injectable based on the service implementation class name. So in order to inject a Corda service, the implementation class must be used as opposed to the internal service injection which is done based on interface name.
 
 #### Injection service function
 

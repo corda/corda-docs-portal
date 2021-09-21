@@ -4,11 +4,12 @@ title: Writing flows
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps-flows
-    identifier: corda-5-dev-preview-1-cordapps-flows-writing-flows
     weight: 1000
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
+
+In Corda 5 Developer Preview, the `Flow` interface is used to implement a flow. Implementing this interface will define the `call` method where business logic goes.
 
 A Flow is where you put your business logic. It is where you build states, sign them and send them to others for signing.
 

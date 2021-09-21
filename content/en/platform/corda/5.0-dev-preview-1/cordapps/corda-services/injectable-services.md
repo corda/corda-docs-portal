@@ -14,7 +14,7 @@ description: >
 The following services are available for injection into flows and other Corda Services. In addition to these, you can also create custom Corda Services for injection.
 
 {{< table >}}
-|Class|Methods|Injectable Into|
+|Class|Methods|Inject Into|
 |-|-|-|
 |`net.corda.v5.application.flows.flowservices.FlowAuditor`|`checkFlowPermission`, `recordAuditEvent`|Flow|
 |`net.corda.v5.application.flows.flowservices.FlowEngine`|`getRunId`, `isKilled`, `subFlow`, `checkFlowIsNotKilled`, `sleep`, `await`|Flow|

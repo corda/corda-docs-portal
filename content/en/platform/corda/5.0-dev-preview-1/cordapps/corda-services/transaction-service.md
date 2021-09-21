@@ -1,10 +1,12 @@
 ---
 title: "TransactionService"
-linkTitle: "TransactionService"
-weight: 2000
-type: "docs"
-lastmod: 2021-06-30
-author: "Dan Newton"
+date: '2021-09-13'
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordapps-corda-services
+    weight: 7000
+project: corda-5
+section_menu: corda-5-dev-preview
 description: >
   Signing transactions with and without TransactionService.
 ---

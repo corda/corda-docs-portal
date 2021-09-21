@@ -8,6 +8,18 @@ author: "Ben Pester"
 description: >
   Listen for vault state changes with the VaultStateEventService.
 ---
+---
+title: "VaultStateEventService"
+date: '2021-09-13'
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordapps-corda-services
+    weight: 8000
+project: corda-5
+section_menu: corda-5-dev-preview
+description: >
+  Listen for vault state changes with the VaultStateEventService.
+---
 
 Accessed only via `CordaService`s, the `VaultStateEventService` reliably allows you to listen to vault state changes triggered by the transactions persisted to the vault. It ensures that every emitted event is guaranteed to be processed *at least once* by all subscribers/listeners. Every state change that is persisted to the vault produces a **vault state event** that can be listened for and processed.
 
