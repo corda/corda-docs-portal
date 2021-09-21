@@ -84,10 +84,10 @@ will not be valid and will not be accepted as inputs to subsequent transactions.
 
 ## Reference states
 
-Not all states need to be updated by the parties which use them. In the case of reference data, a party creates it,
+Not all states need to be updated by the parties that use them. In the case of reference data, a party creates it,
 and it is then used (but not updated) by other parties. For this use-case, the
 states containing reference data are referred to as **reference states**. Syntactically, reference states are no different
-to regular states. However, they are treated differently by Corda transactions.
+than regular states. However, they are treated differently by Corda transactions.
 
 There are two important differences between regular states and reference states:
 
@@ -101,8 +101,8 @@ As well as input states and output states, transactions contain:
 
 * Commands
 * Attachments
-* Time-window
-* Notary
+* A time-window
+* A notary
 
 For example, a transaction where Alice uses a £5 cash payment to pay off £5 of an IOU with Bob comprises two commands:
 * A settlement command which reduces the amount outstanding on the IOU.
@@ -134,7 +134,7 @@ listed in the commands, you get the list of the transaction’s required signers
 * In a coupon payment on a bond, only the owner of the bond is required to sign.
 * In a cash payment, only the owner of the cash is required to sign.
 
-Here's a visualisation of this example.
+Here's a visualization of this example.
 
 {{< figure alt="commands" width=80% zoom="/en/images/commands.png" >}}
 
@@ -152,7 +152,7 @@ used when checking the transaction’s validity.
 
 ### Time-window
 
-In some cases, proposed transaction must be approved during a certain time-window. For example:
+In some cases, a proposed transaction must be approved during a certain time-window. For example:
 
 * An option can only be exercised after a certain date.
 * A bond may only be redeemed before its expiry date.
