@@ -3,7 +3,7 @@ date: '2021-09-15'
 section_menu: corda-5-dev-preview
 menu:
   corda-5-dev-preview:
-    identifier: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-state
+    identifier: corda-corda-5.0-dev-preview-1-tutorial-c5-basic-cordapp-state
     parent: corda-5-dev-preview-1-tutorials-buildingcordapp
     weight: 1030
 tags:
