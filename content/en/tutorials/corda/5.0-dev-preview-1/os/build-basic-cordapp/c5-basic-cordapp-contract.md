@@ -201,7 +201,7 @@ class MarsVoucherContract : Contract {
 
 Now that you've written your first contract, try writing the `BoardingTicketContract` using the following information.
 
-The `BoardingTicketState` will be used in two occasions, which means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract's two intentions:
+The `BoardingTicketState` will be used on two occasions, which means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract's two intentions:
 
 * Mars Express creates the ticket to go to Mars. This intention is expressed by the `CreateTicket` command.
 * Peter redeems the `BoardingTicket` state. This intention is expressed by the `RedeemTicket` command.
