@@ -12,7 +12,7 @@ tags:
 title: Write contracts
 ---
 
-Contracts in the Corda 5 Developer Preview work in the same way as they did in Corda 4. In the context of a CorDapp, contracts define rules that are used to verify transaction inputs and outputs. A CorDapp can have one more contracts, and each contract defines rules for one or more states. The goal of a contract is to ensure that input and output states in transactions are valid and to prevent invalid transactions. All parties wishing to transact in a network must run the contract for any transaction they’re a party to, verifying that the transaction is valid.
+Contracts in the Corda 5 Developer Preview work in the same way as they did in Corda 4. In the context of a CorDapp, contracts define rules that are used to verify transaction inputs and outputs. A CorDapp can have more than one contract, and each contract defines rules for one or more states. The goal of a contract is to ensure that input and output states in transactions are valid and to prevent invalid transactions. All parties wishing to transact in a network must run the same contract(s) for any transaction they’re a party to, verifying that the transaction is valid.
 
 Contract files implement the contract interface, containing the `verify` method. The `verify` method takes transactions as input and evaluates them against rules defined as a `requireThat` element. Contract execution is deterministic, and transaction acceptance is based on the transaction’s contents alone.
 
