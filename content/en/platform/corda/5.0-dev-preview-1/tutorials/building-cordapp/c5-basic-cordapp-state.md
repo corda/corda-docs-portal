@@ -1,15 +1,15 @@
 ---
 date: '2021-09-15'
-section_menu: tutorials
+section_menu: corda-5-dev-preview
 menu:
-  tutorials:
-    identifier: corda-corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-state
-    parent: corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
+  corda-5-dev-preview:
+    identifier: corda-corda-5.0-dev-preview-1-tutorial-c5-basic-cordapp-state
+    parent: corda-5-dev-preview-1-tutorials-buildingcordapp
     weight: 1030
 tags:
 - tutorial
 - cordapp
-title: Write states
+title: "Write states"
 ---
 
 In Corda, states are immutable objects on the ledger that represent a fact known by one or more Corda nodes at a specific point in time. They can represent facts of any kind - for example, stocks, bonds, loans, and so on. States relevant to a specific node are stored in that node's vault. For a state to evolve, the current state must be marked as historic and a new, updated state must be created.
