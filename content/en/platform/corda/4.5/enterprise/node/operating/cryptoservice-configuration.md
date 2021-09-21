@@ -14,7 +14,7 @@ weight: 2
 
 # Using an HSM with Corda Enterprise
 
-By default, the private keys that belong to the node CA,legal identity and TLS are stored in a key store files in the node’s certificates
+By default, the private keys that belong to the node CA,legal identity and TLS are stored in key store files in the node’s certificates
 directory. Users may wish to instead store this key in a hardware security module (HSM) or similar.
 
 See the [Hardware Security Modules (HSM)](../../platform-support-matrix.md#supported-hsms) for supported HSMs and their features.
@@ -22,30 +22,30 @@ See the [Hardware Security Modules (HSM)](../../platform-support-matrix.md#suppo
 The cryptographic operations that are performed by the HSM are key generation and signing. The private key material is
 stored in the HSM if the node is configured to use an HSM. The public keys are stored in the HSM (if configured for the node)
 and the respective key stores, which is the node key store (nodekeystore.jks) for the node CA key (nodeca) and legal identity
-(identity-private-key). The certificate chain is stored there together with a dummy private key as the Java API does not
-allow to create an entry for a certificate chain without a key. The certificate chain is not stored in the HSM.
+(identity-private-key). The certificate chain is stored in the key store with a dummy private key as the Java API does not
+allow to create an entry for a certificate chain without a private key. The certificate chain is not stored in the HSM.
 
 {{< note >}}
 The dummy private key entry does not contain any sensitive private key data.
 
 {{< /note >}}
 
-Operations involving the private keys (e.g. signature generation) will be delegated by the node to the HSMs, while operations
-involving the public keys (e.g. signature verification) will be performed by the node.
+Operations involving the private keys (e.g., signature generation) will be delegated by the node to the HSMs, while operations
+involving the public keys (e.g., signature verification) will be performed by the node.
 
-A Corda node, including a notary node, must have its node CA and legal identity keys in the same keystore or HSM.
-Splitting these keys across a combination of different keystores and HSMs is not supported. TLS keys can be configured
-either in the same keystore/HSM, as node legal identity, or separately.
+A Corda node, including a notary node, must have its node CA and legal identity keys in the same key store or HSM.
+Splitting these keys across a combination of different key stores and HSMs is not supported. TLS keys can be configured
+either in the same key store/HSM, as node legal identity, or separately.
 
 {{< note >}}
-Importing existing keys from the file-based keystore into a HSM is not supported.
+Importing existing keys from the file-based key store into a HSM is not supported.
 
 {{< /note >}}
 
 ## Configuration
 
 As mentioned in the description of the configuration file ([Node configuration](../setup/corda-configuration-file.md)),
-the `node.conf` has has three relevant fields:
+the `node.conf` has three relevant fields:
 * `cryptoServiceName`
 * `cryptoServiceConf`
 * Optional: `cryptoServiceTimeout`
@@ -64,11 +64,12 @@ Available configuration options for HSM usage are given below with information a
 {{< table >}}
 |node.conf section |Certificate store |Stored keys |
 |-------------------------|-------------------------|-------------------------|
-|cryptoServiceName cryptoServiceConf |nodekestore.jks |Node CA and legal identity keys |
-|tlsCryptoServiceConfig |sslkeystore.jks |Node TLS key without running Corda Firewall |
-|artemisCryptoServiceConfig |As configured by `messagingServerSslConfiguration.sslKeystore` |TLS key for communications with the external Artemis server when running Corda Firewall |
+|`cryptoServiceName` `cryptoServiceConf` |`nodekestore.jks` |Node CA and legal identity keys |
+|`tlsCryptoServiceConfig` |`sslkeystore.jks` |Node TLS key without running Corda Firewall |
+|`artemisCryptoServiceConfig` |As configured by `messagingServerSslConfiguration.sslKeystore` |TLS key for communications with the external Artemis server when running Corda Firewall |
 
 {{< /table >}}
+
 ## Utimaco
 
 Corda Enterprise nodes can be configured to store their legal identity keys in [Utimaco’s SecurityServer Se Gen2](https://hsm.utimaco.com/products-hardware-security-modules/general-purpose-hsm/securityserver-se-gen2/)
@@ -95,7 +96,7 @@ port of the device or simulator.
 (optional) timeout when establishing connection to the device, in milliseconds. The default is 30000.
 
 * **keepSessionAlive**:
-(optional) boolean, false by default. If set to false the connection to the device will terminate after 15 minutes. The node
+(optional) boolean, false by default. If set to false, the connection to the device will terminate after 15 minutes. The node
   will attempt to automatically re-establish the connection.
 
 * **keyGroup**:
@@ -150,7 +151,7 @@ release 4.21.1, which can be obtained from Utimaco, needs to be placed in the no
 Corda Enterprise nodes can be configured to store their legal identity keys in [Gemalto Luna](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm)
 HSMs running firmware version 7.0.3.
 
-In the `node.conf`, the `cryptoServiceName` must set to “GEMALTO_LUNA”, and `cryptoServiceConf` should contain the path
+In the `node.conf`, the `cryptoServiceName` must be set to “GEMALTO_LUNA”, and `cryptoServiceConf` should contain the path
 to a configuration file, the content of which is explained further down.
 
 ```kotlin
@@ -178,7 +179,7 @@ Note that the Gemalto’s JCA provider (version 7.3) has to be installed as desc
 
 ## Futurex
 
-Corda Enterprise nodes can be configured to store their legal identity keys in [FutureX Vectera Plus](https://www.futurex.com/products/vectera-series)
+Corda Enterprise nodes can be configured to store their legal identity keys in [Futurex Vectera Plus](https://www.futurex.com/products/vectera-series)
 HSMs running firmware version 6.1.5.8.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “FUTUREX”, and `cryptoServiceConf` should contain the path
@@ -200,9 +201,9 @@ credentials: "password"
 
 When starting Corda the environment variables `FXPKCS11_CFG` and `FXPKCS11_MODULE` need to be set as detailed in Futurex’s
 documentation. Corda must be running with the system property `java.library.path` pointing to the directory that contains
-the FutureX binaries (e.g. `libfxjp11.so` for Linux). Additionaly, The JAR containing the Futurex JCA provider (version 3.1)
+the FutureX binaries (e.g. `libfxjp11.so` for Linux). Additionally, The JAR containing the Futurex JCA provider (version 3.1)
 must be put on the class path, or copied to the node’s `drivers` directory. The following versions should be used for the
-required FutureX libraries: 3.1 for the PKCS#11 library and 1.17 for the FutureX JCA library.
+required Futurex libraries: 3.1 for the PKCS#11 library and 1.17 for the Futurex JCA library.
 
 ## Azure KeyVault
 
@@ -217,7 +218,7 @@ cryptoServiceConf: "az_keyvault.conf"
 The configuration file for Azure KeyVault contains the fields listed below. For details refer to the [Azure KeyVault documentation](https://docs.microsoft.com/en-gb/azure/key-vault).
 
 * **path**:
-path to the key store for login. Note that the .pem file that belongs to your service principal needs to be created to pkcs12.
+path to the key store for login. Note that the `.pem`  file that belongs to your service principal needs to be created to pkcs12.
 One way of doing this is by using openssl: `openssl pkcs12 -export -in /home/username/tmpdav8oje3.pem -out keyvault_login.p12`.
 
 {{< note >}}
@@ -344,7 +345,7 @@ as described in the documentation for nShield.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “N_SHIELD”, and `cryptoServiceConf` should contain the path
 to a configuration file, the content of which is explained further down. The `cryptoServiceTimeout` needs to be increased
-to 10 seconds to allow file-based keystore creation during initial node registration.
+to 10 seconds to allow file-based key store creation during initial node registration.
 
 ```kotlin
 cryptoServiceName: "N_SHIELD"
