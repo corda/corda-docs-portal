@@ -11,15 +11,15 @@ section_menu: corda-5-dev-preview
 
 # Third-party software prerequisites
 
-The following third-party software is required to build and run Corda 5 Developer Preview systems.
+The following third-party software is required to build and run the Corda 5 Developer Preview.
 
 ## Operating systems
 
-Corda 5 Developer Preview requires an operating system based on x86 architecture.
+The Corda 5 Developer Preview requires an operating system based on x86 architecture.
 
 ## Java
 
-Corda 5 Developer Preview requires [Azul11.0.12](https://www.azul.com/downloads/?package=jdk) as Java runtime environment.
+The Corda 5 Developer Preview requires [Azul11.0.12](https://www.azul.com/downloads/?package=jdk) as Java runtime environment.
 
 As a CorDapp developer, you can compile and test your Corda 5 Developer Preview CorDapps against these JDKs:
 
@@ -36,4 +36,4 @@ You can package and bundle CorDapps with the Corda CPK (Corda package file - `.c
 
 ## Node databases
 
-You can use H2 and Postgres13 (driver version 42.2.22 JDBC 42) for node databases in Corda 5 Developer Preview.
+You can use H2 and Postgres13 (driver version 42.2.22 JDBC 42) for node databases in the Corda 5 Developer Preview.
