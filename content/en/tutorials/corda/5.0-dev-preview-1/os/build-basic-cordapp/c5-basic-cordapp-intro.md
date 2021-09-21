@@ -54,7 +54,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 3. Next, Peter goes to Mars Express to redeem his voucher and pick up his ticket, triggering a transaction on the ledger that consumes the `MarsVoucher` state. Three transactions have now been performed.
 
-4. The `BoardingTicket` state is transferred to Peter when the `MarsVoucher` state is consumed and Mars Express gives Peter his ticket. This is the fourth and final transaction. 
+4. The `BoardingTicket` state is transferred to Peter when the `MarsVoucher` state is consumed and Mars Express gives Peter his ticket. This is the fourth and final transaction.
 
 All of these transactions are initiated by [flows](XXX).
 

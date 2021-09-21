@@ -39,13 +39,6 @@ These are empty interfaces used to indicate that a service can be injected, and 
 
 The injectable services must then be registered for injection using the injection context class, `DependencyInjectionService`.
 
-### Implementation Registration provided by DependencyInjectionService
-
-The injection service provides two types of registration:
-
-* Registration of a singleton service. This stores a mapping from interface class type to implementation instance and can be used for notary services and Corda services.
-* Registration of a dynamic service. This is for registering service implementations which need a new instance to be instantiated each time they are injected.
-
 ### Signature of singleton injection registration
 
 Registration of a singleton service stores a mapping from interface class type to implementation instance and can be used for notary services and Corda services.
