@@ -12,19 +12,20 @@ title: Install the Corda 5 Dev Preview
 
 # Install the Corda 5 Dev Preview
 
-To get started with the Corda 5 Dev Preview, please check if you have a compatible system by checking the following documents:
+Before installing the Corda 5 Dev Preview, first verify that have a compatible system by checking the following documents:
 [Setting up your development environment](setting-up-your-dev-env/_index.md) and [Technology Overview](XXX)
 
 The Corda 5 Dev Preview is for local deployment only. You can download and install this
-package on your machine, and then explore the new features on a local development network.
+version of Corda on your machine, and then explore the new features on a local development network.
 
-Included in the package [Complete list of artifacts with descriptions]:
+Included in Corda 5 Developer Preview:
 
 * Corda 5 Dev Preview API bundle.
 * Bootstrap Developer network.
 * CLIs for control of network, CorDapp  development and packaging, Node configuration and control.
 * RPC libraries
 * Flow unit test library
+* In addition, you can install and use the Corda 5 Developer Preview versions of Tokens SDK and Confidential Identities SDK.
 
 
 To install the Corda 5 Dev Preview:
