@@ -19,7 +19,7 @@ Code samples for this tutorial are provided in Kotlin.
 
 Before you start building your first CorDapp:
 
-- Read about [Corda key concepts](../../../../../platform/corda/4.8/os/key-concepts.html). <!-- Added link to C4 key concepts. Same in other key concepts references throughout doc. XXX -->
+- Read about [Corda key concepts](XXX).
 - [Get set up for CorDapp development](XXX).
 - [Deploy a local Corda 5 network](XXX).
 - [Run a sample CorDapp](../run-demo-cordapp.md).
@@ -56,7 +56,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 4. The `BoardingTicket` state is transferred to Peter when the `MarsVoucher` state is consumed and Mars Express gives Peter his ticket.
 
-All of these transactions are initiated by [flows](../../../../../platform/corda/4.8/os/key-concepts-flows.md).
+All of these transactions are initiated by [flows](XXX).
 
 ## Changes from Corda 4
 
@@ -74,16 +74,14 @@ These changes will be covered in more detail in the tutorial for each topic. Con
 
 Follow these tutorials in sequential order to build your CorDapp:
 
-<!---These will all link to the new tutorials when they are added.--->
-
 1. [Write states](c5-basic-cordapp-state.md)
 
 2. [Write contracts](c5-basic-cordapp-contract.md)
 
 3. [Write flows](c5-basic-cordapp-flows.md)
 
-4. Conduct unit testing
+4. [Conduct unit testing](XXX)
 
-5. Conduct integration testing
+5. [Conduct integration testing](XXX)
 
-6. Run your CorDapp
+6. [Run your CorDapp](XXX)
