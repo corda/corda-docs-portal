@@ -95,10 +95,7 @@ public class AppleStampContract implements Contract {
 
 ### Add the `verify` method
 
-The `verify` method is automatically triggered when your transaction is executed. It works in the following way:
-
-* It uses the transaction's command to get information which rules must be verified.
-* It verifies that the transaction components are following the restrictions implemented inside the contract's `verify` method.
+The `verify` method is automatically triggered when your transaction is executed. It verifies that the transaction components are following the restrictions implemented inside the contract's `verify` method.
 
 1. If you're using IntelliJ, you will see an error indicator under the class name and implementation. This indicates that the class is missing the required method. Hover over the class definition, then:
 
