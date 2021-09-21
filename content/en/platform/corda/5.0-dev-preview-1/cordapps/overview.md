@@ -1,6 +1,6 @@
 ---
 date: '2020-09-08T12:00:00Z'
-title: CorDapps for developers
+title: "CorDapp references for developers"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-cordapps
@@ -8,9 +8,6 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
-
-# CorDapp guides and references for developers
-
 Use these resources to help build and locally deploy your own CorDapps using the Corda 5 Developer Preview. If you have not yet completed the tutorials section, and are looking for the best place to start, try the [Building a CorDapp tutorial](../tutorials/building-cordapp.html).
 
 If you have completed the tutorials and want to experiment further, you can use these docs. Please keep in mind that the dev preview is for local deployment and testing only, and should not be used in a commercial setting.

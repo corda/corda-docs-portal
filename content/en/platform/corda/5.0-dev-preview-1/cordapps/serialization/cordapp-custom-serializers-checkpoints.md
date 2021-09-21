@@ -1,5 +1,6 @@
 ---
 date: '2021-09-03T12:00:00Z'
+title: "Pluggable serializers for CorDapp checkpoints"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-serialization
@@ -9,25 +10,15 @@ section_menu: corda-5-dev-preview
 title: Pluggable Serializers for CorDapps checkpoints
 ---
 
-# Pluggable serializers for CorDapp checkpoints
-
-
 If a CorDapp encounters an exception during the checkpoint process, it may need a custom serializer to make a class serializable.
 
 {{< warning >}}
-
-**IMPORTANT**
-
-* This is an unsupported advanced feature for use when a class cannot be serialized and cannot be avoided. It should be avoided unless there is no choice.
-
-* Care needs to be taken when modifying CorDapps when custom checkpoint serializers are present. Avoid removing or renaming a custom serializer needed to deserialize a checkpoint. It is best to modify CorDapps containing custom checkpoint serializers when no checkpoints are present.
-
+This is an unsupported advanced feature for use when a class cannot be serialized and cannot be avoided. It should be avoided unless there is no choice. Care needs to be taken when modifying CorDapps when custom checkpoint serializers are present. Avoid removing or renaming a custom serializer needed to deserialize a checkpoint. It is best to modify CorDapps containing custom checkpoint serializers when no checkpoints are present.
 {{< /warning >}}
 
-{{< note >}}
-Please read [Pluggable serializers for CorDapps](cordapp-custom-serializers.md) before you start.
-{{< /note >}}
+## Before you begin
 
+Please read [Pluggable serializers for CorDapps](cordapp-custom-serializers.md) before starting writing custom checkpoint serializers. 
 
 ## Writing a custom checkpoint serializer
 

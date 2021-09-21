@@ -1,11 +1,11 @@
 ---
 date: '2020-07-15T12:00:00Z'
+title: "Install the Corda 5 Dev Preview"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-install-index
-    name: Install the Corda 5 Dev Preview
+    parent: corda-5-dev-preview-1-gettingstarted
 title: Install the Corda 5 Dev Preview
-weight: 1500
+weight: 150
 ---
 
 To get started with the Corda 5 Dev Preview, please check you have a compatible system [link to technical overview]

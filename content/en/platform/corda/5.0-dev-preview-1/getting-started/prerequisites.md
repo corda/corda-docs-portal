@@ -3,13 +3,11 @@ date: '2020-07-15T12:00:00Z'
 title: "Third-party software prerequisites"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-1-tech-prerequisites
+    parent: corda-5-dev-preview-1-gettingstarted
     weight: 100
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
-
-# Third-party software prerequisites
 
 The following third-party software is required to build and run the Corda 5 Developer Preview.
 

@@ -1,5 +1,6 @@
 ---
 date: '2021-09-03T12:00:00Z'
+title: "JSON serialization"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-serialization
@@ -8,9 +9,6 @@ project: corda-5
 section_menu: corda-5-dev-preview
 title: JSON
 ---
-
-
-# JSON
 
 Corda provides a module that extends the popular Jackson serialisation engine. Jackson is often used to serialise
 to and from JSON, but also supports other formats such as YAML and XML. Jackson is itself very modular and has
@@ -22,7 +20,6 @@ Then you can obtain a Jackson `ObjectMapper` instance configured for use using t
 method.
 
 The API is described in detail here:
-
 
 * [Kotlin API docs](https://api.corda.net/api/corda-os/4.8/html/api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
 * [JavaDoc](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/client/jackson/package-summary.html)

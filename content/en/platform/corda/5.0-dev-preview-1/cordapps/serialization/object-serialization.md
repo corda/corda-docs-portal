@@ -1,22 +1,15 @@
 ---
 date: '2021-09-01T12:00:00Z'
+title: "Object serialization"
 menu:
   corda-5-dev-preview:
+    parent: corda-5-dev-preview-1-cordapps
     identifier: corda-5-dev-preview-1-serialization
-    weight: 600
+    weight: 5500
 project: corda-5
 section_menu: corda-5-dev-preview
 title: Serialization
 ---
-
-
-
-
-# Object serialization
-
-
-
-## Introduction
 
 Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse
 process of creating objects from a stream of bytes.  It takes place every time nodes pass objects to each other as

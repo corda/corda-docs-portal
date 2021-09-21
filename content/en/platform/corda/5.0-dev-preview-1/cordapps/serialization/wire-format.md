@@ -1,5 +1,6 @@
 ---
 date: '2021-09-03T12:00:00Z'
+title: "Wire format"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-serialization
@@ -8,8 +9,6 @@ project: corda-5
 section_menu: corda-5-dev-preview
 title: Wire format
 ---
-
-# Wire format
 
 This document describes the Corda wire format. With the following information and an implementation of the AMQP/1.0
 specification, you can read Corda serialized binary messages. An example implementation of AMQP/1.0 would be Apache
