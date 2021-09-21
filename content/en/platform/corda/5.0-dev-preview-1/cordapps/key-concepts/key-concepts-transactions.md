@@ -35,7 +35,7 @@ There are two basic types of transactions:
 ## Transaction chains
 
 When you create a new transaction, you need to propose output states as these don't yet exist. Input
-states are outputs of previous transactions, include them by adding their reference.
+states are outputs of previous transactions, and you include them by adding their reference.
 
 Input state references are a combination of:
 
@@ -48,7 +48,7 @@ These input state references link transactions together, forming a *transaction 
 
 ## Committing transactions
 
-Initially, a transaction is just a **proposal** to update the ledger. It represents the future state of the ledger
+Initially, a transaction is just a *proposal* to update the ledger. It represents the future state of the ledger
 that is desired by the transaction builders:
 
 {{< figure alt="uncommitted tx" width=80% zoom="/en/images/uncommitted_tx.png" >}}
@@ -70,28 +70,28 @@ This means that the transaction's:
 
 ## Transaction validity
 
-Each required signer should only sign the transaction if the following two conditions hold:
+Signers should only sign the transaction if these conditions are met:
 
-* **Transaction validity**: For both the proposed transaction, and every transaction in the chain of transactions
-that created the current proposed transaction’s inputs:>
+* **Transaction validity**
+  * Transactions in the transaction chain are digitally signed by all the required parties.
+  * The proposed transaction is **[contractually valid](key-concepts-contracts.md)**.
 
-  * The transaction is digitally signed by all the required parties
-  * The transaction is *contractually valid* (see [Contracts](key-concepts-contracts.md))
+* **Transaction uniqueness**. There exists no other committed transaction that has consumed any of the inputs to
+the proposed transaction.
 
-* **Transaction uniqueness**: There exists no other committed transaction that has consumed any of the inputs to
-our proposed transaction (see [Consensus](key-concepts-consensus.md))
-
-If the transaction gathers all of the required signatures, but the preceding conditions do not hold, the transaction’s outputs
+If the transaction gathers all required signatures, but the preceding conditions are not met, the transaction’s outputs
 will not be valid and will not be accepted as inputs to subsequent transactions.
 
 ## Reference states
 
-As mentioned in [States](key-concepts-states.md), some states need to be referred to by the contracts of other input or output
-states but not updated/consumed. This is where reference states come in. When a state is added to the references list of
-a transaction, instead of the inputs or outputs list, it is treated as a *reference state*. There are two important
-differences between regular states and reference states:
+Not all states need to be updated by the parties which use them. In the case of reference data, a party creates it,
+and it is then used (but not updated) by other parties. For this use-case, the
+states containing reference data are referred to as **reference states**. Syntactically, reference states are no different
+to regular states. However, they are treated differently by Corda transactions.
 
-* The specified notary for the transaction **does** check whether the reference states are current. However, reference
+There are two important differences between regular states and reference states:
+
+* Notaries *do* check whether a reference state is current. However, reference
 states are not consumed when the transaction containing them is committed to the ledger.
 * The contracts for reference states are not executed for the transaction containing them.
 
@@ -104,10 +104,12 @@ As well as input states and output states, transactions contain:
 * Time-window
 * Notary
 
-For example, suppose we have a transaction where Alice uses a £5 cash payment to pay off £5 of an IOU with Bob.
-This transaction comprises two commands: a settlement command which reduces the amount outstanding on the IOU, and a payment command which changes the ownership of £5 from Alice to Bob. It also
-has two supporting attachments, and will only be notarised by NotaryClusterA if the notary pool
-receives it within the specified time-window. This transaction would look as follows:
+For example, a transaction where Alice uses a £5 cash payment to pay off £5 of an IOU with Bob comprises two commands:
+* A settlement command which reduces the amount outstanding on the IOU.
+* A payment command which changes the ownership of £5 from Alice to Bob.
+
+It also has two supporting attachments, and will only be notarised by NotaryClusterA if the notary pool
+receives it within the specified time-window. This transaction would look like:
 
 {{< figure alt="full tx" width=80% zoom="/en/images/full-tx.png" >}}
 
@@ -119,21 +121,20 @@ outputs. This transaction could represent two different scenarios:
 * A bond purchase.
 * A coupon payment on a bond.
 
-We can imagine that we’d want to impose different rules on what constitutes a valid transaction depending on whether
-this is a purchase or a coupon payment. For example, in the case of a purchase, we would require a change in the bond’s
-current owner, whereas in the case of a coupon payment, we would require that the ownership of the bond does not
-change.
+Different rules and constraints are likely to apply depending on whether this is a purchase or a coupon payment.
+For example, in the case of a purchase, there would be a change in the bond’s
+current owner. Whereas in the case of a coupon payment, the ownership of the bond would not change.
 
-For this, we have *commands*. Including a command in a transaction allows us to indicate the transaction’s intent,
-affecting how we check the validity of the transaction.
+**Commands** are included in a transaction to indicate the transaction’s intent,
+affecting how the transaction is validated.
 
-Each command is also associated with a list of one or more *signers*. By taking the union of all the public keys
-listed in the commands, we get the list of the transaction’s required signers. In our example, we might imagine that:
+Each command is also associated with a list of one or more **signers**. By taking the union of all the public keys
+listed in the commands, you get the list of the transaction’s required signers. In this example, it could be that:
 
-* In a coupon payment on a bond, only the owner of the bond is required to sign
-* In a cash payment, only the owner of the cash is required to sign
+* In a coupon payment on a bond, only the owner of the bond is required to sign.
+* In a cash payment, only the owner of the cash is required to sign.
 
-We can visualize this situation as follows:
+Here's a visualisation of this example.
 
 {{< figure alt="commands" width=80% zoom="/en/images/commands.png" >}}
 

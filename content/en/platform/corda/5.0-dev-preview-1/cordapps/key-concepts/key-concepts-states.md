@@ -43,7 +43,7 @@ The **ledger** is all the current (non-historic) states that a particular node i
 
 ## Reference states
 
-Not all states need to be updated by the parties which use them. In the case of reference data, a party creates it
+Not all states need to be updated by the parties which use them. In the case of reference data, a party creates it,
 and it is then used (but not updated) by other parties. For this use-case, the
 states containing reference data are referred to as **reference states**. Syntactically, reference states are no different
 to regular states. However, they are treated differently by Corda transactions. See [transactions](key-concepts-transactions.md) for
