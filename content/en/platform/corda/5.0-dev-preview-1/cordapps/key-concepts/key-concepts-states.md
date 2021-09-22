@@ -10,6 +10,15 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
+{{< note >}}
+
+In the Corda 5 Developer Preview, the main principles of states, transactions, and contracts remain the same as they were
+in Corda 4.
+
+However, as your CorDapp's external interactions are performed via HTTP-RPC REST APIs (and the node returns information
+in the same way), when writing states you must add a `JsonRepresentable`.
+
+{{< /note >}}
 
 A **state** is an immutable object representing a fact known by one or more Corda nodes at a specific point in time.
 States can contain arbitrary data, allowing them to represent facts of any kind, such as, stocks, bonds, loans, KYC data,
