@@ -8,7 +8,6 @@ menu:
     weight: 5500
 project: corda-5
 section_menu: corda-5-dev-preview
-title: Serialization
 ---
 
 Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse
