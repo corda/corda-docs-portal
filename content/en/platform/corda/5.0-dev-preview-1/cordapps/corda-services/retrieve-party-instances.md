@@ -1,5 +1,5 @@
 ---
-title: "Identity Service"
+title: "IdentityService"
 date: '2021-09-13'
 menu:
   corda-5-dev-preview:
@@ -8,14 +8,14 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Retrieving `Party` and `AnonymousParty` instances with the IdentityService
+  Retrieving `Party` and `AnonymousParty` instances with the IdentityService.
 ---
 
 The `IdentityService` provides methods to retrieve `Party` and `AnonymousParty` instances. `IdentityService` can be injected into flows and services.
 
 ## Retrieving `Party` instances
 
-To retrieve a `Party` instance from `IdentityService` you must provide a `CordaX500Name`:
+To retrieve a `Party` instance from `IdentityService`, you must provide a `CordaX500Name`:
 
 - Kotlin
 
@@ -53,7 +53,7 @@ This will return the `Party` that matches the input `AbstractParty` if the well-
 
 ## Retrieving `AnonymousParty` instances
 
-To retrieve an `AnonymousParty` instance from `IdentityService` you must provide the `PublicKey` that will be used to represent the anonymous party:
+To retrieve an `AnonymousParty` instance from `IdentityService` you must provide the `PublicKey` that is used to represent the anonymous party:
 
 - Kotlin
 

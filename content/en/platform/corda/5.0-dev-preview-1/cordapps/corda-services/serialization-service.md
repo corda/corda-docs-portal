@@ -8,8 +8,9 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Retrieving `Party` and `AnonymousParty` instances with the IdentityService
+  Serializing and deserializing within flows and services.
 ---
+
 Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse process of creating objects from a stream of bytes. You can serialize and deserialize outputted bytes using the `SerializationService`, which can be injected into flows and services.
 
 ## Example usage

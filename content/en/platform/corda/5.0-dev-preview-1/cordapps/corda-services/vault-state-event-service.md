@@ -1,15 +1,5 @@
 ---
 title: "VaultStateEventService"
-linkTitle: "VaultStateEventService"
-weight: 3000
-type: "docs"
-lastmod: 2021-06-07
-author: "Ben Pester"
-description: >
-  Listen for vault state changes with the VaultStateEventService.
----
----
-title: "VaultStateEventService"
 date: '2021-09-13'
 menu:
   corda-5-dev-preview:
@@ -18,14 +8,14 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Listen for vault state changes with the VaultStateEventService.
+  Listen for vault state changes with the `VaultStateEventService`.
 ---
 
-Accessed only via `CordaService`s, the `VaultStateEventService` reliably allows you to listen to vault state changes triggered by the transactions persisted to the vault. It ensures that every emitted event is guaranteed to be processed *at least once* by all subscribers/listeners. Every state change that is persisted to the vault produces a **vault state event** that can be listened for and processed.
+Accessed only via `CordaService`s, the `VaultStateEventService` reliably allows you to listen to vault state changes triggered by the transactions persisted to the vault. It guarantees that every emitted event is processed *at least once* by all subscribers/listeners. Every state change that is persisted to the vault produces a **vault state event** that can be listened for and processed.
 
-The `VaultStateEventService` allows any application using the service to crash or stop processing temporarily without preventing it from recovering after a restart. In the event of a restart, the processing of events resumes from the last committed position. This may lead to some events being processed more than once, but this can be mitigated by deduplication or handling duplicate events within your CorDapp's processing. You can check the Durable Cursor documentation for more information about this.
+The `VaultStateEventService` allows any application using the service to crash or stop processing temporarily without preventing it from recovering after a restart. In the event of a restart, the processing of events resumes from the last committed position. This may lead to some events being processed more than once, but this can be mitigated by deduplication or handling duplicate events within your CorDapp's processing. You can check the Durable Cursor documentation for more information.
 
-You may wish to make one of following things happen whenever a particular vault state event occurs:
+You may wish to make one of the following happen whenever a particular vault state event occurs:
 
 * Start a flow.
 * Send a request to an external system.
@@ -51,7 +41,7 @@ Both of these APIs provide *at least once* guarantees.
 
 `VaultStateEvent`s are generated whenever a state is produced or consumed.
 
-This means if a transaction with 2 input states and 3 output states is created, then 2 events with type `VaultEventType.CONSUMED` and 3 events with type `VaultEventType.PRODUCED` are sent to subscribers or cursors listening for these events.
+This means if a transaction with two input states and three output states is created, then two events with type `VaultEventType.CONSUMED` and three events with type `VaultEventType.PRODUCED` are sent to subscribers or cursors listening for these events.
 
 ## The structure of an event
 
@@ -63,7 +53,7 @@ A `VaultStateEvent<ContractState>` contains the following properties:
 
 ## Starting a flow triggered by a vault state event
 
-If you plan to start flows within the the `VaultStateEventService.subscribe` callback or in the processing logic of the `DurableCursor` returned by the other version of `VaultStateEventService.subscribe` then you need to call subscribe only when you have received a `StateMachineStarted` lifecycle event.
+If you plan to start flows within the the `VaultStateEventService.subscribe` callback or in the processing logic of the `DurableCursor` returned by the other version of `VaultStateEventService.subscribe`, then you need to call subscribe only when you have received a `StateMachineStarted` lifecycle event.
 
 ## Self-managed solution
 
@@ -73,13 +63,13 @@ Subscription using this method provides full control over the retrieval and proc
 
 To achieve reliable behaviour, this method must be executed when the Corda process is restarted, returning a new cursor to continue processing from the last committed position. The consistent lifecycle of `CordaService`s provides a safe location to execute `subscribe`.
 
-You should use the `PositionedValue.position` property found in the `PositionedValue`s contained in the `PollResult` returned from `Cursor.poll` as a way to manage deduplication, which is important when executing actions that must only happen a single time.
+You should use the `PositionedValue.position` property found in the `PositionedValue`s contained in the `PollResult` returned from `Cursor.poll` as a way to manage deduplication, which is important when executing actions that must only happen once.
 
-This overload of `subscribe` provides a self managed solution which is handled by interacting with the `DurableCursor` For a simpler and fully managed solution, see the overload of `subscribe` that receives a `function`/`callback` as input.
+This overload of `subscribe` provides a self-managed solution which is handled by interacting with the `DurableCursor`. For a simpler and fully-managed solution, see the overload of `subscribe` that receives a `function`/`callback` as input.
 
 Example usage of this API from a `CordaService`:
 
-### Kotlin:
+### Kotlin
 
 ```kotlin
 class LoggingVaultEventCursor : CordaService {
@@ -111,7 +101,7 @@ class LoggingVaultEventCursor : CordaService {
 }
 ```
 
-### Java
+### Java
 
 ```java
 public class LoggingVaultEventCursor implements CordaService {
@@ -159,15 +149,15 @@ Subscription using this method is reliable, meaning all events will eventually b
 
 Uncaught exceptions thrown within the provided `function` are caught within the platform code. When this happens the subscriber will continue onto the next event and update its position, meaning that the event will never be processed again by the subscriber.
 
-The `Long` returned by the `BiConsumer` represents the deduplication id of the event. This is the same value found in `PositionedValue.position` if you were using the self-managed solution. This value should be used to handle deduplication, which is important when executing actions that must only happen a single time.
+The `Long` returned by the `BiConsumer` represents the deduplication ID of the event. This is the same value found in `PositionedValue.position` if you are using the self-managed solution. This value should be used to handle deduplication, which is important when executing actions that must only happen once.
 
-This overload of `subscribe` provides a fully managed solution, that moves the position of processed `VaultStateEvent`s after each event is processed. For more control over the position of processed events, see the overload of `subscribe` that returns a `DurableCursor`.
-
-Example usage of this API from a `CordaService`:
+This overload of `subscribe` provides a fully-managed solution, that moves the position of processed `VaultStateEvent`s after each event is processed. For more control over the position of processed events, see the overload of `subscribe` that returns a `DurableCursor`.
 
 {{< note >}}
 Names passed into `VaultStateEventService.subscribe` must be unique. There can only be a single cursor or call to subscribe with a certain name. The code currently throws a `CordaRuntimeException` if this rule is broken.
 {{< /note >}}
+
+Example usage of this API from a `CordaService`:
 
 ### Kotlin
 
@@ -216,13 +206,14 @@ public class LoggingVaultEventSubscriber implements CordaService {
 
 ## Preferred usage
 
-Run at start up of corda services and continue until the process shuts down.
+Run at startup of Corda Services and continue until the process shuts down.
 
-You could have 1 cursor or subscriber that receive all events and decides what to do with them, like in the examples above, you could have many that do each handle single every possible state type, or have something between them. It is up to your code to determine what happens.
+You could have one cursor or subscriber that receives all events and decides what to do with them (like the previous example),
+or you could have many cursors or subscribers that each handle single every possible state type, or have something between them. It is up to your code to determine what happens.
 
-A benefit for having multiple cursors or subscribers is concurrent processing. As each cursor and subscriber runs independently (assuming you are running cursors on individual threads), then if the logic executed for one type of state is particularly slow it will not impact other cursors or subscribers. Each one will continue and process independently and in parallel. Slow cursors or subscribers will fall behind faster ones but they are all guaranteed to eventually process all state events.
+A benefit for having multiple cursors or subscribers is concurrent processing. As each cursor and subscriber runs independently (assuming you are running cursors on individual threads), then if the logic executed for one type of state is particularly slow, it will not impact other cursors or subscribers. Each one will continue and process independently and in parallel. Slow cursors or subscribers will fall behind faster ones, but they are all guaranteed to eventually process all state events.
 
-Below is an example of using `subscribe` multiple times to only process a single type of state per subscriber:
+This is an example of using `subscribe` multiple times to only process a single type of state per subscriber:
 
 ### Kotlin
 

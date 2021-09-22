@@ -7,7 +7,7 @@ menu:
     weight: 400
 project: corda-5
 section_menu: corda-5-dev-preview
-title: Default Class Evolution
+
 ---
 
 Whilst more complex evolutionary modifications to classes require annotating, Corda’s serialization
@@ -16,14 +16,14 @@ the actual code changes. These are:
 
 
 
-* Adding nullable properties
-* Adding non-nullable properties if, and only if, an annotated constructor is provided
-* Removing properties
-* Reordering constructor parameters
+* Adding nullable properties.
+* Adding non-nullable properties *if* an annotated constructor is provided.
+* Removing properties.
+* Reordering constructor parameters.
 
 
 
-## Adding Nullable Properties
+## Adding nullable properties
 
 The serialization framework allows nullable properties to be freely added. For example:
 
@@ -40,17 +40,16 @@ data class Example1 (val a: Int, b: String, c: Int?) // (Version B)
 
 {{< /tabs >}}
 
-A node with version A of class `Example1`  will be able to deserialize a blob serialized by a node with it
-at version B as the framework would treat it as a removed property.
+A node with version A of class `Example1`,  is able to deserialize a blob serialized by a node with it
+at version B. The framework would treat it as a removed property.
 
-A node with the class at version B will be able to deserialize a serialized version A of `Example1` without
+A node with the class at version B, will be able to deserialize a serialized version A of `Example1` without
 any modification as the property is nullable and will thus provide null to the constructor.
 
 
-## Adding Non-Nullable Properties
+## Adding non-nullable properties
 
-If a non-null property is added, unlike nullable properties, some additional code is required for
-this to work. Consider a similar example to our nullable example above:
+Unlike nullable properties, if a non-null property is added, additional code is required. Consider a similar example to our nullable example above:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -68,27 +67,27 @@ data class Example1 (val a: Int, b: String, c: Int) { // (Version B)
 
 {{< /tabs >}}
 
-For this to work we have had to add a new constructor that allows nodes with the class at version B to create an
-instance from serialised form of that class from an older version, in this case version A as per our example
-above. A sensible default for the missing value is provided for instantiation of the non-null property.
+For this to work, you would have to add a new constructor that allows nodes with the class at version B to create an
+instance from serialized form of that class from an older version (in this case, version A). A sensible default for
+the missing value is provided for instantiation of the non-null property.
 
 {{< note >}}
-The `@DeprecatedConstructorForDeserialization` annotation is important. It signifies to the
+`@DeprecatedConstructorForDeserialization` signifies to the
 serialization framework that this constructor should be considered for building instances of the
 object when evolution is required.
 
-Furthermore, the integer parameter is passed to the constructor if the annotation indicates a precedence
-order. See the discussion below.
+The integer parameter is passed to the constructor if the annotation indicates a precedence
+order.
 
 {{< /note >}}
-As before, instances of the class at version A will be able to deserialize serialized forms of example B as it
+As before, instances of the class at version A will be able to deserialize serialized forms of example B. It
 will simply treat them as if the property has been removed (as from its perspective, they will have been).
 
 
-### Constructor Versioning
+### Constructor versioning
 
-If, over time, multiple non-nullable properties are added, then a class will potentially have to be able
-to deserialize a number of different forms of the class. Being able to select the correct constructor is
+If, over time, multiple non-nullable properties are added, then a class may have to
+deserialize a number of different forms of the class. Being able to select the correct constructor is
 important to ensure the maximum information is extracted.
 
 Consider this example:
@@ -155,8 +154,8 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 
 {{< /tabs >}}
 
-Examples I, II, and III would require evolution and thus selection of constructor. Now, with no versioning applied there
-is ambiguity as to which constructor should be used. For example, example II could use ‘alt constructor 2’ which matches
+Examples I, II, and III would require evolution and thus selection of constructor. With no versioning applied there
+is ambiguity as to which constructor should be used. Example II could use ‘alt constructor 2’ which matches
 its arguments most tightly or ‘alt constructor 1’ and not instantiate parameter c.
 
 `constructor (a: Int, b: Int, c: Int) : this(a, b, c, -1, -1)`
@@ -165,7 +164,7 @@ or
 
 `constructor (a: Int, b: Int) : this(a, b, -1, -1, -1)`
 
-Whilst it may seem trivial which should be picked, it is still ambiguous, thus we use a versioning number in the constructor
+Whilst it may seem trivial which should be picked, it is still ambiguous, thus use a versioning number in the constructor
 annotation which gives a strict precedence order to constructor selection. Therefore, the proper form of the example would
 be:
 
@@ -187,7 +186,7 @@ data class Example3 (val a: Int, val b: Int, val c: Int, val d: Int, val: Int e)
 {{< /tabs >}}
 
 Constructors are selected in strict descending order taking the one that enables construction. So, deserializing examples I to IV would
-give us:
+result in:
 
 {{< tabs name="tabs-9" >}}
 {{% tab name="kotlin" %}}
@@ -202,7 +201,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 {{< /tabs >}}
 
 
-## Removing Properties
+## Removing properties
 
 Property removal is effectively a mirror of adding properties (both nullable and non-nullable) given that this functionality
 is required to facilitate the addition of properties. When this state is detected by the serialization framework, properties
@@ -228,10 +227,10 @@ no capacity to guess which values should or could be used as sensible defaults. 
 them to null.
 
 
-## Reordering Constructor Parameter Order
+## Reordering constructor parameter order
 
 Properties (in Kotlin this corresponds to constructor parameters) may be reordered freely. The evolution serializer will create a
-mapping between how a class was serialized and its current constructor parameter order. This is important to our AMQP framework as it
+mapping between how a class was serialized and its current constructor parameter order. This is important to the AMQP framework as it
 constructs objects using their primary (or annotated) constructor. The ordering of whose parameters will have determined the way
 an object’s properties were serialized into the byte stream.
 

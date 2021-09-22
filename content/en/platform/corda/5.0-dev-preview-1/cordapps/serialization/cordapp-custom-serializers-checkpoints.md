@@ -7,18 +7,18 @@ menu:
     weight: 300
 project: corda-5
 section_menu: corda-5-dev-preview
-title: Pluggable Serializers for CorDapps checkpoints
+
 ---
 
 If a CorDapp encounters an exception during the checkpoint process, it may need a custom serializer to make a class serializable.
 
 {{< warning >}}
-This is an unsupported advanced feature for use when a class cannot be serialized and cannot be avoided. It should be avoided unless there is no choice. Care needs to be taken when modifying CorDapps when custom checkpoint serializers are present. Avoid removing or renaming a custom serializer needed to deserialize a checkpoint. It is best to modify CorDapps containing custom checkpoint serializers when no checkpoints are present.
+This is an unsupported advanced feature for use when a class cannot be serialized and cannot be avoided. Care needs to be taken when modifying CorDapps when custom checkpoint serializers are present. Avoid removing or renaming a custom serializer needed to deserialize a checkpoint. It is best to modify CorDapps containing custom checkpoint serializers when no checkpoints are present.
 {{< /warning >}}
 
 ## Before you begin
 
-Please read [Pluggable serializers for CorDapps](cordapp-custom-serializers.md) before starting writing custom checkpoint serializers. 
+Read [pluggable serializers for CorDapps](cordapp-custom-serializers.md) before you start writing custom checkpoint serializers.
 
 ## Writing a custom checkpoint serializer
 
@@ -28,7 +28,7 @@ In addition, they need to implement `net.corda.core.serialization.CheckpointCust
 
 ## Example
 
-Create a class that claims to implement the Map interface, but does not behave correctly:
+Create a class that claims to implement the `Map` interface, but does not behave correctly:
 
 ```java
 @CordaSerializable
@@ -74,7 +74,7 @@ public class BrokenMapFlow extends FlowLogic<Integer> {
 
 At this point, there is a flow that will not deserialize from checkpoint correctly. It will throw an exception when trying to rebuild `BrokenMapImpl`.
 
-Adding this implementation of `CheckpointCustomSerializer` will fix the issue. It will be found at startup and registered with the system. When the test flow reaches a checkpoint, this will transform `BrokenMapImpl` into a `HashMap` for storage and then convert back to `BrokenMapImpl` when the flow resumes.
+Adding this implementation of `CheckpointCustomSerializer` will fix the issue. It's found at startup and registered with the system. When the test flow reaches a checkpoint, this will transform `BrokenMapImpl` into a `HashMap` for storage and then convert back to `BrokenMapImpl` when the flow resumes.
 
 ```java
 public class BrokenMapSerializer implements CheckpointCustomSerializer<BrokenMapImpl, HashMap> {
