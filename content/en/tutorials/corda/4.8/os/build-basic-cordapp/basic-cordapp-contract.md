@@ -327,4 +327,4 @@ public class BasketOfApplesContract implements Contract {
 
 ## Next steps
 
-Follow the [Write flows](tutorial-basic-cordapp-flows.md) tutorial to continue on this learning path.
+Follow the [Write flows](basic-cordapp-flows.md) tutorial to continue on this learning path.
