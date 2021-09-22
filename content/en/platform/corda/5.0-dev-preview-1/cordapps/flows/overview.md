@@ -18,7 +18,7 @@ All activity on the node occurs in the context of these flows. Unlike contracts,
 
 ## Flows in the Corda 5 Developer Preview
 
-In the Corda 5 Developer Preview, the `Flow` interface is used to implement a flow. Implementing this interface will define the `call` method where business logic goes. Corda 5 API is provided to the flow by injectable services, accessible by defining a field and annotating with `@CordaInject`.
+In the Corda 5 Developer Preview, the `Flow` interface is used to implement a flow. Implementing `Flow` will define the `call` method which holds your business logic. Corda 5 API is provided to the flow by injectable services, accessible by defining a field and annotating with `@CordaInject`.
 
 ## Changes from Corda 4
 
