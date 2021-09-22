@@ -7,33 +7,29 @@ menu:
     weight: 200
 project: corda-5
 section_menu: corda-5-dev-preview
-title: Pluggable Serializers for CorDapps
+
 ---
 
-To be serializable by Corda Java classes must be compiled with the `-parameters` switch to enable matching of its properties
+To be serializable by Corda, Java classes must be compiled with the `-parameters` switch to enable matching of its properties
 to constructor parameters. This is important because Corda’s internal AMQP serialization scheme will only construct
 objects using their constructors. However, when recompilation isn’t possible, or classes are built in such a way that
-they cannot be easily modified for simple serialization, CorDapps can provide custom proxy serializers that Corda
-can use to move from types it cannot serialize to an interim representation that it can with the transformation to and
+they cannot be easily modified for simple serialization, CorDapps can provide custom proxy serializers. Corda uses these
+custom proxy serializers to move from types it cannot serialize to an interim representation that it can with the transformation to and
 from this proxy object being handled by the supplied serializer.
 
+## Serializer location
 
-## Serializer Location
-
-Custom serializer classes can be made available through user installed artifacts and should follow the rules mentioned in
-the section below.
+Custom serializer classes can be made available through user installed artifacts and should follow the rules in the next section.
 
 
-## Writing a Custom Serializer
+## Writing a custom aerializer
 
 Serializers must:
-
-
 
 * Inherit from `net.corda.v5.serialization.SerializationCustomSerializer`.
 * Provide a proxy class to transform the object to and from.
 * Implement the `toProxy` and `fromProxy` methods.
-* Be either included into the CorDapp Jar or made available in the system class path of the running process.
+* Be either included in the CorDapp `.jar` or made available in the system class path of the running process.
 
 
 Serializers inheriting from `SerializationCustomSerializer` have to implement two methods and two types.
@@ -63,16 +59,16 @@ public final class Example {
 }
 ```
 
-Without a custom serializer we cannot serialize this class as there is no public constructor that facilitates the
+Without a custom serializer, thie class cannot be serialized as there is no public constructor that facilitates the
 initialisation of all of its properties.
 
 {{< note >}}
 This is clearly a contrived example, simply making the constructor public would alleviate the issues.
-However, for the purposes of this example we are assuming that for external reasons this cannot be done.
+However, for the purpose of this example, assume that this cannot be done for external reasons.
 
 {{< /note >}}
-To be serializable by Corda this would require a custom serializer to be written that can transform the unserializable
-class into a form we can serialize. Continuing the above example, this could be written as follows:
+To be serializable by Corda, this would require a custom serializer to be written that can transform the unserializable
+class into a form we can serialize. Continuing with the above example, this could be written as:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="java" %}}
@@ -189,14 +185,14 @@ class ExampleSerializer : SerializationCustomSerializer<Example, ExampleSerializ
 
 {{< /tabs >}}
 
-In the above examples
+In the above example:
 
 
 * `ExampleSerializer` is the actual serializer that will be loaded by the framework to serialize instances of the `Example` type.
 * `ExampleSerializer.Proxy` in the Kotlin example, and `ExampleProxy` in the Java example, is the intermediate representation used by the framework to represent instances of `Example` within the wire format.
 
 
-## The Proxy Object
+## The proxy object
 
 The proxy object should be thought of as an intermediate representation that the serialization framework
 can reason about. One is being written for a class because, for some reason, that class cannot be
@@ -224,11 +220,11 @@ class ExampleSerializer : SerializationCustomSerializer<Example, ExampleSerializ
 }
 ```
 
-However, this will not work because what we’ve created is a recursive loop whereby synthesising a serializer
+However, this will not work because what's been created is a recursive loop, whereby synthesising a serializer
 for the `Example` type requires synthesising one for `ExampleSerializer.Proxy`. However, that requires
-one for `Example` and so on and so forth until we get a `StackOverflowException`.
+one for `Example` and so on, and so forth until we get a `StackOverflowException`.
 
-The solution, as shown initially, is to create the intermediate form (the Proxy object) purely in terms
+The solution, as shown initially, is to create the intermediate form (the proxy object) purely in terms
 the serialization framework can reason about.
 
 
@@ -242,5 +238,5 @@ into the serialized byte stream.
 
 ## Whitelisting
 
-By writing a custom serializer for a class it has the effect of adding that class to the whitelist, meaning such
+By writing a custom serializer for a class, it has the effect of adding that class to the whitelist. This means such
 classes don’t need explicitly adding to the CorDapp’s whitelist.
