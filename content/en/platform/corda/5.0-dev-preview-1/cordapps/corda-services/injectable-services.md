@@ -11,10 +11,10 @@ description: >
   A list of injectable platform Corda Services.
 ---
 
-The following services are available for injection into flows and other Corda Services. In addition to these, you can also create custom Corda Services for injection.
+The following services are available for injection into flows and other Corda Services. You can also create custom Corda Services for injection.
 
 {{< table >}}
-|Class|Methods|Inject Into|
+|Class|Methods|Inject into|
 |-|-|-|
 |`net.corda.v5.application.flows.flowservices.FlowAuditor`|`checkFlowPermission`, `recordAuditEvent`|Flow|
 |`net.corda.v5.application.flows.flowservices.FlowEngine`|`getRunId`, `isKilled`, `subFlow`, `checkFlowIsNotKilled`, `sleep`, `await`|Flow|
