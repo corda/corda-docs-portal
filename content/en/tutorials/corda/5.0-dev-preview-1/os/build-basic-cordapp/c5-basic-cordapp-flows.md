@@ -140,7 +140,7 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
 
 #### Inject services
 
-When writing flows with the Corda 5 Developer Preview, you can inject whichever services you need, and exclude those you don't. This makes your CorDapp lighter, allowing your nodes to run faster.
+When writing flows with the Corda 5 Developer Preview, you can inject whichever services you need, and exclude those you don't.
 
 Use the `@CordaInject` tag to define a field to be set by Corda before the call method is called. See this [list of services](XXX) to find out what services you can add to a CorDapp.
 
@@ -204,9 +204,9 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
     lateinit var jsonMarshallingService: JsonMarshallingService
 ```
 
-#### Add the flow logic
+#### Add the flow implementation
 
-Next you must add the flow logic to the initiating flow by encapsulating it within the `call` method.
+Next you must add the flow implementation to the initiating flow by encapsulating it within the `call` method.
 
 1. Add the `@Suspendable` annotation.
 2. Add the `call` method with the return type `SignedTransactionDigest`.
@@ -474,7 +474,7 @@ Start writing your initiating flow following the same process used when writing 
     * `JsonMarshallingService`
     * `PersistenceService`
 4. Add the `@Suspendable` annotation.
-5. Encapsulate the `FlowLogic` into a call method that returns the `SignedTransactionDigest`.
+5. Encapsulate the flow implementation into a call method that returns the `SignedTransactionDigest`.
 6. Parse these parameters and add exceptions for when these parameters are incorrect or not present:
     * `voucherID`
     * `holder`
@@ -482,11 +482,9 @@ Start writing your initiating flow following the same process used when writing 
 
 7. Insert a method for finding the notary.
 
-Up until this point, you've been able to follow the same process you used when writing your first flows for this app. Now you'll learn how to do something new: implement queries.
-
 #### Implement queries
 
-In the `FlowLogic` for this initiating flow, you must query the `MarsVoucher` and the `BoardingTicket`. You can use the `PersistenceService` to perform these queries.
+In the implementation of this initiating flow, you must query the `MarsVoucher` and the `BoardingTicket`. You can use the `PersistenceService` to perform these queries.
 
 ##### Add a query for the `MarsVoucher`
 
@@ -582,9 +580,8 @@ Finish the initiating flow by continuing with the same steps you followed when c
 
 ### Write the responder flow
 
-<!---Missing info here.--->
-
-After you've added the responder flow, you've finished writing the `RedeemBoardingTicketWithVoucher` flow. Your code should look like this:
+Now that you've written the initiating flow, try writing the responder flow.
+Once you're done, your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.flows
