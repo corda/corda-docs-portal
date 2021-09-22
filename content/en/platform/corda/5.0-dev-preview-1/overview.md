@@ -26,9 +26,9 @@ In this preview, you can:
 * Try the new CorDapp packaging plugin to convert your code to the Corda 5 `.cpk` file—the new extension for Corda 5 CorDapps.
 * Experiment with the discovery and identity API for network memberships.
 
-{{< note >}}
+{{< warning >}}
 This is a developer preview, and not for production or commercial deployment. You should perform all tasks in the tutorials and any further development work locally only.
-{{< /note >}}
+{{< /warning >}}
 
 ## New concepts in Corda 5 Developer Preview
 
