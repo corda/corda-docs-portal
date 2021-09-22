@@ -26,7 +26,7 @@ The `FlowLogic` abstract class has been broken up into a set of smaller interfac
 
 All methods that used to exist on the `FlowLogic` abstract class are now available as injectable services using property injection. An implementation of `FlowLogic` still exists to ease migration to Corda 5. It implements the `Flow` interface.
 
-This move away from an abstract class to injectable services allows you as a CorDapp developer to use only what you need. Features that you don't use do not need to be present on your flow classes.
+This move away from an abstract class to injectable services allows you, as a CorDapp developer, to use only what you need. Features that you don't use do not need to be present on your flow classes.
 
 ## Flow interface
 
