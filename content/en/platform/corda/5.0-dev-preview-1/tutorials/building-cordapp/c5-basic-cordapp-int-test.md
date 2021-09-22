@@ -30,7 +30,7 @@ After you have completed this tutorial, you will know how to write and run integ
 
 ## Before you start
 
-Before you start writing integration tests you must [set up a Corda 5 network](../../getting-started/setup-network.md) locally and deploy your CorDapp.
+Before you start writing integration tests you must [deploy your CorDapp to a local Corda 5 network](c5-basic-cordapp-running.md#deploy-your-cordapp-to-a-local-corda-5-network).
 
 ## Create an integration test for `CreateAndIssueMarsVoucher` flow
 
@@ -222,4 +222,4 @@ class CreateAndIssueMarsVoucherTest {
 
 ## Create integration tests for the `CreateBoardingTicket` flow and the `RedeemBoardingTicketWithVoucher` flow
 
-Now that you've written the integration test for `CreateAndIssueMarsVoucher`, try writing the tests for the two other flows in your CorDapp: `CreateBoardingTicket` and `RedeemBoardingTicketWithVoucher`. Check your work against the [CorDapp solution](XXX). 
+Now that you've written the integration test for `CreateAndIssueMarsVoucher`, try writing the tests for the two other flows in your CorDapp: `CreateBoardingTicket` and `RedeemBoardingTicketWithVoucher`. Check your work against the [CorDapp solution](XXX).
