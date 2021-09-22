@@ -18,19 +18,24 @@ All activity on the node occurs in the context of these flows. Unlike contracts,
 
 ## Flows in the Corda 5 Developer Preview
 
-In the Corda 5 Developer Preview, the `Flow` interface is used to implement a flow. Implementing `Flow` will define the `call` method which holds your business logic. Corda 5 API is provided to the flow by injectable services, accessible by defining a field and annotating with `@CordaInject`.
+In the Corda 5 Developer Preview, the `Flow` interface is used to implement a flow. Implementing `Flow` will define the `call` method which holds your business logic. The Corda 5 Developer Preview API is provided to the flow by injectable services, accessible by defining a field and annotating with `@CordaInject`.
 
 ## Changes from Corda 4
 
-The `FlowLogic` abstract class has been broken up into a set of smaller interfaces. In place of `FlowLogic`, you should now implement the `Flow` interface which holds the `call` method. The `progressTracker` has been removed, use logging instead.
+The `FlowLogic` abstract class used in Corda 4 has been broken up into a set of smaller interfaces. In place of
+`FlowLogic`, implement the `Flow` interface which holds the `call` method.
 
-All methods that used to exist on the `FlowLogic` abstract class are now available as injectable services using property injection. An implementation of `FlowLogic` still exists to ease migration to Corda 5. It implements the `Flow` interface.
+The `progressTracker` has been removed, use logging instead.
 
-This move away from an abstract class to injectable services allows you, as a CorDapp developer, to use only what you need. Features that you don't use do not need to be present on your flow classes.
+All methods that used to exist on the `FlowLogic` abstract class are now available as injectable services using property
+injection. An implementation of `FlowLogic` still exists to ease migration to Corda 5 and implements the `Flow` interface.
+
+This move away from an abstract class to injectable services allows you to use only what you need. Features that you
+don’t use do not need to be present on your flow classes.
 
 ## Flow interface
 
-The `Flow` interface defines the `call` method that contains the flow's business logic. Implementing `Flow` is the minimum required to
+The `Flow` interface defines the `call` method that contains the flow's business logic. Implementing `Flow` is the minimum requirement to
 implement a flow in the Corda 5 Developer Preview.
 
 {{< note >}}
@@ -68,7 +73,7 @@ To use these services, define a field annotated with the
 
 {{< note >}}
 You cannot use the injected services before the `call` method has
-been called.  They will not be available to the constructor.
+been called as they will not be available to the constructor.
 {{< /note >}}
 
 ## Flow examples
