@@ -14,24 +14,24 @@ Corda networks use point-to-point messaging instead of a global broadcast. This 
 
 Once a given business process has been encapsulated in a flow and installed on the node as part of a CorDapp, a member of a network can instruct the node to kick off this business process at any time via their node.
 
-All activity on the node occurs in the context of these flows. Unlike contracts, flows do not execute in a sandbox, meaning that nodes can perform actions such as networking, I/O and use sources of randomness within the execution of a flow.
+All activity on the node occurs in the context of these flows. Unlike contracts, flows do not execute in a sandbox, meaning that nodes can perform actions such as networking, I/O, and use sources of randomness within the execution of a flow.
 
-## Flows in Corda 5 Developer Preview
+## Flows in the Corda 5 Developer Preview
 
-In Corda 5 Developer Preview, the `Flow` interface is used to implement a flow. Implementing this interface will define the `call` method where business logic goes. Corda 5 API is provided to the flow by injectable services, accessible by defining a field and flagging with `@CordaInject`.
+In the Corda 5 Developer Preview, the `Flow` interface is used to implement a flow. Implementing this interface will define the `call` method where business logic goes. Corda 5 API is provided to the flow by injectable services, accessible by defining a field and annotating with `@CordaInject`.
 
 ## Changes from Corda 4
 
-The `FlowLogic` abstract class has been broken up into a set of smaller interfaces.  In place of `FlowLogic`, you should now implement the `Flow` interface which holds the `call` method. The `progressTracker` has been removed. Use logging instead.
+The `FlowLogic` abstract class has been broken up into a set of smaller interfaces. In place of `FlowLogic`, you should now implement the `Flow` interface which holds the `call` method. The `progressTracker` has been removed, use logging instead.
 
-All methods that used to exist on the `FlowLogic` abstract class are now available as injectable services using property injection. An implementation of `FlowLogic` still exists to ease migration to the new system. It implements the `Flow` interface.
+All methods that used to exist on the `FlowLogic` abstract class are now available as injectable services using property injection. An implementation of `FlowLogic` still exists to ease migration to Corda 5. It implements the `Flow` interface.
 
 This move away from an abstract class to injectable services allows you as a CorDapp developer to use only what you need. Features that you don't use do not need to be present on your flow classes.
 
 ## Flow interface
 
-The `Flow` interface defines the `call` method that contains the flows business logic. Implementing `Flow` is the minimum  required to
-implement a flow in Corda 5 Dev Preview.
+The `Flow` interface defines the `call` method that contains the flow's business logic. Implementing `Flow` is the minimum required to
+implement a flow in the Corda 5 Developer Preview.
 
 {{< note >}}
 The `@Suspendable` annotation needs to be present on the `call` method when implementing this interface.
@@ -57,17 +57,19 @@ interface Flow<out T> {
 }
 ```
 
-## Service Injection
+## Service injection
 
 The methods that previously existed on `FlowLogic` have been extracted
-into injectable services (see Service Documentation).
+into injectable services. [Corda Services](../corda-services/overview.md) contains more information.
 
 To use these services, define a field annotated with the
 `@CordaInject` annotation. The system will set the field before the
 `call` method is called.
 
-> You cannot use the injected services before the `call` method has
-> been called.  They will not be available to the constructor.
+{{< note >}}
+You cannot use the injected services before the `call` method has
+been called.  They will not be available to the constructor.
+{{< /note >}}
 
 ## Flow examples
 
