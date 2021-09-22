@@ -15,7 +15,7 @@ Use the `FlowStarterService` to start flows from Corda Services.
 
 ## How to inject FlowStarterService
 
-Use the `CordaInject` mechanism to inject `FlowStarterService` into services.
+Use the `@CordaInject` mechanism to inject `FlowStarterService` into services.
 
 {{< note >}}
 This is injectable into Corda Services only. For starting flows from inside flows, see `FlowEngine.subFlow`.
