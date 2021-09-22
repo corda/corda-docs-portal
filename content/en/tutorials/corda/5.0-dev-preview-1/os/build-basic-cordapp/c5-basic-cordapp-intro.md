@@ -4,7 +4,7 @@ section_menu: tutorials
 section_menu: tutorials
 menu:
   tutorials:
-    parent: tutorials-corda-5
+    parent: 5.0-dev-preview-1
     name: Building your first basic CorDapp
     weight: 1010
     identifier: corda-5.0-dev-preview-1-os-tutorial-c5-basic-cordapp-intro
