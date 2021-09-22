@@ -151,7 +151,7 @@ As below:
 
 ```kotlin
 /**
- * Extension function for registering service implementations for dependency injection in to flows and Corda services.
+ * Extension function for registering service implementations for dependency injection into flows and Corda services.
  */
 private fun <IMPL : INTERFACE, INTERFACE : Any> IMPL.registerForInjection(injectableInterface: Class<INTERFACE>): IMPL {
     dependencyInjectionService.registerSingletonService(injectableInterface, this)
@@ -380,7 +380,7 @@ class MyOtherService : CordaService {
 
 ### Valid pre-start dependency injection chaining
 
-This is another example of a case where `MyService` is injected in to `MyOtherService` before starting, but `MyService` also has a pre-start dependency. In this case `SimpleService` has no dependencies, so it will be injected in to `MyService`, the service start event will be distributed to `MyService`, then `MyService` will be injected in to `MyOtherService` before it also receives the service start event.
+This is another example of a case where `MyService` is injected into `MyOtherService` before starting, but `MyService` also has a pre-start dependency. In this case, `SimpleService` has no dependencies, so it will be injected into `MyService`, the service start event will be distributed to `MyService`, then `MyService` will be injected into `MyOtherService` before it also receives the service start event.
 
 ``` kotlin
 class SimpleService: CordaService, CordaServiceInjectable {
@@ -411,7 +411,7 @@ class MyOtherService : CordaService {
 
 ### Invalid pre-start dependency injection circular dependency chain
 
-The following case will result in an exception being thrown because there is a circular dependency of pre-start dependencies. For pre-start injection, `MyOtherService` depends on `MyService`, `MyService` depends on `SimpleService`, and `SimpleService` depends on `MyOtherService`. It is impossible to instantiate these in order:
+This example will result in an exception being thrown because there is a circular dependency of pre-start dependencies. For pre-start injection, `MyOtherService` depends on `MyService`, `MyService` depends on `SimpleService`, and `SimpleService` depends on `MyOtherService`. It is impossible to instantiate these in order:
 
 ``` kotlin
 class SimpleService: CordaService, CordaServiceInjectable {
@@ -452,7 +452,7 @@ class MyOtherService : CordaService, CordaServiceInjectable {
 
 #### Invalid pre-start dependency injection due to a post-start injectable
 
-This is another example of an invalid case. `MyOtherService` requires `MyService` as a pre-start dependency, but `MyService` depends on `SimpleService` after starting. You cannot guarantee that `MyService` will be usable by `MyOtherService` during start up since its own dependency will not have been initialized:
+This is another example of an invalid case. `MyOtherService` requires `MyService` as a pre-start dependency, but `MyService` depends on `SimpleService` after starting. You cannot guarantee that `MyService` will be usable by `MyOtherService` during startup since its own dependency will not have been initialized:
 
 ``` kotlin
 class SimpleService: CordaService , CordaServiceInjectable
@@ -479,6 +479,6 @@ class MyOtherService : CordaService {
 }
 ```
 
-## Notary Service Injection
+## Notary service injection
 
-The `NotaryLoader` class scans for and instantiates notary services. The `NotaryLoader` is also responsible for using the `DependencyInjectionService` to inject dependencies annotated with `@CordaInject` into the notary service after it has been initialised. At time of writing there is no advantage to having a specific notary service injection interface, so any service which implements `CordaServiceInjectable` is injectable into both custom Corda services and notary services.
+The `NotaryLoader` class scans for and instantiates notary services. The `NotaryLoader` is also responsible for using the `DependencyInjectionService` to inject dependencies annotated with `@CordaInject` into the notary service after it has been initialized. There is no advantage to having a specific notary service injection interface, so any service which implements `CordaServiceInjectable` is injectable into both custom Corda Services and notary services.
