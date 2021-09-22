@@ -1,5 +1,6 @@
 ---
 date: '2021-09-03T12:00:00Z'
+title: "Default class evolution"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-serialization
@@ -8,9 +9,6 @@ project: corda-5
 section_menu: corda-5-dev-preview
 title: Default Class Evolution
 ---
-
-# Default Class Evolution
-
 
 Whilst more complex evolutionary modifications to classes require annotating, Corda’s serialization
 framework supports several minor modifications to classes without any external modification save
@@ -282,4 +280,3 @@ data class Example5 (val b: String, val a: Int)
 {{% /tab %}}
 
 {{< /tabs >}}
-

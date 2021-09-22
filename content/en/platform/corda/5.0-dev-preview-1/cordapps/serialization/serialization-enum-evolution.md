@@ -1,5 +1,6 @@
 ---
 date: '2021-09-03T12:00:00Z'
+title: Enum evolution
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-serialization
@@ -8,8 +9,6 @@ project: corda-5
 section_menu: corda-5-dev-preview
 title: Enum Evolution
 ---
-
-# Enum Evolution
 
 In the continued development of a CorDapp an enumerated type that was fit for purpose at one time may
 require changing. Normally, this would be problematic as anything serialized (and kept in a vault) would

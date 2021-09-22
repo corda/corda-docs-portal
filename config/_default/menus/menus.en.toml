@@ -711,22 +711,6 @@ weight = 500
 #the homepage menu creates a left hand side menu inside all the landing pages
 #if an entry has a URL property, it is to artificially add the document into a second menu
 
-
-#this entry is required so that we have a link to the dev preview docs in the homepage menu
-[[homepage]]
-identifier = "platform-preview-1"
-parent = "platform-corda-5"
-url = "/platform/corda/5.0-dev-preview-1.html"
-name = "Developer Preview 1"
-weight = 100
-
-#this entry is a dummy entry for dev preview 2, and can be removed, it's entirely visual
-[[homepage]]
-identifier = "platform-preview-2"
-parent = "platform-corda-5"
-name = "Developer Preview 2"
-weight = 200
-
 #this entry is required to create a link to the corda docs in the homepage menu
 [[homepage]]
 identifier = "platform-corda-os"
@@ -800,4 +784,3 @@ identifier = "platform-corda-5"
 parent = "homepage-corda"
 name = "Corda 5"
 weight = 100
-

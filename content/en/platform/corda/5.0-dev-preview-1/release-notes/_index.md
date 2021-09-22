@@ -9,7 +9,7 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-The Corda 5 Developer Preview, released on 27 September 2021, showcases the core features of the upcoming Corda 5.0 release to invite feedback. Intended for local deployment, experimental development, and testing only, this preview includes:
+The Corda 5 Developer Preview, released on 28 September 2021, showcases the core features of the upcoming Corda 5.0 release to invite feedback. Intended for local deployment, experimental development, and testing only, this preview includes:
 
 - A [Modular API](xxx). Corda's core API module has been split into packages and versioned. Learn about [key APIs](xxx) and [Corda Services](xxx), and find new [API reference documentation](xxx). Test it out with [updated code samples](xxx).
 
