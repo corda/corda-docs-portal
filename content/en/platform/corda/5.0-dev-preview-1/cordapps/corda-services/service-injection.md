@@ -8,12 +8,12 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Injection of Corda Services into flows and other Corda Services
+  Injection of Corda Services into flows and other Corda Services.
 ---
 
-In the Corda 5 Dev Preview, you can use the annotation `@CordaInject` to inject Corda Services into flows and other Corda Services.
+In the Corda 5 Developer Preview, you can use the annotation `@CordaInject` to inject Corda Services into flows and other Corda Services.
 
-Required services must be declared as uninitialised, settable class properties to be properly injected for use. Injection can be used for all access-level modifiers, and for properties on superclasses.
+Required services must be declared as uninitialized, settable class properties to be properly injected for use. Injection can be used for all access-level modifiers, and for properties on superclasses.
 
 For example:
 
@@ -26,20 +26,22 @@ lateinit var transactionService: TransactionService
 
 This injection is for use within custom CorDapp classes instantiated by Corda using reflection. This is currently limited to CorDapp flows, custom Corda services, and notary services.
 
-_Note: Another injection annotation exists called `@CordaInjectPreStart`. This is specifically used for injection in Corda services to support the Corda service lifecycle and will be described in more detail in a later section of this document._
+{{< note >}}
+`@CordaInjectPreStart` is another injection annotation. It is specifically used for injection in Corda Services to support the Corda Service lifecycle.
+{{< /note >}}
 
-## Making a custom Corda service injectable
+## Make a custom Corda Service injectable
 
-In order to make service injectable, you must first make it implement one or both of the injection interfaces:
+In order to make a service injectable, you must first make it implement one or both of the injection interfaces:
 
 * `CordaFlowInjectable`
 * `CordaServiceInjectable`
 
-These are empty interfaces used to indicate that a service can be injected, and where it can be injected. Implementing `CordaFlowInjectable` will allow for injection into a Flow, and `CordaServiceInjectable` will allow for injection in to a Corda service or notary service.
+These are empty interfaces used to indicate that a service can be injected, and where it can be injected. Implementing `CordaFlowInjectable` will allow for injection into a flow, and `CordaServiceInjectable` will allow for injection into a Corda Service or notary service.
 
 ### Signature of singleton injection registration
 
-Registration of a singleton service stores a mapping from interface class type to implementation instance and can be used for notary services and Corda services.
+Registration of a singleton service stores a mapping from interface class type to implementation instance, and can be used for notary services and Corda Services.
 
 The interface you provide during registration is the interface which should be used in flows/services with the `@CordaInject` annotation.
 
@@ -63,7 +65,7 @@ fun <U : T, T : Any> registerSingletonService(
 )
 ```
 
-### Example of singleton registration:
+### Example of singleton registration
 
 ``` kotlin
 dependencyInjectionService.registerSingletonService(
@@ -86,9 +88,9 @@ lateinit var identityService: IdentityService
 IdentityService identityService;
 ```
 
-### Signature of dynamic service injection registration:
+### Signature of dynamic service injection registration
 
-When registering service implementations which need a new instance to be instantiated each time they are injected, use dynamic service injection. For example, you should use this for services which require a reference to the state machine, or the flow/service which the implementation is injected into.
+When registering service implementations which need a new instance to be instantiated each time they are injected, use dynamic service injection. For example, you should use this for services which require a reference to the state machine or the flow/service which the implementation is injected into.
 
 In Corda 4, you could use this to inject functionality that would formerly have been in the `FlowLogic` class.
 
@@ -109,7 +111,7 @@ fun <U : T, T : Any> registerDynamicService(
     implementationInjector: DependencyInjector<U>
 )
 ```
-### Example of dynamic service registration:
+### Example of dynamic service registration
 
 ``` kotlin
 registerDynamicService(
@@ -139,11 +141,11 @@ lateinit var flowEngine: FlowEngine
 FlowEngine flowEngine;
 ```
 
-The signatures of the registration functions require the implementation to implement the interface, and allow for base type `Any` for the interface. This `Any` type is because no common base interface for injectables is exposed. Instead, the interfaces are validated as implementing at least one of the injectable interfaces.
+The signatures of the registration functions require the implementation to implement the interface and allow for base type `Any` for the interface. This `Any` type is because no common base interface for injectables is exposed. Instead, the interfaces are validated as implementing at least one of the injectable interfaces.
 
 ### Extension function for registering singleton services in `AbstractNode`
 
-`AbstractNode` provides an extension function, `registerForInjection`, which can be called on an implementation which will register a singleton service for a given interface.  
+`AbstractNode` provides an extension function, `registerForInjection`, which can be called in an implementation which will register a singleton service for a given interface.
 
 As below:
 
@@ -165,25 +167,25 @@ val identityService = PersistentIdentityService(cacheFactory, serializationEnvir
     .registerForInjection(IdentityService::class.java)
 ```
 
-## Implementation Injection
+## Implementation injection
 
-Custom Corda services, implemented by you as a CorDapp developer, and platform Corda Services, such as `VaultService`, `IdentityService`, or `HashingService` among others, have slightly different requirements for being injectable.
+Custom Corda Services, implemented by you as a CorDapp developer, and platform Corda Services, such as `VaultService`, `IdentityService`, or `HashingService`, have slightly different requirements for being injectable.
 
 ## Platform Corda Service injection
 
 When injecting Corda Services native to the Corda platform:
 
-* All internal services must have an internal implementation implementing a public interface. This interface is what you use when registering the implementation for injection, and when requesting a dependency is injected. This is so an API can be exposed to CorDapp developers for use within their flows/services while keeping our API implementations internal. Custom Corda services are registered for injection based on the service implementation class rather than based on interfaces.
+* All internal services must have an internal implementation implementing a public interface. This interface is what you use when registering the implementation for injection and when requesting a dependency is injected. This exposes an API that CorDapp developers can use within their flows/services while keeping our API implementations internal. Custom Corda Services are registered for injection based on the service implementation class rather than based on interfaces.
 
-* Internal injectable Corda services can be either singleton services or dynamic services. This means that our internal services can be long lived singleton services, or they can be initialised each time they are injected with a reference to the current flow, custom Corda service, or state machine. Custom Corda services must all be singleton services so they can only be registered to be injected as a singleton service and cannot be injected as dynamic services.
+* Internal injectable Corda Services can be either singleton services or dynamic services. This means that our internal services can be long-lived singleton services, or they can be initialized each time they are injected with a reference to the current flow, custom Corda Service, or state machine. Custom Corda Services must all be singleton services, so they can only be registered to be injected as a singleton service and cannot be injected as dynamic services.
 
-* Registration of internal injectable services must be done during node start up so it's up to the developer of the service to implement the registration of the service. This is typically done within `AbstractNode` using the extension function `registerForInjection` mention above in the document. Custom Corda services are scanned for during node start up by jar scanning or via OSGi registration and are automatically registered for injection as a singleton service.
+* Registration of internal injectable services must be done during node startup, so it's up to the developer of the service to implement the registration of the service. This is typically done within `AbstractNode` using the extension function `registerForInjection`. Custom Corda Services are scanned for during node startup by jar scanning or via OSGi registration and are automatically registered for injection as a singleton service.
 
 {{< note >}}
-Even though all custom Corda services are registered for injection when loaded, they can only be injected if they implement at least one of the injection interfaces mentioned previously. If a custom Corda service does not implement an injection interface, a warning will be logged to the node logs but it will not fail node startup.
+Even though all custom Corda Services are registered for injection when loaded, they can only be injected if they implement at least one of the injection interfaces (`CordaFlowInjectable` or `CordaServiceInjectable`). If a custom Corda Service does not implement an injection interface, a warning will be logged to the node logs, but it will not fail node startup.
 {{< /note >}}_
 
-### Components of platform Corda Service injection:
+### Components of platform Corda Service injection
 
 ``` kotlin
 // Injectable interface
@@ -212,7 +214,7 @@ class MyService : CordaService {
 }
 ```
 
-### Components of custom Corda service injection:
+### Components of custom Corda Service injection
 
 ``` kotlin
 // Custom Corda service (service is automatically scanned for, instantiated, and registered for injection as a singleton service during node startup)
@@ -231,9 +233,9 @@ class MyService : CordaService {
 }
 ```
 
-### Flow Injection
+### Flow injection
 
-Flow instantiation is done in a number of situations and all require implementations to be injected. This includes when a flow is started, when a subflow is started, and when a flow is loaded from a checkpoint. At each point, the flow dependencies are injected using the `DependencyInjectionService`. When a flow is deserialized from a checkpoint it maintains references to the injected services, but the state machine reference is updated for any dynamic service injectable which requires a state machine reference.
+Flow instantiation is done in a number of situations and all require implementations to be injected. This includes when a flow is started, when a sub-flow is started, and when a flow is loaded from a checkpoint. At each point, the flow dependencies are injected using the `DependencyInjectionService`. When a flow is deserialized from a checkpoint, it maintains references to the injected services. The state machine reference is updated for any injectable dynamic service which requires one.
 
 #### Injection service function
 
@@ -250,7 +252,7 @@ fun injectDependencies(flow: Flow<*>, stateMachine: FlowStateMachine<*>)
 stateMachineServices.dependencyInjectionService.injectDependencies(fiber.logic, fiber)
 ```
 
-#### Kotlin Implementation
+#### Kotlin implementation
 
 ``` kotlin
 class MyFlow : Flow<Unit> {
@@ -262,7 +264,7 @@ class MyFlow : Flow<Unit> {
 }
 ```
 
-#### Java Implementation
+#### Java implementation
 
 ``` java
 public class InjectIntoServiceFlow implements Flow<Void> {
@@ -276,11 +278,11 @@ public class InjectIntoServiceFlow implements Flow<Void> {
 }
 ```
 
-## Corda Service Injection
+## Corda Service injection
 
-By default, all Corda services are not injectable. They must implement one or more of the injection interfaces to be injectable. All Corda services are registered for injection regardless of what interfaces they implement.
+By default, all Corda Services are not injectable. They must implement one or more of the injection interfaces to be injectable. All Corda Services are registered for injection regardless of what interfaces they implement.
 
-The `CordaServiceInstaller` service is responsible for instantiating all Corda services. When this installer loads a service, it also registers the service for injection automatically, and once all services are loaded it then injects all dependencies. Services are registered as injectable based on the service implementation class name. So in order to inject a Corda service, the implementation class must be used as opposed to the internal service injection which is done based on interface name.
+`CordaServiceInstaller` is responsible for instantiating all Corda Services. When this installer loads a service, it automatically registers that service for injection. Once all services are loaded it then injects all dependencies. Services are registered as injectable based on the service implementation class name. To inject a Corda Service, the implementation class must be used as opposed to the internal service injection which is done based on interface name.
 
 #### Injection service function
 
@@ -299,7 +301,7 @@ installedServices.values.forEach {
     dependencyInjectionService.injectDependencies(it)
 }
 ```
-#### Kotlin Implementation
+#### Kotlin implementation
 
 ``` kotlin
 class MyService : CordaService, CordaServiceInjectable, CordaFlowInjectable
@@ -318,7 +320,7 @@ class MyFlow : Flow<Unit> {
 }
 ```
 
-#### Java Implementation
+#### Java implementation
 
 ``` java
 public class MyService implements CordaService, CordaServiceInjectable, CordaFlowInjectable {}
@@ -339,17 +341,21 @@ public class InjectIntoServiceFlow implements Flow<Void> {
 }
 ```
 
-## CordaInjectPrestart
+## `CordaInjectPrestart`
 
-The `CordaService` interface provides lifecycle support for the service implementing the interface. This allows you to write functions to respond to specific lifecycle events. One of these lifecycle events is when the service is starting, so any logic needed to set up a service is added for this event. If one Corda service depends on another Corda service during the services start event then the latter service must be started first and have all it's dependencies injected to guarantee that it is safe to use. To allow for the service start functionality to be added and still allow injection, you can use the annotation `@CordaInjectPreStart`.
+The `CordaService` interface provides lifecycle support for the service implementing the interface. This allows you to write functions to respond to specific lifecycle events. One of these lifecycle events is when the service is starting, so any logic needed to set up a service is added for this event. If one Corda Service depends on another Corda Service during the services start event, then the latter service must be started first and have all it's dependencies injected to guarantee that it is safe to use. To allow for the service start functionality to be added and still allow injection, use the annotation `@CordaInjectPreStart`.
 
-`@CordaInjectPreStart` is used to indicate that a dependency needs to be injected before the service start event is distributed. While Corda services are being set up they are first initialised and registered for injection. Then dependencies annotated with `@CordaInjectPreStart` are injected. Next the service start lifecycle event is distributed to all Corda services. Finally, all service dependencies annotated with `@CordaInject` are injected.
+Use `@CordaInjectPreStart` to indicate that a dependency needs to be injected before the service start event is distributed. When Corda Services are being set up:
+1. They are initialized and registered for injection.
+2. Dependencies annotated with `@CordaInjectPreStart` are injected.
+3. The service start lifecycle event is distributed to all Corda Services.
+4. All service dependencies annotated with `@CordaInject` are injected.
 
-During the handling of the `@CordaInjectPreStart` dependencies, a topological sort of Corda services is done based on the `@CordaInjectPreStart` dependencies in each service. This ensures that services are started in the right order based on their pre-start dependencies. A service can only be started once all of its dependencies annotated with `@CordaInjectPreStart` have successfully started, and all of those dependencies have had _all_ of their dependencies initialized. This means that a service cannot inject another service as a pre-start dependency unless that service to be injected has either no injectable dependencies, or all its injectable dependencies are annotated with `@CordaInjectPreStart`. If the topological sort of pre-start dependencies finds that there is a circular dependency, then an exception is thrown as it would be impossible to start the services in the correct order.
+During the handling of the `@CordaInjectPreStart` dependencies, Corda Services are topological sorted based on the `@CordaInjectPreStart` dependencies in each service. This ensures that services are started in the right order based on their pre-start dependencies. A service can only be started once all of its dependencies annotated with `@CordaInjectPreStart` have successfully started, and all of those dependencies have had _all_ of their dependencies initialized. This means that a service cannot inject another service as a pre-start dependency unless that service to be injected has either no injectable dependencies, or all its injectable dependencies are annotated with `@CordaInjectPreStart`. If the topological sort of pre-start dependencies finds that there is a circular dependency, then an exception is thrown as it would be impossible to start the services in the correct order.
 
 ### Examples of valid and invalid pre-start dependency injection
 
-The following examples show where pre-start injection has been added correctly, and cases where it would fail, and why.
+These examples show where pre-start injection has been added correctly, and cases where it would fail and why.
 
 ### Valid pre-start dependency injection
 
