@@ -1,5 +1,5 @@
 ---
-title: "Flowstarter Service"
+title: "FlowStarterService"
 date: '2021-09-13'
 menu:
   corda-5-dev-preview:
@@ -8,14 +8,14 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  An overview of FlowStarterService.
+  An overview of `FlowStarterService`.
 ---
 
-The `FlowStarterService` is used to start flows from Corda Services.
+Use the `FlowStarterService` to start flows from Corda Services.
 
 ## How to inject FlowStarterService
 
-`FlowStarterService` is injectable into services using the `CordaInject` mechanism.
+Use the `CordaInject` mechanism to inject `FlowStarterService` into services.
 
 {{< note >}}
 This is injectable into Corda Services only. For starting flows from inside flows, see `FlowEngine.subFlow`.
@@ -43,9 +43,10 @@ lateinit var flowStarterService: FlowStarterService
 
 The `FlowStarterService` provides a single method called `startFlow`, taking a `Flow` as a parameter.
 
-When defining your Corda Service, you need to wait for the `StateMachineStarted` lifecycle event before starting flows. This can be done my implementing the `onEvent` method and waiting for an event of type `StateMachineStarted`.
+When defining your Corda Service, you need to wait for the `StateMachineStarted` lifecycle event before starting flows.
+You can do this by implementing the `onEvent` method and waiting for an event of type `StateMachineStarted`.
 
-### Java Example
+### Java example
 
 ```java
 import net.corda.v5.application.injection.CordaInject;
