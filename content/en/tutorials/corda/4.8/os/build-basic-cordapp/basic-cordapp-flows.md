@@ -109,8 +109,205 @@ public class CreateAndIssueAppleStamp {
 
 #### Obtain a reference for the notary
 
-You must obtain a reference for the notary
+In transactions with multiple parties, you need a notary service to reach consensus between the parties. Since this flow is communicating with Farmer Bob and Peter, you need the notary.
 
-## Write the `PackageApples` flow
+You can add a notary service in one of two ways:
+1. Use the `getServiceHub`, `getNetworkMapCache`, `getNotaryIdentities`, and `get` methods to get the services of the first available notary on the network. In this CorDapp there is only one notary, so it will always select the same one. This is fine for a simple application with one notary but should not be used in production environments.
+2. Use the `getServiceHub`, `getNetworkMapCache`, and `getNotary` methods, specifying the notary's x500 name, to select a specific notary. This is the recommended option for production environments.
+
+#### Build the output `AppleStamp` state
+
+In flows with inputs, you use those inputs to determine the outputs a flow will have. Since this flow is creating and issuing the `AppleStamp`, there are no inputs to utilize.
+
+Build the output `newStamp` using the parameters from the `AppleStamp` state:
+
+* `stampDescription`
+* `holder`
+* `UniqueIdentifier`
+
+#### Encapsulate the output and notary into the transaction
+
+Use the `TransactionBuilder` Corda object to encapsulate everything into the transaction.
+
+1. Add `TransactionBuilder TxBuilder = new TransactionBuilder`.
+1. Insert the `notary`.
+2. Use the `addOutputState` method to add the `newStamp`.
+3. Use the `addCommand` method to add the `Issue` command and a list of required signees (the initiator and the `holder`). Use `getOurIdentity` and `getOwningKey` methods to get the required signees.
+
+#### Verify that the transaction is valid
+
+Use the `verify` method to trigger contract verification of the `txBuilder` from the `getServiceHub`.
+
+#### Sign the transaction
+
+The initiator needs to sign the transaction for the transaction to be valid.
+
+1. Add `final SignedTransaction partSignedTx`.
+2. Use the `getServiceHub` method to `signInitialTransaction`. Insert the `txBuilder`.
+
+#### Send the state to the counterparty and receive it back with their signature
+
+After the initiator signs, the counterparty must also sign the transaction.
+
+1. Start a `FlowSession` with the counterparty using the `InitiateFlow` method. Add this line to start the flow session with the `holder`:
+```
+FlowSession otherPartySession = initiateFlow(holder);
+```
+2. Call a subflow to collect signatures. Introduce the `CollectSignaturesFlow` with the `partSignedTx` and the `otherPartySession`.
+
+#### Notarize and record the transaction in both parties' vaults
+
+Use the subflow `FinalityFlow` to update the ledger and record changes.
+
+The `FinalityFlow` must contain the `fullySignedTx` and the `otherPartySession`.
+
+### Write the responder flow
+
+As noted above, the initiator flow needs a corresponding responder flow. The counterparty runs the responder flow.
+
+#### Add annotation
+
+Add the `@InitiatedBy` annotation with the `CreateAndIssueAppleStampInitiator` class to indicate that this is the responder flow.
+
+#### Add the `CreateAndIssueAppleStampResponder` subclass
+
+Add the `CreateAndIssueAppleStampResponder` public static class to extend `FlowLogic`. The return type here is `Void`.
+
+#### Add variables
+
+1. Add the `FlowSession Counterparty session`.
+2. Add the public variable `CreateAndIssueAppleStampResponder` with a `FlowSession` to open the `counterpartySession`.
+
+Your variables should look like this:
+
+```java
+        private FlowSession counterpartySession;
+
+        public CreateAndIssueAppleStampResponder(FlowSession counterpartySession) {
+            this.counterpartySession = counterpartySession;
+```
+
+#### Add the `call` method
+
+1. Add the `@Suspendable` annotation.
+2. Add the `@Override` annotation.
+3. Add the `call` method with a `subFlow` that will sign the partially signed transaction from the initiator:
+```java
+SignedTransaction signedTransaction = subFlow(new SignTransactionFlow(counterpartySession)
+```
+4. Inside the subflow, you can perform checks on the transaction using `checkTransaction`. If these checks fail, an exception is thrown. You do not need to add any checks for this CorDapp.
+5. Store the transactions in the database using the subflow `ReceiveFinalityFlow` with the `counterpartySession` and the `signedTransaction.`
+
+You have now written the `CreateAndIssueAppleStamp` flow. Your code should look like this:
+
+```java
+package com.tutorial.flows;
+
+import co.paralleluniverse.fibers.Suspendable;
+import com.tutorial.contracts.AppleStampContract;
+import com.tutorial.states.AppleStamp;
+import net.corda.core.contracts.UniqueIdentifier;
+import net.corda.core.flows.*;
+import net.corda.core.identity.Party;
+import net.corda.core.transactions.SignedTransaction;
+import net.corda.core.transactions.TransactionBuilder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class CreateAndIssueAppleStamp {
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class CreateAndIssueAppleStampInitiator  extends FlowLogic<SignedTransaction>{
+
+        private String stampDescription;
+        private Party holder;
+
+        public CreateAndIssueAppleStampInitiator(String stampDescription,  Party holder) {
+            this.stampDescription = stampDescription;
+            this.holder = holder;
+        }
+
+        @Suspendable
+        @Override
+        public SignedTransaction call() throws FlowException {
+
+            /* Obtain a reference to a notary we wish to use.
+             * METHOD 1: Take first notary on network, WARNING: use for test, non-prod environments, and single-notary networks only!*
+             *  METHOD 2: Explicit selection of notary by CordaX500Name - argument can by coded in flows or parsed from config (Preferred)
+             *  * - For production you always want to1 use Method 2 as it guarantees the expected notary is returned.
+             */
+            final Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0); // METHOD 1
+            //final Party notary = getServiceHub().getNetworkMapCache().getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB")); // METHOD 2
+
+            //Building the output AppleStamp state
+            UniqueIdentifier uniqueID = new UniqueIdentifier();
+            AppleStamp newStamp = new AppleStamp(this.stampDescription,this.getOurIdentity(),this.holder,uniqueID);
+
+            //Compositing the transaction
+            TransactionBuilder txBuilder = new TransactionBuilder(notary)
+                    .addOutputState(newStamp)
+                    .addCommand(new AppleStampContract.Commands.Issue(),
+                            Arrays.asList(getOurIdentity().getOwningKey(),holder.getOwningKey()));
+
+            // Verify that the transaction is valid.
+            txBuilder.verify(getServiceHub());
+
+            // Sign the transaction.
+            final SignedTransaction partSignedTx = getServiceHub().signInitialTransaction(txBuilder);
+
+            // Send the state to the counterparty, and receive it back with their signature.
+            FlowSession otherPartySession = initiateFlow(holder);
+            final SignedTransaction fullySignedTx = subFlow(
+                    new CollectSignaturesFlow(partSignedTx, Arrays.asList(otherPartySession)));
+
+            // Notarise and record the transaction in both parties' vaults.
+            return subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(otherPartySession)));
+        }
+    }
+
+    @InitiatedBy(CreateAndIssueAppleStampInitiator.class)
+    public static class CreateAndIssueAppleStampResponder extends FlowLogic<Void>{
+
+        //private variable
+        private FlowSession counterpartySession;
+
+        public CreateAndIssueAppleStampResponder(FlowSession counterpartySession) {
+            this.counterpartySession = counterpartySession;
+        }
+
+        @Override
+        @Suspendable
+        public Void call() throws FlowException {
+            SignedTransaction signedTransaction = subFlow(new SignTransactionFlow(counterpartySession) {
+                @Override
+                @Suspendable
+                protected void checkTransaction(SignedTransaction stx) throws FlowException {
+                    /*
+                     * SignTransactionFlow will automatically verify the transaction and its signatures before signing it.
+                     * However, just because a transaction is contractually valid doesn’t mean we necessarily want to sign.
+                     * What if we don’t want to deal with the counterparty in question, or the value is too high,
+                     * or we’re not happy with the transaction’s structure? checkTransaction
+                     * allows us to define these additional checks. If any of these conditions are not met,
+                     * we will not sign the transaction - even if the transaction and its signatures are contractually valid.
+                     * ----------
+                     * For this hello-world cordapp, we will not implement any additional checks.
+                     * */
+                }
+            });
+
+            //Stored the transaction into data base.
+            subFlow(new ReceiveFinalityFlow(counterpartySession, signedTransaction.getId()));
+            return null;
+        }
+    }
+
+}
+```
+
+## Write the `PackageApples` and `RedeemApples` flows
+
+Now that you have written the `CreateAndIssueAppleStamp` flow, try writing the `PackageApples`
 
 ## Write the `RedeemApples` flow
