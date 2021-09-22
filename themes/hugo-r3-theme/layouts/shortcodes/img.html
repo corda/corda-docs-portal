@@ -1,6 +1,0 @@
-{{/* Bootstrap image shortcode for force width to viewport */}}
-{{ if .IsNamedParams }}
-<img src="{{- .Get "src" -}}" class="img-fluid" alt="{{- .Get "alt" -}}" />
-{{ else }}
-<img src="{{- .Get 0 -}}" class="img-fluid" alt="{{- .Get 1 -}}" />
-{{ end }}
