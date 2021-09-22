@@ -3,7 +3,7 @@ date: '2021-09-21'
 title: "Building your first CorDapp"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-1-tutorials-buildingcordapp
+    identifier: corda-5-dev-preview-1-tutorials-building-cordapp
     parent: corda-5-dev-preview-1-tutorials
     weight: 200
 project: corda-5
@@ -83,4 +83,4 @@ Follow these tutorials in sequential order to build your CorDapp:
 
 5. [Conduct integration testing](XXX)
 
-6. [Run your CorDapp](XXX)
+6. [Run your CorDapp](c5-basic-cordapp-running.md)
