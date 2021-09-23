@@ -13,7 +13,12 @@ section_menu: corda-5-dev-preview
 If a CorDapp encounters an exception during the checkpoint process, it may need a custom serializer to make a class serializable.
 
 {{< warning >}}
-This is an unsupported advanced feature for use when a class cannot be serialized and cannot be avoided. Care needs to be taken when modifying CorDapps when custom checkpoint serializers are present. Avoid removing or renaming a custom serializer needed to deserialize a checkpoint. It is best to modify CorDapps containing custom checkpoint serializers when no checkpoints are present.
+**IMPORTANT**
+
+* This is an unsupported advanced feature for use when a class cannot be serialized and cannot be avoided. It should be avoided
+unless there is no other choice.
+* You must take care when modifying CorDapps when custom checkpoint serializers are present. Avoid removing or renaming a custom serializer needed to deserialize a checkpoint.
+It is best to modify CorDapps containing custom checkpoint serializers when no checkpoints are present.
 {{< /warning >}}
 
 ## Before you begin
