@@ -58,10 +58,10 @@ You need to set the following values in the Gateway Service configuration file:
 * RPC port, which can be specified either as a literal string or by the `NODE_PORT` environment variable.
 * The host name or IP address of the node you wish to monitor, which can be specified either as a literal string or by the `NODE_HOST` environment variable.
 
-These are set in `node.admin.middleware` as shown below.
+These are set in `node.management.plugin.middleware` as shown below.
 
 ```
-node.admin.middleware {
+node.management.plugin.middleware {
      rpcUsername ="u"
      rpcPassword ="p"
      rpcHost = ${NODE_HOST}
