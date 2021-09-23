@@ -13,28 +13,28 @@ section_menu: corda-5-dev-preview
 In the Corda 5 Developer Preview, the [Query API](query-api.md) is exposed as part of the HTTP-RPC Persistence API. It
 allows users to invoke named-queries via HTTP requests and receive results marshalled to JSON.
 
-You can invoke the HTTP Named Query API by sending an HTTP `POST` request to the
+Users can invoke the HTTP Named Query API by sending an HTTP `POST` request to the
 `https://{host}:{port}/persistence/query` endpoint. The request requires a body payload containing a
 `RpcNamedQueryRequest` and a `DurableStreamContext`.
 
 The native [HTTP-RPC Client](../../nodes/developing/http-rpc-client.md) `HttpRpcClient` can be used to instantiate a durable stream and poll for results.
 
-The API can also be manually invoked via a CURL request or the Swagger UI.
+The API can also be manually invoked via a `curl` request or using Swagger UI.
 
-To generate your own client capable of calling this API, see [Generating client code](../../../../rpc-and-node-interaction/docs/http-rpc/developer/generating-client/).
+To generate your own client capable of calling this API, see [generating client code](../../nodes/developing/generate-code/generate-code.md).
 
 ## What does the API do?
 
 The HTTP-RPC Named Query API creates a durable cursor object capable of polling for batches of results.
 
 Each poll will:
-- Execute a pre-defined named query with the given named parameters.
-- Execute additional post-processing to transform entities/results into JSON serializable objects.
-- Return a batch of `RpcNamedQueryResponseItem`s containing the JSON results.
+* Execute a pre-defined named query with the given named parameters.
+* Execute additional post-processing to transform entities/results into JSON serializable objects.
+* Return a batch of `RpcNamedQueryResponseItem`s containing the JSON results.
 
-## PersistenceRPCOps
+## `PersistenceRPCOps`
 
-The definition of the Persistence RPCOps is as follows:
+The definition of the `PersistenceRPCOps` is:
 
 ```kotlin
 @HttpRpcResource(
@@ -53,9 +53,9 @@ interface PersistenceRPCOps : RPCOps {
 }
 ```
 
-## RpcNamedQueryRequest
+## `RpcNamedQueryRequest`
 
-The endpoint expects a body parameter object `RpcNamedQueryRequest` which has the definition below:
+The endpoint expects a body parameter object `RpcNamedQueryRequest` which has the definition:
 
 ```kotlin
 data class RpcNamedQueryRequest internal constructor(
@@ -64,25 +64,28 @@ data class RpcNamedQueryRequest internal constructor(
     val postProcessorName: String?
 )
 ```
-- `queryName` is the name of a pre-defined named query.
-- `namedParameters` is a map of named parameters to be set on the named query
-  - Key: name of named-parameter
-  - Value: `RpcNamedQueryParameterJson` object which contains the JSON marshalled representation of the named-parameter value.
-    - Corda detects the type of the named parameter set on the named-query and unmarshalls the JSON value to that type.
-- `postProcessorName` is the name of a pre-defined post-processor used to transform named query results into JSON serializable objects.
-  - A post-processor must be used to convert entities to JSON serializable objects. See [when to use a post-processor](#when-do-i-need-to-use-a-post-processor).
-  - Note - to be usable from the HTTP Named Query API, post-processor implementations must override `availableForRpc` and set this flag to `true`.
+`RpcNamedQueryRequest` includes:
+
+* `queryName` which is the name of a pre-defined named query.
+* `namedParameters` which is a map of named parameters to be set on the named query:
+  * Key: name of named-parameter.
+  * Value: `RpcNamedQueryParameterJson` object which contains the JSON marshalled representation of the named-parameter value.
+  Corda detects the type of the named parameter set on the named-query and unmarshalls the JSON value to that type.
+* `postProcessorName` which is the name of a pre-defined post-processor used to transform named query results into JSON serializable objects.
+  * A post-processor must be used to convert entities to JSON serializable objects. See [when to use a post-processor](#when-do-i-need-to-use-a-post-processor).
+
+Post-processor implementations must override `availableForRpc` and set this flag to `true` to be usable from the HTTP Named Query API.
 
 Clients can use the `RpcNamedQueryRequestBuilder` to build the request.
 
-For more info on the Query API, see:
-- [How to create your own named queries](../query-api/#how-to-create-your-own-named-queries).
-- [How to implement your own post-processor](../query-api/#implementing-your-own-post-processor).
-- [How to use post processors](../query-api/#how-to-use-post-processors).
+For more information on the Query API, see:
+- [How to create your own named queries](query-api.md#how-to-create-your-own-named-queries).
+- [How to implement your own post-processor](query-api.md#implementing-your-own-post-processor).
+- [How to use post processors](query-api.md#how-to-use-post-processors).
 
 ## DurableCursorBuilder\<RpcNamedQueryResponseItem\>
 
-The HTTP Named Query API creates a [Durable Stream](../../../../rpc-and-node-interaction/docs/http-rpc/developer/durable-streams/) which allows polling for named query results.
+The HTTP Named Query API creates a [durable stream](../../nodes/developing/durable-streams/durable-streams-homepage.md) which allows polling for named query results.
 
 Each poll executes the given named-query with the provided request in the context of a `DurableStreamContext`. This context contains the start position, max number of results and a timeout and is used to control the paging positions to page through the results. When using the `HttpRpcClient`, this is encapsulated in the `DurableCursor` object that is built and hidden from the user. Otherwise, the context is required for each poll request.
 
@@ -90,9 +93,11 @@ Each poll response contains a batch of results. Each result item is wrapped in a
 
 ## When do I need to use a post-processor?
 
-The `postProcessorName` parameter is optional. But in most scenarios you will need one. Examples of times you won't need one are when:
-- Your named-query returns a simple basic type (i.e. when using an aggregate function or selecting a simple field).
-- You use constructor expression in the named query to create a JSON serializable object.
+The `postProcessorName` parameter is optional, but in most scenarios you will need one.
+
+These are examples when you won't need a `postProcessorName` parameter:
+- Your named-query returns a simple basic type (such as, when using an aggregate function or selecting a simple field).
+- You use constructor expressions in the named query to create a JSON serializable object.
 - Your named-query returns an entity with only simple types and is JSON serializable.
 - Your named-query returns an entity that implements `JsonRepresentable`.
 
@@ -102,29 +107,33 @@ You will need to provide a post-processor when:
   - Otherwise, you will have to implement your own `StateAndRefPostProcessor`.
 - You want to return `StateAndRefs` (implement `StateAndRefPostProcessor` and create a serializable POJO).
 - You have large entities which need to be transformed into smaller objects for transmission.
-- You get a serialization exception when trying to return entites from the HTTP API.
+- You get a serialization exception when trying to return entities from the HTTP API.
 
+{{<table>}}
 | Example named-query         | Returns     | User wants | Post-processor? |
 |--------------|-----------|------------|----------------|
 | `"ShoppingCart.sumTotalItemsCostByCartId"` | `Long`      | The `Long` result. | Not needed, as `Long` will serialize to JSON.         |
 | `"VaultState.findByStateStatus"` | `VaultState` entities | `CustomState`s | An implementation of `StateAndRefPostProcessor` to convert the `CustomStates` into JSON serializable objects. |
-| `"PersistentPet.findUnconsumedByName"` | `PersistentPet` entities | `PetStatePojo`s | The [PetStatePostProcessor](#PetStatePostProcessor). |
+| `"PersistentPet.findUnconsumedByName"` | `PersistentPet` entities | `PetStatePojo`s | The [PetStatePostProcessor](#petstatepostprocessor). |
+{{</table>}}
 
-Note - The named query `"VaultState.findByStateStatus"` quite literally queries for `VaultState` entities. So in order to obtain actual state data, we must use a post-processor that implements `StateAndRefPostProcessor`. For more details see [how to use post-processors](../query-api/#how-to-use-post-processors). The [CustomStatePostProcessor](../query-api/#post-processor-examples) is an example which converts `StateAndRef`s containing `CustomState`s to `PostProcessedObject` POJOs which can be easily serialized to JSON. Since this particular named query is quite generic, it is possible that some states are not of type `CustomState`, hence why the additional type filtering is required in the post-processor.
+The named-query `"VaultState.findByStateStatus"` quite literally queries for `VaultState` entities. To obtain actual state data, you must use a post-processor that implements `StateAndRefPostProcessor`.
+
+For more details see [how to use post-processors](query-api.md#how-to-use-post-processors). The [CustomStatePostProcessor](query-api.md#how-to-use-post-processors) is an example which converts `StateAndRef`s containing `CustomState`s to `PostProcessedObject` POJOs which can be easily serialized to JSON. Since this particular named query is quite generic, it is possible that some states are not of type `CustomState`, hence why the additional type filtering is required in the post-processor.
 
 ## How do I call the API from Swagger UI
 
-Since the HTTP Named Query API creates a Durable Stream, requests require a `DurableStreamContext` which provide positional information, page size and timeout durations. It is defined as follows:
+Since the HTTP Named Query API creates a durable stream, requests require a `DurableStreamContext` which provide positional information, page size and timeout durations. It is defined as:
 
 ```kotlin
 @CordaSerializable
 data class DurableStreamContext(val currentPosition: Long, val maxCount: Int, val awaitForResultTimeout: Duration)
 ```
 
-This can be provided in the request along with the `RpcNamedQueryRequest`. In the following example:
-- fetch results with starting position (exclusive) -1 (to start from the beginning),
-- poll for a maximum of 100 results,
-- with a timeout duration of 1 hour 30 minutes.
+This can be provided in the request along with the `RpcNamedQueryRequest`. In this example:
+- Fetch results with starting position (exclusive) `-1` (to start from the beginning).
+- Poll for a maximum of `100` results.
+- With a timeout duration of 1 hour 30 minutes.
 
 ```json
   "context": {
@@ -139,7 +148,7 @@ This can be provided in the request along with the `RpcNamedQueryRequest`. In th
 This request executes the named-query `VaultState.findByStateStatusAndContractStateClassName`.
 - It sets the named parameters `stateStatus` and `contractStateClassName` to find unconsumed `PersistentPet` entities.
 - It uses the `"linearstate-sample.PetStatePostProcessor"` to convert `PersistentPet` entities into serializable `PetStatePojos`.
-- It sets the durable stream context to have a timeout of 15 minutes, start at position -1 (exclusive) and fetch a max of 10 results.
+- It sets the durable stream context to have a timeout of 15 minutes, start at position `-1` (exclusive) and fetch a max of `10` results.
 
 ```json
 {
@@ -163,7 +172,7 @@ This request executes the named-query `VaultState.findByStateStatusAndContractSt
 }
 ```
 
-Sample response:
+Here is a sample response:
 
 ```json
 {
@@ -184,39 +193,43 @@ Sample response:
 }
 ```
 
-Note - for this version, when using non-sequentially ordered queries, "position" will be (start count + number of results) for all items.
+When using non-sequentially ordered queries, "position" will be (start count + number of results) for all items.
 
 ## What are sequential queries?
 
-As you know, the HTTP Named Query API supports durable streams and the `PersistenceRPCOps.query` function returns a `DurableCursorBuilder`.
+The HTTP Named Query API supports durable streams and the `PersistenceRPCOps.query` function returns a `DurableCursorBuilder`.
 
 Some clients may require an infinite stream of sequentially ordered entities which are reliable with no data loss, and pick up new entities when they are added.
 
-Developers can create named-queries for their entities which apply an ordering on a timestamp or sequential numbering in ASCENDING order.
+You can create named-queries for your entities which apply an ordering on a timestamp or sequential numbering in ascending order.
 
-In this version, the support for this is minimal, but Corda has provided some pre-built sequential named queries that guarantee sequential ordering of states and can be used for infinite durable streaming.
+The Corda 5 Developer Preview provides some pre-built sequential named queries that guarantee sequential ordering of states and can be used for infinite durable streaming.
+
+{{<table>}}
 
 | Query name                                                              | Named Parameters                     |
 |-------------------------------------------------------------------------|--------------------------------------|
-| VaultStateEvent.sequential.findByStateStatus                            | stateStatus                          |
-| VaultStateEvent.sequential.findByStateStatusAndContractStateClassNameIn | stateStatus, contractStateClassNames |
+| `VaultStateEvent.sequential.findByStateStatus`                          | `stateStatus`                        |
+| `VaultStateEvent.sequential.findByStateStatusAndContractStateClassNameIn` | `stateStatus`, `contractStateClassNames` |
+
+{{</table>}}
 
 These queries are compatible with custom post-processors which convert states into serializable POJOs (while preserving the original sequential state order).
 
 ## How do I call the API using the HTTP RPC Client
 
-The examples use the C5 implementation of [HTTP RPC Client](../../../../rpc-and-node-interaction/docs/http-rpc/developer/durable-streams/java/) (`HttpRpcClient`).
+These examples use the Corda 5 Developer Preview implementation of [HTTP RPC Client](../../nodes/developing/durable-streams/java-client/java-client.md) (`HttpRpcClient`).
 
-See [appendix](#appendix) below for additional classes used in the examples, such as post-processors and simple POJOs.
+See [appendix](#appendix) for additional classes used in the examples, such as post-processors and simple POJOs.
 
-### Example 1 - Durable Stream Vault Query to find PetStates with sequential order
+### Example 1 - Durable stream vault query to find `PetStates` with sequential order
 
 Find `UNCONSUMED` `PetState`s with the sequential named query `"VaultStateEvent.sequential.findByStateStatusAndContractStateClassNameIn"`.
-- sequential named queries apply sequential ordering to states and guarantee states in the order of events.
-- query takes named parameters `"stateStatus"` and `"contractStateClassNames"`
-- `IdentityContractStatePostProcessor` is applied, which loads actual `PetState` data from transactions.
-- `PetState` implements `JsonRepresentable` which is responsible for marshalling each `PetState` to JSON.
-- polls for batches of size 100 and unmarshalls the response items to `PetStatePojo`s.
+* Sequential named queries apply sequential ordering to states and guarantee states in the order of events.
+* Query takes named parameters `"stateStatus"` and `"contractStateClassNames"`
+* `IdentityContractStatePostProcessor` is applied, which loads actual `PetState` data from transactions.
+* `PetState` implements `JsonRepresentable` which is responsible for marshalling each `PetState` to JSON.
+* Polls for batches of size `100` and unmarshalls the response items to `PetStatePojo`s.
 
 ```kotlin
 val client = HttpRpcClient(
@@ -260,9 +273,9 @@ client.use {
 ### Example 2 - Selecting a nullable field from an entity
 
 Find nullable `name` fields from a `HttpItem` entity using the query `"HttpItem.findNamesByInitiatorId"`.
-- query takes a named parameter `"initiatorId"` of type `String`
-- query applies a post-processor called `"data-persistence.StringCapitalizationJavaPostProcessor"` to capitalise names
-- cursor is polled in batches of 100 and unmarshalls response items to `String`s.
+- Query takes a named parameter `"initiatorId"` of type `String`.
+- Query applies a post-processor called `"data-persistence.StringCapitalizationJavaPostProcessor"` to capitalize names.
+- Cursor is polled in batches of `100` and unmarshalls response items to `String`s.
 
 ```kotlin
 val client = HttpRpcClient(
@@ -301,7 +314,7 @@ client.use {
 }
 ```
 
-### Example 3 - Find PetStates with the given name
+### Example 3 - Find `PetStates` with the given name
 
 Find `PetState`s with the given name and use the `PetStatePostProcessor` to transform the states into simple marshallable `PetStatePojo`s.
 - Use the query `"PersistentPet.findUnconsumedByName"` which takes a named parameter `"name"`.
@@ -338,11 +351,11 @@ client.use {
 }
 ```
 
-Note - this named-query is not a sequential named query. As a result, we cannot guarantee that there will be no data lost between polls. For example, new `PetStates` could have been persisted between polls, so these new states may not be picked up by the next poll, or there may be unexpected side effects. To avoid this problem, developers can use the built-in sequential named-queries. There will be more support for this in future versions including ability to create custom sequential named queries for durable streaming.
+This is not a sequential named-query. As a result, you cannot guarantee that there will be no data lost between polls. For example, new `PetStates` could have been persisted between polls. These new states may not be picked up by the next poll, or there may be unexpected side effects. To avoid this problem, you can use the built-in sequential named-queries.
 
 ## Appendix
 
-### PetState
+### `PetState`
 
 ```kotlin
 @BelongsToContract(PetContract::class)
@@ -376,7 +389,7 @@ data class PetState(
 }
 ```
 
-### PersistentPet
+### `PersistentPet`
 
 ```kotlin
 object PetSchema
@@ -417,7 +430,7 @@ object PetSchemaV1 : MappedSchema(
 }
 ```
 
-### PetStatePostProcessor
+### `PetStatePostProcessor`
 
 ```kotlin
 class PetStatePostProcessor : StateAndRefPostProcessor<PetStatePojo> {
@@ -458,7 +471,7 @@ data class PetStatePojo(
 )
 ```
 
-### StringCapitalizationJavaPostProcessor
+### `StringCapitalizationJavaPostProcessor`
 
 This post-processor written in Java takes `String`s and capitalizes them. It also performs a null check, and returns nulls.
 
@@ -492,9 +505,9 @@ public class StringCapitalizationJavaPostProcessor implements CustomQueryPostPro
 }
 ```
 
-### HttpItem
+### `HttpItem`
 
-A HttpItem with named queries defined for finding `HttpItems` and `HttpItem.name` fields.
+A `HttpItem` with named queries defined for finding `HttpItems` and `HttpItem.name` fields.
 
 ```kotlin
 object HttpItemSchemaV1 : MappedSchema(
