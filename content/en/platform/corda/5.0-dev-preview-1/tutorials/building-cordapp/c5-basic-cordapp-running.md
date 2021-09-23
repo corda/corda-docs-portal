@@ -27,7 +27,7 @@ Deploy and run the Mission Mars CorDapp on the following test nodes:
 
 ## Before you start
 
-Before you run your Mission Mars CorDapp, you may want to compare your files to the ones from the R3's official [Corda5-missionmars](https://github.com/peterli-r3/Corda5-missionmars) GitHub repository. This should give you a more holistic view of the CorDapp and help to resolve any issues you might have encountered when writing it.
+Before you run your Mission Mars CorDapp, you may want to compare your files to the ones from R3's [Corda5-missionmars](https://github.com/peterli-r3/Corda5-missionmars) solution GitHub repository. This should give you a more holistic view of the CorDapp and help to resolve any issues you might have encountered when writing it.
 
 
 ## Deploy your CorDapp to a local Corda 5 network
