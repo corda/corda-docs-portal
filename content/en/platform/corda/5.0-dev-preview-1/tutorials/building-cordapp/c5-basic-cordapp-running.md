@@ -16,7 +16,7 @@ title: Run your CorDapp
 
 After you have completed this tutorial, you will know how to deploy, launch, interact with, and use the Swagger API interface to test the CorDapp that you built when following the previous tutorials.
 
-The local Corda network in this case includes one notary and two nodes, each representing a party in the network - Mars Express and Peter. A Corda node is an individual instance of Corda representing one party in a network.
+The local Corda network needed for this CorDapp includes one notary and two nodes, each representing a party in the network - Mars Express and Peter. A Corda node is an individual instance of Corda representing one party in a network.
 
 You will deploy and run the Mission Mars CorDapp on the following test nodes:
 
