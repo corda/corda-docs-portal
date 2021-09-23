@@ -192,7 +192,7 @@ You will need to provide this ID as the `voucherID` when testing the `RedeemBoar
 
 9. Repeat all of the above steps for all of your flows.
 
-When running each flow, you must replace the `.json` code for each flow instep 3:
+When running each flow, you must replace the `.json` code for each flow in step 3:
 
 * For the `CreateBoardingTicket` flow, use:
 
