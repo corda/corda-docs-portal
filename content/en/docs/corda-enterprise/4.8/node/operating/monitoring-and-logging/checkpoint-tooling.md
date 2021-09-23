@@ -10,7 +10,7 @@ title: Checkpoint tooling
 weight: 110
 ---
 
-This page contains information about the checkpoint dumper and the checkpoint agent tools. Use these tools to debut stuck flows.
+This page contains information about the checkpoint dumper and the checkpoint agent tools. Use these tools to debug stuck flows.
 
 Ensure that you understand the mechanics of [flows](../../cordapps/api-flows.md/) and [Node flow hospital](../node-flow-hospital.md/).
 
@@ -27,7 +27,7 @@ To use the checkpoint dumper:
 2. Run the `checkpoints dump` command.
 3. Open the `logs` directory of the node. There will be a `.zip` file named `checkpoint_dump-<date-and-time.zip`.
 
-Inside the `.zip` checkpoint dump file there will be a `.json` file for each flow that was running when the checkpoint dump happened. Each `.json`  file follows the naming format `<flow name>-<flow id>.json`. Each `.json` flow file contains the checkpoints of
+Inside the `.zip` checkpoint dump file there will be a `.json` file for each flow that was running when the checkpoint dump happened. Each `.json`  file follows the naming format `<flow name>-<flow id>.json`.
 
 The most important fields in the output are:
 
@@ -139,11 +139,11 @@ For a given flow checkpoint, the agent reports:
 * Information about the checkpoint such as its `flowId`.
 * A nested hierarchical view of its reachable objects and their associated sizes, including the state of any flows held within the checkpoint.
 
-The checkpoint agent writes information to standard Log4j2 log files in the node's `log` directory. This tool is particularly useful when used in conjunction with the `checkpoints dump` CRaSH shell command to identify and troubleshoot problems associated with flows not completing. When a checkpoint is serialized to disk the checkpoint agent has access to all checkpoint data, including the fiber it was running on and the checkpoint ID. When a checkpoint is deserialized from disk the checkpoint agent only has access to the stack clas hierarchy.
+The checkpoint agent writes information to standard Log4j2 log files in the node's `log` directory. This tool is particularly useful when used in conjunction with the `checkpoints dump` [CRaSH shell command](../../operating/shell.md#output-information-about-the-flows-running-on-the-node) to identify and troubleshoot problems associated with flows not completing. When a checkpoint is serialized to disk the checkpoint agent has access to all checkpoint data, including the fiber it was running on and the checkpoint ID. When a checkpoint is deserialized from disk the checkpoint agent only has access to the stack class hierarchy.
 
 To use the checkpoint agent:
 
-1. Download the checkpoint agent here [here](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-checkpoint-agent/).
+1. Download the checkpoint agent from [Artifactory](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-checkpoint-agent/).
 2. Add the `-Dcapsule.jvm.args=-javaagent:<PATH>/checkpoint-agent.jar[=arg=value,...]` option when starting the node. To log checkpoint data only for failing flows, start the checkpoint agent with the `checkpoint-agent.jar=instrumentType=read,instrumentClassname=NONE` arguments.
 3. If you are using the Corda gradle plugin configuration tasks, alter the task to include the checkpoint agent. See [the cordform task](../deploy/generating-a-node.md/) for information on updating the `cordform` task.
 
@@ -153,7 +153,7 @@ The checkpoint agent increases the memory requirement of the node. You should se
 
 ### Configure the checkpoint agent and checkpoint agent logger
 
-The checkpoint agent logs output to a Log4j2 configured logger. This logger must be defined in the logging configuration file.
+The checkpoint agent logs output to a Log4j2-configured logger. This logger must be defined in the logging configuration file.
 
 To configure the checkpoint agent logger:
 
@@ -167,7 +167,7 @@ To configure the checkpoint agent logger:
     ```
 
     You must specify `CheckpointAgent` as the logger name.
-3. Add the logger configuration. See below for a configuration example:
+3. Add the logger configuration. See this configuration example:
 
     ```xml
     <RollingFile name="Checkpoint-Agent-RollingFile-Appender"
@@ -292,11 +292,11 @@ class MyFlow(private val party: Party) : FlowLogic<Unit>() {
 This causes the execution of a flow to test that each checkpoint can be used to restore the flow successfully. By using this feature you can address the following common problems:
 
 * Flows containing objects or leveraging data structures that cannot be serialized/deserialized correctly by Kryo (the checkpoint serialization library Corda uses).
-* Flows that are not idempotent or do not deduplicate behaviour (such as calls to an external system).
+* Flows that are not idempotent or do not deduplicate behavior (such as calls to an external system).
 
 If a failure occurs, you can find the stack trace in the node's log files. The stack trace indicates the object that was being serialized when the error occurred. Flows can be written to deliberately avoid checkpointing when calling a suspending function. In this case, the flow will reload from an earlier checkpoint.
 
-Idempotent and timed flows always retry from their initial checkpoint. When an idempotent or timed flow is reloaded after reaching a suspending function it will load the initial checkpoint and start from the beginning.
+Idempotent and timed flows always retry from their initial checkpoint. When an idempotent or timed flow is reloaded after reaching a suspending function, it will load the initial checkpoint and start from the beginning.
 
 ### Enable automatic detection of unrestorable checkpoints
 
@@ -328,5 +328,3 @@ The feature can also be enabled by setting the system property `reloadCheckpoint
 ## Related content
 
 * [Troubleshooting stuck flows](diagnosing-stuck-flows.md/)
-* two
-* three
