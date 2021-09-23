@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-nodes-developing-durable-streams
     identifier: corda-5-dev-preview-1-nodes-developing-durable-streams-server
-    weight: 500
+    weight: 3600
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
@@ -22,7 +22,7 @@ When [defining durable stream methods](../define-methods/methods.md), you must i
 * How many elements the client should receive.
 * How long the call may wait (block) on the server side for elements to become available.
 
-Therefore, you must use these parameters when creating the HTTP-RPC server side implementation.
+You must use these parameters when creating the HTTP-RPC server side implementation.
 
 For this client side interface:
 ```kotlin

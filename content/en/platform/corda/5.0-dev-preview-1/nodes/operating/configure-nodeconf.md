@@ -5,11 +5,11 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-nodes-operating
     identifier: corda-5-dev-preview-1-nodes-operating-configure-nodeconf
-    weight: 300
+    weight: 4000
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Instructions on how to configure a node's `node.conf` file for HTTP-RPC.
+  How to configure a node's `node.conf` file for HTTP-RPC.
 ---
 
 Use this guide to configure a node's `node.conf` file for HTTP-RPC.
@@ -17,7 +17,7 @@ Use this guide to configure a node's `node.conf` file for HTTP-RPC.
 When a node starts up, the `corda.jar` file defaults to reading the node's configuration from a `node.conf` file.
 To use HTTP-RPC, you need to configure your node's `node.conf` by:
 
-1. [Adding `httpRpcSettings` fields and configuration](#add-httprpcsettings-fields-and-configuration).
+1. <a href="#add-httprpcsettings-fields-and-configuration">Adding `httpRpcSettings` fields and configuration</a>.
 2. [Verifying HTTP-RPC setup](#verify-http-rpc-setup)
 
 ## Add `httpRpcSettings` fields and configuration
@@ -43,6 +43,8 @@ To use HTTP-RPC, you need to configure your node's `node.conf` by:
 
 Configuration options available in the `httpRpcSettings` object:
 
+{{<table>}}
+
 | Field     | Required? | Value |
 | ------- | --------- | ----- |
 | `address` | Required  | The endpoint the node is listening to (`host:port` format). This is a local setting, so if you're using a hostname rather than `localhost` or `0.0.0.0`, you need to make sure the hostname resolves to the host the node is running on). The API will be available at `http[s]://{address}/api/v1/` |
@@ -51,20 +53,30 @@ Configuration options available in the `httpRpcSettings` object:
 | `sso`     | Optional | See [single sign-on (SSO) configuration](authentication/authentication.md#set-up-azure-ad-sso). |
 | `maxContentLength`     | Optional | The maximum content length accepted for `POST` requests (in bytes). The default value is 1 MiB.|
 
+{{</table>}}
+
 ### API configuration
+
+{{<table>}}
 
 | Field         | Required? | Value |
 | ----------- | --------- | ----- |
 | `title`       | Required  | Name of the exposed API. |
 | `description` | Required  | Human-friendly description of the API.|
 
+{{</table>}}
+
 
 ### SSL configuration
+
+{{<table>}}
 
 | Field              | Required? | Value |
 | ---------------- | --------- | ----- |
 | `keyStorePath`     | Required | Path to the key store, relative to the current working directory. |
 | `keyStorePassword` | Required | Password to the key store.|
+
+{{</table>}}
 
 To configure your node to use SSL encryption for HTTP-RPC, see the [SSL setup](setup-ssl-encryption.md) guide.
 

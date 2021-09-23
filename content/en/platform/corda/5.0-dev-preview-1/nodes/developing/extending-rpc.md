@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-nodes-developing
     identifier: corda-5-dev-preview-1-nodes-developing-extending-rpc
-    weight: 300
+    weight: 1600
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
@@ -66,7 +66,7 @@ interface NodeIdentityRPCOps : RPCOps {
 }
 ````
 {{< note >}}
-For details about `@Http...` annotations, see [RPCops annotations](expose-rpc/annotation.md).
+For details about `@Http...` annotations, see <a href="expose-rpc/annotation.md">`RPCOps` annotations</a>.
 {{< /note >}}
 
 {{< note >}}
@@ -131,7 +131,15 @@ internal class NodeIdentityRPCOpsImpl : NodeIdentityRPCOps, NodeRpcOps<NodeIdent
 }
 ```
 
+In this code example, you can see how `memberLookupService` (and a few others) are discovered.
 `memberLookupService` is key for this implementation.
+
+The rest of the code indicates:
+* The `RPCOps` interface being exposed.
+* The version of the functionality being exposed. There may be multiple implementations of the same
+  interface installed at the same time.
+* The platform version that was used at compile time of the `RPCOps` implementation.
+* Where this implementation sits in the node's lifecycle events distribution list in comparison to its siblings. This is presented in priority order.
 
 {{< note >}}
 No HTTP-RPC annotations are necessary for the `RPCOps` implementation. You only need to provide them at the interface level.
@@ -140,15 +148,6 @@ No HTTP-RPC annotations are necessary for the `RPCOps` implementation. You only 
 Every pluggable `RPCOps` implementation has a facility to listen to the node's lifecycle events. Whenever a `RPCOps`
 implementation is notified about a lifecycle event, it's also an opportunity to wire the node's internal
 services essential for the functioning of `RPCOps`.
-
-In the code example above, you can see how `memberLookupService` (and a few others) are discovered.
-
-The rest of the code in this example indicates:
-* The `RPCOps` interface being exposed.
-* The version of the functionality being exposed. There may be multiple implementations of the same
-  interface installed at the same time.
-* The platform version that was used at compile time of the `RPCOps` implementation.
-* Where this implementation sits in the node's lifecycle events distribution list in comparison to its siblings. This is presented in priority order.
 
 The annotation `@ServiceProvider(NodeRpcOps::class)` is an instruction to wire the `RPCOps`
 implementation as an OSGi service via
