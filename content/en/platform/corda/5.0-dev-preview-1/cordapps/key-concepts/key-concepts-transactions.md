@@ -10,20 +10,18 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-{{< note >}}
-
-In the Corda 5 Developer Preview, the main principles of states, transactions, and contracts remain the same as they were
-in Corda 4.
-
-However, as your CorDapp's external interactions are performed via HTTP-RPC REST APIs (and the node returns information
-in the same way), when writing states you must add a `JsonRepresentable`.
-
-{{< /note >}}
-
 The Corda 5 Developer Preview uses a *UTXO* (unspent transaction output) model, where every state on the ledger is immutable. The ledger
 evolves over time by applying **transactions**. Transactions update the ledger by marking zero or more existing ledger states
 as historic (the *inputs*), and producing zero or more new ledger states (the *outputs*). Transactions represent a
 single link in the state sequences as described in **[states](key-concepts-states.md)**.
+
+### States in the Corda 5 Developer Preview
+
+In the Corda 5 Developer Preview, the main principles of states, transactions, and contracts remain the same as they were
+in Corda 4. However, as your CorDapp's external interactions are performed via HTTP-RPC REST APIs (and the node returns information
+in the same way), when writing states you must add a `JsonRepresentable`.
+
+## Transaction components and types
 
 Here's an example of a transaction, with two inputs and two outputs:
 

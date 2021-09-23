@@ -4,7 +4,7 @@ section_menu: corda-5-dev-preview
 menu:
   corda-5-dev-preview:
     identifier: corda-corda-5.0-dev-preview-1-tutorial-c5-basic-cordapp-contract
-    parent: corda-5-dev-preview-1-tutorials-buildingcordapp
+    parent: corda-5-dev-preview-1-tutorials-building-cordapp
     weight: 1040
 tags:
 - tutorial
