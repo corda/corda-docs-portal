@@ -63,13 +63,12 @@ There are three helper methods in the template that translate what you put into 
 
 Leave these methods as they are:
 
-* `templateFlowParams`
 * `startFlow`
-* `retrieveOutcome`
+* `eventually`
 
-### Add `CreateAndIssueMarsVoucherParams` helper method
+### Change the `templateFlowParams` to `CreateAndIssueMarsVoucherParams` helper method
 
-The `CreateAndIssueMarsVoucherParams` helper method takes parameters specific to this flow (`voucherDesc` and `holder`) and converts them into JSON. This performs the same function as the template helper methods, but covers parameters specific to this flow.
+You must change the `templateFlowParams` to the `CreateAndIssueMarsVoucherParams` helper method. The `CreateAndIssueMarsVoucherParams` helper method takes parameters specific to this flow (`voucherDesc` and `holder`) and converts them into JSON. This performs the same function as the template helper methods, but covers parameters specific to this flow.
 
 Add the helper function with `voucherDesc` and `holder` parameters, and return a `GsonBuilder`.
 
