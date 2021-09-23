@@ -48,6 +48,15 @@ The `CreateAndIssueMarsVoucher` flow is used to create a voucher for a trip to M
 
 The `CreateAndIssueMarsVoucher` flow action requires interaction between the issuer and the owner. For this reason, you must create an initiator flow and a responder flow.
 
+After you create the `CreateAndIssueMarsVoucher` file, your code should look like this:
+
+```kotlin
+package net.corda.missionMars.flows
+
+class CreateAndIssueMarsVoucher {
+}
+```
+
 #### Add annotations
 
 1. Add an `@InitiatingFlow` annotation. This indicates that this flow is the initiating flow.
@@ -58,33 +67,13 @@ So far, your code should look like this:
 ```kotlin
 package net.corda.missionMars.flows
 
-import net.corda.missionMars.contracts.MarsVoucherContract
-import net.corda.missionMars.states.MarsVoucher
-import net.corda.missionMars.states.TemplateState
-import net.corda.systemflows.CollectSignaturesFlow
-import net.corda.systemflows.FinalityFlow
-import net.corda.systemflows.ReceiveFinalityFlow
-import net.corda.systemflows.SignTransactionFlow
-import net.corda.v5.application.flows.*
-import net.corda.v5.application.flows.flowservices.FlowEngine
-import net.corda.v5.application.flows.flowservices.FlowIdentity
-import net.corda.v5.application.flows.flowservices.FlowMessaging
-import net.corda.v5.application.identity.CordaX500Name
-import net.corda.v5.application.injection.CordaInject
-import net.corda.v5.application.services.IdentityService
-import net.corda.v5.application.services.json.JsonMarshallingService
-import net.corda.v5.application.services.json.parseJson
-import net.corda.v5.base.annotations.Suspendable
-import net.corda.v5.ledger.UniqueIdentifier
-import net.corda.v5.ledger.contracts.Command
-import net.corda.v5.ledger.contracts.requireThat
-import net.corda.v5.ledger.services.NotaryLookupService
-import net.corda.v5.ledger.transactions.SignedTransaction
-import net.corda.v5.ledger.transactions.SignedTransactionDigest
-import net.corda.v5.ledger.transactions.TransactionBuilderFactory
+import net.corda.v5.application.flows.InitiatingFlow
+import net.corda.v5.application.flows.StartableByRPC
 
 @InitiatingFlow
 @StartableByRPC
+class CreateAndIssueMarsVoucher {
+}
 ```
 
 #### Define the `CreateAndIssueMarsVoucherInitiator` class
@@ -106,36 +95,16 @@ To ensure that values are returned in JSON format, use the new return type `Sign
 After adding these elements, your code should look like this:
 
 ```kotlin
-package net.corda.missionMars.flows
-
-import net.corda.missionMars.contracts.MarsVoucherContract
-import net.corda.missionMars.states.MarsVoucher
-import net.corda.missionMars.states.TemplateState
-import net.corda.systemflows.CollectSignaturesFlow
-import net.corda.systemflows.FinalityFlow
-import net.corda.systemflows.ReceiveFinalityFlow
-import net.corda.systemflows.SignTransactionFlow
 import net.corda.v5.application.flows.*
-import net.corda.v5.application.flows.flowservices.FlowEngine
-import net.corda.v5.application.flows.flowservices.FlowIdentity
-import net.corda.v5.application.flows.flowservices.FlowMessaging
-import net.corda.v5.application.identity.CordaX500Name
-import net.corda.v5.application.injection.CordaInject
-import net.corda.v5.application.services.IdentityService
-import net.corda.v5.application.services.json.JsonMarshallingService
-import net.corda.v5.application.services.json.parseJson
-import net.corda.v5.base.annotations.Suspendable
-import net.corda.v5.ledger.UniqueIdentifier
-import net.corda.v5.ledger.contracts.Command
-import net.corda.v5.ledger.contracts.requireThat
-import net.corda.v5.ledger.services.NotaryLookupService
-import net.corda.v5.ledger.transactions.SignedTransaction
 import net.corda.v5.ledger.transactions.SignedTransactionDigest
-import net.corda.v5.ledger.transactions.TransactionBuilderFactory
 
 @InitiatingFlow
 @StartableByRPC
-class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters)
+class CreateAndIssueMarsVoucher2 @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<SignedTransactionDigest> {
+    override fun call(): SignedTransactionDigest {
+        TODO("Not yet implemented")
+    }
+}
 ```
 
 #### Inject services
