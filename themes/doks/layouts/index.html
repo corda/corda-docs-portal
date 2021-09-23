@@ -2,13 +2,13 @@
 {{ if eq .Kind "home" -}}
 <section class="section" id="home-introduce">
   <h1>
-    Welcome to R3 docs
+    Welcome to R3 Documentation
   </h1>
-  <p class="subtitle">Discover the power of R3. Get documentation, sample codes, tutorials, and more.</p>
+  <p class="subtitle">Find tutorials, sample code, developer guides, and API references for Corda and Conclave.</p>
 
   <div id="home-search">
     <form class="navbar-form order-lg-4 order-0">
-      <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
+      <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search R3 documentation..." aria-label="Search R3 documentation..." autocomplete="off">
       <button class="btn_search">
         <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
       </button>
@@ -28,9 +28,9 @@
                 <img src='{{ "icons/agenda-bookmark.svg" | relURL }}' alt="Get started"  height="68" class="light-only">
                 <img src='{{ "icons/agenda-bookmark-white.svg" | relURL }}' alt="Get started"  height="68" class="dark-only">
               </a>
-              <span>Get Start</span></h3>
-            <p>Ipsum dolor sit amet, dole consectetur do eiusmod tempor lorem siamet.</p>
-            <a href="/corda-os/4.7.html" class="fw-semibold">Link here 1</a>
+              <span>Get started</span></h3>
+            <p>New to Corda? Familiarise yourself with Corda concepts, overviews, and more.</p>
+            <a href="en/get-started.html" class="fw-semibold">Ready, set, read!</a>
           </div>
         </div>
       </div>
@@ -43,8 +43,8 @@
                 <img src='{{ "icons/document-white.svg" | relURL }}' alt="Tutorials"  height="68" class="dark-only">
               </a>
               <span>Tutorials</span></h3>
-            <p>Ipsum dolor sit amet, dole consectetur do eiusmod tempor lorem siamet.</p>
-            <a href="/corda-enterprise/4.7.html" class="fw-semibold">Link here 2</a>
+            <p>Learn how to build CorDapps and much more through our developer tutorials.</p>
+            <a href="en/tutorials.html" class="fw-semibold">Learn through tutorials</a>
           </div>
         </div>
       </div>
@@ -57,8 +57,8 @@
                 <img src='{{ "icons/bullet-list-white.svg" | relURL }}' alt="Samples and templates"  height="68" class="dark-only">
               </a>
               <span>Samples and templates</span></h3>
-            <p>Ipsum dolor sit amet, dole consectetur do eiusmod tempor lorem siamet.</p>
-            <a href="/cenm/1.5.html" class="fw-semibold">Link here 3</a>
+            <p>Try out code samples, CorDapp templates, and SDKs to build and run CorDapps.</p>
+            <a href="en/samples.html" class="fw-semibold">Learn through examples</a>
           </div>
         </div>
       </div>
@@ -71,8 +71,8 @@
                 <img src='{{ "icons/grammar-check-white.svg" | relURL }}' alt="Releases"  height="68" class="dark-only">
               </a>
               <span>Releases</span></h3>
-            <p>Ipsum dolor sit amet, dole consectetur do eiusmod tempor lorem siamet.</p>
-            <a href="/#" class="fw-semibold">Link here 4</a>
+            <p>Release notes and related information about R3 product releases.</p>
+            <a href="en/releases.html" class="fw-semibold">Learn about releases</a>
           </div>
         </div>
       </div>
@@ -90,9 +90,9 @@
             <div class="slide">
               <img src='{{ "images/logo-corda.png" }}' alt="Corda">
               <div class="d-inline-block">
-                <h5>Developer preview documentation</h5>
-                <p>Lorem eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
-                <a href="#">Announcement link goes here</a>
+                <h5>Discover the Corda 5 Developer Preview</h5>
+                <p>Build and deploy CorDapps locally with this preview version of Corda 5. Experiment with the new modular API, HTTPS node interaction, and CorDapp packaging.</p>
+                <a href="en/platform/corda/5.0-dev-preview-1.html">Set sail</a>
               </div>
             </div>
 
@@ -101,9 +101,9 @@
             <div class="slide">
               <img src='{{ "images/logo-corda-enterprise.png" }}' alt="Corda">
               <div class="d-inline-block">
-                <h5>Developer preview documentation</h5>
-                <p>Lorem eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
-                <a href="#">Announcement link goes here</a>
+                <h5>Join the new R3 Developer Platform</h5>
+                <p>Join the most powerful blockchain & confidential computing community for developers. Build your knowledge of blockchain and confidential computing by accessing R3’s developer resources, open-source projects, additional support from R3 developers, and documentation.</p>
+                <a href="https://developer.r3.com/">Join the R3 Developer Platform</a>
               </div>
             </div>
           </div>
@@ -111,9 +111,15 @@
             <div class="slide">
               <img src='{{ "images/logo-conclave.png" }}' alt="Corda">
               <div class="d-inline-block">
-                <h5>Developer preview documentation</h5>
-                <p>Lorem eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
-                <a href="#">Announcement link goes here</a>
+                <h5>Overheard by The Best Team</h5>
+                <p>
+                  <ul>
+                    <li>R3 documentation has a new home - welcome to the palace of (Corda) knowledge! Tell us what you think on <a href="https://cordaledger.slack.com/archives/C01Q3RQ7E8M">slack</a> and <a href="mailto:corda-docs@r3.com">over email</a>.</li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </p>
+                <a href="en/announcements.html">Read all news and chatter</a>
               </div>
             </div>
           </div>
@@ -141,18 +147,27 @@
     <div class="col">
       <div class="card no-border h-100">
         <div class="card-body">
-          <h3 class="card-title">Corda 5 and 4</h3>
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-          <a href="/corda-os/4.7.html" class="btn rounded">Learn Corda</a>
+          <h3 class="card-title">Corda 5 Developer Preview</h3>
+          <p>Everything you need to know about the Corda 5 Developer Preview - take the full journey.</p>
+          <a href="en/platform/corda/5.0-dev-preview-1.html" class="btn rounded">Read the docs</a>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="card no-border h-100">
         <div class="card-body">
-          <h3 class="card-title">Add-ons</h3>
+          <h3 class="card-title">Corda 4</h3>
+          <p>Everything you need to know about Corda open source 4.x, Corda Enterprise 4.x, and Corda Enterprise Network Manager 1.x.</p>
+          <a href="en/platform/corda/4.8/open-source.html" class="btn rounded">Read the docs</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card no-border h-100">
+        <div class="card-body">
+          <h3 class="card-title">Tools and add-ons</h3>
           <p>Molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
-          <a href="/corda-enterprise/4.7.html" class="btn rounded">Explore all tools</a>
+          <a href="en/tools.html" class="btn rounded">Read the docs</a>
         </div>
       </div>
     </div>
@@ -161,17 +176,7 @@
         <div class="card-body">
           <h3 class="card-title">API reference</h3>
           <p>Molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.</p>
-          <a href="/cenm/1.5.html" class="btn rounded external">View Corda API</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card no-border h-100">
-        <div class="card-body">
-          <h3 class="card-title">Developer platform</h3>
-          <p>Join the most powerful blockchain & confidential
-            computing community for developers.</p>
-          <a href="https://developer.r3.com/" target="_blank" class="btn rounded external">Join R3 Developers</a>
+          <a href="en/api-ref.html" class="btn rounded external">Read the docs</a>
         </div>
       </div>
     </div>

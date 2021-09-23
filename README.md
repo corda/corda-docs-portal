@@ -1,103 +1,62 @@
-# Corda Developer Documentation
+# R3 Product Documentation
 
-[![Build Status](https://ci01.dev.r3.com/buildStatus/icon?job=Docs-Builders%2FBuild%2Fcorda-docs%2Fmaster)](https://ci01.dev.r3.com/job/Docs-Builders/job/Build/job/corda-docs/job/master/)
+The documentation source files are under the `../content` directory in the `corda-docs-portal` repository, and is written in markdown.
 
-There are detailed instructions in the  [usage docs](usage-docs/readme.md).
+The HTML documentation output is generated using Hugo. You can build and edit the docs locally using npm and a markdown editor.
 
-Please read them!
+## Build and edit the docs locally
 
-You will need:
+1. Install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+2. Install a markdown editor of your choice.
+3. Fork the `corda/corda-docs-portal` repository, and clone your fork.
+4. From the root directory of the repository, run `npm install`. This installs all the required modules to build the documentation locally.
+5. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
+6. Run `npm run start` to build the documentation locally. Alternatively, you can also run `hugo serve`/`hugo server` or `make local-serve`.
+7. Navigate to `https://localhost:1313` to view the locally built documentation.
+8. Push your changes to GitHub and open a pull request.
 
-* [hugo](https://github.com/gohugoio/hugo/releases)  (a single binary on all platforms)
-  * Use the latest version, otherwise at least v0.65
-* a text editor: we strongly recommend [Visual Studio Code](https://code.visualstudio.com/).
+## Keep your fork in sync with the documentation
 
-## Quick Start
+To best way to keep your fork in sync with the main documentation repository is to add it an `upstream` remote after you create your fork.
 
-* Download [hugo](https://github.com/gohugoio/hugo/releases)
-* clone this repo
-* `cd` into the root of the repo and run `hugo serve`
-* edit the markdown in `content`
+### Add the upstream remote
 
-### Edit The Current Web Page
+To add an upstream remote:
 
-If you have installed VSCode, you can run `hugo` in a mode that allows you to open markdown content from the browser.
-
-On Mac or Linux, start `hugo` using:
-
-```makefile
-make local-serve-and-edit
+```bash
+git remote add upstream https://github.com/corda/corda-docs-portal.git
 ```
 
-In Powershell (Windows ...and Linux!):
+The URL of a remote can be changed using the `git remote set-url` command.
 
-```powershell
-serve_and_edit.ps1
+### View your remotes
+
+To view your remotes:
+
+```bash
+git remote -v
 ```
 
-and you will see:
+### Remove a remote
 
-![edit markdown](usage-docs/images/page-edit.png)
+If you need to remove a remote:
 
-## Installing and Running Hugo
-
-### Docker
-
-If you are on Linux or MacOS you can also build using Docker images (WSL2 not supported yet), type `make help` to see the options
-
-#### Windows
-
-Install `hugo` locally and ensure it is on your path (see tbe Native section below).
-
-It is also available via `choco`.
-
-#### Mac and Linux
-
-Hugo is available via `brew`, and most Linux package installers (`apt`, `pacman`, and so on).
-
-### Binary Download
-
-Go to here https://github.com/gohugoio/hugo/releases
-
-Install one of the `extended` versions.
-
-## CI/Jenkins
-
-The `publish` target does everything and is intended to be run in the CI system (Jenkins), but can be run locally.  It:
-
-* builds a Docker image with `hugo`
-* runs the `hugo` docker image to produce the site in `/public`
-* builds a Docker image of `nginx` containing the content of `/public`
-* attempts to `docker push` to whatever Docker registry *you are currently logged in to.
-
-In principle, `docker push` should fail on your desktop at the final stage.
-
-As a developer your just want to run:
-
-```
-make prod-docker-serve
+```bash
+git remote rm remote-name
 ```
 
-to run and test the `nginx` image on your desktop.
+### Get the latest updates from the upstream remote
 
+To update your current branch, rebase on the latest changes from the upstream remote. This will protect any unmerged commits from being overwritten:
 
-##  Docker build configuration
-
-It is possible to override the `baseURL` of the project at build time.
-
-One way to do this is to use the configuration files, e.g.
-
-```shell script
-make HUGO_ARGS="--config config.toml,config.dev.toml" prod-docker-serve
+```bash
+git rebase upstream/main
 ```
 
-which makes the `nginx` image and starts it on port 8888
+## Tell us what you think
 
-The alternative is to run:
+We would greatly appreciate your feedback about the documentation content, website, and repository.
 
-```shell script
-make DOCKER_BUILD_ARGS="-e HUGO_BASEURL=\"http://localhost:8888\"" prod-docker-serve
-```
-
-If you need to change many parameters in Hugo's configuration, then prefer
-to use the configuration file override.
+1. Chat with us on our `#docs` channel on [slack](https://cordaledger.slack.com/archives/C01Q3RQ7E8M). You can also join a lot of other slack channels there and have access to 1-on-1 communication with members of the R3 team and the online community.
+2. Create a [new GitHub issue](https://github.com/corda/corda-docs/issues/new) in this repository - submit technical feedback, draw attention to a potential documentation bug, or share ideas for improvement and general feedback.
+3. Help us to improve the docs by contributing to the content directly. It's simple - just fork this repository and raise a PR of your own - R3's Technical Writers will review it and apply the relevant suggestions. Learn how to do this [here](https://docs.r3.com/en/platform/corda/4.8/open-source/building-the-docs.html).

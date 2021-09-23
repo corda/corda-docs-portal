@@ -5,11 +5,11 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-nodes-operating
     identifier: corda-5-dev-preview-1-nodes-operating-placeholder
-    weight: 800
+    weight: 5000
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Instructions on how to locate your node's OpenAPI specification.
+  How to locate your node's OpenAPI specification.
 ---
 
 Use this guide to locate your node's OpenAPI specification.
@@ -28,7 +28,7 @@ You need to [enable HTTP-RPC](configure-nodeconf.md) before you can use the Open
 
 Your node's OpenAPI JSON is available on a URL. If your node's HTTP-RPC address is  `mynode:8888`, you would find it on `http[s]://mynode:8888/api/v1/swagger.json`.
 
-Below is an excerpt of a node's OpenAPI JSON:
+Here is an excerpt of a node's OpenAPI JSON:
 
 ```
 {
