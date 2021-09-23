@@ -1,6 +1,3 @@
-const algolia_appId = "UX2KMUWFAL";
-const algolia_apiKey = "1fe3367db02689b4aeebc59efad5abaf";
-const algolia_index = "docs.corda.net";
 const facetFilters = window.facetFilters;
 
 export function docSearchInit(){

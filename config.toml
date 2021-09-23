@@ -39,6 +39,8 @@ enableGitInfo = true
 # https://gohugo.io/templates/internal/#google-analytics
 # googleAnalytics = "UA-87760032-1"
 
+
+
 # https://gohugo.io/getting-started/configuration-markup#highlight
 [markup]
 [markup.highlight]
@@ -92,8 +94,10 @@ ogimage = "/images/png/corda.png"
 
 # hack - these values are asigned in global.html
 algolia_appId = "UX2KMUWFAL"
-algolia_apiKey = "1fe3367db02689b4aeebc59efad5abaf"
-algolia_index = "docs.corda.net"
+algolia_apiKey = "d30af47c430efcbae42aa7e855dbf164"
+algolia_index = "docs.r3.com"
+
+googleTagManagerID = "G-NCYRYSGJ7C"
 
 [module]
   [[module.mounts]]

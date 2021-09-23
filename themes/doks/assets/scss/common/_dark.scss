@@ -103,6 +103,8 @@ body.dark {
               border: solid 1px $gray-700;
 
               li {
+                border-top: 1px solid $gray-600;
+
                 &:hover {
                   background-color: $gray-600;
                 }
@@ -128,6 +130,21 @@ body.dark {
                     }
                   }
                 }
+              }
+
+              &::-webkit-scrollbar-track
+              {
+                background-color: $gray-500;
+              }
+
+              &::-webkit-scrollbar
+              {
+                background-color: $gray-500;
+              }
+
+              &::-webkit-scrollbar-thumb
+              {
+                background-color: $gray-400;
               }
             }
           }
