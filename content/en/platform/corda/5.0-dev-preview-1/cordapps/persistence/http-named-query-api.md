@@ -10,13 +10,14 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-We have exposed the [Query API](../query-api) as part of the HTTP-RPC Persistence API. It allows users to invoke named-queries via HTTP requests and receive results marshalled to JSON.
+In the Corda 5 Developer Preview, the [Query API](query-api.md) is exposed as part of the HTTP-RPC Persistence API. It
+allows users to invoke named-queries via HTTP requests and receive results marshalled to JSON.
 
-The HTTP Named Query API can be invoked by sending a HTTP `POST` request to the `https://{host}:{port}/persistence/query` endpoint.
+You can invoke the HTTP Named Query API by sending an HTTP `POST` request to the
+`https://{host}:{port}/persistence/query` endpoint. The request requires a body payload containing a
+`RpcNamedQueryRequest` and a `DurableStreamContext`.
 
-The request requires a body payload containing a `RpcNamedQueryRequest` and a `DurableStreamContext`.
-
-The native [HTTP-RPC Client](../../../../rpc-and-node-interaction/docs/http-rpc/developer/java-client/) `HttpRpcClient` can be used to instantiate a durable stream and poll for results.
+The native [HTTP-RPC Client](../../nodes/developing/http-rpc-client.md) `HttpRpcClient` can be used to instantiate a durable stream and poll for results.
 
 The API can also be manually invoked via a CURL request or the Swagger UI.
 
