@@ -1,27 +1,26 @@
 ---
-date: '2020-09-17T12:00:00Z'
+title: Install the Corda 5 Developer Preview
+date: '2021-09-23'
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-install-index
     weight: 1500
-    name: Install the Corda 5 Dev Preview
 project: corda-5
 section_menu: corda-5-dev-preview
-title: Install the Corda 5 Dev Preview
 ---
 
-# Install the Corda 5 Dev Preview
+# Install the Corda 5 Developer Preview
 
-Before installing the Corda 5 Dev Preview, first verify that have a compatible system by checking the following documents:
+Before installing the Corda 5 Developer Preview, you should read the following key documents:
 [Setting up your development environment](setting-up-your-dev-env/_index.md) and [Technology Overview](XXX)
 
 The Corda 5 Dev Preview is for local deployment only. You can download and install this
 version of Corda on your machine, and then explore the new features on a local development network.
 
-Included in Corda 5 Developer Preview:
+Included in the Corda 5 Developer Preview:
 
 * Corda 5 Dev Preview API bundle.
-* Bootstrap Developer network.
+* Start up a network with Corda CLI.
 * CLIs for control of network, CorDapp  development and packaging, Node configuration and control.
 * RPC libraries
 * Flow unit test library
@@ -63,7 +62,7 @@ available authentication features that you can use to test the web service metho
 
 For more information, read about [developing nodes](developing/_index.md) and [operating nodes](operating/_index.md).
 
-4. Corda node CLI
+4. Corda Node CLI
 The Corda Node command-line interface (CLI) allows you to interact with nodes using the new HTTP-RPC API. It offers a
 convenient way of calling HTTP-RPC methods, and formats their results so that they are easy to understand.
 
