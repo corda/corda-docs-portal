@@ -106,7 +106,7 @@ This step will take roughly a minute to complete.
 
 ## Interact with your CorDapp
 
-To interact with your CorDapp and to test flows, you will use the Swagger API interface which is a set of HTTP APIs that you can use out of the box.
+To interact with your CorDapp and to test flows, use the Swagger API interface which is a set of HTTP APIs that you can use out of the box.
 
 
 ### Log in to the Swagger API
