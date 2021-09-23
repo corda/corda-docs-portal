@@ -135,9 +135,9 @@ return accumulator
 
 ## How to create your own named queries
 
-Named queries are written in JPQL. They can include features like `JOIN`, `WHERE`, subqueries, constructor expressions, aggregate functions, etc.
+Named queries are written in JPQL. They can include features like `JOIN`, `WHERE`, sub-queries, constructor expressions, and aggregate functions.
 
-CorDapp developers can annotate their entities with `@NamedQuery` or `@NamedQueries` for multiple definitions, for example:
+You can annotate entities with `@NamedQuery` or `@NamedQueries` for multiple definitions, for example:
 
 ```kotlin
 @Entity
@@ -157,7 +157,7 @@ CorDapp developers can annotate their entities with `@NamedQuery` or `@NamedQuer
             var itemTimestamp: java.time.Instant
     ) : Serializable
 ```
-- To use these named queries in the query API provide either the name `"RecordedItem.findByItemName"` or `"RecordedItem.findByItemIdIn"`.
+To use these named queries in the query API, provide either the name `"RecordedItem.findByItemName"` or `"RecordedItem.findByItemIdIn"`.
 
 Named queries can also join with ledger tables, for example:
 
@@ -185,31 +185,31 @@ Named queries can also join with ledger tables, for example:
             var linearId: UUID
     ) : PersistentState()
 ```
-- This named-query joins `VaultSchemaV1.VaultState` on `txId` and `index`.
+This named-query joins `VaultSchemaV1.VaultState` on `txId` and `index`.
 
 ## Post-processing
 
-Post processing is an optional in-memory transformation step applied to named-query results on remote database worker processes before they are returned to the user.
+Post-processing is an optional in-memory transformation step applied to named-query results on remote database worker processes before they are returned to the user.
 
-Persistence operations are performed on a separate database worker process, therefore results from the Query API must be serialized and transmitted from this process to the user via a messaging bus.
+Persistence operations are performed on a separate database worker process, therefore, results from the Query API must be serialized and transmitted from this process to the user via a messaging bus.
 
-A post-processor gives the CorDapp developer the opportunity to transform entities into custom objects before the results are sent over the wire to the user.
+A post-processor gives you the opportunity to transform entities into custom objects before the results are sent over the wire to the user.
 
-For example, a post processor can:
-- Transform entities into custom objects.
-- Pick desirable fields from entities to return lighter-weight objects.
-- Convert entities to JSON or JSON serializable objects.
-- Return `ContractStates` or `StateAndRefs`.
+For example, a post-processor can:
+* Transform entities into custom objects.
+* Pick desirable fields from entities to return lighter-weight objects.
+* Convert entities to JSON or JSON serializable objects.
+* Return `ContractStates` or `StateAndRefs`.
 
-### How to use post processors
+### How to use post-processors
 
 All post-processors have a name and this name is provided to the `query` API as a simple `String`.
 
 Corda provides two built-in post-processors. These can be used when entities returned from named-queries extend `PersistentState` (therefore have a `StateRef`) and can be transformed into `StateAndRef` or `ContractState`:
-- `"Corda.IdentityContractStatePostProcessor"`
-- `"Corda.IdentityStateAndRefPostProcessor"`
+* `"Corda.IdentityContractStatePostProcessor"`
+* `"Corda.IdentityStateAndRefPostProcessor"`
 
-For example, here we use the named-query "PersistentPet.findUnconsumedByName" to find `PersistentPet` entities, and we use the `"IdentityContractStatePostProcessor"` to convert `PersistentPet` entities into `PetStates`.
+This example uses the named-query "PersistentPet.findUnconsumedByName" to find `PersistentPet` entities, and `"IdentityContractStatePostProcessor"` to convert `PersistentPet` entities into `PetStates`.
 
 ```kotlin
 val cursor = persistenceService.query<PetState>(
@@ -221,26 +221,26 @@ val contractStates: List<PetState> = cursor.poll(100, 10.seconds)
     .values
 ```
 
-### Implementing your own post processor
+### Implementing your own post-processor
 
-Corda currently provides two interfaces for Cordapp developers to implement their own custom post-processors.
+The Corda 5 Developer Preview provides two interfaces for you to implement your own custom post-processors:
 
-- `StateAndRefPostProcessor`
-- `CustomQueryPostProcessor`
+* `StateAndRefPostProcessor`
+* `CustomQueryPostProcessor`
 
-They have a `name` property which must be overridden. This is the `postProcessorName` which is used in the APIs.
+Both interfaces have a `name` property which must be overridden. This is the `postProcessorName` which is used in the APIs.
 
-Optionally, `availableForRpc` can be overridden to `true` to make post-processors available via HTTP Named Query APIs. See [HTTP Named Query API](../http-named-query-api) for more info.
+Optionally, `availableForRpc` can be overridden to `true` to make post-processors available via HTTP Named Query APIs. See [HTTP Named Query API](http-named-query-api.md) for more info.
 
-### Implementing StateAndRefPostProcessor
+### Implementing `StateAndRefPostProcessor`
 
-- Can only be used with named-queries that return entities that extend `PersistentState`.
-- Each entity has a `StateRef` because it extends `PersistentState`.
-- The framework automatically fetches `StateAndRefs` for each `StateRef`.
-- The implementation of `postProcess` gets a `Stream<StateAndRef<ContractState>>` as inputs.
-- You can select fields, create new objects, return what you like.
+* `StateAndRefPostProcessor` can only be used with named-queries that return entities that extend `PersistentState`.
+* Each entity has a `StateRef` because it extends `PersistentState`.
+* The framework automatically fetches `StateAndRefs` for each `StateRef`.
+* The implementation of `postProcess` gets a `Stream<StateAndRef<ContractState>>` as inputs.
+* You can select fields, create new objects, and define what is returned.
 
-For example, this post-processor transforms `CustomState` into `PostProcessedObject`.
+For example, this post-processor transforms `CustomState` into `PostProcessedObject`:
 
 ```kotlin
 class CustomStatePostProcessor : StateAndRefPostProcessor<PostProcessedObject> {
@@ -279,17 +279,19 @@ data class PostProcessedObject(
         val notaryName: String
 )
 ```
-- `"data-persistence.CustomStatePostProcessor"` is the `postProcessorName` used in the Query APIs.
-- `availableForRPC` is false by default, override this to true to allow post-processor to be called over HTTP RPC APIs.
 
-### Implementing CustomQueryPostProcessor
+In this example:
+* `"data-persistence.CustomStatePostProcessor"` is the `postProcessorName` used in the Query APIs.
+* `availableForRPC` is `false` by default. Override this to `true` to allow the post-processor to be called over HTTP-RPC APIs.
 
-- Can be used to transform results from custom named queries that return any custom entities.
-- The framework passes raw named-query results to this post-processor.
-- No additional fetching of `StateRef` or any other data.
-- The developer should ensure type safety and perform any casting.
+### Implementing `CustomQueryPostProcessor`
 
-For example, this post-processor capitalizes results from a named-query and implements `CustomQueryPostProcessor`.
+* `CustomQueryPostProcessor` can be used to transform results from custom named queries that return any custom entities.
+* The framework passes raw named-query results to this post-processor.
+* No additional fetching of `StateRef` or any other data.
+* You should ensure type safety and perform any casting.
+
+For example, this post-processor capitalizes results from a named-query and implements `CustomQueryPostProcessor`:
 
 ```kotlin
 class StringCapitalizationPostProcessor : CustomQueryPostProcessor<String?> {
@@ -310,27 +312,27 @@ class StringCapitalizationPostProcessor : CustomQueryPostProcessor<String?> {
     }
 }
 ```
-- For the developer to use this post-processor, they pass `"data-persistence.StringCapitalizationPostProcessor"` as the `postProcessorName` field.
+
+To use this post-processor, pass `"data-persistence.StringCapitalizationPostProcessor"` as the `postProcessorName` field.
 
 ### How to use a post-processor to return states
 
-As you know, named queries query for entities, and `ContractStates` aren't entities. So how do we actually get states when we use a built-in query or a custom query?
+You need to take a different approach for `ContractStates` as they aren't entities (named queries only query for entities).
 
 For example, the named-query `"VaultState.findByStateStatus"` quite literally queries for `VaultState` entities.
 
-The first thing, in order to obtain actual `ContractState`s, we must provide the name of a `StateAndRefPostProcessor`.
+To obtain actual `ContractState`s, you must provide the name of a `StateAndRefPostProcessor`. Then use a named-query
+that returns entities that extend `PersistentState`. This could be either:
+* A `QueryableState`'s mapped entity.
+* A VaultSchema entity (for example, `VaultState` or `VaultLinearState`).
 
-Secondly, we must use a named-query that returns entities that extend `PersistentState`. This could be either:
-- a `QueryableState`'s mapped entity.
-- a VaultSchema entity (`VaultState`, `VaultLinearState`, etc).
+The framework loads state data for each entity's state reference.
 
-Under the hood, the framework loads state data for each entity's state reference.
+Alternatively, you can implement your own version of `StateAndRefPostProcessor` to process and transform results how you wish.
 
-Alternatively, a Cordapp developer can implement their own version of `StateAndRefPostProcessor` to process and transform results how they wish.
+If you want to post-process `VaultState` entities directly, you can implement `CustomQueryPostProcessor` and the inputs will be the raw named-query `VaultState` entities.
 
-Should a Cordapp developer wish to post-process `VaultState` entities directly, they can implement `CustomQueryPostProcessor` and the inputs will be the raw named-query `VaultState` entities.
-
-## How to query for states if my state does not have a mapped schema?
+## How to query for states if your state does not have a mapped schema?
 
 Creating your own query using the `@NamedQuery` annotation is relevant when you have defined an entity. For example, a state that implements `QueryableState` which has a mapped schema entity defined.
 
@@ -340,42 +342,49 @@ Corda defines a suite of built-in named queries which you can use along with an 
 
 These built-in named queries return ledger state entities such as `VaultState` or `LinearState`. The table below details the names of these queries and their named parameter names.
 
+
+{{<table>}}
+
 | Query name                                                              | Named Parameters                     |
 |-------------------------------------------------------------------------|--------------------------------------|
-| VaultState.findByStateStatus                                            | stateStatus                          |
-| VaultState.findByStateStatusAndContractStateClassName                   | stateStatus, contractStateClassName  |
-| VaultState.findByStateStatusAndContractStateClassNameIn                 | stateStatus, contractStateClassNames |
-| VaultState.findByTxIdIn                                                 | txIds                                |
-| LinearState.findByUuid                                                  | uuid                                 |
-| LinearState.findByUuidAndStateStatus                                    | uuid, stateStatus                    |
+| `VaultState.findByStateStatus`                                            | `stateStatus`                          |
+| `VaultState.findByStateStatusAndContractStateClassName`                   | `stateStatus`, `contractStateClassName`  |
+| `VaultState.findByStateStatusAndContractStateClassNameIn`                 | `stateStatus`, `contractStateClassNames` |
+| `VaultState.findByTxIdIn`                                                 | `txIds`                                |
+| `LinearState.findByUuid`                                                  | `uuid`                                 |
+| `LinearState.findByUuidAndStateStatus`                                    | `uuid`, `stateStatus`                    |
 
-The query names illustrate the name of the entity followed by the operation (find) followed by the where clauses. For example:
-- `"LinearState.findByUuidAndStateStatus"` queries for `VaultLinearState` entities with "WHERE" clauses on:
-  - `VaultLinearState.uuid` (`java.util.UUID`) where the field equals the named parameter "uuid".
-  - `VaultState.stateStatus` (`StateStatus`) where the field equals the named parameter "stateStatus".
-- `"VaultState.findByStateStatusAndContractStateClassNameIn"` queries for the `VaultState` entity with "WHERE" clauses on:
-  - `VaultState.stateStatus` (`StateStatus`) where the field equals the named parameter "stateStatus".
-  - `VaultState.contractStateClassName` (`String`) where the field is in a list provided as a named parameter "contractStateClassNames".
+{{</table>}}
 
-Note - If the built-in named-queries are not suitable for your needs, you will need to change your state to implement `QueryableState` and define your own named-query. If this is not possible, you might be able to achieve your goal using [post-filtering](#post-filtering).
+The query names illustrate the name of the entity followed by the operation (find) followed by the `"WHERE"` clauses. For example:
+- `"LinearState.findByUuidAndStateStatus"` queries for `VaultLinearState` entities with `"WHERE"` clauses on:
+  - `VaultLinearState.uuid` (`java.util.UUID`) where the field equals the named parameter `uuid`.
+  - `VaultState.stateStatus` (`StateStatus`) where the field equals the named parameter `stateStatus`.
+- `"VaultState.findByStateStatusAndContractStateClassNameIn"` queries for the `VaultState` entity with `"WHERE"` clauses on:
+  - `VaultState.stateStatus` (`StateStatus`) where the field equals the named parameter `stateStatus`.
+  - `VaultState.contractStateClassName` (`String`) where the field is in a list provided as a named parameter `contractStateClassNames`.
+
+{{< note >}}
+If the built-in named-queries are not suitable for your needs, you will need to change your state to implement `QueryableState` and define your own named-query. If this is not possible, you might be able to achieve your goal using [post-filtering](#post-filtering).
+{{< /note >}}
 
 ## Post-filtering
 
-Post-filtering is additional in-memory step which can be applied to named-query results after named-query execution.
+Post-filtering is an additional in-memory step which can be applied to named-query results after named-query execution.
 
 It is applied on the remote database worker process, before any post-processing or fetching of state data is performed. So it can cut down on the number of state references to be fetched. It can assist in querying when the named-query itself cannot be added or changed.
 
-It is recommended to filter using "WHERE" clauses in the named query itself as this will be more performant. Post-filtering serves to supplement the Query API and improve performance by reducing
+It is recommended to filter using `"WHERE"` clauses in the named query itself. Post-filtering serves to supplement the Query API and improve performance.
 
-Currently the only filtering implementation is `SetBasedVaultQueryFilter`. Use the `SetBasedVaultQueryFilter.Builder()` to create the filter.
+The only filtering implementation is `SetBasedVaultQueryFilter`. Use the `SetBasedVaultQueryFilter.Builder()` to create the filter.
 
-Note - Since filtering happens before additional state data is loaded, it can only apply to the fields present on the entity returned from the query. For example, if your query returns a:
-- `VaultState` - `txId`, `contractStateClassNames`, `relevancyStatus`, `stateStatus` filter will apply.
+Since filtering happens before additional state data is loaded, it can only apply to the fields present on the entity returned from the query. For example, if your query returns a:
+- `VaultState` - `txId`, `contractStateClassNames`, `relevancyStatus`, `stateStatus` filters will apply.
 - `LinearState` - only `txId` filter will apply.
 - `PersistentState` - only `txId` filter will apply.
 - Other custom entity - no filter fields apply.
 
-For example, this filter the named-query results for all relevant states:
+This example filters the named-query results for all relevant states:
 
 ```kotlin
 val cursor = persistenceService.query<ContractState>(
@@ -421,7 +430,9 @@ val customStates = cursor.poll(100, 10.seconds)
 
 ## General examples using the query API
 
-Query for 100 `UNCONSUMED` `StateAndRefs`, with a timeout of 10 seconds.
+The examples in this guide use this [schema definition](#schema-definition).
+
+Query for 100 `UNCONSUMED` `StateAndRefs`, with a timeout of 10 seconds:
 
 ```kotlin
 val cursor = persistenceService.query<StateAndRef<ContractState>>(
@@ -433,7 +444,7 @@ val stateAndRefs = cursor.poll(100, 10.seconds)
     .values
 ```
 
-Query for 1 state with the given `uuid`, returning a `ContractState`, with a timeout of 10 seconds.
+Query for one state with the given `uuid`, returning a `ContractState`, with a timeout of 10 seconds:
 
 ```kotlin
 @StartableByRPC
@@ -454,7 +465,7 @@ class QueryForMyLinearStateFlow(private val uuid: String) : Flow<MyLinearState> 
 }
 ```
 
-Find shopping items costing more than a specific amount.
+Find shopping items costing more than a specific amount:
 
 ```kotlin
 @StartableByRPC
@@ -475,7 +486,7 @@ class FindItemsCostingMoreThan(private val cost: Int) : Flow<List<String>> {
 }
 ```
 
-Sum totals of items in shopping cart with specified ID.
+Sum totals of items in shopping cart with specified ID:
 
 ```kotlin
 @StartableByRPC
@@ -496,7 +507,7 @@ class SumItemsCostInCart(private val cartId: String) : Flow<Long> {
 }
 ```
 
-## Appendix
+## Schema definition
 
 Shopping schema:
 
@@ -566,7 +577,7 @@ object ShoppingSchemaV1 : MappedSchema(
 }
 ```
 
-PetState definition:
+`PetState` definition:
 
 ```kotlin
 @BelongsToContract(PetContract::class)
@@ -611,7 +622,7 @@ data class PetStatePojo(
 )
 ```
 
-PetState mapped schema:
+`PetState` mapped schema:
 
 ```kotlin
 object PetSchema
