@@ -2,6 +2,7 @@
 aliases:
 - /read-more.html
 title: "Cookie Consent"
+sidebar: false
 date: 2020-04-15T09:59:25Z
 ---
 

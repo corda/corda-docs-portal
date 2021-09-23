@@ -154,6 +154,13 @@ a.docs-link {
         transform: rotate(-180deg);
       }
     }
+
+    a {
+      &.docs-link {
+        font-size: $font-size-base;
+        font-weight: 600;
+      }
+    }
   }
 
   div {
@@ -164,6 +171,7 @@ a.docs-link {
         a {
           &.docs-link {
             font-size: $font-size-base * 0.9375;
+            font-weight: 400;
           }
         }
       }

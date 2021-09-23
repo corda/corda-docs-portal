@@ -222,6 +222,8 @@ header {
       border-radius: 3px;
       padding: 0;
       border: solid 1px rgba(1, 1, 1, 0.25);
+      max-height: 30rem;
+      overflow-y: auto;
 
       li {
         border-top: 1px solid rgba(1, 1, 1, 0.25);
@@ -265,6 +267,23 @@ header {
             }
           }
         }
+      }
+
+      &::-webkit-scrollbar-track
+      {
+        -webkit-box-shadow: inset 0 0 2px $gray-700;
+        background-color: $gray-400;
+      }
+
+      &::-webkit-scrollbar
+      {
+        width: 8px;
+        background-color: $gray-400;
+      }
+
+      &::-webkit-scrollbar-thumb
+      {
+        background-color: $gray-600;
       }
     }
   }
@@ -399,44 +418,6 @@ header {
   box-shadow: none;
   background: $gray-800;
 }
-
-/*! purgecss start ignore */
-.algolia-autocomplete {
-  display: flex !important;
-}
-
-.algolia-autocomplete .ds-dropdown-menu {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-}
-
-@include media-breakpoint-down(sm) {
-  .algolia-autocomplete .ds-dropdown-menu {
-    max-width: 512px !important;
-    min-width: 312px !important;
-    width: auto !important;
-  }
-
-  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column::after {
-    content: "|";
-    margin-right: 0.25rem;
-  }
-}
-
-.algolia-autocomplete .algolia-docsearch-suggestion--title {
-  margin-bottom: 0;
-}
-
-.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
-  padding: 0 0.05em;
-}
-
-.algolia-autocomplete .algolia-docsearch-footer {
-  margin-top: 1rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/*! purgecss end ignore */
 
 /*
  * Source: https://medium.com/creative-technology-concepts-code/responsive-mobile-dropdown-navigation-using-css-only-7218e4498a99
