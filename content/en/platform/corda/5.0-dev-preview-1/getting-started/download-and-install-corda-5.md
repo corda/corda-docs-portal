@@ -27,7 +27,7 @@ In addition, you can install and use the Corda 5 Developer Preview versions of T
 
 ## Existing Corda versions
 
-Since the Corda 5 Developer Preview requires [Java 11](https://www.oracle.com/java/technologies/downloads/#java11),
+Since the Corda 5 Developer Preview requires [Azul11.0.12](https://www.azul.com/downloads/?package=jdk),
 and Corda 4.x needs Java 8, you should make sure you are using the correct
 version of Java when returning to Corda 4 development work after using the Corda 5 Developer Preview.
 
