@@ -884,7 +884,7 @@ been removed.
 
 You can do either of the following.
 
-* Upgrade your `quasar.jar` file to `0.7.12_r3`.
+* Upgrade your `quasar.jar` file to `0.7.13_r3`.
 * Delete your `lib` directory and switch to using the Gradle test runner.
 
 You can find instructions for both options in [running tests in Intellij](testing.md#running-tests-in-intellij).
