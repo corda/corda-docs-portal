@@ -222,6 +222,8 @@ header {
       border-radius: 3px;
       padding: 0;
       border: solid 1px rgba(1, 1, 1, 0.25);
+      max-height: 30rem;
+      overflow-y: auto;
 
       li {
         border-top: 1px solid rgba(1, 1, 1, 0.25);
@@ -265,6 +267,23 @@ header {
             }
           }
         }
+      }
+
+      &::-webkit-scrollbar-track
+      {
+        -webkit-box-shadow: inset 0 0 2px $gray-700;
+        background-color: $gray-400;
+      }
+
+      &::-webkit-scrollbar
+      {
+        width: 8px;
+        background-color: $gray-400;
+      }
+
+      &::-webkit-scrollbar-thumb
+      {
+        background-color: $gray-600;
       }
     }
   }
