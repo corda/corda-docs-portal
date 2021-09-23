@@ -11,10 +11,10 @@ section_menu: corda-5-dev-preview
 
 # Install the Corda 5 Developer Preview
 
-Before installing the Corda 5 Developer Preview, you should read the following key documents:
-[Setting up your development environment](setting-up-your-dev-env/_index.md) and [Technology Overview](XXX)
+Before installing the Corda 5 Developer Preview, you should read 
+[setting up your development environment](setting-up-your-dev-env/_index.md) and the [technology overview](XXX).
 
-The Corda 5 Dev Preview is for local deployment only. You can download and install this
+The Corda 5 Developer Preview is for local deployment only. You can download and install this
 version of Corda on your machine, and then explore the new features on a local development network.
 
 Included in the Corda 5 Developer Preview:
