@@ -188,7 +188,7 @@ This does not mean the transaction has passed through. It means that the flow ha
 
 8. Copy and store the `linearId` from the output in the **Response body**.
 
-You will need to provide this ID as `voucherID` when testing the `RedeemBoardingTicketWithVoucher` flow.
+You will need to provide this ID as the `voucherID` when testing the `RedeemBoardingTicketWithVoucher` flow.
 
 9. Repeat all of the above steps for all of your flows.
 
