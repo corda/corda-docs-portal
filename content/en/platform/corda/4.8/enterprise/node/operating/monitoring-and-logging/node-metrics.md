@@ -4,12 +4,12 @@ aliases:
 date: '2020-04-16T19:30:25Z'
 menu:
   corda-enterprise-4-8:
-    parent: corda-enterprise-4-8-corda-nodes-operating
+    parent: corda-enterprise-4-8-monitoring-logging
 tags:
 - node
 - metrics
 title: Node metrics
-weight: 6
+weight: 200
 ---
 
 
