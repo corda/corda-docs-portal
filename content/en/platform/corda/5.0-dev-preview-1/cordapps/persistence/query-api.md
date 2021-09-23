@@ -10,26 +10,24 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-# Named Queries
+This guide explains how to use the `query` functions.
 
-This document companions the design document for the [Persistence Service API](../persistence-service-api/) to detail and illustrate usage of the `query` functions.
+For instructions on how to call named-query APIs from HTTP-RPC, see the [HTTP-RPC Named Query API](http-named-query-api.md) guide.
 
-For information how to call named-query APIs from HTTP RPC, see [HTTP RPC Named Query API](../http-named-query-api/).
+Named queries:
+* Are static `Strings` defined on JPA entities using the `@NamedQuery` annotation.
+* Are given a name and can be executed by the `PersistenceService` query APIs.
+* Are like stored procedures, they are written in JPQL and are similar to SQL, but they query for entities rather than tables.
+* Require fully qualified class names of entity classes.
+* Support named parameters allowing users to input data into `WHERE` clauses.
 
-## What are named queries?
-
-- Named queries are static `Strings` defined on JPA entities using the `@NamedQuery` annotation.
-- They are given a name and can be executed by the Persistence Service Query APIs.
-- They are like stored procedures, they are written in JPQL and are similar to SQL, but they query for entities rather than tables.
-- They require fully qualified class names of entity classes.
-- They support named parameters allowing users to input data into WHERE clauses.
-- Named parameters are prefixed with a colon in the query string.
+Named parameters are prefixed with a colon in the query string.
 
 ## How to create a named-query cursor
 
-The `PersistenceService` provides several Query APIs which take at a minimum the name of a named-query and a map of named parameters.
+The `PersistenceService` provides several query APIs which take (at a minimum) the name of a named-query and a map of named parameters.
 
-Use these to create a named-query `Cursor` object which can then be polled for results.
+Use these to create a named-query `Cursor` object which can then be polled for results:
 
 ```kotlin
 fun <R> query(
@@ -58,21 +56,23 @@ fun <R> query(
 
 fun <R> query(persistenceQueryRequest: PersistenceQueryRequest): Cursor<R>
 ```
-- `queryName` is the name of the named-query that has already been defined. E.g: `"VaultState.findByStateStatus"`.
-- `namedParameters` is the map of named parameters to be set into the query. E.g. "stateStatus": `"... WHERE stateStatus = :stateStatus`.
-- `postProcessorName` is optional and defines the name of a post-processor to transform named-query results.
-- `postFilter` is optional and applies a post-filtering step after named-query execution.
-- `persistenceQueryRequest` is a data class with a builder, handy for Java users.
-- results are cast to generic type `R`.
+
+In this object:
+* `queryName` is the name of the named-query that has already been defined. For example, `"VaultState.findByStateStatus"`.
+* `namedParameters` is the map of named parameters to be set into the query. For example, "stateStatus": `"... WHERE stateStatus = :stateStatus`.
+* `postProcessorName` is optional and defines the name of a post-processor to transform named-query results.
+* `postFilter` is optional and applies a post-filtering step after named-query execution.
+* `persistenceQueryRequest` is a data class with a builder, handy for Java users.
+* Results are cast to generic type `R`.
 
 ## Polling the cursor
 
-The Query APIs return a `Cursor` object and this can be used to page through results:
+The query APIs return a `Cursor` object and this can be used to page through results:
 
-- Call the `poll` function with the max poll size and timeout duration.
+1. Call the `poll` function with the max poll size and timeout duration.
   - `poll` is `@Suspendable`
-- Utilize `Cursor.PollResult.isLastResult` to loop over all results until reaching the end.
-- Use `Cursor.PollResult.values` to get the values from a batch of data.
+2. Utilize `Cursor.PollResult.isLastResult` to loop over all results until reaching the end.
+3. Use `Cursor.PollResult.values` to get the values from a batch of data.
 
 The `Cursor` interface is defined as follows:
 
@@ -106,7 +106,7 @@ interface Cursor<T> {
 }
 ```
 
-For example, here we create the cursor (typed to `SomeEntity`) and poll once for a list of up to 100 `MyEntity`.
+This example creates the cursor (typed to `SomeEntity`) and polls once for a list of up to 100 `MyEntity`.
 
 ```kotlin
 val cursor: Cursor<SomeEntity> = persistenceService.query<SomeEntity>(
@@ -117,7 +117,7 @@ val someEntities: List<SomeEntity> = cursor.poll(100, 10.seconds)
     .values
 ```
 
-In this example, we create the cursor and page through all the results while `poll.isLastResult` is false.
+This example creates the cursor and pages through all the results while `poll.isLastResult` is false.
 
 ```kotlin
 val cursor: Cursor<SomeEntity> = persistenceService.query<SomeEntity>(
