@@ -46,8 +46,7 @@ The protocol tolerates node outages. Peers on the network wait for your node to 
 Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
-To drain a node, run `gracefulShutdown`. This waits for the node to drain and then shuts it down once the drain
-is complete.
+To drain a node, run `gracefulShutdown`. This waits for the all currently running flows to be completed and then shuts the node down.
 
 
 {{< warning >}}
@@ -55,6 +54,7 @@ The length of time a node takes to drain varies. It depends on how your CorDapps
 communicating with network peers that are offline or slow to respond. If
 the CorDapps are well-written and the required counterparties are online, drains may only take a few seconds.
 
+For a smooth node draining process avoid long-running flows.
 {{< /warning >}}
 
 
@@ -343,7 +343,7 @@ time. If the migration process is interrupted, restart the node to continue. The
 
 ## Step 7: Undrain the node
 
-You may now perform checks, such as log reading. When you are ready, run this command in the shell:
+Run this command in the shell:
 
 `run setFlowsDrainingModeEnabled enabled: false`
 
