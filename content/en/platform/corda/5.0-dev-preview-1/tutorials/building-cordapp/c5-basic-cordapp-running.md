@@ -14,7 +14,7 @@ title: Run your CorDapp
 
 ## Learning objectives
 
-Once you have completed this tutorial, you will know how to deploy, launch, interact with, and use the Swagger API interface to test the CorDapp that you created when going through the previous tutorials.
+After you have completed this tutorial, you will know how to deploy, launch, interact with, and use the Swagger API interface to test the CorDapp that you built when following the previous tutorials.
 
 The local Corda network in this case includes one notary and two nodes, each representing a party in the network - Mars Express and Peter. A Corda node is an individual instance of Corda representing one party in a network.
 
