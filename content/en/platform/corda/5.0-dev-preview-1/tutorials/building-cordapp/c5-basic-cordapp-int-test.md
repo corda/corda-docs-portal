@@ -12,7 +12,7 @@ tags:
 title: Write and run integration tests
 ---
 
-After you've built your CorDapp, it can be useful to write and run integration tests to be sure that all parts of your application are working together as they should be. Use integration tests to test CorDapp elements as a group against a locally-deployed Corda network.
+After you've built your CorDapp, it can be useful to write and run integration tests to be sure that all parts of your application are working together as they should be. Use integration tests to test the CorDapp's elements as a group against a locally-deployed Corda 5 network.
 
 In the Corda 5 Developer Preview you can use the `corda-dev-network-lib` to run these tests. This test library connects your test code with the specified test network and its node.
 
@@ -32,7 +32,7 @@ After you have completed this tutorial, you will know how to write and run integ
 
 Before you start writing integration tests you must [deploy your CorDapp to a local Corda 5 network](c5-basic-cordapp-running.md#deploy-your-cordapp-to-a-local-corda-5-network).
 
-## Create an integration test for `CreateAndIssueMarsVoucher` flow
+## Create an integration test for the `CreateAndIssueMarsVoucher` flow
 
 This integration test checks that your `CreateAndIssueMarsVoucher` flow has executed and that it has come back as `COMPLETED`. Create an integration test for this flow by following these steps:
 
@@ -42,7 +42,7 @@ When writing integration tests, it's helpful to start from the template as some 
 
 1. Copy the contents of the `TemplateFlowTest` file.
 
-2. Paste the contents into a new file called `CreateAndIssueMarsVoucherTest`.
+2. Paste the contents into a new Kotlin file called `CreateAndIssueMarsVoucherTest`.
 
 ### Change `TemplateFlow` to `CreateAndIssueMarsVoucher`
 
@@ -77,10 +77,10 @@ Add the helper function with `voucherDesc` and `holder` parameters, and return a
 
 Make changes in the `template Test` code block to add your testing content.
 
-1. Indicate the network the test will use. Set `networkName: missionmars-network`.
+1. Indicate the network the test will use: `networkName: missionmars-network`.
 2. In the next line, get the identity of `PartyB`. This is done for you in the template code.
 3. Use the built-in `getNode` method to add `PartyA`'s credentials and log in. These are listed in the network `.yaml` file.
-4. Assign a launch pad  to the `clientId`.
+4. Assign a launch pad to the `clientId`.
 5. Under the `flowId`, you are calling `startFlow` to return the `flowId`. Fill in details for the `voucherDesc` and `holder` parameters. The helper method converts these to JSON. Whether the flow fails or succeeds, it will have a `flowId`.
 6. You do not need to modify the next block of code. These `Assertions` check that:
     * The HTTP status of the flow is OK.
