@@ -18,7 +18,7 @@ After you have completed this tutorial, you will know how to deploy, launch, int
 
 The local Corda network needed for this CorDapp includes one notary and two nodes, each representing a party in the network - Mars Express and Peter. A Corda node is an individual instance of Corda representing one party in a network.
 
-You will deploy and run the Mission Mars CorDapp on the following test nodes:
+Deploy and run the Mission Mars CorDapp on the following test nodes:
 
 * Notary, which runs a notary service
 * PartyA
