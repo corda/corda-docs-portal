@@ -62,24 +62,22 @@ interface Flow<out T> {
 }
 ```
 
+Read [Writing flows][writing-flows.html] for more information on using the Flow interface. 
+
 ## Service injection
 
 The methods that previously existed on `FlowLogic` have been extracted
 into injectable services. [Corda Services](../corda-services/overview.md) contains more information.
 
-To use these services, define a field annotated with the
-`@CordaInject` annotation. The system will set the field before the
-`call` method is called.
+To use these services, define a field annotated with the `@CordaInject` annotation. The system will set the field before the `call` method is called.
 
 {{< note >}}
-You cannot use the injected services before the `call` method has
-been called as they will not be available to the constructor.
+You cannot use the injected services before the `call` method has been called as they will not be available to the constructor.
 {{< /note >}}
 
 ## Flow examples
 
-In the following examples, the `FlowEngine` service is injected before
-the `call` method is called and used within the `call` method.
+In the following examples, the `FlowEngine` service is injected before the `call` method is called and used within the `call` method.
 
 #### Java example
 

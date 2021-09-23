@@ -18,4 +18,46 @@ For a complete overview of each Corda Service and its methods, use the [Corda 5 
 
 ## Injecting a Corda Service
 
-You can use the annotation `@CordaInject` to inject Corda Services into flows and other Corda Services.
+To inject Corda Services, define a field annotated with the `@CordaInject` annotation. The system will set the field before the `call` method is called.
+
+{{< note >}}
+You cannot use the injected services before the `call` method has been called as they will not be available to the constructor.
+{{< /note >}}
+
+## Flow examples
+
+In the following examples, the `FlowEngine` service is injected before the `call` method is called and used within the `call` method.
+
+#### Java example
+
+```java
+@InitiatingFlow
+@StartableByRPC
+public class FlowInjectionInJavaFlow implements Flow<Boolean> {
+
+    @CordaInject
+    public FlowEngine flowEngine;
+
+    @Override
+    public Boolean call() {
+        return flowEngine.isKilled();
+    }
+}
+```
+
+#### Kotlin example
+
+```kotlin
+@InitiatingFlow
+@StartableByRPC
+class FlowInjectionInKotlinFlow : Flow<Boolean> {
+
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+
+    @Suspendable
+    override fun call(): Boolean {
+        return flowEngine.isKilled
+    }
+}
+```
