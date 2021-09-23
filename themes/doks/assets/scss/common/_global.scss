@@ -111,6 +111,7 @@ body {
   width: 100%;
   background-color: $gray-300;
   padding: 0 0 0 2rem;
+  min-height: calc(100vh - 24rem);
 
   &.show {
     position: fixed;

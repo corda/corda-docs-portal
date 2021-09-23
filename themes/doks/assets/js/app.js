@@ -1,31 +1,8 @@
-function feedbackDocs(element){
-  var opposite = (element.dataset.action === 'like') ? 'opinion-dislike' : 'opinion-like';
-  document.getElementById(opposite).classList.remove('show');
-
-  if (ga){
-    ga('send', 'event', 'Feedback', element.dataset.action, element.dataset.doc);
-  }
-  else{
-    console.error('Google Analytic not found');
-  }
-}
-
-function toggleSideBar(){
-  var items = document.getElementsByClassName('docs-sidebar');
-  if (items.length > 0){
-    var sidebar = items[0];
-
-    if (sidebar.classList.contains('show')){
-      sidebar.classList.remove('show');
-    }
-    else{
-      sidebar.classList.add('show');
-    }
-  }
-
-}
+import {DocsiteCookies} from "./cookie-banner";
 
 document.addEventListener('DOMContentLoaded', () => {
+  new DocsiteCookies();
+
   // Update for internal link with .md
   var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
   document.querySelectorAll('main a[href]').forEach((link) => {
@@ -65,15 +42,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // hide sidebar
+
   var sidebar = document.getElementsByClassName('docs-sidebar');
   if (sidebar.length > 0){
     sidebar = sidebar[0];
 
+    var menuBtn = document.getElementById("menu-btn");
+    menuBtn.addEventListener('change', e => {
+      if(menuBtn.checked) {
+        sidebar.classList.add('show');
+      }
+      else{
+        sidebar.classList.remove('show');
+      }
+    });
+
+    // hide sidebar when user click outside of menu on mobile
     sidebar.addEventListener('click', e => {
       if(e.target === e.currentTarget) {
         sidebar.classList.remove('show');
-        document.getElementById("menu-btn").checked = false;
+        menuBtn.checked = false;
       }
     });
   }

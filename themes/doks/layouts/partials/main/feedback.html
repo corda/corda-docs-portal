@@ -1,14 +1,14 @@
-<div class="docs-feedback">
+<div class="docs-feedback d-none">
   <div class="d-flex">
     <h3>Was this page helpful?</h3>
   </div>
 
   <div class="row opinion">
     <div class="col text-center">
-      <button type="button" data-doc="{{ .File.Path }}" data-action="like" title="Yes" onclick="feedbackDocs(this)">
+      <button type="button" data-doc="{{ .File.Path }}" data-action="like" title="Yes" id="like-doc-btn">
         <img src="/icons/yes.svg" alt="Like" data-bs-toggle="collapse" data-bs-target="#opinion-like" aria-expanded="false" aria-controls="opinion-like">
       </button>
-      <button type="button" data-doc="{{ .File.Path }}" data-action="dislike" title="No" onclick="feedbackDocs(this)">
+      <button type="button" data-doc="{{ .File.Path }}" data-action="dislike" title="No" id="dislike-doc-btn">
         <img src="/icons/no.svg" alt="Dislike" data-bs-toggle="collapse" data-bs-target="#opinion-dislike" aria-expanded="false" aria-controls="opinion-dislike">
       </button>
     </div>

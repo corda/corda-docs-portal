@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ if eq .Kind "home" -}}
+
 <section class="section" id="home-introduce">
   <h1>
     Welcome to R3 docs
@@ -7,16 +7,25 @@
   <p class="subtitle">Discover the power of R3. Get documentation, sample codes, tutorials, and more.</p>
 
   <div id="home-search">
-    <form class="navbar-form order-lg-4 order-0">
+    <form class="navbar-form order-lg-4 order-0 panel-left">
+      {{ if .Site.Params.options.flexSearch -}}
       <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
       <button class="btn_search">
         <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
       </button>
       <div id="suggestions" class="shadow rounded"></div>
+
+      {{ end -}}
+
+      {{ if .Site.Params.options.algolia -}}
+      <input id="search-input" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
+      <button class="btn_search">
+        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+      </button>
+      {{ end -}}
     </form>
   </div>
 </section>
-{{ end }}
 
 <section class="section">
   <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-5">

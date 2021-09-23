@@ -46,14 +46,12 @@ alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/
 docsRepo = "https://github.com/corda/corda-docs-portal"
 editPage = false
 
-# Google
-googleAnalyticID = ""
-
 [options]
   lazySizes = true
   clipBoard = true
   instantPage = true
-  flexSearch = true
+  flexSearch = false
+  algolia = true
   darkMode = true
   bootStrapJs = true
   breadCrumb = true

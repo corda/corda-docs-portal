@@ -16,7 +16,8 @@ You will need:
 
 * Download [hugo](https://github.com/gohugoio/hugo/releases)
 * clone this repo
-* `cd` into the root of the repo and run `hugo serve`
+* `cd` into the root of the repo and run `npm install`
+* run `npm run start`
 * edit the markdown in `content`
 
 ### Edit The Current Web Page
