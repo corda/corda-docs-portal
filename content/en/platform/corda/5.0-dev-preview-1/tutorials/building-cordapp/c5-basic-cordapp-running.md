@@ -77,7 +77,7 @@ nodes:
 
 `corda-cli network deploy -n missionmars-network -f mission-mars.yaml -t 5.0.0-devpreview-rc03 > docker-compose.yaml`
 
-7. Open your Docker and start Docker containers by running the following command:
+7. Open Docker and start Docker containers by running the following command:
 
 `docker-compose -f docker-compose.yaml up -d`
 
