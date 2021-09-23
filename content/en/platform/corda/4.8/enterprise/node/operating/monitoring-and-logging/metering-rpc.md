@@ -1,13 +1,14 @@
 ---
 date: '2020-07-15T12:00:00Z'
+section_menu: corda-enterprise-4-8
 menu:
   corda-enterprise-4-8:
-    parent: corda-enterprise-4-8-corda-nodes-operating
+    parent: corda-enterprise-4-8-metering-collection
 tags:
 - node
 - administration
 title: "Metering client"
-weight: 135
+weight: 500
 ---
 
 # Metering client for the Metering Collection Tool
@@ -53,7 +54,7 @@ end = "2021-01-01"
 
 In this example, the metering client connects to the designated collector node with address `localhost:10009` and credentials `rpcUsername` and `rpcPassword`. The designated collector node then queries nodes `O=PartyA,L=London,C=GB`, `O=PartyB,L=London,C=GB`, `O=PartyC,L=London,C=GB` for metering records relating to a CorDapp with name "Corda Finance Demo", a CorDapp with jar hash `A11D1E66A084B36DAEB8B894B9F4CCE66FC4B57D7EBCAED98B729A4D35A58D36` and a CorDapp with signature hash `AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B` between the dates `2020-01-01` and `2021-01-01`. The produced metering report will be saved to `output.json` in the base directory of the metering client.
 
-Some properties in the configuration file can be overwritten using command-line arguments. For more information, see [Running the metering client](#running-the-metering-client).
+Some properties in the configuration file can be overwritten using command-line arguments. For more information, see [Run the metering client](#run-the-metering-client).
 
 ## Configuration fields
 
@@ -266,7 +267,7 @@ period = "P30D"
 --period="P30D"
 ```
 
-## Running the metering client
+## Run the metering client
 
 The metering client is a `.jar` file which is run on the command line.
 

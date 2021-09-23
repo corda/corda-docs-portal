@@ -203,7 +203,20 @@ by a custom contract state that implements its own schema as described in the [A
 documentation and associated examples. Custom criteria expressions are expressed using one of the following type-safe forms of
 `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The
 `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator
-types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (`SUM`, `AVG`, `MAX`, `MIN`, `COUNT`) with optional grouping and sorting. Furthermore, a rich DSL is provided to enable simple
+types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (`SUM`, `AVG`, `MAX`, `MIN`, `COUNT`) with optional grouping and sorting.
+
+{{% warning %}}
+The `COUNT` function is not compatible with the `group by` grouping clause. To use grouping with `COUNT` you must implement the `max()` source method for count:
+
+```kotlin
+{{private fun <O, R> KProperty1<O, R?>.count( groupByColumns: List<KProperty1<O, R>>?, orderBy: Sort.Direction? = null): CriteriaExpression.AggregateFunctionExpression<O, R> = functionPredicate( ColumnPredicate.AggregateFunction(AggregateFunctionType.COUNT), groupByColumns?.map
+
+{ Column(it) }
+, orderBy )}}
+```
+{{% /warning %}}
+
+Furthermore, a rich DSL is provided to enable simple
 construction of custom criteria using any combination of `ColumnPredicate`. See the `Builder` object in
 `QueryCriteriaUtils` for a complete specification of the DSL.
 {{< note >}}
@@ -854,6 +867,18 @@ do {
 [VaultQueryJavaTests.java](https://github.com/corda/corda/blob/release/os/4.8/node/src/test/java/net/corda/node/services/vault/VaultQueryJavaTests.java)
 
 ### Aggregate Function queries using `VaultCustomQueryCriteria`:
+
+{{% warning %}}
+The `COUNT` function is not compatible with the `group by` grouping clause. To use grouping with `COUNT` you must implement the `max()` source method for count:
+
+```kotlin
+{{private fun <O, R> KProperty1<O, R?>.count( groupByColumns: List<KProperty1<O, R>>?, orderBy: Sort.Direction? = null): CriteriaExpression.AggregateFunctionExpression<O, R> = functionPredicate( ColumnPredicate.AggregateFunction(AggregateFunctionType.COUNT), groupByColumns?.map
+
+{ Column(it) }
+, orderBy )}}
+```
+{{% /warning %}}
+
 
 #### Aggregations on cash using various functions:
 

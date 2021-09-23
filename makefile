@@ -4,16 +4,18 @@ DOCKER             = docker
 DOCKER_RUN         = $(DOCKER) run --rm --volume $(ROOT_DIR):/src $(DOCKER_BUILD_ARGS)
 HUGO_VERSION       = 0.74.3
 S3DEPLOY_VERSION   = 2.3.5
+REGISTRY           = library
 
 HUGO_DOCKER_IMAGE  = corda-docs-hugo
 PROD_IMAGE         = corda-docs-nginx
 ALGOLIA_IMAGE      = corda-docs-algolia
 PROD_IMAGE_TAG     = latest
 
-AWS_REGION         = eu-west-1
-S3_BUCKET          = docs.staging.docs.r3.com
-DISTRIBUTION_ID    = E1VJ08R1FFUVRT
-ROLE_ARN           = arn:aws:iam::491552082744:role/DocsiteUploaderFromBltProd
+# Set these variables when publishing to an AWS S3 bucket
+AWS_REGION         =
+S3_BUCKET          =
+DISTRIBUTION_ID    =
+ROLE_ARN           =
 
 .PHONY: all local-build local-build-preview help serve hugo-build prod-hugo-build prod-docker-image serve
 
@@ -76,7 +78,7 @@ publish: prod-hugo-build ## Build site, and publish it to the S3 bucket - MAIN T
 		https://$(shell $(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) ./with-assumed-role "${ROLE_ARN}" \
 			aws cloudfront get-distribution \
 			--id $(DISTRIBUTION_ID) \
-			--query 'Distribution.AliasICPRecordals[].CNAME' \
+			--query 'not_null(Distribution.AliasICPRecordals[].CNAME, Distribution.DomainName)' \
 			--output text)
 
 all: help
@@ -107,7 +109,10 @@ linkchecker: prod-docker-image ## Check all links are valid
 
 # actual tasks
 .hugo-docker-image: Dockerfile
-	$(DOCKER) build . --tag $(HUGO_DOCKER_IMAGE) --build-arg HUGO_VERSION=$(HUGO_VERSION) --build-arg S3DEPLOY_VERSION=$(S3DEPLOY_VERSION)
+	$(DOCKER) build . --tag $(HUGO_DOCKER_IMAGE) \
+		--build-arg HUGO_VERSION=$(HUGO_VERSION) \
+		--build-arg REGISTRY=$(REGISTRY) \
+		--build-arg S3DEPLOY_VERSION=$(S3DEPLOY_VERSION)
 	touch $@
 
 .prod-hugo-build: $(shell find assets content layouts static themes -type f -print0 | xargs -0 -I{} echo {} | sed -e 's/ /\\ /g')

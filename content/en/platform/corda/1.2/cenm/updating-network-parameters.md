@@ -28,7 +28,7 @@ Typical update process is as follows:
 
 
 * Start network map with initial network parameters.
-* To advertise an update:>
+* To advertise an update:
 
 * Stop the Network Map service.
 * Run it with `--set-network-parameters` flag, along with the network truststore related flags. See the ‘Setting
