@@ -1,5 +1,6 @@
 ---
 date: '2020-04-07T12:00:00Z'
+section_menu: corda-enterprise-4-8
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-metering-collection
@@ -7,60 +8,19 @@ menu:
 tags:
 - metering
 - collector
-title: Metering Collection Tool
+title: Metering collection tool
 weight: 400
 ---
 
+All Corda Enterprise nodes record metering data, the metering collection tool is used to collect data from the node. Node metering data can also be collected using the [metering client](metering-rpc.md/).
 
-# Metering Collection Tool
+The metering collection tool provides a mechanism for collecting metering data from nodes and notaries running Corda Enterprise. The metering collection tool is a CorDapp that includes a number of flows which return data from the node.
 
-The Metering Collection Tool is used to collect metering data from a Corda Enterprise node.
-
-On this page you can learn how the node records metering data and how to run the collection tool in order to collect that data.
-
-{{< note >}}
-Corda Enterprise nodes record metering data regardless of whether the Metering Collection Tool is installed on the node.
-{{< /note >}}
-
-You can also collecting metering data for one or more nodes using the [Metering client](metering-rpc.md).
-
-## Overview
-
-The Metering Collection Tool provides a mechanism for collecting metering data from both normal nodes and notaries running Corda Enterprise.
-
-The tool uses the following flows:
-
-* `MeteringCollectionFlow` - use this flow to collect metering data from a node by using the node's shell. You must specify, as an argument, the time window over which the flow will be collecting metering data. You can also specify a set of CorDapps to filter the data by. The flow output represents both the total count of metering events that match the filter within the time window, and a breakdown of these events based on the commands involved and the signing entities. You can invoke this flow from the shell, however its usage via RPC has been deprecated - you can use the `NodeMeteringCollectionFlow` flow instead. This flow gathers data from the "current" node - the node where it was initiated.
-* `NodeMeteringCollectionFlow` - use this flow to collect metering data from a node by connecting to it via RPC. You must specify, as an argument, the time window over which the flow will be collecting metering data. You can also specify a set of CorDapps to filter the data by. The flow output represents both the total count of metering events that match the filter within the time window, and a breakdown of these events based on the commands involved and the signing entities. This flow gathers data from the "current" node - the node where it was initiated.
-* `FilteredMeteringCollectionFlow` - use this flow to collect metering data from another node on the network by connecting to it via RPC. The `FilteredMeteringCollectionFlow` flow is identical to the `NodeMeteringCollectionFlow` flow except that `FilteredMeteringCollectionFlow` collects data from another node on the network - a node that is different from the one where the flow was initiated. For that reason, it requires an additional argument where you must specify the party running the node where metering data is to be collected from.
-* `AggregatedMeteringCollectionFlow` - use this flow to collect aggregated metering data from other nodes on the network - nodes that are different from the one where it was initiated. You must specify, as arguments, the time window over which the flow will be collecting metering data as well as the party running the node where metering data will be collected from. The flow output represents the total count of signing events that happened on the monitored nodes during the specified time window.
-* `MultiFilteredCollectionFlow` - use this flow to collect metering data from multiple nodes on the network by connecting to them via RPC. The `MultiFilteredCollectionFlow` flow is identical to the `FilteredMeteringCollectionFlow` flow except that `MultiFilteredCollectionFlow` collects data from multiple nodes on the network sequentially in a single flow, and returns the result as a `JSON` string. You can use this flow from the node shell only. You can use the dedicated method `FilteredMeteringCollectionFlow#multiCollect` to collect metering data from multiple nodes in parallel by using an RPC client to connect to the initiating flow - the collection process then uses the flow framework to collect metering data from the other nodes on the network.
-* `MultiAggregatedCollectionFlow` - use this flow to collect aggregated metering data from multiple nodes on the network sequentially in a single flow. The `MultiAggregatedCollectionFlow` flow is identical to the `AggregatedMeteringCollectionFlow` flow except that `MultiAggregatedCollectionFlow` collects data from multiple nodes on the network sequentially in a single flow, and returns the result as a `JSON` string. You can use this flow from the node shell only. If you want to use an RPC client to connect to the nodes, use the dedicated method `AggregatedMeteringCollectionFlow#multiCollect` to collect metering data from multiple nodes in parallel via RPC.
-* `NotaryCollectionFlow` - use this flow to collect metering data from notaries. You must specify, as an argument, the time window over which the flow will be collecting metering data. The flow output represents the total count of notarisation requests during the specified time window, along with a breakdown of these requests filtered by the parties that made them.
-* `RetrieveCordappDataFlow`- use this utility flow to extract CorDapp hashes and signing keys for a given CorDapp name, in the correct format, for use in the `NodeMeteringCollectionFlow` flow filter (see above). This flow provides information about the versions and vendors of the returned CorDapps so that the correct CorDapp data can be selected.
-
-{{< warning >}}
-The `NotaryCollectionFlow` flow does not allow the collection of metering data for notaries configured in high-availability mode.
-{{< /warning >}}
-
-{{< note >}}
-The difference between `AggregatedMeteringCollectionFlow` and `FilteredMeteringCollectionFlow` is that the output of the `FilteredMeteringCollectionFlow` flow provides a detailed breakdown of the events by identity and command, and `AggregatedMeteringCollectionFlow` only reports the total number of signing events in the metering data collection.
-{{< /note >}}
-
-## Installation
-
-The Metering Collection Tool is distributed as part of Corda Enterprise 4.8 under the name `corda-tools-metering-collector-4.8.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
-
-## Metering data
+## Corda metering data
 
 The Corda Enterprise metering process is based on the signing of transactions.
 
-Once a transaction is signed, no-one will be able to modify the transaction
-without invalidating this signature. This effectively makes the transaction immutable.
-
-The act of signing a transaction is referred to as a **signing event**.
-Whenever a signing event occurs, a small piece of data is recorded by the node. This data describes which entity signed the
-transaction, what CorDapps and commands were involved, and the time when the signing event occurred.
+Once a transaction is signed, it cannot be modified without invalidating this signature. Each transaction signature is a _signing event_. The node records a small piece of data whenever a signing event occurs. This data describes which entity signed the transaction, what CorDapps and commands were involved, and the time when the signing event occurred.
 
 {{< note >}}
 Signing events are recorded on a "per node" basis, so transaction signatures applied by a remote node will only have metering data recorded for those signatures on that node.
@@ -71,12 +31,9 @@ Notaries running on Corda Enterprise are also metered. The data recorded for not
 
 ### How metering data is shared
 
-The Metering Collection Tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where
-the respective CorDapp is installed. This feature must be enabled by the node operator deploying a
-[CorDapp configuration file](/docs/corda-os/4.8/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
-If no configuration file is deployed, metering data will not be shared with any other network party.
+The metering collection tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where the respective CorDapp is installed. This feature must be enabled by the node operator deploying a [CorDapp configuration file](/docs/corda-os/4.8/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
 
-An example configuration file that enables metering data sharing is shown below:
+If no configuration file is deployed, metering data will not be shared with any other network party. An example configuration file that enables metering data sharing is shown below:
 
 ```json
 "access_configuration" : {
@@ -115,24 +72,35 @@ It is very important that you create the configuration file correctly. To do so,
 * Ensure you configure the correct values for the configuration file static keys (`access_configuration`, `network_collectors`, `by_hash`, and so on). Any errors, like a typo, will mean your configuration is ignored and the default applied. As a result, no metering data will be shared.
 * Ensure that every `.jar` hash, `.jar` signature, and CorDapp name in the configuration matches at least one of the deployed CorDapps. This means that you must not whitelist a CorDapp that does not exist. This step is essential in order to pass the configuration validation step that runs at node start-up, which checks that the X.500 names used in the configuration file are valid. If the configuration validation step fails for any reason, the node will fail to start.
 
-## Use procedures
+## Install the metering collection tool
 
-This section provides instructions on how to use each of the Metering Collection Tool flows.
+The metering collection tool is distributed as part of Corda Enterprise 4.8 under the name `corda-tools-metering-collector-4.8.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
 
-{{< note >}}
-In the list of flows below:
-* The `FilteredMeteringCollectionFlow` flow and the `AggregatedMeteringCollectionFlow` flow gather data from a node or nodes on the network different from the node where the respective flow was initiated.
-* The `NodeMeteringCollectionFlow` flow and the `MeteringCollectionFlow` flow collect metering data from the "current" node - the node where each of the flows was initiated.
-{{< /note >}}
+## Use the metering collection flows
 
-### Using `MeteringCollectionFlow`
+The metering collection tool is a CorDapp containing a number of flows that return meting data from a node or notary. The flows are:
 
-You invoke this flow from the [shell](node/operating/shell.md). The flow takes the following arguments:
+- [`MeteringCollectionFlow`](#meteringcollectionflow)
+- [`NodeMeteringCollectionFlow`](#nodemeteringcollectionflow)
+- [`FilteredMeteringCollectionFlow`](#filteredmeteringcollectionflow)
+- [`AggregatedMeteringCollectionFlow`](#aggregatedmeteringcollectionflow)
+- [`MultiFilteredCollectionFlow`](#multifilteredcollectionflow)
+- [`MultiAggregatedCollectionFlow`](#multiaggregatedcollectionflow)
+- [`NotaryCollectionFlow`](#notarycollectionflow)
+- [`RetrieveCordappDataFlow`](#retrievecordappdataflow)
 
-1. A time window over which the flow runs. This is a mandatory argument. The accepted time window formats are either a start date and an end date (both of type `Instant`), or a start date and a duration (see the [Usage](#usage) section below). Note that the minimum time unit you can use is an hour, so the flow is unable to collect metering data over durations shorter than an hour.
-2. A filter to select which CorDapps to collect data for. To specify a filter, provide a `MeteringFilter` object, which consists of `filterBy` criteria and a list of strings that describe
+### `MeteringCollectionFlow`
+
+Use the `MeteringCollectionFlow` to collect metering data from a node. You must specify the time window over which to collect the metering data, and can also specify CorDapps to filter data by.
+
+The flow returns the total count of metering events that match the filters within the time window, and a breakdown of these events based on the commands involved and the signing entities based on the information held by the current node.
+
+You invoke this flow from the [shell](../shell.md). The flow takes the following arguments:
+
+- A time window over which the flow runs. This is a mandatory argument. The accepted time window formats are either a start date and an end date (both of type `Instant`), or a start date and a duration (see the [Usage](#usage) section below). Note that the minimum time unit you can use is an hour, so the flow is unable to collect metering data over durations shorter than an hour.
+- A filter to select which CorDapps to collect data for. To specify a filter, provide a `MeteringFilter` object, which consists of `filterBy` criteria and a list of strings that describe
 the CorDapps to filter by. There are four possible options to filter by, which are described in the [data filtering section](#data-filtering).
-3. A paging specification to describe how the flow should access the database. The paging specification is used to control database access by ensuring that only a subset of data is accessed at once. This is important in order to prevent too much data being read into memory at once, which would result in out-of-memory errors. By default, up to 10 000 metering entries are read into memory at a time, although the number of returned entries is likely to be smaller because some aggregation takes place in the background. If more than one page of data is required, the flow may need to be run multiple times to collect the full breakdown of metering events. However, the total count provided is always the full number of signing events that match the supplied criteria.
+- A paging specification to describe how the flow should access the database. The paging specification is used to control database access by ensuring that only a subset of data is accessed at once. This is important in order to prevent too much data being read into memory at once, which would result in out-of-memory errors. By default, up to 10 000 metering entries are read into memory at a time, although the number of returned entries is likely to be smaller because some aggregation takes place in the background. If more than one page of data is required, the flow may need to be run multiple times to collect the full breakdown of metering events. However, the total count provided is always the full number of signing events that match the supplied criteria.
 
 Use the shell interface to invoke the flow by specifying the time window - either provide the `startDate` and `endDate` for the metering data collection in the format `YYYY-MM-DD`, or the `startDate` (in the same format) and the duration as an integer number of `daysToCollect`.
 
@@ -165,13 +133,16 @@ and a count of events in this page that match this specification.
 
 The output object can also be serialised into `JSON` format by calling `serialize`.
 
-When you run Metering Collection Tool from the shell, the collected metering data is shown as output on the shell terminal, in `JSON` format. The example below shows the output `JSON` on the shell terminal:
+When you run metering collection tool from the shell, the collected metering data is shown as output on the shell terminal, in `JSON` format. The example below shows the output `JSON` on the shell terminal:
 
 ```bash
 {"totalCount":2,"version":1,"query":{"startDate":"2019-11-13T00:00:00Z","endDate":"2019-11-15T00:00:00Z","filter":{"filterBy":"NONE","values":[]},"pageNumber":1,"totalPages":1,"pageSize":10000},"entries":[{"signingId":{"type":"NODE_IDENTITY","accountId":null},"txType":"NORMAL","commands":["net.corda.finance.contracts.asset.Cash.Commands.Issue"],"count":1},{"signingId":{"type":"NODE_IDENTITY","accountId":null},"txType":"NORMAL","commands":["net.corda.finance.contracts.asset.Cash.Commands.Move"],"count":1}]}
 ```
 
-### Using `NodeMeteringCollectionFlow`
+
+### `NodeMeteringCollectionFlow`
+
+Use the `NodeMeteringCollectionFlow` flow to collect metering data from a node by connecting to it via RPC.  This flow functions in the same manner as `MeteringCollectionFlow` and returns the same information, but this flow can be invoked via RPC rather than the node shell.
 
 You can use this flow to retrieve detailed metering data from the node the RPC client connects to. The flow is similar to the `MeteringCollectionFlow` flow, however it provides
 a simpler API that does not require data pagination.
@@ -237,82 +208,21 @@ val nodeMeteringData = client.use("rpcUsername", "rpcPassword") { conn: CordaRPC
 
 {{< /tabs >}}
 
-### Using `AggregatedMeteringCollectionFlow`
-<a name="using-AggregatedMeteringCollectionFlow"></a>
 
-You can use this flow to collect aggregated metering data from a remote node on the network. Aggregated metering data only contains the total number of signing events that happened within a given time period, without any additional information such as signing service public key, contract command, or transaction type.
+### `FilteredMeteringCollectionFlow`
+
+Use the `FilteredMeteringCollectionFlow` flow to collect metering data from another node on the network by connecting to it via RPC. The `FilteredMeteringCollectionFlow` flow is identical to the `NodeMeteringCollectionFlow` flow except that `FilteredMeteringCollectionFlow` collects data from another node on the network. When using `FilteredMeteringCollectionFlow`, you must specify the party running the node to collect data from.
 
 {{< note >}}
-The result of the metering data collection with this flow depends on what the node operator decided to share with you in their [CorDapp configuration](#sharing-of-metering-data). In particular, your X.500 name must be present in their list of `network_collectors`, otherwise the invocation of this flow will result in an `PermissionDeniedException` error.
+The difference between `AggregatedMeteringCollectionFlow` and `FilteredMeteringCollectionFlow` is that the output of the `FilteredMeteringCollectionFlow` flow provides a detailed breakdown of the events by identity and command, and `AggregatedMeteringCollectionFlow` only reports the total number of signing events in the metering data collection.
 {{< /note >}}
-
-The example below shows how to retrieve aggregated metering data by connecting to a node running on the local machine, from the node ran by `O=PartyA,L=New York,C=US`, for the duration of the past 7 days:
-
-{{< tabs name="tabs-AggregatedMeteringCollectionFlow" >}}
-{{% tab name="java" %}}
-```java
-NetworkHostAndPort hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000");
-CordaRPCClient client = new CordaRPCClient(hostAndPort);
-AggregatedNodeMeteringData meteringData =
-        client.use("rpcUsername", "rpcPassword", conn -> {
-            CordaRPCOps rpcOps = conn.getProxy();
-            Party destination = rpcOps.wellKnownPartyFromX500Name(
-                    CordaX500Name.parse("O=PartyA,L=New York,C=US")
-            );
-            Instant now = Instant.now();
-            Instant sevenDaysAgo = now.minus(7, ChronoUnit.DAYS);
-            FlowHandle<AggregatedNodeMeteringData> handle =
-                    rpcOps.startFlowDynamic(AggregatedMeteringCollectionFlow.class,
-                            destination,
-                            Filter.ByTimeStamp.between(sevenDaysAgo, now)
-                    );
-            Future<AggregatedNodeMeteringData> result = handle.getReturnValue();
-            try {
-                return result.get();
-            } catch (InterruptedException | ExecutionException e) {
-                throw new RuntimeException(e);
-            }
-        });
-```
-
-{{% /tab %}}
-
-{{% tab name="kotlin" %}}
-```kotlin
-val hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000")
-val client = CordaRPCClient(hostAndPort)
-val data = client.use("rpcUsername", "rpcPassword") { conn: CordaRPCConnection ->
-    val rpcOps = conn.proxy
-    val destination = rpcOps.wellKnownPartyFromX500Name(
-            CordaX500Name.parse("O=PartyA,L=New York,C=US")
-    )!!
-    val now = Instant.now()
-    val sevenDaysAgo = now.minus(7, ChronoUnit.DAYS)
-    val handle = rpcOps.startFlow(
-            ::AggregatedMeteringCollectionFlow,
-            destination,
-            Filter.ByTimeStamp.between(sevenDaysAgo, now)
-    )
-    try {
-        handle.returnValue.get()
-    } catch (e: ExecutionException) {
-        throw e.cause ?: e
-    }
-}
-```
-{{% /tab %}}
-
-{{< /tabs >}}
-
-### Using `FilteredMeteringCollectionFlow`
-<a name="using-FilteredMeteringCollectionFlow"></a>
 
 You can use this flow to collect metering data from a remote node on the network. It is similar to the `NodeMeteringCollectionFlow` flow - the difference between the two is that `FilteredMeteringCollectionFlow` collects metering data from a remote node on the network and `NodeMeteringCollectionFlow` collects metering data from the node the RPC client connects to.
 
 {{< note >}}
 The result of the metering data collection with this flow depends on what the node operator decided to share with you in their [CorDapp configuration](#sharing-of-metering-data).
 
-If nothing was shared, you will receive an object with an empty `entries` list. In order for the Metering Collection Tool to distinguish between the case where there was no metering data on the collected node and the case where the node operator did not whitelist it, the returned object contains the `collectedCorDapps` field, which is populated with the list of CorDapps the requester is allowed to collect metering data for.
+If nothing was shared, you will receive an object with an empty `entries` list. In order for the metering collection tool to distinguish between the case where there was no metering data on the collected node and the case where the node operator did not whitelist it, the returned object contains the `collectedCorDapps` field, which is populated with the list of CorDapps the requester is allowed to collect metering data for.
 
 If `collectedCorDapps` is returned as an empty list, this means that the requester was not authorised to collect metering data from any of the requested CorDapps. However, if `entries` is returned as an empty list but `collectedCorDapps` is not, this means that the CorDapps contained in `collectedCorDapps` have been collected but no metering data was present during the specified time window.
 {{< /note >}}
@@ -387,112 +297,83 @@ val data = client.use("rpcUsername", "rpcPassword") { conn: CordaRPCConnection -
 
 {{< /tabs >}}
 
+### `AggregatedMeteringCollectionFlow`
 
-### Using `RetrieveCordappDataFlow`
-<a name="using-RetrieveCordappDataFlow"></a>
+Use the `AggregatedMeteringCollectionFlow` flow to collect aggregated metering data from other nodes on the network. You must specify the time window over which the flow will collect metering data, and the party running the node where metering data will be collected.
 
-You can use this additional utility flow to retrieve CorDapp metadata for a particular CorDapp name, and to obtain CorDapp hashes and signing keys in the correct format in order to construct a valid `MeteringFilter` instance. The flow also returns the version numbers and vendors of the queried CorDapps, allowing you to extract the right hashes and keys for particular versions.
+The flow returns the total count of signing events that happened on the monitored nodes during the time window.
 
-The example below shows how to invoke this flow from the node shell:
 
-```bash
-Tue May 05 16:23:08 IST 2020>>> flow start com.r3.corda.metering.RetrieveCordappDataFlow
+You can use this flow to collect aggregated metering data from a remote node on the network. Aggregated metering data only contains the total number of signing events that happened within a given time period, without any additional information such as signing service public key, contract command, or transaction type.
 
- ✓ Starting
-▶︎ Done
-Flow completed with result: [{
-  "name" : "Corda Finance Demo",
-  "vendor" : "R3",
-  "version" : "1",
-  "hash" : "FD8C8A320794B7D928DB90EBACC27A06B6AB683111799380286F2F7A8AB819F2",
-  "signingKeys" : [ "AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B" ]
-}, {
-  "name" : "Corda Finance Demo",
-  "vendor" : "R3",
-  "version" : "1",
-  "hash" : "44489E8918D7D8F7A3227FE56EC34BFDDF15BD413FF92F23E72DD5D543BD6194",
-  "signingKeys" : [ "AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B" ]
-}, {
-  "name" : "Corda Metering Collection Tool",
-  "vendor" : "R3",
-  "version" : "4.8-SNAPSHOT",
-  "hash" : "FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5",
-  "signingKeys" : [ "AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B" ]
-}]
-```
+{{< note >}}
+The result of the metering data collection with this flow depends on what the node operator decided to share with you in their [CorDapp configuration](#sharing-of-metering-data). In particular, your X.500 name must be present in their list of `network_collectors`, otherwise the invocation of this flow will result in an `PermissionDeniedException` error.
+{{< /note >}}
 
-The example below shows how to invoke this flow using RPC:
+The example below shows how to retrieve aggregated metering data by connecting to a node running on the local machine, from the node ran by `O=PartyA,L=New York,C=US`, for the duration of the past 7 days:
 
-{{< tabs name="tabs-RetrieveCordappDataFlow" >}}
+{{< tabs name="tabs-AggregatedMeteringCollectionFlow" >}}
 {{% tab name="java" %}}
-
 ```java
 NetworkHostAndPort hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000");
 CordaRPCClient client = new CordaRPCClient(hostAndPort);
-List<? extends CordappData> corDappData =
-  client.use("rpcUsername", "rpcPassword", conn -> {
-    CordaRPCOps rpcOps = conn.getProxy();
-    FlowHandle<List<? extends CordappData>> handle =
-      rpcOps.startFlowDynamic(RetrieveCordappDataFlow.class);
-    Future<List<? extends CordappData>> result = handle.getReturnValue();
-    try {
-        return result.get();
-    } catch (InterruptedException | ExecutionException e) {
-        throw new RuntimeException(e);
-    }
-});
+AggregatedNodeMeteringData meteringData =
+        client.use("rpcUsername", "rpcPassword", conn -> {
+            CordaRPCOps rpcOps = conn.getProxy();
+            Party destination = rpcOps.wellKnownPartyFromX500Name(
+                    CordaX500Name.parse("O=PartyA,L=New York,C=US")
+            );
+            Instant now = Instant.now();
+            Instant sevenDaysAgo = now.minus(7, ChronoUnit.DAYS);
+            FlowHandle<AggregatedNodeMeteringData> handle =
+                    rpcOps.startFlowDynamic(AggregatedMeteringCollectionFlow.class,
+                            destination,
+                            Filter.ByTimeStamp.between(sevenDaysAgo, now)
+                    );
+            Future<AggregatedNodeMeteringData> result = handle.getReturnValue();
+            try {
+                return result.get();
+            } catch (InterruptedException | ExecutionException e) {
+                throw new RuntimeException(e);
+            }
+        });
 ```
 
 {{% /tab %}}
 
 {{% tab name="kotlin" %}}
-
 ```kotlin
 val hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000")
 val client = CordaRPCClient(hostAndPort)
-val corDappData =
-  client.use("rpcUsername", "rpcPassword") { conn: CordaRPCConnection ->
+val data = client.use("rpcUsername", "rpcPassword") { conn: CordaRPCConnection ->
     val rpcOps = conn.proxy
-    val handle = rpcOps.startFlow(::RetrieveCordappDataFlow)
-    val result: Future<List<CordappData>> = handle.returnValue
+    val destination = rpcOps.wellKnownPartyFromX500Name(
+            CordaX500Name.parse("O=PartyA,L=New York,C=US")
+    )!!
+    val now = Instant.now()
+    val sevenDaysAgo = now.minus(7, ChronoUnit.DAYS)
+    val handle = rpcOps.startFlow(
+            ::AggregatedMeteringCollectionFlow,
+            destination,
+            Filter.ByTimeStamp.between(sevenDaysAgo, now)
+    )
     try {
-        result.get()
+        handle.returnValue.get()
     } catch (e: ExecutionException) {
         throw e.cause ?: e
     }
 }
 ```
-
 {{% /tab %}}
 
 {{< /tabs >}}
 
 
-### Collecting metering data from multiple nodes
+### `MultiFilteredCollectionFlow`
 
-There are two mechanisms you can use to collect metering data from multiple nodes on the network - by connecting to the node via:
+Use the `MultiFilteredCollectionFlow` flow to collect metering data from multiple nodes on the network by connecting to them via RPC. The `MultiFilteredCollectionFlow` flow is identical to the `FilteredMeteringCollectionFlow` flow except that `MultiFilteredCollectionFlow` collects data from multiple nodes on the network sequentially in a single flow, and returns the result as a `JSON` string.
 
-* the [Corda RPC API](api-rpc.md)
-* the [node shell](node/operating/shell.md)
-
-#### Collecting metering data from multiple nodes using the Corda RPC API
-
-You can use the following two methods:
-- `FilteredMeteringCollectionFlow.multiCollect`
-- `AggregatedMeteringCollectionFlow.multicollect`
-
-Both methods start multiple parallel flows on the collector node, each of them collecting metering data from a different node on the network. You can specify a timeout period
-so that any flows that do not terminate within the timeout are simply cancelled, and only the data from the flows that completed successfully is processed.
-
-You can specify a callback as an argument. The callback is invoked once for each destination node as soon as the relative flow returns. The callback takes the following parameters:
-
-* The destination party from which metering data has been collected.
-* The `Filter` instance that was used for the metering data collection.
-* A `Future` that is guaranteed to be done at the time of the callback invocation.
-
-If the flow invocation resulted in an exception, the exception is thrown again inside the callback when calling `Future.get` and it is expected that the callback is able to handle it. In case this fails, the execution is interrupted, and all the created sub-flows are cancelled.
-
-The example below shows filtered metering collection from two nodes:
+You can use this flow only from the node shell. You can use the dedicated method `FilteredMeteringCollectionFlow#multiCollect` to collect metering data from multiple nodes in parallel by using an RPC client to connect to the initiating flow - the collection process then uses the flow framework to collect metering data from the other nodes on the network.
 
 {{< tabs name="tabs-FilteredMeteringCollectionFlow.multicollect" >}}
 {{% tab name="java" %}}
@@ -572,7 +453,12 @@ FilteredMeteringCollectionFlow.multiCollect(
 
 {{< /tabs >}}
 
-The example below shows aggregated metering collection from two nodes:
+
+### `MultiAggregatedCollectionFlow`
+
+Use the `MultiAggregatedCollectionFlow` flow to collect aggregated metering data from multiple nodes on the network sequentially in a single flow. The `MultiAggregatedCollectionFlow` flow is identical to the `AggregatedMeteringCollectionFlow` flow except that `MultiAggregatedCollectionFlow` collects data from multiple nodes on the network sequentially in a single flow, and returns the result as a `JSON` string.
+
+You can use this flow only from the node shell.
 
 {{< tabs name="tabs-AggregatedMeteringCollectionFlow.multicollect" >}}
 {{% tab name="java" %}}
@@ -639,7 +525,120 @@ AggregatedMeteringCollectionFlow.multiCollect(
 
 {{< /tabs >}}
 
-#### Multiple nodes collection using the node shell
+### `NotaryCollectionFlow`
+
+Use the `NotaryCollectionFlow` flow to collect metering data from notaries. You must specify the time window over which the flow will be collecting metering data. The flow output represents the total count of notarisation requests during the specified time window, along with a breakdown of these requests filtered by the parties that made them.
+
+{{< warning >}}
+The `NotaryCollectionFlow` flow does not allow the collection of metering data for notaries configured in high-availability mode.
+{{< /warning >}}
+
+### `RetrieveCordappDataFlow`
+
+Use the `RetrieveCordappDataFlow` utility flow to extract CorDapp hashes and signing keys for a given CorDapp name for use in the `NodeMeteringCollectionFlow` flow filter. This flow provides information about the versions and vendors of the returned CorDapps so that the correct CorDapp data can be selected.
+
+You can use this additional utility flow to retrieve CorDapp metadata for a particular CorDapp name, and to obtain CorDapp hashes and signing keys in the correct format in order to construct a valid `MeteringFilter` instance. The flow also returns the version numbers and vendors of the queried CorDapps, allowing you to extract the right hashes and keys for particular versions.
+
+The example below shows how to invoke this flow from the node shell:
+
+```bash
+Tue May 05 16:23:08 IST 2020>>> flow start com.r3.corda.metering.RetrieveCordappDataFlow
+
+ ✓ Starting
+▶︎ Done
+Flow completed with result: [{
+  "name" : "Corda Finance Demo",
+  "vendor" : "R3",
+  "version" : "1",
+  "hash" : "FD8C8A320794B7D928DB90EBACC27A06B6AB683111799380286F2F7A8AB819F2",
+  "signingKeys" : [ "AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B" ]
+}, {
+  "name" : "Corda Finance Demo",
+  "vendor" : "R3",
+  "version" : "1",
+  "hash" : "44489E8918D7D8F7A3227FE56EC34BFDDF15BD413FF92F23E72DD5D543BD6194",
+  "signingKeys" : [ "AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B" ]
+}, {
+  "name" : "Corda Metering Collection Tool",
+  "vendor" : "R3",
+  "version" : "4.8-SNAPSHOT",
+  "hash" : "FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5",
+  "signingKeys" : [ "AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B" ]
+}]
+```
+
+The example below shows how to invoke this flow using RPC:
+
+{{< tabs name="tabs-RetrieveCordappDataFlow" >}}
+{{% tab name="java" %}}
+
+```java
+NetworkHostAndPort hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000");
+CordaRPCClient client = new CordaRPCClient(hostAndPort);
+List<? extends CordappData> corDappData =
+  client.use("rpcUsername", "rpcPassword", conn -> {
+    CordaRPCOps rpcOps = conn.getProxy();
+    FlowHandle<List<? extends CordappData>> handle =
+      rpcOps.startFlowDynamic(RetrieveCordappDataFlow.class);
+    Future<List<? extends CordappData>> result = handle.getReturnValue();
+    try {
+        return result.get();
+    } catch (InterruptedException | ExecutionException e) {
+        throw new RuntimeException(e);
+    }
+});
+```
+
+{{% /tab %}}
+
+{{% tab name="kotlin" %}}
+
+```kotlin
+val hostAndPort = NetworkHostAndPort.parse("127.0.0.1:10000")
+val client = CordaRPCClient(hostAndPort)
+val corDappData =
+  client.use("rpcUsername", "rpcPassword") { conn: CordaRPCConnection ->
+    val rpcOps = conn.proxy
+    val handle = rpcOps.startFlow(::RetrieveCordappDataFlow)
+    val result: Future<List<CordappData>> = handle.returnValue
+    try {
+        result.get()
+    } catch (e: ExecutionException) {
+        throw e.cause ?: e
+    }
+}
+```
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+## Collect metering data from multiple nodes
+
+There are two mechanisms you can use to collect metering data from multiple nodes on the network - by connecting to the node via:
+
+* the [Corda RPC API](api-rpc.md)
+* the [node shell](node/operating/shell.md)
+
+### Collect data using the RPC API
+
+You can use the following two methods:
+- `FilteredMeteringCollectionFlow.multiCollect`
+- `AggregatedMeteringCollectionFlow.multicollect`
+
+Both methods start multiple parallel flows on the collector node, each of them collecting metering data from a different node on the network. You can specify a timeout period
+so that any flows that do not terminate within the timeout are simply cancelled, and only the data from the flows that completed successfully is processed.
+
+You can specify a callback as an argument. The callback is invoked once for each destination node as soon as the relative flow returns. The callback takes the following parameters:
+
+* The destination party from which metering data has been collected.
+* The `Filter` instance that was used for the metering data collection.
+* A `Future` that is guaranteed to be done at the time of the callback invocation.
+
+If the flow invocation resulted in an exception, the exception is thrown again inside the callback when calling `Future.get` and it is expected that the callback is able to handle it. In case this fails, the execution is interrupted, and all the created sub-flows are cancelled.
+
+### Collect data using the node shell
 
 You can use the following two flows:
 - `MultiAggregatedCollectionFlow`
@@ -647,7 +646,7 @@ You can use the following two flows:
 
 As regards data filtering and permissions, both of them are identical to their single node counterparts - `AggregatedMeteringCollectionFlow` and `FilteredMeteringCollectionFlow`, respectively.
 
-They proceed through all the destination nodes in sequential order. This can significantly slow down the collection process and can cause the execution to hang indefinitely if one of the destination nodes is down or is not running the Metering Collection Tool CorDapp.
+They proceed through all the destination nodes in sequential order. This can significantly slow down the collection process and can cause the execution to hang indefinitely if one of the destination nodes is down or is not running the metering collection tool CorDapp.
 
 Both flows take the following parameters when invoked from the shell:
 
@@ -785,8 +784,7 @@ flow start com.r3.corda.metering.MultiFilteredCollectionFlow dateFormat: {value:
 flow start com.r3.corda.metering.MultiFilteredCollectionFlow dateFormat: {value: "yyyy-MM-dd"},  start: {value: "2020-04-06"}, end : {value: "2020-05-06"}, destinations: [PartyA, PartyB], filter: {filterBy: CORDAPP_NAMES, values: [Finance]}, txTypes: [NORMAL]
 ```
 
-### Data filtering using the node shell
-<a name="data-filtering-shell"></a>
+## Filter data using the node shell
 
 When you use the node shell to filter metering data, you can only filter by:
 
@@ -794,7 +792,7 @@ When you use the node shell to filter metering data, you can only filter by:
 * transaction type
 * timestamp
 
-#### Filtering by CorDapp
+### Filter by CorDapps
 
 To filter metering data by CorDapp, use the `filter` parameter in the `MeteringCollectionFlow`, `MultiAggregatedMeteringCollectionFlow`, and `MultiFilteredMeteringCollectionFlow` flows.
 
@@ -815,7 +813,7 @@ This parameter requires an object created by the `filterBy` parameter that speci
 The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](node/operating/node-database-admin.md#sql-server-3)
 {{% /note %}}
 
-#### Filtering by transaction type
+### Filter by transaction type
 
 To filter metering data by transaction type, use the `txTypes` parameter in the `MultiAggregatedMeteringCollectionFlow` and `MultiFilteredMeteringCollectionFlow` flows.
 
@@ -832,8 +830,7 @@ The available transaction types are as follows:
 The transaction types `NORMAL`, `CONTRACT_UPGRADE`, and `NOTARY_CHANGE` correspond to transactions that cause a ledger update, while the `UNKNOWN` transaction type corresponds to transactions that do not cause a ledger update.
 {{< /note >}}
 
-### Data filtering using the RPC API
-<a name="data-filtering-rpc"></a>
+## Filter data using the RPC API
 
 You can use data filtering via the RPC API for the `NodeMeteringCollectionFlow`, `AggregatedMeteringCollectionFlow`, and `FilteredMeteringCollectionFlow` flows.
 
