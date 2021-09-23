@@ -174,7 +174,7 @@ b. Click **Try it out** and then **Execute**.
 
 {{< note >}}
 
-This does not mean the transaction has passed through. It means that the flow has bee executed successfully, but the success of the transaction is not guaranteed.
+This does not mean the transaction has passed through. It means that the flow has been executed successfully, but the success of the transaction is not guaranteed.
 
 {{< /note >}}
 
