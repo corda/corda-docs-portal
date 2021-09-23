@@ -555,4 +555,9 @@ body.dark {
   footer {
     background-color: $body-overlay-dark;
   }
+
+  #cookies-eu-banner {
+    background-color: $body-overlay-dark;
+    border: solid 2px $gray-500;
+  }
 }

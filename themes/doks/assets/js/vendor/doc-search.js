@@ -20,7 +20,6 @@ export function docSearchInit(){
             apiKey: algolia_apiKey,
             indexName: algolia_index,
             inputSelector: "#search-input",
-            debug: true,
             algoliaOptions: algoliaOptions
         });
     }
