@@ -23,7 +23,7 @@ In the Corda 5 Developer Preview release, the notaries support non-validating mo
 
 ## Before you start
 
-Before you begin, make sure you [set up your development environment first](XXX).
+Before you begin, make sure you [set up your development environment first](setup-environment.md).
 
 
 ## Configure your network
@@ -139,4 +139,4 @@ nodes:
 
 ## Troubleshooting
 
-If you encounter any issues while deploying your local Corda 5 network, see [Corda 5 local network troubleshooting](XXX).
+If you encounter any issues while deploying your local Corda 5 network, see [Corda 5 local network troubleshooting](../local-network/network-troubleshooting.md).

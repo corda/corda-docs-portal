@@ -4,7 +4,7 @@ title: "Local network"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-localnetwork
-    weight: 700
+    weight: 100
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
