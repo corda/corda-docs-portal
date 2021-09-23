@@ -36,6 +36,29 @@ Before you start writing integration tests you must [deploy your CorDapp to a lo
 
 This integration test checks that your `CreateAndIssueMarsVoucher` flow has executed and that it has come back as `COMPLETED`. Create an integration test for this flow by following these steps:
 
+### Modify the `build.gradle` file
+
+You need to make a few changes in the `build.gradle` file of your CorDapp to connect your test code to the network where you've deployed your CorDapp.
+
+1. Register your integration test:
+
+```kotlin
+tasks.register('integrationTest', Test) {
+    description = "Runs integration tests."
+    group = "verification"
+
+    testClassesDirs = project.sourceSets["integrationTest"].output.classesDirs
+    classpath = project.sourceSets["integrationTest"].runtimeClasspath
+}
+```
+
+2. Add a dependency referencing the test library:
+
+```kotlin
+integrationTestImplementation "net.corda:corda-dev-network-lib:$cordaAPIVersion"
+```
+This ensures that your integration tests can use the network created using Corda CLI.
+
 ### Copy the `TemplateFlowTest`
 
 When writing integration tests, it's helpful to start from the template as some features of your test will be identical to the template.
