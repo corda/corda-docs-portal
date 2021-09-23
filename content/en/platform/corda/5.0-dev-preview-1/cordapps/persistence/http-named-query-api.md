@@ -193,6 +193,7 @@ Here is a sample response:
 }
 ```
 
+
 When using non-sequentially ordered queries, "position" will be (start count + number of results) for all items.
 
 ## What are sequential queries?
