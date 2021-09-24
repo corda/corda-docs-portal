@@ -11,7 +11,7 @@ section_menu: corda-5-dev-preview
 
 To debug your CorDapp in a local network using IntelliJ:
 
-1. Ensure the node you want to debug has the `debug: true` property set in the network definition `yaml` file.
+1. Ensure the node you want to debug has the `debug: true` property set in the network definition `.yaml` file.
 
 2. Run the `corda-cli network status` command:
 

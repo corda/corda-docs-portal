@@ -427,13 +427,13 @@ To re-run your tests after making a change to your CorDapp, redeploy your CorDap
 
 You can debug Integration tests from the IDE. However, often it is useful to debug the node, too. The node runs on a remote process in a Docker container, and _not_ in the same process as the test, so you need to attach a remote debugger to any node you would like to debug.
 
-For more information on how to debug a node in the Corda 5 development network, see [Debugging CorDapps](../debugging-cordapps).
+For more information on how to debug a node in the Corda 5 development network, see [Debugging CorDapps](debugging-cordapps.md).
 
 ## Removal of the mock network feature in Corda 5
 
 The `MockNetwork` functionality (in-memory testing) has been removed and replaced with [testing capabilities in the Corda CLI](../corda-cli/commands.md). This update dramatically speeds up node start times and reduces memory requirements.
 - For [unit testing](flow-unit-testing.md), you can use the `corda-dev-network-lib` library with the unit testing framework of your choice.
-- For [integration testing](../running-integration-tests/), you can [deploy a network](../getting-started/setup-network.md) with Docker, locally or in a remote environment.
+- For [integration testing](#running-integration-tests.md), you can [deploy a network](../getting-started/setup-network.md) with Docker, locally or in a remote environment.
 
 Classes related to `MockNetwork` have been removed:
 

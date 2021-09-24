@@ -4,7 +4,7 @@ title: "Setting up a local Corda 5 development network"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-gettingstarted
-    weight: 200
+    weight: 250
 project: corda-5
 section_menu: corda-5-dev-preview
 
@@ -139,4 +139,4 @@ nodes:
 
 ## Troubleshooting
 
-If you encounter any issues while deploying your local Corda 5 network, see [Corda 5 local network troubleshooting](../local-network/network-troubleshooting.md).
+If you encounter any issues while deploying your local Corda 5 network, see [Corda 5 local network troubleshooting](troubleshooting/network-troubleshooting.md).

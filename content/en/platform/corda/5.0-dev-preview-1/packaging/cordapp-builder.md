@@ -30,7 +30,7 @@ If a previous installation of CorDapp Builder CLI exists, remove it. See [Uninst
 
 #### Steps
 
-1. Download the latest stable [`.tar` ](https://download.corda.net/cordapp-builder/5.0.0-DevPreview/cordapp-builder.tar) or [`.zip`](https://download.corda.net/cordapp-builder/5.0.0-DevPreview/cordapp-builder.zip) file.
+1. Download the latest stable [.tar ](https://download.corda.net/cordapp-builder/5.0.0-DevPreview/cordapp-builder.tar) or [.zip](https://download.corda.net/cordapp-builder/5.0.0-DevPreview/cordapp-builder.zip) file.
 
 2. Create a new `bin/cordapp-builder` directory under the current users home directory.
 
