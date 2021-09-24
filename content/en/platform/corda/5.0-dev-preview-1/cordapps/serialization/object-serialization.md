@@ -37,6 +37,10 @@ weakly or untyped string-based serialization schemes like JSON or XML. The prima
 * Binary formats work better with digital signatures than text based formats, as there’s much less scope for
   changes that modify syntax but not semantics.
 
+## New in the Corda 5 Developer Preview
+
+* Blob Inspector has not been ported and is not currently available in Corda 5 Dev Preview 1.
+* Addition of *METADATA* element in wire format to facilitate the serialization process in a sandboxing environment.
 
 ## Whitelisting
 
@@ -96,8 +100,6 @@ Corda uses an extended form of AMQP 1.0 as its binary wire protocol. You can lea
 uses if you intend to parse Corda messages from non-JVM platforms.
 
 Corda serialization is currently used for:
-
-
 
 * Peer-to-peer networking.
 * Persisted messages, like signed transactions and states.

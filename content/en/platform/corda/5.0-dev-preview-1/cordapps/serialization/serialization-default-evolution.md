@@ -17,7 +17,7 @@ the actual code changes. These are:
 
 
 * Adding nullable properties.
-* Adding non-nullable properties *if* an annotated constructor is provided.
+* Adding non-nullable properties if, and only if, an annotated constructor is provided.
 * Removing properties.
 * Reordering constructor parameters.
 

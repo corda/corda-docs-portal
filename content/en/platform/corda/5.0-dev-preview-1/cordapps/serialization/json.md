@@ -45,3 +45,7 @@ ObjectMapper mapper = JacksonSupport.createNonRpcMapper()
 
 {{< /tabs >}}
 
+{{< note >}}
+The way mappers interact with identity and RPC is likely to change in a future release.
+
+{{< /note >}}
