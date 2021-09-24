@@ -75,7 +75,7 @@ nodes:
 
 6. Deploy your network locally.
 
-`corda-cli network deploy -n missionmars-network -f mission-mars.yaml -t 5.0.0-devpreview-rc03 > docker-compose.yaml`
+`corda-cli network deploy -n missionmars-network | docker-compose -f - up -d`
 
 7. Start Docker containers by running the following command:
 
@@ -83,11 +83,11 @@ nodes:
 
 This step will take some time to complete.
 
-8. While waiting for the containers to start, you can monitor logs by running this command:
+8. Wait for the nodes to run. You can monitor nodes starting by using the following command:
 
-`docker-compose -f docker-compose.yaml logs -f `
+`corda-cli network wait -n missionmars-network`
 
-**Step result:** When you see a message saying `SSH server listening on port : 22222` appearing three times in the terminal window, it means that all the nodes are up and you can proceed to the next step.
+This command inspects the logs every few seconds until all the nodes are ready.
 
 9. Deploy your CorDapp to all the nodes in the running network using this command:
 
@@ -95,11 +95,15 @@ This step will take some time to complete.
 
 **Step result:** The `package install` command copies the `.cpb` file to the nodes' CorDapps directory and restarts the nodes' containers.
 
-10. Verify the status of the network using the `corda-cli network status -n missionmars-network` command.
+10. Monitor CorDapp deployment by using the following command:
+
+`corda-cli network wait -n missionmars-network`
+
+11. Verify the status of the network using the `corda-cli network status -n missionmars-network` command.
 
 **Step result:** The **Deployed apps** section appears in the command’s output.
 
-11. **Optional:** To terminate the network, use:
+12. **Optional:** To terminate the network, use:
 
 `corda-cli network terminate -n missionmars-network -ry`
 
