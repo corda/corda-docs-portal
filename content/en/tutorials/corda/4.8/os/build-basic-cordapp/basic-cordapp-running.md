@@ -27,6 +27,7 @@ Deploy and run your CorDapp on the following test nodes:
 * PartyA
 * PartyB
 
+
 ## Deploy the CorDapp locally
 
 1. Open the command line from the root of your project.
@@ -84,6 +85,7 @@ The `runnodes` script creates a node tab/window for each node. It usually takes 
 
 
 ## Interact with your CorDapp
+
 
 ### Create the `AppleStamp` voucher
 
