@@ -1,10 +1,9 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: api-ref
 menu:
   api-ref:
     name: Corda 5 Developer Preview API reference
-    weight: 100
+    weight: 800
     identifier: api-ref-corda-5-dev-preview-1
 project: api-ref
 title: Corda 5 Developer Preview API reference
