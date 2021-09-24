@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ReceiveStateAndRefFlow - flows</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">flows</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.systemflows</a>&nbsp;/&nbsp;<a href="./index.html">ReceiveStateAndRefFlow</a><br/>
+<br/>
+<h1>ReceiveStateAndRefFlow</h1>
+<code><span class="keyword">class </span><span class="identifier">ReceiveStateAndRefFlow</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ContractState</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">@JvmSuppressWildcards</span> <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">StateAndRef</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>The <a href="./index.html">ReceiveStateAndRefFlow</a> should be called in response to the <a href="../-send-state-and-ref-flow/index.html">SendStateAndRefFlow</a>.</p>
+<p>This flow is a combination of <a href="#">FlowSession.receive</a> and resolve. This flow will receive a list of <a href="#">StateAndRef</a>
+and perform the resolution back-and-forth required to check the dependencies.
+The flow will return the list of <a href="#">StateAndRef</a> after it is resolved.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>The <a href="./index.html">ReceiveStateAndRefFlow</a> should be called in response to the <a href="../-send-state-and-ref-flow/index.html">SendStateAndRefFlow</a>.</p>
+<code><span class="identifier">ReceiveStateAndRefFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.ReceiveStateAndRefFlow$<init>(net.corda.v5.application.flows.FlowSession)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="flow-engine.html">flowEngine</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">flowEngine</span><span class="symbol">: </span><span class="identifier">FlowEngine</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">StateAndRef</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

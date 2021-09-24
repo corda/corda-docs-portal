@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OSGiFrameworkWrap - osgi-framework-bootstrap</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">osgi-framework-bootstrap</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.osgi.framework</a>&nbsp;/&nbsp;<a href="./index.html">OSGiFrameworkWrap</a><br/>
+<br/>
+<h1>OSGiFrameworkWrap</h1>
+<code><span class="keyword">class </span><span class="identifier">OSGiFrameworkWrap</span></code>
+<p>Wrap the OSGi framework keeping a map of the installed bundles and providing methods to manage bundles.
+Used by Corda to bootstrap an OSGi framework, install the required bundles and the Corda node bundle
+before to bootstrap the Corda node.
+Thread safe.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Wrap the OSGi framework keeping a map of the installed bundles and providing methods to manage bundles.
+Used by Corda to bootstrap an OSGi framework, install the required bundles and the Corda node bundle
+before to bootstrap the Corda node.
+Thread safe.</p>
+<code><span class="identifier">OSGiFrameworkWrap</span><span class="symbol">(</span><span class="identifier" id="net.corda.osgi.framework.OSGiFrameworkWrap$<init>(org.osgi.framework.launch.Framework)/osgiFramework">osgiFramework</span><span class="symbol">:</span>&nbsp;<span class="identifier">Framework</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="activate.html">activate</a></h4>
+</td>
+<td>
+<p>Activate the installed bundles not active yet.
+Activate only the bundles previously installed by this.
+Synchronized.</p>
+<code><span class="keyword">fun </span><span class="identifier">activate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OSGiFrameworkWrap</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="install.html">install</a></h4>
+</td>
+<td>
+<p>Install the bundle available as 'file' in the OSGi framework wrapped by this.
+OSGi fragments are not subject to activation.
+Recursive: if a directory is found, it's content is scanned and jars installed.
+Synchronized.</p>
+<code><span class="keyword">fun </span><span class="identifier">install</span><span class="symbol">(</span><span class="identifier" id="net.corda.osgi.framework.OSGiFrameworkWrap$install(java.io.File)/file">file</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OSGiFrameworkWrap</span></a></code>
+<p>Ignore all blank or empty lines and lines after <code>#</code>.
+Recursive method: if the resource scanned is a text, its content is scanned
+and the text is interpreted as a list of resources pointing to jars to install.</p>
+<code><span class="keyword">fun </span><span class="identifier">install</span><span class="symbol">(</span><span class="identifier" id="net.corda.osgi.framework.OSGiFrameworkWrap$install(kotlin.String)/resource">resource</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OSGiFrameworkWrap</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-arguments.html">setArguments</a></h4>
+</td>
+<td>
+<p>Register the <a href="#">ArgsService</a> to pass the <code>args</code> in <a href="#">org.osgi.framework.ServiceReference.getProperties</a>
+where are available using the <code>args</code> key.</p>
+<code><span class="keyword">fun </span><span class="identifier">setArguments</span><span class="symbol">(</span><span class="identifier" id="net.corda.osgi.framework.OSGiFrameworkWrap$setArguments(kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OSGiFrameworkWrap</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start.html">start</a></h4>
+</td>
+<td>
+<p>Start the wrapped OSGi framework.
+This method add a threadas shutdown hook a thread executed when the virtual machine begins its shutdown sequence:
+the thread call the <a href="stop.html">stop</a> method to shutdown the OSGi framework,
+the OSGi framework calls the <a href="#">org.osgi.framework.BundleActivator.stop</a> methods where the code to stop each bundle - if needed -
+should run.</p>
+<code><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OSGiFrameworkWrap</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="stop.html">stop</a></h4>
+</td>
+<td>
+<p>Stop the wrapped OSGi framework.
+Catch and log any exception thrown stopping the OSGi framework:
+this method can be used in <code>catch</code> block to stop the OSGi framework if other methods throw exceptions.
+Idempotent.
+Synchronized.</p>
+<code><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OSGiFrameworkWrap</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="wait-for-stop.html">waitForStop</a></h4>
+</td>
+<td>
+<p>Wait until the wrapped OSGi framework has completely stopped.
+This method can be used to wait until the asynchronous stop the OSGi framework completed.
+This method will only wait if called when this Framework is in the STARTING, ACTIVE, or STOPPING states.
+Otherwise it will return immediately.
+A Framework Event is returned to indicate why this Framework has stopped.
+Idempotent.</p>
+<code><span class="keyword">fun </span><span class="identifier">waitForStop</span><span class="symbol">(</span><span class="identifier" id="net.corda.osgi.framework.OSGiFrameworkWrap$waitForStop(kotlin.Long)/timeout">timeout</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FrameworkEvent</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

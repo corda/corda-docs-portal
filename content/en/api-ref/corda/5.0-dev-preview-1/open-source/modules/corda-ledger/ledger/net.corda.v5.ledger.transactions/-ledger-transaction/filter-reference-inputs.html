@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LedgerTransaction.filterReferenceInputs - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.transactions</a>&nbsp;/&nbsp;<a href="index.html">LedgerTransaction</a>&nbsp;/&nbsp;<a href="./filter-reference-inputs.html">filterReferenceInputs</a><br/>
+<br/>
+<h1>filterReferenceInputs</h1>
+<a name="net.corda.v5.ledger.transactions.LedgerTransaction$filterReferenceInputs(java.lang.Class((net.corda.v5.ledger.transactions.LedgerTransaction.filterReferenceInputs.T)), java.util.function.Predicate((net.corda.v5.ledger.transactions.LedgerTransaction.filterReferenceInputs.T)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">filterReferenceInputs</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.LedgerTransaction$filterReferenceInputs(java.lang.Class((net.corda.v5.ledger.transactions.LedgerTransaction.filterReferenceInputs.T)), java.util.function.Predicate((net.corda.v5.ledger.transactions.LedgerTransaction.filterReferenceInputs.T)))/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.LedgerTransaction$filterReferenceInputs(java.lang.Class((net.corda.v5.ledger.transactions.LedgerTransaction.filterReferenceInputs.T)), java.util.function.Predicate((net.corda.v5.ledger.transactions.LedgerTransaction.filterReferenceInputs.T)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">Predicate</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Helper to simplify filtering reference inputs according to a <a href="#">Predicate</a>.</p>
+<h3>Parameters</h3>
+<p><a name="clazz"></a>
+<code>clazz</code> - The class type used for filtering via an <a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html#isInstance(java.lang.Object)">Class.isInstance</a> check.
+<a href="filter-reference-inputs.html#net.corda.v5.ledger.transactions.LedgerTransaction$filterReferenceInputs(java.lang.Class((net.corda.v5.ledger.transactions.LedgerTransaction.filterReferenceInputs.T)), java.util.function.Predicate((net.corda.v5.ledger.transactions.LedgerTransaction.filterReferenceInputs.T)))/clazz">clazz</a> must be an extension of <a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html">ContractState</a>.</p>
+<p><a name="predicate"></a>
+<code>predicate</code> - A filtering function taking a state of type T and returning true if it should be included in the list.
+The class filtering is applied before the predicate.</p>
+<p><strong>Return</strong><br/>
+the possibly empty list of reference states matching the predicate and clazz restrictions.</p>
+</BODY>
+</HTML>

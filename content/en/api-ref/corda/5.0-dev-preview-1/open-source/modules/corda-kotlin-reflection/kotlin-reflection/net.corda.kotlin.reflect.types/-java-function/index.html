@@ -1,0 +1,215 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>JavaFunction - kotlin-reflection</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">kotlin-reflection</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.kotlin.reflect.types</a>&nbsp;/&nbsp;<a href="./index.html">JavaFunction</a><br/>
+<br/>
+<h1>JavaFunction</h1>
+<code><span class="keyword">class </span><span class="identifier">JavaFunction</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-function/index.html"><span class="identifier">Function</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">JavaFunction</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.types.JavaFunction$<init>(java.lang.reflect.Method, java.lang.Class((kotlin.Any)))/javaMethod">javaMethod</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html"><span class="identifier">Method</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.kotlin.reflect.types.JavaFunction$<init>(java.lang.reflect.Method, java.lang.Class((kotlin.Any)))/instanceClass">instanceClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="annotations.html">annotations</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">annotations</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-annotation/index.html"><span class="identifier">Annotation</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-abstract.html">isAbstract</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isAbstract</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-external.html">isExternal</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isExternal</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-final.html">isFinal</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isFinal</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-infix.html">isInfix</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isInfix</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-inline.html">isInline</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isInline</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-open.html">isOpen</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isOpen</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-operator.html">isOperator</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isOperator</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-suspend.html">isSuspend</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isSuspend</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="java-method.html">javaMethod</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">javaMethod</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html"><span class="identifier">Method</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parameters.html">parameters</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">parameters</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-parameter/index.html"><span class="identifier">KParameter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="return-type.html">returnType</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">returnType</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/index.html"><span class="identifier">KType</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="signature.html">signature</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">signature</span><span class="symbol">: </span><a href="../-member-signature/index.html"><span class="identifier">MemberSignature</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="type-parameters.html">typeParameters</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">typeParameters</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type-parameter/index.html"><span class="identifier">KTypeParameter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="visibility.html">visibility</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">visibility</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-visibility/index.html"><span class="identifier">KVisibility</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="as-function-for.html">asFunctionFor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">asFunctionFor</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.types.JavaFunction$asFunctionFor(java.lang.Class((kotlin.Any)), kotlin.Boolean)/instanceClass">instanceClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.kotlin.reflect.types.JavaFunction$asFunctionFor(java.lang.Class((kotlin.Any)), kotlin.Boolean)/isExtension">isExtension</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">JavaFunction</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.kotlin.reflect.types.JavaFunction$call(kotlin.Array((kotlin.Any)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="call-by.html">callBy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">callBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.types.JavaFunction$callBy(kotlin.collections.Map((kotlin.reflect.KParameter, kotlin.Any)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-parameter/index.html"><span class="identifier">KParameter</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.types.JavaFunction$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-java-method.html">withJavaMethod</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withJavaMethod</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.types.JavaFunction$withJavaMethod(java.lang.reflect.Method)/method">method</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html"><span class="identifier">Method</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">JavaFunction</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.kotlin.reflect.impl/capture-for.html">captureFor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="../-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">captureFor</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.impl$captureFor(net.corda.kotlin.reflect.types.KFunctionInternal((net.corda.kotlin.reflect.impl.captureFor.T)), java.lang.Class((kotlin.Any)))/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.kotlin.reflect.impl/extract-method-from.html">extractMethodFrom</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="../-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">extractMethodFrom</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.impl$extractMethodFrom(net.corda.kotlin.reflect.types.KFunctionInternal((net.corda.kotlin.reflect.impl.extractMethodFrom.T)), kotlin.collections.MutableMap((net.corda.kotlin.reflect.types.MemberSignature, java.lang.reflect.Method)))/methods">methods</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="../-member-signature/index.html"><span class="identifier">MemberSignature</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html"><span class="identifier">Method</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

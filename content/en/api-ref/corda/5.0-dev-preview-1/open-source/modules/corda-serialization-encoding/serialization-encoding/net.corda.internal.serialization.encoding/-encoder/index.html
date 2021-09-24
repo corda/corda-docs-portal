@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Encoder - serialization-encoding</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">serialization-encoding</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.internal.serialization.encoding</a>&nbsp;/&nbsp;<a href="./index.html">Encoder</a><br/>
+<br/>
+<h1>Encoder</h1>
+<code><span class="keyword">interface </span><span class="identifier">Encoder</span></code>
+<p><a href="../-encoder-service/index.html">EncoderService</a> which returns a given <a href="../-encoder-type/index.html">EncoderType</a> can be provided via the OSGi service registry
+or java.util.ServiceLoader (see <a href="../-encoder-service/index.html">EncoderService</a> )</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="compress.html">compress</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">compress</span><span class="symbol">(</span><span class="identifier" id="net.corda.internal.serialization.encoding.Encoder$compress(java.io.OutputStream)/output">output</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/OutputStream.html"><span class="identifier">OutputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/OutputStream.html"><span class="identifier">OutputStream</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="decompress.html">decompress</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">decompress</span><span class="symbol">(</span><span class="identifier" id="net.corda.internal.serialization.encoding.Encoder$decompress(java.io.InputStream)/input">input</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.impl.serialization.encoding/-deflate-encoder-impl/index.html">DeflateEncoderImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DeflateEncoderImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Encoder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.impl.serialization.encoding/-snappy-encoder-impl/index.html">SnappyEncoderImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SnappyEncoderImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Encoder</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

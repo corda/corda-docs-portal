@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CompositeKey.Builder - crypto-api</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.v5.crypto</a>&nbsp;/&nbsp;<a href="../index.html">CompositeKey</a>&nbsp;/&nbsp;<a href="./index.html">Builder</a><br/>
+<br/>
+<h1>Builder</h1>
+<code><span class="keyword">class </span><span class="identifier">Builder</span></code>
+<p>A helper class for building a <a href="../index.html">CompositeKey</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A helper class for building a <a href="../index.html">CompositeKey</a>.</p>
+<code><span class="identifier">Builder</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="add-key.html">addKey</a></h4>
+</td>
+<td>
+<p>Adds a child <a href="../index.html">CompositeKey</a> node. Specifying a <a href="add-key.html#net.corda.v5.crypto.CompositeKey.Builder$addKey(java.security.PublicKey, kotlin.Int)/weight">weight</a> for the child is optional and will default to 1.</p>
+<code><span class="keyword">fun </span><span class="identifier">addKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.CompositeKey.Builder$addKey(java.security.PublicKey, kotlin.Int)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.CompositeKey.Builder$addKey(java.security.PublicKey, kotlin.Int)/weight">weight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="add-keys.html">addKeys</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addKeys</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.v5.crypto.CompositeKey.Builder$addKeys(kotlin.Array((java.security.PublicKey)))/keys">keys</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">addKeys</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.CompositeKey.Builder$addKeys(kotlin.collections.List((java.security.PublicKey)))/keys">keys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="build.html">build</a></h4>
+</td>
+<td>
+<p>Builds the <a href="../index.html">CompositeKey</a>. If <a href="build.html#net.corda.v5.crypto.CompositeKey.Builder$build(kotlin.Int)/threshold">threshold</a> is not specified, it will default to
+the total (aggregated) weight of the children, effectively generating an "N of N" requirement.
+During process removes single keys wrapped in <a href="../index.html">CompositeKey</a> and enforces ordering on child nodes.</p>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.CompositeKey.Builder$build(kotlin.Int)/threshold">threshold</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

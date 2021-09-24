@@ -1,0 +1,273 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SerializationContext - serialization</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">serialization</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.serialization</a>&nbsp;/&nbsp;<a href="./index.html">SerializationContext</a><br/>
+<br/>
+<h1>SerializationContext</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">SerializationContext</span></code>
+<p>Parameters to serialization and deserialization.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-use-case/index.html">UseCase</a></h4>
+</td>
+<td>
+<p>The use case that we are serializing for, since it influences the implementations chosen.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">UseCase</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="carpenter-disabled.html">carpenterDisabled</a></h4>
+</td>
+<td>
+<p>If true, deserialization calls using this context will not fallback to using the Class Carpenter to attempt
+to construct classes present in the schema but not on the current classpath.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">carpenterDisabled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="class-info-service.html">classInfoService</a></h4>
+</td>
+<td>
+<p>Service used to retrieve information about CPKs from the context of the current sandbox.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">classInfoService</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="custom-serializers.html">customSerializers</a></h4>
+</td>
+<td>
+<p>Custom serializers that will be made available during (de)serialization. If this is null then the default Custom Serializers will
+be used.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">customSerializers</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../-serialization-custom-serializer/index.html"><span class="identifier">SerializationCustomSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="deserialization-class-loader.html">deserializationClassLoader</a></h4>
+</td>
+<td>
+<p>The class loader to use for deserialization.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">deserializationClassLoader</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/ClassLoader.html"><span class="identifier">ClassLoader</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="encoding.html">encoding</a></h4>
+</td>
+<td>
+<p>If non-null, apply this encoding (typically compression) when serializing.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">encoding</span><span class="symbol">: </span><a href="../-serialization-encoding.html"><span class="identifier">SerializationEncoding</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="encoding-whitelist.html">encodingWhitelist</a></h4>
+</td>
+<td>
+<p>A whitelist that determines (mostly for security purposes) whether a particular encoding may be used when deserializing.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">encodingWhitelist</span><span class="symbol">: </span><a href="../-encoding-whitelist/index.html"><span class="identifier">EncodingWhitelist</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="lenient-carpenter-enabled.html">lenientCarpenterEnabled</a></h4>
+</td>
+<td>
+<p>If true the carpenter will happily synthesis classes that implement interfaces containing methods that are not
+getters for any AMQP fields. Invoking these methods will throw an <a href="https://docs.oracle.com/javase/6/docs/api/java/lang/AbstractMethodError.html">AbstractMethodError</a>. If false then an exception
+will be thrown during deserialization instead.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">lenientCarpenterEnabled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="object-references-enabled.html">objectReferencesEnabled</a></h4>
+</td>
+<td>
+<p>Duplicate references to the same object preserved in the wire format and when deserialized when this is true,
+otherwise they appear as new copies of the object.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">objectReferencesEnabled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="preferred-serialization-version.html">preferredSerializationVersion</a></h4>
+</td>
+<td>
+<p>When serializing, use the format this header sequence represents.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">preferredSerializationVersion</span><span class="symbol">: </span><a href="../-serialization-magic.html"><span class="identifier">SerializationMagic</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="prevent-data-loss.html">preventDataLoss</a></h4>
+</td>
+<td>
+<p>If true the serialization evolver will fail if the binary to be deserialized contains more fields then the current object from
+the classpath.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">preventDataLoss</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="properties.html">properties</a></h4>
+</td>
+<td>
+<p>A map of any addition properties specific to the particular use case.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">properties</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sandbox-group.html">sandboxGroup</a></h4>
+</td>
+<td>
+<p>The set of CorDapp sandboxes for the node's CPB.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">sandboxGroup</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="use-case.html">useCase</a></h4>
+</td>
+<td>
+<p>The use case we are serializing or deserializing for.  See <a href="-use-case/index.html">UseCase</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">useCase</span><span class="symbol">: </span><span class="identifier">UseCase</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="whitelist.html">whitelist</a></h4>
+</td>
+<td>
+<p>A whitelist that contains (mostly for security purposes) which classes can be serialized and deserialized.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">whitelist</span><span class="symbol">: </span><a href="../-class-whitelist/index.html"><span class="identifier">ClassWhitelist</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="with-class-info-service.html">withClassInfoService</a></h4>
+</td>
+<td>
+<p>Helper method to set the ClassInfoService</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withClassInfoService</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withClassInfoService(kotlin.Any)/classInfoService">classInfoService</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-class-loader.html">withClassLoader</a></h4>
+</td>
+<td>
+<p>Helper method to return a new context based on this context with the deserialization class loader changed.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withClassLoader</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withClassLoader(java.lang.ClassLoader)/classLoader">classLoader</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/ClassLoader.html"><span class="identifier">ClassLoader</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-custom-serializers.html">withCustomSerializers</a></h4>
+</td>
+<td>
+<p>Helper method to return a new context based on this context with the given serializers added.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withCustomSerializers</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withCustomSerializers(kotlin.collections.Set((net.corda.v5.serialization.SerializationCustomSerializer((kotlin.Any, )))))/serializers">serializers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../-serialization-custom-serializer/index.html"><span class="identifier">SerializationCustomSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-encoding.html">withEncoding</a></h4>
+</td>
+<td>
+<p>A shallow copy of this context but with the given (possibly null) encoding.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withEncoding</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withEncoding(net.corda.v5.serialization.SerializationEncoding)/encoding">encoding</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-encoding.html"><span class="identifier">SerializationEncoding</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-encoding-whitelist.html">withEncodingWhitelist</a></h4>
+</td>
+<td>
+<p>A shallow copy of this context but with the given encoding whitelist.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withEncodingWhitelist</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withEncodingWhitelist(net.corda.v5.serialization.EncodingWhitelist)/encodingWhitelist">encodingWhitelist</span><span class="symbol">:</span>&nbsp;<a href="../-encoding-whitelist/index.html"><span class="identifier">EncodingWhitelist</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-lenient-carpenter.html">withLenientCarpenter</a></h4>
+</td>
+<td>
+<p>Return a new context based on this one but with a lenient carpenter.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withLenientCarpenter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="without-carpenter.html">withoutCarpenter</a></h4>
+</td>
+<td>
+<p>Returns a copy of the current context with carpentry of unknown classes disabled. On encountering
+such a class during deserialization the Serialization framework will throw a <a href="https://docs.oracle.com/javase/6/docs/api/java/io/NotSerializableException.html">NotSerializableException</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withoutCarpenter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="without-references.html">withoutReferences</a></h4>
+</td>
+<td>
+<p>Helper method to return a new context based on this context with object references disabled.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withoutReferences</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-preferred-serialization-version.html">withPreferredSerializationVersion</a></h4>
+</td>
+<td>
+<p>Helper method to return a new context based on this context but with serialization using the format this header sequence represents.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withPreferredSerializationVersion</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withPreferredSerializationVersion(net.corda.v5.base.types.ByteSequence)/magic">magic</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-magic.html"><span class="identifier">SerializationMagic</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-prevent-data-loss.html">withPreventDataLoss</a></h4>
+</td>
+<td>
+<p>Return a new context based on this one but with a strict evolution.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withPreventDataLoss</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-property.html">withProperty</a></h4>
+</td>
+<td>
+<p>Helper method to return a new context based on this context with the property added.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withProperty</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withProperty(kotlin.Any, kotlin.Any)/property">property</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withProperty(kotlin.Any, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-sandbox-group.html">withSandboxGroup</a></h4>
+</td>
+<td>
+<p>Helper method to set the SandboxGroup</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withSandboxGroup</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withSandboxGroup(kotlin.Any)/sandboxGroup">sandboxGroup</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-whitelisted.html">withWhitelisted</a></h4>
+</td>
+<td>
+<p>Helper method to return a new context based on this context with the given class specifically whitelisted.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withWhitelisted</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationContext$withWhitelisted(java.lang.Class((kotlin.Any)))/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../with-whitelist.html">withWhitelist</a></h4>
+</td>
+<td>
+<p>Helper method to return a new context based on this context with the given list of classes specifically whitelisted.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">SerializationContext</span></a><span class="symbol">.</span><span class="identifier">withWhitelist</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization$withWhitelist(net.corda.v5.serialization.SerializationContext, kotlin.collections.List((java.lang.Class((kotlin.Any)))))/classes">classes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationContext</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

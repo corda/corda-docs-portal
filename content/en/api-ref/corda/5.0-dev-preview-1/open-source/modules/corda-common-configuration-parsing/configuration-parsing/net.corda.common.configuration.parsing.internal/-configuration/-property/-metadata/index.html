@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Configuration.Property.Metadata - configuration-parsing</title>
+<link rel="stylesheet" href="../../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../../index.html">configuration-parsing</a>&nbsp;/&nbsp;<a href="../../../index.html">net.corda.common.configuration.parsing.internal</a>&nbsp;/&nbsp;<a href="../../index.html">Configuration</a>&nbsp;/&nbsp;<a href="../index.html">Property</a>&nbsp;/&nbsp;<a href="./index.html">Metadata</a><br/>
+<br/>
+<h1>Metadata</h1>
+<code><span class="keyword">interface </span><span class="identifier">Metadata</span></code>
+<p>Configuration property metadata, as in the set of qualifying traits for a <a href="../-definition/index.html">Configuration.Property.Definition</a>.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-mandatory.html">isMandatory</a></h4>
+</td>
+<td>
+<p>Whether the absence of a value for this property will raise an error.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isMandatory</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-sensitive.html">isSensitive</a></h4>
+</td>
+<td>
+<p>Whether the value for this property will be shown by <a href="../../-describer/describe.html">Configuration.Property.Definition.describe</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isSensitive</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="key.html">key</a></h4>
+</td>
+<td>
+<p>Property key.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">key</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="schema.html">schema</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">schema</span><span class="symbol">: </span><span class="identifier">Schema</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="type-name.html">typeName</a></h4>
+</td>
+<td>
+<p>Name of the type for this property..</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">typeName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

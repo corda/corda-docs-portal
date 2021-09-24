@@ -1,0 +1,486 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.v5.ledger.contracts - ledger</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">ledger</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.v5.ledger.contracts</a><br/>
+<br/>
+<h2>Package net.corda.v5.ledger.contracts</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-always-accept-c-p-k-constraint/index.html">AlwaysAcceptCPKConstraint</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">AlwaysAcceptCPKConstraint</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-c-p-k-constraint/index.html"><span class="identifier">CPKConstraint</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-amount/index.html">Amount</a></h4>
+</td>
+<td>
+<p>Amount represents a positive quantity of some token (currency, asset, etc.), measured in quantity of the smallest
+representable units. The nominal quantity represented by each individual token is equal to the <a href="-amount/display-token-size.html">displayTokenSize</a>.
+The scale property of the <a href="-amount/display-token-size.html">displayTokenSize</a> should correctly reflect the displayed decimal places and is used
+when rounding conversions from indicative/displayed amounts in <a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html">BigDecimal</a> to Amount occur via the
+<a href="-amount/from-decimal.html">Amount.fromDecimal</a> method.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Amount</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-amount-transfer/index.html">AmountTransfer</a></h4>
+</td>
+<td>
+<p>This class represents a possibly negative transfer of tokens from one vault state to another, possibly at a future date.</p>
+<code><span class="keyword">class </span><span class="identifier">AmountTransfer</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-attachment/index.html">Attachment</a></h4>
+</td>
+<td>
+<p>An attachment is a ZIP (or an optionally signed JAR) that contains one or more files. Attachments are meant to
+contain public static data which can be referenced from transactions and utilised from contracts. Good examples
+of how attachments are meant to be used include:</p>
+<code><span class="keyword">interface </span><span class="identifier">Attachment</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NamedByHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-automatic-placeholder-c-p-k-constraint/index.html">AutomaticPlaceholderCPKConstraint</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">AutomaticPlaceholderCPKConstraint</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-c-p-k-constraint/index.html"><span class="identifier">CPKConstraint</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-class-info/index.html">ClassInfo</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ClassInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-command/index.html">Command</a></h4>
+</td>
+<td>
+<p>Command data/content plus pubkey pair: the signature is stored at the end of the serialized bytes</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Command</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-command-data.html"><span class="identifier">CommandData</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-command-and-state/index.html">CommandAndState</a></h4>
+</td>
+<td>
+<p>Return structure for <a href="-ownable-state/with-new-owner.html">OwnableState.withNewOwner</a></p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CommandAndState</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-command-data.html">CommandData</a></h4>
+</td>
+<td>
+<p>Marker interface for classes that represent commands</p>
+<code><span class="keyword">interface </span><span class="identifier">CommandData</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-component-group-enum/index.html">ComponentGroupEnum</a></h4>
+</td>
+<td>
+<p>An enum, for which each property corresponds to a transaction component group. The position in the enum class
+declaration (ordinal) is used for component-leaf ordering when computing the Merkle tree.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">ComponentGroupEnum</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract/index.html">Contract</a></h4>
+</td>
+<td>
+<p>Implemented by a program that implements business logic on the shared ledger. All participants run this code for
+every <a href="#">net.corda.core.transactions.LedgerTransaction</a> they see on the network, for every input and output state. All
+contracts must accept the transaction for it to be accepted: failure of any aborts the entire thing. The time is taken
+from a trusted time-window attached to the transaction itself i.e. it is NOT necessarily the current time.</p>
+<code><span class="keyword">interface </span><span class="identifier">Contract</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-class-name.html">ContractClassName</a></h4>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">ContractClassName</span>&nbsp;<span class="symbol">=</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-state/index.html">ContractState</a></h4>
+</td>
+<td>
+<p>A contract state (or just "state") contains opaque data used by a contract program. It can be thought of as a disk
+file that the program can use to persist data across transactions. States are immutable: once created they are never
+updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once: the
+notary is responsible for ensuring there is no "double spending" by only signing a transaction if the input states
+are all free.</p>
+<code><span class="keyword">interface </span><span class="identifier">ContractState</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-state-data/index.html">ContractStateData</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ContractStateData</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-c-p-k-constraint/index.html">CPKConstraint</a></h4>
+</td>
+<td>
+<p>Constrain which contract-code-containing CPK can be used with a <a href="-contract/index.html">Contract</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">CPKConstraint</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-c-p-k-constraint-context.html">CPKConstraintContext</a></h4>
+</td>
+<td>
+<p>The necessary context to determine whether a <a href="-c-p-k-constraint/index.html">CPKConstraint</a> is satisfied.</p>
+<code><span class="keyword">interface </span><span class="identifier">CPKConstraintContext</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-c-p-k-id.html">CPKId</a></h4>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">CPKId</span>&nbsp;<span class="symbol">=</span>&nbsp;<span class="identifier">SecureHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-fungible-state/index.html">FungibleState</a></h4>
+</td>
+<td>
+<p>Interface to represent things which are fungible, this means that there is an expectation that these things can
+be split and merged. That's the only assumption made by this interface.</p>
+<code><span class="keyword">interface </span><span class="identifier">FungibleState</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-issued/index.html">Issued</a></h4>
+</td>
+<td>
+<p>The <a href="-issued/index.html">Issued</a> data class holds the details of an on ledger digital asset.
+In particular it gives the public credentials of the entity that created these digital tokens
+and the particular product represented.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Issued</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-linear-pointer/index.html">LinearPointer</a></h4>
+</td>
+<td>
+<p><a href="-linear-pointer/index.html">LinearPointer</a> allows a <a href="-contract-state/index.html">ContractState</a> to "point" to another <a href="-linear-state/index.html">LinearState</a> creating a "many-to-one" relationship
+between all the states containing the pointer to a particular <a href="-linear-state/index.html">LinearState</a> and the <a href="-linear-state/index.html">LinearState</a> being pointed to.
+Using the <a href="-linear-pointer/index.html">LinearPointer</a> is useful when one state depends on the data contained within another state that evolves
+independently. When using <a href="-linear-pointer/index.html">LinearPointer</a> it is worth noting:</p>
+<code><span class="keyword">class </span><span class="identifier">LinearPointer</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-linear-state/index.html"><span class="identifier">LinearState</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state-pointer/index.html"><span class="identifier">StatePointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-linear-state/index.html">LinearState</a></h4>
+</td>
+<td>
+<p>A state that evolves by superseding itself, all of which share the common "linearId".</p>
+<code><span class="keyword">interface </span><span class="identifier">LinearState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-move-command/index.html">MoveCommand</a></h4>
+</td>
+<td>
+<p>A common move command for contract states which can change owner.</p>
+<code><span class="keyword">interface </span><span class="identifier">MoveCommand</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-command-data.html"><span class="identifier">CommandData</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ownable-state/index.html">OwnableState</a></h4>
+</td>
+<td>
+<p>A contract state that can have a single owner.</p>
+<code><span class="keyword">interface </span><span class="identifier">OwnableState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-package-id-with-dependencies/index.html">PackageIdWithDependencies</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">PackageIdWithDependencies</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-referenced-state-and-ref/index.html">ReferencedStateAndRef</a></h4>
+</td>
+<td>
+<p>A wrapper for a <a href="-state-and-ref/index.html">StateAndRef</a> indicating that it should be added to a transaction as a reference input state.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ReferencedStateAndRef</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-requirements/index.html">Requirements</a></h4>
+</td>
+<td>
+<p>Defines a simple domain specific language for the specification of financial contracts. Currently covers:</p>
+<code><span class="keyword">object </span><span class="identifier">Requirements</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signature-c-p-k-constraint/index.html">SignatureCPKConstraint</a></h4>
+</td>
+<td>
+<p>Constrains which CPK can be used with a contract using the hashes of the public keys that signed the CPK.</p>
+<code><span class="keyword">interface </span><span class="identifier">SignatureCPKConstraint</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-c-p-k-constraint/index.html"><span class="identifier">CPKConstraint</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-source-and-amount/index.html">SourceAndAmount</a></h4>
+</td>
+<td>
+<p>Simple data class to associate the origin, owner, or holder of a particular Amount object.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SourceAndAmount</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state-and-contract/index.html">StateAndContract</a></h4>
+</td>
+<td>
+<p>A convenience class for passing around a state and it's contract</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">StateAndContract</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state-and-ref/index.html">StateAndRef</a></h4>
+</td>
+<td>
+<p>A StateAndRef is simply a (state, ref) pair. For instance, a vault (which holds available assets) contains these.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">StateAndRef</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state-info/index.html">StateInfo</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">StateInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state-pointer/index.html">StatePointer</a></h4>
+</td>
+<td>
+<p>A <a href="-state-pointer/index.html">StatePointer</a> contains a <a href="-state-pointer/pointer.html">pointer</a> to a <a href="-contract-state/index.html">ContractState</a>. The <a href="-state-pointer/index.html">StatePointer</a> can be included in a <a href="-contract-state/index.html">ContractState</a>
+or included in an off-ledger data structure. <a href="-state-pointer/index.html">StatePointer</a>s can be resolved to a <a href="-state-and-ref/index.html">StateAndRef</a> by performing a
+vault query. There are two types of pointers; linear and static. <a href="-linear-pointer/index.html">LinearPointer</a>s are for use with <a href="-linear-state/index.html">LinearState</a>s.
+<a href="-static-pointer/index.html">StaticPointer</a>s are for use with any type of <a href="-contract-state/index.html">ContractState</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">StatePointer</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state-ref/index.html">StateRef</a></h4>
+</td>
+<td>
+<p>A stateref is a pointer (reference) to a state, this is an equivalent of an "outpoint" in Bitcoin. It records which
+transaction defined the state and where in that transaction it was.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">StateRef</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-static-pointer/index.html">StaticPointer</a></h4>
+</td>
+<td>
+<p>A <a href="-static-pointer/index.html">StaticPointer</a> contains a <a href="-static-pointer/pointer.html">pointer</a> to a specific <a href="-state-ref/index.html">StateRef</a> and can be resolved by looking up the <a href="-state-ref/index.html">StateRef</a> via
+<a href="../net.corda.v5.ledger.services/-state-loader-service/index.html">StateLoaderService</a>. There are a number of things to keep in mind when using <a href="-static-pointer/index.html">StaticPointer</a>s:</p>
+<code><span class="keyword">class </span><span class="identifier">StaticPointer</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state-pointer/index.html"><span class="identifier">StatePointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-time-window/index.html">TimeWindow</a></h4>
+</td>
+<td>
+<p>An interval on the time-line; not a single instantaneous point.</p>
+<code><span class="keyword">interface </span><span class="identifier">TimeWindow</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-tokenizable-asset-info/index.html">TokenizableAssetInfo</a></h4>
+</td>
+<td>
+<p>This interface is used by <a href="-amount/index.html">Amount</a> to determine the conversion ratio from
+indicative/displayed asset amounts in <a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html">BigDecimal</a> to fungible tokens represented by Amount objects.</p>
+<code><span class="keyword">interface </span><span class="identifier">TokenizableAssetInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-state/index.html">TransactionState</a></h4>
+</td>
+<td>
+<p>A wrapper for <a href="-contract-state/index.html">ContractState</a> containing additional platform-level state information and contract information. This is the definitive
+state that is stored on the ledger and used in transaction outputs.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TransactionState</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-type-only-command-data/index.html">TypeOnlyCommandData</a></h4>
+</td>
+<td>
+<p>Commands that inherit from this are intended to have no data items: it's only their presence that matters.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TypeOnlyCommandData</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-command-data.html"><span class="identifier">CommandData</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Annotations</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-belongs-to-contract/index.html">BelongsToContract</a></h4>
+</td>
+<td>
+<p>This annotation is required by any <a href="-contract-state/index.html">ContractState</a> which needs to ensure that it is only ever processed as part of a
+<a href="-transaction-state/index.html">TransactionState</a> referencing the specified <a href="-contract/index.html">Contract</a>. It may be omitted in the case that the <a href="-contract-state/index.html">ContractState</a> class
+is defined as an inner class of its owning <a href="-contract/index.html">Contract</a> class, in which case the "X belongs to Y" relationship is taken
+to be implicitly declared.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">BelongsToContract</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-legal-prose-reference/index.html">LegalProseReference</a></h4>
+</td>
+<td>
+<p>The annotated <a href="-contract/index.html">Contract</a> implements the legal prose identified by the given URI.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">LegalProseReference</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-attachment-resolution-exception/index.html">AttachmentResolutionException</a></h4>
+</td>
+<td>
+<p>The node asked a remote peer for the attachment identified by <a href="-attachment-resolution-exception/hash.html">hash</a> because it is a dependency of a transaction
+being resolved, but the remote peer would not provide it.</p>
+<code><span class="keyword">class </span><span class="identifier">AttachmentResolutionException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowException</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-broken-attachment-exception/index.html">BrokenAttachmentException</a></h4>
+</td>
+<td>
+<p>A non-specific exception for the attachment identified by <a href="-broken-attachment-exception/attachment-id.html">attachmentId</a>. The context
+for this error is provided via the <a href="#">message</a> and <a href="#">cause</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">BrokenAttachmentException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowException</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-resolution-exception/index.html">TransactionResolutionException</a></h4>
+</td>
+<td>
+<p>The node asked a remote peer for the transaction identified by <a href="-transaction-resolution-exception/hash.html">hash</a> because it is a dependency of a transaction
+being resolved, but the remote peer would not provide it.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">TransactionResolutionException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowException</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-verification-exception/index.html">TransactionVerificationException</a></h4>
+</td>
+<td>
+<p>Indicates that some aspect of the transaction named by <a href="-transaction-verification-exception/tx-id.html">txId</a> violates the platform rules. The exact type of failure
+is expressed using a subclass. TransactionVerificationException is a <a href="#">FlowException</a> and thus when thrown inside
+a flow, the details of the failure will be serialised, propagated to the peer and rethrown.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TransactionVerificationException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowException</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="kotlin.collections.-collection/index.html">kotlin.collections.Collection</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.collections.-iterable/index.html">kotlin.collections.Iterable</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-m-a-x_-i-s-s-u-e-r_-r-e-f_-s-i-z-e.html">MAX_ISSUER_REF_SIZE</a></h4>
+</td>
+<td>
+<p>The maximum permissible size of an issuer reference.</p>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_ISSUER_REF_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="linear-pointer.html">linearPointer</a></h4>
+</td>
+<td>
+<p>Creates a <a href="-linear-pointer/index.html">LinearPointer</a> to the specified linear state.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-linear-state/index.html"><span class="identifier">LinearState</span></a><span class="symbol">&gt;</span> <span class="identifier">linearPointer</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts$linearPointer(net.corda.v5.ledger.contracts.linearPointer.T, kotlin.Boolean)/state">state</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts$linearPointer(net.corda.v5.ledger.contracts.linearPointer.T, kotlin.Boolean)/isResolved">isResolved</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-linear-pointer/index.html"><span class="identifier">LinearPointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-linear-state/index.html"><span class="identifier">LinearState</span></a><span class="symbol">&gt;</span> <span class="identifier">linearPointer</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts$linearPointer(net.corda.v5.ledger.contracts.linearPointer.T)/state">state</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="-linear-pointer/index.html"><span class="identifier">LinearPointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="require-that.html">requireThat</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">requireThat</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts$requireThat(kotlin.Function1((net.corda.v5.ledger.contracts.Requirements, net.corda.v5.ledger.contracts.requireThat.R)))/body">body</span><span class="symbol">:</span>&nbsp;<a href="-requirements/index.html"><span class="identifier">Requirements</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="static-pointer.html">staticPointer</a></h4>
+</td>
+<td>
+<p>Creates a <a href="-static-pointer/index.html">StaticPointer</a> to the specified contract state.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">staticPointer</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts$staticPointer(net.corda.v5.ledger.contracts.StateAndRef((net.corda.v5.ledger.contracts.staticPointer.T)), kotlin.Boolean)/stateAndRef">stateAndRef</span><span class="symbol">:</span>&nbsp;<a href="-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts$staticPointer(net.corda.v5.ledger.contracts.StateAndRef((net.corda.v5.ledger.contracts.staticPointer.T)), kotlin.Boolean)/isResolved">isResolved</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-static-pointer/index.html"><span class="identifier">StaticPointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">staticPointer</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts$staticPointer(net.corda.v5.ledger.contracts.StateAndRef((net.corda.v5.ledger.contracts.staticPointer.T)))/stateAndRef">stateAndRef</span><span class="symbol">:</span>&nbsp;<a href="-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="-static-pointer/index.html"><span class="identifier">StaticPointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verify-move-command.html">verifyMoveCommand</a></h4>
+</td>
+<td>
+<p>Simple functionality for verifying a move command. Verifies that each input has a signature from its owning key.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-move-command/index.html"><span class="identifier">MoveCommand</span></a><span class="symbol">&gt;</span> <span class="identifier">verifyMoveCommand</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts$verifyMoveCommand(kotlin.collections.List((net.corda.v5.ledger.contracts.OwnableState)), kotlin.collections.List((net.corda.v5.ledger.contracts.Command((net.corda.v5.ledger.contracts.CommandData)))))/inputs">inputs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="-ownable-state/index.html"><span class="identifier">OwnableState</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts$verifyMoveCommand(kotlin.collections.List((net.corda.v5.ledger.contracts.OwnableState)), kotlin.collections.List((net.corda.v5.ledger.contracts.Command((net.corda.v5.ledger.contracts.CommandData)))))/commands">commands</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&lt;</span><a href="-command-data.html"><span class="identifier">CommandData</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="-move-command/index.html"><span class="identifier">MoveCommand</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="without-issuer.html">withoutIssuer</a></h4>
+</td>
+<td>
+<p>Strips the issuer and returns an <a href="-amount/index.html">Amount</a> of the raw token directly. This is useful when you are mixing code that
+cares about specific issuers with code that will accept any, or which is imposing issuer constraints via some
+other mechanism and the additional type safety is not wanted.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">withoutIssuer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
