@@ -1,5 +1,5 @@
 ---
-title: Install the Corda 5 Developer Preview
+title: Installing the Corda 5 Developer Preview
 date: '2021-09-23'
 menu:
   corda-5-dev-preview:
@@ -24,13 +24,13 @@ Included in the Corda 5 Developer Preview:
 
 In addition, you can install and use the Corda 5 Developer Preview versions of the confidential identities project and Tokens SDK.
 
-## Existing Corda versions
+## Working with existing Corda versions
 
 Since the Corda 5 Developer Preview requires [Azul11.0.12](https://www.azul.com/downloads/?package=jdk),
 and Corda 4.x needs Java 8, you should make sure you are using the correct
 version of Java when returning to Corda 4 development work after using the Corda 5 Developer Preview.
 
-## Installation step-by-step guide
+## Step-by-step installation guide
 
 To install the Corda 5 Developer Preview:
 
