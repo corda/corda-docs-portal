@@ -11,7 +11,7 @@ The HTML documentation output is generated using Hugo. You can build and edit th
 3. Fork the `corda/corda-docs-portal` repository, and clone your fork.
 4. From the root directory of the repository, run `npm install`. This installs all the required modules to build the documentation locally.
 5. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
-6. Run `npm run start` to build the documentation locally. Alternatively, you can also run `hugo serve`/`hugo server` or `make local-serve`.
+6. Run `npm run start` to build the documentation locally. Alternatively, you can also run `hugo server --watch=false`.
 7. Navigate to `https://localhost:1313` to view the locally built documentation.
 8. Push your changes to GitHub and open a pull request.
 
