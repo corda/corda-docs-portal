@@ -43,6 +43,6 @@ A list of all API modules (in alphabetical order) with links to their respective
 |`corda-persistence`|<a href="modules/corda-persistence/persistence/index.html" target="_blank">persistence</a>|
 |`corda-serialization`|<a href="modules/corda-serialization/serialization/index.html" target="_blank">serialization</a>|
 |`corda-serialization-encoding`|<a href="modules/corda-serialization-encoding/serialization-encoding/index.html" target="_blank">serialization-encoding</a>|
-|`cordapp-configuration`|<a href="modules/cordapp-configuration/index.html" target="_blank">test</a>|
+|`cordapp-configuration`|<a href="modules/cordapp-configuration/index.html" target="_blank">Package net.corda.cordapp</a>|
 
 {{< /table >}}
