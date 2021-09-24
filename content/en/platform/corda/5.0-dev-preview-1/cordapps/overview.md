@@ -30,7 +30,7 @@ In the Corda 5 Developer Preview, follow the step-by-step tutorials to create a 
 
 * States. Contract states (or just ’states’) contain data used by a CorDapp. They can be thought of as a disk file that the CorDapp can use to persist data across transactions. States are immutable: once created they are never updated. Instead, any changes must generate a new successor state. States can be updated (consumed) only once: the notary is responsible for ensuring there is no *double-spending* by only signing a transaction if the input states have not been marked as historic.
 
-## Corda Services and modular API
+## Corda Services and modular APIs
 
 When building your CorDapps, make use of the suite of APIs, or [Corda Services](corda-services/overview.md), which can
 be injected into your flows and other Corda Services. In the Corda 5 Developer Preview, these APIs are modulated to

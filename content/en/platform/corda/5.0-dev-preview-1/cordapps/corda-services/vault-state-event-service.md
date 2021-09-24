@@ -21,7 +21,7 @@ You may wish to make one of the following happen whenever a particular vault sta
 * Send a request to an external system.
 * Execute some other code within a CorDapp.
 
-## Two versions of the API
+## Self-managed and fully-managed solutions
 
 There are two functions to register intent to listen to these events:
 
@@ -37,13 +37,13 @@ There are two functions to register intent to listen to these events:
 Both of these APIs provide *at least once* guarantees.
 {{< /note >}}
 
-## When events are generated
+## Event generation
 
 `VaultStateEvent`s are generated whenever a state is produced or consumed.
 
 This means if a transaction with two input states and three output states is created, then two events with type `VaultEventType.CONSUMED` and three events with type `VaultEventType.PRODUCED` are sent to subscribers or cursors listening for these events.
 
-## The structure of an event
+## Event structure
 
 A `VaultStateEvent<ContractState>` contains the following properties:
 
@@ -51,7 +51,7 @@ A `VaultStateEvent<ContractState>` contains the following properties:
 - `eventType` (`VaultEventType`) which can have two values, `PRODUCED` and `CONSUMED` representing what happened to the state that the event is related to.
 - `timestamp` (`Instant`) representing the time that the event was created.
 
-## Starting a flow triggered by a vault state event
+## Start a flow triggered by a vault state event
 
 If you plan to start flows within the the `VaultStateEventService.subscribe` callback or in the processing logic of the `DurableCursor` returned by the other version of `VaultStateEventService.subscribe`, then you need to call subscribe only when you have received a `StateMachineStarted` lifecycle event.
 

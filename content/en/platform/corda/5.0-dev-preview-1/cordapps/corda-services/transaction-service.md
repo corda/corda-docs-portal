@@ -17,7 +17,7 @@ Use this guide to learn how to sign transactions with the `TransactionService`, 
 
 `TransactionService` can be injected into flows and services. You can sign transactions using `TransactionService`. This includes signing both `TransactionBuilder`s and `SignedTransaction`s.
 
-### Sign `TransactionBuilder`s
+### Sign a `TransactionBuilder`
 
 To sign a `TransactionBuilder`:
 
@@ -47,7 +47,7 @@ To sign a `TransactionBuilder`:
   SignedTransaction signedTransaction = transactionService.sign(transactionBuilder, List.of(publicKey, anotherPublicKey))
   ```
 
-### Signing `SignedTransaction`s
+### Sign a `SignedTransaction`
 
 To sign a `SignedTransaction`:
 
@@ -71,7 +71,7 @@ To sign a `SignedTransaction`:
   SignedTransaction signedTransactionWithAnotherSignature = transactionService.sign(signedTransaction, publicKey)
   ```
 
-### Creating signatures
+### Create a signature
 
 You can also create the signature without signing the input transaction itself by using `TransactionService.createSignature`.
 
@@ -102,7 +102,7 @@ To create a signature for a `SignedTransaction` or `FilteredTransaction`:
 
 If the input transaction to `createSignature` was a `SignedTransaction`, then the returned `DigitalSignatureAndMeta` can be combined with it after operations using the signature are complete, returning a copy of the `SignedTransaction` with the signature. This is equivalent to using `TransactionService.sign`, but allows you to interact with the `DigitalSignatureAndMeta` as your application requires.
 
-## Signing `TransactionBuilder`s directly
+## Sign a `TransactionBuilder` directly
 
 You can sign a `TransactionBuilder` directly without accessing a `TransactionService`. This is a convenience function to make building transactions simpler. It is functionally equivalent to the `TransactionService.sign` method.
 

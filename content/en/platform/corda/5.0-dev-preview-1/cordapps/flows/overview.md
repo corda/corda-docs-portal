@@ -96,7 +96,7 @@ public class FlowInjectionInJavaFlow implements Flow<Boolean> {
 }
 ```
 
-#### Kotlin example
+### Kotlin example
 
 ```kotlin
 @InitiatingFlow

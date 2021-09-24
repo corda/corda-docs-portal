@@ -11,13 +11,13 @@ title: Running integration tests
 
 Integration testing lets you combine different CorDapp elements and test them as a group against a Corda network that has been deployed locally.
 
-Corda 5 introduces the `corda-dev-network-lib` test library, which you can use to run integration tests on your CorDapp. It connects your test code with the specified test network and its nodes. Do not use `corda-dev-network-lib` in production code.
+The Corda 5 Developer Preview introduces the `corda-dev-network-lib` test library, which you can use to run integration tests on your CorDapp. It connects your test code with the specified test network and its nodes. Do not use `corda-dev-network-lib` in production code.
 
-This guide provides code to create a sample CorDapp. You'll create and deploy your sample CorDapp to a local network, then create and run a Corda 5 network integration test for the CorDapp.
+This guide provides code to create a sample CorDapp. You'll create and deploy your sample CorDapp to a local network, then create and run a network integration test for the CorDapp.
 
 ## Before you start
 
-Before you can deploy your sample CorDapp and perform Corda 5 network integration tests, you must [set up a Corda 5 network locally](../getting-started/setup-network.md).
+Before you can deploy your sample CorDapp and perform network integration tests, you must [set up a local Corda 5 network](../getting-started/setup-network.md).
 
 ## Create your CorDapp
 
@@ -238,7 +238,7 @@ In this example, your CorDapp has been deployed to a local network called `sampl
 
 ## Create integration tests
 
-The integrations tests run against a "real" Corda network. You can use the `corda-dev-network-lib` library to create tests against this network.
+The integration tests run against a *real* Corda network. You can use the `corda-dev-network-lib` library to create tests against this network.
 
 {{< note >}}
 
@@ -303,7 +303,7 @@ To create an integration test:
    {{< note >}}
 
    * The `corda-dev-network-lib` is simply "glue" between your test code and the network. It uses a HTTP connection to the node as well as the docker APIs to discover the network.
-   * Because it is using the HTTP RPC API, it is asynchronous. Your test will need to take this into account.
+   * Because it is using the HTTP-RPC API, it is asynchronous. Your test will need to take this into account.
 
    {{< /note >}}
 
@@ -425,17 +425,17 @@ To re-run your tests after making a change to your CorDapp, redeploy your CorDap
 
 ## Debugging
 
-You can debug Integration tests from the IDE. However, often it is useful to debug the node, too. The node runs on a remote process in a Docker container, and _not_ in the same process as the test, so you need to attach a remote debugger to any node you would like to debug.
+You can debug integration tests from the IDE. However, it is often useful to debug the node too. The node runs on a remote process in a Docker container, and _not_ in the same process as the test, so you need to attach a remote debugger to any node you would like to debug.
 
 For more information on how to debug a node in the Corda 5 development network, see [Debugging CorDapps](debugging-cordapps.md).
 
-## Removal of the mock network feature in Corda 5
+## Removal of the mock network feature in the Corda 5 Development Preview
 
-The `MockNetwork` functionality (in-memory testing) has been removed and replaced with [testing capabilities in the Corda CLI](../corda-cli/commands.md). This update dramatically speeds up node start times and reduces memory requirements.
+The `MockNetwork` functionality (in-memory testing) has been removed and replaced with [testing capabilities in the Corda CLI](../corda-cli/commands.md). This update speeds up node start times and reduces memory requirements.
 - For [unit testing](flow-unit-testing.md), you can use the `corda-dev-network-lib` library with the unit testing framework of your choice.
-- For [integration testing](#running-integration-tests.md), you can [deploy a network](../getting-started/setup-network.md) with Docker, locally or in a remote environment.
+- For [integration testing](#run-your-tests), you can [deploy a network](../getting-started/setup-network.md) with Docker, locally or in a remote environment.
 
-Classes related to `MockNetwork` have been removed:
+These classes relating to `MockNetwork` have been removed:
 
 * `MockAttachmentStorage`
 * `MockMessagingService.Companion`

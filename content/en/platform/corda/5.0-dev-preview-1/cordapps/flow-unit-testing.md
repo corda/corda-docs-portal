@@ -4,21 +4,21 @@ title: "Flow unit testing"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps
-    weight: 9200
+    weight: 8500
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-With the introduction of the `Flow` interface in Corda 5, it is now easier to create unit tests for your flows. It allows you to rely less on bringing up a whole network just to run tests against flows. From Corda 5, flows use injection to retrieve required services, and these services can easily be mocked in order to focus unit testing on functionality within a flow. The one issue that comes with this is that mocking injected services can introduce a lot of boilerplate code among tests, especially in cases where flows require a high number of services to be injected.
+With the introduction of the `Flow` interface in the Corda 5 Developer Preview, it is now easier to create unit tests for your flows. It allows you to rely less on bringing up a whole network just to run tests against flows. From Corda 5, flows use injection to retrieve required services, and these services can easily be mocked in order to focus unit testing on functionality within a flow. The one issue that comes with this is that mocking injected services can introduce a lot of boilerplate code among tests, especially in cases where flows require a high number of services to be injected.
 
 To help with unit testing flows, and to avoid boilerplate code for mocking services, we've introduced tooling to simplify unit testing flows.
 
-## How this is different to Corda 4
+## Changes from Corda 4
 
 In previous versions of Corda, such as Corda 4, flows were required to extend the `FlowLogic` abstract class which was a large class providing a lot of functionality, and many services via `ServiceHub`. This abstract class made it very difficult to write unit tests focused on the flow behavior since a lot of mock wiring was necessary before being able to write even basic tests.
 
 
-## How to include flow test utilities
+## Include flow test utilities
 
 If this flow mock tooling is required within the Corda repo, you can add a test dependency to your build file for module `:testing:flow-mock-utils`:
 
