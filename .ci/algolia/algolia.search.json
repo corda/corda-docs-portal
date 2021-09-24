@@ -1,10 +1,10 @@
 {
-  "index_name": "docs.corda.net",
+  "index_name": "docs.r3.com",
   "start_urls": [
-    "https://docs.corda.net/"
+    "https://docs.r3.com/"
   ],
   "sitemap_urls": [
-    "https://docs.corda.net/sitemap.xml"
+    "https://docs.r3.com/sitemap.xml"
   ],
   "stop_urls": [
     "https://api.corda.net"
