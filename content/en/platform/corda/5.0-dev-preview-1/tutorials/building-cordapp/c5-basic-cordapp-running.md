@@ -120,7 +120,7 @@ For this app, the ports are:
 
 {{< note >}}
 
-You can find this information in the output of the `corda-cli network status -n missionmars-network` command.
+If the default port numbers do not work, confirm if they are correct with what's in the output of the `corda-cli network status -n missionmars-network` command.
 
 {{< /note >}}
 
