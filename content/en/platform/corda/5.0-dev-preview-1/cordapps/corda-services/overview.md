@@ -27,15 +27,15 @@ lateinit var transactionService: TransactionService
 TransactionService transactionService;
 ```
 
-This injection is intended for use within custom CorDapp classes instantiated by Corda using reflection. This is currently limited to CorDapp flows, custom Corda services, and notary services.
+This injection is intended for use within custom CorDapp classes instantiated by Corda using reflection. This is currently limited to CorDapp flows, custom Corda Services, and notary services.
 
 For a complete overview of each Corda Service and its methods, use the [Corda 5 Developer Preview list of injectable services](injectable-services.md).
 
 {{< note >}}
-The best way to learn how to use Corda Services in the Corda 5 Developer Preview is to use the [Build a CorDapp tutorial](../tutorials/building-cordapp/overview.html).
+The best way to learn how to use Corda Services in the Corda 5 Developer Preview, is to follow the [Build a CorDapp tutorial](../tutorials/building-cordapp/overview.html).
 {{< /note >}}
 
-## Making a service injectable
+## Make a service injectable
 
 In order to make a service injectable, it must first implement one or both of the injection interfaces:
 * CordaFlowInjectable
@@ -55,7 +55,7 @@ You cannot use the injected services before the `call` method has been called as
 
 In the following examples, the `FlowEngine` service is injected before the `call` method is called and used within the `call` method.
 
-#### Java example
+### Java example
 
 ```java
 interface FooService extends CordaService, CordaFlowInjectable, CordaServiceInjectable {
@@ -94,7 +94,7 @@ class FooBarFlow implements Flow<String> {
 }
 ```
 
-#### Kotlin example
+### Kotlin example
 
 ```kotlin
 interface FooService : CordaService, CordaFlowInjectable, CordaServiceInjectable {​

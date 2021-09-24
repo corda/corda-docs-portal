@@ -79,7 +79,7 @@ You cannot use the injected services before the `call` method has been called as
 
 In the following examples, the `FlowEngine` service is injected before the `call` method is called and used within the `call` method.
 
-#### Java example
+### Java example
 
 ```java
 @InitiatingFlow

@@ -8,10 +8,10 @@ menu:
 project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  How to write your own Corda services and make them injectable.
+  Write your own Corda Services and make them injectable.
 ---
 
-The method of defining a custom Corda service in the Corda 5 Developer Preview makes use of the Corda Service Interface. Use this document to help you write custom Corda services which are:
+The method of defining a custom Corda service in the Corda 5 Developer Preview makes use of the Corda Service interface. Use this document to help you write custom Corda Services which are:
 
 * Singleton services.
 * Automatically instantiated by Corda upon node start-up.
@@ -20,15 +20,15 @@ The method of defining a custom Corda service in the Corda 5 Developer Preview m
 
 ## New in the Corda 5 Developer Preview
 
-To create a Corda service in Corda 4 it was necessary to create a class annotated with `@CordaService` which extended the `SingletonSerializeAsToken` abstract class or the implemented the `SerializeAsToken` interface, and had a contructor which accepted `AppServiceHub` as a single input parameter. For Corda 5 Developer preview, it is more straightforward to define a service, thanks to the Corda Service Interface.
+To create a Corda Service in Corda 4, you have to create a class annotated with `@CordaService` which extends the `SingletonSerializeAsToken` abstract class or the implemented `SerializeAsToken` interface, and have a constructor which accepts `AppServiceHub` as a single input parameter. In the Corda 5 Developer preview, it is more straightforward to define a service, thanks to the Corda Service interface.
 
-The introduction of this interface changes how Corda services are defined. The `@CordaService` annotation has been removed, it is no longer necessary to have a constructor with `AppServiceHub` as the only parameter, and it's no longer necessary to explicitly extend `SingletonSerializeAsToken`.
+The introduction of this interface changes how Corda Services are defined. The `@CordaService` annotation has been removed, it is no longer necessary to have a constructor with `AppServiceHub` as the only parameter, and it's no longer necessary to explicitly extend `SingletonSerializeAsToken`.
 
-## Using the Corda Service Interface
+## Using the Corda Service interface
 
-The Corda Service Interface is implemented by all Corda services, and is useful for controlling the service evolution throughout the node lifecycle.
+The Corda Service interface is implemented by all Corda Services, and is useful for controlling the service evolution throughout the node lifecycle.
 
-The `CordaService` interface is not injectable by default. You must specify the scope of injection if required by implementing `CordaServiceInjectable` to allow injection in to other Corda services and notary services, or `CordaFlowInjectable` to allow injection in to flows.
+The `CordaService` interface is not injectable by default. If it is required, you must specify the scope of injection by implementing `CordaServiceInjectable` to allow injection in to other Corda Services and notary services, or `CordaFlowInjectable` to allow injection in to flows.
 
 For more detail on injection refer to the section on [service injection](../service-injection/index.md).
 
@@ -36,7 +36,7 @@ Necessary services and functionality that were previously provided by the `AppSe
 
 This interface extends the `SingletonSerializeAsToken` interface. Previously it was expected that the CorDapp developer would extend the `SingletonSerializeAsToken` abstract class. This is no longer the case as `SingletonSerializeAsToken` has been converted to an interface.
 
-`CordaService` extends `ServiceLifecycleObserver` to provide a service the ability to manage its lifecycle. It does this through the `onEvent` function which receives a `ServiceLifecycleEvent` as an argument and executes at important points in a service's lifecycle. This will be described in more detail in the next section.  
+`CordaService` extends `ServiceLifecycleObserver` to provide a service with the ability to manage its lifecycle. It does this through the `onEvent` function which receives a `ServiceLifecycleEvent` as an argument and executes at important points in a service's lifecycle. This is described in more detail in the next section.  
 
 
 ## CordaService interface samples
@@ -45,7 +45,7 @@ This interface extends the `SingletonSerializeAsToken` interface. Previously it 
 interface CordaService : ServiceLifecycleObserver, SingletonSerializeAsToken
 ```
 
-### Basic sample of CordaService
+### Basic sample of `CordaService`
 
 A service _must_ declare and implement its own interface, and these interfaces must be unique.
 
@@ -62,12 +62,12 @@ class MyService : MyServiceInterface {
 ```
 
 {{< note >}}
-The interface MyServiceInterface will be registered and injected and _not_ the implementation MyService.
+The interface `MyServiceInterface` will be registered and injected and _not_ the implementation MyService.
 {{< /note >}}
 
 ## Corda Service lifecycle
 
-The `CordaService` interface extends `ServiceLifecycleObserver` which contains a default function, `onEvent`, for reacting to service lifecycle events. This is a default function with an empty function body so that it is optional for a Corda service to override this function, meaning that having code to react to specific lifecycle events is opt-in.
+The `CordaService` interface extends `ServiceLifecycleObserver` which contains a default function, `onEvent`, for reacting to service lifecycle events. This is a default function with an empty function body so that it is optional for a Corda Service to override this function, meaning that having code to react to specific lifecycle events is opt-in.
 
 ```kotlin
 // [CordaService] provides the ability to subscribe to lifecycle events due to inheritting [ServiceLifecycleObserver]'s behaviour.
@@ -88,13 +88,15 @@ interface ServiceLifecycleObserver {
 
 The `onEvent` function takes in a single parameter which is of type `ServiceLifecycleEvent`. `ServiceLifecycleEvent` is an interface which is the base interface for all service lifecycle events to which a service can react to. Currently, the available events are limited to two implementations, `StateMachineStarted` and `ServiceStart`.
 
-`StateMachineStarted` is distributed to all Corda services once the `NodeLifecycleEvent.StateMachineStarted` has been distributed by the node lifecycle event distributor, which occurs once the node has started the state machine.
+`StateMachineStarted` is distributed to all Corda Services once the `NodeLifecycleEvent.StateMachineStarted` has been distributed by the node lifecycle event distributor, which occurs once the node has started the state machine.
 
-`ServiceStart` is distributed to all Corda services by the `CordaServiceInstaller`, while loading all services, to allow the service to run any setup logic it may need. This would be any code that would have previously been in the service constructor. The reason for this, instead of just adding start up logic to the constructor, is because of how dependencies are injected. The `CordaServiceInstaller` scans for services, instantiates them, and then can inject dependencies. If a constructor relies on using an injected service then an exception will be thrown because the dependency will not have been initialised at that point.
+`ServiceStart` is distributed to all Corda Services by the `CordaServiceInstaller`, while loading all services. This allows the service to run any setup logic it may need, such as code that would have previously been in the service constructor. 
 
-An injection annotation has been added specifically for use with the service start event. `@CordaInjectPreStart` is an injection annotation which identifies injectable dependencies which are required in order to start the service. The `CordaServiceInstaller` now scans for services and instantiates them, then injects pre-start dependencies, next distributes the service start event, and finally injects the remaining injectable dependencies annotated with `@CordaInject`. Refer to the document on [service injection](../service-injection/index.md) for more detailed information, including information on the order of pre-start injection.
+The `CordaServiceInstaller` scans for services, instantiates them, and then can inject dependencies. If a constructor relies on using an injected service then an exception will be thrown because the dependency will not have been initialized at that point.
 
-### ServiceLifecycleEvent
+An injection annotation has been added specifically for use with the service start event. `@CordaInjectPreStart` is an injection annotation which identifies injectable dependencies which are required in order to start the service. The `CordaServiceInstaller` scans for services and instantiates them, then injects pre-start dependencies, distributes the service start event, and finally injects the remaining injectable dependencies annotated with `@CordaInject`. Refer to the document on [service injection](../service-injection/index.md) for more detailed information, including information on the order of pre-start injection.
+
+### `ServiceLifecycleEvent`
 
 ``` kotlin
 /**
@@ -104,7 +106,7 @@ An injection annotation has been added specifically for use with the service sta
 interface ServiceLifecycleEvent
 ```
 
-### ServiceStart
+### `ServiceStart`
 
 ``` kotlin
 /**
@@ -118,7 +120,7 @@ interface ServiceLifecycleEvent
 interface ServiceStart : ServiceLifecycleEvent
 ```
 
-### StateMachineStarted
+### `StateMachineStarted`
 
 ``` kotlin
 /**
