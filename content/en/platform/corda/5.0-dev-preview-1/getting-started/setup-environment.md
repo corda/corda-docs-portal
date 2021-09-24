@@ -1,13 +1,4 @@
----
-date: '2021-09-06'
-title: "Setting up your development environment"
-menu:
-  corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-gettingstarted
-    weight: 200
-project: corda-5
-section_menu: corda-5-dev-preview
----
+xxx
 
 Before you deploy a local network and start working with Corda 5 developer preview, you must perform all the following steps to set up your development environment:
 

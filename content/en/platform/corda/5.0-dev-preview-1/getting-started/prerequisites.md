@@ -26,7 +26,7 @@ As a CorDapp developer, you can compile and test your Corda 5 Developer Preview 
 
 ## Deployment
 
-You can deploy the Developer Preview locally using the [corda-cli](XXX) tool and a docker daemon, such as a command-line tool or Docker Desktop 3.5.
+You can deploy the Developer Preview locally using the [corda-cli](../corda-cli/overview.md) tool and a docker daemon, such as a command-line tool or Docker Desktop 3.5.
 
 ## Packaging CorDapps
 
