@@ -39,7 +39,7 @@ The `CreateAndIssueAppleStamp` flow creates the `AppleStamp` and issues it to th
 
 ### Write the initiator flow
 
-The `CreateAndIssueAppleStamp` flow action requires interaction between the issuer and the customer. For this reason, you must create and initiator flow and a responder flow.
+The `CreateAndIssueAppleStamp` flow action requires interaction between the issuer and the customer. For this reason, you must create an initiator flow and a responder flow.
 
 #### Implement the `CreateAndIssueAppleStamp` class
 
@@ -74,7 +74,7 @@ Add the following private variables to the subclass:
 * `holder` - The holder of the `AppleStamp`. This must be a `Party` type.
 
 {{< note >}}
-When writing flows, it's important to consider who is calling the flow-this affects the parameters you need.
+When writing flows, it's important that you consider who is calling the flow - this affects the parameters you need.
 {{< /note >}}
 
 #### Add a constructor
