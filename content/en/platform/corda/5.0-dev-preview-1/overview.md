@@ -18,6 +18,11 @@ This is a developer preview of Corda's next major iteration, Corda 5. Here, you 
 * A HTTPS API, based on Open API principles, that allows you [control nodes, and initiate flows remotely](nodes/overview.html).
 * Package your CordApps with a new Gradle plugin that allows for multi-tenancy applications in future releases.
 
+{{< note >}}
+**Your feedback helps us**
+Please [send us any feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) you have about this documentation, or the Corda 5 Developer Preview. We want to hear from you so we can make the next versions of Corda work harder for you than ever. 
+{{< /note >}}
+
 In this preview, you can:
 
 * Deploy a local Corda 5 developer network for building and testing CorDapps.
