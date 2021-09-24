@@ -27,7 +27,6 @@ Deploy and run your CorDapp on the following test nodes:
 * PartyA
 * PartyB
 
-
 ## Deploy the CorDapp locally
 
 1. Open the command line from the root of your project.
@@ -86,8 +85,11 @@ The `runnodes` script creates a node tab/window for each node. It usually takes 
 
 ## Interact with your CorDapp
 
+Follow the instructions in this section to interact with your CorDapp as Farmer Bob (`PartyA` node) and Peter (`PartyB` node).
 
-### Create the `AppleStamp` voucher
+### Create and issue the `AppleStamp` voucher
+
+In this first part of the process, Farmer Bob creates and issues a voucher to Peter for the apples he wishes to buy. He includes a description of the apples Peter requested (`Fuji4072`) and indicates that Peter is the holder of this new `AppleStamp`.
 
 1. Go to the `PartyA` node window and run the following command:
 
@@ -101,26 +103,28 @@ This issues the `AppleStamp` to Peter. Farmer Bob and Peter both will have a cop
 
 You should see the same information in both vaults.
 
-
 ### Package apples
+
+Next, Farmer Bob prepares the amount of apples Peter requested by self-issuing a `BasketofApples` state.
 
 1. Go to the `PartyA` node window and run the following command:
 
 `flow start PackApplesInitiator appleDescription: Fuji10472, weight: 10`
 
-2. Pull the data from the vault to verify if your transaction is performed correctly. This is a self-issuance transaction so run the following command on the PartyA node only:
+2. Pull the data from the vault to verify if your transaction was performed correctly. This is a self-issuance transaction so run this command on the `PartyA` node only:
 
 `run vaultQuery contractStateType: com.tutorial.states.BasketOfApple`
 
-If you run the same query on the PartyB node, you won't get any data because PartyA needs to receive the backet of apples from PartyB first.
-
+If you run the same query on the `PartyB` node, you won't get any data because they were not involved in this transaction.
 
 ### Redeem the `AppleStamp` voucher
 
-1. Go to the `PartyA` node window and run the following command:
+Finally, Peter goes to the orchard to pick up his apples and redeems his voucher. The voucher is marked as spent and Farmer Bob gives Peter his apples.
+
+1. Go to the `PartyA` node window and run this command:
 
 `flow start RedeemApplesInitiator buyer: PartyB, stampId: <voucher ID present in the both parties' vaults>`
 
-2. Now you can query PartyB again to verify if they redeemed their `AppleStamp` voucher correctly:
+2. Now you can query `PartyB` again to verify if they redeemed their `AppleStamp` voucher correctly:
 
 `run vaultQuery contractStateType: com.tutorial.states.BasketOfApple`
