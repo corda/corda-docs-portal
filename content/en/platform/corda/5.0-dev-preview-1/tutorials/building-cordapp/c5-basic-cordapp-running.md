@@ -116,7 +116,7 @@ To interact with your CorDapp and to test flows, use the Swagger API interface w
 For this app, the ports are:
 
 * PartyA's node: `12112`
-* PartyB's node: 12116
+* PartyB's node: `12116`
 
 {{< note >}}
 
