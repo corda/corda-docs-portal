@@ -4,11 +4,7 @@ date: '2021-09-23'
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-gettingstarted
-<<<<<<< Updated upstream
     weight: 300
-=======
-    weight: 1500
->>>>>>> Stashed changes
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
@@ -26,7 +22,7 @@ Included in the Corda 5 Developer Preview:
 * RPC libraries.
 * Flow unit test library.
 
-In addition, you can install and use the Corda 5 Developer Preview versions of Tokens SDK and Confidential Identities SDK.
+In addition, you can install and use the Corda 5 Developer Preview versions of the confidential identities project and Tokens SDK.
 
 ## Existing Corda versions
 
@@ -53,56 +49,49 @@ To install the Corda 5 Developer Preview:
      * `corda-os-maven`
      * `engineering-docker`
 
-4. Install the Corda CLI tool by following the steps from the [Installing Corda CLI](../corda-cli/installing-corda-cli.md) procedure.
+4. [Install the Corda CLI tool](../corda-cli/installing-corda-cli.md).
 
-Corda CLI is a command line interface that is used to deploy a Corda network. Corda CLI commands help you to
-manage the Corda network and Corda package files.
+    The Corda CLI is a command-line interface that is used to deploy and help manage the Corda network and Corda package files.
 
-5. RPC libraries
-In the Corda 5 Developer Preview, you can expose remote procedure call (RPC) functionality via a secure HTTP API (HTTP-RPC).
-It serves the purpose of allowing interaction with a running Corda node from any HTTP client including, but not limited to,
-web browsers.
+5. [Download and save the Corda Node CLI](../nodes/operating/cli-curl/cli-curl.md).
 
-HTTP-RPC generates web service endpoints from the properly annotated `RPCOps` interfaces and methods, and an
-[OpenAPI 3](https://swagger.io/specification/)
-standard JSON (also known as Swagger JSON) as a complete web service description. It also generates Swagger UI with
-available authentication features that you can use to test the web service methods.
+    The Corda Node CLI allows you to interact with nodes using the new HTTP-RPC API. It offers a
+    convenient way of calling HTTP-RPC methods, and formats their results so that they are easy to understand.
 
-For more information, read about [developing nodes](../nodes/developing/developing-nodes-homepage.md) and
-[operating nodes](../nodes/operating/operating-nodes-homepage.md).
+6. [Install CorDapp Builder CLI](../packaging/cordapp-builder.md) to create Corda package bundle files.
 
-6. Corda Node CLI
-Corda Node CLI allows you to interact with nodes using the new HTTP-RPC API. It offers a
-convenient way of calling HTTP-RPC methods, and formats their results so that they are easy to understand.
+7. RPC libraries
+   In the Corda 5 Developer Preview, you can expose remote procedure call (RPC) functionality via a secure HTTP API (HTTP-RPC).
+   It serves the purpose of allowing interaction with a running Corda node from any HTTP client including, but not limited to,
+   web browsers.
 
-Read the guide on interacting with your node using the [Corda Node CLI and curl commands](../nodes/operating/cli-curl/cli-curl.md).
+    For more information, read about [developing nodes](../nodes/developing/developing-nodes-homepage.md) and
+    [operating nodes](../nodes/operating/operating-nodes-homepage.md).
 
-7. [Install CorDapp Builder CLI](packaging/cordapp-builder.md) to create Corda package bundle files.
+8. *Optional*: update the confidential identities project to build against the new version of Corda.
 
-8. *Optional*: update the confidential identities project to build against new version of Corda.
+    GitHub repo: [Corda 5 confidential identities](https://github.com/corda/corda5-confidential-identities), current release branch: `release/2.0`
 
-GitHub repo: [Corda 5 confidential identities](https://github.com/corda/corda5-confidential-identities)
-Current release branch: `release/2.0`
+    To update the confidential identities project to build against the new version of Corda:
+   * Update the Corda dependency in the `gradle.properties` file.
+   * Resolve any compilation issues caused by the changed Corda version. (This is not expected to be a common problem since the Corda 5 API has stabilized.)
+   * Update the image tag used by the e2e test network to use the release image matching the Corda version on which the project
+    now depends.
 
-To update the confidential identities project to build against a new version of Corda:
-* Update the Corda dependency in the `gradle.properties` file.
-* Resolve any compilation issues caused by the changed Corda version. (This is not expected to be a common problem since the Corda 5 API has stabilized.)
-* Update the image tag used by the e2e test network to use the release image matching the Corda version on which the project
-now depends.
+   Once the confidential identities build is complete, update the Token SDK project to build against the new version of Corda.
 
-9. Once the confidential identities build is complete, update the Token SDK project to build against a new version of Corda.
-GitHub repo: [Corda 5 Token SDK](https://github.com/corda/corda5-token-sdk).
-Current release branch: `release/2.0`.
-The Tokens SDK provides you with the fastest and easiest way to create tokens that represent any kind of asset on your
-network. This asset can be anything you want it to be - conceptual, physical, valuable, or not. You can create a token
-to represent something outside the network or something that only exists on the ledger - like a Corda-native digital
-currency.
-With the SDK, you can define your token and its attributes, then add functionality to a CorDapp so the token can be issued,
-moved, and redeemed on a ledger.
+    GitHub repo: [Corda 5 Token SDK](https://github.com/corda/corda5-token-sdk), current release branch: `release/2.0`.
 
-To update the Token SDK project:
-* Update the Corda dependency in the `gradle.properties` file.
-* Update the confidential identities dependency in the `gradle.properties` file.
-* Resolve any compilation issues caused by the changed dependency versions. (This is not expected to be a common problem since the Corda 5 API has stabilized.)
-* Update the image tag used by the e2e test network and the diamond demo test network to use the release image matching the Corda version on which the project now depends.
-* There are two Jenkins files to update, one for each network mentioned in the above step.
+     The Tokens SDK provides you with the fastest and easiest way to create tokens that represent any kind of asset on your
+     network. This asset can be anything you want it to be - conceptual, physical, valuable. You can create a token
+     to represent something outside the network or something that only exists on the ledger - like a Corda-native digital
+     currency.
+     With the SDK, you can define your token and its attributes, then add functionality to a CorDapp so the token can be issued,
+     moved, and redeemed on a ledger.
+
+     To update the Token SDK project:
+    * Update the Corda dependency in the `gradle.properties` file.
+    * Update the confidential identities' dependency in the `gradle.properties` file.
+    * Resolve any compilation issues caused by the changed dependency versions. (This is not expected to be a common problem since the Corda 5 API has stabilized.)
+    * Update the image tag used by the e2e test network and the diamond demo test network to use the release image matching the Corda version on which the project now depends.
+    * There are two Jenkins files to update, one for each network mentioned in the above step.
