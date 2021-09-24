@@ -4,7 +4,11 @@ date: '2021-09-23'
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-gettingstarted
+<<<<<<< Updated upstream
     weight: 300
+=======
+    weight: 1500
+>>>>>>> Stashed changes
 project: corda-5
 section_menu: corda-5-dev-preview
 ---
