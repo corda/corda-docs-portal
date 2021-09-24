@@ -6,7 +6,7 @@ menu:
     weight: 750
 project: corda-5
 section_menu: corda-5-dev-preview
-title: Corda 5 local network troubleshooting
+title: Troubleshooting a local Corda 5 network
 ---
 
 ## ERROR: The Compose file is invalid
