@@ -17,37 +17,7 @@ they cannot be easily modified for simple serialization, CorDapps can provide cu
 custom proxy serializers to move from types it cannot serialize to an interim representation that it can with the transformation to and
 from this proxy object being handled by the supplied serializer.
 
-{{< note >}}
-For the `WireTransaction` and other classes that are serialized, the format of the serialized data must be invariant between
-different versions and possibly different implementations.
-In Corda 4, implementation classes were annotated with `@CordaSerializable` but this methodology no longer works in Corda 5
-Developer Preview and beyond. If an implementation changes then the serialized format may also change.
 
-{{< /note >}}
-
-## Custom Serialisation
-
-In order to support wire stability custom serializers have been added, and containers for the transaction classes.
-There is now a separate module `ledger-serialization` that contains this code for ledger serialization.
-The containers should not change. The containers are marked with the `@CordaSerializable` attribute and must not change
-between versions.
-The serializers serialize the containers, not the implementations, so that the wire data is invariant regardless of the
-transaction interface implementation.
-The transaction implementations can change provided that the serializers are aware of the transaction types that can be
-serialized.
-
-A new transaction implementation will however have to be added to the container serializer so that the correct class can be
-built on the receiver side. Custom serialisers for the ledger classes have been added to the AMQP serialisation schemes `AMQPClientSerializationScheme` and `AMQPServerSerializationScheme`.
-
-```kotlin
-setOf({factory -> WireTransactionInterfaceSerializer(factory)},
- {factory -> SignedTransactionInterfaceSerializer(factory)},
- {factory -> FilteredTransactionInterfaceSerializer(factory)},
-```
-A typical serializer has to implement the `toProxy` and `fromProxy` methods.
-The serializers do not actually serialize the transaction container directly.
-Instead the transaction container is wrapped ina `ContainerRef`.
-This makes sure that the correct Metadata is formed around the container itself.
 
 ## Serializer location
 

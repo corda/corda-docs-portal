@@ -13,7 +13,6 @@ section_menu: corda-5-dev-preview
 If a CorDapp encounters an exception during the checkpoint process, it may need a custom serializer to make a class serializable.
 
 {{< warning >}}
-**IMPORTANT**
 
 * This is an unsupported advanced feature for use when a class cannot be serialized and cannot be avoided. It should be avoided
 unless there is no other choice.

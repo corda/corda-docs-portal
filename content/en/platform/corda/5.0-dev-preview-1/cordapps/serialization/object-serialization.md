@@ -41,8 +41,6 @@ weakly or untyped string-based serialization schemes like JSON or XML. The prima
 
 * Blob Inspector has not been ported and is not currently available in Corda 5 Dev Preview 1.
 * Addition of *METADATA* element in wire format to facilitate the serialization process in a sandboxing environment.
-* In the Corda 5 Developer Preview and beyond, the `@CordaSerializable` methodology no longer works to annotate the
-  implementation classes. If an implementation changes then the serialized format may also change.
 
 ## Whitelisting
 
