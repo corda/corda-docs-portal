@@ -29,7 +29,7 @@ If a previous installation of Corda CLI exists, remove it. See [Deleting Corda C
 
 ### Steps
 
-1. Download either the [.tar](https://download.corda.net/corda-cli/1.0.0-DevPreview/corda-cli.tar) or the [.zip](https://download.corda.net/corda-cli/1.0.0-DevPreview/corda-cli.zip) file.
+1. Download either the <a href="https://download.corda.net/corda-cli/1.0.0-DevPreview/corda-cli.tar">`.tar`</a> or <a href="https://download.corda.net/corda-cli/1.0.0-DevPreview/corda-cli.zip">`.zip`</a> file.
 
 2. Create a new `bin/corda-cli` directory under the current users home directory.
 
