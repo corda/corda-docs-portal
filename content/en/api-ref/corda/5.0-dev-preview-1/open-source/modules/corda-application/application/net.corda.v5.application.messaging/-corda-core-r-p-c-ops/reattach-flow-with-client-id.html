@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaCoreRPCOps.reattachFlowWithClientId - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.messaging</a>&nbsp;/&nbsp;<a href="index.html">CordaCoreRPCOps</a>&nbsp;/&nbsp;<a href="./reattach-flow-with-client-id.html">reattachFlowWithClientId</a><br/>
+<br/>
+<h1>reattachFlowWithClientId</h1>
+<a name="net.corda.v5.application.messaging.CordaCoreRPCOps$reattachFlowWithClientId(kotlin.String)"></a>
+<code><span class="identifier">@RPCReturnsObservables</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">reattachFlowWithClientId</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.messaging.CordaCoreRPCOps$reattachFlowWithClientId(kotlin.String)/clientId">clientId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-handle-with-client-id/index.html"><span class="identifier">FlowHandleWithClientId</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span></code>
+<p>Reattach to an existing flow that was started with <a href="start-flow-dynamic-with-client-id.html">startFlowDynamicWithClientId</a> and has a <a href="reattach-flow-with-client-id.html#net.corda.v5.application.messaging.CordaCoreRPCOps$reattachFlowWithClientId(kotlin.String)/clientId">clientId</a>.</p>
+<p>If there is a flow matching the <a href="reattach-flow-with-client-id.html#net.corda.v5.application.messaging.CordaCoreRPCOps$reattachFlowWithClientId(kotlin.String)/clientId">clientId</a> then its result or exception is returned.</p>
+<p>When there is no flow matching the <a href="reattach-flow-with-client-id.html#net.corda.v5.application.messaging.CordaCoreRPCOps$reattachFlowWithClientId(kotlin.String)/clientId">clientId</a> then <a href="#">null</a> is returned directly (not a future/<a href="../-flow-handle-with-client-id/index.html">FlowHandleWithClientId</a>).</p>
+<p>Calling <a href="./reattach-flow-with-client-id.html">reattachFlowWithClientId</a> after <a href="remove-client-id.html">removeClientId</a> with the same <a href="reattach-flow-with-client-id.html#net.corda.v5.application.messaging.CordaCoreRPCOps$reattachFlowWithClientId(kotlin.String)/clientId">clientId</a> will cause the function to return <a href="#">null</a> as
+the result/exception of the flow will no longer be available.</p>
+<h3>Parameters</h3>
+<p><a name="clientId"></a>
+<code>clientId</code> - The client id relating to an existing flow</p>
+</BODY>
+</HTML>

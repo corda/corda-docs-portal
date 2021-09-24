@@ -1,0 +1,5 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+net.corda.impl.serialization.encoding
+net.corda.internal.serialization.encoding

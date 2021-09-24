@@ -5,6 +5,8 @@ DOCKER_RUN         = $(DOCKER) run --rm --volume $(ROOT_DIR):/src $(DOCKER_BUILD
 HUGO_VERSION       = 0.74.3
 S3DEPLOY_VERSION   = 2.3.5
 REGISTRY           = library
+CADDY_VERSION      = 2.4.3
+MUFFET_VERSION     = 2.4.2
 
 HUGO_DOCKER_IMAGE  = corda-docs-hugo
 PROD_IMAGE         = corda-docs-nginx
@@ -104,13 +106,15 @@ crawl: build-algolia-image ## Start a crawl of docs.corda.net and upload to algo
 #######################################################################################################################
 # Build checks
 
-linkchecker: prod-docker-image ## Check all links are valid
-	.ci/checks/linkchecker.sh $(PROD_IMAGE)
+linkchecker: hugo-docker-image ## Check all links are valid
+	$(DOCKER_RUN) -it $(HUGO_DOCKER_IMAGE) .ci/checks/linkChecker.sh
 
 # actual tasks
 .hugo-docker-image: Dockerfile
 	$(DOCKER) build . --tag $(HUGO_DOCKER_IMAGE) \
+		--build-arg CADDY_VERSION=$(CADDY_VERSION) \
 		--build-arg HUGO_VERSION=$(HUGO_VERSION) \
+		--build-arg MUFFET_VERSION=$(MUFFET_VERSION) \
 		--build-arg REGISTRY=$(REGISTRY) \
 		--build-arg S3DEPLOY_VERSION=$(S3DEPLOY_VERSION)
 	touch $@

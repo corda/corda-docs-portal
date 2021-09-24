@@ -37,7 +37,7 @@ enableGitInfo = true
 # GA was added here: /themes/hugo-r3-theme/scripts/vendor/googleanalytics.js
 # We are NOT using the built-in Hugo functionality commented out below
 # https://gohugo.io/templates/internal/#google-analytics
-# googleAnalytics = "UA-87760032-1"
+googleAnalytics = "283616090"
 
 
 
@@ -93,7 +93,7 @@ default_tab = "java"
 ogimage = "/images/png/corda.png"
 
 # hack - these values are asigned in global.html
-algolia_appId = "283616090"
+algolia_appId = "UX2KMUWFAL"
 algolia_apiKey = "d30af47c430efcbae42aa7e855dbf164"
 algolia_index = "crawler_docs.r3.com"
 

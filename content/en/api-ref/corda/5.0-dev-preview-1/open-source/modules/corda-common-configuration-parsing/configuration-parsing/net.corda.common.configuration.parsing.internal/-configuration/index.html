@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Configuration - configuration-parsing</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">configuration-parsing</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.common.configuration.parsing.internal</a>&nbsp;/&nbsp;<a href="./index.html">Configuration</a><br/>
+<br/>
+<h1>Configuration</h1>
+<code><span class="keyword">object </span><span class="identifier">Configuration</span></code>
+<p>Entry point for the <a href="#">Config</a> parsing utilities.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-describer/index.html">Describer</a></h4>
+</td>
+<td>
+<p>Able to describe a part of a <a href="#">Config</a> as a <a href="#">ConfigValue</a>.
+Implemented by <a href="-specification/index.html">Configuration.Specification</a>, <a href="-schema/index.html">Configuration.Schema</a> and <a href="-property/-definition/index.html">Configuration.Property.Definition</a> to output values that are masked if declared as sensitive.</p>
+<code><span class="keyword">interface </span><span class="identifier">Describer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-options/index.html">Options</a></h4>
+</td>
+<td>
+<p>Validation and processing options.</p>
+<code><span class="keyword">class </span><span class="identifier">Options</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-property/index.html">Property</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Property</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-schema/index.html">Schema</a></h4>
+</td>
+<td>
+<p>A definition of the expected structure of a <a href="#">Config</a> object, able to validate it and describe it while preventing sensitive values from being revealed.</p>
+<code><span class="keyword">interface </span><span class="identifier">Schema</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Validator</span><span class="symbol">, </span><span class="identifier">Describer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-specification/index.html">Specification</a></h4>
+</td>
+<td>
+<p>A <a href="-schema/index.html">Configuration.Schema</a> that is also able to parse a raw <a href="#">Config</a> object into a <a href="-specification/index.html#VALUE">VALUE</a>.
+It is an abstract class to allow extension with delegated properties e.g., object Settings: Specification() { val address by string().optional("localhost:8080") }.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Specification</span><span class="symbol">&lt;</span><span class="identifier">VALUE</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Schema</span><span class="symbol">, </span><span class="identifier">Parser</span><span class="symbol">&lt;</span><span class="identifier">VALUE</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-validation/index.html">Validation</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Validation</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-validator.html">Validator</a></h4>
+</td>
+<td>
+<p>Defines the ability to validate a <a href="#">Config</a> object, producing a valid <a href="#">Config</a> or a set of <a href="-validation/-error/index.html">Configuration.Validation.Error</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">Validator</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Validator</span><span class="symbol">&lt;</span><span class="identifier">Config</span><span class="symbol">,</span>&nbsp;<span class="identifier">Error</span><span class="symbol">,</span>&nbsp;<span class="identifier">Options</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-value/index.html">Value</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Value</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-version/index.html">Version</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Version</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

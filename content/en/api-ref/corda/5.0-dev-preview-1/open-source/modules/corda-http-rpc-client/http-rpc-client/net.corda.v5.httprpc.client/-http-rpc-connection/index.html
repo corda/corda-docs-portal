@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HttpRpcConnection - http-rpc-client</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">http-rpc-client</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.httprpc.client</a>&nbsp;/&nbsp;<a href="./index.html">HttpRpcConnection</a><br/>
+<br/>
+<h1>HttpRpcConnection</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">HttpRpcConnection</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">I</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span><span class="symbol">&gt;</span></code>
+<p>Represents a logical connection to the HTTP RPC server which may go up and down.
+The <a href="proxy.html">proxy</a> object can be used to make remote calls using the interface methods.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="proxy.html">proxy</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">proxy</span><span class="symbol">: </span><span class="identifier">I</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="server-protocol-version.html">serverProtocolVersion</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">serverProtocolVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

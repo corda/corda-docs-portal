@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SimplePersistentCacheImpl.<init> - crypto-impl</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-impl</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.crypto.internal</a>&nbsp;/&nbsp;<a href="index.html">SimplePersistentCacheImpl</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.crypto.internal.SimplePersistentCacheImpl$&lt;init&gt;(java.lang.Class((net.corda.crypto.internal.SimplePersistentCacheImpl.E)), org.hibernate.SessionFactory, kotlin.Long, kotlin.Long)"></a>
+<code><span class="identifier">SimplePersistentCacheImpl</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.internal.SimplePersistentCacheImpl$<init>(java.lang.Class((net.corda.crypto.internal.SimplePersistentCacheImpl.E)), org.hibernate.SessionFactory, kotlin.Long, kotlin.Long)/entityClazz">entityClazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.SimplePersistentCacheImpl$<init>(java.lang.Class((net.corda.crypto.internal.SimplePersistentCacheImpl.E)), org.hibernate.SessionFactory, kotlin.Long, kotlin.Long)/sessionFactory">sessionFactory</span><span class="symbol">:</span>&nbsp;<span class="identifier">SessionFactory</span><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.SimplePersistentCacheImpl$<init>(java.lang.Class((net.corda.crypto.internal.SimplePersistentCacheImpl.E)), org.hibernate.SessionFactory, kotlin.Long, kotlin.Long)/expireInMinutes">expireInMinutes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;60<span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.SimplePersistentCacheImpl$<init>(java.lang.Class((net.corda.crypto.internal.SimplePersistentCacheImpl.E)), org.hibernate.SessionFactory, kotlin.Long, kotlin.Long)/maxSize">maxSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1000<span class="symbol">)</span></code>
+<p>Implements a simplified caching layer on top of an <em>append-only</em> table accessed via Hibernate mapping.
+Note that if the same key is stored twice, typically this will result in a duplicate insert if this is racing
+with another transaction in different instance which would be prevented by the primary key constrain.
+The implementation is race condition with different instance safe.</p>
+</BODY>
+</HTML>

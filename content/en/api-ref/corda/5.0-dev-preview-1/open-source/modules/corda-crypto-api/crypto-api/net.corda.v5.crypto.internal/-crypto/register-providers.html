@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Crypto.registerProviders - crypto-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.crypto.internal</a>&nbsp;/&nbsp;<a href="index.html">Crypto</a>&nbsp;/&nbsp;<a href="./register-providers.html">registerProviders</a><br/>
+<br/>
+<h1>registerProviders</h1>
+<a name="net.corda.v5.crypto.internal.Crypto$registerProviders()"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">registerProviders</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Method to force registering all <a href="index.html">Crypto</a>-related cryptography <a href="https://docs.oracle.com/javase/6/docs/api/java/security/Provider.html">Provider</a>s.
+It is recommended that it is invoked first thing on <code>main</code> functions, so the <a href="https://docs.oracle.com/javase/6/docs/api/java/security/Provider.html">Provider</a>s are in place before any
+cryptographic operation is requested outside <a href="index.html">Crypto</a> (i.e., SecureRandom, KeyStore, cert-path validation,
+CRL &amp; CSR checks etc.).</p>
+</BODY>
+</HTML>

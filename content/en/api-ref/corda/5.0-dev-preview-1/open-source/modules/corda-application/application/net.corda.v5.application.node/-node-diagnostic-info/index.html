@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NodeDiagnosticInfo - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.node</a>&nbsp;/&nbsp;<a href="./index.html">NodeDiagnosticInfo</a><br/>
+<br/>
+<h1>NodeDiagnosticInfo</h1>
+<code><span class="keyword">interface </span><s><span class="identifier">NodeDiagnosticInfo</span></s></code><br/>
+<strong>Deprecated:</strong> Classes used in Artemis RPC only to be deleted in Corda 5.0<br/>
+<br/>
+<p>A <a href="./index.html">NodeDiagnosticInfo</a> holds information about the current node version.</p>
+<h3>Parameters</h3>
+<p><a name="version"></a>
+<code>version</code> - The current node version string, e.g. 4.3, 4.4-SNAPSHOT. Note that this string is effectively freeform, and so should only
+    be used for providing diagnostic information. It should not be used to make functionality decisions (the platformVersion
+    is a better fit for this).</p>
+<p><a name="revision"></a>
+<code>revision</code> - The git commit hash this node was built from</p>
+<p><a name="platformVersion"></a>
+<code>platformVersion</code> - The platform version of this node. This number represents a released API version, and should be used to make
+    functionality decisions (e.g. enabling an app feature only if an underlying platform feature exists)</p>
+<p><a name="vendor"></a>
+<code>vendor</code> - The vendor of this node</p>
+<p><a name="cordapps"></a>
+<code>cordapps</code> - A list of CorDapps currently installed on this node</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="cordapps.html">cordapps</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">cordapps</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.application.cordapp/-cordapp-info/index.html"><span class="identifier">CordappInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="platform-version.html">platformVersion</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">platformVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="revision.html">revision</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">revision</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="vendor.html">vendor</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">vendor</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="version.html">version</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">version</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

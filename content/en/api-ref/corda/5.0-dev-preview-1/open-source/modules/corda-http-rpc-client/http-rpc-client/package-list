@@ -1,0 +1,13 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:net.corda.v5.httprpc.client.internal.processing$replacePathParameters(kotlin.String, kotlin.collections.Map((kotlin.String, )))net.corda.v5.httprpc.client.internal.processing/kotlin.-string/replace-path-parameters.html
+net.corda.v5.httprpc.client
+net.corda.v5.httprpc.client.auth
+net.corda.v5.httprpc.client.auth.credentials
+net.corda.v5.httprpc.client.auth.scheme
+net.corda.v5.httprpc.client.config
+net.corda.v5.httprpc.client.exceptions
+net.corda.v5.httprpc.client.internal
+net.corda.v5.httprpc.client.internal.processing
+net.corda.v5.httprpc.client.internal.remote
+net.corda.v5.httprpc.client.internal.stream

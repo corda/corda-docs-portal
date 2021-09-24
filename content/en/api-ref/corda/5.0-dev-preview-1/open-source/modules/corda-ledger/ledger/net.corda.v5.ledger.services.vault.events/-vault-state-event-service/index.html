@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>VaultStateEventService - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services.vault.events</a>&nbsp;/&nbsp;<a href="./index.html">VaultStateEventService</a><br/>
+<br/>
+<h1>VaultStateEventService</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">VaultStateEventService</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span></code>
+<p><a href="./index.html">VaultStateEventService</a> allows <a href="#">CordaService</a>s to subscribe to vault state events triggered by the recording of <a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html">ContractState</a>s to the
+vault.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="subscribe.html">subscribe</a></h4>
+</td>
+<td>
+<p>Subscribe to vault events and execute the given <a href="subscribe.html#net.corda.v5.ledger.services.vault.events.VaultStateEventService$subscribe(kotlin.String, java.util.function.BiConsumer((kotlin.Long, net.corda.v5.ledger.services.vault.events.VaultStateEvent((net.corda.v5.ledger.contracts.ContractState)))))/function">function</a> using each <a href="../-vault-state-event/index.html">VaultStateEvent</a>. These events are emitted when states are
+produced or consumed (saved to the vault as output or input states).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">subscribe</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault.events.VaultStateEventService$subscribe(kotlin.String, java.util.function.BiConsumer((kotlin.Long, net.corda.v5.ledger.services.vault.events.VaultStateEvent((net.corda.v5.ledger.contracts.ContractState)))))/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.vault.events.VaultStateEventService$subscribe(kotlin.String, java.util.function.BiConsumer((kotlin.Long, net.corda.v5.ledger.services.vault.events.VaultStateEvent((net.corda.v5.ledger.contracts.ContractState)))))/function">function</span><span class="symbol">:</span>&nbsp;<span class="identifier">BiConsumer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">,</span>&nbsp;<a href="../-vault-state-event/index.html"><span class="identifier">VaultStateEvent</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Subscribe to vault events and receive a <a href="#">DurableCursor</a> that polls for <a href="../-vault-state-event/index.html">VaultStateEvent</a>s emitted by the vault which can then be
+processed. These events are emitted when states are produced or consumed (saved to the vault as output or input states).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">subscribe</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault.events.VaultStateEventService$subscribe(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DurableCursor</span><span class="symbol">&lt;</span><a href="../-vault-state-event/index.html"><span class="identifier">VaultStateEvent</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SingletonSerializeAsToken.toToken - serialization</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">serialization</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.serialization</a>&nbsp;/&nbsp;<a href="index.html">SingletonSerializeAsToken</a>&nbsp;/&nbsp;<a href="./to-token.html">toToken</a><br/>
+<br/>
+<h1>toToken</h1>
+<a name="net.corda.v5.serialization.SingletonSerializeAsToken$toToken(net.corda.v5.serialization.SerializeAsTokenContext)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">toToken</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SingletonSerializeAsToken$toToken(net.corda.v5.serialization.SerializeAsTokenContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialize-as-token-context/index.html"><span class="identifier">SerializeAsTokenContext</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-singleton-serialization-token/index.html"><span class="identifier">SingletonSerializationToken</span></a></code>
+<p>Creates the singleton's token and returns it.</p>
+<p>Prefer providing an override of <a href="token-name.html">tokenName</a> to alter the <a href="../-singleton-serialization-token/index.html">SingletonSerializationToken</a> output from this method. The <a href="to-token.html#net.corda.v5.serialization.SingletonSerializeAsToken$toToken(net.corda.v5.serialization.SerializeAsTokenContext)/context">context</a>
+should not be used here, as registration of the <a href="../-singleton-serialization-token/index.html">SingletonSerializationToken</a> is done by Corda.</p>
+<h3>Parameters</h3>
+<p><a name="context"></a>
+<code>context</code> - The <a href="../-serialize-as-token-context/index.html">SerializeAsTokenContext</a> involved in registering the token.</p>
+<p><strong>Return</strong><br/>
+A <a href="../-singleton-serialization-token/index.html">SingletonSerializationToken</a> representing the singleton's token.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="token-name.html">tokenName</a></p>
+</p>
+</BODY>
+</HTML>

@@ -131,7 +131,7 @@ server time and will change depending on when the server processes the request.
 where transactionTime between (T-1 and T)
 ```
 
-### Tracking positions
+## Tracking positions
 
 The HTTP-RPC client is responsible for tracking positions/sequence.
 

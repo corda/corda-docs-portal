@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StatePersistable - ledger</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">ledger</a>&nbsp;/&nbsp;<a href="index.html">net.corda.v5.ledger.schemas</a>&nbsp;/&nbsp;<a href="./-state-persistable.html">StatePersistable</a><br/>
+<br/>
+<h1>StatePersistable</h1>
+<code><span class="keyword">interface </span><span class="identifier">StatePersistable</span></code>
+<p>Marker interface to denote a persistable Corda state entity that will always have a transaction id and index</p>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-direct-state-persistable/index.html">DirectStatePersistable</a></h4>
+</td>
+<td>
+<p>Marker interface to denote a persistable Corda state entity that exposes the transaction id and index as composite key called <a href="-direct-state-persistable/state-ref.html">stateRef</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">DirectStatePersistable</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-state-persistable.html"><span class="identifier">StatePersistable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-indirect-state-persistable/index.html">IndirectStatePersistable</a></h4>
+</td>
+<td>
+<p>Marker interface to denote a persistable Corda state entity that exposes the transaction id and index as a nested composite key called <a href="-indirect-state-persistable/composite-key.html">compositeKey</a>
+that is itself a <a href="-direct-state-persistable/index.html">DirectStatePersistable</a>.  i.e. exposes a <a href="#">stateRef</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">IndirectStatePersistable</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-direct-state-persistable/index.html"><span class="identifier">DirectStatePersistable</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-state-persistable.html"><span class="identifier">StatePersistable</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

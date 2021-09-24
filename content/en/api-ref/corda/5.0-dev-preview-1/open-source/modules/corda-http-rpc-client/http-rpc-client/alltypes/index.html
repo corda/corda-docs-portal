@@ -1,0 +1,107 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>alltypes - http-rpc-client</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<h3>All Types</h3>
+<table>
+<tbody>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.config/-authentication-config/index.html">net.corda.v5.httprpc.client.config.AuthenticationConfig</a></h5>
+<p>Provides authentication information for HTTP RPC calls.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.auth.scheme/-authentication-scheme/index.html">net.corda.v5.httprpc.client.auth.scheme.AuthenticationScheme</a></h5>
+<p>Represents an HTTP authentication scheme like Basic or Bearer</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.auth.credentials/-basic-auth-credentials/index.html">net.corda.v5.httprpc.client.auth.credentials.BasicAuthCredentials</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.auth.scheme/-basic-authentication-scheme/index.html">net.corda.v5.httprpc.client.auth.scheme.BasicAuthenticationScheme</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.auth.credentials/-bearer-token-credentials/index.html">net.corda.v5.httprpc.client.auth.credentials.BearerTokenCredentials</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.auth.credentials/-bearer-token-credentials-provider/index.html">net.corda.v5.httprpc.client.auth.credentials.BearerTokenCredentialsProvider</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.auth.credentials/-bearer-token-provider/index.html">net.corda.v5.httprpc.client.auth.credentials.BearerTokenProvider</a></h5>
+<p>Interface to provide a Bearer token to HTTP RPC API calls</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.auth.credentials/-credentials-provider/index.html">net.corda.v5.httprpc.client.auth.credentials.CredentialsProvider</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client/-http-rpc-client/index.html">net.corda.v5.httprpc.client.HttpRpcClient</a></h5>
+<p><a href="../net.corda.v5.httprpc.client/-http-rpc-client/index.html">HttpRpcClient</a> is meant to run outside of Corda Node JVM and provide connectivity to a node using the HTTP-RPC protocol.
+Since Corda Node can expose multiple RPC interfaces through HTTP, it is required to specify which <a href="#">RPCOps</a> interface should be used.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.config/-http-rpc-client-config/index.html">net.corda.v5.httprpc.client.config.HttpRpcClientConfig</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.internal.stream/-http-rpc-client-durable-stream-context/index.html">net.corda.v5.httprpc.client.internal.stream.HttpRpcClientDurableStreamContext</a></h5>
+<p>A sibling of <a href="#">net.corda.internal.base.stream.DurableStreamContext</a> but for HTTP RPC Client module
+Once Artemis RPC elimination is complete those two classes might be merged into one, destination module TBD.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client/-http-rpc-connection/index.html">net.corda.v5.httprpc.client.HttpRpcConnection</a></h5>
+<p>Represents a logical connection to the HTTP RPC server which may go up and down.
+The <a href="../net.corda.v5.httprpc.client/-http-rpc-connection/proxy.html">proxy</a> object can be used to make remote calls using the interface methods.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client/-http-rpc-connection-listener/index.html">net.corda.v5.httprpc.client.HttpRpcConnectionListener</a></h5>
+<p>Can be attached to <a href="../net.corda.v5.httprpc.client/-http-rpc-client/index.html">HttpRpcClient</a> to be informed about connection and disconnection events.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.internal/-http-rpc-connection-listener-distributor/index.html">net.corda.v5.httprpc.client.internal.HttpRpcConnectionListenerDistributor</a></h5>
+<p><a href="../net.corda.v5.httprpc.client.internal/-http-rpc-connection-listener-distributor/index.html">HttpRpcConnectionListenerDistributor</a> is responsible for distributing connection and disconnection events to interested listeners (<a href="../net.corda.v5.httprpc.client/-http-rpc-connection-listener/index.html">HttpRpcConnectionListener</a>).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.internal.remote/-http-verb/index.html">net.corda.v5.httprpc.client.internal.remote.HttpVerb</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.exceptions/-internal-error-exception/index.html">net.corda.v5.httprpc.client.exceptions.InternalErrorException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.exceptions/-missing-requested-resource-exception/index.html">net.corda.v5.httprpc.client.exceptions.MissingRequestedResourceException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.exceptions/-permission-exception/index.html">net.corda.v5.httprpc.client.exceptions.PermissionException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.internal.remote/-remote-client/index.html">net.corda.v5.httprpc.client.internal.remote.RemoteClient</a></h5>
+<p><a href="../net.corda.v5.httprpc.client.internal.remote/-remote-client/index.html">RemoteClient</a> implementations are responsible for making remote calls to the server and returning the response,
+after potentially deserializing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.internal.remote/-remote-unirest-client/index.html">net.corda.v5.httprpc.client.internal.remote.RemoteUnirestClient</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.auth/-request-context/index.html">net.corda.v5.httprpc.client.auth.RequestContext</a></h5>
+<p>Analog of Apache HTTP's HttpContext can be extended to support storing state for challenge response based schemes</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.exceptions/-request-error-exception/index.html">net.corda.v5.httprpc.client.exceptions.RequestErrorException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.internal.processing/-resolved-parameters/index.html">net.corda.v5.httprpc.client.internal.processing.ResolvedParameters</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.v5.httprpc.client.internal.processing)
+<h5><a href="../net.corda.v5.httprpc.client.internal.processing/kotlin.-string/index.html">kotlin.String</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.internal.remote/-web-request/index.html">net.corda.v5.httprpc.client.internal.remote.WebRequest</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.httprpc.client.internal.remote/-web-response/index.html">net.corda.v5.httprpc.client.internal.remote.WebResponse</a></h5>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
