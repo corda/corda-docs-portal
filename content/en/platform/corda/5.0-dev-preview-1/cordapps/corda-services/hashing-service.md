@@ -40,7 +40,7 @@ The Corda Hashing API comprises `BasicHashingService` and `HashingService`.
   It will throw `IllegalArgumentException` if:
 
   * the passed in `String` does not conform to the [algorithm]:[digest value as a hexadecimal string] format.
-  * the digest value is not of the expected digest algorithm length.  
+  * the digest value is not of the expected digest algorithm length.
 
 * `SecureHash` constants containing byte arrays full of zeros(0) or ones(1), of the length of the respective digest algorithm specified through:
 
