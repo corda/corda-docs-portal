@@ -43,7 +43,7 @@ Both of these APIs provide *at least once* guarantees.
 
 This means if a transaction with two input states and three output states is created, then two events with type `VaultEventType.CONSUMED` and three events with type `VaultEventType.PRODUCED` are sent to subscribers or cursors listening for these events.
 
-## Structure of an event
+## Event structure
 
 A `VaultStateEvent<ContractState>` contains the following properties:
 
