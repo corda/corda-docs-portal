@@ -20,7 +20,15 @@ See the [Corda 5 Developer Preview API reference](../../en/api-ref/corda/5.0-dev
 
 ### Corda open source 4.x API reference
 
-  * 4.8 [Javadoc](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/4.8/html/api/kotlin/corda/index.html)
+{{< table >}}
+
+|Corda open source version|Javadoc API reference|Kotlin doc API reference|
+|:----|:----|:----|
+|4.8|<a href="../../../en/api-ref/corda/4.8/open-source/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.8/open-source/kotlin/corda/index.html" target="_blank">Kotlin</a>|
+
+{{< /table >}}
+
+  * 4.8 <a href="corda/4.8/open-source/javadoc/index.html" target="_blank">Javadoc</a> | [Kotlin](corda/4.8/open-source/kotlin/corda/index.html)
   * 4.7 [Javadoc](https://api.corda.net/api/corda-os/4.7/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/4.7/html/api/kotlin/corda/index.html)
   * 4.6 [Javadoc](https://api.corda.net/api/corda-os/4.6/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/4.6/html/api/kotlin/corda/index.html)
   * 4.5 [Javadoc](https://api.corda.net/api/corda-os/4.5/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/4.5/html/api/kotlin/corda/index.html)
@@ -28,18 +36,20 @@ See the [Corda 5 Developer Preview API reference](../../en/api-ref/corda/5.0-dev
   * 4.3 [Javadoc](https://api.corda.net/api/corda-os/4.3/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/4.3/html/api/kotlin/corda/index.html)
   * 4.1 [Javadoc](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/4.1/html/api/kotlin/corda/index.html)
   * 4.0 [Javadoc](https://api.corda.net/api/corda-os/4.0/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/4.0/html/api/kotlin/corda/index.html)
-  * 3.4 [Javadoc](https://api.corda.net/api/corda-os/3.4/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/3.4/html/api/kotlin/corda/index.html)
-  * 3.3 [Javadoc](https://api.corda.net/api/corda-os/3.3/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/3.3/html/api/kotlin/corda/index.html)
-  * 3.2 [Javadoc](https://api.corda.net/api/corda-os/3.2/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/3.2/html/api/kotlin/corda/index.html)
-  * 3.1 [Javadoc](https://api.corda.net/api/corda-os/3.1/html/api/javadoc/index.html) |  [Kotlin](https://api.corda.net/api/corda-os/3.1/html/api/kotlin/corda/index.html)
-  * 3.0 [Javadoc](https://api.corda.net/api/corda-os/3.0/html/api/javadoc/index.html) |  [Kotlin](https://api.corda.net/api/corda-os/3.0/html/api/kotlin/corda/index.html)
-  * 2.0 [Javadoc](https://api.corda.net/api/corda-os/2.0/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/2.0/html/api/kotlin/corda/index.html)
-  * 1.0 [Javadoc](https://api.corda.net/api/corda-os/1.0/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-os/1.0/html/api/kotlin/corda/index.html)
 
 
 ### Corda Enterprise 4.x API reference
 
-  * 4.8 [Javadoc](https://api.corda.net/api/corda-enterprise/4.8/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/4.8/html/api/kotlin/corda/index.html)
+{{< table >}}
+
+|Corda Enterprise version|Javadoc API reference|Kotlin doc API reference|
+|:----|:----|:----|
+|4.8|<a href="../../../en/api-ref/corda/4.8/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.8/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
+
+{{< /table >}}
+
+
+
   * 4.7 [Javadoc](https://api.corda.net/api/corda-enterprise/4.7/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/4.7/html/api/kotlin/corda/index.html)
   * 4.6 [Javadoc](https://api.corda.net/api/corda-enterprise/4.6/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/4.6/html/api/kotlin/corda/index.html)
   * 4.5 [Javadoc](https://api.corda.net/api/corda-enterprise/4.5/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/4.5/html/api/kotlin/corda/index.html)
@@ -48,12 +58,7 @@ See the [Corda 5 Developer Preview API reference](../../en/api-ref/corda/5.0-dev
   * 4.2 [Javadoc](https://api.corda.net/api/corda-enterprise/4.2/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/4.2/html/api/kotlin/corda/index.html)
   * 4.1 [Javadoc](https://api.corda.net/api/corda-enterprise/4.1/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/4.1/html/api/kotlin/corda/index.html)
   * 4.0 [Javadoc](https://api.corda.net/api/corda-enterprise/4.0/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/4.0/html/api/kotlin/corda/index.html)
-  * 3.3 [Javadoc](https://api.corda.net/api/corda-enterprise/3.3/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/3.3/html/api/kotlin/corda/index.html)
-  * 3.2 [Javadoc](https://api.corda.net/api/corda-enterprise/3.2/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/3.2/html/api/kotlin/corda/index.html)
-  * 3.1 [Javadoc](https://api.corda.net/api/corda-enterprise/3.1/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/3.1/html/api/kotlin/corda/index.html)
-  * 3.0 [Javadoc](https://api.corda.net/api/corda-enterprise/3.0/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/3.0/html/api/kotlin/corda/index.html)
-  * 2.0 [Javadoc](https://api.corda.net/api/corda-enterprise/2.0/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/2.0/html/api/kotlin/corda/index.html)
-  * 1.0 [Javadoc](https://api.corda.net/api/corda-enterprise/1.0/html/api/javadoc/index.html) | [Kotlin](https://api.corda.net/api/corda-enterprise/1.0/html/api/kotlin/corda/index.html)
+
 
 
 ## Corda Enterprise Network Manager (CENM) 1.x API reference

@@ -1,0 +1,34 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:net.corda.finance$DOLLARS#kotlin.Doublenet.corda.finance/kotlin.-double/-d-o-l-l-a-r-s.html
+$dokka.location:net.corda.finance$DOLLARS#kotlin.Intnet.corda.finance/kotlin.-int/-d-o-l-l-a-r-s.html
+$dokka.location:net.corda.finance$DOLLARS#kotlin.Longnet.corda.finance/kotlin.-long/-d-o-l-l-a-r-s.html
+$dokka.location:net.corda.finance$POUNDS#kotlin.Doublenet.corda.finance/kotlin.-double/-p-o-u-n-d-s.html
+$dokka.location:net.corda.finance$POUNDS#kotlin.Intnet.corda.finance/kotlin.-int/-p-o-u-n-d-s.html
+$dokka.location:net.corda.finance$POUNDS#kotlin.Longnet.corda.finance/kotlin.-long/-p-o-u-n-d-s.html
+$dokka.location:net.corda.finance$SWISS_FRANCS#kotlin.Doublenet.corda.finance/kotlin.-double/-s-w-i-s-s_-f-r-a-n-c-s.html
+$dokka.location:net.corda.finance$SWISS_FRANCS#kotlin.Intnet.corda.finance/kotlin.-int/-s-w-i-s-s_-f-r-a-n-c-s.html
+$dokka.location:net.corda.finance$SWISS_FRANCS#kotlin.Longnet.corda.finance/kotlin.-long/-s-w-i-s-s_-f-r-a-n-c-s.html
+$dokka.location:net.corda.finance$issued by(java.util.Currency, )net.corda.finance/java.util.-currency/issued by.html
+$dokka.location:net.corda.finance$issuedBy(java.util.Currency, )net.corda.finance/java.util.-currency/issued-by.html
+$dokka.location:net.corda.testing.flows$from(kotlin.collections.Map((, ((kotlin.Any)))), )net.corda.testing.flows/kotlin.collections.-map/from.html
+$dokka.location:net.corda.testing.flows$from(kotlin.reflect.KClass((net.corda.testing.flows.from.T)), )net.corda.testing.flows/kotlin.reflect.-k-class/from.html
+net.corda.client.jackson
+net.corda.client.rpc
+net.corda.client.rpc.ext
+net.corda.client.rpc.reconnect
+net.corda.finance
+net.corda.finance.flows
+net.corda.finance.test
+net.corda.finance.workflows
+net.corda.finance.workflows.asset
+net.corda.finance.workflows.asset.selection
+net.corda.finance.workflows.utils
+net.corda.testing.database
+net.corda.testing.driver
+net.corda.testing.dsl
+net.corda.testing.flows
+net.corda.testing.http
+net.corda.testing.node
+net.corda.testing.services
+net.corda.testing.tools
