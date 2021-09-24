@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Validated.Result - validation</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">validation</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.common.validation.internal</a>&nbsp;/&nbsp;<a href="../index.html">Validated</a>&nbsp;/&nbsp;<a href="./index.html">Result</a><br/>
+<br/>
+<h1>Result</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Result</span><span class="symbol">&lt;</span><span class="identifier">TARGET</span><span class="symbol">, </span><span class="identifier">ERROR</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">Validated</span></a><span class="symbol">&lt;</span><span class="identifier">TARGET</span><span class="symbol">,</span>&nbsp;<span class="identifier">ERROR</span><span class="symbol">&gt;</span></code>
+<p>Models the result of validating a <a href="index.html#TARGET">TARGET</a> value, producing <a href="index.html#ERROR">ERROR</a>s if rules are violated.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-successful/index.html">Successful</a></h4>
+</td>
+<td>
+<p>A successful validation result, containing a valid <a href="-successful/index.html#TARGET">TARGET</a> value and no <a href="-successful/index.html#ERROR">ERROR</a>s.</p>
+<code><span class="keyword">class </span><span class="identifier">Successful</span><span class="symbol">&lt;</span><span class="identifier">TARGET</span><span class="symbol">, </span><span class="identifier">ERROR</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Result</span><span class="symbol">&lt;</span><span class="identifier">TARGET</span><span class="symbol">,</span>&nbsp;<span class="identifier">ERROR</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../index.html"><span class="identifier">Validated</span></a><span class="symbol">&lt;</span><span class="identifier">TARGET</span><span class="symbol">,</span>&nbsp;<span class="identifier">ERROR</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-unsuccessful/index.html">Unsuccessful</a></h4>
+</td>
+<td>
+<p>An unsuccessful validation result, containing <a href="-unsuccessful/index.html#ERROR">ERROR</a>s and no valid <a href="-unsuccessful/index.html#TARGET">TARGET</a> value.</p>
+<code><span class="keyword">class </span><span class="identifier">Unsuccessful</span><span class="symbol">&lt;</span><span class="identifier">TARGET</span><span class="symbol">, </span><span class="identifier">ERROR</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Result</span><span class="symbol">&lt;</span><span class="identifier">TARGET</span><span class="symbol">,</span>&nbsp;<span class="identifier">ERROR</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../index.html"><span class="identifier">Validated</span></a><span class="symbol">&lt;</span><span class="identifier">TARGET</span><span class="symbol">,</span>&nbsp;<span class="identifier">ERROR</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

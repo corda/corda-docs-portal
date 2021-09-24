@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HttpRpcPOST - http-rpc-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">http-rpc-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.httprpc.api.annotations</a>&nbsp;/&nbsp;<a href="./index.html">HttpRpcPOST</a><br/>
+<br/>
+<h1>HttpRpcPOST</h1>
+<code><span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.FUNCTION]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">HttpRpcPOST</span></code>
+<p>Marks a function of an @<a href="../-http-rpc-resource/index.html">HttpRpcResource</a> annotated interface to be exposed as a POST endpoint by the HTTP RPC generated web service.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Marks a function of an @<a href="../-http-rpc-resource/index.html">HttpRpcResource</a> annotated interface to be exposed as a POST endpoint by the HTTP RPC generated web service.</p>
+<code><span class="identifier">HttpRpcPOST</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcPOST$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/path">path</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcPOST$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcPOST$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcPOST$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/responseDescription">responseDescription</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="description.html">description</a></h4>
+</td>
+<td>
+<p>The description of the endpoint, used for documentation. Defaults to empty string.</p>
+<code><span class="keyword">val </span><span class="identifier">description</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="path.html">path</a></h4>
+</td>
+<td>
+<p>The relative path of the endpoint within its resource. Defaults to the function name.</p>
+<code><span class="keyword">val </span><span class="identifier">path</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="response-description.html">responseDescription</a></h4>
+</td>
+<td>
+<p>The description of the response, used for documentation. Defaults to empty string.</p>
+<code><span class="keyword">val </span><span class="identifier">responseDescription</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="title.html">title</a></h4>
+</td>
+<td>
+<p>The title of the endpoint, used for documentation. Defaults to the function name.</p>
+<code><span class="keyword">val </span><span class="identifier">title</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

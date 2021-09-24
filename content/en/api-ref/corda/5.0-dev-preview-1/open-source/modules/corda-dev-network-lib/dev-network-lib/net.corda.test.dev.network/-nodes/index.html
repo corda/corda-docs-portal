@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Nodes - dev-network-lib</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">dev-network-lib</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.test.dev.network</a>&nbsp;/&nbsp;<a href="./index.html">Nodes</a><br/>
+<br/>
+<h1>Nodes</h1>
+<code><span class="keyword">interface </span><span class="identifier">Nodes</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-node/index.html"><span class="identifier">Node</span></a><span class="symbol">&gt;</span></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="nodes.html">nodes</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">nodes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">N</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-node.html">getNode</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.Nodes$getNode(kotlin.String)/nodeName">nodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">N</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.test.dev.network.docker/-docker-network/index.html">DockerNetwork</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DockerNetwork</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Nodes</span></a><span class="symbol">&lt;</span><a href="../-destructive-test-node/index.html"><span class="identifier">DestructiveTestNode</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.test.dev.network.kubernetes/-kubernetes-network/index.html">KubernetesNetwork</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">KubernetesNetwork</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Nodes</span></a><span class="symbol">&lt;</span><a href="../-destructive-test-node/index.html"><span class="identifier">DestructiveTestNode</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

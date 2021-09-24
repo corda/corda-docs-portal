@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HttpRpcConnectionListener - http-rpc-client</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">http-rpc-client</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.httprpc.client</a>&nbsp;/&nbsp;<a href="./index.html">HttpRpcConnectionListener</a><br/>
+<br/>
+<h1>HttpRpcConnectionListener</h1>
+<code><span class="keyword">interface </span><span class="identifier">HttpRpcConnectionListener</span><span class="symbol">&lt;</span><span class="identifier">I</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span><span class="symbol">&gt;</span></code>
+<p>Can be attached to <a href="../-http-rpc-client/index.html">HttpRpcClient</a> to be informed about connection and disconnection events.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-http-rpc-connection-context/index.html">HttpRpcConnectionContext</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">HttpRpcConnectionContext</span><span class="symbol">&lt;</span><span class="identifier">I</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="on-connect.html">onConnect</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onConnect</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcConnectionListener$onConnect(net.corda.v5.httprpc.client.HttpRpcConnectionListener.HttpRpcConnectionContext((net.corda.v5.httprpc.client.HttpRpcConnectionListener.I)))/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">HttpRpcConnectionContext</span><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-disconnect.html">onDisconnect</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onDisconnect</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcConnectionListener$onDisconnect(net.corda.v5.httprpc.client.HttpRpcConnectionListener.HttpRpcConnectionContext((net.corda.v5.httprpc.client.HttpRpcConnectionListener.I)))/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">HttpRpcConnectionContext</span><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-permanent-failure.html">onPermanentFailure</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onPermanentFailure</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcConnectionListener$onPermanentFailure(net.corda.v5.httprpc.client.HttpRpcConnectionListener.HttpRpcConnectionContext((net.corda.v5.httprpc.client.HttpRpcConnectionListener.I)))/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">HttpRpcConnectionContext</span><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

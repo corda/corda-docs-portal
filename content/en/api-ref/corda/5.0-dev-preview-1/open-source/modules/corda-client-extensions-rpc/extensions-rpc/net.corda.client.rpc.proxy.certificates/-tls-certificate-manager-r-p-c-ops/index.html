@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TlsCertificateManagerRPCOps - extensions-rpc</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">extensions-rpc</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy.certificates</a>&nbsp;/&nbsp;<a href="./index.html">TlsCertificateManagerRPCOps</a><br/>
+<br/>
+<h1>TlsCertificateManagerRPCOps</h1>
+<code><span class="keyword">interface </span><span class="identifier">TlsCertificateManagerRPCOps</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span></code>
+<p>RPC operations to perform tasks related to TLS certificates on a Corda node.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create-csr.html">createCsr</a></h4>
+</td>
+<td>
+<p>Generates a certificate signing request for the input subject.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">createCsr</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$createCsr(kotlin.String, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$createCsr(kotlin.String, kotlin.String)/subjectName">subjectName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-key-pair.html">createKeyPair</a></h4>
+</td>
+<td>
+<p>Generates and stores a new key pair in the keystore.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">createKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$createKeyPair(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="import.html">import</a></h4>
+</td>
+<td>
+<p>Adds the input certificate to the keystore entry associated with the given alias.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">import</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$import(kotlin.String, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$import(kotlin.String, kotlin.String)/certificatePem">certificatePem</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

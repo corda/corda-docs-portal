@@ -1,0 +1,453 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.v5.ledger.transactions - ledger</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">ledger</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.v5.ledger.transactions</a><br/>
+<br/>
+<h2>Package net.corda.v5.ledger.transactions</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-base-transaction/index.html">BaseTransaction</a></h4>
+</td>
+<td>
+<p>An abstract class defining fields shared by all transaction types in the system.</p>
+<code><span class="keyword">interface </span><span class="identifier">BaseTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NamedByHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-component-group/index.html">ComponentGroup</a></h4>
+</td>
+<td>
+<p>A ComponentGroup is used to store the full list of transaction components of the same type in serialised form.
+Practically, a group per component type of a transaction is required; thus, there will be a group for input states,
+a group for all attachments (if there are any) etc.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ComponentGroup</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-core-transaction/index.html">CoreTransaction</a></h4>
+</td>
+<td>
+<p>A transaction with the minimal amount of information required to compute the unique transaction <a href="#">id</a>, and
+resolve a <a href="-full-transaction/index.html">FullTransaction</a>. This type of transaction, wrapped in <a href="-signed-transaction/index.html">SignedTransaction</a>, gets transferred across the
+wire and recorded to storage.</p>
+<code><span class="keyword">interface </span><span class="identifier">CoreTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-filtered-component-group/index.html">FilteredComponentGroup</a></h4>
+</td>
+<td>
+<p>A FilteredComponentGroup is used to store the filtered list of transaction components of the same type in serialised form.
+This is similar to <a href="-component-group/index.html">ComponentGroup</a>, but it also includes the corresponding nonce per component.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FilteredComponentGroup</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-component-group/index.html"><span class="identifier">ComponentGroup</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-filtered-transaction/index.html">FilteredTransaction</a></h4>
+</td>
+<td>
+<p>Class representing merkleized filtered transaction.</p>
+<code><span class="keyword">interface </span><span class="identifier">FilteredTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-traversable-transaction/index.html"><span class="identifier">TraversableTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-full-transaction/index.html">FullTransaction</a></h4>
+</td>
+<td>
+<p>A transaction with fully resolved components, such as input states.</p>
+<code><span class="keyword">interface </span><span class="identifier">FullTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ledger-transaction/index.html">LedgerTransaction</a></h4>
+</td>
+<td>
+<p>A LedgerTransaction is derived from a <a href="-wire-transaction/index.html">WireTransaction</a>. It is the result of doing the following operations:</p>
+<code><span class="keyword">interface </span><span class="identifier">LedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-full-transaction/index.html"><span class="identifier">FullTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-network-parameters-hash/index.html">NetworkParametersHash</a></h4>
+</td>
+<td>
+<p>Wrapper over <a href="#">SecureHash</a> to be used when filtering network parameters hash.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NetworkParametersHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-change-ledger-transaction/index.html">NotaryChangeLedgerTransaction</a></h4>
+</td>
+<td>
+<p>A notary change transaction with fully resolved inputs and signatures. In contrast with a regular transaction,
+signatures are checked against the signers specified by input states' <em>participants</em> fields, so full resolution is
+needed for signature verification.</p>
+<code><span class="keyword">interface </span><span class="identifier">NotaryChangeLedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-full-transaction/index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">, </span><a href="-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-change-wire-transaction/index.html">NotaryChangeWireTransaction</a></h4>
+</td>
+<td>
+<p>A special transaction for changing the notary of a state. It only needs specifying the state(s) as input(s),
+old and new notaries. Output states can be computed by applying the notary modification to corresponding inputs
+on the fly.</p>
+<code><span class="keyword">interface </span><span class="identifier">NotaryChangeWireTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-privacy-salt/index.html">PrivacySalt</a></h4>
+</td>
+<td>
+<p>A privacy salt is required to compute nonces per transaction component in order to ensure that an adversary cannot
+use brute force techniques and reveal the content of a Merkle-leaf hashed value.
+Because this salt serves the role of the seed to compute nonces, its size and entropy should be equal to the
+underlying hash function used for Merkle tree generation, currently <a href="#">SecureHash.SHA256</a>, which has an output of 32 bytes.
+There are two constructors, one that generates a new 32-bytes random salt, and another that takes a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> input.
+The latter is required in cases where the salt value needs to be pre-generated (agreed between transacting parties),
+but it is highlighted that one should always ensure it has sufficient entropy.</p>
+<code><span class="keyword">class </span><span class="identifier">PrivacySalt</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">OpaqueBytes</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-reference-state-ref/index.html">ReferenceStateRef</a></h4>
+</td>
+<td>
+<p>Wrapper over <a href="../net.corda.v5.ledger.contracts/-state-ref/index.html">StateRef</a> to be used when filtering reference states.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ReferenceStateRef</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signed-transaction/index.html">SignedTransaction</a></h4>
+</td>
+<td>
+<p>SignedTransaction wraps a serialized WireTransaction. It contains one or more signatures, each one for
+a public key (including composite keys) that is mentioned inside a transaction command. SignedTransaction is the top level transaction type
+and the type most frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root
+of a WireTransaction, therefore if you are storing data keyed by WT hash be aware that multiple different STs may
+map to the same key (and they could be different in important ways, like validity!). The signatures on a
+SignedTransaction might be invalid or missing: the type does not imply validity.
+A transaction ID should be the hash of the <a href="-wire-transaction/index.html">WireTransaction</a> Merkle tree root. Thus adding or removing a signature does not change it.</p>
+<code><span class="keyword">interface </span><span class="identifier">SignedTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signed-transaction-digest/index.html">SignedTransactionDigest</a></h4>
+</td>
+<td>
+<p>Extract of data from <a href="-signed-transaction/index.html">SignedTransaction</a>, primarily to be sensibly represented in JSON
+Also useful on the client side to inspect what was actually returned as result of the flow</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignedTransactionDigest</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">JsonRepresentable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-builder/index.html">TransactionBuilder</a></h4>
+</td>
+<td>
+<p>A TransactionBuilder is a transaction class that's mutable (unlike the others which are all immutable). It is
+intended to be passed around contracts that may edit it by adding new states/commands. Then once the states
+and commands are right, this class can be used as a holding bucket to gather signatures from multiple parties.</p>
+<code><span class="keyword">interface </span><span class="identifier">TransactionBuilder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-builder-factory/index.html">TransactionBuilderFactory</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TransactionBuilderFactory</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-digest-algorithm-names-factory/index.html">TransactionDigestAlgorithmNamesFactory</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TransactionDigestAlgorithmNamesFactory</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-with-signatures/index.html">TransactionWithSignatures</a></h4>
+</td>
+<td>
+<p>An interface for transactions containing signatures, with logic for signature verification.</p>
+<code><span class="keyword">interface </span><span class="identifier">TransactionWithSignatures</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NamedByHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-traversable-transaction/index.html">TraversableTransaction</a></h4>
+</td>
+<td>
+<p>Implemented by <a href="-wire-transaction/index.html">WireTransaction</a> and <a href="-filtered-transaction/index.html">FilteredTransaction</a>. A TraversableTransaction allows you to iterate
+over the flattened components of the underlying transaction structure, taking into account that some
+may be missing in the case of this representing a "torn" transaction. Please see the user guide section
+"Transaction tear-offs" to learn more about this feature.</p>
+<code><span class="keyword">interface </span><span class="identifier">TraversableTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-version.html">Version</a></h4>
+</td>
+<td>
+<p>Contract version and flow versions are integers.</p>
+<code><span class="keyword">typealias </span><span class="identifier">Version</span>&nbsp;<span class="symbol">=</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wire-transaction/index.html">WireTransaction</a></h4>
+</td>
+<td>
+<p>A transaction ready for serialisation, without any signatures attached. A WireTransaction is usually wrapped
+by a <a href="-signed-transaction/index.html">SignedTransaction</a> that carries the signatures over this payload.
+The identity of the transaction is the Merkle tree root of its components (see <a href="#">MerkleTree</a>).</p>
+<code><span class="keyword">interface </span><span class="identifier">WireTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-traversable-transaction/index.html"><span class="identifier">TraversableTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-component-visibility-exception/index.html">ComponentVisibilityException</a></h4>
+</td>
+<td>
+<p>Thrown when checking for visibility of all-components in a group in <a href="-filtered-transaction/check-all-components-visible.html">FilteredTransaction.checkAllComponentsVisible</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">ComponentVisibilityException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaRuntimeException</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-filtered-transaction-verification-exception/index.html">FilteredTransactionVerificationException</a></h4>
+</td>
+<td>
+<p>Thrown when <a href="-filtered-transaction/verify.html">FilteredTransaction.verify</a> fails.</p>
+<code><span class="keyword">class </span><span class="identifier">FilteredTransactionVerificationException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaRuntimeException</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signatures-missing-exception/index.html">SignaturesMissingException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SignaturesMissingException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NamedByHash</span><span class="symbol">, </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/SignatureException.html"><span class="identifier">SignatureException</span></a><span class="symbol">, </span><span class="identifier">CordaThrowable</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-m-a-x_-n-u-m-b-e-r_-o-f_-k-e-y-s_-i-n_-s-i-g-n-a-t-u-r-e_-c-o-n-s-t-r-a-i-n-t.html">MAX_NUMBER_OF_KEYS_IN_SIGNATURE_CONSTRAINT</a></h4>
+</td>
+<td>
+<p>The maximum number of keys in a signature constraint that the platform supports.</p>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_NUMBER_OF_KEYS_IN_SIGNATURE_CONSTRAINT</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="required-contract-class-name.html">requiredContractClassName</a></h4>
+</td>
+<td>
+<p>Obtain the typename of the required <a href="#">ContractClass</a> associated with the target <a href="../net.corda.v5.ledger.contracts/-contract-state/index.html">ContractState</a>, using the
+<a href="../net.corda.v5.ledger.contracts/-belongs-to-contract/index.html">BelongsToContract</a> annotation by default, but falling through to checking the state's enclosing class if there is
+one and it inherits from <a href="../net.corda.v5.ledger.contracts/-contract/index.html">Contract</a>.</p>
+<code><span class="keyword">val </span><a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">.</span><span class="identifier">requiredContractClassName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="check-base-transaction-invariants.html">checkBaseTransactionInvariants</a></h4>
+</td>
+<td>
+<p>Check invariant properties of the class.</p>
+<code><span class="keyword">fun </span><span class="identifier">checkBaseTransactionInvariants</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$checkBaseTransactionInvariants(net.corda.v5.ledger.transactions.BaseTransaction)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-full-transaction-invariants.html">checkFullTransactionInvariants</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">checkFullTransactionInvariants</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$checkFullTransactionInvariants(net.corda.v5.ledger.transactions.FullTransaction)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="-full-transaction/index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-notary-whitelisted.html">checkNotaryWhitelisted</a></h4>
+</td>
+<td>
+<p>Make sure the assigned notary is part of the network parameter whitelist.</p>
+<code><span class="keyword">fun </span><a href="-full-transaction/index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">.</span><span class="identifier">checkNotaryWhitelisted</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="commands-of-type.html">commandsOfType</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-command-data.html"><span class="identifier">CommandData</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">commandsOfType</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="filter-commands.html">filterCommands</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-command-data.html"><span class="identifier">CommandData</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">filterCommands</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$filterCommands(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.filterCommands.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="filter-inputs.html">filterInputs</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">filterInputs</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$filterInputs(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.filterInputs.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="filter-in-refs.html">filterInRefs</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">filterInRefs</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$filterInRefs(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.filterInRefs.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="filter-outputs.html">filterOutputs</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a><span class="symbol">.</span><span class="identifier">filterOutputs</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$filterOutputs(net.corda.v5.ledger.transactions.BaseTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.filterOutputs.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="filter-out-refs.html">filterOutRefs</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a><span class="symbol">.</span><span class="identifier">filterOutRefs</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$filterOutRefs(net.corda.v5.ledger.transactions.BaseTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.filterOutRefs.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="filter-reference-input-refs.html">filterReferenceInputRefs</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">filterReferenceInputRefs</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$filterReferenceInputRefs(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.filterReferenceInputRefs.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="filter-reference-inputs.html">filterReferenceInputs</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">filterReferenceInputs</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$filterReferenceInputs(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.filterReferenceInputs.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-command.html">findCommand</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-command-data.html"><span class="identifier">CommandData</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">findCommand</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$findCommand(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.findCommand.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.v5.ledger.contracts/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-input.html">findInput</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">findInput</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$findInput(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.findInput.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-in-ref.html">findInRef</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">findInRef</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$findInRef(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.findInRef.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-output.html">findOutput</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a><span class="symbol">.</span><span class="identifier">findOutput</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$findOutput(net.corda.v5.ledger.transactions.BaseTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.findOutput.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-out-ref.html">findOutRef</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a><span class="symbol">.</span><span class="identifier">findOutRef</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$findOutRef(net.corda.v5.ledger.transactions.BaseTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.findOutRef.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-reference-input-ref.html">findReferenceInputRef</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">findReferenceInputRef</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$findReferenceInputRef(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.findReferenceInputRef.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="group-states.html">groupStates</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="identifier">K</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">groupStates</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$groupStates(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.groupStates.T, net.corda.v5.ledger.transactions.groupStates.K)))/selector">selector</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">InOutGroup</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="ind-reference.html">indReference</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">indReference</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$indReference(net.corda.v5.ledger.transactions.LedgerTransaction, kotlin.Function1((net.corda.v5.ledger.transactions.indReference.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="inputs-of-type.html">inputsOfType</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">inputsOfType</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="in-refs-of-type.html">inRefsOfType</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">inRefsOfType</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="outputs-of-type.html">outputsOfType</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a><span class="symbol">.</span><span class="identifier">outputsOfType</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="out-refs-of-type.html">outRefsOfType</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a><span class="symbol">.</span><span class="identifier">outRefsOfType</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="reference-input-refs-of-type.html">referenceInputRefsOfType</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">referenceInputRefsOfType</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="reference-inputs-of-type.html">referenceInputsOfType</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">.</span><span class="identifier">referenceInputsOfType</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="require-not-null-contract-class-name.html">requireNotNullContractClassName</a></h4>
+</td>
+<td>
+<p>Default contract argument on TransactionBuilder interface.</p>
+<code><span class="keyword">fun </span><span class="identifier">requireNotNullContractClassName</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions$requireNotNullContractClassName(net.corda.v5.ledger.contracts.ContractState)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

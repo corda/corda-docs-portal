@@ -4,7 +4,7 @@ title: "Setting up a local Corda 5 development network"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-gettingstarted
-    weight: 250
+    weight: 500
 project: corda-5
 section_menu: corda-5-dev-preview
 
@@ -23,7 +23,7 @@ In the Corda 5 Developer Preview release, the notaries support non-validating mo
 
 ## Before you start
 
-Before you begin, make sure you [set up your development environment first](setup-environment.md).
+Before you begin, make sure you [install the Corda 5 Developer Preview](download-and-install-corda-5.md).
 
 
 ## Configure your network

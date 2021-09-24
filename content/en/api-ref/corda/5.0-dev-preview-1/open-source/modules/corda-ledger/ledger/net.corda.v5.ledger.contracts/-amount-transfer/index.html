@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AmountTransfer - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="./index.html">AmountTransfer</a><br/>
+<br/>
+<h1>AmountTransfer</h1>
+<code><span class="keyword">class </span><span class="identifier">AmountTransfer</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code>
+<p>This class represents a possibly negative transfer of tokens from one vault state to another, possibly at a future date.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>This class represents a possibly negative transfer of tokens from one vault state to another, possibly at a future date.</p>
+<code><span class="identifier">AmountTransfer</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$<init>(kotlin.Long, net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P, net.corda.v5.ledger.contracts.AmountTransfer.P)/quantityDelta">quantityDelta</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$<init>(kotlin.Long, net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P, net.corda.v5.ledger.contracts.AmountTransfer.P)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$<init>(kotlin.Long, net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P, net.corda.v5.ledger.contracts.AmountTransfer.P)/source">source</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$<init>(kotlin.Long, net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P, net.corda.v5.ledger.contracts.AmountTransfer.P)/destination">destination</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="destination.html">destination</a></h4>
+</td>
+<td>
+<p>is the <a href="#">Party</a>, <a href="#">CompositeKey</a>, or other identifier of the token sink if quantityDelta is positive,
+or the token source if quantityDelta is negative. The type P should support value equality.</p>
+<code><span class="keyword">val </span><span class="identifier">destination</span><span class="symbol">: </span><span class="identifier">P</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="quantity-delta.html">quantityDelta</a></h4>
+</td>
+<td>
+<p>is a signed Long value representing the exchanged number of tokens. If positive then
+it represents the movement of Math.abs(quantityDelta) tokens away from source and receipt of Math.abs(quantityDelta)
+at the destination. If the quantityDelta is negative then the source will receive Math.abs(quantityDelta) tokens
+and the destination will lose Math.abs(quantityDelta) tokens.
+Where possible the source and destination should be coded to ensure a positive quantityDelta,
+but in various scenarios it may be more consistent to allow positive and negative values.
+For example it is common for a bank to code asset flows as gains and losses from its perspective i.e. always the destination.</p>
+<code><span class="keyword">val </span><span class="identifier">quantityDelta</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="source.html">source</a></h4>
+</td>
+<td>
+<p>is the <a href="#">Party</a>, <a href="#">CompositeKey</a>, or other identifier of the token source if quantityDelta is positive,
+or the token sink if quantityDelta is negative. The type P should support value equality.</p>
+<code><span class="keyword">val </span><span class="identifier">source</span><span class="symbol">: </span><span class="identifier">P</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="token.html">token</a></h4>
+</td>
+<td>
+<p>represents the type of asset token as would be used to construct Amount objects.</p>
+<code><span class="keyword">val </span><span class="identifier">token</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="apply.html">apply</a></h4>
+</td>
+<td>
+<p>Applies this AmountTransfer to a list of <a href="../-source-and-amount/index.html">SourceAndAmount</a> objects representing balances.
+The list can be heterogeneous in terms of token types and parties, so long as there is sufficient balance
+of the correct token type held with the party paying for the transfer.</p>
+<code><span class="keyword">fun </span><span class="identifier">apply</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$apply(kotlin.collections.List((net.corda.v5.ledger.contracts.SourceAndAmount((net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P)))), kotlin.Any)/balances">balances</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-source-and-amount/index.html"><span class="identifier">SourceAndAmount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$apply(kotlin.collections.List((net.corda.v5.ledger.contracts.SourceAndAmount((net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P)))), kotlin.Any)/newRef">newRef</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-source-and-amount/index.html"><span class="identifier">SourceAndAmount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">apply</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$apply(kotlin.collections.List((net.corda.v5.ledger.contracts.SourceAndAmount((net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P)))))/balances">balances</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-source-and-amount/index.html"><span class="identifier">SourceAndAmount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-source-and-amount/index.html"><span class="identifier">SourceAndAmount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<p>Checks value equality of AmountTransfer objects, but also matches the reversed source and destination equivalent.</p>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<p>This hash code function ensures that reversed source and destination equivalents will hash to the same value.</p>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="novate.html">novate</a></h4>
+</td>
+<td>
+<p>Returns a list of two new AmountTransfers each between one of the original parties and the centralParty. The net
+total exchange is the same as in the original input. Novation is a common financial operation in which a
+bilateral exchange is modified so that the same relative asset exchange happens, but with each party exchanging
+versus a central counterparty, or clearing house.</p>
+<code><span class="keyword">fun </span><span class="identifier">novate</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$novate(net.corda.v5.ledger.contracts.AmountTransfer.P)/centralParty">centralParty</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">AmountTransfer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="plus.html">plus</a></h4>
+</td>
+<td>
+<p>Add together two <a href="./index.html">AmountTransfer</a> objects to produce the single equivalent net flow.
+The addition only applies to AmountTransfer objects with the same token type.
+Also the pair of parties must be aligned, although source destination may be
+swapped in the second item.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$plus(net.corda.v5.ledger.contracts.AmountTransfer((net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P)))/other">other</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AmountTransfer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">AmountTransfer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-decimal.html">toDecimal</a></h4>
+</td>
+<td>
+<p>Convert the quantityDelta to a displayable format BigDecimal value. The conversion ratio is the same as for
+<a href="../-amount/index.html">Amount</a> of the same token type.</p>
+<code><span class="keyword">fun </span><span class="identifier">toDecimal</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="from-decimal.html">fromDecimal</a></h4>
+</td>
+<td>
+<p>Construct an AmountTransfer object from an indicative/displayable BigDecimal source, applying rounding as specified.
+The token size is determined from the token type and is the same as for <a href="../-amount/index.html">Amount</a> of the same token.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">fromDecimal</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, java.math.RoundingMode)/displayQuantityDelta">displayQuantityDelta</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, java.math.RoundingMode)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, java.math.RoundingMode)/source">source</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, java.math.RoundingMode)/destination">destination</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, java.math.RoundingMode)/rounding">rounding</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/math/RoundingMode.html"><span class="identifier">RoundingMode</span></a>&nbsp;<span class="symbol">=</span>&nbsp;RoundingMode.DOWN<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">AmountTransfer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">fromDecimal</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P)/displayQuantityDelta">displayQuantityDelta</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P)/source">source</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.fromDecimal.P)/destination">destination</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">AmountTransfer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="zero.html">zero</a></h4>
+</td>
+<td>
+<p>Helper to make a zero size AmountTransfer.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">zero</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$zero(net.corda.v5.ledger.contracts.AmountTransfer.Companion.zero.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.zero.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.zero.P)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$zero(net.corda.v5.ledger.contracts.AmountTransfer.Companion.zero.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.zero.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.zero.P)/source">source</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer.Companion$zero(net.corda.v5.ledger.contracts.AmountTransfer.Companion.zero.T, net.corda.v5.ledger.contracts.AmountTransfer.Companion.zero.P, net.corda.v5.ledger.contracts.AmountTransfer.Companion.zero.P)/destination">destination</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">AmountTransfer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.common.configuration.parsing.internal - configuration-parsing</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">configuration-parsing</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.common.configuration.parsing.internal</a><br/>
+<br/>
+<h2>Package net.corda.common.configuration.parsing.internal</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-configuration/index.html">Configuration</a></h4>
+</td>
+<td>
+<p>Entry point for the <a href="#">Config</a> parsing utilities.</p>
+<code><span class="keyword">object </span><span class="identifier">Configuration</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-configuration-with-options/index.html">ConfigurationWithOptions</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ConfigurationWithOptions</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-configuration-with-options-container/index.html">ConfigurationWithOptionsContainer</a></h4>
+</td>
+<td>
+<p>Helper interface to mark objects that will have <a href="-configuration-with-options/index.html">ConfigurationWithOptions</a> in them.</p>
+<code><span class="keyword">interface </span><span class="identifier">ConfigurationWithOptionsContainer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-property-delegate/index.html">PropertyDelegate</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">PropertyDelegate</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-value-selector.html">ValueSelector</a></h4>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">ValueSelector</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;<span class="symbol">(</span><span class="identifier">Config</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">Options</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="com.typesafe.config.-config/index.html">com.typesafe.config.Config</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="com.typesafe.config.-config-exception/index.html">com.typesafe.config.ConfigException</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="enum.html">enum</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">ENUM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/index.html"><span class="identifier">Enum</span></a><span class="symbol">&lt;</span><span class="identifier">ENUM</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">VALUE</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">Specification</span><span class="symbol">&lt;</span><span class="identifier">VALUE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">enum</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$enum(net.corda.common.configuration.parsing.internal.Configuration.Specification((net.corda.common.configuration.parsing.internal.enum.VALUE)), kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal$enum(net.corda.common.configuration.parsing.internal.Configuration.Specification((net.corda.common.configuration.parsing.internal.enum.VALUE)), kotlin.String, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">ENUM</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="list-or-empty.html">listOrEmpty</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span> <span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">listOrEmpty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Definition</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span> <span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">listOrEmpty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-property-delegate/index.html"><span class="identifier">PropertyDelegate</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="map.html">map</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">, </span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">map</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$map(net.corda.common.configuration.parsing.internal.PropertyDelegate.Standard((net.corda.common.configuration.parsing.internal.map.TYPE)), kotlin.Function1((net.corda.common.configuration.parsing.internal.map.TYPE, net.corda.common.configuration.parsing.internal.map.MAPPED)))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">TYPE</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">MAPPED</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">, </span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">RequiredList</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">map</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$map(net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList((net.corda.common.configuration.parsing.internal.map.TYPE)), kotlin.Function1((kotlin.collections.List((net.corda.common.configuration.parsing.internal.map.TYPE)), net.corda.common.configuration.parsing.internal.map.MAPPED)))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">MAPPED</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Required</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">, </span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">map</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$map(net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Standard((net.corda.common.configuration.parsing.internal.map.TYPE)), kotlin.Function1((net.corda.common.configuration.parsing.internal.map.TYPE, net.corda.common.configuration.parsing.internal.map.MAPPED)))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">TYPE</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">MAPPED</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">, </span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">RequiredList</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">map</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$map(net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.RequiredList((net.corda.common.configuration.parsing.internal.map.TYPE)), kotlin.Function1((kotlin.collections.List((net.corda.common.configuration.parsing.internal.map.TYPE)), net.corda.common.configuration.parsing.internal.map.MAPPED)))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">MAPPED</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Required</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="map-valid.html">mapValid</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">, </span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">mapValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$mapValid(net.corda.common.configuration.parsing.internal.PropertyDelegate.Standard((net.corda.common.configuration.parsing.internal.mapValid.TYPE)), kotlin.Function1((net.corda.common.configuration.parsing.internal.mapValid.TYPE, net.corda.common.validation.internal.Validated((net.corda.common.configuration.parsing.internal.mapValid.MAPPED, net.corda.common.configuration.parsing.internal.Configuration.Validation.Error)))))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">TYPE</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Valid</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">, </span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">RequiredList</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">mapValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$mapValid(net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList((net.corda.common.configuration.parsing.internal.mapValid.TYPE)), kotlin.Function1((kotlin.collections.List((net.corda.common.configuration.parsing.internal.mapValid.TYPE)), net.corda.common.validation.internal.Validated((net.corda.common.configuration.parsing.internal.mapValid.MAPPED, net.corda.common.configuration.parsing.internal.Configuration.Validation.Error)))))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Valid</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Required</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">, </span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">mapValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$mapValid(net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Standard((net.corda.common.configuration.parsing.internal.mapValid.TYPE)), kotlin.Function1((net.corda.common.configuration.parsing.internal.mapValid.TYPE, net.corda.common.validation.internal.Validated((net.corda.common.configuration.parsing.internal.mapValid.MAPPED, net.corda.common.configuration.parsing.internal.Configuration.Validation.Error)))))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">TYPE</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Valid</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">, </span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">RequiredList</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">mapValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$mapValid(net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.RequiredList((net.corda.common.configuration.parsing.internal.mapValid.TYPE)), kotlin.Function1((kotlin.collections.List((net.corda.common.configuration.parsing.internal.mapValid.TYPE)), net.corda.common.validation.internal.Validated((net.corda.common.configuration.parsing.internal.mapValid.MAPPED, net.corda.common.configuration.parsing.internal.Configuration.Validation.Error)))))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Valid</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Required</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="nested.html">nested</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">NESTED</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">Specification</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">nested</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal$nested(net.corda.common.configuration.parsing.internal.Configuration.Specification((kotlin.Any)), net.corda.common.configuration.parsing.internal.Configuration.Specification((net.corda.common.configuration.parsing.internal.nested.NESTED)), kotlin.String, kotlin.Boolean)/specification">specification</span><span class="symbol">:</span>&nbsp;<span class="identifier">Specification</span><span class="symbol">&lt;</span><span class="identifier">NESTED</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal$nested(net.corda.common.configuration.parsing.internal.Configuration.Specification((kotlin.Any)), net.corda.common.configuration.parsing.internal.Configuration.Specification((net.corda.common.configuration.parsing.internal.nested.NESTED)), kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal$nested(net.corda.common.configuration.parsing.internal.Configuration.Specification((kotlin.Any)), net.corda.common.configuration.parsing.internal.Configuration.Specification((net.corda.common.configuration.parsing.internal.nested.NESTED)), kotlin.String, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">NESTED</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

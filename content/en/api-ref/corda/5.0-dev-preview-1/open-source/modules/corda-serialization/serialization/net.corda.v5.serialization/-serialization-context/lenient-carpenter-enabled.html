@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SerializationContext.lenientCarpenterEnabled - serialization</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">serialization</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.serialization</a>&nbsp;/&nbsp;<a href="index.html">SerializationContext</a>&nbsp;/&nbsp;<a href="./lenient-carpenter-enabled.html">lenientCarpenterEnabled</a><br/>
+<br/>
+<h1>lenientCarpenterEnabled</h1>
+<a name="net.corda.v5.serialization.SerializationContext$lenientCarpenterEnabled"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">lenientCarpenterEnabled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>If true the carpenter will happily synthesis classes that implement interfaces containing methods that are not
+getters for any AMQP fields. Invoking these methods will throw an <a href="https://docs.oracle.com/javase/6/docs/api/java/lang/AbstractMethodError.html">AbstractMethodError</a>. If false then an exception
+will be thrown during deserialization instead.</p>
+<p>The default is false.</p>
+</BODY>
+</HTML>

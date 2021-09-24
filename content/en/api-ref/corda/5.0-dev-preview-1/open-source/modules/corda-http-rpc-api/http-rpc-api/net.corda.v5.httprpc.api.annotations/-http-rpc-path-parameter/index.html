@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HttpRpcPathParameter - http-rpc-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">http-rpc-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.httprpc.api.annotations</a>&nbsp;/&nbsp;<a href="./index.html">HttpRpcPathParameter</a><br/>
+<br/>
+<h1>HttpRpcPathParameter</h1>
+<code><span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.VALUE_PARAMETER]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">HttpRpcPathParameter</span></code>
+<p>Marks a function parameter of a function annotated with @<a href="../-http-rpc-g-e-t/index.html">HttpRpcGET</a> or @<a href="../-http-rpc-p-o-s-t/index.html">HttpRpcPOST</a> as a path parameter.</p>
+<p>Path parameters need to also be defined in the endpoint's path, in the form of "/:parameter/".</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Marks a function parameter of a function annotated with @<a href="../-http-rpc-g-e-t/index.html">HttpRpcGET</a> or @<a href="../-http-rpc-p-o-s-t/index.html">HttpRpcPOST</a> as a path parameter.</p>
+<code><span class="identifier">HttpRpcPathParameter</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcPathParameter$<init>(kotlin.String, kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcPathParameter$<init>(kotlin.String, kotlin.String)/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="description.html">description</a></h4>
+</td>
+<td>
+<p>The description of the path parameter, used for documentation. Defaults to empty string.</p>
+<code><span class="keyword">val </span><span class="identifier">description</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<p>The name of the path parameter within the endpoint's path. Should be specified in lower case.
+    Defaults to the parameter's name in the function signature.</p>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CryptoService.sign - cipher-suite</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">cipher-suite</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.cipher.suite</a>&nbsp;/&nbsp;<a href="index.html">CryptoService</a>&nbsp;/&nbsp;<a href="./sign.html">sign</a><br/>
+<br/>
+<h1>sign</h1>
+<a name="net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme, kotlin.String)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme, kotlin.String)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme, kotlin.String)/scheme">scheme</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignatureScheme</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme, kotlin.String)/signAlgorithm">signAlgorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code>
+<p>Sign a byte array using the private key identified by the input alias.
+Returns the signature bytes formatted according to the signature scheme.
+If specified the signAlgorithm determines the signature scheme used for signing.</p>
+<h3>Exceptions</h3>
+<p><a name="CryptoServiceBadRequestException"></a>
+<code>CryptoServiceBadRequestException</code> - if the private key does not exists under the <a href="sign.html#net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme, kotlin.String)/alias">alias</a>, the key scheme is not supported,  or the <a href="sign.html#net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme, kotlin.String)/data">data</a> is empty array..</p>
+<p><a name="CryptoServiceException"></a>
+<code>CryptoServiceException</code> - for general cryptographic exceptions.</p>
+<a name="net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)/scheme">scheme</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignatureScheme</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code>
+<p>Sign a byte array using the private key identified by the input alias.
+Returns the signature bytes formatted according to the signature scheme.
+The signature scheme is based on the private key scheme.</p>
+<h3>Exceptions</h3>
+<p><a name="CryptoServiceBadRequestException"></a>
+<code>CryptoServiceBadRequestException</code> - if the private key does not exists under the <a href="sign.html#net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)/alias">alias</a>, the key scheme is not supported,  or the <a href="sign.html#net.corda.v5.cipher.suite.CryptoService$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)/data">data</a> is empty array..</p>
+<p><a name="CryptoServiceException"></a>
+<code>CryptoServiceException</code> - for general cryptographic exceptions.</p>
+<a name="net.corda.v5.cipher.suite.CryptoService$sign(net.corda.v5.cipher.suite.WrappedPrivateKey, kotlin.ByteArray)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$sign(net.corda.v5.cipher.suite.WrappedPrivateKey, kotlin.ByteArray)/wrappedKey">wrappedKey</span><span class="symbol">:</span>&nbsp;<a href="../-wrapped-private-key/index.html"><span class="identifier">WrappedPrivateKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$sign(net.corda.v5.cipher.suite.WrappedPrivateKey, kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code>
+<p>Unwraps the provided wrapped key, using the specified wrapping key and signs the provided payload.</p>
+<h3>Parameters</h3>
+<p><a name="wrappedKey"></a>
+<code>wrappedKey</code> - the private key to be used for signing in a wrapped form.</p>
+<p><a name="data"></a>
+<code>data</code> - data to be signed.</p>
+<h3>Exceptions</h3>
+<p><a name="CryptoServiceBadRequestException"></a>
+<code>CryptoServiceBadRequestException</code> - if the wrapping key does not exists under the master alias in <a href="sign.html#net.corda.v5.cipher.suite.CryptoService$sign(net.corda.v5.cipher.suite.WrappedPrivateKey, kotlin.ByteArray)/wrappedKey">wrappedKey</a> or the <a href="sign.html#net.corda.v5.cipher.suite.CryptoService$sign(net.corda.v5.cipher.suite.WrappedPrivateKey, kotlin.ByteArray)/data">data</a> is empty array.</p>
+<p><a name="CryptoServiceException"></a>
+<code>CryptoServiceException</code> - for general cryptographic exceptions.</p>
+</BODY>
+</HTML>

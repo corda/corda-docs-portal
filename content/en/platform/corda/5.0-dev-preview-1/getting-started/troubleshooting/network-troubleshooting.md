@@ -3,10 +3,10 @@ date: '2021-09-07'
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-gettingstarted
-    weight: 400
+    weight: 750
 project: corda-5
 section_menu: corda-5-dev-preview
-title: Corda 5 local network troubleshooting
+title: Troubleshooting a local Corda 5 network
 ---
 
 ## ERROR: The Compose file is invalid
@@ -36,7 +36,7 @@ java.lang.RuntimeException: org.apache.hc.client5.http.HttpHostConnectException:
   at
 ```
 
-This is because we use the Docker Java API to interact with the Docker daemon (Unix sockets are used on Linux and MacOS). On Windows you need to expose the daemon on port 2375 explicitly. Go to **Settings > General** and select the following options:
+This is because we use the Docker Java API to interact with the Docker daemon (Unix sockets are used on Linux and macOS). On Windows you need to expose the daemon on port 2375 explicitly. Go to **Settings > General** and select the following options:
 
 * **Expose daemon on tcp://localhost:2375 without TLS**
 * **Use the WSL 2 based engine**
