@@ -72,18 +72,18 @@ data class RpcNamedQueryRequest internal constructor(
   * Value: `RpcNamedQueryParameterJson` object which contains the JSON marshalled representation of the named-parameter value.
   Corda detects the type of the named parameter set on the named-query and unmarshalls the JSON value to that type.
 * `postProcessorName` which is the name of a pre-defined post-processor used to transform named query results into JSON serializable objects.
-  * A post-processor must be used to convert entities to JSON serializable objects. See [when to use a post-processor](#when-do-i-need-to-use-a-post-processor).
+  * A post-processor must be used to convert entities to JSON serializable objects. See [when to use a post-processor](#when-to-use-a-post-processor).
 
 Post-processor implementations must override `availableForRpc` and set this flag to `true` to be usable from the HTTP Named Query API.
 
 Clients can use the `RpcNamedQueryRequestBuilder` to build the request.
 
 For more information on the Query API, see:
-- [How to create your own named queries](query-api.md#how-to-create-your-own-named-queries).
+- [How to create your own named queries](query-api.md#create-your-own-named-queries).
 - [How to implement your own post-processor](query-api.md#implementing-your-own-post-processor).
-- [How to use post processors](query-api.md#how-to-use-post-processors).
+- [How to use post processors](query-api.md#using-post-processors).
 
-## DurableCursorBuilder\<RpcNamedQueryResponseItem\>
+## `DurableCursorBuilder<RpcNamedQueryResponseItem>`
 
 The HTTP Named Query API creates a [durable stream](../../nodes/developing/durable-streams/durable-streams-homepage.md) which allows polling for named query results.
 
@@ -109,17 +109,19 @@ You will need to provide a post-processor when:
 - You have large entities which need to be transformed into smaller objects for transmission.
 - You get a serialization exception when trying to return entities from the HTTP API.
 
-{{<table>}}
+{{< table >}}
+
 | Example named-query         | Returns     | User wants | Post-processor? |
 |--------------|-----------|------------|----------------|
 | `"ShoppingCart.sumTotalItemsCostByCartId"` | `Long`      | The `Long` result. | Not needed, as `Long` will serialize to JSON.         |
 | `"VaultState.findByStateStatus"` | `VaultState` entities | `CustomState`s | An implementation of `StateAndRefPostProcessor` to convert the `CustomStates` into JSON serializable objects. |
 | `"PersistentPet.findUnconsumedByName"` | `PersistentPet` entities | `PetStatePojo`s | The [PetStatePostProcessor](#petstatepostprocessor). |
-{{</table>}}
+
+{{< /table >}}
 
 The named-query `"VaultState.findByStateStatus"` quite literally queries for `VaultState` entities. To obtain actual state data, you must use a post-processor that implements `StateAndRefPostProcessor`.
 
-For more details see [how to use post-processors](query-api.md#how-to-use-post-processors). The [CustomStatePostProcessor](query-api.md#how-to-use-post-processors) is an example which converts `StateAndRef`s containing `CustomState`s to `PostProcessedObject` POJOs which can be easily serialized to JSON. Since this particular named query is quite generic, it is possible that some states are not of type `CustomState`, hence why the additional type filtering is required in the post-processor.
+For more details see [how to use post-processors](query-api.md#using-post-processors). The [CustomStatePostProcessor](query-api.md#using-post-processors) is an example which converts `StateAndRef`s containing `CustomState`s to `PostProcessedObject` POJOs which can be easily serialized to JSON. Since this particular named query is quite generic, it is possible that some states are not of type `CustomState`, hence why the additional type filtering is required in the post-processor.
 
 ## Call the API from Swagger UI
 

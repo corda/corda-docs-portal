@@ -307,14 +307,10 @@ class RemoveShoppingItemsFlow(private val items: List<ShoppingSchemaV1.ShoppingI
 
 ## Execute named queries
 
-The HTTP-RPC Named Query API creates a durable cursor object capable of polling for batches of results.
+The `PersistenceService` has APIs for executing pre-defined named queries from flows and services. See the [Query API](query-api.md) guide for further information.
 
- Each poll will:
- * Execute a pre-defined named query with the given named parameters.
- * Execute additional post-processing to transform entities/results into JSON serializable objects.
- * Return a batch of `RpcNamedQueryResponseItem`s containing the JSON results.
-
-See the [Query API](query-api.md) guide for more information.
+You can also call the Query API over HTTP-RPC. See the [HTTP-RPC Named Query API](http-named-query-api.md)
+guide for further information.
 
 ## Notes
 
