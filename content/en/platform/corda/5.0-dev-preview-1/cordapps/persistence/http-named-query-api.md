@@ -23,7 +23,7 @@ You can also manually invoke the API via a `curl` request or using Swagger UI.
 
 To generate your own client capable of calling this API, see [generating client code](../../nodes/developing/generate-code/generate-code.md).
 
-## What the Query API does
+## Overview of the Query API
 
 The HTTP-RPC Named Query API creates a durable cursor object capable of polling for batches of results.
 
@@ -72,7 +72,7 @@ data class RpcNamedQueryRequest internal constructor(
   * Value: `RpcNamedQueryParameterJson` object which contains the JSON marshalled representation of the named-parameter value.
   Corda detects the type of the named parameter set on the named-query and unmarshalls the JSON value to that type.
 * `postProcessorName` which is the name of a pre-defined post-processor used to transform named query results into JSON serializable objects.
-  * A post-processor must be used to convert entities to JSON serializable objects. See [when to use a post-processor](#when-to-use-a-post-processor).
+  * A post-processor must be used to convert entities to JSON serializable objects. See [when to use a post-processor](#use-a-post-processor).
 
 Post-processor implementations must override `availableForRpc` and set this flag to `true` to be usable from the HTTP Named Query API.
 
@@ -91,7 +91,7 @@ Each poll executes the given named-query with the provided request in the contex
 
 Each poll response contains a batch of results. Each result item is wrapped in a `RpcNamedQueryResponseItem` containing the JSON representation of the item. The user is responsible for unmarshalling these items.
 
-## When to use a post-processor
+## Use a post-processor
 
 The `postProcessorName` parameter is optional, but in most scenarios you will need one.
 
@@ -198,7 +198,7 @@ Here is a sample response:
 
 When using non-sequentially ordered queries, "position" will be (start count + number of results) for all items.
 
-## What are sequential queries?
+## Sequential queries
 
 The HTTP Named Query API supports durable streams and the `PersistenceRPCOps.query` function returns a `DurableCursorBuilder`.
 
@@ -208,20 +208,20 @@ You can create named-queries for your entities which apply an ordering on a time
 
 The Corda 5 Developer Preview provides some pre-built sequential named queries that guarantee sequential ordering of states and can be used for infinite durable streaming.
 
-{{<table>}}
+{{< table >}}
 
 | Query name                                                              | Named Parameters                     |
 |-------------------------------------------------------------------------|--------------------------------------|
 | `VaultStateEvent.sequential.findByStateStatus`                          | `stateStatus`                        |
 | `VaultStateEvent.sequential.findByStateStatusAndContractStateClassNameIn` | `stateStatus`, `contractStateClassNames` |
 
-{{</table>}}
+{{< /table >}}
 
 These queries are compatible with custom post-processors which convert states into serializable POJOs (while preserving the original sequential state order).
 
-## How do I call the API using the HTTP RPC Client
+## Call the API using the HTTP-RPC Client
 
-These examples use the Corda 5 Developer Preview implementation of [HTTP RPC Client](../../nodes/developing/durable-streams/java-client/java-client.md) (`HttpRpcClient`).
+These examples use the Corda 5 Developer Preview implementation of [HTTP-RPC Client](../../nodes/developing/durable-streams/java-client/java-client.md) (`HttpRpcClient`).
 
 See [appendix](#appendix) for additional classes used in the examples, such as post-processors and simple POJOs.
 

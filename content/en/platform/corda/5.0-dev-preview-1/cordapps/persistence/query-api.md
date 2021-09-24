@@ -23,7 +23,7 @@ Named queries:
 
 Named parameters are prefixed with a colon in the query string.
 
-## How to create a named-query cursor
+## Create a named-query cursor
 
 The `PersistenceService` provides several query APIs which take (at a minimum) the name of a named-query and a map of named parameters.
 
@@ -428,7 +428,7 @@ val customStates = cursor.poll(100, 10.seconds)
     .values
 ```
 
-## General examples using the query API
+## Examples using the query API
 
 The examples in this guide use this [schema definition](#schema-definition).
 
