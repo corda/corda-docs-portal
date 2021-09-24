@@ -439,7 +439,7 @@ public class CreateAndIssueAppleStampTest {
 }
 ```
 
-Take a look at the [`AppleStamp` CorDapp solution](XXX) to see the implementation of flow tests for the `RedeemApples` flow and the `PackageApples` flow.
+Take a look at the [`AppleStamp` CorDapp solution](XXX) to see the implementation of flow tests for the `RedeemApples` flow and the `PackageApples` flow. The `RedeemApples` flow test can be considered an integration test, because it incorporates many elements of the entire application. 
 
 ## Next steps
 
