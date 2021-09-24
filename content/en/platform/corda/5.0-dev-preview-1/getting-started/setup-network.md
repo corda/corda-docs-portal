@@ -23,7 +23,7 @@ In the Corda 5 Developer Preview release, the notaries support non-validating mo
 
 ## Before you start
 
-Before you begin, make sure you [set up your development environment first](setup-environment.md).
+Before you begin, make sure you [install the Corda 5 Developer Preview](download-and-install-corda-5.md).
 
 
 ## Configure your network
