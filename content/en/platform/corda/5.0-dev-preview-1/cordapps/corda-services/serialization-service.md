@@ -13,7 +13,7 @@ description: >
 
 Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse process of creating objects from a stream of bytes. You can serialize and deserialize outputted bytes using the `SerializationService`, which can be injected into flows and services.
 
-## Example usage
+## Examples
 
 - Kotlin
 

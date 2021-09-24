@@ -81,7 +81,7 @@ been called as they will not be available to the constructor.
 In the following examples, the `FlowEngine` service is injected before
 the `call` method is called and used within the `call` method.
 
-#### Java example
+### Java example
 
 ```java
 @InitiatingFlow
@@ -98,7 +98,7 @@ public class FlowInjectionInJavaFlow implements Flow<Boolean> {
 }
 ```
 
-#### Kotlin example
+### Kotlin example
 
 ```kotlin
 @InitiatingFlow

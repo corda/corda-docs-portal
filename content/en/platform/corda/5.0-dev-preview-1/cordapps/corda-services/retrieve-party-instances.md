@@ -13,7 +13,7 @@ description: >
 
 The `IdentityService` provides methods to retrieve `Party` and `AnonymousParty` instances. `IdentityService` can be injected into flows and services.
 
-## Retrieving `Party` instances
+## Retrieve `Party` instances
 
 To retrieve a `Party` instance from `IdentityService`, you must provide a `CordaX500Name`:
 
@@ -51,7 +51,7 @@ Party party = identityService.partyFromAnonymous(anonymousParty)
 
 This will return the `Party` that matches the input `AbstractParty` if the well-known identity is known, otherwise `null` is returned.
 
-## Retrieving `AnonymousParty` instances
+## Retrieve `AnonymousParty` instances
 
 To retrieve an `AnonymousParty` instance from `IdentityService` you must provide the `PublicKey` that is used to represent the anonymous party:
 

@@ -15,7 +15,7 @@ A flow is where you put your business logic and how you build, sign, and send st
 
 Flows are written as sequential code. Where you may normally expect to see blocking or async code, Corda will pause and resume the flow transparently. A running flow can survive the restart of the Corda node. The basics of flows are covered in the [overview](overview.md) .
 
-## A simple flow
+## Example of a simple flow
 
 Here is a simple flow that returns `true` as a result:
 
@@ -41,7 +41,7 @@ About this flow:
 - `@Suspendable` - The `call` method must always have this annotation as it allows the flow to be suspended by Corda.
 - `call()` - This method is called by Corda when the flow is started.
 
-# Using injected services
+## Use injected services
 
 This flow makes use of an injected service:
 
@@ -73,7 +73,7 @@ About this flow:
 
   _The injected field will not be ready to use in the constructor. A flow should avoid accessing the field in constructors._
 
-# Communication example
+## Communication example
 
 This flow demonstrates communication between two flows. It's an extract of the [hello world example](https://docs.corda.net/docs/corda-os/4.8/hello-world-flow.html).
 

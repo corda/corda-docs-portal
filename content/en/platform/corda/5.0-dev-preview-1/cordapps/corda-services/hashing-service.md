@@ -20,7 +20,7 @@ Digest values in Corda are stored as byte arrays or strings. String representati
 The Corda Hashing API comprises `BasicHashingService` and `HashingService`.
 
 
-## BasicHashingService
+## `BasicHashingService`
 
 `BasicHashingService` contains a minimal set of methods to work with hashing. It offers the following utilities:
 
@@ -40,7 +40,7 @@ The Corda Hashing API comprises `BasicHashingService` and `HashingService`.
   It will throw `IllegalArgumentException` if:
 
   * the passed in `String` does not conform to the [algorithm]:[digest value as a hexadecimal string] format.
-  * the digest value is not of the expected digest algorithm length.  
+  * the digest value is not of the expected digest algorithm length.
 
 * `SecureHash` constants containing byte arrays full of zeros(0) or ones(1), of the length of the respective digest algorithm specified through:
 
@@ -65,7 +65,7 @@ The Corda Hashing API comprises `BasicHashingService` and `HashingService`.
 `BasicHashingService` offers digest algorithms provided by `java.security.Security`. Any of the above methods will throw an `IllegalArgumentException` if the digest algorithm is not supported.
 
 
-## HashingService
+## `HashingService`
 
 `HashingService` is a wrapper around `BasicHashingService` and offers overload and helper methods that delegate to `BasicHashingService.hash`.
 

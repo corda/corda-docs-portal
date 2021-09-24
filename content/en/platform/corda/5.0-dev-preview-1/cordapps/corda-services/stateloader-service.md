@@ -13,7 +13,7 @@ description: >
 
 Use the `StateLoaderService` to convert `StateRef` or `StatePointer` inputs into `StateAndRef` objects.
 
-## How to inject StateLoaderService
+## Inject StateLoaderService
 
 `StateLoaderService` is injectable into services using the `CordaInject` mechanism.
 
