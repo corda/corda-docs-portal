@@ -2,8 +2,8 @@
 date: '2021-09-07'
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-localnetwork
-    weight: 200
+    parent: corda-5-dev-preview-1-gettingstarted
+    weight: 400
 project: corda-5
 section_menu: corda-5-dev-preview
 title: Corda 5 local network troubleshooting
@@ -56,8 +56,8 @@ To resolve this, add the path to the **File sharing** options:
 
 {{<
   figure
-	 src="troubleshooting/docker-windows-file-sharing.png"
-	 zoom="troubleshooting/docker-windows-file-sharing.png"
+	 src="docker-windows-file-sharing.png"
+	 zoom="docker-windows-file-sharing.png"
    width=80%
 	 figcaption="Docker Windows File Sharing"
 	 alt="docker windows file sharing"

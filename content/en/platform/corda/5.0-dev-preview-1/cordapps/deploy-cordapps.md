@@ -18,9 +18,9 @@ Nodes in the Corda 5 Developer Preview can only support a single sandbox, runnin
 
 {{< /note >}}
 
-1. Apply the CorDapp CPK Gradle plugin to a Gradle project and generate the `.cpk` files. See [CorDapp CPK Gradle plugin](../packaging/gradle-plugin/_index.md).
+1. Apply the CorDapp CPK Gradle plugin to a Gradle project and generate the `.cpk` files. See [CorDapp CPK Gradle plugin](../packaging/gradle-plugin/overview.md).
 
-2. Assemble your `.cpk` files into a single `.cpb` file using the CorDapp Builder CLI. See [CorDapp Builder CLI](../packaging/cordapp-builder/_index.md).
+2. Assemble your `.cpk` files into a single `.cpb` file using the CorDapp Builder CLI. See [CorDapp Builder CLI](../packaging/cordapp-builder.md).
 
 3. To deploy your CorDapp, perform one of the following steps:
 

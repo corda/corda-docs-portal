@@ -21,20 +21,20 @@ The `.cpk` file also contains the main CorDapp `.jar` file and its dependencies,
 
 The main `.jar` file contains enough OSGi metadata to be a valid OSGi bundle.
 
-Corda package files are created using the [CorDapp CPK gradle plugin](packaging/gradle-plugin.md).
+Corda package files are created using the [CorDapp CPK gradle plugin](gradle-plugin/overview.md).
 
 ## Corda package bundles
 
 A Corda package bundle (`.cpb` file) contain `.cpk` files, plus a `MANIFEST.MF` and other Corda-related information.
 
-They can be created with the [CorDapp Builder CLI tool](XXX) or with the [CorDapp CPB gradle plugin](packaging/gradle-plugin.html#cordapp-cpb-gradle-plugin).
+They can be created with the [CorDapp Builder CLI tool](cordapp-builder.md) or with the [CorDapp CPB gradle plugin](gradle-plugin/overview.md).
 
 The point of the `.cpb` file is to contain all of the `.cpk` files that are expected to be deployed together as a single application. So in a typical example, you would apply `net.corda.plugins.cordapp-cpk` for the contract CPK project, and `net.corda.plugins.cordapp-cpb` in the workflows CPB project. The  `.cpb` file would then contain both your contracts and your workflows' `.cpk`s.
 
 
 ## Inspecting Corda package files
 
-You can use the `package` command in the Corda CLI command-line utility to inspect the contents of Corda package files. For more information, see [CPK inspection tool](corda-cli/commands.html#cpk-inspection-tool).
+You can use the `package` command in the Corda CLI command-line utility to inspect the contents of Corda package files. For more information, see [CPK inspection tool](../corda-cli/commands.md).
 
 ## Corda Security Manager
 
@@ -57,4 +57,4 @@ These permission restrictions are in addition to any permission restrictions tha
 
 ## Installing Corda package files
 
-To install a Corda package file, see [the corda-cli install command](corda-cli/commands.html#install).
+To install a Corda package file, see [the corda-cli install command](../corda-cli/commands.md).

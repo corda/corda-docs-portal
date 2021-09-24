@@ -94,7 +94,7 @@ Follow these steps to apply the plugin to your Gradle project.
             }
         }
 
-    The CorDapp block is [described below](#the-cordapp-block). For an example, see the [DSL section](https://github.com/corda/corda-gradle-plugins/tree/master/cordapp-cpk#dsl) of the [`cordapp-cpk` README](https://github.com/corda/corda-gradle-plugins/tree/master/cordapp-cpk).
+    The CorDapp block is [described below](#the-cordapp-block). For an example, see the [DSL section](https://github.com/corda/corda-gradle-plugins/tree/master/cordapp-cpk#dsl) of the [cordapp-cpk README](https://github.com/corda/corda-gradle-plugins/tree/master/cordapp-cpk).
 
 #### The `cordapp` block
 
@@ -178,7 +178,7 @@ To generate the `.cpk` file, run `./gradlew build`. The `.cpk` file will be gene
 
 ## Tuning the OSGi Metadata
 
-In most circumstances, the `cordapp-cpk` plugin correctly generates the OSGi metadata. However, the `cordapp-cpk` plugin also extends Gradle's `jar` task with an `osgi` block. This can be used to tune the OSGi metadata. For more information, see [Tuning OSGi metadata](gradle-plugin/tuning-osgi-metadata.md).
+In most circumstances, the `cordapp-cpk` plugin correctly generates the OSGi metadata. However, the `cordapp-cpk` plugin also extends Gradle's `jar` task with an `osgi` block. This can be used to tune the OSGi metadata. For more information, see [Tuning OSGi metadata](tuning-osgi-metadata.md).
 
 ## CorDapp CPB Gradle plugin
 
@@ -205,7 +205,7 @@ The CorDapp CPB Gralde plugin automatically applies the CorDapp CPK plugin, so b
             id 'net.corda.plugins.cordapp-cpb'
         }
 
-The plugin will normally determine all of the CorDapp's transient `.cpk` dependencies, although it is your responsibility to ensure that this set is complete. See [CPK inspection tool](../corda-cli/commands.html#cpk-inspection-tool) for details of how to inspect the contents of the bundle.  
+The plugin will normally determine all of the CorDapp's transient `.cpk` dependencies, although it is your responsibility to ensure that this set is complete. See [CPK inspection tool](../../corda-cli/commands.md) for details of how to inspect the contents of the bundle.  
 
 Any extra package references can be added to the bundle using the `cpb` Gradle configuration. For example:
 
