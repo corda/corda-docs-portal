@@ -53,8 +53,6 @@ Add the `CreateAndIssueAppleStamp` public class. When naming a public class, the
 So far your code should look like this:
 
 ```java
-package com.tutorial.flows;
-
 public class CreateAndIssueAppleStamp {
 
     @InitiatingFlow
@@ -84,8 +82,6 @@ The constructor must have the same name as the subclass. Include the `holder` an
 Let's check in on your code. It should now look like this:
 
 ```java
-package com.tutorial.flows;
-
 public class CreateAndIssueAppleStamp {
 
     @InitiatingFlow
@@ -101,11 +97,22 @@ public class CreateAndIssueAppleStamp {
         }
 ```
 
+{{< note >}}
+
+After implementing the constructor, IntelliJ will add a red curly line under the `createAndIssueAppleStampInitiator` subclass. Here you need to add a method. Luckily IntelliJ can do this for you.
+
+1. Click the subclass.
+2. * On MacOS press option + Enter.
+    * On Windows press Alt + Enter.
+
+You have now added the required `@OverRide` method.
+
+{{< /note >}}
+
 #### Add the `call` method
 
 1. Add the `@Suspendable` annotation.
-2. Add the `@Override` annotation.
-3. Add the `call` method with a `SignedTransaction` return type.
+2. Add the `call` method with a `SignedTransaction` return type.
 
 #### Obtain a reference for the notary
 
@@ -399,7 +406,9 @@ Include these variables in the flow:
 * `buyer` - The customer buying the apples, in this case Peter.
 * `stampId` - The unique identifier of the `AppleStamp`.
 
-You must use a notary since the transaction in this flow involves multiple parties.
+{{< note >}}
+The `RedeemApples` flow has an additional step that you did not see in the previous two flows. It must query the output states from the previous two transactions. These output states are the inputs for the `RedeemApples` flow.
+{{< /note >}}
 
 #### Check your work
 
