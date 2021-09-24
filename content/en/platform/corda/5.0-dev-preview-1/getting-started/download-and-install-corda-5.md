@@ -68,7 +68,7 @@ To install the Corda 5 Developer Preview:
     For more information, read about [developing nodes](../nodes/developing/developing-nodes-homepage.md) and
     [operating nodes](../nodes/operating/operating-nodes-homepage.md).
 
-8. *Optional*: update the confidential identities project to build against the new version of Corda.
+8. **Optional:** Update the confidential identities project to build against the new version of Corda.
 
     GitHub repo: [Corda 5 confidential identities](https://github.com/corda/corda5-confidential-identities), current release branch: `release/2.0`
 
