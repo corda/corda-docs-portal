@@ -11,19 +11,19 @@ section_menu: corda-5-dev-preview
 ---
 
 In the Corda 5 Developer Preview, the [Query API](query-api.md) is exposed as part of the HTTP-RPC Persistence API. It
-allows users to invoke named-queries via HTTP requests and receive results marshalled to JSON.
+allows you to invoke named-queries via HTTP requests and receive results marshalled to JSON.
 
-Users can invoke the HTTP Named Query API by sending an HTTP `POST` request to the
+You can invoke the HTTP Named Query API by sending an HTTP `POST` request to the
 `https://{host}:{port}/persistence/query` endpoint. The request requires a body payload containing a
 `RpcNamedQueryRequest` and a `DurableStreamContext`.
 
-The native [HTTP-RPC Client](../../nodes/developing/http-rpc-client.md) `HttpRpcClient` can be used to instantiate a durable stream and poll for results.
+You can use the native [HTTP-RPC Client](../../nodes/developing/http-rpc-client.md) `HttpRpcClient` to instantiate a durable stream and poll for results.
 
-The API can also be manually invoked via a `curl` request or using Swagger UI.
+You can also manually invoke the API via a `curl` request or using Swagger UI.
 
 To generate your own client capable of calling this API, see [generating client code](../../nodes/developing/generate-code/generate-code.md).
 
-## What does the API do?
+## What the Query API does
 
 The HTTP-RPC Named Query API creates a durable cursor object capable of polling for batches of results.
 
@@ -91,7 +91,7 @@ Each poll executes the given named-query with the provided request in the contex
 
 Each poll response contains a batch of results. Each result item is wrapped in a `RpcNamedQueryResponseItem` containing the JSON representation of the item. The user is responsible for unmarshalling these items.
 
-## When do I need to use a post-processor?
+## When to use a post-processor
 
 The `postProcessorName` parameter is optional, but in most scenarios you will need one.
 
@@ -121,7 +121,7 @@ The named-query `"VaultState.findByStateStatus"` quite literally queries for `Va
 
 For more details see [how to use post-processors](query-api.md#how-to-use-post-processors). The [CustomStatePostProcessor](query-api.md#how-to-use-post-processors) is an example which converts `StateAndRef`s containing `CustomState`s to `PostProcessedObject` POJOs which can be easily serialized to JSON. Since this particular named query is quite generic, it is possible that some states are not of type `CustomState`, hence why the additional type filtering is required in the post-processor.
 
-## How do I call the API from Swagger UI
+## Call the API from Swagger UI
 
 Since the HTTP Named Query API creates a durable stream, requests require a `DurableStreamContext` which provide positional information, page size and timeout durations. It is defined as:
 

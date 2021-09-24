@@ -133,7 +133,7 @@ while(!poll.isLastResult) {
 return accumulator
 ```
 
-## How to create your own named queries
+## Create your own named queries
 
 Named queries are written in JPQL. They can include features like `JOIN`, `WHERE`, sub-queries, constructor expressions, and aggregate functions.
 
@@ -201,7 +201,7 @@ For example, a post-processor can:
 * Convert entities to JSON or JSON serializable objects.
 * Return `ContractStates` or `StateAndRefs`.
 
-### How to use post-processors
+### Using post-processors
 
 All post-processors have a name and this name is provided to the `query` API as a simple `String`.
 
@@ -315,7 +315,7 @@ class StringCapitalizationPostProcessor : CustomQueryPostProcessor<String?> {
 
 To use this post-processor, pass `"data-persistence.StringCapitalizationPostProcessor"` as the `postProcessorName` field.
 
-### How to use a post-processor to return states
+### Use a post-processor to return states
 
 You need to take a different approach for `ContractStates` as they aren't entities (named queries only query for entities).
 
@@ -332,7 +332,7 @@ Alternatively, you can implement your own version of `StateAndRefPostProcessor` 
 
 If you want to post-process `VaultState` entities directly, you can implement `CustomQueryPostProcessor` and the inputs will be the raw named-query `VaultState` entities.
 
-## How to query for states if your state does not have a mapped schema?
+## Query for states when your state does not have a mapped schema
 
 Creating your own query using the `@NamedQuery` annotation is relevant when you have defined an entity. For example, a state that implements `QueryableState` which has a mapped schema entity defined.
 

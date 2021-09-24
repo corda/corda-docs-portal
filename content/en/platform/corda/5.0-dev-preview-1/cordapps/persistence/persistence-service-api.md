@@ -22,7 +22,7 @@ transform results.
 
 For more information on querying, read the [Named Query API](query-api.md) guide.
 
-## How to inject the `PersistenceService` API
+## Inject the `PersistenceService` API
 
 `PersistenceService` is injectable into flows and services using the `@CordaInject` mechanism.
 
@@ -35,7 +35,7 @@ lateinit var persistenceService: PersistenceService
 
 The examples in this guide use this [schema definition](#shoppingschema).
 
-### Persist new entities
+## Persist new entities
 
 There are two functions on the API for persisting entities to the database.
 
@@ -56,7 +56,7 @@ fun persist(entities: List<Any>)
 
 `CordaPersistenceException` is thrown and the transaction rolled back when, for example, one of the given instances is not an entity (not annotated with `@Entity`).
 
-#### Examples
+### Examples
 
 Persists a single cart:
 ```kotlin
@@ -93,7 +93,7 @@ class PersistMultipleShoppingItemsFlow(private val names: List<String>, private 
 }
 ```
 
-### Find entities
+## Find entities
 
 There are two functions on the API for finding entities in the database.
 
@@ -132,7 +132,7 @@ inline fun <reified T : Any> PersistenceService.find(primaryKey: Any): T?
 inline fun <reified T : Any> PersistenceService.find(primaryKeys: List<Any>): List<T>
 ```
 
-#### Examples
+### Examples
 
 Find a single cart or throw if not found:
 ```kotlin
@@ -170,7 +170,7 @@ class FindShoppingItemsFlow(private val itemIds: List<Any>) : Flow<List<Shopping
 }
 ```
 
-### Merge entities
+## Merge entities
 
 There are two functions on the API for merging entities to the database.
 
@@ -204,7 +204,7 @@ fun <T : Any> merge(entities: List<T>): List<T>
 * The given instance is not an entity (not annotated with `@Entity`) or is a removed entity.
 * An exception occurs during the transaction.
 
-#### Examples
+### Examples
 
 Add an item to a cart:
 ```kotlin
@@ -262,7 +262,7 @@ class ChangeShoppingItemCostsFlow(private val itemIds: List<String>, private val
 }
 ```
 
-### Remove entities
+## Remove entities
 
 There are two functions on the API for removing entities from the database.
 
@@ -288,7 +288,7 @@ fun remove(entities: List<Any>)
 * The given instance is not an entity (not annotated with `@Entity`).
 * An exception occurs during the transaction.
 
-#### Examples
+### Examples
 
 Given a list of `items`, remove them in a single transaction:
 
@@ -305,9 +305,16 @@ class RemoveShoppingItemsFlow(private val items: List<ShoppingSchemaV1.ShoppingI
 }
 ```
 
-### Execute named queries
+## Execute named queries
 
-See the [Query API](query-api.md) guide.
+The HTTP-RPC Named Query API creates a durable cursor object capable of polling for batches of results.
+
+ Each poll will:
+ * Execute a pre-defined named query with the given named parameters.
+ * Execute additional post-processing to transform entities/results into JSON serializable objects.
+ * Return a batch of `RpcNamedQueryResponseItem`s containing the JSON results.
+
+See the [Query API](query-api.md) guide for more information.
 
 ## Notes
 
