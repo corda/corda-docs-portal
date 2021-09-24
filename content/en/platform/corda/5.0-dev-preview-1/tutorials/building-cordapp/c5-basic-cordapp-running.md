@@ -130,7 +130,7 @@ You can find this information in the output of the `corda-cli network status -n 
 
 For this app, the logins are:
 
-* PartyA - Username: angelenos, Password: password
+* PartyA - Username: `angelenos`, Password: `password`
 * PartyB - Username: londoner, Password: password
 
 {{< note >}}
