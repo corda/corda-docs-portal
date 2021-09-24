@@ -15,7 +15,7 @@ title: LedgerGraph
 weight: 500
 ---
 
-# LedgerGraph V1.2.1
+# LedgerGraph V1.2.2
 
 **LedgerGraph** is a CorDapp you can use to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, there can actually be multiple components in the graph: each a **directed acyclic graph** (DAG).
 
@@ -25,7 +25,11 @@ weight: 500
 LedgerGraph is a dependency for the set of Collaborative Recovery CorDapps V1.1 and above. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
 {{< /warning >}}
 
-### New in V1.2.1
+### New in V1.2.2
+
+Some improvements have been made to minimize memory footprint. There are no functional changes from V1.2.1.
+
+### In V1.2.1
 
 **onDemand**: In V1.2.1 you can configure the setting `onDemand` to `true` or `false`. When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../archiving/archiving-setup.md). This saves heap memory usage.
 

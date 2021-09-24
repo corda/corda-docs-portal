@@ -47,6 +47,11 @@ present in the change log.
 * `release-lock` Releases whatever locks are on the database change log table, in case shutdown failed.
 * `install-shell-extensions` Install alias and autocompletion for bash and zsh.
 
+{{% note %}}
+Please note that notary-related database objects are not included when using the `--core-schemas` option for any of the commands.
+{{% /note %}}
+
+
 ## Allow obfuscated passwords
 
 The DB Tool must be able to de-obfuscate the obfuscated fields.

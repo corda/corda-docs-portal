@@ -25,11 +25,11 @@ curl "https://download.corda.net/corda-cli/1.0.0-DevPreview/get-corda-cli.sh" | 
 
 ### Before you start
 
-If a previous installation of Corda CLI exists, remove it. See [Deleting Corda CLI](XXX).
+If a previous installation of Corda CLI exists, remove it. See [Deleting Corda CLI](deleting-corda-cli.md).
 
 ### Steps
 
-1. Download either the [`.tar`](https://download.corda.net/corda-cli/1.0.0-DevPreview/corda-cli.tar) or the [`.zip`](https://download.corda.net/corda-cli/1.0.0-DevPreview/corda-cli.zip) file.
+1. Download either the [.tar](https://download.corda.net/corda-cli/1.0.0-DevPreview/corda-cli.tar) or the [.zip](https://download.corda.net/corda-cli/1.0.0-DevPreview/corda-cli.zip) file.
 
 2. Create a new `bin/corda-cli` directory under the current users home directory.
 

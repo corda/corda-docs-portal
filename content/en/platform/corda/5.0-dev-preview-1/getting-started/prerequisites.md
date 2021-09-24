@@ -30,7 +30,7 @@ You can deploy the Developer Preview locally using the [corda-cli](XXX) tool and
 
 ## Packaging CorDapps
 
-You can package and bundle CorDapps with the Corda CPK (Corda package file - `.cpk`) and CPB (Corda package bundle - `.cpb`) [plugins](XXX), which require Gradle 6.0 or above. Alternatively, you can create CorDapp package bundles (`.cpb` files) with the [CorDapp Builder](XXX).
+You can package and bundle CorDapps with the Corda CPK (Corda package file - `.cpk`) and CPB (Corda package bundle - `.cpb`) [plugins](../packaging/gradle-plugin/overview.md), which require Gradle 6.0 or above. Alternatively, you can create CorDapp package bundles (`.cpb` files) with the [CorDapp Builder](../packaging/cordapp-builder.md).
 
 ## Node databases
 
