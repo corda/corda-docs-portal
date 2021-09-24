@@ -71,7 +71,7 @@ To sign a `SignedTransaction`:
   SignedTransaction signedTransactionWithAnotherSignature = transactionService.sign(signedTransaction, publicKey)
   ```
 
-### Create signatures
+### Create a signature
 
 You can also create the signature without signing the input transaction itself by using `TransactionService.createSignature`.
 
