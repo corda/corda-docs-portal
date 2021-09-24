@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ReceiveTransactionFlow - flows</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">flows</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.systemflows</a>&nbsp;/&nbsp;<a href="./index.html">ReceiveTransactionFlow</a><br/>
+<br/>
+<h1>ReceiveTransactionFlow</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ReceiveTransactionFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">&gt;</span></code>
+<p>The <a href="./index.html">ReceiveTransactionFlow</a> should be called in response to the <a href="../-send-transaction-flow/index.html">SendTransactionFlow</a>.</p>
+<p>This flow is a combination of <a href="#">FlowSession.receive</a>, resolve and <a href="#">SignedTransaction.verify</a>. This flow will receive the
+<a href="#">SignedTransaction</a> and perform the resolution back-and-forth required to check the dependencies and download any missing
+attachments. The flow will return the <a href="#">SignedTransaction</a> after it is resolved and then verified using <a href="#">SignedTransaction.verify</a>.</p>
+<p>Please note that it will <em>not</em> store the transaction to the vault unless that is explicitly requested and checkSufficientSignatures is true.
+Setting statesToRecord to anything else when checkSufficientSignatures is false will <em>not</em> update the vault.</p>
+<p>Attention: At the moment, this flow receives a <a href="#">SignedTransaction</a> first thing and then proceeds by invoking a <a href="#">ResolveTransactionsFlow</a> subflow.
+    This is used as a criterion to identify cases, where a counterparty has failed notarising a transact</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">ReceiveTransactionFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.ReceiveTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession, kotlin.Boolean)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">, </span><span class="identifier" id="net.corda.systemflows.ReceiveTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession, kotlin.Boolean)/checkSufficientSignatures">checkSufficientSignatures</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span></code><br/>
+<code><span class="identifier">ReceiveTransactionFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.ReceiveTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession, net.corda.v5.ledger.services.StatesToRecord)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">, </span><span class="identifier" id="net.corda.systemflows.ReceiveTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession, net.corda.v5.ledger.services.StatesToRecord)/statesToRecord">statesToRecord</span><span class="symbol">:</span>&nbsp;<span class="identifier">StatesToRecord</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">ReceiveTransactionFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.ReceiveTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">)</span></code>
+<p>The <a href="./index.html">ReceiveTransactionFlow</a> should be called in response to the <a href="../-send-transaction-flow/index.html">SendTransactionFlow</a>.</p>
+<code><span class="identifier">ReceiveTransactionFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.ReceiveTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession, kotlin.Boolean, net.corda.v5.ledger.services.StatesToRecord)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">, </span><span class="identifier" id="net.corda.systemflows.ReceiveTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession, kotlin.Boolean, net.corda.v5.ledger.services.StatesToRecord)/checkSufficientSignatures">checkSufficientSignatures</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.systemflows.ReceiveTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession, kotlin.Boolean, net.corda.v5.ledger.services.StatesToRecord)/statesToRecord">statesToRecord</span><span class="symbol">:</span>&nbsp;<span class="identifier">StatesToRecord</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="flow-engine.html">flowEngine</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">flowEngine</span><span class="symbol">: </span><span class="identifier">FlowEngine</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="logger.html">logger</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">logger</span><span class="symbol">: </span><span class="identifier">Logger</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters.html">networkParameters</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">networkParameters</span><span class="symbol">: </span><span class="identifier">NetworkParameters</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters-service.html">networkParametersService</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">networkParametersService</span><span class="symbol">: </span><span class="identifier">NetworkParametersService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction-service.html">transactionService</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">transactionService</span><span class="symbol">: </span><span class="identifier">TransactionService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction-verification-service.html">transactionVerificationService</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">transactionVerificationService</span><span class="symbol">: </span><span class="identifier">TransactionVerificationService</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SignedTransaction</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-before-recording.html">checkBeforeRecording</a></h4>
+</td>
+<td>
+<p>Hook to perform extra checks on the received transaction just before it's recorded. The transaction has already
+been resolved and verified at this point.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">checkBeforeRecording</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.ReceiveTransactionFlow$checkBeforeRecording(net.corda.v5.ledger.transactions.SignedTransaction)/stx">stx</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignedTransaction</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

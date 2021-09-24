@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LedgerTransaction.getAttachment - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.transactions</a>&nbsp;/&nbsp;<a href="index.html">LedgerTransaction</a>&nbsp;/&nbsp;<a href="./get-attachment.html">getAttachment</a><br/>
+<br/>
+<h1>getAttachment</h1>
+<a name="net.corda.v5.ledger.transactions.LedgerTransaction$getAttachment(kotlin.Int)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.LedgerTransaction$getAttachment(kotlin.Int)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a></code>
+<p>Helper to simplify getting an indexed attachment.</p>
+<h3>Parameters</h3>
+<p><a name="index"></a>
+<code>index</code> - the position of the item in the attachments.</p>
+<p><strong>Return</strong><br/>
+The Attachment at the requested index.</p>
+<a name="net.corda.v5.ledger.transactions.LedgerTransaction$getAttachment(net.corda.v5.crypto.SecureHash)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.LedgerTransaction$getAttachment(net.corda.v5.crypto.SecureHash)/id">id</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a></code>
+<p>Helper to simplify getting an indexed attachment.</p>
+<h3>Parameters</h3>
+<p><a name="id"></a>
+<code>id</code> - the SecureHash of the desired attachment.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if no item matches the id.</p>
+<p><strong>Return</strong><br/>
+The Attachment with the matching id.</p>
+</BODY>
+</HTML>

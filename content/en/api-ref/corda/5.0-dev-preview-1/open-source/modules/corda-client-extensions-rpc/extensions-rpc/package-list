@@ -1,0 +1,12 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+net.corda.client.rpc.flow
+net.corda.client.rpc.identity
+net.corda.client.rpc.internal.security
+net.corda.client.rpc.node
+net.corda.client.rpc.proxy
+net.corda.client.rpc.proxy.certificates
+net.corda.client.rpc.proxy.network
+net.corda.client.rpc.proxy.persistence
+net.corda.client.rpc.proxy.vault

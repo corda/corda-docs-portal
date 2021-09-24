@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ErrorContextProvider - logging</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">logging</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.common.logging.errorReporting</a>&nbsp;/&nbsp;<a href="./index.html">ErrorContextProvider</a><br/>
+<br/>
+<h1>ErrorContextProvider</h1>
+<code><span class="keyword">interface </span><span class="identifier">ErrorContextProvider</span></code>
+<p>Provide context around reported errors by supplying product specific information.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-u-r-l.html">getURL</a></h4>
+</td>
+<td>
+<p>Get the URL to the docs site where the error codes are hosted.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getURL</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorContextProvider$getURL(java.util.Locale)/locale">locale</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/util/Locale.html"><span class="identifier">Locale</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-corda-error-context-provider/index.html">CordaErrorContextProvider</a></h4>
+</td>
+<td>
+<p>Provides information specific to Corda to the error reporting library.</p>
+<code><span class="keyword">class </span><span class="identifier">CordaErrorContextProvider</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">ErrorContextProvider</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

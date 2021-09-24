@@ -1,0 +1,125 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.kotlin.reflect.impl - kotlin-reflection</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">kotlin-reflection</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.kotlin.reflect.impl</a><br/>
+<br/>
+<h2>Package net.corda.kotlin.reflect.impl</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-java-members/index.html">JavaMembers</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">JavaMembers</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-k-class-pool.html">KClassPool</a></h4>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">KClassPool</span>&nbsp;<span class="symbol">=</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="-kotlin-class-impl/index.html"><span class="identifier">KotlinClassImpl</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-kotlin-class-impl/index.html">KotlinClassImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">KotlinClassImpl</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.kotlin.reflect/-kotlin-class/index.html"><span class="identifier">KotlinClass</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="-kotlin-class-impl/index.html"><span class="identifier">KotlinClassImpl</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-kotlin-members/index.html">KotlinMembers</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">KotlinMembers</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="java.lang.-class/index.html">java.lang.Class</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.collections.-collection/index.html">kotlin.collections.Collection</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.collections.-mutable-collection/index.html">kotlin.collections.MutableCollection</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="accept-incomplete-accessors.html">acceptIncompleteAccessors</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="../net.corda.kotlin.reflect.types/-k-property-internal/index.html"><span class="identifier">KPropertyInternal</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">acceptIncompleteAccessors</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.impl$acceptIncompleteAccessors(net.corda.kotlin.reflect.types.KPropertyInternal((kotlin.Any)), kotlin.collections.MutableList((net.corda.kotlin.reflect.types.KFunctionInternal((kotlin.Any)))))/accessors">accessors</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><a href="../net.corda.kotlin.reflect.types/-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="accept-java-accessors.html">acceptJavaAccessors</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="../net.corda.kotlin.reflect.types/-k-property-internal/index.html"><span class="identifier">KPropertyInternal</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">acceptJavaAccessors</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.impl$acceptJavaAccessors(net.corda.kotlin.reflect.types.KPropertyInternal((kotlin.Any)), kotlin.collections.MutableList((net.corda.kotlin.reflect.types.KFunctionInternal((kotlin.Any)))))/accessors">accessors</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><a href="../net.corda.kotlin.reflect.types/-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="capture-for.html">captureFor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="../net.corda.kotlin.reflect.types/-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">captureFor</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.impl$captureFor(net.corda.kotlin.reflect.types.KFunctionInternal((net.corda.kotlin.reflect.impl.captureFor.T)), java.lang.Class((kotlin.Any)))/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.kotlin.reflect.types/-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-from.html">createFrom</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">createFrom</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.impl$createFrom(java.lang.Class((net.corda.kotlin.reflect.impl.createFrom.T)), kotlin.reflect.KClass((net.corda.kotlin.reflect.impl.createFrom.T)))/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.kotlin.reflect.impl$createFrom(java.lang.Class((net.corda.kotlin.reflect.impl.createFrom.T)), kotlin.reflect.KClass((net.corda.kotlin.reflect.impl.createFrom.T)))/klazz">klazz</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="-kotlin-class-impl/index.html"><span class="identifier">KotlinClassImpl</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="extract-declared-accessors-from.html">extractDeclaredAccessorsFrom</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.kotlin.reflect.types/-k-property-internal/index.html"><span class="identifier">KPropertyInternal</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">extractDeclaredAccessorsFrom</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.impl$extractDeclaredAccessorsFrom(net.corda.kotlin.reflect.impl.extractDeclaredAccessorsFrom.T, kotlin.collections.MutableMap((net.corda.kotlin.reflect.types.MemberSignature, java.lang.reflect.Method)))/methods">methods</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="../net.corda.kotlin.reflect.types/-member-signature/index.html"><span class="identifier">MemberSignature</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html"><span class="identifier">Method</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="extract-method-from.html">extractMethodFrom</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="../net.corda.kotlin.reflect.types/-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">extractMethodFrom</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.impl$extractMethodFrom(net.corda.kotlin.reflect.types.KFunctionInternal((net.corda.kotlin.reflect.impl.extractMethodFrom.T)), kotlin.collections.MutableMap((net.corda.kotlin.reflect.types.MemberSignature, java.lang.reflect.Method)))/methods">methods</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="../net.corda.kotlin.reflect.types/-member-signature/index.html"><span class="identifier">MemberSignature</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html"><span class="identifier">Method</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.kotlin.reflect.types/-k-function-internal/index.html"><span class="identifier">KFunctionInternal</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="populate-member-accessors-from.html">populateMemberAccessorsFrom</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.kotlin.reflect.types/-k-property-internal/index.html"><span class="identifier">KPropertyInternal</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">populateMemberAccessorsFrom</span><span class="symbol">(</span><span class="identifier" id="net.corda.kotlin.reflect.impl$populateMemberAccessorsFrom(net.corda.kotlin.reflect.impl.populateMemberAccessorsFrom.T, kotlin.collections.MutableMap((net.corda.kotlin.reflect.types.MemberSignature, java.lang.reflect.Method)))/methods">methods</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="../net.corda.kotlin.reflect.types/-member-signature/index.html"><span class="identifier">MemberSignature</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html"><span class="identifier">Method</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

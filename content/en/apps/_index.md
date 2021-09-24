@@ -1,11 +1,13 @@
 ---
 date: '2020-12-23T09:59:25Z'
+section_menu: apps
 menu:
-    projects:
-        weight: 550
-        identifier: apps
-title: Featured apps
+  projects:
+    name: Featured apps
+    weight: 550
+    identifier: apps
 project: apps
+title: Featured apps
 ---
 
 # Featured apps

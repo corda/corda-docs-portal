@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SerializationToken - serialization</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">serialization</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.serialization</a>&nbsp;/&nbsp;<a href="./index.html">SerializationToken</a><br/>
+<br/>
+<h1>SerializationToken</h1>
+<code><span class="keyword">interface </span><span class="identifier">SerializationToken</span></code>
+<p>This represents a token in the serialized stream for an instance of a type that implements <a href="../-serialize-as-token/index.html">SerializeAsToken</a>.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="from-token.html">fromToken</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">fromToken</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationToken$fromToken(net.corda.v5.serialization.SerializeAsTokenContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialize-as-token-context/index.html"><span class="identifier">SerializeAsTokenContext</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-singleton-serialization-token/index.html">SingletonSerializationToken</a></h4>
+</td>
+<td>
+<p>A class representing a <a href="./index.html">SerializationToken</a> for some object that is not serializable but can be looked up
+(when deserialized) via just the class name.</p>
+<code><span class="keyword">class </span><span class="identifier">SingletonSerializationToken</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">SerializationToken</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

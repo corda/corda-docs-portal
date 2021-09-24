@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowManagerRPCOps - extensions-rpc</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">extensions-rpc</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy</a>&nbsp;/&nbsp;<a href="./index.html">FlowManagerRPCOps</a><br/>
+<br/>
+<h1>FlowManagerRPCOps</h1>
+<code><span class="keyword">interface </span><span class="identifier">FlowManagerRPCOps</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span></code>
+<p>RPC operations to perform operations related to flows including management of associated persistent states like checkpoints.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="dump-checkpoints.html">dumpCheckpoints</a></h4>
+</td>
+<td>
+<p>Dump all the current flow checkpoints as JSON into a zip file in the node's log directory.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">dumpCheckpoints</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="kill-flow.html">killFlow</a></h4>
+</td>
+<td>
+<p>Attempts to kill a flow. This is not a clean termination and should be reserved for exceptional cases such as stuck fibers.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">killFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.FlowManagerRPCOps$killFlow(kotlin.String)/flowId">flowId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="list-active.html">listActive</a></h4>
+</td>
+<td>
+<p>List currently running flows (RUNNING, PAUSED or HOSPITALISED).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">listActive</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.client.rpc.flow/-rpc-active-flow/index.html"><span class="identifier">RpcActiveFlow</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

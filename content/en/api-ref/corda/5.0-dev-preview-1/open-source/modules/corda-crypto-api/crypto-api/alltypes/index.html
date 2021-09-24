@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>alltypes - crypto-api</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<h3>All Types</h3>
+<table>
+<tbody>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-alias-private-key/index.html">net.corda.v5.crypto.internal.AliasPrivateKey</a></h5>
+<p><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">PrivateKey</a> wrapper to just store the alias of a private key.
+Usually, HSM (hardware secure module) key entries are accessed via unique aliases and the private key material never
+leaves the box. This class wraps a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> key alias into a <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">PrivateKey</a> object, which helps on transferring
+<a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyPair.html">KeyPair</a> objects without exposing the private key material. Then, whenever we need to sign with the actual private
+key, we provide the <a href="../net.corda.v5.crypto.internal/-alias-private-key/alias.html">alias</a> from this <a href="../net.corda.v5.crypto.internal/-alias-private-key/index.html">AliasPrivateKey</a> to the underlying HSM implementation.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-b-l-a-k-e2s256-test-digest/index.html">net.corda.v5.crypto.internal.BLAKE2s256TestDigest</a></h5>
+<p>A custom Blake2s hash algorithm used for testing purposes only</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto/-composite-key/index.html">net.corda.v5.crypto.CompositeKey</a></h5>
+<p>A tree data structure that enables the representation of composite public keys, which are used to represent
+the signing requirements for multi-signature scenarios. A composite key is a list
+of leaf keys and their contributing weight, and each leaf can be a conventional single key or a composite key.
+Keys contribute their weight to the total if they are matched by the signature.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-composite-key-factory/index.html">net.corda.v5.crypto.internal.CompositeKeyFactory</a></h5>
+<p>Factory for generating composite keys from ASN.1 format key specifications. This is used by <a href="../net.corda.v5.crypto.internal/-corda-security-provider/index.html">CordaSecurityProvider</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-composite-signature/index.html">net.corda.v5.crypto.internal.CompositeSignature</a></h5>
+<p>Dedicated class for storing a set of signatures that comprise <a href="../net.corda.v5.crypto/-composite-key/index.html">CompositeKey</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto/-composite-signatures-with-keys/index.html">net.corda.v5.crypto.CompositeSignaturesWithKeys</a></h5>
+<p>Custom class for holding signature data. This exists for later extension work to provide a standardised cross-platform
+serialization format.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-corda-object-identifier/index.html">net.corda.v5.crypto.internal.CordaObjectIdentifier</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-corda-security-provider/index.html">net.corda.v5.crypto.internal.CordaSecurityProvider</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-crypto/index.html">net.corda.v5.crypto.internal.Crypto</a></h5>
+<p>This object controls and provides the available and supported signature schemes for Corda.
+Any implemented <a href="../net.corda.v5.crypto.internal/-signature-scheme/index.html">SignatureScheme</a> should be strictly defined here.
+However, only the schemes returned by {@link #listSupportedSignatureSchemes()} are supported.
+Note that Corda currently supports the following signature schemes by their code names:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.exceptions/-crypto-service-bad-request-exception/index.html">net.corda.v5.crypto.exceptions.CryptoServiceBadRequestException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.exceptions/-crypto-service-exception/index.html">net.corda.v5.crypto.exceptions.CryptoServiceException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.exceptions/-crypto-service-library-exception/index.html">net.corda.v5.crypto.exceptions.CryptoServiceLibraryException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.exceptions/-crypto-service-provider-exception/index.html">net.corda.v5.crypto.exceptions.CryptoServiceProviderException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.exceptions/-crypto-service-timeout-exception/index.html">net.corda.v5.crypto.exceptions.CryptoServiceTimeoutException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-digest-algorithm/index.html">net.corda.v5.crypto.internal.DigestAlgorithm</a></h5>
+<p>Interface for injecting custom digest implementation bypassing JCA.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-digest-algorithm-factory/index.html">net.corda.v5.crypto.internal.DigestAlgorithmFactory</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto/-digest-algorithm-name/index.html">net.corda.v5.crypto.DigestAlgorithmName</a></h5>
+<p>The digest algorithm name. This class is to be used in Corda hashing API.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto/-digest-service/index.html">net.corda.v5.crypto.DigestService</a></h5>
+<p>Basic hashing service, handling hashing of bytes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-digest-supplier/index.html">net.corda.v5.crypto.internal.DigestSupplier</a></h5>
+<p>Hide the <a href="#">FastThreadLocal</a> class behind a <a href="#">Supplier</a> interface
+so that we can remove it for core-deterministic.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto/-digital-signature/index.html">net.corda.v5.crypto.DigitalSignature</a></h5>
+<p>A wrapper around a digital signature.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-double-s-h-a256-digest/index.html">net.corda.v5.crypto.internal.DoubleSHA256Digest</a></h5>
+<p>A custom algorithm that implements a Double-SHA2-256 hash function</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-dummy-secure-random.html">net.corda.v5.crypto.internal.DummySecureRandom</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-instances/index.html">net.corda.v5.crypto.internal.Instances</a></h5>
+<p>This is a collection of crypto related getInstance methods that tend to be quite inefficient and we want to be able to
+optimise them en masse.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.v5.crypto)
+<h5><a href="../net.corda.v5.crypto/kotlin.collections.-iterable/index.html">kotlin.collections.Iterable</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.v5.crypto)
+<h5><a href="../net.corda.v5.crypto/java.security.-key-pair/index.html">java.security.KeyPair</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.v5.crypto.internal)
+<h5><a href="../net.corda.v5.crypto.internal/java.security.-key-pair/index.html">java.security.KeyPair</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto/-merkle-tree/index.html">net.corda.v5.crypto.MerkleTree</a></h5>
+<p>Creation and verification of a Merkle tree.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.exceptions/-merkle-tree-exception/index.html">net.corda.v5.crypto.exceptions.MerkleTreeException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto/-partial-merkle-tree/index.html">net.corda.v5.crypto.PartialMerkleTree</a></h5>
+<p>Building and verification of Partial Merkle Tree.
+Partial Merkle Tree is a minimal tree needed to check that a given set of leaves belongs to a full Merkle Tree.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-platform-secure-random-service/index.html">net.corda.v5.crypto.internal.PlatformSecureRandomService</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.v5.crypto.internal)
+<h5><a href="../net.corda.v5.crypto.internal/java.security.-private-key/index.html">java.security.PrivateKey</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.v5.crypto)
+<h5><a href="../net.corda.v5.crypto/java.security.-public-key/index.html">java.security.PublicKey</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.v5.crypto.internal)
+<h5><a href="../net.corda.v5.crypto.internal/java.security.-public-key/index.html">java.security.PublicKey</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto/-secure-hash/index.html">net.corda.v5.crypto.SecureHash</a></h5>
+<p>Container for a cryptographically secure hash value.
+Provides utilities for generating a cryptographic hash using different algorithms (currently only SHA-256 supported).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-signature-factory/index.html">net.corda.v5.crypto.internal.SignatureFactory</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.internal/-signature-scheme/index.html">net.corda.v5.crypto.internal.SignatureScheme</a></h5>
+<p>This class is used to define a digital signature scheme.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.exceptions/-signature-scheme-exception/index.html">net.corda.v5.crypto.exceptions.SignatureSchemeException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto.exceptions/-signature-scheme-not-found-exception/index.html">net.corda.v5.crypto.exceptions.SignatureSchemeNotFoundException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.crypto/-signature-verification-service/index.html">net.corda.v5.crypto.SignatureVerificationService</a></h5>
+<p>The <a href="../net.corda.v5.crypto/-signature-verification-service/index.html">SignatureVerificationService</a> provides operation support for <a href="#">TransactionSignatureVerificationService</a>
+with base digital signature verification operations.</p>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

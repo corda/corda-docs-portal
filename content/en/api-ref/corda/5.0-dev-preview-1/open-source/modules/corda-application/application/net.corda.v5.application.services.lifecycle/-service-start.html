@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServiceStart - application</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">application</a>&nbsp;/&nbsp;<a href="index.html">net.corda.v5.application.services.lifecycle</a>&nbsp;/&nbsp;<a href="./-service-start.html">ServiceStart</a><br/>
+<br/>
+<h1>ServiceStart</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">ServiceStart</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-service-lifecycle-event.html"><span class="identifier">ServiceLifecycleEvent</span></a></code>
+<p>This event is dispatched once all corda services have been instantiated and registered as injectable services.</p>
+<p>Any logic required to start the service should be added in response to this event. Services are ordered based on their usages of
+<a href="../net.corda.v5.application.injection/-corda-inject-pre-start/index.html">CordaInjectPreStart</a> such that all <a href="../net.corda.v5.application.injection/-corda-inject-pre-start/index.html">CordaInjectPreStart</a> annotated services have this event distributed to them before the parent
+service, which annotated the previously mentioned services, receives notification of this event. This event is then distributed to
+the remaining services which are not using the <a href="../net.corda.v5.application.injection/-corda-inject-pre-start/index.html">CordaInjectPreStart</a> annotation.</p>
+</BODY>
+</HTML>

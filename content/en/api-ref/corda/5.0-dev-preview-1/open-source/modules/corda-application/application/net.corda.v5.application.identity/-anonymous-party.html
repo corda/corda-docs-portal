@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AnonymousParty - application</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">application</a>&nbsp;/&nbsp;<a href="index.html">net.corda.v5.application.identity</a>&nbsp;/&nbsp;<a href="./-anonymous-party.html">AnonymousParty</a><br/>
+<br/>
+<h1>AnonymousParty</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">AnonymousParty</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a></code>
+<p>The <a href="./-anonymous-party.html">AnonymousParty</a> class contains enough information to uniquely identify a <a href="-party/index.html">Party</a> while excluding private
+information such as name. It is intended to represent a party on the distributed ledger.</p>
+<h3>Flow sessions</h3>
+<p>Anonymous parties can be used to communicate using the <a href="#">FlowMessaging.initiateFlow</a> method. Message routing is simply routing to the well-known
+<a href="-party/index.html">Party</a> the anonymous party belongs to. This mechanism assumes the party initiating the communication knows who the anonymous party is.</p>
+</BODY>
+</HTML>

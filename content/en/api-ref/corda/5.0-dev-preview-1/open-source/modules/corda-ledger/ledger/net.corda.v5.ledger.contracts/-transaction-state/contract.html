@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionState.contract - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="index.html">TransactionState</a>&nbsp;/&nbsp;<a href="./contract.html">contract</a><br/>
+<br/>
+<h1>contract</h1>
+<a name="net.corda.v5.ledger.contracts.TransactionState$contract"></a>
+<code><span class="keyword">val </span><span class="identifier">contract</span><span class="symbol">: </span><a href="../-contract-class-name.html"><span class="identifier">ContractClassName</span></a></code>
+<p>The contract class name that will verify this state that will be created via reflection. The attachment containing this
+class will be automatically added to the transaction at transaction creation time.</p>
+<p>Currently these are loaded from the classpath of the node which includes the cordapp directory - at some point these will also be loaded
+and run from the attachment store directly, allowing contracts to be sent across, and run, from the network from within a sandbox
+environment.</p>
+</BODY>
+</HTML>

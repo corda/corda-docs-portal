@@ -1,7 +1,11 @@
 ---
+date: '2021-04-24T00:00:00Z'
+section_menu: announcements
 menu:
-    projects:
-        weight: 700
+  projects:
+    name: Announcements
+    weight: 750
+    identifier: homepage-announcements
 project: announcements
 title: Announcements
 ---

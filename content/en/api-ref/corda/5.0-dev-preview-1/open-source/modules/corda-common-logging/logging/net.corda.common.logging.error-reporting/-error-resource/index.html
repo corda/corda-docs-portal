@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ErrorResource - logging</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">logging</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.common.logging.errorReporting</a>&nbsp;/&nbsp;<a href="./index.html">ErrorResource</a><br/>
+<br/>
+<h1>ErrorResource</h1>
+<code><span class="keyword">class </span><span class="identifier">ErrorResource</span></code>
+<p>A representation of a single error resource file.</p>
+<p>This handles selecting the right properties from the resource bundle and formatting the error message.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="actions-to-fix.html">actionsToFix</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">actionsToFix</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="aliases.html">aliases</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">aliases</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="short-description.html">shortDescription</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">shortDescription</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-error-message.html">getErrorMessage</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getErrorMessage</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorResource$getErrorMessage(kotlin.Array((kotlin.Any)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="from-error-code.html">fromErrorCode</a></h4>
+</td>
+<td>
+<p>Construct an error resource from a provided code.</p>
+<code><span class="keyword">fun </span><span class="identifier">fromErrorCode</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorResource.Companion$fromErrorCode(net.corda.common.logging.errorReporting.ErrorCode((net.corda.common.logging.errorReporting.ErrorCodes)), kotlin.String, java.util.Locale)/errorCode">errorCode</span><span class="symbol">:</span>&nbsp;<a href="../-error-code/index.html"><span class="identifier">ErrorCode</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorResource.Companion$fromErrorCode(net.corda.common.logging.errorReporting.ErrorCode((net.corda.common.logging.errorReporting.ErrorCodes)), kotlin.String, java.util.Locale)/resourceLocation">resourceLocation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorResource.Companion$fromErrorCode(net.corda.common.logging.errorReporting.ErrorCode((net.corda.common.logging.errorReporting.ErrorCodes)), kotlin.String, java.util.Locale)/locale">locale</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/util/Locale.html"><span class="identifier">Locale</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ErrorResource</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="from-loader.html">fromLoader</a></h4>
+</td>
+<td>
+<p>Construct an error resource using resources loaded in a given classloader</p>
+<code><span class="keyword">fun </span><span class="identifier">fromLoader</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorResource.Companion$fromLoader(kotlin.String, java.lang.ClassLoader, java.util.Locale)/resource">resource</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorResource.Companion$fromLoader(kotlin.String, java.lang.ClassLoader, java.util.Locale)/classLoader">classLoader</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/ClassLoader.html"><span class="identifier">ClassLoader</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorResource.Companion$fromLoader(kotlin.String, java.lang.ClassLoader, java.util.Locale)/locale">locale</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/util/Locale.html"><span class="identifier">Locale</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ErrorResource</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

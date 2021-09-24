@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Crypto.findSignatureScheme - crypto-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.crypto.internal</a>&nbsp;/&nbsp;<a href="index.html">Crypto</a>&nbsp;/&nbsp;<a href="./find-signature-scheme.html">findSignatureScheme</a><br/>
+<br/>
+<h1>findSignatureScheme</h1>
+<a name="net.corda.v5.crypto.internal.Crypto$findSignatureScheme(org.bouncycastle.asn1.x509.AlgorithmIdentifier)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">findSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal.Crypto$findSignatureScheme(org.bouncycastle.asn1.x509.AlgorithmIdentifier)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<span class="identifier">AlgorithmIdentifier</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code><a name="net.corda.v5.crypto.internal.Crypto$findSignatureScheme(kotlin.String)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">findSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal.Crypto$findSignatureScheme(kotlin.String)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code>
+<p>Factory pattern to retrieve the corresponding <a href="../-signature-scheme/index.html">SignatureScheme</a> based on <a href="../-signature-scheme/scheme-code-name.html">SignatureScheme.schemeCodeName</a>.
+This function is usually called by key generators and verify signature functions.
+In case the input is not a key in the supportedSignatureSchemes map, null will be returned.</p>
+<h3>Parameters</h3>
+<p><a name="schemeCodeName"></a>
+<code>schemeCodeName</code> - a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> that should match a supported signature scheme code name (e.g. ECDSA_SECP256K1_SHA256), see <a href="index.html">Crypto</a>.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the requested signature scheme is not supported.</p>
+<p><strong>Return</strong><br/>
+a currently supported SignatureScheme.</p>
+<a name="net.corda.v5.crypto.internal.Crypto$findSignatureScheme(java.security.PublicKey)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">findSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal.Crypto$findSignatureScheme(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code><br/>
+<a name="net.corda.v5.crypto.internal.Crypto$findSignatureScheme(java.security.PrivateKey)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">findSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal.Crypto$findSignatureScheme(java.security.PrivateKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code>
+<p>Retrieve the corresponding <a href="../-signature-scheme/index.html">SignatureScheme</a> based on the type of the input <a href="https://docs.oracle.com/javase/6/docs/api/java/security/Key.html">Key</a>.
+This function is usually called when requiring to verify signatures and the signing schemes must be defined.
+For the supported signature schemes see <a href="index.html">Crypto</a>.</p>
+<h3>Parameters</h3>
+<p><a name="key"></a>
+<code>key</code> - either private or public.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the requested key type is not supported.</p>
+<p><strong>Return</strong><br/>
+a currently supported SignatureScheme.</p>
+</BODY>
+</HTML>

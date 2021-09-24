@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ErrorReporting - logging</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">logging</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.common.logging.errorReporting</a>&nbsp;/&nbsp;<a href="./index.html">ErrorReporting</a><br/>
+<br/>
+<h1>ErrorReporting</h1>
+<code><span class="keyword">class </span><span class="identifier">ErrorReporting</span></code>
+<p>Entry point into the Error Reporting framework.</p>
+<p>This creates the error reporter used to report errors. The <code>initialiseReporting</code> method should be called to build a reporter before any
+errors are reported.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">ErrorReporting</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="initialise-reporting.html">initialiseReporting</a></h4>
+</td>
+<td>
+<p>Set up the reporting of errors.</p>
+<code><span class="keyword">fun </span><span class="identifier">initialiseReporting</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="using-resources-at.html">usingResourcesAt</a></h4>
+</td>
+<td>
+<p>Set the location of the resource bundles containing the error codes.</p>
+<code><span class="keyword">fun </span><span class="identifier">usingResourcesAt</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorReporting$usingResourcesAt(kotlin.String)/location">location</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ErrorReporting</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-context-provider.html">withContextProvider</a></h4>
+</td>
+<td>
+<p>Set the context provider to supply project-specific information about the errors.</p>
+<code><span class="keyword">fun </span><span class="identifier">withContextProvider</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorReporting$withContextProvider(net.corda.common.logging.errorReporting.ErrorContextProvider)/contextProvider">contextProvider</span><span class="symbol">:</span>&nbsp;<a href="../-error-context-provider/index.html"><span class="identifier">ErrorContextProvider</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ErrorReporting</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-locale.html">withLocale</a></h4>
+</td>
+<td>
+<p>Set the locale to use when reporting errors</p>
+<code><span class="keyword">fun </span><span class="identifier">withLocale</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.logging.errorReporting.ErrorReporting$withLocale(kotlin.String)/locale">locale</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ErrorReporting</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

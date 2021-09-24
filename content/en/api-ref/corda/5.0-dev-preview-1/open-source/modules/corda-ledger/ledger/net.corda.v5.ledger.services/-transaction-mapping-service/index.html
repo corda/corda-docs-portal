@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionMappingService - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services</a>&nbsp;/&nbsp;<a href="./index.html">TransactionMappingService</a><br/>
+<br/>
+<h1>TransactionMappingService</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">TransactionMappingService</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="to-ledger-transaction.html">toLedgerTransaction</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">toLedgerTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionMappingService$toLedgerTransaction(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Boolean)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.TransactionMappingService$toLedgerTransaction(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Boolean)/checkSufficientSignatures">checkSufficientSignatures</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">toLedgerTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionMappingService$toLedgerTransaction(net.corda.v5.ledger.transactions.SignedTransaction)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a></code>
+<p>Looks up identities and attachments from storage to generate a <a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html">LedgerTransaction</a>. A transaction is expected to
+have been fully resolved using the resolution flow by this point.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">toLedgerTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionMappingService$toLedgerTransaction(net.corda.v5.ledger.transactions.WireTransaction)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-wire-transaction/index.html"><span class="identifier">WireTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-transaction-service/index.html">TransactionService</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TransactionService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-transaction-storage/index.html"><span class="identifier">TransactionStorage</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">TransactionMappingService</span></a><span class="symbol">, </span><a href="../-transaction-verification-service/index.html"><span class="identifier">TransactionVerificationService</span></a><span class="symbol">, </span><span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
