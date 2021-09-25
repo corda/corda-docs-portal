@@ -1,11 +1,11 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: apps
+section_menu: tools
 menu:
-  apps:
+  tools:
     name: Accounts SDK
-    weight: 300
-    identifier: apps-accounts
+    weight: 200
+    identifier: tools-accounts
 title: Accounts SDK
 ---
 

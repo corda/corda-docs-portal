@@ -1,11 +1,11 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: apps
+section_menu: tools
 menu:
-  apps:
+  tools:
     name: Collaborative recovery
     weight: 700
-    identifier: apps-collaborative-recovery
+    identifier: tools-collaborative-recovery
 title: Collaborative Recovery
 ---
 
