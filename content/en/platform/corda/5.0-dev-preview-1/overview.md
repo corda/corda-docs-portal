@@ -2,7 +2,8 @@
 date: '2020-07-15T12:00:00Z'
 menu:
   versions:
-    weight: 100
+  corda-5-dev-preview:
+    weight: 10
 project: corda
 section_menu: corda-5-dev-preview
 title: Corda 5 Developer Preview
@@ -19,8 +20,8 @@ This is a developer preview of Corda's next major iteration, Corda 5. Here, you 
 * Package your CordApps with a new Gradle plugin that allows for multi-tenancy applications in future releases.
 
 {{< note >}}
-**Your feedback helps us**
-Please [send us any feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) you have about this documentation, or the Corda 5 Developer Preview. We want to hear from you so we can make the next versions of Corda work harder for you than ever. 
+**Your feedback helps** -
+Please [send any feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) you have about this documentation, or the Corda 5 Developer Preview. We want to hear from you so we can make the next versions of Corda work harder for you than ever.
 {{< /note >}}
 
 In this preview, you can:
