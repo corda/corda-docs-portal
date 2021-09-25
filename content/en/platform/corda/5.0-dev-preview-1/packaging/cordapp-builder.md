@@ -10,8 +10,6 @@ project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-# CorDapp Builder CLI
-
 CorDapp Builder CLI is a command-line utility that assembles Corda package bundles (`.cpb` files) from Corda package files (`.cpk` files).
 
 {{% note %}}

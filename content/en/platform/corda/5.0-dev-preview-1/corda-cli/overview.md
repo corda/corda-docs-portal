@@ -13,6 +13,11 @@ Corda CLI is a command line interface utility that is used to deploy a Corda net
 
 In this section, you will find instruction on how to:
 
-* Install Corda CLI
-* Delete Corda CLI
-* Use Corda CLI to manage a local network and work with Corda package files (`.cpk` files)
+* Install Corda CLI.
+* Delete Corda CLI.
+* Use Corda CLI to manage a local network and work with Corda package files (`.cpk` files).
+
+{{< note >}}
+**Your feedback helps** -
+Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
+{{< /note >}}
