@@ -47,12 +47,12 @@
 
 [[footer]]
   name = "Privacy Policy"
-  url = "https://www.corda.net/privacy-policy/"
+  url = "https://www.r3.com/privacy-policy/"
   weight = 20
 
 [[footer]]
   name = "Trademark Policy"
-  url = "https://www.corda.net/trademark-policy/"
+  url = "https://www.r3.com/trademark-policy/"
   weight = 30
 
 [[cenm-1-0]]
