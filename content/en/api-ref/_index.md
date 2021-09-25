@@ -3,12 +3,12 @@ date: '2021-04-24T00:00:00Z'
 section_menu: api-ref
 menu:
   projects:
-    weight: 700
+    weight: 60000
   api-ref:
     name: API reference home
     weight: 450
     identifier: homepage-api-ref
-project: api
+project: api-ref
 title: API reference
 ---
 

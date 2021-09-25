@@ -4,10 +4,10 @@ section_menu: announcements
 menu:
   projects:
     name: Announcements
-    weight: 750
+    weight: 100000
     identifier: homepage-announcements
 project: announcements
 title: Announcements
 ---
 
-# Announcements and what's new in R3 documentation
+# Announcements, what's new in R3 documentation, and chatter

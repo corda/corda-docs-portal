@@ -4,7 +4,7 @@ section_menu: samples
 menu:
   projects:
     name: Samples and templates
-    weight: 350
+    weight: 50000
     identifier: homepage-samples
 project: samples
 title: Samples and templates
