@@ -21,7 +21,7 @@ This is a developer preview of Corda's next major iteration, Corda 5. Here, you 
 
 {{< note >}}
 **Your feedback helps** -
-Please [send any feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) you have about this documentation, or the Corda 5 Developer Preview. We want to hear from you so we can make the next versions of Corda work harder for you than ever.
+Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
 {{< /note >}}
 
 In this preview, you can:

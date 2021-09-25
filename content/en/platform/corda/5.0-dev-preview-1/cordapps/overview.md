@@ -15,6 +15,11 @@ not yet completed the tutorials section, and are looking for the best place to s
 If you have completed the tutorials and want to experiment further, use these resources. Keep in mind that the Corda 5
 Developer Preview is for local deployment and testing only, and should not be used in a commercial setting.
 
+{{< note >}}
+**Your feedback helps** -
+Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
+{{< /note >}}
+
 ## Overview of CorDapp development in the Corda 5 Developer Preview
 
 Corda Distributed Applications (CorDapps) run on the Corda platform. They contain the business logic and functionality

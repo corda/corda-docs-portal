@@ -13,3 +13,8 @@ The Corda 5 Developer Preview includes these tutorials to help you get started b
 
 * [Running a sample CorDapp](run-demo-cordapp.md) - This tutorial shows you how to run and test the sample Solar System CorDapp.
 * [Building your first CorDapp](building-cordapp/c5-basic-cordapp-intro.md) - This set of tutorials walks you through building your first CorDapp. It includes modules on: [writing states](building-cordapp/c5-basic-cordapp-state.md), [writing contracts](building-cordapp/c5-basic-cordapp-contract.md), [writing flows](building-cordapp/c5-basic-cordapp-flow.md), testing, and running your CorDapp.
+
+{{< note >}}
+**Your feedback helps** -
+Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
+{{< /note >}}
