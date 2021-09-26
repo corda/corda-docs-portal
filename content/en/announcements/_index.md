@@ -14,6 +14,14 @@ title: News and announcements
 
 In this section, the Technical Writing Team at R3 (also known as The Best Team - all tech writes reserved!) will keep you in the know about what's new in the docs and in product development.
 
+## Corda 5 Developer Preview is here!
+
+Build and deploy CorDapps locally with this first preview version of Corda 5 - the new generation of blockchain technology that is changing the way the world transacts!
+
+Experiment with the new modular API, HTTPS node interaction, and CorDapp packaging.
+
+Build your first test CorDapp with the Corda 5 Developer Preview - start [here](../platform/corda/5.0-dev-preview-1/overview.md).
+
 ## The docs have a new home
 
 The entire R3 documentation has moved to a new home - [doc.r3.com](https://docs.r3.com)!
@@ -29,3 +37,9 @@ Alongside the brand new site design and user experience perks it brings, we have
 * We plan to expand the scope of the content we pubish on [doc.r3.com](https://docs.r3.com). In the upcoming year, we will be bringing you more useful tutorials, enriched and improved content based on your feedback and our own user research and analytics, and more interactive learning paths to support the main documentation.
 
 Tell us what you think about the docs and the new site on <a href="https://cordaledger.slack.com/archives/C01Q3RQ7E8M">slack</a> and <a href="mailto:corda-docs@r3.com">over email</a>.
+
+## Join the R3 Developer Platform
+
+Join the most powerful blockchain and confidential computing community for developers. Build your knowledge of blockchain and confidential computing by accessing R3’s developer resources, open-source projects, additional support from R3 developers, and documentation.
+
+<a href="https://developer.r3.com/" target="_blank">Join the R3 Developer Platform here</a>.
