@@ -3,13 +3,13 @@ date: '2021-04-24T00:00:00Z'
 section_menu: tools
 menu:
   tools:
-    name: Accounts SDK
+    name: Corda Accounts Library
     weight: 200
     identifier: tools-accounts
-title: Accounts SDK
+title: Corda Accounts Library
 ---
 
-# Corda Accounts SDK
+# Corda Accounts Library
 
 This page is the beginning of the documentation for Accounts. There is much more but I've not moved it over yet.
 
