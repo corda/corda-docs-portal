@@ -15,6 +15,8 @@ description: >
 
 # CorDapp CPK and CPB Gradle plugins
 
+In Corda 5 Developers Preview, CorDapps are distributed as Corda package files (`.cpk` files), and Corda package bundles (`.cpb` files).
+
 ## CorDapp CPK Gradle plugin
 
 Applying the CorDapp CPK Gradle plugin to a Gradle project declares that the project should create a Corda package file (a `.cpk` file).
