@@ -7,6 +7,7 @@ menu:
     identifier: homepage-conclave
     weight: 90000
 project: conclave
+version: 'conclave'
 title: Conclave
 ---
 

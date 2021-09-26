@@ -10,7 +10,7 @@ The Corda platform contains several pieces of complicated software.
 
 ## Corda
 
-* Corda 5 [Corda 5 Developer Preview](5.0-dev-preview-1/overview.html)
+* Corda 5 [Corda 5 Developer Preview](5.0-dev-preview-1.html)
 * Corda 4.8 [Open Source](4.8/open-source.html) | [Enterprise](4.8/enterprise.html)
 * Corda 4.7 [Open Source](4.7/open-source.html) | [Enterprise](4.7/enterprise.html)
 * Corda 4.6 [Open Source](4.6/open-source.html) | [Enterprise](4.6/enterprise.html)

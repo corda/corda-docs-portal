@@ -7,8 +7,10 @@ menu:
     weight: 100000
     identifier: homepage-announcements
 project: announcements
+version: 'announcements'
 title: News and announcements
 ---
+
 
 # Overheard by Tech Writers
 
@@ -20,7 +22,7 @@ Build and deploy CorDapps locally with this first preview version of Corda 5 - t
 
 Experiment with the new modular API, HTTPS node interaction, and CorDapp packaging.
 
-Build your first test CorDapp with the Corda 5 Developer Preview - start [here](../platform/corda/5.0-dev-preview-1/overview.md).
+Build your first test CorDapp with the Corda 5 Developer Preview - start [here](../platform/corda/5.0-dev-preview-1/).
 
 ## The docs have a new home
 
@@ -33,7 +35,7 @@ Alongside the brand new site design and user experience perks it brings, we have
 * We have massively refactored the entire documentation sets for Corda 4.8 (open source), Corda Enterprise 4.8, and Corda Enterprise Network Manager (CENM) 1.5! The work on this project will continue for a little longer in the next few months, however we truly hope that this content is now more readable, better structured, and overall much more useful and easier to follow than before.
 * We have brought over the complete API documentation reference content to [doc.r3.com](https://docs.r3.com/en/api-ref.html)! It is now searchable and all in one place.
 * In the near future we are planning to improve the Conclave documentation content and migrate it to [doc.r3.com](https://docs.r3.com).
-* We have added <b>dark mode<b> to the docs - just click the icon at the top right corner of any docs page!
+* We have added **dark mode** to the docs - just click the icon at the top right corner of any docs page!
 * We plan to expand the scope of the content we pubish on [doc.r3.com](https://docs.r3.com). In the upcoming year, we will be bringing you more useful tutorials, enriched and improved content based on your feedback and our own user research and analytics, and more interactive learning paths to support the main documentation.
 
 Tell us what you think about the docs and the new site on <a href="https://cordaledger.slack.com/archives/C01Q3RQ7E8M">slack</a> and <a href="mailto:corda-docs@r3.com">over email</a>.

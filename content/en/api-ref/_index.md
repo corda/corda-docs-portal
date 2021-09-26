@@ -9,6 +9,7 @@ menu:
     weight: 450
     identifier: homepage-api-ref
 project: api-ref
+version: 'api-ref'
 title: API reference
 ---
 

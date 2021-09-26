@@ -1,18 +1,12 @@
 ---
 section_menu: homepage
-date: '2021-04-24T00:00:00Z'
-menu:
-  projects:
-    weight: 10000
-project: corda
-title: Corda
 ---
 
 # R3 platform documentation
 
 ## Corda
 
-* [Corda 5 Developer Preview](en/platform/corda/5.0-dev-preview-1/overview.html)
+* [Corda 5 Developer Preview](en/platform/corda/5.0-dev-preview-1.html)
 * 4.8
   * Open Source
     * [Main documentation](en/platform/corda/4.8/open-source.html)
