@@ -140,9 +140,15 @@ body.home {
     margin-bottom: 3.75rem;
     padding: 2.5rem 1.5rem 1.5rem;
 
+    .slick-track {
+      display: flex;
+      align-items: center;
+    }
+
     .slide {
       display: flex;
       flex-wrap: wrap;
+      padding-left: 1px;
 
       img {
         border-radius: 4px;
