@@ -2,6 +2,13 @@
 date: '2021-04-24T00:00:00Z'
 weight: 10000
 title: Corda
+project: corda
+menu:
+  projects:
+    weight: -1050
+  versions:
+    version: '5 Developer Preview'
+    cordaType: 'Corda'
 ---
 
 # Corda documentation
