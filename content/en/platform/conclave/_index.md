@@ -1,10 +1,13 @@
 ---
 date: '2021-04-24T00:00:00Z'
+section_menu: conclave
 menu:
   projects:
+    name: Conclave
     identifier: homepage-conclave
-    weight: 800
+    weight: 90000
 project: conclave
+version: 'conclave'
 title: Conclave
 ---
 

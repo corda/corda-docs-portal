@@ -1,11 +1,11 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: apps
+section_menu: tools
 menu:
-  apps:
+  tools:
     name: Flow management console
     weight: 800
-    identifier: apps-flow-management-console
+    identifier: tools-flow-management-console
 title: Flow management console
 ---
 

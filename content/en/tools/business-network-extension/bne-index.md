@@ -1,11 +1,11 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: apps
+section_menu: tools
 menu:
-  apps:
+  tools:
     name: Business network extension
     weight: 500
-    identifier: apps-bne
+    identifier: tools-bne
 title: Business network extension
 ---
 

@@ -1,15 +1,17 @@
 ---
 section_menu: homepage
+project: corda
 ---
 
-# R3 documentation
+# R3 platform documentation
 
 ## Corda
 
+* [Corda 5 Developer Preview](en/platform/corda/5.0-dev-preview-1.html)
 * 4.8
   * Open Source
-    * [Main documentation](en/en/platform/corda/4.8/open-source.html)
-    * [Release notes](en/en/platform/corda/4.8/open-source/release-notes.html)
+    * [Main documentation](en/platform/corda/4.8/open-source.html)
+    * [Release notes](en/platform/corda/4.8/open-source/release-notes.html)
   * Enterprise
     * [Main documentation](en/en/platform/corda/4.8/enterprise.html)
     * [Release notes](en/platform/corda/4.8/enterprise/release-notes-enterprise.html)

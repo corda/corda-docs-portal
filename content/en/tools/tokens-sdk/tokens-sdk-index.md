@@ -1,11 +1,11 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: apps
+section_menu: tools
 menu:
-  apps:
+  tools:
     name: Tokens SDK
-    weight: 1200
-    identifier: apps-tokens-sdk
+    weight: 100
+    identifier: tools-tokens-sdk
 title: Tokens SDK
 ---
 

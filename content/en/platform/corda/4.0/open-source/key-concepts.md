@@ -42,13 +42,8 @@ This section should be read in order:
 
 The detailed thinking and rationale behind these concepts are presented in two white papers:
 
-
-
-* [Corda: An Introduction](/en/pdf/corda-introductory-whitepaper.pdf)
-* [Corda: A Distributed Ledger](/en/pdf/corda-technical-whitepaper.pdf) (A.K.A. the Technical White Paper)
+* [Corda: An Introduction](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/).
+* [Corda: A Distributed Ledger](https://www.r3.com/white-papers/corda-technical-whitepaper/).
 
 
 Explanations of the key concepts are also available as [videos](https://vimeo.com/album/4555732/).
-
-
-

@@ -4,8 +4,10 @@ section_menu: tools
 menu:
   projects:
     name: Tools and add-ons
-    weight: 600
+    weight: 80000
     identifier: tools
 project: tools
 title: Tools and add-ons
 ---
+
+# Tools and add-ons
