@@ -14,13 +14,13 @@
         ['project:corda','project:corda-os','project:corda-enterprise', 'project:cenm', 'project:releases', 'project:get-started', 'project:tutorials', 'project:samples', 'project:api-ref', 'project:apps', 'project:tools', 'project:announcements'],
         ['version:4.8','version:1.5','version:5.0'],
         'language:en'
-      ]
+      ];
     {{ else }}
       window.facetFilters = [
         'project:{{- $project -}}',
         'version:{{- $version -}}',
         'language:{{- .Site.Language.Lang -}}'
-      ]
+      ];
     {{ end }}
   {{ end -}}
 
