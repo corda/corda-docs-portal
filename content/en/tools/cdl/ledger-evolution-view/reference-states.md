@@ -2,16 +2,12 @@
 title: Reference states
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-ledger-evolution-view"
-    identifier: "cdl-ledger-evolution-view-reference-states"
+  tools:
+    parent: cdl-ledger-evolution-view
+    identifier: cdl-ledger-evolution-view-reference-states
+    name: Reference states
     weight: 60
-
-tags:
-- cdl
-- cordapp design language
-- ledger evolution
-- cordapp diagram
+title: Reference states
 ---
 
 # Reference states

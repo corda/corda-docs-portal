@@ -2,17 +2,12 @@
 title: Private billing
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-privacy-overlay"
-    identifier: "cdl-privacy-overlay-adding-the-private-billing"
+  tools:
+    parent: cdl-privacy-overlay
+    identifier: cdl-privacy-overlay-adding-the-private-billing
+    name: Private billing
     weight: 40
-
-tags:
-- cdl
-- cordapp design language
-- ledger evolution
-- privacy overlay
-- cordapp diagram
+title: Private billing
 ---
 
 # Private Billing

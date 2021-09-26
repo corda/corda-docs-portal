@@ -2,18 +2,14 @@
 title: Statuses
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-statuses"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-statuses
+    name: Statuses
     weight: 80
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- statuses
+title: Statuses
 ---
+
 
 # Statuses
 

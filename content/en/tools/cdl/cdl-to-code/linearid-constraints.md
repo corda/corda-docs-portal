@@ -2,16 +2,12 @@
 title: LinearId constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-to-code"
-    identifier: "cdl-to-code-linearId-constraints"
+  tools:
+    parent: cdl-to-code
+    identifier: cdl-to-code-linearId-constraints
+    name: LinearId constraints
     weight: 70
-
-tags:
-- cdl
-- cordapp design language
-- contract to code
-- cordapp diagram
+title: LinearId constraints
 ---
 
 

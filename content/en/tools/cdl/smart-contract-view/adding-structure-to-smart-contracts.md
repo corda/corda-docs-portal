@@ -2,16 +2,12 @@
 title: Adding structure with CDL
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-adding-structure"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-adding-structure
+    name: Adding structure with CDL
     weight: 30
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
+title: Adding structure with CDL
 ---
 
 # CDL adds structure to Smart Contracts

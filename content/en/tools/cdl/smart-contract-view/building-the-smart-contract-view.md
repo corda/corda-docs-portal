@@ -2,17 +2,14 @@
 title: Building the Smart Contract view
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-building-the-smart-contract-view"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-building-the-smart-contract-view
+    name: Building the Smart Contract view
     weight: 60
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
+title: Building the Smart Contract view
 ---
+
 
 # Building up the Smart Contract view
 

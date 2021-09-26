@@ -2,17 +2,12 @@
 title: Full diagram
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-bpmn-view"
-    identifier: "cdl-bpmn-view-full-diagram"
+  tools:
+    parent: cdl-bpmn-view
+    identifier: cdl-bpmn-view-full-diagram
+    name: Full diagram
     weight: 50
-
-tags:
-- cdl
-- cordapp design language
-- business process modelling notation
-- bpmn
-- cordapp diagram
+title: Full diagram
 ---
 
 

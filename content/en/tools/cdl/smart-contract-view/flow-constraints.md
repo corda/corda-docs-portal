@@ -2,17 +2,12 @@
 title: Flow constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-flow-constraints"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-flow-constraints
+    name: Flow constraints
     weight: 150
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- flow constraints
+title: Flow constraints
 ---
 
 # Flow Constraints

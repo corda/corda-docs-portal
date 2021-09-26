@@ -2,17 +2,12 @@
 title: Pools and swimlanes
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-bpmn-view"
-    identifier: "cdl-bpmn-view-pools-and-swimlanes"
+  tools:
+    parent: cdl-bpmn-view
+    identifier: cdl-bpmn-view-pools-and-swimlanes
+    name: Pools and swimlanes
     weight: 10
-
-tags:
-- cdl
-- cordapp design language
-- business process modelling notation
-- bpmn
-- cordapp diagram
+title: Pools and swimlanes
 ---
 
 # Pools and Swimlanes

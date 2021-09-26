@@ -2,15 +2,12 @@
 title: BPMN View
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-views"
-    identifier: "cdl-bpmn-view"
+  tools:
+    parent: cdl-views
+    identifier: cdl-bpmn-view
+    name: BPMN View
     weight: 30
-
-tags:
-- this
-- that
-- the other
+title: BPMN View
 ---
 
 # CDL - Business Process Modeling Notation (BPMN) View

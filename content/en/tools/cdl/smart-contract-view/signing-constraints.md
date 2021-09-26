@@ -2,17 +2,12 @@
 title: Signing constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-signing-constraints"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-signing-constraints
+    name: Signing constraints
     weight: 110
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- signing constraints
+title: Signing constraints
 ---
 
 # Signing Constraints

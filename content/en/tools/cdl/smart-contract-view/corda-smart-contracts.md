@@ -2,16 +2,12 @@
 title: Corda Smart Contracts
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-corda-smart-contracts"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-corda-smart-contracts
+    name: Corda Smart Contracts
     weight: 20
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
+title: Corda Smart Contracts
 ---
 
 

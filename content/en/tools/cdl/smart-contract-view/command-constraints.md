@@ -2,20 +2,15 @@
 title: Command constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-command-constraints"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-command-constraints
+    name: Command constraints
     weight: 160
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- command constraint
+title: Command constraints
 ---
 
-# Command Constraints
+# Command constraints
 
 The final type of constraint to add to the Smart Contract view is the Command constraint. Command constraints are constraints which apply when a particular Command is used in the transaction. They can place constraints on any part of the transaction, including on states which are not part of this Smart Contract.
 

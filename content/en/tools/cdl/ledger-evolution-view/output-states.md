@@ -2,16 +2,12 @@
 title: Output states
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-ledger-evolution-view"
-    identifier: "cdl-ledger-evolution-view-output-states"
+  tools:
+    parent: cdl-ledger-evolution-view
+    identifier: cdl-ledger-evolution-view-output-states
+    name: Output states
     weight: 30
-
-tags:
-- cdl
-- cordapp design language
-- ledger evolution
-- cordapp diagram
+title: Output states
 ---
 
 # Output States

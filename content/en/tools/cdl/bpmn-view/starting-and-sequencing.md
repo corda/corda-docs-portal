@@ -2,17 +2,12 @@
 title: Starting and sequencing
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-bpmn-view"
-    identifier: "cdl-bpmn-view-starting-and-sequencing"
+  tools:
+    parent: cdl-bpmn-view
+    identifier: cdl-bpmn-view-starting-and-sequencing
+    name: Starting and sequencing
     weight: 20
-
-tags:
-- cdl
-- cordapp design language
-- business process modelling notation
-- bpmn
-- cordapp diagram
+title: Starting and sequencing
 ---
 
 # Starting and sequencing

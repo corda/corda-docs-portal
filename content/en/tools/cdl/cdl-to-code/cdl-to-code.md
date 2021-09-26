@@ -2,16 +2,12 @@
 title: CDL to code
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    identifier: "cdl-to-code"
-    name: "Converting CDL smart contracts to code"
-    weight: 300
-tags:
-- cdl
-- cordapp design language
-- contract to code
-- cordapp diagram
-- cdl-example
+  tools:
+    parent: tools-cdl
+    identifier: cdl-to-code
+    name: Converting CDL smart contracts to code
+    weight: 900
+title: CDL to code
 ---
 
 # Converting CDL smart contracts to code

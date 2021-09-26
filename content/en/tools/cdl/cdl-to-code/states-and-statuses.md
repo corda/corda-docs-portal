@@ -2,16 +2,12 @@
 title: States and statuses
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-to-code"
-    identifier: "cdl-to-code-states-and-statuses"
+  tools:
+    parent: cdl-to-code
+    identifier: cdl-to-code-states-and-statuses
+    name: States and statuses
     weight: 20
-
-tags:
-- cdl
-- cordapp design language
-- contract to code
-- cordapp diagram
+title: States and statuses
 ---
 
 

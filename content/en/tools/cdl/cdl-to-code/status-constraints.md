@@ -2,16 +2,12 @@
 title: Status constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-to-code"
-    identifier: "cdl-to-code-status-constraints"
+  tools:
+    parent: cdl-to-code
+    identifier: cdl-to-code-status-constraints
+    name: Status constraints
     weight: 60
-
-tags:
-- cdl
-- cordapp design language
-- contract to code
-- cordapp diagram
+title: Status constraints
 ---
 
 

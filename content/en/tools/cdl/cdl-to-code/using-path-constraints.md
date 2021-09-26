@@ -2,18 +2,13 @@
 title: Using Path constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-to-code"
-    identifier: "cdl-to-code-using-path-constraints"
+  tools:
+    parent: cdl-to-code
+    identifier: cdl-to-code-using-path-constraints
+    name: Using Path constraints
     weight: 120
-
-tags:
-- cdl
-- cordapp design language
-- contract to code
-- cordapp diagram
+title: Using Path constraints
 ---
-
 
 # Using Path Constraints
 

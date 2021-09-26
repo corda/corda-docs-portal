@@ -2,17 +2,12 @@
 title: Adding the Privacy Overlay
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-privacy-overlay"
-    identifier: "cdl-privacy-overlay-adding-the-privacy-overlay"
+  tools:
+    parent: cdl-privacy-overlay
+    identifier: cdl-privacy-overlay-adding-the-privacy-overlay
+    name: Adding the Privacy Overlay
     weight: 30
-
-tags:
-- cdl
-- cordapp design language
-- ledger evolution
-- privacy overlay
-- cordapp diagram
+title: Adding the Privacy Overlay
 ---
 
 # Adding the Privacy Overlay

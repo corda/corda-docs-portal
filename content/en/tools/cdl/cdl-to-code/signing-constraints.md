@@ -2,16 +2,12 @@
 title: Signing constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-to-code"
-    identifier: "cdl-to-code-signing-constraints"
+  tools:
+    parent: cdl-to-code
+    identifier: cdl-to-code-signing-constraints
+    name: Signing constraints
     weight: 90
-
-tags:
-- cdl
-- cordapp design language
-- contract to code
-- cordapp diagram
+title: Signing constraints
 ---
 
 

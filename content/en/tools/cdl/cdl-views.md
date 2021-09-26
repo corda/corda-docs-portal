@@ -4,6 +4,7 @@ date: 2020-10-15T00:00:00+01:00
 menu:
   tools:
     identifier: cdl-views
+    parent: tools-cdl
     name: CDL views
     weight: 800
 title: CDL views

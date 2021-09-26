@@ -2,16 +2,12 @@
 title: Privacy Overlay
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-views"
-    identifier: "cdl-privacy-overlay"
+  tools:
+    parent: cdl-views
+    identifier: cdl-privacy-overlay
+    name: Privacy Overlay
     weight: 16
-
-tags:
-- cdl
-- cordapp design language
-- ledger evolution
-- cordapp diagram
+title: Privacy Overlay
 ---
 
 # The Privacy Overlay

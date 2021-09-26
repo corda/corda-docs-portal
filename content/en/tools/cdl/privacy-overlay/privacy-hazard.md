@@ -2,17 +2,12 @@
 title: The privacy hazard
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-privacy-overlay"
-    identifier: "cdl-privacy-overlay-privacy-hazard"
+  tools:
+    parent: cdl-privacy-overlay
+    identifier: cdl-privacy-overlay-privacy-hazard
+    name: The privacy hazard
     weight: 10
-
-tags:
-- cdl
-- cordapp design language
-- ledger evolution
-- privacy overlay
-- cordapp diagram
+title: The privacy hazard
 ---
 
 # The Privacy Hazard

@@ -2,18 +2,15 @@
 title: Happy path
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
+  tools:
     parent: cdl-testing-cdl-code
     identifier: cdl-testing-happy-path
+    name: Happy path
     weight: 10
-
-tags:
-- cdl
-- cordapp design language
-- smart contract testing
+title: Happy path
 ---
 
-# Testing the Happy Path
+# Testing the happy path
 
 To test the happy path we are going to use the same sequence of transactions as shown in the Ledger Evolution diagram we saw earlier:
 

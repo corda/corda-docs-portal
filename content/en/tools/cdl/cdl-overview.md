@@ -4,6 +4,7 @@ date: 2020-10-15T00:00:00+01:00
 menu:
   tools:
     identifier: cdl-overview
+    parent: tools-cdl
     name: CorDapp Design Language (CDL) overview
     weight: 700
 title: CorDapp Design Language (CDL) overview

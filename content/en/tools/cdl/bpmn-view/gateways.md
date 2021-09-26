@@ -2,17 +2,12 @@
 title: Gateways
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-bpmn-view"
-    identifier: "cdl-bpmn-view-gateways"
+  tools:
+    parent: cdl-bpmn-view
+    identifier: cdl-bpmn-view-gateways
+    name: Gateways
     weight: 40
-
-tags:
-- cdl
-- cordapp design language
-- business process modelling notation
-- bpmn
-- cordapp diagram
+title: Gateways
 ---
 
 # Gateways

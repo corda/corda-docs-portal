@@ -1,19 +1,16 @@
 ---
-title: Non happy path
+title: Non-happy path
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
+  tools:
     parent: cdl-testing-cdl-code
     identifier: cdl-testing-non-happy-path
+    name: Non-happy path
     weight: 20
-
-tags:
-- cdl
-- cordapp design language
-- smart contract testing
+title: Non-happy path
 ---
 
-# Non Happy Path Tests
+# Non-happy path tests
 
 Once we have the happy path, we can start testing each of the constraints in turn to check they fail when they are meant to fail.
 

@@ -2,26 +2,20 @@
 title: verifyPath()
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-to-code"
-    identifier: "cdl-to-code-verify-path"
+  tools:
+    parent: cdl-to-code
+    identifier: cdl-to-code-verify-path
+    name: verifyPath()
     weight: 130
-
-tags:
-- cdl
-- cordapp design language
-- contract to code
-- cordapp diagram
+title: verifyPath()
 ---
 
 
+# verifyPath()
 
+In the previous section we described how the `verifyPathConstraints()` function calls the `verifyPath()` function from `ContractUtils`. In this section you can see how `verifyPath()` works. You can also see the implementation of `VerifyPath` in the [cdl-example](https://github.com/corda/cdl-example) code repo.
 
-# verifyPaths()
-
-In the previous section we described how the `verifyPathConstraints()` function calls the `verifyPath()` function from `ContractUtils`. In this section you can see how `verifyPath()` works. You can also see the implementation of `VerifyPaths` in the [cdl-example](https://github.com/corda/cdl-example) code repo.
-
-This diagram shows an example of an implementation of `VerifyPaths`:
+This diagram shows an example of an implementation of `VerifyPath`:
 
 {{< figure zoom="../resources/cdl-contractutils-verifypath-simple.png" width="800" title="Click to zoom image in new tab/window" >}}
 

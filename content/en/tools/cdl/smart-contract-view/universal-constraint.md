@@ -2,22 +2,17 @@
 title: Universal constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-universal-constraints"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-universal-constraints
+    name: Universal constraints
     weight: 120
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- universal constraints
+title: Universal constraints
 ---
 
-# Universal Constraints
+# Universal constraints
 
-Universal Constraints are constraints over the Primary state which must be satisfied irrespective of the status of the Primary state.
+Universal constraints are constraints over the Primary state which must be satisfied irrespective of the status of the Primary state.
 
 They are shown as a rounded box in the top left corner of the diagram:
 

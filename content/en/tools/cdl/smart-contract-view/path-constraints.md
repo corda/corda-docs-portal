@@ -2,20 +2,15 @@
 title: Path constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-path-constraints"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-path-constraints
+    name: Path constraints
     weight: 90
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- path constraints
+title: Path constraints
 ---
 
-# Paths Constraints
+# Paths constraints
 
 Once you have defined the statuses, you need to articulate how the Smart Contract can transition between those statuses. You can do this by defining Path constraints.
 

@@ -2,16 +2,12 @@
 title: Ledger Evolution View
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-views"
-    identifier: "cdl-ledger-evolution-view"
+  tools:
+    parent: cdl-views
+    identifier: cdl-ledger-evolution-view
+    name: Ledger Evolution View
     weight: 14
-
-tags:
-- cdl
-- cordapp design language
-- ledger evolution
-- cordapp diagram
+title: Ledger Evolution View
 ---
 
 # CDL - Ledger Evolution View

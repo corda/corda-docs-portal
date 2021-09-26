@@ -2,17 +2,12 @@
 title: Corda transactions
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-bpmn-view"
-    identifier: "cdl-bpmn-view-corda-transactions"
+  tools:
+    parent: cdl-bpmn-view
+    identifier: cdl-bpmn-view-corda-transactions
+    name: Corda transactions
     weight: 30
-
-tags:
-- cdl
-- cordapp design language
-- business process modelling notation
-- bpmn
-- cordapp diagram
+title: Corda transactions
 ---
 
 # Corda Transactions

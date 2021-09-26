@@ -2,16 +2,12 @@
 title: Keep it structured
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-to-code"
-    identifier: "cdl-contract-to-code-keep-it-structured"
+  tools:
+    parent: cdl-to-code
+    identifier: cdl-contract-to-code-keep-it-structured
+    name: Keep it structured
     weight: 10
-
-tags:
-- cdl
-- cordapp design language
-- contract to code
-- cordapp diagram
+title: Keep it structured
 ---
 
 # Keep It Structured

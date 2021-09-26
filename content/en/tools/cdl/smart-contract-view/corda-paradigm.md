@@ -2,19 +2,13 @@
 title: The Corda paradigm
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-corda-paradigm"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-corda-paradigm
+    name: The Corda paradigm
     weight: 40
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- corda paradigm
+title: The Corda paradigm
 ---
-
 
 
 # The Corda Paradigm

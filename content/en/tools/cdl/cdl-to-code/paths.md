@@ -2,16 +2,12 @@
 title: Paths
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-to-code"
-    identifier: "cdl-to-code-paths"
+  tools:
+    parent: cdl-to-code
+    identifier: cdl-to-code-paths
+    name: Paths
     weight: 100
-
-tags:
-- cdl
-- cordapp design language
-- contract to code
-- cordapp diagram
+title: Paths
 ---
 
 

@@ -1,20 +1,16 @@
 ---
-title: Transactions, commands and signers
+title: Transactions, commands, and signers
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-ledger-evolution-view"
-    identifier: "cdl-ledger-evolution-view-transactions-commands-signers"
+  tools:
+    parent: cdl-ledger-evolution-view
+    identifier: cdl-ledger-evolution-view-transactions-commands-signers
+    name: Transactions, commands, and signers
     weight: 20
-
-tags:
-- cdl
-- cordapp design language
-- ledger evolution
-- cordapp diagram
+title: Transactions, commands, and signers
 ---
 
-# Transactions, Commands and Signers
+# Transactions, commands, and signers
 
 You can represent a transaction as a layered box. In this example:
 

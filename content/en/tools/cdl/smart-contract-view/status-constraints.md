@@ -2,22 +2,18 @@
 title: Status constraints
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-status-constraints"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-status-constraints
+    name: Status constraints
     weight: 130
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- status constraints
+title: Status constraints
 ---
 
-# Status Constraints
 
-Status Constraints are constraints over the Primary state when it is a particular status.
+# Status constraints
+
+Status constraints are constraints over the Primary state when it is a particular status.
 
 They are shown as a rounded box under the status state box to which the constraints apply:
 

@@ -2,17 +2,12 @@
 title: Modelling with statuses
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-modelling-using-statuses"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-modelling-using-statuses
+    name: Modelling with statuses
     weight: 50
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- statuses
+title: Modelling with statuses
 ---
 
 # Modelling using Statuses

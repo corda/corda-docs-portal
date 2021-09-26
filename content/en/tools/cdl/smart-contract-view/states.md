@@ -2,17 +2,12 @@
 title: States
 date: 2020-10-15T00:00:00+01:00
 menu:
-  cdl:
-    parent: "cdl-smart-contract-view"
-    identifier: "cdl-smart-contract-view-states"
+  tools:
+    parent: cdl-smart-contract-view
+    identifier: cdl-smart-contract-view-states
+    name: States
     weight: 70
-
-tags:
-- cdl
-- cordapp design language
-- smart contract
-- cordapp diagram
-- states
+title: States
 ---
 
 # States
