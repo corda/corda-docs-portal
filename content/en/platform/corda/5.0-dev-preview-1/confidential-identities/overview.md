@@ -15,7 +15,7 @@ Confidential identities are key pairs where the corresponding X.509 certificate 
 
 Where using outputs from a previous transaction in a new transaction, counterparties may need to know who the involved parties are. If confidential identities are being used, the buyer will want to ensure that the asset being transferred is owned by the seller, and the seller will likewise want to ensure that the cash being transferred is owned by the buyer. Verifying this requires both nodes to have a copy of the confidential identities for the asset and cash input states. `SyncKeyMappingFlow` manages this process. It takes as inputs a transaction and a counter-party session, and for every confidential identity involved in that transaction for which the calling node holds the certificate path, it sends this certificate path to the counter-party. Alternatively, instead of taking a transaction as an input, a list of confidential identities to sync can be given as input.
 
-For convenience, these two flows have initiating flows available in `com.r3.corda.lib.ci.workflows.InitiatingFlows` which can be called as sub-flows instead of initiating sessions in a custom flow.
+For convenience, these two flows have initiating flows available in `com.r3.corda.lib.ci.workflows.InitiatingFlows` which can be called as subflows instead of initiating sessions in a custom flow.
 
 ## About this version
 
