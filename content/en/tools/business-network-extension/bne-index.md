@@ -3,22 +3,18 @@ date: '2021-04-24T00:00:00Z'
 section_menu: tools
 menu:
   tools:
-    name: Business network extension
-    weight: 500
+    name: Business Network membership extension
+    weight: 300
     identifier: tools-bne
-title: Business network extension
+title: Business Network membership extension
 ---
 
-# Business network extension
+# The Corda Business Network membership extension
 
-This page is the beginning of the documentation for Accounts. There is much more but I've not moved it over yet.
+This Corda platform extension allows you to create and manage business networks - as a node operator, this means you can define and create a logical network based on a set of common CorDapps as well as a shared business context.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac velit interdum, ornare turpis ac, egestas magna. Nam ut nunc fermentum erat imperdiet maximus. Nulla eget nibh ac nisl sagittis lacinia et sit amet mauris. Fusce et vehicula leo. Phasellus iaculis nulla in ante posuere maximus. Aenean in nisl tempus, condimentum ipsum et, scelerisque quam. Vestibulum nibh justo, congue at est in, viverra congue ante.
+Corda nodes outside of your business network are not aware of its members. The network can be split into subgroups or membership lists which allows for further privacy (members of a group only know about those in their group).
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultricies, erat quis feugiat pulvinar, neque leo ultricies tellus, vel maximus tellus lectus quis turpis. Nulla eleifend nulla velit, vel scelerisque nulla egestas sit amet. Donec et leo eget ipsum ultricies blandit sed faucibus arcu. Maecenas ultrices porta lacus, ut ultricies velit semper non. Curabitur nulla orci, ullamcorper sit amet pulvinar sit amet, posuere a arcu. Nullam sagittis laoreet feugiat. Integer vehicula eros quis sapien convallis suscipit.
+In a business network, there is at least one authorized member. This member has sufficient permissions to execute management operations over the network and its members.
 
-Quisque mi metus, tincidunt sit amet justo quis, blandit rutrum ante. Integer a pharetra mauris. Aenean sit amet nunc ex. Duis auctor pellentesque nisi non cursus. Nunc facilisis justo nec felis placerat varius. In sed dui lacinia, euismod mauris eget, ultrices libero. Nunc dignissim nulla risus. Morbi posuere arcu et ligula euismod tempus. Curabitur nisi mi, scelerisque nec erat sit amet, luctus iaculis risus. Morbi eget imperdiet nulla.
-
-Nullam lacus risus, volutpat id cursus id, hendrerit ut eros. Nullam fermentum tristique turpis ut convallis. Etiam in convallis nibh, in convallis ante. Ut nunc est, rutrum lacinia iaculis nec, bibendum at orci. Nulla posuere magna ac euismod aliquet. Nullam quis eros id nulla interdum rutrum eget a mi. Cras vestibulum libero a risus posuere facilisis.
-
-Suspendisse consequat iaculis urna ut semper. Mauris vel tellus a augue volutpat pellentesque ut in libero. Vivamus ligula turpis, fringilla eu tincidunt nec, accumsan pulvinar nisi. Vestibulum elementum libero ut neque euismod facilisis. Morbi eu interdum magna. Nullam ac molestie purus, ut pellentesque est. Suspendisse dignissim dolor eu nisi commodo aliquet. Vestibulum in imperdiet elit.
+Read the full documentation about the [Corda Business Network membership management extension](../../../en/platform/corda/4.8/open-source/business-network-membership.md).

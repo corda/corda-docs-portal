@@ -11,14 +11,15 @@ title: Corda Accounts Library
 
 # Corda Accounts Library
 
-This page is the beginning of the documentation for Accounts. There is much more but I've not moved it over yet.
+In the context of Corda, the Corda Accounts Library allows a Corda node to partition the vault — a collection of state objects — into a number of subsets, where each subset represents an account. In other words, the Corda Accounts Library allows a Corda node operator to split the vault into multiple "logical" sub-vaults. This is advantageous for a couple of reasons:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac velit interdum, ornare turpis ac, egestas magna. Nam ut nunc fermentum erat imperdiet maximus. Nulla eget nibh ac nisl sagittis lacinia et sit amet mauris. Fusce et vehicula leo. Phasellus iaculis nulla in ante posuere maximus. Aenean in nisl tempus, condimentum ipsum et, scelerisque quam. Vestibulum nibh justo, congue at est in, viverra congue ante.
+1. Node operators can reduce costs by hosting multiple entities, as accounts, on one node.
+2. Node operators can partition the vault on a per-entity basis.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultricies, erat quis feugiat pulvinar, neque leo ultricies tellus, vel maximus tellus lectus quis turpis. Nulla eleifend nulla velit, vel scelerisque nulla egestas sit amet. Donec et leo eget ipsum ultricies blandit sed faucibus arcu. Maecenas ultrices porta lacus, ut ultricies velit semper non. Curabitur nulla orci, ullamcorper sit amet pulvinar sit amet, posuere a arcu. Nullam sagittis laoreet feugiat. Integer vehicula eros quis sapien convallis suscipit.
+Accounts are created by host nodes, which are just regular Corda nodes. Hosts can create accounts for a range of purposes, such as customer accounts, balance sheets or P&L accounts, employee accounts, and so on.
 
-Quisque mi metus, tincidunt sit amet justo quis, blandit rutrum ante. Integer a pharetra mauris. Aenean sit amet nunc ex. Duis auctor pellentesque nisi non cursus. Nunc facilisis justo nec felis placerat varius. In sed dui lacinia, euismod mauris eget, ultrices libero. Nunc dignissim nulla risus. Morbi posuere arcu et ligula euismod tempus. Curabitur nisi mi, scelerisque nec erat sit amet, luctus iaculis risus. Morbi eget imperdiet nulla.
+The Corda Accounts Library takes the form of a `.jar` file, which can be dropped into the CorDapps directory. It is optional to use - some nodes will support accounts but others will not. This functionality is intentional, as not all nodes will need to support accounts and the optional nature of accounts reduces the learning curve for new CorDapp developers.
 
-Nullam lacus risus, volutpat id cursus id, hendrerit ut eros. Nullam fermentum tristique turpis ut convallis. Etiam in convallis nibh, in convallis ante. Ut nunc est, rutrum lacinia iaculis nec, bibendum at orci. Nulla posuere magna ac euismod aliquet. Nullam quis eros id nulla interdum rutrum eget a mi. Cras vestibulum libero a risus posuere facilisis.
+You can access the Corda Accounts Library from the [https://github.com/corda/accounts](https://github.com/corda/accounts) public repository.
 
-Suspendisse consequat iaculis urna ut semper. Mauris vel tellus a augue volutpat pellentesque ut in libero. Vivamus ligula turpis, fringilla eu tincidunt nec, accumsan pulvinar nisi. Vestibulum elementum libero ut neque euismod facilisis. Morbi eu interdum magna. Nullam ac molestie purus, ut pellentesque est. Suspendisse dignissim dolor eu nisi commodo aliquet. Vestibulum in imperdiet elit.
+To learn how to install and use the Corda Accounts Library, check out the [readme](https://github.com/corda/accounts/blob/master/README.md) and [docs](https://github.com/corda/accounts/blob/master/docs.md) repo pages.
