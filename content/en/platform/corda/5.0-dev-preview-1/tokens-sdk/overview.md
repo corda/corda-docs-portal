@@ -48,9 +48,6 @@ git fetch
 git checkout origin release/2.0
 ```
 
-{{< note >}}
-Checkout the version of Corda you wish to install. In the example above `release/2.0` is used.
-{{< /note >}}
 
 Then run `./gradlew clean install` from the root directory.
 
@@ -70,7 +67,7 @@ wish to use. Set the Corda version to the one you have installed locally:
     }
 ```
 
-2.  Add the tokens development artifactory repository to the
+2.  Add the tokens' development artifactory repository to the
 list of repositories for your project:
 
 ```
@@ -145,7 +142,7 @@ Use the list below to understand what needs to be included in the token you want
 
 Once you have established what type of token you want to create, you can use the Tokens SDK to perform the following key tasks:
 
-* **Define** your token. Using the readymade utilities contained in the contract `.cpk` file, you can define all the required attributes and custom attributes of your tokens.
+* **Define** your token. Using the ready-made utilities contained in the contract `.cpk` file, you can define all the required attributes and custom attributes of your tokens.
 
 * **Issue** tokens onto your ledger so they can be used as part of a transaction.
 
@@ -174,10 +171,10 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 * Define the evolvable attributes that can change over time.
 * Identify at least one signatory service that can approve the newly evolved state. This is called a `Maintainer`.
 
-In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](token-diamond-example) for a fuller picture.
+In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](tokens-diamond-example.md) for a fuller picture.
 
 ```kotlin
-/** Creating an evolveable TokenType */
+/** Creating an evolvable TokenType */
 @BelongsToContract(DiamondGradingReportContract::class)
 data class DiamondGradingReport(
         val caratWeight: BigDecimal,
@@ -329,7 +326,7 @@ val myBaseBallCardToken: NonFungibleToken = NonFungibleToken(
 You can use the Tokens SDK to create flows for your tokens in the following ways:
 
 * **Utility methods** - methods by which you can compose your own flows.
-* **Subflows** - ready made processes that need to be initiated by another flow.
+* **Subflows** - ready-made processes that need to be initiated by another flow.
 * **RPC Enabled flows** - out-of-the-box flows that have been produced for testing purposes. These may not be suitable for commercial use.
 
 {{< attention >}}
@@ -782,7 +779,7 @@ fun addTokensToRedeem(
 
 Redeem an amount of a token issued by `issuer`. Pay possible change to the `changeHolder` - this can be a confidential identity.
 
-You can provide additional post processing filter for queries by using `tokenQueryBy`.
+You can provide additional post-processing filter for queries by using `tokenQueryBy`.
 
 
 ```kotlin
@@ -855,7 +852,7 @@ Use these ready-made subflows to issue, move and redeem tokens. These flows are 
 ### Issue fungible or non-fungible tokens
 
 
-Use this flow to issue fungible or non-fungible tokens. It should be called as an in-line sub-flow, so you must have flow `participantSessions` set up prior to calling this flow.
+Use this flow to issue fungible or non-fungible tokens. It should be called as an in-line subflow, so you must have flow `participantSessions` set up prior to calling this flow.
 
 Tokens are usually constructed before calling this flow. This flow is to be used in conjunction with the `IssueTokensFlowHandler`.
 
@@ -875,7 +872,7 @@ Key points:
 * This flow supports issuing many tokens to a single or multiple parties, of the same or different types of tokens.
 * Transaction observers can be specified.
 * Observers can also be specified.
-* This flow supports the issuance of fungible and non fungible tokens in the same transaction.
+* This flow supports the issuance of fungible and non-fungible tokens in the same transaction.
 * The notary is selected from a config file or picked at random if no notary preference is available.
 * This is not an initiating flow. There will also be an initiating version which is startable from the rpc.
 
@@ -988,7 +985,7 @@ Properties in this flow:
 
  * `transactionStates` - a list of state to create evolvable token types with.
  * `participantSessions` - a list of sessions for participants in the evolvable token types.
- * `observerSessions` - a list of sessions for any observers to the create observable token transaction.
+ * `observerSessions` - a list of sessions for any observers to create observable token transaction.
 ```
 package com.r3.corda.lib.tokens.workflows.flows.evolvable
 import com.r3.corda.lib.tokens.contracts.states.EvolvableTokenType
@@ -1064,7 +1061,7 @@ class CreateEvolvableTokensFlow (
         val ptx: SignedTransaction = transactionBuilder.sign()
 
         // Gather signatures from other maintainers
-        // Check that we have sessions with all maitainers but not with ourselves
+        // Check that we have sessions with all maintainers but not with ourselves
         val otherMaintainerSessions =
             participantSessions.filter { it.counterparty in evolvableTokens.otherMaintainers(flowIdentity.ourIdentity) }
         otherMaintainerSessions.forEach { it.send(Notification(signatureRequired = true)) }
@@ -1121,7 +1118,7 @@ Properties in this flow:
  * `oldStateAndRef` - the existing evolvable token type to update.
  * `newState` - the new version of the evolvable token type.
  * `participantSessions` - a list of sessions for participants in the evolvable token types.
- * `observerSessions` - a list of sessions for any observers to the create observable token transaction.
+ * `observerSessions` - a list of sessions for any observers to create observable token transaction.
 
 ```
 package com.r3.corda.lib.tokens.workflows.flows.evolvable
@@ -1339,11 +1336,11 @@ class ConfidentialMoveTokensFlowHandler(val otherSession: FlowSession) : Flow<Un
 
 Use this general in-lined flow to redeem any type of tokens with the issuer.
 
-The flow must be be called on tokens owner's side.
+The flow must be called on the tokens owner's side.
 
-You can see in the flow below that token selection and change output generation should be done beforehand. This flow builds a transaction containing those states, but all checks should have be done before calling this flow as a subflow.
+You can see in the flow below that token selection and change output generation should be done beforehand. This flow builds a transaction containing those states, but all checks should be done before calling this flow as a subflow.
 
-You can can only call this flow for one `TokenType` at a time. To handle multiple token types in one transaction, you must create a new flow, calling `addTokensToRedeem` for each token type.
+You can only call this flow for one `TokenType` at a time. To handle multiple token types in one transaction, you must create a new flow, calling `addTokensToRedeem` for each token type.
 
 Parameters in this flow:
 
@@ -1393,7 +1390,7 @@ Parameters in this flow:
 
  * `amount` - amount of token to redeem.
  * `issuerSession` - session with the issuer tokens should be redeemed with.
- * `observerSessions` - optional sessions with the observer nodes, to witch the transaction will be broadcasted.
+ * `observerSessions` - optional sessions with the observer nodes, to which the transaction will be broadcast.
  * `customPostProcessorName` - name of custom query post processor for token selection
  * `changeHolder` - optional change key, if using accounts you should generate the change key prior to calling this flow then pass it in to the flow via this parameter.
 

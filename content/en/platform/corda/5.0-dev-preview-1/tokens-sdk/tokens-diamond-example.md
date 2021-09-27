@@ -208,7 +208,7 @@ assertHasDiamondReport(publishedDiamondProperties, publishedDiamond.linearId, al
 assertNotHasDiamondReport(publishedDiamondProperties, publishedDiamond.linearId, gic, denise, bob, caroline)
 ```
 
-No party has nonfungible (discrete) tokens:
+No party has non-fungible (discrete) tokens:
 
 ``` kotlin
 // No one has nonfungible (discrete) tokens

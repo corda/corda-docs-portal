@@ -31,7 +31,7 @@ Corda is a trust technology platform. You can use it to build verified blockchai
 This is a developer preview of Corda's next major iteration, Corda 5. Here, you can experiment with three key aspects of Corda 5:
 
 * A modular API structure. This lets you [build applications to use on Corda (CorDapps) and test them efficiently](tutorials/overview.html).
-* A HTTPS API, based on Open API principles, that allows you [control nodes, and initiate flows remotely](nodes/overview.html).
+* An HTTPS API, based on Open API principles, that allows you [control nodes, and initiate flows remotely](nodes/overview.html).
 * Package your CordApps with a new Gradle plugin that allows for multi-tenancy applications in future releases.
 
 {{< note >}}

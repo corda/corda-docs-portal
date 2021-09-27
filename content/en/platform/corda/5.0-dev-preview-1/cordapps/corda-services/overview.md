@@ -31,14 +31,14 @@ This injection is intended for use within custom CorDapp classes instantiated by
 For a complete overview of each Corda Service and its methods, use the [Corda 5 Developer Preview list of injectable services](injectable-services.md).
 
 {{< note >}}
-The best way to learn how to use Corda Services in the Corda 5 Developer Preview, is to follow the [Build a CorDapp tutorial](../tutorials/building-cordapp/overview.html).
+The best way to learn how to use Corda Services in the Corda 5 Developer Preview, is to follow the [Build a CorDapp tutorial](../../tutorials/building-cordapp/overview.html).
 {{< /note >}}
 
 ## Make a service injectable
 
 In order to make a service injectable, it must first implement one or both of the injection interfaces:
-* CordaFlowInjectable
-* CordaServiceInjectable
+* `CordaFlowInjectable`
+* `CordaServiceInjectable`
 
 These are empty interface used to indicate that a service can be injected, and where it can be injected. Implementing CordaFlowInjectable will allow for injection into a Flow, and CordaServiceInjectable will allow for injection in to a Corda service or notary service.
 
