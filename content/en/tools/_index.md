@@ -20,7 +20,7 @@ Learn how to use various tools and add-ons to help you with Corda operations and
 * [CorDapp Design Language (CDL)](../en/tools/cdl/cdl-index.md)
 * [Tokens SDK](../en/tools/tokens-sdk/tokens-sdk-index.md)
 * [Corda Accounts Library](../en/tools/accounts/accounts-index.md)
-* [Business network extension](../en/tools/business-network-extension/bne-index.md)
+* [Corda Business network membership extension](../en/tools/business-network-extension/bne-index.md)
 * [Node management console](../en/tools/node-management-console/nmc-index.md)
 * [Flow management console]((../en/tools/flow-management-console/fmc-index.md))
 * [The Archive Service](../en/tools/archiving-service/archiving-service-index.md)

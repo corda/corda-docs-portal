@@ -11,14 +11,10 @@ title: Collaborative Recovery
 
 # Collaborative Recovery
 
-This page is the beginning of the documentation for Accounts. There is much more but I've not moved it over yet.
+Collaborative Recovery is a secure, privacy-oriented solution that helps you identify and retrieve data if you ever encounter a disaster recovery (DR) scenario on your Business Network.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac velit interdum, ornare turpis ac, egestas magna. Nam ut nunc fermentum erat imperdiet maximus. Nulla eget nibh ac nisl sagittis lacinia et sit amet mauris. Fusce et vehicula leo. Phasellus iaculis nulla in ante posuere maximus. Aenean in nisl tempus, condimentum ipsum et, scelerisque quam. Vestibulum nibh justo, congue at est in, viverra congue ante.
+Once you have installed the Collaborative Recovery CorDapps, you can safely use Collaborative Recovery to detect potential ledger inconsistencies and recover any missing data from parties you have transacted with. Designed to ensure the continued security and privacy of Corda, this feature runs in the background, acting as an additional layer of security when using Corda.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultricies, erat quis feugiat pulvinar, neque leo ultricies tellus, vel maximus tellus lectus quis turpis. Nulla eleifend nulla velit, vel scelerisque nulla egestas sit amet. Donec et leo eget ipsum ultricies blandit sed faucibus arcu. Maecenas ultrices porta lacus, ut ultricies velit semper non. Curabitur nulla orci, ullamcorper sit amet pulvinar sit amet, posuere a arcu. Nullam sagittis laoreet feugiat. Integer vehicula eros quis sapien convallis suscipit.
+As the name suggests, this is a collaborative method for recovering data. For maximum peace of mind, you should seek agreement across your Business Network to make this feature part of the overall disaster recovery policy.
 
-Quisque mi metus, tincidunt sit amet justo quis, blandit rutrum ante. Integer a pharetra mauris. Aenean sit amet nunc ex. Duis auctor pellentesque nisi non cursus. Nunc facilisis justo nec felis placerat varius. In sed dui lacinia, euismod mauris eget, ultrices libero. Nunc dignissim nulla risus. Morbi posuere arcu et ligula euismod tempus. Curabitur nisi mi, scelerisque nec erat sit amet, luctus iaculis risus. Morbi eget imperdiet nulla.
-
-Nullam lacus risus, volutpat id cursus id, hendrerit ut eros. Nullam fermentum tristique turpis ut convallis. Etiam in convallis nibh, in convallis ante. Ut nunc est, rutrum lacinia iaculis nec, bibendum at orci. Nulla posuere magna ac euismod aliquet. Nullam quis eros id nulla interdum rutrum eget a mi. Cras vestibulum libero a risus posuere facilisis.
-
-Suspendisse consequat iaculis urna ut semper. Mauris vel tellus a augue volutpat pellentesque ut in libero. Vivamus ligula turpis, fringilla eu tincidunt nec, accumsan pulvinar nisi. Vestibulum elementum libero ut neque euismod facilisis. Morbi eu interdum magna. Nullam ac molestie purus, ut pellentesque est. Suspendisse dignissim dolor eu nisi commodo aliquet. Vestibulum in imperdiet elit.
+Read the full documentation about the Collaborative Recovery solution [here](../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/introduction-cr.md).
