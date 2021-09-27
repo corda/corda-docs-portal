@@ -17,15 +17,15 @@ title: Run your CorDapp
 
 ## Learning objectives
 
-After you have completed this tutorial, you will know how to deploy, launch, and interact with the CorDapp that you built when following the previous tutorials.
+After you have completed this tutorial, you will know how to deploy, launch, and interact with the CorDapp that you built by following the previous tutorials.
 
 The Corda network needed for this CorDapp includes one notary and two nodes, each representing a party in the network - Farmer Bob and Peter. A Corda node is an individual instance of Corda representing one party in a network.
 
-Deploy and run your CorDapp on the following test nodes:
+Deploy and run your CorDapp on the test nodes:
 
-* Notary, which runs a notary service
-* PartyA
-* PartyB
+* `Notary`, which runs a notary service.
+* `PartyA`.
+* `PartyB`.
 
 ## Deploy the CorDapp locally
 
@@ -33,18 +33,18 @@ Deploy and run your CorDapp on the following test nodes:
 
 2. Compile your code into a Java application by running the `deployNodes` Gradle task:
 
-* Unix/Mac OSX: `./gradlew clean deployNodes`
-* Windows: `gradlew.bat clean deployNodes`
+* Unix/Mac OSX: `./gradlew clean deployNodes`.
+* Windows: `gradlew.bat clean deployNodes`.
 
 This builds three nodes with the CorDapp installed on them.
 
-3. When the build finishes, go to the `workflows-java/build/nodes` or `workflows-kotlin/build/nodes` folder.
+3. When the build finishes, go to the `build/nodes` folder.
 
-You will see the following output:
+You will see:
 
 * A folder for each generated node
-* A `runnodes` shell script for running all the nodes simultaneously on OSX
-* A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
+* A `runnodes` shell script for running all the nodes simultaneously on MacOS.
+* A `runnodes.bat` batch file for running all the nodes simultaneously on Windows.
 
 {{< note >}}
 
@@ -55,28 +55,15 @@ You will see the following output:
 
 ## Launch the sample CorDapp
 
-To start the nodes and the sample CorDapp:
+To start the nodes and the sample CorDapp, run the command that corresponds to your operating system:
 
-1. Run the command that corresponds to your operating system:
+* Unix/Mac OSX: `./build/nodes/runnodes`.
+* Windows: `.\build\nodes\runnodes.bat`.
 
-* Unix/Mac OSX: `./build/nodes/runnodes`
-* Windows: `.\build\nodes\runnodes.bat`
-
-2. Start a Spring Boot server for Party A. Run the command:
-
-* Unix/Mac OSX: `./gradlew runPartyAServer`
-* Windows: `gradlew.bat runPartyAServer`
-
-Look for the `Started Server in X seconds` message — don’t rely on the % indicator.
-
-3. Repeat the command to start the server for Party B:
-
-* Unix/Mac OSX: `./gradlew runPartyBServer`
-* Windows: `gradlew.bat runPartyBServer`
 
 {{< note >}}
 
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window.
+On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window.
 
 {{< /note >}}
 
@@ -91,13 +78,13 @@ Follow the instructions in this section to interact with your CorDapp as Farmer 
 
 In this first part of the process, Farmer Bob creates and issues a voucher to Peter for the apples he wishes to buy. He includes a description of the apples Peter requested (`Fuji4072`) and indicates that Peter is the holder of this new `AppleStamp`.
 
-1. Go to the `PartyA` node window and run the following command:
+1. Go to the `PartyA` node window and run the command:
 
 `flow start CreateAndIssueAppleStampInitiator stampDescription: Fuji4072, holder: PartyB`
 
 This issues the `AppleStamp` to Peter. Farmer Bob and Peter both will have a copy of the `AppleStamp` voucher in their vaults.
 
-2. Pull the data from the vault to verify if your transaction is performed correctly. Run the following command on both PartyA and PartyB nodes:
+2. Pull the data from the vault to verify if your transaction is performed correctly. Run the following command on both `PartyA` and `PartyB` nodes:
 
 `run vaultQuery contractStateType: com.tutorial.states.AppleStamp`
 
@@ -107,7 +94,7 @@ You should see the same information in both vaults.
 
 Next, Farmer Bob prepares the amount of apples Peter requested by self-issuing a `BasketofApples` state.
 
-1. Go to the `PartyA` node window and run the following command:
+1. Go to the `PartyA` node window and run the command:
 
 `flow start PackApplesInitiator appleDescription: Fuji10472, weight: 10`
 
@@ -123,7 +110,7 @@ Finally, Peter goes to the orchard to pick up his apples and redeems his voucher
 
 1. Go to the `PartyA` node window and run this command:
 
-`flow start RedeemApplesInitiator buyer: PartyB, stampId: <voucher ID present in the both parties' vaults>`
+`flow start RedeemApplesInitiator buyer: PartyB, stampId: <voucher ID of the voucher that you created in step 1>`
 
 2. Now you can query `PartyB` again to verify if they redeemed their `AppleStamp` voucher correctly:
 
