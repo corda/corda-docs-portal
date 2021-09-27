@@ -27,4 +27,4 @@ Read the full documentation about Tokens SDK V1.2.2 [here](../../../en/platform/
 
 ## Tokens SDK V2.0
 
-Read the full documentation about Tokens SDK V2.0 [here](../../../en/platform/corda/5.0-dev-preview-1/tokens-sdk/overview.md).
+Read the full documentation about [Tokens SDK V2.0](../../../en/platform/corda/5.0-dev-preview-1/tokens-sdk/overview.md).

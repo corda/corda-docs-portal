@@ -19,4 +19,4 @@ LedgerGraph enables other CorDapps, such as the set of Collaborative Recovery Co
 LedgerGraph is a dependency for the set of [Collaborative Recovery](../../collaborative-recovery/ci-index.md) CorDapps V1.1 and above. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
 {{< /warning >}}
 
-Read the full documentation about LedgerGraph [here](../../../en/platform/corda/4.8/enterprise/node/operating/ledger-graph.md).
+Read the full documentation about [LedgerGraph](../../../en/platform/corda/4.8/enterprise/node/operating/ledger-graph.md).

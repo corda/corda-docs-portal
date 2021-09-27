@@ -27,7 +27,7 @@ R3’s flagship conference is back—and this year it's hybrid!
 
 This year's theme is **Digital trust, delivered**. CordaCon 2021 will focus on the benefits of trust technology, and approaches to connecting networks and ecosystems in regulated markets.
 
-Head over to the <a href="https://www.cordacon.com/" target="_blank">CordaCon 2021 website</a>  to register and view the agenda!.
+Head over to the <a href="https://www.cordacon.com/" target="_blank">CordaCon 2021 website</a>  to register and view the agenda!
 
 ## The docs have a new home
 
@@ -40,14 +40,14 @@ Welcome to the palace of Corda knowledge - the single source of truth for everyt
 Alongside the brand new site design and the user experience perks it brings, we have made a few more significant changes in the background. To name a few:
 
 * We have massively refactored the entire documentation sets for Corda 4.8 (open source), Corda Enterprise 4.8, and Corda Enterprise Network Manager (CENM) 1.5! The work on this project will continue for a little longer in the next few months, however we truly hope that this content is now more readable, better structured, and overall much more useful and easier to follow than before.
-* We have brought over the complete API documentation reference content to [doc.r3.com](https://docs.r3.com/en/api-ref.html), and we have added the Corda 5 Developer Preview public API reference too.
+* We have brought over the complete API documentation reference content to [docs.r3.com](https://docs.r3.com/en/api-ref.html), and we have added the Corda 5 Developer Preview public API reference too.
 * In the near future we are planning to improve the Conclave documentation content and migrate it to [doc.r3.com](https://docs.r3.com).
 * We have added **dark mode** to the docs - just click the icon at the top right corner of any docs page!
 * We plan to expand the scope of the content we pubish on [doc.r3.com](https://docs.r3.com). In the upcoming year, we will be bringing you more useful tutorials, enriched and improved content based on your feedback and our own user research and analytics, and more interactive learning paths to support the main documentation.
 
 Tell us what you think about the docs and the new site on <a href="https://cordaledger.slack.com/archives/C01Q3RQ7E8M">slack</a> and <a href="mailto:corda-docs@r3.com">over email</a>.
 
-## Corda 5 Developer Preview is here!
+## The Corda 5 Developer Preview is here!
 
 **28th September 2021**
 

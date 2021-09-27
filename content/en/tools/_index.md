@@ -15,7 +15,7 @@ title: Tools and add-ons
 
 # Tools and add-ons
 
-Learn how to use various tools and add-ons to help you with Corda operations and CorDapp design and development: Tokens SDK, Accounts Library, CorDapp Design Language, node & flow management consoles, and more.
+Learn how to use various tools and add-ons to help you with Corda operations and CorDapp design and development: 
 
 * [CorDapp Design Language (CDL)](../en/tools/cdl/cdl-index.md)
 * [Tokens SDK](../en/tools/tokens-sdk/tokens-sdk-index.md)

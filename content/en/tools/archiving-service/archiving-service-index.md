@@ -17,10 +17,10 @@ You can use Archive service commands to mark archivable items in your vault, arc
 
 The Archive Service consists of the following:
 
-* **Archive Service CorDapp** - which contains the necessary flows to mark and archive transactions.
-* **Archive Service Client Library** - which provides programmatic access to the archive service, and exposes relevant APIs.
-* **Archive Service Command-Line Interface** - which allows you to perform archiving tasks from the command line.
+* **Archive Service CorDapp** - Contains the necessary flows to mark and archive transactions.
+* **Archive Service Client Library** - Provides programmatic access to the archive service, and exposes relevant APIs.
+* **Archive Service Command-Line Interface** - Allows you to perform archiving tasks from the command line.
 
 It also makes use of the Application **Entity Manager**, which allows CorDapps to access off-ledger databases using JPA APIs.
 
-Read the full documentation about The Archive Service [here](../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-setup.md).
+Read the full documentation about [The Archive Service](../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-setup.md).

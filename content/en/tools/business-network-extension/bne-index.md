@@ -15,6 +15,6 @@ This Corda platform extension allows you to create and manage business networks 
 
 Corda nodes outside of your business network are not aware of its members. The network can be split into subgroups or membership lists which allows for further privacy (members of a group only know about those in their group).
 
-In a business network, there is at least one authorised member. This member has sufficient permissions to execute management operations over the network and its members.
+In a business network, there is at least one authorized member. This member has sufficient permissions to execute management operations over the network and its members.
 
-Read the full documentation about the Corda Business Network membership management extension [here](../../../en/platform/corda/4.8/open-source/business-network-membership.md).
+Read the full documentation about the [Corda Business Network membership management extension](../../../en/platform/corda/4.8/open-source/business-network-membership.md).
