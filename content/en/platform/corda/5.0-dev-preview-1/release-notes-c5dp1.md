@@ -43,5 +43,3 @@ This preview is not intended for commercial deployment, so it does not contain t
 
 See the [Corda 5 Developer Preview overview](_index.md) for more details.
 
-## Known issues in the Corda 5 Developer Preview
-* When extending a flow, such as `SignTransactionFlow`, you must use a static class *instead* of an anonymous class. This *only* applies when starting a subflow in Java, where the flow would usually be an anonymous class.
