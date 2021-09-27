@@ -108,6 +108,10 @@ This command inspects the logs every few seconds until all the nodes are ready.
 
 `corda-cli network terminate -n missionmars-network -ry`
 
+{{< warning >}}
+Adding the `-ry` flags resets the network and deletes the CorDapp, meaning that you will have to redeploy the CorDapp the next time you want to run it.
+{{< /warning >}}
+
 
 ## Interact with your CorDapp
 
@@ -232,4 +236,3 @@ You must replace the `voucherID` with `linearId` that you copied and stored in s
   }
 }
 ```
-
