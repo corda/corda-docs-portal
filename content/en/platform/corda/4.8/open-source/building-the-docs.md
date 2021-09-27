@@ -18,10 +18,10 @@ title: Build the documentation
 # Build the docs
 
 The documentation source files are under the `../content` directory in the [corda-docs-portal](https://github.com/corda/corda-docs-portal/)
-repository, and is written in `markdown` format.
+repository, and are written in `markdown` format.
 
 The documentation output in HTML format is generated using [Hugo](https://github.com/gohugoio/hugo/releases). You can build
-and edit the docs locally using npm and a markdown editor.
+and edit the docs locally using `npm` and a `markdown` editor.
 
 ## Build the docs locally
 
@@ -37,7 +37,7 @@ Steps:
    locally with dynamic content refresh - you need to `CTRL-C` and run the build again after you make changes to your content.
    We hope that Hugo will resolve this soon.
 7. Navigate to `https://localhost:1313` to view the locally built documentation.
-8. OPush your changes to GitHub and open a pull request.
+8. Push your changes to GitHub and open a pull request.
 
 
 ## Contribute to documentation updates
@@ -51,12 +51,12 @@ repository, make your changes, and submit a pull request targeting the `main` br
 2. Edit the documentation files in a new branch in your fork.
 3. Commit and push the changes to your fork.
 4. Create a pull request targeting the `main` branch in the upstream repo. Your pull request will be auto-assigned to R3's
-   technical writing team for review.
+   Technical Writing Team for review.
 
 ### Where are the files
 
-The documentation for all released versions of Corda OS, Corda Enterprise, and Corda Enterprise Network Manager (CENM) are
-organised in sub-directories, following the product flavour and then the version.
+The documentation for all released versions of Corda Open Source, Corda Enterprise, Corda Enterprise Network Manager (CENM),
+and the Corda 5 Developer Preview are organized in sub-directories, following the version and then the product flavour.
 
 For example:
 
@@ -111,7 +111,7 @@ make hugo-serve-and-edit
 
 ## Keep your fork in sync with the upstream repo
 
-The best way to keep your fork in sync with the main documentation repository is to add it as the `upstream` repo after
+The best way to keep your fork in sync with the main documentation repository is to add it as the `upstream` repository after
 you create the fork.
 
 ### Add the upstream repo
@@ -120,7 +120,7 @@ To add `upstream`:
 
 ```
 cd <to-your-fork-repo-dir>
-git remote add upstream https://github.com/corda/corda-docs-portal.git
+git remote add upstream git://github.com/corda/corda-docs-portal.git
 ```
 The URL of a remote can be changed using the `git remote set-url` command.
 
