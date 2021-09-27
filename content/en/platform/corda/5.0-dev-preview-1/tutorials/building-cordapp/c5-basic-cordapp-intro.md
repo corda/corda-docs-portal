@@ -6,7 +6,6 @@ menu:
     identifier: corda-5-dev-preview-1-tutorials-building-cordapp
     parent: corda-5-dev-preview-1-tutorials
     weight: 200
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
