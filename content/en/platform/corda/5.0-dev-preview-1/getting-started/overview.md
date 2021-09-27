@@ -43,7 +43,7 @@ To install the Corda 5 Developer Preview:
 2. Install Docker Compose using a shell such as Bash, or Git Bash for Windows.
 
 ### Get the Corda 5 Developer Preview from Maven Central
-3. Get access to [Maven Central](XXX), R3’s artifact management solution.
+3. Get access to [Maven Central](https://repo1.maven.org/maven2/net/corda/corda/5.0.0-DevPreview-1.0/), R3’s artifact management solution.
 
 4. Check that you can access the following repositories:
   * `engineering-tools-maven`
@@ -71,30 +71,4 @@ To install the Corda 5 Developer Preview:
    [operating nodes](../nodes/operating/operating-nodes-homepage.md).
 
 ### Install the Corda 5 Developer Preview versions of the confidential identities project and Tokens SDK (optional)
-9. Update the confidential identities project to build against the new version of Corda.
-
-   GitHub repo: [Corda 5 confidential identities](https://github.com/corda/corda5-confidential-identities), current release branch: `release/2.0`
-
-   To update the confidential identities project to build against the new version of Corda:
-  * Update the Corda dependency in the `gradle.properties` file.
-  * Resolve any compilation issues caused by the changed Corda version. (This is not expected to be a common problem since the Corda 5 API has stabilized.)
-  * Update the image tag used by the e2e test network to use the release image matching the Corda version on which the project
-    now depends.
-
-10. Once the confidential identities build is complete, update the Token SDK project to build against the new version of Corda.
-
-   GitHub repo: [Corda 5 Token SDK](https://github.com/corda/corda5-token-sdk), current release branch: `release/2.0`.
-
-   The Tokens SDK provides you with the fastest and easiest way to create tokens that represent any kind of asset on your
-   network. This asset can be anything you want it to be - conceptual, physical, valuable. You can create a token
-   to represent something outside the network or something that only exists on the ledger - like a Corda-native digital
-   currency.
-   With the SDK, you can define your token and its attributes, then add functionality to a CorDapp so the token can be issued,
-   moved, and redeemed on a ledger.
-
-   To update the Token SDK project:
-  * Update the Corda dependency in the `gradle.properties` file.
-  * Update the confidential identities' dependency in the `gradle.properties` file.
-  * Resolve any compilation issues caused by the changed dependency versions. (This is not expected to be a common problem since the Corda 5 API has stabilized.)
-  * Update the image tag used by the e2e test network and the diamond demo test network to use the release image matching the Corda version on which the project now depends.
-  * There are two Jenkins files to update, one for each network mentioned in the above step.
+9. The confidential identities project and Tokens SDK work with the Corda 5 Developer Preview. To update them, read the installation guides for [the confidential identifies project](../confidential-identities/overview.md#install-the-confidential-identities-sdk) and the [Tokens SDK project](../tokens-sdk/overview.md#install-the-tokens-sdk).
