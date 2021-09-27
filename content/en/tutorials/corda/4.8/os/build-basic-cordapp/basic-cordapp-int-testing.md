@@ -5,7 +5,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-basic-cordapp-int-test
     parent: corda-os-4-8-tutorial-basic-cordapp-intro
-    weight: 1090
+    weight: 1070
 tags:
 - tutorial
 - cordapp

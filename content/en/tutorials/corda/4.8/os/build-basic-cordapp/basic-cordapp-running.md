@@ -1,14 +1,11 @@
 ---
-aliases:
-- /docs/corda-os/4.8/run-your-cordapp.html
-- /docs/platform/corda/4.8/os/tutorial-contract.html
-date: '2021-08-27'
+date: '2021-09-22'
 section_menu: tutorials
 menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-basic-cordapp-running
     parent: corda-os-4-8-tutorial-basic-cordapp-intro
-    weight: 1050
+    weight: 1060
 tags:
 - tutorial
 - cordapp
