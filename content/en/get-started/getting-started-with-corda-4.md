@@ -11,7 +11,10 @@ weight: 400
 # Getting started with Corda 4
 
 The best way to get started with Corda is to:
-1. Decide whether to use [Corda open source or Corda Enterprise](../platform/corda/4.8/enterprise/_index.md#corda-enterprise).
+1. Decide whether you need to use:
+   * Corda Enterprise - the enterprise version of Corda, for which you require a commercial contract with R3.
+   * Corda open source - the open source version of Corda, which you can build on now.
+   Jump to: [Corda](../platform/corda/4.8/open-source/_index.md) or [Corda Enterprise](../platform/corda/4.8/enterprise/_index.md).
 2. Familiarize yourself with the [Corda key concepts](./corda-key-concepts.md).
 3. Run an [example CorDapp](../tutorials/corda/4.8/os/template-tutorial/writing-a-cordapp-using-a-template.md) to see Corda in action.
 4. [Build your own CorDapp](../tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md) from scratch.
