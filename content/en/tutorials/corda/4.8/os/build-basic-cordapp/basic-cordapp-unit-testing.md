@@ -21,8 +21,8 @@ This tutorial guides you through writing unit tests for the states and contracts
 
 You will be creating your unit tests in these directories:
 
-* State tests - `contracts/src/test/java/com/tutorial/contracts`
-* Contract tests - `contracts/src/test/java/com/tutorial/contracts`
+* State tests - `contracts/src/test/java/com/tutorial/contracts`.
+* Contract tests - `contracts/src/test/java/com/tutorial/contracts`.
 
 {{< note >}}
 You cannot create unit tests with flows because they depend on states and contracts to run. Use integration tests to test the functionality of your flows and entire CorDapp. Learn how to create an integration test in the [Write integration tests](basic-cordapp-int-testing.md) tutorial.
@@ -70,9 +70,9 @@ public class StateTests {
 
 Use the template test above to create another class with tests for the parameters from the `AppleStamp` state:
 
-* `stampDesc` - `String`
-* `issuer` - `Party`
-* `holder` - `Party`
+* `stampDesc` - `String`.
+* `issuer` - `Party`.
+* `holder` - `Party`.
 
 ### Check your work
 
@@ -112,7 +112,7 @@ public class StateTests {
 
 ## Write a contract test
 
-In the contract test, you will use a feature called `MockServices` to fake a transaction in order to test the contract code. You include the contract `.jar` with the `MockServices` you create to include everything from the contract folder and perform this test. This means that for the contract test, you need both the state and contract to be created.
+In the contract test, you will use a feature called `MockServices` to fake a transaction in order to test the contract code. You must include the contract `.jar` with the `MockServices` you create. This ensures that everything from the contract folder is available for testing. To run the contract test, you must have both the contracts and states created.
 
 ### Add `MockServices` and `TestIdentity`
 
@@ -266,4 +266,4 @@ public class ContractTests {
 
 ## Next steps
 
-Now that you know how to write unit tests, learn how to [run your CorDapp](XXX) then write [Integration tests](basic-cordapp-int-testing.md).
+Now that you know how to write unit tests, learn how to [run your CorDapp](basic-cordapp-running.md) then write [Integration tests](basic-cordapp-int-testing.md).

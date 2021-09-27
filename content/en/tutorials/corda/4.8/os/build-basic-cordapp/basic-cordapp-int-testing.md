@@ -118,7 +118,7 @@ To verify that the flow test has run and the flow works, you must query the data
 1. Create a query with `VaultQueryCriteria`.
 2. In the `VaultQueryCriteria`, look for a status of `UNCONSUMED` using the `withStatus` method.
 3. Add your query for the `AppleStamp` state. Use the `getServices` and `getVaultService` methods to query node `b`'s vault.
-4. Return a list of states with `getStates` then return the reference of the first of these states with `get(0)`. Return `getState` to get the state then `getData` to extract the data from the state. This gives you an `AppleStamp` object.
+4. Return a list of states with `getStates`, then return the reference of the first of these states with `get(0)`. Return `getState` to get the state, then `getData` to extract the data from the state. This gives you an `AppleStamp` object.
 5. `assert` this `AppleStamp` object to verify that the `stampDesc` matches the example content you entered (`Honey Crisp 4072`).
 
 After you have finished writing the query, your flow test is finished and your code should look like this:
