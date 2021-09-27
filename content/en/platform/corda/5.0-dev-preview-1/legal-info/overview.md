@@ -4,8 +4,8 @@ title: "Third-party software notices and information"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-legal-info-overview
+    parent: corda-5-dev-preview-1-release-notes
     weight: 60
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
