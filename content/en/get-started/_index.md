@@ -13,10 +13,10 @@ title: Get started
 
 # Get started
 
-To get started with an R3 trust technology product, choose from the list below:
+To get started with an R3 trust technology product, choose from:
 
-* Corda and Corda Enterprise - the latest commercially available versions of the Corda Platform.
+* [Corda and Corda Enterprise](getting-started-with-corda-4.md) - the latest commercially available versions of the Corda platform.
 
-* Corda 5 Developer Preview - an early look at Corda 5, the next version of Corda. Use this for local development and building experimental, non-commercial CorDapps.
+* [Corda 5 Developer Preview](getting-started-with-corda-5.md) - an early look at Corda 5, the next version of Corda. Use this for local development and building experimental, non-commercial CorDapps.
 
-* Conclave - R3's new confidential computing solution.
+* [Conclave](https://docs.conclave.net/) - R3's new confidential computing solution.
