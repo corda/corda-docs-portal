@@ -13,6 +13,92 @@ section_menu: corda-5-dev-preview
 
 # Attribution Report for Corda CLI
 
+**Do not translate or localize.**
+
+This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Open Source software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes. R3 LLC reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+
+1. io.opencensus : opencensus-contrib-http-util : 0.24.0
+2. io.fabric8 : kubernetes-model-core : 5.3.1
+3. io.fabric8 : kubernetes-model-common : 5.3.1
+4. commons-lang : commons-lang : 2.6
+5. org.jetbrains.kotlinx : kotlinx-coroutines-core-jvm : 1.4.3
+6. io.fabric8 : kubernetes-model-batch : 5.3.1
+7. io.grpc : grpc-context : 1.22.1
+8. com.google.http-client : google-http-client-apache-v2 : 1.34.0
+9. io.fabric8 : kubernetes-model-discovery : 5.3.1
+10. com.google.guava : failureaccess : 1.0.1
+11. org.apache.httpcomponents : httpcore : 4.4.12
+12. com.google.code.findbugs : jsr305 : 3.0.2
+13. com.google.http-client : google-http-client : 1.34.0
+14. info.picocli : picocli : 4.5.2
+15. io.fabric8 : kubernetes-model-storageclass : 5.3.1
+16. com.google.cloud.tools : jib-core : 0.20.0
+17. org.slf4j : slf4j-simple : 1.7.32
+18. org.jetbrains.kotlin : kotlin-stdlib-jdk8 : 1.4.32
+19. Java(TM) Native Access (JNA)/Java(TM) Native Access jnidispatch 6.1.1
+20. io.fabric8 : kubernetes-model-apps : 5.3.1
+21. io.fabric8 : kubernetes-model-extensions : 5.3.1
+22. org.jetbrains.kotlin : kotlin-stdlib-jdk7 : 1.4.32
+23. net.java.dev.jna : jna : 5.8.0
+24. io.fabric8 : kubernetes-model-autoscaling : 5.3.1
+25. org.bouncycastle : bcpkix-jdk15on : 1.64
+26. org.jetbrains.kotlin : kotlin-stdlib : 1.4.32
+27. org.bouncycastle : bcprov-jdk15on : 1.68
+28. com.google.auth : google-auth-library-oauth2-http : 0.18.0
+29. commons-codec : commons-codec : 1.15
+30. commons-logging : commons-logging : 1.2
+31. org.apache.commons : commons-compress : 1.21
+32. com.fasterxml.jackson.core : jackson-annotations : 2.12.5
+33. com.google.errorprone : error_prone_annotations : 2.5.1
+34. io.fabric8 : kubernetes-model-rbac : 5.3.1
+35. com.github.docker-java : docker-java-api : 3.2.12
+36. io.fabric8 : kubernetes-model-policy : 5.3.1
+37. io.fabric8 : kubernetes-model-apiextensions : 5.3.1
+38. org.checkerframework : checker-qual : 3.8.0
+39. io.fabric8 : kubernetes-model-events : 5.3.1
+40. org.yaml : snakeyaml : 1.29
+41. dk.brics.automaton : automaton : 1.11-8
+42. com.fasterxml.jackson.core : jackson-core : 2.12.5
+43. com.google.auth : google-auth-library-credentials : 0.18.0
+44. com.diogonunes : JColor : 5.0.1
+45. org.apache.httpcomponents : httpclient : 4.5.10
+46. org.ow2.asm : asm : 9.2
+47. com.google.guava : guava : 30.1.1-jre
+48. com.github.docker-java : docker-java-transport : 3.2.12
+49. com.fasterxml.jackson.dataformat : jackson-dataformat-yaml : 2.12.5
+50. org.jetbrains : annotations : 13.0
+51. com.github.docker-java : docker-java-core : 3.2.12
+52. commons-io : commons-io : 2.8.0
+53. io.fabric8 : kubernetes-model-scheduling : 5.3.1
+54. com.google.auto.value : auto-value-annotations : 1.6.6
+55. com.google.http-client : google-http-client-jackson2 : 1.32.1
+56. com.fasterxml.jackson.module : jackson-module-kotlin : 2.12.5
+57. com.fasterxml.jackson.datatype : jackson-datatype-jsr310 : 2.12.5
+58. io.fabric8 : kubernetes-model-admissionregistration : 5.3.1
+59. io.fabric8 : kubernetes-model-networking : 5.3.1
+60. net.java.dev.jna : jna-platform : 5.5.0
+61. com.fasterxml.jackson.core : jackson-databind : 2.12.5
+62. com.google.cloud.tools : jib-build-plan : 0.4.0
+63. com.github.mifmif : generex : 1.0.2
+64. com.google.guava : listenablefuture : 9999.0-empty-to-avoid-conflict-with-guava
+65. com.google.j2objc : j2objc-annotations : 1.3
+66. io.fabric8 : kubernetes-model-certificates : 5.3.1
+67. com.squareup.okio : okio : 1.15.0
+68. org.apache.httpcomponents.client5 : httpclient5 : 5.0.3
+69. com.github.docker-java : docker-java-transport-httpclient5 : 3.2.12
+70. io.fabric8 : kubernetes-model-node : 5.3.1
+71. io.fabric8 : kubernetes-model-coordination : 5.3.1
+72. org.slf4j : slf4j-api : 1.7.32
+73. org.jetbrains.kotlin : kotlin-reflect : 1.4.32
+74. com.squareup.okhttp3 : okhttp : 3.12.12
+75. io.fabric8 : zjsonpatch : 0.3.0
+76. com.squareup.okhttp3 : logging-interceptor : 3.12.12
+77. io.fabric8 : kubernetes-client : 5.3.1
+78. org.apache.httpcomponents.core5 : httpcore5 : 5.0.2
+79. Java(TM) Native Access (JNA)/Java(TM) Native Access jnidispatch 6.1.1
+80. org.jetbrains.kotlin : kotlin-stdlib-common : 1.4.32
+81. io.opencensus : opencensus-api : 0.24.0
+82. io.fabric8 : kubernetes-model-metrics : 5.3.1
 
 ## io.opencensus : opencensus-contrib-http-util : 0.24.0
 

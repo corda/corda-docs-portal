@@ -13,6 +13,155 @@ section_menu: corda-5-dev-preview
 
 # Attribution Report for Corda 5.0
 
+**Do not translate or localize.**
+
+This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Open Source software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes. R3 LLC reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+
+1. org.apache.commons : commons-lang3 : 3.9
+2. io.github.classgraph : classgraph : 4.8.90
+3. org.apache.activemq : artemis-server-osgi : 2.17.0
+4. org.eclipse.jetty.http2 : http2-server : 9.4.43.v20210629
+5. org.jgroups : jgroups : 3.6.13.Final
+6. com.palominolabs.metrics : metrics-new-relic : 1.1.1
+7. swagger-ui 3.44.0
+8. com.mattbertolini : liquibase-slf4j : 2.0.0
+9. io.netty : netty-codec-http : 4.1.66.Final
+10. org.apache.felix : org.apache.felix.framework : 6.0.3
+11. net.i2p.crypto : eddsa : 0.3.0
+12. com.typesafe : config : 1.4.1
+13. io.netty : netty-handler-proxy : 4.1.66.Final
+14. com.google.guava : failureaccess : 1.0.1
+15. io.netty : netty-handler : 4.1.66.Final
+16. com.fasterxml.jackson.datatype : jackson-datatype-jsr310 : 2.11.1
+17. org.eclipse.jetty : jetty-util-ajax : 9.4.43.v20210629
+18. javax.persistence : javax.persistence-api : 2.2
+19. com.google.code.findbugs : jsr305 : 3.0.2
+20. info.picocli : picocli : 4.5.2
+21. org.objenesis : objenesis : 2.5.1
+22. org.apache.activemq : artemis-service-extensions : 2.17.0
+23. org.apache.activemq : artemis-commons : 2.17.0
+24. org.eclipse.jetty.websocket : websocket-servlet : 9.4.43.v20210629
+25. org.apache.johnzon : johnzon-core : 0.9.5
+26. io.netty : netty-resolver : 4.1.66.Final
+27. io.dropwizard.metrics : metrics-jmx : 4.1.0io.netty : netty-transport : 4.1.66.Final
+28. org.apache.activemq : artemis-selector : 2.17.0
+29. org.conscrypt : conscrypt-openjdk-uber : 2.5.1
+30. org.osgi : org.osgi.service.serviceloader : 1.0.0
+31. org.apache.aries.spifly : org.apache.aries.spifly.dynamic.bundle : 1.3.2
+32. io.swagger.core.v3 : swagger-core : 2.1.5net.minidev : accessors-smart : 2.4.7
+33. javax.servlet : javax.servlet-api : 3.1.0
+34. com.fasterxml.jackson.module : jackson-module-kotlin : 2.11.1
+35. com.fasterxml : classmate : 1.5.1
+36. org.jboss.logging : jboss-logging : 3.4.1.Final
+37. org.apache.servicemix.bundles : org.apache.servicemix.bundles.jcip-annotations : 1.0_1org.ow2.asm : asm-analysis : 9.0
+38.org.bouncycastle : bcprov-jdk15on : 1.68
+39. de.javakaffee : kryo-serializers : 0.43
+40. org.apache.activemq : artemis-server : 2.17.0
+41. org.apache.logging.log4j : log4j-core : 2.13.3
+42. org.eclipse.jetty : jetty-http : 9.4.43.v20210629
+43. jakarta.activation : jakarta.activation-api : 1.2.1
+44. jquery 1.11.0org.apache.commons : commons-configuration2 : 2.7
+45. org.ow2.asm : asm-commons : 9.0
+46. jakarta.validation : jakarta.validation-api : 2.0.2javax.jms : javax.jms-api : 2.0.1
+47. org.apache.felix : org.apache.felix.scr : 2.1.24
+48. com.nimbusds : content-type : 2.1
+49. org.slf4j : log4j-over-slf4j : 1.7.30
+50. org.apache.logging.log4j : log4j-web : 2.13.3
+51. org.webjars : swagger-ui : 3.44.0org.apache.sshd : sshd-osgi : 2.3.0
+52. org.eclipse.jetty.http2 : http2-common : 9.4.43.v20210629
+53. org.osgi : org.osgi.util.function : 1.1.0
+54. org.eclipse.jetty : jetty-client : 9.4.43.v20210629
+55. org.hibernate : hibernate-osgi : 5.4.32.Finalorg.liquibase : liquibase-core : 3.6.3
+56. org.latencyutils : LatencyUtils : 2.0.3org.eclipse.jetty.websocket : websocket-client : 9.4.43.v20210629
+57. org.apache.activemq : artemis-core-client : 2.17.0
+58. org.apache.activemq : artemis-jdbc-store : 2.17.0
+59. org.apache.activemq : artemis-journal : 2.17.0
+60. org.apache.activemq : artemis-jms-server : 2.17.0
+61. com.h2database : h2 : 1.4.199
+62. org.ow2.asm : asm-util : 9.0
+63. org.yaml : snakeyaml : 1.28
+64. org.apache.logging.log4j : log4j-slf4j-impl : 2.13.3
+65 .org.apache.geronimo.specs : geronimo-json_1.0_spec : 1.0-alpha-1
+66. com.nimbusds : lang-tag : 1.5
+67. org.bouncycastle : bcpkix-jdk15on : 1.68javax.activation : javax.activation-api : 1.2.0
+68. javax.xml.bind : jaxb-api : 2.3.1
+69. org.apache.commons : commons-text : 1.8
+70. com.google.guava : guava : 30.1.1-jre
+71. swagger-ui-dist 3.44.0commons-collections : commons-collections : 3.2.2
+72. com.fasterxml.jackson.core : jackson-core : 2.11.1
+73. org.eclipse.jetty : jetty-server : 9.4.43.v20210629
+74. io.reactivex : rxjava : 1.3.8
+75. org.apache.shiro : shiro-core : 1.7.1
+76. org.jvnet.staxex : stax-ex : 1.8
+77. jakarta.xml.bind : jakarta.xml.bind-api : 2.3.2
+78. io.netty : netty-buffer : 4.1.66.Final
+79. net.minidev : json-smart : 2.4.7
+80. org.jctools : jctools-core : 2.1.2io.netty : netty-codec-socks : 4.1.66.Final
+81. org.jetbrains : annotations : 13.0
+82. commons-io : commons-io : 2.8.0
+83. com.sun.mail : javax.mail : 1.6.2
+84. org.eclipse.jetty : jetty-util : 9.4.43.v20210629
+85. io.dropwizard.metrics : metrics-core : 4.1.0org.hibernate : hibernate-core : 5.4.32.Final
+86. com.fasterxml.jackson.dataformat : jackson-dataformat-yaml : 2.11.1
+87. io.swagger.core.v3 : swagger-annotations : 2.1.5
+88. org.ow2.asm : asm-tree : 9.0
+89. org.hdrhistogram : HdrHistogram : 2.1.10org.postgresql : postgresql : 42.2.22
+90. org.glassfish.jaxb : txw2 : 2.3.1
+91. org.hibernate : hibernate-hikaricp : 5.4.32.Finalio.netty : netty-transport-native-epoll : 4.1.66.Final
+92. javax.interceptor : javax.interceptor-api : 1.2
+93. org.jboss.spec.javax.transaction : jboss-transaction-api_1.2_spec : 1.1.1.Finalorg.ow2.asm : asm : 9.1
+94. org.eclipse.jetty : jetty-io : 9.4.43.v20210629
+95. org.eclipse.jetty : jetty-security : 9.4.43.v20210629
+96. org.eclipse.jetty.http2 : http2-hpack : 9.4.43.v20210629
+97. com.google.errorprone : error_prone_annotations : 2.6.0
+98. org.jolokia : jolokia-jvm : jar : agent : 1.6.2
+99. com.google.guava : listenablefuture : 9999.0-empty-to-avoid-conflict-with-guavaorg.slf4j : slf4j-api : 1.7.30
+100. org.apache.servicemix.bundles : org.apache.servicemix.bundles.dom4j : 2.1.3_1
+101. org.apache.activemq : activemq-artemis-native : 1.0.2
+102. com.nimbusds : nimbus-jose-jwt : 9.9.3
+103. com.google.j2objc : j2objc-annotations : 1.3
+104. com.zaxxer : HikariCP : 3.3.1
+105. com.sun.xml.fastinfoset : FastInfoset : 1.2.15
+106. io.netty : netty-transport-native-kqueue : 4.1.66.Final
+107. org.eclipse.jetty.websocket : websocket-server : 9.4.43.v20210629
+108. com.sun.activation : javax.activation : 1.2.0
+109. com.sun.istack : istack-commons-runtime : 3.0.7
+110. org.codehaus.mojo : animal-sniffer-annotations : 1.9
+111. org.jolokia : jolokia-core : 1.6.2
+112. com.googlecode.json-simple : json-simple : 1.1.1@shore/bootstrap 3.3.5-shore.76
+113. org.slf4j : jcl-over-slf4j : 1.7.30
+114. com.nimbusds : oauth2-oidc-sdk : 9.8
+115. io.netty : netty-transport-native-unix-common : 4.1.66.Final
+116. io.netty : netty-common : 4.1.66.Final
+117. org.jboss : jandex : 2.2.3.Final
+118. org.eclipse.jetty.websocket : websocket-common : 9.4.43.v20210629
+119. commons-beanutils : commons-beanutils : 1.9.4
+120. org.checkerframework : checker-qual : 3.12.0
+121. org.apache.activemq : artemis-amqp-protocol : 2.17.0
+122. org.slf4j : jul-to-slf4j : 1.7.30
+123. org.fusesource.jansi : jansi : 2.3.2
+124. com.newrelic.agent.java : newrelic-api : 3.10.0io.javalin : javalin : 3.7.0
+125. org.apache.felix : org.apache.felix.configadmin : 1.9.20
+126. org.glassfish.jaxb : jaxb-runtime : 2.3.1
+127. org.apache.activemq : artemis-jms-client : 2.17.0
+128. com.lmax : disruptor : 3.4.2
+129. com.github.ben-manes.caffeine : caffeine : 3.0.2
+130. org.eclipse.jetty.websocket : websocket-api : 9.4.43.v20210629
+131. com.esotericsoftware : kryo : 4.0.2
+132. org.hibernate.common : hibernate-commons-annotations : 5.1.2.Finaljavax.activation : activation : 1.1
+133. io.netty : netty-codec : 4.1.66.Final
+134. io.swagger.core.v3 : swagger-models : 2.1.5
+135. org.apache.logging.log4j : log4j-api : 2.13.3
+136. org.eclipse.jetty : jetty-servlet : 9.4.43.v20210629
+137. com.github.stephenc.jcip : jcip-annotations : 1.0-1
+138. net.bytebuddy : byte-buddy : 1.10.22
+139. com.fasterxml.jackson.core : jackson-annotations : 2.11.1com.fasterxml.jackson.core : jackson-databind : 2.11.1
+140. org.javassist : javassist : 3.27.0-GA
+141. org.apache.qpid : proton-j : 0.33.8
+142. org.jetbrains.kotlin : kotlin-osgi-bundle : 1.4.21org.osgi : org.osgi.util.promise : 1.1.1
+143. com.esotericsoftware : reflectasm : 1.11.9
+144. com.esotericsoftware : minlog : 1.3.0antlr : antlr : 2.7.7
+
 ## org.apache.commons : commons-lang3 : 3.9
 
 ### Licenced Under
