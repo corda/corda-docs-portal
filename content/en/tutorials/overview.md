@@ -9,6 +9,7 @@ menu:
   tutorials:
     weight: 10
 project: tutorials
+version: 'tutorials'
 title: Tutorials
 ---
 
