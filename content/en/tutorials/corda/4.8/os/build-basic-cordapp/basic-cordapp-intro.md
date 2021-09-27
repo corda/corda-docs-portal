@@ -38,7 +38,7 @@ There are two parties involved in this transaction:
 
 Your CorDapp must follow this process:
 
-1. Farmer Bob issues a voucher to Peter for the apples he wishes to buy.
+1. Farmer Bob creates and issues a voucher to Peter for the apples he wishes to buy.
 
 2. Farmer Bob prepares the amount of apples Peter requested.
 
