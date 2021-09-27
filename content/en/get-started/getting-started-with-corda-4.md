@@ -3,19 +3,32 @@ date: '2020-07-15T12:00:00Z'
 menu:
   get-started:
     identifier: get-started-corda-4
-    name: Getting started with Corda 4
-title: Getting started with Corda 4
+    name: Get started with Corda 4
+title: Get started with Corda 4
 weight: 400
 ---
 
-This page will instruct users on how to begin to get up and running with Corda 4. What are your options? It might go over tutorials/bootcamps/professional services. This section is primarily focused on learning about Corda rather than actually actively working with it.
+# Get started with Corda 4
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium dignissim egestas. Donec facilisis est ut libero feugiat, vitae venenatis sem ullamcorper. Quisque eu vulputate dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi dui neque, rutrum vitae sapien vel, tincidunt rhoncus eros. Suspendisse in metus auctor, consectetur urna at, consequat arcu. Curabitur viverra nunc sapien, ac semper sem venenatis ut. Morbi id tortor vel ante sollicitudin faucibus.
+## Get started with Corda 4.8 (open source)
 
-Sed cursus odio nec blandit ultrices. Nam tempus mollis urna a ultrices. Pellentesque facilisis arcu orci, id vulputate libero fringilla id. Cras cursus elit non nunc tempor ultricies. Sed maximus, neque in fringilla tincidunt, risus leo facilisis est, sed hendrerit nisl nibh et dolor. Sed varius scelerisque metus ac elementum. Quisque non ornare urna. Integer dui turpis, ultrices in sapien ut, condimentum pellentesque nibh. Curabitur ut pellentesque neque, ac finibus orci. Aliquam pharetra, nisl at dictum cursus, mi elit fermentum nisl, nec tempus elit enim et augue.
+The best way to get started with Corda is to:
+1. Familiarize yourself with the [Corda key concepts](./corda-key-concepts.md).
+2. Run an [example CorDapp](../tutorials/corda/4.8/os/template-tutorial/writing-a-cordapp-using-a-template.md) to see Corda in action.
+3. [Build your own CorDapp](../tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md) from scratch.
 
-Aliquam congue eleifend pharetra. Duis at felis ut felis rhoncus auctor. Etiam iaculis posuere luctus. Praesent id nunc purus. Ut tincidunt odio non orci placerat, a tempor justo interdum. Ut eu lacus sit amet velit bibendum consectetur vel eget turpis. Etiam hendrerit vulputate tellus, feugiat euismod nibh commodo id. Nam semper odio libero, vel luctus ligula dignissim quis. Curabitur pretium maximus tellus et pretium. Aliquam bibendum, sem non aliquet dictum, dui enim maximus leo, vitae iaculis libero sapien eu eros. Phasellus eu sollicitudin libero.
+Then, you can take your Corda integration to the next level by deep-diving into specific topics in our [Corda 4 core documentation set][../platform/corda/4.8/open-source.html], viewing the [API reference material](../api-ref.html), or browsing [featured apps](../apps.html) and [tools and add-ons](../tools.html).
 
-Quisque ullamcorper ipsum metus, at ultrices nunc facilisis eu. Morbi ac consequat massa. Duis ac sagittis leo. Morbi sem dui, egestas nec laoreet ac, egestas vitae nunc. Donec orci velit, aliquet eu lobortis nec, rhoncus id odio. Donec et odio vitae justo laoreet molestie. Integer sodales sapien sit amet lorem luctus, eu egestas quam venenatis. Maecenas volutpat tellus ut ligula fringilla ullamcorper. Proin quis eros dui. Pellentesque tristique felis sem, et malesuada odio vulputate ut. Curabitur efficitur convallis sodales. Morbi condimentum lorem nec quam aliquam, sit amet tincidunt eros interdum. Sed imperdiet risus id vehicula hendrerit. Pellentesque tristique pretium augue, non tempus ligula sodales quis. Pellentesque vehicula, nisi sit amet rhoncus maximus, mi erat commodo lectus, sit amet iaculis mi ex et nulla.
+{{< note >}}
+<b>Read the Corda white papers</b>
+* The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business audience
+* The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.
+{{< /note >}}
 
-Aenean mauris lorem, fringilla vitae massa sed, iaculis facilisis orci. Maecenas vel risus nisl. Nulla facilisi. Etiam dapibus turpis et eros dapibus, vitae lacinia ante feugiat. Sed a metus odio. Etiam sit amet diam in felis interdum aliquet. Suspendisse potenti. Maecenas enim elit, mollis quis augue id, maximus hendrerit lectus. Suspendisse potenti. Nulla ultrices erat cursus, aliquet nunc ut, dignissim velit. Integer blandit nec lorem non mollis. Mauris aliquam eleifend diam quis porttitor.
+## Get started with Corda Enterprise 4.8
+
+In addition to the above, ... NEED CONTENT HERE
+
+## Get started with Corda Enterprise Network Manager (CENM) 1.5
+
+NEED CONTENT HERE

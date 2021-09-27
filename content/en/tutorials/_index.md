@@ -4,9 +4,10 @@ section_menu: tutorials
 menu:
   projects:
     name: Tutorials
-    weight: 200
+    weight: 40000
     identifier: homepage-tutorials
 project: tutorials
+version: 'tutorials'
 title: Tutorials
 ---
 

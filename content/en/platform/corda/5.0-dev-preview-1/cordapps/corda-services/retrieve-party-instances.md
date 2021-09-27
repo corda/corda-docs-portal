@@ -5,7 +5,6 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps-corda-services
     weight: 4000
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   Retrieving `Party` and `AnonymousParty` instances with the IdentityService.

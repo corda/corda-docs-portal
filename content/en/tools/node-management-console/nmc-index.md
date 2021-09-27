@@ -1,11 +1,11 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: apps
+section_menu: tools
 menu:
-  apps:
+  tools:
     name: Node management console
     weight: 1000
-    identifier: apps-node-management-console
+    identifier: tools-node-management-console
 title: Node management console
 ---
 

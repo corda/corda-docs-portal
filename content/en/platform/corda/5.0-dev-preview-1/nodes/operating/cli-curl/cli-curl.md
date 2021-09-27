@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes-operating
     identifier: corda-5-dev-preview-1-nodes-operating-cli-curl
     weight: 4800
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   How to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.

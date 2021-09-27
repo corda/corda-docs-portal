@@ -5,7 +5,6 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps
     weight: 8500
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 

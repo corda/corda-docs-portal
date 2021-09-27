@@ -7,7 +7,6 @@ menu:
     parent: corda-5-dev-preview-1-packaging
     identifier: corda-5-dev-preview-1-packaging-gradle-plugin
     weight: 100
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   Documentation for the CorDapp CPK and CorDapp CPB Gradle plugins

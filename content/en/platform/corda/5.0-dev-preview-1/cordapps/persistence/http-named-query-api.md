@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-cordapps-persistence
     identifier: corda-5-dev-preview-1-cordapps-persistence-http
     weight: 1500
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
@@ -554,4 +553,3 @@ data class HttpItemPojo(
     val timestamp: String
 )
 ```
-

@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes-developing
     identifier: corda-5-dev-preview-1-nodes-developing-generate-code
     weight: 2400
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   How to generate client code from the OpenAPI Specification.

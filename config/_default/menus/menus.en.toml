@@ -47,12 +47,12 @@
 
 [[footer]]
   name = "Privacy Policy"
-  url = "https://www.corda.net/privacy-policy/"
+  url = "https://www.r3.com/privacy-policy/"
   weight = 20
 
 [[footer]]
   name = "Trademark Policy"
-  url = "https://www.corda.net/trademark-policy/"
+  url = "https://www.r3.com/trademark-policy/"
   weight = 30
 
 [[cenm-1-0]]
@@ -712,6 +712,12 @@ weight = 30
 identifier = "corda-os-4-8-contributing-index"
 name = "Participate"
 weight = 500
+
+#keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
+#[[tools-cdl]]
+#identifier = "tools-cdl"
+#name = "CorDapp Design Language (CDL)"
+#weight = 100
 
 #new platform section here
 #the homepage menu creates a left hand side menu inside all the landing pages

@@ -1,11 +1,11 @@
 ---
 date: '2021-04-24T00:00:00Z'
-section_menu: apps
+section_menu: tools
 menu:
-  apps:
+  tools:
     name: Ledgergraph
     weight: 900
-    identifier: apps-ledgergraph
+    identifier: tools-ledgergraph
 title: Ledgergraph
 ---
 

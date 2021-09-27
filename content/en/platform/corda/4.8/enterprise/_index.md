@@ -1,7 +1,4 @@
 ---
-aliases:
-- /docs/corda-enterprise/head/index.html
-- /docs/corda-enterprise/index.html
 date: '2020-04-07T12:00:00Z'
 menu:
   versions:
@@ -9,8 +6,7 @@ menu:
 project: corda
 section_menu: corda-enterprise-4-8
 title: Corda Enterprise 4.8
-version: '4.8'
-cordaType: 'Enterprise'
+version: 'Enterprise 4.8'
 ---
 
 # Introduction to Corda

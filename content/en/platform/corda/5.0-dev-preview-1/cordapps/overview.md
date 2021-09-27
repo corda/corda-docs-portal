@@ -5,9 +5,9 @@ menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-cordapps
     weight: 1100
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
+
 Use these resources to help build and locally deploy your own CorDapps using the Corda 5 Developer Preview. If you have
 not yet completed the tutorials section, and are looking for the best place to start, try the
 [building a CorDapp tutorial](../tutorials/building-cordapp/c5-basic-cordapp-intro.md).

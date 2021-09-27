@@ -1,7 +1,4 @@
 ---
-aliases:
-- /docs/cenm/head/index.html
-- /docs/cenm/index.html
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
@@ -9,8 +6,7 @@ menu:
 project: corda
 section_menu: cenm-1-5
 title: CENM 1.5
-version: '1.5'
-cordaType: 'CENM'
+version: 'CENM 1.5'
 ---
 
 

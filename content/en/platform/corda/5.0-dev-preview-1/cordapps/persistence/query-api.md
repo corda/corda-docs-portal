@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-cordapps-persistence
     identifier: corda-5-dev-preview-1-cordapps-persistence-query
     weight: 1200
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 

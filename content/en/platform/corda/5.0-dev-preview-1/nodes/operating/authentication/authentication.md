@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes-operating
     identifier: corda-5-dev-preview-1-nodes-operating-authentication
     weight: 4400
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   How to configure authentication and authorization for HTTP-RPC.
