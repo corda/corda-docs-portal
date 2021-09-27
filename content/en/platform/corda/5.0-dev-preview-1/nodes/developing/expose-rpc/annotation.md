@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes-developing-exposing-rpc
     identifier: corda-5-dev-preview-1-nodes-developing-exposing-rpc-annotations
     weight: 2000
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   How to annotate `RPCOps` interface classes and methods.

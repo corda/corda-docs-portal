@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes-developing
     identifier: corda-5-dev-preview-1-nodes-developing-exposing-rpc
     weight: 1800
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   How to expose RPC functionality over HTTP.
@@ -47,4 +46,3 @@ If your request is unsuccessful, you may see one of these error codes:
 | `400 Bad Request`           | Any `BadRpcStartFlowRequestException`, `MissingParameterException` or `JsonProcessingException` thrown from the code is mapped to `BadRequestResponse`. |
 
 {{< /table >}}
-

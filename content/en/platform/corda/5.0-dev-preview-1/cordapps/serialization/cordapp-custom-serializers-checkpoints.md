@@ -5,9 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-serialization
     weight: 300
-project: corda-5
 section_menu: corda-5-dev-preview
-
 ---
 
 If a CorDapp encounters an exception during the checkpoint process, it may need a custom serializer to make a class serializable.

@@ -5,7 +5,6 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps-corda-services
     weight: 1070
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   Write your own Corda Services and make them injectable.
@@ -90,7 +89,7 @@ The `onEvent` function takes in a single parameter which is of type `ServiceLife
 
 `StateMachineStarted` is distributed to all Corda Services once the `NodeLifecycleEvent.StateMachineStarted` has been distributed by the node lifecycle event distributor, which occurs once the node has started the state machine.
 
-`ServiceStart` is distributed to all Corda Services by the `CordaServiceInstaller`, while loading all services. This allows the service to run any setup logic it may need, such as code that would have previously been in the service constructor. 
+`ServiceStart` is distributed to all Corda Services by the `CordaServiceInstaller`, while loading all services. This allows the service to run any setup logic it may need, such as code that would have previously been in the service constructor.
 
 The `CordaServiceInstaller` scans for services, instantiates them, and then can inject dependencies. If a constructor relies on using an injected service then an exception will be thrown because the dependency will not have been initialized at that point.
 

@@ -7,6 +7,7 @@ menu:
     weight: 50000
     identifier: homepage-samples
 project: samples
+version: 'samples'
 title: Samples and templates
 ---
 

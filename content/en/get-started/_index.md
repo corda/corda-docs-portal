@@ -7,6 +7,7 @@ menu:
     weight: 30000
     identifier: homepage-get-started
 project: get-started
+version: 'get-started'
 title: Get started
 ---
 

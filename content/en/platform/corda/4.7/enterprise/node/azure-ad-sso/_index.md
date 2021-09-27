@@ -9,7 +9,6 @@ tags:
 - gateway
 weight: 170
 aliases: "/docs/cenm/1.5/azure-ad-sso.html"
-
 title: Azure AD SSO
 ---
 

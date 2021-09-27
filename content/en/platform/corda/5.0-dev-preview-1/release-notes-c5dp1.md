@@ -1,15 +1,13 @@
 ---
 date: '2020-09-08T12:00:00Z'
-title: "Release notes"
+title: "Corda 5 Developer Preview release notes"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-release-notes
     weight: 50
-project: corda-5
+    name: "Release notes"
 section_menu: corda-5-dev-preview
 ---
-
-## Corda 5 Developer Preview release notes
 
 The Corda 5 Developer Preview, released on 28 September 2021, showcases the core features of the upcoming Corda 5.0 release to invite feedback.
 

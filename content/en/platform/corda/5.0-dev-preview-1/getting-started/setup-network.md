@@ -5,9 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-gettingstarted
     weight: 500
-project: corda-5
 section_menu: corda-5-dev-preview
-
 ---
 
 In this document, you will learn how to set up a local Corda 5 development network using Docker. You can then use this network to perform manual and/or automated testing.

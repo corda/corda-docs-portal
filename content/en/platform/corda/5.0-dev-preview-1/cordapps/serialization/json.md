@@ -5,9 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-serialization
     weight: 600
-project: corda-5
 section_menu: corda-5-dev-preview
-
 ---
 
 Corda provides a module that extends the popular Jackson serialisation engine. Jackson is often used to serialize
