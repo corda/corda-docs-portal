@@ -20,7 +20,7 @@ Intended for local deployment, experimental development, and testing only, this 
 
 - A [modular API](../../../api-ref/_index.md). Corda's core API module has been split into packages and versioned. Learn about [key APIs](cordapps/overview.md) and [Corda Services](cordapps/corda-services/overview.md), and find new [API reference documentation](../../../api-ref/_index.md). Test it out with [updated code samples](../../../samples/_index.md).
 
-- [Dependency upgrades](xxx) to Gradle 6, Java 11, and Kotlin 1.4. This enables the latest Gradle CorDapp packaging plugins, letting you create CorDapps faster.
+- [Dependency upgrades](getting-started/prerequisites.md) to Gradle 6, Java 11, and Kotlin 1.4. This enables the latest Gradle CorDapp packaging plugins, letting you create CorDapps faster.
 
 - Node interaction upgrades. You can [interface with a node using HTTP](nodes/operating/operating-nodes-homepage.md) and [auto-generate CorDapp endpoints](nodes/operating/openapi.md).
 
