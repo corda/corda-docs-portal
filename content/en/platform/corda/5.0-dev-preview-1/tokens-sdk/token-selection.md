@@ -83,7 +83,7 @@ fun addMoveFungibleTokens(
 
 To use in-memory selection, you must ensure the CorDapp `TokenSelectionService` is installed and the service is running. This comes as part of the Tokens SDK.
 
-To initialise this service, you must select an `indexingStrategy`. An indexing strategy is used to apply an index to recorded records of Token States in in the `TokenSelectionService`. This improves querying time (and ultimately the performance of your application). As always - you can tune different use cases for better performance by selecting the appropriate indexing strategy:
+To initialise this service, you must select an `indexingStrategy`. An indexing strategy is used to apply an index to recorded records of Token States in the `TokenSelectionService`. This improves querying time (and ultimately the performance of your application). As always - you can tune different use cases for better performance by selecting the appropriate indexing strategy:
 
 * **External_ID** strategy can be used to group states from many public keys connected to a given unique user ID. If you use **Accounts**, this strategy is ideal because it allows for faster querying of tokens that belong to accounts.
 * **Public_key** strategy makes a token 'bucket' for each public key.
@@ -143,14 +143,14 @@ changeOutputs.forEach {
         transactionBuilder = transactionBuilder,
         inputs = inputs,
         changeOutput = it
-    )   
+    )
 }
 ```
 
 
 ## Provide queries to `LocalTokenSelector`
 
-You can provide additional post processing to named queries called by `LocalTokenSelector` by constructing `TokenQueryBy` with a post processor and passing it to `generateMove` or `selectTokens` methods.
+You can provide additional post-processing to named queries called by `LocalTokenSelector` by constructing `TokenQueryBy` with a post processor and passing it to `generateMove` or `selectTokens` methods.
 
 `TokenQueryBy` requires issuer to specify selection of token from given issuing party.
 

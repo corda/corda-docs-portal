@@ -18,27 +18,27 @@ Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we
 
 Intended for local deployment, experimental development, and testing only, this preview includes:
 
-- A [Modular API](xxx). Corda's core API module has been split into packages and versioned. Learn about [key APIs](xxx) and [Corda Services](xxx), and find new [API reference documentation](xxx). Test it out with [updated code samples](xxx).
+- A [modular API](../../../api-ref.html). Corda's core API module has been split into packages and versioned. Learn about [key APIs](cordapps/overview.md) and [Corda Services](cordapps/corda-services/overview.md), and find new [API reference documentation](../../../api-ref.html). Test it out with [updated code samples](../../../samples.html).
 
-- [Dependency upgrades](xxx) to Gradle 6, Java 11, and Kotlin 1.4. This enables the latest Gradle CorDapp packaging plugins, letting you create CorDapps faster.
+- [Dependency upgrades](getting-started/prerequisites.md) to Gradle 6, Java 11, and Kotlin 1.4. This enables the latest Gradle CorDapp packaging plugins, letting you create CorDapps faster.
 
-- Node interaction upgrades. You can [interface with a node using HTTP](xxx) and [auto-generate CorDapp endpoints](xxx).
+- Node interaction upgrades. You can [interface with a node using HTTP](nodes/operating/operating-nodes-homepage.md) and [auto-generate CorDapp endpoints](nodes/operating/openapi.md).
 
 - Upgrades to packaging:
-  - A [Corda Package](xxx) (`.cpk`) is the unit of software that executes within a single sandbox.
-  - [CorDapps](xxx) are a set of versioned `.cpks` that define a deployable application.
+  - A [Corda Package](packaging/overview.html#corda-package-files) (`.cpk`) is the unit of software that executes within a single sandbox.
+  - [CorDapps](packaging/overview.html#corda-package-bundles) are a set of versioned `.cpks` that define a deployable application.
 
-- A new [integration test framework](xxx) that reflects real node behavior.
+- A new [integration test framework](cordapps/integration-tests.md) that reflects real node behavior.
 
 - An API for pluggable uniqueness service (notary). This is interface-only.
 
 
 Some features available in Corda 4 have been replaced with new functionality. These are:
 
-- `MockNetwork`. You can now [use off-the-shelf testing frameworks](xxx).
-- Crash shell. This has been replaced with the [Node CLI](xxx).
-- Driver DSL. This has been replaced with the [Corda CLI](xxx).
+- `MockNetwork`. You can now [use off-the-shelf testing frameworks](cordapps/integration-tests.md).
+- Crash shell. This has been replaced with the [Corda Node CLI](nodes/operating/cli-curl/cli-curl.md).
+- Driver DSL. This has been replaced with the [Corda CLI](corda-cli/overview.md).
 
 This preview is not intended for commercial deployment, so it does not contain the functionality to create live networks.
 
-See the [Corda 5 Developer Preview overview](xxx) for more details.
+See the [Corda 5 Developer Preview overview](../5.0-dev-preview-1.html) for more details.
