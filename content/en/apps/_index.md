@@ -6,6 +6,8 @@ menu:
     name: Featured apps
     weight: 70000
     identifier: apps
+  apps:
+    weight: 10
 project: apps
 version: 'apps'
 title: Featured apps
