@@ -6,6 +6,8 @@ menu:
     name: Tutorials
     weight: 200
     identifier: homepage-tutorials
+  tutorials:
+    weight: 10
 project: tutorials
 title: Tutorials
 ---
