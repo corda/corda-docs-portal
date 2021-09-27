@@ -12,7 +12,7 @@ title: Running a sample CorDapp
 
 Get started with the Corda 5 Developer Preview by running a sample CorDapp. Learn how to deploy and test a CorDapp before you modify the CorDapp template to write your own.
 
-This sample CorDapp lets you launch probes between celestial bodies to send short messages. In this scenario, the solar system represents your local network. The celestial bodies are the nodes on your network. To learn more about nodes, see the [node documentation](XXX).
+This sample CorDapp lets you launch probes between celestial bodies to send short messages. In this scenario, the solar system represents your local network. The celestial bodies are the nodes on your network. To learn more about nodes, see the [node documentation](../nodes/nodes-homepage.html).
 
 The Solar System CorDapp has an optional smart contract implemented. You can use it to determine if all celestial bodies can receive probes, or if only planets can receive them.
 
@@ -37,23 +37,19 @@ The flow takes in three parameters:
 
 Before you can run the sample CorDapp, set up:
 
-* A local network
-* Corda CLI
-* CorDapp Builder
-* Corda Node CLI
-* Docker
+* [A local network](../getting-started/setup-network.md)
+* [Corda CLI](../corda-cli/overview.md)
+* [CorDapp Builder](../packaging/cordapp-builder.md)
+* [Corda Node CLI](../nodes/operating/cli-curl/cli-curl.md)
+* [Docker](https://docs.docker.com/get-started/)
 
-<!-- Add links to documentation for these tools once it is in place. -->
-
-If you're new to Corda, check out the [CorDapp documentation](XXX) for key concepts.
+If you're new to Corda, check out the [CorDapp documentation](../cordapps/overview.md) for key concepts.
 
 ## Download the sample CorDapp
 
 {{< note >}}
 You can write a CorDapp in any language targeting the JVM. Source files for this CorDapp are provided in Kotlin.
 {{< /note >}}
-
-<!--- Update this section after Nina provides details on access. --->
 
 1. Decide where you want to store the sample CorDapp.
 2. Open that directory in the command line.
@@ -126,9 +122,9 @@ In Corda 4, this process was much more involved. Now you can install the applica
   After running this command, your CorDapp is up and running.
 
 7. Double-check that everything is working properly:
-    1. Open Docker
-    2. Go to **Containers/Apps**
-    3. Select the project
+    1. Open Docker.
+    2. Go to **Containers/Apps**.
+    3. Select the project.
 
 
 A drop down opens, displaying each node, its status, and its port.
@@ -159,12 +155,12 @@ These usernames and passwords are specified in the `solar-system.yaml` file.
 
 3. Check which flows are on your CorDapp.
   1. Go to the **FlowStarterRPCOps** heading.
-  2. Run the GET request for registered flows (`GET /flowstarter/registeredFlows`).
+  2. Run the GET request for registered flows: `GET /flowstarter/registeredFlows`
   3. Select **Execute** to run the flow. This flow does not take in any parameters.
 
   This returns the `LaunchProbeFlow`.
 
-4. Start the `LaunchProbeFlow` by sending a POST request (`POST /flowstarter/startFlow`). Pass the following parameters:
+4. Start the `LaunchProbeFlow` by sending a POST request: `POST /flowstarter/startFlow`. Pass the following parameters:
 
 ```
 {
@@ -186,7 +182,7 @@ The X500 name of the receiving node must be included in the `target` field. The 
 
 The flow returns a `200` response, including the `flowId` (a `uuid`) and the `clientId`.
 
-5. Take the `flowId` from the previous step to check the flow's status. Under the **FlowStarterRPCOps** heading, run the GET request for flow outcomes (`GET /flowstarter/flowoutcome/{flowid}`). Enter the `flowId` from the response in [step 4](xxx).
+5. Take the `flowId` from the previous step to check the flow's status. Under the **FlowStarterRPCOps** heading, run the GET request for flow outcomes (`GET /flowstarter/flowoutcome/{flowid}`). Enter the `flowId` from the response in step 4.
 
 The flow returns a `200` response, which includes these items in the response body:
 
@@ -214,7 +210,7 @@ Make sure you assign the `clientId` to a launchpad that isn't already running a 
 
 The flow returns a `200` response, including the `flowId` (a `uuid`) and the `clientId`.
 
-7. Take the `flowId` from step 6 and run the GET request for flow outcomes again (`GET /flowstarter/flowoutcome/{flowid}`).
+7. Take the `flowId` from step 6 and run the GET request for flow outcomes again: `GET /flowstarter/flowoutcome/{flowid}`.
 
 The flow returns a `200` response—but this time the flow has failed because Pluto is not a planet. The `message` says: `Contract verification failed: Failed requirement: Planetary Probes must only visit planets` and includes the contract name and transaction ID.
 
@@ -262,8 +258,7 @@ This returns the same output as checking the flow status on Swagger UI. You see:
 
 If you have any questions about the Corda Node CLI commands, run the `--help` command for more information.
 
-<!--
+
 ## Next steps
 
-Now that you've run the Solar System demo CorDapp, try [building your own CorDapp using a template](XXX).
--->
+Now that you've run the Solar System demo CorDapp, try [building your own CorDapp](building-cordapp/c5-basic-cordapp-intro.md).

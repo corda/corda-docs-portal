@@ -26,7 +26,7 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before you start
 
-Before you start building states, read [Key concepts: States](XXX).
+Before you start building states, read [Key concepts: States](../../cordapps/key-concepts/key-concepts-states.md).
 
 ## Clone the CorDapp template repo
 
@@ -91,7 +91,7 @@ class MarsVoucher {
 ```
 
 {{< note >}}
-Adding this annotation triggers an error in IntelliJ because you haven't created the `MarsVoucherContract` yet. Ignore this error for now - you will add the contract class in the [Write contracts](XXX) tutorial.
+Adding this annotation triggers an error in IntelliJ because you haven't created the `MarsVoucherContract` yet. Ignore this error for now - you will add the contract class in the [Write contracts](c5-basic-cordapp-contract.md) tutorial.
 {{< /note >}}
 
 When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `MarsVoucher`, so the contract is called `MarsVoucherContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
@@ -335,8 +335,3 @@ data class BoardingTicketDto(
 ## Next steps
 
 Follow the [Write contracts](c5-basic-cordapp-contract.md) tutorial to continue on this learning path.
-
-## Related content
-
-* [API: States](../../../../../platform/corda/4.8/open-source/api-states.md#api-states)
-* [Reissuing states](../../../../../platform/corda/4.8/open-source/reissuing-states.md)

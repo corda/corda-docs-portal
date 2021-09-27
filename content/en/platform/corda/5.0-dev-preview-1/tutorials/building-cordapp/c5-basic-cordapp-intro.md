@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-Follow this learning path to build your first CorDapp using step-by-step tutorials. You will learn how to implement the functionality and features needed to get any CorDapp up and running with the Corda 5 Developer Preview. It reinforces [best practices for building CorDapps](xxx).
+Follow this learning path to build your first CorDapp using step-by-step tutorials. You will learn how to implement the functionality and features needed to get any CorDapp up and running with the Corda 5 Developer Preview. It reinforces [best practices for building CorDapps](../../cordapps/overview.html).
 
 Code samples for this tutorial are provided in Kotlin.
 
@@ -17,9 +17,8 @@ Code samples for this tutorial are provided in Kotlin.
 
 Before you start building your first CorDapp:
 
-- Read about [Corda key concepts](XXX).
-- [Get set up for CorDapp development](XXX).
-- [Deploy a local Corda 5 network](XXX).
+- [Get set up for CorDapp development](../../getting-started/prerequisites.md).
+- [Deploy a local Corda 5 network](../../getting-started/setup-network.md).
 - [Run a sample CorDapp](../run-demo-cordapp.md).
 - Take a look at the Corda 5 Developer Preview [CorDapp template](XXX).
 
@@ -46,7 +45,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 ## How will it work on Corda?
 
-1. Mars Express issues a voucher to Peter via a ledger transaction. In your CorDapp, this voucher is called `MarsVoucher` and is a [state](../../../../../platform/corda/4.8/os/key-concepts-states.md) on the [ledger](../../../../../platform/corda/4.8/os/key-concepts-ledger.md). This is the first transaction.
+1. Mars Express issues a voucher to Peter via a ledger transaction. In your CorDapp, this voucher is called `MarsVoucher` and is a [state](../../cordapps/key-concepts/key-concepts-states.md) on the [ledger](../../cordapps/key-concepts/key-concepts-ledger.md). This is the first transaction.
 
 2. When Mars Express prepares the ticket Peter requested, the company self-issues the ticket via a self-issue transaction. This is another state on the ledger - `BoardingTicket`. This is the second transaction.
 
@@ -54,7 +53,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 4. The `BoardingTicket` state is transferred to Peter when the `MarsVoucher` state is consumed and Mars Express gives Peter his ticket. This is the fourth and final transaction.
 
-All of these transactions are initiated by [flows](XXX).
+All of these transactions are initiated by [flows](../../cordapps/flows/overview.md).
 
 ## Changes from Corda 4
 
