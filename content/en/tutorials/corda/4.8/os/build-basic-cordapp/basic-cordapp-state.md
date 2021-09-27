@@ -5,7 +5,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-basic-cordapp-state
     parent: corda-os-4-8-tutorial-basic-cordapp-intro
-    weight: 1030
+    weight: 1020
 tags:
 - tutorial
 - cordapp
@@ -20,13 +20,13 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before you start
 
-Before you start building states, read [Key concepts: States](key-concepts-states.md).
+Before you start building states, read [Key concepts: States](../../../../../platform/corda/4.8/open-source/key-concepts-states.md).
 
 ## Clone the CorDapp template repo
 
 The easiest way to write any CorDapp is to start from a template. This ensures that you have the correct files to begin building.
 
-1. Navigate to the Kotlin and Java template repsitories and decide which you'd like to clone:
+1. Navigate to the Kotlin and Java template repositories and decide which you'd like to clone:
   * https://github.com/corda/cordapp-template-kotlin
   * https://github.com/corda/cordapp-template-java
 
@@ -69,7 +69,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
 3. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
-   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](tutorial-cordapp.html##opening-the-sample-cordapp-in-intellij-idea).
+   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.html#opening-the-sample-cordapp-in-intellij-idea).
 
 4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `AppleStamp`. This changes all instances of `template` in the project to `applestamp`
 
@@ -96,7 +96,7 @@ This what your code should look like so far:
 ```
 
 {{< note >}}
-Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract](XXX) tutorial.
+Adding this annotation triggers an error in IntelliJ because you haven't created the `AppleStampContract` yet. Ignore this error for now - you will add the contract class in the [Write the contract](basic-cordapp-contract.md) tutorial.
 {{< /note >}}
 
 When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `AppleStamp`, so the contract is called `AppleStampContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
@@ -107,7 +107,7 @@ You've probably noticed that the state template includes imports at the top of t
 
 ### Implement the state
 
-The next line of code you add defines the type of [`ContractState`](api-states.html#contractstate) you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
+The next line of code you add defines the type of <a href="../../../../../platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a> you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
 
 In this case, use a `LinearState` to tie the `AppleStamp` to a `LinearID`.
 
@@ -472,9 +472,9 @@ public class BasketOfApples implements ContractState {
 
 ## Next steps
 
-Follow the [Write the contracts](tutorial-basic-cordapp-contract.md) tutorial to continue on this learning path.
+Follow the [Write the contracts](basic-cordapp-contract.md) tutorial to continue on this learning path.
 
 ## Related content
 
-* [API: States](api-states.md#api-states)
-* [Reissuing states](reissuing-states.md)
+* [API: States](../../../../../platform/corda/4.8/open-source/api-states.md)
+* [Reissuing states](../../../../../platform/corda/4.8/open-source/reissuing-states.md)

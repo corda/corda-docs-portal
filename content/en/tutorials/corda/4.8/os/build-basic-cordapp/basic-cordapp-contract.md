@@ -8,7 +8,7 @@ menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-basic-cordapp-contract
     parent: corda-os-4-8-tutorial-basic-cordapp-intro
-    weight: 1040
+    weight: 1030
 tags:
 - tutorial
 - cordapp
@@ -327,4 +327,4 @@ public class BasketOfApplesContract implements Contract {
 
 ## Next steps
 
-Follow the [Write flows](tutorial-basic-cordapp-flows.md) tutorial to continue on this learning path.
+Follow the [Write flows](basic-cordapp-flows.md) tutorial to continue on this learning path.
