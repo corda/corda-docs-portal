@@ -16,7 +16,7 @@ The best way to get started with Corda is to:
    * Corda open source - the open source version of Corda, which you can build on now.
    Jump to: [Corda](../platform/corda/4.8/open-source/_index.md) or [Corda Enterprise](../platform/corda/4.8/enterprise/_index.md).
 2. Familiarize yourself with the [Corda key concepts](./corda-key-concepts.md).
-3. Run an [example CorDapp](../tutorials/corda/4.8/os/template-tutorial/writing-a-cordapp-using-a-template.md) to see Corda in action.
+3. Run a [sample CorDapp](../tutorials/corda/4.8/os/template-tutorial/writing-a-cordapp-using-a-template.md) to see Corda in action.
 4. [Build your own CorDapp](../tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md) from scratch.
 
 Then, you can take your Corda integration to the next level by deep-diving into specific topics in our [Corda 4 core documentation set](../platform/corda/4.8/open-source.html), viewing the [API reference material](../api-ref.html), or browsing [featured apps](../apps.html) and [tools and add-ons](../tools.html).
