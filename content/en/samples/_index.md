@@ -13,12 +13,12 @@ title: Samples and templates
 
 # Samples and templates
 
-Use these samples and templates to follow the [tutorials](../tutorials/_index.md) and guides in the documentation.
+Use these samples and templates to follow the [tutorials](tutorials.html) and guides in the documentation.
 
 ## Corda 4 samples and templates
 
 * CorDapp [Java](https://github.com/corda/samples-java) and [Kotlin](https://github.com/corda/samples-kotlin) sample repositories - contain multiple sample CorDapps, from those to get you started, to those which demonstrate specific features and advanced usage.
-* [Community samples](https://www.corda.net/samples/) - a list of open-source blockchain projects, applications, and core code samples by our developer community.
+* [Community samples](https://www.corda.net/samples/) - a list of open source blockchain projects, applications, and core code samples by our developer community.
 * CorDapp [Java](https://github.com/corda/cordapp-template-java) and [Kotlin](https://github.com/corda/cordapp-template-kotlin) templates - a stubbed-out CorDapp that you can use to bootstrap your own CorDapps.
 
 For more developer resources, open-source projects, and CorDapp templates, check out R3's [Developer Portal](https://developer.r3.com/corda/).
@@ -27,7 +27,7 @@ For more developer resources, open-source projects, and CorDapp templates, check
 
 * [Solar System sample CorDapp](xxx) for running a sample CorDapp to see Corda in action.
 * [Mission Mars sample CorDapp](xxx) for building a CorDapp from scratch.
-* [Java templates](xxx).
-* [Kotlin templates](xxx).
+* [Java templates](https://github.com/corda/corda5-cordapp-template-java).
+* [Kotlin templates](https://github.com/corda/corda5-cordapp-template-kotlin).
 
-For more developer resources, open-source projects, and CorDapp templates, check out R3's [Developer Portal](https://developer.r3.com/corda/).
+For more developer resources, open source projects, and CorDapp templates, check out R3's [Developer Portal](https://developer.r3.com/corda/).

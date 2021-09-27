@@ -99,7 +99,7 @@ public class CreateAndIssueAppleStamp {
 After implementing the constructor, IntelliJ will add a red curly line under the `createAndIssueAppleStampInitiator` subclass. Here you need to add a method. Luckily IntelliJ can do this for you.
 
 1. Click the subclass.
-2. * On MacOS press option + Enter.
+2. * On macOS press option + Enter.
     * On Windows press Alt + Enter.
 
 You have now added the required `@OverRide` method.
@@ -526,3 +526,7 @@ public class RedeemApples {
 
 }
 ```
+
+## Next steps
+
+Follow the [Write unit tests](basic-cordapp-unit-testing.md) tutorial to continue on this learning path.

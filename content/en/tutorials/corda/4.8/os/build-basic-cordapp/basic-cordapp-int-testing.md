@@ -198,4 +198,4 @@ public class CreateAndIssueAppleStampTest {
 }
 ```
 
-Take a look at the [`AppleStamp` CorDapp solution](XXX) to see the implementation of integration tests for the `RedeemApples` flow and the `PackageApples` flow.
+Take a look at the [Apple Stamp CorDapp solution](https://github.com/corda/samples-java/tree/master/Basic/tutorial-applestamp) to see the implementation of integration tests for the `RedeemApples` flow and the `PackageApples` flow.

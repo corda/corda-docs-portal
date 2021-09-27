@@ -394,4 +394,4 @@ will be the finalised transaction which will be recorded in the borrower’s vau
 ## Progress so far
 
 Your flow, and your CorDapp, are now ready! We have now defined a flow that we can start on our node to completely
-automate the process of issuing an IOU onto the ledger. All that’s left is to spin up some nodes and [test your CorDapp](run-your-cordapp).
+automate the process of issuing an IOU onto the ledger. All that’s left is to spin up some nodes and [test your CorDapp](run-your-cordapp.md).
