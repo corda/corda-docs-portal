@@ -26,4 +26,4 @@ Then, you can take your Corda integration to the next level by deep-diving into 
 
 ## Getting started with Corda Enterprise Network Manager (CENM) 1.5
 
-NEED CONTENT HERE
+Before you deploy CENM, read
