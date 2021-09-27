@@ -35,7 +35,7 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `e00424809501b17dbee07e487f89cb7c2fe6e8e3` (sha1)
   * `9298826af64363282d10295f50e4f175`  (md5)
 
-## corda-cli:
+## corda-cli
 
 * corda-cli.zip
   * `f5b682bf9c0c0c08b749fa1f6a70f7a51874b225` (sha1)
