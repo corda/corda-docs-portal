@@ -46,7 +46,7 @@ To propose an update to the public released Corda docs, fork the [corda-docs-por
 repository, make your changes, and submit a pull request targeting the `main` branch in the upstream repository from your fork.
 
 ### Steps
-1. Fork the [corda-docs-portal](https://github.com/corda/corda-docs/) repository and add it as upstream (or sync your existing
+1. Fork the [corda-docs-portal](https://github.com/corda/corda-docs-portal/) repository and add it as upstream (or sync your existing
    fork with the upstream repo’s `main` branch - see below for instructions).
 2. Edit the documentation files in a new branch in your fork.
 3. Commit and push the changes to your fork.
