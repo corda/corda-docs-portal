@@ -5,7 +5,6 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps-corda-services
     weight: 6000
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   Use the StateLoaderService to convert `StateRef` or `StatePointer` inputs into `StateAndRef` objects.

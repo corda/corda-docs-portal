@@ -9,8 +9,7 @@ menu:
 project: corda
 section_menu: cenm-1-1
 title: CENM 1.1
-version: '1.1'
-cordaType: 'CENM'
+version: 'CENM 1.1'
 ---
 
 

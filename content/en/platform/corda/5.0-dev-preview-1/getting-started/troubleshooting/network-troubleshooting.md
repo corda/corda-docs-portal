@@ -4,7 +4,6 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-gettingstarted
     weight: 750
-project: corda-5
 section_menu: corda-5-dev-preview
 title: Troubleshooting a local Corda 5 network
 ---

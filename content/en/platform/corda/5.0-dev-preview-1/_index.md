@@ -3,8 +3,7 @@ date: '2020-07-15T12:00:00Z'
 title: Corda 5 Developer Preview
 section_menu: corda-5-dev-preview
 project: corda
-version: '5 Developer Preview'
-cordaType: 'Corda'
+version: 'Corda 5 Developer Preview'
 menu:
   versions:
     weight: -850

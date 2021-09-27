@@ -7,6 +7,7 @@ menu:
     weight: 80000
     identifier: tools
 project: tools
+version: 'tools'
 title: Tools and add-ons
 ---
 

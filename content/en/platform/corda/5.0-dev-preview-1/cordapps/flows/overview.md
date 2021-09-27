@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-cordapps
     identifier: corda-5-dev-preview-1-cordapps-flows
     weight: 1000
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
@@ -62,7 +61,7 @@ interface Flow<out T> {
 }
 ```
 
-Read [Writing flows][writing-flows.html] for more information on using the Flow interface. 
+Read [Writing flows][writing-flows.html] for more information on using the Flow interface.
 
 ## Service injection
 

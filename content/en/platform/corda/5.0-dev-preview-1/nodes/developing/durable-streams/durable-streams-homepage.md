@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes-developing
     identifier: corda-5-dev-preview-1-nodes-developing-durable-streams
     weight: 3000
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   How to use durable streams in HTTP-RPC methods.

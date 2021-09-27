@@ -5,9 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-serialization
     weight: 400
-project: corda-5
 section_menu: corda-5-dev-preview
-
 ---
 
 Whilst more complex evolutionary modifications to classes require annotating, Corda’s serialization
