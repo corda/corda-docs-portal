@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MemberLookupService - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services</a>&nbsp;/&nbsp;<a href="./index.html">MemberLookupService</a><br/>
+<br/>
+<h1>MemberLookupService</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">MemberLookupService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.application.injection/-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a><span class="symbol">, </span><a href="../../net.corda.v5.application.injection/-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a></code>
+<p>Group Manager Service contains list of identities in Membership Management Group along with information about their identity keys,
+services they provide and host names or IP addresses where they can be connected to. The cache wraps around a list fetched from the
+manager, and adds easy lookup of the data stored within it. Generally it would be initialised with a specific Group Manager,
+which it fetches data from and then subscribes to updates of.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="lookup.html">lookup</a></h4>
+</td>
+<td>
+<p>Returns the <a href="../../net.corda.v5.application.node/-member-info/index.html">MemberInfo</a>  inside Membership Group with the given <a href="lookup.html#net.corda.v5.application.services.MemberLookupService$lookup(net.corda.v5.application.identity.CordaX500Name)/name">name</a> name, or null if no such identity is found.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">lookup</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.MemberLookupService$lookup(net.corda.v5.application.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.application.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.application.node/-member-info/index.html"><span class="identifier">MemberInfo</span></a><span class="symbol">?</span></code>
+<p>Returns the <a href="../../net.corda.v5.application.node/-member-info/index.html">MemberInfo</a> inside Membership Group with the given <a href="lookup.html#net.corda.v5.application.services.MemberLookupService$lookup(java.security.PublicKey)/key">key</a> public key, or null if no such identity is found.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">lookup</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.MemberLookupService$lookup(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.application.node/-member-info/index.html"><span class="identifier">MemberInfo</span></a><span class="symbol">?</span></code>
+<p>Returns all <a href="../../net.corda.v5.application.node/-member-info/index.html">MemberInfo</a>s in the Group the node is currently aware of (including ourselves).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">lookup</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.application.node/-member-info/index.html"><span class="identifier">MemberInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="my-info.html">myInfo</a></h4>
+</td>
+<td>
+<p>Returns our own <a href="../../net.corda.v5.application.node/-member-info/index.html">MemberInfo</a></p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">myInfo</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.application.node/-member-info/index.html"><span class="identifier">MemberInfo</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

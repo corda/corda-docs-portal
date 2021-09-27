@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CipherSchemeMetadata - cipher-suite</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">cipher-suite</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.cipher.suite</a>&nbsp;/&nbsp;<a href="./index.html">CipherSchemeMetadata</a><br/>
+<br/>
+<h1>CipherSchemeMetadata</h1>
+<code><span class="keyword">interface </span><span class="identifier">CipherSchemeMetadata</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-key-encoding-service/index.html"><span class="identifier">KeyEncodingService</span></a></code>
+<p>Service which provides metadata about cipher suite, such as available signature schemes,
+digests and security providers.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="composite-key-scheme.html">compositeKeyScheme</a></h4>
+</td>
+<td>
+<p>Corda <a href="#">CompositeKey</a> signature type.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">compositeKeyScheme</span><span class="symbol">: </span><span class="identifier">SignatureScheme</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="digests.html">digests</a></h4>
+</td>
+<td>
+<p>The list of all available digest algorithms for the cipher suite.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">digests</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="providers.html">providers</a></h4>
+</td>
+<td>
+<p>The map of initialized security providers where the key is the provider name.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">providers</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/Provider.html"><span class="identifier">Provider</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="schemes.html">schemes</a></h4>
+</td>
+<td>
+<p>The list of all available signature schemes for the cipher suite.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">schemes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><span class="identifier">SignatureScheme</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="secure-random.html">secureRandom</a></h4>
+</td>
+<td>
+<p>Get an instance of <a href="https://docs.oracle.com/javase/6/docs/api/java/security/SecureRandom.html">SecureRandom</a></p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">secureRandom</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/SecureRandom.html"><span class="identifier">SecureRandom</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="find-key-factory.html">findKeyFactory</a></h4>
+</td>
+<td>
+<p>Find the corresponding <a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyFactory.html">KeyFactory</a> based on the <a href="#">SignatureScheme</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">findKeyFactory</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.CipherSchemeMetadata$findKeyFactory(net.corda.v5.crypto.internal.SignatureScheme)/scheme">scheme</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignatureScheme</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyFactory.html"><span class="identifier">KeyFactory</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-scheme.html">findScheme</a></h4>
+</td>
+<td>
+<p>Find the corresponding <a href="#">SignatureScheme</a> based on its <a href="#">AlgorithmIdentifier</a></p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">findScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.CipherSchemeMetadata$findScheme(org.bouncycastle.asn1.x509.AlgorithmIdentifier)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<span class="identifier">AlgorithmIdentifier</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SignatureScheme</span></code>
+<p>Find the corresponding <a href="#">SignatureScheme</a> based on the type of the input <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">findScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.CipherSchemeMetadata$findScheme(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SignatureScheme</span></code>
+<p>Find the corresponding <a href="#">SignatureScheme</a> based on the code name.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">findScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.CipherSchemeMetadata$findScheme(kotlin.String)/codeName">codeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SignatureScheme</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-b-a-n-n-e-d_-d-i-g-e-s-t-s.html">BANNED_DIGESTS</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">BANNED_DIGESTS</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

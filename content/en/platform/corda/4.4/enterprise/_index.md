@@ -8,8 +8,7 @@ menu:
 project: corda
 section_menu: corda-enterprise-4-4
 title: Corda Enterprise 4.4
-version: '4.4'
-cordaType: 'Enterprise'
+version: 'Enterprise 4.4'
 ---
 
 # Introduction to Corda

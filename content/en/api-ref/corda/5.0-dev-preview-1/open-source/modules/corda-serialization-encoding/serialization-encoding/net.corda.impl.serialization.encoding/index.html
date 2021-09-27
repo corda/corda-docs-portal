@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.impl.serialization.encoding - serialization-encoding</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">serialization-encoding</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.impl.serialization.encoding</a><br/>
+<br/>
+<h2>Package net.corda.impl.serialization.encoding</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-deflate-encoder-impl/index.html">DeflateEncoderImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DeflateEncoderImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.internal.serialization.encoding/-encoder/index.html"><span class="identifier">Encoder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-encoder-service-factory/index.html">EncoderServiceFactory</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">EncoderServiceFactory</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.internal.serialization.encoding/-encoder-service/index.html"><span class="identifier">EncoderService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-flush-averse-output-stream/index.html">FlushAverseOutputStream</a></h4>
+</td>
+<td>
+<p>Has an empty flush implementation.  This is because Kryo keeps calling flush all the time, which stops the Snappy
+stream from building up big chunks to compress and instead keeps compressing small chunks giving terrible compression ratio.</p>
+<code><span class="keyword">class </span><span class="identifier">FlushAverseOutputStream</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/OutputStream.html"><span class="identifier">OutputStream</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-snappy-encoder-impl/index.html">SnappyEncoderImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SnappyEncoderImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.internal.serialization.encoding/-encoder/index.html"><span class="identifier">Encoder</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

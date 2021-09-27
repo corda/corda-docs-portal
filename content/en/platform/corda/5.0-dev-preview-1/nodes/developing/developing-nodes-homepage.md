@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes
     identifier: corda-5-dev-preview-1-nodes-developing
     weight: 1400
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 

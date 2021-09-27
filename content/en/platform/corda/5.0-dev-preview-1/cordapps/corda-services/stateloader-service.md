@@ -5,19 +5,18 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps-corda-services
     weight: 6000
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Using the StateLoaderService to convert `StateRef` or `StatePointer` inputs into `StateAndRef` objects.
+  Use the StateLoaderService to convert `StateRef` or `StatePointer` inputs into `StateAndRef` objects.
 ---
 
-The `StateLoaderService` is used to convert `StateRef` or `StatePointer` inputs into `StateAndRef` objects.
+Use the `StateLoaderService` to convert `StateRef` or `StatePointer` inputs into `StateAndRef` objects.
 
-## How to inject StateLoaderService
+## Inject StateLoaderService
 
 `StateLoaderService` is injectable into services using the `CordaInject` mechanism.
 
-This is injectable into both Corda Services and Flows.
+This is injectable into both Corda Services and flows.
 
 ### Java
 
@@ -41,7 +40,7 @@ lateinit var stateLoaderService: StateLoaderService
 
 ### load(LinearPointer<T>, LedgerTransaction): StateAndRef<T>
 
-Resolves a `LinearPointer` to a `StateAndRef` from inside a `LedgerTransaction`. The intuition here is that all of the pointed-to states will be included in the transaction as reference states.
+Resolves a `LinearPointer` to a `StateAndRef` from inside a `LedgerTransaction`. All pointed-to states will be included in the transaction as reference states.
 
 ### load(LinearPointer<T>): StateAndRef<T>
 
@@ -49,15 +48,15 @@ Resolves a `LinearPointer` to a `StateAndRef` via a vault query. This method wil
 
 ### load(Set<StateRef>): Set<StateAndRef<ContractState>>
 
-Given a `Set` of `StateRef`'s loads each referenced transaction and looks up the specified output `ContractState`s.
+Given a `Set` of `StateRef`'s, this loads each referenced transaction and looks up the specified output `ContractState`s.
 
 ### load(StateRef): StateAndRef<ContractState>
 
-Given a `StateRef` loads the referenced transaction and looks up the specified output `ContractState`.
+Given a `StateRef`, this loads the referenced transaction and looks up the specified output `ContractState`.
 
 ### load(StaticPointer<T>, LedgerTransaction): StateAndRef<T>
 
-Resolves a `StaticPointer` to a `StateAndRef` from inside a `LedgerTransaction`. The intuition here is that all of the pointed-to states will be included in the transaction as reference states.
+Resolves a `StaticPointer` to a `StateAndRef` from inside a `LedgerTransaction`. All pointed-to states will be included in the transaction as reference states.
 
 ### load(StaticPointer<T>): StateAndRef<T>
 
@@ -65,9 +64,9 @@ Resolves a `StaticPointer` to a `StateAndRef` via a vault query. This method wil
 
 ### loadOrdered(List<StateRef>): List<StateAndRef<ContractState>>
 
-Given a `List` of `StateRef`'s loads each referenced transaction and looks up the specified output `ContractState`s.
+Given a `List` of `StateRef`'s, this loads each referenced transaction and looks up the specified output `ContractState`s.
 
-### Java Example
+### Java example
 
 ```java
 import net.corda.v5.application.flows.Flow;

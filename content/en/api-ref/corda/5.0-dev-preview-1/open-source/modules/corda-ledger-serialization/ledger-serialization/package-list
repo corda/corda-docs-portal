@@ -1,0 +1,5 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+net.corda.impl.ledger.serialization.transactions
+net.corda.internal.ledger.serialization.transactions

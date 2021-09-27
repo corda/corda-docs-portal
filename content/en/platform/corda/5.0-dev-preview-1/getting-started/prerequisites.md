@@ -5,7 +5,6 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-gettingstarted
     weight: 100
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
@@ -26,11 +25,11 @@ As a CorDapp developer, you can compile and test your Corda 5 Developer Preview 
 
 ## Deployment
 
-You can deploy the Developer Preview locally using the [corda-cli](XXX) tool and a docker daemon, such as a command-line tool or Docker Desktop 3.5.
+You can deploy the Corda 5 Developer Preview locally using the [Corda CLI](../corda-cli/overview.md) tool and a docker daemon, such as a command-line tool or Docker Desktop 3.5.
 
 ## Packaging CorDapps
 
-You can package and bundle CorDapps with the Corda CPK (Corda package file - `.cpk`) and CPB (Corda package bundle - `.cpb`) [plugins](XXX), which require Gradle 6.0 or above. Alternatively, you can create CorDapp package bundles (`.cpb` files) with the [CorDapp Builder](XXX).
+You can package and bundle CorDapps with the Corda CPK (Corda package file - `.cpk`) and CPB (Corda package bundle - `.cpb`) [plugins](../packaging/gradle-plugin/overview.md), which require Gradle 6.0 or above. Alternatively, you can create CorDapp package bundles (`.cpb` files) with the [CorDapp Builder](../packaging/cordapp-builder.md).
 
 ## Node databases
 

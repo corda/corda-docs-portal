@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordappInfo - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.cordapp</a>&nbsp;/&nbsp;<a href="./index.html">CordappInfo</a><br/>
+<br/>
+<h1>CordappInfo</h1>
+<code><span class="keyword">interface </span><span class="identifier">CordappInfo</span></code>
+<p>A <a href="./index.html">CordappInfo</a> describes a single CorDapp currently installed on the node</p>
+<h3>Parameters</h3>
+<p><a name="type"></a>
+<code>type</code> - A description of what sort of CorDapp this is - either a contract, workflow, or a combination.</p>
+<p><a name="name"></a>
+<code>name</code> - The name of the JAR file that defines the CorDapp</p>
+<p><a name="shortName"></a>
+<code>shortName</code> - The name of the CorDapp</p>
+<p><a name="minimumPlatformVersion"></a>
+<code>minimumPlatformVersion</code> - The minimum platform version the node must be at for the CorDapp to run</p>
+<p><a name="targetPlatformVersion"></a>
+<code>targetPlatformVersion</code> - The target platform version this CorDapp has been tested against</p>
+<p><a name="version"></a>
+<code>version</code> - The version of this CorDapp</p>
+<p><a name="vendor"></a>
+<code>vendor</code> - The vendor of this CorDapp</p>
+<p><a name="licence"></a>
+<code>licence</code> - The name of the licence this CorDapp is released under</p>
+<p><a name="jarHash"></a>
+<code>jarHash</code> - The hash of the JAR file that defines this CorDapp</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="jar-hash.html">jarHash</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">jarHash</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="licence.html">licence</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">licence</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="minimum-platform-version.html">minimumPlatformVersion</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">minimumPlatformVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="short-name.html">shortName</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">shortName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="target-platform-version.html">targetPlatformVersion</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">targetPlatformVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="type.html">type</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">type</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="vendor.html">vendor</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">vendor</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="version.html">version</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">version</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes-developing
     identifier: corda-5-dev-preview-1-nodes-developing-new-cli-commands
     weight: 2800
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   How to add new commands to the Corda Node CLI.

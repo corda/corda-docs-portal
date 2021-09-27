@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PartialMerkleTree.rootAndUsedHashes - crypto-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.crypto</a>&nbsp;/&nbsp;<a href="index.html">PartialMerkleTree</a>&nbsp;/&nbsp;<a href="./root-and-used-hashes.html">rootAndUsedHashes</a><br/>
+<br/>
+<h1>rootAndUsedHashes</h1>
+<a name="net.corda.v5.crypto.PartialMerkleTree.Companion$rootAndUsedHashes(net.corda.v5.crypto.PartialMerkleTree.PartialTree, kotlin.collections.MutableList((net.corda.v5.crypto.SecureHash)), net.corda.v5.crypto.DigestService)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">rootAndUsedHashes</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.PartialMerkleTree.Companion$rootAndUsedHashes(net.corda.v5.crypto.PartialMerkleTree.PartialTree, kotlin.collections.MutableList((net.corda.v5.crypto.SecureHash)), net.corda.v5.crypto.DigestService)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">PartialTree</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.PartialMerkleTree.Companion$rootAndUsedHashes(net.corda.v5.crypto.PartialMerkleTree.PartialTree, kotlin.collections.MutableList((net.corda.v5.crypto.SecureHash)), net.corda.v5.crypto.DigestService)/usedHashes">usedHashes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.PartialMerkleTree.Companion$rootAndUsedHashes(net.corda.v5.crypto.PartialMerkleTree.PartialTree, kotlin.collections.MutableList((net.corda.v5.crypto.SecureHash)), net.corda.v5.crypto.DigestService)/digestService">digestService</span><span class="symbol">:</span>&nbsp;<a href="../-digest-service/index.html"><span class="identifier">DigestService</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Recursive calculation of root of this partial tree.
+Modifies usedHashes to later check for inclusion with hashes provided.</p>
+<h3>Parameters</h3>
+<p><a name="node"></a>
+<code>node</code> - the partial Merkle tree for which we want to calculate the Merkle root.</p>
+<p><a name="usedHashes"></a>
+<code>usedHashes</code> - a mutable list that at the end of this recursive algorithm, it will consist of the included leaves (hashes of the visible components).</p>
+<p><strong>Return</strong><br/>
+the root <a href="../-secure-hash/index.html">SecureHash</a> of this partial Merkle tree.</p>
+</BODY>
+</HTML>

@@ -26,11 +26,11 @@
 {{$currentUrl := .RelPermalink}}
 
 {{ if and (ne $currentVersion "Versions") (gt $totalVersions 1)}}
-  {{/* We know know whether we're in 'corda-os-4.4' or not ('Versions') */}}
+  {{/* We know whether we're in 'corda-os-4.4' or not ('Versions') */}}
 
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarVersionMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      {{ .Page.Params.CordaType }} {{ $currentVersion }}
+      {{ $currentVersion }}
     </a>
     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarVersionMenuLink">
       {{ range .Site.Menus.versions.ByWeight }}
@@ -39,16 +39,20 @@
           {{ $active:=false}}
 
           {{ if eq .Page.Params.section_menu $sectionMenuForThisPage }}{{$active = true}}{{ end }}
-          {{ $pageUrl := replace $currentUrl $currentVersion .Page.Params.Version }}
+
+          {{ $currentPath := path.Dir $currentUrl }}
+          {{ $pagePath := path.Dir .Page.RelPermalink }}
+          {{ $pageUrl := replace $currentUrl $currentPath $pagePath }}
           {{ $similarPage := $currentPage.GetPage $pageUrl }}
+
           <li>
             {{ if eq $similarPage.Permalink "" }}
               <a href="{{ .Page.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
-                <span>{{ .Page.Params.CordaType }} {{ .Page.Params.Version }}</span>
+                <span>{{ .Page.Params.Version }}</span>
               </a>
             {{else}}
               <a href="{{ $similarPage.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
-                <span>{{ .Page.Params.CordaType }} {{ .Page.Params.Version }}</span>
+                <span>{{ .Page.Params.Version }}</span>
               </a>
             {{end}}
           </li>

@@ -26,10 +26,6 @@ body.home {
         margin-right: 0;
       }
 
-      #top-search {
-        display: none !important;
-      }
-
       #top-search-btn {
         visibility: hidden;
       }
@@ -121,6 +117,19 @@ body.home {
         margin-bottom: 0.5rem;
       }
     }
+
+    .card-footer {
+      text-align: center;
+      background: none;
+      border: none;
+      margin-bottom: 2rem;
+    }
+
+    &.no-border {
+      .card-body {
+        padding-bottom: 0;
+      }
+    }
   }
 
   #home-carousel {
@@ -129,86 +138,89 @@ body.home {
     color: $gray-800;
     margin-top: 3.75rem;
     margin-bottom: 3.75rem;
+    padding: 2.5rem 1.5rem 1.5rem;
 
-    .carousel-inner {
-      padding: 2rem 2rem 3.5rem;
-
-      .carousel-item {
-        .slide {
-          display: flex;
-          flex-wrap: wrap;
-
-          img {
-            border-radius: 4px;
-            border: solid 1px $submenu-bar-color;
-            background-color: #fff;
-            padding: 0.5rem;
-            object-fit: contain;
-            width: 132px;
-            height: 132px;
-            margin: 0 auto 2rem;
-          }
-
-          h5 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-top: 0;
-          }
-
-          a {
-            font-weight: 600;
-          }
-        }
-      }
-
+    .slick-track {
+      display: flex;
+      align-items: center;
     }
 
-    .carousel-indicators {
-      button {
-        background: none;
-        margin: 0;
-        text-indent: unset;
-        border: none;
-        width: 28px;
-        height: 28px;
+    .slide {
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 1px;
 
-        &:after {
-          content: url("icons/dot-active.svg");
-        }
+      img {
+        border-radius: 4px;
+        border: solid 1px $submenu-bar-color;
+        background-color: #fff;
+        padding: 0.5rem;
+        object-fit: contain;
+        width: 132px;
+        height: 132px;
+        margin: 0 auto 2rem;
+      }
+
+      h5 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-top: 0;
+      }
+
+      a {
+        font-weight: 600;
       }
     }
 
-    .carousel-control-prev {
-      display: none;
-      width: 40px;
-      margin-left: 2.5rem;
+    .slick-prev,
+    .slick-next {
+      display: none !important;
+      width: 2.5rem;
+      height: 2.5rem;
     }
 
-    .carousel-control-next {
-      display: none;
-      width: 40px;
-      margin-right: 2.5rem;
+    .slick-prev {
+      left: 2.5rem;
+
+      &:before {
+        content: url("data:image/svg+xml, %3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.1953 31.6667L5.00019 20L16.1953 8.33335' stroke='%235B6B88' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='6.44531' y1='20.6138' x2='34.0004' y2='20.6138' stroke='%235B6B88' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+      }
+    }
+
+    .slick-next {
+      right: 2.5rem;
+
+      &:before {
+        content: url("data:image/svg+xml, %3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23.8044 8.33331L34.9996 20L23.8044 31.6666' stroke='%235B6B88' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='33.5549' y1='19.3862' x2='5.99982' y2='19.3862' stroke='%235B6B88' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+      }
+    }
+
+    .slick-dots {
+      position: relative;
+      width: auto;
+      margin: 1rem auto 0;
+      bottom: 0;
+
+      li button:before {
+        font-size: 0.75rem;
+        color: $gray-500;
+      }
     }
 
     @include media-breakpoint-up(md) {
-      .carousel-inner {
-        padding: 2.5rem 7.5rem 4.5rem;
+      padding: 2.5rem 7.625rem 1.75rem;
 
-        .carousel-item {
-          .slide {
-            flex-wrap: nowrap;
+      .slide {
+        flex-wrap: nowrap;
 
-            img {
-              margin-right: 3rem;
-              margin-left: 0;
-            }
-          }
+        img {
+          margin: 0 3rem 0 0;
         }
       }
 
-      .carousel-control-prev,
-      .carousel-control-next {
-        display: block;
+      .slick-prev,
+      .slick-next {
+        display: block !important;
       }
     }
   }
@@ -239,15 +251,9 @@ body.home {
 
     #home-carousel {
       background-color: darken($gray-800, 2.5%);
-    }
 
-    .carousel-inner {
-      padding: 2rem 2rem 3.5rem;
-
-      .carousel-item {
-        .slide {
-          color: $gray-100;
-        }
+      .slide {
+        color: $gray-100;
       }
     }
   }

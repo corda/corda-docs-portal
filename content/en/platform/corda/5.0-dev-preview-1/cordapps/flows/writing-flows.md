@@ -5,19 +5,18 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps-flows
     weight: 1000
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
-In Corda 5 Developer Preview, the `Flow` interface is used to implement a flow. Implementing this interface will define the `call` method where business logic goes.
+In the Corda 5 Developer Preview, use the `Flow` interface to implement a flow. Implementing `Flow` will define the `call` method which holds your business logic.
 
-A Flow is where you put your business logic. It is where you build states, sign them and send them to others for signing.
+A flow is where you put your business logic and how you build, sign, and send states to others for signing.
 
-If you are not yet familiar with writing applications for Corda, you should note that flows are written as sequential code. Where you may  normally expect to see blocking or async code, Corda will pause and resume the flow transparently. A running flow can survive restarting the Corda Node. You can read more about the basics of [flows in this overview](flows).
+Flows are written as sequential code. Where you may normally expect to see blocking or async code, Corda will pause and resume the flow transparently. A running flow can survive the restart of the Corda node. The basics of flows are covered in the [overview](overview.md) .
 
-## A simple flow
+## Example of a simple flow
 
-Here is a simple flow that returns true as a result:
+Here is a simple flow that returns `true` as a result:
 
 ```java
 import net.corda.v5.application.flows.Flow;
@@ -34,14 +33,14 @@ public class SimpleFlow implements Flow<Boolean> {
 }
 ```
 
-Some details about this flow:
+About this flow:
 
-- `@StartableByRPC` - Allows the flow to be started by RPC
+- `@StartableByRPC` - Allows the flow to be started by HTTP-RPC.
 - `implements Flow<Boolean>` - The interface to implement when writing a flow. The type parameter is the return value of the flow.
-- `@Suspendable` - The `call` method must always have this annotation, it allows the flow to be suspended by Corda
-- `call()` - This method is called by Corda when the flow is started
+- `@Suspendable` - The `call` method must always have this annotation as it allows the flow to be suspended by Corda.
+- `call()` - This method is called by Corda when the flow is started.
 
-# Using injected services
+## Use injected services
 
 This flow makes use of an injected service:
 
@@ -67,15 +66,15 @@ public class UsingAnInjectedService implements Flow<StateMachineRunId> {
 }
 ```
 
-Some details about this flow:
+About this flow:
 
 - `@CordaInject` - Defines a field to be set by Corda before the `call` method is called.
 
   _The injected field will not be ready to use in the constructor. A flow should avoid accessing the field in constructors._
 
-# Communication example
+## Communication example
 
-This flow demonstrates communication between two flows. It is a port of the hello world example seen here: https://docs.corda.net/docs/corda-os/4.8/hello-world-flow.html
+This flow demonstrates communication between two flows. It's an extract of the [hello world example](https://docs.corda.net/docs/corda-os/4.8/hello-world-flow.html).
 
 ```java
 import net.corda.systemflows.FinalityFlow;
@@ -150,10 +149,10 @@ public class IOUFlow implements Flow<Void> {
 }
 ```
 
-Some details about this flow:
+About this flow:
 
-- `@InitiatingFlow` - This flow starts flows on other parties by communicating with other parties
-- `public IOUFlow(Integer iouValue, Party otherParty)` - The flow constructor parameters are still used for flow parameters
+- `@InitiatingFlow` - This flow starts flows on other parties by communicating with other parties.
+- `public IOUFlow(Integer iouValue, Party otherParty)` - The flow constructor parameters are still used for flow parameters.
 
 ```java
 import net.corda.systemflows.ReceiveFinalityFlow;
@@ -186,6 +185,6 @@ public class IOUFlowResponder implements Flow<Void> {
 }
 ```
 
-Some details about this flow:
+About this flow:
 
-- `@InitiatedBy` - This flow is started by communication from another flow
+- `@InitiatedBy` - This flow is started by communication from another flow.

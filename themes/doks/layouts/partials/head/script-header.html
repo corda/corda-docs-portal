@@ -1,13 +1,32 @@
-{{ if gt (len .Site.Params.googleAnalyticID) 0 }}
-  <!-- Google Analytics -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', '{{ .Site.Params.googleAnalyticID }}', 'auto');
-    ga('send', 'pageview');
-  </script>
-  <!-- End Google Analytics -->
-{{ end -}}
+<script type="text/javascript">
+  {{ if .Site.Params.options.algolia -}}
+    const algolia_appId = "{{ .Site.Params.algolia_appId }}";
+    const algolia_apiKey = "{{ .Site.Params.algolia_apiKey }}";
+    const algolia_index = "{{ .Site.Params.algolia_index }}";
+
+    {{ if eq .IsHome true }}
+      window.facetFilters = [
+        ['project:corda', 'project:releases', 'project:get-started', 'project:tutorials', 'project:samples', 'project:api-ref', 'project:apps', 'project:tools', 'project:announcements', 'project:conclave'],
+        ['version:Open source 4.8', 'version:Enterprise 4.8', 'version:CENM 1.5', 'version:Corda 5 Developer Preview', 'version:Corda index', 'version:releases', 'version:get-started', 'version:tutorials', 'version:samples', 'version:api-ref', 'version:apps', 'version:tools', 'version:announcements', 'version:conclave'],
+        'language:en'
+      ];
+    {{ else }}
+      {{ $project := or .Parent.Page.Params.project .Page.Params.project}}
+      {{ $version := or .Parent.Page.Params.version .Page.Params.version}}
+      window.facetFilters = [
+        'project:{{- $project -}}',
+        'version:{{- $version -}}',
+        'language:{{- .Site.Language.Lang -}}'
+      ];
+    {{ end }}
+  {{ end -}}
+
+  const google_analytics_id = "{{ .Site.Params.googleAnalytics }}";
+
+</script>
+
+{{ if eq .IsHome true }}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+{{ end }}

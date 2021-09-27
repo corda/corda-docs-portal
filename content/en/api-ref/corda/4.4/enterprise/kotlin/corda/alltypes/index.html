@@ -1,0 +1,1194 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>alltypes - corda</title>
+<link rel="stylesheet" href="../../style.css">
+
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="4.4">
+<meta name="docsearch:project" content="corda-enterprise">
+</head>
+<BODY>
+<h3>All Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-abstract-cash-flow/index.html">net.corda.finance.flows.AbstractCashFlow</a></td>
+<td>
+<p>Initiates a flow that produces an Issue/Move or Exit Cash transaction.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows.asset.selection/-abstract-cash-selection/index.html">net.corda.finance.workflows.asset.selection.AbstractCashSelection</a></td>
+<td>
+<p>Pluggable interface to allow for different cash selection provider implementations
+Default implementation in finance workflow module uses H2 database and a custom function within H2 to perform aggregation.
+Custom implementations must implement this interface and declare their implementation in
+<code>META-INF/services/net.corda.finance.workflows.asset.selection.AbstractCashSelection</code>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance/net.corda.core.contracts.-amount/index.html">net.corda.core.contracts.Amount</a> (extensions in package net.corda.finance)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-attachment-resolution-exception/index.html">net.corda.testing.dsl.AttachmentResolutionException</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-cash-exception/index.html">net.corda.finance.flows.CashException</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-cash-exit-flow/index.html">net.corda.finance.flows.CashExitFlow</a></td>
+<td>
+<p>Initiates a flow that produces an cash exit transaction.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-cash-exit-responder-flow/index.html">net.corda.finance.flows.CashExitResponderFlow</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-cash-issue-and-payment-flow/index.html">net.corda.finance.flows.CashIssueAndPaymentFlow</a></td>
+<td>
+<p>Initiates a flow that self-issues cash and then send this to a recipient.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-cash-issue-flow/index.html">net.corda.finance.flows.CashIssueFlow</a></td>
+<td>
+<p>Initiates a flow that self-issues cash (which should then be sent to recipient(s) using a payment transaction).</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-cash-payment-flow/index.html">net.corda.finance.flows.CashPaymentFlow</a></td>
+<td>
+<p>Initiates a flow that sends cash to a recipient.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-cash-payment-receiver-flow/index.html">net.corda.finance.flows.CashPaymentReceiverFlow</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.test/-cash-schema.html">net.corda.finance.test.CashSchema</a></td>
+<td>
+<p>An object used to fully qualify the <a href="../net.corda.finance.test/-cash-schema.html">CashSchema</a> family name (i.e. independent of version).</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows.asset.selection/-cash-selection-h2-impl/index.html">net.corda.finance.workflows.asset.selection.CashSelectionH2Impl</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows.asset.selection/-cash-selection-oracle-impl/index.html">net.corda.finance.workflows.asset.selection.CashSelectionOracleImpl</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows.asset.selection/-cash-selection-postgre-s-q-l-impl/index.html">net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows.asset/-cash-utils/index.html">net.corda.finance.workflows.asset.CashUtils</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-cluster-spec/index.html">net.corda.testing.node.ClusterSpec</a></td>
+<td>
+<p>Abstract class specifying information about the consensus algorithm used for a cluster of nodes.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.core/kotlin.collections.-collection/index.html">kotlin.collections.Collection</a> (extensions in package net.corda.testing.core)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows/-commercial-paper-utils/index.html">net.corda.finance.workflows.CommercialPaperUtils</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-connection-failure-exception/index.html">net.corda.client.rpc.ConnectionFailureException</a></td>
+<td>
+<p>Signals that the underlying <a href="../net.corda.client.rpc/-r-p-c-connection/index.html">RPCConnection</a> dropped.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-corda-r-p-c-client/index.html">net.corda.client.rpc.CordaRPCClient</a></td>
+<td>
+<p>An RPC client connects to the specified server and allows you to make calls to the server that perform various
+useful tasks. Please see the Client RPC section of docs.corda.net to learn more about how this API works. A brief
+description is provided here.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">net.corda.client.rpc.CordaRPCClientConfiguration</a></td>
+<td>
+<p>Can be used to configure the RPC client connection.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-corda-r-p-c-connection/index.html">net.corda.client.rpc.CordaRPCConnection</a></td>
+<td>
+<p>This class is essentially just a wrapper for an RPCConnection and can be treated identically.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows/net.corda.core.messaging.-corda-r-p-c-ops/index.html">net.corda.core.messaging.CordaRPCOps</a> (extensions in package net.corda.finance.workflows)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc.reconnect/-could-not-start-flow-exception/index.html">net.corda.client.rpc.reconnect.CouldNotStartFlowException</a></td>
+<td>
+<p>Thrown when a flow start command died before receiving a <a href="#">net.corda.core.messaging.FlowHandle</a>.
+On catching this exception, the typical behaviour is to run a "logical retry", meaning only retry the flow if the expected outcome did not occur.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance/java.util.-currency/index.html">java.util.Currency</a> (extensions in package net.corda.finance)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.database/-database-constants/index.html">net.corda.testing.database.DatabaseConstants</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.database/-db-script-runner/index.html">net.corda.testing.database.DbScriptRunner</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.tools/-deployment-health-check-test-utils/index.html">net.corda.testing.tools.DeploymentHealthCheckTestUtils</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance/kotlin.-double/index.html">kotlin.Double</a> (extensions in package net.corda.finance)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-double-spent-inputs/index.html">net.corda.testing.dsl.DoubleSpentInputs</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-driver-d-s-l/index.html">net.corda.testing.driver.DriverDSL</a></td>
+<td>
+<p>Underlying interface for the driver DSL. Do not instantiate directly, instead use the <a href="../net.corda.testing.driver/driver.html">driver</a> function.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-driver-parameters/index.html">net.corda.testing.driver.DriverParameters</a></td>
+<td>
+<p>Builder for configuring a <a href="../net.corda.testing.driver/driver.html">driver</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.core/-dummy-command-data.html">net.corda.testing.core.DummyCommandData</a></td>
+<td>
+<p>Trivial implementation of <a href="#">TypeOnlyCommandData</a> for test purposes</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.contracts/-dummy-contract/index.html">net.corda.testing.contracts.DummyContract</a></td>
+<td>
+<p>Dummy contract for testing purposes. Doesn't do anything useful.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.contracts/-dummy-contract-v2/index.html">net.corda.testing.contracts.DummyContractV2</a></td>
+<td>
+<p>Dummy contract state for testing of the upgrade process.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.contracts/-dummy-contract-v3/index.html">net.corda.testing.contracts.DummyContractV3</a></td>
+<td>
+<p>Dummy contract state for testing of the upgrade process.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.contracts/-dummy-state/index.html">net.corda.testing.contracts.DummyState</a></td>
+<td>
+<p>Dummy state for use in testing. Not part of any contract, not even the <a href="../net.corda.testing.contracts/-dummy-contract/index.html">DummyContract</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-duplicate-output-label/index.html">net.corda.testing.dsl.DuplicateOutputLabel</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-enforce-verify-or-fail.html">net.corda.testing.dsl.EnforceVerifyOrFail</a></td>
+<td>
+<p>If you jumped here from a compiler error make sure the last line of your test tests for a transaction verify or fail.
+This is a dummy type that can only be instantiated by functions in this module. This way we can ensure that all tests
+will have as the last line either an accept or a failure test. The name is deliberately long to help make sense of
+the triggered diagnostic.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows.asset.selection/-enterprise-cash-selection-s-q-l-server-impl/index.html">net.corda.finance.workflows.asset.selection.EnterpriseCashSelectionSQLServerImpl</a></td>
+<td>
+<p>SQL Server / SQL Azure</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.core/-expect-compose.html">net.corda.testing.core.ExpectCompose</a></td>
+<td>
+<p>Part of the Expectation DSL</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.flows/net.corda.core.flows.-flow-logic/index.html">net.corda.core.flows.FlowLogic</a> (extensions in package net.corda.testing.flows)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-graceful-reconnect/index.html">net.corda.client.rpc.GracefulReconnect</a></td>
+<td>
+<p>GracefulReconnect provides the opportunity to perform certain logic when the RPC encounters a connection disconnect
+during communication with the node.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.http/-http-api/index.html">net.corda.testing.http.HttpApi</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.http/-http-utils/index.html">net.corda.testing.http.HttpUtils</a></td>
+<td>
+<p>A small set of utilities for making HttpCalls, aimed at demos and tests.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-in-memory-messaging-network/index.html">net.corda.testing.node.InMemoryMessagingNetwork</a></td>
+<td>
+<p>An in-memory network allows you to manufacture <a href="#">MockNodeMessagingService</a>s for a set of participants. Each
+<a href="#">MockNodeMessagingService</a> maintains a queue of messages it has received, and a background thread that dispatches
+messages one by one to registered handlers. Alternatively, a messaging system may be manually pumped, in which
+case no thread is created and a caller is expected to force delivery one at a time (this is useful for unit
+testing).</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-in-process/index.html">net.corda.testing.driver.InProcess</a></td>
+<td>
+<p>Interface which represents an in process node and exposes available services.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance/kotlin.-int/index.html">kotlin.Int</a> (extensions in package net.corda.finance)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.core/kotlin.collections.-iterable/index.html">kotlin.collections.Iterable</a> (extensions in package net.corda.testing.core)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.jackson/-jackson-support/index.html">net.corda.client.jackson.JacksonSupport</a></td>
+<td>
+<p>Utilities and serialisers for working with JSON representations of basic types. This adds Jackson support for
+the java.time API, some core types, and Kotlin data classes.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-jmx-policy/index.html">net.corda.testing.driver.JmxPolicy</a></td>
+<td>
+<p>A class containing configuration information for Jolokia JMX, to be used when creating a node via the <a href="../net.corda.testing.driver/driver.html">driver</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.flows/kotlin.reflect.-k-class/index.html">kotlin.reflect.KClass</a> (extensions in package net.corda.testing.flows)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-ledger-d-s-l/index.html">net.corda.testing.dsl.LedgerDSL</a></td>
+<td>
+<p>This is the class that defines the syntactic sugar of the ledger Test DSL and delegates to the contained interpreter,
+and what is actually used in <code>ledger { (...) }</code>. Add convenience functions here, or if you want to extend the DSL
+functionality then first add your primitive to <a href="../net.corda.testing.dsl/-ledger-d-s-l-interpreter/index.html">LedgerDSLInterpreter</a> and then add the convenience defaults/extension
+methods here.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-ledger-d-s-l-interpreter/index.html">net.corda.testing.dsl.LedgerDSLInterpreter</a></td>
+<td>
+<p>This interface defines the bare bone functionality that a Ledger DSL interpreter should implement.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.database/-list-populator/index.html">net.corda.testing.database.ListPopulator</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance/kotlin.-long/index.html">kotlin.Long</a> (extensions in package net.corda.finance)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.flows/kotlin.collections.-map/index.html">kotlin.collections.Map</a> (extensions in package net.corda.testing.flows)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-max-rpc-retry-exception/index.html">net.corda.client.rpc.MaxRpcRetryException</a></td>
+<td>
+<p>Thrown to indicate an RPC operation has been retried for the <a href="#">maxNumberOfRetries</a> unsuccessfully.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.services/-mock-attachment-storage/index.html">net.corda.testing.services.MockAttachmentStorage</a></td>
+<td>
+<p>A mock implementation of <a href="#">AttachmentStorage</a> for use within tests</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-mock-net-flow-time-out/index.html">net.corda.testing.node.MockNetFlowTimeOut</a></td>
+<td>
+<p>MockNetFlowTimeOut can be used to configure flow time out settings for a node via the mock network API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-mock-net-notary-config/index.html">net.corda.testing.node.MockNetNotaryConfig</a></td>
+<td>
+<p>MockNetNotaryConfig can be used to configure a node to be a notary via the mock network API. Internally
+this will be translated into a NotaryConfiguration and passed to the respective node.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-mock-network/index.html">net.corda.testing.node.MockNetwork</a></td>
+<td>
+<p>A mock node brings up a suite of in-memory services in a fast manner suitable for unit testing.
+Components that do IO are either swapped out for mocks, or pointed to a <a href="#">Jimfs</a> in memory filesystem or an in
+memory H2 database instance.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-mock-network-notary-spec/index.html">net.corda.testing.node.MockNetworkNotarySpec</a></td>
+<td>
+<p>The spec for a notary which will used by the <a href="../net.corda.testing.node/-mock-network/index.html">MockNetwork</a> to automatically start a notary node. This notary will
+become part of the network parameters used by all the nodes.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-mock-network-parameters/index.html">net.corda.testing.node.MockNetworkParameters</a></td>
+<td>
+<p>Immutable builder for configuring a <a href="../net.corda.testing.node/-mock-network/index.html">MockNetwork</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-mock-node-config-overrides/index.html">net.corda.testing.node.MockNodeConfigOverrides</a></td>
+<td>
+<p>This is a data class to configure overrides to the node configuration used in the mock network
+without having to expose/use the actual (internal) node configuration interface on the API.
+When passing one of these to <a href="#">createNode</a> or <a href="#">createUnstartedNode</a> functions, the bits that are
+set will be injected into the node configuration for the node to be created.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-mock-node-parameters/index.html">net.corda.testing.node.MockNodeParameters</a></td>
+<td>
+<p>Immutable builder for configuring a <a href="../net.corda.testing.node/-started-mock-node/index.html">StartedMockNode</a> or an <a href="../net.corda.testing.node/-unstarted-mock-node/index.html">UnstartedMockNode</a> via <a href="../net.corda.testing.node/-mock-network/create-node.html">MockNetwork.createNode</a> and
+<a href="../net.corda.testing.node/-mock-network/create-unstarted-node.html">MockNetwork.createUnstartedNode</a>. Kotlin users can also use the named parameters overloads of those methods which
+are more convenient.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-mock-services/index.html">net.corda.testing.node.MockServices</a></td>
+<td>
+<p>An implementation of <a href="#">ServiceHub</a> that is designed for in-memory unit tests of contract validation logic. It has
+enough functionality to do tests of code that queries the vault, inserts to the vault, and constructs/checks
+transactions. However it isn't enough to test flows and other aspects of an app that require a network. For that
+you should investigate <a href="../net.corda.testing.node/-mock-network/index.html">MockNetwork</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-node-handle/index.html">net.corda.testing.driver.NodeHandle</a></td>
+<td>
+<p>A base interface which represents a node as part of the <a href="../net.corda.testing.driver/driver.html">driver</a> dsl, extended by <a href="../net.corda.testing.driver/-in-process/index.html">InProcess</a> and <a href="../net.corda.testing.driver/-out-of-process/index.html">OutOfProcess</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.core/net.corda.core.node.-node-info/index.html">net.corda.core.node.NodeInfo</a> (extensions in package net.corda.testing.core)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-node-parameters/index.html">net.corda.testing.driver.NodeParameters</a></td>
+<td>
+<p>Parameters for creating a node for <a href="../net.corda.testing.driver/-driver-d-s-l/start-node.html">DriverDSL.startNode</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-notary-handle/index.html">net.corda.testing.driver.NotaryHandle</a></td>
+<td>
+<p>Object ecapsulating a notary started automatically by the driver.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-notary-spec/index.html">net.corda.testing.node.NotarySpec</a></td>
+<td>
+<p>A notary spec for describing a notary which will be started automatically by the driver and which will be part of
+the network parameters used by all the nodes.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows.asset/-obligation-utils/index.html">net.corda.finance.workflows.asset.ObligationUtils</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/rx.-observable/index.html">rx.Observable</a> (extensions in package net.corda.client.rpc)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.core/rx.-observable/index.html">rx.Observable</a> (extensions in package net.corda.testing.core)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-out-of-process/index.html">net.corda.testing.driver.OutOfProcess</a></td>
+<td>
+<p>Interface which represents an out of process node and exposes its process handle.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-output-state-lookup/index.html">net.corda.testing.dsl.OutputStateLookup</a></td>
+<td>
+<p>This interface defines output state lookup by label. It is split from the interpreter interfaces so that outputs may
+be looked up both in ledger{..} and transaction{..} blocks.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-permission-exception/index.html">net.corda.client.rpc.PermissionException</a></td>
+<td>
+<p>Thrown to indicate that the calling user does not have permission for something they have requested (for example
+calling a method).</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-port-allocation/index.html">net.corda.testing.driver.PortAllocation</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-r-p-c-connection/index.html">net.corda.client.rpc.RPCConnection</a></td>
+<td>
+<p>Holds a <a href="../net.corda.client.rpc/-r-p-c-connection/proxy.html">proxy</a> object implementing <a href="../net.corda.client.rpc/-r-p-c-connection/index.html#I">I</a> that forwards requests to the RPC server. The server version can be queried
+via this interface.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-r-p-c-exception/index.html">net.corda.client.rpc.RPCException</a></td>
+<td>
+<p>Thrown to indicate a fatal error in the RPC system itself, as opposed to an error generated by the invoked method.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-r-p-c-since-version/index.html">net.corda.client.rpc.RPCSinceVersion</a></td>
+<td>
+<p>Records the protocol version in which this RPC was added.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.test/-sample-cash-schema-v1/index.html">net.corda.finance.test.SampleCashSchemaV1</a></td>
+<td>
+<p>First version of a cash contract ORM schema that maps all fields of the <a href="#">Cash</a> contract state as it stood
+at the time of writing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.test/-sample-cash-schema-v2/index.html">net.corda.finance.test.SampleCashSchemaV2</a></td>
+<td>
+<p>Second version of a cash contract ORM schema that extends the <a href="#">CommonSchemaV1.FungibleState</a> abstract schema.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.test/-sample-cash-schema-v3/index.html">net.corda.finance.test.SampleCashSchemaV3</a></td>
+<td>
+<p>First version of a cash contract ORM schema that maps all fields of the <a href="#">Cash</a> contract state as it stood
+at the time of writing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.core/-serialization-environment-rule/index.html">net.corda.testing.core.SerializationEnvironmentRule</a></td>
+<td>
+<p>A test serialization rule implementation for use in tests</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows/net.corda.core.node.-service-hub/index.html">net.corda.core.node.ServiceHub</a> (extensions in package net.corda.finance.workflows)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/net.corda.core.node.-service-hub/index.html">net.corda.core.node.ServiceHub</a> (extensions in package net.corda.testing.node)</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-started-mock-node/index.html">net.corda.testing.node.StartedMockNode</a></td>
+<td>
+<p>A class that represents a started mock node for testing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.jackson/-string-to-method-call-parser/index.html">net.corda.client.jackson.StringToMethodCallParser</a></td>
+<td>
+<p>This class parses strings in a format designed for human usability into <a href="../net.corda.client.jackson/-string-to-method-call-parser/-parsed-method-call/index.html">ParsedMethodCall</a> objects representing a
+ready-to-invoke call on the given target object. The strings accepted by this class are a minor variant of
+<a href="http://www.yaml.org/spec/1.2/spec.html">Yaml</a> and can be easily typed at a command line. Intended use cases include
+things like the Corda shell, text-based RPC dispatch, simple scripting and so on.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-test-clock/index.html">net.corda.testing.node.TestClock</a></td>
+<td>
+<p>A <a href="http://docs.oracle.com/javase/8/docs/api/java/time/Clock.html">Clock</a> that can have the time advanced for use in testing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-test-cordapp/index.html">net.corda.testing.node.TestCordapp</a></td>
+<td>
+<p>Encapsulates a CorDapp that exists on the current classpath, which can be pulled in for testing. Use <a href="../net.corda.testing.node/-test-cordapp/find-cordapp.html">TestCordapp.findCordapp</a>
+to locate an existing CorDapp.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.core/-test-identity/index.html">net.corda.testing.core.TestIdentity</a></td>
+<td>
+<p>A class that encapsulates a test identity containing a <a href="#">CordaX500Name</a> and a <a href="http://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a>, alongside a range
+of utility methods for use during testing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html">net.corda.testing.dsl.TestLedgerDSLInterpreter</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html">net.corda.testing.dsl.TestTransactionDSLInterpreter</a></td>
+<td>
+<p>This interpreter builds a transaction, and <a href="#">TransactionDSL.verifies</a> that the resolved transaction is correct. Note
+that transactions corresponding to input states are not verified. Use <a href="#">LedgerDSL.verifies</a> for that.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-transaction-d-s-l/index.html">net.corda.testing.dsl.TransactionDSL</a></td>
+<td>
+<p>Underlying class for the transaction DSL. Do not instantiate directly, instead use the <a href="#">transaction</a> function.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-transaction-d-s-l-interpreter/index.html">net.corda.testing.dsl.TransactionDSLInterpreter</a></td>
+<td>
+<p>This interface defines the bare bone functionality that a Transaction DSL interpreter should implement.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-two-party-deal-flow/index.html">net.corda.finance.flows.TwoPartyDealFlow</a></td>
+<td>
+<p>Classes for manipulating a two party deal or agreement.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.flows/-two-party-trade-flow/index.html">net.corda.finance.flows.TwoPartyTradeFlow</a></td>
+<td>
+<p>This asset trading flow implements a "delivery vs payment" type swap. It has two parties (B and S for buyer
+and seller) and the following steps:</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.finance.workflows.utils/-unknown-calendar/index.html">net.corda.finance.workflows.utils.UnknownCalendar</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.client.rpc/-unrecoverable-r-p-c-exception/index.html">net.corda.client.rpc.UnrecoverableRPCException</a></td>
+<td>
+<p>Thrown to indicate a fatal error in the RPC system which cannot be recovered from and so needs some manual support.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-unstarted-mock-node/index.html">net.corda.testing.node.UnstartedMockNode</a></td>
+<td>
+<p>A class that represents an unstarted mock node for testing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.node/-user/index.html">net.corda.testing.node.User</a></td>
+<td>
+<p>Object encapsulating a node rpc user and their associated permissions for use when testing using the <a href="#">driver</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-verifier-type/index.html">net.corda.testing.driver.VerifierType</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.dsl/-verifies/index.html">net.corda.testing.dsl.Verifies</a></td>
+<td>
+<p>This interface asserts that the DSL at hand is capable of verifying its underlying construct(ledger/transaction).</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../net.corda.testing.driver/-webserver-handle/index.html">net.corda.testing.driver.WebserverHandle</a></td>
+<td>
+<p>Class which represents a handle to a webserver process and its <a href="#">NetworkHostAndPort</a> for testing purposes.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600");
+    #cookies-eu-banner {
+        background-color: rgba(83, 88, 95, 0.9);
+        border-radius: 3px;
+        color: #fff;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        left: 3px;
+        position: fixed;
+        padding: 6px;
+        right: 3px;
+        text-align: center;
+        top: 100px;
+        z-index: 1000;
+    }
+    
+    #cookies-eu-banner h3,
+    #cookies-eu-banner p {
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: 0;
+    }
+    
+    #cookies-eu-banner h3 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.2;
+        margin: 9px 0 0;
+        text-transform: uppercase;
+    }
+    
+    #cookies-eu-banner p {
+        margin-bottom: 10px;
+        padding: 8px 36px 0;
+        text-align: justify;
+        line-height: 1.4em;
+    }
+    
+    #cookies-eu-banner fieldset {
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+    
+    #cookies-eu-banner legend {
+        color: inherit;
+        display: block;
+        font-size: 18px;
+        line-height: inherit;
+        max-width: 100%;
+        margin-bottom: 16px;
+        padding: 0;
+        white-space: normal;
+        width: 100%;
+    }
+    
+    #cookies-eu-banner a {
+        color: #62AAF1;
+    }
+    
+    #cookies-eu-banner .cookies-button-group {
+        display: flex;
+        justify-content: center;
+    }
+    
+    #cookies-eu-accept,
+    #cookies-eu-accept-all {
+        background-color: #ec1d24;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0 10px 10px;
+        max-height: 40px;
+        height: 40px;
+        line-height: 1.1;
+        text-decoration: none;
+        width: 150px;
+    }
+    
+    .cookies-checkbox {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+    
+    .cookies-checkbox label {
+        font-size: 16px;
+        margin-left: 3px;
+    }
+    
+    @media screen and (min-width: 768px) {
+        #cookies-eu-banner {
+            bottom: 5px;
+            top: inherit;
+        }
+        #cookies-eu-accept,
+        #cookies-eu-accept-all {
+            font-size: 14px;
+        }
+    }
+</style>
+<div id="cookies-eu-banner" style="display: none;">
+    <h3 style="text-transform:none">Your privacy</h3>
+    <div class='cookie-flex'>
+        <p>
+            We use cookies to improve your experience on our site, and to help us understand how people use our documentation. For more detailed information, see our <a href="https://www.r3.com/privacy-policy/">privacy policy</a> and <a href="#">cookie declaration</a>.
+        </p>
+        <form id='cookie-consent-form'>
+            <fieldset>
+                <legend>
+                    Please select from the following options to continue to our site.
+                </legend>
+                <div class='cookies-button-group'>
+                    <button id="cookies-eu-accept" type="button">
+                      Allow cookies selected
+                    </button>
+                    <button id="cookies-eu-accept-all" type="button">
+                      Allow all cookies
+                    </button>
+                    <span class='cookies-checkbox'>
+                      <input
+                      type="checkbox"
+                      id="necessary"
+                      name="necessary"
+                      autocomplete="off"
+                      checked
+                      disabled />
+                        <input
+                        name="necessary"
+                        type="hidden"
+                        value="on"/>
+                        <label for="necessary">Necessary</label>
+                    </span>
+                    <span class='cookies-checkbox'>
+                      <input
+                      type="checkbox"
+                      id="preferences"
+                      name="preferences"
+                      autocomplete="off" />
+                      <label for="preferences">Preferences</label>
+                    </span>
+                    <span class='cookies-checkbox'>
+                      <input
+                      type="checkbox"
+                      id="statistics"
+                      name="statistics"
+                      autocomplete="off" />
+                      <label for="statistics">Statistics</label>
+                    </span>
+                    <span class='cookies-checkbox'>
+                      <input
+                      type="checkbox"
+                      id="marketing"
+                      name="marketing"
+                      autocomplete="off" />
+                      <label for="marketing">Marketing</label>
+                    </span>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script class='api-keys'>
+    var gaKey = 'UA-87760032-1';
+    var algolia_appId = "UX2KMUWFAL";
+    var algolia_apiKey = "1fe3367db02689b4aeebc59efad5abaf";
+    var algolia_index = "docs.corda.net";
+</script>
+<script class='cookies-eu-banner'>
+    ! function(root, factory) {
+        "use strict";
+        "function" == typeof define && define.amd ? define([], factory) : "object" == typeof exports ? module.exports = factory() : root.CookiesEuBanner = factory()
+    }(window, function() {
+        "use strict";
+        var document = window.document,
+            CookiesEuBanner = function(launchFunction, waitAccept, useLocalStorage, undefined) {
+                if (!(this instanceof CookiesEuBanner)) return new CookiesEuBanner(launchFunction);
+                this.cookieTimeout = 33696e6, this.bots = /bot|crawler|spider|crawling/i, this.cookieName = "hasConsent", this.trackingCookiesNames = ["__utma", "__utmb", "__utmc", "__utmt", "__utmv", "__utmz", "_ga", "_gat", "_gid"], this.launchFunction = launchFunction, this.waitAccept = waitAccept || !1, this.useLocalStorage = useLocalStorage || !1, this.init()
+            };
+        return CookiesEuBanner.prototype = {
+            init: function() {
+                var isBot = this.bots.test(navigator.userAgent);
+                navigator.doNotTrack || navigator.msDoNotTrack || window.doNotTrack;
+                return isBot || !1 === this.hasConsent() ? (this.removeBanner(0), !1) : !0 === this.hasConsent() ? (this.launchFunction(), !0) : (this.showBanner(), void(this.waitAccept || this.setConsent(!0)))
+            },
+            showBanner: function() {
+                var _this = this,
+                    getElementById = document.getElementById.bind(document),
+                    banner = getElementById("cookies-eu-banner"),
+                    rejectButton = getElementById("cookies-eu-reject"),
+                    acceptButton = getElementById("cookies-eu-accept"),
+                    moreLink = getElementById("cookies-eu-more"),
+                    waitRemove = void 0 === banner.dataset.waitRemove ? 0 : parseInt(banner.dataset.waitRemove),
+                    addClickListener = this.addClickListener,
+                    removeBanner = _this.removeBanner.bind(_this, waitRemove);
+                banner.style.display = "block", moreLink && addClickListener(moreLink, function() {
+                    _this.deleteCookie(_this.cookieName)
+                }), acceptButton && addClickListener(acceptButton, function() {
+                    removeBanner(), _this.setConsent(!0), _this.launchFunction()
+                }), rejectButton && addClickListener(rejectButton, function() {
+                    removeBanner(), _this.setConsent(!1), _this.trackingCookiesNames.map(_this.deleteCookie)
+                })
+            },
+            setConsent: function(consent) {
+                if (this.useLocalStorage) return localStorage.setItem(this.cookieName, consent);
+                this.setCookie(this.cookieName, consent)
+            },
+            hasConsent: function() {
+                function isCookieSetTo(value) {
+                    return -1 < document.cookie.indexOf(cookieName + "=" + value) || localStorage.getItem(cookieName) === value
+                }
+                var cookieName = this.cookieName;
+                return !!isCookieSetTo("true") || !isCookieSetTo("false") && null
+            },
+            setCookie: function(name, value) {
+                var date = new Date;
+                date.setTime(date.getTime() + this.cookieTimeout), document.cookie = name + "=" + value + ";SameSite=Strict;expires=" + date.toGMTString() + ";path=/"
+            },
+            deleteCookie: function(name) {
+                var hostname = document.location.hostname.replace(/^www\./, ""),
+                    commonSuffix = "; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/";
+                document.cookie = name + "=; domain=." + hostname + commonSuffix, document.cookie = name + "=" + commonSuffix
+            },
+            addClickListener: function(DOMElement, callback) {
+                if (DOMElement.attachEvent) return DOMElement.attachEvent("onclick", callback);
+                DOMElement.addEventListener("click", callback)
+            },
+            removeBanner: function(wait) {
+                setTimeout(function() {
+                    var banner = document.getElementById("cookies-eu-banner");
+                    banner && banner.parentNode && banner.parentNode.removeChild(banner)
+                }, wait)
+            }
+        }, CookiesEuBanner
+    });
+</script>
+<script class='google-analytics'>
+    function googleAnalytics() {
+        var i, s, o, r, a, m;
+        i = window, s = document, o = "script", r = "ga", i.GoogleAnalyticsObject = r, i.ga = i.ga || function() {
+            (i.ga.q = i.ga.q || []).push(arguments)
+        }, i.ga.l = +new Date, a = s.createElement(o), m = s.getElementsByTagName(o)[0], a.async = 1, a.src = "//www.google-analytics.com/analytics.js", m.parentNode.insertBefore(a, m), window.ga("create", "UA-87760032-1", "auto"), window.ga("send", "pageview")
+    }
+</script>
+<script class='docSearchInit'>
+    function docSearchInit() {
+        var algoliaOptions;
+        document.querySelector("#search-input") && (algoliaOptions = {
+            hitsPerPage: 5,
+            facetFilters: facetFilters
+        }, /404.html/.test(window.location.pathname) && delete algoliaOptions.facetFilters, window.docsearch({
+            appId: algolia_appId,
+            apiKey: algolia_apiKey,
+            indexName: algolia_index,
+            inputSelector: "#search-input",
+            algoliaOptions: algoliaOptions
+        }))
+    }
+</script>
+<script class='corda-cookie-banner'>
+    const docsearchLoad = (resolve, reject) => {
+        const script = document.createElement('script');
+        document.body.appendChild(script);
+        script.onload = resolve;
+        script.onerror = reject;
+        script.async = true;
+        script.src = "https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js";
+    };
+
+    class DocsiteCookies {
+        constructor() {
+            this.name = 'corda_cookie';
+            this.cookiesAccepted = {
+                set: true,
+                necessary: true,
+                preferences: false,
+                statistics: false,
+                marketing: false
+            };
+            this.form = document.querySelector('#cookie-consent-form');
+            this.handleAllCookies();
+
+            new CookiesEuBanner(() => {
+                this.cookieBanner();
+            }, true);
+        }
+
+        handleAllCookies() {
+            const acceptButton = document.querySelector('#cookies-eu-accept');
+            const allCookiesButton = document.querySelector('#cookies-eu-accept-all');
+
+            allCookiesButton.addEventListener('click', e => {
+                e.preventDefault();
+                this.allowAllCookies(this.form);
+                acceptButton.click();
+            });
+        }
+
+        cookieBanner() {
+            if (!this.checkConsent()) {
+                this.formToCookie(this.name, this.form);
+                this.setAdditionalServices();
+            } else {
+                this.setAdditionalServices();
+            }
+        }
+
+        allowAllCookies(form) {
+            let cookiePreferences = form.querySelectorAll('.cookies-checkbox');
+            for (let cookie of cookiePreferences) {
+                cookie.querySelector('input').checked = true;
+            }
+        }
+
+        formToCookie(name, form) {
+            const thirteenMonthsInMils = 31104000000;
+
+            let date = new Date();
+            date.setTime(date.getTime() + thirteenMonthsInMils);
+
+            let formData = new FormData(form);
+            for (var pair of formData.entries()) {
+                switch (pair[0]) {
+                    case "necessary":
+                        this.cookiesAccepted.necessary = (pair[1] === 'on') ?
+                            true :
+                            false;
+                        break;
+                    case "preferences":
+                        this.cookiesAccepted.preferences = (pair[1] === 'on') ?
+                            true :
+                            false;
+                        break;
+                    case "statistics":
+                        this.cookiesAccepted.statistics = (pair[1] === 'on') ?
+                            true :
+                            false;
+                        break;
+                    case "marketing":
+                        this.cookiesAccepted.marketing = (pair[1] === 'on') ?
+                            true :
+                            false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            let cookieValue = JSON.stringify(this.cookiesAccepted);
+
+            document.cookie = `${name}=${cookieValue};SameSite=Strict;expires=${date.toGMTString()};path=/`;
+        }
+
+        checkConsent() {
+            let cookieName = this.name;
+            let cookieValue = this.getCookie(cookieName);
+
+            if (cookieValue) {
+                if (cookieValue.set === true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        getCookie(name) {
+            let value = "; " + document.cookie;
+            let parts = value.split("; " + name + "=");
+            let cValue = "";
+
+            if (parts.length == 2) {
+                cValue = parts.pop().split(";").shift();
+            }
+
+            if (hasJsonStructure(cValue)) {
+                return JSON.parse(cValue);
+            } else {
+                return cValue;
+            }
+        }
+
+        setAdditionalServices() {
+            let cookieConsent = this.getCookie(this.name);
+            for (let [key, value] of Object.entries(cookieConsent)) {
+                if (key === 'necessary' && value === true) {
+                    new Promise(docsearchLoad)
+                        .then(() => {
+                            docSearchInit();
+                        })
+                        .catch(err => console.log(err));
+                }
+                if (key === 'statistics' && value === true) {
+                    googleAnalytics();
+                }
+            }
+        }
+    }
+
+    function hasJsonStructure(str) {
+        if (typeof str !== 'string') return false;
+        try {
+            const result = JSON.parse(str);
+            const type = Object.prototype.toString.call(result);
+            return type === '[object Object]' ||
+                type === '[object Array]';
+        } catch (err) {
+            return false;
+        }
+    }
+</script>
+<script class='initialise'>
+    new DocsiteCookies();
+</script>
+</body>
+</HTML>

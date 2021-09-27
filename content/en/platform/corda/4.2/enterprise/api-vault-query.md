@@ -197,7 +197,20 @@ interfaces' common state attributes to the **VAULT_LINEAR_STATES** table.{{< /no
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
 by a custom contract state that implements its own schema as described in the [Persistence](api-persistence.md)
 documentation and associated examples. Custom criteria expressions are expressed using one of the following type-safe forms of `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator
-types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (`SUM`, `AVG`, `MAX`, `MIN`, `COUNT`) with optional grouping and sorting. Furthermore, a rich DSL is provided to enable simple construction of custom criteria using any combination of `ColumnPredicate`. See the `Builder` object in
+types. The `AggregateFunctionExpression` allows for the specification of an aggregate function type (`SUM`, `AVG`, `MAX`, `MIN`, `COUNT`) with optional grouping and sorting.
+
+{{% warning %}}
+The `COUNT` function is not compatible with the `group by` grouping clause. To use grouping with `COUNT` you must implement the `max()` source method for count:
+
+```kotlin
+{{private fun <O, R> KProperty1<O, R?>.count( groupByColumns: List<KProperty1<O, R>>?, orderBy: Sort.Direction? = null): CriteriaExpression.AggregateFunctionExpression<O, R> = functionPredicate( ColumnPredicate.AggregateFunction(AggregateFunctionType.COUNT), groupByColumns?.map
+
+{ Column(it) }
+, orderBy )}}
+```
+{{% /warning %}}
+
+Furthermore, a rich DSL is provided to enable simple construction of custom criteria using any combination of `ColumnPredicate`. See the `Builder` object in
 `QueryCriteriaUtils` for a complete specification of the DSL.
 {{< note >}}
 Custom contract schemas are automatically registered upon node startup for CorDapps. Please refer to

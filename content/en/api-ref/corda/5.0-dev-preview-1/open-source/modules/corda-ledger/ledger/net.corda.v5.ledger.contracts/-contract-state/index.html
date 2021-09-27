@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ContractState - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="./index.html">ContractState</a><br/>
+<br/>
+<h1>ContractState</h1>
+<code><span class="keyword">interface </span><span class="identifier">ContractState</span></code>
+<p>A contract state (or just "state") contains opaque data used by a contract program. It can be thought of as a disk
+file that the program can use to persist data across transactions. States are immutable: once created they are never
+updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once: the
+notary is responsible for ensuring there is no "double spending" by only signing a transaction if the input states
+are all free.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="participants.html">participants</a></h4>
+</td>
+<td>
+<p>A <em>participant</em> is any party that should be notified when the state is created or consumed.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">participants</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">AbstractParty</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.v5.ledger.transactions/required-contract-class-name.html">requiredContractClassName</a></h4>
+</td>
+<td>
+<p>Obtain the typename of the required <a href="#">ContractClass</a> associated with the target <a href="./index.html">ContractState</a>, using the
+<a href="../-belongs-to-contract/index.html">BelongsToContract</a> annotation by default, but falling through to checking the state's enclosing class if there is
+one and it inherits from <a href="../-contract/index.html">Contract</a>.</p>
+<code><span class="keyword">val </span><a href="./index.html"><span class="identifier">ContractState</span></a><span class="symbol">.</span><span class="identifier">requiredContractClassName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-fungible-state/index.html">FungibleState</a></h4>
+</td>
+<td>
+<p>Interface to represent things which are fungible, this means that there is an expectation that these things can
+be split and merged. That's the only assumption made by this interface.</p>
+<code><span class="keyword">interface </span><span class="identifier">FungibleState</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">ContractState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-linear-state/index.html">LinearState</a></h4>
+</td>
+<td>
+<p>A state that evolves by superseding itself, all of which share the common "linearId".</p>
+<code><span class="keyword">interface </span><span class="identifier">LinearState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">ContractState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-ownable-state/index.html">OwnableState</a></h4>
+</td>
+<td>
+<p>A contract state that can have a single owner.</p>
+<code><span class="keyword">interface </span><span class="identifier">OwnableState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">ContractState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.v5.ledger.schemas/-queryable-state/index.html">QueryableState</a></h4>
+</td>
+<td>
+<p>A contract state that may be mapped to database schemas configured for this node to support querying for,
+or filtering of, states.</p>
+<code><span class="keyword">interface </span><span class="identifier">QueryableState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">ContractState</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

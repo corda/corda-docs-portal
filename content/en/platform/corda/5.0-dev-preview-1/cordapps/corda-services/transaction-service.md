@@ -5,19 +5,18 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps-corda-services
     weight: 7000
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
-  Signing transactions with and without TransactionService.
+  Signing transactions with and without `TransactionService`.
 ---
 
-Use this document to learn how to sign transactions with the `TransactionService`, and how to sign `TransactionBuilders` directly, without `TransactionService`.
+Use this guide to learn how to sign transactions with the `TransactionService`, and how to sign `TransactionBuilders` directly, without `TransactionService`.
 
-## Signing transactions using the `TransactionService`
+## Sign transactions using the `TransactionService`
 
 `TransactionService` can be injected into flows and services. You can sign transactions using `TransactionService`. This includes signing both `TransactionBuilder`s and `SignedTransaction`s.
 
-### Signing `TransactionBuilder`s
+### Sign a `TransactionBuilder`
 
 To sign a `TransactionBuilder`:
 
@@ -30,7 +29,7 @@ To sign a `TransactionBuilder`:
   // Sign with a single [PublicKey]
   val signedTransaction: SignedTransaction = transactionService.sign(transactionBuilder, publicKey)
 
-  // Sign with a multiple [PublicKey]s
+  // Sign with multiple [PublicKey]s
   val signedTransaction: SignedTransaction = transactionService.sign(transactionBuilder, listOf(publicKey, anotherPublicKey))
   ```
 
@@ -43,11 +42,11 @@ To sign a `TransactionBuilder`:
   // Sign with a single [PublicKey]
   SignedTransaction signedTransaction = transactionService.sign(transactionBuilder, publicKey)
 
-  // Sign with a multiple [PublicKey]s
+  // Sign with multiple [PublicKey]s
   SignedTransaction signedTransaction = transactionService.sign(transactionBuilder, List.of(publicKey, anotherPublicKey))
   ```
 
-### Signing `SignedTransaction`s
+### Sign a `SignedTransaction`
 
 To sign a `SignedTransaction`:
 
@@ -71,7 +70,7 @@ To sign a `SignedTransaction`:
   SignedTransaction signedTransactionWithAnotherSignature = transactionService.sign(signedTransaction, publicKey)
   ```
 
-### Creating signatures
+### Create a signature
 
 You can also create the signature without signing the input transaction itself by using `TransactionService.createSignature`.
 
@@ -100,11 +99,11 @@ To create a signature for a `SignedTransaction` or `FilteredTransaction`:
   ```
 
 
-If the input transaction to `createSignature` was a `SignedTransaction`, then the returned `DigitalSignatureAndMeta` can be combined with it after operations using the signature are complete, returning a copy of the `SignedTransaction` with the signature. This is equivalent to using `TransactionService.sign` but allows you to interact with the `DigitalSignatureAndMeta` as your application requires.
+If the input transaction to `createSignature` was a `SignedTransaction`, then the returned `DigitalSignatureAndMeta` can be combined with it after operations using the signature are complete, returning a copy of the `SignedTransaction` with the signature. This is equivalent to using `TransactionService.sign`, but allows you to interact with the `DigitalSignatureAndMeta` as your application requires.
 
-## Signing `TransactionBuilder`s directly
+## Sign a `TransactionBuilder` directly
 
-You can sign a `TransactionBuilder` directly without accessing a `TransactionService`. This is a convenience function to make building transactions simpler. They are functionally equivalent to the `TransactionService.sign` methods.
+You can sign a `TransactionBuilder` directly without accessing a `TransactionService`. This is a convenience function to make building transactions simpler. It is functionally equivalent to the `TransactionService.sign` method.
 
 - Kotlin
 
@@ -115,7 +114,7 @@ You can sign a `TransactionBuilder` directly without accessing a `TransactionSer
   // Sign with a single [PublicKey]
   val signedTransaction: SignedTransaction = transactionBuilder.sign(publicKey)
 
-  // Sign with a multiple [PublicKey]s
+  // Sign with multiple [PublicKey]s
   val signedTransaction: SignedTransaction = transactionBuilder.sign(listOf(publicKey, anotherPublicKey))
   ```
 
@@ -128,6 +127,6 @@ You can sign a `TransactionBuilder` directly without accessing a `TransactionSer
   // Sign with a single [PublicKey]
   SignedTransaction signedTransaction = transactionBuilder.sign(publicKey)
 
-  // Sign with a multiple [PublicKey]s
+  // Sign with multiple [PublicKey]s
   SignedTransaction signedTransaction = transactionBuilder.sign(List.of(publicKey, anotherPublicKey))
   ```

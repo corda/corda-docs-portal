@@ -6,12 +6,17 @@ menu:
     parent: corda-5-dev-preview-1-cordapps
     identifier: corda-5-dev-preview-1-cordapps-contracts
     weight: 1300
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
 A **contract** governs the evolution of a <a href="key-concepts-states.md">**state**</a> over time and is used to
 verify proposed <a href="key-concepts-transactions.md">**transactions**</a>.
+
+### States in the Corda 5 Developer Preview
+
+In the Corda 5 Developer Preview, the main principles of states, transactions, and contracts remain the same as they were
+in Corda 4. However, as your CorDapp's external interactions are performed via HTTP-RPC REST APIs (and the node returns information
+in the same way), when writing states you must add a `JsonRepresentable`.
 
 ## Transaction verification
 

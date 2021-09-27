@@ -13,8 +13,10 @@
 
     <div class="container-fluid">
       {{ if ne .IsHome true }}
-      <input class="menu-btn order-0" type="checkbox" id="menu-btn" onchange="toggleSideBar()">
+      {{ if ne .Params.sidebar false -}}
+      <input class="menu-btn order-0" type="checkbox" id="menu-btn">
       <label class="menu-icon d-lg-none" for="menu-btn"><span class="navicon"></span></label>
+      {{ end -}}
       {{ end -}}
 
       <a class="navbar-brand order-1" href="{{ .Site.BaseURL | absURL }}" aria-label="{{ .Site.Title }} home page">
@@ -48,16 +50,27 @@
       </div>
 
       {{ if ne .IsHome true }}
-      {{ if .Site.Params.options.flexSearch -}}
+      {{ if ne .Params.topsearch false -}}
+
       <div class="order-4 order-sm-5 order-lg-3 d-none d-lg-flex" id="top-search">
         <form class="navbar-form order-lg-4 order-0">
-          <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
-          <button class="btn_search">
-            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
-          </button>
-          <div id="suggestions" class="suggestions shadow rounded"></div>
-        </form>
+        {{ if .Site.Params.options.flexSearch -}}
+            <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
+            <button class="btn_search">
+              <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+            </button>
+            <div id="suggestions" class="suggestions shadow rounded"></div>
+        {{ end -}}
+
+        {{ if .Site.Params.options.algolia -}}
+            <input id="search-input" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
+            <button class="btn_search">
+              <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+            </button>
+        {{ end -}}
+          </form>
       </div>
+
       {{ end -}}
       {{ end -}}
     </div>

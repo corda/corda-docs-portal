@@ -2,13 +2,13 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
+    identifier: corda-enterprise-4-8-legal-info
     parent: corda-enterprise-4-8-release-notes
     weight: 300
 tags:
 - legal
 - info
-title: Third-party software licence information
-
+title: Third-party software licence information - CE 4.8
 ---
 
 # Corda Enterprise 4.8 third-party software notices and licence information

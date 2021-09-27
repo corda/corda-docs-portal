@@ -5,7 +5,6 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps-corda-services
     weight: 3000
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   Hashing within flows, services and internally.
@@ -40,7 +39,7 @@ The Corda Hashing API comprises `BasicHashingService` and `HashingService`.
   It will throw `IllegalArgumentException` if:
 
   * the passed in `String` does not conform to the [algorithm]:[digest value as a hexadecimal string] format.
-  * the digest value is not of the expected digest algorithm length.  
+  * the digest value is not of the expected digest algorithm length.
 
 * `SecureHash` constants containing byte arrays full of zeros(0) or ones(1), of the length of the respective digest algorithm specified through:
 

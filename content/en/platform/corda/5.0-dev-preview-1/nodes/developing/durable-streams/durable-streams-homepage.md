@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes-developing
     identifier: corda-5-dev-preview-1-nodes-developing-durable-streams
     weight: 3000
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   How to use durable streams in HTTP-RPC methods.
@@ -131,7 +130,7 @@ server time and will change depending on when the server processes the request.
 where transactionTime between (T-1 and T)
 ```
 
-### Tracking positions
+## Tracking positions
 
 The HTTP-RPC client is responsible for tracking positions/sequence.
 

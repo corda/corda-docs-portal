@@ -4,10 +4,8 @@ title: "Setting up a local Corda 5 development network"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-gettingstarted
-    weight: 200
-project: corda-5
+    weight: 500
 section_menu: corda-5-dev-preview
-
 ---
 
 In this document, you will learn how to set up a local Corda 5 development network using Docker. You can then use this network to perform manual and/or automated testing.
@@ -23,7 +21,7 @@ In the Corda 5 Developer Preview release, the notaries support non-validating mo
 
 ## Before you start
 
-Before you begin, make sure you [set up your development environment first](XXX).
+Before you begin, make sure you [install the Corda 5 Developer Preview](overview.md).
 
 
 ## Configure your network
@@ -139,4 +137,4 @@ nodes:
 
 ## Troubleshooting
 
-If you encounter any issues while deploying your local Corda 5 network, see [Corda 5 local network troubleshooting](XXX).
+If you encounter any issues while deploying your local Corda 5 network, see [Corda 5 local network troubleshooting](troubleshooting/network-troubleshooting.md).

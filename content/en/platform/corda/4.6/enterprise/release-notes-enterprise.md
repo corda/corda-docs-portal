@@ -16,6 +16,21 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.6.4
+
+Corda Enterprise 4.6.4 is a patch release of Corda Enterprise that introduces fixes known issues in Corda Enterprise 4.6.3.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+
+As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* Corda dependency vulnerability CVE-2020-28052 has been fixed.
+* A fix has been introduced to reduce memory consumption during batched transaction resolution of large backchains.
+
 ## Corda Enterprise 4.6.3
 
 Corda Enterprise 4.6.3 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.6.2.

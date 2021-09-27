@@ -6,7 +6,6 @@ menu:
     parent: corda-5-dev-preview-1-nodes-developing
     identifier: corda-5-dev-preview-1-nodes-developing-http-rpc-client
     weight: 2600
-project: corda-5
 section_menu: corda-5-dev-preview
 description: >
   How to use the Java/Kotlin native HTTP-RPC client.

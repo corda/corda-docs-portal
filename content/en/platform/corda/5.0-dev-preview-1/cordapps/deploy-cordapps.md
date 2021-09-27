@@ -4,12 +4,12 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps
     weight: 9000
-project: corda-5
 section_menu: corda-5-dev-preview
 title: Deploying a CorDapp
 ---
 
-To deploy anything to a Corda 5 Developer Preview network, you must use a Corda package bundle file (a `.cpb` file) which contains both workflows and contracts packages.
+To deploy to a Corda 5 Developer Preview network, you must use a Corda package bundle file (`.cpb` file) which contains
+both workflows and contracts packages.
 
 {{< note >}}
 
@@ -17,9 +17,9 @@ Nodes in the Corda 5 Developer Preview can only support a single sandbox, runnin
 
 {{< /note >}}
 
-1. Apply the CorDapp CPK Gradle plugin to a Gradle project and generate the `.cpk` files. See [CorDapp CPK Gradle plugin](XXX).
+1. Apply the CorDapp CPK Gradle plugin to a Gradle project and generate the `.cpk` files. See [CorDapp CPK Gradle plugin](../packaging/gradle-plugin/overview.md).
 
-2. Assemble your `.cpk` files into a single `.cpb` file using the CorDapp Builder CLI. See [CorDapp Builder CLI](XXX).
+2. Assemble your `.cpk` files into a single `.cpb` file using the CorDapp Builder CLI. See [CorDapp Builder CLI](../packaging/cordapp-builder.md).
 
 3. To deploy your CorDapp, perform one of the following steps:
 
@@ -57,7 +57,7 @@ Nodes in the Corda 5 Developer Preview can only support a single sandbox, runnin
    **Step result:** The **Deployed apps** section appears in the command's output.
 
    {{< note >}}
-   Restarting the node retains the deployed apps. To replace the apps, run the `deploy` command with a new version of the `.cpb`. To remove a deployed app, remove the `.cpb` from the container and restart the node.
+   Restarting the node retains the deployed CorDapps. To replace the CorDapps, run the `deploy` command with a new version of the `.cpb`. To remove a deployed CorDapp, remove the `.cpb` from the container and restart the node.
 
    Use the `corda-cli pgk remove` command to uninstall a previously installed `.cpb` or `.cpk`.
 

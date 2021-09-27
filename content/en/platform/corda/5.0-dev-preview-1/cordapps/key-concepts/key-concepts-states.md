@@ -5,11 +5,9 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-1-cordapps
     identifier: corda-5-dev-preview-1-cordapps-states
-    weight: 1500
-project: corda-5
+    weight: 1350
 section_menu: corda-5-dev-preview
 ---
-
 
 A **state** is an immutable object representing a fact known by one or more Corda nodes at a specific point in time.
 States can contain arbitrary data, allowing them to represent facts of any kind, such as, stocks, bonds, loans, KYC data,
@@ -21,6 +19,12 @@ For example, this state represents an IOU—an agreement that Alice owes Bob £5
 
 As well as any information about the fact itself, the state also contains a reference to
 the <a href="key-concepts-contracts.md">**contract**</a> that governs the evolution of the state over time.
+
+### States in the Corda 5 Developer Preview
+
+In the Corda 5 Developer Preview, the main principles of states, transactions, and contracts remain the same as they were
+in Corda 4. However, as your CorDapp's external interactions are performed via HTTP-RPC REST APIs (and the node returns information
+in the same way), when writing states you must add a `JsonRepresentable`.
 
 ## State sequences
 

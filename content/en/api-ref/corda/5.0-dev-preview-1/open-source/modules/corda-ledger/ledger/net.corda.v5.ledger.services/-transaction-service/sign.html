@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionService.sign - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services</a>&nbsp;/&nbsp;<a href="index.html">TransactionService</a>&nbsp;/&nbsp;<a href="./sign.html">sign</a><br/>
+<br/>
+<h1>sign</h1>
+<a name="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.TransactionBuilder, kotlin.collections.Collection((java.security.PublicKey)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.TransactionBuilder, kotlin.collections.Collection((java.security.PublicKey)))/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.TransactionBuilder, kotlin.collections.Collection((java.security.PublicKey)))/publicKeys">publicKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Constructs an initial partially signed transaction from a <a href="../../net.corda.v5.ledger.transactions/-transaction-builder/index.html">TransactionBuilder</a> using a set of keys all held in this node.</p>
+<h3>Parameters</h3>
+<p><a name="builder"></a>
+<code>builder</code> - The <a href="../../net.corda.v5.ledger.transactions/-transaction-builder/index.html">TransactionBuilder</a> to seal with the node's signature. Any existing signatures on the builder will be preserved.</p>
+<p><a name="publicKeys"></a>
+<code>publicKeys</code> - A list of <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a>s used to lookup the matching <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">PrivateKey</a> and sign.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - If an empty collection of keys are passed in.</p>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - If any keys are unavailable locally.</p>
+<p><strong>Return</strong><br/>
+Returns a <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> with the new node signature attached.</p>
+<a name="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.TransactionBuilder, java.security.PublicKey)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.TransactionBuilder, java.security.PublicKey)/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.TransactionBuilder, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Constructs an initial partially signed transaction from a <a href="../../net.corda.v5.ledger.transactions/-transaction-builder/index.html">TransactionBuilder</a> using keys stored inside the node. Signature metadata
+is added automatically.</p>
+<h3>Parameters</h3>
+<p><a name="builder"></a>
+<code>builder</code> - The <a href="../../net.corda.v5.ledger.transactions/-transaction-builder/index.html">TransactionBuilder</a> to seal with the node's signature. Any existing signatures on the builder will be preserved.</p>
+<p><a name="publicKey"></a>
+<code>publicKey</code> - The <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a> matched to the internal <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">PrivateKey</a> to use in signing this transaction. If the passed in key is
+actually a <a href="#">CompositeKey</a>, the code searches for the first child key hosted within this node to sign with.</p>
+<p><strong>Return</strong><br/>
+Returns a SignedTransaction with the new node signature attached.</p>
+<a name="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.TransactionBuilder)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.TransactionBuilder)/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Constructs an initial partially signed transaction from a <a href="../../net.corda.v5.ledger.transactions/-transaction-builder/index.html">TransactionBuilder</a> using the default identity key contained in the node.
+The legal identity key is used to sign.</p>
+<h3>Parameters</h3>
+<p><a name="builder"></a>
+<code>builder</code> - The <a href="../../net.corda.v5.ledger.transactions/-transaction-builder/index.html">TransactionBuilder</a> to seal with the node's signature. Any existing signatures on the builder will be preserved.</p>
+<p><strong>Return</strong><br/>
+Returns a SignedTransaction with the new node signature attached.</p>
+<a name="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.SignedTransaction, java.security.PublicKey)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.SignedTransaction, java.security.PublicKey)/signedTransaction">signedTransaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.SignedTransaction, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Appends an additional signature to an existing (partially) <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a>.</p>
+<h3>Parameters</h3>
+<p><a name="signedTransaction"></a>
+<code>signedTransaction</code> - The <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> to which the signature will be added.</p>
+<p><a name="publicKey"></a>
+<code>publicKey</code> - The <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a> matching to a signing <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">java.security.PrivateKey</a> hosted in the node. If the <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a> is actually
+a <a href="#">CompositeKey</a>, the first leaf key found locally will be used for signing.</p>
+<p><strong>Return</strong><br/>
+A new <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> with the addition of the new signature.</p>
+<a name="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.SignedTransaction)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$sign(net.corda.v5.ledger.transactions.SignedTransaction)/signedTransaction">signedTransaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Appends an additional signature for an existing (partially) <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> using the default identity signing key of the node.</p>
+<h3>Parameters</h3>
+<p><a name="signedTransaction"></a>
+<code>signedTransaction</code> - The <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> to which the signature will be added.</p>
+<p><strong>Return</strong><br/>
+A new <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> with the addition of the new signature.</p>
+</BODY>
+</HTML>

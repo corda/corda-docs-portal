@@ -8,8 +8,7 @@ menu:
 project: corda
 section_menu: corda-os-4-0
 title: Corda OS 4.0
-version: '4.0'
-cordaType: 'Open Source'
+version: 'Open source 4.0'
 ---
 # Welcome to Corda !
 

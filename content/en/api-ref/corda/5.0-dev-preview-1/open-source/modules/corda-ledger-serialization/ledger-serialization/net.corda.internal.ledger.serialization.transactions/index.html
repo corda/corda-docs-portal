@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.internal.ledger.serialization.transactions - ledger-serialization</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">ledger-serialization</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.internal.ledger.serialization.transactions</a><br/>
+<br/>
+<h2>Package net.corda.internal.ledger.serialization.transactions</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-filtered-transaction-container/index.html">FilteredTransactionContainer</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">FilteredTransactionContainer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-filtered-transaction-interface-serializer/index.html">FilteredTransactionInterfaceSerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">FilteredTransactionInterfaceSerializer</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Proxy</span><span class="symbol">&lt;</span><span class="identifier">FilteredTransaction</span><span class="symbol">,</span>&nbsp;<span class="identifier">FilteredTransactionContainerRef</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signed-transaction-container/index.html">SignedTransactionContainer</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">SignedTransactionContainer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signed-transaction-interface-serializer/index.html">SignedTransactionInterfaceSerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SignedTransactionInterfaceSerializer</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Proxy</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">,</span>&nbsp;<span class="identifier">SignedTransactionContainerRef</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wire-transaction-container/index.html">WireTransactionContainer</a></h4>
+</td>
+<td>
+<p>Interface for WireTransaction wire data.
+Typically the child object actually gets serialized on the wire.
+A WireTransactionContainer can be obtained from a WireTransaction.</p>
+<code><span class="keyword">interface </span><span class="identifier">WireTransactionContainer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wire-transaction-interface-serializer/index.html">WireTransactionInterfaceSerializer</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">WireTransactionInterfaceSerializer</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Proxy</span><span class="symbol">&lt;</span><span class="identifier">WireTransaction</span><span class="symbol">,</span>&nbsp;<span class="identifier">WireTransactionContainerRef</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wire-transaction-type/index.html">WireTransactionType</a></h4>
+</td>
+<td>
+<p>Enumeration for different WireTransactions.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">WireTransactionType</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wire-transaction-version/index.html">WireTransactionVersion</a></h4>
+</td>
+<td>
+<p>Enumeration for WireTransaction version.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">WireTransactionVersion</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-wire-transaction-deserialization-exception/index.html">WireTransactionDeserializationException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">WireTransactionDeserializationException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaRuntimeException</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wire-transaction-serialization-exception/index.html">WireTransactionSerializationException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">WireTransactionSerializationException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaRuntimeException</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
