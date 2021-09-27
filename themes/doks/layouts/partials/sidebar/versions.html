@@ -39,8 +39,12 @@
           {{ $active:=false}}
 
           {{ if eq .Page.Params.section_menu $sectionMenuForThisPage }}{{$active = true}}{{ end }}
-          {{ $pageUrl := replace $currentUrl $currentVersion .Page.Params.Version }}
+
+          {{ $currentPath := path.Dir $currentUrl }}
+          {{ $pagePath := path.Dir .Page.RelPermalink }}
+          {{ $pageUrl := replace $currentUrl $currentPath $pagePath }}
           {{ $similarPage := $currentPage.GetPage $pageUrl }}
+
           <li>
             {{ if eq $similarPage.Permalink "" }}
               <a href="{{ .Page.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
