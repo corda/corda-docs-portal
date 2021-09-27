@@ -34,9 +34,55 @@ If you are new to Corda, and want a guided tutorial on using the Tokens SDK for 
 
 This version of the Tokens SDK is for the Corda 5 Developer Preview only. It cannot be deployed for any other version of Corda. No new functionality has been added in 2.0.0, however the APIs have been updated to work with CorDapps running Corda 5 Developer Preview.
 
-## Install the Tokens SDK
+## Using the Tokens SDK
 
-Use these steps to install the Tokens SDK and to add the Tokens SDK dependencies to an existing CorDapp.
+The binaries for the tokens SDK version version 2.0.0-DevPreview-1.0 (i.e. the version matching Corda 5 DevPreview)
+are released on Maven Central.
+
+If your project is set up to import dependencies from Maven Central, you can pull in these binaries.
+
+### Add Tokens SDK dependencies to an existing CorDapp
+
+To add the Tokens SDK dependencies to an existing CorDapp:
+
+1. Add a variable for the tokens release group and the version you
+wish to use. If you want to use the published binaries, the version should be 2.0.0-DevPreview-1.*
+
+```
+    buildscript {
+        ext {
+            tokens_release_version = '2.0.0-DevPreview-1.*'
+            tokens_release_group = 'com.r3.corda.lib.tokens'
+        }
+    }
+```
+
+2. Add the `token-sdk` dependencies to the `dependencies` block in each module of your CorDapp. For contract modules add:
+
+```
+    cordapp "$tokens_release_group:tokens-contracts:$tokens_release_version"
+```
+
+3. In your workflow `build.gradle` add:
+
+```
+    cordapp "$tokens_release_group:tokens-workflows:$tokens_release_version"
+    cordapp "$tokens_release_group:tokens-selection:$tokens_release_version"
+    cordapp "$tokens_release_group:tokens-tokens-builder:$tokens_release_version"
+```
+
+4. Bundle the following `.cpk` files into your CorDapp's `.cpb` file for deployment:
+
+* tokens-contracts
+* tokens-workflows
+* tokens-selection
+* tokens-tokens-builder
+* ci-workflows (for confidential tokens flows)
+
+## Building the Tokens SDK yourself
+
+You can build your own copy of the tokens SDK, for example to debug or tweak it.
+Use these steps to build your own copy of the Tokens SDK and use that for your CorDapp.
 
 ### Build Tokens SDK against Corda release branch
 
@@ -48,56 +94,38 @@ git fetch
 git checkout origin release/2.0
 ```
 
+{{< note >}}
+Checkout the version of the Tokens SDK you wish to install. In the example above `release/2.0` is used.
+{{< /note >}}
 
 Then run `./gradlew clean install` from the root directory.
 
-### Add Tokens SDK dependencies to an existing CorDapp
+### Add a dependency on your local build
 
-To add the Tokens SDK dependencies to an existing CorDapp:
-
-1. Add a variable for the tokens release group and the version you
-wish to use. Set the Corda version to the one you have installed locally:
+1. Change the tokens release version variable to the version you  have installed locally. It will
+probably look something like this:
 
 ```
     buildscript {
         ext {
-            tokens_release_version = '2.0.0-DevPreview-RC04'
+            tokens_release_version = '2.0.0-DevPreview-1.0-SNAPSHOT'
             tokens_release_group = 'com.r3.corda.lib.tokens'
         }
     }
 ```
 
-2.  Add the tokens' development artifactory repository to the
-list of repositories for your project:
+2.  Add the tokens development artifactory repository to the list of repositories for your project, along with `mavenLocal` where your installed copy of the tokens SDK is located:
 
 ```
     repositories {
+        mavenLocal()
         maven { url 'https://software.r3.com/artifactory/corda-lib' }
         maven { url 'https://software.r3.com/artifactory/corda-lib-dev' }
-        maven { url 'https://software.r3.com/artifactory/corda-os-maven-stable' }
     }
 ```
 
-3. Add the `token-sdk` dependencies to the `dependencies` block
-in each module of your CorDapp. For contract modules add:
-
-    cordapp "$tokens_release_group:tokens-contracts:$tokens_release_version"
-
-4. In your workflow `build.gradle` add:
-
-    cordapp "$tokens_release_group:tokens-workflows:$tokens_release_version"
-    cordapp "$tokens_release_group:tokens-selection:$tokens_release_version"
-    cordapp "$tokens_release_group:tokens-tokens-builder:$tokens_release_version"
-
-5. Deploy your corDapp CPKs along with the following CPKs:
-* tokens-contracts
-* tokens-workflows
-* tokens-selection
-* tokens-tokens-builder
-* ci-workflows (for confidential tokens flows)
-
-You have installed the Tokens SDK.
-
+3. Remember to bundle the tokens `.cpk`s from your local install into your `.cpb`, especially if you have tweaked
+the tokens SDK.
 
 ## What's inside the Tokens SDK
 
