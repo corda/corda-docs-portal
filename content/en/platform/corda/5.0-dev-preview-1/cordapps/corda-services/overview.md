@@ -31,7 +31,7 @@ This injection is intended for use within custom CorDapp classes instantiated by
 For a complete overview of each Corda Service and its methods, use the [Corda 5 Developer Preview list of injectable services](injectable-services.md).
 
 {{< note >}}
-The best way to learn how to use Corda Services in the Corda 5 Developer Preview, is to follow the [Build a CorDapp tutorial](../../tutorials/building-cordapp/overview.html).
+The best way to learn how to use Corda Services in the Corda 5 Developer Preview, is to follow the [Build a CorDapp tutorial](../../tutorials/building-cordapp/c5-basic-cordapp-intro.html).
 {{< /note >}}
 
 ## Make a service injectable

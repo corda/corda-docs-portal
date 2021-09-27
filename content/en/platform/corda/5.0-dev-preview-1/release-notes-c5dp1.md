@@ -41,5 +41,5 @@ Some features available in Corda 4 have been replaced with new functionality. Th
 
 This preview is not intended for commercial deployment, so it does not contain the functionality to create live networks.
 
-See the [Corda 5 Developer Preview overview](_index.md) for more details.
+See the [Corda 5 Developer Preview overview](../5.0-dev-preview-1) for more details.
 
