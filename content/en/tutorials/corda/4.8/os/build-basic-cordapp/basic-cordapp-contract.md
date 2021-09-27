@@ -99,7 +99,7 @@ The `verify` method is automatically triggered when your transaction is executed
 
 1. If you're using IntelliJ, you will see an error indicator under the class name and implementation. This indicates that the class is missing the required method. Hover over the class definition, then:
 
-   * On MacOS: press **Option** + **Enter**.
+   * On macOS: press **Option** + **Enter**.
 
    * On Windows: press **Alt** + **Enter**.
 
@@ -183,7 +183,7 @@ IntelliJ indicates that an import is missing with red text. To add the import:
 
 2. Automatically import the missing variable:
 
-   * On MacOS: press **Option** + **Enter**.
+   * On macOS: press **Option** + **Enter**.
    * On Windows: press **Alt** + **Enter**.
 
 3. Repeat this process for all missing imports.

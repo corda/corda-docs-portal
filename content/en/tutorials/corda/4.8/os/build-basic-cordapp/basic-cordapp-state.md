@@ -178,7 +178,7 @@ Add a constructor to initalize the objects in the `AppleStamp` state.
 
 If you're using IntelliJ, you can generate the constructor with a shortcut.
 
-1. On MacOS, press **Command** + **N**.
+1. On macOS, press **Command** + **N**.
 
     On Windows, press **Alt** + **Insert**.
 
@@ -295,7 +295,7 @@ IntelliJ indicates that an import is missing with red text. To add the import:
 
 1. Click the red text. A message appears: "Unresolvable reference: {name of the missing input}".
 
-2. On MacOS, press **Option** + **Enter** to automatically import that variable.
+2. On macOS, press **Option** + **Enter** to automatically import that variable.
 
     On Windows, press **Alt** + **Enter** to automatically import that variable.
 
