@@ -4,7 +4,7 @@ section_menu: tools
 menu:
   tools:
     name: Business network extension
-    weight: 500
+    weight: 300
     identifier: tools-bne
 title: Business network extension
 ---

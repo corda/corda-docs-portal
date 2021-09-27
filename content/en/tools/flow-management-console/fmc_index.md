@@ -4,7 +4,7 @@ section_menu: tools
 menu:
   tools:
     name: Flow management console
-    weight: 800
+    weight: 500
     identifier: tools-flow-management-console
 title: Flow management console
 ---

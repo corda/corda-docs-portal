@@ -3,8 +3,8 @@ date: '2021-04-24T00:00:00Z'
 section_menu: tools
 menu:
   tools:
-    name: Archiving Service
-    weight: 400
+    name: Archiving service
+    weight: 600
     identifier: tools-archiving
 title: Archiving service
 ---

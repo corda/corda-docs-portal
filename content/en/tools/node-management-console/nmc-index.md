@@ -4,7 +4,7 @@ section_menu: tools
 menu:
   tools:
     name: Node management console
-    weight: 1000
+    weight: 400
     identifier: tools-node-management-console
 title: Node management console
 ---

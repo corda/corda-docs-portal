@@ -4,7 +4,7 @@ section_menu: tools
 menu:
   tools:
     name: Ledgergraph
-    weight: 900
+    weight: 800
     identifier: tools-ledgergraph
 title: Ledgergraph
 ---
