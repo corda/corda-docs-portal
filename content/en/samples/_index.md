@@ -17,43 +17,17 @@ Use these samples and templates to follow the [tutorials](../tutorials/_index.md
 
 ## Corda 4 samples and templates
 
-Templates: [Java](https://github.com/corda/cordapp-template-java), [Kotlin](https://github.com/corda/cordapp-template-java)
+* CorDapp [Java](https://github.com/corda/samples-java) and [Kotlin](https://github.com/corda/samples-kotlin) sample repositories - contain multiple sample CorDapps, from those to get you started, to those which demonstrate specific features and advanced usage.
+* [Community samples](https://www.corda.net/samples/) - a list of open-source blockchain projects, applications, and core code samples by our developer community.
+* CorDapp [Java](https://github.com/corda/cordapp-template-java) and [Kotlin](https://github.com/corda/cordapp-template-kotlin) templates - a stubbed-out CorDapp that you can use to bootstrap your own CorDapps.
 
-[Community samples](https://www.corda.net/samples/)
-
-[Java samples](https://github.com/corda/samples-java)
-
-[Kotlin samples](https://github.com/corda/samples-kotlin)
-
-[Devportal page](https://developer.r3.com/corda/) (this could replace other links, TBD)
-
-Apple Stamp (though I think this will go in the larger Corda sample repo, not sure we need to mention it specifically or just link to the whole sample repo. I'll link to it directly in the tutorial)
+For more developer resources, open-source projects, and CorDapp templates, check out R3's [Developer Portal](https://developer.r3.com/corda/).
 
 ## Corda 5 Developer Preview samples and templates
 
-3 versions of sample app from Engineering
+* [Solar System sample CorDapp]() for running a sample CorDapp to see Corda in action.
+* [Mission Mars sample CorDapp]() for building a CorDapp from scratch.
+* [Java templates]().
+* [Kotlin templates]().
 
-1. [Solar System]()
-
-Mission Mars (this one is for building a CorDapp)
-
-Mission Mars app from Peter Li
-
-Kotlin and Java templates
-
-
-For more advanced samples, templates and excercises, checkout the Developer Portal which has a range of resources for all Corda developers.
-
-
-
-
-## OLD
-
-This is the homepage for talking about all our dope samples and templates. It contains a list of our sample repos and descriptions of what you'll find on each page.
-
-Summary of repos:
-
-- [Title](https://github.com "This has a title")
-- [No title](http://github.com)
-- [Internal Link](../platform.html)
-- [Repo text](#repo-link)
+For more developer resources, open-source projects, and CorDapp templates, check out R3's [Developer Portal](https://developer.r3.com/corda/).
