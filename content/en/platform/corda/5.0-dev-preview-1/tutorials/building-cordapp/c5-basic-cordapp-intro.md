@@ -78,6 +78,6 @@ Follow these tutorials in sequential order to build your CorDapp:
 
 3. [Write flows](c5-basic-cordapp-flows.md)
 
-4. [Run your CorDapp](XXX)
+4. [Run your CorDapp](c5-basic-cordapp-running.md)
 
 5. [Conduct integration testing](c5-basic-cordapp-int-test.md)
