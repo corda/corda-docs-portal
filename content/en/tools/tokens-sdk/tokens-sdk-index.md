@@ -11,14 +11,20 @@ title: Tokens SDK
 
 # Tokens SDK
 
-This page is the beginning of the documentation for Accounts. There is much more but I've not moved it over yet.
+The Tokens SDK provides you with the fastest and easiest way to create tokens that represent any kind of asset on your network. This asset can be anything you want it to be - conceptual, physical, valuable or not. You can create a token to represent something outside of the network, or something that only exists on the ledger - like a Corda-native digital currency.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac velit interdum, ornare turpis ac, egestas magna. Nam ut nunc fermentum erat imperdiet maximus. Nulla eget nibh ac nisl sagittis lacinia et sit amet mauris. Fusce et vehicula leo. Phasellus iaculis nulla in ante posuere maximus. Aenean in nisl tempus, condimentum ipsum et, scelerisque quam. Vestibulum nibh justo, congue at est in, viverra congue ante.
+With the SDK, you can define your token and its attributes, then add functionality to a CorDapp so the token can be issued, moved, and redeemed on a ledger.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultricies, erat quis feugiat pulvinar, neque leo ultricies tellus, vel maximus tellus lectus quis turpis. Nulla eleifend nulla velit, vel scelerisque nulla egestas sit amet. Donec et leo eget ipsum ultricies blandit sed faucibus arcu. Maecenas ultrices porta lacus, ut ultricies velit semper non. Curabitur nulla orci, ullamcorper sit amet pulvinar sit amet, posuere a arcu. Nullam sagittis laoreet feugiat. Integer vehicula eros quis sapien convallis suscipit.
+{{< note >}}
+Tokens SDK V1.2.2 is compatible with **Corda release version 4.6** and higher. Please use this version for Corda 4.6+ series work.
 
-Quisque mi metus, tincidunt sit amet justo quis, blandit rutrum ante. Integer a pharetra mauris. Aenean sit amet nunc ex. Duis auctor pellentesque nisi non cursus. Nunc facilisis justo nec felis placerat varius. In sed dui lacinia, euismod mauris eget, ultrices libero. Nunc dignissim nulla risus. Morbi posuere arcu et ligula euismod tempus. Curabitur nisi mi, scelerisque nec erat sit amet, luctus iaculis risus. Morbi eget imperdiet nulla.
+Please use the newest Tokens SDK V2.0 for Corda 5 Developer Preview (and future Corda 5.x series) work.
+{{< /note >}}
 
-Nullam lacus risus, volutpat id cursus id, hendrerit ut eros. Nullam fermentum tristique turpis ut convallis. Etiam in convallis nibh, in convallis ante. Ut nunc est, rutrum lacinia iaculis nec, bibendum at orci. Nulla posuere magna ac euismod aliquet. Nullam quis eros id nulla interdum rutrum eget a mi. Cras vestibulum libero a risus posuere facilisis.
+## Tokens SDK V1.2.2
 
-Suspendisse consequat iaculis urna ut semper. Mauris vel tellus a augue volutpat pellentesque ut in libero. Vivamus ligula turpis, fringilla eu tincidunt nec, accumsan pulvinar nisi. Vestibulum elementum libero ut neque euismod facilisis. Morbi eu interdum magna. Nullam ac molestie purus, ut pellentesque est. Suspendisse dignissim dolor eu nisi commodo aliquet. Vestibulum in imperdiet elit.
+Read the full documentation about Tokens SDK V1.2.2 [here](../../../en/platform/corda/4.8/enterprise/cordapps/token-sdk-introduction.md).
+
+## Tokens SDK V2.0
+
+Read the full documentation about Tokens SDK V2.0 [here](../../../en/platform/corda/5.0-dev-preview-1/tokens-sdk/overview.md).
