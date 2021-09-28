@@ -7,6 +7,8 @@ menu:
     weight: -550
     identifier: homepage-releases
     project: releases
+  releases:
+    weight: 10
 project: releases
 version: 'releases'
 title: Releases
