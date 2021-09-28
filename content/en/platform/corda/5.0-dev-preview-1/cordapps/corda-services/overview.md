@@ -31,7 +31,7 @@ This injection is intended for use within custom CorDapp classes instantiated by
 For a complete overview of each Corda Service and its methods, use the [Corda 5 Developer Preview list of injectable services](injectable-services.md).
 
 {{< note >}}
-The best way to learn how to use Corda Services in the Corda 5 Developer Preview, is to follow the [Build a CorDapp tutorial](../../tutorials/building-cordapp/c5-basic-cordapp-intro.html).
+The best way to learn how to use Corda Services in the Corda 5 Developer Preview, is to follow the tutorial for [Building your first CorDapp](/en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.html).
 {{< /note >}}
 
 ## Make a service injectable
@@ -40,7 +40,7 @@ In order to make a service injectable, it must first implement one or both of th
 * `CordaFlowInjectable`
 * `CordaServiceInjectable`
 
-These are empty interface used to indicate that a service can be injected, and where it can be injected. Implementing CordaFlowInjectable will allow for injection into a Flow, and CordaServiceInjectable will allow for injection in to a Corda service or notary service.
+These are empty interface used to indicate that a service can be injected, and where it can be injected. Implementing `CordaFlowInjectable` will allow for injection into a Flow, and `CordaServiceInjectable` will allow for injection in a Corda service or notary service.
 
 ## Basics of injecting a Corda Service
 
@@ -52,26 +52,35 @@ You cannot use the injected services before the `call` method has been called as
 
 ## Flow examples
 
-In the following examples, the `FlowEngine` service is injected before the `call` method is called and used within the `call` method.
+In the following examples you will learn how to inject a Corda Service into other Corda Services and Flows.
 
 ### Java example
 
+The Corda Service interfaces `FooService` and `BarService` are defined.
 ```java
 interface FooService extends CordaService, CordaFlowInjectable, CordaServiceInjectable {
     Boolean canFoo();
 }
+
+interface BarService extends CordaService, CordaFlowInjectable, CordaServiceInjectable {
+    String getFooBar();
+}
+```
+`FooService` is implemented.
+```java
 class FooServiceImpl implements FooService {
     @Override
     public Boolean canFoo() {
         return true;
     }
 }
-interface BarService extends CordaService, CordaFlowInjectable, CordaServiceInjectable {
-    String getFooBar();
-}
+```
+`BarService` is implemented. Notice that `BarServiceImpl` injects `FooService` and invokes `canFoo()` in the `getFooBar()` function.
+```java
 class BarServiceImpl implements BarService {
     @CordaInject
     private FooService fooService;
+
     @Override
     public String getFooBar() {
         if(fooService.canFoo()) {
@@ -81,8 +90,15 @@ class BarServiceImpl implements BarService {
         }
     }
 }
+```
+Here is a flow which injects the `BarService` and calls `getFooBar()`, which in turn invokes `fooService.canFoo()`.
+```java
 @StartableByRPC
 class FooBarFlow implements Flow<String> {
+
+    @JsonConstructor
+    public FooBarFlow(RpcStartFlowRequestParameters params) { }
+
     @CordaInject
     private BarService barService;
 
@@ -95,35 +111,49 @@ class FooBarFlow implements Flow<String> {
 
 ### Kotlin example
 
+The Corda Service interfaces `FooService` and `BarService` are defined.
 ```kotlin
-interface FooService : CordaService, CordaFlowInjectable, CordaServiceInjectable {​
+interface FooService : CordaService, CordaFlowInjectable, CordaServiceInjectable {
     fun canFoo(): Boolean
-}​
-class FooServiceImpl : FooService {​
-    override fun canFoo(): Boolean {​
-        return true
-}​
-}​
-interface BarService : CordaService, CordaFlowInjectable, CordaServiceInjectable {​
+}
+
+interface BarService : CordaService, CordaFlowInjectable, CordaServiceInjectable {
     fun getFooBar(): String
-}​
-class BarServiceImpl : BarService {​
+}
+```
+`FooService` is implemented.
+```kotlin
+class FooServiceImpl : FooService {
+    override fun canFoo(): Boolean {
+        return true
+    }
+}
+```
+`BarService` is implemented. Notice that `BarServiceImpl` injects `FooService` and invokes `canFoo()` in the `getFooBar()` function.
+```kotlin
+class BarServiceImpl : BarService {
     @CordaInject
-private lateinit var fooService: FooService
-    override fun getFooBar(): String {​
-        return if(fooService.canFoo()) {​
+    private lateinit var fooService: FooService
+
+    override fun getFooBar(): String {
+        return if(fooService.canFoo()) {
             "foobar"
-}​ else {​
+        } else {
             "bar"
-}​
-    }​
-}​
+        }
+    }
+}
+```
+Here is a flow which injects the `BarService` and calls `getFooBar()`, which in turn invokes `fooService.canFoo()`.
+```kotlin
 @StartableByRPC
-class FooBarFlow : Flow<String> {​
+class FooBarFlow @JsonConstructor constructor(val params: RpcStartFlowRequestParameters) : Flow<String> {
+
     @CordaInject
-private lateinit var barService: BarService
-    override fun call(): String {​
+    private lateinit var barService: BarService
+
+    override fun call(): String {
         return barService.getFooBar()
-    }​
-}​
+    }
+}
 ```
