@@ -26,4 +26,4 @@ To delete the Corda CLI tool, perform the following steps:
 
    {{< /note >}}
 
-3. **Optional for Unix and Mac OS only**: Remove the symbolic link to the application launcher created in `$HOME/.local/bin/cordapp-builder`.
+3. **Optional for Unix and macOS only**: Remove the symbolic link to the application launcher created in `$HOME/.local/bin/cordapp-builder`.

@@ -16,7 +16,7 @@ In Corda, flows automate the process of agreeing ledger updates. They are a sequ
 
 Built-in flows are provided in Corda to automate common tasks, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
 
-The `Flow` interface is used to implement a flow. When you use this interface, it defines the `call` method where the business logic goes. Flows access the Corda 5 API through injectable services using the `@CordaInject` tag. See the [services documentation](XXX) for a list of all services available in the Corda 5 Developer Preview.
+The `Flow` interface is used to implement a flow. When you use this interface, it defines the `call` method where the business logic goes. Flows access the Corda 5 API through injectable services using the `@CordaInject` tag. See the [services documentation](../../cordapps/corda-services/injectable-services.md) for a list of all services available in the Corda 5 Developer Preview.
 
 Using the `Flow` interface allows you to add the services you need, and leave out those that you don't. This makes your CorDapp much more lightweight, and will reduce development time in future production-ready versions of Corda 5.
 
@@ -36,9 +36,9 @@ After you have completed this tutorial, you will know how to create and implemen
 
 Before you start building flows, read:
 
-* [Key concepts: Flows](../../../../../platform/corda/4.8/open-source/key-concepts-flows.md)
-* [Flow interface documentation](XXX)
-* [Injectable services documentation](XXX)
+* [Key concepts: Flows](../../cordapps/flows/overview.md)
+* [Writing flows](../../cordapps/flows/writing-flows.md)
+* [Injectable services](../../cordapps/corda-services/injectable-services.md)
 
 ## Write the `CreateAndIssueMarsVoucher` flow
 
@@ -111,7 +111,7 @@ class CreateAndIssueMarsVoucher2 @JsonConstructor constructor(private val params
 
 When writing flows with the Corda 5 Developer Preview, you can inject whichever services you need, and exclude those you don't.
 
-Use the `@CordaInject` annotation to define a field to be set by Corda before the call method is called. See this [list of services](XXX) to find out what services you can add to a CorDapp.
+Use the `@CordaInject` annotation to define a field to be set by Corda before the call method is called. See this [list of services](../../cordapps/corda-services/injectable-services.md) to find out what services you can add to a CorDapp.
 
 In this sample CorDapp, add these services:
 
@@ -706,3 +706,7 @@ class RedeemBoardingTicketWithVoucherResponder(val otherPartySession: FlowSessio
     }
 }
 ```
+
+## Next steps
+
+Follow the [Run your CorDapp](c5-basic-cordapp-running.md) tutorial to continue on this learning path.

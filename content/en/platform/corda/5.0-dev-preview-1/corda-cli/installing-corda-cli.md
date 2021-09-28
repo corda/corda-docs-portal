@@ -12,7 +12,8 @@ Instructions on how to install the Corda CLI tool.
 
 ## Automated installation
 
-Use the bash installation script to automate the manual steps. This script downloads Corda CLI, adds it to the path, and sets the auto completion for Corda CLI to your bash/zsh profile. On Windows the script can run on a git-bash terminal.
+Use the bash installation script to automate the manual steps. This script downloads Corda CLI, adds it to the path, and sets the
+auto-completion for Corda CLI to your bash/zsh profile. On Windows the script can run on a git-bash terminal.
 
 Run the bash script:
 
@@ -58,7 +59,7 @@ If a previous installation of Corda CLI exists, remove it. See [Deleting Corda C
       fi
    ```
 
-5. **Linux or Mac OS**: Add Corda CLI to PATH by adding this code to the `~/.bashrc` (Linux) or `~/.zshrc` file (Mac OS):
+5. **Linux or macOS**: Add Corda CLI to PATH by adding this code to the `~/.bashrc` (Linux) or `~/.zshrc` file (macOS):
 
     ```shell
       # Corda-CLI default path

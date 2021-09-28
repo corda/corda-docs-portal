@@ -85,6 +85,9 @@ In the following examples, the `FlowEngine` service is injected before the `call
 @StartableByRPC
 public class FlowInjectionInJavaFlow implements Flow<Boolean> {
 
+    @JsonConstructor
+    public FlowInjectionInJavaFlow(RpcStartFlowRequestParameters params) { }
+
     @CordaInject
     public FlowEngine flowEngine;
 
@@ -100,7 +103,7 @@ public class FlowInjectionInJavaFlow implements Flow<Boolean> {
 ```kotlin
 @InitiatingFlow
 @StartableByRPC
-class FlowInjectionInKotlinFlow : Flow<Boolean> {
+class FlowInjectionInKotlinFlow @JsonConstructor constructor(params: RpcStartFlowRequestParameters) : Flow<Boolean> {
 
     @CordaInject
     lateinit var flowEngine: FlowEngine

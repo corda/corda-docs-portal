@@ -4,21 +4,19 @@ section_menu: tools
 menu:
   tools:
     name: Ledgergraph
-    weight: 900
+    weight: 800
     identifier: tools-ledgergraph
 title: Ledgergraph
 ---
 
 # Ledgergraph
 
-This page is the beginning of the documentation for Accounts. There is much more but I've not moved it over yet.
+LedgerGraph is a CorDapp you can use to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where LedgerGraph is installed. As not all transactions are related to all other transactions, there can actually be multiple components in the graph: each a directed acyclic graph (DAG).
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac velit interdum, ornare turpis ac, egestas magna. Nam ut nunc fermentum erat imperdiet maximus. Nulla eget nibh ac nisl sagittis lacinia et sit amet mauris. Fusce et vehicula leo. Phasellus iaculis nulla in ante posuere maximus. Aenean in nisl tempus, condimentum ipsum et, scelerisque quam. Vestibulum nibh justo, congue at est in, viverra congue ante.
+LedgerGraph enables other CorDapps, such as the set of Collaborative Recovery CorDapps, to have near real-time access to data concerning all of a node’s transactions and their relationships. Without it, many operations would be unacceptably slow and impractical.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultricies, erat quis feugiat pulvinar, neque leo ultricies tellus, vel maximus tellus lectus quis turpis. Nulla eleifend nulla velit, vel scelerisque nulla egestas sit amet. Donec et leo eget ipsum ultricies blandit sed faucibus arcu. Maecenas ultrices porta lacus, ut ultricies velit semper non. Curabitur nulla orci, ullamcorper sit amet pulvinar sit amet, posuere a arcu. Nullam sagittis laoreet feugiat. Integer vehicula eros quis sapien convallis suscipit.
+{{< warning >}}
+LedgerGraph is a dependency for the set of [Collaborative Recovery](../../collaborative-recovery/ci-index.md) CorDapps V1.1 and above. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
+{{< /warning >}}
 
-Quisque mi metus, tincidunt sit amet justo quis, blandit rutrum ante. Integer a pharetra mauris. Aenean sit amet nunc ex. Duis auctor pellentesque nisi non cursus. Nunc facilisis justo nec felis placerat varius. In sed dui lacinia, euismod mauris eget, ultrices libero. Nunc dignissim nulla risus. Morbi posuere arcu et ligula euismod tempus. Curabitur nisi mi, scelerisque nec erat sit amet, luctus iaculis risus. Morbi eget imperdiet nulla.
-
-Nullam lacus risus, volutpat id cursus id, hendrerit ut eros. Nullam fermentum tristique turpis ut convallis. Etiam in convallis nibh, in convallis ante. Ut nunc est, rutrum lacinia iaculis nec, bibendum at orci. Nulla posuere magna ac euismod aliquet. Nullam quis eros id nulla interdum rutrum eget a mi. Cras vestibulum libero a risus posuere facilisis.
-
-Suspendisse consequat iaculis urna ut semper. Mauris vel tellus a augue volutpat pellentesque ut in libero. Vivamus ligula turpis, fringilla eu tincidunt nec, accumsan pulvinar nisi. Vestibulum elementum libero ut neque euismod facilisis. Morbi eu interdum magna. Nullam ac molestie purus, ut pellentesque est. Suspendisse dignissim dolor eu nisi commodo aliquet. Vestibulum in imperdiet elit.
+Read the full documentation about [LedgerGraph](../../../en/platform/corda/4.8/enterprise/node/operating/ledger-graph.md).

@@ -17,41 +17,50 @@ title: Build the documentation
 
 # Build the docs
 
-The documentation source files are under the `../content` directory in the [corda-docs](https://github.com/corda/corda-docs/) repository, and is written in `markdown` format.
+The documentation source files are under the `../content` directory in the [corda-docs-portal](https://github.com/corda/corda-docs-portal/)
+repository, and are written in `markdown` format.
 
-The documentation output in HTML format is generated using [Hugo](https://github.com/gohugoio/hugo/releases). You can build the docs locally in seconds once you have set up your environment (see below).
+The documentation output in HTML format is generated using [Hugo](https://github.com/gohugoio/hugo/releases). You can build
+and edit the docs locally using `npm` and a `markdown` editor.
 
 ## Build the docs locally
 
 Steps:
 
-1. Download [Visual Studio Code](https://code.visualstudio.com/) or a markdown editor of your choice ([atom](https://atom.io/), for example).
-2. If you've already installed Hugo, check your version. If the result is not `v0.65` or later, or if you don't see `Extended`, you'll need to download the latest extended version of [Hugo](https://github.com/gohugoio/hugo/releases) (for example, `hugo_extended_0.74.3_Linux-64bit.tar.gz`).
-3. Ensure the Hugo binary is on your `PATH`.
-4. Fork the [corda-docs](https://github.com/corda/corda-docs/) repository and ensure it is added as the upstream remote in your fork.
-5. Clone your fork locally.
-6. Open a console / command prompt window and navigate (`cd`) to the root directory of the fork repo.
-7. Run `hugo serve`.
-8. Open the local docs site build on [http://localhost:1313](http://localhost:1313) (or whatever it says in the console) in your browser.
-9. Edit the documentation source files in `markdown` - all source files are in the `../content` directory in the repo structure. Each edit triggers an immediate page update on [http://localhost:1313](http://localhost:1313).
+1. Install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+2. Install a markdown editor of your choice.
+3. Fork the `corda/corda-docs-portal` repository, and clone your fork.
+4. From the root directory of the repository, run `npm install`. This installs all the required modules to build the documentation locally.
+5. Open a new branch and create/edit the relevant markdown file(s) in the `content` directory.
+6. Run `hugo server --watch=false` to build the documentation locally. Please note that due to an existing unresolved Hugo
+   bug that manifests for larger websites like `docs.r3.com`, at the moment it is not possible to build the documentation
+   locally with dynamic content refresh - you need to `CTRL-C` and run the build again after you make changes to your content.
+   We hope that Hugo will resolve this soon.
+7. Navigate to `https://localhost:1313` to view the locally built documentation.
+8. Push your changes to GitHub and open a pull request.
+
 
 ## Contribute to documentation updates
 
-To propose an update to the public released Corda docs, fork the [corda-docs](https://github.com/corda/corda-docs/) repository, make your changes, and submit a pull request targeting the `master` branch in the upstream repository from your fork.
+To propose an update to the public released Corda docs, fork the [corda-docs-portal](https://github.com/corda/corda-docs-portal/)
+repository, make your changes, and submit a pull request targeting the `main` branch in the upstream repository from your fork.
 
 ### Steps
-1. Fork the [corda-docs](https://github.com/corda/corda-docs/) repository and add it as upstream (or sync your existing fork with the upstream repo’s `master` branch - see below for instructions).
+1. Fork the [corda-docs-portal](https://github.com/corda/corda-docs-portal/) repository and add it as upstream (or sync your existing
+   fork with the upstream repo’s `main` branch - see below for instructions).
 2. Edit the documentation files in a new branch in your fork.
 3. Commit and push the changes to your fork.
-4. Create a pull request targeting the `master` branch in the upstream repo. Your pull request will be auto-assigned to R3's technical writing team for review.
+4. Create a pull request targeting the `main` branch in the upstream repo. Your pull request will be auto-assigned to R3's
+   Technical Writing Team for review.
 
 ### Where are the files
 
-The documentation for all released versions of Corda OS, Corda Enterprise, and Corda Enterprise Network Manager (CENM) are organised in sub-directories, following the product flavour and then the version.
+The documentation for all released versions of Corda open source, Corda Enterprise, Corda Enterprise Network Manager (CENM),
+and the Corda 5 Developer Preview are organized in sub-directories, following the version and then the product flavour.
 
 For example:
 
-`../corda-docs/content/en/docs/corda-os/4.7`
+`../corda-docs/content/en/docs/platform/corda-os/4.8`
 
 ## Edit web pages directly in Visual Studio Code
 
@@ -102,7 +111,8 @@ make hugo-serve-and-edit
 
 ## Keep your fork in sync with the upstream repo
 
-To best way to keep your fork in sync with the upstream (original) repository is to add it as the `upstream` repo after you create the fork.
+The best way to keep your fork in sync with the main documentation repository is to add it as the `upstream` repository after
+you create the fork.
 
 ### Add the upstream repo
 
@@ -110,21 +120,22 @@ To add `upstream`:
 
 ```
 cd <to-your-fork-repo-dir>
-git remote add upstream git://github.com/corda/corda-docs.git
+git remote add upstream git://github.com/corda/corda-docs-portal.git
 ```
+The URL of a remote can be changed using the `git remote set-url` command.
 
 You would normally only need do this once after you create the fork.
 
 If you are not using an `ssh` key to access GitHub, use the `https` URL instead:
 
 ```
-git remote add upstream https://github.com/corda/corda-docs.git
+git remote add upstream https://github.com/corda/corda-docs-portal.git
 ```
 
 If you’ve got the upstream repo URL wrong, you can change the upstream repo URL using the following command:
 
 ```
-git remote set-url upstream https://github.com/corda/corda-docs.git
+git remote set-url upstream https://github.com/corda/corda-docs-portal.git
 ```
 
 ### View your remotes
@@ -138,10 +149,10 @@ You should see something like this:
 ```
 git remote -v
 
-origin	git@github.com:my-github-username/corda-docs.git (fetch)   # YOUR FORK
-origin	git@github.com:my-github-username/corda-docs.git (push)
-upstream	git@github.com:corda/corda-docs.git (fetch)      # THE ORIGINAL REPO
-upstream	git@github.com:corda/corda-docs.git (push)
+origin	git@github.com:my-github-username/corda-docs-portal.git (fetch)   # YOUR FORK
+origin	git@github.com:my-github-username/corda-docs-portal.git (push)
+upstream	git@github.com:corda/corda-docs-portal.git (fetch)      # THE ORIGINAL REPO
+upstream	git@github.com:corda/corda-docs-portal.git (push)
 ```
 
 Alternatively, if you are accessing GitHub without an `ssh` key:
@@ -149,10 +160,10 @@ Alternatively, if you are accessing GitHub without an `ssh` key:
 ```
 git remote -v
 
-origin	https://github.com/my-github-username/corda-docs.git (fetch)   # YOUR FORK
-origin	https://github.com/my-github-username/corda-docs.git (push)
-upstream	https://github.com/corda/corda-docs.git (fetch)      # THE ORIGINAL REPO
-upstream	https://github.com/corda/corda-docs.git (push)
+origin	https://github.com/my-github-username/corda-docs-portal.git (fetch)   # YOUR FORK
+origin	https://github.com/my-github-username/corda-docs-portal.git (push)
+upstream	https://github.com/corda/corda-docs-portal.git (fetch)      # THE ORIGINAL REPO
+upstream	https://github.com/corda/corda-docs-portal.git (push)
 ```
 
 ### Remove the upstream repo
@@ -177,11 +188,11 @@ There are two ways in which you can do this - `merge` or `rebase`.
 
 To sync your fork via `merge`:
 
-`git merge upstream/master master`
+`git merge upstream/main main`
 
-This command will merge the latest changes from the `master` branch of the upstream into your local fork’s `master` branch.
+This command will merge the latest changes from the `main` branch of the upstream into your local fork’s `main` branch.
 
-To merge a different branch, replace `master` with the name of that branch for both repos.
+To merge a different branch, replace `main` with the name of that branch for both repos.
 
 For example, to merge a branch called `example-branch`, run the following:
 
@@ -192,9 +203,9 @@ git merge upstream/example-branch example-branch
 
 #### Rebase the upstream with your fork
 
-`git rebase upstream/master`
+`git rebase upstream/main`
 
-To rebase a different branch, replace `master` with the name of that branch for both repos.
+To rebase a different branch, replace `main` with the name of that branch for both repos.
 
 For example, to rebase a branch called `example-branch`, run the following:
 
@@ -203,10 +214,10 @@ git checkout example-branch
 git rebase upstream/example-branch example-branch
 ```
 
-#### Push from the local fork master to the origin fork master
+#### Push from the local fork main to the origin fork main
 
-After the `merge` or `rebase`, don’t forget to `push` your local fork's master branch (or another branch you’ve synced) to the fork origin `master` (or another corresponding branch).
+After the `merge` or `rebase`, don’t forget to `push` your local fork's main branch (or another branch you’ve synced) to the fork origin `main` (or another corresponding branch).
 
 For example:
 
-`git push origin master`
+`git push origin main`

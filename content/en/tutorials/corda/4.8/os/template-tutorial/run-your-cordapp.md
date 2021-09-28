@@ -128,7 +128,7 @@ node via its built-in CRaSH shell.
 
    {{< note >}}
    The local terminal shell is only available in development mode. In a production environment, you can enable an SSH server.
-   You can find more about SSH on the [Node shell](shell.md) page.
+   You can find more about SSH on the [Node shell](../../../../../platform/corda/4.8/open-source/shell.md) page.
    {{< /note >}}
 
 3. Create an IOU of 99 with `PartyB`. To start the `IOUFlow`, type the following syntax:

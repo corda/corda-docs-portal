@@ -11,9 +11,6 @@ section_menu: corda-5-dev-preview
 
 CorDapp Builder CLI is a command-line utility that assembles Corda package bundles (`.cpb` files) from Corda package files (`.cpk` files).
 
-{{% note %}}
-In future releases, it will be integrated into the `corda-cli` utility.
-{{% /note %}}
 
 ## Installation
 
@@ -23,11 +20,11 @@ CorDapp Builder CLI can be installed automatically or manually.
 
 #### Before you start
 
-If a previous installation of CorDapp Builder CLI exists, remove it. See [Uninstalling CorDapp Builder CLI](#deleting-cordapp-builder-cli).
+If a previous installation of CorDapp Builder CLI exists, remove it. See [deleting the CorDapp Builder CLI](#delete-the-cordapp-builder-cli).
 
 #### Steps
 
-1. Download the latest stable <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview/cordapp-builder.tar">`.tar`</a> or <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview/cordapp-builder.zip">`.zip`</a> file.
+1. Download the latest stable <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder.tar">`.tar`</a> or <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder.zip">`.zip`</a> file.
 
 2. Create a new `bin/cordapp-builder` directory under the current users home directory.
 
@@ -53,7 +50,7 @@ If a previous installation of CorDapp Builder CLI exists, remove it. See [Uninst
       export PATH="$HOME/bin/cordapp-builder/bin:$PATH"
    ```
 
-5. **Linux or Mac OS**: Add CorDapp Builder CLI to PATH by adding the following code to the `~/.bashrc` (Linux) or `~/.zshrc` file (Mac OS):
+5. **Linux or macOS**: Add CorDapp Builder CLI to PATH by adding the following code to the `~/.bashrc` (Linux) or `~/.zshrc` file (macOS):
 
     ```shell
       # cordapp-builder default path
@@ -146,7 +143,7 @@ The entire contents of the file will be used as a password, including any traili
 In Corda 5 Developer Preview, although you can sign a `.cpb` file, Corda does not check the validity of the signature.
 {{< /note >}}
 
-## Uninstalling CorDapp Builder CLI
+## Delete the CorDapp Builder CLI
 
 To uninstall CorDapp Builder CLI tool, perform the following steps:
 
@@ -170,4 +167,4 @@ To uninstall CorDapp Builder CLI tool, perform the following steps:
 
    {{< /note >}}
 
-3. **Optional for Unix and Mac OS only**: Remove the symbolic link to the application launcher created in `$HOME/.local/bin/cordapp-builder`.
+3. **Optional for Unix and macOS only**: Remove the symbolic link to the application launcher created in `$HOME/.local/bin/cordapp-builder`.

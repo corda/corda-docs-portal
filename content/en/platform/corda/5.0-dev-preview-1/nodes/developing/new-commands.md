@@ -13,6 +13,14 @@ description: >
 
 Use this guide to learn about commands in the Corda Node CLI and how you can add new ones.
 
+Download either the Corda Node CLI's <a href="https://download.corda.net/corda-node-cli/5.0.0-DevPreview-1.0/corda-node-cli.tar">`.tar`</a> or <a href="https://download.corda.net/corda-node-cli/5.0.0-DevPreview-1.0/corda-node-cli.zip">`.zip`</a> file.
+
+{{< note >}}
+
+You must save the Corda Node CLI `.jar` file locally to your computer (you don't need to run an installation process). How you achieve this will depend on your organisation's software distribution policies. This guide assumes you have downloaded the file, and saved it locally as `corda-node-cli.jar`.
+
+{{< /note >}}
+
 ## Existing Corda Node CLI commands
 
 Commands implemented in the Corda Node CLI are `endpoint`, `flow`, and `vault`. Each of these commands can have
