@@ -1,13 +1,12 @@
 ---
-date: '2020-09-10'
+date: '2021-04-24T00:00:00Z'
 title: "API reference documentation"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-api-reference-docs
+    name: "API reference documentation"
     weight: 9850
 section_menu: corda-5-dev-preview
-description: >
-    Documentation for the Corda 5 Dev Preview API references.
 ---
 
 Full documentation for the Corda 5 Developer Preview APIs can be found in the [API reference for Corda](/en/api-ref.html).
