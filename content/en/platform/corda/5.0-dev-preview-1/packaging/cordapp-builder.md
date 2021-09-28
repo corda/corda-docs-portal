@@ -140,7 +140,7 @@ The entire contents of the file will be used as a password, including any traili
 {{< /note >}}
 
 {{< note >}}
-In Corda 5 Developer Preview, although you can sign a `.cpb` file, Corda does not check the validity of the signature.
+In the Corda 5 Developer Preview, although you can sign a `.cpb` file, Corda does not check the validity of the signature.
 {{< /note >}}
 
 ## Delete the CorDapp Builder CLI
