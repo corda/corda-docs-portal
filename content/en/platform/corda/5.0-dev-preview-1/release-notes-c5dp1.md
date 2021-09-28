@@ -67,9 +67,8 @@ SignedTransaction signedTransaction = flowEngine.subFlow(new SignTransactionFlow
 ```
 However, there is an issue which prevents this from working.
 
-### Solution to known issue
 
-Use static classes in Java when starting subflows that require extending a flow.
+To work around this issue, use static classes in Java when starting subflows that require extending a flow.
 
 For example, in the above case, use:
 
@@ -95,4 +94,3 @@ For example, in the above case, use:
 19    }
 ```
 
-Once this known issue is resolved, an update will be added to these release notes.
