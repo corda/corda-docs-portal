@@ -25,7 +25,7 @@ For more developer resources, open-source projects, and CorDapp templates, check
 
 ## Corda 5 Developer Preview samples and templates
 
-* [Solar System sample CorDapp](https://github.com/corda/Corda5-SolarSystem) for running a sample CorDapp to see Corda in action.
+* [Solar System sample CorDapp](https://github.com/corda/corda5-solarsystem-contracts-demo) for running a sample CorDapp to see Corda in action.
 * [Mission Mars sample CorDapp](https://github.com/corda/samples-kotlin-corda5/tree/main/tutorial/missionmars) for building a CorDapp from scratch.
 * [Java template](https://github.com/corda/corda5-cordapp-template-java).
 * [Kotlin template](https://github.com/corda/corda5-cordapp-template-kotlin).
