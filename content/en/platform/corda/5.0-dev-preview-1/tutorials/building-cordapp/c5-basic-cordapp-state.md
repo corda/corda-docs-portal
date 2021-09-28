@@ -43,13 +43,13 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
    git clone https://github.com/corda/corda5-cordapp-template-kotlin.git
    ```
 
-4. After you have cloned the repository you wish to use, navigate to the correct subdirectory:
+4. After you have cloned the template repository, navigate to the correct subdirectory:
 
    ```kotlin
    cd cordapp-template-kotlin
    ```
 
-5. After you clone the CorDapp template, open the `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+5. Open the `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
    If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 

@@ -27,8 +27,7 @@ Deploy and run the Mission Mars CorDapp on the following test nodes:
 
 ## Before you start
 
-Before you run your Mission Mars CorDapp, you may want to compare your files to the ones from R3's [Corda5-missionmars](https://github.com/corda/Corda5-missionmars) solution GitHub repository. This should give you a more holistic view of the CorDapp and help to resolve any issues you might have encountered when writing it.
-
+Before you run your Mission Mars CorDapp, you may want to compare your files to the ones from R3's [missionmars](https://github.com/corda/samples-kotlin-corda5/tree/main/tutorial/missionmars) solution repository. This should give you a more holistic view of the CorDapp and help to resolve any issues you might have encountered when writing it.
 
 ## Deploy your CorDapp to a local Corda 5 network
 
@@ -238,4 +237,4 @@ You must replace the `voucherID` with `linearId` that you copied and stored in s
 
 ## Next steps
 
-Follow the [Write integration tests](c5-basic-cordapp-int-test.md) tutorial to finish this learning path. 
+Follow the [Write integration tests](c5-basic-cordapp-int-test.md) tutorial to finish this learning path.
