@@ -56,7 +56,7 @@ You can write a CorDapp in any language targeting the JVM. Source files for this
 3. Run the following command to clone the repository:
 
 ```
-git clone git@github.com:corda/Corda5-SolarSystem.git
+git clone https://github.com/corda/corda5-solarsystem-contracts-demo.git
 ```
 
 The sample project appears in your chosen directory.
