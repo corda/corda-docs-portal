@@ -52,7 +52,7 @@ You cannot use the injected services before the `call` method has been called as
 
 ## Flow examples
 
-In the following examples we can see how to inject a Corda Service into other Corda Services and Flows.
+In the following examples you will learn how to inject a Corda Service into other Corda Services and Flows.
 
 ### Java example
 
