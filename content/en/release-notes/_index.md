@@ -38,7 +38,7 @@ Corda open source 4.8 is the latest open source version of Corda, with commitmen
 * [Corda OS 4.6](/en/platform/corda/4.6/open-source/release-notes.html)
 * [Corda OS 4.5](/en/platform/corda/4.5/open-source/release-notes.html)
 * [Corda OS 4.4](/en/platform/corda/4.4/open-source/release-notes.html)
-* [Corda OS 4.3](/en/platform/corda/4.3/opensource/release-notes.html)
+* [Corda OS 4.3](/en/platform/corda/4.3/open-source/release-notes.html)
 * [Corda OS 4.1](/en/platform/corda/4.1/open-source/release-notes.html)
 * [Corda OS 4.0](/en/platform/corda/4.0/open-source/release-notes.html)
 
