@@ -12,4 +12,4 @@ title: Corda 5 tutorials
 
 # Tutorials for Corda 5
 
-See the tutorials in the [Corda 5 Developer Preview documentation](../../en/platform/corda/5.0-dev-preview-1/tutorials/overview.html) to learn how to build on the newest version of Corda.
+See the tutorials in the [Corda 5 Developer Preview documentation](../../../../en/platform/corda/5.0-dev-preview-1/tutorials/overview.html) to learn how to build on the newest version of Corda.
