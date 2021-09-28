@@ -63,7 +63,7 @@ fun createFlow(flowInitializer: FlowMockHelper<T>.() -> T): T
 ```
 
 By default, the injectables are configured as basic mocks without any special behavior. However, in some cases where certain service functionality is often mocked-up in a common way, these mocks are added as part of the default mocking.
-If a you want to customize mocks, you have two options:
+If you want to customize mocks, you have two options:
 
 * Access the service mock via the flow produced by the `createFlow` function and add your custom mocking to the mock object.
 * Create your own mock object and replace the default mocks created by the `FlowMockHelper` class. You can do this by using the `overrideDefaultInjectableMock` function described in the next section.
@@ -190,7 +190,7 @@ Similar wiring has been configured for the other party mocks, and for the transa
 
 The implementation class also has some helpful default wiring of certain services. The list of mock wiring isn't extensive, but it does help with some commonly-used services within flows.
 
-For example, `FlowIdentity` has a default mock which returns the `ourIdentity` mock object when `FlowIdentity.ourIdentity` is called. Similarily, `FlowMessaging` returns the `otherSideSession` when `FlowMessaging.initiateSession` is called using the `otherSide` mock object.
+For example, `FlowIdentity` has a default mock which returns the `ourIdentity` mock object when `FlowIdentity.ourIdentity` is called. Similarly, `FlowMessaging` returns the `otherSideSession` when `FlowMessaging.initiateSession` is called using the `otherSide` mock object.
 
 
 # `FlowMockUtils` class
@@ -280,7 +280,7 @@ fun Flow<*>.mockInjectables(
 fun Flow<*>.mockInjectables() = mockInjectables(emptyMap())
 ```
 
-For a given flow, this function iterates over all dependencies annotated with `@CordaInject` and mocks an implementation. Optionally, a map of interfaces to implementations can be provided and this map will be given priority when setting mock implementations. You can pass in a parameter in this map for any injectable service that requires specific mock behavior. If no implementation is present in the map for a injectable service which a flow depends on, then a basic mock is created.
+For a given flow, this function iterates over all dependencies annotated with `@CordaInject` and mocks an implementation. Optionally, a map of interfaces to implementations can be provided and this map will be given priority when setting mock implementations. You can pass in a parameter in this map for any injectable service that requires specific mock behavior. If no implementation is present in the map for an injectable service which a flow depends on, then a basic mock is created.
 
 This function has been kept separate to `FlowMockHelper` since it gives the test author the option to just mock a flow's dependencies without using `FlowMockHelper` and all the mock objects it brings with it to allow for more lightweight testing if required.
 

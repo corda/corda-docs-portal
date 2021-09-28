@@ -1,14 +1,11 @@
 ---
-aliases:
-- /docs/corda-os/4.8/run-your-cordapp.html
-- /docs/platform/corda/4.8/os/tutorial-contract.html
-date: '2021-08-27'
+date: '2021-09-22'
 section_menu: tutorials
 menu:
   tutorials:
     identifier: corda-os-4-8-tutorial-basic-cordapp-running
     parent: corda-os-4-8-tutorial-basic-cordapp-intro
-    weight: 1050
+    weight: 1060
 tags:
 - tutorial
 - cordapp
@@ -27,13 +24,17 @@ Deploy and run your CorDapp on the test nodes:
 * `PartyA`.
 * `PartyB`.
 
+## Before you start
+
+Before you run your CorDapp, check your work against the [Apple Stamp CorDapp Java solution](https://github.com/corda/samples-java/tree/master/Basic/tutorial-applestamp).
+
 ## Deploy the CorDapp locally
 
 1. Open the command line from the root of your project.
 
 2. Compile your code into a Java application by running the `deployNodes` Gradle task:
 
-* Unix/Mac OSX: `./gradlew clean deployNodes`.
+* Unix/macOS: `./gradlew clean deployNodes`.
 * Windows: `gradlew.bat clean deployNodes`.
 
 This builds three nodes with the CorDapp installed on them.
@@ -43,7 +44,7 @@ This builds three nodes with the CorDapp installed on them.
 You will see:
 
 * A folder for each generated node
-* A `runnodes` shell script for running all the nodes simultaneously on MacOS.
+* A `runnodes` shell script for running all the nodes simultaneously on macOS.
 * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows.
 
 {{< note >}}
@@ -57,13 +58,13 @@ You will see:
 
 To start the nodes and the sample CorDapp, run the command that corresponds to your operating system:
 
-* Unix/Mac OSX: `./build/nodes/runnodes`.
+* Unix/macOS: `./build/nodes/runnodes`.
 * Windows: `.\build\nodes\runnodes.bat`.
 
 
 {{< note >}}
 
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window.
+On Unix/macOS, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window.
 
 {{< /note >}}
 
@@ -115,3 +116,7 @@ Finally, Peter goes to the orchard to pick up his apples and redeems his voucher
 2. Now you can query `PartyB` again to verify if they redeemed their `AppleStamp` voucher correctly:
 
 `run vaultQuery contractStateType: com.tutorial.states.BasketOfApple`
+
+## Next steps
+
+Follow the [Write integration tests](basic-cordapp-int-testing.md) tutorial to finish this learning path.

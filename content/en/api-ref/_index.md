@@ -5,7 +5,7 @@ menu:
   projects:
     weight: 60000
   api-ref:
-    name: API reference home
+    name: API reference
     weight: 450
     identifier: homepage-api-ref
 project: api-ref

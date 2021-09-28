@@ -1,6 +1,5 @@
 ---
 section_menu: homepage
-project: corda
 ---
 
 # R3 platform documentation

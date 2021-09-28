@@ -94,11 +94,11 @@ Before using the SDK to create a token, you need to have a clear understanding o
 
 ## Create tokens using the Tokens SDK
 
-When you know what kind of token you want to introduce into the network, you can start defining it. The requirements for each token depend on whether it is fungible, and whether it can evolve over time.  
+When you know what kind of token you want to introduce into the network, you can start defining it. The requirements for each token depend on whether it is fungible, and whether it can evolve over time.
 
 Use the list below to understand what needs to be included in the token you want to create.
 
-## The process of using the Tokens SDK  
+## The process of using the Tokens SDK
 
 Once you have established what type of token you want to create, you can use the Tokens SDK to perform the following key tasks:
 
@@ -148,7 +148,7 @@ data class DiamondGradingReport(
         override val linearId: UniqueIdentifier = UniqueIdentifier()
 ) : EvolvableTokenType() {
         override val maintainers: List<Party>
-            get() = listOf()             
+            get() = listOf()
         override val fractionDigits: Int
             get() = 2
 }
@@ -1259,43 +1259,6 @@ Depending on your plan for issuing tokens onto your network - whether you are re
 
 
 For each of the these steps, follow the instructions below.
-
-### Create a local testing environment using the Kotlin Tokens SDK template
-
-To get started quickly with the Tokens SDK, use the **Tokens template** which is a branch on the kotlin version of the **CorDapp template**.
-
-To use the tokens template:
-
-1. Use the following commands to clone the Kotlin CorDapp template, and checkout the token-template branch:
-
-```
-    git clone http://github.com/corda/cordapp-template-kotlin
-    cd cordapp-template-kotlin
-    git checkout token-template
-```
-
-2. Open the token-template branch of the repo with your preferred coding tool. The recommended tool is IntelliJ because it works well with Gradle.
-
-You now have a template repo with the Tokens SDK dependencies
-included and some example code to illustrate how to use the Tokens SDK.
-
-**To test your Tokens SDK set up locally:**
-
-1. Use command line to create three nodes:
-
-    .```
-    /gradlew clean deployNodes
-    ./build/nodes/runnodes
-    ```
-
-2. Issue some currency tokens from `PartyA` to `PartyB` from Party A's shell with the following command:
-
-    ```
-    start ExampleFlowWithFixedToken currency: GBP, amount: 100, recipient: PartyB
-    ```
-
-See the token template code [here](https://github.com/corda/cordapp-template-kotlin/tree/token-template)
-for more information.
 
 ### Build Tokens SDK against Corda release branch
 

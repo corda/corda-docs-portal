@@ -2,11 +2,12 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
-    parent: corda-enterprise-4-8-toc-tree
+    identifier: corda-enterprise-4-8-performance-testing
+    name: "Corda Enterprise Performance Testing"
 tags:
 - introduction
 title: Introduction
-weight: 100
+weight: 400
 ---
 
 
