@@ -39,8 +39,6 @@ This version of the Tokens SDK is for the Corda 5 Developer Preview only. It can
 The binaries for the Tokens SDK version `2.0.0-DevPreview-1.0`, which is compatible for use with the Corda 5 Developer Preview,
 are released on the corda-lib Artifactory.
 
-If your project is set up to import dependencies from Maven Central, you can pull in these binaries.
-
 ### Add Tokens SDK dependencies to an existing CorDapp
 
 To add the Tokens SDK dependencies to an existing CorDapp:
