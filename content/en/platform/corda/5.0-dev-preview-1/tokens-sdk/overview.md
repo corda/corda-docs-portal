@@ -36,8 +36,8 @@ This version of the Tokens SDK is for the Corda 5 Developer Preview only. It can
 
 ## Using the Tokens SDK
 
-The binaries for the Tokens SDK version `2.0.0-DevPreview-1.0`, which is compatible for use with the Corda 5 Developer Preview, 
-are released on Maven Central.
+The binaries for the Tokens SDK version `2.0.0-DevPreview-1.0`, which is compatible for use with the Corda 5 Developer Preview,
+are released on the corda-lib Artifactory.
 
 If your project is set up to import dependencies from Maven Central, you can pull in these binaries.
 
@@ -45,7 +45,15 @@ If your project is set up to import dependencies from Maven Central, you can pul
 
 To add the Tokens SDK dependencies to an existing CorDapp:
 
-1. Add a variable for the tokens release group and the version you
+1. Add a repository definition for R3's corda-lib Artifactory:
+
+```
+    repositories {
+        maven { url 'https://software.r3.com/artifactory/corda-lib' }
+    }
+```
+
+2. Add a variable for the tokens release group and the version you
 wish to use. If you want to use the published binaries, the version should be `2.0.0-DevPreview-1.*`.
 
 ```
@@ -57,13 +65,13 @@ wish to use. If you want to use the published binaries, the version should be `2
     }
 ```
 
-2. Add the `token-sdk` dependencies to the `dependencies` block in each module of your CorDapp. For contract modules add:
+3. Add the `token-sdk` dependencies to the `dependencies` block in each module of your CorDapp. For contract modules add:
 
 ```
     cordapp "$tokens_release_group:tokens-contracts:$tokens_release_version"
 ```
 
-3. In your workflow `build.gradle` add:
+4. In your workflow `build.gradle` add:
 
 ```
     cordapp "$tokens_release_group:tokens-workflows:$tokens_release_version"
@@ -71,7 +79,7 @@ wish to use. If you want to use the published binaries, the version should be `2
     cordapp "$tokens_release_group:tokens-tokens-builder:$tokens_release_version"
 ```
 
-4. Bundle the following `.cpk` files into your CorDapp's `.cpb` file for deployment:
+5. Bundle the following `.cpk` files into your CorDapp's `.cpb` file for deployment:
 
 * tokens-contracts
 * tokens-workflows
