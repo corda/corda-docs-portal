@@ -10,7 +10,7 @@ menu:
     name: Corda open source 4.0
 project: corda
 section_menu: corda-os-4-0
-title: Corda oopen source 4.0
+title: Corda open source 4.0
 version: 'Open source 4.0'
 ---
 # Welcome to Corda !
