@@ -48,7 +48,11 @@ See the [Corda 5 Developer Preview overview](../5.0-dev-preview-1.html) for more
 
 ## Known issues
 
-There is a known issue with use of **anonymous classes in Java**.
+There is a known issue with use of **anonymous classes in Java** when extending a flow.
+
+{{< note >}}
+This issue only has an impact when starting a subflow in Java, where the flow is an anonymous class.
+{{< /note >}}
 
 When extending a flow, such as `SignTransactionFlow` you may typically use an anonymous class, like:
 
@@ -91,8 +95,4 @@ For example, in the above case, use:
 19    }
 ```
 
-{{< note >}}
-This issue only has an impact when starting a subflow in Java, where the flow is an anonymous class.
-{{< /note >}}
-
-Once this known issue is resolved, an update will be added to these release notes. 
+Once this known issue is resolved, an update will be added to these release notes.
