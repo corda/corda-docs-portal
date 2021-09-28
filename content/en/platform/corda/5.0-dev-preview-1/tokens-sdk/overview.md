@@ -36,7 +36,7 @@ This version of the Tokens SDK is for the Corda 5 Developer Preview only. It can
 
 ## Using the Tokens SDK
 
-The binaries for the tokens SDK version version 2.0.0-DevPreview-1.0 (i.e. the version matching Corda 5 DevPreview)
+The binaries for the Tokens SDK version `2.0.0-DevPreview-1.0`, which is compatible for use with the Corda 5 Developer Preview, 
 are released on Maven Central.
 
 If your project is set up to import dependencies from Maven Central, you can pull in these binaries.
@@ -46,7 +46,7 @@ If your project is set up to import dependencies from Maven Central, you can pul
 To add the Tokens SDK dependencies to an existing CorDapp:
 
 1. Add a variable for the tokens release group and the version you
-wish to use. If you want to use the published binaries, the version should be 2.0.0-DevPreview-1.*
+wish to use. If you want to use the published binaries, the version should be `2.0.0-DevPreview-1.*`.
 
 ```
     buildscript {
@@ -86,7 +86,7 @@ Use these steps to build your own copy of the Tokens SDK and use that for your C
 
 ### Build Tokens SDK against Corda release branch
 
-You can build the Tokens SDK against the master branch with the following commands:
+You can build the Tokens SDK against the `master` branch of the Tokens SDK repository with the following commands:
 
 ```
 git clone https://github.com/corda/corda5-token-sdk.git
@@ -95,15 +95,14 @@ git checkout origin release/2.0
 ```
 
 {{< note >}}
-Checkout the version of the Tokens SDK you wish to install. In the example above `release/2.0` is used.
+Checkout the version of the Tokens SDK you wish to install. In the example above, `release/2.0` is used.
 {{< /note >}}
 
 Then run `./gradlew clean install` from the root directory.
 
 ### Add a dependency on your local build
 
-1. Change the tokens release version variable to the version you  have installed locally. It will
-probably look something like this:
+1. Change the value of the `tokens_release_version` variable to the version you have installed locally. For example:
 
 ```
     buildscript {
@@ -114,7 +113,7 @@ probably look something like this:
     }
 ```
 
-2.  Add the tokens development artifactory repository to the list of repositories for your project, along with `mavenLocal` where your installed copy of the tokens SDK is located:
+2.  Add the Tokens SDK development artifactory repository to the list of repositories for your project, along with `mavenLocal` where your installed copy of the Tokens SDK is located:
 
 ```
     repositories {
@@ -124,8 +123,8 @@ probably look something like this:
     }
 ```
 
-3. Remember to bundle the tokens `.cpk`s from your local install into your `.cpb`, especially if you have tweaked
-the tokens SDK.
+3. Remember to bundle the Tokens SDK's `.cpk` files from your local installation location into your `.cpb` bundle, especially if you have tweaked
+the Tokens SDK.
 
 ## What's inside the Tokens SDK
 
