@@ -40,7 +40,7 @@ In order to make a service injectable, it must first implement one or both of th
 * `CordaFlowInjectable`
 * `CordaServiceInjectable`
 
-These are empty interface used to indicate that a service can be injected, and where it can be injected. Implementing `CordaFlowInjectable` will allow for injection into a Flow, and `CordaServiceInjectable` will allow for injection in to a Corda service or notary service.
+These are empty interface used to indicate that a service can be injected, and where it can be injected. Implementing `CordaFlowInjectable` will allow for injection into a Flow, and `CordaServiceInjectable` will allow for injection in a Corda service or notary service.
 
 ## Basics of injecting a Corda Service
 
