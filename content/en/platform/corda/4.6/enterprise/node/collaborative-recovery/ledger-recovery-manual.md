@@ -33,7 +33,7 @@ Manual Recovery processes executed via the LedgerRecover CorDapp require partici
 
 - Using Corda Enterprise, not Corda Open Source (OS)
 - Corda Minimum Platform Version (MPV) > 6
-- Running on top of a supported [database technology](/docs/corda-enterprise/4.6/platform-support-matrix.html)
+- Running on top of a supported [database technology](../4.6/enterprise/platform-support-matrix.html)
 
 Corda nodes are also expected to have backups from which they are able to partially restore the contents of their vault to a state that is self-consistent, meaning that all available transactions and dependencies are correctly recorded in the vault and all appropriate tables. These tables may not be current, and may be missing records of some transactions due to a disaster scenario.
 

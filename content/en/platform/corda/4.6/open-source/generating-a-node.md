@@ -244,7 +244,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 
 #### Package namespace ownership
 
-To configure [package namespace ownership](../../corda-enterprise/4.6/node/deploy/env-dev.md#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](network-bootstrapper.md) tool. For example:
+To configure [package namespace ownership](../../4.6/enterprise/node/deploy/env-dev.md#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](network-bootstrapper.md) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {

@@ -8,7 +8,7 @@ tags:
 - operations
 - upgrade
 - cordapps
-aliases: /docs/corda-enterprise/4.8/node/operating/node-operations-upgrade-cordapps.html
+aliases: /docs/4.8/enterprise/node/operating/node-operations-upgrade-cordapps.html
 title: Upgrading deployed CorDapps
 weight: 50
 ---
@@ -56,7 +56,7 @@ agree to the proposed upgrade. The following combinations of upgrades are possib
 
 ## Perform the upgrade
 
-If a contract or state requires an explicit upgrade, update all states to the new contract at a time all the participants agree on. 
+If a contract or state requires an explicit upgrade, update all states to the new contract at a time all the participants agree on.
 by all participants. The updated CorDapp `.jar` needs to be distributed to all relevant parties in advance of the changeover
 time.
 
@@ -71,7 +71,7 @@ To perform the upgrade:
     * By RPC using the `stateMachinesSnapshot` method and checking that there are no results.
     * Via the shell by issuing the command `run stateMachinesSnapshot`.
 
-3. Stop the node when all flows are complete. 
+3. Stop the node when all flows are complete.
 
 4. Replace the existing `.jar` with the new version.
 

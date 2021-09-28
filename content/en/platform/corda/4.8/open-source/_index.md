@@ -15,8 +15,8 @@ version: 'Open source 4.8'
 
 {{< vimeo 205410473 >}}
 
-**Want to start coding on Corda?** Familiarise yourself with the [key concepts](key-concepts.md), then read
-our [Writing a CorDapp using a template](writing-a-cordapp-using-a-template.md) tutorial.
+**Want to start coding on Corda?** Familiarise yourself with the [key concepts](open-source/key-concepts.md), then read
+our [Writing a CorDapp using a template](open-source/writing-a-cordapp-using-a-template.md) tutorial.
 
 **Want background reading material?** The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business
 audience. The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.
@@ -27,9 +27,9 @@ audience. The [technical white paper](https://www.r3.com/white-papers/corda-tech
 {{< note >}}
 **Release notes**
 
-* For all Corda open source release notes, see the [Corda release notes](release-notes.md) page.
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.8 release notes](../../corda-enterprise/4.8/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
-* For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../cenm/1.5/release-notes.md) page.
+* For all Corda open source release notes, see the [Corda release notes](open-source/release-notes.md) page.
+* For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.8 release notes](enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
+* For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../1.5/cenm/release-notes.md) page.
 {{< /note >}}
 
 We look forward to seeing what you can do with Corda!
