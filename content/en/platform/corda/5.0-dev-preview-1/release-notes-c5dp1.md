@@ -28,11 +28,9 @@ Intended for local deployment, experimental development, and testing only, this 
 
 - Upgrades to packaging:
   - A [Corda Package](packaging/overview.html#corda-package-files) (`.cpk`) is the unit of software that executes within a single sandbox.
-  - [CorDapps](packaging/overview.html#corda-package-bundles) are a set of versioned `.cpks` that define a deployable application.
+  - [CorDapps](packaging/overview.html#corda-package-bundles) are a set of versioned `.cpb` (Corda package bundle) files that define a deployable application.
 
 - A new [integration test framework](cordapps/integration-tests.md) that reflects real node behavior.
-
-- An API for pluggable uniqueness service (notary). This is interface-only.
 
 ## Changes from Corda 4
 
@@ -41,8 +39,21 @@ Some features available in Corda 4 have been replaced with new functionality. Th
 - `MockNetwork`. You can now [use off-the-shelf testing frameworks](cordapps/integration-tests.md).
 - Crash shell. This has been replaced with the [Corda Node CLI](nodes/operating/cli-curl/cli-curl.md).
 - Driver DSL. This has been replaced with the [Corda CLI](corda-cli/overview.md).
+- Network Bootstrapper. This has been replaced by the [Corda CLI](corda-cli/overview.md).
 
-This preview is not intended for commercial deployment, so it does not contain the functionality to create live networks.
+{{< warning >}}
+
+IMPORTANT NOTE
+
+The Corda 5 Developer Preview is not feature complete and is not intended for commercial deployment, so it does not contain the functionality to create live networks.
+
+Please do not try to migrate Corda 4 CorDapps to the Corda 5 Developer Preview - this release is only intended as a means for testing CorDapps development as a proof of concept.
+
+R3 does not and will not provide official support for this release.
+
+We welcome your [feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) - it will help us shape the future of Corda 5 and resolve issues, identified in the Corda 5 Developer Preview, in future Corda 5 releases.
+
+{{< /warning >}}
 
 See the [Corda 5 Developer Preview overview](../5.0-dev-preview-1.html) for more details.
 
@@ -93,4 +104,3 @@ For example, in the above case, use:
 18        }
 19    }
 ```
-
