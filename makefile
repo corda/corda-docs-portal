@@ -107,7 +107,7 @@ crawl: build-algolia-image ## Start a crawl of docs.corda.net and upload to algo
 # Build checks
 
 linkchecker: hugo-docker-image ## Check all links are valid
-	$(DOCKER_RUN) -it $(HUGO_DOCKER_IMAGE) .ci/checks/linkChecker.sh
+	$(DOCKER_RUN) -it $(HUGO_DOCKER_IMAGE) .ci/checks/linkchecker-muffet.sh
 
 # actual tasks
 .hugo-docker-image: Dockerfile
