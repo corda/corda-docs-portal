@@ -49,7 +49,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
    cd cordapp-template-kotlin
    ```
 
-5. Open the `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+5. Open `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
    If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
