@@ -6,9 +6,12 @@ date: '2020-04-07T12:00:00Z'
 menu:
   versions:
     weight: 100
+  corda-os-4-6:
+    weight: 1
+    name: Corda open source 4.6
 project: corda
 section_menu: corda-os-4-6
-title: Corda OS 4.6
+title: Corda open source 4.6
 version: 'Open source 4.6'
 ---
 
