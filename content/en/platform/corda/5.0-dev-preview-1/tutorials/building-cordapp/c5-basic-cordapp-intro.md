@@ -20,7 +20,7 @@ Before you start building your first CorDapp:
 - [Get set up for CorDapp development](../../getting-started/prerequisites.md).
 - [Deploy a local Corda 5 network](../../getting-started/setup-network.md).
 - [Run a sample CorDapp](../run-demo-cordapp.md).
-- Take a look at the Corda 5 Developer Preview [CorDapp template](XXX).
+- Take a look at the Corda 5 Developer Preview [Kotlin CorDapp template](https://github.com/corda/corda5-cordapp-template-kotlin).
 
 ## The story
 
