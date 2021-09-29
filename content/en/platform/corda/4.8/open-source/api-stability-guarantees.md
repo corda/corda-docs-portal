@@ -25,7 +25,7 @@ which will not. Over time, more of the API will fall under the stability guarant
 
 
 * **public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) backwards compatibility guarantees are provided. See: [Public API](#public-api)
-* **non-public APIs**, for which no backwards compatibility guarantees are provided. See: [Non-public API (experimental)](#non-public-api)
+* **non-public APIs**, for which no backwards compatibility guarantees are provided. See: [Non-public API (experimental)](#non-public-api-experimental)
 
 
 

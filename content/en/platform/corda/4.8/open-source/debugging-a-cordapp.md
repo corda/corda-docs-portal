@@ -47,7 +47,7 @@ running via the node driver to debug your CorDapp.
 ### With the nodes in-process
 
 
-* Define a network using the node driver as per [Integration testing](tutorial-integration-testing.md)>
+* Define a network using the node driver as per [Integration testing](../../../../tutorials/corda/4.8/os/supplementary-tutorials/tutorial-integration-testing.md)>
 
 * In your `DriverParameters`, ensure that `startNodesInProcess` is set to `true`
 
@@ -66,7 +66,7 @@ running via the node driver to debug your CorDapp.
 ### With remote debugging
 
 
-* Define a network using the node driver as per [Integration testing](tutorial-integration-testing.md)>
+* Define a network using the node driver as per [Integration testing](../../../../tutorials/corda/4.8/os/supplementary-tutorials/tutorial-integration-testing.md)>
 
 * In your `DriverParameters`, ensure that `startNodesInProcess` is set to `false` and `isDebug` is set to
 `true`
