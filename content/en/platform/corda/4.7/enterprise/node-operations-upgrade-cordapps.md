@@ -8,7 +8,7 @@ tags:
 - operations
 - upgrade
 - cordapps
-aliases: /docs/corda-enterprise/4.7/node/operating/node-operations-upgrade-cordapps.html
+aliases: /docs/4.7/enterprise/node/operating/node-operations-upgrade-cordapps.html
 title: Upgrading deployed CorDapps
 weight: 50
 ---

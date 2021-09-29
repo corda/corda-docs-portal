@@ -526,7 +526,7 @@ database.transaction {
 
 [HibernateConfigurationTest.kt](https://github.com/corda/corda/blob/release/os/4.8/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
 
-JDBC sessions can be used in flows and services (see “[Writing flows](flow-state-machines.md)”).
+JDBC sessions can be used in flows and services (see “[Writing flows](api-flows.md)”).
 
 The following example illustrates the creation of a custom Corda service using a `jdbcSession`:
 
@@ -604,7 +604,7 @@ override fun call(): List<SignedTransaction> {
 }
 ```
 
-For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md).
+For examples on testing `@CordaService` implementations, see the oracle example [here](key-concepts-oracles.md).
 
 ### Restricted control of connections
 

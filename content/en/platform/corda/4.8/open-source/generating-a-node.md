@@ -184,7 +184,7 @@ devMode true
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
 ```
 
-* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For more information, see [extended node configuration](#generating-a-node-extended-config). For example:
+* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For example:
 
 ```kotlin
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
@@ -244,7 +244,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 
 #### Package namespace ownership
 
-To configure [package namespace ownership](../../corda-enterprise/4.8/node/deploy/env-dev.md#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](network-bootstrapper.md) tool. For example:
+To configure [package namespace ownership](../../4.8/enterprise/node/deploy/env-dev.md#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](network-bootstrapper.md) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {

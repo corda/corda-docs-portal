@@ -17,7 +17,7 @@ The Corda 5 Developer Preview uses [Apache Shiro](https://shiro.apache.org/) lib
 as described in Corda 4's guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security).
 
 When expressing grants for users, you can still use extended syntax for individual users, as described in Corda 4's guide on
-[defining RPC users and permissions](https://docs.corda.net/docs/corda-enterprise/4.8/node/operating/clientrpc.html#defining-rpc-users-and-permissions-1).
+[defining RPC users and permissions](https://docs.corda.net/docs/4.8/enterprise/node/operating/clientrpc.html#defining-rpc-users-and-permissions-1).
 
 
 ## Configure user permissions: flow initiation

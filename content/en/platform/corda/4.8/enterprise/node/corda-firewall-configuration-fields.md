@@ -1,6 +1,6 @@
 ---
 aliases:
-- /docs/corda-enterprise/4.8/operations/deployment/corda-firewall-configuration-file.html
+- /docs/4.8/enterprise/operations/deployment/corda-firewall-configuration-file.html
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:

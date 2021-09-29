@@ -765,7 +765,7 @@ transaction fail to verify it, or the receiving flow (the finality handler) fail
 all parties will not have the up-to-date view of the ledger.
 
 To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint
-upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](../node/node-flow-hospital.md#flow-hospital-runtime).
+upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](node-flow-hospital.md).
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved, the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
 
@@ -1188,7 +1188,7 @@ You could use this functionality to:
   thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured. See [the node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size).
+The size of the external operation thread pool can be configured. See [the node configuration documentation](corda-configuration-file.md).
 
 {{< /note >}}
 You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:
@@ -1363,7 +1363,7 @@ Threading must be explicitly controlled when using `FlowExternalAsyncOperation`.
 Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. The developer decides how to create this future.
 The best practice is to use `CompletableFuture.supplyAsync` and supply an executor to run the future. You can use other libraries to
 generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. You can see an example of creating a future
-using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) Below.
+using Guava’s ListenableFuture below.
 
 {{< note >}}
 You can chain the future to execute further operations that continue using the same thread the future started on. For example,

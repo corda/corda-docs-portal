@@ -34,7 +34,7 @@ audience. The [technical white paper](https://www.r3.com/white-papers/corda-tech
 **Release notes**
 
 * For all Corda open source release notes, see the [Corda release notes](release-notes.md) page.
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.7 release notes](../../corda-enterprise/4.7/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
+* For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.7 release notes](../../4.7/enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../cenm/1.5/release-notes.md) page.
 {{< /note >}}
 

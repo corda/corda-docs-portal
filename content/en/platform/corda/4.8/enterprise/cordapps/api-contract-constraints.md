@@ -96,7 +96,7 @@ Nodes will also trust attachments that:
 * Are installed manually.
 * Are uploaded via RPC.
 
-You can [sign a CorDapp directly from Gradle](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref).
+You can [sign a CorDapp directly from Gradle](cordapp-build-systems.md).
 
 
 ### CorDapp contract storage and retrieval
@@ -341,7 +341,7 @@ Driver.driver(
 
 ### Starting a node that is missing CorDapp(s)
 
-Make sure you place all CorDapp `.jar`s in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all `.jar`s by default, if you have specified CorDapps to deploy. See [Creating nodes locally](https://docs.corda.net/docs/corda-enterprise/4.8/node/deploy/generating-a-node.html#creating-nodes-locally) for detailed instructions.
+Make sure you place all CorDapp `.jar`s in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all `.jar`s by default, if you have specified CorDapps to deploy. See [Creating nodes locally](https://docs.corda.net/docs/4.8/enterprise/node/deploy/generating-a-node.html#creating-nodes-locally) for detailed instructions.
 
 
 ### Including an incorrect fully-qualified contract name
