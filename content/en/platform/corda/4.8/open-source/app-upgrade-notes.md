@@ -67,7 +67,7 @@ No manual upgrade steps are required.
 
 ### Required actions relating to database optimisation in Corda 4.6
 
-The operational improvements around [database schema harmonisation](release-notes.md#database-schema-harmonisation) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
+The operational improvements around [database schema harmonisation](release-notes.md) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
 
 The required steps for each upgrade path are described below.
 
@@ -237,7 +237,7 @@ Otherwise just upgrade your installed copy in the usual manner for your operatin
 {{< note >}}
 Platform Version 5 requires a different version of Gradle, so if you’re intending to upgrade past Platform Version 4 you may wish
 to skip updating Gradle here and upgrade directly to the version required by Platform Version 5. You’ll still need to alter the version
-numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#platform-version-5-gradle-changes)
+numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)
 
 {{< /note >}}
 
@@ -348,7 +348,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](cordapp-build-systems.md#cordapp-configuration-files-ref) for more information.
+See [CorDapp configuration files](cordapp-build-systems.md) for more information.
 
 
 
@@ -380,7 +380,7 @@ The upgrade is a three step process:
 
 * Change the flow that calls `FinalityFlow`.
 * Change or create the flow that will receive the finalised transaction.
-* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#cordapp-upgrade-version-numbers-ref)).
+* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)).
 
 
 #### Upgrading a non-initiating flow
@@ -641,7 +641,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 ### Step 6. Security: Upgrade your use of SwapIdentitiesFlow
 
-The [Confidential identities](api-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [Confidential identities](api-identity.md) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
@@ -788,7 +788,7 @@ to be governed by a contract that is either:
 * The outer class of the state class, if the state is an inner class of a contract. This is a common design pattern.
 * Annotated with `@BelongsToContract` which specifies the contract class explicitly.
 
-Learn more by reading [Contract/State Agreement](api-contract-constraints.md#contract-state-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
+Learn more by reading [Contract/State Agreement](api-contract-constraints.md). If an app targets Corda 3 or lower (i.e. does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
 
 
@@ -801,7 +801,7 @@ automatically using new signature constraints selected automatically based on th
 
 You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
 automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
-[Signing the CorDapp JAR](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
+[Signing the CorDapp JAR](cordapp-build-systems.md). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
 with developer certificates is deployed to a production node, the node will refuse to start. Therefore to deploy apps built for Corda 4
 to production you will need to generate signing keys and integrate them with the build process.
 
@@ -854,7 +854,7 @@ If your flows could benefit from being extended in this way, read “[Configurin
 In Corda 4 queries made on a node’s vault can filter by the relevancy of those states to the node. As this functionality does not exist in
 Corda 3, apps will continue to receive all states in any vault queries. However, it may make sense to migrate queries expecting just those states relevant
 to the node in question to query for only relevant states. See [API: Vault Query](api-vault-query.md) for more details on how to do this. Not doing this
-may result in queries returning more states than expected if the node is using observer functionality (see “[Posting transactions to observer nodes](tutorial-observer-nodes.md)”).
+may result in queries returning more states than expected if the node is using observer functionality (see “[Posting transactions to observer nodes](../../../../tutorials/corda/4.8/os/supplementary-tutorials/tutorial-observer-nodes.md)”).
 
 
 ### Step 13. Explore other new features that may be useful
@@ -881,4 +881,4 @@ You have some choices here:
 * Upgrade your `quasar.jar` to `0.7.12_r3`
 * Delete your `lib` directory and switch to using the Gradle test runner
 
-Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.md#tutorial-cordapp-running-tests-intellij).
+Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.md).

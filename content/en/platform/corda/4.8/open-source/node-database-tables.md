@@ -171,12 +171,12 @@ It is an append only table and the size will be fairly small.
 
 The ledger data is formed of transactions and attachments.
 In future versions this data will be encrypted using SGX.
-Read more in [The ledger](key-concepts-ledger.md)
+Read more in [the ledger](key-concepts-ledger.md)
 
 
 ### Attachments
 
-Read more in [Working with attachments](tutorial-attachments.md) and [Node services](node-services.md)
+Read more in [Working with attachments](../../../../tutorials/corda/4.8/os/supplementary-tutorials/tutorial-attachments.md) and [Node services](node-services.md)
 
 {{< figure alt="attachments tables" width=80% zoom="/en/images/attachments_tables.png" >}}
 

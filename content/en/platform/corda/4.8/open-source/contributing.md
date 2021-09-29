@@ -112,7 +112,7 @@ with a full stop. We also start comments with capital letters, even for inline c
 synonyms (e.g. `%d` and `%date`), we prefer the longer form for legibility reasons. You can configure your IDE
 to highlight these in yellow.
 2. Update the relevant .rst file(s).
-3. Include the change in the [changelog](changelog.md) if the change is external and therefore visible to CorDapp
+3. Include the change in the [changelog](release-notes.md) if the change is external and therefore visible to CorDapp
 developers and/or node operators.
 4. [Build the docs locally](building-the-docs.md) and check that the resulting .html files (under `docs/build/html`) for the modified
 render correctly.
@@ -174,7 +174,7 @@ The process for contributing a large change to Corda is as follows:
 
 3. If the proposal is accepted, please raise a design PR on the [Corda GitHub project](https://github.com/corda/corda). The design should give the rationale for the change, how the change will be implemented, and what alternative designs were rejected. The engineering team will review your design and indicate any required changes.
 
-4. Once the design is approved, please go ahead with the change according to the [guidelines for small and medium contributions](contributing.md#making-the-required-changes). In addition to those guidelines, we require that large contributions be fully exercised by tests, including any exception paths and error handling.
+4. Once the design is approved, please go ahead with the change according to the [guidelines for small and medium contributions](contributing.md). In addition to those guidelines, we require that large contributions be fully exercised by tests, including any exception paths and error handling.
 
 
 ## Developer Certificate of Origin

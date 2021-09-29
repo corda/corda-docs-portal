@@ -85,7 +85,7 @@ the underlying Corda nodes may be still starting and SSHing to a node may be not
 * `java -jar <path/to/corda-tools-network-builder.jar> -b AZURE -d .`
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
+The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
 
 {{< /note >}}
 
@@ -152,7 +152,7 @@ click `Open`
 * Click `Build`
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
+The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
 
 {{< /note >}}
 All the nodes should eventually move to a `Status` of `INSTANTIATED`. If you run `docker ps` from the terminal to
@@ -166,9 +166,6 @@ c8c44c515bdb        node-partya:corda-network   "run-corda"     17 seconds ago  
 cf7ab689f493        node-notary:corda-network   "run-corda"     30 seconds ago      Up 31 seconds       0.0.0.0:32888->10003/tcp, 0.0.0.0:32889->10005/tcp, 0.0.0.0:32890->10020/tcp, 0.0.0.0:32891->12222/tcp   notary0
 ```
 
-### Interacting with the nodes
-
-See [Interacting with the nodes](#interacting-with-the-nodes).
 
 ### Adding additional nodes
 
