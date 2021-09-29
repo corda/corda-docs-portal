@@ -8,7 +8,7 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-In Corda 5 Developers Preview, CorDapps are distributed as Corda package files (`.cpk` files), and Corda package bundles (`.cpb` files).
+In the Corda 5 Developer Preview, CorDapps are distributed as Corda package files (`.cpk` files), and Corda package bundles (`.cpb` files).
 
 {{< note >}}
 **Your feedback helps** -
@@ -17,7 +17,7 @@ Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we
 
 ## Corda package files
 
-Corda package files (`.cpk` files) are the standard way to distribute CorDapps for Corda 5 Development Preview. A Corda package file is a `.zip` file with a `.cpk` extension. It is a “jar-of-jars” single distributable for the CorDapp. It contains META-INF files for publisher content signing, and that define versioning and dependencies. The dependency information in the `.cpk` file defines dependencies based upon version, hash, and publisher key.
+Corda package files (`.cpk` files) are the standard way to distribute CorDapps for the Corda 5 Developer Preview. A Corda package file is a `.zip` file with a `.cpk` extension. It is a “jar-of-jars” single distributable for the CorDapp. It contains META-INF files for publisher content signing, and that define versioning and dependencies. The dependency information in the `.cpk` file defines dependencies based upon version, hash, and publisher key.
 
 The `.cpk` file also contains the main CorDapp `.jar` file and its dependencies, except for Corda’s own `.jar` files and `.jar` files that are provided by Corda (such as Kotlin and Quasar).
 

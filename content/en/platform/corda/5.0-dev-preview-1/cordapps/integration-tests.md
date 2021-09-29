@@ -428,7 +428,7 @@ You can debug integration tests from the IDE. However, it is often useful to deb
 
 For more information on how to debug a node in the Corda 5 development network, see [Debugging CorDapps](debugging-cordapps.md).
 
-## Removal of the mock network feature in the Corda 5 Development Preview
+## Removal of the mock network feature in the Corda 5 Developer Preview
 
 The `MockNetwork` functionality (in-memory testing) has been removed and replaced with [testing capabilities in the Corda CLI](../corda-cli/commands.md). This update speeds up node start times and reduces memory requirements.
 - For [unit testing](flow-unit-testing.md), you can use the `corda-dev-network-lib` library with the unit testing framework of your choice.

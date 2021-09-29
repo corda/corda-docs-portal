@@ -23,6 +23,10 @@ As a CorDapp developer, you can compile and test your Corda 5 Developer Preview 
 * [Azul11.0.12](https://www.azul.com/downloads/?package=jdk)
 * [AdoptOpenJDK-J9](https://adoptopenjdk.net/releases.html?variant=openjdk11&jvmVariant=openj9)
 
+## Kotlin
+
+The Corda 5 Developer Preview supports Kotlin plugin version 1.4.
+
 ## Deployment
 
 You can deploy the Corda 5 Developer Preview locally using the [Corda CLI](../corda-cli/overview.md) tool and a docker daemon, such as a command-line tool or Docker Desktop 3.5.
