@@ -19,6 +19,6 @@ export function googleAnalytics() {
         "ga"
     );
 
-    window.ga("create", "UA-87760032-7", "auto");
+    window.ga("create", "283616090", "auto");
     window.ga("send", "pageview");
 }
