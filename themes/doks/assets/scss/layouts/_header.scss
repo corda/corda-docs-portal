@@ -269,21 +269,25 @@ header {
         }
       }
 
-      &::-webkit-scrollbar-track
-      {
-        -webkit-box-shadow: inset 0 0 2px $gray-700;
-        background-color: $gray-400;
+      &::-webkit-scrollbar {
+        width: 5px;
       }
 
-      &::-webkit-scrollbar
-      {
-        width: 8px;
-        background-color: $gray-400;
+      &::-webkit-scrollbar-track{
+        background: $gray-300;
       }
 
-      &::-webkit-scrollbar-thumb
-      {
-        background-color: $gray-600;
+      &::-webkit-scrollbar-thumb{
+        background: $gray-600;
+      }
+
+      &:hover {
+        scrollbar-width: thin;
+        scrollbar-color: $gray-300 $gray-700;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: $gray-800;
       }
     }
   }
