@@ -3,9 +3,12 @@ date: '2020-04-07T12:00:00Z'
 menu:
   versions:
     weight: -640
+  corda-os-4-8:
+    weight: 1
+    name: Corda open source 4.8
 project: corda
 section_menu: corda-os-4-8
-title: Corda OS 4.8
+title: Corda open source 4.8
 version: 'Open source 4.8'
 ---
 

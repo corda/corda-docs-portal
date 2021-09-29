@@ -71,4 +71,4 @@ To install the Corda 5 Developer Preview:
    [operating nodes](../nodes/operating/operating-nodes-homepage.md).
 
 ### Install the Corda 5 Developer Preview versions of the confidential identities project and Tokens SDK (optional)
-9. The confidential identities project and Tokens SDK work with the Corda 5 Developer Preview. To update them, read the installation guides for [the confidential identifies project](../confidential-identities/overview.md#install-the-confidential-identities-sdk) and the [Tokens SDK project](../tokens-sdk/overview.md#install-the-tokens-sdk).
+9. The confidential identities project and Tokens SDK work with the Corda 5 Developer Preview. To update them, read the installation guides for [the confidential identifies project](../confidential-identities/overview.html#install-the-confidential-identities-sdk) and the [Tokens SDK project](../tokens-sdk/overview.html#install-the-tokens-sdk).

@@ -5,9 +5,12 @@ date: '2020-01-08T09:59:25Z'
 menu:
   versions:
     weight: 140
+  corda-os-4-1:
+    weight: 1
+    name: Corda open source 4.1
 project: corda
 section_menu: corda-os-4-1
-title: Corda OS 4.1
+title: Corda open source 4.1
 version: 'Open source 4.1'
 ---
 # Welcome to Corda !

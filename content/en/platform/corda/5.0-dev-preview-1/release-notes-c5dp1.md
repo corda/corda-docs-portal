@@ -69,12 +69,12 @@ When extending a flow, such as `SignTransactionFlow` you may typically use an an
 
 ```Java
 SignedTransaction signedTransaction = flowEngine.subFlow(new SignTransactionFlow(counterpartySession) {
-2
-3            @Override
-4            protected void checkTransaction(SignedTransaction stx) throws FlowException {
-5
-6            }
-7        });
+
+    @Override
+    protected void checkTransaction(SignedTransaction stx) throws FlowException {
+
+    }
+});
 ```
 However, there is an issue which prevents this from working.
 
@@ -85,22 +85,21 @@ For example, in the above case, use:
 
 ```Java
 @Suspendable
-2    @Override
-3    public SignedTransaction call() throws FlowException {
-4        SignedTransaction signedTransaction = flowEngine.subFlow(new MySignTransactionFlow(counterpartySession));
-5        //Stored the transaction into data base.
-6        return flowEngine.subFlow(new ReceiveFinalityFlow(counterpartySession, signedTransaction.getId()));
-7    }
-8
-9    public static class MySignTransactionFlow extends SignTransactionFlow {
-10
-11        MySignTransactionFlow(FlowSession counterpartySession) {
-12            super(counterpartySession);
-13        }
-14
-15        @Override
-16        protected void checkTransaction(@NotNull SignedTransaction stx) {
-17
-18        }
-19    }
+@Override
+public SignedTransaction call() throws FlowException {
+    SignedTransaction signedTransaction = flowEngine.subFlow(new MySignTransactionFlow(counterpartySession));
+    return flowEngine.subFlow(new ReceiveFinalityFlow(counterpartySession, signedTransaction.getId()));
+}
+
+public static class MySignTransactionFlow extends SignTransactionFlow {
+
+    MySignTransactionFlow(FlowSession counterpartySession) {
+        super(counterpartySession);
+    }
+
+    @Override
+    protected void checkTransaction(@NotNull SignedTransaction stx) {
+
+    }
+}
 ```

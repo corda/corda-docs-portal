@@ -132,19 +132,21 @@ body.dark {
                 }
               }
 
-              &::-webkit-scrollbar-track
-              {
-                background-color: $gray-500;
+              &::-webkit-scrollbar-track{
+                background: $gray-600;
               }
 
-              &::-webkit-scrollbar
-              {
-                background-color: $gray-500;
+              &::-webkit-scrollbar-thumb{
+                background: $gray-400;
               }
 
-              &::-webkit-scrollbar-thumb
-              {
-                background-color: $gray-400;
+              &:hover {
+                scrollbar-width: thin;
+                scrollbar-color: $gray-600 $gray-300;
+              }
+
+              &::-webkit-scrollbar-thumb:hover {
+                background: $gray-100;
               }
             }
           }
@@ -420,22 +422,22 @@ body.dark {
 
   .docs-links::-webkit-scrollbar-track,
   .docs-toc::-webkit-scrollbar-track {
-    background: darken($body-bg-dark, 4%);
+    background: $gray-600
   }
 
   .docs-links::-webkit-scrollbar-thumb,
   .docs-toc::-webkit-scrollbar-thumb {
-    background: darken($body-bg-dark, 4%);
+    background: $gray-400
   }
 
   .docs-links:hover::-webkit-scrollbar-thumb,
   .docs-toc:hover::-webkit-scrollbar-thumb {
-    background: $body-overlay-dark;
+    background: $gray-300
   }
 
   .docs-links::-webkit-scrollbar-thumb:hover,
   .docs-toc::-webkit-scrollbar-thumb:hover {
-    background: $body-overlay-dark;
+    background: $gray-100
   }
 
   .card {

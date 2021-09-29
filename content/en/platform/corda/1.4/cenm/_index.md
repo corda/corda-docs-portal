@@ -6,6 +6,9 @@ date: '2020-01-08T09:59:25Z'
 menu:
   versions:
     weight: 300
+  cenm-1-4:
+    weight: 1
+    name: CENM 1.4
 project: corda
 section_menu: cenm-1-4
 title: CENM 1.4

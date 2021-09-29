@@ -49,7 +49,11 @@ For more information, see the [Interacting with a node](clientrpc.md) documentat
 
 #### Corda Payments Alpha
 
-[Corda Payments Alpha](../../apps/payments/payments-index.md) is a first glimpse at a new set of Apps that allows you to create your own payment solution in Corda.
+{{< note >}}
+The Corda Payments Alpha app is no longer available. A new version will be released in the future.
+{{< /note >}}
+
+Corda Payments Alpha is a first glimpse at a new set of Apps that allows you to create your own payment solution in Corda.
 
 In this early release version, you can:
 
