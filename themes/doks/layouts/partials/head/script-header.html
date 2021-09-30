@@ -1,3 +1,4 @@
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleTagManagerID }}"></script>
 
 <script type="text/javascript">
   {{ if .Site.Params.options.algolia -}}
@@ -14,8 +15,8 @@
 
     {{ end }}
   {{ end -}}
-
-  const google_analytics_id = "{{ .Site.Params.googleAnalytics }}";
+  const google_tag_manager_id = "{{ .Site.Params.googleTagManagerID }}";
+  // const google_analytics_id = "{{ .Site.Params.googleAnalytics }}";
 
 </script>
 
