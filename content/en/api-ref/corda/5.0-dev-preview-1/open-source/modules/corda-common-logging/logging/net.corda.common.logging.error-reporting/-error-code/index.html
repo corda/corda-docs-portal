@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ErrorCode - logging</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">logging</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.common.logging.errorReporting</a>&nbsp;/&nbsp;<a href="./index.html">ErrorCode</a><br/>
+<br/>
+<h1>ErrorCode</h1>
+<code><span class="keyword">interface </span><span class="identifier">ErrorCode</span><span class="symbol">&lt;</span><span class="identifier">CODES</span><span class="symbol">&gt;</span><span class="keyword"> where </span><span class="identifier">CODES</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-error-codes/index.html"><span class="identifier">ErrorCodes</span></a><span class="symbol">, </span><span class="identifier">CODES</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/index.html"><span class="identifier">Enum</span></a><span class="symbol">&lt;</span><span class="identifier">CODES</span><span class="symbol">&gt;</span></code>
+<p>A type representing an error condition.</p>
+<p>Error codes should be used in situations where an error is expected and information can be provided back to the user about what they've
+done wrong. Each error code should have a resource bundle defined for it, which contains set of properties that define the error string
+in different languages. See the resource bundles in common/logging/src/main/resources/errorReporting for more details.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="code.html">code</a></h4>
+</td>
+<td>
+<p>The error code.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">code</span><span class="symbol">: </span><span class="identifier">CODES</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parameters.html">parameters</a></h4>
+</td>
+<td>
+<p>Parameters to pass to the string template when reporting this error. The corresponding template that defines the error string in the
+resource bundle must be expecting this list of parameters. Parameters should be in the order required by the message template - for
+example, if the message template is "This error has argument {0} and argument {1}", the first element of this list will be placed
+into {0}.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">parameters</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

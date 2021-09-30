@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Configuration.Validation.Error - configuration-parsing</title>
+<link rel="stylesheet" href="../../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../../index.html">configuration-parsing</a>&nbsp;/&nbsp;<a href="../../../index.html">net.corda.common.configuration.parsing.internal</a>&nbsp;/&nbsp;<a href="../../index.html">Configuration</a>&nbsp;/&nbsp;<a href="../index.html">Validation</a>&nbsp;/&nbsp;<a href="./index.html">Error</a><br/>
+<br/>
+<h1>Error</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Error</span></code>
+<p>Super-type for the errors raised by the parsing and validation of a <a href="#">Config</a> object.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-bad-path/index.html">BadPath</a></h4>
+</td>
+<td>
+<p>Raised when the <a href="#">Config</a> contains a malformed path.</p>
+<code><span class="keyword">class </span><span class="identifier">BadPath</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Error</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-bad-value/index.html">BadValue</a></h4>
+</td>
+<td>
+<p>Raised when a value was found for the relevant <a href="-bad-value/key-name.html">keyName</a>, it matched the declared raw type for the property, but its value is unacceptable due to application-level validation rules.</p>
+<code><span class="keyword">class </span><span class="identifier">BadValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Error</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-malformed-structure/index.html">MalformedStructure</a></h4>
+</td>
+<td>
+<p>Raised when the <a href="#">Config</a> is malformed and cannot be parsed.</p>
+<code><span class="keyword">class </span><span class="identifier">MalformedStructure</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Error</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-missing-value/index.html">MissingValue</a></h4>
+</td>
+<td>
+<p>Raised when no value was found for the relevant <a href="-missing-value/key-name.html">keyName</a>, and the property is <a href="../../-property/-definition/-required/index.html">Configuration.Property.Definition.Required</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">MissingValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Error</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-unknown/index.html">Unknown</a></h4>
+</td>
+<td>
+<p>Raised when a key-value pair appeared in the <a href="#">Config</a> object without a matching property in the <a href="../../-schema/index.html">Configuration.Schema</a>, and <a href="../../-options/strict.html">Configuration.Options.strict</a> was enabled.</p>
+<code><span class="keyword">class </span><span class="identifier">Unknown</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Error</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-unsupported-version/index.html">UnsupportedVersion</a></h4>
+</td>
+<td>
+<p>Raised when the specification version found in the <a href="#">Config</a> object did not match any known <a href="../../-specification/index.html">Configuration.Specification</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">UnsupportedVersion</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Error</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wrong-type/index.html">WrongType</a></h4>
+</td>
+<td>
+<p>Raised when a value was found for the relevant <a href="-wrong-type/key-name.html">keyName</a>, but the value did not match the declared one for the property.</p>
+<code><span class="keyword">class </span><span class="identifier">WrongType</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Error</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="containing-path.html">containingPath</a></h4>
+</td>
+<td>
+<p>containing path of the error, excluding the <a href="key-name.html">keyName</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">containingPath</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="containing-path-as-string.html">containingPathAsString</a></h4>
+</td>
+<td>
+<p><a href="containing-path.html">containingPath</a> joined by "." characters.</p>
+<code><span class="keyword">val </span><span class="identifier">containingPathAsString</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="key-name.html">keyName</a></h4>
+</td>
+<td>
+<p>name of the property key this error refers to, if any.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">keyName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="message.html">message</a></h4>
+</td>
+<td>
+<p>details about what went wrong during the processing.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">message</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="path.html">path</a></h4>
+</td>
+<td>
+<p>Full path for nested property keys, including the <a href="key-name.html">keyName</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">path</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="path-as-string.html">pathAsString</a></h4>
+</td>
+<td>
+<p><a href="path.html">path</a> joined by "." characters.</p>
+<code><span class="keyword">val </span><span class="identifier">pathAsString</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="type-name.html">typeName</a></h4>
+</td>
+<td>
+<p>name of the type of the property this error refers to, if any.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">typeName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

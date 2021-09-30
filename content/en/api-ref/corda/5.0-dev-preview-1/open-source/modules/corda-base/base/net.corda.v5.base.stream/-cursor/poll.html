@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Cursor.poll - base</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">base</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.base.stream</a>&nbsp;/&nbsp;<a href="index.html">Cursor</a>&nbsp;/&nbsp;<a href="./poll.html">poll</a><br/>
+<br/>
+<h1>poll</h1>
+<a name="net.corda.v5.base.stream.Cursor$poll(kotlin.Int, java.time.Duration)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">poll</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.stream.Cursor$poll(kotlin.Int, java.time.Duration)/maxCount">maxCount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.base.stream.Cursor$poll(kotlin.Int, java.time.Duration)/awaitForResultTimeout">awaitForResultTimeout</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PollResult</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Retrieve a batch of elements if they are available.</p>
+<h3>Parameters</h3>
+<p><a name="maxCount"></a>
+<code>maxCount</code> - The maximum number of elements to be returned.</p>
+<p><a name="awaitForResultTimeout"></a>
+<code>awaitForResultTimeout</code> - The desired maximum duration to wait for result to become available.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - If the <a href="poll.html#net.corda.v5.base.stream.Cursor$poll(kotlin.Int, java.time.Duration)/awaitForResultTimeout">awaitForResultTimeout</a> is negative.</p>
+<p><strong>Return</strong><br/>
+A <a href="-poll-result/index.html">PollResult</a> containing the batch of requested elements.</p>
+</BODY>
+</HTML>

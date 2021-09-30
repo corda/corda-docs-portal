@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MemberLookupService.lookup - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services</a>&nbsp;/&nbsp;<a href="index.html">MemberLookupService</a>&nbsp;/&nbsp;<a href="./lookup.html">lookup</a><br/>
+<br/>
+<h1>lookup</h1>
+<a name="net.corda.v5.application.services.MemberLookupService$lookup(net.corda.v5.application.identity.CordaX500Name)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">lookup</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.MemberLookupService$lookup(net.corda.v5.application.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.application.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.application.node/-member-info/index.html"><span class="identifier">MemberInfo</span></a><span class="symbol">?</span></code>
+<p>Returns the <a href="../../net.corda.v5.application.node/-member-info/index.html">MemberInfo</a>  inside Membership Group with the given <a href="lookup.html#net.corda.v5.application.services.MemberLookupService$lookup(net.corda.v5.application.identity.CordaX500Name)/name">name</a> name, or null if no such identity is found.</p>
+<a name="net.corda.v5.application.services.MemberLookupService$lookup(java.security.PublicKey)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">lookup</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.MemberLookupService$lookup(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.application.node/-member-info/index.html"><span class="identifier">MemberInfo</span></a><span class="symbol">?</span></code>
+<p>Returns the <a href="../../net.corda.v5.application.node/-member-info/index.html">MemberInfo</a> inside Membership Group with the given <a href="lookup.html#net.corda.v5.application.services.MemberLookupService$lookup(java.security.PublicKey)/key">key</a> public key, or null if no such identity is found.</p>
+<a name="net.corda.v5.application.services.MemberLookupService$lookup()"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">lookup</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.application.node/-member-info/index.html"><span class="identifier">MemberInfo</span></a><span class="symbol">&gt;</span></code>
+<p>Returns all <a href="../../net.corda.v5.application.node/-member-info/index.html">MemberInfo</a>s in the Group the node is currently aware of (including ourselves).</p>
+</BODY>
+</HTML>

@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.v5.application.node - application</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">application</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.v5.application.node</a><br/>
+<br/>
+<h2>Package net.corda.v5.application.node</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-corda-clock/index.html">CordaClock</a></h4>
+</td>
+<td>
+<p>A <a href="#">Clock</a> that tokenizes itself when serialized, and delegates to an underlying <a href="#">Clock</a> implementation.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CordaClock</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Clock</span><span class="symbol">, </span><span class="identifier">SerializeAsToken</span><span class="symbol">, </span><a href="../net.corda.v5.application.injection/-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="../net.corda.v5.application.injection/-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-member-context/index.html">MemberContext</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">MemberContext</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-member-info/index.html">MemberInfo</a></h4>
+</td>
+<td>
+<p>The member info consist of two parts:
+Member provided context: Parameters added and signed by member as a part of initial MemberInfo proposal.
+MGM provided context: Parameters added by MGM as a part of member acceptance.</p>
+<code><span class="keyword">interface </span><span class="identifier">MemberInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-network-parameters/index.html">NetworkParameters</a></h4>
+</td>
+<td>
+<p>Note: any values in the networkParametersValues map need to be
+a.) serializable for P2P (AMQP) and checkpoints (Kryo)
+b.) comparable with .equals()</p>
+<code><span class="keyword">interface </span><span class="identifier">NetworkParameters</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.application.injection/-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="../net.corda.v5.application.injection/-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-diagnostic-info/index.html">NodeDiagnosticInfo</a></h4>
+</td>
+<td>
+<p>A <a href="-node-diagnostic-info/index.html">NodeDiagnosticInfo</a> holds information about the current node version.</p>
+<code><span class="keyword">interface </span><s><span class="identifier">NodeDiagnosticInfo</span></s></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-zone-version-too-low-exception/index.html">ZoneVersionTooLowException</a></h4>
+</td>
+<td>
+<p>When a Corda feature cannot be used due to the node's compatibility zone not enforcing a high enough minimum platform
+version.</p>
+<code><span class="keyword">class </span><span class="identifier">ZoneVersionTooLowException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaRuntimeException</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-m-a-x_-m-e-s-s-a-g-e_-s-i-z-e.html">MAX_MESSAGE_SIZE</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_MESSAGE_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-m-a-x_-t-r-a-n-s-a-c-t-i-o-n_-s-i-z-e.html">MAX_TRANSACTION_SIZE</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_TRANSACTION_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-value.html">getValue</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="-member-context/index.html"><span class="identifier">MemberContext</span></a><span class="symbol">.</span><span class="identifier">getValue</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.node$getValue(net.corda.v5.application.node.MemberContext, kotlin.String)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="-network-parameters/index.html"><span class="identifier">NetworkParameters</span></a><span class="symbol">.</span><span class="identifier">getValue</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.node$getValue(net.corda.v5.application.node.NetworkParameters, kotlin.String)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

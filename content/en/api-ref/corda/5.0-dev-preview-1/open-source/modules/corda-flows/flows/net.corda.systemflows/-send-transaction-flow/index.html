@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SendTransactionFlow - flows</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">flows</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.systemflows</a>&nbsp;/&nbsp;<a href="./index.html">SendTransactionFlow</a><br/>
+<br/>
+<h1>SendTransactionFlow</h1>
+<code><span class="keyword">class </span><span class="identifier">SendTransactionFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Void.html"><span class="identifier">Void</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code>
+<p>The <a href="./index.html">SendTransactionFlow</a> should be used to send a transaction to another peer that wishes to verify that transaction's
+integrity by resolving and checking the dependencies as well. The other side should invoke <a href="../-receive-transaction-flow/index.html">ReceiveTransactionFlow</a> at
+the right point in the conversation to receive the sent transaction and perform the resolution back-and-forth required
+to check the dependencies and download any missing attachments.</p>
+<h3>Parameters</h3>
+<p><a name="otherSide"></a>
+<code>otherSide</code> - the target party.</p>
+<p><a name="stx"></a>
+<code>stx</code> - the <a href="#">SignedTransaction</a> being sent to the <a href="#">otherSideSession</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>The <a href="./index.html">SendTransactionFlow</a> should be used to send a transaction to another peer that wishes to verify that transaction's
+integrity by resolving and checking the dependencies as well. The other side should invoke <a href="../-receive-transaction-flow/index.html">ReceiveTransactionFlow</a> at
+the right point in the conversation to receive the sent transaction and perform the resolution back-and-forth required
+to check the dependencies and download any missing attachments.</p>
+<code><span class="identifier">SendTransactionFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.SendTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession, net.corda.v5.ledger.transactions.SignedTransaction)/otherSide">otherSide</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">, </span><span class="identifier" id="net.corda.systemflows.SendTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession, net.corda.v5.ledger.transactions.SignedTransaction)/stx">stx</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignedTransaction</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="flow-engine.html">flowEngine</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">flowEngine</span><span class="symbol">: </span><span class="identifier">FlowEngine</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Void.html"><span class="identifier">Void</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionService.record - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services</a>&nbsp;/&nbsp;<a href="index.html">TransactionService</a>&nbsp;/&nbsp;<a href="./record.html">record</a><br/>
+<br/>
+<h1>record</h1>
+<a name="net.corda.v5.ledger.services.TransactionService$record(kotlin.Boolean, net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Array((net.corda.v5.ledger.transactions.SignedTransaction)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">record</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(kotlin.Boolean, net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Array((net.corda.v5.ledger.transactions.SignedTransaction)))/notifyVault">notifyVault</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(kotlin.Boolean, net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Array((net.corda.v5.ledger.transactions.SignedTransaction)))/first">first</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(kotlin.Boolean, net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Array((net.corda.v5.ledger.transactions.SignedTransaction)))/remaining">remaining</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stores the given <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if
+<a href="record.html#net.corda.v5.ledger.services.TransactionService$record(kotlin.Boolean, net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Array((net.corda.v5.ledger.transactions.SignedTransaction)))/notifyVault">notifyVault</a> is true.</p>
+<p>This is expected to be run within a database transaction.</p>
+<h3>Parameters</h3>
+<p><a name="notifyVault"></a>
+<code>notifyVault</code> - Indicates if the vault should be notified for the update.</p>
+<p><a name="first"></a>
+<code>first</code> - The <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> to record.</p>
+<p><a name="remaining"></a>
+<code>remaining</code> - Further <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a>s to record.</p>
+<a name="net.corda.v5.ledger.services.TransactionService$record(kotlin.Boolean, kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">record</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(kotlin.Boolean, kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))/notifyVault">notifyVault</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(kotlin.Boolean, kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))/transactions">transactions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stores the given <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if
+<a href="record.html#net.corda.v5.ledger.services.TransactionService$record(kotlin.Boolean, kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))/notifyVault">notifyVault</a> is true.</p>
+<p>This is expected to be run within a database transaction.</p>
+<h3>Parameters</h3>
+<p><a name="notifyVault"></a>
+<code>notifyVault</code> - Indicates if the vault should be notified for the update.</p>
+<p><a name="transactions"></a>
+<code>transactions</code> - The transactions to record.</p>
+<a name="net.corda.v5.ledger.services.TransactionService$record(net.corda.v5.ledger.services.StatesToRecord, kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">record</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(net.corda.v5.ledger.services.StatesToRecord, kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))/statesToRecord">statesToRecord</span><span class="symbol">:</span>&nbsp;<a href="../-states-to-record/index.html"><span class="identifier">StatesToRecord</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(net.corda.v5.ledger.services.StatesToRecord, kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))/transactions">transactions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stores the given <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing if
+<a href="record.html#net.corda.v5.ledger.services.TransactionService$record(net.corda.v5.ledger.services.StatesToRecord, kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))/statesToRecord">statesToRecord</a> is not <a href="../-states-to-record/-n-o-n-e.html">StatesToRecord.NONE</a>.</p>
+<p>This is expected to be run within a database transaction.</p>
+<h3>Parameters</h3>
+<p><a name="statesToRecord"></a>
+<code>statesToRecord</code> - How the vault should treat the output states of the transaction.</p>
+<p><a name="transactions"></a>
+<code>transactions</code> - The transactions to record.</p>
+<a name="net.corda.v5.ledger.services.TransactionService$record(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Array((net.corda.v5.ledger.transactions.SignedTransaction)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">record</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Array((net.corda.v5.ledger.transactions.SignedTransaction)))/first">first</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.Array((net.corda.v5.ledger.transactions.SignedTransaction)))/remaining">remaining</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stores the given <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing.</p>
+<p>This is expected to be run within a database transaction.</p>
+<h3>Parameters</h3>
+<p><a name="first"></a>
+<code>first</code> - The <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> to record.</p>
+<p><a name="remaining"></a>
+<code>remaining</code> - Further <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a>s to record.</p>
+<a name="net.corda.v5.ledger.services.TransactionService$record(kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">record</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$record(kotlin.collections.Collection((net.corda.v5.ledger.transactions.SignedTransaction)))/transactions">transactions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stores the given <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for further processing.</p>
+<p>This is expected to be run within a database transaction.</p>
+<h3>Parameters</h3>
+<p><a name="transactions"></a>
+<code>transactions</code> - The transactions to record.</p>
+</BODY>
+</HTML>

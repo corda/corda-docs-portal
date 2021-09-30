@@ -1,0 +1,294 @@
+{
+    "usedMemory": 155,
+    "freeMemory": 123,
+    "totalMemory": 279,
+    "maxMemory": 512,
+    "httpsProxy": "none",
+    "httpsProxyPort": "none",
+    "properties": [
+        {
+            "arg": "jolokia.agent",
+            "value": "http://127.0.0.1:7007/jolokia/"
+        },
+        {
+            "arg": "java.runtime.name",
+            "value": "Java(TM) SE Runtime Environment"
+        },
+        {
+            "arg": "sun.boot.library.path",
+            "value": "/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib"
+        },
+        {
+            "arg": "java.vm.version",
+            "value": "25.231-b11"
+        },
+        {
+            "arg": "gopherProxySet",
+            "value": "false"
+        },
+        {
+            "arg": "java.vm.vendor",
+            "value": "Oracle Corporation"
+        },
+        {
+            "arg": "java.vendor.url",
+            "value": "http://java.oracle.com/"
+        },
+        {
+            "arg": "path.separator",
+            "value": ":"
+        },
+        {
+            "arg": "java.vm.name",
+            "value": "Java HotSpot(TM) 64-Bit Server VM"
+        },
+        {
+            "arg": "file.encoding.pkg",
+            "value": "sun.io"
+        },
+        {
+            "arg": "user.country",
+            "value": "GB"
+        },
+        {
+            "arg": "sun.java.launcher",
+            "value": "SUN_STANDARD"
+        },
+        {
+            "arg": "sun.os.patch.level",
+            "value": "unknown"
+        },
+        {
+            "arg": "java.vm.specification.name",
+            "value": "Java Virtual Machine Specification"
+        },
+        {
+            "arg": "user.dir",
+            "value": "/Users/<USER>/repos/enterprise/samples/bank-of-corda-demo/build/nodes/NotaryNode"
+        },
+        {
+            "arg": "java.runtime.version",
+            "value": "1.8.0_231-b11"
+        },
+        {
+            "arg": "visualvm.display.name",
+            "value": "Corda"
+        },
+        {
+            "arg": "java.awt.graphicsenv",
+            "value": "sun.awt.CGraphicsEnvironment"
+        },
+        {
+            "arg": "capsule.jar",
+            "value": "/Users/<USER>/repos/enterprise/samples/bank-of-corda-demo/build/nodes/NotaryNode/corda.jar"
+        },
+        {
+            "arg": "java.endorsed.dirs",
+            "value": "/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/endorsed"
+        },
+        {
+            "arg": "os.arch",
+            "value": "x86_64"
+        },
+        {
+            "arg": "name",
+            "value": "NotaryNode"
+        },
+        {
+            "arg": "java.io.tmpdir",
+            "value": "/var/folders/q8/47f0btfs24l55m2x4g738g3h0000gp/T/"
+        },
+        {
+            "arg": "line.separator",
+            "value": "\n"
+        },
+        {
+            "arg": "java.vm.specification.vendor",
+            "value": "Oracle Corporation"
+        },
+        {
+            "arg": "capsule.dir",
+            "value": "/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT"
+        },
+        {
+            "arg": "os.name",
+            "value": "Mac OS X"
+        },
+        {
+            "arg": "log-path",
+            "value": "/Users/<USER>/repos/enterprise/samples/bank-of-corda-demo/build/nodes/NotaryNode/logs"
+        },
+        {
+            "arg": "sun.jnu.encoding",
+            "value": "UTF-8"
+        },
+        {
+            "arg": "liquibase.nodeDaseDir",
+            "value": "/Users/<USER>/repos/enterprise/samples/bank-of-corda-demo/build/nodes/NotaryNode"
+        },
+        {
+            "arg": "capsule.app",
+            "value": "net.corda.node.CordaEnterprise_4.7-SNAPSHOT"
+        },
+        {
+            "arg": "java.library.path",
+            "value": "/Users/<USER>/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT"
+        },
+        {
+            "arg": "sun.nio.ch.bugLevel",
+            "value": ""
+        },
+        {
+            "arg": "java.specification.name",
+            "value": "Java Platform API Specification"
+        },
+        {
+            "arg": "java.class.version",
+            "value": "52.0"
+        },
+        {
+            "arg": "io.netty.allocator.numHeapArenas",
+            "value": "2"
+        },
+        {
+            "arg": "sun.management.compiler",
+            "value": "HotSpot 64-Bit Tiered Compilers"
+        },
+        {
+            "arg": "co.paralleluniverse.fibers.verifyInstrumentation",
+            "value": "true"
+        },
+        {
+            "arg": "os.version",
+            "value": "10.15.7"
+        },
+        {
+            "arg": "http.nonProxyHosts",
+            "value": "local|*.local|169.254/16|*.169.254/16"
+        },
+        {
+            "arg": "liquibase.nodeName",
+            "value": "O=Notary Node, L=Zurich, C=CH"
+        },
+        {
+            "arg": "user.home",
+            "value": "/Users/<USER>"
+        },
+        {
+            "arg": "user.timezone",
+            "value": "Europe/Warsaw"
+        },
+        {
+            "arg": "java.awt.printerjob",
+            "value": "sun.lwawt.macosx.CPrinterJob"
+        },
+        {
+            "arg": "file.encoding",
+            "value": "UTF-8"
+        },
+        {
+            "arg": "java.specification.version",
+            "value": "1.8"
+        },
+        {
+            "arg": "java.class.path",
+            "value": "/Users/<USER>/repos/enterprise/samples/bank-of-corda-demo/build/nodes/NotaryNode/corda.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-extensions-node-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-extensions-api-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-shell-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-rpc-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-enterprise-utils-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-rpc-ext-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-node-api-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-tools-cliutils-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-common-configuration-parsing-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-common-validation-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-common-logging-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/r3-libs-obfuscator-1.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-confidential-identities-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/log4j-slf4j-impl-2.13.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/log4j-web-2.13.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jul-to-slf4j-1.7.30.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-djvm-1.1.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-serialization-djvm-4.7-20201106_123241-d9f905c.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-jackson-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-serialization-4.7-20201106_123241-d9f905c.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-core-4.7-20201106_123241-d9f905c.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/kotlin-stdlib-jdk8-1.2.71.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jackson-module-kotlin-2.9.7.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/kotlin-reflect-1.2.71.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jansi-1.18.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/metrics-new-relic-1.1.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/quasar-core-0.7.13_r3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/curator-recipes-5.1.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/curator-framework-5.1.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/curator-client-5.1.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/guava-28.0-jre.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/caffeine-2.7.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/disruptor-3.4.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/commons-collections4-4.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/artemis-amqp-protocol-2.6.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/artemis-server-2.6.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/artemis-jdbc-store-2.6.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/artemis-jms-client-2.6.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/artemis-core-client-2.6.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/artemis-journal-2.6.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/artemis-commons-2.6.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/shiro-core-1.4.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/shiro-config-ogdl-1.4.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/commons-beanutils-1.9.4.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jcabi-manifests-1.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/metrics-jmx-4.1.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/metrics-graphite-4.1.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/config-1.3.4.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-node-djvm-4.7-SNAPSHOT.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/h2-1.4.197.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/HikariCP-3.3.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/hibernate-java8-5.4.3.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/hibernate-core-5.4.3.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/okhttp-3.14.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jsch-0.1.54.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/picocli-3.9.6.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/library-master-v1.1-beta-g6215ec8-87.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/commons-codec-1.13.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/copycat-client-1.2.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/copycat-server-1.2.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/catalyst-netty-1.1.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jolokia-jvm-1.6.1-agent.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-tcnative-boringssl-static-2.0.29.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/kotlin-stdlib-jre8-1.2.71.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-handler-proxy-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/proton-j-0.33.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/liquibase-core-3.6.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/classgraph-4.8.90.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/kryo-serializers-0.43.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/kryo-4.0.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jackson-datatype-jsr310-2.9.7.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jackson-databind-2.9.7.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/liquibase-slf4j-2.0.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/crash.connectors.ssh-1.7.4.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/crash.shell-1.7.4.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/log4j-core-2.13.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/commons-io-2.6.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/bcpkix-jdk15on-1.66.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/bcprov-jdk15on-1.66.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/log4j-over-slf4j-1.7.30.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jcabi-log-0.14.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/metrics-core-4.1.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/shiro-cache-1.4.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/shiro-crypto-hash-1.4.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/shiro-crypto-cipher-1.4.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/shiro-config-core-1.4.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/shiro-event-1.4.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/shiro-crypto-core-1.4.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/shiro-lang-1.4.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/copycat-protocol-1.2.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/catalyst-transport-1.1.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jcl-over-slf4j-1.7.30.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/mina-core-2.0.16.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/zookeeper-3.6.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/catalyst-concurrent-1.1.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/catalyst-serializer-1.1.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/catalyst-buffer-1.1.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/catalyst-common-1.1.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/slf4j-api-1.7.30.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/log4j-api-2.13.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/kotlin-stdlib-jdk7-1.2.71.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/kotlin-stdlib-jre7-1.2.71.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/kotlin-stdlib-1.2.71.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/failureaccess-1.0.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jsr305-3.0.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/checker-qual-2.8.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/error_prone_annotations-2.3.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/j2objc-annotations-1.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/animal-sniffer-annotations-1.17.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/commons-collections-3.2.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/artemis-native-2.6.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/hibernate-commons-annotations-5.1.0.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jboss-logging-3.3.2.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/artemis-selector-2.6.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-codec-http-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-handler-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-transport-native-epoll-4.1.46.Final-linux-x86_64.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-transport-native-epoll-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-transport-native-kqueue-4.1.46.Final-osx-x86_64.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-codec-socks-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-codec-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-transport-native-unix-common-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-transport-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-buffer-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-resolver-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/netty-common-4.1.46.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/geronimo-json_1.0_spec-1.0-alpha-1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jgroups-3.6.13.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/johnzon-core-0.9.5.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-deserializers-djvm-4.7-20201106_123241-d9f905c.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/javax.persistence-api-2.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/javassist-3.24.0-GA.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/byte-buddy-1.9.10.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/antlr-2.7.7.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jboss-transaction-api_1.2_spec-1.1.1.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jandex-2.0.5.Final.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/classmate-1.3.4.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jaxb-runtime-2.3.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jaxb-api-2.3.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/javax.activation-api-1.2.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/dom4j-2.1.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/okio-1.17.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jolokia-core-1.6.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/json-simple-1.1.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/newrelic-api-3.10.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/LatencyUtils-2.0.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/HdrHistogram-2.1.9.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/reflectasm-1.11.3.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/asm-analysis-5.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/asm-commons-5.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/asm-util-5.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/asm-tree-5.2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/asm-7.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/commons-csv-1.8.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/rxjava-1.3.8.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/commons-lang3-3.9.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/eddsa-0.3.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/snappy-0.4.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jackson-dataformat-yaml-2.9.7.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/snakeyaml-1.23.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/minlog-1.3.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/objenesis-2.5.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jackson-annotations-2.9.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jackson-core-2.9.7.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/crash.cli-1.7.4.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/groovy-all-1.8.9.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/sshd-pam-0.11.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/sshd-core-2.3.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/kotlin-stdlib-common-1.2.71.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/annotations-13.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/txw2-2.3.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/istack-commons-runtime-3.0.7.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/stax-ex-1.8.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/FastInfoset-1.2.15.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/geronimo-jms_2.0_spec-1.0-alpha-2.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/sshd-common-2.3.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/jpam-1.1.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/commons-lang-2.6.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/zookeeper-jute-3.6.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/audience-annotations-0.5.0.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/corda-node-4.7-SNAPSHOT.jar:/Users/<USER>/repos/enterprise/samples/bank-of-corda-demo/build/nodes/NotaryNode/drivers/jolokia-jvm-1.6.1-agent.jar:drivers/jolokia-jvm-1.6.1-agent.jar:/Users/<USER>/.capsule/apps/net.corda.node.CordaEnterprise_4.7-SNAPSHOT/quasar-core-0.7.13_r3.jar"
+        },
+        {
+            "arg": "user.name",
+            "value": "<USER>"
+        },
+        {
+            "arg": "java.vm.specification.version",
+            "value": "1.8"
+        },
+        {
+            "arg": "sun.java.command",
+            "value": "net.corda.node.Corda"
+        },
+        {
+            "arg": "java.home",
+            "value": "/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre"
+        },
+        {
+            "arg": "sun.arch.data.model",
+            "value": "64"
+        },
+        {
+            "arg": "h2.bindAddress",
+            "value": "localhost"
+        },
+        {
+            "arg": "user.language",
+            "value": "en"
+        },
+        {
+            "arg": "java.specification.vendor",
+            "value": "Oracle Corporation"
+        },
+        {
+            "arg": "awt.toolkit",
+            "value": "sun.lwawt.macosx.LWCToolkit"
+        },
+        {
+            "arg": "java.vm.info",
+            "value": "mixed mode"
+        },
+        {
+            "arg": "java.version",
+            "value": "1.8.0_231"
+        },
+        {
+            "arg": "defaultLogLevel",
+            "value": "info"
+        },
+        {
+            "arg": "java.ext.dirs",
+            "value": "/Users/<USER>/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"
+        },
+        {
+            "arg": "sun.boot.class.path",
+            "value": "/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/classes"
+        },
+        {
+            "arg": "java.vendor",
+            "value": "Oracle Corporation"
+        },
+        {
+            "arg": "com.zaxxer.hikari.pool_number",
+            "value": "1"
+        },
+        {
+            "arg": "file.separator",
+            "value": "/"
+        },
+        {
+            "arg": "java.vendor.url.bug",
+            "value": "http://bugreport.sun.com/bugreport/"
+        },
+        {
+            "arg": "sun.io.unicode.encoding",
+            "value": "UnicodeBig"
+        },
+        {
+            "arg": "sun.cpu.endian",
+            "value": "little"
+        },
+        {
+            "arg": "h2.allowedClasses",
+            "value": "org.h2.mvstore.db.MVTableEngine,org.locationtech.jts.geom.Geometry,org.h2.server.TcpServer"
+        },
+        {
+            "arg": "socksNonProxyHosts",
+            "value": "local|*.local|169.254/16|*.169.254/16"
+        },
+        {
+            "arg": "ftp.nonProxyHosts",
+            "value": "local|*.local|169.254/16|*.169.254/16"
+        },
+        {
+            "arg": "sun.cpu.isalist",
+            "value": ""
+        }
+    ]
+}

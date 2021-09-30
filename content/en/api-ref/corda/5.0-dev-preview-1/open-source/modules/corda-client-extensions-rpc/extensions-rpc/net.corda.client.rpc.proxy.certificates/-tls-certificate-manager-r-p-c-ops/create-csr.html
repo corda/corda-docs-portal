@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TlsCertificateManagerRPCOps.createCsr - extensions-rpc</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">extensions-rpc</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy.certificates</a>&nbsp;/&nbsp;<a href="index.html">TlsCertificateManagerRPCOps</a>&nbsp;/&nbsp;<a href="./create-csr.html">createCsr</a><br/>
+<br/>
+<h1>createCsr</h1>
+<a name="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$createCsr(kotlin.String, kotlin.String)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">createCsr</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$createCsr(kotlin.String, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$createCsr(kotlin.String, kotlin.String)/subjectName">subjectName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>Generates a certificate signing request for the input subject.</p>
+<h3>Parameters</h3>
+<p><a name="alias"></a>
+<code>alias</code> - The identifying alias of the key pair to be used in generating the certificate signing request.</p>
+<p><a name="subjectName"></a>
+<code>subjectName</code> - The subject associated with the certificate signing request. <a href="create-csr.html#net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$createCsr(kotlin.String, kotlin.String)/subjectName">subjectName</a> may contain the email attribute under
+either of the case-insensitive tokens 'EMAIL=' and 'EMAILADDRESS='.</p>
+<h3>Exceptions</h3>
+<p><a name="CertificateOpsException"></a>
+<code>CertificateOpsException</code> - If certificate signing request cannot be created.</p>
+<p><strong>Return</strong><br/>
+The generated certificate signing request in PEM format. Note that if <a href="create-csr.html#net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$createCsr(kotlin.String, kotlin.String)/subjectName">subjectName</a> contains the email attribute, the
+subject of the resulting certificate signing request would hold this under the token 'E='.</p>
+</BODY>
+</HTML>

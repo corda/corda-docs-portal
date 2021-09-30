@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CryptoService.generateWrappedKeyPair - cipher-suite</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">cipher-suite</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.cipher.suite</a>&nbsp;/&nbsp;<a href="index.html">CryptoService</a>&nbsp;/&nbsp;<a href="./generate-wrapped-key-pair.html">generateWrappedKeyPair</a><br/>
+<br/>
+<h1>generateWrappedKeyPair</h1>
+<a name="net.corda.v5.cipher.suite.CryptoService$generateWrappedKeyPair(kotlin.String, net.corda.v5.crypto.internal.SignatureScheme)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">generateWrappedKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$generateWrappedKeyPair(kotlin.String, net.corda.v5.crypto.internal.SignatureScheme)/masterKeyAlias">masterKeyAlias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.cipher.suite.CryptoService$generateWrappedKeyPair(kotlin.String, net.corda.v5.crypto.internal.SignatureScheme)/wrappedKeyScheme">wrappedKeyScheme</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignatureScheme</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-wrapped-key-pair/index.html"><span class="identifier">WrappedKeyPair</span></a></code>
+<p>Generates an asymmetric key pair, returning the public key and the private key material wrapped using the specified wrapping key.</p>
+<h3>Parameters</h3>
+<p><a name="masterKeyAlias"></a>
+<code>masterKeyAlias</code> - the alias of the key to be used as a wrapping key.</p>
+<p><a name="wrappedKeyScheme"></a>
+<code>wrappedKeyScheme</code> - the scheme of the key pair to be generated.</p>
+<h3>Exceptions</h3>
+<p><a name="CryptoServiceBadRequestException"></a>
+<code>CryptoServiceBadRequestException</code> - if the wrapping key does not exists under the alias or the <a href="generate-wrapped-key-pair.html#net.corda.v5.cipher.suite.CryptoService$generateWrappedKeyPair(kotlin.String, net.corda.v5.crypto.internal.SignatureScheme)/wrappedKeyScheme">wrappedKeyScheme</a> is not supported.</p>
+<p><a name="CryptoServiceException"></a>
+<code>CryptoServiceException</code> - for general cryptographic exceptions.</p>
+</BODY>
+</HTML>

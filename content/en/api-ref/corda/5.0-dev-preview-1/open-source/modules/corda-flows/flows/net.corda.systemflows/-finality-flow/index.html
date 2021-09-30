@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FinalityFlow - flows</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">flows</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.systemflows</a>&nbsp;/&nbsp;<a href="./index.html">FinalityFlow</a><br/>
+<br/>
+<h1>FinalityFlow</h1>
+<code><span class="keyword">class </span><span class="identifier">FinalityFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">&gt;</span></code>
+<p>Verifies the given transaction, then sends it to the named notary. If the notary agrees that the transaction is acceptable then it is
+from that point onwards committed to the ledger, and will be written through to the vault. Additionally it will be distributed to the
+parties reflected in the participants list of the states.</p>
+<p>By default, the initiating flow will commit states that are relevant to the initiating party as indicated by
+<a href="#">StatesToRecord.ONLY_RELEVANT</a>. Relevance is determined by the union of all participants to states which have been included in the
+transaction. This default behaviour may be modified by passing in an alternate value for <a href="#">StatesToRecord</a>.</p>
+<p>The transaction is expected to have already been resolved: if its dependencies are not available in local storage, verification will
+fail. It must have signatures from all necessary parties other than the notary.</p>
+<p>A list of <a href="#">FlowSession</a>s is required for each non-local participant of the transaction. These participants will receive the final
+notarised transaction by calling <a href="../-receive-finality-flow/index.html">ReceiveFinalityFlow</a> in their counterpart flows. Sessions with non-participants can also be included,
+but they must specify <a href="#">StatesToRecord.ALL_VISIBLE</a> for statesToRecord if they wish to record the contract states into their vaults.</p>
+<p>The flow returns the same transaction but with the additional signatures from the notary.</p>
+<h3>Parameters</h3>
+<p><a name="transaction"></a>
+<code>transaction</code> - The signed transaction to be committed.</p>
+<p><a name="sessions"></a>
+<code>sessions</code> - A collection of <a href="#">FlowSession</a>s for each non-local participant of the transaction. Sessions to non-participants can
+also be provided.</p>
+<p><a name="statesToRecord"></a>
+<code>statesToRecord</code> - Which states to commit to the vault.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-extra-constructor-args/index.html">ExtraConstructorArgs</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ExtraConstructorArgs</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Notarise the given transaction and broadcast it to the given <a href="#">FlowSession</a>s. This list <strong>must</strong> at least include
+all the non-local participants of the transaction. Sessions to non-participants can also be provided.</p>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.FinalityFlow$<init>(net.corda.v5.ledger.transactions.SignedTransaction, net.corda.v5.application.flows.FlowSession, kotlin.Array((net.corda.v5.application.flows.FlowSession)))/transaction">transaction</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignedTransaction</span><span class="symbol">, </span><span class="identifier" id="net.corda.systemflows.FinalityFlow$<init>(net.corda.v5.ledger.transactions.SignedTransaction, net.corda.v5.application.flows.FlowSession, kotlin.Array((net.corda.v5.application.flows.FlowSession)))/firstSession">firstSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.systemflows.FinalityFlow$<init>(net.corda.v5.ledger.transactions.SignedTransaction, net.corda.v5.application.flows.FlowSession, kotlin.Array((net.corda.v5.application.flows.FlowSession)))/restSessions">restSessions</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">)</span></code>
+<p>Notarise the given transaction and broadcast it to all the participants.</p>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.FinalityFlow$<init>(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.v5.application.flows.FlowSession)))/transaction">transaction</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignedTransaction</span><span class="symbol">, </span><span class="identifier" id="net.corda.systemflows.FinalityFlow$<init>(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.v5.application.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">FlowSession</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Verifies the given transaction, then sends it to the named notary. If the notary agrees that the transaction is acceptable then it is
+from that point onwards committed to the ledger, and will be written through to the vault. Additionally it will be distributed to the
+parties reflected in the participants list of the states.</p>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.FinalityFlow$<init>(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.v5.application.flows.FlowSession)), net.corda.v5.ledger.services.StatesToRecord)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignedTransaction</span><span class="symbol">, </span><span class="identifier" id="net.corda.systemflows.FinalityFlow$<init>(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.v5.application.flows.FlowSession)), net.corda.v5.ledger.services.StatesToRecord)/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">FlowSession</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.systemflows.FinalityFlow$<init>(net.corda.v5.ledger.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.v5.application.flows.FlowSession)), net.corda.v5.ledger.services.StatesToRecord)/statesToRecord">statesToRecord</span><span class="symbol">:</span>&nbsp;<span class="identifier">StatesToRecord</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="flow-engine.html">flowEngine</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">flowEngine</span><span class="symbol">: </span><span class="identifier">FlowEngine</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="identity-service.html">identityService</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">identityService</span><span class="symbol">: </span><span class="identifier">IdentityService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="member-lookup-service.html">memberLookupService</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">memberLookupService</span><span class="symbol">: </span><span class="identifier">MemberLookupService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction-mapping-service.html">transactionMappingService</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">transactionMappingService</span><span class="symbol">: </span><span class="identifier">TransactionMappingService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction-service.html">transactionService</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">transactionService</span><span class="symbol">: </span><span class="identifier">TransactionService</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SignedTransaction</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-extra-constructor-args.html">getExtraConstructorArgs</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getExtraConstructorArgs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ExtraConstructorArgs</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

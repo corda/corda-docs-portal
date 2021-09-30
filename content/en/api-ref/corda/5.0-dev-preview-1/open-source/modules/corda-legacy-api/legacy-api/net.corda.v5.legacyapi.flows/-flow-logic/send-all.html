@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic.sendAll - legacy-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">legacy-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.legacyapi.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowLogic</a>&nbsp;/&nbsp;<a href="./send-all.html">sendAll</a><br/>
+<br/>
+<h1>sendAll</h1>
+<a name="net.corda.v5.legacyapi.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.v5.application.flows.FlowSession)))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="identifier">sendAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.legacyapi.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.v5.application.flows.FlowSession)))/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.legacyapi.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.v5.application.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">FlowSession</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Queues the given <a href="send-all.html#net.corda.v5.legacyapi.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.v5.application.flows.FlowSession)))/payload">payload</a> for sending to the provided <a href="send-all.html#net.corda.v5.legacyapi.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.v5.application.flows.FlowSession)))/sessions">sessions</a> and continues without suspending.</p>
+<p>Note that the other parties may receive the message at some arbitrary later point or not at all: if one of the provided <a href="send-all.html#net.corda.v5.legacyapi.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.v5.application.flows.FlowSession)))/sessions">sessions</a>
+is offline then message delivery will be retried until the corresponding node comes back or until the message is older than the
+network's event horizon time.</p>
+<h3>Parameters</h3>
+<p><a name="payload"></a>
+<code>payload</code> - the payload to send.</p>
+<p><a name="sessions"></a>
+<code>sessions</code> - the sessions to send the provided payload to.</p>
+</BODY>
+</HTML>

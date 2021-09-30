@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>JsonMarshallingService - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services.json</a>&nbsp;/&nbsp;<a href="./index.html">JsonMarshallingService</a><br/>
+<br/>
+<h1>JsonMarshallingService</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">JsonMarshallingService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.application.injection/-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="../../net.corda.v5.application.injection/-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code>
+<p>An optional service CorDapps and other services may use to marshall arbitrary content in and out of JSON format using standard/approved
+mappers.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="format-json.html">formatJson</a></h4>
+</td>
+<td>
+<p>Serialize the <a href="format-json.html#net.corda.v5.application.services.json.JsonMarshallingService$formatJson(kotlin.Any)/input">input</a> object into JSON.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">formatJson</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.json.JsonMarshallingService$formatJson(kotlin.Any)/input">input</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse-json.html">parseJson</a></h4>
+</td>
+<td>
+<p>Deserializes the <a href="parse-json.html#net.corda.v5.application.services.json.JsonMarshallingService$parseJson(kotlin.String, java.lang.Class((net.corda.v5.application.services.json.JsonMarshallingService.parseJson.T)))/input">input</a> JSON into an instance of <a href="parse-json.html#T">T</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">parseJson</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.json.JsonMarshallingService$parseJson(kotlin.String, java.lang.Class((net.corda.v5.application.services.json.JsonMarshallingService.parseJson.T)))/input">input</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.services.json.JsonMarshallingService$parseJson(kotlin.String, java.lang.Class((net.corda.v5.application.services.json.JsonMarshallingService.parseJson.T)))/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse-json-list.html">parseJsonList</a></h4>
+</td>
+<td>
+<p>Deserializes the <a href="parse-json-list.html#net.corda.v5.application.services.json.JsonMarshallingService$parseJsonList(kotlin.String, java.lang.Class((net.corda.v5.application.services.json.JsonMarshallingService.parseJsonList.T)))/input">input</a> JSON into a list of instances of <a href="parse-json-list.html#T">T</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">parseJsonList</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.json.JsonMarshallingService$parseJsonList(kotlin.String, java.lang.Class((net.corda.v5.application.services.json.JsonMarshallingService.parseJsonList.T)))/input">input</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.services.json.JsonMarshallingService$parseJsonList(kotlin.String, java.lang.Class((net.corda.v5.application.services.json.JsonMarshallingService.parseJsonList.T)))/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../parse-json.html">parseJson</a></h4>
+</td>
+<td>
+<p>Deserializes the <a href="../parse-json.html#net.corda.v5.application.services.json$parseJson(net.corda.v5.application.services.json.JsonMarshallingService, kotlin.String)/input">input</a> JSON into an instance of <a href="../parse-json.html#T">T</a>.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">JsonMarshallingService</span></a><span class="symbol">.</span><span class="identifier">parseJson</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.json$parseJson(net.corda.v5.application.services.json.JsonMarshallingService, kotlin.String)/input">input</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../parse-json-list.html">parseJsonList</a></h4>
+</td>
+<td>
+<p>Deserializes the <a href="../parse-json-list.html#net.corda.v5.application.services.json$parseJsonList(net.corda.v5.application.services.json.JsonMarshallingService, kotlin.String)/input">input</a> JSON into a list of instances of <a href="../parse-json-list.html#T">T</a>.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">JsonMarshallingService</span></a><span class="symbol">.</span><span class="identifier">parseJsonList</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.json$parseJsonList(net.corda.v5.application.services.json.JsonMarshallingService, kotlin.String)/input">input</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

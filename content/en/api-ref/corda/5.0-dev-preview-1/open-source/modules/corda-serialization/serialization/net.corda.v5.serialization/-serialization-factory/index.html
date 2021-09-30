@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SerializationFactory - serialization</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">serialization</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.serialization</a>&nbsp;/&nbsp;<a href="./index.html">SerializationFactory</a><br/>
+<br/>
+<h1>SerializationFactory</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">SerializationFactory</span></code>
+<p>An abstraction for serializing and deserializing objects, with support for versioning of the wire format via
+a header / prefix in the bytes.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>An abstraction for serializing and deserializing objects, with support for versioning of the wire format via
+a header / prefix in the bytes.</p>
+<code><span class="identifier">SerializationFactory</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="current-context.html">currentContext</a></h4>
+</td>
+<td>
+<p>If there is a need to nest serialization/deserialization with a modified context during serialization or deserialization,
+this will return the current context used to start serialization/deserialization.</p>
+<code><span class="keyword">val </span><span class="identifier">currentContext</span><span class="symbol">: </span><a href="../-serialization-context/index.html"><span class="identifier">SerializationContext</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="as-current.html">asCurrent</a></h4>
+</td>
+<td>
+<p>Allow subclasses to temporarily mark themselves as the current factory for the current thread during serialization/deserialization.
+Will restore the prior context on exiting the block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">asCurrent</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$asCurrent(kotlin.Function1((net.corda.v5.serialization.SerializationFactory, net.corda.v5.serialization.SerializationFactory.asCurrent.T)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">SerializationFactory</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="deserialize.html">deserialize</a></h4>
+</td>
+<td>
+<p>Deserialize the bytes in to an object, using the prefixed bytes to determine the format.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$deserialize(net.corda.v5.base.types.ByteSequence, java.lang.Class((net.corda.v5.serialization.SerializationFactory.deserialize.T)), net.corda.v5.serialization.SerializationContext)/byteSequence">byteSequence</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteSequence</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$deserialize(net.corda.v5.base.types.ByteSequence, java.lang.Class((net.corda.v5.serialization.SerializationFactory.deserialize.T)), net.corda.v5.serialization.SerializationContext)/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$deserialize(net.corda.v5.base.types.ByteSequence, java.lang.Class((net.corda.v5.serialization.SerializationFactory.deserialize.T)), net.corda.v5.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-context/index.html"><span class="identifier">SerializationContext</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="deserialize-with-compatible-context.html">deserializeWithCompatibleContext</a></h4>
+</td>
+<td>
+<p>Deserialize the bytes in to an object, using the prefixed bytes to determine the format.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">deserializeWithCompatibleContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$deserializeWithCompatibleContext(net.corda.v5.base.types.ByteSequence, java.lang.Class((net.corda.v5.serialization.SerializationFactory.deserializeWithCompatibleContext.T)), net.corda.v5.serialization.SerializationContext)/byteSequence">byteSequence</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteSequence</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$deserializeWithCompatibleContext(net.corda.v5.base.types.ByteSequence, java.lang.Class((net.corda.v5.serialization.SerializationFactory.deserializeWithCompatibleContext.T)), net.corda.v5.serialization.SerializationContext)/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$deserializeWithCompatibleContext(net.corda.v5.base.types.ByteSequence, java.lang.Class((net.corda.v5.serialization.SerializationFactory.deserializeWithCompatibleContext.T)), net.corda.v5.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-context/index.html"><span class="identifier">SerializationContext</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-object-with-compatible-context/index.html"><span class="identifier">ObjectWithCompatibleContext</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serialize.html">serialize</a></h4>
+</td>
+<td>
+<p>Serialize an object to bytes using the preferred serialization format version from the context.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">serialize</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$serialize(net.corda.v5.serialization.SerializationFactory.serialize.T, net.corda.v5.serialization.SerializationContext)/obj">obj</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$serialize(net.corda.v5.serialization.SerializationFactory.serialize.T, net.corda.v5.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-context/index.html"><span class="identifier">SerializationContext</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-serialized-bytes/index.html"><span class="identifier">SerializedBytes</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-current-context.html">withCurrentContext</a></h4>
+</td>
+<td>
+<p>Change the current context inside the block to that supplied.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">withCurrentContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$withCurrentContext(net.corda.v5.serialization.SerializationContext, kotlin.Function0((net.corda.v5.serialization.SerializationFactory.withCurrentContext.T)))/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-context/index.html"><span class="identifier">SerializationContext</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.serialization.SerializationFactory$withCurrentContext(net.corda.v5.serialization.SerializationContext, kotlin.Function0((net.corda.v5.serialization.SerializationFactory.withCurrentContext.T)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="current-factory.html">currentFactory</a></h4>
+</td>
+<td>
+<p>If there is a need to nest serialization/deserialization with a modified context during serialization or deserialization,
+this will return the current factory used to start serialization/deserialization.</p>
+<code><span class="keyword">val </span><span class="identifier">currentFactory</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializationFactory</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

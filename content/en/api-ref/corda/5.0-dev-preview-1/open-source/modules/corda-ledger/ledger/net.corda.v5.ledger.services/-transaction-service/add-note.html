@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionService.addNote - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services</a>&nbsp;/&nbsp;<a href="index.html">TransactionService</a>&nbsp;/&nbsp;<a href="./add-note.html">addNote</a><br/>
+<br/>
+<h1>addNote</h1>
+<a name="net.corda.v5.ledger.services.TransactionService$addNote(net.corda.v5.crypto.SecureHash, kotlin.String)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">addNote</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$addNote(net.corda.v5.crypto.SecureHash, kotlin.String)/txId">txId</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.TransactionService$addNote(net.corda.v5.crypto.SecureHash, kotlin.String)/noteText">noteText</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adds a note to an existing <a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html">LedgerTransaction</a> given by its unique <a href="#">SecureHash</a> id. Multiple notes may be attached to the same
+<a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html">LedgerTransaction</a>. These are additively and immutably persisted within the node local vault database in a single textual field
+using a semi-colon separator.</p>
+<h3>Parameters</h3>
+<p><a name="txId"></a>
+<code>txId</code> - The transaction to add the note to.</p>
+<p><a name="noteText"></a>
+<code>noteText</code> - The text to add.</p>
+</BODY>
+</HTML>

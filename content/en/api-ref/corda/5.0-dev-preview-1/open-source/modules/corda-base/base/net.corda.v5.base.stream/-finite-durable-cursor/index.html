@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FiniteDurableCursor - base</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">base</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.base.stream</a>&nbsp;/&nbsp;<a href="./index.html">FiniteDurableCursor</a><br/>
+<br/>
+<h1>FiniteDurableCursor</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">FiniteDurableCursor</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-durable-cursor/index.html"><span class="identifier">DurableCursor</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Extension of <a href="../-durable-cursor/index.html">DurableCursor</a> which hints that returned stream will be finite, i.e. it will have an end.
+Also finite cursors indicate that a full result set is available on the server side and the client can consume the whole result at their
+convenience.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="take.html">take</a></h4>
+</td>
+<td>
+<p>Convenience method over <a href="../-cursor/poll.html">DurableCursor.poll</a> which instructs not to spend any time waiting for result on the server side.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">take</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.stream.FiniteDurableCursor$take(kotlin.Int)/maxCount">maxCount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PollResult</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

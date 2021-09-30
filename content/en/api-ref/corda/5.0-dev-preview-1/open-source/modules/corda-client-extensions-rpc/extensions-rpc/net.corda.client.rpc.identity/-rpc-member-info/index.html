@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RpcMemberInfo - extensions-rpc</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">extensions-rpc</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.identity</a>&nbsp;/&nbsp;<a href="./index.html">RpcMemberInfo</a><br/>
+<br/>
+<h1>RpcMemberInfo</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">RpcMemberInfo</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">RpcMemberInfo</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/groupId">groupId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/x500Name">x500Name</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/status">status</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/certificate">certificate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/identityKeys">identityKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/endpoints">endpoints</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-rpc-endpoint-info/index.html"><span class="identifier">RpcEndpointInfo</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/notaryService">notaryService</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/platformVersion">platformVersion</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.identity.RpcMemberInfo$<init>(kotlin.String, net.corda.v5.application.identity.CordaX500Name, kotlin.String, kotlin.String, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.client.rpc.identity.RpcEndpointInfo)), net.corda.v5.application.identity.CordaX500Name, kotlin.Int, kotlin.Long)/serial">serial</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="certificate.html">certificate</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">certificate</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="endpoints.html">endpoints</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">endpoints</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-rpc-endpoint-info/index.html"><span class="identifier">RpcEndpointInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="group-id.html">groupId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">groupId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="identity-keys.html">identityKeys</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">identityKeys</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="key.html">key</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">key</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary-service.html">notaryService</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">notaryService</span><span class="symbol">: </span><span class="identifier">CordaX500Name</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="platform-version.html">platformVersion</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">platformVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serial.html">serial</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">serial</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="status.html">status</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">status</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="x500-name.html">x500Name</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">x500Name</span><span class="symbol">: </span><span class="identifier">CordaX500Name</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
