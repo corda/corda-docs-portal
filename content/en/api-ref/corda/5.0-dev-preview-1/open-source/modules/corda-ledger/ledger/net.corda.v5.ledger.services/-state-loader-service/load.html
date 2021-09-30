@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StateLoaderService.load - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services</a>&nbsp;/&nbsp;<a href="index.html">StateLoaderService</a>&nbsp;/&nbsp;<a href="./load.html">load</a><br/>
+<br/>
+<h1>load</h1>
+<a name="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.StateRef)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">load</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.StateRef)/stateRef">stateRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code>
+<p>Given a <a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html">StateRef</a> loads the referenced transaction and looks up the specified output <a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html">ContractState</a>.</p>
+<p><strong>WARNING</strong> Do not use this method unless you really only want a single state - any batch loading should go through <a href="#">loadSet</a> as
+repeatedly calling <a href="#">loadStateRef</a> can lead to repeat deserialization work and severe performance degradation.</p>
+<h3>Parameters</h3>
+<p><a name="stateRef"></a>
+<code>stateRef</code> - The <a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html">StateRef</a> to retrieve a <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a> with.</p>
+<h3>Exceptions</h3>
+<p><a name="TransactionResolutionException"></a>
+<code>TransactionResolutionException</code> - If the <a href="load.html#net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.StateRef)/stateRef">stateRef</a> points to a non-existent transaction.</p>
+<p><strong>Return</strong><br/>
+The retrieved <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a>.</p>
+<a name="net.corda.v5.ledger.services.StateLoaderService$load(kotlin.collections.Set((net.corda.v5.ledger.contracts.StateRef)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">load</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.StateLoaderService$load(kotlin.collections.Set((net.corda.v5.ledger.contracts.StateRef)))/stateRefs">stateRefs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Given a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a> of <a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html">StateRef</a>'s loads each referenced transaction and looks up the specified output <a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html">ContractState</a>s.</p>
+<h3>Parameters</h3>
+<p><a name="stateRefs"></a>
+<code>stateRefs</code> - The <a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html">StateRef</a>s to retrieve <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a>s with.</p>
+<h3>Exceptions</h3>
+<p><a name="TransactionResolutionException"></a>
+<code>TransactionResolutionException</code> - If any of the <a href="load.html#net.corda.v5.ledger.services.StateLoaderService$load(kotlin.collections.Set((net.corda.v5.ledger.contracts.StateRef)))/stateRefs">stateRefs</a> point to a non-existent transaction.</p>
+<p><strong>Return</strong><br/>
+The retrieved set of <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a>s.</p>
+<a name="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.LinearPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-linear-state/index.html"><span class="identifier">LinearState</span></a><span class="symbol">&gt;</span> <span class="identifier">load</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.LinearPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)))/pointer">pointer</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-linear-pointer/index.html"><span class="identifier">LinearPointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Resolves a <a href="../../net.corda.v5.ledger.contracts/-state-pointer/index.html">StatePointer</a> to a <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a> via a vault query. This method will either return a <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a>
+or return an exception.</p>
+<h3>Parameters</h3>
+<p><a name="pointer"></a>
+<code>pointer</code> - a <a href="../../net.corda.v5.ledger.contracts/-state-pointer/index.html">StatePointer</a> to resolve.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalStateException"></a>
+<code>IllegalStateException</code> - when the state is not found</p>
+<a name="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.StaticPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">load</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.StaticPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)))/pointer">pointer</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-static-pointer/index.html"><span class="identifier">StaticPointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Resolves a <a href="../../net.corda.v5.ledger.contracts/-state-pointer/index.html">StatePointer</a> to a <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a> via a vault query. This method will either return a <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a>
+or return an exception.</p>
+<h3>Parameters</h3>
+<p><a name="pointer"></a>
+<code>pointer</code> - a <a href="../../net.corda.v5.ledger.contracts/-state-pointer/index.html">StatePointer</a> to resolve.</p>
+<h3>Exceptions</h3>
+<p><a name="TransactionResolutionException"></a>
+<code>TransactionResolutionException</code> - when the state is not found</p>
+<a name="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.StaticPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)), net.corda.v5.ledger.transactions.LedgerTransaction)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">load</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.StaticPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)), net.corda.v5.ledger.transactions.LedgerTransaction)/pointer">pointer</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-static-pointer/index.html"><span class="identifier">StaticPointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.StaticPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)), net.corda.v5.ledger.transactions.LedgerTransaction)/ltx">ltx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<a name="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.LinearPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)), net.corda.v5.ledger.transactions.LedgerTransaction)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-linear-state/index.html"><span class="identifier">LinearState</span></a><span class="symbol">&gt;</span> <span class="identifier">load</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.LinearPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)), net.corda.v5.ledger.transactions.LedgerTransaction)/pointer">pointer</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-linear-pointer/index.html"><span class="identifier">LinearPointer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.LinearPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)), net.corda.v5.ledger.transactions.LedgerTransaction)/ltx">ltx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Resolves a <a href="../../net.corda.v5.ledger.contracts/-state-pointer/index.html">StatePointer</a> to a <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a> from inside a <a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html">LedgerTransaction</a>. The intuition here is that all
+of the pointed-to states will be included in the transaction as reference states.</p>
+<h3>Parameters</h3>
+<p><a name="pointer"></a>
+<code>pointer</code> - a <a href="../../net.corda.v5.ledger.contracts/-state-pointer/index.html">StatePointer</a> to resolve.</p>
+<p><a name="ltx"></a>
+<code>ltx</code> - the <a href="../../net.corda.v5.ledger.transactions/-ledger-transaction/index.html">LedgerTransaction</a> containing the <a href="load.html#net.corda.v5.ledger.services.StateLoaderService$load(net.corda.v5.ledger.contracts.StaticPointer((net.corda.v5.ledger.services.StateLoaderService.load.T)), net.corda.v5.ledger.transactions.LedgerTransaction)/pointer">pointer</a> and pointed-to states.</p>
+<h3>Exceptions</h3>
+<p><a name="NoSuchElementException"></a>
+<code>NoSuchElementException</code> - when the state is not found</p>
+</BODY>
+</HTML>

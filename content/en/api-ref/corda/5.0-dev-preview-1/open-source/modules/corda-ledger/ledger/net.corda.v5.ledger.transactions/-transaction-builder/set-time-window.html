@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionBuilder.setTimeWindow - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.transactions</a>&nbsp;/&nbsp;<a href="index.html">TransactionBuilder</a>&nbsp;/&nbsp;<a href="./set-time-window.html">setTimeWindow</a><br/>
+<br/>
+<h1>setTimeWindow</h1>
+<a name="net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(net.corda.v5.ledger.contracts.TimeWindow)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setTimeWindow</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(net.corda.v5.ledger.contracts.TimeWindow)/timeWindow">timeWindow</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-time-window/index.html"><span class="identifier">TimeWindow</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>Sets the <a href="../../net.corda.v5.ledger.contracts/-time-window/index.html">TimeWindow</a> for this transaction, replacing the existing <a href="../../net.corda.v5.ledger.contracts/-time-window/index.html">TimeWindow</a> if there is one. To be valid, the
+transaction must then be signed by the notary service within this window of time. In this way, the notary acts as
+the Timestamp Authority.</p>
+<a name="net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(java.time.Instant, java.time.Duration)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setTimeWindow</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(java.time.Instant, java.time.Duration)/time">time</span><span class="symbol">:</span>&nbsp;<span class="identifier">Instant</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(java.time.Instant, java.time.Duration)/timeTolerance">timeTolerance</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>The <a href="../../net.corda.v5.ledger.contracts/-time-window/index.html">TimeWindow</a> for the transaction can also be defined as <a href="set-time-window.html#net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(java.time.Instant, java.time.Duration)/time">time</a> +/- <a href="set-time-window.html#net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(java.time.Instant, java.time.Duration)/timeTolerance">timeTolerance</a>. The tolerance should be
+chosen such that your code can finish building the transaction and sending it to the Timestamp Authority within
+that window of time, taking into account factors such as network latency. Transactions being built by a group of
+collaborating parties may therefore require a higher time tolerance than a transaction being built by a single
+node.</p>
+</BODY>
+</HTML>

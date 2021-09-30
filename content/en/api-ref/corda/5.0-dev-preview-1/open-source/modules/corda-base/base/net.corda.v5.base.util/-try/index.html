@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Try - base</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">base</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.base.util</a>&nbsp;/&nbsp;<a href="./index.html">Try</a><br/>
+<br/>
+<h1>Try</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">A</span><span class="symbol">&gt;</span></code>
+<p>Representation of an operation that has either succeeded with a result (represented by <a href="-success/index.html">Success</a>) or failed with an
+exception (represented by <a href="-failure/index.html">Failure</a>).</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-failure/index.html">Failure</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Failure</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">A</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-success/index.html">Success</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Success</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">A</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-failure.html">isFailure</a></h4>
+</td>
+<td>
+<p>Returns <code>true</code> iff the <a href="./index.html">Try</a> is a <a href="-success/index.html">Success</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isFailure</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-success.html">isSuccess</a></h4>
+</td>
+<td>
+<p>Returns <code>true</code> iff the <a href="./index.html">Try</a> is a <a href="-failure/index.html">Failure</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isSuccess</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="combine.html">combine</a></h4>
+</td>
+<td>
+<p>Maps the given function to the values from this <a href="-success/index.html">Success</a> and <a href="combine.html#net.corda.v5.base.util.Try$combine(net.corda.v5.base.util.Try((net.corda.v5.base.util.Try.combine.B)), kotlin.Function2((net.corda.v5.base.util.Try.A, net.corda.v5.base.util.Try.combine.B, net.corda.v5.base.util.Try.combine.C)))/other">other</a>, or returns <code>this</code> if this is a <a href="-failure/index.html">Failure</a>
+or <a href="combine.html#net.corda.v5.base.util.Try$combine(net.corda.v5.base.util.Try((net.corda.v5.base.util.Try.combine.B)), kotlin.Function2((net.corda.v5.base.util.Try.A, net.corda.v5.base.util.Try.combine.B, net.corda.v5.base.util.Try.combine.C)))/other">other</a> if <a href="combine.html#net.corda.v5.base.util.Try$combine(net.corda.v5.base.util.Try((net.corda.v5.base.util.Try.combine.B)), kotlin.Function2((net.corda.v5.base.util.Try.A, net.corda.v5.base.util.Try.combine.B, net.corda.v5.base.util.Try.combine.C)))/other">other</a> is a <a href="-failure/index.html">Failure</a>.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">B</span><span class="symbol">, </span><span class="identifier">C</span><span class="symbol">&gt;</span> <span class="identifier">combine</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.util.Try$combine(net.corda.v5.base.util.Try((net.corda.v5.base.util.Try.combine.B)), kotlin.Function2((net.corda.v5.base.util.Try.A, net.corda.v5.base.util.Try.combine.B, net.corda.v5.base.util.Try.combine.C)))/other">other</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">B</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.base.util.Try$combine(net.corda.v5.base.util.Try((net.corda.v5.base.util.Try.combine.B)), kotlin.Function2((net.corda.v5.base.util.Try.A, net.corda.v5.base.util.Try.combine.B, net.corda.v5.base.util.Try.combine.C)))/function">function</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">A</span><span class="symbol">,</span>&nbsp;<span class="identifier">B</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">C</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">C</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="do-on-failure.html">doOnFailure</a></h4>
+</td>
+<td>
+<p>Applies the given action to the error if <a href="-failure/index.html">Failure</a>, or does nothing if <a href="-success/index.html">Success</a>. Returns <code>this</code> for chaining.</p>
+<code><span class="keyword">fun </span><span class="identifier">doOnFailure</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.util.Try$doOnFailure(java.util.function.Consumer((kotlin.Throwable)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="identifier">Consumer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="do-on-success.html">doOnSuccess</a></h4>
+</td>
+<td>
+<p>Applies the given action to the value if <a href="-success/index.html">Success</a>, or does nothing if <a href="-failure/index.html">Failure</a>. Returns <code>this</code> for chaining.</p>
+<code><span class="keyword">fun </span><span class="identifier">doOnSuccess</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.util.Try$doOnSuccess(java.util.function.Consumer((net.corda.v5.base.util.Try.A)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="identifier">Consumer</span><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">A</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flat-map.html">flatMap</a></h4>
+</td>
+<td>
+<p>Returns the given function applied to the value from this <a href="-success/index.html">Success</a>, or returns <code>this</code> if this is a <a href="-failure/index.html">Failure</a>.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">B</span><span class="symbol">&gt;</span> <span class="identifier">flatMap</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.util.Try$flatMap(kotlin.Function1((net.corda.v5.base.util.Try.A, net.corda.v5.base.util.Try((net.corda.v5.base.util.Try.flatMap.B)))))/function">function</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">A</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">B</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">B</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-or-throw.html">getOrThrow</a></h4>
+</td>
+<td>
+<p>Returns the value if a <a href="-success/index.html">Success</a> otherwise throws the exception if a <a href="-failure/index.html">Failure</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getOrThrow</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">A</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="map.html">map</a></h4>
+</td>
+<td>
+<p>Maps the given function to the value from this <a href="-success/index.html">Success</a>, or returns <code>this</code> if this is a <a href="-failure/index.html">Failure</a>.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">B</span><span class="symbol">&gt;</span> <span class="identifier">map</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.util.Try$map(kotlin.Function1((net.corda.v5.base.util.Try.A, net.corda.v5.base.util.Try.map.B)))/function">function</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">A</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">B</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">B</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="throw-error.html">throwError</a></h4>
+</td>
+<td>
+<p>If this is a <a href="-failure/index.html">Failure</a> wrapping an <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-error/index.html">Error</a> then throw it, otherwise return <code>this</code> for chaining.</p>
+<code><span class="keyword">fun </span><span class="identifier">throwError</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="on.html">on</a></h4>
+</td>
+<td>
+<p>Executes the given block of code and returns a <a href="-success/index.html">Success</a> capturing the result, or a <a href="-failure/index.html">Failure</a> if a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a> is thrown.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">on</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.util.Try.Companion$on(kotlin.Function0((net.corda.v5.base.util.Try.Companion.on.T)))/body">body</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Try</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

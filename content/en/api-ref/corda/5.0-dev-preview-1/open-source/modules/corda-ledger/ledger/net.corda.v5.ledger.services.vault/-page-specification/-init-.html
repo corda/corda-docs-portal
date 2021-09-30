@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PageSpecification.<init> - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services.vault</a>&nbsp;/&nbsp;<a href="index.html">PageSpecification</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.v5.ledger.services.vault.PageSpecification$&lt;init&gt;(kotlin.Int, kotlin.Int)"></a>
+<code><span class="identifier">PageSpecification</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault.PageSpecification$<init>(kotlin.Int, kotlin.Int)/pageNumber">pageNumber</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.vault.PageSpecification$<init>(kotlin.Int, kotlin.Int)/pageSize">pageSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_PAGE_SIZE<span class="symbol">)</span></code>
+<p><a href="index.html">PageSpecification</a> allows specification of a page number (starting from <a href="../-d-e-f-a-u-l-t_-p-a-g-e_-n-u-m.html">DEFAULT_PAGE_NUM</a>) and page size
+(defaulting to <a href="../-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> with a maximum page size of <a href="../-m-a-x_-p-a-g-e_-s-i-z-e.html">MAX_PAGE_SIZE</a>)
+Note: we default the page number to <a href="../-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> to enable queries without requiring a page specification
+but enabling detection of large results sets that fall out of the <a href="../-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> requirement.
+<a href="../-m-a-x_-p-a-g-e_-s-i-z-e.html">MAX_PAGE_SIZE</a> should be used with extreme caution as results may exceed your JVM memory footprint.</p>
+</BODY>
+</HTML>

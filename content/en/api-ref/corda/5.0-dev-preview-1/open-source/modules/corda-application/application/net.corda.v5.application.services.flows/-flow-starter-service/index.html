@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowStarterService - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services.flows</a>&nbsp;/&nbsp;<a href="./index.html">FlowStarterService</a><br/>
+<br/>
+<h1>FlowStarterService</h1>
+<code><span class="keyword">interface </span><span class="identifier">FlowStarterService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.application.injection/-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="start-flow.html">startFlow</a></h4>
+</td>
+<td>
+<p>Start the given flow with the given arguments. <a href="start-flow.html#net.corda.v5.application.services.flows.FlowStarterService$startFlow(net.corda.v5.application.flows.Flow((net.corda.v5.application.services.flows.FlowStarterService.startFlow.T)))/flow">flow</a> must be annotated
+with <a href="../../net.corda.v5.application.flows/-startable-by-service/index.html">net.corda.v5.application.flows.StartableByService</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">startFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.flows.FlowStarterService$startFlow(net.corda.v5.application.flows.Flow((net.corda.v5.application.services.flows.FlowStarterService.startFlow.T)))/flow">flow</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.application.flows/-flow/index.html"><span class="identifier">Flow</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.application.messaging/-flow-handle/index.html"><span class="identifier">FlowHandle</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

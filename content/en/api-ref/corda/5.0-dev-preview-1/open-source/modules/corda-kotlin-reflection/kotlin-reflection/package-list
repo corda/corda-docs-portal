@@ -1,0 +1,34 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:net.corda.kotlin.reflect$kotlinClass#java.lang.Class((net.corda.kotlin.reflect.kotlinClass.T))net.corda.kotlin.reflect/java.lang.-class/kotlin-class.html
+$dokka.location:net.corda.kotlin.reflect$kotlinClass#kotlin.reflect.KClass((net.corda.kotlin.reflect.kotlinClass.T))net.corda.kotlin.reflect/kotlin.reflect.-k-class/kotlin-class.html
+$dokka.location:net.corda.kotlin.reflect$kotlinJavaField#kotlin.reflect.KProperty((kotlin.Any))net.corda.kotlin.reflect/kotlin.reflect.-k-property/kotlin-java-field.html
+$dokka.location:net.corda.kotlin.reflect$kotlinJavaGetter#kotlin.reflect.KProperty((kotlin.Any))net.corda.kotlin.reflect/kotlin.reflect.-k-property/kotlin-java-getter.html
+$dokka.location:net.corda.kotlin.reflect$kotlinJavaMethod#kotlin.reflect.KFunction((kotlin.Any))net.corda.kotlin.reflect/kotlin.reflect.-k-function/kotlin-java-method.html
+$dokka.location:net.corda.kotlin.reflect$kotlinJavaSetter#kotlin.reflect.KMutableProperty((kotlin.Any))net.corda.kotlin.reflect/kotlin.reflect.-k-mutable-property/kotlin-java-setter.html
+$dokka.location:net.corda.kotlin.reflect.impl$extractAllBy(kotlin.collections.MutableCollection((net.corda.kotlin.reflect.impl.extractAllBy.T)), kotlin.Function1((net.corda.kotlin.reflect.impl.extractAllBy.T, net.corda.kotlin.reflect.impl.extractAllBy.R)))net.corda.kotlin.reflect.impl/kotlin.collections.-mutable-collection/extract-all-by.html
+$dokka.location:net.corda.kotlin.reflect.impl$isNativeType#java.lang.Class((kotlin.Any))net.corda.kotlin.reflect.impl/java.lang.-class/is-native-type.html
+$dokka.location:net.corda.kotlin.reflect.impl$unmodifiable#kotlin.collections.Collection((net.corda.kotlin.reflect.impl.unmodifiable.T))net.corda.kotlin.reflect.impl/kotlin.collections.-collection/unmodifiable.html
+$dokka.location:net.corda.kotlin.reflect.types$createKType(java.lang.Class((kotlin.Any)), kotlin.Boolean)net.corda.kotlin.reflect.types/java.lang.-class/create-k-type.html
+$dokka.location:net.corda.kotlin.reflect.types$createKotlinProperty1(java.lang.Class((kotlin.Any)), kotlinx.metadata.KmProperty)net.corda.kotlin.reflect.types/java.lang.-class/create-kotlin-property1.html
+$dokka.location:net.corda.kotlin.reflect.types$createKotlinProperty2(java.lang.Class((kotlin.Any)), kotlinx.metadata.KmProperty)net.corda.kotlin.reflect.types/java.lang.-class/create-kotlin-property2.html
+$dokka.location:net.corda.kotlin.reflect.types$createParameters(java.lang.reflect.Method, java.lang.Class((kotlin.Any)), kotlin.Boolean, kotlin.collections.List((kotlinx.metadata.KmValueParameter)))net.corda.kotlin.reflect.types/java.lang.reflect.-method/create-parameters.html
+$dokka.location:net.corda.kotlin.reflect.types$createProperty(java.lang.Class((kotlin.Any)), java.lang.reflect.Field)net.corda.kotlin.reflect.types/java.lang.-class/create-property.html
+$dokka.location:net.corda.kotlin.reflect.types$declaredMemberFields#java.lang.Class((kotlin.Any))net.corda.kotlin.reflect.types/java.lang.-class/declared-member-fields.html
+$dokka.location:net.corda.kotlin.reflect.types$declaredMemberMethods#java.lang.Class((kotlin.Any))net.corda.kotlin.reflect.types/java.lang.-class/declared-member-methods.html
+$dokka.location:net.corda.kotlin.reflect.types$getterSignature#kotlin.reflect.KProperty((kotlin.Any))net.corda.kotlin.reflect.types/kotlin.reflect.-k-property/getter-signature.html
+$dokka.location:net.corda.kotlin.reflect.types$isForInterface#java.lang.reflect.Membernet.corda.kotlin.reflect.types/java.lang.reflect.-member/is-for-interface.html
+$dokka.location:net.corda.kotlin.reflect.types$isKotlin#java.lang.reflect.Membernet.corda.kotlin.reflect.types/java.lang.reflect.-member/is-kotlin.html
+$dokka.location:net.corda.kotlin.reflect.types$isNullable#kotlinx.metadata.KmTypenet.corda.kotlin.reflect.types/kotlinx.metadata.-km-type/is-nullable.html
+$dokka.location:net.corda.kotlin.reflect.types$jvmSignature#java.lang.reflect.Fieldnet.corda.kotlin.reflect.types/java.lang.reflect.-field/jvm-signature.html
+$dokka.location:net.corda.kotlin.reflect.types$jvmSuperClasses#java.lang.Class((kotlin.Any))net.corda.kotlin.reflect.types/java.lang.-class/jvm-super-classes.html
+$dokka.location:net.corda.kotlin.reflect.types$memberMethods#java.lang.Class((kotlin.Any))net.corda.kotlin.reflect.types/java.lang.-class/member-methods.html
+$dokka.location:net.corda.kotlin.reflect.types$nameOnlySignature#kotlin.reflect.KProperty((kotlin.Any))net.corda.kotlin.reflect.types/kotlin.reflect.-k-property/name-only-signature.html
+$dokka.location:net.corda.kotlin.reflect.types$receiverType#java.lang.reflect.Methodnet.corda.kotlin.reflect.types/java.lang.reflect.-method/receiver-type.html
+$dokka.location:net.corda.kotlin.reflect.types$setterValueParameter(kotlinx.metadata.KmProperty)net.corda.kotlin.reflect.types/kotlinx.metadata.-km-property/setter-value-parameter.html
+$dokka.location:net.corda.kotlin.reflect.types$signature#kotlin.reflect.KFunction((kotlin.Any))net.corda.kotlin.reflect.types/kotlin.reflect.-k-function/signature.html
+$dokka.location:net.corda.kotlin.reflect.types$toSignature(java.lang.reflect.Method)net.corda.kotlin.reflect.types/java.lang.reflect.-method/to-signature.html
+$dokka.location:net.corda.kotlin.reflect.types$toSignature(kotlinx.metadata.jvm.JvmMethodSignature, java.lang.ClassLoader)net.corda.kotlin.reflect.types/kotlinx.metadata.jvm.-jvm-method-signature/to-signature.html
+net.corda.kotlin.reflect
+net.corda.kotlin.reflect.impl
+net.corda.kotlin.reflect.types

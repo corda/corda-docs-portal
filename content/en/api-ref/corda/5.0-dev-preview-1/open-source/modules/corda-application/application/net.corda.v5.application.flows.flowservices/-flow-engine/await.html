@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowEngine.await - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.flows.flowservices</a>&nbsp;/&nbsp;<a href="index.html">FlowEngine</a>&nbsp;/&nbsp;<a href="./await.html">await</a><br/>
+<br/>
+<h1>await</h1>
+<a name="net.corda.v5.application.flows.flowservices.FlowEngine$await(net.corda.v5.application.flows.FlowExternalOperation((net.corda.v5.application.flows.flowservices.FlowEngine.await.R)))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">await</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.flows.flowservices.FlowEngine$await(net.corda.v5.application.flows.FlowExternalOperation((net.corda.v5.application.flows.flowservices.FlowEngine.await.R)))/operation">operation</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.application.flows/-flow-external-operation/index.html"><span class="identifier">FlowExternalOperation</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code>
+<p>Suspends a flow until <a href="../../net.corda.v5.application.flows/-flow-external-operation/index.html">FlowExternalOperation</a> is completed. Once the <a href="../../net.corda.v5.application.flows/-flow-external-operation/index.html">FlowExternalOperation</a> gets completed the flow will resume and
+return result <a href="await.html#R">R</a>.</p>
+<h3>Parameters</h3>
+<p><a name="operation"></a>
+<code>operation</code> - The <a href="../../net.corda.v5.application.flows/-flow-external-operation/index.html">FlowExternalOperation</a> to be executed asynchronously.</p>
+<p><strong>Return</strong><br/>
+The result <a href="await.html#R">R</a> of <a href="../../net.corda.v5.application.flows/-flow-external-operation/execute.html">FlowExternalOperation.execute</a>.</p>
+</BODY>
+</HTML>

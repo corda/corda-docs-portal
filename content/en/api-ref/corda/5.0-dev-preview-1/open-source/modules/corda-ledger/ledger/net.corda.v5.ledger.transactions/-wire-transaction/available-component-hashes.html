@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>WireTransaction.availableComponentHashes - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.transactions</a>&nbsp;/&nbsp;<a href="index.html">WireTransaction</a>&nbsp;/&nbsp;<a href="./available-component-hashes.html">availableComponentHashes</a><br/>
+<br/>
+<h1>availableComponentHashes</h1>
+<a name="net.corda.v5.ledger.transactions.WireTransaction$availableComponentHashes"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">availableComponentHashes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">SecureHash</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Calculate hashes for every transaction component. These will be used to build the full Merkle tree.
+The root of the tree is the transaction identifier. The tree structure is helpful for privacy, please
+see the user-guide section "Transaction tear-offs" to learn more about this topic.</p>
+</BODY>
+</HTML>

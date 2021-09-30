@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CipherSuiteFactory - cipher-suite</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">cipher-suite</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.cipher.suite</a>&nbsp;/&nbsp;<a href="./index.html">CipherSuiteFactory</a><br/>
+<br/>
+<h1>CipherSuiteFactory</h1>
+<code><span class="keyword">interface </span><span class="identifier">CipherSuiteFactory</span></code>
+<p>The <a href="./index.html">CipherSuiteFactory</a> provides operations to create various cipher suite's services.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create-crypto-service.html">createCryptoService</a></h4>
+</td>
+<td>
+<p>Returns an instance of the <a href="../-crypto-service/index.html">CryptoService</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">createCryptoService</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.CipherSuiteFactory$createCryptoService(net.corda.v5.cipher.suite.config.CryptoServiceConfigInfo)/info">info</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.cipher.suite.config/-crypto-service-config-info/index.html"><span class="identifier">CryptoServiceConfigInfo</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-crypto-service/index.html"><span class="identifier">CryptoService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-digest-service.html">createDigestService</a></h4>
+</td>
+<td>
+<p>Returns an instance of the <a href="#">DigestService</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">createDigestService</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DigestService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-scheme-map.html">createSchemeMap</a></h4>
+</td>
+<td>
+<p>Returns an instance of the <a href="../-cipher-scheme-metadata/index.html">CipherSchemeMetadata</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">createSchemeMap</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-cipher-scheme-metadata/index.html"><span class="identifier">CipherSchemeMetadata</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-signature-verification-service.html">createSignatureVerificationService</a></h4>
+</td>
+<td>
+<p>Returns an instance of the <a href="#">SignatureVerificationService</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">createSignatureVerificationService</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SignatureVerificationService</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

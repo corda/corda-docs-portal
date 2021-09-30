@@ -1,0 +1,221 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Amount - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="./index.html">Amount</a><br/>
+<br/>
+<h1>Amount</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Amount</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Amount represents a positive quantity of some token (currency, asset, etc.), measured in quantity of the smallest
+representable units. The nominal quantity represented by each individual token is equal to the <a href="display-token-size.html">displayTokenSize</a>.
+The scale property of the <a href="display-token-size.html">displayTokenSize</a> should correctly reflect the displayed decimal places and is used
+when rounding conversions from indicative/displayed amounts in <a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html">BigDecimal</a> to Amount occur via the
+<a href="from-decimal.html">Amount.fromDecimal</a> method.</p>
+<p>Amounts of different tokens <em>do not mix</em> and attempting to add or subtract two amounts of different currencies
+will throw <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a>. Amounts may not be negative. Amounts are represented internally using a signed
+64 bit value, therefore, the maximum expressable amount is 2^63 - 1 == Long.MAX_VALUE. Addition, subtraction and
+multiplication are overflow checked and will throw <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-arithmetic-exception/index.html">ArithmeticException</a> if the operation would have caused integer
+overflow.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Automatic conversion constructor from number of tokens to an Amount using getDisplayTokenSize to determine
+the displayTokenSize.</p>
+<code><span class="identifier">Amount</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, net.corda.v5.ledger.contracts.Amount.T)/tokenQuantity">tokenQuantity</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, net.corda.v5.ledger.contracts.Amount.T)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span></code>
+<p>Amount represents a positive quantity of some token (currency, asset, etc.), measured in quantity of the smallest
+representable units. The nominal quantity represented by each individual token is equal to the <a href="display-token-size.html">displayTokenSize</a>.
+The scale property of the <a href="display-token-size.html">displayTokenSize</a> should correctly reflect the displayed decimal places and is used
+when rounding conversions from indicative/displayed amounts in <a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html">BigDecimal</a> to Amount occur via the
+<a href="from-decimal.html">Amount.fromDecimal</a> method.</p>
+<code><span class="identifier">Amount</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.T)/quantity">quantity</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.T)/displayTokenSize">displayTokenSize</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.T)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="display-token-size.html">displayTokenSize</a></h4>
+</td>
+<td>
+<p>the nominal display unit size of a single token, potentially with trailing decimal display
+places if the scale parameter is non-zero.</p>
+<code><span class="keyword">val </span><span class="identifier">displayTokenSize</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="quantity.html">quantity</a></h4>
+</td>
+<td>
+<p>the number of tokens as a long value.</p>
+<code><span class="keyword">val </span><span class="identifier">quantity</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="token.html">token</a></h4>
+</td>
+<td>
+<p>the type of token this is an amount of. This is usually a singleton.</p>
+<code><span class="keyword">val </span><span class="identifier">token</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="minus.html">minus</a></h4>
+</td>
+<td>
+<p>A checked subtraction operator is supported to simplify netting of Amounts.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">minus</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$minus(net.corda.v5.ledger.contracts.Amount((net.corda.v5.ledger.contracts.Amount.T)))/other">other</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="plus.html">plus</a></h4>
+</td>
+<td>
+<p>A checked addition operator is supported to simplify aggregation of Amounts.
+Mixing non-identical token types will throw <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a>.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$plus(net.corda.v5.ledger.contracts.Amount((net.corda.v5.ledger.contracts.Amount.T)))/other">other</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="split-evenly.html">splitEvenly</a></h4>
+</td>
+<td>
+<p>This method provides a token conserving divide mechanism.</p>
+<code><span class="keyword">fun </span><span class="identifier">splitEvenly</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$splitEvenly(kotlin.Int)/partitions">partitions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="times.html">times</a></h4>
+</td>
+<td>
+<p>The multiplication operator is supported to allow easy calculation for multiples of a primitive Amount.
+Note this is not a conserving operation, so it may not always be correct modelling of proper token behaviour.
+N.B. Division is not supported as fractional tokens are not representable by an Amount.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">times</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$times(kotlin.Long)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">times</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$times(kotlin.Int)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-decimal.html">toDecimal</a></h4>
+</td>
+<td>
+<p>Convert a currency <a href="./index.html">Amount</a> to a decimal representation. For example, with an amount with a quantity
+of "1234" GBP, returns "12.34". The precise representation is controlled by the display token size (
+from <a href="get-display-token-size.html">getDisplayTokenSize</a>), which determines the size of a single token and controls the trailing decimal
+places via its scale property. <em>Note</em> that currencies such as the Bahraini Dinar use 3 decimal places,
+and it must not be presumed that this converts amounts to 2 decimal places.</p>
+<code><span class="keyword">fun </span><span class="identifier">toDecimal</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<p>Convert a currency <a href="./index.html">Amount</a> to a display string representation.</p>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="from-decimal.html">fromDecimal</a></h4>
+</td>
+<td>
+<p>Build an Amount from a decimal representation. For example, with an input of "12.34 GBP", returns an amount with a quantity of
+"1234" tokens. The function <a href="get-display-token-size.html">getDisplayTokenSize</a> is used to determine the conversion scaling, for example bonds might be in
+nominal amounts of 100, currencies in 0.01 penny units.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">fromDecimal</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.Companion.fromDecimal.T, java.math.RoundingMode)/displayQuantity">displayQuantity</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.Companion.fromDecimal.T, java.math.RoundingMode)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.Companion.fromDecimal.T, java.math.RoundingMode)/rounding">rounding</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/math/RoundingMode.html"><span class="identifier">RoundingMode</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">fromDecimal</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.Companion.fromDecimal.T)/displayQuantity">displayQuantity</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount.Companion$fromDecimal(java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.Companion.fromDecimal.T)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-display-token-size.html">getDisplayTokenSize</a></h4>
+</td>
+<td>
+<p>Determines the representation of one Token quantity in BigDecimal. For Currency and Issued
+the definitions is taken from Currency defaultFractionDigits property e.g. 2 for USD, or 0 for JPY
+so that the automatic token size is the conventional minimum penny amount.
+For other possible token types the asset token should implement TokenizableAssetInfo to
+correctly report the designed nominal amount.</p>
+<code><span class="keyword">fun </span><span class="identifier">getDisplayTokenSize</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount.Companion$getDisplayTokenSize(kotlin.Any)/token">token</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse-currency.html">parseCurrency</a></h4>
+</td>
+<td>
+<p>Returns an amount that is equal to the given currency amount in text. Examples of what is supported:</p>
+<code><span class="keyword">fun </span><span class="identifier">parseCurrency</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount.Companion$parseCurrency(kotlin.String)/input">input</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sum-or-null.html">sumOrNull</a></h4>
+</td>
+<td>
+<p>If the given iterable of <a href="./index.html">Amount</a>s yields any elements, sum them, throwing an <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a> if
+any of the token types are mismatched; if the iterator yields no elements, return null.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">sumOrNull</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sum-or-throw.html">sumOrThrow</a></h4>
+</td>
+<td>
+<p>Sums the amounts yielded by the given iterable, throwing an <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a> if any of the token
+types are mismatched.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">sumOrThrow</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sum-or-zero.html">sumOrZero</a></h4>
+</td>
+<td>
+<p>If the given iterable of <a href="./index.html">Amount</a>s yields any elements, sum them, throwing an <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a> if
+any of the token types are mismatched; if the iterator yields no elements, return a zero amount of the given
+token type.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">sumOrZero</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount.Companion$sumOrZero(kotlin.collections.Iterable((net.corda.v5.ledger.contracts.Amount((net.corda.v5.ledger.contracts.Amount.Companion.sumOrZero.T)))), net.corda.v5.ledger.contracts.Amount.Companion.sumOrZero.T)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="zero.html">zero</a></h4>
+</td>
+<td>
+<p>For a particular token returns a zero sized Amount</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">zero</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount.Companion$zero(net.corda.v5.ledger.contracts.Amount.Companion.zero.T)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../without-issuer.html">withoutIssuer</a></h4>
+</td>
+<td>
+<p>Strips the issuer and returns an <a href="./index.html">Amount</a> of the raw token directly. This is useful when you are mixing code that
+cares about specific issuers with code that will accept any, or which is imposing issuer constraints via some
+other mechanism and the additional type safety is not wanted.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="../-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">withoutIssuer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

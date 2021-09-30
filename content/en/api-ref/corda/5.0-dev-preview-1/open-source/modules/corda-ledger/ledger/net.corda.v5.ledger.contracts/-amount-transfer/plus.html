@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AmountTransfer.plus - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="index.html">AmountTransfer</a>&nbsp;/&nbsp;<a href="./plus.html">plus</a><br/>
+<br/>
+<h1>plus</h1>
+<a name="net.corda.v5.ledger.contracts.AmountTransfer$plus(net.corda.v5.ledger.contracts.AmountTransfer((net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P)))"></a>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AmountTransfer$plus(net.corda.v5.ledger.contracts.AmountTransfer((net.corda.v5.ledger.contracts.AmountTransfer.T, net.corda.v5.ledger.contracts.AmountTransfer.P)))/other">other</span><span class="symbol">:</span>&nbsp;<a href="index.html"><span class="identifier">AmountTransfer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">AmountTransfer</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span></code>
+<p>Add together two <a href="index.html">AmountTransfer</a> objects to produce the single equivalent net flow.
+The addition only applies to AmountTransfer objects with the same token type.
+Also the pair of parties must be aligned, although source destination may be
+swapped in the second item.</p>
+<h3>Exceptions</h3>
+<p><a name="ArithmeticException"></a>
+<code>ArithmeticException</code> - if there is underflow, or overflow in the summations.</p>
+</BODY>
+</HTML>

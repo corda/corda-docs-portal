@@ -1,0 +1,6 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:net.corda.testing.flow.utils$mockInjectables(net.corda.v5.application.flows.Flow((kotlin.Any)))net.corda.testing.flow.utils/net.corda.v5.application.flows.-flow/mock-injectables.html
+$dokka.location:net.corda.testing.flow.utils$mockInjectables(net.corda.v5.application.flows.Flow((kotlin.Any)), kotlin.collections.Map((java.lang.Class((kotlin.Any)), )))net.corda.testing.flow.utils/net.corda.v5.application.flows.-flow/mock-injectables.html
+net.corda.testing.flow
+net.corda.testing.flow.utils

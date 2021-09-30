@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>KeyManagementBackend - crypto-impl</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-impl</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.crypto</a>&nbsp;/&nbsp;<a href="./index.html">KeyManagementBackend</a><br/>
+<br/>
+<h1>KeyManagementBackend</h1>
+<code><span class="keyword">interface </span><span class="identifier">KeyManagementBackend</span></code>
+<p>The <a href="./index.html">KeyManagementBackend</a> provides operation support for <a href="#">KeyManagementService</a> and is responsible for storing
+and using private keys to sign things. An implementation of this may, for example,
+call out to a hardware security module that enforces various auditing and frequency-of-use requirements.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="ensure-wrapping-key.html">ensureWrappingKey</a></h4>
+</td>
+<td>
+<p>Ensures that the wrapping key is generated if required by the underlying <a href="#">CryptoService</a> implementation.
+The alias under which the created wrapping key is created would have to be provided in the configuration.
+The method would be called only during the bootstrapping process.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">ensureWrappingKey</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="filter-my-keys.html">filterMyKeys</a></h4>
+</td>
+<td>
+<p>Filters the input <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a>s down to a collection of keys that this node owns (has private keys for).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">filterMyKeys</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.KeyManagementBackend$filterMyKeys(kotlin.collections.Iterable((java.security.PublicKey)))/candidateKeys">candidateKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="fresh-key.html">freshKey</a></h4>
+</td>
+<td>
+<p>Generates a new random <a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyPair.html">KeyPair</a> and adds it to the internal key storage.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">freshKey</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Generates a new random <a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyPair.html">KeyPair</a> and adds it to the internal key storage. Associates the public key to an external Id.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">freshKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.KeyManagementBackend$freshKey(java.util.UUID)/externalId">externalId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sign.html">sign</a></h4>
+</td>
+<td>
+<p>Using the provided signing <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a>, internally looks up the matching <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">PrivateKey</a> and signs the data.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.KeyManagementBackend$sign(kotlin.ByteArray, java.security.PublicKey)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.KeyManagementBackend$sign(kotlin.ByteArray, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">WithKey</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.crypto.internal/-key-management-backend-impl/index.html">KeyManagementBackendImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KeyManagementBackendImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">KeyManagementBackend</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

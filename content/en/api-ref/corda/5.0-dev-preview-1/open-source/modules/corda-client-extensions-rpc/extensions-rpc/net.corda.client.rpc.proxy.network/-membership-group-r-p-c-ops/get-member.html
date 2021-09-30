@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MembershipGroupRPCOps.getMember - extensions-rpc</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">extensions-rpc</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy.network</a>&nbsp;/&nbsp;<a href="index.html">MembershipGroupRPCOps</a>&nbsp;/&nbsp;<a href="./get-member.html">getMember</a><br/>
+<br/>
+<h1>getMember</h1>
+<a name="net.corda.client.rpc.proxy.network.MembershipGroupRPCOps$getMember(kotlin.String)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMember</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.network.MembershipGroupRPCOps$getMember(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html"><span class="identifier">RpcMemberInfo</span></a></code>
+<p>Returns <a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html">RpcMemberInfo</a> with given <a href="get-member.html#net.corda.client.rpc.proxy.network.MembershipGroupRPCOps$getMember(kotlin.String)/name">name</a>.</p>
+<h3>Parameters</h3>
+<p><a name="name"></a>
+<code>name</code> - Name of the member node.</p>
+<h3>Exceptions</h3>
+<p><a name="InvalidCordaX500NameException"></a>
+<code>InvalidCordaX500NameException</code> - If it is unable to parse the given <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> as <a href="#">CordaX500Name</a>.</p>
+<p><a name="MemberNotFoundException"></a>
+<code>MemberNotFoundException</code> - If a member with a matching <a href="get-member.html#net.corda.client.rpc.proxy.network.MembershipGroupRPCOps$getMember(kotlin.String)/name">name</a> cannot be found.</p>
+<p><strong>Return</strong><br/>
+A <a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html">RpcMemberInfo</a> object containing all the relevant information about the specified member.</p>
+</BODY>
+</HTML>
