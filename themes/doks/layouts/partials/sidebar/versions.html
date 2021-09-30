@@ -24,13 +24,14 @@
 {{ end }}
 
 {{$currentUrl := .RelPermalink}}
+{{ $currentPath := path.Dir .File.Dir }}
 
 {{ if and (ne $currentVersion "Versions") (gt $totalVersions 1)}}
-  {{/* We know know whether we're in 'corda-os-4.4' or not ('Versions') */}}
+  {{/* We know whether we're in 'corda-os-4.4' or not ('Versions') */}}
 
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarVersionMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Version {{ $currentVersion }}
+      {{ $currentVersion }}
     </a>
     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarVersionMenuLink">
       {{ range .Site.Menus.versions.ByWeight }}
@@ -39,17 +40,40 @@
           {{ $active:=false}}
 
           {{ if eq .Page.Params.section_menu $sectionMenuForThisPage }}{{$active = true}}{{ end }}
-          {{ $pageUrl := replace $currentUrl $currentVersion .Page.Params.Version }}
+
+          {{ $pagePath := path.Dir .Page.File.Dir }}
+
+          {{ $currentPathArray := split $currentPath "/" }}
+          {{ $pagePathArray := split $pagePath "/" }}
+          {{ $pagePathLength := len $pagePathArray }}
+
+          {{ $replacePath := "" }}
+          {{ range $index, $element := $currentPathArray }}
+            {{ if $element }}
+              {{ if lt $index $pagePathLength }}
+                  {{ $replacePath = print $replacePath "/" $element }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
+          {{ $pageUrl := replace $currentUrl $replacePath $pagePath }}
           {{ $similarPage := $currentPage.GetPage $pageUrl }}
+
           <li>
             {{ if eq $similarPage.Permalink "" }}
               <a href="{{ .Page.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
-                <span>Version {{ .Page.Params.Version }}</span>
+                <span>{{ .Page.Params.Version }}</span>
               </a>
-            {{else}}
-              <a href="{{ $similarPage.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
-                <span>Version {{ .Page.Params.Version }}</span>
-              </a>
+            {{ else }}
+              {{ if eq $similarPage.RelPermalink  $currentUrl }}
+                <a href="{{ .Page.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
+                  <span>{{ .Page.Params.Version }}</span>
+                </a>
+              {{ else }}
+                <a href="{{ $similarPage.Permalink }}" class="dropdown-item {{if $active}}active{{end}}">
+                  <span>{{ .Page.Params.Version }}</span>
+                </a>
+              {{end}}
             {{end}}
           </li>
 

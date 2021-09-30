@@ -1,0 +1,17 @@
+
+<!-- Algolia docs search -->
+<meta name="docsearch:language" content="{{- .Site.Language.Lang -}}" />
+{{- if .IsPage }}
+<meta name="docsearch:version" content="{{- .Page.Parent.Params.version -}}" />
+<meta name="docsearch:project" content="{{- .Page.Parent.Params.project -}}" />
+{{- else }}
+{{- with .Params.version }}
+<meta name="docsearch:version" content="{{- . -}}" />
+{{- end}}
+{{- with .Params.project }}
+<meta name="docsearch:project" content="{{- . -}}" />
+{{- end}}
+{{- end }}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" type="text/css" />
+<link rel="stylesheet" href="/css/vendor/algolia.css" type="text/css" />

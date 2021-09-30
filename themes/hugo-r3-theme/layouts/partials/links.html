@@ -1,9 +1,0 @@
-    <link rel="canonical" href="{{ .Permalink }}" itemprop="url" /> 
-    <link rel="shortcut icon" href="/images/favicon.ico"/>
-    <meta name="url" content="{{ .Permalink }}" />
-    <meta name="language" content="{{ .Language.LanguageName }}">
-    {{- if .IsTranslated }}
-    {{- range .Translations -}}
-    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}" />
-    {{- end -}}
-    {{- end -}}

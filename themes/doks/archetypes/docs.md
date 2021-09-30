@@ -12,6 +12,8 @@ parent: SUBMENU-FOR-THIS-PAGE-OR-REMOVE-menu-COMPLETELY
 project: ""
 weight: 999
 toc: true
+sidebar: true
+topsearch: true
 tags:
 - this
 - that

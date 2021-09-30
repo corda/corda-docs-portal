@@ -6,6 +6,22 @@ RUN apt-get update && \
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y nodejs
 
+ARG MUFFET_VERSION
+
+RUN mkdir -p /tmp/muffet && cd /tmp/muffet \
+ && curl -LO "https://github.com/raviqqe/muffet/releases/download/v${MUFFET_VERSION}/muffet_${MUFFET_VERSION}_Linux_x86_64.tar.gz" \
+ && tar zxfv "muffet_${MUFFET_VERSION}_Linux_x86_64.tar.gz" \
+ && install -o root -g root -m 0755 muffet /usr/local/bin/muffet \
+ && rm -rf /tmp/muffet
+
+ARG CADDY_VERSION
+
+RUN mkdir -p /tmp/caddy && cd /tmp/caddy \
+ && curl -LO "https://github.com/caddyserver/caddy/releases/download/v${CADDY_VERSION}/caddy_${CADDY_VERSION}_linux_amd64.tar.gz" \
+ && tar zxfv "caddy_${CADDY_VERSION}_linux_amd64.tar.gz" \
+ && install -o root -g root -m 0755 caddy /usr/local/bin/caddy \
+ && rm -rf /tmp/caddy
+
 ARG HUGO_VERSION
 
 RUN mkdir -p /tmp/hugo && cd /tmp/hugo && \

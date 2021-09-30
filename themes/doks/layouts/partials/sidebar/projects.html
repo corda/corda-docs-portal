@@ -1,7 +1,7 @@
 {{/* store the current page scope as '.' changes value */}}
 {{ $currentPage := . }}
 {{/* now get the current project we're in */}}
-{{ $currentProject := "Project" }}
+{{ $currentProject := "Content library" }}
 {{/* Identify whether we're 'within' a section or not and store it  */}}
 {{ $projectMenuForThisPage := .Page.Params.project}}
 {{ if eq .IsHome false}}
