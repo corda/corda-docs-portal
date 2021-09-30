@@ -1,8 +1,13 @@
 .card {
   border: none;
-  border-top: solid 4px $gray-900;
+  border-top: solid 4px $card-border-color;
   border-radius: 0px 0px 4px 4px;
   box-shadow: 0px 8px 16px $gray-200;
+
+  &.no-border {
+    border-top: none;
+    border-radius: 4px;
+  }
 
   &:hover {
     box-shadow: 0px 8px 24px $gray-200;
@@ -13,7 +18,7 @@
   }
 
   h3 {
-    font-size: $font-size-lg; 
+    font-size: $font-size-lg;
 
     a {
       text-decoration: none;

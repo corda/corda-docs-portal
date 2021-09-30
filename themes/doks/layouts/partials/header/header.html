@@ -1,37 +1,78 @@
 <header>
-  <div class="navbar fixed-top navbar-expand-lg navbar-dark">
+  <div class="navbar  navbar-dark">
     <div class="container-fluid">
+      <div id="header-links">
+        <a href="https://developer.r3.com/" target="_blank">Developer platform</a>
+        <a href="https://community.r3.com/" target="_blank">Community forum</a>
+        <a href="https://developer.r3.com/events" target="_blank">Events</a>
+        <a href="https://developer.r3.com/blog" target="_blank">Blog</a>
+        <a href="https://developer.r3.com/support" target="_blank">Support</a>
+      </div>
+
+    </div>
+
+    <div class="container-fluid">
+      {{ if ne .IsHome true }}
+      {{ if ne .Params.sidebar false -}}
       <input class="menu-btn order-0" type="checkbox" id="menu-btn">
       <label class="menu-icon d-lg-none" for="menu-btn"><span class="navicon"></span></label>
-      <a class="navbar-brand order-1 order-lg-0" href="{{ .Site.BaseURL | absURL }}" aria-label="{{ .Site.Title }} home page"><img src="{{ "images/logo-r3-developers.png" | absURL }}" alt="R3 Developers" width="183" height="40"> &nbsp; <span class="badge bg-secondary">DOCS</span></a>
+      {{ end -}}
+      {{ end -}}
+
+      <a class="navbar-brand order-1" href="{{ .Site.BaseURL | absURL }}" aria-label="{{ .Site.Title }} home page">
+        <img src="{{ "images/r3.svg" | absURL }}" alt="R3 Docs" class="d-lg-none ms-2 me-3" height="32">
+        <img src="{{ "images/r3.svg" | absURL }}" alt="R3 Docs" class="d-none d-lg-inline-block me-4"  height="40">
+        <span class="badge bg-secondary docs">Docs</span>
+      </a>
+
+      <input class="menu-btn order-0" type="checkbox" id="top-search-checkbox">
+      <label  for="top-search-checkbox" id="top-search-btn" class="btn btn-link order-2 order-sm-3 order-lg-4 d-lg-none" aria-label="Toggle Search">
+        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+      </label>
+
       {{ if .Site.Params.options.darkMode -}}
-      <button id="mode" class="btn btn-link order-2 order-lg-4" type="button" aria-label="Toggle mode">
+      <button id="mode" class="btn btn-link order-3 order-sm-4 order-lg-5" type="button" aria-label="Toggle mode">
         <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
         <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
       </button>
       {{ end -}}
-      <div class="collapse navbar-collapse order-4 order-lg-1">
-        <ul class="navbar-nav main-nav me-auto order-5 order-lg-2">
 
-          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+
+      <div class="order-5 order-5 order-sm-2" id="top-menu">
+        <ul class="navbar-nav main-nav me-auto">
+          <div class="" id="navbarNavDarkDropdown">
             <ul class="navbar-nav">
               {{ partial "sidebar/projects.html" . }}
               {{ partial "sidebar/versions.html" . }}
             </ul>
           </div>
         </ul>
+      </div>
 
+      {{ if ne .IsHome true }}
+      {{ if ne .Params.topsearch false -}}
 
+      <div class="order-4 order-sm-5 order-lg-3 d-none d-lg-flex" id="top-search">
+        <form class="navbar-form order-lg-4 order-0">
         {{ if .Site.Params.options.flexSearch -}}
-          <form class="navbar-form order-7 order-lg-4 mt-2 mt-lg-0">
             <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
             <button class="btn_search">
               <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
             </button>
-            <div id="suggestions" class="shadow bg-white rounded"></div>
-          </form>
+            <div id="suggestions" class="suggestions shadow rounded"></div>
         {{ end -}}
+
+        {{ if .Site.Params.options.algolia -}}
+            <input id="search-input" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
+            <button class="btn_search">
+              <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+            </button>
+        {{ end -}}
+          </form>
       </div>
+
+      {{ end -}}
+      {{ end -}}
     </div>
   </div>
 </header>
