@@ -5,11 +5,7 @@ menu:
   apps:
     identifier: bankinabox
     name: Bank in a Box
-aliases:
-- /docs/apps/bankinabox.html
-tags:
-- Bank in a Box
-- API
+    weight: 2000
 title: Bank in a Box
 weight: 100
 ---
