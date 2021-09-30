@@ -5,7 +5,7 @@
 {{ $lastUrl:= "" }}
 {{ range .context.Site.Menus.versions.ByWeight }}
   {{ if eq .Page.Params.Project $project }}
-    {{ if gt .Page.Params.section_menu $lastVersion }}
+    {{ if eq $lastVersion "" }}
       {{$lastVersion = .Page.Params.section_menu}}
       {{$lastUrl = .Page.Permalink}}
     {{ end }}

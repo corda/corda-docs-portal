@@ -1,7 +1,0 @@
-$warn-class: "#{$class-object-prefix}warning";
-
-.#{$warn-class} {
-    background-color: $yellow-200;
-    color: $yellow-900;
-    border-left: 0.5rem solid $yellow-500;
-}

@@ -2,58 +2,117 @@ footer {
   background-color: $gray-800;
   font-size: $font-size-sm;
 
-  a {
-  	color: $gray-100;
-  }
-
-  :hover {
-    color: $gray-200;
-    text-decoration: none;
-  }
-
-  .footer-links { 
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
+  .footer-links {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
     padding-left: 0;
+    max-height: 8.5rem;
 
     li {
-      margin-bottom: .25rem;
+      margin-bottom: 0.5rem;
       list-style: none;
     }
   }
 
-  .list-inline-item:not(:last-child) {
-    margin-right: 0.75rem;
+  .footer-cnt {
+    padding-top: 3.5rem;
+    padding-bottom: 2.25rem;
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+
+      .footer-logo {
+        display: inline-block;
+        flex: 1 0 335px;
+        margin-bottom: 2rem;
+
+        .docs {
+          margin-left: 1.875rem;
+        }
+
+        .list-inline-item:not(:last-child) {
+          margin-right: 1.5rem;
+        }
+
+        a {
+          &:hover,
+          &:active {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .footer-urls {
+        display: flex;
+        flex: 1 1 auto;
+
+        a {
+          color: $gray-100;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .footer-cnt {
+      .row {
+        .footer-logo {
+          margin-bottom: 0;
+        }
+
+        .footer-urls {
+          max-width: 480px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .container-fluid {
+      padding-left: 7.5rem;
+      padding-right: 7.5rem;
+    }
   }
 }
 
 .copyright {
   background-color: $black;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   color: $white;
+  text-align: center;
 
   ul {
     margin-bottom: 0;
-  }
 
-  li {
-    font-size: $font-size-sm;
-    margin-bottom: 0;
+    li {
+      font-size: $font-size-xs;
+      margin-bottom: 0;
 
-    &:first-child:before {
-      display: none;
-    }
+      &.list-inline-item:not(:last-child) {
+        margin-right: 0.75rem;
+      }
 
-    &:before {
-      content: "•";
-      color: $red;
-      font-size: $font-size-lg;
-      margin-right: 0.8rem;
-      display: inline-block;
-      position: relative;
-      top: 3px;
+      &:first-child::before {
+        display: none;
+      }
+
+      &::before {
+        content: "•";
+        color: $red;
+        margin-right: 0.85rem;
+        display: inline-block;
+        position: relative;
+        top: 2px;
+      }
+
+      a {
+        color: $gray-100;
+      }
     }
   }
 }

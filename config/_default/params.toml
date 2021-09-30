@@ -3,8 +3,8 @@
 ## Homepage
 title = "R3 Documentation"
 titleSeparator = "-"
-titleAddition = "Documentation for R3 Products"
-description = "Use the R3 docs to start developing Corda applications, run a network, and operate enterprise-level tools for your business."
+titleAddition = "Home"
+description = "Find tutorials, sample code, developer guides, and API references for Corda and Conclave."
 
 ## Open Graph + Twitter Cards
 images = ["r3-docs-open-graph.png"]
@@ -43,17 +43,15 @@ alert = false
 alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/doks/stargazers\">Star on GitHub</a>. Thanks!</a>"
 
 # Edit Page
-docsRepo = "https://github.com/corda/corda-docs"
-editPage = true
-
-# Google
-googleAnalyticID = "UA-87760032"
+docsRepo = "https://github.com/corda/corda-docs-portal"
+editPage = false
 
 [options]
   lazySizes = true
   clipBoard = true
   instantPage = true
-  flexSearch = true
+  flexSearch = false
+  algolia = true
   darkMode = true
   bootStrapJs = true
   breadCrumb = true

@@ -1,7 +1,7 @@
 [[social]]
   name = "Corda Slack"
   pre = "<svg width=\"24\" height=\"24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.042 15.166a2.527 2.527 0 01-2.52 2.521A2.527 2.527 0 010 15.166a2.527 2.527 0 012.521-2.521h2.521v2.52zM6.312 15.166a2.527 2.527 0 012.521-2.521 2.527 2.527 0 012.522 2.52v6.314a2.527 2.527 0 01-2.522 2.52 2.527 2.527 0 01-2.52-2.52v-6.313zM8.833 5.042a2.527 2.527 0 01-2.52-2.52A2.527 2.527 0 018.832 0a2.527 2.527 0 012.522 2.521v2.521H8.833zM8.834 6.31a2.527 2.527 0 012.521 2.522 2.527 2.527 0 01-2.521 2.521H2.521A2.527 2.527 0 010 8.832 2.527 2.527 0 012.521 6.31h6.313zM18.957 8.832a2.527 2.527 0 012.521-2.521 2.527 2.527 0 012.521 2.52 2.527 2.527 0 01-2.521 2.522h-2.521V8.832zM17.687 8.834a2.527 2.527 0 01-2.521 2.521 2.527 2.527 0 01-2.521-2.521V2.521A2.527 2.527 0 0115.165 0a2.527 2.527 0 012.522 2.521v6.313zM15.166 18.955a2.527 2.527 0 012.521 2.522 2.527 2.527 0 01-2.521 2.52 2.527 2.527 0 01-2.521-2.52v-2.522h2.52zM15.166 17.687a2.527 2.527 0 01-2.521-2.521 2.527 2.527 0 012.52-2.521h6.314A2.527 2.527 0 0124 15.165a2.527 2.527 0 01-2.521 2.522h-6.313z\" fill=\"#FCFCFC\"/></svg>"
-  url = "http://slack.corda.net/"
+  url = "https://slack.corda.net/"
   weight = 10
 
 [[social]]
@@ -23,6 +23,12 @@
   weight = 40
 
 [[social]]
+  name = "R3 Documentation GitHub"
+  pre = "<svg width=\"26\" height=\"24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M13.162 0C6.372 0 .865 5.507.865 12.297c0 5.432 3.546 10.034 8.374 11.693.603.076.83-.301.83-.603v-2.113c-3.395.755-4.15-1.66-4.15-1.66-.528-1.433-1.357-1.81-1.357-1.81-1.132-.754.075-.754.075-.754 1.207.075 1.886 1.282 1.886 1.282 1.132 1.886 2.867 1.358 3.546 1.056.075-.83.452-1.358.754-1.66-2.716-.301-5.582-1.357-5.582-6.11 0-1.358.452-2.414 1.282-3.32-.075-.226-.528-1.508.15-3.168 0 0 1.057-.302 3.396 1.282.98-.301 2.037-.377 3.093-.377s2.112.151 3.093.377C18.594 4.828 19.65 5.13 19.65 5.13c.679 1.66.226 2.942.15 3.244a4.88 4.88 0 011.283 3.32c0 4.752-2.867 5.733-5.582 6.035.452.377.83 1.131.83 2.263v3.395c0 .302.226.679.83.603a12.31 12.31 0 008.373-11.693C25.46 5.507 19.952 0 13.162 0z\" fill=\"#FCFCFC\"/></svg>"
+  url = "https://www.github.com/corda/corda-docs-portal"
+  weight = 45
+
+[[social]]
   name = "R3 Developers GitHub"
   pre = "<svg width=\"26\" height=\"24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M13.162 0C6.372 0 .865 5.507.865 12.297c0 5.432 3.546 10.034 8.374 11.693.603.076.83-.301.83-.603v-2.113c-3.395.755-4.15-1.66-4.15-1.66-.528-1.433-1.357-1.81-1.357-1.81-1.132-.754.075-.754.075-.754 1.207.075 1.886 1.282 1.886 1.282 1.132 1.886 2.867 1.358 3.546 1.056.075-.83.452-1.358.754-1.66-2.716-.301-5.582-1.357-5.582-6.11 0-1.358.452-2.414 1.282-3.32-.075-.226-.528-1.508.15-3.168 0 0 1.057-.302 3.396 1.282.98-.301 2.037-.377 3.093-.377s2.112.151 3.093.377C18.594 4.828 19.65 5.13 19.65 5.13c.679 1.66.226 2.942.15 3.244a4.88 4.88 0 011.283 3.32c0 4.752-2.867 5.733-5.582 6.035.452.377.83 1.131.83 2.263v3.395c0 .302.226.679.83.603a12.31 12.31 0 008.373-11.693C25.46 5.507 19.952 0 13.162 0z\" fill=\"#FCFCFC\"/></svg>"
   url = "https://r3developer.github.io/"
@@ -41,12 +47,12 @@
 
 [[footer]]
   name = "Privacy Policy"
-  url = "https://www.corda.net/privacy-policy/"
+  url = "https://www.r3.com/privacy-policy/"
   weight = 20
 
 [[footer]]
   name = "Trademark Policy"
-  url = "https://www.corda.net/trademark-policy/"
+  url = "https://www.r3.com/trademark-policy/"
   weight = 30
 
 [[cenm-1-0]]
@@ -706,3 +712,80 @@ weight = 30
 identifier = "corda-os-4-8-contributing-index"
 name = "Participate"
 weight = 500
+
+#keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
+#[[tools-cdl]]
+#identifier = "tools-cdl"
+#name = "CorDapp Design Language (CDL)"
+#weight = 100
+
+#new platform section here
+#the homepage menu creates a left hand side menu inside all the landing pages
+#if an entry has a URL property, it is to artificially add the document into a second menu
+
+#this entry is required to create a link to the corda docs in the homepage menu
+[[homepage]]
+identifier = "platform-corda-os"
+parent = "platform-corda-4"
+url = "/en/platform/corda/4.8/open-source.html"
+name = "Corda open source"
+weight = 100
+
+#this entry is required to create a link to the corda ent docs in the homepage menu
+[[homepage]]
+identifier = "platform-corda-ent"
+parent = "platform-corda-4"
+url = "/en/platform/corda/4.8/enterprise.html"
+name = "Corda Enterprise"
+weight = 200
+
+#this entry is required to create a link to the cenm docs in the homepage menu
+[[homepage]]
+identifier = "platform-corda-cenm"
+parent = "platform-corda-4"
+url = "/en/platform/corda/1.5/cenm.html"
+name = "Corda Enterprise Network Manager"
+weight = 300
+
+#the following samples entries are for visual/demo purposes only and serve as links to github samples in the homepage menu
+[[homepage]]
+identifier = "sample-1"
+parent = "homepage-samples"
+name = "Sample 1"
+url = "https://github.com/"
+weight = 100
+
+[[homepage]]
+identifier = "sample-2"
+parent = "homepage-samples"
+name = "Sample 2"
+url = "https://github.com/"
+weight = 200
+
+[[homepage]]
+identifier = "sample-3"
+parent = "homepage-samples"
+name = "Sample 3"
+url = "https://github.com/"
+weight = 300
+
+#the following apps links are a little redundant but they create menu entries for homepage that also link to the apps docs menu
+[[homepage]]
+identifier = "apps-biab"
+parent = "homepage-apps"
+name = "Bank in a box"
+url = "/en/apps/bankinabox/bank-index.html"
+weight = 100
+
+#the following platform entries are non-document menu entries, they could be replaced with documents but new content would have to be created
+[[homepage]]
+identifier = "platform-corda-4"
+parent = "homepage-corda"
+name = "Corda 4"
+weight = 200
+
+[[homepage]]
+identifier = "platform-corda-5"
+parent = "homepage-corda"
+name = "Corda 5"
+weight = 100

@@ -1,12 +1,13 @@
 .docs-links,
 .docs-toc {
   scrollbar-width: thin;
-  scrollbar-color: $gray-300 $gray-300;
+  scrollbar-color: $gray-300 $gray-600;
 }
 
 .docs-links::-webkit-scrollbar,
 .docs-toc::-webkit-scrollbar {
   width: 5px;
+  height: 8px;
 }
 
 .docs-links::-webkit-scrollbar-track,
@@ -16,23 +17,23 @@
 
 .docs-links::-webkit-scrollbar-thumb,
 .docs-toc::-webkit-scrollbar-thumb {
-  background: $gray-300;
+  background: $gray-600;
 }
 
 .docs-links:hover,
 .docs-toc:hover {
   scrollbar-width: thin;
-  scrollbar-color: $gray-200 $gray-300;
+  scrollbar-color: $gray-300 $gray-700;
 }
 
 .docs-links:hover::-webkit-scrollbar-thumb,
 .docs-toc:hover::-webkit-scrollbar-thumb {
-  background: $gray-200;
+  background: $gray-700;
 }
 
 .docs-links::-webkit-scrollbar-thumb:hover,
 .docs-toc::-webkit-scrollbar-thumb:hover {
-  background: $gray-600;
+  background: $gray-800;
 }
 
 .docs-links h3,
@@ -49,8 +50,8 @@
   }
 
   .page-links h3 {
-    margin: 1.125rem 1.5rem 0.5rem 0;
-    padding: 1.375rem 0 0 0;
+    margin: 1rem 1.5rem 0.5rem 0;
+    padding: 0;
   }
 }
 
@@ -73,6 +74,7 @@ a.docs-link {
   display: block;
   padding: 0.125rem 0;
   font-size: $font-size-base * 0.9375;
+  word-break: break-word;
 }
 
 .docs-link:hover,
@@ -105,47 +107,73 @@ a.docs-link {
 }
 
 .docs-links {
-  .nav-item{
-    display: contents;
-
+  .nav-item {
+    display: block;
   }
 
-  button {
-    margin: 0.2rem 1.5rem 0.2rem 0;
-    font-size: $font-size-base * 0.9375;
-    font-weight: 500;
-    color: $black;
-    text-align: left;
-    width: calc(100% - 2.3rem);
-    background: none;
+  li {
+    button {
+      margin: 0.5625rem 0;
+      padding-left: 1.5rem;
+      padding-right: 0;
+      font-size: $font-size-base * 0.9375;
+      font-weight: 500;
+      color: $black;
+      text-align: left;
+      width: 100%;
+      background: none;
 
-    &.active {
-      font-weight: 600;
+      &.active {
+        font-weight: 600;
+      }
+
+      &::before {
+        width: 10px;
+        line-height: 0;
+        float: left;
+        display: inline-block;
+        position: relative;
+        top: 10px;
+        margin-left: -1.5rem;
+        content: url("/icons/icon-arrow-down.svg");
+        transition: transform 0.35s ease;
+      }
+
+      &[aria-expanded="true"]::before {
+        transform: rotate(-180deg);
+      }
+
+      &.collapsed::before {
+        transform: rotate(0deg) !important;
+      }
     }
 
-    &::after {
-      width: 10px;
-      line-height: 0;
-      float: right;
-      margin-top: 0.7rem;
-      margin-right: -10px;
-      content: url("/icons/icon-arrow-down.svg");
-      transition: transform 0.35s ease;
+    &.active > button,
+    &.active-page > button {
+      color: $link-color;
+
+      &::before {
+        transform: rotate(-180deg);
+      }
     }
 
-    &[aria-expanded="true"]::after {
-      transform: rotate(-180deg);
+    a {
+      &.docs-link {
+        font-size: $font-size-base;
+        font-weight: 600;
+      }
     }
   }
 
   div {
     &.sub-menu {
-      padding-left: 0.5rem;
+      padding-left: 1.5rem;
 
       li {
         a {
           &.docs-link {
             font-size: $font-size-base * 0.9375;
+            font-weight: 400;
           }
         }
       }
@@ -155,6 +183,7 @@ a.docs-link {
         border-left: 1px solid $submenu-bar-color;
         margin-top: 0.125rem;
         margin-bottom: 0.125rem;
+        margin-left: 1.5rem;
 
         li {
           a {
@@ -163,7 +192,6 @@ a.docs-link {
             }
 
             &:nth-child(1) {
-              margin-top: 0;
               padding-top: 0;
             }
 
@@ -186,7 +214,6 @@ a.docs-link {
   & > ul {
     & > li {
       & > button {
-        margin: 0.8rem 1.5rem 0.2rem 0 !important;
         font-size: $font-size-base;
         font-weight: 600 !important;
         color: $body-color;
@@ -196,15 +223,13 @@ a.docs-link {
 
   a {
     &.docs-link {
-      margin: 0.125rem 0;
+      margin: 0.25rem 0;
     }
 
     &:hover,
-    &.active,
-    &:hover {
-      text-decoration: none;
+    &.active {
+      text-decoration: underline;
       color: $link-color;
     }
   }
 }
-

@@ -1,14 +1,14 @@
-<div class="docs-feedback">
+<div class="docs-feedback d-none">
   <div class="d-flex">
     <h3>Was this page helpful?</h3>
   </div>
 
   <div class="row opinion">
     <div class="col text-center">
-      <button type="button" data-doc="{{ .File.Path }}" data-action="like" title="Yes" onclick="feedbackDocs(this)">
+      <button type="button" data-doc="{{ .File.Path }}" data-action="like" title="Yes" id="like-doc-btn">
         <img src="/icons/yes.svg" alt="Like" data-bs-toggle="collapse" data-bs-target="#opinion-like" aria-expanded="false" aria-controls="opinion-like">
       </button>
-      <button type="button" data-doc="{{ .File.Path }}" data-action="dislike" title="No" onclick="feedbackDocs(this)">
+      <button type="button" data-doc="{{ .File.Path }}" data-action="dislike" title="No" id="dislike-doc-btn">
         <img src="/icons/no.svg" alt="Dislike" data-bs-toggle="collapse" data-bs-target="#opinion-dislike" aria-expanded="false" aria-controls="opinion-dislike">
       </button>
     </div>
@@ -18,51 +18,77 @@
     <div class="col-16">
       <h4>Thanks for your feedback!</h4>
     </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Chat with us</h5>
+          <p class="card-text">
+            Chat with us on our #docs channel on slack. You can also join a lot of other slack channels there and have access to 1-on-1 communication with members of the R3 team and the online community.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="https://cordaledger.slack.com/archives/C01Q3RQ7E8M" target="_blank" class="btn rounded external" >Chat with us</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Propose documentation improvements directly</h5>
+          <p class="card-text">
+            Help us to improve the docs by contributing directly. It's simple - just fork this repository and raise a PR of your own - R3's Technical Writers will review it and apply the relevant suggestions.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="https://docs.r3.com/en/platform/corda/4.8/open-source/building-the-docs.html" target="_blank" class="btn rounded external" >Learn how</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="row collapse" id="opinion-dislike">
     <div class="col-16">
       <h4>We're sorry this page wasn't helpful. Let us know how we can make it better!</h4>
     </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Chat with us</h5>
-            <p class="card-text">
-              Join several channels and have access to 1-on-1 communication with members of R3's team and online community.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="http://slack.corda.net/" target="_blank" class="btn">Chat with us</a>
-          </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Chat with us</h5>
+          <p class="card-text">
+            Chat with us on our #docs channel on slack. You can also join a lot of other slack channels there and have access to 1-on-1 communication with members of the R3 team and the online community.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="https://cordaledger.slack.com/archives/C01Q3RQ7E8M" target="_blank" class="btn rounded external" >Chat with us</a>
         </div>
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Create an issue</h5>
-            <p class="card-text">
-              Submit technical feedback, raise attention for a possible bug, or share feedback using GitHub issues.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="https://github.com/corda/corda-docs/issues/new" target="_blank" class="btn">Create issue</a>
-          </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Create an issue</h5>
+          <p class="card-text">
+            Create a new GitHub issue in this repository - submit technical feedback, draw attention to a potential documentation bug, or share ideas for improvement and general feedback.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/corda/corda-docs/issues/new" target="_blank" class="btn rounded external" >Create a new issue</a>
         </div>
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Contribute to docs</h5>
-            <p class="card-text">
-              Noticed any outdated snippets or some code which doesn't reflect the latest code? Help us update the docs.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="{{ .Site.Params.docsRepo }}/blob/master/content/en/docs/{{ .File.Path }}" target="_blank" class="btn">Propose updates</a>
-          </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Propose documentation improvements directly</h5>
+          <p class="card-text">
+            Help us to improve the docs by contributing directly. It's simple - just fork this repository and raise a PR of your own - R3's Technical Writers will review it and apply the relevant suggestions.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="https://docs.r3.com/en/platform/corda/4.8/open-source/building-the-docs.html" target="_blank" class="btn rounded external" >Learn how</a>
         </div>
       </div>
+    </div>
   </div>
 
 

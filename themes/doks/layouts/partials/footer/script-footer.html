@@ -1,6 +1,9 @@
 {{ $indexTemplate := resources.Get "js/index.js" -}}
 {{ $index := $indexTemplate | resources.ExecuteAsTemplate "index.js" . -}}
 
+{{ $cookie := resources.Get "js/cookie-banner.js" -}}
+{{ $cookie := $cookie | js.Build -}}
+
 {{ $bs := resources.Get "js/bootstrap.js" -}}
 {{ $bs := $bs | js.Build -}}
 
@@ -11,6 +14,7 @@
 {{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" -}}
 
 {{ $app := resources.Get "js/app.js" -}}
+{{ $app := $app | js.Build -}}
 
 {{ $slice := slice $app -}}
 
@@ -33,7 +37,7 @@
 {{ end -}}
 
 {{ if .Site.Params.options.flexSearch -}}
-  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.min.js" -}}
+  {{ $flexSearch := resources.Get "js/vendor/flexsearch/dist/flexsearch.bundle.js" -}}
   {{ $slice = $slice | append $flexSearch -}}
 {{ end -}}
 
@@ -52,6 +56,7 @@
 {{ $js := $slice | resources.Concat "main.js" -}}
 
 {{ if eq (hugo.Environment) "development" -}}
+  <script src="{{ $cookie.Permalink }}" defer></script>
   {{ if .Site.Params.options.bootStrapJs -}}
     <script src="{{ $bs.Permalink }}" defer></script>
   {{ end -}}
@@ -63,13 +68,18 @@
     <script src="{{ $katexAutoRender.Permalink }}" onload="renderMathInElement(document.body);" defer></script>
   {{ end -}}
   <script src="{{ $js.Permalink }}" defer></script>
+
   {{ if .Site.Params.options.flexSearch -}}
     <script src="{{ $index.Permalink }}" defer></script>
   {{ end -}}
+
 {{ else -}}
   {{ $js := $js | minify | fingerprint "sha512" -}}
-  {{ $index := $index | minify | fingerprint "sha512" -}}
+  {{ if .Site.Params.options.flexSearch -}}
+    {{ $index := $index | minify | fingerprint "sha512" -}}
+  {{ end -}}
   {{ $bs := $bs | minify | fingerprint "sha512" -}}
+  {{ $cookie := $cookie | minify | fingerprint "sha512" -}}
   {{ $highlight := $highlight | minify | fingerprint "sha512" -}}
   {{ $katex := $katex | minify | fingerprint "sha512" -}}
   {{ $katexAutoRender := $katexAutoRender | minify | fingerprint "sha512" -}}
@@ -88,3 +98,10 @@
     <script src="{{ $index.Permalink }}" integrity="{{ $index.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
 {{ end -}}
+
+{{ if eq .IsHome true }}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="/js/home.js"></script>
+{{ end }}
