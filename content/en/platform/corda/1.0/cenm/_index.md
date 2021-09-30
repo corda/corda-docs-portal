@@ -26,80 +26,80 @@ Corda Network Foundation.
 The *Corda Enterprise Network Manager* encompasses three main services:
 
 
-* [Identity Manager Service](identity-manager.md) - Enables nodes to join the network, as well as handles revocation of a nodes certificate
-* [Network Map Service](network-map.md) - Provides a global view of the network
-* [Signing Service](signing-service.md) - Provides a way to sign approved requests to join the network (CSRs) or revoke a certificate
+* [Identity Manager Service](../../../../../en/platform/corda/1.0/cenm/identity-manager.md) - Enables nodes to join the network, as well as handles revocation of a nodes certificate
+* [Network Map Service](../../../../../en/platform/corda/1.0/cenm/network-map.md) - Provides a global view of the network
+* [Signing Service](../../../../../en/platform/corda/1.0/cenm/signing-service.md) - Provides a way to sign approved requests to join the network (CSRs) or revoke a certificate
 (CRRs) as well as changes to the network map
 
-For a quick start guide on running the ENM services see [Enterprise Network Manager Quick-Start Guide](quick-start.md).
+For a quick start guide on running the ENM services see [Enterprise Network Manager Quick-Start Guide](../../../../../en/platform/corda/1.0/cenm/quick-start.md).
 
 
 Concepts and Overview
 
-* [Compatibility Zones](compatibility-zones.md)
-* [Components of the Corda Enterprise Network Manager](enm-components.md)
-* [The Workflow](enm-components.md#the-workflow)
-* [Databases](enm-components.md#databases)
-* [Public Key Infrastructure](enm-components.md#public-key-infrastructure)
-* [The Node](enm-components.md#the-node)
-* [Sub Zones](sub-zones.md)
-* [Network Map Overview](network-map-overview.md)
-* [Certificate Revocation List (CRL)](certificate-revocation.md)
+* [Compatibility Zones](../../../../../en/platform/corda/1.0/cenm/compatibility-zones.md)
+* [Components of the Corda Enterprise Network Manager](../../../../../en/platform/corda/1.0/cenm/enm-components.md)
+* [The Workflow](../../../../../en/platform/corda/1.0/cenm/enm-components.html#the-workflow)
+* [Databases](../../../../../en/platform/corda/1.0/cenm/enm-components.html#databases)
+* [Public Key Infrastructure](../../../../../en/platform/corda/1.0/cenm/enm-components.html#public-key-infrastructure)
+* [The Node](../../../../../en/platform/corda/1.0/cenm/enm-components.html#the-node)
+* [Sub Zones](../../../../../en/platform/corda/1.0/cenm/sub-zones.md)
+* [Network Map Overview](../../../../../en/platform/corda/1.0/cenm/network-map-overview.md)
+* [Certificate Revocation List (CRL)](../../../../../en/platform/corda/1.0/cenm/certificate-revocation.md)
 
 
 
 
 ENM Releases
 
-* [Release notes](release-notes.md)
-* [Upgrading Corda Enterprise Network Manager](upgrade-notes.md)
-* [Changelog](changelog.md)
+* [Release notes](../../../../../en/platform/corda/1.0/cenm/release-notes.md)
+* [Upgrading Corda Enterprise Network Manager](../../../../../en/platform/corda/1.0/cenm/upgrade-notes.md)
+* [Changelog](../../../../../en/platform/corda/1.0/cenm/changelog.md)
 
 
 
 
 Operations
 
-* [Enterprise Network Manager Quick-Start Guide](quick-start.md)
-* [Identity Manager Service](identity-manager.md)
-* [Network Map Service](network-map.md)
-* [Signing Service](signing-service.md)
-* [Updating the network parameters](updating-network-parameters.md)
-* [Upgrading Corda Enterprise Network Manager](upgrade-notes.md)
-* [ENM Databases](database-set-up.md)
-* [Troubleshooting Common Issues](troubleshooting-common-issues.md)
+* [Enterprise Network Manager Quick-Start Guide](../../../../../en/platform/corda/1.0/cenm/quick-start.md)
+* [Identity Manager Service](../../../../../en/platform/corda/1.0/cenm/identity-manager.md)
+* [Network Map Service](../../../../../en/platform/corda/1.0/cenm/network-map.md)
+* [Signing Service](../../../../../en/platform/corda/1.0/cenm/signing-service.md)
+* [Updating the network parameters](../../../../../en/platform/corda/1.0/cenm/updating-network-parameters.md)
+* [Upgrading Corda Enterprise Network Manager](../../../../../en/platform/corda/1.0/cenm/upgrade-notes.md)
+* [ENM Databases](../../../../../en/platform/corda/1.0/cenm/database-set-up.md)
+* [Troubleshooting Common Issues](../../../../../en/platform/corda/1.0/cenm/troubleshooting-common-issues.md)
 
 
 
 
 Configuration
 
-* [Identity Manager Configuration Parameters](config-identity-manager-parameters.md)
-* [Network Map Configuration Parameters](config-network-map-parameters.md)
-* [Network Parameters](config-network-parameters.md)
-* [Configuring the ENM services to use SSL](enm-with-ssl.md)
-* [Workflow](workflow.md)
-* [Example response to a node when its CSR has been rejected:](workflow.md#example-response-to-a-node-when-its-csr-has-been-rejected)
+* [Identity Manager Configuration Parameters](../../../../../en/platform/corda/1.0/cenm/config-identity-manager-parameters.md)
+* [Network Map Configuration Parameters](../../../../../en/platform/corda/1.0/cenm/config-network-map-parameters.md)
+* [Network Parameters](../../../../../en/platform/corda/1.0/cenm/config-network-parameters.md)
+* [Configuring the ENM services to use SSL](../../../../../en/platform/corda/1.0/cenm/enm-with-ssl.md)
+* [Workflow](../../../../../en/platform/corda/1.0/cenm/workflow.md)
+* [Example response to a node when its CSR has been rejected:](../../../../../en/platform/corda/1.0/cenm/workflow.html#example-response-to-a-node-when-its-csr-has-been-rejected)
 
 
 
 
 Tools & Utilities
 
-* [Tools & Utilities](tools-index.md)
-* [Embedded Shell](shell.md)
+* [Tools & Utilities](../../../../../en/platform/corda/1.0/cenm/tools-index.md)
+* [Embedded Shell](../../../../../en/platform/corda/1.0/cenm/shell.md)
 
 
 
 
 Private Networks
 
-* [Private Network Map](private-network-map.md)
+* [Private Network Map](../../../../../en/platform/corda/1.0/cenm/private-network-map.md)
 
 
 
 
 Public Key Infrastructure
 
-* [Certificate Hierarchy Generation using the PKI Tool](pki-guide.md)
-* [Public Key Infrastructure (PKI) Tool](pki-tool.md)
+* [Certificate Hierarchy Generation using the PKI Tool](../../../../../en/platform/corda/1.0/cenm/pki-guide.md)
+* [Public Key Infrastructure (PKI) Tool](../../../../../en/platform/corda/1.0/cenm/pki-tool.md)
