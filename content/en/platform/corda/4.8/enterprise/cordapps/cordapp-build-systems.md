@@ -321,7 +321,7 @@ You could sign the CorDapp automatically by:
 Nodes only accept CorDapps signed by Corda development certificates when running in development mode. If you need to run a CorDapp signed by the (default) development key in the production mode (for example, for testing), add the `cordappSignerKeyFingerprintBlacklist = []` property set to an empty list. See
 [Configuring a node](../node/setup/corda-configuration-file.md#corda-configuration-file-signer-blacklist)).
 
-You can use one `build.gradle` file for both a development build (defaulting to the Corda development keystore) and for a production build (using an external keystore) by contexually overwriting signing options using system properties.  
+You can use one `build.gradle` file for both a development build (defaulting to the Corda development keystore) and for a production build (using an external keystore) by contexually overwriting signing options using system properties.
 
 An example of the system properties setup for a build process that overrides signing options:
 
@@ -455,7 +455,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-You can find an example project that demonstrates this in the `samples` folder of the Corda Git repository, `cordapp-configuration` . You can also refer to the [API documentation](https://api.corda.net/api/corda-enterprise/4.8/html/api/kotlin/corda/net.corda.core.cordapp/index.html).
+You can find an example project that demonstrates this in the `samples` folder of the Corda Git repository, `cordapp-configuration` . You can also refer to the [API documentation](https://api.corda.net/api/4.8/enterprise/html/api/kotlin/corda/net.corda.core.cordapp/index.html).
 
 
 ## Minimum and target platform version
@@ -612,7 +612,7 @@ Deterministic JVM is integrated into Corda whereby execution takes place in a sa
 ## Install the CorDapp
 
 {{< note >}}
-Before you install a CorDapp `.jar`, you must [create one or more nodes](https://docs.corda.net/docs/corda-enterprise/4.8/operations/deployment/generating-a-node.html) to install it on.
+Before you install a CorDapp `.jar`, you must [create one or more nodes](https://docs.corda.net/docs/4.8/enterprise/operations/deployment/generating-a-node.html) to install it on.
 
 {{< /note >}}
 Nodes load any CorDapps present in their `cordapps` folder at startup. To install a CorDapp on a node, you must add the

@@ -37,9 +37,9 @@ In this patch release:
 * Performance verification of the HA Notary with CockroachDB 20.2.8 has been carried out - performance is not worse in comparison to the HA Notary configured on CockroachDB 20.1.6.
 * Support for PostgreSQL 13.3 for node databases has been added.
 * Hibernate ORM has been updated to version to 5.4.32 to remove a security concern.
-* The [Node management console](https://docs.corda.net/docs/corda-enterprise/4.8/node/management-console.html#node-management-console) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
-The [Flow management console](https://docs.corda.net/docs/corda-enterprise/4.8/node/node-flow-management-console.html#flow-management-console) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
-* LedgerGraph has been updated to version 1.2.2. This upgrade minimizes memory footprint, and is not a functional change. 
+* The [Node management console](https://docs.corda.net/docs/4.8/enterprise/node/management-console.html#node-management-console) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
+The [Flow management console](https://docs.corda.net/docs/4.8/enterprise/node/node-flow-management-console.html#flow-management-console) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
+* LedgerGraph has been updated to version 1.2.2. This upgrade minimizes memory footprint, and is not a functional change.
 
 
 
@@ -86,7 +86,7 @@ The [JPA notary](notary/installing-jpa.md) now supports [Oracle DB version 19c](
 
 ### Azure managed identities authentication
 
-If you use an Azure Key Vault HSM with Corda Enterprise, you can now use an existing Azure Managed Identities service as authentication. 
+If you use an Azure Key Vault HSM with Corda Enterprise, you can now use an existing Azure Managed Identities service as authentication.
 
 See [Using an HSM with Corda Enterprise](node/operating/cryptoservice-configuration.md#azure-keyvault) for more information.
 
@@ -128,5 +128,5 @@ Corda Enterprise 4.8 fixes:
 * An issue with the Oracle 12c database that causes the JDBC driver to hang if blocked by an empty entropy pool.
 
 {{< note >}}
-This issue is specific to Corda Enterprise 4.8. Known issues relating to other versions of Corda Enterprise are listed in the release notes for each version.  
+This issue is specific to Corda Enterprise 4.8. Known issues relating to other versions of Corda Enterprise are listed in the release notes for each version.
 {{< /note >}}

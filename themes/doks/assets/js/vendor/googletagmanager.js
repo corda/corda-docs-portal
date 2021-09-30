@@ -7,5 +7,5 @@ export function setupGtag() {
     window.dataLayer.push( arguments );
   };
   window.gtag( 'js', new Date() );
-  window.gtag('config', google_tag_manager_id);
+  window.gtag('config', 'G-NCYRYSGJ7C');
 }

@@ -50,7 +50,7 @@ To view the full code sample, see [NodeFlowStatusRpcOps.kt](../../resources/exte
 The Multi RPC Client version must be aligned with the node version, meaning that both must be running the same Corda Enterprise version.
 {{< /warning >}}
 
-For details of how to build a Multi RPC Client, see [Building a Multi RPC Client](clientrpc.md). See also [MultiRPCClient](https://api.corda.net/api/corda-enterprise/4.8/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
+For details of how to build a Multi RPC Client, see [Building a Multi RPC Client](clientrpc.md). See also [MultiRPCClient](https://api.corda.net/api/4.8/enterprise/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
 
 ### Specifying the query criteria
 

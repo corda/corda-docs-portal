@@ -70,7 +70,7 @@ Before signature constraints were released with Corda 4.0, constraints were mana
 * **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
 * **Compatibility zone whitelisted (or CZ whitelisted) constraint**: The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
 
-Learn more about [constraints before Corda 4.0](https://docs.corda.net/docs/corda-enterprise/3.3/api-contract-constraints.html#how-constraints-work). You can also [migrate CorDapp contraints](cordapp-constraint-migration.md) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
+You can [migrate CorDapp contraints](cordapp-constraint-migration.md) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
 
 
 ## Signature constraints
@@ -122,7 +122,7 @@ If you need to prevent a signer from processing transactions, you can *blacklist
 CorDapps and other attachments installed on a node still run, even if they are signed by a blacklisted key. Only attachments
 received from a peer are affected.
 
-You can also [blacklist keys](../node/setup/corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys).
+You can also [blacklist keys](corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys).
 
 Below are two examples of scenarios involving blacklisted signing keys. In each example:
 
@@ -345,7 +345,7 @@ Driver.driver(
 
 ### Starting a node that is missing CorDapp(s)
 
-Make sure you place all CorDapp `.jar`s in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all `.jar`s by default, if you have specified CorDapps to deploy. See [Creating nodes locally](https://docs.corda.net/docs/corda-enterprise/4.8/node/deploy/generating-a-node.html#creating-nodes-locally) for detailed instructions.
+Make sure you place all CorDapp `.jar`s in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all `.jar`s by default, if you have specified CorDapps to deploy. See [Creating nodes locally](generating-a-node.md#creating-nodes-locally) for detailed instructions.
 
 
 ### Including an incorrect fully-qualified contract name

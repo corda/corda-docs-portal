@@ -2,14 +2,19 @@ function handleFeedbackClick(element){
   var opposite = (element.dataset.action === 'like') ? 'opinion-dislike' : 'opinion-like';
   document.getElementById(opposite).classList.remove('show');
 
-  ga('send', 'event', 'Feedback', element.dataset.action, element.dataset.doc);
+  window.gtag('event', element.dataset.action, {
+    'event_category': element.dataset.action,
+    'event_label': element.dataset.doc,
+  });
+  // ga('send', 'event', 'Feedback', element.dataset.action, element.dataset.doc);
 }
 
 export function feedbackDocs(){
   var div_feedback = document.getElementsByClassName('docs-feedback')[0];
 
   if (typeof div_feedback !== 'undefined'){
-    if (typeof ga !== 'undefined') {
+    if (typeof window.gtag !== 'undefined') {
+    // if (typeof ga !== 'undefined') {
       div_feedback.classList.remove('d-none');
 
       var like = document.getElementById('like-doc-btn');
@@ -24,7 +29,8 @@ export function feedbackDocs(){
       });
     }
     else{
-      console.error('Google Analytic not load');
+      console.error('Google Tag Manager not loading');
+      // console.error('Google Analytics not loading');
     }
   }
 }
