@@ -1,5 +1,12 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleTagManagerID }}"></script>
 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NCYRYSGJ7C');
+</script>
+
 <script type="text/javascript">
   {{ if .Site.Params.options.algolia -}}
     const algolia_appId = "{{ .Site.Params.algolia_appId }}";

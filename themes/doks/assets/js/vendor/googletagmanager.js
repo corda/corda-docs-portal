@@ -7,5 +7,5 @@ export function setupGtag() {
     window.dataLayer.push( arguments );
   };
   window.gtag( 'js', new Date() );
-  window.gtag('config', G-NCYRYSGJ7C);
+  window.gtag('config', 'G-NCYRYSGJ7C');
 }
