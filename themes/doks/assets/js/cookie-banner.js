@@ -1,7 +1,9 @@
 import CookiesEuBanner from './vendor/cookies-eu-banner';
-import { googleAnalytics } from './vendor/googleanalytics';
-import {feedbackDocs} from './feedback';
+import { feedbackDocs } from "./feedback";
+// import { googleAnalytics } from './vendor/googleanalytics';
+// import {feedbackDocs} from './feedback';
 import { docSearchInit } from './vendor/doc-search';
+import { setupGtag } from "./vendor/googletagmanager";
 
 const docsearchLoad = (resolve, reject) => {
   const script = document.createElement('script');
@@ -137,7 +139,8 @@ export class DocsiteCookies {
           .catch(err => console.log(err));
       }
       if (key === 'statistics' && value === true) {
-        googleAnalytics();
+        setupGtag();
+        // googleAnalytics();
         feedbackDocs();
       }
     }

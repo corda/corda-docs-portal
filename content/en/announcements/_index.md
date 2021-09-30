@@ -6,8 +6,6 @@ menu:
     name: News and announcements
     weight: 100000
     identifier: homepage-announcements
-  announcements:
-    weight: 10
 project: announcements
 version: 'announcements'
 title: News and announcements
