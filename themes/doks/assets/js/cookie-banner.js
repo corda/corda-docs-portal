@@ -1,7 +1,5 @@
 import CookiesEuBanner from './vendor/cookies-eu-banner';
 import { feedbackDocs } from "./feedback";
-// import { googleAnalytics } from './vendor/googleanalytics';
-// import {feedbackDocs} from './feedback';
 import { docSearchInit } from './vendor/doc-search';
 import { setupGtag } from "./vendor/googletagmanager";
 
@@ -140,7 +138,6 @@ export class DocsiteCookies {
       }
       if (key === 'statistics' && value === true) {
         setupGtag();
-        // googleAnalytics();
         feedbackDocs();
       }
     }
