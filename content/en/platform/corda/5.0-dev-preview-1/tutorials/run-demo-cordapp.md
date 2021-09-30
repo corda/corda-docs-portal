@@ -75,18 +75,22 @@ The project containing the sample CorDapp opens.
 
 1. Navigate to the root directory of the project from the command line.
 
-2. Deploy your network by building the network deployment Docker file using Corda CLI:
+2. Configure the network:
+
+`corda-cli network config docker-compose solar-system`
+
+3. Deploy your network by building the network deployment Docker file using Corda CLI:
   `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose`
 
     The `-n` here is the name of the network. The `-f` is the network definition file.
 
     After you run the command, you will see a new `docker-compose.yaml` file in your project. This contains all of the details for your network, which is now ready to go.
 
-2. Run a Gradle command to build the CorDapp and generate the `.cpk` files:
+4. Run a Gradle command to build the CorDapp and generate the `.cpk` files:
 
   `gradlew build`
 
-3. Use the `cordapp-builder` CLI utility to bundle the `.cpk` files into an easy-to-use `.cpb` file:
+5. Use the `cordapp-builder` CLI utility to bundle the `.cpk` files into an easy-to-use `.cpb` file:
 
   `cordapp-builder create --cpk contracts\build\libs\corda5-solar-system-contracts-cordapp.cpk --cpk workflows\build\libs\corda5-solar-system-workflows-cordapp.cpk -o corda5-hello-solarsystem.cpb`
 
@@ -98,12 +102,12 @@ This command also specifies the output file. In this case, the output file is `c
 
   If you have an error in your command, the segment with the error is returned in red.
 
-4. Deploy the network using `docker-compose`:
+6. Deploy the network using `docker-compose`:
   `docker-compose -f docker-compose.yaml up`
 
   This command references the name of the `docker-compose` file generated in step 2.
 
-5. Check the CorDapp's status with Corda CLI:
+7. Check the CorDapp's status with Corda CLI:
   `corda-cli network status -n solar-system`
 
   You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
@@ -111,7 +115,7 @@ This command also specifies the output file. In this case, the output file is `c
   {{< note >}}
   Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-the-sample-cordapp-using-swagger-ui) or [Corda Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
   {{< /note >}}
-6. Install the application on the network using Corda CLI.
+8. Install the application on the network using Corda CLI.
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
 
@@ -121,13 +125,16 @@ In Corda 4, this process was much more involved. Now you can install the applica
 
   After running this command, your CorDapp is up and running.
 
-7. Double-check that everything is working properly:
+9. Double-check that everything is working properly:
     1. Open Docker.
     2. Go to **Containers/Apps**.
     3. Select the project.
 
-
 A drop down opens, displaying each node, its status, and its port.
+
+{{< note >}}
+If you need to remove the network, use this command: `corda-cli network terminate -fn <network name>`.
+{{< /note >}}
 
 ## Test the CorDapp
 
