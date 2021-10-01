@@ -11,7 +11,7 @@ title: LedgerGraph
 
 # LedgerGraph
 
-LedgerGraph is a CorDapp you can use to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where LedgerGraph is installed. As not all transactions are related to all other transactions, there can actually be multiple components in the graph: each a directed acyclic graph (DAG).
+LedgerGraph is a CorDapp you can use to get in-memory access to transaction data. If you install LedgerGraph on a node, it keeps transaction information in a graph structure. As not all transactions are related to all other transactions, there can actually be multiple components in the graph: each a directed acyclic graph (DAG).
 
 LedgerGraph enables other CorDapps, such as the set of Collaborative Recovery CorDapps, to have near real-time access to data concerning all of a node’s transactions and their relationships. Without it, many operations would be unacceptably slow and impractical.
 
