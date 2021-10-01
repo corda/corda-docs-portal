@@ -22,7 +22,7 @@ Corda Enterprise 4.5.5 is a patch release of Corda Enterprise that fixes a secur
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
 As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
 
@@ -39,9 +39,9 @@ Corda Enterprise 4.5.4 is a patch release of Corda Enterprise that fixes a secur
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../..//en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../..//en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -53,13 +53,13 @@ Corda Enterprise 4.5.3 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a developer, you should upgrade to the [latest released version of Corda](../../../../..//en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../..//en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 
 ### Fixed issues
 
-* We have fixed several issues that caused memory leaks. As a result, we have added two new node configuration fields - `attachmentClassLoaderCacheSize` and `enableURLConnectionCache`. See the [node configuration fields page](node/setup/corda-configuration-fields.md#enterpriseconfiguration) for details.
+* We have fixed several issues that caused memory leaks. As a result, we have added two new node configuration fields - `attachmentClassLoaderCacheSize` and `enableURLConnectionCache`. See the [node configuration fields page](../../../../../en/platform/corda/4.5/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) for details.
 * We have fixed an issue where the HA utilities tool does not write the correct log file.
 * We have fixed an issue that prevented the HA utilities tool loading third-party HSM `.jar` files from the `drivers` directory when the `generate-internal-tunnel-ssl-keystores` command is run.
 * Corda Enterprise 4.5.3 now supports version 3.2.1 of the AWS CloudHSM client library.
@@ -78,16 +78,16 @@ Corda Enterprise 4.5.2 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../..//en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../..//en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by Corda Enterprise Network Manager (CENM) was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in [CENM 1.2](https://docs.corda.net/docs/cenm/1.2.html)) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [CENM PKI Tool](https://docs.corda.net/docs/cenm/pki-tool.html) now generates certificates with serial number sizes of up to 16 octets/bytes. This fix provides better support for Node and HA tools.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by Corda Enterprise Network Manager (CENM) was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in [CENM 1.2](../../../../../en/platform/corda/1.2/cenm.html)) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [CENM PKI Tool](../../../../../en/platform/corda/1.2/cenm/pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes. This fix provides better support for Node and HA tools.
 * We have fixed an issue where the Corda node would not start up (when not in `dev` mode) if a Network Map Service instance was not running.
-* We have fixed an issue where the [Health Survey Tool](health-survey.md) would hang after performing all its checks if at the same time the external Artemis server was stopped during the "Received ECHO from bridge" step.
-* We have fixed an issue where [Health Survey Tool](health-survey.md) would stall on node RPC invocation check when the node was started while the [CENM Network Map Service](https://docs.corda.net/docs/cenm/network-map.html) was down.
+* We have fixed an issue where the [Health Survey Tool](../../../../../en/platform/corda/4.5/enterprise/health-survey.md) would hang after performing all its checks if at the same time the external Artemis server was stopped during the "Received ECHO from bridge" step.
+* We have fixed an issue where [Health Survey Tool](../../../../../en/platform/corda/4.5/enterprise/health-survey.md) would stall on node RPC invocation check when the node was started while the [CENM Network Map Service](../../../../../en/platform/corda/1.2/cenm/network-map.html) was down.
 * We have fixed an issue where some existing customer CorDapps that were working on Corda Enterprise 4.3 could not be registered successfully when Corda Enterprise was upgraded to version 4.5.
 
 ## Corda Enterprise 4.5.1
@@ -96,14 +96,14 @@ Corda Enterprise 4.5.1 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
 * Fixed an issue where the Classloader failed to find a Command class when Optional generic was used on Type definition.
-* The [Configuraton Obfuscator tool](tools-config-obfuscator.md) has been fixed to work for HSM configuration files.
+* The [Configuraton Obfuscator tool](../../../../../en/platform/corda/4.5/enterprise/tools-config-obfuscator.md) has been fixed to work for HSM configuration files.
 * Fixed an issue where retrying session inits could fail due to database connectivity.
 * The H2 version has been reverted to 1.4.197 to avoid a dependency issue introduced after the previous upgrade.
 * The CPU usage of the `NodeMeteringBackground` process has been decreased.
@@ -116,11 +116,11 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 ## Corda Enterprise 4.5 release overview
 
-This release extends the [Corda Enterprise 4.4 release](../4.4/release-notes-enterprise.md) with further performance, resilience, and operational improvements.
+This release extends the [Corda Enterprise 4.4 release](../../../../../en/platform/corda/4.4/enterprise/release-notes-enterprise.md) with further performance, resilience, and operational improvements.
 
-Corda Enterprise 4.5 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. See the Corda Enterprise [platform support matrix](platform-support-matrix.md) for more information.
+Corda Enterprise 4.5 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. See the Corda Enterprise [platform support matrix](../../../../../en/platform/corda/4.5/enterprise/platform-support-matrix.md) for more information.
 
-Corda Enterprise 4.5 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](../../corda-os/4.5/release-notes.md) for more information.
+Corda Enterprise 4.5 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](../../../../../en/platform/corda/4.5/open-source/release-notes.md) for more information.
 
 ## New features and enhancements
 
@@ -130,30 +130,30 @@ As part of Corda Enterprise 4.5 we have introduced significant performance enhan
 
 We have reduced the latency of `FinalityFlow` and `CollectSignaturesFlow`. This was achieved by parallelising various areas of the platform, such as backchain resolution, collection of signatures, and broadcast of finalised transaction to peers. Note that no CorDapp changes are required to benefit from these changes.
 
-We have introduced [new flow framework APIs](cordapps/api-flows.md#communication-between-parties) (`sendAll`/`sendAllMap`), which can be used to send messages to multiple counterparties with improved performance. Previously, a flow was able to send messages to multiple counterparties by using the [send API](cordapps/api-flows.md#send) once for each counterparty. These new APIs can now be used to achieve the same with better performance, which comes from a smaller number of suspensions and checkpoints.
+We have introduced [new flow framework APIs](../../../../../en/platform/corda/4.5/enterprise/cordapps/api-flows.html#communication-between-parties) (`sendAll`/`sendAllMap`), which can be used to send messages to multiple counterparties with improved performance. Previously, a flow was able to send messages to multiple counterparties by using the [send API](../../../../../en/platform/corda/4.5/enterprise/cordapps/api-flows.html#send) once for each counterparty. These new APIs can now be used to achieve the same with better performance, which comes from a smaller number of suspensions and checkpoints.
 
 {{< note >}}
 Existing CorDapps will have to be updated to benefit from the new API.
 {{< /note >}}
 
-We have introduced compression of messages exchanged between nodes during flows which can improve performance in terms of both latency and throughput. The performance improvement gained depends upon environmental factors, such as network configuration or hardware specification. This option is enabled by default but can be disabled if desired via the `enableP2PCompression` [node configuration option](node/setup/corda-configuration-fields.md#enablep2pcompression).
+We have introduced compression of messages exchanged between nodes during flows which can improve performance in terms of both latency and throughput. The performance improvement gained depends upon environmental factors, such as network configuration or hardware specification. This option is enabled by default but can be disabled if desired via the `enableP2PCompression` [node configuration option](../../../../../en/platform/corda/4.5/enterprise/node/setup/corda-configuration-fields.html#enablep2pcompression).
 
 
 ### Corda Enterprise images on DockerHub
 
 Official Corda Enterprise Docker images are now available directly on [DockerHub](https://hub.docker.com/u/corda).
 
-Furthermore, we have updated our `Dockerform` [local development task](node/deploy/generating-a-node.md) to make use of the new Docker images and to default to using PostgreSQL as the chosen node database.
+Furthermore, we have updated our `Dockerform` [local development task](../../../../../en/platform/corda/4.5/enterprise/node/deploy/generating-a-node.md) to make use of the new Docker images and to default to using PostgreSQL as the chosen node database.
 
 {{< note >}}
-To run the Corda Enterprise images, the Corda Enterprise evaluation must be programmatically accepted via a dedicated environment variable. See the [official Corda Docker image](docker-image.md) documentation section for more information.
+To run the Corda Enterprise images, the Corda Enterprise evaluation must be programmatically accepted via a dedicated environment variable. See the [official Corda Docker image](../../../../../en/platform/corda/4.5/enterprise/docker-image.md) documentation section for more information.
 {{< /note >}}
 
 ### Further Hardware Security Module (HSM) support
 
 Corda Enterprise 4.5 introduces the ability to use AWS CloudHSM to secure the cryptographic keys used by a node. Legal identity, TLS Firewall and Confidential Identity keys can now all be stored in an AWS HSM.
 
-See the [platform support matrix](platform-support-matrix.md) documentation section for more information.
+See the [platform support matrix](../../../../../en/platform/corda/4.5/enterprise/platform-support-matrix.md) documentation section for more information.
 
 ### Collaborative Recovery CorDapps for disaster recovery
 
@@ -161,7 +161,7 @@ Corda Enterprise 4.5 introduces a new suite of utility CorDapps that can help yo
 
 The `LedgerSync` CorDapp can be used to routinely check the ledger for data inconsistencies between nodes, without compromising security. In the rare event that an inconsistency is discovered, the CorDapp `LedgerRecover` can be deployed in either Automatic recovery or Manual recovery mode (for more serious data loss) to securely recover the missing data from nodes across the network.
 
-See the [Collaborative Recovery](node/collaborative-recovery/introduction-cr.md) documentation section for more information.
+See the [Collaborative Recovery](../../../../../en/platform/corda/4.5/enterprise/node/collaborative-recovery/introduction-cr.md) documentation section for more information.
 
 #### The `LedgerSync` CorDapp as a stand alone tool
 
@@ -178,13 +178,13 @@ The CorDapp is designed to diagnose ledger inconsistencies caused by either of t
 
 `LedgerSync` is designed to be compliant with the Corda privacy model. It does not share any transaction information with network peers that shouldn’t already have access to it.
 
-See the `LedgerSync` [documentation section](node/collaborative-recovery/ledger-sync.md) for more information.
+See the `LedgerSync` [documentation section](../../../../../en/platform/corda/4.5/enterprise/node/collaborative-recovery/ledger-sync.md) for more information.
 
 ### HA Notary readback queue
 
 Each Notary worker now has a readback queue. This queue collects recently-spent states, then double-checks that they have correctly been recorded as spent in the Notary database. If this mechanism detects an inconsistency, an error is recorded in the worker’s log file, and a JMX metric for unpersisted DB records is updated.
 
-See the [database monitoring agent](notary/notary-monitoring.md) documentation section for more information.
+See the [database monitoring agent](../../../../../en/platform/corda/4.5/enterprise/notary/notary-monitoring.md) documentation section for more information.
 
 ### Notary double-spend tool
 
@@ -192,33 +192,33 @@ A double-spend occurs when a state that the notary has marked as spent is used a
 
 Corda Enterprise 4.5 introduces the `Spent State Audit Tool` - a new command-line tool that enables notary operators to obtain a list of transactions that attempted to double-spend a state. The information provided by the tool can be used to undertake root cause analysis on a double-spend attempt that has occurred on the network.
 
-Please consult the `Spent State Audit Tool` [documentation](notary/spent-state.md) section for more information.
+Please consult the `Spent State Audit Tool` [documentation](../../../../../en/platform/corda/4.5/enterprise/notary/spent-state.md) section for more information.
 
 {{< note >}}
-A change in the notary database schema is required to run the tool - see the [documentation](notary/spent-state.md) for details.
+A change in the notary database schema is required to run the tool - see the [documentation](../../../../../en/platform/corda/4.5/enterprise/notary/spent-state.md) for details.
 {{< /note >}}
 
 #### Metering improvements
 
-The [Metering Collector CorDapps](metering-collector.md) have been extended to request a summary of Corda Enterprise usage from one or more other participants on the network via the flow framework. This feature is designed to support Business Network Operators (BNOs) and comes with strong built-in privacy controls to ensure that each user has to opt in to sharing their information.
+The [Metering Collector CorDapps](../../../../../en/platform/corda/4.5/enterprise/metering-collector.md) have been extended to request a summary of Corda Enterprise usage from one or more other participants on the network via the flow framework. This feature is designed to support Business Network Operators (BNOs) and comes with strong built-in privacy controls to ensure that each user has to opt in to sharing their information.
 
 ### RPC auditing
 
 Corda Enterprise nodes now maintain an audit trail of RPC usage. Whenever a user attempts to perform an RPC call, the information will be recorded by the node in an off-ledger database table. The information can be downloaded locally in CSV or JSON format by an authorised user via a dedicated RPC operation.
 
-See the [RPC Audit Collection Tool](rpc-audit-collector.md) documentation section for more information.
+See the [RPC Audit Collection Tool](../../../../../en/platform/corda/4.5/enterprise/rpc-audit-collector.md) documentation section for more information.
 
 ### Monitoring
 
-Our documentation on monitoring has been revamped and now includes [improved guidance](node/operating/node-administration.md#monitoring-your-node) for node operators.
+Our documentation on monitoring has been revamped and now includes [improved guidance](../../../../../en/platform/corda/4.5/enterprise/node/operating/node-administration.html#monitoring-your-node) for node operators.
 
-Furthermore, Corda Enterprise nodes expose additional metrics. The list of all metrics exposed by the node is available [here](node-metrics.md).
+Furthermore, Corda Enterprise nodes expose additional metrics. The list of all metrics exposed by the node is available [here](../../../../../en/platform/corda/4.5/enterprise/node-metrics.md).
 
-We have also provided a list of [common node monitoring scenarios](node/operating/monitoring-scenarios.md).
+We have also provided a list of [common node monitoring scenarios](../../../../../en/platform/corda/4.5/enterprise/node/operating/monitoring-scenarios.md).
 
 ### Corda Enterprise Configuration Obfuscator
 
-We have unified the [configuration obfuscation](tools-config-obfuscator.md) tools for Corda Enterprise and the Corda Enterprise Network Manager under a single `.jar` file. The new tool provides the same level of functionality of its predecessors.
+We have unified the [configuration obfuscation](../../../../../en/platform/corda/4.5/enterprise/tools-config-obfuscator.md) tools for Corda Enterprise and the Corda Enterprise Network Manager under a single `.jar` file. The new tool provides the same level of functionality of its predecessors.
 
 #### Security updates
 
@@ -232,19 +232,19 @@ The following libraries have been updated:
 The Tokens SDK has been extended to provide a consistent API for use in both Java and Kotlin.
 
 The documentation has been relocated to the main Corda and Corda Enterprise documentation site, and a comprehensive training module for developers added to the Corda training site.
-[Read the documentation](cordapps/token-sdk-introduction.md).
+[Read the documentation](../../../../../en/platform/corda/4.5/enterprise/cordapps/token-sdk-introduction.md).
 [Explore the training module](https://training.corda.net/libraries/tokens-sdk/).
 
 ### Other improvements
 
 * All database columns containing datestamps have been standardised to use UTC (the time zone used was previously inconsistent).
-* The HSM name used in the HA Utilities `--bridge-hsm-name` and `--float-hsm-name` command-line parameters should now exactly match `cryptoServiceName`, as described [here](cryptoservice-configuration.md).
+* The HSM name used in the HA Utilities `--bridge-hsm-name` and `--float-hsm-name` command-line parameters should now exactly match `cryptoServiceName`, as described [here](../../../../../en/platform/corda/4.5/enterprise/cryptoservice-configuration.md).
 
 ## Platform version change
 
 The platform version of Corda Enterprise 4.5 has been bumped up from 6 to 7 due to the addition of the new flow framework APIs `sendAll` and `sendAllMap`, which can be used to send messages to multiple counterparties with improved performance.
 
-For more information about platform versions, see [Versioning](../../corda-os/4.5/versioning.md).
+For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.5/open-source/versioning.md).
 
 ## Fixed issues
 
@@ -280,5 +280,5 @@ For more information about platform versions, see [Versioning](../../corda-os/4.
 * We have fixed an issue where the Corda Health Survey tool ignored HTTP 301 and 404 response codes when resolving network information.
 * We have fixed an issue where the Corda Health Survey tool did not perform HTTP / HTTPS network map redirections.
 * We have fixed an issue with a flaky test where `net.corda.coretests.transactions.AttachmentsClassLoaderTests.attachment` was still available in verify after forced garbage collection.
-* We have moved the `backchainFetchBatchSize` option, used for bulk backchain resolution, into the correct Corda Enterprise-specific tuning section of the [Node configuration](node/setup/corda-configuration-file.md) (this section contains options that should be changed only in consultation with R3).
-* We have fixed an issue where sensitive information was exposed as plain text in logs and the shell terminal when using the [Database Management Tool](database-management-tool.md).
+* We have moved the `backchainFetchBatchSize` option, used for bulk backchain resolution, into the correct Corda Enterprise-specific tuning section of the [Node configuration](../../../../../en/platform/corda/4.5/enterprise/node/setup/corda-configuration-file.md) (this section contains options that should be changed only in consultation with R3).
+* We have fixed an issue where sensitive information was exposed as plain text in logs and the shell terminal when using the [Database Management Tool](../../../../../en/platform/corda/4.5/enterprise/database-management-tool.md).
