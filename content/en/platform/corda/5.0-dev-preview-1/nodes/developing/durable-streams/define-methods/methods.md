@@ -194,7 +194,7 @@ The OpenAPI definition of `NumberseqRetrieveRequest` includes `DurableStreamCont
 `DurableStreamContext` is not specific to this method. It is a mandatory, complex parameter which HTTP-RPC clients
 **must** pass with every call.
 
-Read [how to implement durable streams on the server](../implement-server/implement-server.md) for more information on using `DurableStreamContext`.
+Read [how to implement durable streams on the server](../../../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/durable-streams/implement-server/implement-server.md) for more information on using `DurableStreamContext`.
 {{< /note >}}
 
 If the request is successful, the HTTP-RPC server will reply with `DurableReturnResult_of_String`,
@@ -208,7 +208,7 @@ frequently.
 
 Finite durable streams have all the characteristics of [infinite durable streams](#define-infinite-durable-streams), however,
 they have an extended ability to tell the HTTP-RPC client that the end of the stream has been reached and it can stop
-[polling](../durable-streams-homepage.html#polling-requests).
+[polling](../../../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/durable-streams/durable-streams-homepage.html#polling-requests).
 
 Here is an `RPCOps` interface definition for a finite durable stream:
 
