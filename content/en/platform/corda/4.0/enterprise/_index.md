@@ -63,12 +63,12 @@ applications can now specify a **target version** in their JAR manifest that dec
 They can also specify a **minimum platform version** which specifies the minimum version a node must be running on
 to allow the app to start using new features and APIs of that version.
 
-You can learn more about all new features in the [Enterprise](release-notes-enterprise.md) and [Open Source](release-notes.md) release notes.
+You can learn more about all new features in the [Enterprise](../../../../../en/platform/corda/4.0/enterprise/release-notes-enterprise.md) and [Open Source](../../../../../en/platform/corda/4.0/open-source/release-notes.md) release notes.
 
 
 Corda Enterprise is binary compatible with apps developed for the open source node. This docsite is intended for
 administrators and advanced users who wish to learn how to install and configure an enterprise deployment. For
-application development please continue to refer to [the main project documentation website](https://docs.corda.net/).
+application development please continue to refer to [the main project documentation website](https://docs.r3.com/).
 
 {{< note >}}
 Corda Enterprise provides platform API version 4, which matches the API available in open source Corda 4.x releases.

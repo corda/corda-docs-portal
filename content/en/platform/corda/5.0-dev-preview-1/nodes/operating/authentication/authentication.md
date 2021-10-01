@@ -29,13 +29,13 @@ Nodes support [Basic authentication](#set-up-basic-authentication) and [Azure Ac
 
 ## Set up basic authentication
 
-You can use authenticated HTTP-RPC endpoints with [basic HTTP authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) using the username/password combinations set up for RPC use. To configure user credentials in the `node.conf` file or through the use of an external database, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
+You can use authenticated HTTP-RPC endpoints with [basic HTTP authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) using the username/password combinations set up for RPC use. To configure user credentials in the `node.conf` file or through the use of an external database, see the guide on [managing RPC security](../../../../../../../en/platform/corda/4.8/open-source/clientrpc.html#managing-rpc-security) in Corda 4.
 
 This feature is enabled by default and cannot be disabled.
 
 ### Configure authorization for basic authentication
 
-Authorization in the Corda 5 Developer Preview uses the same Apache Shiro-based solution that was available in Corda 4. For details on how to configure this, see the guide on [managing RPC security](https://docs.corda.net/docs/corda-os/4.8/clientrpc.html#managing-rpc-security) in Corda 4.
+Authorization in the Corda 5 Developer Preview uses the same Apache Shiro-based solution that was available in Corda 4. For details on how to configure this, see the guide on [managing RPC security](../../../../../../../en/platform/corda/4.8/open-source/clientrpc.html#managing-rpc-security) in Corda 4.
 
 ### Test your configuration
 

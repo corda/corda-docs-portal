@@ -23,9 +23,9 @@ Corda Enterprise 4.8.1 is a patch release of Corda Enterprise that fixes a secur
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -37,8 +37,8 @@ In this patch release:
 * Performance verification of the HA Notary with CockroachDB 20.2.8 has been carried out - performance is not worse in comparison to the HA Notary configured on CockroachDB 20.1.6.
 * Support for PostgreSQL 13.3 for node databases has been added.
 * Hibernate ORM has been updated to version to 5.4.32 to remove a security concern.
-* The [Node management console](https://docs.corda.net/docs/4.8/enterprise/node/management-console.html#node-management-console) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
-The [Flow management console](https://docs.corda.net/docs/4.8/enterprise/node/node-flow-management-console.html#flow-management-console) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
+* The [Node management console](../../../../../en/platform/corda/4.8/enterprise/node/management-console.html#node-management-console) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
+* The [Flow management console](../../../../../en/platform/corda/4.8/enterprise/node/node-flow-management-console.html#flow-management-console) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
 * LedgerGraph has been updated to version 1.2.2. This upgrade minimizes memory footprint, and is not a functional change.
 
 
@@ -51,24 +51,24 @@ Corda Enterprise 4.8, released on April 21st 2021, includes several new features
 * You can use Azure-managed identities to authenticate [Azure Key Vault HSM](#azure-managed-identities-authentication)s.
 * You can configure metrics to use [time-window reservoirs](#time-window-metrics-gathering) for data collection.
 * Additional metrics have been added for [tracking notary latency](#additional-notary-metrics).
-* Confidential identities support has been added via [Utimaco and Gemalto Luna HSMs](platform-support-matrix.md#hardware-security-modules-hsm).
+* Confidential identities support has been added via [Utimaco and Gemalto Luna HSMs](platform-support-matrix.html#hardware-security-modules-hsm).
 
 {{< note >}}
 This page only describes functionality specific to Corda Enterprise 4.8. However, as a Corda Enterprise customer, you can also make full use of the features available as part of the Corda open source releases.
 
-See the [Corda open source release notes](../../corda-os/4.8/release-notes.md) for information about new features, enhancements, and fixes shipped as part of Corda 4.8.
+See the [Corda open source release notes](../../../../../en/platform/corda/4.8/open-source/release-notes.md) for information about new features, enhancements, and fixes shipped as part of Corda 4.8.
 {{< /note >}}
 
 {{< note >}}
 You can use states and CorDapps valid in Corda 3.0 and above with Corda 4.8 and Corda Enterprise 4.8.
 
 
-For the commitment Corda makes to wire and API stability, see [API stability guarantees](cordapps/api-stability-guarantees.md).
+For the commitment Corda makes to wire and API stability, see [API stability guarantees](../../../../../en/platform/corda/4.8/enterprise/cordapps/api-stability-guarantees.md).
 {{< /note >}}
 
 ## Long-term support release
 
-[Corda 4.8](../../corda-os/4.8/release-notes.md) and Corda Enterprise 4.8 are our long-term support (LTS) platform versions.
+[Corda 4.8](../../../../../en/platform/corda/4.8/open-source/release-notes.md) and Corda Enterprise 4.8 are our long-term support (LTS) platform versions.
 
 R3 provides LTS for this release for 30 months starting April 21st 2021. This is 6 months longer than the support periods for previous releases, giving Corda customers extra time to plan for the next upgrade.
 
@@ -76,19 +76,19 @@ R3 provides LTS for this release for 30 months starting April 21st 2021. This is
 
 Corda 4.8 uses platform version 10.
 
-For more information about platform versions, see [Versioning](cordapps/versioning.md).
+For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.8/enterprise/cordapps/versioning.md).
 
 ## New features and enhancements
 
 ### Notary database support update
 
-The [JPA notary](notary/installing-jpa.md) now supports [Oracle DB version 19c](platform-support-matrix.md#jpa-notary-databases). This database is supported until April 30th 2027.
+The [JPA notary](../../../../../en/platform/corda/4.8/enterprise/notary/installing-jpa.md) now supports [Oracle DB version 19c](../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.html#jpa-notary-databases). This database is supported until April 30th 2027.
 
 ### Azure managed identities authentication
 
 If you use an Azure Key Vault HSM with Corda Enterprise, you can now use an existing Azure Managed Identities service as authentication.
 
-See [Using an HSM with Corda Enterprise](node/operating/cryptoservice-configuration.md#azure-keyvault) for more information.
+See [Using an HSM with Corda Enterprise](../../../../../en/platform/corda/4.8/enterprise/node/operating/cryptoservice-configuration.html#azure-keyvault) for more information.
 
 ### Time-window metrics gathering
 
@@ -103,15 +103,15 @@ You can use `StartupQueueTime` and `BatchSignLatency` metrics to help calculate 
 * `StartupQueueTime` represents the time a flow has been queued before starting, in milliseconds.
 * `BatchSignLatency` represents the time elapsed during a batch signature, in milliseconds.
 
-See [Monitoring Notary Latency](notary/faq/notary-latency-monitoring.md) for more information.
+See [Monitoring Notary Latency](../../../../../en/platform/corda/4.8/enterprise/notary/faq/notary-latency-monitoring.md) for more information.
 
 
 ## Fixed issues
 
 Corda Enterprise 4.8 fixes:
 
-* A security issue that affects notary systems that use the JPA notary implementation in an HA configuration and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda [database management tool](database-management-tool.md) must be re-run for the fix to take effect.
-* Several issues that cause memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](node/setup/corda-configuration-fields.md#enterpriseconfiguration) for details.
+* A security issue that affects notary systems that use the JPA notary implementation in an HA configuration and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda [database management tool](../../../../../en/platform/corda/4.8/enterprise/database-management-tool.md) must be re-run for the fix to take effect.
+* Several issues that cause memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) for details.
 * An issue where the node is unable to resolve transaction chains that contain states or contracts that it did not relate to installed CorDapps.
 * Flow state, invocation source, and suspension source filters breaking in the node GUI.
 * Transaction verification being performed outside of the attachments class loader.

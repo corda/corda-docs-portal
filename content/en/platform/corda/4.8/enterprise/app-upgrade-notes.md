@@ -21,7 +21,7 @@ Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before up
 This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
 from the new features in the latest release.
 
-Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](https://docs.corda.net/docs/corda-os/4.8/api-stability-guarantees.html). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
+Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../../en/platform/corda/4.8/open-source/api-stability-guarantees.html). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
 CorDapp that are worth considering for any actively maintained software.
 
 
@@ -131,7 +131,7 @@ If you try to compile this code in platform version 5, you'll get the following 
 This is because a new `Destination` interface (introduced in platform version 5) can cause type inference failures when using a variable as an `AbstractParty` which has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not subsequently a valid type for `AbstractParty`.
-For more information on `Destination`, see the [Changelog](https://docs.corda.net/docs/corda-os/4.4/changelog.html) for platform version 5, or the [KDocs](https://docs.corda.net/head/api/kotlin/corda/net.corda.core.flows/-destination.html) for the interface.
+For more information on `Destination`, see the [Changelog](../../../../../en/platform/corda/4.4/open-source/changelog.html) for platform version 5, or the [KDocs](https://docs.r3.com/en/api-ref/corda/4.8/open-source/kotlin/corda/net.corda.core.flows/-destination.html) for the interface.
 
 
 {{< note >}}
@@ -309,7 +309,7 @@ It is used for informative purposes only.
 The duplication between `contract` and `workflow` blocks exists because your CorDapp should be split into
 two separate `.jar` files/modules. One should contain on-ledger validation code, like states and contracts. The other should contain workflows and anything else, such as services.
 
-Historically one `.jar` file has been used for both, but this can result in sending your flow logic code over the network to 
+Historically one `.jar` file has been used for both, but this can result in sending your flow logic code over the network to
 third-party peers even though they don’t need it.
 
 For later versions, the `versionId` parameter attached to the workflow `.jar` file will also help with smoother upgrades
@@ -873,9 +873,9 @@ If your flows could benefit from being extended in this way, see [overriding a f
 
 ### 12. Update vault state queries
 
-In Corda 4, queries made on a node’s vault can be filtered by the relevancy of those states to the node. As this functionality doesn't exist in
+In Corda 4, queries made on a node's vault can be filtered by the relevancy of those states to the node. As this functionality doesn't exist in
 Corda 3, CorDapps will continue to receive all states relating to any vault queries. You may want to migrate queries that expect states that are only relevant
-to the node in question, so you can filter them by relevant states. See [writing vault queries](cordapps/api-vault-query.md) for more details on how to do this. If you decide not to do this, queries may return more states than expected if the node is using observer functionality. See [posting transactions to observer nodes](https://docs.corda.net/docs/corda-os/4.8/tutorial-observer-nodes.md) for more information.
+to the node in question, so you can filter them by relevant states. See [writing vault queries](cordapps/api-vault-query.md) for more details on how to do this. If you decide not to do this, queries may return more states than expected if the node is using observer functionality. See [posting transactions to observer nodes](../../../../../en/tutorials/corda/4.8/os/supplementary-tutorials/tutorial-observer-nodes.md) for more information.
 
 ### 13. Update your `quasar.jar` file
 
