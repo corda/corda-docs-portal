@@ -60,7 +60,7 @@ and the Corda 5 Developer Preview are organized in sub-directories, following th
 
 For example:
 
-`../corda-docs/content/en/docs/platform/corda-os/4.8`
+`../corda-docs-portal/content/en/platform/corda/4.7/open-source/`
 
 ## Edit web pages directly in Visual Studio Code
 

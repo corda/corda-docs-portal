@@ -22,9 +22,9 @@ Corda Enterprise 4.6.4 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -37,9 +37,9 @@ Corda Enterprise 4.6.3 is a patch release of Corda Enterprise that fixes a secur
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -52,9 +52,9 @@ Corda Enterprise 4.6.2 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -74,7 +74,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * The `attachmentPresenceCache` has been removed. The functionality is duplicated in the `attachmentContent` cache in the `NodeAttachmentService`.
 * We have fixed an issue that caused timestamps to change timezone between the start and end times of a flow.
 * We have fixed an issue where `CordaPersistence.transaction` did not flush properly and another flush had to be added in order to complete the transaction.
-* We have fixed several issues that caused memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](node/setup/corda-configuration-fields.md#enterpriseconfiguration) for details.
+* We have fixed several issues that caused memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) for details.
 
 ## Corda Enterprise 4.6.1
 
@@ -82,14 +82,14 @@ Corda Enterprise 4.6.1 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by Corda Enterprise Network Manager (CENM) was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in [CENM 1.2](https://docs.corda.net/docs/cenm/1.2.html)) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [CENM PKI Tool](https://docs.corda.net/docs/cenm/pki-tool.html) now generates certificates with serial number sizes of up to 16 octets/bytes. This fix provides better support for Node and HA tools.
-* We have fixed an issue where the [HA Utilities](ha-utilities.md) tool failed to start when using the `node-registration` [sub-command](ha-utilities.md#sub-commands).
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by Corda Enterprise Network Manager (CENM) was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in [CENM 1.2](../../../../../en/platform/corda/1.2/cenm.html)) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [CENM PKI Tool](../../../../../en/platform/corda/1.2/cenm/pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes. This fix provides better support for Node and HA tools.
+* We have fixed an issue where the [HA Utilities](../../../../../en/platform/corda/4.6/enterprise/ha-utilities.md) tool failed to start when using the `node-registration` [sub-command](../../../../../en/platform/corda/4.6/enterprise/ha-utilities.html#sub-commands).
 
 ## Corda Enterprise 4.6 release overview
 
@@ -133,7 +133,7 @@ Watch this short video overview of the ability to prevent duplicate flow starts 
 * We now release [Docker images](#deployment-docker-images-for-corda-enterprise-firewall-and-all-corda-enterprise-setup-tools) for Corda Enterprise Firewall and all Corda Enterprise setup tools.
 * This release introduces a set of improvements to make the flow state machine more resilient.
 * We have added support for [storing node TLS keys in HSM](#support-for-storing-node-tls-keys-in-hsm-without-firewall) even without running the Corda Firewall. A new optional `tlsCryptoServiceConfig` section was introduced inside `enterpriseConfiguration` in `node.conf`.
-* We have introduced Node Maintenance Mode, which enables you to [schedule maintenance windows](#node-maintenance-mode) for your nodes via the `maintenanceMode` configuration field within the `enterpriseConfiguration` [node configuration file](node/setup/corda-configuration-fields.html#enterpriseconfiguration) section.
+* We have introduced Node Maintenance Mode, which enables you to [schedule maintenance windows](#node-maintenance-mode) for your nodes via the `maintenanceMode` configuration field within the `enterpriseConfiguration` [node configuration file](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) section.
 * We have added the ability to perform message ID cleanup less aggressively. Corda Enterprise now performs a [less aggressive and safer cleanup](#ability-to-perform-message-id-cleanup-less-aggressively) of the table that contains identifiers of previously processed messages.
 
 **Developer experience features and improvements**
@@ -145,9 +145,9 @@ We are focused on improving the overall developer experience to ensure Corda mai
 
 Plus a lot more - please read these release notes carefully to understand what’s new in this release and how the new features and enhancements can help you.
 
-Corda Enterprise 4.6 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. See the Corda Enterprise [platform support matrix](platform-support-matrix.md) for more information.
+Corda Enterprise 4.6 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. See the Corda Enterprise [platform support matrix](../../../../../en/platform/corda/4.6/enterprise/platform-support-matrix.md) for more information.
 
-Corda Enterprise 4.6 extends the [Corda Enterprise 4.5 release](../4.5/release-notes-enterprise.md) and is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 4.5, 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](../../corda-os/4.6/release-notes.md) for more information.
+Corda Enterprise 4.6 extends the [Corda Enterprise 4.5 release](../../../../../en/platform/corda/4.5/enterprise/release-notes-enterprise.md) and is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 4.5, 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](../../../../../en/platform/corda/4.6/open-source/release-notes.md) for more information.
 
 {{< note >}}
 Just as prior releases have brought with them commitments to wire and API stability, Corda 4.6 comes with those same guarantees.
@@ -175,7 +175,7 @@ All of these interfaces are located in the `:client:extensions-rpc` module. Cord
 `COMPLETED`, `FAILED`, and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using [a unique client-provided ID](#ability-to-prevent-duplicate-flow-starts-and-retrieve-the-status-of-started-flows).
 {{< /note >}}
 
-For more information, see the [Interacting with a node](node/operating/clientrpc.md) documentation section or see [MultiRPCClient](https://api.corda.net/api/corda-enterprise/4.6/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
+For more information, see the [Interacting with a node](../../../../../en/platform/corda/4.6/enterprise/node/operating/clientrpc.md) documentation section or see [MultiRPCClient](https://api.corda.net/api/corda-enterprise/4.6/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
 
 ### Ability to query flow data via RPC and via the node shell
 
@@ -199,7 +199,7 @@ Querying the node using either method enables node operators to:
 	* The flow remained stuck at a checkpoint for a particular length of time.
 * Retrieve status information for one or more suspended flows.
 
-See the [Querying flow data](node/operating/querying-flow-data.md) documentation section for more information.
+See the [Querying flow data](../../../../../en/platform/corda/4.6/enterprise/node/operating/querying-flow-data.md) documentation section for more information.
 
 ### Ability to pause and resume flows
 
@@ -209,7 +209,7 @@ Paused checkpoints will not be loaded in memory on node restart. This helps node
 
 Node operators can retry all paused flows, or retry all paused flows that were previously hospitalised. Hospitalised flows can be retried via RPC, thus eliminating the need to restart the node to trigger retries.
 
-For more information, see [Pause and resume flows](flow-pause-and-resume.md).
+For more information, see [Pause and resume flows](../../../../../en/platform/corda/4.6/enterprise/flow-pause-and-resume.md).
 
 #### Ability to prevent duplicate flow starts and retrieve the status of started flows
 
@@ -224,7 +224,7 @@ This enables you to:
 * Reconnect reliably to previously started flows.
 * Reclaim a flow's result or exception at any time in the future.
 
-For more information, see [Starting a flow with a client-provided unique ID](flow-start-with-client-id.md).
+For more information, see [Starting a flow with a client-provided unique ID](../../../../../en/platform/corda/4.6/enterprise/flow-start-with-client-id.md).
 
 #### Database schema harmonisation
 
@@ -248,7 +248,7 @@ Some of the more significant changes are listed below.
 Corda 4.6 now supports CorDapp schema migration via Liquibase in the same way as Corda Enterprise, where:
 
 * Each CorDapp needs to provide a migration resource with Liquibase scripts to create/migrate any required schemas.
-* Old Corda open source CorDapps that do not have migration scripts need to be migrated in the same way as described in the [Enterprise migration](cordapps/database-management.md#adding-scripts-retrospectively-to-an-existing-cordapp) documentation.
+* Old Corda open source CorDapps that do not have migration scripts need to be migrated in the same way as described in the [Enterprise migration](../../../../../en/platform/corda/4.6/enterprise/cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp) documentation.
 * A node can manage app schemas automatically using Hibernate with H2 in dev mode. This must be enabled with the `--allow-hibernate-to-manage-app-schema` command-line flag.
 
 **Schema creation**
@@ -313,7 +313,7 @@ migrating to Corda 4.6 - for example, 3.3 to 4.5, and then 4.5 to 4.6.
 
 ### Database Management Tool improvements
 
-We have improved the [Database Management Tool](database-management-tool.md) in order to facilitate database migrations from Corda to Corda Enterprise.
+We have improved the [Database Management Tool](../../../../../en/platform/corda/4.6/enterprise/database-management-tool.md) in order to facilitate database migrations from Corda to Corda Enterprise.
 
 The changes are briefly described below.
 
@@ -324,7 +324,7 @@ The changes are briefly described below.
 * Base directory, which defaults to the current working directory if not set.
 * Location of output file when `dry-run` is used. The output file will now be created relative to the current working directory rather than the base directory.
 
-For more information, see [Database Management Tool](database-management-tool.md).
+For more information, see [Database Management Tool](../../../../../en/platform/corda/4.6/enterprise/database-management-tool.md).
 
 #### Ability to register custom pluggable serializers for CorDapp checkpoints
 
@@ -334,7 +334,7 @@ Note that this is an advanced feature, designed specifically for certain types t
 
 Custom checkpoint serializers are created by implementing the new `CheckpointCustomSerializer` interface.
 
-For more information, see [Pluggable serializers for CorDapp checkpoints](cordapp-custom-serializers-checkpoints.md).
+For more information, see [Pluggable serializers for CorDapp checkpoints](../../../../../en/platform/corda/4.6/enterprise/cordapp-custom-serializers-checkpoints.md).
 
 ### Automatic detection of unrestorable checkpoints
 
@@ -348,36 +348,36 @@ This feature addresses the following common problems faced by developers:
 The feature provides a way for flows to reload from checkpoints, even if no errors occur. As a result, developers can be more confident that their flows would work correctly, without needing a way to inject recoverable errors throughout the flows.
 
 {{< note >}}
-This feature should not be used in production. It is disabled by default in the [node configuration file](node/setup/corda-configuration-fields.md) - `reloadCheckpointAfterSuspend = false`.
+This feature should not be used in production. It is disabled by default in the [node configuration file](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-fields.md) - `reloadCheckpointAfterSuspend = false`.
 {{< /note >}}
 
-For more information, see [Automatic detection of unrestorable checkpoints](checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
+For more information, see [Automatic detection of unrestorable checkpoints](../../../../../en/platform/corda/4.6/enterprise/checkpoint-tooling.html#automatic-detection-of-unrestorable-checkpoints).
 
 ### Host to Container SSH port mapping for Dockerform
 
-When creating a Docker container, you can now map the SSH port on the host to the same port on the container. For more information, see [Optional configuration](node/deploy/generating-a-node.md#optional-configuration) in [Creating nodes locally](node/deploy/generating-a-node.md).
+When creating a Docker container, you can now map the SSH port on the host to the same port on the container. For more information, see [Optional configuration](../../../../../en/platform/corda/4.6/enterprise/node/deploy/generating-a-node.html#optional-configuration) in [Creating nodes locally](../../../../../en/platform/corda/4.6/enterprise/node/deploy/generating-a-node.md).
 
 ### Metering client for the Metering Collection Tool
 
-You can now collect metering data from Corda Enterprise Nodes without having to build a custom client or accessing the Shell. For more information, see [Metering client for the Metering Collection Tool](metering-rpc.md).
+You can now collect metering data from Corda Enterprise Nodes without having to build a custom client or accessing the Shell. For more information, see [Metering client for the Metering Collection Tool](../../../../../en/platform/corda/4.6/enterprise/metering-rpc.md).
 
 ### Hotloading of notaries list
 
 The notaries list can now be hotloaded. Updates to the `notaries` network parameter do not require the node to be shut down and restarted.
 
-For more information, see [Hotloading](network/network-map.md#hotloading) in [Network map](network/network-map.md).
+For more information, see [Hotloading](../../../../../en/platform/corda/4.6/enterprise/network/network-map.html#hotloading) in [Network map](../../../../../en/platform/corda/4.6/enterprise/network/network-map.md).
 
 ### Support for storing node TLS keys in HSM without Firewall
 
-The node now supports storing its TLS keys in HSM even without running the Corda Enterprise Firewall. To this end, a new optional `tlsCryptoServiceConfig` section has been added to the `enterpriseConfiguration` configuration section in the [node configuration file](node/setup/corda-configuration-fields.md).
+The node now supports storing its TLS keys in HSM even without running the Corda Enterprise Firewall. To this end, a new optional `tlsCryptoServiceConfig` section has been added to the `enterpriseConfiguration` configuration section in the [node configuration file](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-fields.md).
 
-To migrate from file-based node's TLS keystore to HSM, you need to add `tlsCryptoServiceConfig` section into `node.conf` and renew TLS certificate and keys, as described in the [Renewing TLS certificates](ha-utilities.md#renewing-tls-certificates) section in [HA Utilities](ha-utilities.md).
+To migrate from file-based node's TLS keystore to HSM, you need to add `tlsCryptoServiceConfig` section into `node.conf` and renew TLS certificate and keys, as described in the [Renewing TLS certificates](../../../../../en/platform/corda/4.6/enterprise/ha-utilities.html#renewing-tls-certificates) section in [HA Utilities](../../../../../en/platform/corda/4.6/enterprise/ha-utilities.md).
 
-For more information, see [Storing node TLS keys in HSM](node/setup/tls-keys-in-hsm.md).
+For more information, see [Storing node TLS keys in HSM](../../../../../en/platform/corda/4.6/enterprise/node/setup/tls-keys-in-hsm.md).
 
 ### LedgerGraph available as a stand-alone CorDapp
 
-LedgerGraph enables other CorDapps, such as the set of [Collaborative Recover CorDapps](node/collaborative-recovery/introduction-cr.md), to have near real-time access to data concerning all of a node’s transactions and their relationships.
+LedgerGraph enables other CorDapps, such as the set of [Collaborative Recover CorDapps](../../../../../en/platform/corda/4.6/enterprise/node/collaborative-recovery/introduction-cr.md), to have near real-time access to data concerning all of a node’s transactions and their relationships.
 
 LedgerGraph has been in use in some solutions already, but is now available as a CorDapp in its own right. Therefore, as an operator, you can now use LedgerGraph as a standalone application on your node in order to expose in-memory transaction statistics related to the Corda ledger via flows and JMX/RPC.
 
@@ -389,25 +389,25 @@ The metrics exposed by LedgerGraph include:
 
 ### Collaborative Recovery upgraded to V1.1
 
-As LedgerGraph is now available as a stand alone CorDapp, the Collaborative Recovery CorDapps have been upgraded to reflect this change. In order [to use Collaborative Recovery V1.1](node/collaborative-recovery/introduction-cr.md) you must have a corresponding LedgerGraph CorDapp installed. If you use Confidential Identities with Collaborative Recovery, in V1.1 you must configure LedgerGraph to handle this. In V1.0, Confidential Identities configuration needed to be added to the **LedgerSync** CorDapp.
+As LedgerGraph is now available as a stand alone CorDapp, the Collaborative Recovery CorDapps have been upgraded to reflect this change. In order [to use Collaborative Recovery V1.1](../../../../../en/platform/corda/4.6/enterprise/node/collaborative-recovery/introduction-cr.md) you must have a corresponding LedgerGraph CorDapp installed. If you use Confidential Identities with Collaborative Recovery, in V1.1 you must configure LedgerGraph to handle this. In V1.0, Confidential Identities configuration needed to be added to the **LedgerSync** CorDapp.
 
 ### Improved CockroachDB performance
 
 A new configuration flag has been introduced, enabling native SQL for CockroachDB with multi-row insert statements.
 
-For more information, see [Node configuration reference](node/setup/corda-configuration-fields.md).
+For more information, see [Node configuration reference](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-fields.md).
 
 ### Migrating Notary data to CockroachDB
 
 Notary data stored in a Percona database can now be migrated to Cockroach DB.
 
-For more information, see [Importing Percona notary data to CockroachDB](notary/upgrading-a-notary.md).
+For more information, see [Importing Percona notary data to CockroachDB](../../../../../en/platform/corda/4.6/enterprise/notary/upgrading-a-notary.md).
 
 ### Notary identity configuration
 
 When registering a notary, the new field `notary.serviceLegalName` must be defined. This allows single-node notaries to be upgraded to HA notaries.
 
-For more information, see [Notary service overview](notary/ha-notary-service-overview.md).
+For more information, see [Notary service overview](../../../../../en/platform/corda/4.6/enterprise/notary/ha-notary-service-overview.md).
 
 ### Standalone JPA notary optimisation
 
@@ -420,21 +420,21 @@ We have added a way for Corda Enterprise node operators to schedule maintenance 
 * Clear the RPC audit table.
 * Clean up the message ID table.
 
-Maintenance windows can be scheduled through a node’s [configuration file](node/setup/corda-configuration-file.md) using the new, optional `maintenanceMode` configuration field within the `enterpriseConfiguration` top-level [configuration section](node/setup/corda-configuration-fields.md#enterpriseconfiguration).
+Maintenance windows can be scheduled through a node’s [configuration file](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-file.md) using the new, optional `maintenanceMode` configuration field within the `enterpriseConfiguration` top-level [configuration section](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration).
 
 A descriptive log entry is emitted whenever a node triggers or completes a maintenance window.
 
-For more information, see [Node Maintenance Mode](node/operating/maintenance-mode.md).
+For more information, see [Node Maintenance Mode](../../../../../en/platform/corda/4.6/enterprise/node/operating/maintenance-mode.md).
 
 ### Ability to perform message ID cleanup less aggressively
 
 Corda Enterprise now performs a less aggressive and safer cleanup of the table that contains identifiers of previously processed messages.
 
-You can also adjust some parameters that control the frequency of this cleanup mechanism. To do so, use the `processedMessageCleanup` field in the `enterpriseConfiguration` section of the [node configuration file](node/setup/corda-configuration-fields.html#enterpriseconfiguration).
+You can also adjust some parameters that control the frequency of this cleanup mechanism. To do so, use the `processedMessageCleanup` field in the `enterpriseConfiguration` section of the [node configuration file](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration).
 
 ### Configuration option for the attachments class loader cache size
 
-The attachments class loader cache size is now configurable through the new `EnterpriseConfiguration` configuration field `attachmentClassLoaderCacheSize` in the [node configuration file](node/setup/corda-configuration-fields.md#enterpriseconfiguration). This cache caches the class loaders used to store the transaction attachments.
+The attachments class loader cache size is now configurable through the new `EnterpriseConfiguration` configuration field `attachmentClassLoaderCacheSize` in the [node configuration file](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration). This cache caches the class loaders used to store the transaction attachments.
 
 The default value is `256` attachments per cache.
 
@@ -451,36 +451,36 @@ Our Docker Hub organisation (https://hub.docker.com/u/corda) now contains all th
 ### Other changes and improvements
 
 * To avoid a third-party dependency issue, we have reverted the supported H2 Database Engine version to **1.4.197** in Corda Enterprise versions 4.4.3, 4.5.1, and 4.6.
-* To reduce the risk of vulnerabilities, we have upgraded the Apache Zookeeper version used by the Corda Enterprise [Firewall component](node/corda-firewall-component.md#prerequisites-4) from 3.5.4-Beta to 3.61. See [Apache ZooKeeper setup](node/corda-firewall-configuration-file.md#apache-zookeeper-setup) for more information.
+* To reduce the risk of vulnerabilities, we have upgraded the Apache Zookeeper version used by the Corda Enterprise [Firewall component](../../../../../en/platform/corda/4.6/enterprise/node/corda-firewall-component.html#prerequisites-4) from 3.5.4-Beta to 3.61. See [Apache ZooKeeper setup](../../../../../en/platform/corda/4.6/enterprise/node/corda-firewall-configuration-file.html#apache-zookeeper-setup) for more information.
 * We have upgraded `commons-beanutils` to version 1.9.4 for improved security.
-* As of Corda Enterprise 4.6, support for [DemoBench](demobench.md) is deprecated.
+* As of Corda Enterprise 4.6, support for [DemoBench](../../../../../en/platform/corda/4.6/enterprise/demobench.md) is deprecated.
 * We have released a new minor version of [Accounts SDK](https://github.com/corda/accounts/blob/master/docs.md) - version 1.0.2. This version includes database improvements that make it compatible with Corda Enterprise 4.6. If you are planning to use the Accounts SDK with Corda Enterprise 4.6, you must use Accounts SDK V 1.0.2.
-* We have released a new minor version of [Tokens SDK](cordapps/token-sdk-introduction.md) - version 1.2.1. This version includes database improvements that make it compatible with Corda Enterprise 4.6. If you are planning to use the Tokens SDK with Corda Enterprise 4.6, you must use Tokens SDK V 1.2.1.
+* We have released a new minor version of [Tokens SDK](../../../../../en/platform/corda/4.6/enterprise/cordapps/token-sdk-introduction.md) - version 1.2.1. This version includes database improvements that make it compatible with Corda Enterprise 4.6. If you are planning to use the Tokens SDK with Corda Enterprise 4.6, you must use Tokens SDK V 1.2.1.
 * When starting a new driver using the driver DSL, the notary node will start by default as a thread in the same JVM process that runs the driver regardless of the `startNodesInProcess` driver properties (and not as a new process if the `startNodesInProcess` is `false`). This setting can be overridden. Please note that if the test interacts with the notary and expects the notary to run as a new process, you must set `startInProcess` to `false`.
-* In Corda Enterprise 4.6, if a CorDapp's `minimumPlatformVersion` is higher than the platform version of the node, the CorDapp is not loaded and the node fails to start. This is a change in behaviour compared to Corda Enterprise 4.5 where under these conditions the node would start up and log that the CorDapp could not be loaded. See [Versioning](cordapps/versioning.md) for more information.
+* In Corda Enterprise 4.6, if a CorDapp's `minimumPlatformVersion` is higher than the platform version of the node, the CorDapp is not loaded and the node fails to start. This is a change in behaviour compared to Corda Enterprise 4.5 where under these conditions the node would start up and log that the CorDapp could not be loaded. See [Versioning](../../../../../en/platform/corda/4.6/enterprise/cordapps/versioning.md) for more information.
 
 ## Platform version change
 
 The platform version of Corda 4.6 has been bumped up from 7 to 8.
 
-For more information about platform versions, see [Versioning](cordapps/versioning.md).
+For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.6/enterprise/cordapps/versioning.md).
 
 ## Important upgrade and migration notes
 
 {{< warning >}}
 
 The operational improvements around [database schema harmonisation](#database-schema-harmonisation) we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 and Corda Enterprise 4.6 from a previous version or from Corda open source to Corda Enterprise. These changes are described in detail in the following pages:
-* [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md).
-* [Upgrading CorDapps to Corda Enterprise 4.6](app-upgrade-notes-enterprise.md)
-* [Upgrading nodes to a new Corda version](node-upgrade-notes.md).
+* [Upgrading CorDapps to newer Platform Versions](../../../../../en/platform/corda/4.6/enterprise/app-upgrade-notes.md).
+* [Upgrading CorDapps to Corda Enterprise 4.6](../../../../../en/platform/corda/4.6/enterprise/app-upgrade-notes-enterprise.md)
+* [Upgrading nodes to a new Corda version](../../../../../en/platform/corda/4.6/enterprise/node-upgrade-notes.md).
 
 A brief checklist of required steps follows below for each upgrade path.
 
 **Upgrading an existing node from Corda 4.5 (or earlier 4.x version) to version 4.6**
 
-1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](node/setup/corda-configuration-file.md).
+1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](../../../../../en/platform/corda/4.6/enterprise/node/setup/corda-configuration-file.md).
 2. Update any missing core schema changes by running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
-3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in [Database management scripts](cordapps/database-management.md#adding-scripts-retrospectively-to-an-existing-cordapp).
+3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in [Database management scripts](../../../../../en/platform/corda/4.6/enterprise/cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp).
 4. Update the changelog for existing schemas. After upgrading the Corda `.jar` file and adding Liquibase scripts to the CorDapp(s), any custom schemas from the apps are present
 in the database, but the changelog entries in the Liquibase changelog table are missing (as they have been created by Liquibase). This will cause issues when starting the node, and also when running `run-migration-scripts` as tables that already exist cannot be recreated. By running the new sub-command `sync-app-schemas`, changelog entries are created for all existing mapped schemas from CorDapps: `java -jar corda.jar sync-app-schemas`.
 
@@ -500,7 +500,7 @@ In Corda Enterprise 4.6, database migrations are run on initial node registratio
 
 To prevent this, use the `--skip-schema-creation` flag alongside the `--initial-registration` command.
 
-The `initial-registration` command is described in [Node command-line options](node/node-commandline.md#sub-commands) and [Joining a compatibility zone](network/joining-a-compatibility-zone.md#joining-an-existing-compatibility-zone).
+The `initial-registration` command is described in [Node command-line options](../../../../../en/platform/corda/4.6/enterprise/node/node-commandline.html#sub-commands) and [Joining a compatibility zone](../../../../../en/platform/corda/4.6/enterprise/network/joining-a-compatibility-zone.html#joining-an-existing-compatibility-zone).
 
 {{< /warning >}}
 

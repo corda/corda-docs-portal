@@ -20,7 +20,7 @@ title: 'API: States'
 
 # CorDapp states
 
-Before you read this article, make sure you understand the [state key concepts](https://docs.corda.net/docs/corda-os/4.8/key-concepts-states.html).
+Before you read this article, make sure you understand the [state key concepts](../../../../../en/platform/corda/4.8/open-source/key-concepts-states.html).
 
 In Corda, a contract state (or just ‘state’) stores data that the CorDapp needs to move from one transaction to another.
 
@@ -396,4 +396,3 @@ the specified `linearId`. However, there is no guarantee the `StateAndRef<T>` re
 version of the `LinearState`. The node only returns the most recent version that it is aware of.
 
 You can choose to use the `resolveStatePointers` method to resolve any `StatePointer`s contained within inputs or outputs added to a `TransactionBuilder` to reference states. Any data you point to is carried along with the transaction.
-

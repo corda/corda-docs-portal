@@ -24,9 +24,9 @@ Corda Enterprise 4.4.7 is a patch release of Corda Enterprise that fixes a memor
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issue listed below is relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issue listed below is relevant to your work.
 
 ### Fixed issue
 
@@ -38,9 +38,9 @@ Corda Enterprise 4.4.6 is a patch release of Corda Enterprise that fixes a secur
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -53,9 +53,9 @@ Corda Enterprise 4.4.5 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -65,7 +65,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * We have fixed an issue that could cause a float to handle two connection attempts from the same bridge simultaneously.
 * We have fixed an issue that misinterpreted an internal error as a bad certificate error, preventing future connection attempts.
 * We have fixed an issue that can cause failure at node startup.
-* We have fixed several issues that caused memory leaks. As a result, we have added two new node configuration fields - `attachmentClassLoaderCacheSize` and `enableURLConnectionCache`. See the [node configuration fields page](node/setup/corda-configuration-file.md) for details.
+* We have fixed several issues that caused memory leaks. As a result, we have added two new node configuration fields - `attachmentClassLoaderCacheSize` and `enableURLConnectionCache`. See the [node configuration fields page](../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.md) for details.
 
 ## Corda Enterprise 4.4.4
 
@@ -73,13 +73,13 @@ Corda Enterprise 4.4.4 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by Corda Enterprise Network Manager (CENM) was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in [CENM 1.2](https://docs.corda.net/docs/cenm/1.2.html)) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [CENM PKI Tool](https://docs.corda.net/docs/cenm/pki-tool.html) now generates certificates with serial number sizes of up to 16 octets/bytes. This fix provides better support for Node and HA tools.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by Corda Enterprise Network Manager (CENM) was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in [CENM 1.2](../../../../../en/platform/corda/1.2/cenm.html)) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [CENM PKI Tool](../../../../../en/platform/corda/1.2/cenm/pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes. This fix provides better support for Node and HA tools.
 * We have fixed an issue where the Corda node would not start up (when not in `dev` mode) if a Network Map Service instance was not running.
 
 ## Corda Enterprise 4.4.3
@@ -88,24 +88,24 @@ Corda Enterprise 4.4.3 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
 * Session rollbacks are now allowed inside an entity manager.
 * Sensitive information is no longer exposed as clear text on logs and terminal when using the [Database Management Tool](database-management-tool.md).
 * Fixed an issue where the Classloader failed to find a Command class when Optional generic was used on Type definition.
-* The [Configuraton Obfuscator tool](tools-config-obfuscator.md) has been fixed to work for HSM configuration files.
+* The [Configuraton Obfuscator tool](../../../../../en/platform/corda/4.4/enterprise/tools-config-obfuscator.md) has been fixed to work for HSM configuration files.
 * The H2 version has been reverted to 1.4.197 to avoid a dependency issue introduced after the previous upgrade.
 * A security update to prevent AMQP header spoofing has been applied.
 * A previously unhandled exception in `FlowStateMachineImpl.run().initialiseFlow()` is now handled correctly.
 * The CPU usage of the `NodeMeteringBackground` process has been decreased.
 * The `backchainFetchBatchSize` option has been moved to the tuning section of the node configuration file.
-* Fixed an error in DNS name resolution when using the [Corda Health Survey tool](health-survey.md).
+* Fixed an error in DNS name resolution when using the [Corda Health Survey tool](../../../../../en/platform/corda/4.4/enterprise/health-survey.md).
 * Fixed an issue where Corda Firewall did not start if its main configuration and its HSM configuration were obfuscated.
-* Fixed an issue where deobfuscation options were missing from [HA Utilities](ha-utilities.md) in `generate-internal-tunnel-ssl-keystores` mode.
+* Fixed an issue where deobfuscation options were missing from [HA Utilities](../../../../../en/platform/corda/4.4/enterprise/ha-utilities.md) in `generate-internal-tunnel-ssl-keystores` mode.
 * Some Corda Enterprise 4.5 features have been backported to allow AKS deployment in Corda Enterprise 4.4.3.
 * Fixed `vaultService.updates.subscribe` errors when running inside `STATE_MACHINE_STARTED` event handler.
 * In the `graphiteOptions` section of `node.conf`, `sampleInvervallSeconds` has been changed to `sampleIntervalSeconds`.
@@ -117,9 +117,9 @@ Corda Enterprise 4.4.2 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if any of the fixed issues listed below is relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if any of the fixed issues listed below is relevant to your work.
 
 ### Fixed issues
 
@@ -134,7 +134,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 ## Corda Enterprise 4.4
 
-This release extends the [Corda Enterprise 4.3 release](https://docs.corda.net/docs/corda-enterprise/4.3/release-notes-enterprise.html)
+This release extends the [Corda Enterprise 4.3 release](../../../../../en/platform/corda/4.3/enterprise/release-notes-enterprise.md)
 with further performance, resilience and operational improvements.
 
 Corda Enterprise 4.4 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. Please refer to product documentation for details.
@@ -160,7 +160,7 @@ This change has some implications on the upgrade process (see “Upgrade Notes�
 
 
 This release adds support for storing the node’s CA and legal identity key in a [nCipher nShield Connect](https://www.ncipher.com/products/general-purpose-hsms/nshield-connect) HSM.
-Please refer to the associated section in [Using an HSM with Corda Enterprise](node/operating/cryptoservice-configuration.md) for more details.
+Please refer to the associated section in [Using an HSM with Corda Enterprise](../../../../../en/platform/corda/4.4/enterprise/node/operating/cryptoservice-configuration.md) for more details.
 
 We also have extended the set of HSMs available for the storage of a highly-available notary’s shared service key. The notary’s shared service key can now be stored in the following HSM types:
 
@@ -240,5 +240,4 @@ The new version of the tool can only be used with Corda Enterprise 4.4 (and abov
 
 From Corda Enterprise 4.4 onwards, we are moving towards an open core strategy. Common APIs shared by Corda Enterprise will only be available in Corda Open Source. Therefore, any CorDapps written against Corda Enterprise 4.4 or later will have to depend on the open source version of `corda-core`.
 
-As per previous major releases, we have provided a [comprehensive upgrade guide](app-upgrade-notes-enterprise.md) to ease the upgrade
-of CorDapps to Corda Enterprise 4.4.
+As per previous major releases, we have provided a [comprehensive upgrade guide](../../../../../en/platform/corda/4.4/enterprise/app-upgrade-notes-enterprise.md) to ease the upgrade of CorDapps to Corda Enterprise 4.4.
