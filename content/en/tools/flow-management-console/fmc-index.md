@@ -11,6 +11,6 @@ title: Flow management console
 
 # Flow management console
 
-The Flow management console allows you to see the state of the flows running on a node and perform some operations on them.
+The flow management console lets you see the state of the flows running on a node and perform some operations on them.
 
-Read the full documentation about the [Flow management console](../../../en/platform/corda/4.8/enterprise/node/node-flow-management-console.md).
+Read the full documentation about the [flow management console](../../../en/platform/corda/4.8/enterprise/node/node-flow-management-console.md).
