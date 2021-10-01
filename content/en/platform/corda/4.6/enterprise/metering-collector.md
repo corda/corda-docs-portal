@@ -72,7 +72,7 @@ Notaries running on Corda Enterprise are also metered. The data recorded for not
 
 The Metering Collection Tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where
 the respective CorDapp is installed. This feature must be enabled by the node operator deploying a
-[CorDapp configuration file](/docs/corda-os/4.6/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
+[CorDapp configuration file](../../../../../en/platform/corda/4.6/open-source/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
 If no configuration file is deployed, metering data will not be shared with any other network party.
 
 An example configuration file that enables metering data sharing is shown below:
@@ -860,4 +860,3 @@ All classes listed below belong to the `com.r3.corda.metering.filter` package.
 | ```Filter.ByCorDapp.ByTransactionType``` | Matches only the meterings related to transactions of the specified transaction type (helpers are available to specify ledger-updating transactions and non-ledger-updating transactions) |
 
 {{< /table >}}
-

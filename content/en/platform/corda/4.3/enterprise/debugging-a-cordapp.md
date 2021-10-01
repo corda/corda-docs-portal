@@ -41,7 +41,7 @@ running via the node driver to debug your CorDapp.
 ### With the nodes in-process
 
 
-* Define a network using the node driver as described in [Integration Testing](../../corda-os/4.3/tutorial-integration-testing.md).
+* Define a network using the node driver as described in [Integration Testing](../../../../../../en/platform/corda/4.3/open-source/tutorial-integration-testing.md).
 
 * In your `DriverParameters`, ensure that `startNodesInProcess` is set to `true`.
 
@@ -59,7 +59,7 @@ The nodes’ webservers always run in a separate process, and cannot be attached
 ### With remote debugging
 
 
-* Define a network using the node driver as described in [Integration Testing](../../corda-os/4.3/tutorial-integration-testing.md).
+* Define a network using the node driver as described in [Integration Testing](../../../../../../en/platform/corda/4.3/open-source/tutorial-integration-testing.md).
 * In your `DriverParameters`, ensure that `startNodesInProcess` is set to `false` and `isDebug` is set to
 `true`.
 * Run the driver. The remote debug ports for each node will be automatically generated and printed to the terminal.
