@@ -30,7 +30,7 @@ in the same way), when writing states you must add a `JsonRepresentable`.
 
 As states are immutable, they cannot be modified directly to reflect a change to a shared fact. Instead, the lifecycle
 of a shared fact over time is represented by a **state sequence**. When a shared fact changes, you must create a new
-version of the state (which represents the updated fact) and mark the existing state as historic. See **[transactions](key-concepts-transactions.md)** for more information.
+version of the state (which represents the updated fact) and mark the existing state as historic. See **[transactions](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.md)** for more information.
 
 This sequence of state replacements gives you a full view of the evolution of the shared fact over time:
 
@@ -50,7 +50,7 @@ The **ledger** is all the current (non-historic) states that a particular node i
 Not all states need to be updated by the parties which use them. In the case of reference data, a party creates it,
 and it is then used (but not updated) by other parties. For this use-case, the
 states containing reference data are referred to as **reference states**. Syntactically, reference states are no different
-to regular states. However, they are treated differently by Corda transactions. See [transactions](key-concepts-transactions.md) for
+to regular states. However, they are treated differently by Corda transactions. See [transactions](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.md) for
 more details.
 
 ## Reissuing states
