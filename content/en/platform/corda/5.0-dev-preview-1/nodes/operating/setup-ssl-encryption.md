@@ -26,7 +26,7 @@ Never run a node that is exposed to the internet without configuring SSL encrypt
 {{< /warning >}}
 
 You should configure SSL encryption for your node to ensure secure communication between the server and client. If you don't, its RPC API is vulnerable to attacks inherent to the HTTP protocol,
-even if [authentication](authentication/authentication.md) is properly configured. For example, motivated actors with access to
+even if [authentication](../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/authentication/authentication.md) is properly configured. For example, motivated actors with access to
 network traffic will be able to:
 * Obtain legitimate users' credentials (when basic authentication is in place).
 * Impersonate a legitimate user by stealing their authentication tokens (though their actual credentials are not exposed)(when Azure Active Directory is in place).
