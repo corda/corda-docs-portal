@@ -10,7 +10,7 @@ section_menu: corda-5-dev-preview
 
 Use these resources to help build and locally deploy your own CorDapps using the Corda 5 Developer Preview. If you have
 not yet completed the tutorials section, and are looking for the best place to start, try the
-[building a CorDapp tutorial](../tutorials/building-cordapp/c5-basic-cordapp-intro.md).
+[building a CorDapp tutorial](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.md).
 
 If you have completed the tutorials and want to experiment further, use these resources. Keep in mind that the Corda 5
 Developer Preview is for local deployment and testing only, and should not be used in a commercial setting.
@@ -37,11 +37,11 @@ In the Corda 5 Developer Preview, follow the step-by-step tutorials to create a 
 
 ## Corda Services and modular APIs
 
-When building your CorDapps, make use of the suite of APIs, or [Corda Services](corda-services/overview.md), which can
+When building your CorDapps, make use of the suite of APIs, or [Corda Services](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/overview.md), which can
 be injected into your flows and other Corda Services. In the Corda 5 Developer Preview, these APIs are modulated to
 enable you to build quickly and only use the services your business logic requires.
 
-You can also write your own [custom Corda Services](./corda-services/injectable-services.md).
+You can also write your own [custom Corda Services](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md).
 
 ## Changes from Corda 4
 
@@ -57,4 +57,4 @@ injection. An implementation of `FlowLogic` still exists to ease migration to Co
 This move away from an abstract class to injectable services allows you to use only what you need. Features that you
 don’t use do not need to be present on your flow classes.
 
-Find out more about [writing flows](flows/writing-flows) before you get started.
+Find out more about [writing flows](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/flows/writing-flows.md) before you get started.
