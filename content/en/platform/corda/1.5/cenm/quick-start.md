@@ -24,7 +24,7 @@ consisting of the following:
 
 * Identity Manager service
 * Network Map service
-* [Notary Service](../../../../../en/platform/corda/4.8/enterprise/notary/running-a-notary.md)
+* [Notary Service](../../../../../en/platform/corda/4.8/enterprise/notary/notary-operate.md)
 
 {{% important %}}
 The deployment outlined here is significantly simplified compared to a full production
