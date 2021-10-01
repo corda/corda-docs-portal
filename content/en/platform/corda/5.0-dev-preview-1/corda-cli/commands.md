@@ -597,3 +597,14 @@ alice: Node smoke-tests-network/alice was deployed with [solar-system.cpb]
 bob: Node smoke-tests-network/bob was deployed with [solar-system.cpb]
 Network smoke-tests-network was deployed with [solar-system.cpb]
 ````
+
+### Removing a CorDapp
+
+{{< note >}}
+It is not currently possible to remove a CorDapp from the network. Instead, you can terminate the network and restart.
+{{< /note >}}
+
+To remove a CorDapp in Corda 5 Developer Preview:
+
+1. Terminate the local network. `terminate -rn <name of network>`.
+2. Deploy a new network using the guide for [deploying a new network](/en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.html).
