@@ -12,7 +12,7 @@ title: Running a sample CorDapp
 
 Get started with the Corda 5 Developer Preview by running a sample CorDapp. Learn how to deploy and test a CorDapp before you modify the CorDapp template to write your own.
 
-This sample CorDapp lets you launch probes between celestial bodies to send short messages. In this scenario, the solar system represents your local network. The celestial bodies are the nodes on your network. To learn more about nodes, see the [node documentation](../nodes/nodes-homepage.html).
+This sample CorDapp lets you launch probes between celestial bodies to send short messages. In this scenario, the solar system represents your local network. The celestial bodies are the nodes on your network. To learn more about nodes, see the [node documentation](../../../../../en/platform/corda/5.0-dev-preview-1/nodes/nodes-homepage.md).
 
 The Solar System CorDapp has an optional smart contract implemented. You can use it to determine if all celestial bodies can receive probes, or if only planets can receive them.
 
@@ -37,13 +37,13 @@ The flow takes in three parameters:
 
 Before you can run the sample CorDapp, set up:
 
-* [A local network](../getting-started/setup-network.md)
-* [Corda CLI](../corda-cli/overview.md)
-* [CorDapp Builder](../packaging/cordapp-builder.md)
-* [Corda Node CLI](../nodes/operating/cli-curl/cli-curl.md)
+* [A local network](../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md)
+* [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md)
+* [CorDapp Builder](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/cordapp-builder.md)
+* [Corda Node CLI](../../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/cli-curl/cli-curl.md)
 * [Docker](https://docs.docker.com/get-started/)
 
-If you're new to Corda, check out the [CorDapp documentation](../cordapps/overview.md) for key concepts.
+If you're new to Corda, check out the [CorDapp documentation](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/overview.md) for key concepts.
 
 ## Download the sample CorDapp
 
@@ -268,4 +268,4 @@ If you have any questions about the Corda Node CLI commands, run the `--help` co
 
 ## Next steps
 
-Now that you've run the Solar System demo CorDapp, try [building your own CorDapp](building-cordapp/c5-basic-cordapp-intro.md).
+Now that you've run the Solar System demo CorDapp, try [building your own CorDapp](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.md).
