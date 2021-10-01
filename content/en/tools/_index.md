@@ -25,4 +25,4 @@ Learn how to use various tools and add-ons to help you with Corda operations and
 * [Flow management console](../en/tools/flow-management-console/fmc-index.md)
 * [The Archive Service](../en/tools/archiving-service/archiving-service-index.md)
 * [Collaborative recovery](../en/tools/collaborative-recovery/cl-index.md)
-* [Ledgergraph](../en/tools/ledgergraph/ledgergraph-index.md)
+* [LedgerGraph](../en/tools/ledgergraph/ledgergraph-index.md)
