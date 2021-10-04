@@ -13,6 +13,15 @@
         'language:en'
       ];
 
+    {{ else }}
+      {{ $project := or .Parent.Page.Params.project .Page.Params.project}}
+      {{ $version := or .Parent.Page.Params.version .Page.Params.version}}
+      window.facetFilters = [
+        ['project:{{- $project -}}'],
+        ['version:{{- $version -}}'],
+        'language:en'
+      ];
+
     {{ end }}
   {{ end -}}
 
