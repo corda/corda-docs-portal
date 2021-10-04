@@ -12,7 +12,7 @@ title: CDL views
 
 # CorDapp Design Language (CDL) views
 
-CorDapp Design Language has three main views, along with a privacy overlay for the Ledger Evolution view, this section explains each in turn:
+CorDapp Design Language has three views, and a privacy overlay for the Ledger Evolution view.
 
 * [Smart contract view](smart-contract-view/cdl-smart-contract-view.md)
 * [Ledger Evolution view](ledger-evolution-view/cdl-ledger-evolution-view.md)

@@ -79,7 +79,7 @@ The main elements that need to be configured for the Identity Manager are:
 
 
 {{< note >}}
-See [Identity Manager Configuration Parameters](config-identity-manager-parameters.md) for a detailed explanation about each possible parameter.
+See [Identity Manager Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-identity-manager-parameters.md) for a detailed explanation about each possible parameter.
 {{< /note >}}
 
 ### Address
@@ -134,7 +134,7 @@ database {
 {{< note >}}
 Due to the way the migrations are defined, if the Identity Manager and Network Map Services are using the same
 database instance then they *must* use separate database schemas. For more information regarding the supported databases
-along with the schema see [CENM Databases](database-set-up.md).
+along with the schema see [CENM Databases](../../../../../en/platform/corda/1.5/cenm/database-set-up.md).
 
 {{< /note >}}
 
@@ -180,7 +180,7 @@ database {
 
 ### Embedded shell (optional)
 
-See [Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
+See [Shell Configuration](../../../../../en/platform/corda/1.5/cenm/shell.html#shell-config) for more information on how to configure the shell.
 
 
 ### Issuance Workflow
@@ -263,12 +263,12 @@ workflows {
 }
 ```
 
-See [Workflow](workflow.md) for more information.
+See [Workflow](../../../../../en/platform/corda/1.5/cenm/workflow.md) for more information.
 
 
 ###### JIRA Project Configuration
 
-See [JIRA Set-Up](jira-setup.md) for more information about how to configure a JIRA project for CSR approval.
+See [JIRA Set-Up](../../../../../en/platform/corda/1.5/cenm/jira-setup.md) for more information about how to configure a JIRA project for CSR approval.
 
 
 #### CSR Signing Mechanism
@@ -286,11 +286,11 @@ approval mechanism above, this can be achieved via one of two mechanisms:
 The local signing service is recommended for testing and toy environments. Given a local key store containing the
 relevant signing keys, it provides the functionality to automatically sign all approved CSRs on a configured schedule.
 No human interaction is needed and the credentials for the key stores have to be provided upfront. The service is an
-integrated signer that is a cut-down version of the standalone [Signing Services](signing-service.md) and provides no HSM integration or
+integrated signer that is a cut-down version of the standalone [Signing Services](../../../../../en/platform/corda/1.5/cenm/signing-service.md) and provides no HSM integration or
 ability to manually verify changes. It is strongly recommended against using this for production environments.
 
 In order for the local signer to function, it needs to be able to access Identity Manager’s certificate and keypair
-which should have been previously generated (see [Certificate Hierarchy Guide](pki-guide.md) for more information). The local signer uses local
+which should have been previously generated (see [Certificate Hierarchy Guide](../../../../../en/platform/corda/1.5/cenm/pki-guide.md) for more information). The local signer uses local
 key stores which should include the necessary signing keys along with their full certificate chains.
 
 To enable the local signer, the top level `localSigner` configuration block should be added to the configuration file:
@@ -313,7 +313,7 @@ signing any CSR requests along with the full certificate chain back to the root 
 
 ##### External Signing Service
 
-The production grade signing mechanism is the external [Signing Services](signing-service.md). This has all the functionality of the
+The production grade signing mechanism is the external [Signing Services](../../../../../en/platform/corda/1.5/cenm/signing-service.md). This has all the functionality of the
 integrated local signer as well as HSM integration and the ability for a user to interactively verify and sign incoming
 CSRs. It should be used in all production environments where maximum security and validation checks are required.
 
@@ -353,7 +353,7 @@ This parameter can be omitted if desired, in which case it will default to port 
 
 {{< /note >}}
 {{< note >}}
-All inter-service communication can be configured with SSL support. See [Configuring the CENM services to use SSL](enm-with-ssl.md).
+All inter-service communication can be configured with SSL support. See [Configuring the CENM services to use SSL](../../../../../en/platform/corda/1.5/cenm/enm-with-ssl.md).
 
 {{< /note >}}
 
@@ -475,7 +475,7 @@ workflows {
 }
 ```
 
-See [Workflow](workflow.md) for more information.
+See [Workflow](../../../../../en/platform/corda/1.5/cenm/workflow.md) for more information.
 
 
 #### CRR Signing Mechanism
@@ -497,7 +497,7 @@ Identity Manager. That is, the same key used for signing approved CSRs will be u
 
 ##### External Signing Service
 
-Also similarly to CSR signing, the production grade signing mechanism for CRRs is the external [Signing Services](signing-service.md).
+Also similarly to CSR signing, the production grade signing mechanism for CRRs is the external [Signing Services](../../../../../en/platform/corda/1.5/cenm/signing-service.md).
 This has all the functionality of the integrated local signer as well as HSM integration and the ability for a user to
 interactively verify and sign incoming CRRs. It should be used in all production environments where maximum security and
 validation checks are required.
@@ -533,7 +533,7 @@ This parameter can be omitted if desired, in which case it will default to port 
 
 {{< /note >}}
 {{< note >}}
-All inter-service communication can be configured with SSL support. See [Configuring the CENM services to use SSL](enm-with-ssl.md).
+All inter-service communication can be configured with SSL support. See [Configuring the CENM services to use SSL](../../../../../en/platform/corda/1.5/cenm/enm-with-ssl.md).
 
 {{< /note >}}
 
@@ -864,7 +864,7 @@ shell {
 
 The example below shows a more production-like configuration of the Identity Manager. It is configured with an Issuance
 and Revocation workflow, using JIRA workflows for CSR/CRR approvals, no local signer, and using SSL for secure communication between CENM services. In this scenario, all approved requests would be signed using an external signing
-service (see [Signing Services](signing-service.md)).
+service (see [Signing Services](../../../../../en/platform/corda/1.5/cenm/signing-service.md)).
 
 ```docker
 address = "localhost:10000"
