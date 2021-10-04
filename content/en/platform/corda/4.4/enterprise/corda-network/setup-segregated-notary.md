@@ -25,7 +25,7 @@ By adding additional notary worker nodes, a notary cluster can have more reliabi
 
 Single-node notaries do not require a separate notary service identity, these notaries use the node identity and do not require additional notary registration. Single-node notaries are not compatible with a highly-available solution and are not recommended for production networks.
 
-1. Follow steps 3-5 from the [Corda Network joining process](https://corda.network/participation/index/).
+1. Follow steps 3-5 from the [Corda Network joining process](https://corda.network/joining-corda-network/onboarding-workflow).
 
 2. Register the node using the following command:
 
@@ -46,14 +46,14 @@ A notary cluster is a group of one or more nodes that act together as a collecti
 notary scalability and reliability because additional nodes can be added to the notary pool as demand increases.
 
 Single-node and multi-node notary clusters are only available in Corda Enterprise. Before deploying a notary cluster,
-read the [JPA notary configuration documentation](../notary/installing-jpa.md/). A notary cluster requires a backend database to store notarised
+read the [JPA notary configuration documentation](../../../../../platform/corda/4.4/enterprise/notary/installing-jpa.md). A notary cluster requires a backend database to store notarised
 transactions. A notary cluster can be registered, but not run, without a database.
 
 {{< note >}}
 You must register the notary service identity **before** the initial notary worker registration.
 {{< /note >}}
 
-1. Register the notary service identity using the [notary registration tool](../notary/ha-notary-service-setup.md#ha-notary-registration-process).
+1. Register the notary service identity using the [notary registration tool](../../../../../../en/platform/corda/4.4/enterprise/notary/ha-notary-service-setup.html#ha-notary-registration-process).
 
 2. Register each worker node in the notary cluster using the Corda Network process.
 
@@ -61,4 +61,4 @@ You must register the notary service identity **before** the initial notary work
 
 3. Add the notary service identity to the network parameters by sending the `nodeInfo-xxx` file using the [Corda Network support portal](https://r3-cev.atlassian.net/servicedesk/customer/portal/7/). Send the `nodeInfo-xxx` file using either a segregated network request form, or create a new task.
 
-4. After the network parameters have been updated, [start the notary worker nodes](../operations/deployment/starting-components.md#starting-a-corda-node).
+4. After the network parameters have been updated, [start the notary worker nodes](../../../../../../en/platform/corda/4.4/enterprise/node/deploy/starting-components.html#starting-a-corda-node).
