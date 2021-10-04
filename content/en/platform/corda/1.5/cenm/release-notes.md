@@ -90,7 +90,7 @@ The [CENM management console](../../../../../en/platform/corda/1.5/cenm/cenm-con
 
 #### Single sign-on for Azure AD
 
-CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on (SSO) for the CENM [Auth Service](../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md), which supports full Role-Based Access Control (RBAC) and provides a web-based management interface for system administrators to create and manage user groups and entitlements. As a result, you can now operate an SSO set-up between Corda services and Azure AD, with a [simple configuration](../../4.7/enterprise/node/azure-ad-sso/) to both your Azure AD and Corda Auth services.
+CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on (SSO) for the CENM [Auth Service](../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md), which supports full Role-Based Access Control (RBAC) and provides a web-based management interface for system administrators to create and manage user groups and entitlements. As a result, you can now operate an SSO set-up between Corda services and Azure AD, with a [simple configuration](../../../../../en/platform/corda/4.7/enterprise/node/azure-ad-sso.html) to both your Azure AD and Corda Auth services.
 
 #### Certificate rotation: ability to reissue node legal identity keys and certificates
 
@@ -133,7 +133,7 @@ We have updated the default value of the optional `timeout` parameter, introduce
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](../../../../../en/platform/corda/1.4/cenm/pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
 * We have fixed an issue where the [PKI Tool](../../../../../en/platform/corda/1.4/cenm/pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
 * We have fixed an issue where the [signing request status command](../../../../../en/platform/corda/1.4/cenm/cenm-cli-tool.html#check-the-connection-status-of-the-signing-service) in the [CENM Command-line Interface Tool](../../../../../en/platform/corda/1.4/cenm/cenm-cli-tool.md) did not work for requests with `COMPLETED` status.
 * We have fixed an issue where the `APP VERSION` column was not shown when running helm charts while bootstrapping CENM.
@@ -285,7 +285,7 @@ CENM 1.3.2 introduces fixes to known issues in CENM 1.3.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](../../../../../en/platform/corda/1.3/cenm/pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
 * We have fixed an issue where the [PKI Tool](../../../../../en/platform/corda/1.3/cenm/pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
 
 ## Corda Enterprise Network Manager 1.3.1
@@ -361,7 +361,7 @@ CENM 1.2.3 introduces fixes to known issues in CENM 1.2.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](../../../../../en/platform/corda/1.2/cenm/pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
 * We have fixed an issue where the [PKI Tool](../../../../../en/platform/corda/1.2/cenm/pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
 
 ## Corda Enterprise Network Manager 1.2.2
