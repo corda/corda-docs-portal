@@ -30,7 +30,7 @@ After you have completed this tutorial, you will know how to write and run integ
 
 ## Before you start
 
-Before you start writing integration tests you must [deploy your CorDapp to a local Corda 5 network](c5-basic-cordapp-running.md#deploy-your-cordapp-to-a-local-corda-5-network).
+Before you start writing integration tests you must [deploy your CorDapp to a local Corda 5 network](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-running.html#deploy-your-cordapp-to-a-local-corda-5-network).
 
 ## Create an integration test for the `CreateAndIssueMarsVoucher` flow
 
