@@ -22,7 +22,7 @@ In this document, you will find:
 *module*
     A module is a software component or part of a program that contains one or more routines.
 *class*
-    A class defines a set of properties and methods that are common to all objects of one type. Classes are written in a defined structure to create a Java or Kotlin object. 
+    A class defines a set of properties and methods that are common to all objects of one type. Classes are written in a defined structure to create a Java or Kotlin object.
 *dependency*  
     When one object uses another object's function.
 
@@ -61,7 +61,7 @@ if you are building a CorDapp on Corda 4.8, use the `release-V4` branch.
 ### Build system
 
 The templates are built using Gradle. A Gradle wrapper is provided in the `wrapper` folder, and the dependencies are
-defined in the `build.gradle` files. See [Building and installing a CorDapp](cordapp-build-systems.md) for more information.
+defined in the `build.gradle` files. See [Building and installing a CorDapp](../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-build-systems.md) for more information.
 
 No templates are currently provided for Maven or other build systems.
 
