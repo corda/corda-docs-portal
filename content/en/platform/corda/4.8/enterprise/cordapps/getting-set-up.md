@@ -66,5 +66,5 @@ We recommend [running a sample CorDapp](tutorial-cordapp.md) to see Corda in act
 ## Resources
 
 * [Sample CorDapps, templates, and community projects](https://www.corda.net/samples/).
-* [Corda API documentation](https://api.corda.net/).
+* [Corda API documentation](../../../../../../en/api-ref.html).
 * [Flow cookbook](flow-cookbook.md).

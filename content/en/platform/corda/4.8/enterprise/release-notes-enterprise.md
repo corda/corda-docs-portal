@@ -94,7 +94,7 @@ See [Using an HSM with Corda Enterprise](../../../../../en/platform/corda/4.8/en
 
 You can now configure timer and histogram metrics to use time-window data gathering. Time-window data gathering collects all data points for a given time window, allowing outlying data points to be properly represented.
 
-See [Node metrics](node-metrics.md) for more information.
+See [Node metrics](../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/node-metrics.md) for more information.
 
 ### Additional notary metrics
 
