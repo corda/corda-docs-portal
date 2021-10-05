@@ -180,7 +180,7 @@ Set to `true` to enable.
 This flag sets the node to run in development mode.
 On startup, if the keystore `<workspace>/certificates/sslkeystore.jks`
 does not exist, a developer keystore will be used if `devMode` is true.
-The node will exit if `devMode` is false and the keystore does not exist.
+The node will exit if `devMode` is false, and the keystore does not exist.
 `devMode` also turns on background checking of flow checkpoints to shake out any bugs in the checkpointing process.
 Also, if `devMode` is true, Hibernate will try to automatically create the schema required by Corda or update an existing schema in the SQL database; if `devMode` is false, Hibernate will simply validate the existing schema, failing on node start if the schema is either not present or not compatible.
 If no value is specified in the node configuration file, the node will attempt to detect if it's running on a developer machine and set `devMode=true` in that case.
@@ -278,17 +278,17 @@ Allows fine-grained controls of various features only available in the enterpris
     * `eventsToRecord` defines which types of events will be recorded by the audit service - currently supported types are `{NONE, RPC, ALL}`
     * *Default:* `NONE`
 * `maintenanceMode`
-  * An optional field used by [Node Maintenance Mode](../operating/maintenance-mode.md#configuration-of-node-maintenance-mode), which enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
+  * An optional field used by [Node Maintenance Mode](../../../../../en/platform/corda/4.7/enterprise/operating/maintenance-mode.html#configuration-of-node-maintenance-mode), which enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
   * *Default:* Not present. By default, no maintenance activities will be performed if the `maintenanceMode` section is not provided. Without the new parameter, Corda will behave as if maintenance mode is not available.
   * If the `maintenanceMode` sub-section is provided, then **ALL** `maintenanceMode` parameters (as described below) must be supplied and must also pass configuration validation at start-up.
   * Parameters:
-    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode](../operating/maintenance-mode.md#configuration-of-node-maintenance-mode). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
+    * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode](../../../../../en/platform/corda/4.7/enterprise/operating/maintenance-mode.html#configuration-of-node-maintenance-mode). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
     * `duration` is the maximum time that a maintenance window is expected to take to run all tasks. At start-up, Corda will check for all maintenance events that occur within the following week. If there is an overlap (due the specified duration being longer than the interval between any two adjacent maintenance windows), Corda Enterprise will emit a *warning* to the log which will precisely specify the overlap scenario but no further action will be taken. Additionally, if the time that the maintenance tasks *actually* take to run exceeds the specified duration, a warning will be emitted to the log but the maintenance tasks will not be interrupted. The purpose of the duration parameter is to allow the user to check that there are no overlaps and to allow monitoring of overrunning activities via log messaging and monitoring. The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing, see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.md#duration-format).
     * `rpcAuditDataRetentionPeriod` is a parameter to the RPC table maintenance task and specifies how long records should be kept for within the table for. The parameter is in HOCON *period* format - for example, `‘365d’, ‘1w’`. In general, the following suffixes should be sufficient: `‘d’ (days), ‘w’ (weeks), ‘m’ (months), ‘y’ (years)`. For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.md#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
-  * [Node Maintenance Mode](../operating/maintenance-mode.md#configuration-of-node-maintenance-mode) uses the `processedMessageCleanup` parameters (see below).
+  * [Node Maintenance Mode](../../../../../en/platform/corda/4.7/enterprise/operating/maintenance-mode.html#configuration-of-node-maintenance-mode) uses the `processedMessageCleanup` parameters (see below).
 * `processedMessageCleanup`
   * An optional field that allows you to run the message ID cleanup task at shutdown. The same rules will apply for calculation of default values as when the activity runs at shutdown.
-  * This field and its parameters are also used by the [Node Maintenance Mode](../operating/maintenance-mode.md#configuration-of-node-maintenance-mode) (`maintenanceMode` just above) functionality.
+  * This field and its parameters are also used by the [Node Maintenance Mode](../../../../../en/platform/corda/4.7/enterprise/operating/maintenance-mode.html#configuration-of-node-maintenance-mode) (`maintenanceMode` just above) functionality.
   * Parameters:
     * `generalRetentionPeriodInDays` indicates the number of days a message (sent during recovery) will be retained. If not specified, it will default to the specified `senderRetentionPeriodInDays` value plus the event horizon duration (or 365 days, if the event horizon is larger than 365 days).
     * `senderRetentionPeriodInDays` indicates the number of days a message (sent during normal operation) will be retained. If not specified, it will default to 7 days.
@@ -316,7 +316,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * List of previous node identity key aliases after key rotation. For more information about this feature, contact your R3 account manager.
   * Default value: An empty list.
 * `enableURLConnectionCache`
-  * Enables URL connection caching. It is set to `false` by default and it is highly recommended to keep it that way.
+  * Enables URL connection caching. It is set to `false` by default, and it is highly recommended to keep it that way.
   * When caching is enabled (set to `true`), `.jar` files will be cached, which can cause leaking of file handles. This is caused by the way the `ServiceLoader` handles `.jar` files that are children of the `URLClassLoader`. For more information, see [here](https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8156014).
     * *Default:* `false`
 
@@ -348,7 +348,7 @@ Tuning is a section within the Corda Node configuration file that contains perfo
 
     The main ones are the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
     must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
-    using e.g. H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
+    using e.g., H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
     architecture. For these reasons, the default size for the flow framework thread pool is the minimum between two times the available number of processors and 30. Overriding this value in the configuration allows to specify any number.
 
 - `rpcThreadPoolSize`
@@ -358,9 +358,9 @@ Tuning is a section within the Corda Node configuration file that contains perfo
   * Incoming RPC calls are queued until a thread from this
   pool is available to handle the connection, prepare any required data and start the requested flow. As  this
   might be a non-trivial amount of work, the size of this pool can be configured in Corda Enterprise.
-  * On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow threads being idle while the payload is being deserialized and the flow invocation run.
+  * On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow threads being idle while the payload is being de-serialized, and the flow invocation run.
   * If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this * number slightly.
-  * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source) and the number of flow threads.
+  * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source), and the number of flow threads.
 
 - `journalBufferTimeout`
   * The interval (in nanoseconds) at which Artemis messages that are buffered in-memory will be flushed to disk, if the buffer hasn't been filled yet. Setting this to 0 will disable the internal buffer and writes will be written directly to the journal file.
@@ -945,6 +945,6 @@ Internal option.
   This option is disabled by default and is independent from `devMode`.
   {{< /note >}}
 
-  For full details, see [Automatic detection of unrestorable checkpoints](../../checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
+  For full details, see [Automatic detection of unrestorable checkpoints](.../../../../../en/platform/corda/4.7/enterprise/checkpoint-tooling.html#automatic-detection-of-unrestorable-checkpoints).
 
   *Default:* not defined

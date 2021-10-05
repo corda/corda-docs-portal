@@ -28,11 +28,6 @@ Use this guide to:
 
 3. Create flows that issue your token correctly onto the ledger, move it from party to party, and have it redeemed.
 
-{{< note >}}
-
-If you are new to Corda, and want a guided tutorial on using the Tokens SDK for the first time, take a look at the [Corda training section on tokens](https://training.corda.net/libraries/tokens-sdk/).
-
-{{< /note >}}
 
 ## Upgrading
 
@@ -54,14 +49,14 @@ Overview of changes:
 
 ### Changes in V1.2.2
 
-In V1.2.2, a new [Token Selection](token-selection) feature allows a the exception `InsufficientNotLockedBalanceException` to be thrown when  sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
+In V1.2.2, a new [Token Selection](token-selection.md) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when  sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
 
 ### Upgrade Tokens SDK
 
 To upgrade the Tokens SDK:
 
 {{< warning >}}
-Before upgrading, make sure the platform database schema is properly migrated and the changelog syncrhonised - consult the [upgrade documentation for Corda Enterprise 4.7](../app-upgrade-notes.md). If you have not migrated the schema, the Tokens SDK may not upgrade correctly.
+Before upgrading, make sure the platform database schema is properly migrated, and the changelog is syncrhonized - consult the [upgrade documentation for Corda Enterprise 4.7](../app-upgrade-notes.md). If you have not migrated the schema, the Tokens SDK may not upgrade correctly.
 {{< /warning >}}
 
 1. Change the V number (version number) in your CorDapp's relevant Gradle file to the version you are upgrading to - such as 1.2.2
@@ -114,9 +109,9 @@ Use the list below to understand what needs to be included in the token you want
 
 Once you have established what type of token you want to create, you can use the Tokens SDK to perform the following key tasks:
 
-* **Define** your token. Using the readymade utilities contained in the contract `.jar` file, you can define all the required attributes and custom attributes of your tokens.
+* **Define** your token. Using the ready-made utilities contained in the contract `.jar` file, you can define all the required attributes and custom attributes of your tokens.
 
-* **Issue** tokens onto your ledger so they can be used as part of a transaction.
+* **Issue** tokens onto your ledger, so they can be used as part of a transaction.
 
 * **Move** the token from at least one party to at least one other party in a transaction.
 
@@ -308,11 +303,11 @@ val myBaseBallCardToken: NonFungibleToken = NonFungibleToken(
 You can use the Tokens SDK to create flows for your tokens in the following ways:
 
 * **Utility methods** - methods by which you can compose your own flows.
-* **Subflows** - ready made processes that need to be initiated by another flow.
+* **Subflows** - ready-made processes that need to be initiated by another flow.
 * **RPC Enabled flows** - out-of-the-box flows that have been produced for testing purposes. These may not be suitable for commercial use.
 
 {{< attention >}}
-All of the utility methods, subflows and RPC enabled flows for Tokens SDK have been annotated with @JVMOverloads to ensure the appropriate Java constructors are generated where the source Kotlin constructor contains nullable arguments. This ensures a seamless experience when using the Tokens SDK from a Java code base.
+All the utility methods, sub-flows and RPC enabled flows for Tokens SDK have been annotated with @JVMOverloads to ensure the appropriate Java constructors are generated where the source Kotlin constructor contains nullable arguments. This ensures a seamless experience when using the Tokens SDK from a Java code base.
 {{< /attention >}}
 
 ### Utility method - Issue

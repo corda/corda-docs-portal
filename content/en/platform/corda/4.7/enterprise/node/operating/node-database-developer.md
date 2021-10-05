@@ -44,7 +44,7 @@ Setting up a Corda node to connect to a database requires:
 * [Run the node](#db-setup-developer-step-3-ref) to auto-create schema objects
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-(see the documentation on [Database access when running H2](../../node-database-access-h2), hence when using H2 database it’s sufficient to [start the node](node-database-admin.md#db-setup-step-3-ref) and the database will be created.
+(see the documentation on [Database access when running H2](../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md), hence when using H2 database it’s sufficient to [start the node](../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#db-setup-step-3-ref) and the database will be created.
 
 
 
@@ -208,10 +208,10 @@ database = {
 ```
 
 
-See [Node configuration](../setup/corda-configuration-file.md#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+See [Node configuration](../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.html#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
 * Run the `run-migration-script` sub-command to allow a Corda node to create database tables upon startup.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
-It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
+It is the responsibility of the node administrator, or a developer to download the appropriate JDBC driver.
 Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
 Corda distributed via published artifacts (e.g. added as Gradle dependency) will also search for the paths specified by the `jarDirs`
 field of the node configuration.
@@ -245,7 +245,7 @@ Configuration templates for each database vendor are shown below:
 #### H2
 
 By default, nodes store their data in an H2 database.
-No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../node-database-access-h2).
+No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2).
 
 
 

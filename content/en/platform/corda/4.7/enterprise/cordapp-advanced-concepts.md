@@ -40,7 +40,7 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in [Contract Constraints](cordapps/api-contract-constraints)), and the actual code is contained in a `.jar`  file that is referenced by the transaction.
+(read more in [Contract Constraints](../../../../../en/platform/corda/4.7/enterprise/cordapps/api-contract-constraints.md)), and the actual code is contained in a `.jar`  file that is referenced by the transaction.
 
 
 ### The basic threat model and security requirement.
@@ -118,7 +118,7 @@ Given that the input states are already agreed to be valid facts, the attached c
 {{< note >}}
 The output states created by this transaction must also specify constraints and, to prevent a malicious transaction creator specifying
 constraints that enable their malicious code to take control of a state in a future transaction, these constraints must be consistent
-with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](cordapps/api-contract-constraints.md#constraints-propagation) .
+with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](../../../../../en/platform/corda/4.7/enterprise/cordapps/api-contract-constraints.html#constraints-propagation) .
 
 {{< /note >}}
 The rule for contract code attachment validity checking is that for each state there must be one and only one attachment that contains the fully qualified contract class name.
@@ -134,13 +134,13 @@ legitimate and that there is no ambiguity when it comes to what code to execute.
 
 ### Contract execution in the AttachmentsClassloader and the no-overlap rule
 
-After ensuring that the contract code is correct the node needs to execute it to verify the business rules of the transaction.
-This is done by creating an `AttachmentsClassloader` from all the attachments listed by the transaction, then deserialising the binary
+After ensuring that the contract code is correct, the node needs to execute it to verify the business rules of the transaction.
+This is done by creating an `AttachmentsClassloader` from all the attachments listed by the transaction, then deserializing the binary
 representation of the transaction inside this classloader, creating the `LedgerTransaction` and then running the contract verification code
 in this classloader.
 
 Corda transactions can combine any states, which makes it possible that 2 different transaction attachments contain the same class name (they overlap).
-This can happen legitimately or it can be a malicious party attempting to break the contract rules. Due to how Java classloaders work,
+This can happen legitimately, or it can be a malicious party attempting to break the contract rules. Due to how Java classloaders work,
 this would cause ambiguity as to what code will be executed, so an attacker could attempt to exploit this and trick other nodes that a transaction that
 should be invalid is actually valid. To address this vulnerability, Corda introduces the *no-overlap* rule:
 
@@ -156,13 +156,13 @@ then running it against a different, but still legitimate implementation could c
 The process described above may appear surprising and complex. Nodes have CorDapps installed anyway, so why does the code need to also be attached to the transaction?
 Corda is designed to ensure that the validity of any transaction does not depend on any node specific setup and should always return the same result,
 even if the transaction is verified in 20 years when the current version of the CorDapps it uses will not be installed on any node.
-This attachments mechanism ensures that given the same input - the binary representation of a transaction and its back-chain, any node is and will
+This attachment mechanism ensures that given the same input - the binary representation of a transaction and its back-chain, any node is and will
 be able to load the same code and calculate the exact same result.
 
 Another surprise might be the fact that if every state has its own governing code then why can’t we just verify individual transitions independently?
 This would simplify a lot of things.
 The answer is that for a trivial case like swapping `Apples` for `Oranges` where the two contracts might not care about the other states in the
-transaction, this could be a valid solution. But Corda is designed to support complex business scenarios. For example the `Apples` contract logic
+transaction, this could be a valid solution, but Corda is designed to support complex business scenarios. For example the `Apples` contract logic
 can have a requirement to check that Pink Lady apples can only be traded against Valencia oranges. For this to be possible, the `Apples` contract needs to be able to find
 `Orange` states in the `LedgerTransaction`, understand their properties and run logic against them. If apples and oranges were loaded in
 separate classloaders then the `Apples` classloader would need to load code for `Oranges` anyway in order to perform those operations.

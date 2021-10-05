@@ -60,13 +60,13 @@ for more information.
 
 {{< /note >}}
 
-## Overriding configuration values
+## Override configuration values
 
 ### Placeholder Overrides
 
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
 `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
-environment variable isn’t present (see: [Hiding sensitive data](../operating/node-administration.md#hiding-sensitive-data) for more information).
+environment variable isn’t present (see: [Hiding sensitive data](../../../../../en/platform/corda/4.7/enterprise/operating/node-administration.html#hiding-sensitive-data) for more information).
 
 ```groovy
 rpcSettings {
@@ -265,7 +265,7 @@ Here are the contents of the `reference.conf` file:
     }
 ```
 
-## Generating a public key hash
+## Generate a public key hash
 
 This section details how a public key hash can be extracted and generated from a signed CorDapp. This is required for a select number of
 configuration properties.

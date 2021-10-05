@@ -13,7 +13,7 @@ weight: 50
 ---
 
 
-# Deploying in a development environment
+# Deploy in a development environment
 
 
 ## Development and local test deployments
@@ -26,10 +26,10 @@ In addition to the network map, all the nodes must also use the same set of netw
 
 For these reasons, test deployments can avail themselves of the Network Bootstrapper. This is a tool that scans all the node configurations from a common directory to generate the network parameters file, which is then copied to all the nodes’ directories. It also copies each node’s node-info file to every other node so that they can all be visible to each other.
 
-You can find out more about network maps and network parameters from [network map](../../network/network-map.md/).
+You can find out more about network maps and network parameters from [network map](../../../../../en/platform/corda/4.7/enterprise/network/network-map.md).
 
 
-## Bootstrapping a test network
+## Bootstrap a test network
 
 The Corda Network Bootstrapper can be downloaded from [here](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-bootstrapper/).
 
@@ -67,7 +67,7 @@ You can also have the node directories containing their `node.conf` files alread
 Similarly, each node directory may contain its own `corda.jar`, which the Bootstrapper will use instead.
 
 
-## Providing CorDapps to the Network Bootstrapper
+## Provide CorDapps to the Network Bootstrapper
 
 If you would like the Network Bootstrapper to include your CorDapps in each generated node, just place them in the directory
 alongside the config files. For example, if your directory has this structure:
@@ -86,7 +86,7 @@ added to the Contract Whitelist (see below).
 
 
 
-### Whitelisting contracts
+### Whitelist contracts
 
 Any CorDapps provided when bootstrapping a network will be scanned for contracts which will be used to create the
 *Zone whitelist* (see [API contract constraints](../../cordapps/api-contract-constraints.md)) for the network.
@@ -109,7 +109,7 @@ net.corda.finance.contracts.asset.CommercialPaper
 ```
 
 
-### Adding a new node to the network
+### Add a new node to the network
 
 Running the Bootstrapper again on the same network will allow a new node to be added and its
 node-info distributed to the existing nodes.
@@ -183,7 +183,7 @@ collecting back together.
 
 {{< /note >}}
 
-## Modifying the network parameters
+## Modify the network parameters
 
 The Network Bootstrapper creates a network parameters file when bootstrapping a network, using a set of sensible defaults. However, if you would like
 to override these defaults when testing, there are two ways of doing this. Options can be overridden via the command line or by supplying a configuration
@@ -191,13 +191,13 @@ file. If the same parameter is overridden both by a command line argument and in
 will take precedence.
 
 
-### Overriding network parameters via command line
+### Override network parameters via command line
 
 The `--minimum-platform-version`, `--max-message-size`, `--max-transaction-size` and `--event-horizon` command line parameters can
 be used to override the default network parameters. See [Command line options](#command-line-options) for more information.
 
 
-### Overriding network parameters via a file
+### Override network parameters via a file
 
 You can provide a network parameters overrides file using the following syntax:
 

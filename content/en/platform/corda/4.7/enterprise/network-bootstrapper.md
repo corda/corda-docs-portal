@@ -34,7 +34,7 @@ directories. It also copies each node’s node-info file to every other node so 
 You can find out more about network maps and network parameters from [Network map](network/network-map.md).
 
 
-## Bootstrapping a test network
+## Bootstrap a test network
 
 The Corda Network Bootstrapper can be downloaded from [here](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-bootstrapper).
 
@@ -71,7 +71,7 @@ You can also have the node directories containing their “node.conf” files al
 Similarly, each node directory may contain its own `corda.jar`, which the Bootstrapper will use instead.
 
 
-## Providing CorDapps to the Network Bootstrapper
+## Provide CorDapps to the Network Bootstrapper
 
 If you would like the Network Bootstrapper to include your CorDapps in each generated node, just place them in the directory
 alongside the config files. For example, if your directory has this structure:
@@ -90,7 +90,7 @@ added to the Contract Whitelist (see below).
 
 
 
-### Whitelisting contracts
+### Whitelist contracts
 
 Any CorDapps provided when bootstrapping a network will be scanned for contracts which will be used to create the
 *Zone whitelist* (see api-contract-constraints) for the network.
@@ -100,7 +100,7 @@ If you only wish to whitelist the CorDapps but not copy them to each node then r
 
 {{< /note >}}
 The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part
-of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` in [Network parameters](network/network-map.md#network-parameters)).
+of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` in [Network parameters](../../../../../en/platform/corda/4.7/enterprise/network/network-map.html#network-parameters)).
 
 By default the Bootstrapper will whitelist all the contracts found in the unsigned CorDapp JARs (a JAR file not signed by jarSigner tool).
 Whitelisted contracts are checked by *Zone constraints*, while contract classes from signed JARs will be checked by *Signature constraints*.
@@ -117,7 +117,7 @@ net.corda.finance.contracts.asset.CommercialPaper
 ```
 
 
-## Modifying a bootstrapped network
+## Modify a bootstrapped network
 
 The Network Bootstrapper is provided as a development tool for setting up Corda networks for development and testing.
 There is some limited functionality which can be used to make changes to a network, but for anything more complicated consider
@@ -138,7 +138,7 @@ If the nodes are located on different machines, then a utility such as [rsync](h
 so that the nodes can share node-infos.
 
 
-### Adding a new node to the network
+### Add a new node to the network
 
 Running the Bootstrapper again on the same network will allow a new node to be added and its
 node-info distributed to the existing nodes.
@@ -211,7 +211,7 @@ collecting back together.
 {{< /note >}}
 
 
-### Updating the contract whitelist for bootstrapped networks
+### Update the contract whitelist for bootstrapped networks
 
 If the network already has a set of network parameters defined (i.e. the node directories all contain the same network-parameters
 file) then the Network Bootstrapper can be used to append contracts from new CorDapps to the current whitelist.
@@ -270,7 +270,7 @@ The whitelist can only ever be appended to. Once added a contract implementation
 
 {{< /note >}}
 
-## Modifying the network parameters
+## Modify the network parameters
 
 The Network Bootstrapper creates a network parameters file when bootstrapping a network, using a set of sensible defaults. However, if you would like
 to override these defaults when testing, there are two ways of doing this. Options can be overridden via the command line or by supplying a configuration
@@ -278,13 +278,13 @@ file. If the same parameter is overridden both by a command line argument and in
 will take precedence.
 
 
-### Overriding network parameters via command line
+### Override network parameters via command line
 
 The `--minimum-platform-version`, `--max-message-size`, `--max-transaction-size` and `--event-horizon` command line parameters can
 be used to override the default network parameters. See [Command line options](#command-line-options) for more information.
 
 
-### Overriding network parameters via a file
+### Override network parameters via a file
 
 You can provide a network parameters overrides file using the following syntax:
 
@@ -300,7 +300,7 @@ are updating an existing network, the value in the existing network parameters f
 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.md#hiding-sensitive-data).
+variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](../../../../../en/platform/corda/4.7/enterprise//operating/node-administration.html#hiding-sensitive-data).
 
 {{< /note >}}
 The available configuration fields are listed below:
