@@ -26,14 +26,13 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before you start
 
-Before you start building states, read [Key concepts: States](../../cordapps/key-concepts/key-concepts-states.md).
+Before you start building states, read [Key concepts: States](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-states.md).
 
 ## Clone the CorDapp template repo
 
 The easiest way to write any CorDapp is to start from a template. This ensures that you have the correct files to begin building.
 
-1. Navigate to the Kotlin template repository.
-  * https://github.com/corda/corda5-cordapp-template-kotlin
+1. Navigate to the [Kotlin template repository](https://github.com/corda/corda5-cordapp-template-kotlin).
 
 2. Open a terminal window in the directory where you want to download the CorDapp template.
 
@@ -51,7 +50,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
 5. Open `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
-   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
+   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
 6. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`
 
@@ -91,14 +90,14 @@ class MarsVoucher {
 ```
 
 {{< note >}}
-Adding this annotation triggers an error in IntelliJ because you haven't created the `MarsVoucherContract` yet. Ignore this error for now - you will add the contract class in the [Write contracts](c5-basic-cordapp-contract.md) tutorial.
+Adding this annotation triggers an error in IntelliJ because you haven't created the `MarsVoucherContract` yet. Ignore this error for now - you will add the contract class in the [Write contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract.md) tutorial.
 {{< /note >}}
 
 When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `MarsVoucher`, so the contract is called `MarsVoucherContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
 
 ### Implement the state
 
-The next step of implementing the state is to complete the class declaration by adding the <a href="../../../../../platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a>. This step ensures that Corda recognizes the `MarsVoucher` as a state.
+The next step of implementing the state is to complete the class declaration by adding the <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a>. This step ensures that Corda recognizes the `MarsVoucher` as a state.
 
 In this case, use a `LinearState` to tie the `MarsVoucher` to a `LinearID`. You will also need to add a `@ConstructorForDeserialization` and a `JsonRepresentable`. You will add the details to this `JsonRepresentable` [later](#add-the-json-representable-data-class).
 
@@ -133,7 +132,7 @@ Next, add these constructor parameters:
 * `issuer` - the issuer of the voucher.
 * `holder` - the current owner of the voucher.
 
-In the class, you need to implement a method to populate the `participants` list of the state. This indicates the participant who will store the state.  
+In the class, you need to implement a method to populate the `participants` list of the state. This indicates the participant who will store the state.
 
 After adding these features, your code should look like this:
 
@@ -200,7 +199,7 @@ data class MarsVoucherDto(
 
 ### Add the JSON representable
 
-As noted in the [introduction](c5-basic-cordapp-intro.md), you must pass JSON parameters if you want the output to be returned over RPC. All of your CorDapp's external interactions are now performed via HTTP-RPC REST APIs. The node will return information in the same way.
+As noted in the [introduction](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.md), you must pass JSON parameters if you want the output to be returned over RPC. All of your CorDapp's external interactions are now performed via HTTP-RPC REST APIs. The node will return information in the same way.
 
 You must add these parameters in the form of a `JsonRepresentable` with these components:
 
@@ -334,4 +333,4 @@ data class BoardingTicketDto(
 
 ## Next steps
 
-Follow the [Write contracts](c5-basic-cordapp-contract.md) tutorial to continue on this learning path.
+Follow the [Write contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract.md) tutorial to continue on this learning path.

@@ -29,11 +29,11 @@ The Corda 5 Developer Preview supports Kotlin plugin version 1.4.
 
 ## Deployment
 
-You can deploy the Corda 5 Developer Preview locally using the [Corda CLI](../corda-cli/overview.md) tool and a docker daemon, such as a command-line tool or Docker Desktop 3.5.
+You can deploy the Corda 5 Developer Preview locally using the [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md) tool and a docker daemon, such as a command-line tool or Docker Desktop 3.5.
 
 ## Packaging CorDapps
 
-You can package and bundle CorDapps with the Corda CPK (Corda package file - `.cpk`) and CPB (Corda package bundle - `.cpb`) [plugins](../packaging/gradle-plugin/overview.md), which require Gradle 6.0 or above. Alternatively, you can create CorDapp package bundles (`.cpb` files) with the [CorDapp Builder](../packaging/cordapp-builder.md).
+You can package and bundle CorDapps with the Corda CPK (Corda package file - `.cpk`) and CPB (Corda package bundle - `.cpb`) [plugins](../packaging/gradle-plugin/overview.md), which require Gradle 6.0 or above. Alternatively, you can create CorDapp package bundles (`.cpb` files) with the [CorDapp Builder](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/cordapp-builder.md).
 
 ## Node databases
 

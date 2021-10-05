@@ -29,9 +29,9 @@ The Corda Service interface is implemented by all Corda Services, and is useful 
 
 The `CordaService` interface is not injectable by default. If it is required, you must specify the scope of injection by implementing `CordaServiceInjectable` to allow injection in to other Corda Services and notary services, or `CordaFlowInjectable` to allow injection in to flows.
 
-For more detail on injection refer to the section on [service injection](overview.md).
+For more detail on injection refer to the section on [service injection](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/overview.md).
 
-Necessary services and functionality that were previously provided by the `AppServiceHub` can be accessed using injection. Refer to the section on [service injection](overview.md) for more information.
+Necessary services and functionality that were previously provided by the `AppServiceHub` can be accessed using injection. Refer to the section on [service injection](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/overview.md) for more information.
 
 This interface extends the `SingletonSerializeAsToken` interface. Previously it was expected that the CorDapp developer would extend the `SingletonSerializeAsToken` abstract class. This is no longer the case as `SingletonSerializeAsToken` has been converted to an interface.
 
@@ -93,7 +93,7 @@ The `onEvent` function takes in a single parameter which is of type `ServiceLife
 
 The `CordaServiceInstaller` scans for services, instantiates them, and then can inject dependencies. If a constructor relies on using an injected service then an exception will be thrown because the dependency will not have been initialized at that point.
 
-An injection annotation has been added specifically for use with the service start event. `@CordaInjectPreStart` is an injection annotation which identifies injectable dependencies which are required in order to start the service. The `CordaServiceInstaller` scans for services and instantiates them, then injects pre-start dependencies, distributes the service start event, and finally injects the remaining injectable dependencies annotated with `@CordaInject`. Refer to the document on [service injection](overview.md) for more detailed information, including information on the order of pre-start injection.
+An injection annotation has been added specifically for use with the service start event. `@CordaInjectPreStart` is an injection annotation which identifies injectable dependencies which are required in order to start the service. The `CordaServiceInstaller` scans for services and instantiates them, then injects pre-start dependencies, distributes the service start event, and finally injects the remaining injectable dependencies annotated with `@CordaInject`. Refer to the document on [service injection](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/overview.md) for more detailed information, including information on the order of pre-start injection.
 
 ### `ServiceLifecycleEvent`
 
