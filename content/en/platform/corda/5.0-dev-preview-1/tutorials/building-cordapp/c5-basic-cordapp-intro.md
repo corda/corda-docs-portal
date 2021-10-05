@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-Follow this learning path to build your first CorDapp using step-by-step tutorials. You will learn how to implement the functionality and features needed to get any CorDapp up and running with the Corda 5 Developer Preview. It reinforces [best practices for building CorDapps](../../cordapps/overview.html).
+Follow this learning path to build your first CorDapp using step-by-step tutorials. You will learn how to implement the functionality and features needed to get any CorDapp up and running with the Corda 5 Developer Preview. It reinforces [best practices for building CorDapps](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/overview.md).
 
 Code samples for this tutorial are provided in Kotlin.
 
@@ -17,9 +17,9 @@ Code samples for this tutorial are provided in Kotlin.
 
 Before you start building your first CorDapp:
 
-- [Get set up for CorDapp development](../../getting-started/prerequisites.md).
-- [Deploy a local Corda 5 network](../../getting-started/setup-network.md).
-- [Run a sample CorDapp](../run-demo-cordapp.md).
+- [Get set up for CorDapp development](../../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/prerequisites.md).
+- [Deploy a local Corda 5 network](../../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md).
+- [Run a sample CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.md).
 - Take a look at the Corda 5 Developer Preview [Kotlin CorDapp template](https://github.com/corda/corda5-cordapp-template-kotlin).
 
 ## The story
@@ -45,7 +45,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 ## How will it work on Corda?
 
-1. Mars Express issues a voucher to Peter via a ledger transaction. In your CorDapp, this voucher is called `MarsVoucher` and is a [state](../../cordapps/key-concepts/key-concepts-states.md) on the [ledger](../../cordapps/key-concepts/key-concepts-ledger.md). This is the first transaction.
+1. Mars Express issues a voucher to Peter via a ledger transaction. In your CorDapp, this voucher is called `MarsVoucher` and is a [state](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-states.md) on the [ledger](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-ledger.md). This is the first transaction.
 
 2. When Mars Express prepares the ticket Peter requested, the company self-issues the ticket via a self-issue transaction. This is another state on the ledger - `BoardingTicket`. This is the second transaction.
 
@@ -53,7 +53,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 4. The `BoardingTicket` state is transferred to Peter when the `MarsVoucher` state is consumed and Mars Express gives Peter his ticket. This is the fourth and final transaction.
 
-All of these transactions are initiated by [flows](../../cordapps/flows/overview.md).
+All of these transactions are initiated by [flows](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/flows/overview.md).
 
 ## Changes from Corda 4
 
@@ -71,12 +71,12 @@ More details about these changes are covered in the tutorial for each topic. Con
 
 Follow these tutorials in sequential order to build your CorDapp:
 
-1. [Write states](c5-basic-cordapp-state.md)
+1. [Write states](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state.md)
 
-2. [Write contracts](c5-basic-cordapp-contract.md)
+2. [Write contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract.md)
 
-3. [Write flows](c5-basic-cordapp-flows.md)
+3. [Write flows](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-flows.md)
 
-4. [Run your CorDapp](c5-basic-cordapp-running.md)
+4. [Run your CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-running.md)
 
-5. [Conduct integration testing](c5-basic-cordapp-int-test.md)
+5. [Conduct integration testing](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-int-test.md)

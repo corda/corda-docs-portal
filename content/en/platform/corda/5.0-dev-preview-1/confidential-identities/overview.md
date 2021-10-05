@@ -168,7 +168,7 @@ Changes to the way confidential identities are handled have prompted updates to 
 
 In the identity service API:
 -   Confidential identities are associated with an X.500 name, rather than a party. If a method previously associated a confidential identity with a party, it now associates the confidential identity with an X.500 name.
--   The `partiesFromName` method has been removed. You can achieve similar RPC functionality with the [member lookup service](../nodes/developing/extending-rpc.md).
+-   The `partiesFromName` method has been removed. You can achieve similar RPC functionality with the [member lookup service](../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/extending-rpc.md).
 -   The prefix “wellKnown” has been removed. All parties are considered well-known unless they use a confidential identity. In this case,  they are referred to as “anonymous”.
 -   The identity utilities service methods `IdentityUtils.kt` has moved to `application-internal/src/main/kotlin/net/corda/internal/application/identity/IdentityInternalUtils.kt`
 -   These methods have been removed:

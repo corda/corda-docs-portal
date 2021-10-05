@@ -12,7 +12,7 @@ In the Corda 5 Developer Preview, use the `Flow` interface to implement a flow. 
 
 A flow is where you put your business logic and how you build, sign, and send states to others for signing.
 
-Flows are written as sequential code. Where you may normally expect to see blocking or async code, Corda will pause and resume the flow transparently. A running flow can survive the restart of the Corda node. The basics of flows are covered in the [overview](overview.md) .
+Flows are written as sequential code. Where you may normally expect to see blocking or async code, Corda will pause and resume the flow transparently. A running flow can survive the restart of the Corda node. The basics of flows are covered in the [overview](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/flows/overview.md) .
 
 ## Example of a simple flow
 

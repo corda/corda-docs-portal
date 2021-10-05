@@ -28,10 +28,10 @@ TransactionService transactionService;
 
 This injection is intended for use within custom CorDapp classes instantiated by Corda using reflection. This is currently limited to CorDapp flows, custom Corda Services, and notary services.
 
-For a complete overview of each Corda Service and its methods, use the [Corda 5 Developer Preview list of injectable services](injectable-services.md).
+For a complete overview of each Corda Service and its methods, use the [Corda 5 Developer Preview list of injectable services](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md).
 
 {{< note >}}
-The best way to learn how to use Corda Services in the Corda 5 Developer Preview, is to follow the tutorial for [Building your first CorDapp](/en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.html).
+The best way to learn how to use Corda Services in the Corda 5 Developer Preview, is to follow the tutorial for [Building your first CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.md).
 {{< /note >}}
 
 ## Make a service injectable
