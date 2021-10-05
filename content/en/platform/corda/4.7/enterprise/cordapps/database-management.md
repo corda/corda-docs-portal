@@ -18,7 +18,7 @@ Similarly, when a new version of a CorDapp is installed, its database schema may
 but the existing data needs to be preserved or changed accordingly.
 
 In Corda Enteprise, CorDapps’ custom tables are created or upgraded automatically based on
-Database Management Scripts written in [Liquibase](../node/operating/node-database.md#liquibase-ref) format and embedded in CorDapp JARs.
+Database Management Scripts written in [Liquibase](../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#liquibase-ref) format and embedded in CorDapp JARs.
 For Corda Enterpise, any CorDapp having custom tables (`MappedSchema`)  needs to contain a matching Database Management Script, the script should be created during CorDapp development.
 
 

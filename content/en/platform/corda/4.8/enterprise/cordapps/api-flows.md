@@ -765,7 +765,7 @@ transaction fail to verify it, or the receiving flow (the finality handler) fail
 all parties will not have the up-to-date view of the ledger.
 
 To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint
-upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](../node/node-flow-hospital.md#flow-hospital-runtime).
+upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](../../../../../en/platform/corda/4.7/enterprise/node/node-flow-hospital.html#flow-hospital-runtime).
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved, the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
 

@@ -319,7 +319,7 @@ You could sign the CorDapp automatically by:
 
 ### Run development and production modes
 Nodes only accept CorDapps signed by Corda development certificates when running in development mode. If you need to run a CorDapp signed by the (default) development key in the production mode (for example, for testing), add the `cordappSignerKeyFingerprintBlacklist = []` property set to an empty list. See
-[Configuring a node](../node/setup/corda-configuration-file.md#corda-configuration-file-signer-blacklist)).
+[Configuring a node](../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-signer-blacklist)).
 
 You can use one `build.gradle` file for both a development build (defaulting to the Corda development keystore) and for a production build (using an external keystore) by contexually overwriting signing options using system properties.
 
@@ -455,7 +455,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-You can find an example project that demonstrates this in the `samples` folder of the Corda Git repository, `cordapp-configuration` . You can also refer to the [API documentation](https://api.corda.net/api/4.8/enterprise/html/api/kotlin/corda/net.corda.core.cordapp/index.html).
+You can find an example project that demonstrates this in the `samples` folder of the Corda Git repository, `cordapp-configuration` . You can also refer to the [API documentation](https://api.corda.net/api/4.7/enterprise/html/api/kotlin/corda/net.corda.core.cordapp/index.html).
 
 
 ## Minimum and target platform version
@@ -589,7 +589,7 @@ Future versions of Corda will de-couple this custom schema dependency to remove 
 CorDapp Contract `.jar`s must be installed on a node by a trusted uploader, either by:
 
 * Installing manually as per [Installing the CorDapp JAR](#cordapp-install-ref) and re-starting the node.
-* Uploading the attachment `.jar` to the node via RPC, either programmatically (see [Connecting to a node via RPC](../node/operating/clientrpc.md#clientrpc-connect-ref))
+* Uploading the attachment `.jar` to the node via RPC, either programmatically (see [Connecting to a node via RPC](../../../../../en/platform/corda/4.7/enterprise/node/operating/clientrpc.html#clientrpc-connect-ref))
 or via the shell using the command: `>>> run uploadAttachment jar: path/to/the/file.jar`.
 
 Contract attachments received over the p2p network are **untrusted** and throw a *UntrustedAttachmentsException* exception if they are processed by a listening flow that cannot resolve the attachment with its local attachment storage. The flow will be suspended and sent to the node's `node-flow-hospital` for recovery and retry.
