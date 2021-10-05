@@ -42,7 +42,7 @@ For the purposes of constraints migration, it is desirable that any new output s
 
 ### Should I use the **implicit** or **explicit** upgrade path?
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.html#implicit-vs-explicit-upgrades). **Implicit** upgrades allow pre-authorising multiple implementations of the contract ahead of time. They do not require additional coding and do not incur a complex choreographed operational upgrade process.
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.html#implicit-and-explicit-contract-upgrades). **Implicit** upgrades allow pre-authorizing multiple implementations of the contract ahead of time. They do not require additional coding and do not incur a complex choreographed operational upgrade process.
 
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (for example, same state definition, commands and verification code) and
@@ -69,7 +69,7 @@ Corda 4.8 requires some additional steps to consume and evolve pre-existing on-l
 
 
 * All Corda Nodes in the same CZ or business network that may encounter a transaction chain with a hash constrained state must be started using
-relaxed hash constraint checking mode as described in [Hash constrained states in private networks](../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.html#hash-constrained-states-in-private-networks).
+relaxed hash constraint checking mode as described in [Hash constrained states in private networks](../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.html#types-of-contract-constraints).
 * CorDapp flows that build transactions using pre-existing *hash-constrained* states must explicitly set output states to use *signature constraints*
 and specify the related public key(s) used in signing the associated CorDapp Contract JAR:
 
