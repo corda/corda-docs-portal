@@ -78,4 +78,4 @@ The debugger cannot attach to the node's webservers - they always run in a separ
 
 ## Method 3: Enable remote debugging on a node
 
-See [Enabling remote debugging](../../../../../en/platform/corda/4.7/enterprise/node/node-commandline.html#enabling-remote-debugging).
+See [Enabling remote debugging](../../../../../en/platform/corda/4.8/enterprise/node/node-commandline.html#enabling-remote-debugging).
