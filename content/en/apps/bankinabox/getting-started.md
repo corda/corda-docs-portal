@@ -17,9 +17,9 @@ Follow this guide to set up Bank in a Box so you can start testing its features 
 
 ## Prerequisites
 
-Testing the Bank in a Box CorDapp or building your own banking CorDapp both require some Corda programming knowledge. If you are new to Corda, read about [Corda key concepts](../../corda-os/4.7/key-concepts.md) and [CorDapps](../../corda-os/4.7/cordapp-overview.md) to get up to speed.
+Testing the Bank in a Box CorDapp or building your own banking CorDapp both require some Corda programming knowledge. If you are new to Corda, read about [Corda key concepts](../../../en/platform/corda/4.7/open-source/key-concepts.md) and [CorDapps](../../../en/platform/corda/4.7/open-source/cordapp-overview.md) to get up to speed.
 
-Follow the general instructions for [Getting set up](../../corda-os/4.7/getting-set-up.md) to develop CorDapps once you are ready to get started with Bank in a Box.
+Follow the general instructions for [Getting set up](../../../en/platform/corda/4.7/open-source/getting-set-up.md) to develop CorDapps once you are ready to get started with Bank in a Box.
 
 You will also need the following to work on Bank in a Box:
 
@@ -101,7 +101,7 @@ $ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install bank-in-a-box-database bitnami/postgresql
 ```
 
-Follow the instructions displayed by the script output to connect to the database server via PSQL. You can create a separate database server for each Bank in a Box service by running the Helm script multiple times with different names and then setting up the database user/schema, following the instructions in the [Corda database setup documentation](../../corda-enterprise/4.7/node-database-intro.md).
+Follow the instructions displayed by the script output to connect to the database server via PSQL. You can create a separate database server for each Bank in a Box service by running the Helm script multiple times with different names and then setting up the database user/schema, following the instructions in the [Corda database setup documentation](../../../en/platform/corda/4.7/enterprise/node-database-intro.md).
 Alternatively, you can create several databases inside the single PostgresSQL server you have just deployed, by running the following DDL commands:
 
 ```

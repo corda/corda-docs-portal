@@ -37,7 +37,7 @@ The Bank in a Box application utilises the [Accounts SDK](https://github.com/cor
 The business logic behind Bank in a Box accounts is explained below, addressing:
 
 - [Account status](#account-status) - how account statuses are implemented in the application.
-- [Extending the mapped schema](#extending-the-mapped-schema) - how the the account schema is returned using the `generateMappedObject` method.
+- [Extending the mapped schema](#extending-the-mapped-schema) - how the account schema is returned using the `generateMappedObject` method.
 - [Implementing the withdraw method with overdraft support](#implementing-the-withdraw-method-with-overdraft-support) - how overdraft support is implemented in the application.
 - [Custom serialization](#custom-serialization) - how custom serializers are implemented to generate the serialization for Kryo.
 
@@ -119,7 +119,7 @@ The method checks that the account has sufficient funds - in either the account 
 
 #### Custom serialization
 
-Corda uses the [Kryo serializer](../../corda-os/4.7/serialization-index.md) to serialize objects on the call stack when suspending flows. There are known issues serializing JPA entity objects, particularly if they use one to many relationships or other complex structures. One approach to overcome this is to map entity objects to data classes, referred to as Data Transfer Objects (DTOs), for use within flows. Another approach is to implement custom serializers that generate the serialization for Kryo.
+Corda uses the [Kryo serializer](../../../en/platform/corda/4.7/open-source/serialization-index.md) to serialize objects on the call stack when suspending flows. There are known issues serializing JPA entity objects, particularly if they use one to many relationships or other complex structures. One approach to overcome this is to map entity objects to data classes, referred to as Data Transfer Objects (DTOs), for use within flows. Another approach is to implement custom serializers that generate the serialization for Kryo.
 
 A custom serializer for a JPA entity can be specified with the `DefaultSerializer` annotation:
 
@@ -164,7 +164,7 @@ The above shows the serialization of the `createdOn` property in the Customer sc
 
 Using the flows in this section, several account-related tasks can be accomplished. You can:
 
-* Create a new customer [`CreateCustomerFlow`](#createcustomerflow).
+* Create a new customer (`[CreateCustomerFlow](#createcustomerflow)`).
 * Update customer information [(`UpdateCustomerFlow`)](#updatecustomerflow).
 * Create a current account for a customer [(`CreateCurrentAccountFlow`)](#createcurrentaccountflow).
 * Create a savings account for a customer [(`CreateSavingsAccountFlow`)](#createsavingsaccountflow).
