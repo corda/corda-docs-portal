@@ -164,7 +164,7 @@ The above shows the serialization of the `createdOn` property in the Customer sc
 
 Using the flows in this section, several account-related tasks can be accomplished. You can:
 
-* Create a new customer (`[CreateCustomerFlow](#createcustomerflow)`).
+* Create a new customer <a href="#createcustomerflow">(`CreateCustomerFlow`)</a>.
 * Update customer information [(`UpdateCustomerFlow`)](#updatecustomerflow).
 * Create a current account for a customer [(`CreateCurrentAccountFlow`)](#createcurrentaccountflow).
 * Create a savings account for a customer [(`CreateSavingsAccountFlow`)](#createsavingsaccountflow).
@@ -182,7 +182,7 @@ To create a new customer, use the `CreateCustomerFlow`. This flow also adds pers
 * `contactNumber`: Customer phone number.
 * `emailAddress`: Customer email address.
 * `postCode`: Post code of customer's address.
-* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments](../../corda-os/4.7/cordapp-build-systems.md#cordapp-contract-attachments).
+* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments](../../../en/platform/corda/4.7/open-source/cordapp-build-systems.html#cordapp-contract-attachments).
 
 This flows returns `UUID`, the customer ID.
 
@@ -322,11 +322,11 @@ subFlow(ApproveOverdraftFlow(accountId, amount))
 
 ## Loans
 
-The Bank in a Box application uses [Oracles](../../corda-os/4.7/key-concepts-oracles.md#oracles) in various contexts, one of which is in the issuance of loans. A dummy Oracle is used to call external services based on a customer ID and sign off on the loan. The response is then embedded in the transaction that issues the loan. This mimics a real-life scenario where a bank calls a rating provider before giving a customer a loan.
+The Bank in a Box application uses [Oracles](../../../en/platform/corda/4.7/open-source/key-concepts-oracles.html#oracles) in various contexts, one of which is in the issuance of loans. A dummy Oracle is used to call external services based on a customer ID and sign off on the loan. The response is then embedded in the transaction that issues the loan. This mimics a real-life scenario where a bank calls a rating provider before giving a customer a loan.
 
-Oracle signatures use [partial Merkle tree signing](../../corda-os/4.7/key-concepts-tearoffs.md#hiding-data), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
+Oracle signatures use [partial Merkle tree signing](../../../en/platform/corda/4.7/open-source/key-concepts-tearoffs.html#hiding-data), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
 
-When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states](../../corda-os/4.7/event-scheduling.md#implementing-scheduled-events) to create a recurring payment for that loan, into the loan account.
+When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states](../../../en/platform/corda/4.7/open-source/event-scheduling.html#implementing-scheduled-events) to create a recurring payment for that loan, into the loan account.
 
 ### Business logic
 
@@ -675,7 +675,7 @@ Use the flows in this section to perform tasks related to account deposits and w
 
 Use `WithdrawFiatFlow` to withdraw a specified amount from an account with the provided `accountId`.
 
-`WithdrawFiatFlow(val accountId: UUID, val amount: Amount<Currency>) : FlowLogic<SignedTransaction>()``
+`WithdrawFiatFlow(val accountId: UUID, val amount: Amount<Currency>) : FlowLogic<SignedTransaction>()`
 
 * `accountId`: `UUID` - The ID of an account.
 * `amount`: amount to be withdrawn
@@ -726,7 +726,7 @@ val signedTx = subFlow(DepositFiatFlow(accountId, amount))
 
 ## Payments
 
-As noted in the [Loans](#loans) section, [Corda scheduled states](../../corda-os/4.7/event-scheduling.md#implementing-scheduled-events) are utilised in Bank in a Box to create recurring payments that start on a given date and are executed in a specific time period.
+As noted in the [Loans](#loans) section, [Corda scheduled states](../../../en/platform/corda/4.7/open-source/event-scheduling.html#implementing-scheduled-events) are utilised in Bank in a Box to create recurring payments that start on a given date and are executed in a specific time period.
 
 Payments in Bank in a Box are also a good example of how CorDapps can be integrated with external systems.
 
@@ -739,7 +739,7 @@ The business logic behind Bank in a Box payments is explained below, addressing:
 
 #### Deduplicating payment logs
 
-In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a [`FlowExternalOperation`](../../corda-os/4.7/api-flows.md#flowexternalasyncoperation) that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`.
+In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a [`FlowExternalOperation`](../../../en/platform/corda/4.7/open-source/api-flows.html#flowexternalasyncoperation) that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`.
 
 The skeleton `CreateRecurringPaymentLogOperation` is as follows:
 
