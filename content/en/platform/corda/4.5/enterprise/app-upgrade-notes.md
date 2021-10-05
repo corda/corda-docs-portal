@@ -15,7 +15,7 @@ title: Upgrading a CorDapp to a newer platform version
 # Upgrading CorDapps to newer Platform Versions
 
 {{< warning >}}
-Corda Enterprise 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.5.4 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.5/enterprise/notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.5.4 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.5/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
@@ -310,7 +310,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](../../../../../../en/platform/corda/4.5/enterprise/cordapps/cordapp-build-systems.md#cordapp-configuration-files-ref) for more information.
+See [CorDapp configuration files](../../../../../../en/platform/corda/4.5/enterprise/cordapps/cordapp-build-systems.html#cordapp-configuration-files-ref) for more information.
 
 
 
@@ -605,7 +605,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 ### Step 6. Security: Upgrade your use of SwapIdentitiesFlow
 
-The [Confidential identities](../../../../../../en/platform/corda/4.5/enterprise/cordapps/api-confidential-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [Confidential identities](../../../../../../en/platform/corda/4.5/enterprise/cordapps/api-confidential-identity.html#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
@@ -765,7 +765,7 @@ automatically using new signature constraints selected automatically based on th
 
 
 {{< important >}}
-You will be able to use this feature if the compatibility zone you plan to deploy on has raised its minimum platform version to check the correctness of the transaction. Please take this into account for your own schedule planning. You can read more about signature constraints and what they do in api-contract-constraints. The `TransactionBuilder` class will automatically use them if your application `.jar` file is signed. **We recommend all `.jar` files are signed**. To learn how to sign your `.jar` files, read [Signing the CorDapp JAR](../../../../../../en/platform/corda/4.5/enterprise/cordapps/cordapp-build-systems.md#signing-the-cordapp-jar). In dev mode, all `.jar` files are signed by developer certificates. If a `.jar` file that was signed with developer certificates is deployed to a production node, the node will refuse to start. Therefore, to deploy apps built for Corda 4 to production, you will need to generate signing keys and integrate them with the build process.
+You will be able to use this feature if the compatibility zone you plan to deploy on has raised its minimum platform version to check the correctness of the transaction. Please take this into account for your own schedule planning. You can read more about signature constraints and what they do in api-contract-constraints. The `TransactionBuilder` class will automatically use them if your application `.jar` file is signed. **We recommend all `.jar` files are signed**. To learn how to sign your `.jar` files, read [Signing the CorDapp JAR](../../../../../../en/platform/corda/4.5/enterprise/cordapps/cordapp-build-systems.html#signing-the-cordapp-jar). In dev mode, all `.jar` files are signed by developer certificates. If a `.jar` file that was signed with developer certificates is deployed to a production node, the node will refuse to start. Therefore, to deploy apps built for Corda 4 to production, you will need to generate signing keys and integrate them with the build process.
 
 
 {{< /important >}}
@@ -829,7 +829,7 @@ may result in queries returning more states than expected if the node is using o
 Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
-* The [new withEntityManager API](../../../../../../en/api-ref/corda/4.5/open-source/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
+* The [new withEntityManager API](../../../../../../en/api-ref/corda/4.5/open-source/kotlin/corda/net.corda.core.node/service-hub/with-entity-manager.html#withEntityManager-block-) for using JPA inside your flows and services.
 * [Reference States](../../../../../../en/platform/corda/4.5/enterprise/cordapps/api-states.html#reference-states), that let you use an input state without consuming it.
 * [State Pointers](../../../../../../en/platform/corda/4.5/enterprise/cordapps/api-states.html#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 
