@@ -9,18 +9,18 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-In the Corda 5 Developer Preview, the [Query API](query-api.md) is exposed as part of the HTTP-RPC Persistence API. It
+In the Corda 5 Developer Preview, the [Query API](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.md) is exposed as part of the HTTP-RPC Persistence API. It
 allows you to invoke named-queries via HTTP requests and receive results marshalled to JSON.
 
 You can invoke the HTTP Named Query API by sending an HTTP `POST` request to the
 `https://{host}:{port}/persistence/query` endpoint. The request requires a body payload containing a
 `RpcNamedQueryRequest` and a `DurableStreamContext`.
 
-You can use the native [HTTP-RPC Client](../../nodes/developing/http-rpc-client.md) `HttpRpcClient` to instantiate a durable stream and poll for results.
+You can use the native [HTTP-RPC Client](../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/http-rpc-client.md) `HttpRpcClient` to instantiate a durable stream and poll for results.
 
 You can also manually invoke the API via a `curl` request or using Swagger UI.
 
-To generate your own client capable of calling this API, see [generating client code](../../nodes/developing/generate-code/generate-code.md).
+To generate your own client capable of calling this API, see [generating client code](../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/generate-code/generate-code.md).
 
 ## Overview of the Query API
 
@@ -78,13 +78,13 @@ Post-processor implementations must override `availableForRpc` and set this flag
 Clients can use the `RpcNamedQueryRequestBuilder` to build the request.
 
 For more information on the Query API, see:
-- [How to create your own named queries](query-api.md#create-your-own-named-queries).
-- [How to implement your own post-processor](query-api.md#implementing-your-own-post-processor).
-- [How to use post processors](query-api.md#using-post-processors).
+- [How to create your own named queries](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#create-your-own-named-queries).
+- [How to implement your own post-processor](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#implementing-your-own-post-processor).
+- [How to use post processors](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#using-post-processors).
 
 ## `DurableCursorBuilder<RpcNamedQueryResponseItem>`
 
-The HTTP Named Query API creates a [durable stream](../../nodes/developing/durable-streams/durable-streams-homepage.md) which allows polling for named query results.
+The HTTP Named Query API creates a [durable stream](../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/durable-streams/durable-streams-homepage.md) which allows polling for named query results.
 
 Each poll executes the given named-query with the provided request in the context of a `DurableStreamContext`. This context contains the start position, max number of results and a timeout and is used to control the paging positions to page through the results. When using the `HttpRpcClient`, this is encapsulated in the `DurableCursor` object that is built and hidden from the user. Otherwise, the context is required for each poll request.
 
@@ -120,7 +120,7 @@ You will need to provide a post-processor when:
 
 The named-query `"VaultState.findByStateStatus"` quite literally queries for `VaultState` entities. To obtain actual state data, you must use a post-processor that implements `StateAndRefPostProcessor`.
 
-For more details see [how to use post-processors](query-api.md#using-post-processors). The [CustomStatePostProcessor](query-api.md#using-post-processors) is an example which converts `StateAndRef`s containing `CustomState`s to `PostProcessedObject` POJOs which can be easily serialized to JSON. Since this particular named query is quite generic, it is possible that some states are not of type `CustomState`, hence why the additional type filtering is required in the post-processor.
+For more details see [how to use post-processors](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#using-post-processors). The [CustomStatePostProcessor](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#using-post-processors) is an example which converts `StateAndRef`s containing `CustomState`s to `PostProcessedObject` POJOs which can be easily serialized to JSON. Since this particular named query is quite generic, it is possible that some states are not of type `CustomState`, hence why the additional type filtering is required in the post-processor.
 
 ## Call the API from Swagger UI
 
@@ -220,7 +220,7 @@ These queries are compatible with custom post-processors which convert states in
 
 ## Call the API using the HTTP-RPC Client
 
-These examples use the Corda 5 Developer Preview implementation of [HTTP-RPC Client](../../nodes/developing/durable-streams/java-client/java-client.md) (`HttpRpcClient`).
+These examples use the Corda 5 Developer Preview implementation of [HTTP-RPC Client](../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/durable-streams/java-client/java-client.md) (`HttpRpcClient`).
 
 See [appendix](#appendix) for additional classes used in the examples, such as post-processors and simple POJOs.
 

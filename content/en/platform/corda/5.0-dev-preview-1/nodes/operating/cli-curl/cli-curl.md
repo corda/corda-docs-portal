@@ -147,10 +147,10 @@ To delete the Corda Node CLI, simply delete the application's folder at its loca
 
 ## Invoke HTTP-RPC using `curl`
 
-You can invoke any method inside a [@HttpRpcResource](../../developing/expose-rpc/annotation.html#annotations-and-meta-annotation-fields)
+You can invoke any method inside a [@HttpRpcResource](../../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/expose-rpc/annotation.html#annotations-and-meta-annotation-fields)
 annotated interface if the method itself is also annotated with
-[@HttpRpcGET](../../developing/expose-rpc/annotation.html#annotations-and-meta-annotation-fields) or
-[@HttpRpcPOST](../../developing/expose-rpc/annotation.html#annotations-and-meta-annotation-fields).
+[@HttpRpcGET](../../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/expose-rpc//annotation.html#annotations-and-meta-annotation-fields) or
+[@HttpRpcPOST](../../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/expose-rpc//annotation.html#annotations-and-meta-annotation-fields).
 
 If you haven't specified the `path` in the annotation, the generated URL will contain the name of the interface and the name of the method (converted to lowercase).
 You can override this by providing a value for the `path` parameter in the annotation.

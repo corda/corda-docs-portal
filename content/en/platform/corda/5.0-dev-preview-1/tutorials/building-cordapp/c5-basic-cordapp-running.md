@@ -237,4 +237,4 @@ You must replace the `voucherID` with `linearId` that you copied and stored in s
 
 ## Next steps
 
-Follow the [Write integration tests](c5-basic-cordapp-int-test.md) tutorial to finish this learning path.
+Follow the [Write integration tests](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-int-test.md) tutorial to finish this learning path.

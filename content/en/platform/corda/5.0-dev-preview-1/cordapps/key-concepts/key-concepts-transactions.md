@@ -12,7 +12,7 @@ section_menu: corda-5-dev-preview
 The Corda 5 Developer Preview uses a *UTXO* (unspent transaction output) model, where every state on the ledger is immutable. The ledger
 evolves over time by applying **transactions**. Transactions update the ledger by marking zero or more existing ledger states
 as historic (the *inputs*), and producing zero or more new ledger states (the *outputs*). Transactions represent a
-single link in the state sequences as described in **[states](key-concepts-states.md)**.
+single link in the state sequences as described in **[states](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-states.md)**.
 
 ### States in the Corda 5 Developer Preview
 
@@ -81,7 +81,7 @@ Signers should only sign the transaction if these conditions are met:
 
 * **Transaction validity**
   * Transactions in the transaction chain are digitally signed by all the required parties.
-  * The proposed transaction is **[contractually valid](key-concepts-contracts.md)**.
+  * The proposed transaction is **[contractually valid](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-contracts.md)**.
 
 * **Transaction uniqueness**. There exists no other committed transaction that has consumed any of the inputs to
 the proposed transaction.

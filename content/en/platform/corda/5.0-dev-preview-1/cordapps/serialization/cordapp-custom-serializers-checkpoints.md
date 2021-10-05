@@ -20,11 +20,11 @@ It is best to modify CorDapps containing custom checkpoint serializers when no c
 
 ## Before you begin
 
-Read [pluggable serializers for CorDapps](cordapp-custom-serializers.md) before you start writing custom checkpoint serializers.
+Read [pluggable serializers for CorDapps](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/serialization/cordapp-custom-serializers.md) before you start writing custom checkpoint serializers.
 
 ## Writing a custom checkpoint serializer
 
-Checkpoint serializers follow the same rules as [normal pluggable serializers](cordapp-custom-serializers.md).
+Checkpoint serializers follow the same rules as [normal pluggable serializers](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/serialization/cordapp-custom-serializers.md).
 
 In addition, they need to implement `net.corda.core.serialization.CheckpointCustomSerializer`.
 
