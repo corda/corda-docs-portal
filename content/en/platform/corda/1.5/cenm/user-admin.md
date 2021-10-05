@@ -34,14 +34,14 @@ You need administrator access to use the User Admin tool. If you are the first p
 
 ## Access the User Admin tool
 
-Access the User Admin tool from your [Gateway Service](../../4.8/enterprise/node/gateway-service) instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
+Access the User Admin tool from your [Gateway Service](../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md) instance. Enter the full address of your Gateway Service, including the port number, followed by `/admin` into a web browser.
 
 For example:
 `http://10.230.41.12:8080/admin`
 
 ### First login
 
-Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](../../4.8/enterprise/node/auth-service).
+Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md).
 
 If you do not have these, you need to access them from the operator who configured your Auth Service.
 
@@ -77,7 +77,7 @@ Users can access network services to perform tasks. To give a user permissions, 
 
 Administrators *cannot* have any role as a user on your network operation services.
 
-![create_user](resources/create_user_new.png)
+![create_user](../../../../../en/platform/corda/1.5/cenm/resources/create_user_new.png)
 
 {{< note >}}
 You must be registered as an administrator to create new users and administrators.
@@ -107,7 +107,7 @@ To add a new user or administrator:
 
 You can change a user's status, password, or group membership from the **User Details** screen.
 
-![Manage user](resources/user_details_new.png)
+![Manage user](../../../../../en/platform/corda/1.5/cenm/resources/user_details_new.png)
 
 1. Select **Users** from the side menu to view the user list.
 
@@ -130,7 +130,7 @@ You can change a user's status, password, or group membership from the **User De
 
 Groups let you grant multiple users the same set of permissions. Groups make it easier for you to manage permissions of future users - just add them to the relevant groups instead of configuring individual roles.
 
-![Creating a group](resources/create_group_new.png)
+![Creating a group](../../../../../en/platform/corda/1.5/cenm/resources/create_group_new.png)
 
 To create a group:
 
@@ -153,7 +153,7 @@ You can access all your groups from the **Groups** screen.
 
 You can add or remove members of a group, or delete an existing group. Deleting a group does not delete the users in the group.
 
-![Manage a group](resources/group_details_new.png)
+![Manage a group](../../../../../en/platform/corda/1.5/cenm/resources/group_details_new.png)
 To make changes to a group:
 
 1. Select **Groups** from the side menu to view your existing groups.
@@ -179,7 +179,7 @@ To make changes to a group:
 
 Roles are made up of permissions that allow users to perform tasks in CENM. You can create roles by combining the required permissions, and then assigning the role to users and/or groups.
 
-![Create a Role](resources/create_role_new.png)
+![Create a Role](../../../../../en/platform/corda/1.5/cenm/resources/create_role_new.png)
 To create a new role:
 
 1. Select **Roles** from the side menu.
@@ -201,7 +201,7 @@ You have added a new role. All users and groups assigned this role are granted i
 
 You can assign a role to additional users and groups, remove roles from users and groups, add and remove permissions in a role, and delete roles at any time.
 
-![Manage a Role](resources/role_details_new.png)
+![Manage a Role](../../../../../en/platform/corda/1.5/cenm/resources/role_details_new.png)
 To amend the properties of a role:
 
 1. Select **Roles** from the side menu.

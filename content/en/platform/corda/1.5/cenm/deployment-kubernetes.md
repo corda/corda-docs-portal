@@ -56,7 +56,7 @@ The deployed network runs on Kubernetes minimum version 1.16.9 and Helm minimum 
 ### Deployment overview
 
 The provided deployment runs all CENM services run inside a single, dedicated Kubernetes namespace (default name:`cenm`).
-Each service runs in its own dedicated Kubernetes pod, with the exception of the [Angel Service](angel-service.md), which runs in the same pod as its managed service.
+Each service runs in its own dedicated Kubernetes pod, with the exception of the [Angel Service](../../../../../en/platform/corda/1.5/cenm/angel-service.md), which runs in the same pod as its managed service.
 
 {{< note >}}
 Naturally, the following command will not show a dedicated Angel Service pod:
@@ -68,7 +68,7 @@ The Angel Service and its managed service must both be healthy in order for the 
 The CENM network is bootstrapped with PKI certificates, and sample X.500 subject names are provided as defaults
 (for example, the Identity Manager Service certificate subject is
 “CN=Test Identity Manager Service Certificate, OU=HQ, O=HoldCo LLC, L=New York, C=US”).
-These can be configured in the [Signing Service Helm chart](deployment-kubernetes-signer.md).
+These can be configured in the [Signing Service Helm chart](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-signer.md).
 
 There are two ways of bootstrapping a new CENM environment:
 
@@ -107,7 +107,7 @@ The deployment steps are given below:
 
 - Install [Docker](https://www.docker.com/get-started). Docker is required to run the CENM CLI tool.
 
-- Download the Docker image with CENM [Command-Line Interface (CLI) tool](cenm-cli-tool.md) so you can manage CENM services:
+- Download the Docker image with CENM [Command-Line Interface (CLI) tool](../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md) so you can manage CENM services:
 
 {{< note >}}
 Note the `.0`.
@@ -207,7 +207,7 @@ cd network-services/deployment/k8s/helm
 
 ## Network operations
 
-Use the CENM [Command Line Interface (CLI) Tool](cenm-cli-tool.md) to access the [Gateway Service](../../4.8/enterprise/node/gateway-service.md) from your local machine.
+Use the CENM [Command Line Interface (CLI) Tool](../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md) to access the [Gateway Service](../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md) from your local machine.
 To start the CENM CLI Tool, run Docker command starting a Docker container with the tool:
 
   ```bash
@@ -230,7 +230,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<GATEWAY-SERVICE-IP>:8080
   ```
 
-The [Gateway Service](../../4.8/enterprise/node/gateway-service.md) is a gateway between the [Auth Service](../../4.8/enterprise/node/auth-service.md) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service](identity-manager.md), the [Network Map Service](network-map.md), and the [Signing Service](signing-service.md).
+The [Gateway Service](../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md) is a gateway between the [Auth Service](../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service](../../../../../en/platform/corda/1.5/cenm/identity-manager.md), the [Network Map Service](../../../../../en/platform/corda/1.5/cenm/network-map.md), and the [Signing Service](../../../../../en/platform/corda/1.5/cenm/signing-service.md).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -294,7 +294,7 @@ kubectl get pods -o wide
 You will find the truststore password in the `signer/files/pki.conf`, where the default value used in this Helm chart is `trust-store-password`.
 
 {{< note >}} For more details about joining a CENM network, see:
-[Joining an existing compatibility zone](../../../../../en/platform/corda/4.5/open-source/joining-a-compatibility-zone.md).
+[Joining an existing compatibility zone](../../../../../en/platform/corda/4.8/open-source/joining-a-compatibility-zone.md).
 {{< /note >}}
 
 ### Display logs
@@ -340,10 +340,10 @@ database {
 
 ### Update network parameters
 
-Use the CENM [Command-Line (CLI) tool](cenm-cli-tool.md) to run commands to update the network parameters.
+Use the CENM [Command-Line (CLI) tool](../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md) to run commands to update the network parameters.
 
-See the official CENM documentation for more information about the list of available [network parameters](./config-network-parameters.html)
-and instructions on [updating network parameters](./updating-network-parameters.html).
+See the official CENM documentation for more information about the list of available [network parameters](../../../../../en/platform/corda/1.5/cenm/config-network-parameters.md)
+and instructions on [updating network parameters](../../../../../en/platform/corda/1.5/cenm/updating-network-parameters.md).
 
 ### Run Flag Day
 
@@ -355,7 +355,7 @@ This operation is scheduled to take place at regular intervals (by default, once
 
 ### Signing Service configuration
 
-The Signing Service is not managed by the [Angel Service](angel-service.md) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
+The Signing Service is not managed by the [Angel Service](../../../../../en/platform/corda/1.5/cenm/angel-service.md) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
 To change the Singing Service configuration, you must log in to a Kubernetes pod, update the configuration file, and restart the service.
 
 ## Delete Network
@@ -435,13 +435,13 @@ You must modify the following values in the `values.yaml` file:
 There are a number of settings provided on each Helm chart, which allow easy customisation of
 common options. Each CENM service has its own dedicated page with more detailed documentation:
 
-* [Auth Service](deployment-kubernetes-auth.md)
-* [Gateway Service](deployment-kubernetes-gateway.md)
-* [Identity Manager Service](deployment-kubernetes-idman.md)
-* [Network Map Service](deployment-kubernetes-nmap.md)
-* [Corda Notary](deployment-kubernetes-notary.md)
-* [Signing Service](deployment-kubernetes-signer.md)
-* [Zone Service](deployment-kubernetes-zone.md)
+* [Auth Service](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-auth.md)
+* [Gateway Service](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-gateway.md)
+* [Identity Manager Service](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-idman.md)
+* [Network Map Service](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-nmap.md)
+* [Corda Notary](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-notary.md)
+* [Signing Service](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-signer.md)
+* [Zone Service](../../../../../en/platform/corda/1.5/cenm/deployment-kubernetes-zone.md)
 
 ### Overriding Service Configuration
 
@@ -471,7 +471,7 @@ helm install cenm-database bitnami/postgresql
 
 Follow the instructions displayed by the script output to connect to the database server via `psql`.
 You can create a separate database server for each CENM service by running the Helm script multiple times with different names
-and then setting up the database user/schema, following the instructions in the [CENM database setup](database-set-up.md) section.
+and then setting up the database user/schema, following the instructions in the [CENM database setup](../../../../../en/platform/corda/1.5/cenm/database-set-up.md) section.
 Alternatively, you can create several databases inside the single PostgresSQL server you have just deployed, by running
 the following DDL commands:
 
