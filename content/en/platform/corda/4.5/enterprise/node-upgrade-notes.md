@@ -15,7 +15,7 @@ title: Upgrading your node to Corda 4.5
 # Upgrading your node to Corda 4.5
 
 {{< warning >}}
-Corda Enterprise 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.5.4 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.5.4 please read the guidance on [upgrading your notary service](../../../../../platform/corda/4.5/enterprise/notary/upgrading-the-ha-notary-service.md/).
 {{< /warning >}}
 
 
@@ -41,7 +41,7 @@ To update from Corda 3.x to 4.6, you must first upgrade to 4.x, and then upgrade
 ## Step 1. Drain the node
 
 Before a node, or an application on a node, can be upgraded, the node must be put in draining-mode. This brings the currently running
-[Flows](cordapps/api-flows.md/) to a smooth halt (existing work is finished, and new work is queued rather than being processed).
+[Flows](../../../../../platform/corda/4.5/enterprise/cordapps/api-flows.md/) to a smooth halt (existing work is finished, and new work is queued rather than being processed).
 
 Draining flows is a key task for node administrators to perform. It exists to simplify applications by ensuring apps don’t have to be
 able to migrate workflows from any arbitrary point to other arbitrary points, a task that would rapidly become unfeasible as workflow
@@ -66,7 +66,7 @@ It’s always a good idea to back up your data before upgrading any server. This
 You can simply make a copy of the node’s data directory to enable this. If you use an external non-H2 database, consult your database
 user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](node/operating/node-administration.md#backup-recommendations) .
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](../../../../../platform/corda/4.5/enterprise/node/operating/node-administration.html#backup-recommendations) .
 
 
 
@@ -230,7 +230,7 @@ A script named `migrationYYYYMMDDHHMMSS.sql` will be generated in the current di
 This script will contain all the statements required to modify and create data structures (for example, tables/indexes),
 and updates the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables itself.
-For descriptions of the options, refer to the [Corda Database Management Tool](node/operating/node-database.md#database-management-tool-ref) manual.
+For descriptions of the options, refer to the [Corda Database Management Tool](../../../../../platform/corda/4.5/enterprise/node/operating/node-database.md#database-management-tool-ref) manual.
 
 
 ### 3.3. Apply DDL scripts on a database
@@ -325,7 +325,7 @@ Your upgrade is complete.
 
 {{< warning >}}
 If upgrading from Corda Enterprise 3.x, please ensure your node has been upgraded to the latest point release of that
-distribution. See [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node)
+distribution. See [Upgrade a Corda 3.X Enterprise Node](https://github.com/corda/corda-docs-portal/blob/main/archived-docs/corda-enterprise/3.3/node-operations-upgrading.md)
 for information on upgrading Corda 3.x versions.
 
 {{< /warning >}}
