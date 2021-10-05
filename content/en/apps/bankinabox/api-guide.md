@@ -20,7 +20,7 @@ These endpoints and their corresponding flows are described below, organised by 
 
 ## Base URL
 
-As Bank in a Box is used for testing and learning, the base URL is `localhost` with the [port assigned during installation](getting-started.md/#service-endpoints-display-logs-and-exec-into-container) using the Kubernetes port forward feature.
+As Bank in a Box is used for testing and learning, the base URL is `localhost` with the [port assigned during installation](../../../en/apps/bankinabox/getting-started.html#service-endpoints-display-logs-and-exec-into-container) using the Kubernetes port forward feature.
 
 For the examples shown below, the base URL is: `http://localhost:7777/`
 
@@ -39,7 +39,7 @@ Many flows in Bank in a Box depend upon other flows being invoked first. After a
 1. [Upload a customer attachment](#upload-an-attachment).
 2. [Create a customer](#create-a-customer) using the same attachment and secure hash pair from above.
 3. [Register a user account](#register-a-user-account) using the customer ID and attachment from above steps.
-4. [Assign a role to the user](#assign-a-role-to-a-user) account created above.
+4. [Assign a role to the user](#add-role-to-user) account created above.
 4. [Create a current account](#create-a-current-account) with the customer ID generated above.
 5. [Set account status](#set-account-status) to `ACTIVE` for the created current account.
 
@@ -264,7 +264,7 @@ The Account Controller includes API endpoints that manage user accounts in the B
 
 ### Create a Current Account
 
-Send a `POST` request to the `/accounts/create-current-account` endpoint to invoke the [`CreateCurrentAccountFlow`](back-end-guide.md#createcurrentaccountflow). This flow creates a zero balance current account for a customer with the provided customer ID. The user also has the option to specify a withdrawal and/or transfer daily limit. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/accounts/create-current-account` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#createcurrentaccountflow">`CreateCurrentAccountFlow`</a>. This flow creates a zero balance current account for a customer with the provided customer ID. The user also has the option to specify a withdrawal and/or transfer daily limit. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `POST`.
 - Path: `/accounts/create-current-account`.
@@ -324,7 +324,7 @@ Sample response:
 
 ### Create a Savings Account
 
-Send a `POST` request to the `/accounts/create-savings-account` endpoint to invoke the []`CreateSavingsAccountFlow`](back-end-guide.md#createsavingsaccountflow). This flow creates a zero balance savings account for a customer with the provided customer ID. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/accounts/create-savings-account` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#createsavingsaccountflow">`CreateSavingsAccountFlow`</a>. This flow creates a zero balance savings account for a customer with the provided customer ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `POST`.
 - Path: `/accounts/create-savings-account`.
@@ -382,7 +382,7 @@ Sample response:
 
 ### Approve overdraft
 
-Send a `PUT` request to the `/accounts/approve-overdraft-account` endpoint to invoke the [`ApproveOverdraftFlow`](back-end-guide.md#approveoverdraftflow). This flow is used to approve an overdraft limit for an account with the specified account ID. This request requires authorization. It can be sent by an admin user.
+Send a `PUT` request to the `/accounts/approve-overdraft-account` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#approveoverdraftflow">`ApproveOverdraftFlow`</a>. This flow is used to approve an overdraft limit for an account with the specified account ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `PUT`.
 - Path: `/accounts/approve-overdraft-account`.
@@ -439,7 +439,7 @@ Sample response:
 
 ### Issue a loan
 
-Send a `POST` request to the `/accounts/issue-loan` endpoint to invoke the [`IssueLoanFlow`](back-end-guide.md#issueloanflow). The `IssueLoanFlow` issues a new loan to a customer with the repayment account referenced by the account ID. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/accounts/issue-loan` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#issueloanflow">`IssueLoanFlow`</a>. The `IssueLoanFlow` issues a new loan to a customer with the repayment account referenced by the account ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `POST`.
 - Path: `/accounts/issue-loan`.
@@ -524,7 +524,7 @@ Sample response:
 
 ### Set Account Status
 
-Send a `PUT` request to the `/accounts/set-status` endpoint to invoke the [`SetAccountStatusFlow`](back-end-guide.md#setaccountstatusflow). The `SetAccountStatusFlow` updates the status of an account with a specified account ID. This request requires authorization. It can be sent by an admin user.
+Send a `PUT` request to the `/accounts/set-status` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#setaccountstatusflow">`SetAccountStatusFlow`</a>. The `SetAccountStatusFlow` updates the status of an account with a specified account ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `PUT`.
 - Path: `/accounts/set-status`.

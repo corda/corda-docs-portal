@@ -13,13 +13,13 @@ weight: 300
 
 # Customer and guest user interface
 
-The customer user interface of Bank in a Box allows a customer user to perform all of their daily banking activities with ease. Read on to familiarise yourself with the elements of the user interface. To learn how to perform tasks as a customer user, see the [How to guide](how-to.md#customer-tasks).
+The customer user interface of Bank in a Box allows a customer user to perform all of their daily banking activities with ease. Read on to familiarise yourself with the elements of the user interface. To learn how to perform tasks as a customer user, see the [How to guide](../../../../en/apps/bankinabox/user-interface/how-to.html#customer-tasks).
 
 ## Log in and home screen
 
 When you have successfully started the Bank in a Box user interface, you will be prompted to log in with username and password.
 
-The descriptions below apply to the customer user interface. See the [Admin user interface guide](admin-ui-guide.md) for information on that user interface.
+The descriptions below apply to the customer user interface. See the [Admin user interface guide](../../../../en/apps/bankinabox/user-interface/admin-ui-guide.md) for information on that user interface.
 
 ## Navigation
 
@@ -37,7 +37,7 @@ The guest user interface has the same log in screen and navigation menu as the c
 
 ## Update My Profile screen
 
-When you access the **Update My Profile** screen, you will see your customer information displayed. Here you can [make changes to your customer profile](how-to.md#update-a-customer-profile) as necessary in the following fields:
+When you access the **Update My Profile** screen, you will see your customer information displayed. Here you can [make changes to your customer profile](../../../../en/apps/bankinabox/user-interface/how-to.html#update-a-customer-profile) as necessary in the following fields:
 
 * **Customer name** - The customer's name.
 * **Contact number** - The customer's phone number.
@@ -67,7 +67,7 @@ To sort the table by a specific header, click on that header. The first time you
 
 Use the search bar to find a specific account. After typing three characters, the search will start. As you type more the search will update.
 
-Click on an account to go to the [Account screen](#account-page) and see all information related to a specific account.
+Click on an account to go to the [Account screen](#account-screen) and see all information related to a specific account.
 
 ### Account states
 
@@ -96,7 +96,7 @@ On this tab you can view the following information:
 * **Overdraft limit** - The overdraft limit that has been approved for the account.
 * **Overdraft balance** - The amount of money currently remaining in overdraft.
 
-On this tab you also have the option to [set withdrawal and transfer daily limits on the customer's account](how-to.md#set-withdrawal-and-transfer-limits).
+On this tab you also have the option to [set withdrawal and transfer daily limits on the customer's account](../../../../en/apps/bankinabox/user-interface/how-to.html#set-withdrawal-and-transfer-limits).
 
 
 #### Customer tab
@@ -162,7 +162,7 @@ A table displays relevant information for each individual transaction:
 
 To sort the table by a specific header, click on that header. The first time you click, the column will sort in ascending order. If you click again, it will sort in descending order.
 
-Click on a transaction to go to the [transaction screen](#transaction-page) and see all information related to that specific transaction.
+Click on a transaction to go to the [transaction screen](#transaction-screen) and see all information related to that specific transaction.
 
 ### Transaction screen
 
@@ -193,11 +193,11 @@ Under the **Accounts** tab, you can view:
 
 On this screen you can create a new intrabank payment. This is a transfer that can be made between a customer's accounts or to another bank client's account.
 
-See the documentation on [creating an intrabank payment](how-to.md#create-an-intrabank-payment) to learn more.
+See the documentation on [creating an intrabank payment](../../../../en/apps/bankinabox/user-interface/how-to.html#create-an-intrabank-payment) to learn more.
 
 
 ## Recurring payments screen
 
 On this screen you can create a new recurring payment. Recurring payments can be used for any payment that a customer makes periodically - for example, bills or loan payments.
 
-See the documentation on [creating a recurring payment](how-to.md#create-a-recurring-payment) to learn more.
+See the documentation on [creating a recurring payment](../../../../en/apps/bankinabox/user-interface/how-to.html#create-a-recurring-payment) to learn more.

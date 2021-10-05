@@ -165,12 +165,12 @@ The above shows the serialization of the `createdOn` property in the Customer sc
 Using the flows in this section, several account-related tasks can be accomplished. You can:
 
 * Create a new customer <a href="#createcustomerflow">(`CreateCustomerFlow`)</a>.
-* Update customer information [(`UpdateCustomerFlow`)](#updatecustomerflow).
-* Create a current account for a customer [(`CreateCurrentAccountFlow`)](#createcurrentaccountflow).
-* Create a savings account for a customer [(`CreateSavingsAccountFlow`)](#createsavingsaccountflow).
-* Set an account status of active or suspended [(`SetAccountStatusFlow`)](#setaccountstatusflow).
-* Set a limit on daily transfers or withdrawals from an account [(`SetAccountLimitsFlow`)](#setaccountlimitsflow).
-* Approve an overdraft limit for an account [(`ApproveOverdraftFlow`)](#approveoverdraftflow).
+* Update customer information <a href="#updatecustomerflow">(`UpdateCustomerFlow`)</a>.
+* Create a current account for a customer <a href="#createcurrentaccountflow">(`CreateCurrentAccountFlow`)</a>.
+* Create a savings account for a customer <a href="#createsavingsaccountflow">(`CreateSavingsAccountFlow`)</a>.
+* Set an account status of active or suspended <a href="#setaccountstatusflow">(`SetAccountStatusFlow`)</a>.
+* Set a limit on daily transfers or withdrawals from an account <a href="#setaccountlimitsflow">(`SetAccountLimitsFlow`)</a>.
+* Approve an overdraft limit for an account <a href="#approveoverdraftflow">(`ApproveOverdraftFlow`)</a>.
 
 ### `CreateCustomerFlow`
 
@@ -478,8 +478,8 @@ commandCreditRating.signers.contains(commandCreditRating.value.oracleKey)
 
 Use the flows in this section to perform loan-related tasks. You can:
 
-* Issue a new loan to a customer [(`IssueLoanFlow`)](#issueloanflow).
-* Get a customer's credit rating [(`GetCustomerCreditRatingFlow`)](#getcustomercreditratingflow).
+* Issue a new loan to a customer <a href="#issueloanflow">(`IssueLoanFlow`)</a>.
+* Get a customer's credit rating <a href="#getcustomercreditratingflow">(`GetCustomerCreditRatingFlow`)</a>.
 
 ### `IssueLoanFlow`
 
@@ -667,8 +667,8 @@ Once the Corda transaction is signed, an appropriate entry is saved to the `tran
 
 Use the flows in this section to perform tasks related to account deposits and withdrawals. You can:
 
-* Withdraw money from an account [(`WithdrawFiatFlow`)](#withdrawfiatflow).
-* Deposit money into an account [(`DepositFiatFlow`)](#depositfiatflow).
+* Withdraw money from an account <a href="#withdrawfiatflow">(`WithdrawFiatFlow`)</a>.
+* Deposit money into an account <a href="#depositfiatflow">(`DepositFiatFlow`)</a>.
 
 
 ### `WithdrawFiatFlow`
@@ -810,10 +810,10 @@ requireThat {
 
 Use the flows in this section to perform tasks related to payments. You can:
 
-* Transfer funds from one account to another [(`IntrabankPaymentFlow`)](#intrabankpaymentflow).
-* Create a recurring payment [(`CreateRecurringPaymentFlow`)](#createrecurringpaymentflow).
-* Cancel a recurring payment [(`CancelRecurringPaymentFlow`)](#cancelrecurringpaymentflow).
-* Schedule a recurring payment [(`ExecuteRecurringPaymentFlow`)](#executerecurringpaymentflow).
+* Transfer funds from one account to another <a href="#intrabankpaymentflow">(`IntrabankPaymentFlow`)</a>.
+* Create a recurring payment <a href="#createrecurringpaymentflow">(`CreateRecurringPaymentFlow`)</a>.
+* Cancel a recurring payment <a href="#cancelrecurringpaymentflow">(`CancelRecurringPaymentFlow`)</a>.
+* Schedule a recurring payment <a href="#executerecurringpaymentflow">(`ExecuteRecurringPaymentFlow`)</a>.
 
 
 ### `IntrabankPaymentFlow`
@@ -1072,19 +1072,19 @@ The above queries all transactions for account with ID `accountId` and of type `
 
 Use the flows in this section to perform tasks related to reports and views. These flows are all tied to the Bank in a Box front end. You can:
 
-* See a list of accounts for a customer [(`GetBalancesFlow)`](#getbalancesflow).
-* See a list of transactions for a customer [(`GetCustomerTransactionsFlow`)](#getcustomertransactionsflow).
-* See a list of recurring payments for a customer [(`GetRecurringPaymentsFlow`)](#getrecurringpaymentsflow).
-* See the status of an account [(`GetAccountFlow`)](#getaccountflow).
-* See a list of accounts and associated customers [(`GetAccountsPaginatedFlow`)](#getaccountspaginatedflow).
-* See a customer's information when searching by their customer ID [(`GetCustomerByIdFlow`)](#getcustomerbyidflow).
-* See a list of all customers [(`GetCustomersPaginatedFlow`)](#getcustomerspaginatedflow).
-* See the state of a recurring payment [(`GetRecurringPaymentsByIdFlow`)](#getrecurringpaymentsbyidflow).
-* See a list of recurring payments for an account [(`GetRecurringPaymentsForAccountPaginatedFlow`)](#getrecurringpaymentsforaccountpaginatedflow).
-* See a list of recurring payments for a customer [(`GetRecurringPaymentsForCustomerPaginatedFlow`)](#getrecurringpaymentsforcustomerpaginatedflow).
-* See a list of recurring payments [(`GetRecurringPaymentsPaginatedFlow`)](#getrecurringpaymentspaginatedflow).
-* See a list of transactions for an account [(`GetTransactionsForCustomerPaginatedFlow`)](#gettransactionsforcustomerpaginatedflow).
-* See a list of transactions for a customer in a specified time frame [(`GetTransactionsPaginatedFlow`)](#gettransactionspaginatedflow).
+* See a list of accounts for a customer <a href="#getbalancesflow">(`GetBalancesFlow`)</a>.
+* See a list of transactions for a customer <a href="#getcustomertransactionsflow">(`GetCustomerTransactionsFlow`)</a>.
+* See a list of recurring payments for a customer <a href="#getrecurringpaymentsflow">(`GetRecurringPaymentsFlow`)</a>.
+* See the status of an account <a href="#getaccountflow">(`GetAccountFlow`)</a>.
+* See a list of accounts and associated customers <a href="#getaccountspaginatedflow">(`GetAccountsPaginatedFlow`)</a>.
+* See a customer's information when searching by their customer ID <a href="#getcustomerbyidflow">(`GetCustomerByIdFlow`)</a>.
+* See a list of all customers <a href="#getcustomerspaginatedflow">(`GetCustomersPaginatedFlow`)</a>.
+* See the state of a recurring payment <a href="#getrecurringpaymentsbyidflow">(`GetRecurringPaymentsByIdFlow`)</a>.
+* See a list of recurring payments for an account <a href="#getrecurringpaymentsforaccountpaginatedflow">(`GetRecurringPaymentsForAccountPaginatedFlow`)</a>.
+* See a list of recurring payments for a customer <a href="#getrecurringpaymentsforcustomerpaginatedflow">(`GetRecurringPaymentsForCustomerPaginatedFlow`)</a>.
+* See a list of recurring payments <a href="#getrecurringpaymentspaginatedflow">(`GetRecurringPaymentsPaginatedFlow`)</a>.
+* See a list of transactions for an account <a href="#gettransactionsforcustomerpaginatedflow">(`GetTransactionsForCustomerPaginatedFlow`)</a>.
+* See a list of transactions for a customer in a specified time frame <a href="#gettransactionspaginatedflow">(`GetTransactionsPaginatedFlow`)</a>.
 
 
 ### `GetBalancesFlow`
