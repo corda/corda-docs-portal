@@ -29,6 +29,16 @@ The Archive Service consists of the following:
 
 It also makes use of the [Application Entity Manager](app-entity-manager) - which allows CorDapps to access off-ledger databases using JPA APIs.
 
+{{< note >}}
+The Archiving Service relies on the [Ledger Graph](/en/platform/corda/4.8/enterprise/node/operating/ledger-graph.md)functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function. This can cause:
+* Increased time to run Archiving tasks.
+* Increased JVM heap memory usage while Archiving tasks are being performed.
+
+There is also a risk of Ledger Graph initialisation failure if transactions are in progress while the graph is being loaded (initialised) – if this happens it is deemed invalid and you must restart the node to re-initialise the ledger.
+
+In order to improve speed and memory usage when using the Archiving Service, JVM heap memory of the node can be increased to handle larger ledgers. In addition, the `transactionReaderPoolSize` config parameter can be adjusted upwards to use more CPU threads to increase speed, and increase the number of CPUs or cores a node has access to.
+{{< /note >}}
+
 ## New in V1.0.1
 
 The Archive Service is compatible with [Ledger Graph V1.2.1 On Demand function](#Archiving-and-onDemand-LedgerGraph).
