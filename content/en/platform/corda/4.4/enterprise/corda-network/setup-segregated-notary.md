@@ -61,4 +61,4 @@ You must register the notary service identity **before** the initial notary work
 
 3. Add the notary service identity to the network parameters by sending the `nodeInfo-xxx` file using the [Corda Network support portal](https://r3-cev.atlassian.net/servicedesk/customer/portal/7/). Send the `nodeInfo-xxx` file using either a segregated network request form, or create a new task.
 
-4. After the network parameters have been updated, [start the notary worker nodes](../../../../../../en/platform/corda/4.4/enterprise/node/deploy/starting-components.html#starting-a-corda-node).
+4. After the network parameters have been updated, [start the notary worker nodes](../../../../../../en/platform/corda/4.4/enterprise/node/deploy/starting-components.html#starting-the-corda-node).
