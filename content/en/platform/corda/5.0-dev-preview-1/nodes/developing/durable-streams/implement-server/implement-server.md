@@ -14,7 +14,7 @@ description: >
 HTTP-RPC is a secure HTTP API for you RPC interfaces which allows requests and responses to pass between an HTTP client
 and HTTP server.
 
-When [defining durable stream methods](../define-methods/methods.md), you must include the special construct `DurableStreamContext`.
+When [defining durable stream methods](../../../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/durable-streams/define-methods/methods.md), you must include the special construct `DurableStreamContext`.
 
 `DurableStreamContext` captures *technical* (non-business logic) parameters for HTTP-RPC calls, such as:
 * From which position elements should be served.

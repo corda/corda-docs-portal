@@ -10,9 +10,9 @@ section_menu: corda-5-dev-preview
 
 The Corda 5 Developer Preview includes these tutorials to help you get started building and running CorDapps:
 
-* [Running a sample CorDapp](run-demo-cordapp.md) - This tutorial shows you how to run and test the sample Solar System CorDapp.
+* [Running a sample CorDapp](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.md) - This tutorial shows you how to run and test the sample Solar System CorDapp.
 
-* [Building your first CorDapp](building-cordapp/c5-basic-cordapp-intro.md) - This set of tutorials walks you through building your first CorDapp. It includes modules on: [writing states](building-cordapp/c5-basic-cordapp-state.md), [writing contracts](building-cordapp/c5-basic-cordapp-contract.md), [writing flows](building-cordapp/c5-basic-cordapp-flows.md), [testing](c5-basic-cordapp-int-test.md), and [running your CorDapp](building-cordapp/c5-basic-cordapp-running.md).
+* [Building your first CorDapp](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.md) - This set of tutorials walks you through building your first CorDapp. It includes modules on: [writing states](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state.md), [writing contracts](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract.md), [writing flows](building-cordapp/c5-basic-cordapp-flows.md), [testing](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-int-test.md), and [running your CorDapp](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-running.md).
 
 {{< note >}}
 **Your feedback helps** -

@@ -11,7 +11,7 @@ section_menu: corda-5-dev-preview
 
 This guide explains how to use the `query` functions.
 
-For instructions on how to call named-query APIs from HTTP-RPC, see the [HTTP-RPC Named Query API](http-named-query-api.md) guide.
+For instructions on how to call named-query APIs from HTTP-RPC, see the [HTTP-RPC Named Query API](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/http-named-query-api.md) guide.
 
 Named queries:
 * Are static `Strings` defined on JPA entities using the `@NamedQuery` annotation.
@@ -229,7 +229,7 @@ The Corda 5 Developer Preview provides two interfaces for you to implement your 
 
 Both interfaces have a `name` property which must be overridden. This is the `postProcessorName` which is used in the APIs.
 
-Optionally, `availableForRpc` can be overridden to `true` to make post-processors available via HTTP Named Query APIs. See [HTTP Named Query API](http-named-query-api.md) for more info.
+Optionally, `availableForRpc` can be overridden to `true` to make post-processors available via HTTP Named Query APIs. See [HTTP Named Query API](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/http-named-query-api.md) for more info.
 
 ### Implementing `StateAndRefPostProcessor`
 

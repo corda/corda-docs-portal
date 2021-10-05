@@ -16,7 +16,7 @@ This guide provides code to create a sample CorDapp. You'll create and deploy yo
 
 ## Before you start
 
-Before you can deploy your sample CorDapp and perform network integration tests, you must [set up a local Corda 5 network](../getting-started/setup-network.md).
+Before you can deploy your sample CorDapp and perform network integration tests, you must [set up a local Corda 5 network](../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md).
 
 ## Create your CorDapp
 
@@ -230,7 +230,7 @@ class IOUContract : Contract {
 
 ## Deploy your CorDapp
 
-Now, [deploy your sample CorDapp to a local Corda 5 development network](deploy-cordapps.md).
+Now, [deploy your sample CorDapp to a local Corda 5 development network](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/deploy-cordapps.md).
 
 In this example, your CorDapp has been deployed to a local network called `sample-network`: `corda-cli network deploy -n sample-network | docker-compose -f - up`
 
@@ -426,13 +426,13 @@ To re-run your tests after making a change to your CorDapp, redeploy your CorDap
 
 You can debug integration tests from the IDE. However, it is often useful to debug the node too. The node runs on a remote process in a Docker container, and _not_ in the same process as the test, so you need to attach a remote debugger to any node you would like to debug.
 
-For more information on how to debug a node in the Corda 5 development network, see [Debugging CorDapps](debugging-cordapps.md).
+For more information on how to debug a node in the Corda 5 development network, see [Debugging CorDapps](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/debugging-cordapps.md).
 
 ## Removal of the mock network feature in the Corda 5 Developer Preview
 
-The `MockNetwork` functionality (in-memory testing) has been removed and replaced with [testing capabilities in the Corda CLI](../corda-cli/commands.md). This update speeds up node start times and reduces memory requirements.
-- For [unit testing](flow-unit-testing.md), you can use the `corda-dev-network-lib` library with the unit testing framework of your choice.
-- For [integration testing](#run-your-tests), you can [deploy a network](../getting-started/setup-network.md) with Docker, locally or in a remote environment.
+The `MockNetwork` functionality (in-memory testing) has been removed and replaced with [testing capabilities in the Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.md). This update speeds up node start times and reduces memory requirements.
+- For [unit testing](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/flow-unit-testing.md), you can use the `corda-dev-network-lib` library with the unit testing framework of your choice.
+- For [integration testing](#run-your-tests), you can [deploy a network](../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md) with Docker, locally or in a remote environment.
 
 These classes relating to `MockNetwork` have been removed:
 

@@ -11,7 +11,7 @@ description: >
   How to use the native HTTP-RPC client, `HttpRpcClient`, in polling requests.
 ---
 
-In the Corda 5 Developer Preview, you can use the [native HTTP-RPC client](../../http-rpc-client.md), `HttpRpcClient`, in your
+In the Corda 5 Developer Preview, you can use the [native HTTP-RPC client](../../../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/http-rpc-client.md), `HttpRpcClient`, in your
 Java/Kotlin code.
 
 `HttpRpcClient` simplifies Java/Kotlin calls to the HTTP-RPC service.
@@ -80,7 +80,7 @@ to translate interface calls into remote calls to the HTTP-RPC server side.
 
 ## `PositionManager`
 
-The HTTP-RPC client is responsible for [tracking positions/sequence](../durable-streams-homepage.html#tracking-positions).
+The HTTP-RPC client is responsible for [tracking positions/sequence](../../../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/developing/durable-streams/durable-streams-homepage.html#tracking-positions).
 
 If you're using Java, you can track positions using the interface `PositionManager`:
 
