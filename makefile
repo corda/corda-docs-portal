@@ -119,7 +119,7 @@ linkchecker: hugo-docker-image ## Check all links are valid
 		--build-arg S3DEPLOY_VERSION=$(S3DEPLOY_VERSION)
 	touch $@
 
-.prod-hugo-build: $(shell find assets content layouts static themes -type f -print0 | xargs -0 -I{} echo {} | sed -e 's/ /\\ /g')
+.prod-hugo-build:
 	$(DOCKER_RUN) --env HOME=/tmp -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm install
 	$(DOCKER_RUN) --env HOME=/tmp -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm run build
 	touch $@
