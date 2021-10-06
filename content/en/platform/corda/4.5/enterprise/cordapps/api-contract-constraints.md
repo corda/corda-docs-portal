@@ -143,10 +143,10 @@ Example 2:
 
 
 Information on blacklisting attachment signing keys can be found in the
-[node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys).
+[node configuration documentation](../../../../../../../en/platform/corda/4.5/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-blacklisted-attachment-signer-keys).
 
 More information on how to sign an app directly from Gradle can be found in the
-[CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
+[CorDapp Jar signing](../../../../../../../en/platform/corda/4.5/enterprise/cordapps/cordapp-build-systems.html#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
 
 
 ## Using Signature Constraints in transactions
