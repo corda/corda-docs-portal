@@ -219,7 +219,7 @@ database {
 
 ### Embedded shell (optional)
 
-See [Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
+See [Shell Configuration](../../../../../en/platform/corda/1.4/cenm/shell.html#shell-config) for more information on how to configure the shell.
 
 
 ### Network Data Signing Mechanism
@@ -315,7 +315,7 @@ checkRevocation = true
 
 {{< note >}}
 Enabling this option requires communication with the Revocation service to be configured (See
-[Identity Manager & Revocation Communication](#identity-manager-revocation-communication) below)
+[Identity Manager & Revocation Communication](#identity-manager--revocation-communication) below)
 
 {{< /note >}}
 
