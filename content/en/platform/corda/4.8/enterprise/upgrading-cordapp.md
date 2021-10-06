@@ -220,7 +220,7 @@ Flows which are not an `InitiatingFlow` or `InitiatedBy` flow, or inlined subflo
 
 
 * Update the flow and test the changes. Increment the flow version number in the `InitiatingFlow` annotation
-* Ensure that all versions of the existing flow have finished running and there are no pending `SchedulableFlows` on any of the nodes on the business network. This can be done by [Draining the node](#draining-the-node)
+* Ensure that all versions of the existing flow have finished running and there are no pending `SchedulableFlows` on any of the nodes on the business network. This can be done by [Draining the node](#draining-the-node).
 * Shut down the node
 * Replace the existing CorDapp JAR with the CorDapp JAR containing the new flow
 * Start the node
@@ -239,7 +239,7 @@ However, this means that restoring an old checkpoint to a new version of a flow 
 
 For this reason, in currently released versions of Corda you must *drain the node* before doing an app upgrade that changes `@Suspendable` code. A drain blocks new flows from starting but allows existing flows to finish. Thus once a drain is complete there should be no outstanding checkpoints or running flows. Upgrading the app will then succeed.
 
-A node can be drained or undrained via RPC using the `setFlowsDrainingModeEnabled` method, and via the shell using the standard `run` command to invoke the RPC. See [node shell](node/operating/shell.md) to learn more.
+A node can be drained or undrained via RPC using the `setFlowsDrainingModeEnabled` method, and via the shell using the standard `run` command to invoke the RPC. See [node shell](../../../../../en/platform/corda/4.8/enterprise/node/operating/shell.md) to learn more.
 
 
 
@@ -252,7 +252,7 @@ There are two types of contract/state upgrade:
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it
 using the contract upgrade flows
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](cordapps/api-contract-constraints.md#implicit-vs-explicit-upgrades).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.html#implicit-vs-explicit-upgrades).
 
 
 
@@ -262,7 +262,7 @@ In an explicit upgrade, contracts and states can be changed in arbitrary ways, i
 
 
 {{< warning >}}
-In Corda 4 we’ve introduced the Signature Constraint (see [contract constraints](cordapps/api-contract-constraints.md)). States created or migrated to
+In Corda 4 we’ve introduced the Signature Constraint (see [contract constraints](../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md)). States created or migrated to
 the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
 Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
@@ -295,7 +295,7 @@ interface UpgradedContract<in OldState : ContractState, out NewState : ContractS
 
 The `upgrade` method describes how the old state type is upgraded to the new state type.
 
-By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [contract constraints](cordapps/api-contract-constraints.md)).
+By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [contract constraints](../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md)).
 
 {{< note >}}
 The requirement for a `legacyContractConstraint` arises from the fact that when a transaction chain is verified and a `Contract Upgrade` is
@@ -384,7 +384,7 @@ which references the new contract code.
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
 
-Follow the guide in [contract constraints](cordapps/api-contract-constraints.md).
+Follow the guide in [contract constraints](../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md).
 
 
 ### Points to note
@@ -419,7 +419,7 @@ side-by-side
 By default, all state objects are serialised to the database as a string of bytes and referenced by their `StateRef`.
 However, it is also possible to define custom schemas for serialising particular properties or combinations of
 properties, so that they can be queried from a source other than the Corda Vault. This is done by implementing the
-`QueryableState` interface and creating a custom object relational mapper for the state. See [state persistence](cordapps/state-persistence.md)
+`QueryableState` interface and creating a custom object relational mapper for the state. See [state persistence](../../../../../en/platform/corda/4.8/enterprise/cordapps/state-persistence.md)
 for details.
 
 For backwards compatible changes such as adding columns, the procedure for upgrading a state schema is to extend the
@@ -662,4 +662,3 @@ parameter must be a supported type, an open wildcard (*), or a bounded wildcard 
 wildcard
 * Any superclass must adhere to the same rules, but can be abstract
 * Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
-

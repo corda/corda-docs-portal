@@ -204,7 +204,7 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 * Define the evolvable attributes that can change over time.
 * Identify at least one signatory service that can approve the newly evolved state. This is called a `Maintainer`.
 
-In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](tokens-diamond-example.md) for a fuller picture.
+In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](../../../../../en/platform/corda/5.0-dev-preview-1/tokens-sdk/tokens-diamond-example.md) for a fuller picture.
 
 ```kotlin
 /** Creating an evolvable TokenType */
@@ -527,7 +527,7 @@ fun addMoveTokens(
 ```
 **Add multiple fungible token moves to a transaction:**
 
-Use this method to add multiple token moves to a transaction. The [partiesAndAmounts] parameter specifies which parties should receive amounts of the token, with possible change paid to [changeHolder].
+Use this method to add multiple token moves to a transaction. The `partiesAndAmounts` parameter specifies which parties should receive amounts of the token, with possible change paid to `changeHolder`.
 
 {{< note >}}
 Change refers to any change due to the party using their token for something that doesn't come to the full value of the token. Like when you pay in a shop with cash, and you might get change from your $100 bill.
@@ -535,11 +535,11 @@ Change refers to any change due to the party using their token for something tha
 
 You can use this method to combine multiple token amounts from different issuers if needed.
 
-To choose only tokens from one issuer, you can provide optional [queryBy] for move generation which will allow a query post processor to be passed in. This post processor should implement `StateAndRefPostProcessor` and should return a `StateAndRef<ContractState>`. Two functions are presented in the sample below because one is an overload for the optional `TokenQueryBy`.
+To choose only tokens from one issuer, you can provide optional `queryBy` for move generation which will allow a query post processor to be passed in. This post processor should implement `StateAndRefPostProcessor` and should return a `StateAndRef<ContractState>`. Two functions are presented in the sample below because one is an overload for the optional `TokenQueryBy`.
 
 {{< note >}}
 
-This method always uses database token selection, to use [in-memory selection](token-selection.html), use `addMoveTokens` with already selected input and output states.
+This method always uses database token selection, to use [in-memory selection](../../../../../en/platform/corda/5.0-dev-preview-1/tokens-sdk/token-selection.md), use `addMoveTokens` with already selected input and output states.
 
 {{< /note >}}
 
@@ -604,11 +604,11 @@ Change refers to any change due to the party using their token for something tha
 
 You can use this method to combine multiple token amounts from different issuers if needed.
 
-To choose only tokens from one issuer, you can provide optional [queryBy] for move generation which will allow a query post processor to be passed in. This post processor should implement `StateAndRefPostProcessor` and should return a `StateAndRef<ContractState>`. Two functions are presented in the sample below because one is an overload for the optional `TokenQueryBy`.
+To choose only tokens from one issuer, you can provide optional `queryBy` for move generation which will allow a query post processor to be passed in. This post processor should implement `StateAndRefPostProcessor` and should return a `StateAndRef<ContractState>`. Two functions are presented in the sample below because one is an overload for the optional `TokenQueryBy`.
 
 {{< note >}}
 
-This method always uses database token selection, to use in memory [token selection](token-selection.html), use `addMoveTokens` with already selected input and output states.
+This method always uses database token selection, to use in memory [token selection](../../../../../en/platform/corda/5.0-dev-preview-1/tokens-sdk/token-selection.md), use `addMoveTokens` with already selected input and output states.
 
 {{< /note >}}
 
@@ -668,7 +668,7 @@ fun addMoveFungibleTokens(
 
 #### Non-fungible token moves
 
-Add single move of `token` to the new `holder`. Provide optional `queryBy` for move generation which will allow a query post processor to be passed in. This post processor should implement `StateAndRefPostProcessor` and should return a `StateAndRef<ContractState>`. Two functions are presented in the sample below because one is an overload for the optional [TokenQueryBy].
+Add single move of `token` to the new `holder`. Provide optional `queryBy` for move generation which will allow a query post processor to be passed in. This post processor should implement `StateAndRefPostProcessor` and should return a `StateAndRef<ContractState>`. Two functions are presented in the sample below because one is an overload for the optional `TokenQueryBy`.
 
 ```kotlin
 @Suspendable
@@ -695,9 +695,9 @@ fun addMoveNonFungibleTokens(
 
 **Add a single token move for a non-fungible token**
 
-Add single move of token to the new holder specified using [partyAndToken] parameter.
+Add single move of token to the new holder specified using `partyAndToken` parameter.
 
-Provide optional `queryBy` for move generation which will allow a query post processor to be passed in. This post processor should implement `StateAndRefPostProcessor` and should return a `StateAndRef<ContractState>`. Two functions are presented in the sample below because one is an overload for the optional [TokenQueryBy].
+Provide optional `queryBy` for move generation which will allow a query post processor to be passed in. This post processor should implement `StateAndRefPostProcessor` and should return a `StateAndRef<ContractState>`. Two functions are presented in the sample below because one is an overload for the optional `TokenQueryBy`.
 
 ```Kotlin
 @Suspendable
@@ -943,7 +943,7 @@ class IssueTokensFlow (
         participantSessions: List<FlowSession>,
     ) : this(tokensToIssue, participantSessions, emptyList())
 
-    /** Issue a single [FungibleToken]. */
+    /** Issue a single FungibleToken. */
     constructor(
         token: FungibleToken,
         participantSessions: List<FlowSession>,
@@ -955,10 +955,10 @@ class IssueTokensFlow (
         participantSessions: List<FlowSession>,
     ) : this(listOf(token), participantSessions, emptyList())
 
-    /** Issue a single [FungibleToken] to self with no observers. */
+    /** Issue a single FungibleToken to self with no observers. */
     constructor(token: FungibleToken) : this(listOf(token), emptyList(), emptyList())
 
-    /** Issue a single [NonFungibleToken]. */
+    /** Issue a single NonFungibleToken. */
     constructor(
         token: NonFungibleToken,
         participantSessions: List<FlowSession>,
@@ -970,7 +970,7 @@ class IssueTokensFlow (
         participantSessions: List<FlowSession>,
     ) : this(listOf(token), participantSessions, emptyList())
 
-    /** Issue a single [NonFungibleToken] to self with no observers. */
+    /** Issue a single NonFungibleToken to self with no observers. */
     constructor(token: NonFungibleToken) : this(listOf(token), emptyList(), emptyList())
 
     @CordaInject

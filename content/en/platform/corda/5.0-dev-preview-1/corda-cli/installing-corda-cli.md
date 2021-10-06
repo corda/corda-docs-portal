@@ -25,7 +25,7 @@ curl "https://download.corda.net/corda-cli/1.0.0-DevPreview/get-corda-cli.sh" | 
 
 ### Before you start
 
-If a previous installation of Corda CLI exists, remove it. See [Deleting Corda CLI](deleting-corda-cli.md).
+If a previous installation of Corda CLI exists, remove it. See [Deleting Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/deleting-corda-cli.md).
 
 ### Steps
 
