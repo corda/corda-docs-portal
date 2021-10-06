@@ -183,7 +183,7 @@ Some of the more significant changes are listed below.
 Corda 4.6 now supports CorDapp schema migration via Liquibase in the same way as Corda Enterprise, where:
 
 * Each CorDapp needs to provide a migration resource with Liquibase scripts to create/migrate any required schemas.
-* Old Corda open source CorDapps that do not have migration scripts need to be migrated in the same way as described in the Corda Enterprise [Enterprise migration](../../4.6/enterprise/cordapps/database-management.md#adding-scripts-retrospectively-to-an-existing-cordapp) documentation.
+* Old Corda open source CorDapps that do not have migration scripts need to be migrated in the same way as described in the Corda Enterprise [Enterprise migration](../../4.6/enterprise/cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp) documentation.
 * A node can manage app schemas automatically using Hibernate with H2 in dev mode. This must be enabled with the `--allow-hibernate-to-manage-app-schema` command-line flag.
 
 **Schema creation**
@@ -260,17 +260,17 @@ For more information, see [Starting a flow with a client-provided unique ID](flo
 
 Corda 4.6 introduces a new flow session close API, which provides support for eager termination of flow sessions and release of their resources.
 
-For more information, see [API: Flows](api-flows.md#flow-session-close-api).
+For more information, see [API: Flows](api-flows.html#flow-session-close-api).
 
 #### Hotloading of notaries list
 
 The notaries list can now be hotloaded. Updates to the `notaries` network parameter do not require the node to be shut down and restarted.
 
-For more information, see [Hotloading](network-map.md#hotloading) in [The network map](network-map.md).
+For more information, see [Hotloading](network-map.html#hotloading) in [The network map](network-map.md).
 
 #### Host to Container SSH port mapping for Dockerform
 
-When creating a Docker container, you can now map the SSH port on the host to the same port on the container. For more information, see [Optional configuration](generating-a-node.md#optional-configuration) in [Creating nodes locally](generating-a-node.md).
+When creating a Docker container, you can now map the SSH port on the host to the same port on the container. For more information, see [Optional configuration](generating-a-node.html#optional-configuration) in [Creating nodes locally](generating-a-node.md).
 
 #### Ability to register custom pluggable serializers for CorDapp checkpoints
 
@@ -297,7 +297,7 @@ The feature provides a way for flows to reload from checkpoints, even if no erro
 This feature should not be used in production. It is disabled by default in the [node configuration file](corda-configuration-fields.md) - `reloadCheckpointAfterSuspend = false`.
 {{< /note >}}
 
-For more information, see [Automatic detection of unrestorable checkpoints](checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
+For more information, see [Automatic detection of unrestorable checkpoints](checkpoint-tooling.html#automatic-detection-of-unrestorable-checkpoints).
 
 #### Other changes and improvements
 
@@ -328,7 +328,7 @@ A brief checklist of required steps follows below for each upgrade path.
 
 1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` from the database section of your node configuration file.
 2. Update any missing core schema changes by running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
-3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in the [Corda Enterprise documentation](../../4.6/enterprise/cordapps/database-management.md#adding-scripts-retrospectively-to-an-existing-cordapp).
+3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in the [Corda Enterprise documentation](../../4.6/enterprise/cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp).
 4. Update the changelog for existing schemas. After upgrading the Corda `.jar` file and adding Liquibase scripts to the CorDapp(s), any custom schemas from the apps are present
 in the database, but the changelog entries in the Liquibase changelog table are missing (as they have been created by Liquibase). This will cause issues when starting the node, and also when running `run-migration-scripts` as tables that already exist cannot be recreated. By running the new sub-command `sync-app-schemas`, changelog entries are created for all existing mapped schemas from CorDapps: `java -jar corda.jar sync-app-schemas`.
 
@@ -348,7 +348,7 @@ In Corda 4.6, database migrations are run on initial node registration **by defa
 
 To prevent this, use the `--skip-schema-creation` flag alongside the `--initial-registration` command.
 
-The `initial-registration` command is described in [Node command-line options](node-commandline.md#sub-commands) and [Joining a compatibility zone](joining-a-compatibility-zone.md#joining-an-existing-compatibility-zone).
+The `initial-registration` command is described in [Node command-line options](node-commandline.html#sub-commands) and [Joining a compatibility zone](joining-a-compatibility-zone.html#joining-an-existing-compatibility-zone).
 
 {{< /warning >}}
 
@@ -411,9 +411,9 @@ We have improved the existing [killFlow RPC operation](https://api.corda.net/api
 
 #### New flow APIs
 
-We have introduced new flow framework APIs `sendAll` and `sendAllMap`, which can be used to send messages to multiple counterparties with improved performance. Previously, a flow was able to send messages to multiple counterparties by using the [send API](api-flows.md#send) once for each counterparty. These new APIs can now be used to achieve the same with better performance, which comes from a smaller number of suspensions and checkpoints.
+We have introduced new flow framework APIs `sendAll` and `sendAllMap`, which can be used to send messages to multiple counterparties with improved performance. Previously, a flow was able to send messages to multiple counterparties by using the [send API](api-flows.html#send) once for each counterparty. These new APIs can now be used to achieve the same with better performance, which comes from a smaller number of suspensions and checkpoints.
 
-For more information about the new APIs, see the [API flows](api-flows.md#communication-between-parties) documentation section.
+For more information about the new APIs, see the [API flows](api-flows.html#communication-between-parties) documentation section.
 
 {{< note >}}
 Existing CorDapps will have to be updated to benefit from the new API.
@@ -441,7 +441,7 @@ the knowledge base will be populated over time, as new error conditions are repo
 
 Corda uses Quasar to instrument flows, which makes it possible to resume a flow from a checkpoint. However, the Quasar instrumentation causes `OutOfMemoryError` exceptions to occur when certain `.jar` files are loaded as dependencies.
 
-To resolve this issue, we have added the new node configuration option `quasarExcludePackages`, which allows you to list packages that are to be excluded from the Quasar instrumentation. See [Node configuration](corda-configuration-fields.md#quasarexcludepackages) for more information.
+To resolve this issue, we have added the new node configuration option `quasarExcludePackages`, which allows you to list packages that are to be excluded from the Quasar instrumentation. See [Node configuration](corda-configuration-fields.html#quasarexcludepackages) for more information.
 
 #### `RestrictedEntityManager` and `RestrictedConnection`
 
@@ -449,8 +449,8 @@ To improve reliability and prevent user errors, we have modified the database ac
 
 The full list of blocked functions can be found below:
 
-- [Restricted connections](api-persistence.md#restricted-control-of-connections).
-- [Restricted entity managers](api-persistence.md#restricted-control-of-entity-managers).
+- [Restricted connections](api-persistence.html#restricted-control-of-connections).
+- [Restricted entity managers](api-persistence.html#restricted-control-of-entity-managers).
 
 #### Updated Dockerform task
 
@@ -1062,8 +1062,7 @@ to wire and API stability, Corda 4 comes with those same guarantees. States and 
 Corda 3 are usable in Corda 4.
 
 For app developers, we strongly recommend reading “[Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md)”. This covers the upgrade
-procedure, along with how you can adjust your app to opt-in to new features making your app more secure and
-easier to upgrade in future.
+procedure, along with how you can adjust your app to opt-in to new features making your app more secure and easier to upgrade in future.
 
 For node operators, we recommend reading “[Upgrading your node to Corda 4](node-upgrade-notes.md)”. The upgrade procedure is simple but
 it can’t hurt to read the instructions anyway.
@@ -1118,7 +1117,7 @@ Learn more about this new feature by reading the [Upgrading CorDapps to newer Pl
 
 #### State pointers
 
-[State Pointers](api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
+[State Pointers](api-states.html#state-pointers) formalize a recommended design pattern, in which states may refer to other states
 on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
 any information on the global ledger). State pointers work together with the reference states feature
 to make it easy for data to point to the latest version of any other piece of data, with the right

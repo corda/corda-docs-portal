@@ -335,7 +335,7 @@ otherResults: []
 
 ### Upload and download attachments
 
-The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](tutorial-attachments.md#uploading-an-attachment) tutorial.
+The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](tutorial-attachments.html#uploading-an-attachment) tutorial.
 
 
 ### Extract attachment information
@@ -494,7 +494,7 @@ Use the different flow commands available to make changes on the ledger. You can
 
 #### Query flow data
 
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](../../4.7/enterprise/node/operating/querying-flow-data.md#querying-flow-data-via-the-node-shell).
+The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](../../4.7/enterprise/node/operating/querying-flow-data.html#querying-flow-data-via-the-node-shell).
 
 
 #### Start a flow

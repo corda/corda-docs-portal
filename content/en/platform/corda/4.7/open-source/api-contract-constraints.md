@@ -172,7 +172,7 @@ Information on blacklisting attachment signing keys can be found in the
 [node configuration documentation](corda-configuration-file.md).
 
 More information on how to sign an app directly from Gradle can be found in the
-[CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
+[CorDapp Jar signing](cordapp-build-systems.html#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
 
 
 ### Using Signature Constraints in transactions
@@ -479,4 +479,4 @@ The following error message will be received before the node shuts down:
 file:/corda-open-source/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps/corda-finance-workflows-4.7-SNAPSHOT.jar]
 ```
 
-To address this, see the [CorDapp JAR signing](cordapp-build-systems.md#signing-the-cordapp-jar) page.
+To address this, see the [CorDapp JAR signing](cordapp-build-systems.html#signing-the-cordapp-jar) page.

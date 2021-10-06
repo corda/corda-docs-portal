@@ -343,7 +343,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](cordapp-build-systems.md#cordapp-configuration-files) for more information.
+See [CorDapp configuration files](cordapp-build-systems.html#cordapp-configuration-files) for more information.
 
 
 
@@ -636,7 +636,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 ### Step 6. Security: Upgrade your use of SwapIdentitiesFlow
 
-The [Confidential identities](api-identity.md#confidential-identities) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [Confidential identities](api-identity.html#confidential-identities) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
@@ -783,20 +783,20 @@ to be governed by a contract that is either:
 * The outer class of the state class, if the state is an inner class of a contract. This is a common design pattern.
 * Annotated with `@BelongsToContract` which specifies the contract class explicitly.
 
-Learn more by reading [Contract/State Agreement](api-contract-constraints.md#contractstate-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
+Learn more by reading [Contract/State Agreement](api-contract-constraints.html#contractstate-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
 
 
 ### Step 9. Learn about signature constraints and JAR signing
 
-[Signature Constraints](api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
+[Signature Constraints](api-contract-constraints.html#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
 deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
 the act of upgrading your app to use the version 4 Gradle plugins will result in your app being automatically signed, and new states
 automatically using new signature constraints selected automatically based on these signing keys.
 
 You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
 automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
-[Signing the CorDapp JAR](cordapp-build-systems.md#signing-the-cordapp-jar). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
+[Signing the CorDapp JAR](cordapp-build-systems.html#signing-the-cordapp-jar). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
 with developer certificates is deployed to a production node, the node will refuse to start. Therefore to deploy apps built for Corda 4
 to production you will need to generate signing keys and integrate them with the build process.
 
@@ -858,8 +858,8 @@ Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
 * The [new withEntityManager API](https://api.corda.net/api/corda-os/4.6/html/api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
-* [Reference States](api-states.md#reference-states), that let you use an input state without consuming it.
-* [State Pointers](api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
+* [Reference States](api-states.html#reference-states), that let you use an input state without consuming it.
+* [State Pointers](api-states.html#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 
 Please also read the [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) associated with CorDapp upgrading.
 
@@ -876,4 +876,4 @@ You have some choices here:
 * Upgrade your `quasar.jar` to `0.7.12_r3`
 * Delete your `lib` directory and switch to using the Gradle test runner
 
-Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.md#integration-tests).
+Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.html#integration-tests).

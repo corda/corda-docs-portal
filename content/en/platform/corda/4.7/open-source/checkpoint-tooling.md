@@ -22,7 +22,7 @@ This page contains information about checkpoint tooling. These tools can be used
 
 Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows](key-concepts-flows.md) and [Writing flows](flow-state-machines.md).
 It is also recommended that you understand the purpose and behaviour of the [Flow Hospital](node-flow-hospital.md) in relation to *checkpoints* and flow recovery.
-An advanced explanation of [*checkpoints*](contributing-flow-internals.md#checkpoints) within the flow state machine can be found here: [Flow framework internals](contributing-flow-internals.md).
+An advanced explanation of [*checkpoints*](contributing-flow-internals.html#checkpoints) within the flow state machine can be found here: [Flow framework internals](contributing-flow-internals.md).
 
 {{< note >}}
 As a recap,
@@ -584,7 +584,7 @@ Useful commands include 'help' to see what is available, and 'bye' to shut down 
 Thu Jul 11 19:52:56 BST 2019>>> run setFlowsDrainingModeEnabled enabled: false
 ```
 
-See also [Flow draining mode](key-concepts-node.md#draining-mode).
+See also [Flow draining mode](key-concepts-node.html#draining-mode).
 
 
 * contacting other participants in the network where their nodes are not responding to an initiated flow.
@@ -628,7 +628,7 @@ The feature provides a way for flows to reload from checkpoints, even if no erro
 
 ### How to use this feature
 
-Add the `reloadCheckpointAfterSuspend` [node configuration option](corda-configuration-fields.md#reloadcheckpointaftersuspend) and set it to `true`, as shown below:
+Add the `reloadCheckpointAfterSuspend` [node configuration option](corda-configuration-fields.html#reloadcheckpointaftersuspend) and set it to `true`, as shown below:
 
 ```
 reloadCheckpointAfterSuspend = true
