@@ -25,6 +25,16 @@ weight: 500
 LedgerGraph is a dependency for the set of Collaborative Recovery CorDapps V1.1 and above. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
 {{< /warning >}}
 
+{{< note >}}
+The [Archiving Service](/en/platform/corda/4.7/enterprise/node/archiving/archiving-setup.md) relies on the Ledger Graph functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function. This can cause:
+* Increased time to run Archiving tasks.
+* Increased JVM heap memory usage while Archiving tasks are being performed.
+
+There is also a risk of Ledger Graph initialisation failure if transactions are in progress while the graph is being loaded (initialised) – if this happens it is deemed invalid and you must restart the node to re-initialise the ledger.
+
+In order to improve speed and memory usage when using the Archiving Service, JVM heap memory of the node can be increased to handle larger ledgers. In addition, the `transactionReaderPoolSize` config parameter can be adjusted upwards to use more CPU threads to increase speed, and increase the number of CPUs or cores a node has access to.
+{{< /note >}}
+
 ### New in V1.2.1
 
 **onDemand**: In V1.2.1 you can configure the setting `onDemand` to `true` or `false`. When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../archiving/archiving-setup.md). This saves heap memory usage.
