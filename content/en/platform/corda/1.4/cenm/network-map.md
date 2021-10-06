@@ -315,7 +315,7 @@ checkRevocation = true
 
 {{< note >}}
 Enabling this option requires communication with the Revocation service to be configured (See
-[Identity Manager & Revocation Communication](#identity-manager--revocation-communication) below)
+[Identity Manager and Revocation Communication](#identity-manager--revocation-communication) below)
 
 {{< /note >}}
 
