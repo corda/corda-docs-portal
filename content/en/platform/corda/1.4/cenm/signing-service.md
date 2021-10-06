@@ -141,7 +141,7 @@ The configuration for the Signing Service consists of the following sections:
 
 The Signing Service is interacted with via the shell, which is configured at the top level of the configuration file. This
 shell is similar to the interactive shell available in other CENM services and is configured in a similar way. See
-[Shell Configuration](../../../../../en/platform/corda/1.4/cenm/shell.html#shell-config) for more information on how to configure the shell.
+[Shell Configuration](../../../../../en/platform/corda/1.4/cenm/shell.html#shell-configuration) for more information on how to configure the shell.
 
 
 #### HSM libraries
