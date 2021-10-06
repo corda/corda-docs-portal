@@ -62,7 +62,7 @@ In this early release version, you can:
 
 #### Reference app: Bank in a Box
 
-[Bank in a Box](../../apps/bankinabox/bank-index.md) is a new sample [CorDapp](cordapp-overview.md) that includes accounts, transactions, and other features typical of a retail banking application.
+[Bank in a Box](../../../../apps/bankinabox/bank-index.md) is a new sample [CorDapp](cordapp-overview.md) that includes accounts, transactions, and other features typical of a retail banking application.
 
 The app is designed to showcase key Corda features:
 
@@ -71,7 +71,7 @@ The app is designed to showcase key Corda features:
 - [Oracles](key-concepts-oracles.md).
 - CorDapp integration with external systems.
 
-Using a set of [flows](key-concepts-flows.md) and [APIs](../../apps/bankinabox/api-guide.md), Bank in a Box provides the ability to create intrabank payments, recurring payments, issue loans, set account limits, and more. It offers a complete solution with a straightforward UI and authenticated roles, all delivered in a [Kubernetes container](https://kubernetes.io/docs/concepts/containers/) for easy deployment.
+Using a set of [flows](key-concepts-flows.md) and [APIs](../../../../apps/bankinabox/api-guide.md), Bank in a Box provides the ability to create intrabank payments, recurring payments, issue loans, set account limits, and more. It offers a complete solution with a straightforward UI and authenticated roles, all delivered in a [Kubernetes container](https://kubernetes.io/docs/concepts/containers/) for easy deployment.
 
 The application highlights best practices and examples for developers who wish to build banking applications using Corda.
 
@@ -413,7 +413,7 @@ We have improved the existing [killFlow RPC operation](https://api.corda.net/api
 
 We have introduced new flow framework APIs `sendAll` and `sendAllMap`, which can be used to send messages to multiple counterparties with improved performance. Previously, a flow was able to send messages to multiple counterparties by using the [send API](api-flows.md#send) once for each counterparty. These new APIs can now be used to achieve the same with better performance, which comes from a smaller number of suspensions and checkpoints.
 
-For more information about the new APIs, see the [API flows](api-flows.html#communication-between-parties) documentation section.
+For more information about the new APIs, see the [API flows](api-flows.md#communication-between-parties) documentation section.
 
 {{< note >}}
 Existing CorDapps will have to be updated to benefit from the new API.
@@ -488,7 +488,7 @@ For more information about platform versions, see [Versioning](versioning.md).
 ## Corda 4.4
 
 Corda 4.4 lays the foundation of a new open core approach for the Corda codebase. This involved a refactoring of the
-main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md/) to get an overview of
+main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md) to get an overview of
 the practical impact on CorDapp development.
 
 Furthermore, Corda 4.4 introduces improvements to the flow framework API and a new diagnostic `ServiceHub` call, and includes
@@ -1368,6 +1368,6 @@ will have no impact on any deployed configurations.
 
 ### Miscellaneous changes
 
-To learn more about smaller changes, please read the [Changelog](../4.0/changelog.md).
+To learn more about smaller changes, please read the [Changelog](../../4.0/open-source/changelog.md).
 
 Finally, we have added some new jokes. Thank you and good night!

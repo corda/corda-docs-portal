@@ -71,7 +71,7 @@ cd cordapp-template-java
 
 ## Opening the template in IntelliJ
 
-Once you have successfully cloned the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in IntelliJ IDEA. See the documentation on [Running a sample CorDapp](tutorial-cordapp.html##opening-the-sample-cordapp-in-intellij-idea) if you are unsure of how to open a CorDapp in IntelliJ.
+Once you have successfully cloned the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in IntelliJ IDEA. See the documentation on [Running a sample CorDapp](tutorial-cordapp.md#opening-the-sample-cordapp-in-intellij-idea) if you are unsure of how to open a CorDapp in IntelliJ.
 
 
 ## Template structure

@@ -169,7 +169,7 @@ Example 2:
 
 
 Information on blacklisting attachment signing keys can be found in the
-[node configuration documentation](corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys).
+[node configuration documentation](corda-configuration-file.md).
 
 More information on how to sign an app directly from Gradle can be found in the
 [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.

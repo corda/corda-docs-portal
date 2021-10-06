@@ -185,7 +185,7 @@ The process for contributing a large change to Corda is as follows:
 
 3. If the proposal is accepted, please raise a design PR on the [Corda GitHub project](https://github.com/corda/corda). The design should give the rationale for the change, how the change will be implemented, and what alternative designs were rejected. The engineering team will review your design and indicate any required changes.
 
-4. Once the design is approved, please go ahead with the change according to the [guidelines for small and medium contributions](contributing.md#making-the-required-changes). In addition to those guidelines, we require that large contributions be fully exercised by tests, including any exception paths and error handling.
+4. Once the design is approved, please go ahead with the change according to the [guidelines for small and medium contributions](contributing.md#making-changes-to-corda). In addition to those guidelines, we require that large contributions be fully exercised by tests, including any exception paths and error handling.
 
 
 ## Developer Certificate of Origin
