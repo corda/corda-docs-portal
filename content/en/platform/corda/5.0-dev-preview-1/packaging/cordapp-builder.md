@@ -64,10 +64,10 @@ If a previous installation of CorDapp Builder CLI exists, remove it. See [deleti
 
 ### Automatic installation
 
-1. Download the universal installer from [Artifactory](https://software.r3.com/artifactory/corda-os-maven-stable/net/corda/cordapp-builder/%5BRELEASE%5D/cordapp-builder-%5BRELEASE%5D-installer.jar).
+1. Download the [universal installer](https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder-installer.jar).
 2. Run the following command.
     ```bash
-    java -jar cordapp-builder-installer-*.jar
+    java -jar cordapp-builder-installer.jar
     ```
 3. Start a new shell.
 4. Test the program with the following command.
