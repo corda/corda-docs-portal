@@ -26,7 +26,7 @@ In addition to the network map, all the nodes must also use the same set of netw
 
 For these reasons, test deployments can avail themselves of the Network Bootstrapper. This is a tool that scans all the node configurations from a common directory to generate the network parameters file, which is then copied to all the nodes’ directories. It also copies each node’s node-info file to every other node so that they can all be visible to each other.
 
-You can find out more about network maps and network parameters from [network map](../../network/network-map.md/).
+You can find out more about network maps and network parameters from [network map](../../network/network-map.md).
 
 
 ## Bootstrapping a test network
@@ -313,7 +313,7 @@ The alias for the name associated with the certificate to be associated with the
 
 
 
-Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Checkout the Example CorDapp and follow the instructions to build it [here](https://docs.corda.net/tutorial-cordapp.html#building-the-example-cordapp).
+Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Checkout the Example CorDapp and follow the instructions to build it [here](.../../cordapps/tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
 You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).

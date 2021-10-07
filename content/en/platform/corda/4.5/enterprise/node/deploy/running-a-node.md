@@ -43,7 +43,7 @@ in the current working directory. You can override the configuration file and wo
 If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the
 obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator](../../tools-config-obfuscation.md) command-line tool, use the
+To do so using the [Configuration Obfuscator](../../tools-config-obfuscator.md) command-line tool, use the
 `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration
@@ -189,7 +189,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command will start the node with JMX metrics accessible via HTTP on port 7005.
 
-See [Monitoring via Jolokia](../operating/node-administration.md#monitoring-jolokia) for further details.
+See [Monitoring via Jolokia](../operating/node-administration.html#monitoring-jolokia) for further details.
 
 
 ## Starting all nodes at once on a local machine from the command prompt
