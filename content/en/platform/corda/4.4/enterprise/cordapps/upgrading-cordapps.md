@@ -338,7 +338,7 @@ There are two types of contract/state upgrade:
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.md#implicit-vs-explicit-upgrades).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.html#implicit-vs-explicit-upgrades).
 
 
 
@@ -426,7 +426,7 @@ running.
 #### 5. Stop the nodes
 
 Have each node operator stop their node. If you are also changing flow definitions, you should perform a
-[node drain](../node/operating/cm-updating-cordapp.md#draining-the-node) first to avoid the definition of states or contracts changing whilst a flow is
+[node drain](../node/operating/cm-updating-cordapp.html#draining-the-node) first to avoid the definition of states or contracts changing whilst a flow is
 in progress.
 
 
