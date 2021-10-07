@@ -80,7 +80,7 @@ The project containing the sample CorDapp opens.
 `corda-cli network config docker-compose solar-system`
 
 3. Deploy your network by building the network deployment Docker file using Corda CLI:
-  `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose`
+  `corda-cli network deploy -n solar-system -f solar-system.yaml > docker-compose.yaml`
 
     The `-n` here is the name of the network. The `-f` is the network definition file.
 
@@ -119,7 +119,7 @@ This command also specifies the output file. In this case, the output file is `c
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
 
-  `corda-cli package install -n solar-system cordaSolarSystem.cpb`
+  `corda-cli package install -n solar-system corda5-hello-solarsystem.cpb`
 
   In this command, you must specify the network and the `.cpb` file.
 
