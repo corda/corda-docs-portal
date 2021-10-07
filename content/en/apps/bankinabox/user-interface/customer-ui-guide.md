@@ -96,7 +96,7 @@ On this tab you can view the following information:
 * **Overdraft limit** - The overdraft limit that has been approved for the account.
 * **Overdraft balance** - The amount of money currently remaining in overdraft.
 
-On this tab you also have the option to [set withdrawal and transfer daily limits on the customer's account](../../../../en/apps/bankinabox/user-interface/how-to.html#set-withdrawal-and-transfer-limits).
+On this tab you also have the option to [set withdrawal and transfer daily limits on a customer account](../../../../en/apps/bankinabox/user-interface/how-to.html#set-withdrawal-and-transfer-limits).
 
 
 #### Customer tab

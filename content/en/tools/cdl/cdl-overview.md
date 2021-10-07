@@ -67,7 +67,7 @@ This view is conceptually modelled on a Finite State Machine. The classic exampl
 
 For simple CorDapp smart contracts, there may only be one, implicit status. The Smart Contract view can still be used to communicate the design, it just devolves down to a diagram with only one state box.
 
-A detailed explanation of the elements which make up the Smart Contract view can be found [here](../../../en/tools/cdl/smart-contract-view/cdl-smart-contract-view.md)
+A detailed explanation of the elements which make up the Smart Contract view can be found [here](../../../en/tools/cdl/smart-contract-view/cdl-smart-contract-view.md).
 
 A Lucidchart template with the CDL Smart Contract view standard shapes [can be found here](https://app.lucidchart.com/invitations/accept/6adacd29-482f-45ca-9bdd-57252d64c8fc).
 

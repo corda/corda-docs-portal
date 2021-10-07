@@ -15,7 +15,7 @@ weight: 300
 
 # User interfaces on Bank in a Box
 
-The user interface on Bank in a Box provides an easy to use solution based on [React](https://reactjs.org/). The guides listed below will help you to understand the different role-based interfaces and how to perform a variety of tasks in the application. See the [getting started](../../../../en/apps/bankinabox/getting-started.html#service-endpoints-display-logs-and-exec-into-container) section for instructions on deploying the user interface.
+The user interface on Bank in a Box provides an easy to use solution based on [React](https://reactjs.org/). The guides listed below will help you to understand the different role-based interfaces and how to perform a variety of tasks in the application. See the [getting started](../../../../en/apps/bankinabox/getting-started.html#deployment) section for instructions on deploying the user interface.
 
 * [Admin user interface](../../../../en/apps/bankinabox/user-interface/admin-ui-guide.md).
 * [Customer and guest user interface](../../../../en/apps/bankinabox/user-interface/customer-ui-guide.md).
