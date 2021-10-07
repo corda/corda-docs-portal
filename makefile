@@ -65,6 +65,9 @@ prod-docker-image: prod-hugo-build ## Create the prod docker image
 prod-docker-serve: prod-docker-image ## Run the nginx container locally on port 8888
 	$(DOCKER_RUN) -it -p "8888:80" $(PROD_IMAGE)
 
+prod-hugo-serve: prod-hugo-build ## Start Hugo and serve production build
+	$(DOCKER_RUN) --env HOME=/tmp -u $$(id -u):$$(id -g) -it -p 1313:1313 $(HUGO_DOCKER_IMAGE) npm run server
+
 #######################################################################################################################
 #  Main target for CI:
 
