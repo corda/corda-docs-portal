@@ -575,7 +575,7 @@ This section provides additional vendor-specific database configuration details.
 
 ### SQL Server
 
-The database collation for SQL Server should be *case insensitive* - see [Server Configuration documentation](https://docs.microsoft.com/en-us/sql/sql-server/install/server-configuration-collation?view=sql-server-2014&viewFallbackFrom=sql-server-2017) for more information.
+The database collation for SQL Server should be *case insensitive* - see [Server Configuration documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-ver15) for more information.
 
 ### Oracle
 

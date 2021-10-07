@@ -13,7 +13,7 @@ title: Obfuscation configuration file changes
 # Obfuscated configuration file changes
 
 When you work with obfuscated configuration files, note the following:
-1. Use the Corda Enterprise Configuration Obfuscator tool. See [Configuration Obfuscator](https://docs.corda.net/docs/corda-enterprise/tools-config-obfuscator.html) for more information.
+1. Use the Corda Enterprise Configuration Obfuscator tool. See [Configuration Obfuscator](../../../../../en/platform/corda/4.6/enterprise/tools-config-obfuscator.md) for more information.
 
 2. The updated arguments, required to run the service with obfuscation options, are as follows:
 
