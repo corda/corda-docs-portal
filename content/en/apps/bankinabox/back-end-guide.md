@@ -739,7 +739,7 @@ The business logic behind Bank in a Box payments is explained below, addressing:
 
 #### Deduplicating payment logs
 
-In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a [`FlowExternalOperation`](../../../en/platform/corda/4.7/open-source/api-flows.html#flowexternalasyncoperation) that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`.
+In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a <a href="../../../en/platform/corda/4.7/open-source/api-flows.html#flowexternalasyncoperation">`FlowExternalOperation`</a> that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`. 
 
 The skeleton `CreateRecurringPaymentLogOperation` is as follows:
 

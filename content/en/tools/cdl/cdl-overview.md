@@ -98,7 +98,7 @@ With this view, you have insight on privacy from the design phase. An unintended
 
 A detailed explanation of the elements which make up the Ledger Evolution view can be found [here](../../../en/tools/cdl/ledger-evolution-view/cdl-ledger-evolution-view.md).
 
-A Lucidchart template with the CDL Ledger Evolution view standard shapes [can be found here](https://app.lucidchart.com/invitations/accept/6adacd29-482f-45ca-9bdd-57252d64c8fc).
+A Lucidchart template with the CDL Ledger Evolution view standard shapes can be found [here](https://app.lucidchart.com/invitations/accept/6adacd29-482f-45ca-9bdd-57252d64c8fc).
 
 
 ### The Business Process Modelling Notation (BPMN) view

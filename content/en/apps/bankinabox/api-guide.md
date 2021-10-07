@@ -1444,7 +1444,7 @@ The Payments Controller includes API endpoints that manage payments in Bank in a
 
 ### Withdraw money
 
-Send a `POST` request to the `/payments/withdraw-fiat` endpoint to invoke the [`WithdrawFiatFlow`](../../../en/apps/bankinabox/back-end-guide.html#withdrawfiatflow). The `WithdrawFiatFlow` withdraws a specified amount from an account with the provided account ID. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/payments/withdraw-fiat` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#withdrawfiatflow">`WithdrawFiatFlow`</a>. The `WithdrawFiatFlow` withdraws a specified amount from an account with the provided account ID. This request requires authorization. It can be sent by an admin user.
 
  - Request type: `POST`.
  - Path: `/payments/withdraw-fiat`.
@@ -1501,7 +1501,7 @@ Sample response:
 
 ### Deposit money
 
-Send a `POST` request to the `/payments/deposit-fiat` endpoint to invoke the [`DepositFiatFlow`](../../../en/apps/bankinabox/back-end-guide.html#depositfiatflow). The `DepositFiatFlow` is used to deposit a specified amount to an account with the provided account ID. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/payments/deposit-fiat` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#depositfiatflow">`DepositFiatFlow`</a>. The `DepositFiatFlow` is used to deposit a specified amount to an account with the provided account ID. This request requires authorization. It can be sent by an admin user. 
 
 - Request type: `POST`.
 - Path: `/payments/deposit-fiat`.
