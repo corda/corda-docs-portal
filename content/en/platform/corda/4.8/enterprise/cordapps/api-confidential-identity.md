@@ -16,7 +16,7 @@ weight: 1
 
 {{< warning >}}
 The `confidential-identities` module is still not stabilised, so this API may change in future releases.
-See [API stability guarantees](api-stability-guarantees.md).
+See [API stability guarantees](../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-stability-guarantees.md).
 
 {{< /warning >}}
 
@@ -45,13 +45,9 @@ counterparty we want to exchange confidential identities with. It returns a mapp
 and the counterparty to their new confidential identities. In the future, this flow will be extended to handle swapping
 identities with multiple parties at once.
 
-You can see an example of using `SwapIdentitiesFlow` in `TwoPartyDealFlow.kt`:
-
-{{< tabs name="tabs-1" >}}
-{{< /tabs >}}
+You can see an example of using `SwapIdentitiesFlow` in <a href="../../../../../../en/api-ref/corda/4.8/open-source/kotlin/corda/net.corda.finance.flows/-two-party-deal-flow/index.md">`TwoPartyDealFlow.kt`</a> .
 
 `SwapIdentitiesFlow` goes through the following key steps:
-
 
 * Generate a new confidential identity from our well-known identity
 * Create a `CertificateOwnershipAssertion` object containing the new confidential identity (X500 name, public key)
@@ -104,13 +100,10 @@ required.
 
 {{< /note >}}
 Meanwhile, `IdentitySyncFlow.Receive` is invoked by all the other (non-initiating) parties involved in the identity
-synchronization process:
-
-{{< tabs name="tabs-3" >}}
-{{< /tabs >}}
+synchronization process.
 
 `IdentitySyncFlow` will serve all confidential identities in the provided transaction, irrespective of well-known
-identity. This is important for more complex transaction cases with 3+ parties, for example:
+identity. This is important for more complex transaction cases with 3 or more parties, for example:
 
 
 * Alice is building the transaction, and provides some input state *x* owned by a confidential identity of Alice
@@ -121,4 +114,3 @@ Alice may know all of the confidential identities ahead of time, but Bob not kno
 The assembled transaction therefore has three input states *x*, *y* and *z*, for which only Alice possesses
 certificates for all confidential identities. `IdentitySyncFlow` must send not just Alice’s confidential identity but
 also any other identities in the transaction to the Bob and Charlie.
-

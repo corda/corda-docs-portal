@@ -29,7 +29,7 @@ that are otherwise available from [Corda Network](https://corda.network), which 
 
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../../../../en/platform/corda/1.4/cenm/release-notes.md) page.
 * For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.6 release notes](../../../../../en/platform/corda/4.6/enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
-* For all Corda open source release notes, see the [Corda release notes](../../../../../en/platform/4.6/open-source/release-notes.md) page.
+* For all Corda open source release notes, see the [Corda release notes](../../../../../en/platform/corda/4.6/open-source/release-notes.md) page.
 
 {{< /note >}}
 
@@ -42,17 +42,17 @@ The Corda Enterprise Network Manager provides three main services:
 {{< note >}}
 For instructions on deploying Corda Enterprise Network Manager with Docker, Kubernetes, and Helm charts, see [CENM Deployment with Docker, Kubernetes, and Helm charts](../../../../../en/platform/corda/1.4/cenm/deployment-kubernetes.md).
 
-For a quick start guide on deploying Corda Enterprise Network Manager services as a test environment, see the [CENM test environment quick start guide](quick-start.md).
+For a quick start guide on deploying Corda Enterprise Network Manager services as a test environment, see the [CENM test environment quick start guide](../../../../../en/platform/corda/1.4/cenm/quick-start.md).
 {{< /note >}}
 
 Concepts and overview
 
 * [Corda Networks](../../../../../en/platform/corda/1.4/cenm/corda-networks.md)
 * [Components of the Corda Enterprise Network Manager](../../../../../en/platform/corda/1.4/cenm/enm-components.md)
-* [The workflow](../../../../../en/platform/corda/1.4/cenm/enm-components.html#the-workflow)
-* [Databases](../../../../../en/platform/corda/1.4/cenm/enm-components.html#databases)
-* [Public Key Infrastructure (PKI)](../../../../../en/platform/corda/1.4/cenm/enm-components.html#public-key-infrastructure-pki)
-* [The node](../../../../../en/platform/corda/1.4/cenm/enm-components.html#the-node)
+* [The workflow](../../../../../en/platform/corda/1.4/cenm/workflow.md)
+* [Databases](../../../../../en/platform/corda/1.4/cenm/database-set-up.md)
+* [Public Key Infrastructure (PKI)](../../../../../en/platform/corda/1.4/cenm/pki-tool.md)
+* [The node](../../../../../en/platform/corda/1.4/cenm/network-map.html#node-certificate-revocation-checking)
 * [Sub Zones](../../../../../en/platform/corda/1.4/cenm/sub-zones.md)
 * [Network Map overview](../../../../../en/platform/corda/1.4/cenm/network-map-overview.md)
 * [Certificate Revocation List](../../../../../en/platform/corda/1.4/cenm/certificate-revocation.md)
@@ -108,4 +108,4 @@ Public Key Infrastructure
 
 Signing Plug-in Samples
 
-* [EJBCA sample plug-in](ejbca-plugin.md)
+* [EJBCA sample plug-in](../../../../../en/platform/corda/1.4/cenm/ejbca-plugin.md)
