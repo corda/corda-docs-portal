@@ -25,7 +25,7 @@ weight: 100
 
 ## Introducing Collaborative Recovery V1.2
 
-In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../archiving/archiving-setup).
+In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../../../../../../../en/platform/corda/4.7/enterprise/node/archiving/archiving-setup.md).
 
 ### In Collaborative Recovery V1.1
 
@@ -82,7 +82,7 @@ If you find yourself in this position, or if your other disaster recovery proced
 
 ## Who can use Collaborative Recovery
 
-Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../#corda-enterprise-vs-corda-open-source:-feature-comparison) nodes.
+Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../../../../../../en/platform/corda/4.7/enterprise/#corda-enterprise-vs-corda-open-source:-feature-comparison.md) nodes.
 
 Collaborative Recovery is an Enterprise, CorDapp-level solution and is not shipped as a part of Corda itself. Only nodes that have the Collaborative Recovery CorDapps installed can participate in Collaborative Recovery. In mixed networks that consist of both Open Source and Enterprise nodes, only the Enterprise nodes of the right version that have the Collaborative Recovery CorDapps installed will be able to participate in Collaborative Recovery.
 
@@ -205,7 +205,7 @@ If you are using other R3 Corda Enterprise libraries, you may need to take extra
 
 ### Tokens SDK - fully compatible
 
-Collaborative Recovery is fully compatible with the [Tokens](../../cordapps/token-sdk-introduction.md/)
+Collaborative Recovery is fully compatible with the [Tokens](../../../../../../../en/platform/corda/4.7/enterprise/cordapps/token-sdk-introduction.md)
 SDK.
 
 ### Accounts SDK - compatible with limitations
@@ -222,4 +222,4 @@ It is currently not possible to recover the issuance transaction containing an `
 
 Collaborative Recovery is *not* compatible with the legacy Corda Finance module. This is due to the way Confidential Identities are used as a part of the `CashPaymentFlow`.
 
-In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens](../../cordapps/token-sdk-introduction.md/) and Accounts SDKs.
+In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens](../../../../../../../en/platform/corda/4.7/enterprise/cordapps/token-sdk-introduction.md) and Accounts SDKs.

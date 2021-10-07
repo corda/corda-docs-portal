@@ -52,7 +52,7 @@ The **LedgerSync** CorDapp requires participating Corda nodes to
  - be using Corda Enterprise, not Corda Open Source (OS); and
  - be using Corda Minimum Platform Version (MPV) >= 6; and
  - have the matching version of the LedgerGraph CorDapp installed; and
- - running on top of a supported [database technology](../../platform-support-matrix).
+ - running on top of a supported [database technology](../../../../../../../en/platform/corda/4.7/enterprise/platform-support-matrix.md).
 
 {{< note >}}
 This version of LedgerSync is compatible with Corda's Archiving functionality. If you or parties on your network use Archiving, you can find out [what to expect when running ledger sync here](#integration-with-archiving).
@@ -585,7 +585,7 @@ In all cases, it may be necessary to *kill* the flow. See below for the details 
 
 ### Step 3. Transaction recovery
 
-If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recovery-automatic.md/) or a [ManualRecovery](ledger-recovery-manual.md/).
+If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recovery-automatic.md) or a [ManualRecovery](ledger-recovery-manual.md).
 
 #### Killing Reconciliation Flows
 
