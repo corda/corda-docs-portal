@@ -18,7 +18,7 @@ The purpose of the Configuraton Obfuscator tool is to obfuscate sensitive inform
 The Configuration Obfuscator makes node installation less vulnerable to someone trawling plain text files, searching for passwords and credentials of resources that they should not have access to in the first place.
 
 {{< warning >}}
-Although the Configuration Obfuscator does protect the node against trawling attacks, it does not ensure that password protection is completely secure. For improved security, always use the [latest released version](https://docs.corda.net/docs/corda-enterprise/tools-config-obfuscator.html) of the tool.
+Although the Configuration Obfuscator does protect the node against trawling attacks, it does not ensure that password protection is completely secure. For improved security, always use the [latest released version](https://github.com/corda/r3-tools) of the tool.
 {{< /warning >}}
 
 {{< note >}}

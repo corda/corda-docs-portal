@@ -128,7 +128,7 @@ The configuration values used in the example are described below.
 ```kotlin
 name "O=PartyA,L=London,C=GB"
 ```
-* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](../setup/corda-configuration-fields.md#p2paddress). **Required if `p2pPort` is not specified**. For example:
+* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](../setup/corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
 
 ```kotlin
 p2pAddress "example.com:10002"
@@ -224,7 +224,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 
 #### Package namespace ownership
 
-To configure [package namespace ownership](env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](../network-bootstrapper.md) tool. For example:
+To configure [package namespace ownership](env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](../../network-bootstrapper.md) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -291,7 +291,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 Contracts classes from signed CorDapp `.jar` files are checked by signature constraints by default.
-You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper](../network-bootstrapper.md) tool.
+You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper](../../network-bootstrapper.md) tool.
 Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints](../../cordapps/api-contract-constraints.md) to understand the implications of using different constraint types.
 The snippet below configures contracts classes from the Finance CorDapp to be verified using zone constraints instead of signature constraints:
 
